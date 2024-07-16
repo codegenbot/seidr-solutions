@@ -2,20 +2,18 @@
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
-    int white = 0, black = 0;
-    for (int i = 0; i < 4; ++i) {
+    int white = 0;
+    int black = 0;
+
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        } else {
-            for (int j = 0; j < 4; ++j) {
-                if (guess[j] == code[i] && i != j) {
-                    white++;
-                    break;
-                }
-            }
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
-    return white + black;
+
+    return {white, black};
 }
 
 int main() {
