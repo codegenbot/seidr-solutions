@@ -1,14 +1,14 @@
-int n = txt.length();
-    if(n == 0)
-        return false;
-    char lastChar = txt[n - 1];
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    
+    char lastChar = txt.back();
+    
     if(isalpha(lastChar)){
-        for(int i = n - 2; i >= 0; i--){
-            if(txt[i] == ' ')
-                return true;
-            if(isalpha(txt[i]))
-                return false;
-        }
+        size_t spacePos = txt.find_last_of(' ');
+        if(spacePos == string::npos) return true;
+        
+        return spacePos == txt.size()-1;
     }
+    
     return false;
 }
