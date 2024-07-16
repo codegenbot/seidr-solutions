@@ -7,5 +7,5 @@ def calculate_fuel(amount):
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
 
-vector = [int(x) for x in input().split()]
+vector = list(map(int, input().split()))
 print(fuel_cost(vector))
