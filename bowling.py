@@ -1,28 +1,27 @@
-def bowling_game(frames):
+```
+def bowling_score(game):
     score = 0
-    current_frame_score = 0
-    for frame in frames.split("/"):
-        if len(frame) == 1:
-            current_frame_score += 10
-        elif len(frame) > 1 and frame[0] != "X":
-            strikes, spares, pins = map(int, frame)
-            current_frame_score += str_to_pins(pins)
-            score += current_frame_score
-            current_frame_score = 0
-        else:
-            if current_frame_score == 10:
+    frame = 0
+    for roll in game + 'X':
+        if roll == 'X':
+            if frame < 9:
+                score += 10 + (10 - int(game[2*frame:2*frame+1])) if frame % 2 == 0 else 10
+            else:
                 score += 10
-                current_frame_score = 0
-            elif strikes > 1 or spares > 1:
-                raise ValueError("Invalid input")
+            frame += 1
+        elif roll == '/':
+            first_roll = int(game[:2])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            game = game[2:]
+            frame += 1
+        else:
+            if frame < 9:
+                if int(roll) + int(game[2*frame:2*frame+1]) >= 10:
+                    score += 10
+                else:
+                    score += int(roll) + int(game[2*frame:2*frame+1])
+                frame += 1
+            else:
+                score += int(roll)
     return score
-
-
-def str_to_pins(pins):
-    if pins[0] == "X":
-        return 10 + str_to_pins(pins[1:])
-    else:
-        return sum(map(int, pins)) * (pins[0] != "0")
-
-
-print(bowling_game(input()))
