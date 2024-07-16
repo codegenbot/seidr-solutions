@@ -1,55 +1,48 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
-    
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if(st.empty()) {
-                result = true;
+bool evaluateBooleanExpression(string expression) {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            int firstBracketIndex = expression.find('&', 0);
+            int secondBracketIndex = expression.find('&', firstBracketIndex + 1);
+
+            string firstPart = expression.substr(0, firstBracketIndex);
+            string secondPart = expression.substr(firstBracketIndex + 1, secondBracketIndex - firstBracketIndex - 1);
+            string thirdPart = expression.substr(secondBracketIndex + 1);
+
+            if ((firstPart == "T" && (secondPart == "T" || secondPart == "F")) ||
+                (firstPart == "F" && (secondPart == "T" || secondPart == "F"))) {
+                return true;
             } else {
-                result = false;
+                return false;
             }
-            st.push('&');
-        } else if(s[i] == '|') {
-            while(!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if(st.empty()) {
-                result = false;
-            } else {
-                result = true;
-            }
-            st.push('|');
-        } else if(s[i] == 'T' || s[i] == 't') {
-            while(!st.empty()) {
-                st.pop();
-            }
-            result = true;
-        } else if(s[i] == 'F' || s[i] == 'f') {
-            while(!st.empty()) {
-                st.pop();
-            }
-            result = false;
         }
     }
-    
-    return result;
+    if (expression == "T") {
+        return true;
+    } else if (expression == "F") {
+        return false;
+    }
+
+    int firstBracketIndex = expression.find('&');
+    int secondBracketIndex = expression.find('&', firstBracketIndex + 1);
+
+    string firstPart = expression.substr(0, firstBracketIndex);
+    string secondPart = expression.substr(firstBracketIndex + 1, secondBracketIndex - firstBracketIndex - 1);
+    string thirdPart = expression.substr(secondBracketIndex + 1);
+
+    if ((firstPart == "T" && (secondPart == "T" || secondPart == "F")) ||
+        (firstPart == "F" && (secondPart == "T" || secondPart == "F"))) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {
-    string s;
-    cin >> s;
-    bool res = solveBoolean(s);
-    if(res) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    string expression;
+    cin >> expression;
+    cout << evaluateBooleanExpression(expression);
     return 0;
 }
