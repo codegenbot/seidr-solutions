@@ -1,12 +1,11 @@
 vector<int> stones;
     stones.push_back(n);
-    for(int i=1; i<n; i++){
+    while(n != 1){
         if(n % 2 == 0){
-            n += 2;
+            n = n + 1;
         } else {
-            n += 1;
+            n = n + 2;
         }
         stones.push_back(n);
     }
     return stones;
-}
