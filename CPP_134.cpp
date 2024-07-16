@@ -1,19 +1,12 @@
-if (txt.empty()) {
-        return false;
-    }
-    
+if(txt.empty()) return false;
     char lastChar = txt.back();
-    
-    if (isalpha(lastChar)) {
-        int i = txt.size() - 2;
-        while (i >= 0 && txt[i] != ' ') {
-            i--;
+    if(isalpha(lastChar)){
+        int spacePos = txt.find_last_of(' ');
+        if(spacePos == string::npos) return true;
+        for(int i=spacePos+1; i<txt.size(); i++){
+            if(isalpha(txt[i])) return false;
         }
-        
-        if (i == -1) {
-            return true;
-        }
+        return true;
     }
-    
     return false;
 }
