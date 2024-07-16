@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string camelCase(std::string s) {
     std::string result = "";
@@ -11,7 +12,7 @@ std::string camelCase(std::string s) {
                 }
                 std::string temp = s.substr(i + 1, 1);
                 for (char & c : temp) {
-                    c = std::toupper(c);
+                    c = std::tolower(c);
                 }
                 result += temp;
                 i++;
@@ -25,7 +26,7 @@ std::string camelCase(std::string s) {
                 }
                 std::string temp = s.substr(i, j - i);
                 for (char & c : temp) {
-                    c = std::toupper(c);
+                    c = std::tolower(c);
                 }
                 result += temp;
                 i = j - 1;
