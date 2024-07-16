@@ -1,6 +1,5 @@
-def check(numbers):
+def remove_duplicates(numbers):
     return list(set(numbers))
 
-remove_duplicates = [2, 2, 3, 4, 4]
-result = check(remove_duplicates)
-print(result)
+numbers = [1, 2, 2, 3, 4, 4]
+print(remove_duplicates(numbers))
