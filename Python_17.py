@@ -1,6 +1,6 @@
 try:
-    inputs = list(map(int, input().strip().split()))
-    if len(inputs) != 10:
-        raise ValueError("Please provide exactly 10 integers.")
-except ValueError as ve:
-    print(ve)
+    inputs = list(map(int, input("Enter space-separated integers: ").strip().split()))
+    if len(inputs) < 2:
+        raise ValueError
+except ValueError:
+    print("Invalid input. Please enter at least two space-separated integers.")
