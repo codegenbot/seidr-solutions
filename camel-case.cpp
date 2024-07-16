@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,17 +7,17 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (capitalize)
-                result += ' ';  // Add a space to separate words
-            else
-                result.push_back(c);  // Copy the hyphen as is
-
-            capitalize = true;  // Start new word, so capitalize next char
-        } else if (capitalize) {
-            result += toupper(c);  // Capitalize first letter of each word
-            capitalize = false;
+            if (capitalize) {
+                result += ' ';
+                capitalize = false;
+            }
         } else {
-            result += tolower(c);
+            if (!capitalize) {
+                result += 'A' + (c - 'a');
+                capitalize = true;
+            } else {
+                result += toupper(c);
+            }
         }
     }
 
