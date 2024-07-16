@@ -1,10 +1,11 @@
-#include <iostream>
 #include <vector>
-#include <limits>
-#include <algorithm>
-#include <climits>
+#include <limits> // for INT_MIN
+#include <algorithm> // for reverse
+#include <climits> // for INT_MIN
 
 using namespace std;
+
+vector<int> findLeaders(const vector<int>& nums);
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
@@ -20,15 +21,4 @@ vector<int> findLeaders(const vector<int>& nums) {
     reverse(leaders.begin(), leaders.end());
     
     return leaders;
-}
-
-int main() {
-    vector<int> nums = {5, 3, 9, 2, 7, 6};
-    vector<int> result = findLeaders(nums);
-    
-    for (int num : result) {
-        cout << num << " ";
-    }
-    
-    return 0;
 }
