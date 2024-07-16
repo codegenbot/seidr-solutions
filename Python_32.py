@@ -1,6 +1,8 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -b / a
-    return x
+    if n % 2 != 0:
+        return None
+    max_coeff = max(xs, key=abs)
+    for i in range(1, n + 1):
+        if xs[i] == max_coeff:
+            return -xs[0] / xs[i]
