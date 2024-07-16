@@ -25,10 +25,10 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    if (n == 0) {
-        cout << "Error: No items to calculate total price." << endl;
-    } else {
-        cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
+    if(prices.size() != discounts.size()) {
+        cerr << "Error: Number of prices and discounts must be the same." << endl;
+        return 1; // Return an error code to indicate something went wrong
     }
+    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
 }
