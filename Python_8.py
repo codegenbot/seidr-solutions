@@ -1,9 +1,6 @@
 try:
-    input_numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-except ValueError:
-    print("Invalid input. Please enter space-separated numbers only.")
-else:
+    input_numbers = list(map(int, input().strip().split()))
     if not input_numbers:
-        print("Invalid input. Please enter at least one number.")
-    else:
-        # Continue with the rest of the code
+        raise ValueError("Empty input. Please enter at least one number.")
+except ValueError as e:
+    print(e)
