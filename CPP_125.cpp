@@ -1,7 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+vector<string> split_words(string txt);
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -30,4 +34,9 @@ vector<string> split_words(string txt){
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
