@@ -1,17 +1,25 @@
-int bowlingScore(const string &score) {
-    int scoreSoFar = 0;
-    int nextRoll = 0;
-    for (char c : score) {
+int bowlingScore(string input) {
+    int score = 0;
+    for (char c : input) {
         if (c == '/') {
-            if (nextRoll == 10) {
-                scoreSoFar += 10;
-            } else {
-                scoreSoFar += nextRoll + 10;
-            }
-            nextRoll = 0;
-        } else if (isdigit(c)) {
-            nextRoll = nextRoll * 10 + c - '0';
+            continue;
+        }
+        int count = 0;
+        while (c != '/' && c >= '0' && c <= '9') {
+            count *= 10;
+            count += c - '0';
+            c = nextChar(input, c);
+        }
+        score += count;
+    }
+    return score;
+}
+
+char nextChar(string input, char c) {
+    for (int i = input.find(c); i < input.length(); i++) {
+        if (input[i] >= '0' && input[i] <= '9') {
+            return input[i];
         }
     }
-    return scoreSoFar;
+    return ' ';
 }
