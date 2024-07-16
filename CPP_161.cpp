@@ -1,20 +1,19 @@
 string solve(string s){
-    string result = "";
-    bool hasLetter = false;
-    for (char c : s) {
-        if (isalpha(c)) {
-            hasLetter = true;
-            if (islower(c)) {
-                result += toupper(c);
+    bool has_letter = false;
+    for(char& c : s){
+        if(isalpha(c)){
+            has_letter = true;
+            if(islower(c)){
+                c = toupper(c);
             } else {
-                result += tolower(c);
+                c = tolower(c);
             }
-        } else {
-            result += c;
         }
     }
-    if (!hasLetter) {
-        reverse(result.begin(), result.end());
+    
+    if(!has_letter){
+        reverse(s.begin(), s.end());
     }
-    return result;
+    
+    return s;
 }
