@@ -5,7 +5,7 @@ def string_to_md5(text):
 
 try:
     while True:
-        input_text = input()
+        input_text = input().strip()
         result = string_to_md5(input_text)
         print(result)
 except EOFError:
