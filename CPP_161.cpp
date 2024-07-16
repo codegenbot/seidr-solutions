@@ -1,23 +1,23 @@
 #include <iostream>
+#include <string>
 #include <algorithm>
+#include <cctype>
 #include <cassert>
 
-std::string solve(std::string s) {
-    for(char &c : s){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+using namespace std;
+
+string solve(string s) {
+    for (char &c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    std::reverse(s.begin(), s.end());
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+        reverse(s.begin(), s.end());
+    }
     return s;
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
-    
-    return 0;
+    assert(solve("#ccc") == "#CCC");
 }
