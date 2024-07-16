@@ -15,6 +15,6 @@ int main() {
     int n = 6; // number of sides for Peter's die
     int m = 6; // number of sides for Colin's die
     double result = probability(n, m);
-    cout << "Probability: " << result << endl;
+    cout << "Probability: " << to_string(result) << endl;
     return 0;
 }

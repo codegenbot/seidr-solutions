@@ -6,18 +6,16 @@ bool solveBoolean(const std::string& s) {
     bool result = true;
     int operand = 1; // initialize to true (1)
     for (int i = 0; s[i]; ++i) {
-        if (s[i] == 'T') {
-            result = result && true;
-            operand = 1;
-        } else if (s[i] == 'F') {
-            result = result && false;
-            operand = 0;
-        } else if (s[i] == '|') {
-            result = result || operand; // perform bitwise OR
-            operand = 1; // reset operand to true
+        if (s[i] == 'T')
+            result = !s[i] == 'F'; // process T as true
+        else if (s[i] == 'F')
+            result = !s[i] == 'F'; // process F as false
+        else if (s[i] == '|') {
+            result = result || (!s[i] == 'F'); // apply OR operator
+            operand = 1; 
         } else if (s[i] == '&') {
-            result = result && operand; // process current operand
-            operand = s[i] == 'F'; // update operand for next iteration
+            result = result && (!s[i] == 'F'); // process current operand and AND operator
+            operand = !s[i] == 'F'; 
         }
     }
     return result;
