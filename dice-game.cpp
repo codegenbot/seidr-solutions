@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
+using namespace std;
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    cin >> n >> m;
     double total_ways = n * m;
     double count_ways = 0;
     for (int i = 1; i <= n; ++i) {
@@ -12,6 +13,6 @@ int main() {
         }
     }
     double probability = count_ways / total_ways;
-    std::cout << std::fixed << std::setprecision(2) << probability << std::endl;
+    cout << fixed << setprecision(2) << probability << endl;
     return 0;
 }
