@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> x, vector<int> y) {
+bool issame(vector<int> x, vector<int> y){
     if (x.size() != y.size()) {
         return false;
     }
@@ -33,15 +33,13 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    vector<int> input = {123, 456, 789};
+    vector<int> input = {123, 456, 789, 246};
     vector<int> output = unique_digits(input);
-
     vector<int> expected = {123, 789};
     if (issame(output, expected)) {
         cout << "Output is correct" << endl;
     } else {
         cout << "Output is incorrect" << endl;
     }
-
     return 0;
 }
