@@ -9,7 +9,7 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                probability += 1.0L / static_cast<long double>(n) / static_cast<long double>(m);
+                probability += 1.0L / (long double)n / (long double)m;
             }
         }
     }
