@@ -1,15 +1,26 @@
-for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == ' ') {
-            text.replace(i, 1, "_");
-            int consecutive_spaces = 1;
-            while (i + 1 < text.length() && text[i + 1] == ' ') {
-                text.replace(i + 1, 1, "-");
-                ++consecutive_spaces;
+#include <string>
+#include <iostream>
+#include <cassert>
+
+std::string fix_spaces(std::string text);
+
+std::string fix_spaces(std::string text){
+    int consecutiveSpaces = 0;
+    std::string result = "";
+    for(char c : text){
+        if(c == ' '){
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += "_";
             }
-            if (consecutive_spaces > 2) {
-                text.replace(i + 1, consecutive_spaces - 1, "-");
-            }
+        } else {
+            result += c;
+            consecutiveSpaces = 0;
         }
     }
-    return text;
+    return result;
 }
