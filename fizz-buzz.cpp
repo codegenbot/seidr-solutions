@@ -1,19 +1,20 @@
 #include <string>
 #include <sstream>
 
-std::string fizzBuzz(int x) {
+std::string* fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
-        return "FizzBuzz";
+        return new std::string("FizzBuzz");
     else if (x % 3 == 0)
-        return "Fizz";
+        return new std::string("Fizz");
     else if (x % 5 == 0)
-        return "Buzz";
+        return new std::string("Buzz");
     else
-        return std::to_string(x);
+        return new std::string(std::to_string(x));
 }
 
 int main() {
     int x = 15; 
-    std::cout << fizzBuzz(x) << std::endl;
+    std::cout << (*fizzBuzz(x)) << std::endl;
+    delete fizzBuzz(x);
     return 0;
 }
