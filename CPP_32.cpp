@@ -10,13 +10,15 @@ double abs(double x){
     return x >= 0 ? x : -x;
 }
 
-double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = xs[1];
-    double c = xs[2];
-    double discriminant = b * b - 4 * a * c;
-    double sqrt_discriminant = sqrt(abs(discriminant));
-    double x1 = (-b + sqrt_discriminant) / (2 * a);
-    double x2 = (-b - sqrt_discriminant) / (2 * a);
-    return abs(x1) < abs(x2) ? x1 : x2;
+double find_zero(vector<double> coeffs){
+    double a = coeffs[0];
+    double b = coeffs[1];
+    double epsilon = 1e-6;
+    double x = 0.0;
+    
+    while(abs(poly(coeffs, x)) > epsilon){
+        x -= poly(coeffs, x) / poly({a, b}, x);
+    }
+    
+    return x;
 }
