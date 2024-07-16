@@ -1,20 +1,23 @@
-int n = arr.size();
-    if (n == 0) {
+#include <vector>
+
+bool move_one_ball(std::vector<int> arr) {
+    if (arr.empty()) {
         return true;
     }
-    
-    int minIdx = 0;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] < arr[minIdx]) {
-            minIdx = i;
+
+    int n = arr.size();
+    int min_idx = 0;
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] < arr[min_idx]) {
+            min_idx = i;
         }
     }
-    
-    for (int i = 0; i < n; i++) {
-        if (arr[(minIdx + i) % n] != i + 1) {
+
+    for (int i = 0; i < n; ++i) {
+        if (arr[(min_idx + i) % n] != i + 1) {
             return false;
         }
     }
-    
+
     return true;
 }
