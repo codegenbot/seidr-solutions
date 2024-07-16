@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
     
@@ -11,6 +8,7 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
         
         while (j < nums.size()) {
             if (nums[i] + nums[j] == target) {
+                // Check if the pair is already in the result
                 bool isPairUnique = true;
 
                 for (auto& existingPair : result) {
@@ -21,11 +19,12 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
                     }
                 }
 
+                // If the pair is unique, add it to the result
                 if (isPairUnique) {
                     result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
                 }
             } else if (nums[i] + nums[j] > target) {
-                j = i; 
+                j = i; // move both pointers at once when sum is greater than target
             } else {
                 j++;
             }
