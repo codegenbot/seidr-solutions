@@ -3,7 +3,6 @@ def solve_boolean(expression):
     expression = expression.upper()
     
     for key, value in boolean_map.items():
-        if value is True or value is False:
-            expression = expression.replace(key, str(value))
+        expression = expression.replace(key, str(value))
 
     return eval(expression)
