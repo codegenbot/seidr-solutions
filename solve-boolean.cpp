@@ -1,5 +1,4 @@
-```c++
-#include <stack>
+#include <string>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -13,18 +12,20 @@ bool evaluateBooleanExpression(string expression) {
             bool leftValue = valueStack.top();
             valueStack.pop();
             valueStack.push(leftValue && rightValue);
-            operationStack.push('&');
+            operationStack.pop();
         } else if (expression[i] == '|') {
             bool rightValue = valueStack.top();
             valueStack.pop();
             bool leftValue = valueStack.top();
             valueStack.pop();
             valueStack.push(leftValue || rightValue);
-            operationStack.push('|');
+            operationStack.pop();
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valueStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             valueStack.push(false);
+        } else {
+            operationStack.push(expression[i]);
         }
     }
 
