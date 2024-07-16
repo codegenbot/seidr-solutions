@@ -1,5 +1,19 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(k);
-    copy(std::make_heap(arr.begin(), arr.end()), arr.end() - k + 1, result.begin());
+    priority_queue<int> pq;
+    
+    for (int i : arr) {
+        pq.push(i);
+        
+        if (pq.size() > k)
+            pq.pop();
+    }
+    
+    vector<int> result;
+    while (!pq.empty()) {
+        result.push_back(pq.top());
+        pq.pop();
+    }
+    
+    reverse(result.begin(), result.end());
     return result;
 }
