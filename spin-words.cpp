@@ -11,10 +11,11 @@ std::string spinWords(std::string str) {
     while (iss >> word) {
         if (word.length() >= 5)
             std::reverse(word.begin(), word.end());
-        result += word;
+        result += word + " ";
     }
 
-    return result; 
+    std::reverse(result.begin(), result.end()); // Add this line
+    return result.substr(0, result.length() - 1); 
 }
 
 int main() {
