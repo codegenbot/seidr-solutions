@@ -1,8 +1,9 @@
-vector<string> result;
+vector<string> split_words(string txt){
+    vector<string> result;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -10,18 +11,17 @@ vector<string> result;
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
-        int oddCount = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
+    if(result.size() == 0){
+        int count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
             }
         }
-        result.clear();
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(count));
     }
     return result;
 }
