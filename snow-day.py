@@ -1,15 +1,14 @@
-```
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     total_snow = initial_snow
-    for _ in range(hours):  
-        total_snow += rate_of_snowfall / 60 * 60  # Convert rate from per-hour to per-minute, then add snow
-        total_snow -= melting_rate 
+    for _ in range(hours):
+        new_snow = (rate_of_snowfall / 60 * 60) - melting_rate
+        total_snow += new_snow
     return round(total_snow, 2)
 
-if __name__ == "__main__":
-    hours = int(input())
-    initial_snow = float(input())
-    rate_of_snowfall = float(input())
-    melting_rate = float(input())
 
-    print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
+hours = int(input())
+initial_snow = float(input())
+rate_of_snowfall = float(input())
+melting_rate = float(input())
+
+print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
