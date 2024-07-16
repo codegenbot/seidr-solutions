@@ -1,12 +1,12 @@
 def match_parens(lst):
-    if not lst or lst[0] != '(':
+    if not lst or lst[0] == ')' or lst[-1] == '(':
         return 'No'
     stack = []
     for s in lst[1:]:
         if s == '(':
             stack.append(s)
         elif s == ')':
-            if not stack or stack[-1] != '(':
+            if not stack or not stack[-1] == '(':
                 return 'No'
             stack.pop()
     return 'Yes' if not stack else 'No'
