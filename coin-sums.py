@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
@@ -7,7 +8,5 @@ def coin_sums(cents):
         if count > 0:
             result[i] = count
             cents %= coins[i]
-    
-    result[3] = cents
-    
-    return str(result[0]) + "\n" + str(result[1]) + "\n" + str(result[2]) + "\n" + str(result[3])
+
+    return str(result[0]) + "\n" + str(result[1]) + "\n" + str(result[2]) + "\n" + str(cents)
