@@ -3,6 +3,9 @@
 #include <iostream>
 
 std::string change_base(int x, int base) {
+    if (base == 1) {
+        return std::string(x, '1');
+    }
     std::string result = "";
     while (x > 0) {
         result = std::to_string(x % base) + result;
@@ -10,7 +13,7 @@ std::string change_base(int x, int base) {
     }
     return result;
 }
-
+    
 int main() {
     int x;
     std::cin >> x;
