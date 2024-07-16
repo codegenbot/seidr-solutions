@@ -1,6 +1,6 @@
 int bowlingScore(std::string s) {
     int score = 0;
-    int getBonus, roll1, roll2; // declare here
+    int getBonus, roll1, roll2; 
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { 
@@ -19,8 +19,4 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
-
-int getBonus(std::string s, int i) {
-    // your code here
 }
