@@ -1,17 +1,43 @@
+```
 def solve_boolean(expression):
+    def evaluate():
+        temp = True if expression[0] == 'T' else False
+        i = 1
+        while i < len(expression):
+            if expression[i] in ['|', '&']:
+                operator = expression[i]
+                i += 1
+                if operator == '|':
+                    temp = temp or evaluate()
+                elif operator == '&':
+                    temp = temp and evaluate()
+                return temp
+            elif expression[i] == '(':
+                i = evaluate() + 1
+            elif expression[i] in ['|', '&']:
+                i += 2
+            elif expression[i] != 'T' and expression[i] != 'F':
+                if expression[i] == '(':
+                    temp = evaluate()
+                else:
+                    return expression[i] == 'T'
     stack = []
-    for char in expression:
-        if char in {'&', '|'}:
-            while len(stack) > 1 and stack[-1] in {'&', '|'}:
-                op = stack.pop()
-                result = eval(f"{stack[-2]} {op} {char}")
-                stack.append(str(result))
-        elif char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack and stack[-1] != '(':
+    result = True if expression[0] == 'T' else False
+    i = 1
+    while i < len(expression):
+        if expression[i] in ['|', '&']:
+            operator = expression[i]
+            i += 1
+            if operator == '(':
+                stack.append('(')
+            elif operator == ')':
+                while stack and stack[-1] != '(':
+                    result = result ^ (stack.pop() == 'F')
                 stack.pop()
-            stack.pop()  # Discard the '('
-        else:  
-            stack.append(char)
-    return eval(' '.join(stack))
+        elif expression[i] == '(':
+            stack.append('(')
+        elif expression[i] == ')':
+            temp = evaluate()
+            i = temp + 1
+        i += 1
+    return result
