@@ -1,8 +1,6 @@
-#include <vector>
-#include <cmath>
-
-int fuelCost(std::vector<int> v) {
+int main() {
     int sum = 0;
+    std::vector<int> v = {12, 5, 7, 3};
     for (int i : v) {
         double temp = std::floor((double)i / 3.0);
         temp -= 2;
@@ -10,6 +8,5 @@ int fuelCost(std::vector<int> v) {
             temp = 0;
         }
         sum += temp;
-    } 
+    }
     return sum;
-}
