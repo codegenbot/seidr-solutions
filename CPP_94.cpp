@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 int main() {
     int result = f({127, 97, 8192});
@@ -8,13 +8,13 @@ int main() {
     return 0;
 }
 
-std::string f(std::vector<int> v) {
-    std::string s = "";
+int f(std::vector<int> v) {
+    std::string str;
     for (int i : v) {
         if (i >= 128)
-            s += "1";
+            str += '*'; 
         else
-            s += (char)(i); 
+            str += static_cast<char>(i); 
     }
-    return s;
+    return str.length(); 
 }
