@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -13,11 +14,15 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices(3);
-    prices[0] = 1.99f; prices[1] = 2.99f; prices[2] = 3.99f;
-
-    vector<float> discounts(3);
-    discounts[0] = 5.0f; discounts[1] = 10.0f; discounts[2] = 15.0f;
+    int n;
+    cin >> n;
+    vector<float> prices(n);
+    vector<float> discounts(n);
     
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+    for(int i=0; i<n; i++) {
+        cin >> prices[i];
+        cin >> discounts[i];
+    }
+
+    cout << fixed << setprecision(2) << std::setiosflags(ios::fixed) << shoppingList(prices, discounts) << endl;
 }
