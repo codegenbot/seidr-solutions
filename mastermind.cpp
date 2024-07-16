@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -13,34 +14,35 @@ int main() {
 
     int blackPegs = 0;
     int whitePegs = 0;
-    std::unordered_map<int, int> codeCount;
+    std::unordered_map<char, int> codeCount;
 
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[static_cast<int>(c)]++;
+            codeCount[c]++;
         }
     }
 
-    // Count black pegs
     for (int i = 0; i < 4; i++) {
         char codeChar = codeStr[i];
         char guessChar = guessStr[i];
-        if (codeChar == guessChar) {
-            blackPegs++;
-        }
-    }
 
-    // Count white pegs
-    for (char c : guessStr) {
-        if ('0' <= c && c <= '5') {
-            if (codeCount[static_cast<int>(c)] > 0) {
-                codeCount[static_cast<int>(c)]--;
-                whitePegs++;
+        if (codeChar == guessChar) {
+            blackPegs++; 
+        } else if ('0' <= guessChar && guessChar <= '5') {
+            if (codeCount[guessChar] > 0) { 
+                codeCount[guessChar]--;
+                whitePegs++; 
             }
         }
     }
 
-    // Print the result
+    for (auto& pair : codeCount) {
+        if (pair.second > 0) {
+            whitePegs += pair.second; 
+            pair.second = 0; 
+        }
+    }
+
     std::cout << "Black pegs: " << blackPegs << std::endl;
     std::cout << "White pegs: " << whitePegs << std::endl;
 
