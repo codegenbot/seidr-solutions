@@ -4,6 +4,15 @@
 
 using namespace std;
 
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 vector<int> findIndices(string text, string target) {
     vector<int> result;
     int targetLength = target.length();
@@ -22,20 +31,13 @@ vector<int> findIndices(string text, string target) {
     return result;
 }
 
-int findGCD(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
 int main() {
     string text = "your_text_string";
     string target = "your_target_string";
     vector<int> indices = findIndices(text, target);
-    int result = findGCD(12, 15); 
+    int a = 12;
+    int b = 15; // replace with your values
+    int result = findGCD(a, b);
     cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
