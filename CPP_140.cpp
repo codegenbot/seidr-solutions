@@ -1,17 +1,21 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        text[i] = '_';
-        int consecutive = 1;
-        while (i + 1 < text.size() && text[i + 1] == ' ') {
-            text[i + 1] = '-';
-            ++consecutive;
-            ++i;
-        }
-        if (consecutive > 2) {
-            for (int j = i - consecutive + 2; j <= i; ++j) {
-                text[j] = '-';
+string result;
+    int count = 0;
+    
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result.push_back('-');
+            } else {
+                result.push_back('_');
             }
+        } else {
+            count = 0;
+            result.push_back(c);
         }
     }
+    
+    return result;
 }
-return text;
