@@ -1,4 +1,4 @@
-string middleCharacter(const string& s) {
+string middleCharacter(string s) {
     int n = s.size();
     if (n % 2 == 0) {
         return s.substr(n/2 - 1, 2);
@@ -9,7 +9,7 @@ string middleCharacter(const string& s) {
 
 int main() {
     string s;
-    cin >> s;
+    getline(cin, s);
     cout << middleCharacter(s) << endl;
     return 0;
 }
