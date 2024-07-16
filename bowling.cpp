@@ -1,10 +1,11 @@
+```c++
 #include <string>
 
-int bowlingScore(std::string s) {
+int main() {
     int score = 0;
     int roll = 0;
 
-    for (char c : s) {
+    for (char c : "1-3/5x7/8-2/") { 
         if (c == '/') {
             if (roll > 9)
                 score += 10;
@@ -22,12 +23,5 @@ int bowlingScore(std::string s) {
     else
         score += roll;
 
-    return score;
-}
-
-int main() {
-    std::string s = "";
-    int score = bowlingScore(s);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+    return score; 
 }
