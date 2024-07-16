@@ -13,17 +13,25 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 
 int main() {
     size_t n;
+    std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
+    std::cin.ignore();
 
-    std::vector<double> vec1(n);
-    std::vector<double> vec2(n);
+    std::vector<double> vec1(n), vec2(n);
 
-    for (auto& elem : vec1) std::cin >> elem;
-    for (auto& elem : vec2) std::cin >> elem;
+    std::cout << "Enter the elements of the first vector: ";
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
+    }
+
+    std::cout << "Enter the elements of the second vector: ";
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
+    }
 
     double distance = calculateDistance(vec1, vec2);
 
-    std::cout << distance << std::endl;
+    std::cout << "Euclidean distance between the two vectors: " << distance << std::endl;
 
     return 0;
 }
