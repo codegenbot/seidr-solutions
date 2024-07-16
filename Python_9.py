@@ -1,5 +1,10 @@
-import sys
+from typing import List, Tuple
 
-numbers = list(map(int, sys.stdin.readline().strip().split()))
-result = [max(numbers[i : i + 3]) for i in range(len(numbers) - 2)]
-print(result)
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    max_numbers = []
+    max_num = float("-inf")
+    for num in numbers:
+        max_num = max(max_num, num)
+        max_numbers.append(max_num)
+    return max_numbers
