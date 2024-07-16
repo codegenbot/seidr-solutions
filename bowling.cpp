@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -38,8 +39,26 @@ int bowlingScore(const std::string& s) {
                     currentRoll = 20 - firstRoll;
                 }
             } else {
-                currentRoll *= 10;
-                currentRoll += c - '0';
+                std::string roll = std::to_string(c - '0');
+                s += roll; 
+                if (i < s.size() - 1) {
+                    char nextC = s[i + 1];
+                    if (std::isdigit(nextC)) {
+                        int secondRoll = nextC - '0';
+                        if ((c - '0') + secondRoll == 10) {
+                            score += 10;
+                            currentRoll = 0;
+                            i++;
+                        } else {
+                            score += secondRoll;
+                            currentRoll = 10 - (c - '0') - secondRoll;
+                        }
+                    } else {
+                        currentRoll = 10 - (c - '0');
+                    }
+                } else {
+                    currentRoll = 20 - (c - '0');
+                }
             }
         }
     }
