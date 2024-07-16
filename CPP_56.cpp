@@ -14,9 +14,10 @@ bool correct_bracketing(const std::string& brackets) {
         }
     }
     return count == 0;
-} 
+}
 
 int main() {
-    assert(correct_bracketing("<><<>>")); // Example test case
+    assert(correct_bracketing("<><<>>")); // Example input
+    assert(!correct_bracketing("<><>")); // Example input
     return 0;
 }
