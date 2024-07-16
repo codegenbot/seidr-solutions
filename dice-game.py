@@ -1,6 +1,13 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(0.5)
-else:
-    print((m - 1) / (2 * m))
+
+count = 0
+total_outcomes = n * m
+
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        if i > j:
+            count += 1
+
+probability = count / total_outcomes
+print(probability)
