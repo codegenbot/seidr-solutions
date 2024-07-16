@@ -26,7 +26,7 @@ int main() {
         cin >> val;
     }
 
-    cout << fixed << setprecision(0) << vectorDistance(n, v1, v2) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
 
     return 0;
 }
