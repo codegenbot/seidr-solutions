@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
