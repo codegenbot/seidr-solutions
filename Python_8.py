@@ -5,10 +5,10 @@ results = []
 
 try:
     while True:
-        numbers_input = list(map(int, input().strip().split()))
-        if not numbers_input or numbers_input == [-1]:
+        numbers = list(map(int, input().strip().split()))
+        if not numbers:
             break
-        result = sum_product(numbers_input)
+        result = sum_product(numbers)
         results.append(result)
 except EOFError:
     pass
