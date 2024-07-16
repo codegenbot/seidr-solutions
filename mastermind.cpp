@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,4 +29,3 @@ int main() {
     std::cin >> code >> guess;
     std::cout << mastermind(code, guess) << std::endl;
     return 0;
-}
