@@ -15,7 +15,7 @@ int main() {
         }
     }
     
-    probability /= (n * m);
+    probability = static_cast<double>(probability) / (n * m);
     
     std::cout << std::fixed << std::setprecision(7) << probability << std::endl;
     
