@@ -1,22 +1,28 @@
 #include <vector>
-#include <climits>
+#include <cmath>
 #include <iostream>
-
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
-    int idx = -1;
+    
     for (int i = 0; i < n - 1; ++i) {
-        if (abs(v[i] - v[i + 1]) <= minDiff) {
-            minDiff = abs(v[i] - v[i + 1]);
-            idx = i;
+        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+            for (int j = 0; j <= i; ++j) {
+                res[0].push_back(v[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                res[1].push_back(v[j]);
+            }
+            return {{}, res[0], {}, res[1]};
         }
     }
-    res[0] = vector<int>(v.begin(), v.begin() + idx);
-    res[1] = vector<int>(v.begin() + idx, v.end());
+    
+    int mid = n / 2;
+    res[0] = vector<int>(v.begin(), v.begin() + mid);
+    res[1] = vector<int>(v.begin() + mid, v.end());
+    
     return res;
 }
 
@@ -30,5 +36,6 @@ int main() {
         }
         cout << "]\n";
     }
+    
     return 0;
 }
