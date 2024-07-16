@@ -1,17 +1,12 @@
 #include <iostream>
-#include <vector>
-#include <climits>
-#include <cmath>
-
-using namespace std;
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     
-    vector<int> vec(n);
+    std::vector<int> vec(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+        std::cin >> vec[i];
     }
     
     int diff = INT_MAX;
@@ -32,11 +27,11 @@ int main() {
     }
     
     for (int i = 0; i <= idx; ++i) {
-        cout << vec[i] << endl;
+        std::cout << vec[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = idx+1; i < n; ++i) {
-        cout << vec[i] << endl;
+        std::cout << vec[i] << std::endl;
     }
     
     return 0;
