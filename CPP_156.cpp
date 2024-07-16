@@ -1,14 +1,13 @@
-string int_to_mini_romank(int number){
-    vector<string> roman_map = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+string int_to_mini_roman(int number){
+    string roman = "";
+    vector<pair<int, string>> mapping = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
     
-    string result = "";
-    for (int i = 0; i < 13; i++) {
-        while (number >= values[i]) {
-            result += roman_map[i];
-            number -= values[i];
+    for(const auto &[value, numeral] : mapping){
+        while(number >= value){
+            roman += numeral;
+            number -= value;
         }
     }
     
-    return result;
+    return roman;
 }
