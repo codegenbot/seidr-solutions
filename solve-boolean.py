@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def evaluate_expression(expression):
         operators = {'&': lambda x, y: str(int(x) and int(y)),
@@ -17,12 +16,7 @@ def solve_boolean(expression):
                         stack.append(result)
                 stack.pop()  # Remove the '('
             elif char not in ['(', ')']:
-                if char == 'T':
-                    stack.append('1')
-                elif char == 'F':
-                    stack.append('0')
-                else:
-                    stack.append(char)
-        return 'T' if stack[-1] == '1' else 'F'
+                stack.append(char)
+        return 'T' if stack[-1] == 'T' else 'F'
 
     return evaluate_expression(expression)
