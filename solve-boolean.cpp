@@ -4,17 +4,14 @@
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    char c;
-    while ((c = getchar()) != '\n' && c != '\0') {
-        if (c == 'T') {
-            result = true;
-        } else if (c == 'F') {
-            result = false;
+    for (char c : s) {  
+        if (c == 'T' || c == 'F') {
+            result = c == 'T';
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
             bool operand = true;
-            while ((c = getchar()) != '&' && c != '\n' && c != '\0') {
+            for (; c != '&' && c != '\0'; ++c) {
                 if (c == 'F')
                     operand = false;
                 else if (c == 'T')
@@ -27,10 +24,9 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> std::ws;
     std::string input;
-    getline(std::cin, input);
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> input;
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
