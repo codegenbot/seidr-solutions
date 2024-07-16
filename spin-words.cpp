@@ -1,24 +1,29 @@
 #include <string>
+#include <iostream>
+
 using namespace std;
 
-int main() {
-    string spinWords(string str) {
-        string result = "";
-        int i = 0;
-        while (i < str.length()) {
-            if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                result += str.substr(i);
-                break;
-            }
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5) {
-                for (int k = word.length() - 1; k >= 0; --k)
-                    result += word[k];
-            } else
-                result += word;
-            i = j + 1;
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
+            result += str.substr(i);
+            break;
         }
-        return result;
+        int j = str.find(" ", i);
+        string word = str.substr(i, j - i);
+        if (word.length() >= 5) {
+            for (int k = word.length() - 1; k >= 0; --k)
+                result += word[k];
+        } else
+            result += word;
+        i = j + 1;
     }
+    return result;
+}
+
+int main() {
+    cout << spinWords("Hello World this is test");
+    return 0;
 }
