@@ -1,7 +1,6 @@
-def leaders(a):
-    original = a.copy()
-    leaders = [a[-1]]
-    for i in range(len(original) - 2, -1, -1):
-        if original[i] >= original[-1]:
-            leaders.append(original[i])
-    return reversed(leaders)
+def leaders(input):
+    result = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i+1]:
+            result.append(input[i])
+    return list(reversed(result))
