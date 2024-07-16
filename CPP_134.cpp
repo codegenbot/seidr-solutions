@@ -1,7 +1,10 @@
-if(txt.empty()) return false;
-    char lastChar = txt.back();
-    if(isalpha(lastChar)){
-        if(txt.find_last_of(" ") == txt.length()-1){
+int n = txt.size();
+    if (n == 0) {
+        return false;
+    }
+    char lastChar = txt[n - 1];
+    if (isalpha(lastChar)) {
+        if (n == 1 || txt[n - 2] == ' ') {
             return true;
         }
     }
