@@ -10,6 +10,8 @@ std::vector<int> leaders(const std::vector<int>& arr) {
         if(arr[i] >= maxRight) {
             result.push_back(arr[i]);
             maxRight = arr[i];
+        } else {
+            maxRight = arr[i]; // Update the maximum right element as the current element
         }
     }
 
