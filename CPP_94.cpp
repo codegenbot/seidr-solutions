@@ -1,4 +1,3 @@
-#include <vector>
 #include <initializer_list>
 
 bool isPrime(int n) {
