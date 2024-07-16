@@ -1,3 +1,5 @@
+```c++
+#include <iostream>
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -31,4 +33,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code = "ABCDEF"; 
+    std::string guess = "ABDEE";
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << (result & 1) << ", White pegs: " << (result >> 1) << std::endl;
+    return 0;
 }
