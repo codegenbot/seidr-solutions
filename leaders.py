@@ -1,8 +1,8 @@
 def leaders(arr):
-    leaders = []
+    leaders = [arr[-1]]  
     max_seen = arr[-1]
-    for i in range(len(arr) - 1, -1, -1):
+    for i in range(len(arr)-1, -1, -1):
         if arr[i] >= max_seen:
-            leaders.append(arr[i])
+            leaders.insert(0, arr[i])
             max_seen = arr[i]
-    return leaders[::-1]
+    return leaders
