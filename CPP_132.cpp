@@ -2,12 +2,9 @@ int count = 0;
     for (char c : str) {
         if (c == '[') {
             count++;
-        } else if (c == ']') {
+        } else if (c == ']' && count > 0) {
             count--;
         }
-        if (count < 0) {
-            return true;
-        }
     }
-    return false;
+    return count < 0;
 }
