@@ -18,6 +18,8 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
     return leaders;
 }
 
+#include <iostream>
+
 int main() {
     std::vector<int> nums = {16, 17, 4, 3, 5, 2};
     std::vector<int> leaders = findLeaders(nums);
