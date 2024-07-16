@@ -14,3 +14,11 @@ std::vector<int> leaders(const std::vector<int>& arr) {
 
     return result;
 }
+
+int main() {
+    std::vector<int> testArray = {16, 17, 4, 3, 5, 2, 3, 7, 1, 6};
+    for (int leader : leaders(testArray)) {
+        std::cout << leader << " ";
+    }
+    return 0;
+}
