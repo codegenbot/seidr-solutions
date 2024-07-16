@@ -1,11 +1,13 @@
 ```cpp
 #include <vector>
+#include <initializer_list>
+
 using namespace std;
 
 int main() {
     vector<int> arr = {1, 3, 4, 2, 3}; 
     vector<int> leaders = leaders(arr);
-    for (int i=0; i<leaders.size(); i++) cout << leaders[i] << " "; 
+    for (int i: leaders) cout << i << " "; 
     return 0;
 }
 
