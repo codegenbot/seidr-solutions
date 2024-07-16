@@ -10,12 +10,12 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
-    double bouncinessIndex = 1 - (startHeight / firstBounce);
+    double bouncinessIndex = (firstBounce - startHeight) / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += firstBounce * (2 - bouncinessIndex);
-        firstBounce *= bouncinessIndex;
+        firstBounce *= (bouncinessIndex + 1);
+        totalDistance += firstBounce;
     }
 
     cout << fixed << setprecision(10);
