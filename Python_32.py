@@ -1,5 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    return -b / a
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients must be even")
+    a = xs[0]
+    b = xs[n]
+    return -a / b
