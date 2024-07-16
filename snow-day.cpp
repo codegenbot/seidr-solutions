@@ -16,10 +16,10 @@ int main() {
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
+    std::cout << std::fixed << std::setprecision(6);
     float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
-    cout << fixed;
-    cout << setprecision(6) << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
+    cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
     return 0;
 }
