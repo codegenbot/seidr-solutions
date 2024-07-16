@@ -1,6 +1,12 @@
-if (x == 1) return true;
-    
-    double root = pow(x, 1.0 / n);
-    
-    return fmod(root, 1) == 0;
+if (x == 1) {
+        return true;
+    }
+    int power = 0;
+    while (pow(n, power) <= x) {
+        if (pow(n, power) == x) {
+            return true;
+        }
+        power++;
+    }
+    return false;
 }
