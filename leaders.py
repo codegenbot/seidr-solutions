@@ -1,9 +1,11 @@
 def leaders(arr):
     n = len(arr)
-    leaders = []
+    maxRight = arr[n-1]
+    leaders = [maxRight]
     
-    for i in range(n-1, -1, -1):
-        if i == n - 1 or arr[i] >= arr[i+1]:
-            leaders.insert(0, arr[i])
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= maxRight:
+            maxRight = arr[i]
+            leaders.insert(0, maxRight)
             
     return leaders
