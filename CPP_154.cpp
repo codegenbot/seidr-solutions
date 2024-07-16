@@ -1,6 +1,6 @@
-if (a.length() != b.length()) {
-        return false;
+string temp = a + a;
+    if (temp.find(b) != string::npos) {
+        return true;
     }
-    string combined = a + a;
-    return combined.find(b) != string::npos;
+    return false;
 }
