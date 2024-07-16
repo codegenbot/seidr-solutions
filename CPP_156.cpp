@@ -1,13 +1,15 @@
-string int_to_mini_roman(int number){
-    string roman = "";
-    vector<pair<int, string>> mapping = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
-    
-    for(const auto &[value, numeral] : mapping){
-        while(number >= value){
-            roman += numeral;
-            number -= value;
+vector<pair<int, string>> mapping = {
+            {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+            {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+            {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+
+        string result = "";
+        for (const auto &m : mapping) {
+            while (number >= m.first) {
+                result += m.second;
+                number -= m.first;
+            }
         }
+
+        return result;
     }
-    
-    return roman;
-}
