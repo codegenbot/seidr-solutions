@@ -1,22 +1,17 @@
-```cpp
-#include <iostream>
 #include <vector>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
-}
+#include <initializer_list>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = 1;
-    while (stones <= (n + 7) / 2) {
+    int stones = n;
+    while (stones > 0) {
         pile.push_back(stones);
-        stones += 2; 
+        if (n % 2 == 1) {
+            n++;
+            stones = n;
+        } else {
+            n++;
+            stones = n;
+        }
     }
     return pile;
-}
