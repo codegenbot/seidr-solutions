@@ -17,7 +17,7 @@ std::string solve(const std::string& s) {
 
 int main() {
     std::string s;
-    std::getline(std::cin, s);
+    std::cin >> s;
     std::cout << solve(s) << std::endl;
     return 0;
 }
