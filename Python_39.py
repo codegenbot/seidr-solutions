@@ -10,7 +10,7 @@ def prime_fib(n):
         return "Prime"
 
 try:
-    n = int(input())
+    n = int(input().strip())
     print(prime_fib(n))
 except ValueError:
     print("Program did not receive expected input")
