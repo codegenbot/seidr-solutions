@@ -1,7 +1,9 @@
-while (b != 0) {
-    int temp = b;
-    b = a % b;
-    a = temp;
+while (a != b) {
+    if (a > b) {
+        a = a - b;
+    } else {
+        b = b - a;
+    }
 }
 return a;
 }
