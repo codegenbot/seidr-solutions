@@ -1,16 +1,13 @@
 from typing import List, Tuple
 
 results = []
-while True:
-    try:
-        line = input()
-        if line == '':
-            break
-        numbers = list(map(int, line.split()))
+try:
+    while True:
+        numbers = list(map(int, input().split()))
         result = sum_product(numbers)
         results.append(result)
-    except EOFError:
-        break
+except EOFError:
+    pass
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     sum_result = sum(numbers)
