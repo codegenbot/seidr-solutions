@@ -18,31 +18,36 @@ int main() {
     }
 
     int blackPegs = 0;
-    std::unordered_map<int, int> codeCount;
+    int whitePegs = 0;
+
+    // Count correct characters at correct positions as black pegs
+    for (int i = 0; i < 4; i++) {
+        if (codeStr[i] == guessStr[i]) {
+            blackPegs++;
+        }
+    }
+
+    // Count remaining correct characters as white pegs
+    for (char c : guessStr) {
+        if ('0' <= c && c <= '5') {
+            codeCount[c - '0'] = 0;
+        }
+    }
+
+    int codeCount[6] = {0};
 
     // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[static_cast<int>(c)] = 0; 
-            codeCount[static_cast<int>(c)]++;
+            codeCount[c - '0']++;
         }
     }
 
-    int whitePegs = 0;
     for (int i = 0; i < 4; i++) {
         char c = guessStr[i];
         if ('0' <= c && c <= '5') {
-            if (codeCount.find(c - '0') != codeCount.end()) {
-                auto& count = codeCount[c - '0'];
-                if (count > 1) {
-                    codeCount[c - '0']--;
-                    blackPegs++;
-                } else {
-                    whitePegs++;
-                    codeCount[c - '0']--;
-                }
-            } else {
-                // The character is not in the code
+            if (codeCount[c - '0'] > 0) {
+                codeCount[c - '0']--;
                 whitePegs++;
             }
         }
