@@ -1,6 +1,7 @@
 #include <vector>
+#include <cassert>
 
-int prod_signs(std::vector<int> arr){
+int prod_signs(const std::vector<int>& arr){
     if(arr.empty()){
         return -32768;
     }
@@ -10,10 +11,14 @@ int prod_signs(std::vector<int> arr){
     
     for(int num : arr){
         product *= (num == 0) ? 1 : (num > 0) ? 1 : -1;
-        sum_magnitudes += abs(num);
+        sum_magnitudes += std::abs(num);
     }
     
     return product * sum_magnitudes;
 }
 
-assert (prod_signs(std::vector<int>{-1, 1, 1, 0}) == 0);
+int main(){
+    assert (prod_signs({-1, 1, 1, 0}) == 0);
+    
+    return 0;
+}
