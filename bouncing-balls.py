@@ -1,4 +1,4 @@
-```python
+```
 def bouncing_balls():
     start_height = float(input())
     bounciness_index = (float(input()) / start_height)
