@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -10,11 +9,11 @@ string spinWords(string str) {
             result += " ";
             i++;
         } else if ((int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) <= 96) {
-            int len = str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size()).size();
+            int len = str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size());
             for (int j = len; j > 0; j--) {
-                result += str.substr(i + j - 1, 1);
+                result += str.substr(i, len)[len - j];
             }
-            i += str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size()).size();
+            i += len;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
