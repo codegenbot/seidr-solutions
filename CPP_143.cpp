@@ -1,16 +1,6 @@
 #include <string>
 
-bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
+bool is_prime(int n);
 
 string words_in_sentence(string sentence){
     string result = "";
@@ -31,9 +21,22 @@ string words_in_sentence(string sentence){
     return result;
 }
 
+bool is_prime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i*i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence);
+    string input_sentence;
+    getline(cin, input_sentence);
+    string output = words_in_sentence(input_sentence);
+    cout << output << endl;
     return 0;
 }
