@@ -1,8 +1,8 @@
-bool issame(const string &s1, const string &s2) {
-    return s1 == s2;
+bool issame(const string& str1, const string& str2) {
+    return str1 == str2;
 }
 
-vector<string> separate_paren_groups(const string &paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
     int balance = 0;
