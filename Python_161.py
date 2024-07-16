@@ -1,2 +1,11 @@
-def solve(s: str) -> str:
-    return ''.join([c.upper() if c.islower() else c.lower() for c in s])[::-1]
+def solve(s):
+    result = []
+    for c in s:
+        if c.isalpha():
+            if c.islower():
+                result.append(c.upper())
+            else:
+                result.append(c.lower())
+        else:
+            result.append(c)
+    return ''.join(result)
