@@ -1,9 +1,6 @@
 while True:
     try:
-        numbers = input("Enter the numbers separated by space: ").split()
-        if not numbers:
-            raise ValueError
-        numbers = list(map(float, numbers))
+        numbers = list(map(int, input("Enter the numbers separated by space: ").split()))
         print(sum(numbers))
         break
     except ValueError:
