@@ -1,8 +1,4 @@
-#include <iostream>
-#include <climits>
-#include <vector>
-#include <numeric>
-
+#include <utility>
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
     int cutIndex = 0;
     int minDiff = INT_MAX;
@@ -23,21 +19,4 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
     }
 
     return std::make_pair(subvector1, subvector2);
-}
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    auto result = findCutSpot(nums);
-
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
