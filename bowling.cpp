@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 using namespace std;
@@ -8,11 +7,11 @@ int bowlingScore(string s) {
     int roll1, roll2;
 
     for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { 
+        if (s[i] == 'X') { // Strike
             score += 10 + getBonus(s.substr(i+1));
-        } else if (s[i] == '/') { 
+        } else if (s[i] == '/') { // Spare
             score += 5 + getBonus(s.substr(i+1));
-        } else { 
+        } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
                 roll2 = s[i+1] - '0';
@@ -30,11 +29,11 @@ int getBonus(string s) {
     int bonus = 0;
 
     for (int j = 0; j < s.size(); j++) {
-        if (s[j] == 'X') { 
+        if (s[j] == 'X') { // Strike
             bonus += 10;
-        } else if (s[j] == '/') { 
+        } else if (s[j] == '/') { // Spare
             bonus += 5;
-        } else { 
+        } else { // Normal roll
             bonus += s[j] - '0';
         }
     }
