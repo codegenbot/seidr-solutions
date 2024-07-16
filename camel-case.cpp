@@ -19,7 +19,6 @@ std::string kebabToCamel(const std::string& s) {
     return result;
 }
 
-// Helper function to split a string into words
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> words;
     std::string word;
