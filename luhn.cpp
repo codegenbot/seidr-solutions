@@ -1,5 +1,7 @@
 #include <iostream>
 
+int digits[16];
+
 int luhn(int digits[16]) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -13,11 +15,7 @@ int luhn(int digits[16]) {
 }
 
 int main() {
-    int digits[16];
-    std::cout << "Enter the credit card number: ";
-    for (int i = 0; i < 16; i++) {
-        std::cin >> digits[i];
-    }
-    std::cout << "Luhn Check Result: " << luhn(digits) << std::endl;
+    int digits[16] = {4,3,2,1,8,7,9,1,6,5,4,3,2,8,7,9};
+    std::cout << luhn(digits) << std::endl;
     return 0;
 }
