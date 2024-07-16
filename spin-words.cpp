@@ -11,33 +11,27 @@ string spinWords(string str) {
             i++;
         } else if ((int)str[i + tmp.size() - 1] >= 122 || (int)str[i + tmp.size() - 1] <= 96) {
             for (int j = tmp.size(); j > 0; j--) {
-                result += tmp[j - 1];
+                result += tmp[j-1];
             }
             i += tmp.size();
         } else {
-            int k = 0;
+            std::string ch;
             while (i < str.length() && str[i] != ' ') {
-                ch = str[i];
-                result += ch;
+                ch += str[i];
                 i++;
-                k++;
             }
-            if (k > 0) {
-                for (int j = k; j > 0; j--) {
-                    result += str[i - 1];
+            if (ch.size() > 4) {
+                for (int j = ch.size(); j > 0; j--) {
+                    result += ch[j-1];
                 }
-                i--;
             } else {
-                result += tmp;
-                i++;
+                result += ch;
             }
         }
+        std::string tmp = str.substr(i);
     }
     return result;
 }
-
-std::string ch;
-std::string tmp;
 
 int main() {
     cout << spinWords("Hello World") << endl;
