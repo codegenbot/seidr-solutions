@@ -1,17 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
-
 using namespace std;
-
-int findGCD(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
@@ -31,18 +21,36 @@ vector<int> findIndices(string text, string target) {
     return result;
 }
 
-int main() {
-    string text = "your_text_string";
-    string target = "your_target_string";
-    vector<int> indices = findIndices(text, target);
-    int a = 12;
-    int b = 15; // replace with your values
-    int result = findGCD(a, b);
-    cout << "Indices: ";
-    for (int i : indices) {
-        cout << i << " ";
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    cout << endl;
-    cout << "GCD: " << result << endl;
+    return a;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+    cout << "GCD of " << a << " and " << b << ": " << findGCD(a, b) << endl;
+    
+    string text, target;
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the target string: ";
+    getline(cin, target);
+    vector<int> indices = findIndices(text, target);
+    if (indices.empty()) {
+        cout << "Target not found in the text." << endl;
+    } else {
+        cout << "Target found at indices: ";
+        for (int index : indices) {
+            cout << index << " ";
+        }
+        cout << endl;
+    }
+    
     return 0;
 }
