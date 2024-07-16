@@ -1,42 +1,38 @@
 int bowlingScore(string s) {
     int score = 0;
-    vector<int> rolls(21);
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            rolls[i / 2] = 10;
-            if (i % 2 != 0) {
-                score += 10;
-            }
-        } else if (s[i] == '/') {
-            int next = i + 1;
-            while (next < s.size() && !isdigit(s[next])) {
-                next++;
-            }
-            int roll = 10 - stoi(string(1, s[i + 1]) + string(1, s[next]));
-            rolls[i / 2] = roll;
-            score += roll;
-        } else {
-            int roll = 0;
-            while (i < s.size() && isdigit(s[i])) {
-                roll = roll * 10 + stoi(string(1, s[i]));
-                i++;
-            }
-            if (i > 0) {
-                score += roll;
-            }
-            rolls[i / 2] = roll;
-        }
-    }
+    int roll1, roll2;
 
     for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            if (i + 1 < 10 && rolls[i + 1] != 0) {
-                score += rolls[i + 1];
+        if (s[i] == 'X') { // Strike
+            score += 10 + getBonus(s, i);
+        } else if (s[i] == '/') { // Spare
+            score += 5 + getBonus(s, i);
+        } else { // Normal roll
+            roll1 = s[i] - '0';
+            if (i < 8 && s[i+1] != '/') {
+                roll2 = s[i+1] - '0';
+                score += roll1 + roll2;
+            } else {
+                score += roll1;
             }
-        } else if (rolls[i] > 0) {
-            score += min(rolls[i], 10);
         }
     }
 
     return score;
+}
+
+int getBonus(string s, int i) {
+    int bonus = 0;
+
+    for (int j = i + 1; j < 11; j++) {
+        if (s[j] == 'X') { // Strike
+            bonus += 10;
+        } else if (s[j] == '/') { // Spare
+            bonus += 5;
+        } else { // Normal roll
+            bonus += s[j] - '0';
+        }
+    }
+
+    return bonus;
 }
