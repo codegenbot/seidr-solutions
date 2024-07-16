@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -9,11 +8,7 @@ int main() {
     double first_bounce_height;
     int num_bounces;
 
-    cin >> start_height >> num_bounces >> ' ' >> c;
-    string str;
-    str += c;
-    getline(cin, str);
-    first_bounce_height = stod(str);
+    cin >> start_height >> num_bounces >> first_bounce_height;
 
     double bounciness_index = first_bounce_height / start_height;
 
