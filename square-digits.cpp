@@ -1,7 +1,10 @@
+#include <string>
+using namespace std;
+
 int main() {
-    std::string n;
+    string n;
     cin >> n;
-    std::string res = "";
+    string res = "";
     for (char c : n) {
         int num = c - '0';
         res += to_string(num * num);
