@@ -16,7 +16,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, -5, 1, -8, 4};
+    vector<int> input = {3, -2, 5, -8, 1, 0};
     vector<int> result = largest_smallest_integers(input);
     cout << result[0] << " " << result[1] << endl;
 
