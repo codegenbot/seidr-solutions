@@ -1,8 +1,3 @@
 double num = stod(value);
-    int rounded = round(num);
-    if (num - rounded == 0.5) {
-        return num > 0 ? ceil(num) : floor(num);
-    } else {
-        return round(num);
-    }
-}
+int result = static_cast<int>(round(num));
+return (num - result) > 0 ? ceil(num) : floor(num);
