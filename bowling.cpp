@@ -1,5 +1,9 @@
-int bowlingScore(const std::string& input) {
-    int score = 0;
+```cpp
+#include <string>
+#include <iostream>
+
+long long bowlingScore(const std::string& input) {
+    long long score = 0;
     int currentRoll = 0;
 
     for (int i = 0; i < input.length(); ++i) {
@@ -59,4 +63,11 @@ int bowlingScore(const std::string& input) {
     }
 
     return score;
+}
+
+int main() {
+    std::string input = "12345"; 
+    long long score = bowlingScore(input);
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
