@@ -1,36 +1,30 @@
-if(a.type() == typeid(int) && b.type() == typeid(int)){
-    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-        return a;
-    } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-        return b;
+#include <iostream>
+#include <boost/any.hpp>
+#include <cassert>
+#include <algorithm>
+#include <string>
+
+int main() {
+    // existing code here
+
+    if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        float num1, num2;
+        if(((std::string)boost::any_cast<std::string>(a)).find(",") != std::string::npos){
+            std::replace(((std::string&)boost::any_cast<std::string>(a)).begin(), ((std::string&)boost::any_cast<std::string>(a)).end(), ',', '.');
+        }
+        if(((std::string)boost::any_cast<std::string>(b)).find(",") != std::string::npos){
+            std::replace(((std::string&)boost::any_cast<std::string>(b)).begin(), ((std::string&)boost::any_cast<std::string>(b)).end(), ',', '.');
+        }
+        num1 = std::stof(boost::any_cast<std::string>(a));
+        num2 = std::stof(boost::any_cast<std::string>(b));
+        if(num1 > num2){
+            return a;
+        } else if(num1 < num2){
+            return b;
+        } else {
+            return "None";
+        }
     } else {
         return "None";
     }
-} else if(a.type() == typeid(float) && b.type() == typeid(float)){
-    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-        return a;
-    } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-        return b;
-    } else {
-        return "None";
-    }
-} else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    float num1, num2;
-    if(((string)boost::any_cast<string>(a)).find(",") != string::npos){
-        replace(((string&)boost::any_cast<string>(a)).begin(), ((string&)boost::any_cast<string>(a)).end(), ',', '.');
-    }
-    if(((string)boost::any_cast<string>(b)).find(",") != string::npos){
-        replace(((string&)boost::any_cast<string>(b)).begin(), ((string&)boost::any_cast<string>(b)).end(), ',', '.');
-    }
-    num1 = stof(boost::any_cast<string>(a));
-    num2 = stof(boost::any_cast<string>(b));
-    if(num1 > num2){
-        return a;
-    } else if(num1 < num2){
-        return b;
-    } else {
-        return "None";
-    }
-} else {
-    return "None";
 }
