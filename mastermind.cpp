@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <map>
 using namespace std;
@@ -37,3 +38,4 @@ int main() {
     int white = 4 - black;
     cout << white << endl << black << endl;
     return 0;
+}
