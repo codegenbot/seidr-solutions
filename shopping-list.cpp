@@ -19,7 +19,7 @@ int main() {
             std::cin >> discounts[i];
         }
 
-        double total_price = 0.0; // Initialize total_price for each test case
+        double total_price = 0.0; 
         for (int i = 0; i < n; ++i) {
             total_price += prices[i] * (1.0 - discounts[i] / 100.0);
         }
