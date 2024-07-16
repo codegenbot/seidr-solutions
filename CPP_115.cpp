@@ -1,21 +1,18 @@
 int count = 0;
-        int total_water = 0;
-
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[0].size(); j++) {
-                total_water += grid[i][j];
+        for (int j = 0; j < grid[0].size(); j++) {
+            int curr_capacity = 0;
+            for (int i = 0; i < grid.size(); i++) {
+                if (grid[i][j] == 1) {
+                    curr_capacity++;
+                }
             }
-        }
-
-        while (total_water > 0) {
-            count += total_water / capacity;
-            total_water = total_water % capacity;
-
-            if (total_water > 0) {
+            while (curr_capacity > capacity) {
+                curr_capacity -= capacity;
                 count++;
-                total_water -= capacity;
+            }
+            if (curr_capacity > 0) {
+                count++;
             }
         }
-
         return count;
-    }
+}
