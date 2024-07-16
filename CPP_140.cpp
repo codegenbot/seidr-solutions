@@ -1,16 +1,18 @@
-for (int i = 0; i < text.length(); ++i) {
+string result = text;
+    char prev = ' ';
+    int count = 0;
+    for (int i = 0; i < text.size(); ++i) {
         if (text[i] == ' ') {
-            text[i] = '_';
-            if (i+1 < text.length() && text[i+1] == ' ') {
-                text[i+1] = '-';
-                int j = i + 2;
-                while (j < text.length() && text[j] == ' ') {
-                    text[j] = '-';
-                    ++j;
-                }
-                i = j - 1;
+            count++;
+            if (count > 2) {
+                result[i] = '-';
+            } else {
+                result[i] = '_';
             }
+        } else {
+            result[i] = text[i];
+            count = 0;
         }
     }
-    return text;
+    return result;
 }
