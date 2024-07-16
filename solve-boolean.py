@@ -1,24 +1,23 @@
-```
 def solve_boolean(expression):
-    def evaluate():
-        if expression[0] in ["T", "F"]:
-            return expression[0] == "T"
-        elif expression[0] == "(":
+    def evaluate(start=0):
+        if start >= len(expression):  
+            return None
+        if expression[start] in ["T", "F"]:
+            return expression[start] == "T"
+        elif expression[start] == "(":
             i = 1
-            temp = evaluate()
-            while i < len(expression) and expression[i] != ")":
+            while expression[i] != ")":
                 i += 1
-            return temp
+            return "(%s)" % evaluate(i + 1)[1:-1]
         operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
-        if expression[0] in ["|", "&"]:
-            op = expression[0]
-            left = evaluate()
-            right = expression[2:]
-            if op == "&":
-                return left and evaluate()
-            else:
-                return left or evaluate()
+        op = None
+        if start < len(expression) and expression[start] in operators:
+            op = expression[start]
+            start += 1  
+            left = evaluate(start)
+            right_start = expression.find(")", start)
+            return "(%s) %s (%s)" % (left, op, evaluate(right_start + 1)[1:-1])
         else:
-            return evaluate()
-
+            if start < len(expression):
+                return expression[start]
     return evaluate()
