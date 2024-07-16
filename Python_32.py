@@ -4,5 +4,6 @@ def find_zero(xs: list):
         return None
     for i in range(n):
         if xs[i] != 0:
+            largest_non_zero_coefficient = xs[i]
             break
-    return -xs[n] / xs[i]
+    return -largest_non_zero_coefficient / xs[-1]
