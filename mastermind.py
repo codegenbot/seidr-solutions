@@ -2,14 +2,12 @@ def mastermind(code, guess):
     black_count = sum([c == g for c, g in zip(code, guess)])
     
     white_count = 0
-    correct_color_wrong_place = 0
-    
-    char_counts = {char: (code.count(char), guess.count(char)) for char in set(code)}
-    
-    for char, (code_char_count, guess_char_count) in char_counts.items():
-        if code_char_count > 0 and guess_char_count > 0:
-            wrong_position = max(0, code_char_count - 1)
-            black_count += min(wrong_position, code_char_count) * (code_char_count != guess_char_count)
-            correct_color_wrong_place += max(0, wrong_position - min(wrong_position, code_char_count))
+    for c in set(guess):
+        code_c = code.count(c)
+        guess_c = guess.count(c)
+        
+        if code_c > 0 and code_c != guess_c:
+            black_count += min(code_c, 4) * (code_c == guess_c)
+            white_count += max(0, code_c - 1)
             
-    return str(black_count), str(correct_color_wrong_place + white_count)
+    return str(black_count), str(white_count)
