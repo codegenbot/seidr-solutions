@@ -3,12 +3,20 @@ int bowlingScore(string s) {
     int roll = 0;
     for (char c : s) {
         if (c == '/') {
-            score += max(roll, 10 - roll);
+            if (roll < 2) {
+                score += min(10, roll);
+            } else {
+                score += max(roll - 1, 0) + max(10 - roll, 0);
+            }
             roll = 0;
-        } else if (isdigit(c)) {
-            roll *= 10 + (c - '0');
+        } else {
+            roll++;
         }
     }
-    if (roll > 0) score += min(roll, 10);
+    if (roll < 2) {
+        score += min(10, roll);
+    } else {
+        score += max(roll - 1, 0) + max(10 - roll, 0);
+    }
     return score;
 }
