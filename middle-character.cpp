@@ -1,5 +1,5 @@
-string middleCharacter(string s) {
-    int len = s.size();
+string getMiddleCharacter(const string& s) {
+    int len = s.length();
     if (len % 2 == 0) {
         return s.substr(len / 2 - 1, 2);
     } else {
@@ -8,8 +8,8 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    string s;
-    getline(cin, s);
-    cout << middleCharacter(s) << endl;
+    string input;
+    getline(cin, input);
+    cout << getMiddleCharacter(input) << endl;
     return 0;
 }
