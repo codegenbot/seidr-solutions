@@ -3,7 +3,7 @@
 #include <cmath>
 
 int main() {
-    std::vector<int> vec = {6984, 8312, 921, 3362, 3078}; // Update vector elements
+    std::vector<int> vec = {6984, 8312, 921, 3362, 3078};
     int idx = -1;
     int min_diff = INT_MAX;
 
