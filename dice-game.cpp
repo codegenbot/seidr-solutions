@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -15,4 +14,3 @@ int main() {
     std::cin >> n >> m;
     std::cout << diceGame(n, m) << "\n";
     return 0;
-}
