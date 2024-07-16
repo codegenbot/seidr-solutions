@@ -1,5 +1,5 @@
-#include <string>
 #include <tuple>
+#include <string>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
