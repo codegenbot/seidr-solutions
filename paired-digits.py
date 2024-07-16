@@ -1,4 +1,9 @@
+```
 def paired_digits(s):
-    return sum(int(y) + int(x) for x, y in zip(s, s[1:]) if x == y)
+    total = 0
+    for i in range(len(s) - 1): 
+        if s[i] == s[i+1]:
+            total += int(s[i]*2)
+    return total
 
 print(paired_digits(input("Enter a string of digits: ")))
