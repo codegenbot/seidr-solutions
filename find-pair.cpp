@@ -28,9 +28,9 @@ int main() {
     cin >> target;
     pair<int, int> result = findPair(nums, target);
     if (std::pair<int,int>::second_sentinel != result.first) {
-        cout << result.first << '\n' << result.second << '\n';
+        std::cout << result.first << '\n' << result.second << '\n';
     } else {
-        cout << "No solution exists" << '\n';
+        std::cout << "No solution exists" << '\n';
     }
     return 0;
 }
