@@ -1,4 +1,2 @@
-n = int(input("Enter the number of elements: "))
-xs = [int(input("Enter element: ")) for _ in range(n)]
-xs.sort()
+xs = sorted(map(int, input().split()))
 print(*xs)
