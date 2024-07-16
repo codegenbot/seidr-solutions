@@ -1,22 +1,10 @@
 #include <string>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<string> split_words(string txt);
 
-int main(){
-    // Your main function code here
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> split_words(string txt){
