@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -13,14 +12,9 @@ int main() {
 
     double bouncinessIndex = (firstBounce / startHeight);
 
-    double totalDistance = 0.0;
-    double maxHeight = firstBounce; // Initialize max height
-    for (int i = 0; i < numBounces; ++i) {
-        startHeight *= bouncinessIndex;
-        totalDistance += ((maxHeight * pow(2, i + 1)) / (i + 1));
-        maxHeight = startHeight > maxHeight ? startHeight : maxHeight; // Update max height for next bounce
-    }
-
+    double totalDistance;
+    totalDistance = (1 - pow(2, numBounces)) / (1 - 2);
+    
     cout << fixed << std::setprecision(10);
     cout << static_cast<int>(totalDistance + 0.00001) << endl;
 
