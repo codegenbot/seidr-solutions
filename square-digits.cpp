@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,7 +5,7 @@ using namespace std;
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
-        if(isdigit(c)) { // Check if the character is a digit
+        if(isdigit(c)) {
             int digit = c - '0';
             result += to_string(digit * digit);
         }
