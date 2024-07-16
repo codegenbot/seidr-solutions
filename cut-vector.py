@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     left_sum = 0
     right_sum = sum(vector)
@@ -11,7 +10,8 @@ def cut_vector(vector):
             break
     
     half = len(vector) // 2
-    if abs(sum(vector[:half]) - sum(vector[half:])) < abs(left_sum - right_sum):
+    right_sum -= vector[half]
+    if abs(sum(vector[:half+1]) - sum(vector[half:])) < abs(left_sum - right_sum):
         return vector[:half+1], vector[half:]
     else:
         return vector[:len(vector)//2+1], vector[len(vector)//2:]
