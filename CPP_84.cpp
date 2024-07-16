@@ -4,4 +4,3 @@ int sum = 0;
         N /= 2;
     }
     return bitset<32>(sum).to_string().substr(32 - sum);
-}
