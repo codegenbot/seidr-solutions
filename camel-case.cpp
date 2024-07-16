@@ -1,6 +1,7 @@
-std::string str;
+```int main() {
+    std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    std::getline(std::cin, str); 
     std::string result = "";
     bool capitalizeNext = true;
 
@@ -15,6 +16,5 @@ std::string str;
         }
     }
 
-    std::cout << "camelCase: " << result << std::endl;
     return 0;
 }
