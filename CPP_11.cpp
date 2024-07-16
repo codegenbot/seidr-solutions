@@ -2,13 +2,13 @@
 #include <string>
 #include <cassert>
 
-std::string string_xor(const std::string& a, const std::string& b) {
+std::string string_xor(const std::string &a, const std::string &b) {
     std::string result = "";
-    for (size_t i = 0; i < a.length(); i++) {
-        if (a[i] != b[i]) {
-            result += "1";
-        } else {
+    for(size_t i=0; i<a.size(); i++){
+        if(a[i] == b[i]){
             result += "0";
+        } else {
+            result += "1";
         }
     }
     return result;
@@ -16,5 +16,6 @@ std::string string_xor(const std::string& a, const std::string& b) {
 
 int main() {
     assert (string_xor("0101", "0000") == "0101");
+    
     return 0;
 }
