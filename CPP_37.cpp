@@ -1,5 +1,5 @@
 vector<float> even_values;
-    vector<float> sorted_even_values;
+    vector<float> result;
     
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -12,12 +12,12 @@ vector<float> even_values;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            sorted_even_values.push_back(even_values[even_index]);
+            result.push_back(even_values[even_index]);
             even_index++;
         } else {
-            sorted_even_values.push_back(l[i]);
+            result.push_back(l[i]);
         }
     }
     
-    return sorted_even_values;
+    return result;
 }
