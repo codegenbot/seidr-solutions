@@ -1,6 +1,4 @@
-```
 import base64
-import sys
 
 def solve(N):
     if isinstance(N, str):
