@@ -29,5 +29,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+
     while (cin.get() != '\n') {}
 }
