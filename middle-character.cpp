@@ -3,11 +3,11 @@
 #include <string>
 
 std::string middleCharacter(const std::string& str) {
-    int length = str.length();
-    if (length % 2 == 0) {
-        return std::string(1, str.substr(length / 2 - 1, 2)); 
+    int size = str.size();
+    if (size % 2 == 0) {
+        return str.substr(size / 2 - (size % 2), 2); 
     } else {
-        return std::string(1, str.substr(length / 2, 1));
+        return str.substr(size / 2, 1);
     }
 }
 
