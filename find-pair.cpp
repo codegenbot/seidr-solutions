@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+
 using namespace std;
 
 int main() {
@@ -11,7 +12,7 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
+    
     map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
