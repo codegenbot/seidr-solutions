@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -25,5 +24,5 @@ int main() {
         cin >> discounts[i];
     }
 
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(2) << std::setiosflags(ios::fixed) << shoppingList(prices, discounts) << endl;
 }
