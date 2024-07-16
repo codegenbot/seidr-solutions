@@ -3,8 +3,10 @@ int is_nested(string str) {
     for(char c : str) {
         if(c == '[') {
             count++;
-        } else if(c == ']' && count > 0) {
-            count--;
+        } else if (c == ']') {
+            if(count > 0) {
+                count--;
+            }
         }
     }
     return count < 0 ? false : true;
