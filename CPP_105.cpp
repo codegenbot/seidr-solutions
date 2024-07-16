@@ -1,4 +1,5 @@
-#include <string>
+#include <algorithm>
+#include <vector>
 
 bool issame(vector<string> a, vector<string> b);
 
