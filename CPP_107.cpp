@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 vector<int> count_palindromes(int n) {
@@ -24,7 +24,14 @@ vector<int> count_palindromes(int n) {
 }
 
 int main() {
-    vector<int> even_odd_palindrome(int n);
-    // Code to use the functions
+    vector<int> input = count_palindromes(100);
+    vector<int> expected_output = {9, 10};
+
+    if (issame(input, expected_output)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
     return 0;
 }
