@@ -1,5 +1,5 @@
 try:
-    n = int(input())
+    n = int(input("Enter a positive integer: "))
     if n > 0:
         print(factorize(n))
     else:
