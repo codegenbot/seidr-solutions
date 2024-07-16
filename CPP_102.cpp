@@ -6,4 +6,3 @@ int max_even = -1;
         }
     }
     return max_even;
-}
