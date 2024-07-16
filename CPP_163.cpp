@@ -23,6 +23,14 @@ vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    // Call the generate_integers function and issame function here
+    vector<int> vec1 = generate_integers(1, 10);
+    vector<int> vec2 = generate_integers(2, 11);
+
+    if (issame(vec1, vec2)) {
+        cout << "Vectors are the same." << endl;
+    } else {
+        cout << "Vectors are different." << endl;
+    }
+
     return 0;
 }
