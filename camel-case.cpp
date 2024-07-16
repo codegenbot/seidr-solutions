@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,12 +14,16 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string result;
+    bool capitalizeNextWord = true;
+
     for (const auto& word : words) {
-        if (!result.empty()) {
-            result += char(toupper(word[0]));
-            result.erase(0, 1);
+        if (capitalizeNextWord) {
+            result += toupper(word[0]);
+            result += std::string(word.begin() + 1, word.end());
+            capitalizeNextWord = false;
         } else {
             result += word;
+            capitalizeNextWord = true;
         }
     }
 
