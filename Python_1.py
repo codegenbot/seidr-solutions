@@ -8,6 +8,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == "(":
             stack.append(i)
         elif char == ")":
-    	    start = stack.pop()
+            start = stack.pop()
             result.append(paren_string[start:i + 1])
     return result
