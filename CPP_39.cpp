@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 bool isPrime(int num) {
     if (num <= 1) {
@@ -13,17 +14,18 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int a = 1, b = 1;
-    int count = 2;
-    while (count < n) {
-        int c = a + b;
-        a = b;
-        b = c;
-        if (isPrime(b)) {
-            count++;
+    std::vector<int> fib = {0, 1};
+    int i = 2;
+    while (true) {
+        fib.push_back(fib[i - 1] + fib[i - 2]);
+        if (isPrime(fib.back())) {
+            --n;
+            if (n == 0) {
+                return fib.back();
+            }
         }
+        ++i;
     }
-    return b;
 }
 
 int main() {
