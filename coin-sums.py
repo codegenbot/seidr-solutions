@@ -5,10 +5,6 @@ def coin_sums(cents):
     for i in range(len(coins)):
         count = cents // coins[i]
         cents %= coins[i]
-        result[i] = count
+        result[i] = count if count > 0 else 0
 
-    return result
-
-
-cents = int(input())
-print(*coin_sums(cents))
+    return " ".join(map(str, result))
