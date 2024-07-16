@@ -1,11 +1,12 @@
 ```cpp
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int main() {
     vector<int> arr = {1, 3, 4, 2, 3}; 
-    vector<int> leaders = leaders(arr);
-    for (int i=0; i<leaders.size(); i++) cout << leaders[i] << " "; 
+    vector<int> result = leaders(arr);
+    for (int i=0; i<result.size(); i++) cout << result[i] << " "; 
     return 0;
 }
 
