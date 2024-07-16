@@ -1,25 +1,41 @@
 #include <string>
 #include <iostream>
 
+int calculateFrameScore(int roll) {
+    if (roll == 10) 
+        return 10;
+    else if (roll < 10) 
+        return 10 - roll;
+    return roll;
+}
+
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
+    int previousRoll = 0;
 
     for (char c : s) {
         if (c == '/') {
-            if (roll > 0) score += roll;
+            if (roll > 9)
+                score += calculateFrameScore(10);
+            else
+                score += calculateFrameScore(roll);
             roll = 0;
         } else if (isdigit(c)) {
             roll *= 10;
             roll += c - '0';
         } else if (c == '+') {
-            roll++;
+            // add to previous frame's score
+            if (previousRoll > 9)
+                score += calculateFrameScore(10);
+            else
+                score += calculateFrameScore(previousRoll);
+            previousRoll = 0;
         } else if (c == '-') {
-            roll--;
+            roll -= c - '0';
         }
+        previousRoll = roll;
     }
-
-    if (roll > 0) score += roll;
 
     return score;
 }
