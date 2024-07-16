@@ -1,22 +1,22 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
-class Solution {
-public:
-    string fizzBuzz(int x) {
-        if (x % 3 == 0 && x % 5 == 0)
-            return "FizzBuzz";
-        else if (x % 3 == 0)
-            return "Fizz";
-        else if (x % 5 == 0)
-            return "Buzz";
-        else
-            return to_string(x);
-    }
-};
+string fizzBuzz(int x) {
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0)
+        return x % 5 == 0 ? "Fizz" : "Fizz";
+    else if (x % 5 == 0)
+        return x % 3 == 0 ? "Buzz" : "Buzz";
+    else
+        return to_string(x);
+}
 
 int main() {
-    Solution solution;
-    cout << solution.fizzBuzz(15) << endl;
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << fizzBuzz(i) << endl;
+    }
     return 0;
 }

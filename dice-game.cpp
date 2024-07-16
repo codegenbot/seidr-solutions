@@ -1,9 +1,16 @@
-double probability(int n, int m) {
-    if (n <= m) return 0.0;
-    double total = static_cast<double>(n * m);
-    double count = 0.0;
-    for (int i = m + 1; i <= n; ++i) {
-        count += static_cast<double>(m);
+#include <iostream>
+#include <cmath>
+
+double diceGame(int n, int m) {
+    double total = 0.0;
+    for (int i = 1; i <= n; i++) {
+        total += pow(1 - i / (n + 0.0), m);
     }
-    return count / total;
+    return total;
 }
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << diceGame(n, m) << "\n";
+    return 0;
