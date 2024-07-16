@@ -8,7 +8,7 @@ int main() {
 
     std::vector<int> indices;
     size_t i = 0;
-    while (i < text.size() - target.size() + 1) {
+    while (i <= text.size() - target.size()) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
             i += target.size(); // Update index increment to handle overlapping occurrences
