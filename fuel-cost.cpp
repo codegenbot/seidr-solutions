@@ -15,7 +15,7 @@ int fuelCost(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {5,10,20};
+    vector<int> v = {7,5,8};
     int result = fuelCost(v);
     cout << "Fuel cost: " << result << endl;
     return 0;
