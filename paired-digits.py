@@ -1,11 +1,8 @@
-```
 def paired_digits(s):
     total = 0
-    prev_digit = None
-    for i, c in enumerate(s):
-        if c == prev_digit and i + 1 < len(s) and s[i+1] == c:
-            total += int(c)
-        prev_digit = c
+    for i in range(len(s) - 1):
+        if s[i] == s[i+1] and s[i] != '0':
+            total += int(s[i]) * 2
     return total
 
 s = input("Enter a string of digits: ")
