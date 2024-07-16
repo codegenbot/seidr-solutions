@@ -1,1 +1,9 @@
-numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+numbers = []
+while True:
+    try:
+        num = input()
+        if not num:
+            break
+        numbers.append(int(num))
+    except EOFError:
+        break
