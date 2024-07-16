@@ -1,14 +1,13 @@
-vector<int> counts = {0, 0};
-    
-    while(num != 0){
-        int digit = abs(num) % 10;
-        if(digit % 2 == 0){
-            counts[0]++;
+vector<int> count = {0, 0};
+    string numStr = to_string(abs(num));
+
+    for (char c : numStr) {
+        if ((c - '0') % 2 == 0) {
+            count[0]++;
         } else {
-            counts[1]++;
+            count[1]++;
         }
-        num /= 10;
     }
-    
-    return counts;
+
+    return count;
 }
