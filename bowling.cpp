@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -25,7 +24,7 @@ int bowlingScore(const std::string& s) {
             } else {
                 currentRoll *= 10;
                 currentRoll += c - '0';
-            
+
             if(i < s.length() - 1) {
                 char nextC = s.at(i + 1);
                 if(std::isdigit(nextC)) {
