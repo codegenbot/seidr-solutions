@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
@@ -11,17 +10,11 @@ std::vector<int> leaders(const std::vector<int>& arr) {
             result.push_back(arr[i]);
             maxRight = arr[i];
         }
+        else
+            maxRight = arr[i];
     }
 
     return result;
 }
 
-int main() {
-    std::vector<int> input = {1, 3, 4, 3, 2, 3, 10, 12};
-    std::cout << "Leaders: ";
-    for (int leader : leaders(input)) {
-        std::cout << leader << " ";
-    }
-    std::cout << "\n";
-    return 0;
-}
+int main() { return 0; }
