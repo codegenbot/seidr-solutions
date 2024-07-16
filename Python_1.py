@@ -8,13 +8,14 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == "(":
             level += 1
-            current_group += char
+            if level > 1:
+                current_group += char
         elif char == ")":
             level -= 1
             if level == 0:
                 result.append(current_group)
                 current_group = ""
-            else:
+            elif level > 0:
                 current_group += char
         else:
             if level > 0:
@@ -24,3 +25,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
+
+paren_string = input("Enter the string with parenthesis: ")
+print(separate_paren_groups(paren_string))
