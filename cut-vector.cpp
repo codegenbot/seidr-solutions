@@ -1,31 +1,31 @@
 int main() {
     vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    string line;
+    while (getline(cin, line)) {
+        nums.push_back(stoi(line));
     }
-    
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 1; i < nums.size(); ++i) {
+
+    int n = nums.size();
+    int min_diff = INT_MAX;
+    int cut_idx = 0;
+
+    for (int i = 1; i < n; ++i) {
         int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < minDiff || (diff == minDiff && abs(cutIndex - nums.size() / 2) > abs(i - nums.size() / 2))) {
-            minDiff = diff;
-            cutIndex = i;
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-    
-    for (int i = 0; i < cutIndex; ++i) {
+
+    for (int i = 0; i < cut_idx; ++i) {
         cout << nums[i] << endl;
     }
-    
+
     cout << endl;
-    
-    for (int i = cutIndex; i < nums.size(); ++i) {
+
+    for (int i = cut_idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    
+
     return 0;
 }
