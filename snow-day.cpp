@@ -1,6 +1,6 @@
 ```c++
 #include <iostream>
-#include <iomanip>
+#include <cstring>
 
 float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
     float currentSnow = initialSnow;
@@ -11,20 +11,21 @@ float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float m
 }
 
 int main() {
-    int hours;
+    char buffer[100];
     std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
+    std::cin.get(buffer, 100);
+    int hours = std::atoi(buffer);
 
     float initialSnow, rateOfSnowFall, meltingRate;
     std::cout << "Enter the initial snow: ";
-    std::cin >> std::fixed >> std::setprecision(2) >> initialSnow;
+    std::cin >> initialSnow;
     std::cout << "Enter the rate of snow fall: ";
     std::cin >> rateOfSnowFall;
     std::cout << "Enter the melting rate per hour: ";
     std::cin >> meltingRate;
 
     float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
-    std::cout << "Snow after " << hours << " hours: " << std::fixed << std::setprecision(2) << result << std::endl;
+    std::cout << "Snow after " << hours << " hours: " << result << std::endl;
 
     return 0;
 }
