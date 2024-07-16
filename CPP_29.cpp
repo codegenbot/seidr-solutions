@@ -3,7 +3,15 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -17,11 +25,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main(){
-    vector<string> test_strings = {"apple", "banana", "apricot", "avocado"};
+    vector<string> input = {"apple", "banana", "apricot", "pear", "peach"};
     string prefix = "ap";
-    vector<string> filtered_strings = filter_by_prefix(test_strings, prefix);
-    for(const auto& str : filtered_strings){
-        std::cout << str << std::endl;
+    vector<string> filtered = filter_by_prefix(input, prefix);
+
+    for(const auto& str : filtered){
+        std::cout << str << " ";
     }
+    
     return 0;
 }
