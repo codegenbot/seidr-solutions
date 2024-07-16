@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -11,7 +9,7 @@ vector<int> leaders(vector<int>& arr) {
     for (int i = n-1; i >= 0; i--) {
         bool isLeader = true;
         
-        for (int j = i + 1; j < n; j++) {
+        for (int j = i - 1; j >= 0; j--) {
             if (arr[j] >= arr[i]) {
                 isLeader = false;
                 break;
@@ -33,4 +31,3 @@ int main() {
         cout << leader << " ";
     }
     return 0;
-}
