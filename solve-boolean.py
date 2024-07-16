@@ -3,9 +3,6 @@ def solve_boolean(expression):
     expression = expression.upper()
     
     for key, value in boolean_map.items():
-        if isinstance(value, bool):
-            expression = expression.replace(key, str(value))
-        else:
-            expression = expression.replace(key, value)
+        expression = expression.replace(key, str(value))
 
     return eval(expression)
