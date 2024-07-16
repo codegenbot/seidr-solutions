@@ -14,7 +14,7 @@ int main() {
         nums.push_back(n);
     }
 
-    long long sum = 0;
+    int sum = 0;
 
     for (int num : nums) {
         sum += (num / 3) - 2;
