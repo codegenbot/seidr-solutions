@@ -1,27 +1,43 @@
-int score(string s) {
-    int res = 0, frame = 0, ball = 0;
-    vector<int> game(21, 0);
-    for(char c : s) {
-        if(c == 'X') game[ball] = 10;
-        else if(c == '/') game[ball] = 10 - game[ball-1];
-        else if(c == '-') game[ball] = 0;
-        else game[ball] = c - '0';
-        if(frame > 0 && (game[ball] == 10 || ball % 2 == 1)) res += game[ball] + game[ball-1] + game[ball-2];
-        if(frame > 1 && ball % 2 == 1 && game[ball-1] + game[ball-2] == 10) res += game[ball];
-        if(ball < 18) {
-            ball++;
-            if(ball % 2 == 0) frame++;
-        } else if(ball == 18) {
-            ball++;
-            if(c != 'X') frame++;
+int bowlingScore(string s) {
+    int score = 0;
+    int frame = 1;
+    int i = 0;
+    
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i + 2] == 'X') {
+                score += 10;
+                if (s[i + 4] == 'X') {
+                    score += 10;
+                }
+                else {
+                    score += isdigit(s[i + 4]) ? s[i + 4] - '0' : 10;
+                }
+            }
+            else {
+                score += isdigit(s[i + 2]) ? s[i + 2] - '0' : 10;
+                score += isdigit(s[i + 3]) ? s[i + 3] - '0' : 10;
+            }
+            frame++;
+            i++;
+        }
+        else if (s[i + 1] == '/') {
+            score += 10;
+            score += isdigit(s[i + 2]) ? s[i + 2] - '0' : 10;
+            frame++;
+            i += 2;
+        }
+        else {
+            score += isdigit(s[i]) ? s[i] - '0' : 0;
+            score += isdigit(s[i + 1]) ? s[i + 1] - '0' : 0;
+            if (s[i + 2] == '/') {
+                score += 10 - (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
+            }
+            frame++;
+            i += 2;
         }
     }
-    return res;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
-    return 0;
+    
+    return score;
 }
