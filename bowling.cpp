@@ -1,14 +1,12 @@
-```cpp
+```c++
 #include <string>
-#include <iostream>
 
 long long bowlingScore(const std::string& input) {
     long long score = 0;
     int currentRoll = 0;
 
-    for (int i = 0; i < input.length(); ++i) {
-        char c = input[i];
-
+    const char* chars = input.c_str();
+    for (char c : input) {
         if (!((c >= '0' && c <= '9') || c == 'X' || c == '/')) {
             return -1;
         }
@@ -26,14 +24,13 @@ long long bowlingScore(const std::string& input) {
                 currentRoll *= 10;
                 currentRoll += c - '0';
 
-                if(i < input.length() - 1) {
-                    char nextC = input[i + 1];
+                if(input.length() - input.find(&c) > 1) {
+                    char nextC = chars[input.find(&c) + 1];
                     if(nextC >= '0' && nextC <= '9') {
                         int secondRoll = nextC - '0';
                         if(currentRoll + secondRoll == 10) {
                             score += 10;
                             currentRoll = 0;
-                            i++;
                         } else {
                             score += secondRoll;
                             currentRoll = 10 - currentRoll - secondRoll;
@@ -51,7 +48,7 @@ long long bowlingScore(const std::string& input) {
                 }
             }
 
-            if(i == input.length() - 1 || ((c >= '0' && c <= '9'))) {
+            if(input.find(&c) == input.length() - 1 || ((c >= '0' && c <= '9'))) {
                 if(currentRoll < 10) {
                     score += currentRoll;
                 } else {
@@ -66,8 +63,6 @@ long long bowlingScore(const std::string& input) {
 }
 
 int main() {
-    std::string input = "12345"; 
-    long long score = bowlingScore(input);
-    std::cout << "The score is: " << score << std::endl;
+    long long score = bowlingScore("X/X/8-5/7-3/6-2/4-1/X");
     return 0;
 }
