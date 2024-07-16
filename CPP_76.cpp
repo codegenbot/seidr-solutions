@@ -1,12 +1,6 @@
-if (x == 1) {
-        return true;
-    }
-    
-    if (n == 1) {
+if (x <= 0 || n <= 0) {
         return false;
     }
-    
-    double result = log(x) / log(n);
-    
-    return (result == (int)result);
+    double exp = log(x) / log(n);
+    return ceil(exp) == exp;
 }
