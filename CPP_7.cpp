@@ -8,6 +8,6 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(const string& a, const string& b) {
+    return a == b;
 }
