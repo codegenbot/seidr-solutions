@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 bool isEqual(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
     return a == b;
