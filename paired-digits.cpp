@@ -1,9 +1,13 @@
+#include <iostream>
 #include <string>
 
 int main() {
     std::string str;
-    std::cin >> str;
+    // Read input from user (e.g., using cin)
+    std::cout << "Enter a string of digits: ";
+    std::getline(std::cin, str);
     int result = pairedDigits(str);
+    std::cout << "Sum of paired digits is: " << result << std::endl;
     return 0;
 }
 
