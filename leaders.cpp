@@ -1,3 +1,4 @@
+#include <vector>
 #include <algorithm>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
@@ -10,7 +11,7 @@ std::vector<int> findLeaders(std::vector<int> nums) {
             leaders.push_back(maxLeader);
         }
     }
-    leaders.push_back(maxLeader);
+    leaders.push_back(maxLeader); // add the rightmost element as a leader
     std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
