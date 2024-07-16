@@ -1,24 +1,20 @@
-#include <string>
+```#include <string>
 
-std::string solveBoolean(std::string s) {
-    if(s == "T") return "True";
-    if(s == "F") return "False";
-
-    bool result = (s[0] == 'T');
-
-    for(int i = 1; i < s.length(); i++) {
-        switch(s[i]) {
-            case '&':
-                result &= (s[0] == 'T');
-                break;
-            case '|':
-                result |= (s[0] == 'T');
-                break;
-            default:
-                if(result) return "True";
-                return "False";
+string solveBoolean(string s) {
+    bool result = (s == "t");
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            result &= (left == "t") ? true : (left == "f");
+            result &= (right == "t") ? true : (right == "f");
+        }
+        else if(s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            result |= (left == "t") ? true : (left == "f");
+            result |= (right == "t") ? true : (right == "f");
         }
     }
-
     return result ? "True" : "False";
-}
+}``
