@@ -1,3 +1,3 @@
-def double_the_difference(lst):
-    lst = lst
+def double_the_difference():
+    lst = [1, 2, 3, 4, 5]
     return sum(x ** 2 for x in lst if x > 0 and x % 2 != 0)
