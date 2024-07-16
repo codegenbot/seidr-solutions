@@ -1,15 +1,7 @@
-Here is the completed code:
-
-```cpp
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
-    for (int num : arr) {
-        pq.push(num);
-    }
-    vector<int> result(k);
-    for (int i = 0; i < k; i++) {
-        result[i] = pq.top();
-        pq.pop();
-    }
-    return result;
+    vector<int> result(arr.size());
+    copy_if(arr.begin(), arr.end(), result.begin(),
+             [k](int i) { return --k > 0; });
+    sort(result.begin(), result.end());
+    return vector<int>(result.begin(), result.begin() + min(k, (int)size()));
 }
