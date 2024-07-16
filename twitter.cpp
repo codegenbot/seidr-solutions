@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -13,9 +12,11 @@ int main() {
         cout << "You didn't type anything" << endl;
     }
     
-    if(tweet.length() > 140) {
+    else if(tweet.length() > 140) {
         cout << "Too many characters" << endl;
-    } else {
+    }
+    
+    else {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
 }
