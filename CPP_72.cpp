@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <numeric>
 
 bool will_it_fly(vector<int> q, int w){
