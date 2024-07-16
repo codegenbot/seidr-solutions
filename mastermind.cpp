@@ -1,43 +1,21 @@
-#include <iostream>
-#include <string>
-#include <tuple>
+Here's the modified code:
+```cpp
+#include <utility>
+#include <algorithm>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+    std::string all_chars = "RGYBO"; // assuming the 6 possible characters are R, G, Y, B, and O
+
     int white = 0;
     int black = 0;
 
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+        if (guess[i] == code[i]) {
             black++;
-        } else {
-            bool correctCharFound = false;
-            for (int j = 0; j < 4; ++j) {
-                if (guess[i] == code[j] && i != j) {
-                    white++;
-                    correctCharFound = true;
-                    break;
-                }
-            }
-            if (!correctCharFound) {
-                for (int j = 0; j < 4; ++j) {
-                    if (code[j] == guess[i]) {
-                        black++;
-                        correctCharFound = true;
-                        break;
-                    }
-                }
-            }
+        } else if (std::count(all_chars.begin(), all_chars.end(), guess[i]) > 0) {
+            white++;
         }
     }
 
-    return std::make_pair(white, black);
-}
-
-int main() {
-    int white, black;
-    std::string code = "RGOR";
-    std::string guess = "BRBB";
-    std::tie(white, black) = mastermind(code, guess);
-    std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
-    return 0; 
+    return {white, black};
 }
