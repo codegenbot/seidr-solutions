@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <ostream>
+#include <iostream>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
@@ -11,7 +12,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int driver() {
+int main() {
     std::cout << solution({3, 13, 2, 9}) << std::endl;
     return 0;
 }
