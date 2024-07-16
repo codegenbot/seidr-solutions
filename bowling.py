@@ -1,19 +1,26 @@
-def bowling_game(frames):
-    total_score = 0
-    roll = list(map(int, frames.replace('/', '')))
-    for i in range(0, 10):
-        if len(str(roll[i*2:i*2+2])) == 3:
-            if str(roll[i*2:i*2+2])[0] != 'X':
-                total_score += 10 + (str(roll[i*2:i*2+2])[1:]-48)*10
-            else:
-                total_score += 10 + roll[-1-i*2:-1-(i+1)*2].count('X') * 10 + max(roll[-1-i*2:-1-(i+1)*2])-48)*10
-        elif str(roll[i*2:i*2+2])[0] == 'X':
-            total_score += 10 + roll[-1-i*2:-1-(i+1)*2].count('X') * 10 + max(roll[-1-i*2:-1-(i+1)*2])-48)*10
+def bowling(s):
+    frames = [int(x) for x in re.findall(r"\d", s)]
+    score = 0
+    roll = 0
+    for i, f in enumerate(frames):
+        if i % 2 == 0:
+            if f == 10:
+                score += 10 + (frames[i + 1] if i < len(frames) - 1 else 0)
+                roll += 1
+            elif f != 0:
+                score += f
+                roll += 1
+                if i < len(frames) - 1 and frames[i + 1] != 0:
+                    score += frames[i + 1]
+                    roll += 1
         else:
-            if str(roll[i*2:i*2+2])[0] == 'S':
-                total_score += 15
-            elif str(roll[i*2:i*2+2])[0] == 'T':
-                total_score += 10
-            elif str(roll[i*2:i*2+2])[1:]-48 >=5:
-                total_score += 10 + (str(roll[i*2:i*2+2])[1:]-48)*1
-    return total_score
+            if f == 10:
+                score += 10
+                roll += 1
+                if i < len(frames) - 2 and frames[i + 1] + frames[i + 2] <= 10:
+                    score += frames[i + 1] + frames[i + 2]
+                    roll += 2
+            elif f != 0:
+                score += f
+                roll += 1
+    return score if roll == 10 else 0
