@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -44,26 +42,26 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> v(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> v[i];
+        cin >> v[i];
     }
     pair<vector<int>, vector<int>> res = cutVector(v);
-    std::cout << "[";
+    cout << "[";
     for (int i = 0; i < res.first.size(); ++i) {
-        std::cout << res.first[i];
+        cout << res.first[i];
         if (i < res.first.size() - 1) {
-            std::cout << " ";
+            cout << " ";
         }
     }
-    std::cout << "] [";
+    cout << "] [";
     for (int i = 0; i < res.second.size(); ++i) {
-        std::cout << res.second[i];
+        cout << res.second[i];
         if (i < res.second.size() - 1) {
-            std::cout << " ";
+            cout << " ";
         }
     }
-    std::cout << "]\n";
+    cout << "]\n";
     return 0;
 }
