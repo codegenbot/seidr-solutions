@@ -1,25 +1,31 @@
-map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> revNumMap;
+#include <algorithm>
+#include <sstream>
+#include <map>
+#include <vector>
 
-for (auto const& pair : numMap) {
-    revNumMap[pair.second] = pair.first;
-}
+using namespace std;
 
-vector<int> nums;
-stringstream ss(numbers);
-string numStr;
-while (ss >> numStr) {
-    nums.push_back(numMap[numStr]);
-}
+string sort_numbers(string numbers) {
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    map<int, string> revNumMap;
 
-sort(nums.begin(), nums.end());
+    for (auto const& pair : numMap) {
+        revNumMap[pair.second] = pair.first;
+    }
 
-string result;
-for (int num : nums) {
-    result += revNumMap[num] + " ";
-}
+    vector<int> nums;
+    stringstream ss(numbers);
+    string numStr;
+    while (ss >> numStr) {
+        nums.push_back(numMap[numStr]);
+    }
 
-result.pop_back(); // Remove the extra space at the end
+    sort(nums.begin(), nums.end());
 
-return result;
+    string result;
+    for (int num : nums) {
+        result += revNumMap[num] + " ";
+    }
+
+    return result;
 }
