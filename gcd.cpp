@@ -1,31 +1,24 @@
-```cpp
 #include <vector>
-#include <string>
-
+#include <string> // Added this line
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.length() - target.length(); i++) {
-        int j = 0;
-        while (j < target.length()) {
-            if (text[i + j] != target[j]) {
-                break;
-            }
-            j++;
-        }
-        if (j == target.length()) {
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
         }
     }
+
     return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
