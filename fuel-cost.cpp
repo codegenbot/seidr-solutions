@@ -9,7 +9,7 @@ int fuelCost(vector<int>& vec) {
     for (int i : vec) {
         double x = static_cast<double>(i) / 3;
         x = floor(x);
-        sum += x - 2;
+        sum += static_cast<int>(x) - 2;
     }
     return sum;
 }
