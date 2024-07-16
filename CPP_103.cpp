@@ -1,14 +1,17 @@
-if (n > m) {
+#include <string>
+#include <cmath>
+
+string rounded_avg(int n, int m) {
+    if(n > m) {
         return "-1";
     }
     
     int sum = 0;
-    for (int i = n; i <= m; ++i) {
+    for(int i = n; i <= m; i++) {
         sum += i;
     }
     
-    int avg = sum / (m - n + 1);
-    string binary_avg = bitset<8>(avg).to_string();
+    int avg = round((double)sum / (m - n + 1));
     
-    return binary_avg;
+    return bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
