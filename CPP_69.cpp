@@ -1,9 +1,14 @@
-int maxFreq = -1;
+int result = -1;
     for (int num : lst) {
-        int freq = count(lst.begin(), lst.end(), num);
-        if (num > freq && freq >= maxFreq) {
-            maxFreq = freq;
+        int freq = 0;
+        for (int n : lst) {
+            if (n == num) {
+                freq++;
+            }
+        }
+        if (freq >= num && num > result) {
+            result = num;
         }
     }
-    return maxFreq > 0 ? maxFreq : -1;
+    return result;
 }
