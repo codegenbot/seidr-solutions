@@ -5,6 +5,10 @@ def process_text(text):
     text = "_".join(text.split())
     return text
 
-input_text = "Hello     World   !"
+try:
+    input_text = input().rstrip()
+except EOFError:
+    input_text = ""  # Default value if no input received
+
 result = process_text(input_text)
 print(result)
