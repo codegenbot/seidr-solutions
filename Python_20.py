@@ -1,6 +1,7 @@
 input_numbers = list(map(float, input().split()))
 
 def find_closest_elements(numbers):
+    numbers.sort()
     min_diff = float('inf')
     closest_pair = ()
     for i in range(len(numbers) - 1):
@@ -11,4 +12,4 @@ def find_closest_elements(numbers):
     return closest_pair
 
 output = find_closest_elements(input_numbers)
-print("{:.2f} {:.2f}".format(output[0], output[1]))
+print("{:.2f} {:.2f}".format(output[0], output[1]) )
