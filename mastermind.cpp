@@ -1,28 +1,29 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::string code, guess;
+    string code, guess;
     int whitePegs = 0, blackPegs = 0;
 
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
 
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
+    cout << "Enter your guess: ";
+    cin >> guess;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else if (std::count(code.begin(), code.end(), guess[i]) > 0) {
+        } else if (count(code.begin(), code.end(), guess[i]) > 0) {
             whitePegs++;
         }
     }
 
-    std::cout << "Black pegs: " << blackPegs << std::endl;
-    std::cout << "White pegs: " << whitePegs << std::endl;
+    cout << "Black pegs: " << blackPegs << endl;
+    cout << "White pegs: " << whitePegs << endl;
 
     return 0;
 }
