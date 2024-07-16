@@ -25,7 +25,7 @@ std::string kebabToCamel(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;  // Fix this line, it should use cin not cout
+    std::getline(std::cin, input);
     std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
 }

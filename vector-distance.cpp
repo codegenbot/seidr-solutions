@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -10,7 +11,7 @@ double vectorDistance(vector<float> v1, vector<float> v2) {
     for(int i=0; i<v1.size(); i++) {
         sum += pow((v1[i] - v2[i]), 2);
     }
-    return sqrt(sum / v1.size());
+    return sqrt(sum);
 }
 
 int main() {
