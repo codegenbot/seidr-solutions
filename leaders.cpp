@@ -16,11 +16,12 @@ vector<int> leaders(vector<int>& arr) {
         if(leader) res.push_back(arr[i]);
     }
     return res;
-}
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<int> arr = {17, 28, 4, 27, 29, 31};
     vector<int> leaders_result = leaders(arr);
-    // print the result or use it as needed
+    for (auto x : leaders_result) {
+        cout << x << " ";
+    }
     return 0;
 }
