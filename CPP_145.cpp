@@ -7,8 +7,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-void order_by_points(std::vector<int> nums){ // change parameter to pass by value
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+void order_by_points(const std::vector<int>& nums){
+    std::vector<int> sorted_nums = nums;
+    std::sort(sorted_nums.begin(), sorted_nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = std::abs(a), temp_b = std::abs(b);
         while (temp_a > 0) {
@@ -24,10 +25,7 @@ void order_by_points(std::vector<int> nums){ // change parameter to pass by valu
 }
 
 int main() {
-    std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
-    std::vector<int> sorted_input = input;
-    order_by_points(sorted_input);
-    assert(issame(sorted_input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame({0, 6, 6, -76, -21, 23, 4}, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
