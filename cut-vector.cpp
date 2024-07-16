@@ -1,14 +1,13 @@
-```
+```cpp
 #include <vector>
-#include <climits>
+#include <limits>
 #include <cmath>
-using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int min_diff = INT_MAX;
+    int min_diff = std::numeric_limits<int>::max();
     int cut_index = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = std::abs(nums[i] - nums[i + 1]);
+        int diff = abs(nums[i] - nums[i + 1]);
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;

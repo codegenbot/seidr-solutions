@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string fizzBuzz(int x) {
@@ -9,13 +10,14 @@ std::string fizzBuzz(int x) {
     else if(x % 5 == 0)
         return "Buzz";
     else
-        std::to_string(x);
+        return std::to_string(x);
     return result;
 }
 
 int main() {
-    for(int i = 1; i <= 100; i++) {
-        std::cout << fizzBuzz(i) << std::endl;
-    }
+    int x;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
