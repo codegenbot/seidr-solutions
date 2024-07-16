@@ -3,7 +3,7 @@ while True:
         numbers = list(
             map(float, input("Enter the numbers separated by space: ").split())
         )
-        if len(numbers) == 0:
+        if any(not isinstance(num, float) for num in numbers):
             raise ValueError
         print(sum(numbers))
         break
