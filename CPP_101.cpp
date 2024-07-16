@@ -10,9 +10,12 @@ vector<string> words_string(string s){
     string word;
     while (getline(ss, word, ' ')) {
         if (word.find(',') != string::npos) {
-            word.erase(remove(word.begin(), word.end(), ','), word.end());
+            size_t pos = word.find(',');
+            words.push_back(word.substr(0, pos));
+            words.push_back(word.substr(pos + 1));
+        } else {
+            words.push_back(word);
         }
-        words.push_back(word);
     }
     return words;
 }
