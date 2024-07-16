@@ -1,6 +1,6 @@
-```
 #include <boost/variant.hpp>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -41,4 +41,20 @@ boost::variant<int, float, string> compare_one(boost::any a, boost::any b) {
     else {
         return "None";
     }
+}
+
+int main() {
+    boost::any a = 5;
+    boost::any b = 10.0f;
+    boost::variant<int, float, string> result = compare_one(a, b);
+    if (boost::holds_alternative<string>(result)) {
+        cout << "The result is: " << boost::get<string>(result) << endl;
+    }
+    else if (boost::holds_alternative<int>(result)) {
+        cout << "The result is: " << boost::get<int>(result) << endl;
+    }
+    else {
+        cout << "The result is: " << boost::get<float>(result) << endl;
+    }
+    return 0;
 }
