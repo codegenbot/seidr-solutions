@@ -33,6 +33,7 @@ bool isPrime(int n) {
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
+    int result = skjkasdkd(lst);
+    std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
     return 0;
 }
