@@ -3,4 +3,4 @@ def solve_boolean(expression):
     expression = expression.upper()
     for key, value in boolean_map.items():
         expression = expression.replace(key, value)
-    return eval(expression)
+    return eval(expression, {"True": True, "False": False})
