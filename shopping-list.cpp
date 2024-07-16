@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 
 int shoppingList(float* prices, int nPrices, float* discounts) {
