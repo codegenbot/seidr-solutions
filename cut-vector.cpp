@@ -1,18 +1,24 @@
 #include <vector>
 #include <utility>
-#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < minDiff) {
-            minDiff = diff;
+    int n = nums.size();
+    int leftSum = 0, rightSum = 0;
+    for (int num : nums) rightSum += num;
+    
+    int minDiff = abs(leftSum - rightSum);
+    int cutIndex = 0;
+    
+    for (int i = 0; i < n; ++i) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < minDiff) {
+            minDiff = currentDiff;
             cutIndex = i;
         }
     }
-
-    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
+    
+    return {std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1),
+            std::vector<int>(nums.begin() + cutIndex + 1, nums.end())};
 }
