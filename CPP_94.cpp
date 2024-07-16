@@ -11,13 +11,17 @@ bool isPrime(int n) {
     return true;
 }
 
-int max_prime_sum(std::vector<int> lst){
-    int maxPrime = 0;
+#include <vector> 
+
+using namespace std;
+
+size_t max_prime_sum(vector<int> lst){
+    size_t maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
     }
-    int sum = 0;
+    size_t sum = 0;
     while(maxPrime > 0){
         sum += maxPrime % 10;
         maxPrime /= 10;
@@ -25,13 +29,13 @@ int max_prime_sum(std::vector<int> lst){
     return sum;
 }
 
-int solve(int n, std::vector<int> lst){
+int solve(int n, vector<int> lst){
     int total = 0;
     for(int i : lst){
         total += i;
     }
     if(total == 0) return 0;
-    int maxPrime = 0;
+    size_t maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
@@ -45,17 +49,17 @@ int solve(int n, std::vector<int> lst){
 }
 
 int main() {
-    std::cout << "Enter the number of elements: ";
+    cout << "Enter the number of elements: ";
     int n;
-    std::cin >> n;
-    std::vector<int> lst;
+    cin >> n;
+    vector<int> lst;
     for(int i = 0; i < n; i++){
         int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
         lst.push_back(num);
     }
     int result = solve(n, lst);
-    std::cout << "The maximum prime number in the list is: " << result << std::endl;
+    cout << "The maximum prime number in the list is: " << result << endl;
     return 0;
 }
