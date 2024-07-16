@@ -1,6 +1,6 @@
-```cpp
 #include <initializer_list>
 #include <ostream>
+#include <iostream>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
