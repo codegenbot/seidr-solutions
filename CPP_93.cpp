@@ -1,12 +1,11 @@
-for(char &c : message) {
-        if(isalpha(c)) {
+transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if (isalpha(c)) {
             c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a') c = 'c';
-            else if(c == 'e') c = 'g';
-            else if(c == 'i') c = 'k';
-            else if(c == 'o') c = 'q';
-            else if(c == 'u') c = 'w';
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                c += 2;
+            }
         }
-    }
+        return c;
+    });
     return message;
 }
