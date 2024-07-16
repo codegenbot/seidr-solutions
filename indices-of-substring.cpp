@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <sstream>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -15,17 +14,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     while ((pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos); 
-        pos = text.find(target, pos + 1);
+        pos = text.find(target, pos);
     }
 
     return result;
 }
 
 int main() {
-    string text;
-    getline(cin, text);
-    string target;
-    getline(cin, target);
+    string text, target;
+    cin >> text >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
