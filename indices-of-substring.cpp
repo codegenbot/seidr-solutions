@@ -32,7 +32,7 @@ int main() {
     }
 
     std::cout << "[";
-    for (const auto& index : indicesOfSubstring(text, target)) {
+    for (int index : indicesOfSubstring(text, target)) {
         std::cout << index;
         if (&index != &indicesOfSubstring(text, target)[0]) {
             std::cout << ", ";
