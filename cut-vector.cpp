@@ -13,10 +13,10 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
 
     for (size_t i = 0; i < nums.size(); ++i) {
         leftSum += nums[i];
-        int rightSum = totalSum - leftSum;
+        int rightSum = totalSum - leftSum - nums[i];
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
