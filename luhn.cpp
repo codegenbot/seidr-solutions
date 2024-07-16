@@ -1,10 +1,6 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int luhnCheck(vector<int>& card) {
     int sum = 0;
-    for (int i = 0; i < card.size(); i++) {
+    for (int i = card.size() - 1; i >= 0; i--) {
         if ((card.size() - i - 1) % 2 == 0) {
             int temp = card[i] * 2;
             if (temp > 9) {
@@ -16,15 +12,4 @@ int luhnCheck(vector<int>& card) {
         }
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> card(n);
-    for (int i = 0; i < n; i++) {
-        cin >> card[i];
-    }
-    cout << luhnCheck(card) << endl;
-    return 0;
 }
