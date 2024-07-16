@@ -28,8 +28,7 @@ std::string spinWords(std::string sentence) {
     return result;
 }
 
-int main() {
-    std::cout << spinWords("a") << std::endl; // Output: a
-    std::cout << spinWords("this is a test") << std::endl; // Output: this is a tset
-    std::cout << spinWords("this is another test") << std::endl; // Output: this is rehtona tset
-    std::cout << spinWords("hi") << std::endl; // Output: hi
+std::cout << spinWords("a") << std::endl; 
+std::cout << spinWords("this is a test") << std::endl; 
+std::cout << spinWords("this is another test") << std::endl; 
+std::cout << spinWords("hi") << std::endl;
