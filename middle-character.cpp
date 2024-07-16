@@ -3,7 +3,7 @@ std::string middleCharacter(std::string s) {
     int mid = len / 2;
     std::string result;
     if (len % 2 == 0) {
-        result = len % 2 == 0 ? s.substr(mid - 1, 2) : s.substr(mid, 1);
+        result = s.substr(mid - 1, 1) + s.substr(mid, 1);
     } else {
         result = s.substr(mid, 1);
     }

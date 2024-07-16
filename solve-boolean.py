@@ -27,4 +27,4 @@ def solve_boolean(expression):
         else:
             temp = "F" if char.upper() == 'T' else "T"
 
-    return "True" if result == "T" else "False"
+    return result == "T"
