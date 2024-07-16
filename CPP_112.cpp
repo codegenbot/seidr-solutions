@@ -1,14 +1,11 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-pair<string, string> reverse_delete(const string& s, const string& c) {
+vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -16,8 +13,16 @@ pair<string, string> reverse_delete(const string& s, const string& c) {
         }
     }
     string palindrome_check = result;
-    reverse(palindrome_check.begin(), palindrome_check.end());
+    std::reverse(palindrome_check.begin(), palindrome_check.end());
     return {result, result == palindrome_check ? "True" : "False"};
+}
+
+bool issame(vector<string>& a, vector<string>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
