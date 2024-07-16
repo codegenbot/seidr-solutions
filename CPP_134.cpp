@@ -6,11 +6,11 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    std::string text;
-    std::cout << "Enter a text: ";
-    std::getline(std::cin, text);
-
-    assert(check_if_last_char_is_a_letter(text));
+    std::string txt = "Sample text";
+    assert(check_if_last_char_is_a_letter(txt) == false);
+    
+    txt = "Another sample text ";
+    assert(check_if_last_char_is_a_letter(txt) == true);
 
     return 0;
 }
