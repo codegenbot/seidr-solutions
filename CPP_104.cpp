@@ -5,11 +5,13 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -34,10 +36,12 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789};
+    vector<int> input = {123, 456, 789, 246};
     vector<int> output = unique_digits(input);
-
-    assert(issame(output, {123, 789}));
-
+    
+    vector<int> expected_output = {123, 789};
+    
+    assert(issame(output, expected_output));
+    
     return 0;
 }
