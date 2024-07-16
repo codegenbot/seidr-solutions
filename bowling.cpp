@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,8 +14,9 @@ int bowlingScore(string s) {
                 score += roll;
             roll = 0;
         } else if (isdigit(s[i])) {
+            std::string str = std::to_string(s[i]) - '0';
             roll *= 10;
-            roll += stoi(string(1, s[i]));
+            roll += stoi(str);
         }
     }
 
