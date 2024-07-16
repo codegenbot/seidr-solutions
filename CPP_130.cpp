@@ -1,14 +1,13 @@
-vector<int> result;
-    if (n >= 0) {
-        result.push_back(3);
-        int a = 1, b = 3, c = 2;
-        for (int i = 1; i <= n; ++i) {
-            result.push_back(a);
-            int temp = (i % 2 == 0) ? (1 + i / 2) : (a + b + c);
-            a = b;
-            b = c;
-            c = temp;
+vector<int> tri(int n){
+    vector<int> tribonacci(n + 1);
+    tribonacci[1] = 3;
+    if (n > 1) tribonacci[2] = 1 + n / 2;
+    for (int i = 3; i <= n; ++i) {
+        if (i % 2 == 0) {
+            tribonacci[i] = 1 + i / 2;
+        } else {
+            tribonacci[i] = tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i + 1];
         }
     }
-    return result;
+    return tribonacci;
 }
