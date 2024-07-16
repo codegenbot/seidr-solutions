@@ -15,12 +15,12 @@ int main() {
 
     double bounciness_index = first_bounce_height / start_height;
 
-    double prev_height = first_bounce_height;
-    double total_distance = 0.0;
+    double total_distance = 0.0; 
+    double prev_distance = bounciness_index;   
 
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += prev_height * (start_height + prev_height - start_height) / pow(2.0, i);
-        prev_height /= 2.0; 
+        total_distance += prev_distance * prev_distance;
+        prev_distance *= 2.0; 
     }
 
     cout << fixed << setprecision(6) << total_distance;
