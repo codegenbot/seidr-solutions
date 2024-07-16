@@ -14,6 +14,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
 input_numbers = input().strip().split()
 numbers = [int(num) for num in input_numbers]
 
-# Function call
-output = rolling_max(numbers)
-print(output)
+# Call the rolling_max function with the converted input
+result = rolling_max(numbers)
+print(result)
