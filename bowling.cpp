@@ -59,4 +59,3 @@ int bowlingScore(const std::string& input) {
     }
 
     return score;
-}
