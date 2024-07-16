@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -13,12 +12,14 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         } else if (c == '&') {
             bool operand = true;
-            for (char c : s) {
+            while (true) {
+                c = getchar();
+                if (c == '&')
+                    break;
                 if (c == 'F')
                     operand = false;
                 else if (c == 'T')
                     operand = true;
-                if (c == '&') break;
             }
             result &= operand;
         }
@@ -29,7 +30,7 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::cout << "Enter a Boolean expression: ";
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input); 
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
