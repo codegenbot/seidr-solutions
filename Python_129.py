@@ -4,7 +4,7 @@ def dfs(i, j, path):
 
     if len(path) == k:
         return path
-
+        
     visited.add((i, j))
     for dx, dy in directions:
         x, y = i + dx, j + dy
