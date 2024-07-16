@@ -16,7 +16,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result; // Initialize the vector without initial values
+    std::vector<int> result = {}; // Initialize the vector with an empty constructor
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
@@ -41,15 +41,11 @@ int main() {
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
 
-    std::string line;
+    std::string text, target;
     std::cout << "Enter text: ";
-    std::getline(std::cin, line);
-    std::string text = line;
-
-    line.clear();
+    std::getline(std::cin, text);
     std::cout << "Enter target string: ";
-    std::getline(std::cin, line);
-    std::string target = line;
+    std::getline(std::cin, target);
 
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
