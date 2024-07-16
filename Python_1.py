@@ -7,14 +7,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == '(':
             level += 1
+            if level > 1:
+                result[-1] += char
+            else:
+                result.append(char)
         elif char == ')':
             level -= 1
-            if level < 0:
-                level = 0
-        
-        if level == 0:
-            result.append("")
-        if result:
-            result[-1] += char
+            if level > 0:
+                result[-1] += char
 
     return result
