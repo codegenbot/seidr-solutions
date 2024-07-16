@@ -1,7 +1,6 @@
-```
 #include <iostream>
 #include <string>
-#include <vector>
+#include <sstream>
 #include <cctype>
 
 std::string camelCase(const std::string& str) {
@@ -23,13 +22,15 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    char c;
-    while ((c = getchar()) != '\n') {
-        input.push_back(c);
+    std::getline(std::cin, str);
+    size_t pos = 0;
+    while ((pos = str.find('-')) != std::string::npos) {
+        str.replace(pos, 1, std::toupper(str[pos]));
+        str.erase(pos, 1);
     }
-    std::cout << "camelCase: " << camelCase(input) << std::endl;
+    std::cout << "camelCase: " << camelCase(str) << std::endl;
 
     return 0;
 }
