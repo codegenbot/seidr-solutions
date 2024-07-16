@@ -4,7 +4,7 @@
 using namespace std;
 using boost::any_cast;
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(any_cast<int>(a) > any_cast<int>(b)){
             return a;
