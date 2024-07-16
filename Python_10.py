@@ -1,11 +1,12 @@
-Here is the completed code:
-
 def is_palindrome(string: str) -> bool:
+    """Test if given string is a palindrome"""
     return string == string[::-1]
 
+
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    for i in range(len(string), -1, -1):
-        if string[:i] + string[i:][::-1] == string:
-            return string[:i] + string[i:][::-1]
+    if is_palindrome(string):
+        return string + string
+    for i in range(len(string) - 1, -1, -1):
+        if not is_palindrome(string[:i] + string[i:][::-1]):
+            break
+    return string[:i] + string[i:][::-1] + string[::-1]
