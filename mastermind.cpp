@@ -1,7 +1,7 @@
 #include <utility>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
-    std::string all_chars = "RGYBO"; // assuming the 6 possible characters are R, G, Y, B and O
+    std::string all_chars = "RGYBO"; // assuming the 6 possible characters are R, G, O, and so on
 
     int white = 0;
     int black = 0;
