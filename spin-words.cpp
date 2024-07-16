@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
     std::vector<std::string> word_list;
     int start = 0;
     for (int i = 0; i <= sentence.length(); i++) {
@@ -27,4 +26,3 @@ int main() {
     std::cout << spinWords("this is another test") << std::endl;
     std::cout << spinWords("hi") << std::endl;
     return 0;
-}
