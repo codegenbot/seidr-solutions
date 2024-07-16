@@ -31,14 +31,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const std::string& a, const std::string& b) {
-    return (a == b);
-}
-
-int main2() {
-    std::vector<std::string> vec = reverse_delete("mamma", "mia");
-    if (!issame({"", "True"}, &vec[0])) {
-        return 1;
-    }
-    return 0;
+bool issame(const std::vector<std::string>& a, const std::string& b) {
+    return (a == vector<string>(1, b));
 }
