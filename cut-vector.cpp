@@ -12,22 +12,23 @@ int main() {
         sum += nums[i];
     }
     
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_index = -1;
     
     for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_index = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
+    if (abs(sum - 2 * prefix_sum) < abs(sum - 2 * (prefix_sum - nums[cut_index]))) {
+        cut_index++;
+    }
+    
+    for (int i = 0; i <= cut_index; i++) {
         cout << nums[i] << endl;
     }
     
