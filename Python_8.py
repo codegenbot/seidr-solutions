@@ -6,11 +6,11 @@ results = []
 try:
     while True:
         numbers = list(map(int, input().strip().split()))
-        if not numbers or numbers == [-1]:
+        if not numbers:
             break
         result = sum_product(numbers)
         results.append(result)
-except EOFError:
+except (EOFError, ValueError):
     pass
 
 for result in results:
