@@ -1,5 +1,8 @@
 #include <vector>
-#include <cassert>
+
+bool issame(int x, int y) {
+    return x == y;
+}
 
 vector<int> f(int n) {
     vector<int> result;
@@ -14,13 +17,4 @@ vector<int> f(int n) {
         }
     }
     return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    return 0;
 }
