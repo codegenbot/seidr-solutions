@@ -6,18 +6,19 @@ def bowling_score(frames):
         if frames[frame_index] == 'X':
             score += 10
             if i < 10:
-                strike2 = int(frames[frame_index+1: frame_index+3])
-                score += strike2
+                strike = int(frames[frame_index+1:frame_index+3].lstrip(' /'))
+                score += strike
             frame_index += 1
         elif frames[frame_index: frame_index+2].isdigit():
-            strike = int(frames[frame_index: frame_index+2])
-            score += strike
+            roll = int(frames[frame_index: frame_index+2])
+            score += roll
             if i < 10:
-                frame_index += 2
-            else:
-                break
+                if roll == 10:
+                    frame_index += 1
+                else:
+                    frame_index += 2
         else:
-            spare = int(frames[frame_index])
-            score += spare + 1
+            spare = int(frames[frame_index].lstrip('/'))
+            score += spare + 10 - i
             frame_index += 1
     return score
