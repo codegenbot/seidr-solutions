@@ -3,7 +3,7 @@
 #include <string>
 
 std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words = split(s, '-'); // Split the string into words
+    std::vector<std::string> words = split(s, '-'); 
     std::string result;
 
     for (int i = 0; i < words.size(); ++i) {
