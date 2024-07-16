@@ -21,7 +21,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    float result = std::sqrt(sum);
+    float result = std::sqrt(sum); // Update this line
 
     std::cout << result << std::endl;
 
