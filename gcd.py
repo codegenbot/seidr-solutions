@@ -3,7 +3,8 @@ b = int(input("Enter second number: "))
 
 print(gcd(a, b))
 
-text = input("Enter text: ")
-target = input("Enter target: ")
+
+text = input()
+target = input()
 
 print(indices_of_substring(text, target))
