@@ -1,2 +1,3 @@
-return cbrt(a) == int(cbrt(a));
+double root = cbrt(abs(a));
+    return a == 0 || a == pow(round(root), 3);
 }
