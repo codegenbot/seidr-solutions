@@ -1,17 +1,17 @@
-vector<int> parse_music(string music_string){ 
+vector<int> parse_music(string music_string){
     vector<int> beats;
-    size_t pos = 0;
-    string delimiter = " ";
-    while ((pos = music_string.find(delimiter)) != string::npos) {
-        string token = music_string.substr(0, pos);
-        if (token == "o") {
+    int i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (token == "o|") {
+            i++;
+        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
             beats.push_back(2);
-        } else if (token == ".|") {
+            i += 2;
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
+            i += 2;
         }
-        music_string.erase(0, pos + delimiter.length());
     }
     return beats;
 }
