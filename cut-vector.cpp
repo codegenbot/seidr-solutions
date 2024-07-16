@@ -6,24 +6,29 @@ int main() {
         cin >> vec[i];
     }
     
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
+    int diff = INT_MAX;
+    int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
-        int diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += vec[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += vec[j];
+        }
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cut_index; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         cout << vec[i] << endl;
     }
-    cout << endl;
-    for (int i = cut_index; i < n; ++i) {
+    cout << 0 << endl;
+    for (int i = cutIndex; i < n; ++i) {
         cout << vec[i] << endl;
     }
-    
     return 0;
 }
