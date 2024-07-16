@@ -4,7 +4,15 @@
 
 using namespace std;
 
-int skjkasdkd(vector<int> lst){
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int skjasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -18,14 +26,6 @@ int skjkasdkd(vector<int> lst){
     return sum;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
 int main() {
-    assert(sjkasdkd({127, 97, 8192}) == 10);
+    assert(skjasdkd({127, 97, 8192}) == 19);
 }
