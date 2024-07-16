@@ -1,12 +1,14 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+vector<int> remove_duplicates(vector<int> numbers) {
+    sort(numbers.begin(), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
 
-bool issame(std::vector<int> vec1, std::vector<int> vec2) {
-    return vec1 == vec2;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
 }
