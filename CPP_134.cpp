@@ -1,10 +1,4 @@
-int len = txt.length();
-    if (len == 0) return false;
-    char lastChar = txt[len - 1];
-    if (isalpha(lastChar)) {
-        if (len == 1 || txt[len - 2] == ' ') {
-            return true;
-        }
-    }
+if(txt.empty())
     return false;
-}
+char lastChar = txt.back();
+return isalpha(lastChar) && !isalnum(*(txt.end() - 2));
