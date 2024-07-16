@@ -1,6 +1,5 @@
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
-}
+#include <vector>
+#include <algorithm>
 
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
