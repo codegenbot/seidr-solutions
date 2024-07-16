@@ -7,9 +7,10 @@ def indices_of_substring(text, target):
             result.append(pos)
             i = pos + len(target)
         else:
-            break 
+            break
     return result
 
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+
+text = """{}""".format(input())
+target = """{}""".format(input())
+print(indices_of_substring(text.strip(), target.strip()))
