@@ -12,8 +12,8 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input;
     cout << "Enter a positive integer: ";
+    string input; 
     cin >> input; 
     string result = squareDigits(input); 
     cout << "Squared digits: " << result << endl;
