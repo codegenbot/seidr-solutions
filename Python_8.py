@@ -3,7 +3,10 @@ from typing import List, Tuple
 results = []
 while True:
     try:
-        numbers = list(map(int, input().split()))
+        line = input()
+        if line == '':
+            break
+        numbers = list(map(int, line.split()))
         result = sum_product(numbers)
         results.append(result)
     except EOFError:
