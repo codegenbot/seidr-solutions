@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -26,7 +25,7 @@ string spinWords(string str) {
             result += word + " ";
         }
     }
-    return result.substr(0, result.length() - 1); 
+    return result.substr(0, result.length() - 1); // remove extra space at the end
 }
 
 int main() {
