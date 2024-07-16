@@ -1,7 +1,9 @@
 #include <iostream>
-#include <string> // Add this line for using string class
+#include <cmath>
 
-std::string rounded_average(int n, int m) {
+using namespace std;
+
+string rounded_avg(int n, int m) {
     if (n > m)
         return "-1";
 
@@ -12,16 +14,17 @@ std::string rounded_average(int n, int m) {
 
     int avg = round((double)sum / (m - n + 1));
 
-    std::string binary_avg = "";
+    string binary_avg = "";
     while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
+        binary_avg = to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
 
     return binary_avg;
 }
 
-int main() { // Example usage
-    assert(rounded_average(5, 5) == "101");
+int main() {
+    assert (rounded_avg(5, 5) == "101");
+    
     return 0;
 }
