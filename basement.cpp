@@ -6,15 +6,25 @@ int basement(std::vector<int> nums) {
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i;
+            return i + 1;
         }
     }
     return 0;
 }
 
 int main() {
-    std::vector<int> nums = {2, -3, 4, -1, -2};
+    int n;
+    std::cout << "Enter the number of integers: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter " << n << " integers:\n";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
     int result = basement(nums);
-    std::cout << result << std::endl;
+    std::cout << "The first index where the sum is negative: " << result << std::endl;
+
     return 0;
 }
