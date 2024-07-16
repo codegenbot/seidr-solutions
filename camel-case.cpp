@@ -22,7 +22,7 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string input;
     char c;
-    while((c = std::getchar()) != '\n') {
+    while((c = getchar()) != '\n') {
         if(c == '-') {
             continue;
         }
