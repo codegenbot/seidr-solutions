@@ -4,7 +4,7 @@ def coin_sums(cents):
 
     for i in range(len(coins)-1,-1,-1):
         while cents >= coins[i]:
-            quotient = min((cents + coins[i] - 1) // coins[i], int(cents / coins[i]) + 1)
+            quotient = cents // coins[i]
             cents -= quotient * coins[i]
             result[i] += quotient
 
