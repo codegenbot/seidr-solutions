@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -21,3 +22,10 @@ int max_prime_sum(std::vector<int> lst){
         maxPrime /= 10;
     }
     return sum;
+}
+
+int main() {
+    int result = max_prime_sum({127, 97, 8192});
+    std::cout << "The maximum prime number in the list is: " << result << std::endl;
+    return 0;
+}
