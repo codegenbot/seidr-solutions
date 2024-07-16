@@ -1,12 +1,6 @@
-#include <algorithm>
-using namespace std;
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
-    }
-    return result;
+    vector<int> res(k);
+    partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
+    copy(arr.end() - k, arr.end(), res.begin());
+    return res;
 }
