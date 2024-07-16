@@ -1,5 +1,8 @@
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+```cpp
+#include <vector>
+
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
