@@ -1,40 +1,42 @@
-#include <boost/variant.hpp>
 #include <iostream>
-#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
-boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) {
+using namespace std;
+
+int compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        std::string str = (std::string)a.convert_to<std::string>();
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)a.convert_to<string>();
         float f = (float)b.convert_to<float>();
-        return (f > std::stod(str)) ? boost::variant<int, float, std::string>(f) : boost::variant<int, float, std::string>(str);
+        return (f > stod(str)) ? f : str;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = (std::string)a.convert_to<std::string>();
-        std::string str2 = (std::string)b.convert_to<std::string>();
-        return (std::stod(str2) > std::stod(str1)) ? boost::variant<int, float, std::string>(str2) : (std::stod(str1) == std::stod(str2)) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(str1);
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = (string)a.convert_to<string>();
+        string str2 = (string)b.convert_to<string>();
+        return (stod(str2) > stod(str1)) ? str2 : ((stod(str1) == stod(str2)) ? "None" : str1);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int i = (int)a.convert_to<int>();
-        std::string str = (std::string)b.convert_to<std::string>();
-        return (std::stod(str) > i) ? boost::variant<int, float, std::string>(str) : (i == std::stod(str)) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i);
+        string str = (string)b.convert_to<string>();
+        return (stod(str) > i) ? str : ((i == stod(str)) ? "None" : i);
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str = (std::string)a.convert_to<std::string>();
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = (string)a.convert_to<string>();
         int i = (int)b.convert_to<int>();
-        return (std::stod(str) > i) ? boost::variant<int, float, std::string>(str) : (i == std::stod(str)) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i);
+        return (stod(str) > i) ? str : ((i == stod(str)) ? "None" : i);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         float f = (float)a.convert_to<float>();
         int i = (int)b.convert_to<int>();
-        return (f > i) ? boost::variant<int, float, std::string>(f) : (i == f) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i);
+        return (f > i) ? f : ((i == f) ? "None" : i);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int i1 = (int)a.convert_to<int>();
         int i2 = (int)b.convert_to<int>();
-        return (i2 > i1) ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
+        return (i2 > i1) ? i2 : ((i1 == i2) ? "None" : i1);
     }
     else {
         return "None";
@@ -45,13 +47,13 @@ int main() {
     boost::any a = 10;
     boost::any b = 20.5;
 
-    boost::variant<int, float, std::string> result = compare_one(a, b);
+    boost::variant<int, float, string> result = compare_one(a, b);
 
-    if (boost::holds_alternative<std::string>(result)) {
-        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
+    if (boost::holds_alternative<string>(result)) {
+        cout << "The result is: " << boost::get<string>(result) << endl;
     }
     else {
-        std::cout << "The result is: " << boost::get<int>(result) << std::endl;
+        cout << "The result is: " << boost::get<int>(result) << endl;
     }
 
     return 0;
