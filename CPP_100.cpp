@@ -9,3 +9,4 @@ vector<int> stones;
         stones.push_back(n);
     }
     return stones;
+}
