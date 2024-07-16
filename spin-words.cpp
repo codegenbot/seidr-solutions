@@ -1,15 +1,6 @@
 #include <sstream>
 #include <iostream>
 
-std::string spinWords(std::string str);
-
-int main() {
-    std::string str = "Hello World";
-    std::cout << spinWords(str) << std::endl;
-    return 0;
-
-}
-
 std::string spinWords(std::string str) {
     std::istringstream iss(str);
     std::string word;
@@ -23,4 +14,10 @@ std::string spinWords(std::string str) {
     }
 
     return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    std::string str = "Hello World";
+    std::cout << spinWords(str) << std::endl;
+    return 0;
 }
