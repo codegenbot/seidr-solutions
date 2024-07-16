@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
@@ -16,4 +17,9 @@ std::string spinWords(std::string str) {
         result.pop_back();
 
     return result;
+}
+
+int main() {
+    std::cout << spinWords("Hello World");
+    return 0;
 }
