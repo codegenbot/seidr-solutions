@@ -8,8 +8,8 @@ double totalPriceAfterDiscount(const vector<float>& prices, const vector<float>&
     double totalPrice = 0;
     for (int i = 0; i < prices.size(); ++i) {
         double price = prices[i];
-        double discount = price * discounts[i] / 100.0;
-        totalPrice += price - discount;
+        double discountedPrice = price - (price * discounts[i] / 100.0);
+        totalPrice += discountedPrice;
     }
     return totalPrice;
 }
@@ -30,7 +30,7 @@ int main() {
 
     double totalPrice = totalPriceAfterDiscount(prices, discounts);
 
-    cout << setprecision(1) << fixed << totalPrice << endl;
+    cout << fixed << setprecision(1) << totalPrice << endl;
 
     return 0;
 }
