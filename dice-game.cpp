@@ -4,8 +4,10 @@ using namespace std;
 double probability(int n, int m) {
     double result = 0.0;
     for(int i = 1; i < m; ++i) {
-        result += (n - i) / (double)(m);
+        result += (n - i) / (double)(n * m);
     }
+    // subtract the probability that they roll equal
+    result -= 1.0 / (double)m;
     return result;
 }
 
