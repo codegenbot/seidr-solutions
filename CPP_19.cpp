@@ -12,24 +12,23 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    for(auto const& pair : number_map){
-        reverse_map[pair.second] = pair.first;
+    string result = "";
+    map<int, string> sorted_numbers;
+    
+    string current_number = "";
+    for (char c : numbers) {
+        if (c == ' ') {
+            sorted_numbers[number_map[current_number]] = current_number;
+            current_number = "";
+        } else {
+            current_number += c;
+        }
     }
-
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token){
-        sorted_numbers.push_back(number_map[token]);
+    sorted_numbers[number_map[current_number]] = current_number;
+    
+    for (auto it = sorted_numbers.begin(); it != sorted_numbers.end(); ++it) {
+        result += it->second + " ";
     }
-
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    string result;
-    for(auto num : sorted_numbers){
-        result += reverse_map[num] + " ";
-    }
-
+    
     return result;
 }
