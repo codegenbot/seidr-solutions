@@ -6,7 +6,6 @@ string words_in_sentence(string sentence);
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    // Add more test cases as needed
 
     return 0;
 }
