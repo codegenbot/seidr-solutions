@@ -10,15 +10,13 @@ int main() {
     int total_dimes = cents / 10;
     cents %= 10;
 
-    int nickles_and_pennies = cents / 5;
+    int total_nickles = cents / 5;
     cents %= 5;
-
-    int total_nickels = nickles_and_pennies / 5;
-    nickles_and_pennies %= 5;
-    int pennies = nickles_and_pennies;
+    int pennies = cents;
+    int nickles_and_pennies = total_nickles + (total_nickles > 0 ? 1 : 0);
 
     cout << total_quarters << endl;
     cout << total_dimes << endl;
-    cout << total_nickels << endl;
+    cout << nickles_and_pennies << endl;
     cout << pennies << endl;
 }
