@@ -1,6 +1,4 @@
 #include <vector>
-#include <algorithm>
-
 vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
@@ -12,7 +10,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     if (issame(common({4, 3, 2, 8}, {}))) {
-        // do something
+        cout << "The vectors have common elements." << endl;
+    } else {
+        cout << "The vectors do not have common elements." << endl;
     }
     return 0;
 }
