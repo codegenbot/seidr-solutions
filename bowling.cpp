@@ -1,4 +1,6 @@
-int bowlingScore(std::string s) {
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
