@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate():
         if expression[0] in ["T", "F"]:
@@ -10,11 +11,10 @@ def solve_boolean(expression):
             return temp
         operator = expression[0]
         if operator in ["|", "&"]:
-            i += 1
             left = evaluate()
-            right = expression[i:]
-            return {"|": lambda: left or evaluate(), "&": lambda: left and evaluate()}[operator]()
-        else:
-            raise Exception("Invalid input")
+            right = expression[2:] 
+            if right[0] == "(":
+                return "(" + str(evaluate()) + ")"
+            return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
 
-    return evaluate()(expression)
+    return eval("(" + str(evaluate()) + ")")
