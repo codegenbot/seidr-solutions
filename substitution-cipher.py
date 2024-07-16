@@ -1,24 +1,16 @@
-def main():
-    cipher1 = input("Enter the first string: ")
-    cipher2 = input("Enter the second string: ")
-    message = input("Enter the message to decipher: ")
-
-    mapping = {}
-    for c1, c2 in zip(cipher1.lower(), cipher2):
-        if c1.isalpha():
-            if c1.islower(): 
-                mapping[c1] = c2
-            else:
-                mapping[c1] = c2.upper()
-
+def decipher():
+    key1 = input("Enter the first string: ")
+    key2 = input("Enter the second string: ")
+    message = input("Enter the message to be deciphered: ")
+    mapping = {char1: char2 for char1, char2 in zip(key1, key2)}
+    
     result = ""
     for char in message:
         if char.isalpha():
-            result += mapping.get(char.lower(), char).upper() if char.isupper() else mapping.get(char, char)
+            orig_case = char.isupper()
+            result_char = mapping.get(char.lower(), char).lower() if orig_case else mapping.get(char, char).upper()
+            result += result_char
         else:
             result += char
-    
-    return result
-
-if __name__ == "__main__":
-    print(main())
+            
+    print("Deciphered message: ", result)''
