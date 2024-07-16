@@ -1,11 +1,9 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
-#include <boost/variant.hpp>
-
-namespace boost {
-    using variant = std::variant<int, float, std::string>;
-    using any     = std::any;
-}
+#include <boost/variant2/variant.hpp>
 
 boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -31,18 +29,18 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         int i = boost::get<int>(b.convert_to<boost::any>());
         return std::stod(str) > i ? boost::variant<int, float, std::string>(str) : (i == std::stod(str)) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int i = boost::get<int>(a.convert_to<boost::any>());
-        float f = boost::get<float>(b.convert_to<boost::any>());
-        return i > f ? boost::variant<int, float, std::string>(i) : boost::variant<int, float, std::string>(f);
-    }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         float f = boost::get<float>(a.convert_to<boost::any>());
         int i = boost::get<int>(b.convert_to<boost::any>());
-        return f > i ? boost::variant<int, float, std::string>(f) : boost::variant<int, float, std::string>(i);
+        return f > i ? boost::variant<int, float, std::string>(f) : (i == f) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int i1 = boost::get<int>(a.convert_to<boost::any>());
+        int i2 = boost::get<int>(b.convert_to<boost::any>());
+        return i2 > i1 ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
     }
     else {
-        return boost::variant<int, float, std::string>();
+        return a.type() == typeid(int) ? boost::variant<int, float, std::string>(boost::get<int>(a)) : (a.type() == typeid(float) ? boost::variant<int, float, std::string>(boost::get<float>(a)) : boost::variant<int, float, std::string>(boost::get<std::string>(a)));
     }
 }
 
@@ -51,13 +49,15 @@ int main() {
     boost::any b = "20.5";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (boost::holds_alternative<int>(result)) {
-        std::cout << "The result is: " << *std::get_if<int>(&result) << std::endl;
+    if (std::holds_alternative<int>(result)) {
+        std::cout << "The result is: " << std::get<int>(result) << std::endl;
     }
-    else if (boost::holds_alternative<float>(result))
-        std::cout << "The result is: " << *std::get_if<float>(&result) << std::endl;
-    else
-        std::cout << "The result is: " << *std::get_if<std::string>(&result) << std::endl;
+    else if (std::holds_alternative<float>(result)) {
+        std::cout << "The result is: " << std::get<float>(result) << std::endl;
+    }
+    else {
+        std::cout << "The result is: " << std::get<std::string>(result) << std::endl;
+    }
 
     return 0;
 }
