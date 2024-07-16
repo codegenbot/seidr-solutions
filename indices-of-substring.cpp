@@ -21,12 +21,13 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     string nStr;
-    cin >> text >> " " >> nStr;
+    cin >> text >> nStr;
 
     vector<int> indices = indicesOfSubstring(text, nStr);
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
-
+    
     return 0;
+}
