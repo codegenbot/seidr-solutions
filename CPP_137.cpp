@@ -1,22 +1,23 @@
 #include <iostream>
-#include <boost/any.hpp>
+#include <any>
 #include <algorithm>
 #include <cassert>
 #include <string>
+#include <boost/any.hpp>
 
-using boost::any;
+using std::any;
 using std::string;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
+        string str_a = std::any_cast<string>(a);
+        string str_b = std::any_cast<string>(b);
 
         if (str_a.find(",") != string::npos) {
             std::replace(str_a.begin(), str_a.end(), ',', '.');
@@ -35,7 +36,7 @@ any compare_one(any a, any b) {
 
 int main() {
     assert(std::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(std::any_cast<float>(compare_one(1, 3.4f)) == 3.4f);
+    assert(boost::any_cast<float>(compare_one(string("1"), 3.4f)) == 3.4f);
 
     std::cout << "All test cases passed!" << std::endl;
 
