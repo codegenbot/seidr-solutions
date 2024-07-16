@@ -1,14 +1,9 @@
-results = []
-
-while True:
-    try:
-        numbers = list(map(int, input().strip().split()))
-        if not numbers:
+input_lines = []
+try:
+    while True:
+        line = input().strip()
+        if not line:
             break
-        result = sum_product(numbers)
-        results.append(result)
-    except EOFError:
-        break
-
-for result in results:
-    print(result)
+        input_lines.append(list(map(int, line.split())))
+except EOFError:
+    pass
