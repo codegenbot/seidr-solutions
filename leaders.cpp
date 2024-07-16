@@ -7,14 +7,14 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    int maxSeenSoFar = arr.back(); // Initialize with the rightmost element
+    int rightMax = arr.back(); // Initialize with the last element
     
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= maxSeenSoFar){
+    for(int i=n-1; i>=0; i--){
+        if(arr[i] >= rightMax){
             res.push_back(arr[i]);
-            maxSeenSoFar = arr[i];
+            rightMax = arr[i];
         } else {
-            maxSeenSoFar = arr[i];
+            rightMax = arr[i];
         }
     }
     
@@ -22,7 +22,7 @@ vector<int> calculateLeaders(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> arr = {15, 368, 286, 293, 350, 228, 403, 363, 199, 827, 153, 52, 293, 286, 18, 538};
     vector<int> leadersVec = calculateLeaders(arr);
     for(int i:leadersVec){
         cout << i << " ";
