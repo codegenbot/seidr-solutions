@@ -1,6 +1,15 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
+
+vector<string> sorted_list_sum(vector<string> lst);
+
+bool issame(const vector<string>& a, const vector<string>& b){
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst){
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
@@ -11,4 +20,11 @@ vector<string> sorted_list_sum(vector<string> lst){
         return a.length() < b.length();
     });
     return lst;
+}
+
+int main() {
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum(input), expected_output));
+    return 0;
 }
