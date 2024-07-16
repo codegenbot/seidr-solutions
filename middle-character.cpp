@@ -1,6 +1,8 @@
+#include <string>
 #include <sstream>
+#include <bits/stdc++.h>
 
-std::string middleCharacter(std::string s) {
+string middleCharacter(string s) {
     int n = s.length();
     if (n % 2 == 0) {
         return s.substr(n / 2 - 1, 2);
