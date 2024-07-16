@@ -19,11 +19,11 @@ bool issame(vector<string> a, vector<string> b){
 
 int main(){
     // Test the filter_by_substring function
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
-    string substring = "an";
-    vector<string> filtered = filter_by_substring(strings, substring);
+    vector<string> test_strings = {"apple", "banana", "orange", "grape"};
+    string test_substring = "an";
+    vector<string> filtered_result = filter_by_substring(test_strings, test_substring);
     
-    for(const string& str : filtered){
+    for(const string& str : filtered_result){
         cout << str << " ";
     }
     
