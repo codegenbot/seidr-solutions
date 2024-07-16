@@ -1,25 +1,13 @@
-```Python
 def bowling_score(frames):
     score = 0
-    i = 0
-    while i < len(frames) - 1:
-        if frames[i] == "X":
+    for i in range(10):
+        if frames[i*2] == "X":
             score += 30
-            i += 1
-            if frames[i] == "/":
-                score += int(frames[i + 1].replace("/", ""))
-                i += 1
-        elif frames[i:i+2].count("X") == 1:
-            score += int(frames[i].replace("/", "")) + int(frames[i+1].replace("/", ""))
-            i += 2
+        elif len(frames[i*2:i*2+3]) > 2 and "/X" in frames[i*2:i*2+3]:
+            score += 30 + int(frames[i*2+3].replace("/",""))
+        elif len(frames[i*2:i*2+3]) > 2 and "/" in frames[i*2:i*2+3]:
+            score += sum(int(x) for x in (frames[i*2:i*2+2].replace("/", "")))
+            score += int(frames[i*2+2].replace("/",""))
         else:
-            score_sum = sum(int(x) for x in (frames[i:i+2].replace("/", "")))
-            if score_sum < 10:
-                score += score_sum
-                i += 1
-                score += int(frames[i].replace("/", ""))
-                i += 1
-            else:
-                score += score_sum
-                i += 2
+            score += sum(int(x) for x in (frames[i*2:i*2+2].replace("/", "")))
     return score
