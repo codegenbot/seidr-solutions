@@ -1,10 +1,10 @@
-int result = 0;
-        for (int i = 0; i < grid.size(); i++) {
-            int water = 0;
-            for (int j = 0; j < grid[i].size(); j++) {
-                water += grid[i][j];
+int total_fill = 0;
+        for (int j = 0; j < grid[0].size(); j++) {
+            int well_fill = 0;
+            for (int i = 0; i < grid.size(); i++) {
+                well_fill += grid[i][j];
             }
-            result += (water + capacity - 1) / capacity;
+            total_fill += well_fill % capacity + (well_fill / capacity) * capacity;
         }
-        return result;
+        return total_fill;
     }
