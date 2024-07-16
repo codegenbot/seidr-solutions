@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 
 string fizzBuzz(int x) {
     string result;
-    if (x % 3 == 0 && x % 5 == 0)
+    if (x % 15 == 0)
         result = "FizzBuzz";
     else if (x % 3 == 0)
         result = "Fizz";
