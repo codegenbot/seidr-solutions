@@ -29,8 +29,8 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD"; // Your code here
-    std::string guess = "ABDE"; // Your guess here
+    std::string code = "ABCD";
+    std::string guess = "ABDE";
     auto [white, black] = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
