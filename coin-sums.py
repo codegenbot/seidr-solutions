@@ -7,4 +7,4 @@ def coin_sums(cents):
             cents -= coins[i]
             results[i] += 1
 
-    return results
+    return results[3], results[2], results[1], results[0]
