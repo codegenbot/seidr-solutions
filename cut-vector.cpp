@@ -1,41 +1,52 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+
+    for (int i = 0; i < v.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += v[j];
+        }
+        for (int j = i; j < v.size(); ++j) {
+            right_sum += v[j];
+        }
+
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
+
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+
+    vector<int> v(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if (i < result.first.size() - 1) {
-            cout << ", ";
-        }
+
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "Left: ";
+    for (auto x : result.first) {
+        cout << x << " ";
     }
-    cout << "]\n[";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if (i < result.second.size() - 1) {
-            cout << ", ";
-        }
+    cout << endl;
+
+    cout << "Right: ";
+    for (auto x : result.second) {
+        cout << x << " ";
     }
-    cout << "]\n0\n";
-    return 0;
+    cout << endl;
 }
