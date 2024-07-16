@@ -9,6 +9,5 @@ string circular_shift(int x, int shift) {
         reverse(numStr.begin(), numStr.end());
         return numStr;
     }
-    string shiftedNum = numStr.substr(n - shift) + numStr.substr(0, n - shift);
-    return shiftedNum;
+    return numStr.substr(n - shift) + numStr.substr(0, n - shift);
 }
