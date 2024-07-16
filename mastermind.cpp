@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 int mastermind(string code, string guess) {
