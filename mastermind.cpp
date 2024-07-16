@@ -1,4 +1,3 @@
-```c++
 #include <tuple>
 #include <vector>
 #include <iostream>
@@ -15,7 +14,6 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
                 inCode = true;
                 if (j == i) { 
                     black++;
-                    break;
                 } else {
                     white++;
                 }
