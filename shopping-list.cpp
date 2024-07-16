@@ -8,3 +8,4 @@ double totalPriceAfterDiscount(const std::vector<float>& prices, const std::vect
         totalPrice += price - discount;
     }
     return totalPrice;
+}
