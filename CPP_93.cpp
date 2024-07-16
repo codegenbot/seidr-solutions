@@ -1,11 +1,20 @@
 string encode(string message){
-    for(char &c : message){
+    string encoded_message = "";
+    for(char c : message){
         if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
             }
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                encoded_message += char(c + 2);
+            } else {
+                encoded_message += c;
+            }
+        } else {
+            encoded_message += c;
         }
     }
-    return message;
+    return encoded_message;
 }
