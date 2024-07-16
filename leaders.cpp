@@ -7,16 +7,20 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
-    int rightmostLeader = arr[n - 1];
-    
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= rightmostLeader) {
+    for (int i = 0; i < n; i++) {
+        bool isLeader = true;
+        
+        for (int j = i + 1; j <= n - 1; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        
+        if (isLeader) {
             result.push_back(arr[i]);
-            rightmostLeader = arr[i];
         }
     }
-    
-    reverse(result.begin(), result.end());
     
     return result;
 }
@@ -24,7 +28,7 @@ vector<int> leaders(vector<int>& arr) {
 int main() {
     vector<int> arr = {1, 3, 4, 1, 5};
     vector<int> leadersResult = leaders(arr);
-    for (int leader : leadersResult) {
+    for (auto leader : leadersResult) {
         cout << leader << " ";
     }
     return 0;
