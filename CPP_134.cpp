@@ -1,4 +1,11 @@
-if(txt.empty())
+if (txt.empty()) {
     return false;
+}
 char lastChar = txt.back();
-return isalpha(lastChar) && !isalnum(*(txt.end() - 2));
+if (isalpha(lastChar)) {
+    if (txt.find_last_of(" ") == txt.length() - 1) {
+        return true;
+    }
+}
+return false;
+}
