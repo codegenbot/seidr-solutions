@@ -1,53 +1,33 @@
-Here is the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string kebabToCamel(const string& s) {
-    string result = "";
-    for (const auto& word : split(s, " ")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
-        }
-        for (char c : word) {
-            if (c == '-') {
-                break;
-            }
-            result += tolower(c);
+std::string kebabToCamel(const std::string& str) {
+    std::vector<std::string> words = {""};
+    for (char c : str + " ") {
+        if (c == '-') {
+            words.back() += toupper(c + 1);
+        } else if (c == ' ') {
+            words.push_back("");
+        } else {
+            words.back() += tolower(c);
         }
     }
-    return result;
-}
-
-string split(const string& s, const char sep) {
-    vector<string> words;
-    size_t pos = 0;
-    while ((pos = s.find(sep)) != string::npos) {
-        words.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
-    words.push_back(s);
-    return join(words, " ");
-}
-
-string join(const vector<string>& words, const char sep) {
-    string result = "";
+    std::string result;
     for (const auto& word : words) {
-        if (!result.empty()) {
-            result += sep;
+        if (!word.empty()) {
+            result += word[0];
+            for (int i = 1; i < word.size(); ++i) {
+                result += toupper(word[i]);
+            }
         }
-        result += word;
     }
     return result;
 }
 
 int main() {
-    cout << kebabToCamel("nospaceordash") << endl;
-    cout << kebabToCamel("two-words") << endl;
-    cout << kebabToCamel("two words") << endl;
-    cout << kebabToCamel("all separate words") << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
+    }
     return 0;
 }
