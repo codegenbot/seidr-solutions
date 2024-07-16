@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 bool solveBoolean(const std::string& s) {
