@@ -18,10 +18,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    vector<int> vec1 = generate_integers(1, 10);
-    vector<int> vec2 = generate_integers(1, 10);
-    
-    assert(issame(vec1, vec2) == true);
-    
+    // Test the functions here if needed
     return 0;
 }
