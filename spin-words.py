@@ -4,8 +4,8 @@ def spin_words(text):
 
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1])
+            result.append(word[::-1] + " ")
         else:
-            result.append(word)
+            result.append(word + " ")
 
-    return " ".join(map(str, result))
+    return "".join(result).strip()
