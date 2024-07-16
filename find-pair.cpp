@@ -1,5 +1,5 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
@@ -15,7 +15,7 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::vector<std::pair<int, int>> result;
     for (const auto& pair : numMap) {
         if (numMap.find(target - pair.first) != numMap.end()) {
-            result.push_back({{target - pair.first, pair.first}});
+            result.push_back({target - pair.first, pair.first});
         }
     }
     
