@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -29,16 +28,18 @@ bool isPrime(int n) {
 }
 
 int main() {
-    std::vector<int> lst;
     int n;
-    std::cout << "Enter the number of integers: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    
+    std::vector<int> lst(n);
     for(int i=0; i<n; i++){
-        int num;
-        std::cout << "Enter integer " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
     }
-    std::cout << "The sum of digits is: " << skjkasdkd(lst) << std::endl;
+    
+    int result = skjkasdkd(lst);
+    std::cout << "Sum of digits is: " << result << std::endl;
+    
     return 0;
 }
