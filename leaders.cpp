@@ -4,20 +4,21 @@ using namespace std;
 
 vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
-    vector<int> res;
+    vector<int> leaders;
     
     if(n == 0)
-        return res;
+        return leaders;
     
-    res.push_back(arr[n-1]);
+    leaders.push_back(arr[n-1]);
     
     for(int i=n-2; i>=0; i--){
-        if(arr[i] > res.back()){
-            res.push_back(arr[i]);
+        while(i > 0 && arr[i] <= leaders.back()){
+            leaders.pop_back();
         }
+        leaders.push_back(arr[i]);
     }
     
-    return res;
+    return leaders;
 }
 
 int main() {
