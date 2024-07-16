@@ -15,8 +15,8 @@ float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float m
 }
 
 int main() {
-    int hours;
-    float initialSnow, rateOfSnowFall, meltingRate;
+    int initialSnow, rateOfSnowFall, meltingRate;
+    float hours;
 
     std::cout << "Enter number of hours: ";
     std::cin >> hours;
@@ -27,7 +27,7 @@ int main() {
     std::cout << "Enter melting rate per hour (proportion): ";
     std::cin >> meltingRate;
 
-    float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
+    float result = snowAfterHours(int(hours), initialSnow, rateOfSnowFall, meltingRate);
 
     std::cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
