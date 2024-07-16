@@ -1,13 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+    sort(numbers.begin(), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
+}
+
+bool issame(std::vector<int> vec1, std::vector<int> vec2) {
+    return vec1 == vec2;
 }
