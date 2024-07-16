@@ -1,7 +1,7 @@
 #include <iostream>
 #include <climits>
 #include <vector>
-#include <numeric> // Include <numeric> for the std::accumulate function
+#include <numeric>
 
 void findCutSpot(const std::vector<int>& nums) {
     int cutIndex = 0;
