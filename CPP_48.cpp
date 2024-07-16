@@ -1,10 +1,10 @@
-int i=0, j=text.length()-1;
-    while(i<j){
-        if(text[i] != text[j]){
-            return false;
-        }
-        i++;
-        j--;
+int i = 0;
+int j = text.length() - 1;
+while (i < j) {
+    if (text[i] != text[j]) {
+        return false;
     }
-    return true;
+    i++;
+    j--;
 }
+return true;
