@@ -18,7 +18,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
+int checkMain() {
     int n;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
