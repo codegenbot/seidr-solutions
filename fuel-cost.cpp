@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
