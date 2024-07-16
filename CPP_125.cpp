@@ -2,20 +2,21 @@
 #include <vector>
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> split_words(string txt);
 
-int main(){
-    string text;
-    getline(cin, text);
-    vector<string> words = split_words(text);
-
-    for(string word : words){
-        cout << word << " ";
-    }
-
+int main() {
+    // Main function code
     return 0;
 }
 
