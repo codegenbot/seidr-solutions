@@ -3,7 +3,7 @@
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = floor(i / 3.0);
+        int temp = std::floor(i / 3.0);
         temp -= 2;
         if (temp < 0) {
             temp = 0;
