@@ -8,11 +8,7 @@ int main() {
     double firstBounce;
     int numBounces;
 
-    cin >> startHeight;
-    cout << "Enter first bounce height: ";
-    cin >> firstBounce;
-    cout << "Enter number of bounces: ";
-    cin >> numBounces;  
+    cin >> startHeight >> firstBounce >> numBounces;  
 
     double bouncinessIndex = firstBounce / startHeight;
 
