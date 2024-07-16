@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 string file_name_check(string file_name) {
@@ -27,8 +28,6 @@ string file_name_check(string file_name) {
     
     return "Yes";
 }
-
-string file_name_check(string file_name);
 
 int main() {
     string file_name;
