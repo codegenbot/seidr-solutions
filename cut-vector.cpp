@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -49,7 +50,7 @@ int main() {
     for (auto x : result.second) {
         cout << x << " ";
     }
-    cout << "0]" << endl;
+    cout << "]0]" << endl;
     
     return 0;
 }
