@@ -1,4 +1,5 @@
 #include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
@@ -27,4 +28,3 @@ int bowlingScore(string s) {
         score += max(1, min(10, rolls[9]));
     }
     return score;
-}
