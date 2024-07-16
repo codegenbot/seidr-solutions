@@ -5,27 +5,23 @@ std::string kebabToCamel(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (char c : str + " ") {
+    for (char c : str) {
         if (c == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            if (!result.empty()) {
-                result += ">";
-            }
             result += tolower(c);
         }
     }
 
-    return result.substr(1);
+    return result;
 }
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
+    while (std::getline(std::cin, str)) {
         std::cout << kebabToCamel(str) << std::endl;
     }
     return 0;
-}
