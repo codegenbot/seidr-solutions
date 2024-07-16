@@ -26,6 +26,9 @@ int main() {
     int num;
     while (std::cin >> num) {
         nums.push_back(num);
+        if (std::cin.fail()) {
+            break;
+        }
     }
     
     std::vector<int> result = findLeaders(nums);
