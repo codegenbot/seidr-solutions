@@ -1,14 +1,13 @@
-def create_output(numbers, delimiter):
+def process_numbers(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
-    result.pop()  # Remove extra delimiter at the end
+    result.pop()
     return result
 
-# Input from user
-numbers = input("Enter numbers separated by space: ").split()
+# Input from the user
+numbers = input("Enter numbers separated by commas: ").split(',')
 delimiter = input("Enter delimiter: ")
 
-# Call the function
-output = create_output(numbers, delimiter)
-print(output)
+# Call the function and print the result
+print(process_numbers(numbers, delimiter))
