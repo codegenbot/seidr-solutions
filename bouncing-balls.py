@@ -8,8 +8,10 @@ if __name__ == "__main__":
     total_distance = 0
     height = start_height
     for i in range(1, num_bounces + 1):
-        distance = abs(height * 2)
+        distance = abs(height * 2)  
         total_distance += distance
-        height *= bounciness_index
+        new_height = height * bounciness_index  
+        bounciness_index = round(new_height / height, 5)  
+        height = new_height
 
     print(round(total_distance, 5))
