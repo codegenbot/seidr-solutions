@@ -1,14 +1,15 @@
-for (char& c : message) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
+string encode(string message) {
+    string encoded_message = "";
+    for(char c : message) {
+        if(isalpha(c)) {
+            char encoded_char = (isupper(c) ? tolower(c) : toupper(c));
+            if(encoded_char == 'a' || encoded_char == 'e' || encoded_char == 'i' || encoded_char == 'o' || encoded_char == 'u') {
+                encoded_char = char((encoded_char - 'a' + 2) % 26 + 'a');
             }
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
-            }
+            encoded_message += encoded_char;
+        } else {
+            encoded_message += c;
         }
     }
-    return message;
+    return encoded_message;
 }
