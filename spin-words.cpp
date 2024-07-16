@@ -1,17 +1,14 @@
-#include <string>
-#include <iostream>
-
 std::string spinWords(std::string str) {
     std::string result;
 
     int start = 0;
-    for (int i = 0; i <= str.size(); i++) {
-        if ((i == str.size()) || (str[i] == ' ')) {
+    for (int i = 0; i < str.size(); i++) {
+        if ((i == str.size() - 1) || (str[i] == ' ')) {
             std::string word = str.substr(start, i - start);
-            if(word.size() < 5)
-                result += word + " ";
-            else
+            if(word.length() >= 5)
                 result += std::string(word.rbegin(), word.rend()) + " ";
+            else
+                result += word + " ";
             start = i + 1;
         }
     }
@@ -20,9 +17,4 @@ std::string spinWords(std::string str) {
         result.pop_back();
 
     return result;
-}
-
-int main() {
-    std::cout << spinWords("Hello World") << std::endl;
-    return 0;
 }
