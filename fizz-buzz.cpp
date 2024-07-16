@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -16,6 +17,7 @@ int main() {
     int n;
     cin >> n;
     for(int i = 1; i <= n; i++) {
-        cout << std::to_string(i) << endl;
+        cout << fizzBuzz(i) << endl;
     }
     return 0;
+}
