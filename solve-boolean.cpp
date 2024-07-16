@@ -1,13 +1,10 @@
-bool solveBoolean(string expression) {
-    bool result = true;
-    for (char c : expression) {
-        if (c == 'T') continue;
-        if (c == 'F') return false;
-        if (c == '&') {
-            result &= true;
-        } else if (c == '|') {
-            result |= true;
+bool solveBoolean(string s) {
+    bool res = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'f') res = false;
+        else if (s[i] == '&') {
+            while (i + 1 < s.length() && s[i+1] != '|') i++;
         }
     }
-    return result;
+    return res;
 }
