@@ -1,4 +1,3 @@
-```cpp
 int pennies = cents;
 int quarters = pennies / 25;
 pennies %= 25;
