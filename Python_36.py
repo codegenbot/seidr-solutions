@@ -1,8 +1,9 @@
 def fizz_buzz(n: int) -> int:
     return sum(
-        (i % 7 == 0 and 
-         '8' not in str(i) and 
-         i % 10 != 0)
+        (i % 7 == 0 or 
+         i % 8 == 0) and 
+         (i % 10 == 7 or '7' in str(i)) and 
+         (i % 10 != 8 and '8' not in str(i))
         for i in range(1, n + 1)
     )
 
