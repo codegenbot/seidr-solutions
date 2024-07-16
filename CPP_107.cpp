@@ -14,6 +14,5 @@ bool issame(const vector<int>& a, const vector<int>& b) {
             }
         }
     }
-    a = {even, odd};
-    return a == b;
+    return {even, odd};
 }
