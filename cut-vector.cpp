@@ -37,5 +37,6 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "0" << endl;
+    cout << "]" << endl;
     return 0;
+}
