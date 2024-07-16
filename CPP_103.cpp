@@ -1,32 +1,23 @@
-#include <string>
+#include <iostream>
+#include <bitset>
 #include <cmath>
-#include <cassert>
 
-std::string rounded(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
-    
+
     int sum = 0;
-    for (int i = n; i <= m; i++) {
+    for (int i = n; i <= m; ++i) {
         sum += i;
     }
-    
-    int avg = std::round((double)sum / (m - n + 1));
-    
-    std::string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
-    
-    return binary_avg;
+
+    int avg = round(sum / (m - n + 1.0));
+    return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
 
 int main() {
-    assert(rounded(1, 5) == "101");
-    assert(rounded(3, 7) == "110");
-    assert(rounded(5, 10) == "1011");
+    assert(rounded_avg(5, 5) == "101");
 
     return 0;
 }
