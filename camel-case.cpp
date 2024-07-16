@@ -1,38 +1,38 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
-
-    for (const auto& word : s.split '-') {
-        if (!first)
-            result += std::toupper(word[0]);
-        else
-            result += word;
-        first = false;
+std::string camelCase(const std::string& str) {
+    std::vector<std::string> words;
+    std::stringstream ss(str);
+    std::string word;
+    
+    while (ss >> word) {
+        if (!word.empty()) {
+            words.push_back(word);
+        }
     }
-
+    
+    std::string result = "";
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += std::toupper(words[i][0]);
+            result.erase(0, 1);
+        } else {
+            result += words[i];
+        }
+        
+        if (i < words.size() - 1) {
+            result += " ";
+        }
+    }
+    
     return result;
 }
 
 int main() {
-    while (true) {
-        std::string input;
-        std::cout << "Enter a string in kebab-case or 'stop' to quit: ";
-        std::cin >> input;
-
-        if (input == "stop")
-            break;
-
-        std::cout << kebabToCamelCase(input) << "\n";
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
-
     return 0;
-}
-
-std::string& operator>>(std::istream& is, std::string& s) {
-    std::getline(is, s);
-    return is;
 }
