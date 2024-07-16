@@ -1,3 +1,7 @@
 double find_zero(vector<double> xs){
-    return -xs[0] / xs[1];
+    double root = 0;
+    if (xs.size() == 2) {
+        root = -xs[0] / xs[1];
+    }
+    return root;
 }
