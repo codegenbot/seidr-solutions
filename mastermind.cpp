@@ -8,19 +8,16 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int black = 0;
 
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            bool inCode = false;
-            for (int j = 0; j < 4; j++) {
-                if (j != i && code[j] == guess[i] && !inCode) {
-                    white++;
-                    inCode = true;
-                }
-            }
-            if (!inCode) {
+        bool inCode = false;
+        for (int j = 0; j < 4; j++) {
+            if (guess[i] == code[j]) { 
                 inCode = true;
-                white++;
+                if (j == i) { 
+                    black++;
+                    break;
+                } else {
+                    white++;
+                }
             }
         }
     }
@@ -31,7 +28,7 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 int main() {
     std::string code = "RGOR";
     std::string guess = "BRBB";
-    auto [white, black] = mastermind(code, guess);
+    std::tie(white, black) = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
 }
