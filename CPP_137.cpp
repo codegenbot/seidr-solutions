@@ -15,8 +15,8 @@ std::variant<int, float, std::string> compare_one(const std::variant<int, float,
         } else if (std::get<float>(a) < std::get<float>(b)) {
             return b;
         }
-    } else if (a.index() == 2 && b.index() != 2) {
-        if (std::get<std::string>(a).empty()) {
+    } else if (a.index() == 2 && b.index() == 2) {
+        if (std::get<std::string>(a).empty() && std::get<std::string>(b).empty()) {
             return std::string();
         }
     }
@@ -24,7 +24,7 @@ std::variant<int, float, std::string> compare_one(const std::variant<int, float,
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), std::string("1"))).empty());
+    assert(std::get<std::string>(compare_one(std::string("1"), std::string("1"))) == "");
     
     return 0;
 }
