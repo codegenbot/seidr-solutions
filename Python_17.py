@@ -1,1 +1,1 @@
-inputs = [int(input("Enter a number: ")) for _ in range(3)]
+num = int(input("Enter a number: "))
