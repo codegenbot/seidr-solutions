@@ -1,2 +1,2 @@
-numbers = list(map(int, input().strip().split()))
+numbers = list(map(int, input().strip().split(', ')))
 print(sum(numbers))
