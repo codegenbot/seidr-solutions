@@ -1,16 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
-
-using namespace std;
 
 vector<int> even_odd_palindrome(int n);
-bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
 }
 
 vector<int> even_odd_palindrome(int n){
@@ -19,7 +14,7 @@ vector<int> even_odd_palindrome(int n){
         string num_str = to_string(i);
         string rev_num_str = num_str;
         reverse(rev_num_str.begin(), rev_num_str.end());
-        if (num_str == rev_num_str) {
+        if (issame(num_str, rev_num_str)) {
             if (i % 2 == 0) {
                 result[0]++;
             } else {
@@ -28,9 +23,4 @@ vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    return 0;
 }
