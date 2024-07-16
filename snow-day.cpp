@@ -21,8 +21,12 @@ int main() {
         snowOnGround += newSnow;
     }
 
-    cout << "Amount of snow on ground after " << hours << " hours.\n";
-    cout << "The amount of snow is " << snowOnGround << " inches.\n";
+    cout << "Amount of snow on ground after ";
+    cout << hours;
+    cout << " hours.\n";
+    cout << "The amount of snow is ";
+    cout << snowOnGround;
+    cout << " inches.\n";
 
     return 0;
 }
