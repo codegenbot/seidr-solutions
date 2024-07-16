@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 #include <sstream>
 
@@ -18,7 +18,7 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str = "Hello World this is a test";
+    std::string str = "Hello World";
     std::cout << spinWords(str) << std::endl;
     return 0;
 }
