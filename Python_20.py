@@ -1,3 +1,6 @@
+import sys
+
+
 def find_closest_elements(numbers):
     numbers.sort()
     min_diff = float("inf")
@@ -9,6 +12,7 @@ def find_closest_elements(numbers):
             closest_pair = (numbers[i], numbers[i + 1])
     return closest_pair
 
-numbers = [float(x) for x in input("Enter numbers separated by space: ").strip().split()]
+
+numbers = [float(x) for x in sys.argv[1:]]
 output = find_closest_elements(numbers)
-print("{:.2f} {:.2f}".format(output[0], output[1]) )
+print("{:.2f} {:.2f}".format(output[0], output[1]))
