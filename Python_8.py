@@ -1,17 +1,17 @@
 def sum_product(numbers):
-    return sum(numbers) * max(numbers)
+    return sum(numbers) * numbers[0]
 
 results = []
 
-while True:
-    try:
+try:
+    while True:
         numbers = list(map(int, input().strip().split()))
-        if not numbers:
+        if not numbers or numbers == [-1]:
             break
         result = sum_product(numbers)
         results.append(result)
-    except EOFError:
-        break
+except EOFError:
+    pass
 
 for result in results:
     print(result)
