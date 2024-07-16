@@ -1,9 +1,10 @@
+#include <iostream>
 #include <vector>
 
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
     for (auto i : stations) { 
-        int newFuel = i / 3 - 2;
+        int newFuel = std::floor(i / 3.0) - 2;
         sum += newFuel;
     }
     return sum; }
