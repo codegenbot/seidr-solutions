@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -8,7 +9,7 @@ double vectorDistance(int n, const std::vector<float>& v1, const std::vector<flo
     for (int i = 0; i < n; i++) {
         sum += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(sum);
+    return std::sqrt(sum);
 }
 
 int main() {
