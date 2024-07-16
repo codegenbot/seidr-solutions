@@ -25,6 +25,12 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::cin >> str;
 
+    size_t pos = 0;
+    while ((pos = str.find('-')) != std::string::npos) {
+        str.replace(pos, 1, "");
+        if (pos > 0)
+            str[0] = topper(str[0]);
+    }
     std::cout << "camelCase: " << camelCase(str) << std::endl;
 
     return 0;
