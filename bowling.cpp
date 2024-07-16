@@ -1,6 +1,25 @@
+#include <iostream>
+#include <string>
+
+int getBonus(std::string s, int i) {
+    int bonus = 0;
+
+    for (int j = i; j < s.length(); j++) {
+        if (s[j] == 'X') { 
+            bonus += 10;
+        } else if (s[j] == '/') { 
+            bonus += 5;
+        } else { 
+            bonus += s[j] - '0';
+        }
+    }
+
+    return bonus;
+}
+
 int bowlingScore(std::string s) {
     int score = 0;
-    int getBonus, roll1, roll2; 
+    int roll1, roll2; // declare here
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { 
