@@ -1,19 +1,13 @@
 if (n > m) {
         return "-1";
     }
-    
-    int sum = 0;
+
+    int sum = 0, count = 0;
     for (int i = n; i <= m; ++i) {
         sum += i;
+        count++;
     }
-    
-    int avg = round((double)sum / (m - n + 1));
-    
-    string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
-    
-    return binary_avg;
+
+    int average = round((double)sum / count);
+    return bitset<32>(average).to_string().substr(0, log2(average) + 1);
 }
