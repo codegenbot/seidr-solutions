@@ -1,6 +1,14 @@
-```c++
+```c
 #include <string>
+#include <iostream>
+
 using namespace std;
+
+int main() {
+    string n = "12"; 
+    cout << squareDigits(n) << endl;
+    return 0; 
+}
 
 std::string squareDigits(std::string n) {
     std::string res = "";
@@ -9,12 +17,4 @@ std::string squareDigits(std::string n) {
         res += to_string(num * num);
     }
     return res;
-}
-
-int main() {
-    string input;
-    cout << "Enter an integer: ";
-    cin >> input;
-    cout << "Squared digits: " << squareDigits(input) << endl;
-    return 0;
 }
