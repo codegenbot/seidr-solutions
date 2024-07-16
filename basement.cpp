@@ -1,24 +1,10 @@
-#include <iostream>
-#include <vector>
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-    
+int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            std::cout << i << std::endl;
-            return 0;
+            return i;
         }
     }
-    
-    std::cout << 0 << std::endl;
-    
     return 0;
 }
