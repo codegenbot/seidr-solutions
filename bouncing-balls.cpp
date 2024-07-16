@@ -19,7 +19,7 @@ int main() {
     double prev_distance = bounciness_index;   
 
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += prev_distance * (start_height + (first_bounce_height - start_height) / pow(2.0, i));
+        total_distance += prev_distance * (start_height + (first_bounce_height - start_height) / (2.0 ^ i));
         prev_distance *= 2.0; 
     }
 
