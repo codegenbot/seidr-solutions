@@ -1,31 +1,29 @@
-vector<int> result;
+vector<int> res;
     if (n == 0) {
-        result.push_back(0);
-    } else if (n == 1) {
-        result.push_back(3);
-    } else if (n == 2) {
-        result.push_back(1);
-        result.push_back(3);
-    } else {
-        result.push_back(1);
-        result.push_back(3);
-        result.push_back(2);
-        int a = 1, b = 3, c = 2;
-        for (int i = 3; i <= n; ++i) {
-            if (i % 2 == 0) {
-                int temp = 1 + i / 2;
-                result.push_back(temp);
-                a = b;
-                b = c;
-                c = temp;
-            } else {
-                int temp = a + b + c;
-                result.push_back(temp);
-                a = b;
-                b = c;
-                c = temp;
-            }
+        res.push_back(0);
+        return res;
+    }
+    if (n == 1) {
+        res.push_back(3);
+        return res;
+    }
+    if (n == 2) {
+        res.push_back(1);
+        res.push_back(3);
+        return res;
+    }
+    
+    res.push_back(1);
+    res.push_back(3);
+    res.push_back(2);
+    
+    for (int i = 3; i <= n; i++) {
+        if (i % 2 == 0) {
+            res.push_back(1 + i / 2);
+        } else {
+            res.push_back(res[i - 1] + res[i - 2] + res[i + 1]);
         }
     }
-    return result;
+    
+    return res;
 }
