@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,9 +36,9 @@ int main() {
 
     std::string text, target;
     std::cout << "Enter the text: ";
-    getline(std::cin, text);
+    getline(cin, text);
     std::cout << "Enter the target string: ";
-    getline(std::cin, target);
+    getline(cin, target);
     std::vector<int> indices = indicesOfSubstring(text, target);
     if (indices.empty()) {
         std::cout << "Target not found in the text." << std::endl;
@@ -53,3 +51,4 @@ int main() {
     }
 
     return 0;
+}
