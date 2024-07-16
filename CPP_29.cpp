@@ -1,14 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const string& a, const string& b) {
-    return a == b;
+bool issame(const std::string &s1, const std::string &s2) {
+    return s1 == s2;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for (const string& str : strings) {
-        if (issame(str.substr(0, prefix.size()), prefix)) {
+std::vector<std::string> filter_by_prefix(const std::vector<std::string> &strings, const std::string &prefix){
+    std::vector<std::string> result;
+    for (const std::string& str : strings) {
+        if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
