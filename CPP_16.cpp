@@ -10,7 +10,11 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    std::string input_str = "SampleString";
-    int result = count_distinct_characters(input_str);
+    std::string input;
+    std::cin >> input;
+    
+    int result = count_distinct_characters(input);
+    std::cout << result;
+    
     return 0;
 }
