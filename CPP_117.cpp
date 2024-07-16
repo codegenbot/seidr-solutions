@@ -50,6 +50,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    // Main function logic here
+    // Your main function logic here
     return 0;
 }
