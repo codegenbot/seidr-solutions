@@ -1,14 +1,16 @@
-string solve(string s){
-    int n = s.size();
-    bool has_letter = false;
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-            has_letter = true;
+for (char &c : s) {
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
         }
     }
-    if(!has_letter){
+    
+    if (s.find_first_not_of("0123456789") == string::npos) {
         reverse(s.begin(), s.end());
     }
+    
     return s;
 }
