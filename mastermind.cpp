@@ -18,7 +18,7 @@ int main() {
 
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c]++;
+            codeCount[c] = 1; // Initialize count to 1
         }
     }
 
@@ -37,14 +37,9 @@ int main() {
     }
 
     for (auto& pair : codeCount) {
-        while(pair.second > 0) {
-            if (pair.first == guessStr[0] || pair.first == guessStr[1] || pair.first == guessStr[2] || pair.first == guessStr[3]) {
-                blackPegs++;
-                pair.second--;
-            } else {
-                whitePegs += pair.second; 
-                pair.second = 0; 
-            }
+        if (pair.second > 0) {
+            whitePegs += pair.second; 
+            pair.second = 0; 
         }
     }
 
