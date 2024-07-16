@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
