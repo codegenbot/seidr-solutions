@@ -1,7 +1,17 @@
-#include <vector>
-#include <cmath>
+double poly(vector<double> coeffs, double x){
+    double result = 0.0;
+    for(int i=0; i<coeffs.size(); i++){
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
+double abs(double x){
+    return x >= 0 ? x : -x;
+}
 
 double find_zero(vector<double> xs){
-    vector<double> coeffs = {xs[1], xs[0]};
-    return abs(poly(coeffs, 0));
+    double a = poly(xs, 1.0);
+    double b = poly(xs, -1.0);
+    return -b/a;
 }
