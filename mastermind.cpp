@@ -13,12 +13,13 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
         } else {
             bool inCode = false;
             for (int j = 0; j < 4; j++) {
-                if (j != i && guess[i] == code[j] && !inCode) {
+                if (j != i && code[j] == guess[i] && !inCode) {
                     white++;
                     inCode = true;
                 }
             }
             if (!inCode) {
+                inCode = true;
                 white++;
             }
         }
