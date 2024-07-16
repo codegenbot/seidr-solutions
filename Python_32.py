@@ -1,3 +1,13 @@
 def find_zero(xs: list):
-    x = -xs[0] / xs[1]
-    return x
+    n = len(xs) - 1
+    a = xs[-1]
+    b = sum(
+        [
+            (-1) ** i
+            * coeff
+            * math.factorial(n)
+            / (math.factorial(i) * math.factorial(n - i))
+            for i, coeff in enumerate(xs)
+        ]
+    )
+    return -b / a
