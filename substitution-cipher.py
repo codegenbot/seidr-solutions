@@ -1,3 +1,4 @@
+```python
 def decipher():
     key1 = input("Enter the first string: ")
     key2 = input("Enter the second string: ")
@@ -13,4 +14,6 @@ def decipher():
         else:
             result += char
             
-    print("Deciphered message: ", result)''
+    print("Deciphered message: ", result)
+
+decipher()
