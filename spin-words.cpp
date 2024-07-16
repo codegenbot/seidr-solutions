@@ -19,23 +19,20 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        std::string tempRev = temp;
-        std::reverse(tempRev.begin(), tempRev.end());
-        result += tempRev + " ";
+        result += std::string(temp).reverse();
     } else
         result += temp;
 
-    return result.substr(0, result.find(" ")) + result.substr(result.find(" ") + 1);
+    return result;
 }
 
 int main() {
     std::string input;
     while (true) {
         std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        std::cin >> input;
+        std::getline(std::cin, input);
         if (input == "q")
             break;
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
-}
