@@ -1,14 +1,14 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <initializer_list>
+#include <iostream>
 using namespace std;
 
-int basement(vector<int>& nums) {
+int basement(vector<int> nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
-            return i + 1;
+            return i;
     }
     return -1;
 }
@@ -20,4 +20,5 @@ int main() {
         cout << "No such index exists." << endl;
     else
         cout << "The basement index is: " << result << endl;
+    return 0;
 }
