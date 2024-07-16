@@ -9,8 +9,8 @@ while True:
     line = input().strip()
     if not line:
         break
-    
     music_input += line + " "
     
-result = parse_music(music_input)
-print(result)
+if all(note in ["o", "o|", ".|"] for note in music_input.split()):
+    result = parse_music(music_input)
+    print(result)
