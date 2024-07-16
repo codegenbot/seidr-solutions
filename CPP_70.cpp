@@ -13,11 +13,11 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-bool issame(int a, int b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    // Main function body
+    // Main function code here
     return 0;
 }
