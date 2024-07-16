@@ -22,5 +22,9 @@ int main() {
     int result = basement(nums);
     std::cout << result << std::endl;
 
-    return 0;
+    if (std::cin.eof()) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
