@@ -6,15 +6,15 @@
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    bool capitalizeNext = true;
-    for (char c : s) {
-        if (c == '-') {
+    bool capitalizeNext = false;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
-            result += std::toupper(c);
+            result += std::toupper(s[i]);
             capitalizeNext = false;
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
