@@ -1,12 +1,13 @@
-if(strings.empty()){
-    return "None";
-}
-
-string longestString = strings[0];
-for(const string& s : strings){
-    if(s.length() > longestString.length() || (s.length() == longestString.length() && s < longestString)){
-        longestString = s;
+if (strings.empty()) {
+        return "None";
     }
-}
 
-return longestString;
+    string longest_str = strings[0];
+    for (const string& str : strings) {
+        if (str.length() > longest_str.length() || (str.length() == longest_str.length() && str < longest_str)) {
+            longest_str = str;
+        }
+    }
+
+    return longest_str;
+}
