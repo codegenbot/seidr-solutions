@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
-double calculateEuclideanDistance(double* vector1, double* vector2, int n) {
-    double distance = 0;
-    for (int i = 0; i < n; i++) {
-        distance += std::pow(vector2[i] - vector1[i], 2);
+double calculateEuclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
+    double sum = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += std::pow(v2[i] - v1[i], 2);
     }
-    return std::sqrt(distance);
+    return std::sqrt(sum);
 }
 
 int main() {
@@ -14,25 +15,22 @@ int main() {
     std::cin >> n;
 
     for (int i = 0; i < n; i++) {
-        double vector1[n], vector2[n];
+        std::vector<double> v1(n), v2(n);
         for (int j = 0; j < n; j++) {
-            std::cin >> vector1[j] >> vector2[j];
+            std::cin >> v1[j] >> v2[j];
         }
-        double distance = calculateEuclideanDistance(vector1, vector2, n);
-        std::cout << "The Euclidean distance between ";
+
+        // Calculate Euclidean distance
+        double distance = calculateEuclideanDistance(v1, v2);
+        std::cout << "The Euclidean distance between (" ;
         for (int j = 0; j < n; j++) {
-            if(j == 0) {
-                std::cout << "(";
-            } else if(j == n-1) {
-                std::cout << ", " << vector1[j] << ") and (" << vector2[j];
-                for(int k = 0; k < n-1; k++) {
-                    std::cout << ", " << vector2[k];
-                }
-                std::cout << ") is: " << distance << std::endl;
-            } else {
-                std::cout << ", " << vector1[j];
-            }
+            std::cout << v1[j] << ", ";
         }
+        std::cout << ") and (" ;
+        for (int j = 0; j < n; j++) {
+            std::cout << v2[j] << ", ";
+        }
+        std::cout << ") is: " << distance << std::endl;
     }
     
     return 0;
