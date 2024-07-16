@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(const std::string& input) {
     std::string output = "";
@@ -9,7 +8,7 @@ std::string spinWords(const std::string& input) {
         if (end == input.size() || input[end] == ' ') {
             std::string word = input.substr(start, end - start);
             if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
+                reverse(word.begin(), word.end());
             }
             output += word + " ";
             start = end + 1;
