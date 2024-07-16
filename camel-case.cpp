@@ -1,27 +1,32 @@
+```c++
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string kebabToCamelCase(const std::string& s) {
-    std::stringstream ss(s);
     std::string result;
     bool capitalize = true;
 
-    std::string word;
-    while (ss >> word) {
-        for (char c : word) {
-            if (capitalize) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
-            if (c == '-') {
-                capitalize = true;
-            }
+    if (s.empty()) {
+        result += s[0];
+    } else {
+        if (s[0] == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(s[0]);
+            capitalize = false;
+        } else {
+            result += tolower(s[0]);
         }
-        if (!word.empty()) {
-            result.push_back(''); // Add a space between words
-            capitalize = false; // Reset capitalize for next word
+    }
+
+    for (char c : s.substr(1)) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
 
