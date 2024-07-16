@@ -1,9 +1,11 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     sort(a.begin(), a.end());
     a.erase(unique(a.begin(), a.end()), a.end());
-    
     sort(b.begin(), b.end());
     b.erase(unique(b.begin(), b.end()), b.end());
     
