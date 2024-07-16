@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 
 using namespace std;
 
@@ -7,12 +7,14 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    int maxSoFar = arr[n-1]; // Initialize with the last element as leader.
-
+    int maxSeenSoFar = arr.back(); // Initialize with the rightmost element
+    
     for(int i=n-2; i>=0; i--){
-        if(arr[i] >= maxSoFar){
+        if(arr[i] >= maxSeenSoFar){
             res.push_back(arr[i]);
-            maxSoFar = arr[i];
+            maxSeenSoFar = arr[i];
+        } else {
+            maxSeenSoFar = arr[i];
         }
     }
     
