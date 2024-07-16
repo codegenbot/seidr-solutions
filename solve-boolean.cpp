@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 bool solveBoolean(const std::string& s) {
@@ -16,4 +15,7 @@ bool solveBoolean(const std::string& s) {
         }
     }
     return result;
+
+int main() {
+    return 0;
 }

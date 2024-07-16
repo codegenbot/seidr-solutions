@@ -23,6 +23,7 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
+            codeCount[guessStr[i] - '0']--;
         } else if ('0' <= guessStr[i] && guessStr[i] <= '5') {
             whitePegs += codeCount[guessStr[i] - '0']--;
         }
