@@ -6,10 +6,3 @@ string squareDigits(string input) {
     }
     return result;
 }
-
-int main() {
-    cin >> input;  
-    string result = squareDigits(input); 
-    cout << "Squared digits: " << result << endl;
-    return 0;
-}
