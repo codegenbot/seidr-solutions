@@ -1,5 +1,4 @@
-def round_floats_to_ints(xs):
-    return [round(x) for x in xs]
+from sys import stdin
 
-xs = list(map(float, input().split()))
-print(round_floats_to_ints(xs))
+xs = list(map(int, stdin.readline().strip().split()))
+print(xs)
