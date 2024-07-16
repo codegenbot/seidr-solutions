@@ -1,3 +1,4 @@
+```
 import base64
 import sys
 
@@ -10,7 +11,12 @@ def solve(N):
         s = base64.b64encode(str(N).encode()).decode().upper()
         result = s.replace("=", "")
 
-    print(result)
+    return result
 
-num = int(input("Enter a number: "))
-solve(num)
+while True:
+    try:
+        num = int(input("Enter a number: "))
+        print(solve(num))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
