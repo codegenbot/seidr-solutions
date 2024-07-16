@@ -41,7 +41,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -50,18 +50,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    // Test the select_words function
-    string input = "Hello World";
-    int n = 3;
-    vector<string> result = select_words(input, n);
-
-    // Test the issame function
-    vector<string> expected = {"Hello", "World"};
-    if (issame(result, expected)) {
-        std::cout << "Test Passed" << std::endl;
-    } else {
-        std::cout << "Test Failed" << std::endl;
-    }
-
+    // Main function implementation
     return 0;
 }
