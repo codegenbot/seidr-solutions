@@ -13,18 +13,8 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-
-    std::vector<int> nums(n);
-    std::cout << "Enter " << n << " integers:\n";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-
+    std::vector<int> nums = {1, -2, 3, 4, -5};
     int result = basement(nums);
-    std::cout << "The first index where the sum is negative: " << result << std::endl;
-
+    std::cout << "First index where sum is negative: " << result << std::endl;
     return 0;
 }
