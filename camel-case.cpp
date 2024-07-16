@@ -4,20 +4,11 @@
 std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
-    bool wordStarted = false;
 
     for (char c : str) {
         if (c == '-') {
+            result += ' ';
             capitalize = true;
-            wordStarted = false;
-        } else if (!wordStarted) {
-            if (capitalize) {
-                result += toupper(c);
-                capitalize = false;
-            } else {
-                result += tolower(c);
-            }
-            wordStarted = true;
         } else {
             if (capitalize) {
                 result += toupper(c);
