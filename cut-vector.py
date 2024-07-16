@@ -10,7 +10,7 @@ def cut_vector(vector):
         if left_sum == right_sum:
             min_index = i
         diff = abs(left_sum - right_sum)
-        if diff < min_diff or (diff == min_diff and not left_sum == right_sum):
+        if (diff < min_diff and not left_sum == right_sum) or left_sum == right_sum:
             min_diff = diff
             split_index = i
 
