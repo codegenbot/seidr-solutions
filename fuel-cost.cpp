@@ -1,17 +1,13 @@
-```
+```cpp
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-int main() {
+int fuelCost(std::vector<int> &stations) {
     int sum = 0;
-    std::vector<int> v = {12, 5, 7, 3};
-    for (int i : v) {
-        double temp = std::floor((double)i / 3.0);
-        temp -= 2;
-        if (temp < 0) {
-            temp = 0;
-        }
-        sum += temp;
-    } 
-    return static_cast<int>(sum); 
+    for (int i : stations) {
+        int newFuel = std::floor(i / 3.0);
+        newFuel -= 2;
+        sum += newFuel;
+    }
+    return sum;
 }
