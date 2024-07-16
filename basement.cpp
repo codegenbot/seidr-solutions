@@ -9,7 +9,7 @@ int basement(std::vector<int>& nums) {
             return i;
         }
     }
-    return nums.size();
+    return 0;
 }
 
 int main() {
@@ -20,4 +20,4 @@ int main() {
     std::cout << "First index where sum is negative: " << result << std::endl;
 
     return 0;
-} 
+}
