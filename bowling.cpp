@@ -1,33 +1,27 @@
-#include <iostream>
-#include <string>
-
-int bowlingScore(char c) {
+int bowlingScore(string s) {
     int score = 0;
-    if (c == 'X') {
-        score += 30;
-    } else if (c == '/') {
-        return score + 10; 
-    } else {
-        int count = 0;
-        while (c >= '1' && c <= '9') {
-            count *= 10;
-            count += c - '0';
-            if(c == '/') break;
-            c = (c < '7') ? ++c : '/';
-        }
-        score += count;
-    }
-    return score;
-}
+    int roll = 0;
+    int frame = 0;
 
-int main() {
-    std::string s;
-    std::cout << "Enter the input string: ";
-    std::cin >> s;
-    
-    int totalScore = 0;
-    for (char c : s) {
-        totalScore += bowlingScore(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            if (roll > 9)
+                score += 10;
+            else
+                score += roll;
+            roll = 0;
+            frame++;
+        } else if (isdigit(s[i])) {
+            roll *= 10;
+            roll += s[i] - '0';
+        }
     }
-    std::cout << "The total score is: " << totalScore << std::endl;
+
+    // Last two rolls
+    if (roll > 9)
+        score += 10;
+    else
+        score += roll;
+
+    return score;
 }
