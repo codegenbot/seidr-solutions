@@ -1,5 +1,4 @@
 def decode_cyclic(s: str):
-    s = s.strip()
     if len(s) % 3 != 0:
         return "Invalid input format"
     
