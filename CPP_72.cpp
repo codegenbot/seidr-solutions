@@ -1,9 +1,7 @@
-int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+bool will_it_fly(vector<int> q, int w){
+    if (!equal(q.begin(), q.begin() + q.size()/2, q.rbegin())){
+        return false;
     }
-    if (sum <= w && equal(q.begin(), q.end(), q.rbegin())) {
-        return true;
-    }
-    return false;
+    int sum = accumulate(q.begin(), q.end(), 0);
+    return sum <= w;
 }
