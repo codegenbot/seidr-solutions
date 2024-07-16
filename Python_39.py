@@ -22,6 +22,6 @@ def prime_fib(n):
                 count += 1
     return num
 
-n = int(input("Enter a number: "))
+n = int(input())
 result = prime_fib(n)
 print(result)
