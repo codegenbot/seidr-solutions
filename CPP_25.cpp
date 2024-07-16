@@ -22,6 +22,6 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    // Your code here
+    // Your main function code here
     return 0;
 }
