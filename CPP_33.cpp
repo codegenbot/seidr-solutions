@@ -6,11 +6,13 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -25,14 +27,15 @@ bool sort_third(const vector<int>& l) {
         return l[a] < l[b];
     });
 
+    vector<int> sorted_values(l.size());
     for (int i = 0; i < sorted_indices.size(); ++i) {
-        l[sorted_indices[i]] = l[i];
+        sorted_values[sorted_indices[i]] = l[i];
     }
 
-    return l;
+    return issame(l, sorted_values);
 }
 
 int main() {
-    // Main function implementation
+    // Main function implementation (if needed)
     return 0;
 }
