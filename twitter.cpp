@@ -10,7 +10,9 @@ int main() {
     
     if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
-    } else {
+    }
+    
+    if (!tweet.empty()) {
         tweet.erase(std::remove(tweet.end() - 1, tweet.end(), '\n'), tweet.end());
         
         if(tweet.length() > 140) {
