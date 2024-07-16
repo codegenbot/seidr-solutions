@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```c
 int main() {
     int cents;
     std::cin >> cents;
