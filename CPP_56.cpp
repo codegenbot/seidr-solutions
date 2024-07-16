@@ -2,10 +2,9 @@ int count = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
             count++;
-        } else if (bracket == '>') {
+        } else if (count > 0) {
             count--;
-        }
-        if (count < 0) {
+        } else {
             return false;
         }
     }
