@@ -1,7 +1,4 @@
-n = int(input("Enter the number of strings: "))
-strings = [input(f"Enter string {i+1}: ") for i in range(n)]
-
+strings = input().split()
 def longest(strings):
     return max(strings, key=len)
-
 print(longest(strings))
