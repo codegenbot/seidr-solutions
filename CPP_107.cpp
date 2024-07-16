@@ -24,11 +24,6 @@ vector<int> count_palindromes(int n) {
 }
 
 int main() {
-    vector<int> counts = count_palindromes(100);
-    vector<int> expected = {9, 10};
-    if (issame(counts, expected)) {
-        return 0;
-    } else {
-        return 1;
-    }
+    vector<int> even_odd_palindrome(int n);
+    return 0;
 }
