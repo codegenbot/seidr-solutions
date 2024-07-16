@@ -11,7 +11,8 @@ int main() {
     std::cout << "Enter the guess: ";
     std::cin >> guessStr;
 
-    int blackPegs = 0, whitePegs = 0;
+    int blackPegs = 0;
+    int whitePegs = 0;
     std::unordered_map<int, int> codeCount;
 
     for (char c : codeStr) {
@@ -21,31 +22,21 @@ int main() {
     }
 
     for (int i = 0; i < 4; i++) {
+        char codeChar = codeStr[i];
         char guessChar = guessStr[i];
-        if ('0' <= guessChar && guessChar <= '5') {
+        if (codeChar == guessChar) {
+            blackPegs++;
+        } else if ('0' <= guessChar && guessChar <= '5') {
+            whitePegs++;
             if (--codeCount[static_cast<int>(guessChar)] > 0) {
-                whitePegs++;
-            } else {
-                blackPegs++;
-            }
-        }
-    }
-
-    // Counting black pegs
-    for (char c : codeStr) {
-        if ('0' <= c && c <= '5') {
-            int index = guessStr.find(c);
-            while(index != std::string::npos) {
-                blackPegs++;
-                guessStr.erase(index, 1);
-                index = guessStr.find(c);
+                whitePegs--;
             }
         }
     }
 
     // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
-    std::cout << "White pegs: " << whitePegs - blackPegs << std::endl;
+    std::cout << "White pegs: " << whitePegs << std::endl;
 
     return 0;
 }
