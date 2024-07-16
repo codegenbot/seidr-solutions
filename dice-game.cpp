@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 
@@ -20,3 +21,4 @@ int main() {
     double result = probability(n, m);
     std::cout << std::fixed << std::setprecision(9) << result << std::endl;
     return 0;
+}
