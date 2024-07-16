@@ -13,6 +13,7 @@ if (arr.empty()) {
         } else {
             product *= 0;
         }
+
         sum += abs(num);
     }
 
