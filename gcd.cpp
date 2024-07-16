@@ -12,6 +12,9 @@ int findGCD(int a, int b) {
 }
 
 int main() {
-    cout << "GCD of 12 and 15 is: " << findGCD(12, 15) << endl;
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "GCD of " << a << " and " << b << " is: " << findGCD(a, b) << endl;
     return 0;
 }
