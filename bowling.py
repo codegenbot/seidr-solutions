@@ -1,5 +1,4 @@
 ```
-'''
 frames = input()
 score = 0
 i = 0
@@ -25,4 +24,3 @@ while i < len(frames):
             i += 1 if frame_score != 10 else 2
     score += frame_score
 print(score)
-'''''
