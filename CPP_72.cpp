@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool will_it_fly(std::vector<int> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
@@ -13,14 +13,8 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> test_input = {1, 2, 3, 2, 1};
-    int max_weight = 10;
-
-    if (will_it_fly(test_input, max_weight)) {
-        std::cout << "The object will fly!" << std::endl;
-    } else {
-        std::cout << "The object will not fly." << std::endl;
-    }
-
+    std::vector<int> q = {1, 2, 3, 2, 1};
+    int w = 9;
+    bool result = will_it_fly(q, w);
     return 0;
 }
