@@ -1,5 +1,5 @@
-#include <stack>
 #include <string>
+#include <stack>
 
 std::string solveBoolean(std::string booleanExp) {
     std::stack<char> operatorStack;
