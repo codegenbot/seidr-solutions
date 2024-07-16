@@ -11,7 +11,7 @@ std::vector<int> make_a_pile(int n) {
             n++;
             stones = n;
         } else {
-            n += 3;
+            n++;
             stones = n;
         }
     }
@@ -31,4 +31,3 @@ int main() {
     std::cout << std::endl;
 
     return 0;
-}
