@@ -1,9 +1,10 @@
-#include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
+}
 
-vector<string> split_text(const string& txt) {
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
