@@ -1,29 +1,32 @@
-vector<string> split_words(string txt){
-        vector<string> result;
-        string temp = "";
-        bool hasWhitespace = false;
-        for(char c : txt){
-            if(c == ' '){
-                result.push_back(temp);
-                temp = "";
-                hasWhitespace = true;
+vector<string> result;
+    size_t found = txt.find(' ');
+    if (found != string::npos) {
+        size_t start = 0;
+        while (found != string::npos) {
+            result.push_back(txt.substr(start, found - start));
+            start = found + 1;
+            found = txt.find(' ', start);
+        }
+        result.push_back(txt.substr(start));
+    } else {
+        found = txt.find(',');
+        if (found != string::npos) {
+            size_t start = 0;
+            while (found != string::npos) {
+                result.push_back(txt.substr(start, found - start));
+                start = found + 1;
+                found = txt.find(',', start);
             }
-            else if(c == ','){
-                result.push_back(temp);
-                temp = "";
+            result.push_back(txt.substr(start));
+        } else {
+            int odd_count = 0;
+            for (char c : txt) {
+                if (islower(c) && (c - 'a') % 2 != 0) {
+                    odd_count++;
+                }
             }
-            else{
-                temp += c;
-            }
+            result.push_back(to_string(odd_count));
         }
-        if(hasWhitespace){
-            result.push_back(temp);
-        }
-        else if(temp.empty()){
-            result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){return islower(c) && ((c-'a') % 2 == 1);}));
-        }
-        else{
-            result.push_back(temp);
-        }
-        return result;
     }
+    return result;
+}
