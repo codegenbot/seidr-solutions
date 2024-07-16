@@ -2,13 +2,10 @@
 #include <iostream>
 
 std::string middleCharacter(std::string s) {
-    int len = s.length();
-    int mid = len / 2;
-    if (len % 2 == 0) {
-        return s.substr(mid - 1, 2);
-    } else {
-        return s.substr(mid, 1);
-    }
+    int start = s.length() / 2;
+    bool isOddLength = s.length() % 2 != 0;
+    int end = start + (isOddLength ? 1 : 2);
+    return s.substr(start, end - start);
 }
 
 int main() {
