@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,4 +21,3 @@ int main() {
     string result = validateTweet(input);
     cout << result << endl;
     return 0;
-}
