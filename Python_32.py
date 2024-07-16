@@ -1,1 +1,2 @@
-xs = [float(x) for x in input("Enter the floating-point numbers separated by spaces: ").split()]
+print("Enter the floating-point numbers separated by spaces:")
+xs = list(map(float, input().split()))
