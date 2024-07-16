@@ -19,15 +19,16 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    cin >> text;
-    cout << "Enter the target: ";
-    cin >> target;
+    string text = "Hello world, Hello again";
+    string target = "Hello";
 
-    vector<int> results = indicesOfSubstring(text, target);
-    for (int i : results) {
+    vector<int> result = indicesOfSubstring(text, target);
+
+    cout << "Indices of substring '" << target << "' in text are: ";
+    for (int i : result) {
         cout << i << " ";
     }
+    cout << endl;
+
     return 0;
 }
