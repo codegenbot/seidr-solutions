@@ -1,4 +1,4 @@
-```
+```Python
 def calculate_fuel(amount):
     if amount <= 2:
         return max(0, amount - 2)
