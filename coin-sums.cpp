@@ -2,14 +2,13 @@
 using namespace std;
 
 void coinSums(int cents) {
-    int quarterCount = cents / 25;
-    quarters = (quarterCount > 0)? quarterCount : 0;
+    int quarters = cents / 25;
     cents %= 25;
-    int dimes = (cents / 10) > 0 ? cents / 10 : 0;
+    int dimes = cents / 10;
     cents %= 10;
-    int nickles = (cents / 5) > 0 ? cents / 5 : 0;
+    int nickles = cents / 5;
     cents %= 5;
-    int pennies = (cents > 0)? cents : 0;
+    int pennies = cents;
 
     cout << quarters << endl;
     cout << dimes << endl;
