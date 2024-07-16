@@ -1,7 +1,6 @@
-#include <vector>
-#include <iostream>
+```
 #include <string>
-#include <initializer_list>
+#include <cstddef>
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
@@ -13,9 +12,4 @@ int pairedDigits(const std::string& str) {
     return sum;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> input;
-    std::cout << "Sum of paired digits: " << pairedDigits(input) << std::endl;
-    return 0;
+int main() { return pairedDigits("123455"); }
