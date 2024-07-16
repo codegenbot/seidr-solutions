@@ -6,43 +6,11 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     
     std::vector<std::pair<int, int>> result;
     
-    int i = 0, j = nums.size() - 1;
-    
-    while (i < j) {
-        if (nums[i] + nums[j] == target) {
-            bool isPairUnique = true;
-
-            for (auto& existingPair : result) {
-                if ((existingPair.first == nums[i] && existingPair.second == nums[j]) ||
-                    (existingPair.first == nums[j] && existingPair.second == nums[i])) {
-                    isPairUnique = false;
-                    break;
-                }
-            }
-
-            if (isPairUnique) {
-                result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
-            } else if (std::find(result.begin(), result.end(),
-                                  std::pair<int, int>(nums[i], nums[j])) == result.end()) {
-                // Add this pair to the result and increment/decrement i or j
-                if (nums[i] + nums[j - 1] > target) {
-                    result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
-                    j--;
-                } else {
-                    result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
-                    i++;
-                }
-            } else {
-                if (nums[i] + nums[j - 1] > target) {
-                    j--;
-                } else {
-                    i++;
-                }
-            }
-        } else if (nums[i] + nums[j] < target) {
-            i++;
-        } else {
-            j--;
+    for (int i = 0; i < nums.size(); i++) {
+        int j = std::lower_bound(nums.begin() + i, nums.end(), target - nums[i]) - nums.begin();
+        
+        if (j != nums.size() && nums[i] + nums[j] == target) {
+            result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
         }
     }
     
