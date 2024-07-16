@@ -10,7 +10,7 @@ std::string change_base(int x, int base) {
     }
     return result;
 }
-
+    
 int main() {
     int x;
     std::cin >> x;
