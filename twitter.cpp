@@ -8,12 +8,11 @@ int main() {
 
     if (!tweet.empty()) {
         if (tweet.length() > 140) {
-            return "Too many characters";
+            std::cout << "Too many characters" << std::endl;
         } else {
-            std::string result = "Your tweet has " + std::to_string(tweet.length()) + " characters";
-            return result;
+            std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
         }
     } else {
-        return "You didn't type anything";
+        std::cout << "You didn't type anything" << std::endl;
     }
 }
