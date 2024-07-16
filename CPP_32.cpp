@@ -10,14 +10,8 @@ double abs(double x){
     return x >= 0 ? x : -x;
 }
 
-double find_zero(vector<double> coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
-    
-    double x = 0.0;
-    while(abs(poly(coeffs, x)) > 1e-9){
-        x -= poly(coeffs, x) / poly({a, b}, x);
-    }
-    
-    return x;
+double find_zero(vector<double> xs){
+    double a = poly(xs, 1.0);
+    double b = poly(xs, -1.0);
+    return -b/a;
 }
