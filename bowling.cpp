@@ -15,11 +15,14 @@ int bowlingScore(string s) {
                 score += roll;
             roll = 0;
         } else if (isdigit(s[i])) {
-            roll *= 10;
-            roll += s[i] - '0';
             string str = to_string(roll) + "0";
             s.insert(i, 0, str);
             i += str.length();
+            roll = 0;
+            for (int j = i; isdigit(s[j]); j++) {
+                roll *= 10;
+                roll += s[j] - '0';
+            }
         }
     }
 
