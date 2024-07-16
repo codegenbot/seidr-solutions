@@ -1,18 +1,10 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-int main() {
-    assert(issame(vector<int>({5, 3, 5, 2, 3, 3, 9, 0, 123}), vector<int>({0, 2, 3, 5, 9, 123}));
-    
-    return 0;
-}
+sort(l.begin(), l.end(), issame);
+l.erase(unique(l.begin(), l.end(), issame), l.end());
+return l;
