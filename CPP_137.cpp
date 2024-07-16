@@ -1,7 +1,3 @@
-```cpp
-#include <boost/variant.hpp>
-#include <boost/any.hpp>
-
 using namespace std;
 using boost::variant;
 using boost::any;
