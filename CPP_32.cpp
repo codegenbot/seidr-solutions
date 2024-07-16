@@ -13,10 +13,9 @@ double abs(double x){
 double find_zero(vector<double> coeffs){
     double a = coeffs[0];
     double b = coeffs[1];
-    double epsilon = 1e-6;
-    double x = 0.0;
     
-    while(abs(poly(coeffs, x)) > epsilon){
+    double x = 0.0;
+    while(abs(poly(coeffs, x)) > 1e-9){
         x -= poly(coeffs, x) / poly({a, b}, x);
     }
     
