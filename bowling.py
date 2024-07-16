@@ -1,4 +1,3 @@
-```
 frames = input()
 score = 0
 i = 0
