@@ -1,11 +1,11 @@
-def spin_words(input_string):
-    words = input_string.split()
-    output_words = []
+Here is the completed code:
 
+def spin_words(s):
+    words = s.split()
+    result = []
     for word in words:
         if len(word) >= 5:
-            output_words.append(word[::-1])
+            result.append(word[::-1])
         else:
-            output_words.append(word)
-
-    return " ".join(output_words)
+            result.append(word)
+    return ' '.join(result)
