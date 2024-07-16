@@ -1,9 +1,17 @@
-string input = to_string(x);
-    int n = input.size();
+string circular_shift(int x, int shift){
+    string num = to_string(x);
+    int n = num.size();
     shift %= n;
-    if (shift == 0) {
-        return input;
+    
+    if(shift == 0){
+        return num;
     }
-    string result = input.substr(n - shift) + input.substr(0, n - shift);
+    
+    if(shift > n){
+        reverse(num.begin(), num.end());
+        return num;
+    }
+    
+    string result = num.substr(n - shift) + num.substr(0, n - shift);
     return result;
 }
