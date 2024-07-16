@@ -1,8 +1,8 @@
 def sum_squares(lst):
     total_sum = 0
-    for i in range(len(lst)):
-        if lst[i] % 3 == 0 and lst[i] % 4 != 0:
-            total_sum += lst[i] ** 2
-        elif lst[i] % 4 == 0 and lst[i] % 3 != 0:
-            total_sum += lst[i] ** 3
+    for num in lst:
+        if isinstance(num, int):
+            total_sum += num ** 2
+        else:
+            break
     return total_sum
