@@ -5,13 +5,10 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
     
-    // calculate new snowfall before entering the loop
-    float newSnow = rateOfSnowFall;
-    
     for (int i = 0; i < hours; i++) {
-        totalSnow *= (1 - proportionOfSnowMeltingPerHour); 
-        totalSnow += newSnow; 
-        newSnow = rateOfSnowFall; 
+        int newSnow = static_cast<int>(rateOfSnowFall); // add new snowfall as an integer
+        totalSnow -= totalSnow * proportionOfSnowMeltingPerHour; 
+        totalSnow += newSnow;
     }
     
     return totalSnow;
