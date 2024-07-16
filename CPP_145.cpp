@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
 void order_by_points(std::vector<int>& nums){
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
@@ -19,15 +23,10 @@ void order_by_points(std::vector<int>& nums){
     });
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
     std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
-    std::vector<int> temp = {0, 6, 6, -76, -21, 23, 4};
-    order_by_points(temp);
-    assert(issame(temp, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
-    
+    order_by_points(input);
+    assert(issame(input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+
     return 0;
 }
