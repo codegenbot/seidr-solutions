@@ -4,3 +4,4 @@ float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proporti
         newTotalSnow += rateOfSnowfall - proportionOfMeltingPerHour * newTotalSnow;
     }
     return newTotalSnow;
+}
