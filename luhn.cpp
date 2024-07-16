@@ -1,7 +1,3 @@
-```c++
-#include <iostream>
-#include <vector>
-
 int luhn(int* digits, int length) {
     int sum = 0;
     for (int i = 0; i < length; i++) {
@@ -18,8 +14,8 @@ int luhn(int* digits, int length) {
 }
 
 int main() {
-    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1}; // Provide your credit card number here
-    int result = luhn(&digits[0], digits.size());
-    std::cout << "The Luhn checksum is: " << result << std::endl;
+    int digits[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    int result = luhn(digits, sizeof(digits) / sizeof(digits[0]));
+    std::cout << "Luhn's algorithm result: " << result << std::endl;
     return 0;
 }
