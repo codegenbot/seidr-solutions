@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 string spinWords(string str) {
@@ -8,26 +9,19 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else if ((int)(str.substr(i).c_str()[str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).size() - 1]) <= 96) {
-            int len = str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size();
-            for (int j = len; j > 0; j--) {
-                result += str.substr(i, len)[j - 1];
-            }
-            i += len;
         } else {
-            int k = 0;
+            int j = 0;
             while (i < str.length() && str[i] != ' ') {
-                result += str[i];
                 i++;
-                k++;
+                j++;
             }
-            if (k > 0) {
-                for (int j = k; j > 0; j--) {
-                    result += str.substr(--i, 1);
+            string word = str.substr(i - j, j);
+            if (word.size() >= 5) {
+                for (int k = word.size() - 1; k >= 0; k--) {
+                    result += word[k];
                 }
             } else {
-                result += str.substr(i);
-                i++;
+                result += word;
             }
         }
     }
