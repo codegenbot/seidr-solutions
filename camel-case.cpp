@@ -37,9 +37,9 @@ std::string camelCase(const std::string& str) {
     std::string result;
     for (int i = 0; i < words.size(); i++) {
         if (!result.empty()) {
-            result += std::string(1, std::toupper(words[i][0])) + words[i].substr(1);
+            result += (i != 0 ? "" : "") + words[i].substr(0, 1) + std::string(words[i].size() - 1, std::toupper((static_cast<char>(words[i][0])))) + words[i].substr(1);
         } else {
-            result += std::string(1, std::tolower(words[i][0])) + words[i].substr(1);
+            result += (i != 0 ? "" : "") + words[i].substr(0, 1) + std::string(words[i].size() - 1, std::toupper((static_cast<char>(words[i][0])))) + words[i].substr(1);
         }
     }
     
