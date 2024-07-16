@@ -1,8 +1,9 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
+#include <iostream>
 
-long double double_the_difference(const std::vector<float> &lst);
+long double double_the_difference(std::vector<float> &lst);
 
 int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
@@ -13,10 +14,10 @@ int main() {
     return 0;
 }
 
-long double double_the_difference(const std::vector<float> &lst){
+long double double_the_difference(std::vector<float> &lst){
     long double sum = 0;
     for (float num : lst) {
-        if (num > 0 && (int)num % 2 != 0) {
+        if (num > 0 && num == std::floor(num) && (int)num % 2 != 0) {
             sum += std::pow(num, 2.0);
         }
     }
