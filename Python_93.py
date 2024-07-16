@@ -1,4 +1,4 @@
-input_string = input()
+input_string = input().strip()
 encoded_message = ''
 for char in input_string:
     encoded_message += chr(
