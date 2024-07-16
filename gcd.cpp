@@ -1,8 +1,8 @@
-#include <iostream>
+Here is the corrected code:
+
+```cpp
 #include <vector>
 #include <string>
-
-using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
