@@ -1,11 +1,13 @@
-int n = str.size();
-    int open = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i] == '[') {
-            open++;
-        } else if (str[i] == ']' && open > 0) {
-            open--;
+int opening = 0;
+for (char c : str) {
+    if (c == '[') {
+        opening++;
+    } else if (c == ']') {
+        opening--;
+        if (opening < 0) {
+            return true;
         }
     }
-    return n > 1 && open > 0;
+}
+return false;
 }
