@@ -8,18 +8,18 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (capitalize) {
+            if(capitalize) {
                 result += ' ';  // Add a space to separate words
                 capitalize = true;  // Start new word, so capitalize next char
             } else {
-                result += ' ';  // Add a space to separate words
-                capitalize = true;  // Start new word, so capitalize next char
+                result += c + (capitalize ? "" : "");// Add the hyphen and capitalize
+                capitalize = true;
             }
         } else if (capitalize) {
-            result += std::toupper(c);  // Capitalize first letter of each word
+            result += toupper(c);  // Capitalize first letter of each word
             capitalize = false;
         } else {
-            result += std::tolower(c);
+            result += tolower(c);
         }
     }
 
