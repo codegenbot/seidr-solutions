@@ -8,7 +8,7 @@ int basement(vector<int> &nums) {
         sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1;
+    return -1; // or any default value indicating no such index exists
 }
 
 int main() {
