@@ -1,24 +1,37 @@
+```
 def solve_boolean(expression):
+    def or_operator(a, b):
+        return "T" if a == "T" else b
+
+    def and_operator(a, b):
+        return "F" if a == "F" else b
+
     result = "T"
     operator_stack = []
     for char in expression:
         if char in ["|", "&"]:
-            while operator_stack and operator_stack[-1] != "(":
-                b = result
-                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
+            while operator_stack and (operator_stack[-1] == "|" or operator_stack[-1] == "&"):
+                if operator_stack[-1] == "|":
+                    result = or_operator(result, operator_stack.pop())
+                elif operator_stack[-1] == "&":
+                    b = result
+                    result = and_operator(result, operator_stack.pop())
             operator_stack.append(char)
         elif char == "(":
             operator_stack.append(char)
         elif char == ")":
             while operator_stack[-1] != "(":
-                b = result
-                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
+                if operator_stack[-1] == "|":
+                    result = or_operator(result, operator_stack.pop())
+                elif operator_stack[-1] == "&":
+                    b = result
+                    result = and_operator(result, operator_stack.pop())
             operator_stack.pop()
         else:
-            if result == "F":  
-                result = "F"
-            elif result == "T":  
-                result = "T"
+            if result == "&" and char == "T":
+                result = and_operator(result, "F")
+            elif result == "|" and char == "T":
+                result = or_operator(result, "F")
 
     return "T" if result == "T" else "F"
 
