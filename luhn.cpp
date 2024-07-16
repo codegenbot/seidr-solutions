@@ -16,10 +16,7 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits;
-    for(int i = 0; i < 16; i++) {
-        digits.push_back(i % 10 + 4);
-    }
+    std::vector<int> digits = {4, 3, 2, 1, 8, 7, 6, 5, 4, 3, 2, 1, 8, 7, 6, 5};
     std::cout << luhn(digits) << std::endl;
     return 0;
 }
