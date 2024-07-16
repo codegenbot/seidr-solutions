@@ -1,24 +1,14 @@
-def bowling(score_string):
+def bowling_score(game):
     score = 0
-    frame = 1
-    for char in score_string:
-        if char.isdigit():
-            score += int(char)
-        elif char == "/":
-            score += 10 - (frame - 1)
-            frame += 1
-        elif char == "X":
-            score += 10
-            frame += 1
+    roll = list(map(int, re.sub("[^0-9X]", "", game)))
+    for i in range(10):
+        if roll[i * 2] == 10:
+            if roll[i * 2 + 1] == X:
+                score += 30
+            else:
+                score += sum(roll[i * 2 : i * 2 + 11])
+        elif roll[i * 2] + roll[i * 2 + 1] > 10:
+            score += 20 + roll[i * 2 + 1]
         else:
-            strikes = 0
-            while char != "/":
-                if char == "X":
-                    score += 10
-                    strikes += 1
-                else:
-                    score += int(char)
-                char = next(score_string)
-            if strikes == 2:
-                score += 10 - (frame - 1)
+            score += roll[i * 2] + roll[i * 2 + 1]
     return score
