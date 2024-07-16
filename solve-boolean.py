@@ -13,7 +13,7 @@ def solve_boolean(expression):
             left = evaluate()
             right = expression[2:] 
             if right[0] == "(":
-                return f"({str(evaluate())})"
-            return f"({str(left)}) {operator} ({right})"
+                return "(" + str(evaluate()) + ")"
+            return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
 
-    return eval(f"({str(evaluate())})")
+    return eval("(" + str(evaluate()) + ")")
