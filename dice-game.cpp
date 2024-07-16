@@ -4,7 +4,11 @@ using namespace std;
 double probability(int n, int m) {
     if(n == 0 || m == 0)
         throw runtime_error("The number of sides on the dice cannot be zero.");
-    return (n - 1) * (m == n ? 0 : 1) / ((double)n * m); 
+    double result = 0.0;
+    for(int i = 1; i <= m - 1; ++i) {
+        result += (n - i + 1.0) / ((double)n * m);
+    }
+    return result;
 }
 
 int main() {
