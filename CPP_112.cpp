@@ -1,24 +1,23 @@
-#include <string>
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-pair<string, string> reverse_delete(string s, string c) {
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+pair<string, string> reverse_delete(const string& s, const string& c) {
     string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    string rev = result;
-    reverse(rev.begin(), rev.end());
-    return {result, result == rev ? "True" : "False"};
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    string palindrome_check = result;
+    reverse(palindrome_check.begin(), palindrome_check.end());
+    return {result, result == palindrome_check ? "True" : "False"};
 }
 
 int main() {
