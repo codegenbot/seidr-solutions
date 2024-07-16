@@ -5,4 +5,5 @@ int fuelCost(std::vector<int> &stations) {
         newFuel -= 2;
         sum += newFuel;
     }
-    return sum; }
+    return sum;
+}
