@@ -13,13 +13,13 @@ std::string kebabToCamel(const std::string& str) {
             capitalizeNext = false;
         } else {
             if (!result.empty()) {
-                result += ' ';
+                result += ">";
             }
             result += tolower(c);
         }
     }
 
-    return result;
+    return result.substr(1);
 }
 
 int main() {
