@@ -3,9 +3,9 @@ while True:
         numbers = list(
             map(float, input("Enter the numbers separated by space: ").split())
         )
-        if len(numbers) == 0:
+        if not numbers:
             raise ValueError
         print(sum(numbers))
         break
-    except (ValueError, TypeError):
+    except ValueError:
         print("Invalid input. Please enter numbers separated by space.")
