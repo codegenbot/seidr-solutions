@@ -1,24 +1,12 @@
-```c++
-#include <iostream>
 #include <string>
 
-std::string fizzBuzz(int x) {
-    std::string result = "";
-    if(x % 3 == 0 && x % 5 == 0)
+string fizzBuzz(int x) {
+    if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
-    else if(x % 3 == 0)
+    else if (x % 3 == 0)
         return "Fizz";
-    else if(x % 5 == 0)
+    else if (x % 5 == 0)
         return "Buzz";
     else
-        std::to_string(x);
-    return result;
-}
-
-int main() {
-    int x;
-    std::cout << "Enter an integer: ";
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
-    return 0;
+        return to_string(x);
 }
