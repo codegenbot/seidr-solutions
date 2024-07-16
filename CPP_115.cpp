@@ -1,17 +1,15 @@
-int n = grid.size();
-        int m = grid[0].size();
-        int count = 0;
-
-        for (int j = 0; j < m; ++j) {
-            int current = 0;
-            for (int i = 0; i < n; ++i) {
-                current += grid[i][j];
+int ans = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            int cur = 0;
+            for (int j = 0; j < grid[i].size(); j++) {
+                if (grid[i][j] == 1) {
+                    cur++;
+                    if (cur == capacity) {
+                        ans++;
+                        cur = 0;
+                    }
+                }
             }
-            count += current / capacity;
-            if (current % capacity != 0) {
-                count++;
-            }
+            ans += cur;
         }
-
-        return count;
-    }
+        return ans;
