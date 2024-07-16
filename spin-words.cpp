@@ -22,11 +22,11 @@ std::string spinWords(std::string sentence) {
     if (temp.length() >= 5) {
         std::string tempRev = temp;
         std::reverse(tempRev.begin(), tempRev.end());
-        result = result + std::string(tempRev).rbegin()->second;
+        result = result + tempRev + " ";
     } else
         result += temp;
 
-    return result;
+    return result.substr(0, result.size()-1);
 }
 
 int main() {
@@ -38,4 +38,4 @@ int main() {
             break;
         std::cout << spinWords(input) << std::endl;
     }
-    return 0; }
+    return 0;
