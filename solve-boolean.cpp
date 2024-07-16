@@ -1,25 +1,31 @@
+#include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    bool result = false;
-    for (char c : s) {
-        if (c == 'T') {
-            return true;
-        } else if (c == 'F') {
-            return false;
-        } else if (c == '|') {
-            result = true;
-        } else if (c == '&') {
-            result &= true;
+bool evaluateBoolean(string expression) {
+    stack<char> ops;
+    stack<bool> vals;
+
+    for (int i = 0; i < expression.length(); ++i) {
+        if (expression[i] == '&') {
+            bool b = vals.top();
+            vals.pop();
+            bool a = vals.top();
+            vals.pop();
+            vals.push(a && b);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b = vals.top();
+            vals.pop();
+            bool a = vals.top();
+            vals.pop();
+            vals.push(a || b);
+            ops.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            vals.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            vals.push(false);
         }
     }
-    return result;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    return vals.top();
 }
