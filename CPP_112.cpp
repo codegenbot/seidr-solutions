@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-#include <iostream>
+#include <ostream>
 
 using namespace std;
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -21,8 +21,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
 }
