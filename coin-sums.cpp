@@ -1,4 +1,3 @@
-```c
 int main() {
     int cents;
     std::cin >> cents;
