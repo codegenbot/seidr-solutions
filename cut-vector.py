@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     min_diff = float('inf')
     for i in range(1, len(vector)):
