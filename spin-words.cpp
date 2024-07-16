@@ -1,4 +1,3 @@
-```cpp
 std::string spinWords(std::string input) {
     std::stringstream ss(input);
     std::string word;
