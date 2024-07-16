@@ -1,44 +1,40 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
+using namespace std;
+
+string camelCase(string str) {
+    string result = "";
+    int i = 0;
     
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
+    while (i < str.length()) {
+        if (str[i] == '-') {
+            i++;
+            while (i < str.length() && str[i] != ' ') {
+                result += toupper(str[i]);
+                i++;
             }
-            else {
-                firstWord = false;
-            }
-        } 
-        else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            else {
-                firstWord = false;
-            }
-        } 
-        else {
-            if (firstWord) {
-                result += c;
-            } 
-            else {
-                result += char(tolower(c));
-            }
+        } else if (str[i] == ' ') {
+            i++;
+            continue;
+        } else {
+            result += tolower(str[i]);
+            i++;
         }
     }
     
-    return result;
+    return result + (result.length() > 0 ? "" : "");
 }
 
+#ifdef __GXX_EXPERIMENTAL_CXX0X__
+#include <initializer_list>
+#endif
+
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << camelCase(str) << std::endl;
+    string str;
+    while (cin >> str) {
+        cout << camelCase(str) << endl;
+    }
     return 0;
 }
