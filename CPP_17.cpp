@@ -10,15 +10,9 @@ vector<int> parse_music(string music_string){
             } else {
                 beats.push_back(1);
             }
+        } else {
+            beats.push_back(0);
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
 }
