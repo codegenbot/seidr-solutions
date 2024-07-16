@@ -1,5 +1,5 @@
 string make_palindrome(string str){
-    if(str.empty()) return str;
+    if(str.empty()) return "";
     int n = str.size();
     int i = n - 1;
     while(i >= 0 && str[i] == str[n - 1]) i--;
