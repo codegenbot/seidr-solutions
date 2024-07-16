@@ -1,6 +1,5 @@
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -33,8 +32,8 @@ int findGCD(int a, int b) {
 
 int main() {
     int num1, num2;
-    cout << "Enter two numbers: ";
+    cout << "Enter two integers: ";
     cin >> num1 >> num2;
-    int GCD = findGCD(num1, num2);
-    cout << "The GCD of the given numbers is: " << GCD << endl;
+    cout << "The GCD of " << num1 << " and " << num2 << " is " << findGCD(num1, num2) << endl;
+    return 0;
 }
