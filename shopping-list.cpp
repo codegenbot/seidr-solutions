@@ -1,4 +1,8 @@
 ```c++
+#include <iostream>
+#include <vector>
+#include <iomanip>
+
 float shoppingList(vector<float> prices, vector<float> discounts) {
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
