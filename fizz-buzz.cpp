@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,4 +18,3 @@ int main() {
     std::cin >> num;
     std::cout << fizzBuzz(num) << std::endl;
     return 0;
-}
