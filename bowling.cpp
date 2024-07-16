@@ -1,9 +1,10 @@
 #include <string>
 
-int bowlingScore(const std::string& s) {
+int bowlingScore(int s) {
     int score = 0;
+    std::string str = std::to_string(s);
     int currentRoll = 0;
-    for (auto it = s.begin(); it != s.end(); ++it) {
+    for (auto it = str.begin(); it != str.end(); ++it) {
         char c = *it;
         if (c == 'X') {
             score += 30;
