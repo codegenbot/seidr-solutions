@@ -1,9 +1,7 @@
-```c++
 #include <iostream>
 #include <string>
 using namespace std;
 
-// Function to square each digit
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
@@ -18,8 +16,8 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> input;
     string result = squareDigits(input); 
-    cin.ignore(); 
+    cin.ignore(); // To clear the input buffer
     cout << "Squared digits: " << result << endl;
+    cin.ignore();
     return 0;
-    cin.ignore(); 
 }
