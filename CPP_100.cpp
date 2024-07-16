@@ -1,8 +1,6 @@
 #include <vector>
-#include <initializer_list>
-#include <iostream>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,35 +10,4 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
-}
-
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
-        } else {
-            n += 3;
-            stones = n;
-        }
-    }
-    return pile;
-}
-
-int mainFunction() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-
-    auto pile = make_a_pile(n);
-
-    for (int stone : pile) {
-        std::cout << stone << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
