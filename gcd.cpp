@@ -38,6 +38,8 @@ int main() {
     std::string text, target;
     while (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
         std::cout << "Invalid input. Please enter two strings: ";
+        std::cin >> text;
+        std::cin >> target;
     }
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
