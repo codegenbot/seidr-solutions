@@ -1,10 +1,11 @@
-```cpp
 #include <cctype>
-int bowlingScore(const std::string s) {
+#include <string>
+
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
-    for (int i = 0; i < s.size(); ++i) {
+    for (std::string::size_type i = 0; i < s.size(); ++i) {
         char c = s[i];
         
         if (c == 'X') {
