@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,13 +14,14 @@ int main() {
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
-    float result = snowOnGround;
-    for (int i = 0; i < hours; ++i) {
-        result += rateOfSnowFall - proportionMeltingPerHour;
+    float totalSnow = 0; 
+    for (int i = 0; i < hours; i++) {
+        float newSnow = rateOfSnowFall - proportionMeltingPerHour * snowOnGround;
+        snowOnGround += newSnow;
     }
 
     cout << "Amount of snow on ground after " << hours << " hours.\n";
-    cout << "The amount of snow is " << result << " inches.\n";
+    cout << "The amount of snow is " << snowOnGround << " inches.\n";
 
     return 0;
 }
