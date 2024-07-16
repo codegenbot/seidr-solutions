@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```Python
 def sum_squares(lst):
     total_sum = 0
