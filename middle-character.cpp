@@ -3,18 +3,16 @@
 #include <string>
 
 std::string middleCharacter(const std::string& str) {
-    int length = str.length();
-    if (length % 2 == 0) {
-        return str.substr(length / 2 - 1, 2); 
+    int size = std::move(str).size();
+    if (size % 2 == 0) {
+        return std::move(str.substr(size / 2 - (size % 2), 2)); 
     } else {
-        return str.substr(length / 2, 1);
+        return std::move(str.substr(size / 2, 1));
     }
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Middle character(s): " << middleCharacter(str) << std::endl;
+    std::cout << middleCharacter("hello") << std::endl;
+    std::cout << middleCharacter("world") << std::endl;
     return 0;
 }

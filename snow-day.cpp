@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
     int hours;
-    float snowOnGround, rateOfSnowFall, proportionMeltingPerHour;
+    float snowOnGround, rateOfSnowFall, proportionMeltingPerHour, totalSnow = 0; 
 
     cout << "Enter number of hours: ";
     cin >> hours;
@@ -14,9 +15,14 @@ int main() {
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
-    float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
+    for (int i = 0; i < hours; i++) {
+        float newSnow = rateOfSnowFall - proportionMeltingPerHour * snowOnGround;
+        totalSnow += newSnow; 
+        snowOnGround += newSnow;
+    }
 
-    cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
+    cout << "Amount of snow on ground after " << hours << " hour" << (hours == 1 ? "" : "s") << ".\n";
+    cout << "The amount of snow is " << snowOnGround << " inch" << (snowOnGround == 1 ? "" : "es") << ".\n";
 
     return 0;
 }

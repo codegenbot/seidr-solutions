@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <sstream>
 
@@ -17,4 +18,9 @@ std::string spinWords(std::string str) {
         result.pop_back();
 
     return result;
+}
+
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
+    return 0;
 }
