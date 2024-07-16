@@ -3,6 +3,8 @@
 #include <iostream>
 
 std::string fizzBuzz(int x) {
+    if (x > INT_MAX)
+        return "Overflow";
     if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -10,7 +12,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return (int)(x < INT_MAX && std::to_string(x)) || "Overflow";
+        return std::to_string(x);
 }
 
 int main() {
