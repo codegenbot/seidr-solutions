@@ -3,8 +3,10 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace std {
+    bool issame(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
 }
 
 std::vector<int> sort_third(const std::vector<int>& l) {
