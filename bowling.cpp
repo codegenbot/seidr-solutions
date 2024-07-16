@@ -1,40 +1,45 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    int score = 0, frame = 0, ball = 0;
-    int frames[10] = {0};
-
-    for (char c : bowls) {
+int calculateBowlingScore(string s) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls[21] = {0};
+    
+    for (char c : s) {
         if (c == 'X') {
-            frames[frame] = 10;
-            frame++;
+            rolls[ball++] = 10;
+            if (frame < 10) frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - (bowls[2 * frame - 1] - '0');
-            if (frame > 1 && bowls[2 * frame - 3] == '/')
-                frames[frame-1] = 10 - (bowls[2 * frame - 1] - '0');
-            frame++;
-            ball = 0;
+            rolls[ball++] = 10 - rolls[ball-1];
+            if (frame < 10) frame++;
         } else if (c == '-') {
-            ball++;
+            rolls[ball++] = 0;
         } else {
-            frames[frame] += c - '0';
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
+            rolls[ball++] = c - '0';
+            if (ball % 2 == 0) {
+                if (frame < 10) frame++;
             }
         }
     }
-
+    
     for (int i = 0; i < 10; i++) {
-        score += frames[i];
+        if (rolls[i*2] == 10) {
+            score += 10 + rolls[i*2+2] + rolls[i*2+3];
+            if (rolls[i*2+2] == 10) {
+                score += rolls[i*2+4];
+            }
+        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
+            score += 10 + rolls[i*2+2];
+        } else {
+            score += rolls[i*2] + rolls[i*2+1];
+        }
     }
+    
+    return score;
+}
 
-    std::cout << score << std::endl;
-
+int main() {
+    string s;
+    cin >> s;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
