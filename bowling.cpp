@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,7 +12,7 @@ int bowlingScore(std::string s) {
         if (s[i] == 'X') { // Strike
             score += 10 + getBonus(s, i);
         } else if (s[i] == '/') { // Spare
-            score += 5 + getBonus(s.substr(i+1));
+            score += 5 + getBonus(std::string(&s[i+1]));
         } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
@@ -24,10 +27,10 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int getBonus(std::string s, int start) {
+int getBonus(std::string s) {
     int bonus = 0;
 
-    for (int j = start; j < s.size(); j++) {
+    for (int j = 0; j < s.size(); j++) {
         if (s[j] == 'X') { // Strike
             bonus += 10;
         } else if (s[j] == '/') { // Spare
