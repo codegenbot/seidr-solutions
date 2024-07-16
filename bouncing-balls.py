@@ -1,12 +1,13 @@
-b = float(input())
-a = float(input())
-n = int(input())
+```
+def bouncing_balls():
+    start_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
 
-index = a / b
+    bounciness_index = first_bounce_height / start_height
+    total_distance = 2 * (1 + bounciness_index) ** num_bounces - 1
 
-distance = 0
-for _ in range(n):
-    distance += (2 * b) ** index
-    b *= (1 - (a / b)) ** 2
+    print("{:.3f}".format(total_distance))
 
-print(distance)
+
+bouncing_balls()
