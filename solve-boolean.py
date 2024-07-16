@@ -10,6 +10,6 @@ def solveBoolean(expression):
     elif "&" in expression:
         left, right = expression.split("&")
         return solveBoolean(left) and solveBoolean(right)
-    elif "|" in expression:
+    elif "| " in expression:
         left, right = expression.split("|")
         return solveBoolean(left) or solveBoolean(right)
