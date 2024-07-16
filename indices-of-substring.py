@@ -11,5 +11,3 @@ def indices_of_substring():
         else:
             break 
     return result
-
-print(indices_of_substring())
