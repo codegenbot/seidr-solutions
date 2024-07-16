@@ -1,6 +1,5 @@
 ```
-# You can add comments here or print statements if you want
-# This is a comment and the code will not execute it
+import sys
 
 def shopping_list():
     n = int(input())
