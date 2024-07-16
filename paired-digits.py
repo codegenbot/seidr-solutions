@@ -9,7 +9,8 @@ def paired_digits(s):
             total += int(prev_digit) * count
             count = 1
         prev_digit = s[i]
-    return total + int(prev_digit) * count
+    total += int(prev_digit) * count
+    return total
 
 s = input("Enter a string of digits: ")
 print(paired_digits(s))
