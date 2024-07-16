@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-std::string f(std::vector<int> v) {
+std::string g(std::vector<int> v) {
     std::string s = "";
     for (int i : v) {
         if (i >= 128)
@@ -15,7 +15,7 @@ std::string f(std::vector<int> v) {
 }
 
 int main() {
-    int output = f({127, 97, 8192});
-    assert(output == 10);
+    int result = g({127, 97, 8192});
+    assert(result == 10);
     return 0;
 }
