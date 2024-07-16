@@ -1,3 +1,4 @@
+```c++
 #include <cstdio>
 
 float shoppingList(float prices[], int nPrices, float discounts[]) {
