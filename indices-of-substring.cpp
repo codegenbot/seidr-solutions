@@ -12,11 +12,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i=0; i<=n-m; i++) {
         int pos = text.find(target, i);
         while (pos != string::npos) {
-            if (i != pos) { 
-                result.push_back(pos); 
-            }
-            pos = text.find(target, pos + 1);
-            i = pos; // update last seen index
+            result.push_back(pos); 
+            pos = text.find(target, i+1); // start searching from the next position of previous match
         }
     }
 
