@@ -3,7 +3,7 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        count = cents // coins[i]
+        count = min(cents // coins[i], 1)
         cents %= coins[i]
         result[i] = count
 
