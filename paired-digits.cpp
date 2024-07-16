@@ -1,7 +1,7 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
@@ -19,3 +19,4 @@ int main() {
     std::cin >> input;
     std::cout << "Sum of paired digits: " << pairedDigits(input) << std::endl;
     return 0;
+}
