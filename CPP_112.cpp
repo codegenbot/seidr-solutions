@@ -1,14 +1,4 @@
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a) {
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != "True") return false;
-    }
-    return true;
-}
-
-std::vector<string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s, string c) {
     vector<char> temp(s.begin(), s.end());
     for (char& c1 : temp) {
         for (char c2 : c) {
@@ -36,6 +26,6 @@ std::vector<string> reverse_delete(string s, string c) {
     }
     vector<string> res(2);
     res[0] = result;
-    res[1] = (isPalindrome ? "True" : "False");
+    res.push_back((isPalindrome ? "True" : "False"));
     return res;
 }
