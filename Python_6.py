@@ -1,2 +1,2 @@
-import sys
-paren_strings = sys.stdin.readline().strip().split()
+n = int(input())
+paren_strings = [input() for _ in range(n)]
