@@ -1,7 +1,10 @@
-double num = stod(value);
-    if (num < 0) {
-        return floor(num - 0.5);
-    } else {
-        return ceil(num + 0.5);
-    }
+#include <iostream>
+#include <string>
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int lower = std::floor(num);
+    int upper = std::ceil(num);
+    return (num - lower < upper - num) ? lower : upper;
 }
