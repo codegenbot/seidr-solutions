@@ -1,28 +1,14 @@
-```c++
-#include <vector>
-#include <iostream>
-
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> result(n);
+    std::vector<int> result;
+    int maxRight = arr[n-1]; // Initialize the maximum right element as the last element of the array
 
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    for(int i=n-2; i>=0; i--) { 
+        if(arr[i] >= maxRight) {
+            result.push_back(arr[i]);
+            maxRight = arr[i];
         }
-        if(leader) result[i] = arr[i];
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2, 3}; 
-    std::vector<int> result = leaders(arr);
-    for (int i=0; i<result.size(); i++) std::cout << result[i] << " "; 
-    return 0;
 }
