@@ -11,12 +11,8 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    sorted_nums = sorted([num_dict[i] for i in numbers.split()])
+    num_list = [num_dict[i] for i in numbers.split()]
+    sorted_num_list = sorted(num_list)
     return " ".join(
-        [
-            f'{"one" if x == 1 else "zero"} nine eight seven six five four three two one'.split()[
-                x
-            ]
-            for x in sorted_nums
-        ]
+        [str(i) for i in num_dict.keys() if num_dict[i] == j] for j in sorted_num_list
     )
