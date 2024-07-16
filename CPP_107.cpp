@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+void issame(const vector<int>& a, const vector<int>& b) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         string s = to_string(i);
