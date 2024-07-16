@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-
+```cpp
 int main() {
     std::string codeStr, guessStr;
 
@@ -14,11 +12,23 @@ int main() {
     int blackPegs = 0;
     int whitePegs = 0;
 
+    // Count black pegs
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        } else if (std::count(codeStr.begin(), codeStr.end(), guessStr[i]) > 0) {
-            whitePegs++;
+        }
+    }
+
+    // Count white pegs
+    for (char c : codeStr) {
+        int count = 0;
+        for (int i = 0; i < 4; i++) {
+            if (c == guessStr[i] && c != codeStr[i]) {
+                count++;
+            }
+        }
+        if (count > 0) {
+            whitePegs += count;
         }
     }
 
