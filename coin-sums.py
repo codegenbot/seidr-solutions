@@ -2,9 +2,9 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    for coin in coins[::-1]:
-        count = cents // coin 
-        cents %= coin         
-        result[coins.index(coin)] = count
+    for i in range(len(coins)):
+        count = cents // coins[i]
+        cents %= coins[i]
+        result[i] = count
 
-    return result[3], result[2], result[1], result[0]
+    return f"Quarters: {result[3]}, Nickels: {result[2]}, Dimes: {result[1]}, Pennies: {result[0]}"
