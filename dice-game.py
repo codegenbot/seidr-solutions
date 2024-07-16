@@ -1,2 +1,6 @@
-n, m = int(input()), int(input())
-print(round(sum([(n-i)/n*(m-i)/m for i in range(min(n, m))]), 2))
+n = int(input())
+m = int(input())
+if n > m:
+    print(round((n - 1) / (n * m), 2))
+else:
+    print(round(n / (n * m), 2))
