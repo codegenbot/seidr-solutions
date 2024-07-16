@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -32,21 +31,29 @@ int findGCD(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-    cout << "GCD of " << a << " and " << b << ": " << findGCD(a, b) << endl;
+    int num1, num2;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
 
-    string text, target;
-    cout << "Enter the text: ";
+    int gcd = findGCD(num1, num2);
+    cout << "The GCD of " << num1 << " and " << num2 << " is " << gcd << endl;
+    
+    string text;
+    cout << "Enter a text: ";
     getline(cin, text);
-    cout << "Enter the target: ";
-    getline(cin, target);
+
+    string target;
+    cout << "Enter the target string: ";
+    cin >> target;
 
     vector<int> indices = findIndices(text, target);
+    cout << "The target string appears at indices ";
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
+    
     return 0;
 }
