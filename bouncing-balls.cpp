@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cmath> 
-#include <string>
 using namespace std;
 
 int main() {
@@ -9,9 +8,11 @@ int main() {
     double firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;  
-
-    string input = to_string(startHeight) + " " + to_string(firstBounce) + " " + to_string(numBounces);
+    cin >> startHeight;
+    cout << "Enter first bounce height: ";
+    cin >> firstBounce;
+    cout << "Enter number of bounces: ";
+    cin >> numBounces;  
 
     double bouncinessIndex = firstBounce / startHeight;
 
