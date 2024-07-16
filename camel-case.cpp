@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cstddef> 
 #include <cctype>
@@ -23,10 +22,11 @@ int main() {
         }
     }
 
-    size_t pos = 0;
-    while ((pos = result.find(' ', pos)) != std::string::npos) {
-        result.erase(pos, 1);
-        pos++;
+    for(size_t i = 0; i < result.size(); i++) {
+        if(result[i] == ' ') {
+            result.erase(i, 1);
+            i--;
+        }
     }
     return 0;
 }
