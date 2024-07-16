@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+#include <sstream>
+
 std::string spinWords(std::string input) {
     std::stringstream ss(input);
     std::string word;
