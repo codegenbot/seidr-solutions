@@ -3,5 +3,5 @@ if (x <= 0 || n <= 0) {
     }
     
     double power = log(x) / log(n);
-    return (power == (int)power);
+    return pow(n, int(power)) == x;
 }
