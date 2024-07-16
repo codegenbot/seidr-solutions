@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,6 +14,8 @@ std::string f(std::vector<int> v) {
     return s;
 }
 
-std::string output = f({127, 97, 8192});
-assert(output == "011110100000101");
-return 0;
+int main() {
+    std::string output = f({127, 97, 8192});
+    assert(output == "111111100000010001");
+    return 0;
+}
