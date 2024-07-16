@@ -1,14 +1,15 @@
-string solve(string s){
-    int n = s.size();
-    bool containsLetter = false;
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-            containsLetter = true;
+std::string solve(const std::string &s) {
+    std::string result = s;
+    for (char &c : result) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!containsLetter){
-        reverse(s.begin(), s.end());
+    int i = 0, j = result.size() - 1;
+    while (i < j) {
+        std::swap(result[i], result[j]);
+        i++;
+        j--;
     }
-    return s;
+    return result;
 }
