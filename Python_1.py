@@ -1,7 +1,6 @@
 import sys
-from typing import List
 
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups(paren_string: str) -> list:
     result = []
     level = 0
     current_group = ""
@@ -25,7 +24,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = sys.stdin.readline().strip()
-
-output = separate_paren_groups(paren_string)
-print(output)
+if len(sys.argv) > 1:
+    paren_string = sys.argv[1]
+    output = separate_paren_groups(paren_string)
+    print(output)
+else:
+    print("Please provide a string with parentheses as a command line argument.")
