@@ -1,24 +1,25 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
-    int white = 0, black = 0;
-    map<char, int> codeCount, guessCount;
-    
+
+    int black = 0, white = 0;
+    vector<int> cnt(6, 0);
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeCount[code[i]];
-            ++guessCount[guess[i]];
+            ++cnt[code[i] - 'A'];
+            ++cnt[guess[i] - 'A'];
         }
     }
-    
-    for (auto it = codeCount.begin(); it != codeCount.end(); ++it) {
-        white += min(it->second, guessCount[it->first]);
+
+    for (int i = 0; i < 6; ++i) {
+        white += min(cnt[i], cnt[i + 6]);
     }
-    
-    cout << white << endl << black << endl;
-    
+
+    white -= black;
+    cout << white << "\n" << black << "\n";
+
     return 0;
 }
