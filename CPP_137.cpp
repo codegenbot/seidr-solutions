@@ -1,6 +1,9 @@
+#include <string>
+#include <boost/variant.hpp>
+#include <boost/any.hpp>
+
 using namespace std;
-using boost::variant;
-using boost::any;
+using namespace boost;
 
 variant<int, float, string> compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
