@@ -1,49 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include<vector>
+#include<string>
+#include<cctype>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    bool inWord = false;
-    int consonantCount = 0;
-
+    string word = "";
     for (char c : s) {
-        if (c == ' ') {
-            if (inWord) {
-                if (consonantCount == n)
-                    result.push_back(word);
-                inWord = false;
-                consonantCount = 0;
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) continue;
+                if (!ispunct(ch) && !isspace(ch) && isupper(ch))
+                    consonants += tolower(ch) == 'q' || tolower(ch) == 'x' ||
+                                  tolower(ch) == 'z' ? 1 : 0;
             }
-        } else {
-            inWord = true;
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'y')
-                consonantCount++;
-            word += c;
+            if (consonants == n) {
+                result.push_back(word);
+            }
+            word = "";
         }
     }
-
-    // Add the last word to the result
-    if (inWord) {
-        if (consonantCount == n)
-            result.push_back(word);
-    }
-
     return result;
-}
-
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> words = select_words(s, n);
-
-    for (string word : words) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
