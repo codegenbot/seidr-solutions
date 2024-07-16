@@ -1,16 +1,12 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients should be even")
+    a = xs[-1]
+    b = xs[-2]
 
-    for i in range(n):
-        if xs[i] != 0:
-            max_coeff = xs[i]
-            break
-
-    return -max_coeff / xs[-1]
+    return -a / b
 
 
-# Let's test the function with the given examples
-print(round(find_zero([1, 2]), 2))  # Expected output: -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # Expected output: 1.0
+# Test cases
+if __name__ == "__main__":
+    assert round(find_zero([1, 2]), 2) == -0.5
+    assert round(find_zero([-6, 11, -6, 1]), 2) == 1.0
