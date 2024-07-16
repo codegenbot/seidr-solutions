@@ -4,7 +4,7 @@
 int main() {
     int n, m;
     std::cin >> n >> m;
-
+    
     int count = 0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
@@ -15,7 +15,8 @@ int main() {
     }
     
     double probability = static_cast<double>(count) / static_cast<double>(n * m);
+    
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
-
+    
     return 0;
 }
