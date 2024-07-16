@@ -18,7 +18,12 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
+    vector<int> result = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
+    for(int num : result) {
+        cout << num << " ";
+    }
+    
     assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
-    cout << "Assertion passed!" << endl;
+    
     return 0;
 }
