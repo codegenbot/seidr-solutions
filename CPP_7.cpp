@@ -2,12 +2,12 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -25,13 +25,13 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    // Test the filter_by_substring function
-    std::vector<std::string> strings = {"apple", "banana", "grape", "orange", "strawberry"};
-    std::string substring = "ra";
-    std::vector<std::string> filtered = filter_by_substring(strings, substring);
+    std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
+    std::string substring = "an";
 
-    for(const std::string& str : filtered){
-        std::cout << str << " ";
+    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
+
+    for(const std::string& str : filtered_strings){
+        std::cout << str << std::endl;
     }
 
     return 0;
