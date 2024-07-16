@@ -1,4 +1,13 @@
-from typing import List
-
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [max([paren_string.count('(' * i) for i in range(1, len(paren_string) // 2 + 1)]) // 2 for paren_string in input().split()]
+    result = []
+    stack = []
+    max_depth = 0
+    
+    for char in paren_string:
+        if char == '(':
+            stack.append('(')
+            max_depth = max(max_depth, len(stack))
+        elif char == ')':
+            stack.pop()
+    
+    return [max_depth//2 for _ in paren_string]
