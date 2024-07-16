@@ -1,5 +1,6 @@
 #include <vector>
 #include <initializer_list>
+#include <iostream>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -10,8 +11,24 @@ std::vector<int> make_a_pile(int n) {
             n++;
             stones = n;
         } else {
-            n++;
+            n += 3;
             stones = n;
         }
     }
     return pile;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+
+    auto pile = make_a_pile(n);
+
+    for (int stone : pile) {
+        std::cout << stone << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
