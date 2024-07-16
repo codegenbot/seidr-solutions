@@ -11,9 +11,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     if (issame(common({4, 3, 2, 8}, {}))) {
-        cout << "Vectors are the same" << endl;
+        cout << "The sets have common elements." << endl;
     } else {
-        cout << "Vectors are different" << endl;
+        cout << "The sets do not have common elements." << endl;
     }
     return 0;
 }
