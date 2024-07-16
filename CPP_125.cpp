@@ -20,13 +20,13 @@ vector<string> split_words(string txt){
             }
             result.push_back(txt.substr(start));
         } else {
-            int count = 0;
+            int odd_count = 0;
             for (char c : txt) {
-                if (islower(c) && (c - 'a') % 2 == 1) {
-                    count++;
+                if (islower(c) && ((c - 'a') % 2 == 1)) {
+                    odd_count++;
                 }
             }
-            result.push_back(to_string(count));
+            result.push_back(to_string(odd_count));
         }
     }
     return result;
