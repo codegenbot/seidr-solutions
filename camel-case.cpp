@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,17 +7,17 @@ std::string camelCase(const std::string& str) {
     bool wordStarted = false;
 
     for (char c : str) {
-        if (c == '-' || c == ' ') { 
+        if (c == '-') {
             capitalize = true;
-            wordStarted = false;
-        } else if (!wordStarted) {
-            if (capitalize && islower(c)) { 
+        } else if (!wordStarted || c == ' ') { 
+            if (capitalize) {
                 result += toupper(c);
                 capitalize = false;
+                wordStarted = true; 
             } else {
-                result += c;
+                result += tolower(c);
+                wordStarted = true; 
             }
-            wordStarted = true;
         } else {
             if (capitalize) {
                 result += toupper(c);
