@@ -4,12 +4,11 @@ string int_to_mini_roman(int number) {
                                          {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
     string result = "";
-    for (auto& pair : roman) {
+    for (const auto& pair : roman) {
         while (number >= pair.first) {
             number -= pair.first;
             result += pair.second;
         }
     }
-
-    return result;
+    return to_string(number).empty() ? result : "";
 }
