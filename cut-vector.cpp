@@ -4,7 +4,15 @@
 #include <algorithm>
 
 int main() {
-    std::vector<int> vec = {6984, 8312, 921, 3362, 3078}; 
+    std::vector<int> vec;
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        vec.push_back(num);
+    }
+
     int idx = 0;
     int min_diff = abs(vec[idx] - vec[idx + 1]);
 
