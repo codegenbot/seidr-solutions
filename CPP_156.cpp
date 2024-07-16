@@ -5,13 +5,13 @@ string int_to_mini_roman(int number){
         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
     };
-
+    
     for(const auto& numeral : roman_numerals){
         while(number >= numeral.first){
             roman += numeral.second;
             number -= numeral.first;
         }
     }
-
+    
     return roman;
 }
