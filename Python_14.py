@@ -1,1 +1,2 @@
-input_string = raw_input("Enter a string: ").strip()
+import sys
+input_string = sys.stdin.readline().rstrip()

@@ -1,5 +1,4 @@
-paren_strings = input("Enter parentheses strings separated by commas in double quotes: ").split(',')
-
+paren_strings = input("Enter parentheses strings separated by commas: ").strip().split(',')
 def parse_nested_parens(paren_strings):
     stack = []
     for string in paren_strings:
