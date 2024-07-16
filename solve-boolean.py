@@ -1,7 +1,8 @@
+```
 def solve_boolean(expression):
     def evaluate():
         if expression[0] in ["T", "F"]:
-            return {"T": True, "F": False}[expression[0]]
+            return expression[0] == "T"
         elif expression[0] == "(":
             i = 1
             temp = evaluate()
@@ -9,20 +10,11 @@ def solve_boolean(expression):
                 i += 1
             return temp
         operator = expression[0]
-        i = 1
         if operator in ["|", "&"]:
             left = evaluate()
-            right = expression[i:]
+            right = expression[2:] 
             if right[0] == "(":
-                right = evaluate() + right[1:-1]
-            else:
-                while right[0] in ["T", "F", "|", "&"] or (right[0] == "(" and right.count("(") > 1):
-                    right = right[1:]
-            if operator == "|":
-                return left or right
-            elif operator == "&":
-                return left and right
-        else:
-            raise Exception("Invalid input")
+                return "(" + str(evaluate()) + ")"
+            return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
 
-    return evaluate()
+    return eval("(" + str(evaluate()) + ")")
