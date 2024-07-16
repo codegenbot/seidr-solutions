@@ -18,5 +18,4 @@ int main() {
         }
         return result;
     }
-    cout << spinWords("This is a test"); 
 }
