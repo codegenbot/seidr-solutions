@@ -1,15 +1,21 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        if (i + 2 < text.size() && text[i + 1] == ' ' && text[i + 2] == ' ') {
-            text[i] = '_';
-            text[i + 1] = '_';
-            for (int j = i + 2; j < text.size() && text[j] == ' '; ++j) {
-                text[j] = '-';
+string result = "";
+    int consecutiveSpaces = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += "_";
             }
-            break;
         } else {
-            text[i] = '_';
+            consecutiveSpaces = 0;
+            result += c;
         }
     }
+    
+    return result;
 }
-return text;
