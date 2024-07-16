@@ -1,17 +1,20 @@
+#include <iostream>
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '/') {
+    for (char c : s) {
+        if (c == '/') {
             if (roll > 9)
                 score += 10;
             else
                 score += roll;
             roll = 0;
-        } else if (isdigit(s[i])) {
+        } else if (c >= '0' && c <= '9') {
             roll *= 10;
-            roll += s[i] - '0';
+            roll += c - '0';
         }
     }
 
