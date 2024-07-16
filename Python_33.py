@@ -1,3 +1,11 @@
 def sort_third(l: list):
-    sorted_triplets = sorted([sorted(triplet) for triplet in zip(*[iter(sorted([x for x in l if x % 2 == 1 and x is not None]))]*3)], key=lambda x: max(x))
+    sorted_triplets = sorted(
+        [
+            sorted(triplet)
+            for triplet in zip(
+                *[iter([x for x in l if x % 2 != 0 and x is not None])] * 3
+            )
+        ],
+        key=lambda x: min(x),
+    )
     return sorted_triplets
