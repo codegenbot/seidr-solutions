@@ -1,8 +1,6 @@
-import sys
-
 def encode(message):
     try:
-        if message.isalnum():
+        if message.isalpha() or not message:
             return "".join(
                 char.swapcase() if char.isalpha()
                 else char  # Return all characters unchanged
@@ -14,5 +12,5 @@ def encode(message):
         return "Invalid input. Please enter a message containing only alphabets or special characters."
 
 print(
-    encode(sys.stdin.readline().rstrip())
+    encode(input("Enter a message: "))
 )
