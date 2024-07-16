@@ -1,9 +1,9 @@
-vector<string> words;
+vector<string> result;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
         } else {
@@ -11,18 +11,16 @@ vector<string> words;
         }
     }
     if (!word.empty()) {
-        words.push_back(word);
+        result.push_back(word);
     }
-
-    if (words.empty()) {
-        int oddLowercaseCount = 0;
-        for (char c : txt) {
+    if (result.size() == 1) {
+        int oddCount = 0;
+        for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
-                oddLowercaseCount++;
+                oddCount++;
             }
         }
-        words.push_back(to_string(oddLowercaseCount));
+        result[0] = to_string(oddCount);
     }
-
-    return words;
+    return result;
 }
