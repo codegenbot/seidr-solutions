@@ -1,25 +1,43 @@
+```
 def solve_boolean(expression):
-    stack = []
-    result = True
-    
-    for char in expression:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                if stack[-1] == 'F':
-                    result = not result
-                stack.pop()
-            stack.pop()
-        elif char in ['|', '&']:
-            while stack and stack[-1] in ['|', '&']:
-                if stack[-1] == '&':
-                    result = result & (char == 'T')
+    def evaluate():
+        temp = True if expression[0] == 'T' else False
+        i = 1
+        while i < len(expression):
+            if expression[i] in ['|', '&']:
+                operator = expression[i]
+                i += 1
+                if operator == '|':
+                    temp = temp or evaluate()
+                elif operator == '&':
+                    temp = temp and evaluate()
+                return temp
+            elif expression[i] == '(':
+                i = evaluate() + 1
+            elif expression[i] in ['|', '&']:
+                i += 2
+            elif expression[i] != 'T' and expression[i] != 'F':
+                if expression[i] == '(':
+                    temp = evaluate()
                 else:
-                    result = result | (char == 'T')
+                    return expression[i] == 'T'
+    stack = []
+    result = True if expression[0] == 'T' else False
+    i = 1
+    while i < len(expression):
+        if expression[i] in ['|', '&']:
+            operator = expression[i]
+            i += 1
+            if operator == '(':
+                stack.append('(')
+            elif operator == ')':
+                while stack and stack[-1] != '(':
+                    result = result ^ (stack.pop() == 'F')
                 stack.pop()
-            stack.append(char)
-        elif char != 'T' and char != 'F':
-            stack.append(char)
-    
+        elif expression[i] == '(':
+            stack.append('(')
+        elif expression[i] == ')':
+            temp = evaluate()
+            i = temp + 1
+        i += 1
     return result
