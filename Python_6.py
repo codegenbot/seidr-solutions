@@ -1,7 +1,11 @@
 import ast
 
-input_str = input()
-paren_strings = ast.literal_eval(input_str)
+try:
+    input_str = input()
+    paren_strings = ast.literal_eval(input_str)
+except:
+    print("Input Error")
+    exit()
 
 def parse_nested_parens(paren_strings):
     stack = []
