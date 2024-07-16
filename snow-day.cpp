@@ -10,7 +10,6 @@ float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proporti
 int main() {
     int hours;
     float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
-
     cout << "Enter the number of hours: ";
     cin >> hours;
     cout << "Enter the initial snow amount (in inches): ";
