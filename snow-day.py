@@ -1,4 +1,3 @@
-```
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     current_snow = int(initial_snow * 10)
     for _ in range(hours):
