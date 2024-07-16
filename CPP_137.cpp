@@ -36,25 +36,25 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int i1 = boost::get<int>(a.convert_to<boost::any>());
         int i2 = boost::get<int>(b.convert_to<boost::any>());
-        return i2 > i1 ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
+        return i2 > i1 ? boost::variant<int, float, std::string>(i2) : boost::variant<int, float, std::string>(i1);
     }
-    else
+    else {
         return boost::variant<int, float, std::string>();
+    }
 }
 
 int main() {
     boost::any a = 10;
     boost::any b = "20.5";
-    
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (boost::holds_alternative<std::string>(result)) {
-        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
-    }
-    else if (boost::holds_alternative<int>(result))
+    if (boost::holds_alternative<int>(result)) {
         std::cout << "The result is: " << boost::get<int>(result) << std::endl;
-    else
+    }
+    else if (boost::holds_alternative<float>(result))
         std::cout << "The result is: " << boost::get<float>(result) << std::endl;
+    else
+        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
 
     return 0;
 }
