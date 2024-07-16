@@ -1,4 +1,3 @@
-```
 #include <string>
 int main() {
     std::string spinWords(std::string str) {
@@ -6,7 +5,12 @@ int main() {
         int i = 0;
         while (i < str.length()) {
             if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                result += str.substr(i);
+                if (str.substr(i).length() >= 5) {
+                    for (int j = str.substr(i).length() - 1; j >= 0; --j)
+                        result += str.substr(i)[j];
+                    i += str.substr(i).length();
+                } else
+                    result += str.substr(i);
                 break;
             }
             int j = str.find(" ", i);
