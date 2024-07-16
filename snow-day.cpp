@@ -21,12 +21,8 @@ int main() {
         snowOnGround += newSnow;
     }
 
-    cout << "Amount of snow on ground after ";
-    cout << hours;
-    cout << " hours.\n";
-    cout << "The amount of snow is ";
-    cout << snowOnGround;
-    cout << " inches.\n";
+    cout << "Amount of snow on ground after " << hours << " hour" << (hours == 1 ? "" : "s") << ".\n";
+    cout << "The amount of snow is " << snowOnGround << " inch" << (snowOnGround == 1 ? "" : "es") << ".\n";
 
     return 0;
 }
