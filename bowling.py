@@ -18,10 +18,9 @@ def bowling_score(frames):
                     score += max(first_roll, second_roll) + min(first_roll, second_roll)
             roll = 0
         elif len(frame) > 2:
-            strike = int(frame[0])
-            next_two_rolls = [int(x) for x in frame[1:]]
-            if strike == 10:
-                score += 10 + sum(next_two_rolls)
-            else:
-                score += 10 + max(next_two_rolls)
+            strikes = int(frame[0])
+            while len(frame) > 1 and frame[1] != '0':
+                frame = frame[1:]
+            score += 10 + (int(frame[0]) if len(frame) > 0 else 0)
+            roll = 0
     return score
