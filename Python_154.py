@@ -1,9 +1,4 @@
 def cycpattern_check(a, b):
-    for i in range(len(a)):
-        if b in a[i:] + a[:i]:
-            return True
-    return False
+    return b in a * 2
 
-
-# Test the function
-print(cycpattern_check("winemtt", "tinem"))
+print(cycpattern_check("winemtt", "tinem"))  # Output: True
