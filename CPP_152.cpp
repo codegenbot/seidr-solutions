@@ -13,6 +13,6 @@ vector<int> compare(const vector<int>& a, const vector<int>& b) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool areEqual(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
