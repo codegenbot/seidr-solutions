@@ -2,12 +2,16 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <sstream> // Add this line for using std::stringstream
 
 int main() {
     std::vector<int> nums;
+    std::string input;
+    std::getline(std::cin, input);
+    std::stringstream ss(input);
     int num;
     
-    while (std::cin >> num) {
+    while (ss >> num) {
         nums.push_back(num);
     }
 
