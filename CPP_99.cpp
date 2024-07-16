@@ -1,7 +1,7 @@
 double num = stod(value);
-    int result = round(num);
-    if (num - result == 0.5 || num - result == -0.5) {
-        result += (num > 0) ? 1 : -1;
+    int roundedNum = round(num);
+    if (num - roundedNum == 0.5) {
+        return num > 0 ? ceil(num) : floor(num);
     }
-    return result;
+    return roundedNum;
 }
