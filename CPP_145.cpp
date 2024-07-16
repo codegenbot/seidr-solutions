@@ -1,11 +1,10 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <cmath>
-#include <numeric>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 void order_by_points(std::vector<int>& nums){
@@ -20,16 +19,15 @@ void order_by_points(std::vector<int>& nums){
             sum_b += temp_b % 10;
             temp_b /= 10;
         }
-        auto index_a = std::find(nums.begin(), nums.end(), a) - nums.begin();
-        auto index_b = std::find(nums.begin(), nums.end(), b) - nums.begin();
-        return index_a < index_b;
+        return sum_a < sum_b;
     });
 }
 
 int main() {
-    std::vector<int> input = {0, 6, 6, -76, -21, 23, 4}; 
-    order_by_points(input);
-    assert(issame(input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
-    
+    std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
+    std::vector<int> temp = {0, 6, 6, -76, -21, 23, 4};
+    order_by_points(temp);
+    assert(issame(temp, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+
     return 0;
 }
