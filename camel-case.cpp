@@ -5,13 +5,13 @@
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    bool capitalizeNext = true;
+    bool nextUpper = true;
     for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+            nextUpper = true;
+        } else if (nextUpper) {
             result += std::toupper(c);
-            capitalizeNext = false;
+            nextUpper = false;
         } else {
             result += std::tolower(c);
         }
