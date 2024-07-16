@@ -1,5 +1,11 @@
 def mastermind(code, guess):
     white_pegs = 0
+    color_counts = {}
+    for c in code:
+        if c not in color_counts:
+            color_counts[c] = 1
+        else:
+            color_counts[c] += 1
     for c in code:
         if c != guess[4] and ord(c) - ord("B") == ord(guess[0]) - ord("B"):
             white_pegs += 1
