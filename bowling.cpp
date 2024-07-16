@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int bowling(string s) {
@@ -22,4 +21,3 @@ int bowling(string s) {
     }
 
     return score;
-}
