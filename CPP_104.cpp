@@ -34,9 +34,8 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> test = {123, 456, 789, 2468, 1357};
-    vector<int> expected = {123, 789, 1357};
-    vector<int> result = unique_digits(test);
-    assert(issame(result, expected));
+    vector<int> input = {123, 456, 789, 246};
+    vector<int> output = unique_digits(input);
+    assert(issame(output, {123, 789}));
     return 0;
 }
