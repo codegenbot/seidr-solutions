@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm>
 
 int main() {
     std::vector<int> vec = {1, 2, 3, 4, 5, 6};
@@ -16,17 +15,23 @@ int main() {
         }
     }
 
-    std::vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
-    std::vector<int> subvec2(vec.begin() + idx + 1, vec.end());
-
-    for (const auto& num : subvec1) {
-        std::cout << num << std::endl;
+    std::vector<int> subvec1;
+    for (int i = 0; i <= idx; ++i) {
+        subvec1.push_back(vec[i]);
     }
 
+    std::vector<int> subvec2;
+    for (int i = idx + 1; i < vec.size(); ++i) {
+        subvec2.push_back(vec[i]);
+    }
+
+    for (int v : subvec1) {
+        std::cout << v << " ";
+    }
     std::cout << std::endl;
 
-    for (const auto& num : subvec2) {
-        std::cout << num << std::endl;
+    for (int v : subvec2) {
+        std::cout << v << " ";
     }
 
     return 0;
