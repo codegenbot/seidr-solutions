@@ -1,16 +1,10 @@
-string result = s;
-    bool hasLetter = false;
-    
-    for (char &c : result) {
+for (char &c : s) {
         if (isalpha(c)) {
-            hasLetter = true;
-            c = islower(c) ? toupper(c) : tolower(c);
+            c = isupper(c) ? tolower(c) : toupper(c);
         }
     }
-    
-    if (!hasLetter) {
-        reverse(result.begin(), result.end());
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+    return s;
 }
