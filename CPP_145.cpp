@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -9,6 +11,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> sort_vector(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end());
     return nums;
+}
+
+bool order_by_points(std::vector<int> a, std::vector<int> b) {
+    return a.size() < b.size();
 }
 
 int main() {
