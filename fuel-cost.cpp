@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
 
-int fuelCost(std::vector<int> &stations) {
+int fuelCost(std::vector<int> stations) {
     int sum = 0;
     for (int i : stations) { 
-        int newFuel = static_cast<int>(i / 3.0) - 2;
-        if (newFuel > 0) {
-            sum += newFuel;
-        }
+        int newFuel = std::floor(i / 3.0) - 2;
+        sum += newFuel;
     }
     return sum;
 }
