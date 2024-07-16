@@ -1,14 +1,17 @@
 int count_nums(vector<int> n){
     int count = 0;
     for (int num : n) {
+        if (num == 0) {
+            continue;
+        }
         int sum = 0;
         if (num < 0) {
-            sum += -num;
-        } else {
-            sum += num;
+            sum = -(abs(num) % 10);
+            num = num / 10;
         }
-        while (sum > 9) {
-            sum = sum/10 + sum%10;
+        while (num != 0) {
+            sum += num % 10;
+            num = num / 10;
         }
         if (sum > 0) {
             count++;
