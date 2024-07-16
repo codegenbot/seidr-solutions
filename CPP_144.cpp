@@ -18,9 +18,3 @@ bool simplify(std::string x, std::string n) {
     
     return denResult / commonFactor == 1;
 }
-
-int main() {
-    assert(simplify("1/5", "1/5") == false);
-    
-    return 0;
-}
