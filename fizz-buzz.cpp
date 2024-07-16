@@ -10,10 +10,3 @@ std::string fizzBuzz(int x) {
     else
         return std::to_string(x);
 }
-
-int main() {
-    int x = 15;
-    std::cout << fizzBuzz(x) << std::endl;
-
-    return 0;
-}
