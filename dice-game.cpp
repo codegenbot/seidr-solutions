@@ -1,3 +1,4 @@
+```
 double diceGame(int n, int m) {
     if (n < m)
         return 0;
@@ -9,3 +10,4 @@ double diceGame(int n, int m) {
         total += 1.0 / i;
 
     return total;
+}
