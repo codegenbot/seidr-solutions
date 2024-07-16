@@ -1,13 +1,11 @@
 ```cpp
 #include <vector>
-#include <algorithm>
 
-int fuelCost(std::vector<int> &stations) {
+int calculateFuelCost(const std::vector<int>& costs) {
     int sum = 0;
-    for (int i : stations) {
-        int newFuel = std::floor(i / 3.0);
-        newFuel -= 2;
-        sum += newFuel;
+    for (int cost : costs) {
+        int newCost = (cost / 3) - 2; 
+        sum += newCost;
     }
     return sum;
 }
