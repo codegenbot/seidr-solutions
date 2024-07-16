@@ -1,16 +1,10 @@
-```Python
-def coin_sums():
-    cents = int(input())
-    coins = [25, 10, 5, 1]  # quarters, dimes, nickles, pennies
-    coins.sort(reverse=True)  # sort coins in descending order
+def coin_sums(cents):
+    coins = [25, 10, 5, 1]
+    result = [0, 0, 0, 0]
 
-    result = []
-    for coin in coins:
-        count = cents // coin
-        result.append(count)
-        cents %= coin
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            result[i] += 1
 
     return result
-
-
-print(*coin_sums(), sep="\n")
