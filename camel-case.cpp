@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -44,7 +43,7 @@ std::string camelCase(const std::string& str) {
         }
     }
     
-    return (words.empty() ? "" : result);
+    return result;
 }
 
 int main() {
