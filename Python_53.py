@@ -1,10 +1,8 @@
-def add(a, b):
-    return a + b
+def add(num1, num2):
+    return num1 + num2
 
-print("Enter first number:")
-num1 = int(input())
-print("Enter second number:")
-num2 = int(input())
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
 
 result = add(num1, num2)
 print(result)
