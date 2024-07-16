@@ -7,7 +7,7 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return bitset<8>(sum).to_string().substr(8 - __builtin_clz(sum));
+    return std::bitset<8>(sum).to_string().substr(8 - __builtin_clz(sum));
 }
 
 int main() {
