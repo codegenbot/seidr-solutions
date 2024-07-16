@@ -1,19 +1,49 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.size() && s[i] == ' ') {
-                i++; // skip the spaces
-            }
-            result += toupper(s[i]); // capitalize the first letter of each word
-        } else if (result.empty()) {
-            result += tolower(s[i]); // lowercase the first letter of the string
-        } else {
-            result += s[i]; // add all other letters as they are
+std::string kebabToCamel(const std::string& str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
         }
     }
+
+    std::string result;
+    for (const auto& word : words) {
+        size_t dashIndex = 0;
+        while (dashIndex < word.size() && word[dashIndex] != '-') {
+            ++dashIndex;
+        }
+        if (dashIndex == word.size()) {
+            result += word;
+        } else {
+            result += word.substr(0, dashIndex);
+            result[0] -= 'a' - 'A';
+            for (size_t i = 1; i < dashIndex; ++i) {
+                result[i] = toupper(result[i]);
+            }
+            result += word.substr(dashIndex + 1).substr(0, 1);
+            for (size_t i = 1; i < word.size() - dashIndex - 1; ++i) {
+                result.push_back(tolower(word[dashIndex + i]));
+            }
+            result += word.substr(dashIndex + 1).substr(1);
+        }
+        if (&word != &words.back()) {
+            result += " ";
+        }
+    }
+
     return result;
+}
+
+int main() {
+    std::cout << kebabToCamel("nospaceordash") << "\n";
+    std::cout << kebabToCamel("two-words") << "\n";
+    std::cout << kebabToCamel("two words") << "\n";
+    std::cout << kebabToCamel("all separate words") << "\n";
+    return 0;
 }
