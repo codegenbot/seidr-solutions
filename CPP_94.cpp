@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -13,7 +13,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int main() {
+int main {
     int maxPrime = 0;
     vector<int> lst;
     int num;
