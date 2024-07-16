@@ -2,25 +2,23 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int white = 0, black = 0;
-    vector<int> freq(6, 0);
+    int black = 0, white = 0;
+    map<char, int> codeFreq, guessFreq;
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++black;
+            black++;
         } else {
-            ++freq[code[i] - 'A'];
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
     }
     
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && freq[guess[i] - 'A'] > 0) {
-            ++white;
-            --freq[guess[i] - 'A'];
-        }
+    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
+        white += min(it->second, guessFreq[it->first]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << "\n" << black << "\n";
     
     return 0;
 }
