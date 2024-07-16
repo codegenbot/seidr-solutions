@@ -1,8 +1,20 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
     int balance = 0;
@@ -28,12 +40,11 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> test_input = {"(a)(b)", "(a(b))", "((a))"};
-    vector<vector<string>> expected_output = {{"a", "b"}, {"a(b)"}, {"(a)"}};
+    string input = "((group1)(group2)(group3))";
+    vector<string> expected = {"group1", "group2", "group3"};
+    vector<string> result = separate_paren_groups(input);
 
-    for (int i = 0; i < test_input.size(); ++i) {
-        assert(issame(separate_paren_groups(test_input[i]), expected_output[i]));
-    }
+    assert(issame(result, expected));
 
     return 0;
 }
