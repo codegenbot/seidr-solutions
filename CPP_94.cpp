@@ -14,10 +14,14 @@ std::string f(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v(3);
-    v[0] = 127;
-    v[1] = 97;
-    v[2] = 8192;
-    std::cout << f(v) << std::endl;
+    std::vector<int> v; // Initialize the vector with size 0.
+    v.push_back(127);
+    v.push_back(97);
+    v.push_back(8192);
+    if(v.empty()) {
+        std::cout << "Error: The vector is empty." << std::endl;
+    } else {
+        std::cout << f(v) << std::endl;
+    }
     return 0;
 }
