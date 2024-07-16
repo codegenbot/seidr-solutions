@@ -4,7 +4,7 @@
 
 int main() {
     std::string tweet;
-    getline(std::cin, tweet);
+    cin >> tweet;
 
     if (!tweet.empty()) {
         if (tweet.length() > 140) {
@@ -17,3 +17,4 @@ int main() {
     }
 
     return 0;
+}
