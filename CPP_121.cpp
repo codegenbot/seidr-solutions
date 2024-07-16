@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -9,7 +11,5 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
-    std::cout << solution({3, 13, 2, 9}) << std::endl;
-    return 0;
-}
+std::cout << solution({3, 13, 2, 9}) << std::endl;
+return 0;
