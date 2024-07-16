@@ -1,6 +1,10 @@
-import sys
-
-input_numbers = [int(line) for line in sys.stdin.read().splitlines()]
+input_numbers = []
+try:
+    while True:
+        num = int(input())
+        input_numbers.append(num)
+except EOFError:
+    pass
 
 def rolling_max(input_numbers):
     max_nums = [max(input_numbers[:i+1]) for i in range(len(input_numbers))]
