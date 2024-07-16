@@ -6,18 +6,20 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            j = i
-            while text[j:].startswith(target):
-                j += len(target)
-            result.extend(range(i, j))
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos == -1:
+            break
+        result.append(pos)
+        start = pos + 1
     return result
 
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+print(gcd(1, 1))
+print(indices_of_substring("banana", "ana"))
+print(gcd(4, 400000))
+print(indices_of_substring("hello world hello", "ello"))
+print(gcd(54, 24))
+print(indices_of_substring("abcdefg", "cde"))
+print(gcd(4200, 3528))
+print(indices_of_substring("abcdefghijklmnopqrstuvwxyz", "abc"))
