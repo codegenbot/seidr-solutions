@@ -1,7 +1,17 @@
 ```cpp
-#include <string>
+#include <iostream>
+using namespace std;
 
-int pairedDigits(std::string s) {
+int main() {
+    cout.tie(nullptr); 
+    string input;
+    getline(cin, input);
+    
+    int result = pairedDigits(input);
+    return 0;
+}
+
+int pairedDigits(string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i+1]) {
@@ -9,17 +19,4 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    if(input.empty()) {
-        std::cerr << "Error: Input string is empty." << std::endl;
-        return 1;
-    }
-    
-    int result = pairedDigits(input);
-    return 0;
 }
