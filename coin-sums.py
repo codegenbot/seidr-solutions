@@ -7,4 +7,4 @@ def coin_sums(cents):
         cents %= coins[i]
         result[i] = count
 
-    return f"Quarters: {result[3]}, Nickels: {result[2]}, Dimes: {result[1]}, Pennies: {result[0]}"
+    return result[3], result[2], result[1], result[0]
