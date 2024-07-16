@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+vector<int> generate_integers(int a, int b);
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> generate_integers(int a, int b){
@@ -18,6 +20,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    // Test the functions here if needed
+    // Your main function code here
     return 0;
 }
