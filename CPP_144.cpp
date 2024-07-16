@@ -1,7 +1,18 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+#include <stdio.h>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <cmath>
+using namespace std;
 
-    return (x_num * n_den) % (x_den * n_num) == 0;
+bool simplify(string x, string n){
+    stringstream ss1(x), ss2(n);
+    int num1, den1, num2, den2;
+    char slash;
+    ss1 >> num1 >> slash >> den1;
+    ss2 >> num2 >> slash >> den2;
+    
+    double result = (double)num1 / den1 * num2 / den2;
+    
+    return (abs(result - round(result)) < 1e-9);
 }
