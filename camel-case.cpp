@@ -17,12 +17,5 @@ std::string camelCase(std::string s) {
         }
     }
 
-    // Remove extra space
-    size_t pos = result.find(' ');
-    while (pos != std::string::npos) {
-        result.erase(pos, 1);
-        pos = result.find(' ');
-    }
-
     return result;
 }
