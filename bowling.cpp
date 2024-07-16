@@ -1,24 +1,46 @@
-int scoreBowlingRound(string s) {
+int calculateBowlingScore(string bowls) {
     int score = 0;
-    int frame = 0;
-    int rolls = 0;
-    for (char c : s) {
-        rolls++;
+    int frame = 1;
+    int ball = 0;
+    int rolls[21];
+    
+    for (char c : bowls) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += (s[rolls] == 'X' ? 10 : (isdigit(s[rolls]) ? s[rolls] - '0' : 10));
-                if (s[rolls+1] == '/') score += 10 - (s[rolls] == 'X' ? 0 : (isdigit(s[rolls]) ? s[rolls] - '0' : 10));
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
             }
-            frame++;
         } else if (c == '/') {
-            score += 10 - (s[rolls-1] - '0');
-            if (frame < 9) score += (isdigit(s[rolls]) ? s[rolls] - '0' : 10);
-            frame++;
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 9 && rolls % 2 == 0 && s[rolls-1] == '/') score += c - '0';
+            rolls[ball-1] = 10 - rolls[ball-2];
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
+        } else if (c == '-') {
+            rolls[ball++] = 0;
+        } else {
+            rolls[ball++] = c - '0';
         }
     }
+    
+    for (int i = 0; i < 10; ++i) {
+        if (rolls[i*2] == 10) {
+            score += 10 + rolls[i*2+2] + rolls[i*2+3];
+            if (rolls[i*2+2] == 10) {
+                score += rolls[i*2+4];
+            }
+        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
+            score += 10 + rolls[i*2+2];
+        } else {
+            score += rolls[i*2] + rolls[i*2+1];
+        }
+    }
+    
     return score;
+}
+
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
+    return 0;
 }
