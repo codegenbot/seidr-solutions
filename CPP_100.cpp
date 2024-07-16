@@ -1,15 +1,15 @@
-```cpp
-bool std::operator== (const std::vector<int>& a, const std::vector<int>& b) {
+#include <vector>
+#include <algorithm>
+
+bool issame(std::initializer_list<int> a, std::initializer_list<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+std::initializer_list<int> make_a_pile(int n) {
     for (int i = 1; i <= n; i++) {
-        pile.push_back(i);
+        yield i;
     }
-    return pile;
 }
