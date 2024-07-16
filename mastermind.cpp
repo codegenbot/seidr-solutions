@@ -28,7 +28,7 @@ int blackPegs(string code, string guess) {
         }
     }
 
-    return 4 - count;
+    return count;
 }
 
 int main() {
@@ -38,3 +38,4 @@ int main() {
     int white = 4 - black;
     cout << white << endl << black << endl;
     return 0;
+}
