@@ -1,12 +1,11 @@
 def add(a, b):
     return a + b
 
-
 while True:
     try:
         num1 = int(input("Enter first integer number: "))
         num2 = int(input("Enter second integer number: "))
-
+        
         result = add(num1, num2)
         print(result)
 
@@ -19,5 +18,3 @@ while True:
 
     except Exception as e:
         print("An error occurred:", e)
-
-    input("Press Enter to continue or Ctrl+C to exit...")
