@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 vector<int> common(vector<int>& l1, vector<int>& l2) {
