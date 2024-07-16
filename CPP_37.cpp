@@ -1,15 +1,5 @@
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 void sort_even(vector<float>& l) {
@@ -29,4 +19,16 @@ void sort_even(vector<float>& l) {
             j++;
         }
     }
+}
+
+vector<float> solve(vector<float> l) {
+    vector<float> result;
+    
+    sort_even(l);
+    
+    for (int i = 0; i < l.size(); i++) {
+        result.push_back(l[i]);
+    }
+    
+    return result;
 }
