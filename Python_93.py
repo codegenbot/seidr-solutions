@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -10,5 +11,8 @@ def encode(message):
                 else:
                     result += chr(((ord(char.lower()) - 97 + 3) % 26) + 97)
             else: 
-                result += char
+                if char.islower() and char.isalpha(): 
+                    result += chr(((ord(char) - 97 + 3) % 26) + 97); 
+                else: 
+                    result += char
     return result
