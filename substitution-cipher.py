@@ -1,11 +1,12 @@
-```python
-def substitution_cipher():
-    cipher_text = input().strip()
-    mapping = list(input().strip()).lower()
-    message = input().strip()
-
-    deciphered_message = ''.join([mapping[ord(c.lower()) - ord('a')] if c.isalpha() else c for c in message])
-
-    return deciphered_message
-
-print(substitution_cipher())
+def substitution_cipher(cipher1, cipher2, message):
+    result = ""
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                index = cipher1.index(char.upper())
+            else:
+                index = cipher1.index(char)
+            result += cipher2[index].lower() if char.islower() else cipher2[index].upper()
+        else:
+            result += char
+    return result
