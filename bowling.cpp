@@ -1,4 +1,6 @@
-int bowlingScore(const std::string& s) {
+```cpp
+#include <cctype>
+int bowlingScore(const std::string s) {
     int score = 0;
     int currentRoll = 0;
 
@@ -13,7 +15,7 @@ int bowlingScore(const std::string& s) {
             currentRoll = 0;
         } else {
             if (currentRoll > 9) { 
-                if (isdigit(c)) {
+                if (std::isdigit(c)) {
                     int firstRoll = c - '0';
                     score += firstRoll;
                     if (s.find('/', i) < s.size()-1) {
@@ -26,7 +28,7 @@ int bowlingScore(const std::string& s) {
                     currentRoll += c - '0';
                 }
             } else {
-                if (isdigit(c)) {
+                if (std::isdigit(c)) {
                     currentRoll *= 10;
                     currentRoll += c - '0';
                 } else {
