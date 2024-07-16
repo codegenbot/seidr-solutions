@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath> 
 using namespace std;
@@ -20,6 +20,14 @@ int main() {
 
     cout << fixed << setprecision(5);
     cout << totalDistance << endl;
+
+    cout << fixed << setprecision(5);
+    std::string outputStr = "";
+    for (int i = 1; i <= numBounces; ++i) {
+        startHeight *= bouncinessIndex;
+        outputStr += "Ball " + to_string(i) + " height: " + to_string(startHeight) + "\n";
+    }
+    cout << outputStr << endl;
 
     return 0;
 }
