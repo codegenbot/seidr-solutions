@@ -1,4 +1,7 @@
-int digit_count = 0;
+#include <string>
+
+std::string file_name_check(std::string file_name) {
+    int digit_count = 0;
     int dot_count = 0;
     int dot_index = -1;
     
@@ -15,7 +18,7 @@ int digit_count = 0;
         return "No";
     }
     
-    string extension = file_name.substr(dot_index + 1);
+    std::string extension = file_name.substr(dot_index + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
