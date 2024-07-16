@@ -15,6 +15,7 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     }
     
     std::vector<std::pair<int, int>> result;
+    result.reserve(nums.size());
     for (const auto& pair : numMap) {
         if (numMap.find(target - pair.first) != numMap.end()) {
             result.push_back({target - pair.first, pair.first});
