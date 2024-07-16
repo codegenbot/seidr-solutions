@@ -5,8 +5,10 @@ def string_to_md5(text):
 
 while True:
     try:
-        input_text = input("Enter a string: ").strip()
-    except (KeyboardInterrupt, EOFError, ValueError):
+        input_text = input("Enter a string: ")  # Remove .strip()
+    except (KeyboardInterrupt, EOFError):
+        break
+    if not input_text:
         break
     result = string_to_md5(input_text)
     print(result)
