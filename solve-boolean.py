@@ -11,4 +11,4 @@ def solve_boolean(expression):
             a, b = map(evaluate, expression.split('&'))
             return a and b
 
-    return evaluate(expression)
+    return eval('bool('+expression+')')
