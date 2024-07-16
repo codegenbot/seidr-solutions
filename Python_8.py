@@ -11,12 +11,15 @@ results = []
 
 try:
     while True:
-        numbers = list(map(int, input().split()))
-        if not numbers:
+        try:
+            numbers = list(map(int, input().split()))
+            if not numbers:
+                break
+            result = sum_product(numbers)
+            results.append(result)
+        except EOFError:
             break
-        result = sum_product(numbers)
-        results.append(result)
-except EOFError:
+except:
     pass
 
 for result in results:
