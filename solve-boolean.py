@@ -1,9 +1,10 @@
 ```
+'' 
 def solve_boolean(expression):
     result = "T"
     temp = "T"
     operator_stack = []
-    
+
     for char in expression:
         if char == "(":
             operator_stack.append(char)
