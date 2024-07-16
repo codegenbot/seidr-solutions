@@ -1,9 +1,8 @@
-#include <iostream>
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     int i = 0;
+    bool reverse = false;
+
     while (i < str.length()) {
         if (str[i] == ' ') {
             result += " ";
@@ -14,21 +13,20 @@ string spinWords(string str) {
                 i++;
                 j++;
             }
-            if(j>=5) {
-                for(int k = j-1; k >= 0; k--) {
-                    result += str[i-k-1];
+            if (j >= 5) reverse = !reverse;
+
+            string word = str.substr(i - j, j);
+            if (reverse) {
+                string revWord = "";
+                for (int k = j - 1; k >= 0; k--) {
+                    revWord += word[k];
                 }
+                result += revWord + " ";
+                reverse = false;
             } else {
-                for(int k = 0; k < j; k++) {
-                    result += str[i-k-1];
-                }
+                result += word + " ";
             }
         }
     }
-    return result;
-}
-
-int main() {
-    cout << spinWords("Hello World") << endl;
-    return 0;
+    return result.substr(0, result.length() - 1);
 }
