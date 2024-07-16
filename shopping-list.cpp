@@ -6,7 +6,8 @@
 float shoppingList(vector<float> prices, vector<float> discounts) {
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100);
+        float priceAfterDiscount = prices[i] * (1 - discounts[i] / 100);
+        total += priceAfterDiscount;
     }
     return total;
 }
