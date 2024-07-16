@@ -1,6 +1,5 @@
-# Prompt the user to enter the input
-input_string = input("Enter the message to encode: ")
-encoded_message = ""
+input_string = raw_input("Enter the message to encode: ")
+encoded_message = ''
 for char in input_string:
     encoded_message += chr(
         (ord(char) - ord("A") + 2) % 26 + ord("A") if "A" <= char <= "Z" else ord(char)
