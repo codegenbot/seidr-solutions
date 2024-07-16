@@ -4,7 +4,10 @@ def minPath(grid, k):
     path = [start]
     visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
 
-    while len(path) < k and visited:
+    while len(path) <= k:
+        if not visited:
+            break
+        
         i, j = min(visited, key=lambda cell: grid[cell[0]][cell[1]])
         path.append(grid[i][j])
         visited.remove((i, j))
