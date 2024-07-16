@@ -13,8 +13,3 @@ vector<int> rolling_max(vector<int> numbers) {
     
     return result;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
