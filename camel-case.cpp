@@ -8,15 +8,20 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';  // Add a space to separate words
-            capitalize = true;  // Start new word, so capitalize next char
-        } else if (capitalize || c != ' ') { 
             if(capitalize) {
-                result += toupper(c);  // Capitalize first letter of each word
-                capitalize = false;
+                result += ' ';  // Add a space to separate words
+                capitalize = true;  // Start new word, so capitalize next char
             } else {
-                result += tolower(c);
+                result += c + (capitalize ? "" : "");// Add the hyphen and capitalize
+                capitalize = true;
             }
+        } else if (!result.empty() && result.back() == ' ') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);  // Capitalize first letter of each word
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
 
