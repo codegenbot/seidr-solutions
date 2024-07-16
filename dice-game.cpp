@@ -1,24 +1,23 @@
+```cpp
 #include <iostream>
-#include <iomanip>
+#include <string>
+using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
-    double result = 0;
-
-    for (int i = 1; i <= m; i++) {
-        for (int j = 1; j <= min(i, n); j++) {
-            if (j < i)
-                result += 1.0;
-        }
-    }
-
-    return result / total;
+    if(total == 0)
+        throw runtime_error("Error: The number of sides on the dice cannot be zero.");
+    return (n - m + 1.0) / total; 
 }
 
 int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = probability(n, m);
-    std::cout << std::fixed << std::setprecision(6) << result << "\n";
+    int n = 6; // Number of sides on Peter's die
+    int m = 6; // Number of sides on Colin's die
+    try {
+        double result = probability(n, m);
+        cout << "The probability is: " << result << endl;
+    } catch (runtime_error& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
     return 0;
 }
