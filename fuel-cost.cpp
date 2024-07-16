@@ -5,9 +5,9 @@ using namespace std;
 int fuelCost(vector<int>& vec) {
     int sum = 0;
     for (int i : vec) {
-        double x = (double)i / 3;
+        int x = i / 3;
         x = floor(x);
-        sum += static_cast<int>(x - 2);
+        sum += x - 2;
     }
     return sum;
 }
