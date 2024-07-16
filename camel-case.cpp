@@ -35,26 +35,20 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string result;
-    std::stringstream ss;
     for (int i = 0; i < words.size(); i++) {
         if (!result.empty()) {
-            ss << std::toupper(words[i][0]);
-            result += ss.str();
-            ss.str("");
+            result += " ";
         } else {
-            ss << words[i];
+            result += std::toupper(words[i][0]);
         }
-        for (char c : words[i].substr(1)) {
-            ss << std::tolower(c);
-        }
-        result += ss.str();
-        ss.str("");
+        result += words[i].substr(1);
     }
     
-    return (words.empty() ? "" : result);
+    return result;
 }
 
 int main() {
-    std::cout << camelCase("hello-world-example") << std::endl;
+    std::string input = "hello-world-example";
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
