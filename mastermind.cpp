@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <unordered_map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -14,27 +12,13 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0;
-    std::unordered_map<char, int> codeCount;
-
-    // Count characters in the code
-    for (char c : codeStr) {
-        if ('0' <= c && c <= '5') {
-            codeCount[c] = 0; // Reset count for each unique character
-            codeCount[c]++;
-        }
-    }
-
     int whitePegs = 0;
+
     for (int i = 0; i < 4; i++) {
-        char c = guessStr[i];
-        if ('0' <= c && c <= '5') {
-            bool foundInCode = codeCount[c] > 0;
-            codeCount[c]--;
-            if (foundInCode) {
-                blackPegs++;
-            } else {
-                whitePegs++;
-            }
+        if (codeStr[i] == guessStr[i]) {
+            blackPegs++;
+        } else if (std::count(codeStr.begin(), codeStr.end(), guessStr[i]) > 0) {
+            whitePegs++;
         }
     }
 
