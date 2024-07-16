@@ -1,4 +1,4 @@
-```c++
+```c
 #include <iostream>
 using namespace std;
 
@@ -11,7 +11,9 @@ double probability(int n, int m) {
 }
 
 int main() {
-    double result = probability(6, 6); 
-    cout << "The probability is: " << result << endl;
+    int n, m;
+    cin >> n >> m;
+    double result = probability(n, m);
+    cout << "Probability: " << result << endl;
     return 0;
 }
