@@ -1,7 +1,5 @@
-if ((a == b + c) || (b == a + c) || (c == a + b)) {
-        if (a == (int)a && b == (int)b && c == (int)c) {
-            return true;
-        }
-    }
+bool checkIfTriangle(int a, int b, int c) {
+    if((a < b + c) && (b < a + c) && (c < a + b))
+        return true;
     return false;
 }
