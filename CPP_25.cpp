@@ -16,8 +16,7 @@ vector<int> issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> a = issame(10, 20);
-    vector<int> b = issame(10, 20);
+    vector<int> a = {2, 2, 3, 5};
+    vector<int> b = {2, 2, 3, 5};
     assert(a == b);
-    return 0;
 }
