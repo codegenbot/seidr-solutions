@@ -13,22 +13,23 @@ map<string, int> number_map = {
 
 string sort_numbers(string numbers) {
     map<int, string> reverse_map;
-    string result = "";
+    string result;
+    string current_number;
     
-    string temp = "";
-    for (char c : numbers) {
+    for (char& c : numbers) {
         if (c == ' ') {
-            reverse_map[number_map[temp]] = temp;
-            temp = "";
+            reverse_map[number_map[current_number]] = current_number;
+            current_number.clear();
         } else {
-            temp += c;
+            current_number += c;
         }
     }
-    reverse_map[number_map[temp]] = temp;
-    
-    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
-        result += it->second + " ";
+    reverse_map[number_map[current_number]] = current_number;
+
+    for (auto& pair : reverse_map) {
+        result += pair.second + " ";
     }
-    
+
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
