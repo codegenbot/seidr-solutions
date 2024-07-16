@@ -1,1 +1,2 @@
+```
 cout << fixed << setprecision(1) << totalPrice << endl;
