@@ -1,13 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -15,8 +18,8 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x){
+    vector<int> result;
     for (int num : x) {
         int temp = num;
         bool hasEvenDigit = false;
@@ -31,6 +34,6 @@ std::vector<int> unique_digits(std::vector<int> x){
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
