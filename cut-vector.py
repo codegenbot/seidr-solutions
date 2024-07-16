@@ -11,6 +11,6 @@ for i, num in enumerate(arr):
         if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
             prefix_sum - num - half_sum
         ):
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
+            print(*arr[:i + 1])
+            print(*arr[i + 1:])
             break
