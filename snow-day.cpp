@@ -13,4 +13,4 @@ int main() {
     cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
 
     cout << setprecision(2) << fixed << showpoint << snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0) << endl;
-    return 0;
+    return 0; }
