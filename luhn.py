@@ -1,5 +1,5 @@
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[::-1]]  
+def luhn():
+    card_number = [int(x) for x in str(input("Enter the 16-digit credit card number: ")[::-1])]
     sum_total = 0
 
     for i, digit in enumerate(card_number):
