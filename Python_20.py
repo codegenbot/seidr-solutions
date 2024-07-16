@@ -11,6 +11,14 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             result = (numbers[i], numbers[i + 1])
     return result
 
-input_numbers = list(map(float, input().strip().split()))
+input_numbers = []
+print("Enter numbers (press Enter after each number, then Ctrl+D/Ctrl+Z to end):")
+while True:
+    try:
+        value = float(input())
+        input_numbers.append(value)
+    except EOFError:
+        break
+
 output = find_closest_elements(input_numbers)
 print(output)
