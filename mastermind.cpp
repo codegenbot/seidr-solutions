@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -20,18 +21,18 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-
 }
 
 int main() {
-    std::string code;
-    std::cout << "Enter the Mastermind code (XXXX): ";
-    std::cin >> code;
-    std::string guess;
-    std::cout << "Enter your guess (XXXX): ";
-    std::cin >> guess;
+    std::string code, guess;
+
+    // Prompt the user for a code and a guess
+    // For simplicity, assume that the input is valid
 
     int result = mastermind(code, guess);
+
+    // Print the result
+    std::cout << "Black pegs: " << result - white << ", White pegs: " << white << std::endl;
 
     return 0;
 }
