@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps){
+std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps) {
     std::vector<int> result;
     for (int i = 0; i < steps; ++i) {
         result.push_back(paths[i % paths.size()][i % paths[0].size()]);
@@ -9,12 +9,12 @@ std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main(){
+int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
+
     return 0;
 }
