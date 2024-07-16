@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <memory>
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -17,9 +16,8 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int>(std::vector<int>());
+    std::vector<int> result(0); // Initialize the vector with capacity 0
     size_t pos = 0;
-    std::vector<int> result; // Initialize the vector with the default constructor
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
         pos += target.size();
