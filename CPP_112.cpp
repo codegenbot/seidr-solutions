@@ -1,10 +1,8 @@
-Here is the modified code:
-
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <initializer_list>
+#include <memory>
 
 using namespace std;
 
