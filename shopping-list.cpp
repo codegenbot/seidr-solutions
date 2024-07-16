@@ -1,17 +1,14 @@
+```cpp
 #include <vector>
 #include <iomanip>
-#include <initializer_list>
 
 int main() {
     double total = 0.0;
-    vector<float> prices; 
-    vector<float> discounts;
+    float prices[100]; 
+    float discounts[100];
 
     int nPrices, nDiscounts;
     cin >> nPrices >> nDiscounts;
-
-    prices.resize(nPrices);
-    discounts.resize(nDiscounts);
 
     for (int i = 0; i < nPrices; i++) {
         cin >> prices[i];
