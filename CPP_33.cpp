@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -13,4 +12,9 @@ std::vector<int> sort_third(const std::vector<int>& l) {
         std::sort(temp.begin() + i - 2, temp.begin() + i + 1);
     }
     return temp;
+}
+
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    return 0;
 }
