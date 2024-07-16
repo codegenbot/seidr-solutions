@@ -1,20 +1,17 @@
-vector<string> result;
-    string word = "";
-    int consonants = 0;
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonants = 0;
-        } else if (isalpha(c) && strchr("aeiouAEIOU", c) == NULL) {
-            consonants++;
-        }
-        word += c;
-    }
-    if (consonants == n) {
-        result.push_back(word);
-    }
-    return result;
+#include <vector>
+
+bool issame(vector<string>& a, vector<string>& b);
+
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string>& a, vector<string>& b) {
+    // Function definition
+}
+
+vector<string> select_words(string s, int n) {
+    // Function definition
+}
+
+int main() {
+    // Main function
 }
