@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -20,10 +20,8 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        std::string revTemp = std::string(temp).rbegin();
-        for (; revTemp != string(temp).rend(); ++revTemp) {
-            result += *revTemp;
-        }
+        std::reverse(temp.begin(), temp.end());
+        result += temp;
     } else
         result += temp;
 
