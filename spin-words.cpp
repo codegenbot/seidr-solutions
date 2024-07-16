@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 string spinWords(string str) {
@@ -15,13 +14,14 @@ string spinWords(string str) {
                 i++;
                 j++;
             }
-            string word = str.substr(i - j, j);
-            if (word.size() >= 5) {
-                for (int k = word.size() - 1; k >= 0; k--) {
-                    result += word[k];
+            if(j>=5) {
+                for(int k = j-1; k >= 0; k--) {
+                    result += str[i-k-1];
                 }
             } else {
-                result += word;
+                for(int k = 0; k < j; k++) {
+                    result += str[i-k-1];
+                }
             }
         }
     }
