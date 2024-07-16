@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> result;
     for (const string& str : strings) {
@@ -8,6 +11,6 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
