@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -10,7 +8,7 @@ string spinWords(string str) {
             i++;
         } else if (strlen(&str.substr(i)) >= 5) {
             for (int j = strlen(&str.substr(i)); j > 0; j--) {
-                result += str.substr(i + j - 1, 1);
+                result += str[i + j - 1];
             }
             i += j;
         } else {
@@ -32,9 +30,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    cout << spinWords("Hello World") << endl;
-    return 0;
 }
