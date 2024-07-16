@@ -1,50 +1,41 @@
-int calculateBowlingScore(string bowls) {
+int bowlingScore(string input) {
     int score = 0;
     int frame = 1;
-    int ball = 0;
-    int rolls[22];
-
-    for (char bowl : bowls) {
-        if (bowl == 'X') {
-            rolls[ball++] = 10;
-            rolls[ball++] = 0;
-            frame++;
-        } else if (bowl == '/') {
-            rolls[ball - 1] = 10 - rolls[ball - 2];
-            frame++;
-        } else if (bowl == '-') {
-            rolls[ball++] = 0;
-        } else {
-            rolls[ball++] = bowl - '0';
-            if (ball % 2 == 0) {
-                if (rolls[ball - 1] + rolls[ball - 2] == 10) {
-                    frame++;
+    int bowlIndex = 0;
+    for (int i = 0; i < input.length(); i++) {
+        if (frame > 10) break;
+        if (input[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                if (input[i + 2] == 'X') {
+                    score += 10;
                 } else {
-                    frame += 2;
+                    score += (input[i + 1] == 'X' ? 10 : input[i + 1] - '0') + (input[i + 2] == '/' ? 10 - (input[i + 1] == 'X' ? 10 : input[i + 1] - '0') : input[i + 2] - '0');
                 }
+            }
+            bowlIndex++;
+            frame++;
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] == 'X' ? 10 : input[i - 1] - '0');
+        } else if (input[i] == '-') {
+            // do nothing
+        } else {
+            score += input[i] - '0';
+            if (input[i + 1] == '/') {
+                score += 10 - (input[i] - '0');
+            }
+            bowlIndex++;
+            if (bowlIndex % 2 == 0) {
+                frame++;
             }
         }
     }
-
-    for (int i = 0; i < 20 && frame <= 10; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i + 2] + rolls[i + 4];
-        } else if (rolls[i] + rolls[i + 1] == 10) {
-            score += 10 + rolls[i + 2];
-            i++;
-        } else {
-            score += rolls[i] + rolls[i + 1];
-            i++;
-        }
-        frame++;
-    }
-
     return score;
 }
 
 int main() {
     string input;
     cin >> input;
-    cout << calculateBowlingScore(input) << endl;
+    cout << bowlingScore(input) << endl;
     return 0;
 }
