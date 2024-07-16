@@ -1,3 +1,8 @@
 n = int(input())
 m = int(input())
-print("{:.2f}".format(sum([(n - i) / n / m for i in range(1, n)]) if n > 1 else 0))
+
+total_outcomes = n * m
+favorable_outcomes = sum(n - i for i in range(n))
+
+probability = favorable_outcomes / total_outcomes
+print(probability)
