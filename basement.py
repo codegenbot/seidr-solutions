@@ -1,5 +1,8 @@
+```
 def basement(nums):
+    cum_sum = 0
     for i in range(len(nums)):
-        if sum(nums[: i + 1]) < 0:
-            return i
+        cum_sum += nums[i]
+        if cum_sum < 0:
+            return i + 1
     return -1
