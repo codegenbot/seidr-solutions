@@ -16,4 +16,4 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
-    return 0;
+    return 0}
