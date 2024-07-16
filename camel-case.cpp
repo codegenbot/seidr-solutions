@@ -1,7 +1,7 @@
-#include <iostream>
-#include <string>
-
-std::string camelCase(std::string str) {
+int main() {
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str); 
     std::string result = "";
     bool capitalizeNext = true;
 
@@ -16,13 +16,6 @@ std::string camelCase(std::string str) {
         }
     }
 
-    return result;
-}
-
-int main() {
-    std::string str;
-    std::getline(std::cin, str);
-    std::cout << "Enter a string in kebab-case: ";
-    std::cout << "camelCase: " << camelCase(str) << std::endl;
+    std::cout << "camelCase: " << result << std::endl;
     return 0;
 }
