@@ -1,4 +1,4 @@
-double val = stod(value);
-int rounded = static_cast<int>(val >= 0 ? val + 0.5 : val - 0.5);
-return rounded;
+double num = stod(value);
+    int intNum = round(num);
+    return num - intNum > 0 ? ceil(num) : floor(num);
 }
