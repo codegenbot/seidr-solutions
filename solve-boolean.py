@@ -1,3 +1,4 @@
+```Python
 def solveBoolean(expression):
     while "&" in expression:
         left, right = expression.split("&")
