@@ -1,9 +1,11 @@
+#include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    return initialSnow + (rateOfSnowfall * hours) - proportionMeltingPerHour * hours;
+    int snowToBeAdded = static_cast<int>(rateOfSnowfall * hours);
+    return fixed << setprecision(2) << showpoint << initialSnow + snowToBeAdded - proportionMeltingPerHour * hours;
 }
 
 int main() {
@@ -12,5 +14,5 @@ int main() {
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
     cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
 
-    cout << setprecision(2) << fixed << showpoint << snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0) << endl;
+    cout << snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour) << endl;
     return 0; }
