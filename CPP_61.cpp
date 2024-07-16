@@ -1,12 +1,8 @@
-#include <string>
-using namespace std;
-
 bool correct_bracketing(string brackets){
-    int open = 0, close = 0;
-    for(int i=0; i<brackets.size(); i++){
-        if(brackets[i] == '(') open++;
-        else close++;
-        if(open < close) return false;
+    int count = 0;
+    for(char c : brackets){
+        if(c == '(')count++;
+        else if(c == ')')if(count > 0)count--;else return false;
     }
-    return open == close;
+    return count == 0;
 }
