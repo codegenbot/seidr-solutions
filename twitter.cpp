@@ -18,8 +18,8 @@ int main() {
     while (true) {
         std::cout << "Enter a tweet: ";
         std::getline(std::cin, input);
-        if(input == "quit") {
-            break; 
+        if (input == "stop") {
+            break;
         }
         std::cout << validateTweet(input) << "\n";
     }
