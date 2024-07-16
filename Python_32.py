@@ -1,8 +1,14 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    assert n % 2 == 0
-    for i in range(n):
-        if xs[i] != 0:
-            max_coeff = xs[i]
+    assert len(xs) % 2 == 0
+    degree = len(xs) - 1
+    largest_non_zero_coefficient = max(abs(coeff) for coeff in xs if coeff != 0)
+
+    for i in range(len(xs)):
+        if abs(xs[i]) == largest_non_zero_coefficient:
+            leading_coefficient_index = i
             break
-    return -1 * (sum(xs[1:]) / max_coeff)
+
+    if leading_coefficient_index % 2 == 0:
+        return -1
+    else:
+        return -1 * xs[leading_coefficient_index] / xs[leading_coefficient_index - 1]
