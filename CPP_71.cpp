@@ -3,7 +3,7 @@
 #include <cassert>
 
 float triangle_area(float a, float b, float c) {
-    if (a + b > c && a + c > b && b + c > a) {
+    if(a + b > c && a + c > b && b + c > a) {
         float s = (a + b + c) / 2;
         return sqrt(s * (s - a) * (s - b) * (s - c));
     } else {
@@ -13,6 +13,5 @@ float triangle_area(float a, float b, float c) {
 
 int main() {
     assert(fabs(triangle_area(2, 2, 10) + 1) < 0.01);
-    
     return 0;
 }
