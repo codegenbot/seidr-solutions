@@ -23,17 +23,6 @@ def solve_boolean(expression):
                     stack.append('0')
                 else:
                     stack.append(char)
-
-        result = stack[0]
-        for i in range(len(stack) - 1, 0, -1):
-            operator = stack[i]
-            right = stack[i-1]
-            left = stack.pop(i)
-            if operator == '&':
-                result = str(int(result) and int(left))
-            elif operator == '|':
-                result = str(int(result) or int(left))
-
-        return 'T' if result == '1' else 'F'
+        return 'T' if stack[-1] == '1' else 'F'
 
     return evaluate_expression(expression)
