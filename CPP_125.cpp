@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a,vector<string> b);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt) {
     vector<string> result;
