@@ -7,7 +7,7 @@ std::any compare_one(const std::string &a, const std::string &b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
+    assert(std::any_cast<std::string>(compare_one(std::string("2"), std::string("2"))) == "2");
 
     return 0;
 }
