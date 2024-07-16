@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -19,7 +18,8 @@ int main() {
     float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
     cout << fixed;
-    cout << setprecision(6) << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
+    cout << setiosflags(ios::fixed) << setprecision(6);
+    cout << "Amount of snow on ground after " << std::to_string(hours) << " inches.\n";
 
     return 0;
 }
