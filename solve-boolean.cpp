@@ -1,21 +1,13 @@
 bool solveBoolean(string expression) {
-    stack<char> s;
+    bool result = true;
     for (char c : expression) {
-        if (c == '|') {
-            bool left = s.top() == 'T';
-            s.pop();
-            bool right = s.top() == 'T';
-            s.pop();
-            s.push(left || right ? 'T' : 'F');
-        } else if (c == '&') {
-            bool left = s.top() == 'T';
-            s.pop();
-            bool right = s.top() == 'T';
-            s.pop();
-            s.push(left && right ? 'T' : 'F');
-        } else {
-            s.push(c == 't' || c == 'T' ? 'T' : 'F');
+        if (c == 'T') continue;
+        if (c == 'F') return false;
+        if (c == '&') {
+            result &= true;
+        } else if (c == '|') {
+            result |= true;
         }
     }
-    return s.top() == 'T';
+    return result;
 }
