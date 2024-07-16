@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -19,5 +20,6 @@ int main() {
     std::string text = "your_text_here"; 
     std::string target = "your_target_here"; 
     std::vector<int> result = indicesOfSubstring(text, target);
+    // print or use the result as needed
     return 0;
 }
