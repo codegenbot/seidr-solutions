@@ -18,14 +18,14 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    
-    if (std::cin.eof()) { // Check for end of file
-        int result = basement(nums);
-        std::cout << result << std::endl;
-    } else {
-        std::cerr << "Invalid input." << std::endl;
+
+    if (nums.empty()) {
+        std::cerr << "No valid input provided." << std::endl;
         return 1;
     }
+
+    int result = basement(nums);
+    std::cout << result << std::endl;
 
     return 0;
 }
