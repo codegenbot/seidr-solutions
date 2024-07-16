@@ -1,9 +1,9 @@
-bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
     }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
     }
@@ -16,12 +16,12 @@ int main() {
     string input;
     cin >> input;
     vector<string> result = separate_paren_groups(input);
-    vector<string> expected_result = {"(ab)(cd)", "(ef)"};
+    vector<string> expected_result = {"(hello)", "(world)"};
 
     if (issame(result, expected_result)) {
-        cout << "Correct output" << endl;
+        cout << "Output is correct" << endl;
     } else {
-        cout << "Incorrect output" << endl;
+        cout << "Output is incorrect" << endl;
     }
 
     return 0;
