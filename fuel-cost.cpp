@@ -12,7 +12,7 @@ int fuelCost(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {12,15};
-    cout << "Fuel cost: " << fuelCost(nums) << endl;
+    vector<int> nums = {12, 5, 7};
+    cout << fuelCost(nums) << endl; 
     return 0;
 }
