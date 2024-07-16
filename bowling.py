@@ -10,17 +10,18 @@ while i < len(frames):
             frame_score += int(frames[i + 1])
         i += 2
     elif frames[i] == "/":
-        frame_score = 10 - int(frames[i-1])
+        if i > 0 and frames[i - 1].isdigit():
+            frame_score = 10 - int(frames[i-1])
+        else:
+            frame_score = 10
         i += 1
     else:
-        if frames[i].isdigit() and i + 1 < len(frames) and frames[i + 1] == "/":
-            frame_score = 10 - int(frames[i])
+        if frames[i] == "X" or (frames[i].isdigit() and i + 1 < len(frames) and frames[i + 1] == "/"):
             i += 2
-        elif frames[i].isdigit():
+        elif frames[i].isdigit() and i + 1 < len(frames) and frames[i + 1].isdigit():
             frame_score = int(frames[i]) + int(frames[i + 1])
-            i += 2
         else:
             frame_score = int(frames[i])
-            i += 1 if frame_score != 10 else 2
+        i += 1 if frame_score != 10 else 2
     score += frame_score
 print(score)
