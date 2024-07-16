@@ -1,6 +1,6 @@
-string s = a + a;
-    if (s.find(b) != string::npos) {
-        return true;
-    }
-    return false;
+if(a.length() != b.length())
+        return false;
+
+    string s = a + a;
+    return s.find(b) != string::npos;
 }
