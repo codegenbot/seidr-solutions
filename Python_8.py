@@ -6,7 +6,7 @@ results = []
 try:
     while True:
         numbers = list(map(int, input().strip().split()))
-        if not numbers:
+        if not numbers or numbers == [-1]:
             break
         result = sum_product(numbers)
         results.append(result)
