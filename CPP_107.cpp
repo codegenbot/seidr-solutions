@@ -1,15 +1,13 @@
-vector<int> even_odd_palindrome(int n){
-        vector<int> result(2, 0);
-        for(int i=1; i<=n; i++){
+int even = 0, odd = 0;
+        for (int i = 1; i <= n; ++i) {
             string str = to_string(i);
-            string rev_str = string(str.rbegin(), str.rend());
-            if(str == rev_str){
-                if(i % 2 == 0){
-                    result[0]++;
+            if (str == string(str.rbegin(), str.rend())) {
+                if (i % 2 == 0) {
+                    even++;
                 } else {
-                    result[1]++;
+                    odd++;
                 }
             }
         }
-        return result;
+        return {even, odd};
     }
