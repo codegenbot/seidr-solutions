@@ -13,14 +13,14 @@ vector<string> result;
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.empty()) {
-        int oddCount = 0;
-        for (char c : txt) {
+    if (result.size() == 1 && isalpha(result[0][0])) {
+        int count = 0;
+        for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
+                count++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result[0] = to_string(count);
     }
     return result;
 }
