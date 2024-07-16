@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-
+#include <ios>
 using namespace std;
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
 
     double totalDistance = 1 - pow((1 - bouncinessIndex), numBounces);
     
-    cout << fixed << setprecision(10) << totalDistance + 0.00001 << endl;
+    cout << fixed << setprecision(10) << totalDistance << endl;
 
     return 0;
 }
