@@ -4,33 +4,25 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
+    int n = nums.size();
     int diff = INT_MAX;
-    int cutIndex = 0;
-
-    for (int i = 1; i < nums.size(); ++i) {
-        int leftSum = 0;
-        int rightSum = 0;
-        for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < nums.size(); ++j) {
-            rightSum += nums[j];
-        }
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+    int idx = -1;
+    for (int i = 1; i < n; ++i) {
+        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        int curr_diff = abs(left_sum - right_sum);
+        if (curr_diff < diff) {
+            diff = curr_diff;
+            idx = i;
         }
     }
-
-    for (int i = 0; i < cutIndex; ++i) {
+    for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << endl;
-    for (int i = cutIndex; i < nums.size(); ++i) {
+    cout << 0 << endl;
+    for (int i = idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
-
+    cout << 0 << endl;
     return 0;
 }
