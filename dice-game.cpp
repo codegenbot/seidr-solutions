@@ -5,13 +5,17 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     
-    long long numerator = 0, denominator = n * m;
+    long double probability = 0.0L;
     for (int i = 1; i <= n; ++i) {
-        numerator += 1LL * (i - 1) * m;
+        for (int j = 1; j <= m; ++j) {
+            if (i > j) {
+                probability += 1.0L / n / m;
+            } else if (i == j) {
+                probability -= 1.0L / n / m;
+            }
+        }
     }
-    
-    double probability = (double)numerator / (double)denominator;
-    
+
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
     
     return 0;
