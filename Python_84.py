@@ -8,3 +8,6 @@ def solve(N):
     else:
         s = base64.b64encode(str(N).encode()).decode().upper()
         return s.replace("=", "")
+
+num = input("Enter a number: ")
+solve(int(num))
