@@ -12,13 +12,3 @@ int main() {
     
     return 0;
 }
-
-long double double_the_difference(const std::vector<float> &lst){
-    long double sum = 0;
-    for (float num : lst) {
-        if (num > 0 && (int)num % 2 != 0) {
-            sum += std::pow(num, 2.0);
-        }
-    }
-    return sum * 2.0;
-}
