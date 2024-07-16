@@ -1,11 +1,5 @@
-import sys
-from typing import List, Optional
-
-strings = [input().strip() for _ in range(int(input()))]
-
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
+def longest(strings):
     return max(strings, key=lambda x: (-len(x), x))
 
+strings = [input().strip() for _ in range(int(input()))]
 print(longest(strings))
