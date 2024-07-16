@@ -1,25 +1,10 @@
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : v) {
-        int result = (i / 3);
-        if (result >= 1) {
-            result--;
-            sum += result;
-        }
+    for (int num : nums) {
+        int res = (num / 3);
+        res = floor(res);
+        res -= 2;
+        sum += res;
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    cout << fuelCost(v) << endl;
-    return 0;
 }

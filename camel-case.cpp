@@ -20,8 +20,8 @@ std::string kebabToCamelCase(const std::string& s) {
             }
         }
         if (!word.empty()) {
-            result.push_back(' '); 
-            capitalize = false; 
+            result.push_back(''); // Add a space between words
+            capitalize = false; // Reset capitalize for next word
         }
     }
 
