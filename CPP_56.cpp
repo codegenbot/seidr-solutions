@@ -17,7 +17,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("<><<>>")); // Example input
-    assert(!correct_bracketing("<><>")); // Example input
+    assert(correct_bracketing("<><<>>")); // Example test case
     return 0;
 }
