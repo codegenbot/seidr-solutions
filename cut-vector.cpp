@@ -16,7 +16,7 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
