@@ -1,3 +1,5 @@
 def middle_character(s):
+    s = s.strip() 
     length = len(s)
-    return s[length//2 - 1:length//2 + 1]
+    middle = length // 2
+    return s[middle-1:middle+1] if length % 2 == 0 else s[middle]
