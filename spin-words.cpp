@@ -1,20 +1,21 @@
 #include <string>
+using namespace std;
+
 int main() {
-    std::string spinWords(std::string str) {
-        std::string result = "";
+    string spinWords(string str) {
+        string result = "";
         int i = 0;
         while (i < str.length()) {
             if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                if (str.substr(i).length() >= 5) {
+                if (str.substr(i).length() >= 5)
                     for (int j = str.substr(i).length() - 1; j >= 0; --j)
                         result += str.substr(i)[j];
-                    i += str.substr(i).length();
-                } else
+                else
                     result += str.substr(i);
                 break;
             }
             int j = str.find(" ", i);
-            std::string word = str.substr(i, j - i);
+            string word = str.substr(i, j - i);
             if (word.length() >= 5) {
                 for (int k = word.length() - 1; k >= 0; --k)
                     result += word[k];
@@ -24,4 +25,10 @@ int main() {
         }
         return result;
     }
+    string userInput;
+    cout << "Enter a sentence: ";
+    getline(cin, userInput);
+    string output = spinWords(userInput);
+    cout << "Spin Words Result: " << output << endl;
+    return 0;
 }
