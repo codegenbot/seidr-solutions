@@ -1,1 +1,1 @@
-input_numbers = list(map(int, input().split()))
+input_numbers = list(map(int, input("Enter comma-separated numbers: ").split(',')))
