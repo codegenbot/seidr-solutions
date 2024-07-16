@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -32,6 +32,10 @@ int main() {
     while(std::cin >> num) {
         lst.push_back(num);
     }
-    std::cout << skjkasdkd(lst) << std::endl;
+
+    int result = skjkasdkd(lst);
+
+    std::cout << "The sum of the digits is: " << result << "\n";
+
     return 0;
 }
