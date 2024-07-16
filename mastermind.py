@@ -4,7 +4,6 @@ def mastermind(code, guess):
     white_count = 0
     for char in set(code):
         code_char_count = code.count(char)
-        guess_char_count = guess.count(char)
+        guess_char_count = guess.count(char) - (guess[:black_count].count(char))
         if code_char_count > 0 and code_char_count < guess_char_count:
-            white_count += min(code_char_count, guess_char_count) 
-    return str(black_count), str(white_count)
+            white_count += code_char_count
