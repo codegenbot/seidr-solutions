@@ -10,5 +10,5 @@ std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
