@@ -1,4 +1,8 @@
-bool issame(vector<string> a, vector<string> b){
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -10,24 +14,25 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    vector<string> strings = {"apple", "banana", "grape", "orange", "pineapple"};
-    string substring = "ap";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-    for(const string& str : filtered_strings){
-        cout << str << " ";
-    }
-    return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> filtered_strings;
-    for(const string& str : strings){
-        if(str.find(substring) != string::npos){
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> filtered_strings;
+    for(const std::string& str : strings){
+        if(str.find(substring) != std::string::npos){
             filtered_strings.push_back(str);
         }
     }
     return filtered_strings;
+}
+
+int main() {
+    // Test the filter_by_substring function
+    std::vector<std::string> strings = {"apple", "banana", "grape", "orange", "strawberry"};
+    std::string substring = "ra";
+    std::vector<std::string> filtered = filter_by_substring(strings, substring);
+
+    for(const std::string& str : filtered){
+        std::cout << str << " ";
+    }
+
+    return 0;
 }
