@@ -16,4 +16,3 @@ int main() {
     std::cin >> s;
     std::cout << middleCharacter(s) << std::endl;
     return 0;
-}
