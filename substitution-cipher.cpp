@@ -6,10 +6,14 @@ int main() {
     std::cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[cipher1.find(c)];
-        } else if (c == cipher2[0]) {
-            c = cipher1[cipher2.find(c)];
+        for (size_t i = 0; i < cipher1.size(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
+                break;
+            } else if (c == cipher2[i]) {
+                c = cipher1[i];
+                break;
+            }
         }
     }
 
