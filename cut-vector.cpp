@@ -1,31 +1,42 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> arr) {
-    int n = arr.size();
-    vector<vector<int>> res(2);
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> result;
     
-    if (n == 0) return res;
-    if (n == 1) {
-        res[0] = arr;
-        res[1] = {};
-        return res;
-    }
-    
-    for (int i = 0; i < n; ++i) {
-        vector<int> left(arr.begin(), arr.begin() + i);
-        vector<int> right(arr.begin() + i, arr.end());
-        
-        if ((left.size() == 1 && right.size() == 1) || 
-            (left.size() > 0 && right.size() > 0 && abs(left.back() - right.front()) <= 1)) {
-            res[0] = left;
-            res[1].clear();
-            res[1].insert(res[1].end(), right.begin(), right.end());
-            return res;
+    for (int i = 1; i <= n; i++) {
+        if (i == n || abs(v[i] - v[0]) > abs(v[n-i-1] - v[0])) {
+            result.push_back({v.begin(), v.begin() + i});
+            break;
+        }
+        else {
+            result.push_back({v.begin(), v.begin() + i});
+            v.erase(v.begin());
         }
     }
     
-    res[0] = arr;
-    res[1] = {};
-    return res;
+    if (!v.empty()) {
+        result.push_back({v.begin(), v.end()});
+    }
+    
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    vector<vector<int>> res = cutVector(v);
+    for (vector<int>& vec : res) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
