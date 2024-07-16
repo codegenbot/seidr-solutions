@@ -1,18 +1,12 @@
 def factorize(n):
     factors = []
-    for i in range(1, n + 1):
-        if n % i == 0:
-            factors.append(i)
-    return factors
-
-
-while True:
-    try:
-        n = int(input("Enter a positive integer: "))
-        if n > 0:
-            print(factorize(n))
-            break
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
         else:
-            print("Please enter a positive integer.")
-    except ValueError:
-        print("Please enter a valid integer value.")
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
