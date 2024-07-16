@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <cstring> 
+#include <cstring>
 using namespace std;
 
 string spinWords(string str) {
