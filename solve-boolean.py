@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 def solve_boolean(expression):
     def evaluate_expression(expression):
         operators = {'&': lambda x, y: str(int(x) and int(y)),
