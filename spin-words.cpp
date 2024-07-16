@@ -7,7 +7,7 @@ std::string spinWords(std::string str) {
     std::string result;
 
     while (iss >> word) {
-        if (word.length() > 4)
+        if(word.size()>4)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
             result += word + " ";
