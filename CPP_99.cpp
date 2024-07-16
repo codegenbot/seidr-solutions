@@ -1,3 +1,4 @@
 double num = stod(value);
-    return num >= 0 ? floor(num + 0.5) : ceil(num - 0.5);
+    int closest = num < 0 ? floor(num) : ceil(num);
+    return abs(num - closest) < 0.5 ? closest : (int)round(num);
 }
