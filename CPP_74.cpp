@@ -22,15 +22,15 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Test the total_match function
-    vector<string> test_lst1 = {"apple", "banana", "cherry"};
-    vector<string> test_lst2 = {"orange", "grape"};
+    vector<string> list1 = {"apple", "banana", "cherry"};
+    vector<string> list2 = {"orange", "pear"};
     
-    vector<string> result = total_match(test_lst1, test_lst2);
+    vector<string> result = total_match(list1, list2);
     
-    // Test the issame function
-    if (issame(test_lst1, test_lst2)) {
-        // Do something if the vectors are the same
+    if (issame(list1, list2)) {
+        cout << "Lists are the same" << endl;
+    } else {
+        cout << "Lists are different" << endl;
     }
     
     return 0;
