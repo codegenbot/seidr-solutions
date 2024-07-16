@@ -1,4 +1,3 @@
-```c
 int main() {
     double startHeight, firstBounce, numBounces;
 
