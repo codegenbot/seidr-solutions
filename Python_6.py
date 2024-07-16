@@ -9,11 +9,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_depth = max(max_depth, current_depth)
         elif char == ")":
             current_depth -= 1
-
-        if char == " ":
+        elif char == " ":
             depths.append(max_depth)
             max_depth = 0
-            current_depth = 0
 
     depths.append(max_depth)
 
