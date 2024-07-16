@@ -1,4 +1,6 @@
+paren_string = ""
 try:
-    paren_string = input().rstrip()
+    while True:
+        paren_string += input()
 except EOFError:
-    paren_string = ""
+    pass
