@@ -1,3 +1,5 @@
+Here is the completed code:
+
 #include <iostream>
 #include <string>
 
@@ -21,25 +23,9 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
-        // Skip leading whitespace
-        if (str.empty()) continue;
-        std::string result;
-        bool capitalizeNext = true;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str);
+    std::cout << "camelCase: " << camelCase(str) << std::endl;
 
-        for (char c : str) {
-            if (c == '-') {
-                capitalizeNext = true;
-            } else if (capitalizeNext) {
-                result += toupper(c);
-                capitalizeNext = false;
-            } else {
-                result += tolower(c);
-            }
-        }
-
-        // Print the result and reset for the next line
-        std::cout << result << '\n';
-    }
     return 0;
 }
