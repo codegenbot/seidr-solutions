@@ -5,22 +5,14 @@ def sum_product(numbers):
 
 results = []
 
-def input_data():
-    while True:
-        yield input()
-
-input_gen = input_data()
-
 while True:
     try:
-        numbers_input = list(map(int, next(input_gen).strip().split()))
+        numbers_input = list(map(int, input().strip().split()))
         if not numbers_input or numbers_input[0] == -1:
             break
         result = sum_product(numbers_input)
         results.append(result)
     except (ValueError, EOFError):
-        break
-    except StopIteration:
         break
 
 for result in results:

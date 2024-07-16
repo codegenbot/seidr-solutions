@@ -1,12 +1,15 @@
-#include <any>
 #include <string>
 #include <cassert>
 
-std::any compare_one(const std::string& a, const std::string& b) {
-    return a;
+std::string compare_one(const std::string& a, const std::string& b) {
+    if (a == b) {
+        return "Equal";
+    } else {
+        return "Not Equal";
+    }
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(compare_one(std::string("1"), std::string("1")) == "Equal");
     return 0;
 }
