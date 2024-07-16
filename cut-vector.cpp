@@ -4,21 +4,13 @@
 #include <algorithm>
 
 int main() {
-    std::vector<int> vec;
-    int n;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        vec.push_back(num);
-    }
+    std::vector<int> vec = {6984, 8312, 921, 3362, 3078};
+    size_t idx = 0;
+    int min_diff = abs(vec[0] - vec[1]);
 
-    int idx = 0;
-    int min_diff = abs(vec[idx] - vec[idx + 1]);
-
-    for (int i = 0; i < vec.size() - 1; ++i) {
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
         int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < min_diff) {
+        if (diff <= min_diff) {
             min_diff = diff;
             idx = i;
         }
