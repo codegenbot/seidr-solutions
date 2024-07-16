@@ -7,6 +7,11 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> pluck(vector<int> arr);
 
+int main() {
+    // Add main function code here if needed
+    return 0;
+}
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallestEven = INT_MAX;
@@ -25,9 +30,4 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
-}
-
-int main() {
-    // Add your test cases here
-    return 0;
 }
