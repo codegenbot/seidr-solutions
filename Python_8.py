@@ -5,12 +5,9 @@ def sum_product(numbers):
 
 results = []
 
-def input_data():
-    return input()
-
 while True:
     try:
-        numbers_input = list(map(int, input_data().strip().split()))
+        numbers_input = list(map(int, input().strip().split()))
         if not numbers_input or numbers_input[0] == -1:
             break
         result = sum_product(numbers_input)
