@@ -9,7 +9,15 @@ std::string spinWords(std::string str) {
 
     while (iss >> word) {
         if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend());
+            std::ostringstream oss;
+            for (auto it = word.rbegin(); it != word.rend(); ++it) {
+                oss.put(*it);
+            }
+            if (oss.tellp() > 0) {
+                result += oss.str();
+            } else {
+                result += word + " ";
+            }
         else
             result += word + " ";
     }
