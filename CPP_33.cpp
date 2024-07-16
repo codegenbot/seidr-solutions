@@ -1,8 +1,14 @@
-vector<int> res = l;
-    for (int i = 0; i < l.size(); i++) {
+vector<int> sorted_indices;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            sort(res.begin() + i, res.begin() + i + 3);
+            sorted_indices.push_back(i);
         }
     }
-    return res;
+    sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {
+        return l[a] < l[b];
+    });
+    for (int i = 0; i < sorted_indices.size(); ++i) {
+        l[sorted_indices[i]] = l[i];
+    }
+    return l;
 }
