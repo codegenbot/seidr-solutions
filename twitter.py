@@ -1,3 +1,5 @@
+```
+tweet = input("Enter your tweet: ")
 def validate_tweet(tweet):
     tweet = normalize('NFD', tweet).encode('ascii', 'ignore').decode().replace(' ', '')
     if len(tweet) > 140:
@@ -6,3 +8,4 @@ def validate_tweet(tweet):
         return "You didn't type anything"
     else:
         return f"Your tweet has {len(tweet)} characters"
+print(validate_tweet(tweet))
