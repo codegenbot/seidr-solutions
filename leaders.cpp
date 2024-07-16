@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -13,8 +13,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    std::reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return std::vector<int>(leaders.rbegin(), leaders.rend());
 }
 
 int main() {
