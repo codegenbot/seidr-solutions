@@ -1,4 +1,3 @@
-```
 import re
 
 def camel_case(s):
