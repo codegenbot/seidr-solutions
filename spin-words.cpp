@@ -1,20 +1,34 @@
+```
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::stringstream ss(sentence);
-    std::string word;
-    std::string result;
+    std::string result = "";
+    std::string temp = "";
 
-    while (ss >> word) {
-        if (word.length() >= 5)
-            result += new std::string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (temp.length() >= 5)
+                {std::string tempRev = temp;
+                std::reverse(tempRev.begin(), tempRev.end());
+                result += tempRev + " ";
+                } else
+                    result += temp + " ";
+            temp = "";
+        } else {
+            temp += c;
+        }
     }
 
-    return result.substr(0, result.size() - 1);
+    if (temp.length() >= 5)
+        {std::string tempRev = temp;
+        std::reverse(tempRe.begin(), tempRe.end());
+        result += tempRe; }
+    else
+        result += temp;
+
+    return result;
 }
 
 int main() {
