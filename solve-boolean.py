@@ -1,11 +1,11 @@
 def solve_boolean(expression):
-    boolean_map = {"t|t": True, "f|f": False, "|": " or ", "&": " and "}
-    expression = expression.lower()
+    boolean_map = {"T": True, "F": False, "T|T": True, "F|F": False, "|": " or ", "&": " and "}
+    expression = expression.upper()
     
     for key, value in boolean_map.items():
-        if key in ["t|t", "f|f"]:
+        if key in ["T", "F", "T|T", "F|F"]:
             expression = expression.replace(key, str(value))
-      
+    
     expression = expression.replace("|", " or ").replace("&", " and ")
 
     return eval(expression)
