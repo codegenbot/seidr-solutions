@@ -1,30 +1,41 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::vector<std::string> word_list;
-    int start = 0;
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            word_list.push_back(sentence.substr(start, i - start));
-            start = i + 1;
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += " ";
+            i++;
+        } else if ((int)str[i + str.substr(i).size() - 1] >= 122 || (int)str[i + str.substr(i).size() - 1] <= 96) {
+            int len = str.substr(i).size();
+            for (int j = len; j > 0; j--) {
+                result += str[i + j - 1];
+            }
+            i += str.substr(i).size();
+        } else {
+            int k = 0;
+            while (i < str.length() && str[i] != ' ') {
+                result += str[i];
+                i++;
+                k++;
+            }
+            if (k > 0) {
+                for (int j = k; j > 0; j--) {
+                    result += str[i - 1];
+                }
+                i--;
+            } else {
+                result += str.substr(i);
+                i++;
+            }
         }
     }
-
-    for (std::string word : word_list) {
-        if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        result += word + " ";
-    }
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    cout << spinWords("Hello World") << endl;
     return 0;
 }
