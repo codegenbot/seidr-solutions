@@ -3,20 +3,21 @@
 
 using namespace std;
 
-string validateTweet(string tweet) {
-    if (tweet.empty()) {
+string validateTweet(const char* tweet) {
+    if (tweet == nullptr || strlen(tweet) == 0) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    if (strlen(tweet) > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(strlen(tweet)) + " characters";
 }
 
 int main() {
-    string tweet;
+    const char* tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
+    getline(cin, string(input));
+    string result = validateTweet(input.c_str());
+    cout << result << endl;
     return 0;
 }

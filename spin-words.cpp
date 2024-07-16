@@ -1,6 +1,4 @@
-#include <sstream>
-#include <iostream>
-
+```cpp
 std::string spinWords(std::string str) {
     std::istringstream iss(str);
     std::string word;
@@ -13,11 +11,5 @@ std::string spinWords(std::string str) {
             result += word + " ";
     }
 
-    return result.substr(0, result.find_last_of(" ")).substr(1);
-}
-
-int main() {
-    std::string str = "Hello World";
-    std::cout << spinWords(str) << std::endl;
-    return 0;
+    return result.substr(0, result.find_last_of(" ")).substr(0);
 }
