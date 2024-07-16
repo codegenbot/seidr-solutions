@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -15,13 +14,12 @@ double vectorDistance(int n, const std::vector<float>& v1, const std::vector<flo
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> v1, v2;
+    std::vector<float>(n, 0.0f), std::vector<float>(n, 0.0f);
     for (int i = 0; i < n; i++) {
-        float val;
-        std::cin >> val;
-        v1.push_back(val);
-        std::cin >> val;
-        v2.push_back(val);
+        std::cin >> v1[i];
+    }
+    for (int i = 0; i < n; i++) {
+        std::cin >> v2[i];
     }
     std::cout << std::fixed << std::setprecision(10) << vectorDistance(n, v1, v2) << std::endl;
     return 0;
