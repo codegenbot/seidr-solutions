@@ -5,8 +5,10 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
 
+    result.push_back(arr[n-1]);
+
     for(int i=n-2; i>=0; i--) { 
-        if(result.empty() || arr[i] >= arr.back()) {
+        if(arr[i] >= arr[i+1]) {
             result.push_back(arr[i]);
         }
     }
