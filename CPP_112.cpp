@@ -1,8 +1,10 @@
-for (char ch : c) {
-		s.erase(remove(s.begin(), s.end(), ch), s.end());
-	}
-	string result = s;
-	string reversed = s;
-	reverse(reversed.begin(), reversed.end());
-	return {result, result == reversed ? "True" : "False"};
+string result = s;
+    for (char ch : c) {
+        result.erase(remove(result.begin(), result.end(), ch), result.end());
+    }
+    
+    string resultCopy = result;
+    reverse(resultCopy.begin(), resultCopy.end());
+    
+    return {result, result == resultCopy ? "True" : "False"};
 }
