@@ -35,4 +35,4 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-assert(bf("Jupiter", "Makemake") == {});
+assert(bf("Jupiter", "Makemake").empty());
