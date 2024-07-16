@@ -5,10 +5,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         for (int i = 0; i < grid.size(); i++) {
             sum += grid[i][j];
         }
-        while (sum > 0) {
-            sum -= capacity;
-            count++;
-        }
+        count += (sum + capacity - 1) / capacity;
     }
     return count;
 }
