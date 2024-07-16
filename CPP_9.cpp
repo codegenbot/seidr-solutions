@@ -12,3 +12,7 @@ vector<int> rolling_max(vector<int> numbers) {
     
     return result;
 }
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
