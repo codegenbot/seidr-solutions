@@ -1,6 +1,8 @@
-#include <cstddef>
+```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <thread>
 
 int main() {
     std::string s;
@@ -23,8 +25,13 @@ int main() {
     }
 
     size_t pos = 0;
-    while ((pos = result.find(' ')) != std::string::npos) {
-        result.erase(pos, 1);
+    while ((pos = result.find(' ', pos)) != std::string::npos) {
+        if (pos > 0)
+            result.erase(pos, 1);
+        else
+            pos++;
     }
+    
+    std::this_thread::disable_stdio_sync();
     return 0;
 }
