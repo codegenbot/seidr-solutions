@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -16,6 +21,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
+    white = 0;
     for (int i = 0; i < 6; i++) {
         white += std::min(codeCount[i], guessCount[i]) - black;
     }
