@@ -1,6 +1,7 @@
 try:
     n = int(input())
     numbers = list(map(int, input().split()))
-    print(numbers)
+    result = sum(numbers)
+    print(result)
 except ValueError:
     print("Invalid input. Please provide valid input.")
