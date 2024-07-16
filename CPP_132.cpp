@@ -1,5 +1,5 @@
-#include <cassert>
 #include <string>
+#include <cassert>
 
 bool is_nested(std::string str) {
     int count = 0;
@@ -18,6 +18,8 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
+    { 
+        assert(is_nested("]]]]]]]])" == false);
+    } 
     return 0;
 }
