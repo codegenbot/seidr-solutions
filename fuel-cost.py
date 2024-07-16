@@ -1,5 +1,4 @@
-import math
-
+```
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
 
