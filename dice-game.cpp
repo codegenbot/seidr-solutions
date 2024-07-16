@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double probability(int n, int m) {
@@ -8,10 +7,7 @@ double probability(int n, int m) {
     double p = 0.0;
     
     for(int i = 1; i <= m; i++) {
-        if(i == m)
-            p += ((n - i + 1) / (double)(n * m));
-        else
-            p += ((n - i) / (double)(n * m));
+        p += ((n - i) / (double)(n * m));
     }
     
     return p;
