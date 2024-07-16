@@ -1,2 +1,9 @@
-def fizz_buzz(n: int) -> int:
-    return sum(1 for i in range(1, n + 1) if (i % 11 == 0 or i % 13 == 0) and ('7' in str(i) and '8' in str(i)))
+def fizz_buzz(n: int) -> bool:
+    return (
+        sum(
+            1
+            for i in range(1, n + 1)
+            if (i % 11 == 0 or i % 13 == 0) and ("7" in str(i) or "8" in str(i))
+        )
+        > 0
+    )
