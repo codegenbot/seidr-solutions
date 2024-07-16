@@ -1,6 +1,6 @@
 #include <string>
 
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -14,3 +14,4 @@ bool is_nested(string str) {
         }
     }
     return count > 0;
+}
