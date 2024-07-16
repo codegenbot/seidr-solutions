@@ -22,7 +22,7 @@ int main() {
         if (targetLength == 0) {
             pos += 1; // Case for empty target
         } else {
-            pos += (pos == text.find(target, pos) ? 1 : 1); // Always increment by 1 for overlapped targets
+            pos += std::max<size_t>(1, targetLength); // Move to the next position allowing overlaps
         }
     }
 
