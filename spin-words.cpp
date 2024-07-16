@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <cstring> 
+#include <cstring>
 using namespace std;
 
 string spinWords(string str) {
@@ -10,12 +9,12 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str.substr(i);
             i++;
-        } else if (strlen(str.substr(i).c_str()) >= 5) { 
-            string temp = str.substr(i); 
-            for (int j = temp.length() - 1; j >= 0; j--) {
-                result += temp[j];
+        } else if (strlen(str.substr(i)) >= 5) {
+            int j = strlen(str.substr(i));
+            for (int k = j; k > 0; k--) {
+                result += str.substr(i + j - 1, 1);
             }
-            i += temp.length(); 
+            i += j;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
