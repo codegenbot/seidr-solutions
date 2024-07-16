@@ -6,7 +6,6 @@ def merge_with_delimeter(numbers, delimeter):
             result.append(delimeter)
     return result
 
-# Call the function with desired arguments
 numbers = [1, 2, 3, 4, 5]
 delimeter = '-'
 output = merge_with_delimeter(numbers, delimeter)
