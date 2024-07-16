@@ -1,5 +1,9 @@
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
+bool issame(vector<string> a, vector<string> b){
+    // Implementation of issame function
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filtered_strings;
     for (const string& str : strings) {
@@ -8,10 +12,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return filtered_strings;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    // Implementation of issame function
 }
 
 int main() {
