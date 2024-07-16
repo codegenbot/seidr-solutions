@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <iostream> 
 
 using namespace std;
 
@@ -7,7 +8,7 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    int maxSoFar = arr[n-1]; 
+    int maxSoFar = arr[n-1]; // Initialize with the last element as leader.
 
     for(int i=n-2; i>=0; i--){
         if(arr[i] >= maxSoFar){
