@@ -1,22 +1,26 @@
 #include <vector>
-#include <algorithm>
 using namespace std;
+
+int main() {
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersResult = leaders(arr);
+    cout << "Leaders: ";
+    for (int leader : leadersResult) {
+        cout << leader << " ";
+    }
+    cout << endl;
+    return 0;
+
+}
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
-    if (n == 0)
-        return result;
-    
-    result.push_back(arr[n-1]);
-    
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= arr[i+1])
-            result.push_back(arr[i]);
+    vector<int> leaders;
+    leaders.push_back(arr[n-1]); // rightmost element is always a leader
+    for(int i=n-2; i>=0; i--){
+        if(arr[i] >= arr[i+1]) 
+            leaders.push_back(arr[i]);
     }
-    
-    std::reverse(result.begin(), result.end());
-    
-    return result;
+    reverse(leaders.begin(), leaders.end()); // reverse the vector to maintain the original order of elements
+    return leaders;
 }
