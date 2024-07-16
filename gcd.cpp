@@ -13,8 +13,8 @@ std::vector<int> findIndices(const std::string& text, const std::string& target)
 }
 
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    std::string text = "247650299098";
+    std::string target = "299098";
     
     std::vector<int> result = findIndices(text, target);
     
