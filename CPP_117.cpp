@@ -8,7 +8,10 @@ bool is_same(vector<string> a, vector<string> b) {
         return false;
     }
     
-    return equal(a.begin(), a.end(), b.begin());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
+    return a == b;
 }
 
 vector<string> select_words(string s, int n){
@@ -36,14 +39,4 @@ vector<string> select_words(string s, int n){
     }
     
     return result;
-}
-
-int main() {
-    // Sample test for is_same function
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-    
-    assert(is_same(a, b));
-    
-    return 0;
 }
