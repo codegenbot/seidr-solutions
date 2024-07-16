@@ -1,12 +1,13 @@
-#include <string>
+int main() {
+    std::string s;
+    std::cin >> s;
 
-std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += std::toupper(s[s.find(c)+1]);
+            if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
             result.push_back(' ');
         } else if (capitalizeNext) {
@@ -17,11 +18,9 @@ std::string camelCase(std::string s) {
         }
     }
 
-    size_t pos = result.find(' ');
-    while (pos != std::string::npos) {
+    size_t pos = 0;
+    while ((pos = result.find(' ')) != std::string::npos) {
         result.erase(pos, 1);
-        pos = result.find(' ');
     }
-
-    return result;
+    return 0;
 }
