@@ -10,7 +10,7 @@ float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proporti
         initialSnow += rateOfSnowfall;
         initialSnow *= (1 - proportionOfMeltingPerHour);
     }
-    return totalSnow;
+    return initialSnow;
 }
 
 int main() {
