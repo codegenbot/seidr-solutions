@@ -2,7 +2,7 @@ def encode(message):
     vowels = "aeiouAEIOU"
     try:
         return "".join(
-            chr(ord(char) + 1) if char.isalpha() and char.upper() in vowels
+            chr(ord(char) + 1) if char.isalpha() and char in vowels
             else char.swapcase() if char.isalpha() else char
             for char in message
         )
