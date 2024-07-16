@@ -1,32 +1,29 @@
+#include <iostream>
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     int i = 0;
-    bool reverse = false;
-
     while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += " ";
+        int j = 0;
+        while (i < str.length() && str[i] != ' ') {
             i++;
-        } else {
-            int j = 0;
-            while (i < str.length() && str[i] != ' ') {
-                i++;
-                j++;
-            }
-            if (j >= 5) reverse = !reverse;
-
-            string word = str.substr(i - j, j);
-            if (reverse) {
-                string revWord = "";
-                for (int k = j - 1; k >= 0; k--) {
-                    revWord += word[k];
-                }
-                result += revWord + " ";
-                reverse = false;
-            } else {
-                result += word + " ";
-            }
+            j++;
         }
+        string word = str.substr(i - j, j);
+        if (word.length() >= 5) {
+            for (int k = word.length() - 1; k >= 0; k--) {
+                result += word[k];
+            }
+        } else {
+            result += word;
+        }
+        i++;
     }
-    return result.substr(0, result.length() - 1);
+    return result;
+}
+
+int main() {
+    cout << spinWords("Hello World") << endl;
+    return 0;
 }
