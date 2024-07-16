@@ -5,11 +5,11 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str.substr(i);
             i++;
-        } else if (str.length() - i >= 5) {
-            for (int j = 0; j < strlen(&str.substr(i)); j++) {
-                result += str[i + j];
+        } else if (strlen(&str[i]) >= 5) {
+            for (int j = strlen(&str[i]); j > 0; j--) {
+                result += str[i + j - 1];
             }
-            i += strlen(&str.substr(i)) + 1;
+            i += j;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
