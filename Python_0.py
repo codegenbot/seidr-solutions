@@ -5,7 +5,7 @@ def check_threshold(numbers, threshold):
             return True
     return False
 
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+numbers = [int(num) for num in input().split()]
 threshold = 5
 result = check_threshold(numbers, threshold)
 print(result)
