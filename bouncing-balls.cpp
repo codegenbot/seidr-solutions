@@ -4,11 +4,10 @@
 using namespace std;
 
 int main() {
-    double startHeight;
-    double firstBounce;
+    double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;  
+    cin >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
