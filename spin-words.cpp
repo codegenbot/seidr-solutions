@@ -2,29 +2,28 @@
 #include <string>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
-    int wordLength;
-    bool inWord = false;
+    std::string result = " ";
+    int wordLength = 0;
 
     for (char c : sentence) {
         if (c == ' ') {
-            inWord = false;
-        } else if (!inWord) {
-            inWord = true;
+            if (wordLength >= 5)
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += sentence[sentence.find(c) - i - 1];
+            else
+                result += c;
+            result += " ";
             wordLength = 0;
         } else {
             wordLength++;
-        }
-
-        if (inWord && wordLength >= 5) {
-            for (int i = wordLength - 1; i >= 0; --i)
-                result += sentence[sentence.find(c) + i];
-        } else
             result += c;
-
+        }
     }
 
-    return result;
+    if (wordLength >= 5)
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += sentence[sentence.find(result.back()) - i - 1];
+    return result.substr(1);
 }
 
 int main() {
