@@ -1,4 +1,7 @@
-```cpp
+```c++
+#include <string>
+#include <iostream>
+
 std::string cipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
@@ -16,3 +19,11 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string message
         }
     }
     return result;
+}
+
+int main() {
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << cipher(cipher1, cipher2, message) << std::endl;
+    return 0;
+}
