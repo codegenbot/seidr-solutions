@@ -10,24 +10,25 @@ int main() {
     std::cin >> codeStr;
 
     std::cout << "Enter your guess: ";
-    std::cin >> guessStr;
+    std::getline(std::cin, guessStr);
 
     int whitePegs = 0, blackPegs = 0;
+
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        }
-    }
+        } else {
+            bool foundInCode = false;
+            for (int j = 0; j < 4; j++) {
+                if (guessStr[i] == codeStr[j]) {
+                    foundInCode = true;
+                }
+            }
 
-    for (char c : guessStr) {
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (c == codeStr[j] && guessStr[j] != codeStr[j]) {
+            if (foundInCode) {
                 whitePegs++;
-                count++;
             }
         }
-        blackPegs -= count;
     }
 
     // Print the result
