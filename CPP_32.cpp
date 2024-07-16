@@ -10,12 +10,16 @@ double abs(double x){
     return x >= 0 ? x : -x;
 }
 
-double find_zero(vector<double> coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
+double find_zero(vector<double> xs){
+    double a = xs[0];
+    double b = xs[1];
+    
+    double epsilon = 1e-6;
     double x = 0.0;
-    while(abs(poly(coeffs, x)) > 1e-9){
-        x -= poly(coeffs, x) / poly({a, b}, x);
+    
+    while(abs(poly(xs, x)) > epsilon){
+        x -= poly(xs, x) / poly({a}, x);
     }
+    
     return x;
 }
