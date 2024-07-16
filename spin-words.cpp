@@ -18,6 +18,7 @@ std::string spinWords(std::string str) {
         }
     }
     
+    result.pop_back(); 
     return result;
 }
 
