@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 def solve_boolean(expression):
     if not expression: 
         return False
