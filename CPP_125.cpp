@@ -1,41 +1,30 @@
 #include <vector>
 #include <string>
 
-vector<string> split_words(string txt);
-
-bool issame(vector<string> a, vector<string> b){
-    // Function implementation
-}
-
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
-    bool hasWhitespace = false;
-    for(char c : txt){
-        if(c == ' '){
-            hasWhitespace = true;
-            result.push_back(word);
-            word = "";
-        } else if(c == ','){
-            hasWhitespace = true;
-            result.push_back(word);
-            word = "";
+bool issame(const std::vector<std::string>& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if(!hasWhitespace){
-        if(word.empty()){
-            result.push_back(to_string(3)); // Number of lower-case letters with odd order in the alphabet
-        } else {
-            result.push_back(word);
-        }
-    } else {
+    if (!word.empty()) {
         result.push_back(word);
     }
+    if (result.size() == 1 && islower(result[0][0])) {
+        int oddCount = 0;
+        for (char c : result[0]) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddCount++;
+            }
+        }
+        result[0] = std::to_string(oddCount);
+    }
     return result;
-}
-
-int main() {
-    // Main function implementation
 }
