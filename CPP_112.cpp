@@ -1,14 +1,6 @@
-```cpp
-#include <algorithm>
-#include <string>
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -22,22 +14,14 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    result.push_back((temp == rev) ? "True" : "False");
-    return result;
-}
-
-int main() {
-    string s, c;
-    cout << "Enter the string: ";
-    cin >> s;
-    cout << "Enter the character to be deleted: ";
-    cin >> c;
-    vector<string> result = reverse_delete(s, c);
-    if (result.size() == 2) {
-        cout << "The original string is not the same as the reversed and deleted string." << endl;
+    std::string rev = temp;
+    std::reverse(rev.begin(), rev.end());
+    if (!s.empty() && !c.empty()) { 
+        temp = temp; 
+        std::reverse(temp.begin(), temp.end()); 
+        result.push_back((temp == s) ? "True" : "False"); 
     } else {
-        cout << "The original string is the same as the reversed and deleted string." << endl;
+        result.push_back("Invalid input"); 
     }
+    return result;
 }
