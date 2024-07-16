@@ -4,10 +4,10 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-    int total_quarters = min(cents/25, (cents/(25+10))/4);
-    cents %= 25*total_quarters;
+    int total_quarters = min(cents/25, (cents/(25*2))/2);
+    cents %= 25*(total_quarters);
 
-    int total_dimes = min(cents/10, (cents%25*4+cents)/10);
+    int total_dimes = min(cents/10, (cents%(25*2))/(25/4.0));
     cents %= 10*total_dimes;
 
     int nickles_and_pennies = cents / 5;
