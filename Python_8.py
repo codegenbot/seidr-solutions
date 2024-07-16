@@ -3,17 +3,14 @@ def sum_product(numbers):
         return None
     return sum(numbers), numbers[0]
 
+
 results = []
 
-try:
-    while True:
-        numbers_input = list(map(int, input().strip().split()))
-        if not numbers_input:
-            break
-        result = sum_product(numbers_input)
+for line in iter(input, ''): 
+    numbers_input = list(map(int, line.strip().split()))
+    result = sum_product(numbers_input)
+    if result:
         results.append(result)
-except ValueError:
-    pass
 
 for result in results:
     print(result)
