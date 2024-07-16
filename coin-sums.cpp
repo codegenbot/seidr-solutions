@@ -9,20 +9,18 @@ int main() {
         ++quarters;
         cents -= 25;
     }
-    std::cout << "Quarters: " << quarters << "\n";
-
     int nickles = 0;
     while (cents >= 5) {
         ++nickles;
         cents -= 5;
     }
-    std::cout << "Nickels: " << nickles << "\n";
-
     int pennies = 0;
     while (cents > 0) {
         ++pennies;
         --cents;
     }
+    std::cout << "Quarters: " << quarters << "\n";
+    std::cout << "Nickels: " << nickles << "\n";
     std::cout << "Pennies: " << pennies << "\n";
 
     return 0;
