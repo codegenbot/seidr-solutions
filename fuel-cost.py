@@ -1,12 +1,10 @@
+```
+def calculate_fuel(amount):
+    if amount <= 2:
+        return max(0, amount - 2)
+    else:
+        result = math.floor(amount / 3) - 2
+        return max(result, 0)
+
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
-
-def calculate_fuel(amount):
-    total = 0
-    while True:
-        amount_divided = math.floor(amount / 3)
-        if amount_divided <= 2:
-            break
-        total += amount_divided - 2
-        amount = amount_divided
-    return total + (amount - 2)
