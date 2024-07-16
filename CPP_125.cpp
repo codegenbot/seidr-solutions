@@ -4,7 +4,7 @@
 #include <cctype>
 #include <algorithm>
 
-bool issame(string s1, string s2);
+bool issame(const string &a, const string &b);
 
 vector<string> split_words(string txt){
     vector<string> result;
