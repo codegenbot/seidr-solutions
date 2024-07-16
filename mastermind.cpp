@@ -1,10 +1,8 @@
+```cpp
 #include <tuple>
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility>
-
-using namespace std;
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -12,15 +10,22 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 
     for (int i = 0; i < 4; i++) {
         bool inCode = false;
+        int codeIndex = -1; // index of the character in the code
+
         for (int j = 0; j < 4; j++) {
             if (guess[i] == code[j]) { 
                 inCode = true;
                 if (j == i) { 
-                    black++;
-                    break;
-                } else {
-                    white++;
+                    codeIndex = j;
                 }
+            }
+        }
+
+        if (inCode) {
+            if (codeIndex != -1 && codeIndex == i) { // correct position
+                black++;
+            } else { // correct color, wrong position
+                white++;
             }
         }
     }
@@ -29,9 +34,9 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    string code = "RGOR";
-    string guess = "BRBB";
-    tie<int, int>(int white, int black) = mastermind(code, guess);
-    cout << "White pegs: " << white << ", Black pegs: " << black << endl;
+    std::string code = "RGOR";
+    std::string guess = "BRBB";
+    auto [white, black] = mastermind(code, guess);
+    std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
 }
