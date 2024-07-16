@@ -6,7 +6,7 @@ def process_text(text):
     return text
 
 try:
-    input_text = input("Enter text: ").strip()
+    input_text = input().strip()
     result = process_text(input_text)
     print(result)
 except (KeyboardInterrupt, EOFError):
