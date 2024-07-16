@@ -1,3 +1,5 @@
-string temp = b + b;
-    return temp.find(a) != string::npos;
+if(a.length() != b.length())
+        return false;
+    string combined = a + a;
+    return combined.find(b) != string::npos;
 }
