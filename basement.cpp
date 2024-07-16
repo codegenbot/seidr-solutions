@@ -1,5 +1,19 @@
 ```c++
-int basement(std::vector<int>& nums) {
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums = {1, -3, 2, 5, -4};
+    int result = basement(nums);
+    if (result == -1)
+        cout << "No such index exists." << endl;
+    else
+        cout << "The basement index is: " << result << endl;
+    return 0;
+
+}
+
+int basement(vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
