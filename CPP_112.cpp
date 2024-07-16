@@ -2,11 +2,14 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <utility>
 
 pair<string, string> reverse_delete(string s, string c);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+bool issame(pair<string, string> a, pair<string, string> b);
+
+bool issame(pair<string, string> a, pair<string, string> b){
+    return a.first == b.first && a.second == b.second;
 }
 
 pair<string, string> reverse_delete(string s, string c) {
@@ -19,4 +22,8 @@ pair<string, string> reverse_delete(string s, string c) {
     string result_reverse = result;
     reverse(result_reverse.begin(), result_reverse.end());
     return {result, result == result_reverse ? "True" : "False"};
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), make_pair("", "True")));
 }
