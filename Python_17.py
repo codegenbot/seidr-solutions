@@ -6,11 +6,11 @@ def parse_music(music_string: str) -> List[int]:
 
 music_input = ""
 while True:
-    line = input().strip()
+    line = raw_input().strip()
     if not line:
         break
+    
     music_input += line + " "
     
-if all(note in ["o", "o|", ".|"] for note in music_input.split()):
-    result = parse_music(music_input)
-    print(result)
+result = parse_music(music_input)
+print(result)
