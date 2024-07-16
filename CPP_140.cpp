@@ -1,21 +1,18 @@
-string fix_spaces(string text){
-    string result;
-    bool consecutiveSpaces = false;
-    
-    for (char c : text) {
-        if (c == ' ') {
-            if (!consecutiveSpaces) {
-                result += '_';
-                consecutiveSpaces = true;
-            } else {
+string result;
+    bool consecutive = false;
+    for(char& c : text){
+        if(c == ' '){
+            if(consecutive){
                 result.pop_back();
                 result += '-';
+            } else {
+                result += '_';
             }
+            consecutive = true;
         } else {
             result += c;
-            consecutiveSpaces = false;
+            consecutive = false;
         }
     }
-    
     return result;
 }
