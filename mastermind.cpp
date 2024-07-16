@@ -1,28 +1,29 @@
-#include <vector>
-#include <iostream>
+#include <map>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
-        } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+    // Count correct colors in wrong places (white pegs)
+    map<char, int> code_count;
+    for (char c : code) {
+        code_count[c]++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            if (--code_count[guess[i]] >= 0) {
+                white++;
+            }
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        white += std::min(codeCount[i], guessCount[i]) - black;
+    // Count correct colors in correct places (black pegs)
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        }
     }
 
-    return static_cast<int>(std::make_tuple(white, black));
+    return black;
 }
