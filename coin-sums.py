@@ -1,10 +1,11 @@
-def coin_sums(cents):
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
+    coin_counts = [0, 0, 0, 0]
 
     for i in range(len(coins)):
         while cents >= coins[i]:
             cents -= coins[i]
-            result[i] += 1
+            coin_counts[i] += 1
 
-    return " ".join(map(str, result))
+    return coin_counts[3], coin_counts[2], coin_counts[1], coin_counts[0]
