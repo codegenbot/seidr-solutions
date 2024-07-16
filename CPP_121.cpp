@@ -1,6 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <initializer_list>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
