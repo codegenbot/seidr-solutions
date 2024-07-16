@@ -1,36 +1,42 @@
 #include <string>
 #include <vector>
-#include <cctype>
 
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::string token;
-    for (const auto& c : str) {
-        if (c == delimiter) {
-            tokens.push_back(token);
-            token.clear();
-        } else {
-            token += c;
+std::string join(const std::vector<std::string>& tokens) {
+    std::string result;
+    for (const auto& token : tokens) {
+        if (!result.empty()) {
+            result += ' ';
         }
+        result += token;
     }
-    tokens.push_back(token);
-    return tokens;
+    return result;
+}
+
+std::string split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str = str.substr(pos + 1);
+    }
+    tokens.push_back(str);
+    return join(tokens);
 }
 
 std::string camelCase(const std::string& str) {
-    std::vector<std::string> words = split(str, '-');
     std::string result;
     bool capitalizeNext = true;
-    for (const auto& word : words) {
+    for (const auto& c : split(str, '-')) {
         if (!result.empty()) {
             if (capitalizeNext) {
-                result += toupper(word[0]);
+                result += toupper(c[0]);
                 capitalizeNext = false;
             } else {
-                result += tolower(word);
+                result += tolower(c[0]);
             }
+            result += c.substr(1);
         } else {
-            result = tolower(word);
+            result = tolower(c);
             capitalizeNext = true;
         }
     }
