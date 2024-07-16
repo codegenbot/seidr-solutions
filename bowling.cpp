@@ -13,11 +13,6 @@ int score(string s) {
             // do nothing
         } else {
             total += s[i] - '0';
-            if (s[i + 1] == '/') {
-                total += 10 - (s[i + 2] - '0');
-            }
-            i++;
-            frame++;
         }
         if (frame == 10) break;
     }
