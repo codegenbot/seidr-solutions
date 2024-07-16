@@ -1,3 +1,10 @@
 ```
 def camel_case(s):
-    return ' '.join(''.join(word.capitalize() for word in part.split('-')) for part in s.split())
+    words = s.split('-')
+    result = words[0].capitalize()
+    for word in words[1:]:
+        result += word.capitalize()
+    return result
+
+s = input()
+print(camel_case(s))

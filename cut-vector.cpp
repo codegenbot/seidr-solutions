@@ -1,52 +1,67 @@
 #include <vector>
+#include <climits>
 #include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+    int cut_index = -1;
     
-    for(int i = 1; i <= vec.size(); i++) {
-        int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int sum_left = 0, sum_right = 0;
         
-        for(int j = 0; j < i; j++) {
-            left_sum += vec[j];
+        for (int j = 0; j < i; ++j) {
+            sum_left += v[j];
         }
         
-        for(int j = i; j < vec.size(); j++) {
-            right_sum += vec[j];
+        for (int j = i; j < n; ++j) {
+            sum_right += v[j];
         }
         
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(sum_left - sum_right);
         
-        if(diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
-            result.first = vector<int>(vec.begin(), vec.begin() + i);
-            result.second = vector<int>(vec.begin() + i, vec.end());
+            cut_index = i;
         }
     }
     
-    return result;
+    vector<int> left, right;
+    
+    for (int i = 0; i < cut_index; ++i) {
+        left.push_back(v[i]);
+    }
+    
+    for (int i = cut_index; i < n; ++i) {
+        right.push_back(v[i]);
+    }
+    
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n+1);
-    for(int i = 0; i <= n; i++) {
-        cin >> vec[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    cout << "First subvector: ";
-    for(auto x : res.first) {
-        cout << x << " ";
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < res.first.size(); ++i) {
+        cout << res.first[i];
+        if (i < res.first.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << endl;
-    cout << "Second subvector: ";
-    for(auto x : res.second) {
-        cout << x << " ";
+    cout << "] [";
+    for (int i = 0; i < res.second.size(); ++i) {
+        cout << res.second[i];
+        if (i < res.second.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << endl;
-
+    cout << "]\n";
     return 0;
 }
