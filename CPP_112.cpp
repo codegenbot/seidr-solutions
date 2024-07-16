@@ -1,10 +1,12 @@
-string result = s;
-    for (char ch : c) {
-        result.erase(remove(result.begin(), result.end(), ch), result.end());
+vector<string> result;
+    string temp;
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
+            temp.push_back(ch);
+        }
     }
-    
-    string reversed_result = result;
-    reverse(reversed_result.begin(), reversed_result.end());
-    
-    return {result, result == reversed_result ? "True" : "False"};
-}
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    result.push_back(temp);
+    result.push_back(temp == revTemp ? "True" : "False");
+    return result;
