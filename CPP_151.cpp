@@ -1,3 +1,6 @@
+#ifndef MYMAIN
+#define MYMAIN
+
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -17,8 +20,12 @@ long double double_the_difference(const std::vector<float> &lst) {
     return sum;
 }
 
+#ifndef MYMAIN
+#define MYMAIN
 int main() {
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
 }
+#endif
+#endif
