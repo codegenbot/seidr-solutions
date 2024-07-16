@@ -20,8 +20,3 @@ vector<int> parse_nested_parens(string paren_string) {
     }
     return depths;
 }
-
-int main() {
-    // Add main function logic here if needed
-    return 0;
-}
