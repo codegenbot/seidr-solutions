@@ -1,15 +1,16 @@
-try:
-    n = int(input())
+def prime_fib(n):
     if n <= 1:
-        print("Not Prime")
+        return "Not Prime"
     elif n == 2:
-        print("Prime")
+        return "Prime"
     else:
         for i in range(2, int(n**0.5) + 1):
             if n % i == 0:
-                print("Not Prime")
-                break
-        else:
-            print("Prime")
+                return "Not Prime"
+        return "Prime"
+
+try:
+    n = int(input())
+    print(prime_fib(n))
 except ValueError:
     print("Program did not receive expected input")
