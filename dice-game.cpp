@@ -1,5 +1,3 @@
-# Modified C++ code
-
 #include <iostream>
 #include <iomanip>
 
