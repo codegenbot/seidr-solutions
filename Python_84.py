@@ -1,5 +1,6 @@
 def solve(N):
     if N == 0:
         return "0"
-    s = str(abs(N))  
-    return ''.join('1' if int(i) % 2 else '0' for i in s)
+    s = str(N)
+    odd_sum = sum(int(i) for i in s if (i != '0' and int(i)) % 2)
+    return bin(odd_sum)[2:]
