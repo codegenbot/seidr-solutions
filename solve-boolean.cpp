@@ -1,42 +1,35 @@
 #include <iostream>
 #include <string>
-#include <stack>
 using namespace std;
-
-bool evaluateBooleanExpression(const string& input) {
-    stack<char> st;
-    for(char c : input) {
-        if (c == '|') {
-            char operand1 = st.top(); st.pop();
-            char operand2 = st.top(); st.pop();
-            if (operand1 == 't' || operand2 == 't') {
-                st.push('t');
-            } else {
-                st.push('f');
-            }
-        } else if (c == '&') {
-            char operand1 = st.top(); st.pop();
-            char operand2 = st.top(); st.pop();
-            if (operand1 == 't' && operand2 == 't') {
-                st.push('t');
-            } else {
-                st.push('f');
-            }
-        } else {
-            st.push(c);
-        }
-    }
-    return (st.top() == 't');
-}
 
 int main() {
     string input;
     cin >> input;
     
-    bool result = evaluateBooleanExpression(input);
-    
+    bool result = false;
+    bool temp = false;
+    char sign = '|';  // Initial sign is set to OR
+
+    for (char c : input) {
+        if (c == 't') {
+            temp = true;
+        } else if (c == 'f') {
+            temp = false;
+        } else if (c == '&') {
+            sign = '&';
+        } else if (c == '|') {
+            sign = '|';
+        }
+
+        if (sign == '|') {
+            result = result || temp;
+        } else {
+            result = result && temp;
+        }
+    }
+
     if (result) {
-       cout << "True" << "\n";
+        cout << "True" << "\n";
     } else {
         cout << "False" << "\n";
     }
