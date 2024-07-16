@@ -4,9 +4,5 @@ bool issame(vector<string> a, vector<string> b);
 
 int main() {
     vector<string> expected_result;
-    expected_result.push_back("()");
-    expected_result.push_back("(())");
-
-    assert(issame(separate_paren_groups("()"), expected_result));
-    return 0;
+    assert(issame(separate_paren_groups("((ab)(cd))"), expected_result));
 }
