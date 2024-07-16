@@ -1,4 +1,3 @@
-```
 def bowling(score_string):
     score = 0
     frame = 1
@@ -20,7 +19,7 @@ def bowling(score_string):
             if frame == 10 and char.isdigit():
                 score += int(char)
             else:
-                while char != "/": # handle spare
+                while char != "/": 
                     if char == "X":
                         score += 10
                         frame += 1
