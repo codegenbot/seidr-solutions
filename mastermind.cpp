@@ -24,8 +24,6 @@ int mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code, guess;
-    // input your code and guess
-    // for example:
     code = "ABCD";
     guess = "ABDE";
 
