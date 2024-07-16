@@ -4,7 +4,7 @@ using namespace std;
 void coinSums(int cents) {
     int quarters = cents / 25;
     cents %= 25;
-    cents -= 25 * quarters; 
+    cents -= 25 * quarters;  
     int dimes = cents / 10;
     cents %= 10;
     int nickles = cents / 5;
