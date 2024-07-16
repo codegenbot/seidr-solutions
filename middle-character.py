@@ -4,6 +4,6 @@ def middle_character(s):
     mid = length // 2
 
     if length % 2:
-        return s[mid].upper() if s[mid].isalpha() else s[mid]
+        return s[mid]
     else:
-        return ''.join([c.upper() if c.isalpha() else c for c in s[mid-1:mid+1]])
+        return ''.join([s[mid-1], s[mid]])
