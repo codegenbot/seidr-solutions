@@ -1,13 +1,12 @@
-```cpp
 int bowlingScore(string s) {
     int score = 0;
 
     for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { 
+        if (s[i] == 'X') { // Strike
             score += 10 + getBonus(s, i);
-        } else if (s[i] == '/') { 
+        } else if (s[i] == '/') { // Spare
             score += 5 + getBonus(s, i);
-        } else { 
+        } else { // Normal roll
             int roll = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
                 score += roll + (s[i+1] - '0');
