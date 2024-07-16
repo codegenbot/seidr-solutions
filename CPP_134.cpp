@@ -1,1 +1,7 @@
-return !isalpha(txt.back()) && txt.length() > 0 && txt[txt.length() - 2] == ' ';
+if(txt.empty()) return false;
+    char lastChar = txt.back();
+    if(isalpha(lastChar)){
+        if(txt.find_last_of(" ") == txt.length()-1) return true;
+    }
+    return false;
+}
