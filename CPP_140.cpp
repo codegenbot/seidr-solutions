@@ -1,12 +1,19 @@
-for(int i=0; i<text.length(); i++){
-    if(text[i] == ' '){
-        if(i+2<text.length() && text[i+1]==' ' && text[i+2]==' '){
-            text.replace(i,3,"-");
-            i+=2;
+string result;
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
+                if (result.back() != '-') {
+                    result.push_back('-');
+                }
+            } else {
+                result.push_back('_');
+            }
         } else {
-            text[i] = '_';
+            count = 0;
+            result.push_back(c);
         }
     }
-}
-return text;
+    return result;
 }
