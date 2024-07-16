@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -38,6 +37,5 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "]" << endl;
+    cout << "0" << endl;
     return 0;
-}
