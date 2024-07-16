@@ -1,9 +1,9 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    int total = a[0] + a[1];
-    int eaten = total <= b[1] ? total : b[1];
-    int left = b[1] - eaten;
-
-    return eaten == b[0] && left == b[1];
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = total <= remaining ? total : remaining;
+    int left = remaining - eaten;
+    
+    return {eaten, left};
 }
