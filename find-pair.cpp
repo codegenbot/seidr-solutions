@@ -8,7 +8,7 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {{complement, nums[i]}};
+            return std::vector<std::pair<int, int>>({{complement, nums[i]}});
         }
         numMap[nums[i]] = i;
     }
