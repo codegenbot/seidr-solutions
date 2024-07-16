@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -17,7 +18,7 @@ int main() {
 
     float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
-    cout << "Amount of snow on ground after " << hours << " hours: " << setprecision(6) << fixed << result << " inches.\n";
+    std::cout << std::fixed << std::setprecision(6) << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
     return 0;
 }
