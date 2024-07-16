@@ -4,7 +4,7 @@ def substitution_cipher():
     mapping = list(input().strip())
     message = input().strip()
 
-    deciphered_message = ''.join([mapping[ord(c.lower()) - ord('a')] if c.isalpha() else c for c in message])
+    deciphered_message = ''.join([mapping[ord(c) - ord('a')] if c.isalpha() else c for c in message])
 
     return deciphered_message
 
