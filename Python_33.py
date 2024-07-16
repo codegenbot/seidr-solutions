@@ -5,6 +5,6 @@ def sort_third(l: list):
             for i in range(0, len(l) - 2, 3)
             if sum(l[i:i+3]) % 2 == 1
         ],
-        key=lambda x: x[-1]
+        key=lambda x: sum(x)
     )
     return sorted_triplets
