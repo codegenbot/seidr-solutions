@@ -17,7 +17,7 @@ int main() {
     std::string result = boost::any_cast<std::string>(compare_one(std::to_string(1), std::to_string(1)));
     assert(result == "Equal");
 
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "Not Equal");
 
     return 0;
 }
