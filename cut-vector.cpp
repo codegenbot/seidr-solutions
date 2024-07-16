@@ -4,32 +4,29 @@
 #include <cmath>
 #include <climits>
 #include <numeric>
-#include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
-    if (nums.size() < 2) return std::make_pair(std::vector<int>(), std::vector<int>());
-    
-    std::vector<int> sortedNums = nums;
-    std::sort(sortedNums.begin(), sortedNums.end());
-    
-    int sumLeft = 0;
-    int sumRight = std::accumulate(sortedNums.begin(), sortedNums.end(), 0);
-    int minDiff = sumRight;
+    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0;
+    int minDiff = INT_MAX;
     int cutIndex = 0;
 
-    for (size_t i = 0; i < sortedNums.size() - 1; ++i) {
-        sumLeft += sortedNums[i];
-        sumRight -= sortedNums[i];
-        
-        int diff = std::abs(sumLeft - sumRight);
+    for (size_t i = 0; i < nums.size(); ++i) {
+        leftSum += nums[i];
+        int rightSum = totalSum - leftSum;
+        int diff = std::abs(leftSum - rightSum);
+
         if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i + 1;
         }
     }
 
-    return std::make_pair(std::vector<int>(sortedNums.begin(), sortedNums.begin() + cutIndex),
-                          std::vector<int>(sortedNums.begin() + cutIndex, sortedNums.end()));
+    if (cutIndex == nums.size()) {
+        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>());
+    } else {
+        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
+    }
 }
 
 int main() {
