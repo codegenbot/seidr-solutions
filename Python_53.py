@@ -1,7 +1,6 @@
 def add(a, b):
     return a + b
 
-
 while True:
     try:
         user_input = input("Enter two numbers separated by space or '/' for division: ")
@@ -14,9 +13,6 @@ while True:
             result = num1 / num2
         else:
             num1, num2 = list(map(int, user_input.split()))
-            if len(user_input.split()) != 2:
-                print("Invalid input. Please enter two numbers.")
-                continue
             if num2 == 0:
                 print("Cannot divide by zero. Please enter a non-zero second number.")
                 continue
@@ -24,10 +20,10 @@ while True:
 
         print(result)
 
-    except (ValueError, ZeroDivisionError):
-        print("Invalid input or division by zero. Please try again.")
-    except IndexError:
-        print("Invalid input. Please enter two numbers.")
+    except ValueError:
+        print("Invalid input. Please enter numeric values only.")
+    except ZeroDivisionError:
+        print("Cannot divide by zero. Please enter a non-zero second number.")
     except KeyboardInterrupt:
         print("\nProgram interrupted by user. Exiting...")
         break
