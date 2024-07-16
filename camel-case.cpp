@@ -4,25 +4,22 @@
 
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> parts;
-    std::string part;
-
-    for (char ci : s) {
-        if (ci == c) {
+    std::string part = "";
+    for (char ch : s) {
+        if (ch == c) {
             parts.push_back(part);
-            part.clear();
+            part = "";
         } else {
-            part += ci;
+            part += ch;
         }
     }
     parts.push_back(part);
-
     return parts;
 }
 
 std::string kebabToCamel(const std::string& s) {
     std::vector<std::string> parts = split(s, '-');
     std::string result;
-
     for (int i = 0; i < parts.size(); i++) {
         if (!i) {
             result += tolower(parts[i]);
@@ -33,7 +30,6 @@ std::string kebabToCamel(const std::string& s) {
         if (i != parts.size() - 1)
             result += " ";
     }
-
     return result;
 }
 
