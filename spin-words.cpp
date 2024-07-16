@@ -1,3 +1,4 @@
+```
 #include <string>
 using namespace std;
 
@@ -7,7 +8,11 @@ int main() {
         int i = 0;
         while (i < str.length()) {
             if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                result += str.substr(i);
+                if (str.substr(i).length() >= 5)
+                    for (int k = str.substr(i).length() - 1; k >= 0; --k)
+                        result += str.substr(i)[k];
+                else
+                    result += str.substr(i);
                 break;
             }
             int j = str.find(" ", i);
@@ -21,12 +26,5 @@ int main() {
         }
         return result;
     }
-
-    string input;
-    cout << "Enter a string of words: ";
-    getline(cin, input);
-    string output = spinWords(input);
-    cout << "Output: " << output << endl;
-
-    return 0;
+    cout << spinWords("Hello World this is a test") << endl;
 }
