@@ -1,27 +1,22 @@
 ```cpp
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    int i = 0;
-    while(i < s.length()) {
-        if (s[i] == 'X') {
+    int frame = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 10;
-            i++;
-            if (i < s.length() && (s[i] == '/' || (s[i] >= '1' && s[i] <= '9'))) {
-                score += s[i] - '0';
-            }
-        } else if (s[i] == '/') {
-            int firstRoll = s[i-1] - '0';
-            int secondRoll = s[i+1] - '0';
-            score += max(firstRoll, secondRoll);
-            i++;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (s[s.find('/') - 1] - '0');
+            frame++;
         } else {
-            int roll = s[i] - '0';
+            int roll = c - '0';
             score += roll;
-            i++;
-            if (i < s.length() && s[i] == '/') {
-                i++;
+            if (frame < 9 && s[s.find(std::to_string(roll)) + std::to_string(roll).length()] == '/') {
+                score += roll;
+                frame++;
             }
         }
     }
