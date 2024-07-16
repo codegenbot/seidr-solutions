@@ -3,8 +3,8 @@ def sort_third(l: list):
         [
             sorted(l[i : i + 3])
             for i in range(0, len(l), 3)
-            if len(l[i : i + 3]) == 3 and sum(l[i : i + 3]) % 2 == 0
+            if sum(l[i : i + 3]) % 2 == 0
         ],
-        key=lambda x: x[2],
+        key=lambda x: sum(x),
     )
-    return [elem for sublist in sorted_triplets for elem in sublist]
+    return [elem for triplet in sorted_triplets for elem in triplet]
