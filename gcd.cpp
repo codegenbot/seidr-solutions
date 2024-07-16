@@ -1,12 +1,11 @@
-Here's the modified code:
-
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list> // Added this line
+#include <initializer_list>
+
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i = 0;
     while (i <= text.length() - target.length()) {
@@ -18,6 +17,8 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
     return result;
+
+}
 
 int gcd(int a, int b) {
     while (b != 0) {
