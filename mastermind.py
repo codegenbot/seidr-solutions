@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     code_counts = [0] * 6
     guess_counts = [0] * 6
@@ -12,6 +11,9 @@ def mastermind(code, guess):
             guess_counts[ord(g) - ord("B")] += 1
 
     black_pegs = correct_pegs
-    white_pegs = sum(min(count, guesses) for count, guesses in zip(code_counts, guess_counts)) - black_pegs
+    white_pegs = (
+        sum(min(count, guesses) for count, guesses in zip(code_counts, guess_counts))
+        - black_pegs
+    )
 
     return str(black_pegs) + "\n" + str(4 - black_pegs)
