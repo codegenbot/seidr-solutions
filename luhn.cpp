@@ -1,20 +1,16 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 int luhnCheck(vector<int> cardNum) {
     int sum = 0;
-    bool isSecond = false;
     for (int i = cardNum.size() - 1; i >= 0; i--) {
-        int digit = cardNum[i];
-        if (isSecond) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
+        if ((i % 2 == 0 && cardNum[i] * 2 > 9) || (i % 2 != 0 && cardNum[i] > 9)) {
+            sum += (cardNum[i] * 2) - 9;
+        } else {
+            sum += cardNum[i] * 2;
         }
-        sum += digit;
-        isSecond = !isSecond;
     }
     return sum;
 }
