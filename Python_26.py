@@ -1,5 +1,5 @@
 def check(numbers):
-    return list(dict.fromkeys(numbers))
+    return [num for num in numbers if numbers.count(num) == 1]
 
 remove_duplicates = [1, 2, 3, 2, 4, 3, 5]
 result = check(remove_duplicates)
