@@ -1,11 +1,10 @@
-```
 def paired_digits(s):
     total = 0
-    last_digit = None
-    for char in s:
-        if char == last_digit:
-            total += int(char) * 2
-        last_digit = char
+    for i in range(len(s) - 1):
+        if s[i] == s[i+1]:
+            total += int(s[i]) * 2
+    elif i == len(s) - 2:
+        total += int(s[-1])
     return total
 
 s = input("Enter a string of digits: ")
