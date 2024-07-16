@@ -1,5 +1,7 @@
-def add(a, b):
-    return a + b
+def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero. Please enter a non-zero second number.")
+    return a / b
 
 while True:
     try:
@@ -7,27 +9,17 @@ while True:
 
         if "/" in user_input:
             num1, num2 = map(int, user_input.split("/"))
-            if num2 == 0:
-                print("Cannot divide by zero. Please enter a non-zero second number.")
-                continue
-            result = num1 / num2
+            result = divide(num1, num2)
         else:
             num_list = list(map(int, user_input.split()))
             if len(num_list) != 2:
-                print("Invalid input. Please enter two numbers.")
-                continue
+                raise ValueError("Invalid input. Please enter two numbers.")
             num1, num2 = num_list
-            if num2 == 0:
-                print("Cannot divide by zero. Please enter a non-zero second number.")
-                continue
             result = add(num1, num2)
 
         print(result)
 
-    except ZeroDivisionError:
-        print("Cannot divide by zero. Please enter a non-zero second number.")
-        continue
-
-    except ValueError:
-        print("Invalid input format. Please enter two valid numbers separated by space.")
-        continue
+    except (ValueError, ZeroDivisionError, KeyboardInterrupt):
+        print("Invalid input or division by zero. Please try again.")
+    except EOFError:
+        print("End of input reached. Exiting program.")
