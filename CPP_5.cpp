@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(const vector<int>& v1, const vector<int>& v2){
+bool issame(vector<int> v1, vector<int> v2){
     if(v1.size() != v2.size()){
         return false;
     }
@@ -12,4 +12,4 @@ bool issame(const vector<int>& v1, const vector<int>& v2){
     return true;
 }
 
-vector<int> intersperse(const vector<int>& numbers, int delimeter);
+vector<int> intersperse(vector<int> numbers, int delimeter);
