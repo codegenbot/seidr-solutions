@@ -1,4 +1,6 @@
 #include <string>
+#include <stack>
+#include <algorithm>
 
 string solveBoolean(string s) {
     stack<char> st;
