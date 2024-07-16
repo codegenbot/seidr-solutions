@@ -1,4 +1,3 @@
-```c++
 double vectorDistance() {
     int n;
     std::cin >> n;

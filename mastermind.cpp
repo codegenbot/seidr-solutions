@@ -14,11 +14,11 @@ int main() {
 
     int blackPegs = 0;
     int whitePegs = 0;
-    std::unordered_map<int, int> codeCount;
+    std::unordered_map<char, int> codeCount;
 
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[static_cast<int>(c)]++;
+            codeCount[c] = 1; // Initialize count to 1
         }
     }
 
@@ -29,17 +29,17 @@ int main() {
         if (codeChar == guessChar) {
             blackPegs++; 
         } else if ('0' <= guessChar && guessChar <= '5') {
-            if (auto it = codeCount.find(static_cast<int>(guessChar)); it != codeCount.end()) { 
-                (*it).second--;
+            if (codeCount[guessChar] > 0) { 
+                codeCount[guessChar]--;
                 whitePegs++; 
             }
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        if (codeCount[i] > 0) {
-            whitePegs += codeCount[i]; 
-            codeCount[i] = 0; 
+    for (auto& pair : codeCount) {
+        if (pair.second > 0) {
+            whitePegs += pair.second; 
+            pair.second = 0; 
         }
     }
 
