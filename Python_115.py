@@ -4,8 +4,9 @@ def calculate_water(grid, total_water):
     max_fill = math.ceil(total_water / (len(grid) * len(grid[0]))
     return max_fill
 
-# Example usage:
-total_water = int(input("Enter total water: "))
-grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  # Example grid
+# Read input from user
+grid = eval(input("Enter the grid: "))  # Example input: [[5, 4], [3, 2]]
+total_water = int(input("Enter total water: "))  # Example input: 10
+
 result = calculate_water(grid, total_water)
 print(result)
