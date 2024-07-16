@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -19,8 +18,8 @@ int main() {
     float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
     cin >> initialSnow >> rateOfSnowfall >> proportionOfMeltingPerHour;
     
-    cout << fixed; // Set the format to fixed
-    cout << setprecision(6); // Specify the precision for the float value
+    cout << fixed; 
+    cout << setprecision(6); 
     cout << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour) << endl;
     return 0;
 }
