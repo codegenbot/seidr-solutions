@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     sum = 0
@@ -6,7 +7,9 @@ def luhn(card_number):
             doubled = digit * 2
             if doubled > 9:
                 doubled -= 9
+            else:
+                doubled %= 10
             sum += doubled
         else:
             sum += digit
-    return sum
+    return 10 - sum % 10
