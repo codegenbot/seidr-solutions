@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 vector<int> leaders(vector<int> arr) {
@@ -16,6 +14,21 @@ vector<int> leaders(vector<int> arr) {
     for(int i=n-2; i>=0; i--){
         if(arr[i] > res.back()){
             res.push_back(arr[i]);
+        }
+    }
+    
+    return res;
+}
+
+vector<int> leaders(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res;
+    int max_right = arr[n-1];
+    
+    for(int i=n-1; i>=0; i--){
+        if(max_right <= arr[i]){
+            res.push_back(arr[i]);
+            max_right = arr[i];
         }
     }
     
