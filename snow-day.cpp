@@ -8,9 +8,10 @@ float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proporti
 
 int main() {
     int hours;
-    std::cin >> hours;
+    cin >> hours;
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
-    std::cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
+    cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
 
-    cout << std::fixed << std::setprecision(2) << snowDay(hours, initialSnow, rateOfSnowfall/100.0f, proportionMeltingPerHour/100.0f) << endl;
-    return 0; }
+    float snowResult = snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0);
+    cout << std::fixed << std::setprecision(2) << snowResult << endl;
+    return 0;
