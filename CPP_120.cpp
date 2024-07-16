@@ -1,8 +1,17 @@
-Here is the completed code:
+Here is the solution:
 
-```cpp
-vector<int> maximum(vector<int> arr,int k){
-    vector<int> result(arr.begin(),arr.end());
-    sort(result.begin(),result.end());
-    return vector<int>(result.begin(),result.begin()+k);
+vector<int> maximum(vector<int> arr, int k) {
+    priority_queue<int> pq; // max heap
+    for (int i : arr) {
+        pq.push(i);
+        if (pq.size() > k) {
+            pq.pop();
+        }
+    }
+    vector<int> res(k);
+    for (int i = k - 1; i >= 0; --i) {
+        res[i] = pq.top();
+        pq.pop();
+    }
+    return res;
 }
