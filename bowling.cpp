@@ -1,33 +1,25 @@
-int bowling(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    int currentFrameScore = 0;
-    for (int i = 0; i < s.size(); ++i) {
+    bool lastRoll = false;
+
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
-            currentFrameScore += 10 + (i >= 2 ? 10 : 20);
+            score += 10;
+            lastRoll = true;
         } else if (s[i] == '/') {
-            int nextIndex = i + 1;
-            while (nextIndex < s.size() && !isdigit(s[nextIndex])) {
-                ++nextIndex;
-            }
-            int strikeCount = 0;
-            while (i <= nextIndex && s.substr(i, 2) == "X ") {
-                score += 10;
-                currentFrameScore = 10;
-                i = nextIndex;
-                strikeCount++;
-            }
-            if (strikeCount > 1) {
-                continue;
-            }
-            int strikeBonus = strikeCount * 10;
-            if (i < s.size()) {
-                currentFrameScore += (s[i] - '0') + strikeBonus;
-            }
+            int roll1 = s[i-1] - '0';
+            int roll2 = s[i+1] - '0';
+            score += roll1 + roll2;
+            lastRoll = false;
         } else {
-            int strikeBonus = currentFrameScore >= 10 ? currentFrameScore : 0;
-            score += currentFrameScore + strikeBonus;
-            currentFrameScore = 0;
+            int roll = s[i] - '0';
+            if (lastRoll) {
+                score += 10 + roll;
+            } else {
+                score += roll;
+            }
         }
     }
+
     return score;
 }
