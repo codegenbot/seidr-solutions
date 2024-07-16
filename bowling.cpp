@@ -7,26 +7,28 @@ int bowlingScore(std::string s) {
 
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
-            if (roll > 10) {
+            if (roll > 9 && s[i-1] != '/') {
                 score += 10;
+            } else if (roll + s[i+1] - '0' <= 10) {
+                score += roll + s[i+1] - '0';
+                roll = 0;
             } else {
-                score += roll;
+                score += 10;
+                roll = 0;
             }
-            roll = 0;
         } else if (isdigit(s[i])) {
-            if (roll == 0 || s[i] - '0' > 1) {
-                roll *= 10;
-                roll += s[i] - '0';
-            } else {
-                roll = roll * 10 + s[i] - '0';
-            }
+            roll *= 10;
+            roll += s[i] - '0';
         }
     }
 
-    if (roll > 10)
+    if (roll > 9 && s[s.size()-2] != '/') {
         score += 10;
-    else
-        score += roll;
+    } else if (roll + s[s.size()-1] - '0' <= 10) {
+        score += roll + s[s.size()-1] - '0';
+    } else {
+        score += 10;
+    }
 
     return score;
 }
