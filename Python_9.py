@@ -3,7 +3,7 @@ import re
 def get_valid_input():
     while True:
         try:
-            user_input = input("Enter comma-separated numbers: ").strip()
+            user_input = raw_input("Enter comma-separated numbers: ").strip()
             if re.match(r'^\d+(,\d+)*$', user_input):
                 input_numbers = list(map(int, user_input.split(",")))
                 return input_numbers
@@ -11,10 +11,8 @@ def get_valid_input():
                 print("Invalid input. Please enter comma-separated numbers.\n")
         except ValueError:
             print("Invalid input. Please enter comma-separated numbers.\n")
-        except EOFError:
-            print("Invalid input. Please enter comma-separated numbers.\n")
-        except KeyboardInterrupt:
-            print("\nProgram exited. Please enter comma-separated numbers to continue.\n")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInvalid input. Please enter comma-separated numbers.\n")
 
 input_numbers = get_valid_input()
 print(f"Input numbers: {input_numbers}")
