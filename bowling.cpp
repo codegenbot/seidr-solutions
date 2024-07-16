@@ -1,7 +1,6 @@
-#include <string>
-
-long long bowlingScore(const std::string& input) {
-    long long score = 0;
+```cpp
+int bowlingScore(const std::string& input) {
+    int score = 0;
     int currentRoll = 0;
 
     for (int i = 0; i < input.length(); ++i) {
@@ -31,7 +30,6 @@ long long bowlingScore(const std::string& input) {
                         if(currentRoll + secondRoll == 10) {
                             score += 10;
                             currentRoll = 0;
-                            i++;
                         } else {
                             score += secondRoll;
                             currentRoll = 10 - currentRoll - secondRoll;
@@ -39,7 +37,7 @@ long long bowlingScore(const std::string& input) {
                     } else {
                         currentRoll = 10 - currentRoll;
                     }
-                } else {
+                } else { 
                     if(currentRoll < 10) {
                         score += currentRoll;
                     } else {
