@@ -1,21 +1,19 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string camelCase(const std::string& s) {
+    std::stringstream ss(s);
+    std::string word;
     std::string result;
-    bool capitalizeNext = false;
 
-    for (char c : s) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else {
-            if (!capitalizeNext) {
-                result += tolower(c);
-            } else {
-                result += toupper(c);
-                capitalizeNext = false;
-            }
-        }
+    if (ss >> word) {
+        result += word;
+    }
+
+    while (ss >> word) {
+        result += toupper(word[0]);
+        result += tolower(&word[1]);
     }
 
     return result;
