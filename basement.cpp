@@ -12,7 +12,7 @@ int basementIndex(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, -2, 3, 10, -4, 7, 2};
+    vector<int> arr = {-2, 3, 4, -1};
     cout << basementIndex(arr) << endl;
     return 0;
 }
