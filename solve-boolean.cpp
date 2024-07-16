@@ -4,18 +4,13 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = true;
-    int i = 0;
-    while (i < expression.length()) {
-        if (expression[i] == 'T') {
-            i++;
-        } else if (expression[i] == 'F') {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == 'f') {
+            result = false;
+            break;
+        }
+        else if ((expression[i] == '|') || (expression[i] == '&')) {
             return false;
-        } else if (expression[i] == '&') {
-            i += 2;
-        } else if (expression[i] == '|') {
-            while (i < expression.length() && (expression[i] == '&' || expression[i] == '|')) {
-                i++;
-            }
         }
     }
     return result;
