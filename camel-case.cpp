@@ -26,3 +26,4 @@ int main() {
     getline(cin, input);
     cout << "camelCase: " << camelCase(input) << endl;
     return 0;
+}
