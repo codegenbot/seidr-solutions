@@ -28,3 +28,8 @@ bool issame(const std::vector<std::string>& txt) {
     }
     return result;
 }
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
+}
