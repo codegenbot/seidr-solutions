@@ -1,9 +1,13 @@
-for(char &c : s){
-    if(isalpha(c)){
-        c = isupper(c) ? tolower(c) : toupper(c);
+string solve(string s){
+    bool hasLetter = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetter = true;
+            c = islower(c) ? toupper(c) : tolower(c);
+        }
     }
+    if(!hasLetter){
+        reverse(s.begin(), s.end());
+    }
+    return s;
 }
-if(count_if(s.begin(), s.end(), isalpha) == 0){
-    reverse(s.begin(), s.end());
-}
-return s;
