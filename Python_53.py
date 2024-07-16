@@ -1,15 +1,17 @@
 def add(a, b):
     return a + b
 
-try:
-    num1 = int(input("Enter first number: ").strip())
-    num2 = int(input("Enter second number: ").strip())
+while True:
+    try:
+        num1 = int(input("Enter first number: ").strip())
+        num2 = int(input("Enter second number: ").strip())
 
-    result = add(num1, num2)
-    print(result)
+        result = add(num1, num2)
+        print(result)
+        break
 
-except ValueError:
-    print("Please enter valid integers for both numbers.")
+    except ValueError:
+        print("Please enter valid integers for both numbers.")
 
-except Exception as e:
-    print("An error occurred:", e)
+    except Exception as e:
+        print("An error occurred:", e)
