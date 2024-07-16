@@ -1,7 +1,7 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-string fizzBuzz(int x) {
+int fizzBuzz(int x) {
+    string result;
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -10,11 +10,4 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return to_string(x);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << fizzBuzz(n) << endl;
-    return 0;
 }
