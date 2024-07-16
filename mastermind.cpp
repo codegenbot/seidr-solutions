@@ -1,4 +1,6 @@
-#include <string>
+Here is the modified code:
+
+```cpp
 using namespace std;
 
 int mastermind(string code, string guess) {
