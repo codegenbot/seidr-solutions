@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -10,12 +11,12 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
-    double bouncinessIndex = (firstBounce / startHeight);
+    double bouncinessIndex = (1 + (firstBounce / startHeight)) / 2.0;
     startHeight = firstBounce;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight;
+        totalDistance += 2 * startHeight;
         startHeight *= bouncinessIndex;
     }
 
