@@ -9,19 +9,15 @@ int bowlingScore(std::string s) {
             score += 10 - roll;
             roll = 0;
         } else if (isdigit(c)) {
-            int temp = c - '0';
-            if (roll > 0) {
-                score += temp + roll;
-                roll = 0;
+            int val = c - '0';
+            if (roll == 1) {
+                score += val;
             } else {
-                roll = temp;
+                roll = roll * 10 + val;
             }
+        } else {
+            roll++;
         }
-    }
-    if (roll > 1) {
-        score += 10 + roll;
-    } else if (roll == 1) {
-        score += roll;
     }
     return score;
 }
