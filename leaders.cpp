@@ -15,7 +15,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    std::reverse_copy(leaders.begin(), leaders.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::copy(leaders.rbegin(), leaders.rend(), std::ostream_iterator<int>(std::cout, " "));
     return leaders;
 }
 
