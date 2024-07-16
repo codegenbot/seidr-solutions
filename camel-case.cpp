@@ -41,13 +41,14 @@ std::string camelCase(const std::string& str) {
         } else {
             result += std::toupper(words[i][0]);
         }
-        result += (i > 0 ? " " : "") + words[i].substr(1);
+        result += words[i].substr(1);
     }
     
     return result;
 }
 
 int main() {
-    std::cout << camelCase("hello-world-example") << std::endl;
+    std::string input = "hello-world-example";
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
