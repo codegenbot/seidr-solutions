@@ -1,13 +1,15 @@
 ```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)[::-1]]  
-    sum_total = 0
+    sum_even, sum_odd = 0, 0
 
     for i, digit in enumerate(card_number):
-        if (i % 2 == 1): 
-            digit *= 2  
-            if (digit > 9): 
-                digit -= 9
-        sum_total += digit
+        if (i % 2 == 0): 
+            sum_even += digit
+        else:
+            double_digit = digit * 2
+            if (double_digit > 9): 
+                double_digit -= 9
+            sum_odd += double_digit
 
-    return 100 - ((sum_total) % 10)
+    return abs(100 - ((sum_even + sum_odd) % 10))
