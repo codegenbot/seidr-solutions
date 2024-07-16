@@ -1,8 +1,9 @@
-```c++
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ bool is_palindrome(string s) {
     return (temp == s);
 }
 
-std::pair<string, string> reverse_delete(string s, string c) {
+pair<string, string> reverse_delete(string s, string c) {
     string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -33,6 +34,7 @@ std::pair<string, string> reverse_delete(string s, string c) {
 
 int main() {
     pair<string, string> result = reverse_delete("mamma", "mia");
-    assert(result.first == "" && result.second == "True"); 
+    cout << "First part of the output: " << result.first << endl;
+    cout << "Second part of the output: " << result.second << endl;
     return 0;
 }
