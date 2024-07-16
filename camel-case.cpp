@@ -9,9 +9,9 @@ std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
         if (!result.empty()) {
             result += " ";
         }
-        result += token + delimiter;
+        result += token;
     }
-    return result.substr(0, result.length() - 1); 
+    return result; 
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
@@ -50,4 +50,3 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::cout << camelCase("hello-world-example") << std::endl;
     return 0;
-}
