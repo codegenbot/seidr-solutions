@@ -14,7 +14,7 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int x = 15; 
+    int x = 15; // any number you want to test
     std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
