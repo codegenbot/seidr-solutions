@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -19,6 +18,5 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    std::cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
-}
