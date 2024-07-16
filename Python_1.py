@@ -2,7 +2,7 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    level = 0
+    level = 1
     current_group = ""
 
     for char in paren_string:
@@ -12,13 +12,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             level -= 1
             if level == 0:
-                result.append(current_group + char)
+                result.append(current_group)
                 current_group = ""
             else:
                 current_group += char
         else:
             if level > 0:
                 current_group += char
+
+    if current_group:
+        result.append(current_group)
 
     return result
 
