@@ -1,7 +1,10 @@
+#include <vector>
+#include <cassert>
+
 bool monotonic(const vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
-    for (size_t i = 0; i < l.size() - 1; ++i) {
+    for (int i = 0; i < l.size() - 1; ++i) {
         if (l[i] > l[i + 1]) {
             increasing = false;
         }
