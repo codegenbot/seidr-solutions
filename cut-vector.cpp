@@ -9,24 +9,23 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
     int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
     int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int cutIndex = 0;
 
     for (size_t i = 0; i < nums.size(); ++i) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff < minDiff || (diff == minDiff && leftSum > totalSum / 2)) {
             minDiff = diff;
-            cutIndex = i;
+            cutIndex = i + 1;
         }
     }
 
-    if (cutIndex == -1) {
-        return std::make_pair(nums, std::vector<int>());
+    if (cutIndex == nums.size()) {
+        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>());
     } else {
-        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1),
-                              std::vector<int>(nums.begin() + cutIndex + 1, nums.end()));
+        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
     }
 }
 
