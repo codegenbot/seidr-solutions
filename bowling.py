@@ -1,22 +1,13 @@
-```
-def bowling_score(rolls):
+import re
+
+def bowling_score(frames):
     score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == 'X':
-            score += 10
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].startswith('///'):
+    roll = [int(x) for x in re.sub('[^0-9X]', '', frames)]
+    for i in range(0, len(roll), 2):
+        if roll[i:i+2].count('X'):
             score += 30
-            roll_index += 2
+        elif sum(roll[i:i+2]) == 10:
+            score += 10 + sum(roll[i+2:])
         else:
-            first_roll = int(rolls[roll_index])
-            if rolls[roll_index+1] == '/':
-                second_roll = 10 - first_roll
-                score += first_roll + second_roll
-                roll_index += 2
-            else:
-                second_roll = int(rolls[roll_index+1])
-                score += first_roll + second_roll
-                roll_index += 2
+            score += sum(roll[i:i+2]) + sum(roll[i+2:])
     return score
