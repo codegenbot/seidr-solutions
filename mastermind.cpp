@@ -1,24 +1,32 @@
-int mastermind(std::string code, std::string guess) {
+```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
+#include <tuple>
+#include <algorithm>
+
+std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            if (--code_count[guess[i]] >= 0) {
-                white++;
-            }
-        }
-    }
+    std::vector<int> codeCount(6, 0);
+    std::vector<int> guessCount(6, 0);
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
+        } else {
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
-    return black;
+    for (int i = 0; i < 6; i++) {
+        white += std::min(codeCount[i], guessCount[i]) - black;
+    }
+
+    return std::make_tuple(white, black);
 }
