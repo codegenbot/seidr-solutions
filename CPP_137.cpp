@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -39,13 +38,13 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         return i > f ? boost::variant<int, float, std::string>(i) : (f == i) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(f);
     }
     else {
-        return a > b ? boost::variant<int, float, std::string>(a.convert_to<boost::any>()) : (b == a) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(b.convert_to<boost::any>());
+        return a;
     }
 }
 
 int main() {
-    boost::any a = 10;
-    boost::any b = "5.5";
+    boost::any a = 5;
+    boost::any b = "10.0";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
     if (boost::holds_alternative<int>(result)) {
