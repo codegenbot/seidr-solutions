@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 vector<int> nums;
