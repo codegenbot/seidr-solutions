@@ -1,10 +1,8 @@
 int basement(vector<int> &nums) {
     int sum = 0;
-    int i = 0;
-    while (i < nums.size()) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0) return i;
-        i++;
     }
     return -1; // or some suitable value indicating no such index exists
 }
