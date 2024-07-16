@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int> arr) {
@@ -11,14 +13,8 @@ vector<int> leaders(vector<int> arr) {
     res.push_back(arr[n-1]);
     
     for(int i=n-2; i>=0; i--){
-        while(res.size() > 0 && res.back() <= arr[i])
-            res.pop_back();
-        
-        if(res.size() == 0)
+        if(res.back() < arr[i])
             res.push_back(arr[i]);
-        else
-            if(arr[i] >= res.back())
-                res.push_back(arr[i]);
     }
     
     return res;
