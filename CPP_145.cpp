@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,7 +13,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::sort(nums.begin(), nums.end(), [](int a, int b) {
+sort(nums.begin(), nums.end(), [](int a, int b) {
     int sum_a = 0, sum_b = 0;
     if (a < 0) a = -a;
     if (b < 0) b = -b;
@@ -30,4 +30,5 @@ std::sort(nums.begin(), nums.end(), [](int a, int b) {
     }
     return sum_a < sum_b;
 });
+
 return nums;
