@@ -14,7 +14,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         numToIndex[nums[i]] = i;
     }
     
-    return {std::pair<int,int>::second_sentinel, std::pair<int,int>::second_sentinel};
+    return {{std::pair<int,int>::first_sentinel, std::pair<int,int>::second_sentinel}};
 }
 
 int main() {
