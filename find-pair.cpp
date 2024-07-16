@@ -23,10 +23,6 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    if (!result.first && !result.second) {
-        cout << "No two elements sum to the target integer." << endl;
-    } else {
-        cout << result.first << "\n" << result.second << endl;
-    }
+    cout << result.first << '\n' << result.second << '\n';
     return 0;
 }
