@@ -20,11 +20,8 @@ int main() {
         snowOnGround += newSnow;
     }
 
-    std::stringstream ss;
-    ss << "Amount of snow on ground after " << hours << " hours.\n";
-    ss << "The amount of snow is " << std::fixed << std::setprecision(2) << snowOnGround << " inches.\n";
-
-    cout << ss.str();
+    cout << "Amount of snow on ground after " << std::to_string(hours) << " hours.\n";
+    cout << "The amount of snow is " << fixed << setprecision(2) << std::to_string(snowOnGround) << " inches.\n";
 
     return 0;
 }
