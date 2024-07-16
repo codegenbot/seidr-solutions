@@ -23,7 +23,7 @@ any compare_one(any a, any b) {
         } else {
             return any();
         }
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
         float num1, num2;
         if(any_cast<std::string>(a).find(",") != std::string::npos){
             std::replace(any_cast<std::string&>(a).begin(), any_cast<std::string&>(a).end(), ',', '.');
@@ -43,4 +43,5 @@ any compare_one(any a, any b) {
     } else {
         return any();
     }
+    return any(); // Add a return statement
 }
