@@ -11,7 +11,6 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
 vector<int> solve(int n) {
     vector<int> result;
     int sum = 0;
