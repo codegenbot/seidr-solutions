@@ -1,20 +1,11 @@
 ```cpp
-#include <vector>
-using namespace std;
-
 int basement(vector<int>& nums) {
-    int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+        int sum = 0;
+        for (int j = 0; j <= i; j++)
+            sum += nums[j];
         if (sum < 0)
             return i;
     }
     return -1;
-}
-
-int main() {
-    vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-    int result = basement(nums);
-    cout << "The basement is at index " << result << endl;
-    return 0;
 }
