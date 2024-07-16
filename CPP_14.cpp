@@ -13,15 +13,17 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
     return true;
 }
 
+std::vector<std::string> all_prefixes(std::string str);
+
 std::vector<std::string> all_prefixes(std::string str){
     std::vector<std::string> result;
-    for (size_t i = 1; i <= str.size(); i++) {
+    for (int i = 1; i <= str.size(); i++) {
         result.push_back(str.substr(0, i));
     }
     return result;
 }
 
 int main() {
-    // Main function implementation
+    // Your main function code here
     return 0;
 }
