@@ -1,17 +1,15 @@
-if(txt.empty()){
-        return false;
-    }
+if (txt.empty()) return false;
     char lastChar = txt.back();
-    if(isalpha(lastChar)){
-        for(int i=txt.size()-2; i>=0; i--){
-            if(txt[i] == ' '){
+    if (isalpha(lastChar)) {
+        int pos = txt.find_last_of(" ");
+        if (pos == string::npos) {
+            return true;
+        }
+        for (int i = pos + 1; i < txt.size(); i++) {
+            if (!isalnum(txt[i])) {
                 return true;
             }
-            if(isalpha(txt[i])){
-                return false;
-            }
         }
-        return true;
     }
     return false;
 }
