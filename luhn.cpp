@@ -1,23 +1,30 @@
 ```cpp
 #include <iostream>
-#include <vector>
+#include <string>
 
-int luhn(int* digits, int length) {
+int luhn(int digits[16]) {
+    std::string cardNumberStr;
+    
+    for (int i = 0; i < 16; i++) {
+        cardNumberStr += std::to_string(digits[i]);
+    }
+    
     int sum = 0;
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < 16; i++) {
         if ((i % 2) == 1) {
-            int doubleValue = digits[i] * 2;
+            int doubleValue = std::stoi(cardNumberStr.substr(i, 1)) * 2;
             if (doubleValue > 9)
                 doubleValue -= 9;
             sum += doubleValue;
         } else
-            sum += digits[i];
+            sum += std::stoi(cardNumberStr.substr(i, 1));
     }
+    
     return sum;
 }
 
 int main() {
-    std::vector<int> digits = {4, 3, 2, 1, 8, 7, 6, 5, 4, 3, 2, 1, 8, 7, 6, 5};
-    std::cout << luhn(&digits[0], digits.size()) << std::endl;
+    int digits[16] = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    std::cout << luhn(digits) << std::endl;
     return 0;
 }
