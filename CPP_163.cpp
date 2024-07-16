@@ -3,22 +3,6 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> generate_integers(int a, int b);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 vector<int> generate_integers(int a, int b){
     vector<int> result;
     for(int i = a; i <= b; ++i){
@@ -29,7 +13,15 @@ vector<int> generate_integers(int a, int b){
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 int main() {
-    // Add your test cases here
+    vector<int> vec1 = generate_integers(1, 10);
+    vector<int> vec2 = generate_integers(1, 10);
+    
+    assert(issame(vec1, vec2) == true);
+    
     return 0;
 }
