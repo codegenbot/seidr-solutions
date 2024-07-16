@@ -12,15 +12,17 @@ int main() {
 
     for (int i = 0; i < nPrices; i++) {
         std::cin >> prices[i];
-    }
-
-    for (int i = 0; i < nPrices; i++) {
-        std::cin >> discounts[i];
+        if(i<nDiscounts) {
+            std::cin >> discounts[i];
+        }
     }
 
     total = 0.0;
     for (int i = 0; i < nPrices; i++) {
-        total += prices[i] - (prices[i] * (discounts[i] / 100.0));
+        if(i<nDiscounts)
+            total += prices[i] - (prices[i] * (discounts[i] / 100.0));
+        else
+            total += prices[i];
     }
 
     return static_cast<int>(total);
