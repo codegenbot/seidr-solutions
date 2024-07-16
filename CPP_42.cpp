@@ -1,37 +1,11 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> incr_list(const vector<int>& l) {
     vector<int> result = l;
-    for(int i = 0; i < result.size(); i++){
+    for (int i = 0; i < result.size(); i++) {
         result[i]++;
     }
     return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<int> original = {1, 2, 3, 4, 5};
-    vector<int> incremented = incr_list(original);
-
-    if(issame(original, incremented)){
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-
-    return 0;
 }
