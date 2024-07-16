@@ -3,10 +3,8 @@ def calculate_fuel(amount):
     if amount <= 2:
         return max(0, amount - 2)
     else:
-        return math.floor((amount - 2) / 3)
+        result = math.floor(amount / 3) - 2
+        return max(result, 0)
 
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
-
-vector = [int(x) for x in input().split()]
-print(fuel_cost(vector))
