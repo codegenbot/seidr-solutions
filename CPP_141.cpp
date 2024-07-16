@@ -1,4 +1,9 @@
-int count_digits = 0;
+#include <string>
+
+using namespace std;
+
+string file_name_check(string file_name) {
+    int count_digits = 0;
     for (char c : file_name) {
         if (c >= '0' && c <= '9') {
             count_digits++;
