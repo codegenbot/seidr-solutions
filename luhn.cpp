@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int luhn(std::vector<std::string> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {

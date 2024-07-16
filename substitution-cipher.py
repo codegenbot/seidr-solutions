@@ -5,5 +5,5 @@ def substitution_cipher(cipher1, cipher2, message):
             index = cipher1.index(char)
             result += cipher2[index]
         else:
-            result += char
+            result += '?'  
     return result
