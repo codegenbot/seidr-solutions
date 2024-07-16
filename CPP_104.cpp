@@ -1,9 +1,9 @@
 #include <vector>
 #include <cassert>
 
-vector<int> unique_digits(const vector<int>& x) {
+vector<int> unique_digits(const vector<int>& a){
     vector<int> result;
-    for (int num : x) {
+    for (int num : a) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
