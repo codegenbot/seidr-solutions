@@ -37,8 +37,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::vector<std::string> vec = reverse_delete("mamma", "mia");
-    if (!issame({vec}, {{"", "True"}})) {
+    if (!issame(std::vector<std::string>{ "", "True" }, &vec[0])) {
+        std::cerr << "Test failed." << std::endl;
         return 1;
     }
-    return 0;
+    else
+    {
+        std::cout << "Test passed." << std::endl;
+        return 0;
+    }
 }
