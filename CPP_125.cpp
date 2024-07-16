@@ -1,17 +1,7 @@
 vector<string> words;
     string word = "";
-    bool hasWhitespace = false;
-    bool hasComma = false;
-
     for (char c : txt) {
-        if (c == ' ') {
-            hasWhitespace = true;
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
-            hasComma = true;
+        if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
                 word = "";
@@ -20,20 +10,20 @@ vector<string> words;
             word += c;
         }
     }
-
+    
     if (!word.empty()) {
         words.push_back(word);
     }
-
-    if (!hasWhitespace && !hasComma) {
-        int oddCount = 0;
+    
+    if (words.empty()) {
+        int count = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 != 0)) {
-                oddCount++;
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                count++;
             }
         }
-        words.push_back(to_string(oddCount));
+        words.push_back(to_string(count));
     }
-
+    
     return words;
 }
