@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     h1 = float(input())
     h2 = float(input())
@@ -10,5 +11,6 @@ def bouncing_balls():
         h1, h2 = h2/2, h1/2
 
     return f"{distance:.4f}"
+
 
 print(bouncing_balls())
