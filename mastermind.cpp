@@ -1,29 +1,30 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <string>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
-
+    
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] == code[i]) {
+        if (code[i] == guess[i]) {
             black++;
-        } else if (std::count(code.begin(), code.end(), guess[i]) > 0) {
-            white++;
+        } else {
+            for (int j = 0; j < 4; ++j) {
+                if (guess[i] == code[j] && i != j) {
+                    white++;
+                }
+            }
         }
     }
-
-    return {white, black};
+    
+    return std::make_pair(white, black);
 }
 
 int main() {
     int white, black;
     std::string code = "RGOR";
     std::string guess = "BRBB";
-    auto [w, b] = mastermind(code, guess);
-    std::cout << "White pegs: " << w << ", Black pegs: " << b << std::endl;
-    return 0;
+    std::tie(white, black) = mastermind(code, guess);
+    std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
+    return 0; 
 }
