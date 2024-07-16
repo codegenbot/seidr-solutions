@@ -19,9 +19,9 @@ int main() {
     std::cin >> input;
 
     if (is_nested(input)) {
-        std::cout << "The string has nested brackets." << std::endl;
+        std::cout << "String is nested properly." << std::endl;
     } else {
-        std::cout << "The string does not have nested brackets." << std::endl;
+        std::cout << "String is not nested properly." << std::endl;
     }
 
     return 0;
