@@ -1,17 +1,12 @@
 int count_nums(vector<int> n){
         int count = 0;
-        for (int num : n) {
+        for(int num : n){
+            string str = to_string(abs(num));
             int sum = 0;
-            int original_num = num;
-            if (num < 0) {
-                num *= -1;
-                sum -= original_num;
+            for(char c : str){
+                sum += c - '0';
             }
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0) {
+            if(sum > 0){
                 count++;
             }
         }
