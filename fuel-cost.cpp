@@ -1,5 +1,6 @@
-#include <vector>
+```
 #include <cmath>
+#include <vector>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
