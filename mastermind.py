@@ -1,10 +1,4 @@
-```
-whites = 0
-blacks = 0
-for c1, c2 in zip(code, guess):
-    if c1 == c2:
-        blacks += (c1 not in code[:guess.index(c2)].rpartition(c1)[0])
-    else:
-        whites += 1
-
-return str(whites), str(blacks)
+def mastermind(code, guess):
+    blacks = sum([a == b for a,b in zip(guess, code)])
+    whites = sum(1 for a,b in zip(guess, code) if a==b)
+    return str(len(blacks)), str(len(whites)-len(blacks))
