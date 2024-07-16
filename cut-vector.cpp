@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
