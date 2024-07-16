@@ -1,6 +1,6 @@
 ```
-# No imports needed for this problem
-# Just a blank line before the function declaration
+# You can add comments here or print statements if you want
+# This is a comment and the code will not execute it
 
 def shopping_list():
     n = int(input())
