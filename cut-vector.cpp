@@ -1,51 +1,29 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    for(int i = 1; i <= vec.size(); i++) {
-        int left_sum = 0, right_sum = 0;
+    for(int i = 0; i < nums.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
         
-        for(int j = 0; j < i; j++) {
-            left_sum += vec[j];
-        }
+        for(int j = 0; j <= i; j++) 
+            leftSum += nums[j];
+        for(int j = i+1; j < nums.size(); j++) 
+            rightSum += nums[j];
         
-        for(int j = i; j < vec.size(); j++) {
-            right_sum += vec[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if(diff <= min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(vec.begin(), vec.begin() + i);
-            result.second = vector<int>(vec.begin() + i, vec.end());
+        if(abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
+    
+    vector<vector<int>> result(2);
+    for(int i = 0; i <= cutIndex; i++) 
+        result[0].push_back(nums[i]);
+    for(int i = cutIndex+1; i < nums.size(); i++) 
+        result[1].push_back(nums[i]);
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n+1);
-    for(int i = 0; i <= n; i++) {
-        cin >> vec[i];
-    }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    cout << "First subvector: ";
-    for(auto x : res.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "Second subvector: ";
-    for(auto x : res.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    
-    return 0;
 }
