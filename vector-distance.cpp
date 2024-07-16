@@ -1,15 +1,10 @@
-#include <vector>
-#include <cmath>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
-double vectorDistance(int) {
-    float v1[1000];
-    float v2[1000];
-
-    int n;
-    cin >> n;
+double vectorDistance(int n) {
+    float v1[n];
+    float v2[n];
 
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
