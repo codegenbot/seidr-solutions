@@ -2,7 +2,7 @@ def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
     path = [start]
-    visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
+    visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == path[0]}
 
     while len(path) < k:
         i, j = min(visited, key=lambda cell: grid[cell[0]][cell[1]])
