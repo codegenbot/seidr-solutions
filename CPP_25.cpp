@@ -2,5 +2,7 @@
 #include <cassert>
 
 bool isEqual(std::vector<int> a, std::vector<int> b) {
-    assert(isEqual(factors(3 * 2 * 3) , {2, 3, 3}));
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
