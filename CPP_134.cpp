@@ -7,10 +7,11 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 
 int main() {
     std::string input;
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
 
     bool result = check_if_last_char_is_a_letter(input);
-    std::cout << std::boolalpha << result << std::endl;
+    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
 
     return 0;
 }
