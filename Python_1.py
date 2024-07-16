@@ -22,6 +22,6 @@ def separate_paren_groups(paren_string: str) -> list:
 
     return result
 
-paren_string = raw_input("Enter a string with parentheses: ")
+paren_string = input("Enter a string with parentheses: ")
 output = separate_paren_groups(paren_string)
 print(output)
