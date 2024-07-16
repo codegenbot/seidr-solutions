@@ -1,4 +1,5 @@
-numbers = list(map(float, input("Enter numbers separated by space: ").split()))
+import sys
+input_numbers = list(map(float, sys.stdin.readline().strip().split()))
 
 def find_closest_elements(numbers):
     numbers.sort()
@@ -11,5 +12,5 @@ def find_closest_elements(numbers):
             closest_pair = (numbers[i], numbers[i + 1])
     return closest_pair
 
-output = find_closest_elements(numbers)
-print("{:.2f} {:.2f}".format(output[0], output[1]))
+output = find_closest_elements(input_numbers)
+print("{:.2f} {:.2f}".format(output[0], output[1]) )
