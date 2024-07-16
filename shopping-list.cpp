@@ -25,10 +25,10 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    if(prices.size() != discounts.size()) {
-        cerr << "Error: Number of prices and discounts must be the same." << endl;
-        return 1; // Return an error code to indicate something went wrong
+    try {
+        cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
+    } catch (...) {
+        cout << "Error: Input data is invalid. Please check the input." << endl;
     }
-    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
 }
