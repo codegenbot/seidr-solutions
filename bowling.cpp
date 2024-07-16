@@ -1,7 +1,4 @@
-```c++
-#include <string>
-
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
 
