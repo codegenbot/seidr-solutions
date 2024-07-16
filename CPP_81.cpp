@@ -1,12 +1,26 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
+bool issame(const vector<string>& v1, const vector<string>& v2){
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades){
-    std::vector<std::string> letter_grades;
+vector<string> numerical_letter_grade(vector<float> grades);
+
+int main() {
+    // Main function code here
+}
+
+vector<string> numerical_letter_grade(vector<float> grades){
+    vector<string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) {
             letter_grades.push_back("A+");
