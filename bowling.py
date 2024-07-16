@@ -1,21 +1,29 @@
-```
-def bowling_score(s):
+def bowling_score(gutter):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i] == 'X':
-            if frame < 10:
-                score += 30
+    roll = 0
+    for frame in gutter:
+        if '/' in frame:
+            strike = False
+            spare = False
+            for i, pin in enumerate(frame):
+                if pin == 'X':
+                    strike = True
+                elif pin == '/':
+                    spare = True
+                else:
+                    roll += int(pin)
+            if strike:
+                score += 10 + (10 - sum(map(int, frame[:-1])))
+            elif spare:
+                score += 10 + (10 - sum(map(int, frame[:-1]))))
             else:
-                score += 10
-        elif s[i] == '/':
-            first_bowl = int(s[i-1]) * 10 + int(s[i+1])
-            score += first_bowl
-            frame += 1
+                score += roll
         else:
-            if frame < 10:
-                score += int(s[i-1]) * 10 + int(s[i])
+            roll = 0
+            for i, pin in enumerate(frame):
+                roll += int(pin)
+            if roll == 10:
+                score += 10
             else:
-                score += int(s[i-1]) * 10 + 10
-            frame += 1
+                score += roll
     return score
