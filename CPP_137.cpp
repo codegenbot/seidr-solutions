@@ -39,13 +39,14 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         return i > f ? boost::variant<int, float, std::string>(i) : boost::variant<int, float, std::string>(f);
     }
     else {
-        return a == b ? boost::variant<int, float, std::string>("Equal") : boost::variant<int, float, std::string>("Not Equal");
+        return boost::blank;
     }
 }
 
 int main() {
-    boost::any a = 5;
-    boost::any b = "10.0";
+    boost::any a = 10;
+    boost::any b = 20.5;
+
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
     if (boost::holds_alternative<int>(result)) {
