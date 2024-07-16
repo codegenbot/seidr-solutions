@@ -24,6 +24,5 @@ string spinWords(string str) {
 }
 
 int main() {
-    cout << spinWords("Hello World this is test");
-    return 0;
+    return spinWords("Hello World");
 }
