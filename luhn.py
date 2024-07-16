@@ -4,11 +4,13 @@ def luhn(card_number):
     sum_total = 0
 
     for i, digit in enumerate(card_number):
-        if (i % 2 == 0): 
+        if (i % 2 == 1): 
             if (digit * 2 >= 10): 
                 digit -= 9
             else: 
                 digit *= 2
         sum_total += digit
 
-    return str(sum_total % 10) if sum_total % 10 != 0 else '0'
+    if sum_total % 10 != 0:
+        return '1'
+    return str(sum_total % 10)
