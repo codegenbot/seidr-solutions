@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -28,8 +27,7 @@ int main() {
         for (const auto& num : sub) {
             cout << num << " ";
         }
-        cout << "]"
-        << endl;
+        cout << "]\n";
     }
     return 0;
 }
