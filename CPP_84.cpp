@@ -1,7 +1,12 @@
 int sum = 0;
-    while (N > 0) {
+    while(N > 0){
         sum += N % 2;
-        N /= 2;
+        N = N / 2;
     }
-    return bitset<sizeof(int)*8>(sum).to_string();
+    string binary = "";
+    while(sum > 0){
+        binary = to_string(sum % 2) + binary;
+        sum = sum / 2;
+    }
+    return binary;
 }
