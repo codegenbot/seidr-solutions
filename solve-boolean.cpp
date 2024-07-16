@@ -1,23 +1,24 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
-bool solveBoolean(const std::string& s) {
-    if (!s || s[0] == '\0') return false; // handle empty string
+bool solveBoolean(const char* s) {
+    if (!s || *s == '\0') return false; // handle empty string
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; s[i]; ++i) {
-        if (s[i] == 'T') {
+    for (int i = 0; *s; ++s) {
+        if (*s == 'T') {
             result = true;
             operand = 1;
-        } else if (s[i] == 'F') {
+        } else if (*s == 'F') {
             result = false;
             operand = 0;
-        } else if (s[i] == '|') {
+        } else if (*s == '|') {
             result ^= operand; // perform bitwise OR
             operand = 1; // reset operand to true
-        } else if (s[i] == '&') {
+        } else if (*s == '&') {
             result &= operand; // perform bitwise AND
-            operand *= s[i] == 'F'; // update operand based on current character
+            operand *= *s == 'F'; // update operand based on current character
         }
     }
     return result;
@@ -25,9 +26,10 @@ bool solveBoolean(const std::string& s) {
 
 int main() {
     std::cout << "Enter a Boolean expression: ";
-    std::string input;
-    getline(std::cin, input); 
-    bool output = solveBoolean(input);
+    char inputBuffer[100]; 
+    std::cin.get(inputBuffer, 100);
+    std::string input = inputBuffer;
+    bool output = solveBoolean(input.c_str());
     if (output)
         std::cout << "True";
     else
