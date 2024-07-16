@@ -1,30 +1,31 @@
-```
+```c++
 #include <string>
 using namespace std;
 
-int main() {
-    string spinWords(string str) {
-        string result = "";
-        int i = 0;
-        while (i < str.length()) {
-            if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                if (str.substr(i).length() >= 5)
-                    for (int k = str.substr(i).length() - 1; k >= 0; --k)
-                        result += str.substr(i)[k];
-                else
-                    result += str.substr(i);
-                break;
-            }
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5) {
-                for (int k = word.length() - 1; k >= 0; --k)
-                    result += word[k];
-            } else
-                result += word;
-            i = j + 1;
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
+            result += str.substr(i);
+            break;
         }
-        return result;
+        int j = str.find(" ", i);
+        string word = str.substr(i, j - i);
+        if (word.length() >= 5) {
+            for (int k = word.length() - 1; k >= 0; --k)
+                result += word[k];
+        } else
+            result += word;
+        i = j + 1;
     }
-    cout << spinWords("Hello World this is a test") << endl;
+    return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
+    return 0;
 }
