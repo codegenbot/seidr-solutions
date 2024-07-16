@@ -47,7 +47,7 @@ std::string camelCase(const std::string& str) {
                 if (!result.empty()) {
                     result += " ";
                 }
-                result += std::tolower(static_cast<char>(words[i][0])) + words[i].substr(1);
+                result += (char)std::tolower((int)words[i][0]) + words[i].substr(1);
             }
         }
     }
