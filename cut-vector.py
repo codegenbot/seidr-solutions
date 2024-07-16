@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def cut_vector(vector):
     left_sum = 0
     right_sum = sum(vector)
