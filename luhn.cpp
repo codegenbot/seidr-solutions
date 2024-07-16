@@ -3,8 +3,8 @@
 
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
-    for (auto i : digits) {
-        if (digits.size() - i % 2 == 1) {
+    for(auto i : digits) {
+        if ((digits.size() - (i + 1)) % 2 == 1) {
             int doubleValue = i * 2;
             if (doubleValue > 9)
                 doubleValue -= 9;
