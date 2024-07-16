@@ -17,15 +17,17 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::any_cast<std::string>(a).empty() && std::any_cast<std::string>(b).empty()) {
-            return std::string();
+        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
+            return a;
+        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
+            return b;
         }
     }
     return std::any();
 }
 
 int main() {
-    assert(std::any_cast<std::string&>(compare_one(std::string("1"), std::string("1"))).empty()); 
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
     
     return 0;
 }
