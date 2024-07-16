@@ -1,4 +1,4 @@
-def increment_list(l):
+def incr_list(l):
     return [num + 1 for num in l]
 
 def check(func):
@@ -7,4 +7,4 @@ def check(func):
     else:
         print("Function is incorrect")
 
-check(increment_list)
+check(incr_list)
