@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <cctype>
-
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
@@ -25,7 +21,7 @@ int bowlingScore(const std::string& s) {
             } else {
                 currentRoll *= 10;
                 currentRoll += c - '0';
-            
+
             if(i < s.length() - 1) {
                 char nextC = s.at(i + 1);
                 if(std::isdigit(nextC)) {
@@ -48,6 +44,15 @@ int bowlingScore(const std::string& s) {
                     score += 10;
                     score += (currentRoll - 10);
                 }
+            }
+        }
+
+        if(i == s.length() - 1 || (std::isdigit(c) && c != 'X' && c != '/')) {
+            if(currentRoll < 10) {
+                score += currentRoll;
+            } else {
+                score += 10;
+                score += (currentRoll - 10);
             }
         }
     }
