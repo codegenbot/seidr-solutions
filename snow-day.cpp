@@ -16,12 +16,17 @@ int main() {
 
     float totalSnow = 0; 
     for (int i = 0; i < hours; i++) {
-        float newSnow = rateOfSnowFall - proportionMeltingPerHour * snowOnGround;
-        snowOnGround += newSnow;
+        if(totalSnow + rateOfSnowFall - proportionMeltingPerHour > 0) {
+            totalSnow += rateOfSnowFall - proportionMeltingPerHour;
+        } else {
+            totalSnow += 0;
+        }
     }
 
+    float result = snowOnGround + totalSnow;
+
     cout << "Amount of snow on ground after " << hours << " hours.\n";
-    cout << "The amount of snow is " << snowOnGround << " inches.\n";
+    cout << "The amount of snow is " << result << " inches.\n";
 
     return 0;
 }
