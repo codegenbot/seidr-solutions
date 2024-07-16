@@ -6,35 +6,17 @@ bool solveBoolean(string expression) {
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
-        if (expression[i] == 'f') {
-            result = false;
-            break;
-        }
-        else if (expression[i] == '|') {
-            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
-                bool temp = solveBoolean(expression.substr(i + 1));
-                if (!temp) {
-                    result = false;
-                    break;
-                }
-            } else {
-                return false;
+        if (expression[i] == 'T') {
+            i++;
+        } else if (expression[i] == 'F') {
+            return false;
+        } else if (expression[i] == '&') {
+            i += 2;
+        } else if (expression[i] == '|') {
+            while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
+                i++;
             }
         }
-        else if (expression[i] == '&') {
-            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
-                bool temp = solveBoolean(expression.substr(i + 1));
-                if (temp) {
-                    result = true;
-                    break;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-        i++;
     }
     return result;
 }
