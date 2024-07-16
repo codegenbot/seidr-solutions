@@ -8,7 +8,7 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { 
-            score += 10 + getBonus(s, i);
+            score += 10 + getBonus(s.substr(i+1));
         } else if (s[i] == '/') { 
             score += 5 + getBonus(s.substr(i+1));
         } else { 
@@ -39,4 +39,3 @@ int getBonus(string s) {
     }
 
     return bonus;
-}
