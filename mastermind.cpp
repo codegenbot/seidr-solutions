@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int main() {
@@ -20,11 +21,11 @@ int main() {
             }
         }
 
-        return black + white;
+        return black;
     }
 
-    int mastermind_result = mastermind("abcD", "abca");
-    std::cout << "Black pegs: " << mastermind_result << ", White pegs: " << (4 - mastermind_result) << std::endl;
+    int main_result = mastermind("abcD", "abca");
+    std::cout << "Black pegs: " << main_result << ", White pegs: " << (4 - main_result) << std::endl;
 
     return 0;
 }
