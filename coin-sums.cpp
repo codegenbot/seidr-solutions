@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -25,19 +24,10 @@ int main() {
 
     pennies = cents;
 
-    std::string quartersStr = quarters > 1 ? "quarters" : "quarter";
-    if (dimes > 0) {
-        std::string dimesStr = dimes > 1 ? "dimes" : "dime";
-        std::cout << dimes << " " << dimesStr << std::endl;
-    }
-    if (nickles > 0) {
-        std::string nicklesStr = nickles > 1 ? "nickels" : "nickel";
-        std::cout << nickles << " " << nicklesStr << std::endl;
-    }
-    std::string penniesStr = pennies > 1 ? "pennies" : "penny";
-    std::cout << pennies << " " << penniesStr << std::endl;
-
-    std::cout << quarters << " " << quartersStr << std::endl;
+    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
+    if (dimes > 0) std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
+    if (nickles > 0) std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
+    std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
 
     return 0;
 }
