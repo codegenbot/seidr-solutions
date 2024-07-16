@@ -1,9 +1,12 @@
-for (char &c : s) {
-        if (isalpha(c)) {
+string solve(string s){
+    bool hasLetter = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (none_of(s.begin(), s.end(), ::isalpha)) {
+    if(!hasLetter){
         reverse(s.begin(), s.end());
     }
     return s;
