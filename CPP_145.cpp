@@ -1,36 +1,26 @@
-#include <algorithm>
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    if (a < 0) a = -a;
-    if (b < 0) b = -b;
-    while (a > 0) {
-        sum_a += a % 10;
-        a /= 10;
-    }
-    while (b > 0) {
-        sum_b += b % 10;
-        b /= 10;
-    }
-    if (sum_a == sum_b) {
-        return a < b;
-    }
-    return sum_a < sum_b;
-});
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        int a_temp = abs(a), b_temp = abs(b);
+        while (a_temp > 0) {
+            sum_a += a_temp % 10;
+            a_temp /= 10;
+        }
+        while (b_temp > 0) {
+            sum_b += b_temp % 10;
+            b_temp /= 10;
+        }
+        if (sum_a == sum_b) {
+            return a < b;
+        }
+        return sum_a < sum_b;
+    });
+    return nums;
+}
 
-return nums;
+// In the main function or somewhere before using them
+assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6});
