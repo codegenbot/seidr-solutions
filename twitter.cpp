@@ -8,15 +8,15 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     
-    tweet.erase(0, tweet.find_first_not_of("\n")); // remove leading whitespace
-    
     if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
-    }
-    
-    if(tweet.length() > 140) {
-        cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        tweet.erase(std::remove(tweet.end() - 1, tweet.end(), '\n'), tweet.end());
+        
+        if(tweet.length() > 140) {
+            cout << "Too many characters" << endl;
+        } else {
+            cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        }
     }
 }
