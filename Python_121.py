@@ -1,10 +1,6 @@
-def find_max_min(lst):
-    if not lst:
-        return "List is empty"
-    max_val = min_val = lst[0]
+def find_max_value(lst):
+    max_val = float('-inf')
     for num in lst:
-        if num > max_val:
-            max_val = num
-        elif num < min_val:
-            min_val = num
-    return f"Max: {max_val}, Min: {min_val}"
+        if abs(num) > max_val:
+            max_val = abs(num)
+    return max_val
