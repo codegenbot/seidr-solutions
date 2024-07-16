@@ -8,10 +8,7 @@ bool solveBoolean(const std::string& s) {
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
-            while (c == '&') {
-                if (!result) return false;
-                c = s[s.find(c) + 1];
-            }
+            if (!result) return false;
         }
     }
     return result;
