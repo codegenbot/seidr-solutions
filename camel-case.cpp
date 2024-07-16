@@ -8,7 +8,7 @@ std::string camelCase(std::string s) {
         if (s[i] == '-') {
             if (i > 0 && s[i - 1] != ' ') {
                 if (!result.empty()) {
-                    result[0] = toupper(result[0]);
+                    result[0] = std::toupper(result[0]);
                 }
                 std::string temp = s.substr(i + 1, 1);
                 for (char & c : temp) {
@@ -22,7 +22,7 @@ std::string camelCase(std::string s) {
                     j++;
                 }
                 if (!result.empty()) {
-                    result[0] = toupper(result[0]);
+                    result[0] = std::toupper(result[0]);
                 }
                 std::string temp = s.substr(i, j - i);
                 for (char & c : temp) {
@@ -32,8 +32,9 @@ std::string camelCase(std::string s) {
                 i = j - 1;
             }
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+            if (!result.empty() && result[0] == '-') {
+                result[0] = std::toupper(result[0]);
+                result = " " + result;
             }
             result += s[i];
         }
