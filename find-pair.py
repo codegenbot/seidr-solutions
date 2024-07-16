@@ -1,9 +1,11 @@
 def find_pair(n, numbers):
     seen = set()
     for num in numbers:
-        if (target := n - num) in seen:
-            return str(num) + "\n" + str(target)
+        if (target := 12 - num) in seen:
+            return "{} {}".format(num, target)
         seen.add(num)
 
 
-print(find_pair(int(input()), [int(x) for x in input().split()]))
+n = int(input())
+numbers = [int(x) for x in input().split()]
+print(find_pair(n, numbers))
