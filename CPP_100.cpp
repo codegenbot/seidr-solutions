@@ -1,14 +1,12 @@
 ```cpp
-bool std::issame(std::vector<std::int32_t> a, std::vector<std::int32_t> b) {
+#include <vector>
+#include <algorithm>
+
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> make_a_pile(int n) {
