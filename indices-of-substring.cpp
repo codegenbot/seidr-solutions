@@ -11,7 +11,7 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += (target.empty() ? 1 : target.size()); // move to the next index after the current occurrence
+        pos += target.length(); // move to the next index after the current occurrence, allowing overlapping occurrences
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
