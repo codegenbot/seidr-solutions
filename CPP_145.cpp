@@ -19,7 +19,7 @@ bool order_by_points(int a, int b, const vector<int>& nums) {
     return a < b;
 }
 
-sort(nums.begin(), nums.end(), [&](int a, int b) {
+sort(nums.begin(), nums.end(), [](int a, int b) {
     return order_by_points(a, b, nums);
 });
 return nums;
