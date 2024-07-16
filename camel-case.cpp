@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <initializer_list>
 
 using namespace std;
 
@@ -29,9 +31,6 @@ string camelCase(string str) {
 
 int main() {
     string str;
-    #ifdef __GXX_EXPERIMENTAL_CXX0X__
-#include <initializer_list>
-#endif
     while (cin >> str) {
         cout << camelCase(str) << endl;
     }
