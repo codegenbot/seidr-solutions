@@ -1,14 +1,9 @@
-#include <vector>
-using namespace std;
-
-int basement(vector<int>& arr) {
-    for (int i = 0; i < arr.size(); i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += arr[j];
-        }
+int basement(std::vector<int> v) {
+    int sum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
         if (sum < 0)
             return i;
     }
-    return -1;
+    return -1; // or some other value to indicate that no such index is found
 }
