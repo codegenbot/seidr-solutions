@@ -1,9 +1,10 @@
-int basement(const vector<int>& numbers) {
+#include <vector>
+
+int basement(vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); ++i) {
-        sum += numbers[i];
-        if (sum < 0)
-            return i;
+    for (int i = 0; i < arr.size(); ++i) {
+        sum += arr[i];
+        if (sum < 0) return i + 1;
     }
-    return -1; // or throw an exception, depending on the desired behavior
+    return -1;
 }
