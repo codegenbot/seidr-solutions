@@ -25,10 +25,12 @@ std::pair<string, string> reverse_delete(string s, string c) {
             temp += ch;
         }
     }
-    return std::make_pair(temp, (is_palindrome(temp)) ? "True" : "False");
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    return {temp, (is_palindrome(temp)) ? "True" : "False"};
 }
 
 int main() {
-    assert(make_pair("", reverse_delete("mamma", "mia").second) == make_pair("", "True"));
+    assert(std::make_pair("", "True") == reverse_delete("mamma", "mia"));
     return 0;
 }
