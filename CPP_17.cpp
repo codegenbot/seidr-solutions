@@ -10,8 +10,6 @@ vector<int> parse_music(string music_string){
             } else {
                 beats.push_back(1);
             }
-        } else if(music_string[i] == '.'){
-            beats.push_back(0);
         }
     }
     return beats;
