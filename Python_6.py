@@ -1,4 +1,4 @@
-paren_strings = input("Enter a list of parenthesized strings separated by spaces: ").split()
+paren_strings = input().split()
 
 def parse_nested_parens(paren_strings):
     stack = []

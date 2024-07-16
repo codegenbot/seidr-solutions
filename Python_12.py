@@ -1,6 +1,7 @@
+import sys
 from typing import List, Optional
 
-strings = input("Enter strings separated by spaces: ").strip().split()
+strings = sys.stdin.readline().rstrip().split()
 
 
 def longest(strings: List[str]) -> Optional[str]:
