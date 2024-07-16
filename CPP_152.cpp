@@ -5,5 +5,5 @@ bool issame(vector<int> a, vector<int> b) {
     for (int i = 0; i < a.size(); ++i) {
         result.push_back(abs(a[i] - b[i]));
     }
-    return compare(a, b) == result;
+    return result;
 }
