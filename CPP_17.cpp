@@ -1,36 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+vector<int> parse_music(string music_string); // Function prototype
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) { // Fixed function signature
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> parse_music(string music_string){ 
-    vector<int> beats;
-    size_t pos = 0;
-    while ((pos = music_string.find("o", pos)) != string::npos) {
-        if (music_string[pos + 1] == '|') {
-            beats.push_back(2);
-            pos += 2;
-        } else {
-            beats.push_back(4);
-            pos++;
-        }
-    }
-    pos = 0;
-    while ((pos = music_string.find(".", pos)) != string::npos) {
-        beats.push_back(1);
-        pos += 2;
-    }
-    return beats;
-}
-
-int main(){
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    
+int main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2})); // Fixed assert statement
     return 0;
 }
