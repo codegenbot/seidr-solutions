@@ -1,7 +1,4 @@
 def decode_shift(s: str):
-    if not s.isalpha():
-        return "Input must contain only alphabetic characters"
-
     return "".join(
         [
             (
@@ -16,6 +13,6 @@ def decode_shift(s: str):
         ]
     )
 
-input_str = input("Enter a string to decode: ").strip()
+input_str = raw_input("Enter a string to decode: ").strip()
 result = decode_shift(input_str)
 print(result)
