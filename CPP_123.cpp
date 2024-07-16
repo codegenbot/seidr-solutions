@@ -1,20 +1,23 @@
-vector<int> collatz_seq = {n};
+vector<int> get_odd_collatz(int n){
+    vector<int> result;
     while (n != 1) {
+        result.push_back(n);
         if (n % 2 == 0) {
             n /= 2;
         } else {
             n = 3 * n + 1;
         }
-        collatz_seq.push_back(n);
     }
+    result.push_back(1);
 
-    vector<int> odds;
-    for (int num : collatz_seq) {
+    vector<int> odd_nums;
+    for (int num : result) {
         if (num % 2 == 1) {
-            odds.push_back(num);
+            odd_nums.push_back(num);
         }
     }
 
-    sort(odds.begin(), odds.end());
-    return odds;
+    sort(odd_nums.begin(), odd_nums.end());
+
+    return odd_nums;
 }
