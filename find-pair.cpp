@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <unordered_map>
 
@@ -17,9 +16,22 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4};
-    int target = 5;
+    vector<int> nums;
+    cout << "Enter the numbers separated by spaces: ";
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
+    }
+    cout << "Enter the target sum: ";
+    int target;
+    cin >> target;
+    
     vector<int> result = findPair(nums, target);
-    cout << "Result: " << result[0] << ", " << result[1] << endl;
+    if (!result.empty()) {
+        cout << "The pair of elements that sum to the target is: (" << result[0] << ", " << result[1] << ")" << endl;
+    } else {
+        cout << "No such pair found." << endl;
+    }
+    
     return 0;
 }
