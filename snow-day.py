@@ -1,10 +1,10 @@
 ```
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    total_snow = initial_snow
+    new_snow = 0
     for _ in range(hours):
-        total_snow += rate_of_snowfall
-        total_snow -= min(total_snow, melting_rate)
-    return round(total_snow, 2)
+        new_snow += rate_of_snowfall
+    total_melting = new_snow * melting_rate
+    return round(initial_snow + new_snow - total_melting, 2)
 
 hours = int(input())
 initial_snow = float(input())
