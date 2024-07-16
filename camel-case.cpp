@@ -17,7 +17,7 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string temp = "";
-    temp += toupper(str[0]); // capitalize the first character of each word
+    temp += toupper(str[0]); 
     result += temp;
     temp.clear();
     for (int i = 1; i < str.length(); ++i) {
