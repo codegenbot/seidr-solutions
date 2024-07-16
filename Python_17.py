@@ -1,1 +1,1 @@
-inputs = [int(input("Enter number 1: ")), int(input("Enter number 2: ")), int(input("Enter number 3: "))]
+inputs = list(map(int, input("Enter 3 numbers separated by spaces:").split()))
