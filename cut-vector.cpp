@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+
 using namespace std;
+
+vector<int> nums;
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    nums.resize(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
@@ -30,11 +34,11 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
-    cout << std::endl;
+    cout << endl;
     for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
     return 0;
