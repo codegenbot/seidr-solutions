@@ -1,1 +1,1 @@
-n = int(input("Enter a number: "))
+n = list(map(int, input().split()))
