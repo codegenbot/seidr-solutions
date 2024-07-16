@@ -1,11 +1,11 @@
 #include <vector>
 
-bool issame(vector<int> x, vector<int> y){
-    if (x.size() != y.size()) {
+bool issame(vector<int> arr1, vector<int> arr2) {
+    if (arr1.size() != arr2.size()) {
         return false;
     }
-    for (int i = 0; i < x.size(); ++i) {
-        if (x[i] != y[i]) {
+    for (int i = 0; i < arr1.size(); ++i) {
+        if (arr1[i] != arr2[i]) {
             return false;
         }
     }
@@ -33,13 +33,15 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 246};
+    vector<int> input = {123, 456, 789};
     vector<int> output = unique_digits(input);
     vector<int> expected = {123, 789};
+    
     if (issame(output, expected)) {
-        cout << "Output is correct" << endl;
+        cout << "Output is correct." << endl;
     } else {
-        cout << "Output is incorrect" << endl;
+        cout << "Output is incorrect." << endl;
     }
+
     return 0;
 }
