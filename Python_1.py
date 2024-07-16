@@ -22,6 +22,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 paren_string = input("Enter a string with parentheses: ").strip()
 
-if paren_string and all(c in "()" for c in paren_string):
+if paren_string and all(c in "()" for c in paren_string.strip('() ')):
     output = separate_paren_groups(paren_string)
     print(output)
