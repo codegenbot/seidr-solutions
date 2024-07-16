@@ -5,19 +5,24 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
-    int diff = INT_MAX;
+    
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int target = sum / 2;
+    int prefixSum = 0;
     int idx = -1;
-    for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
+    
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
             idx = i;
+            break;
         }
     }
-
+    
+    if (abs(2 * prefixSum - sum) < abs(2 * (prefixSum - nums[idx]) - sum)) {
+        ++idx;
+    }
+    
     for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
@@ -25,6 +30,6 @@ int main() {
     for (int i = idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
