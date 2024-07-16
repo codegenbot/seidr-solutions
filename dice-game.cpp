@@ -1,6 +1,8 @@
 Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / total;
+double probability(int n, int m) {
+    if (n < 1 || m < 1) return -1.0;
+    double total = static_cast<double>(n + m);
+    double p = static_cast<double>(n) / total;
+    return p;
 }
