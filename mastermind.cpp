@@ -4,26 +4,23 @@
 #include <string>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
-    // Count black pegs
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    // Count remaining correct colors (white pegs)
-    std::vector<char> code_chars(code.begin(), code.end());
-    for (int i = 0; i < 4; i++) {
-        bool inCode = false;
-        for (char c : code_chars) {
-            if (c == guess[i] && !inCode) {
-                white++;
-                code_chars.erase(std::remove(code_chars.begin(), code_chars.end(), c), code_chars.end());
+        } else {
+            bool inCode = false;
+            for (int j = 0; j < 4; j++) {
+                if (j != i && code[j] == guess[i] && !inCode) {
+                    white++;
+                    inCode = true;
+                }
+            }
+            if (!inCode) {
                 inCode = true;
-                break;
+                white++;
             }
         }
     }
