@@ -2,5 +2,5 @@ def longest(strings):
     return max(strings, key=len)
 
 n = int(input())
-strings = [input().strip() for _ in range(n)]
+strings = [input() for _ in range(n)]
 print(longest(strings))
