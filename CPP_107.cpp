@@ -1,6 +1,10 @@
 #include <vector>
 #include <string>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
+}
+
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> res = {0, 0};
     for (int i = 1; i <= n; ++i) {
@@ -18,13 +22,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return res;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    // Example usage of even_odd_palindrome function
-    std::vector<int> result = even_odd_palindrome(100);
-    
+    // Your main function code here
     return 0;
 }
