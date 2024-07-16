@@ -22,7 +22,7 @@ int main() {
         if (targetLength == 0) {
             pos += 1; // Case for empty target
         } else {
-            pos += (pos == text.find(target, pos) ? 1 : targetLength); // Move to the next position allowing overlaps
+            pos += targetLength > 1 ? 1 : targetLength; // Move to the next position allowing overlaps
         }
     }
 
