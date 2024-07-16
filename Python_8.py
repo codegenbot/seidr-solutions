@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -8,4 +9,4 @@ def sum_product(numbers: List[str]) -> Tuple[int, int]:
         numbers = [int(num) for num in numbers]
         return sum(numbers), eval("*".join(map(str, numbers)))
     except ValueError:
-        return
+        return sum([int(num) for num in set(num for num in numbers)]), 1
