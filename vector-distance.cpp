@@ -22,7 +22,7 @@ int main() {
     }
 
     long double result = sqrtl(sum);
-    std::cout << std::fixed << result << std::endl; // Ensuring precise output
+    std::cout << std::fixed << result << std::endl;
 
     return 0;
 }
