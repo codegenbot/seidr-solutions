@@ -22,7 +22,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int test_make_a_pile() {
+int main() {
     assert(vectorEqual(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) == true);
     return 0;
 }
