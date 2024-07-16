@@ -1,6 +1,6 @@
-```c++
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -21,4 +21,3 @@ int main() {
     int result = luhn(digits);
     std::cout << "The Luhn check digit is: " << result << std::endl;
     return 0;
-}
