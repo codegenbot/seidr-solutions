@@ -1,8 +1,9 @@
-vector<int> result = l;
-    for (int i = 0; i < l.size(); ++i) {
+vector<int> sort_third(vector<int> l) {
+    vector<int> l_copy = l;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            sort(result.begin() + i, result.begin() + i + 3);
+            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
-    return result;
+    return l_copy;
 }
