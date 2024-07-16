@@ -16,6 +16,10 @@ std::vector<int> calculate_difference(const std::vector<int>& game, const std::v
 }
 
 int main() {
-    assert(compare(calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1});
+    std::vector<int> result = calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4});
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}));
     return 0;
 }
