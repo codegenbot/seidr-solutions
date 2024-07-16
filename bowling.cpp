@@ -1,32 +1,24 @@
-int bowlingScore(const string& s) {
+int scoreBowlingRound(string s) {
     int score = 0;
-    int frame = 1;
-    int ball = 0;
+    int frame = 0;
+    int rolls = 0;
     for (char c : s) {
+        rolls++;
         if (c == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (s[ball + 1] == 'X' ? 10 : (s[ball + 1] - '0'));
-                score += (s[ball + 2] == 'X' ? 10 : (s[ball + 2] == '/' ? 10 - (s[ball + 1] - '0') : (s[ball + 2] - '0')));
+            if (frame < 9) {
+                score += (s[rolls] == 'X' ? 10 : (isdigit(s[rolls]) ? s[rolls] - '0' : 10));
+                if (s[rolls+1] == '/') score += 10 - (s[rolls] == 'X' ? 0 : (isdigit(s[rolls]) ? s[rolls] - '0' : 10));
             }
-            ball++;
             frame++;
         } else if (c == '/') {
-            score += (10 - (s[ball - 1] - '0'));
-        } else if (c == '-') {
-            // do nothing for a miss
-        } else {
-            score += (c - '0');
+            score += 10 - (s[rolls-1] - '0');
+            if (frame < 9) score += (isdigit(s[rolls]) ? s[rolls] - '0' : 10);
+            frame++;
+        } else if (isdigit(c)) {
+            score += c - '0';
+            if (frame < 9 && rolls % 2 == 0 && s[rolls-1] == '/') score += c - '0';
         }
-        ball++;
-        if (frame > 10) break;
     }
     return score;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
-    return 0;
 }
