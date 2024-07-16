@@ -36,6 +36,6 @@ bool is_prime(int n) {
 int main() {
     string sentence;
     getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    cout << words_in_sentence(sentence);
     return 0;
 }
