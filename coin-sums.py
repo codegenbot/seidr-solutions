@@ -12,6 +12,7 @@ def coin_sums(cents):
                             else [(coin % c) // d, (coin % c) % d]
                         )
                         for i, c in enumerate(coins)
+                        for d in coins[i:]
                     ]
                 )
             )
