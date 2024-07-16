@@ -1,5 +1,5 @@
-bool issame(vector<float> a, vector<float> b) {
-    return abs(a[0] - b[0]) < 0.000001 && abs(a[1] - b[1]) < 0.000001;
+bool is_same(vector<float> a, vector<float> b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
@@ -16,12 +16,4 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     }
 
     return {closest_pair.first, closest_pair.second};
-}
-
-int main() {
-    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.6};
-    pair<float, float> result = find_closest_elements(numbers);
-    cout << "Closest pair: " << result.first << " and " << result.second << endl;
-
-    return 0;
 }
