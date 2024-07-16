@@ -1,7 +1,7 @@
 ```cpp
 #include <map>
-#include <string>
 #include <cctype>
+#include <algorithm>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -20,6 +20,6 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    // Use the function here
+    // Your code here
     return 0;
 }
