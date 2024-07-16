@@ -1,5 +1,6 @@
 #include <map>
 #include <cctype>
+#include <algorithm>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
