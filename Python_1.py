@@ -14,3 +14,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if start < len(paren_string):
         result.append(paren_string[start:])
     return result
+
+# Test the function with the correct input
+print(separate_paren_groups("((a)(b)c)(d)"))
