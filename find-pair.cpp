@@ -6,8 +6,9 @@ using namespace std;
 
 int main() {
     int n, target;
+    vector<int> nums;
     cin >> n;
-    vector<int> nums(n);
+    nums.resize(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
