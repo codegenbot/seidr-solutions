@@ -1,6 +1,5 @@
-#include <vector>
-
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+```cpp
+bool std::issame(std::vector<std::int32_t> a, std::vector<std::int32_t> b) {
     if (a.size() != b.size()) {
         return false;
     }
