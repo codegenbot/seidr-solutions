@@ -23,14 +23,7 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    vector<float> vec1 = {1.0, 2.0, 3.0};
-    vector<float> vec2 = {1.0, 2.0, 3.0};
-    
-    if(issame(vec1, vec2)){
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-    
+    vector<float> input = {1.0, 2.0, 3.0, 4.0};
+    vector<float> output = derivative(input);
     return 0;
 }
