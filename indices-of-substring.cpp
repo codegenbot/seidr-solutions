@@ -16,9 +16,10 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += (target.empty() ? 1 : (target.size() > 1 ? 1 : target.size())); // increment appropriately to handle overlapping targets
-        if (target.empty()) {
-            ++pos; // special case handling for empty target
+        if (target.size() == 1) {
+            ++pos;
+        } else {
+            pos += target.size(); // increment by target size for overlapping targets
         }
     }
 
