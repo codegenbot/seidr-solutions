@@ -1,14 +1,8 @@
-int res = -1;
+int result = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (freq >= num && num > res) {
-            res = num;
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num && num > result) {
+            result = num;
         }
     }
-    return res;
+    return result;
 }

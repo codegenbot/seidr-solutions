@@ -1,25 +1,11 @@
-#include <algorithm>
-#include <string>
-
-std::string circular_shift(int x, int shift);
-
-int main() {
-    // Main function code here
-}
-
-std::string circular_shift(int x, int shift) {
-    std::string str = std::to_string(x);
-    int n = str.size();
+string circular_shift(int x, int shift) {
+    string num = to_string(x);
+    int n = num.size();
     shift %= n;
-    if (shift == 0) {
-        return str;
-    }
+    if (shift == 0) return num;
     if (shift > n) {
-        std::reverse(str.begin(), str.end());
-        return str;
+        reverse(num.begin(), num.end());
+        return num;
     }
-    std::reverse(str.begin(), str.end());
-    std::reverse(str.begin(), str.begin() + shift);
-    std::reverse(str.begin() + shift, str.end());
-    return str;
+    return num.substr(n - shift) + num.substr(0, n - shift);
 }
