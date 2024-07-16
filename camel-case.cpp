@@ -33,14 +33,12 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input;
+    std::string userInput;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
+    std::getline(std::cin, userInput);
+    
+    std::string result = camelCase(userInput);  
 
-    if (input.empty()) {
-        std::cout << "Please enter a non-empty string." << std::endl;
-    } else {
-        std::cout << "camelCase: " << camelCase(input) << "\n";
-    }
+    std::cout << "camelCase: " << result << "\n";
     return 0;
 }
