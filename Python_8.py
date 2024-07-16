@@ -7,7 +7,10 @@ results = []
 
 try:
     while True:
-        numbers_input = list(map(int, input().strip().split()))
+        try:
+            numbers_input = list(map(int, input().strip().split()))
+        except ValueError:
+            break
         if not numbers_input or numbers_input[0] == -1:
             break
         result = sum_product(numbers_input)
