@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <sstream>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -20,23 +20,15 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
-
-    std::stringstream ss(str);
-    std::string word;
-
-    while (std::getline(ss, word, '-')) {
-        if (!word.empty()) {
-            if (result.empty())
-                result = camelCase(word);
-            else
-                result += camelCase(word).substr(0,1).toupper() + camelCase(word).substr(1);
+    std::string input;
+    char c;
+    while((c = getchar()) != '\n') {
+        if(c == '-') {
+            continue;
         }
+        input += c;
     }
-
-    std::cout << "camelCase: " << result << std::endl;
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
 
     return 0;
 }
