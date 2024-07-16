@@ -7,10 +7,7 @@ int main() {
 
     for (size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
-            std::cout << i;
-            if (i != text.size() - target.size()) {
-                std::cout << " ";
-            }
+            std::cout << i << " ";
         }
     }
 
