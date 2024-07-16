@@ -1,4 +1,4 @@
-```
+```python
 def solve_boolean(expression):
     def evaluate(start=0):
         if start >= len(expression):  
