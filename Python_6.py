@@ -1,10 +1,7 @@
 import ast
 
 try:
-    input_str = input()
-    if not input_str.startswith("[") or not input_str.endswith("]"):
-        raise ValueError
-    paren_strings = ast.literal_eval(input_str)
+    paren_strings = ast.literal_eval(input())
 except:
     print("Input Error")
     exit()
