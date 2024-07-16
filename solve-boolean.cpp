@@ -1,4 +1,3 @@
-#include <stack>
 #include <string>
 
 string solveBoolean(string booleanExp) {
