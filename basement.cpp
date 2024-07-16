@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int basement(std::vector<int> nums) {
@@ -12,6 +13,8 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    // Test your function here
+    std::vector<int> nums = {2, -3, 4, -1, -2};
+    int result = basement(nums);
+    std::cout << result << std::endl;
     return 0;
 }
