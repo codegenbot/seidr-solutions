@@ -1,13 +1,11 @@
-double poly(vector<double>& coeffs, double x);
-
-double find_zero(vector<double> xs){
-    return -poly(xs, 0) / poly(xs, 1);
-}
-
 double poly(vector<double>& coeffs, double x){
     double result = 0;
     for(int i = 0; i < coeffs.size(); i++){
         result += coeffs[i] * pow(x, i);
     }
     return result;
+}
+
+double find_zero(vector<double> xs){
+    return -poly(xs, 0) / poly(xs, 1);
 }
