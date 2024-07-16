@@ -4,34 +4,30 @@
 
 int main() {
     std::string codeStr, guessStr;
+    int whitePegs = 0, blackPegs = 0;
 
-    // Read user input
     std::cout << "Enter the Mastermind code: ";
     std::cin >> codeStr;
 
     std::cout << "Enter your guess: ";
     std::cin >> guessStr;
 
-    int whitePegs = 0, blackPegs = 0;
-
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
         } else {
-            bool foundInCode = false;
+            int count = 0;
             for (int j = 0; j < 4; j++) {
-                if (guessStr[i] == codeStr[j]) {
-                    foundInCode = true;
+                if (codeStr[j] == guessStr[i]) {
+                    count++;
                 }
             }
-
-            if (foundInCode) {
+            if (count > 0) {
                 whitePegs++;
             }
         }
     }
 
-    // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
     std::cout << "White pegs: " << whitePegs << std::endl;
 
