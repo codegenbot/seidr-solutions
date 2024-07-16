@@ -1,14 +1,15 @@
 ```cpp
 int luhn(std::vector<int> digits) {
     int sum = 0;
+    bool doubleDigit = false;
     for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2 == 0)) { 
-            int temp = (digits[i] * 2) % 10; 
-            if(temp > 9) temp -= 9;
-            sum += temp;
-        } else {
-            sum += digits[i];
+        int digit = digits[i];
+        if (doubleDigit) {
+            digit *= 2;
+            if (digit > 9) digit -= 9;
         }
+        sum += digit;
+        doubleDigit = !doubleDigit;
     }
     return sum;
 }
