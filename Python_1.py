@@ -20,7 +20,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-input_text = sys.stdin.read().strip()
-if set(input_text) == set("()"):
-    output = separate_paren_groups(input_text)
+paren_string = sys.stdin.readline().strip()
+if all(c in "()" for c in paren_string):
+    output = separate_paren_groups(paren_string)
     print(output)
