@@ -1,11 +1,11 @@
-def solveBoolean(expression):
-    if expression == "t":
+```
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif expression == "f":
+    elif expression == "F":
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solveBoolean(left) and solveBoolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solveBoolean(left) or solveBoolean(right)
+    else:
+        while "&" in expression or "|" in expression:
+            expression = expression.replace(" & ", "&")
+            expression = expression.replace("|", "| |")
+        return eval("(&)&(|(not )?T|(?T))".replace("?T", lambda x: " not T" if x == "F" else "" ).replace("T", "True").replace("F", "False").replace("not ", "not ").replace("|", "|").replace("&", "&") % expression)
