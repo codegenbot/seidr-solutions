@@ -3,31 +3,24 @@
 
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
+    std::vector<int> result;
+    int maxRightSoFar = arr.back();
+
     for (int i = n - 1; i >= 0; i--) {
-        bool isLeader = true;
-        
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        
-        if (isLeader) {
+        if (arr[i] >= maxRightSoFar) {
+            maxRightSoFar = arr[i];
             result.push_back(arr[i]);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersResult = leaders(arr);
+    std::vector<int> arr = {1, 3, 4, 1, 5};
+    std::vector<int> leadersResult = leaders(arr);
     for (int leader : leadersResult) {
         cout << leader << " ";
     }
