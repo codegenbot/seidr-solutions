@@ -1,11 +1,16 @@
-```cpp
 #include <string>
 #include <iostream>
+#include <climits>
 
 std::string fizzBuzz(int x) {
-    std::string output = x < INT_MAX ? std::to_string(x) : "Overflow";
-    return (x % 15 == 0) ? "FizzBuzz" : (x % 5 == 0) ? "Buzz" : (x % 3 == 0) ? "Fizz" : output;
-}
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0)
+        return "Fizz";
+    else if (x % 5 == 0)
+        return "Buzz";
+    else
+        return (x <= INT_MAX && std::to_string(x)) || "Overflow";}
 
 int main() {
     int num;
@@ -13,4 +18,3 @@ int main() {
     std::cin >> num;
     std::cout << fizzBuzz(num) << std::endl;
     return 0;
-}
