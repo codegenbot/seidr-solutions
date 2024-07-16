@@ -6,7 +6,6 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // Compare two vectors of strings
     return a == b;
 }
 
