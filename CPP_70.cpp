@@ -6,12 +6,6 @@ using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> strange_sort_list(vector<int> lst);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
@@ -27,6 +21,10 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main(){
