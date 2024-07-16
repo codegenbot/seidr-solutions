@@ -1,30 +1,34 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> parts = {""};
-    for (char c : str) {
+std::string camelCase(std::string s) {
+    std::string result = "";
+    for (char c : s) {
         if (c == '-') {
-            parts.push_back("");
-        } else {
-            parts.back() += c;
+            c = ' ';
         }
     }
-
-    std::string result = "";
-    for (int i = 0; i < parts.size(); i++) {
-        if (!result.empty()) {
-            result[0] -= 32; // Convert to uppercase
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] != ' ') {
+            if (result.empty()) {
+                result += topperCase(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
+        } else {
+            if (!result.empty()) {
+                result[0] = topperCase(result[0]);
+            }
+            result += s[i + 1];
         }
-        result += parts[i];
     }
     return result;
 }
 
 int main() {
-    std::cout << camelCase("nospaceordash") << std::endl;
-    std::cout << camelCase("two-words") << std::endl;
-    std::cout << camelCase("two words") << std::endl;
-    std::cout << camelCase("all separate words") << std::endl;
+    std::string input;
+    std::cout << "Enter the string: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
