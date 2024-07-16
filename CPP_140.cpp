@@ -4,10 +4,10 @@ string result = "";
         if (c == ' ') {
             count++;
             if (count > 2) {
-                result += '-';
+                result += "-";
                 count = 1;
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
             result += c;
