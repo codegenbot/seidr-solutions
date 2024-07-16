@@ -12,14 +12,8 @@ int basementIndex(vector<int> &nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-    cout << basementIndex(nums) << endl;
+    vector<int> nums = {-3,2,-2,4,5,-1};
+    int result = basementIndex(nums);
+    cout << "The basement index is: " << result << endl;
     return 0;
 }
