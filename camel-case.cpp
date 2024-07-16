@@ -1,8 +1,11 @@
+```cpp
 #include <string>
-#include <cstddef> 
 #include <cctype>
 
-std::string camelCase(std::string s) {
+int main() {
+    std::string s;
+    std::cin >> s;
+
     std::string result = "";
     bool capitalizeNext = true;
 
@@ -19,16 +22,14 @@ std::string camelCase(std::string s) {
         }
     }
 
-    size_t pos = result.find(' ');
-    while (pos != std::string::npos) {
-        result.erase(pos, 1);
-        pos = result.find(' ');
+    // remove the space at the end
+    size_t pos = 0;
+    while ((pos = result.find(' ', pos)) != std::string::npos) {
+        if (pos > 0)
+            result.erase(pos, 1);
+        else
+            pos++;
     }
     
-    return result;
-}
-
-int main() {
-    std::cout << camelCase("camel-case example-test-string") << std::endl;
     return 0;
 }
