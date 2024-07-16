@@ -1,17 +1,7 @@
-```cpp
+#include <string>
 #include <iostream>
-using namespace std;
 
-int main() {
-    cout.tie(nullptr); 
-    string input;
-    getline(cin, input);
-    
-    int result = pairedDigits(input);
-    return 0;
-}
-
-int pairedDigits(string s) {
+int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i+1]) {
@@ -19,4 +9,12 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    
+    int result = pairedDigits(input);
+    return 0;
 }
