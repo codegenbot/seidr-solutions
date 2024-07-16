@@ -5,14 +5,14 @@
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int maxRight = INT_MIN;
     
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] >= maxRight) {  
-            leaders.insert(leaders.begin(), nums[i]);
-            maxRight = nums[i];
+    for (int i = 0; i < nums.size()-1; i++) {
+        if (nums[i] > nums[i+1]) {  
+            leaders.push_back(nums[i]);
         }
     }
+    
+    leaders.push_back(nums[nums.size()-1]);
     
     return leaders;
 }
