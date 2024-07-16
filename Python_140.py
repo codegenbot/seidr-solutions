@@ -5,6 +5,6 @@ def process_text(text):
     text = "_".join(text.split())
     return text
 
-input_text = raw_input().strip()
+input_text = input().rstrip()
 result = process_text(input_text)
 print(result)
