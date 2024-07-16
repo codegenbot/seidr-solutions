@@ -7,18 +7,18 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    int rightMax = arr.back(); // Initialize with the rightmost element
-    
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= rightMax){
+    for(int i=0; i<n; i++){
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++){
+            if(arr[i] <= arr[j]){
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader){
             res.push_back(arr[i]);
-            rightMax = arr[i];
-        } else {
-            rightMax = arr[i];
         }
     }
-    
-    res.push_back(arr[0]); // Add the leftmost element
     
     return res;
 }
