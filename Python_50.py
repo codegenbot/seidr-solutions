@@ -1,6 +1,6 @@
-def decode_shift(s: str):
+def decode_shift():
+    s = input()
     return "".join([ch if not ch.isalpha() else chr(((ord(ch) - 3 - ord('a' if ch.islower() else 'A')) % 26) + ord('a' if ch.islower() else 'A')) for ch in s])
 
-input_str = input("Enter the string to decode: ")
-result = decode_shift(input_str)
+result = decode_shift()
 print(result)
