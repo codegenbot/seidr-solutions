@@ -1,5 +1,5 @@
+#include <cstddef>
 #include <string>
-#include <cstddef> 
 #include <cctype>
 
 int main() {
@@ -8,13 +8,14 @@ int main() {
 
     std::string result = "";
     bool capitalizeNext = true;
+    size_t pos;  // Declare pos before using it
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
-            result.push_back(' ');
-        } else if (capitalizeNext) {
+            continue;
+        }
+        if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
         } else {
@@ -22,11 +23,9 @@ int main() {
         }
     }
 
-    for(size_t i = 0; i < result.size(); i++) {
-        if(result[i] == ' ') {
-            result.erase(i, 1);
-            i--;
-        }
+    // Remove trailing space
+    while ((pos = result.find(' ')) != std::string::npos) {
+        result.erase(pos, 1);
     }
     return 0;
 }
