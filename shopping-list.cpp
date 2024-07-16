@@ -17,3 +17,4 @@ int main() {
     vector<float> discounts = {5, 10, 15};
     cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
     return 0;
+}
