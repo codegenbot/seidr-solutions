@@ -17,8 +17,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
-    assert(sorted_list_sum(input) == expected_output);
+    vector<string> input;
+    string temp;
+    while (cin >> temp) {
+        input.push_back(temp);
+    }
+    vector<string> result = sorted_list_sum(input);
+    for (const auto& s : result) {
+        cout << s << " ";
+    }
     return 0;
 }
