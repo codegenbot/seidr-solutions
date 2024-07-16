@@ -1,3 +1,4 @@
+```
 def decipher():
     key1 = input("Enter the first string: ")
     key2 = input("Enter the second string: ")
@@ -8,9 +9,7 @@ def decipher():
     result = ""
     for char in message:
         if char in mapping:
-            orig_case = any(c.isupper() for c in key1[message.index(char):].upper())
-            result_char = mapping[char]
-            result += result_char.upper() if orig_case else result_char.lower()
+            result += mapping[char]
         else:
             result += char
 
