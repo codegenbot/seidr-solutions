@@ -1,6 +1,7 @@
 def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
+    initial_start = start
     path = [start]
     visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
 
@@ -12,5 +13,7 @@ def minPath(grid, k):
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] not in path:
                 visited.add((ni, nj))
+        if grid[i][j] == initial_start and len(path) > 1:
+            break  # Stop if we revisit the start point
 
     return path[:k]
