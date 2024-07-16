@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 
@@ -16,7 +15,5 @@ double vectorDistance() {
 }
 
 int main() {
-    double result = vectorDistance();
-    std::cout << "Vector distance: " << result << std::endl;
-    return 0;
+    return vectorDistance();
 }
