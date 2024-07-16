@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-vector<int> unique_digits(vector<int> x) {
+vector<int> unique_digits(const vector<int>& x) {
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
@@ -26,6 +26,8 @@ int main() {
     vector<int> input = {123, 456, 789, 246};
     vector<int> output = unique_digits(input);
     vector<int> expected = {123, 789};
+
     assert(output == expected);
+
     return 0;
 }
