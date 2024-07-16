@@ -1,5 +1,6 @@
 #include <vector>
-#include <iostream> // For std::cout, std::endl
+#include <iostream>
+
 using namespace std;
 
 int basement(const vector<int>& v) {
