@@ -1,6 +1,9 @@
+import sys
 from typing import List
 
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups() -> List[str]:
+    paren_string = sys.stdin.readline().rstrip()
+
     if paren_string.count("(") != paren_string.count(")"):
         return []
 
