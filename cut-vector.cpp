@@ -1,18 +1,40 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int min_diff = INT_MAX;
-    int idx = -1;
-    for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int index = 0;
+
+    for (int i = 1; i < vec.size(); ++i) {
+        if (vec[i] - vec[0] <= minDiff) {
+            minDiff = vec[i] - vec[0];
+            index = i;
         }
     }
-    vector<vector<int>> result(2);
-    result[0].insert(result[0].end(), nums.begin(), nums.begin() + idx + 1);
-    result[1].insert(result[1].begin(), nums.begin() + idx + 1, nums.end());
-    return result;
+
+    return {{vec[0]}, {vec.begin() + index}};
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
+    }
+
+    auto res = cutVector(vec);
+
+    for (const auto& x : res.first) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    for (const auto& x : res.second) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
