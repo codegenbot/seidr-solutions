@@ -1,3 +1,4 @@
-import math
 def dice_game(n, m):
-    return 1 - sum(1 for k in range(m) for r in range(k+1, min(k+n, m)))/(n*m)
+    total_outcomes = n * m
+    peter_wins = sum(range(1, n - m + 1)) / total_outcomes
+    return peter_wins
