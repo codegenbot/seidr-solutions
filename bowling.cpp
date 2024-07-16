@@ -26,4 +26,3 @@ int bowlingScore(string s) {
         score += roll;
 
     return score;
-}
