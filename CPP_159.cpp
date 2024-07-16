@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
