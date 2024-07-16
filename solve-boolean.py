@@ -1,20 +1,26 @@
+```
 def solve_boolean(expression):
-    def evaluate(i=0):
-        if i >= len(expression):
+    def evaluate():
+        if expression[0] in ["T", "F"]:
             return expression[0] == "T"
-
-        if expression[i] in ["T", "F"]:
-            return expression[i] == "T"
-        elif expression[i] in ["|", "&"]:
-            left = evaluate(i + 1)
-            op = expression[i]
-            i += 1
-            while i < len(expression) and expression[i] not in ["|", "&"]:
-                pass
-            right = evaluate(i)
-            if op == "|":
-                return left or right
+        elif expression[0] == "(":
+            i = 1
+            temp = evaluate()
+            while i < len(expression) and expression[i] != ")":
+                i += 1
+            return temp
+        operator = expression[0]
+        i = 1
+        if operator in ["|", "&"]:
+            left = evaluate()
+            right = expression[i:]
+            if right[0] == "(":
+                right = evaluate() + right[1:-1]
             else:
-                return left and right
+                while right[0] in ["T", "F", "|", "&"] or (right[0] == "(" and right.count("(") > 1):
+                    right = right[1:]
+            return eval("left " + operator + " right")
+        else:
+            raise Exception("Invalid input")
 
     return evaluate()
