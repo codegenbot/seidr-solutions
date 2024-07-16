@@ -1,1 +1,1 @@
-paren_string = input().rstrip()
+paren_string = input()
