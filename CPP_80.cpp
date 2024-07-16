@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
 bool is_happy(const std::string& s){
