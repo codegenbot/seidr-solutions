@@ -1,8 +1,7 @@
 #include <vector>
-#include <algorithm>
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
+vector<int> unique_digits(vector<int> x) {
+    vector<int> res;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -14,9 +13,9 @@ vector<int> unique_digits(vector<int> x){
             temp /= 10;
         }
         if (!hasEvenDigit) {
-            result.push_back(num);
+            res.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    sort(res.begin(), res.end());
+    return res;
 }
