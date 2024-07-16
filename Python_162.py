@@ -5,14 +5,11 @@ def string_to_md5(text):
 
 try:
     while True:
-        try:
-            input_text = input("Enter a string: ").strip()
-        except EOFError:
-            break
+        input_text = input("Enter a string: ").strip()
         if not input_text:
             print("Invalid input")
             continue
         result = string_to_md5(input_text)
         print(result)
-except EOFError:
+except (EOFError, KeyboardInterrupt):
     pass
