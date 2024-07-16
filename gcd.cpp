@@ -1,8 +1,7 @@
-Here is the corrected code:
+Here's the modified code:
 
 ```cpp
 #include <vector>
-#include <string>
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
