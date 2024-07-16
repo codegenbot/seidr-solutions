@@ -1,8 +1,8 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    istringstream iss(test);
+    stringstream ss(test);
     string word;
-    while (iss >> word) {
+    while (ss >> word) {
         for (char c : word) {
             result[c]++;
         }
