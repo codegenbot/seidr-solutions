@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 
 std::string middleCharacter(const std::string& str) {
@@ -7,4 +9,10 @@ std::string middleCharacter(const std::string& str) {
     } else {
         return str.substr(length / 2, 1);
     }
+}
+
+int main() {
+    std::cout << middleCharacter("hello") << std::endl;
+    std::cout << middleCharacter("world") << std::endl;
+    return 0;
 }
