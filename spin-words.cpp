@@ -1,4 +1,4 @@
-#include <string>
+#include <sstream>
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
