@@ -2,18 +2,26 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    level = 0
+    level = 1
+    current_group = ""
 
     for char in paren_string:
-        if char == '(':
+        if char == "(":
             level += 1
             if level > 1:
-                result[-1] += char
-            else:
-                result.append(char)
-        elif char == ')':
+                current_group += char
+        elif char == ")":
             level -= 1
+            if level == 0:
+                result.append(current_group)
+                current_group = ""
+            elif level > 0:
+                current_group += char
+        else:
             if level > 0:
-                result[-1] += char
+                current_group += char
+
+    if current_group:
+        result.append(current_group)
 
     return result
