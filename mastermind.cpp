@@ -1,9 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-#include <vector>
-#include <algorithm>
+#include <tuple>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -28,4 +23,3 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_tuple(white, black);
-}
