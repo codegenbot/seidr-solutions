@@ -3,6 +3,7 @@
 
 int main() {
     std::string tweet;
+    std::cout << "Enter your tweet: ";
     std::getline(std::cin, tweet);
 
     if (tweet.empty()) {
@@ -10,7 +11,7 @@ int main() {
     } else if (tweet.size() > 140) {
         std::cout << "Too many characters" << std::endl;
     } else {
-        std::cout << "Your tweet has " << tweet.size() - 1 << " characters" << std::endl;
+        std::cout << "Your tweet has " << tweet.size() << " characters" << std::endl;
     }
 
     return 0;
