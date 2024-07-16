@@ -3,18 +3,27 @@
 bool solveBoolean(const std::string& s) {
     bool result = true;
     std::stringstream ss;
+    ss = s; ss >> boolalpha;
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
-            result = result || true;
+            result = result || (ss >> boolalpha).good();
         } else if (c == '&') {
-            result = result && true;
-        } else if (c == 'T' || c == 't') {
-            ss << "true";
-        } else if (c == 'F' || c == 'f') {
-            ss << "false";
+            result = result && (ss >> boolalpha).good();
         }
     }
-    bool finalResult = static_cast<bool>(ss.str().compare("true") == 0);
-    return result && finalResult;
+    return result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, s);
+    bool result = solveBoolean(s);
+    if (result) {
+        std::cout << "The result is true." << std::endl;
+    } else {
+        std::cout << "The result is false." << std::endl;
+    }
+    return 0;
 }
