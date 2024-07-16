@@ -1,1 +1,1 @@
-inputs = [int(input()) for _ in range(3)]
+inputs = [input("Enter input " + str(i+1) + ": ").strip() for i in range(3)]
