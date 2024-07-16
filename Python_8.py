@@ -1,19 +1,22 @@
 def sum_product(numbers):
-    if len(numbers) < 2:
+    if len(numbers) < 1:
         return None
     return sum(numbers) * numbers[0]
 
 results = []
 
-while True:
-    try:
-        numbers_input = list(map(int, input().strip().split()))
-        if not numbers_input or numbers_input[0] == -1:
+try:
+    while True:
+        try:
+            numbers_input = list(map(int, input().strip().split()))
+        except (ValueError, EOFError):
+            break
+        if not numbers_input or -1 in numbers_input:
             break
         result = sum_product(numbers_input)
         results.append(result)
-    except (ValueError, EOFError):
-        break
+except EOFError:
+    pass
 
 for result in results:
     print(result)
