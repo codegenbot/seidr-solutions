@@ -15,3 +15,4 @@ int main() {
     vector<int> arr = {1, -2, 3, 10, -4, 7, 2};
     cout << basementIndex(arr) << endl;
     return 0;
+}
