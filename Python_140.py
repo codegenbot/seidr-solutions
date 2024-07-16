@@ -9,5 +9,5 @@ try:
     input_text = input("Enter text: ").strip()
     result = process_text(input_text)
     print(result)
-except (EOFError, KeyboardInterrupt):
-    print("Error reading input. Please provide valid input.")
+except (KeyboardInterrupt, EOFError):
+    print("Error reading input.")
