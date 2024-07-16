@@ -4,13 +4,8 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression:
-        parts = expression.split("&")
-        return all(eval(part) for part in parts)
+        a, b = expression.split("&")
+        return bool(int(a)) and bool(int(b))
     elif "|" in expression:
-        parts = expression.split("|")
-        return any(eval(part) for part in parts)
-
-
-print(solve_boolean("t"))
-print(solve_boolean("f&f"))
-print(solve_boolean("t|f"))
+        a, b = expression.split("|")
+        return bool(int(a)) or bool(int(b))
