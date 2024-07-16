@@ -1,22 +1,43 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]) return false;
+    }
+    
+    return true;
 }
 
-std::vector<int> sort_third(std::vector<int> l) {
+vector<int> sort_third(vector<int>& l){
+    vector<int> l_divisible_by_three;
+    vector<int> l_not_divisible_by_three;
+    
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            std::vector<int> temp;
-            for (int j = i; j < l.size() && j % 3 == 0; ++j) {
-                temp.push_back(l[j]);
-            }
-            std::sort(temp.begin(), temp.end());
-            for (int j = i; j < l.size() && j % 3 == 0; ++j) {
-                l[j] = temp[j - i];
-            }
+            l_divisible_by_three.push_back(l[i]);
+        } else {
+            l_not_divisible_by_three.push_back(l[i]);
         }
     }
-    return l;
+    
+    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
+    
+    vector<int> result;
+    int idx_divisible = 0;
+    int idx_not_divisible = 0;
+    
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            result.push_back(l_divisible_by_three[idx_divisible]);
+            idx_divisible++;
+        } else {
+            result.push_back(l_not_divisible_by_three[idx_not_divisible]);
+            idx_not_divisible++;
+        }
+    }
+    
+    return result;
 }
