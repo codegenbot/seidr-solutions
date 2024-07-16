@@ -1,12 +1,21 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
 int main() {
     string text, target;
-    cin >> text >> target;
+    cin >> target >> text;
     
     vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    size_t pos = 0;
+    while (pos != text.length()) {
+        pos = text.find(target, pos);
+        if (pos != string::npos) {
+            indices.push_back(pos);
+            pos += 1;
+        }
     }
     
     for (int i = 0; i < indices.size(); ++i) {
