@@ -1,5 +1,6 @@
+import math
 def roll_higher(n, m):
     if n <= m:
         return 0
     else:
-        return sum((n-i)/m for i in range(1, n-m+1)) / (n*m)
+        return (math.factorial(m-1))/pow(n*m,m-1)
