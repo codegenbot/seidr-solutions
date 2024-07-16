@@ -14,3 +14,5 @@ public:
             return to_string(x);
     }
 };
+
+int main() { return 0; }
