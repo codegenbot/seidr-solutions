@@ -13,14 +13,16 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 int main() {
     int n;
     std::cin >> n;
-    
+
     std::vector<double> vec1(n);
     std::vector<double> vec2(n);
-    
+
+    // Input vec1
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
+    // Input vec2
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
