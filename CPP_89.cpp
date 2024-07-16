@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(const std::string& s) {
+    std::string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             result += 'a' + (((c - 'a') + 2 * 2) % 26);
@@ -17,7 +17,6 @@ string encrypt(string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e");
-    // Add more test cases here
+    assert(encrypt("a") == "c");
     return 0;
 }
