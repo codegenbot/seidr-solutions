@@ -3,5 +3,4 @@ int snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float mel
     for (int i = 0; i < hours; i++) {
         currentSnow += rateOfSnowFall - meltingRate;
     }
-    return static_cast<int>(currentSnow);
-};
+    return static_cast<int>(currentSnow); }
