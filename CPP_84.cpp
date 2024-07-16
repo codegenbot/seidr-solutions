@@ -6,3 +6,10 @@ string solve(int N) {
     }
     return bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
 }
+
+int main() {
+    int N;
+    cin >> N;
+    cout << solve(N);
+    return 0;
+}
