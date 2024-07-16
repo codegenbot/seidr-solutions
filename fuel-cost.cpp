@@ -1,8 +1,6 @@
-int main() {
-    int sum = fuelCost({1234, 5678, 9012});
-    cout << "The total cost is: " << sum;
-    return 0;
-}
+```c++
+#include <vector>
+using namespace std;
 
 int fuelCost(vector<int> nums) {
     int sum = 0;
@@ -12,4 +10,8 @@ int fuelCost(vector<int> nums) {
         sum += res;
     }
     return sum;
+}
+
+int main() {
+    return fuelCost({1, 2, 3, 4, 5});
 }
