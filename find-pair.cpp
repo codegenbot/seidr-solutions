@@ -1,27 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> numMap;
+    std::sort(nums.begin(), nums.end());
+    std::vector<std::pair<int, int>> result;
     
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            return {{complement, nums[i]}};
+    auto it1 = nums.begin();
+    auto it2 = nums.end() - 1;
+    
+    while (it1 != it2) {
+        int sum = *it1 + *it2;
+        if (sum == target) {
+            result = {{*it1, *it2}};
+            break;
+        } else if (sum < target) {
+            ++it1;
+        } else {
+            --it2;
         }
-        numMap[nums[i]] = i;
     }
     
-    return {};
-}
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7; 
-    std::vector<std::pair<int, int>> result = findPairs(nums, target);
-    for (const auto& pair : result) {
-        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
-    }
-    return 0;
+    return result;
 }
