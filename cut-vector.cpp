@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,14 +8,13 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     for (int i = 0; i < n - 1; ++i) {
         if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
-            int midIndex = i;
             for (int j = 0; j < i; ++j) {
                 res[0].push_back(v[j]);
             }
             for (int j = i; j < n; ++j) {
                 res[1].push_back(v[j]);
             }
-            return {{}, res[0], {}, res[1]};
+            return {res[0], {}, res[1]};
         }
     }
     int mid = n / 2;
