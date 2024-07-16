@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -23,4 +20,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
