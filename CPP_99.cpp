@@ -1,4 +1,10 @@
-double val = stod(value);
-int rounded = static_cast<int>(val >= 0 ? val + 0.5 : val - 0.5);
-return rounded;
+double num = stod(value);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
+    
+    if (num - floor_num < ceil_num - num) {
+        return floor_num;
+    } else {
+        return ceil_num;
+    }
 }
