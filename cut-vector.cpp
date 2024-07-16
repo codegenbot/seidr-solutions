@@ -1,14 +1,15 @@
-Here is the modified code with the main function:
-
 ```cpp
 #include <vector>
+#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    int min_diff = INT_MAX;
     for (int i = 0; i < n - 1; ++i) {
-        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+        if (abs(v[i] - v[i + 1]) <= min_diff) {
+            min_diff = abs(v[i] - v[i + 1]);
             res[0].insert(res[0].end(), v.begin(), v.end());
             return {{}, res[0]};
         }
