@@ -1,8 +1,10 @@
+```
 #include <iostream>
 #include <string>
 
 int getBonus(std::string s, int i) {
     int bonus = 0;
+
     for (int j = i; j < s.length(); j++) {
         if (s[j] == 'X') { 
             bonus += 10;
@@ -12,6 +14,7 @@ int getBonus(std::string s, int i) {
             bonus += s[j] - '0';
         }
     }
+
     return bonus;
 }
 
