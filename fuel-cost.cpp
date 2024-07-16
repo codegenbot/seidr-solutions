@@ -1,15 +1,9 @@
-int main() {
-    int sum = fuelCost({1234, 5678, 9012});
-    cout << "The total cost is: " << sum;
-    return 0;
-}
-
 int fuelCost(vector<int> nums) {
     int sum = 0;
     for (int num : nums) {
-        int res = (num / 3) - 2;
-        if (res < 0) res = 0;
-        sum += res;
+        int newNum = num // 3; 
+        newNum = (newNum - 2 <= 0) ? 0 : newNum - 2;
+        sum += newNum;
     }
     return sum;
 }
