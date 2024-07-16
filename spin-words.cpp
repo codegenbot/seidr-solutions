@@ -2,24 +2,25 @@
 using namespace std;
 
 string spinWords(string str) {
-    string result = "";
-    int len = 0;
-    for (int i = 0; i < str.length(); i++) {
+    string output = "";
+    string word = "";
+
+    for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            for (; len > 4 && !result.empty(); ) {
-                result.pop_back();
-                len--;
-            }
-            result += " ";
-            len = 0;
+            if (word.length() >= 5)
+                reverse(word.begin(), word.end());
+            output += word + " ";
+            word = "";
         } else {
-            len++;
-            result += str[i];
+            word += str[i];
         }
     }
-    for (; len > 4; ) {
-        result.pop_back();
-        len--;
-    }
-    return result;
+
+    // For the last word
+    if (word.length() >= 5)
+        reverse(word.begin(), word.end());
+
+    output += word;
+
+    return output;
 }
