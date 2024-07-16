@@ -1,15 +1,20 @@
+Here is the completed code:
+
+```cpp
 string int_to_mini_roman(int number) {
-    vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-                                         {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
-                                         {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    string result = "";
-    
-    for (const auto& roman_value : roman) {
-        while (number >= roman_value.first) {
-            number -= roman_value.first;
-            result += roman_value.second;
+    vector<pair<int, string>> romans = {{1000, "m"}, {900, "cm"}, {500, "d"}, 
+                                         {400, "cd"}, {100, "c"}, {90, "xc"}, 
+                                         {50, "l"}, {40, "xl"}, {10, "x"}, 
+                                         {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+    string roman = "";
+    for (auto& p : romans) {
+        while (number >= p.first) {
+            number -= p.first;
+            roman += p.second;
+        }
+        if (!roman.empty() && number < p.first) {
+            roman += ' ';
         }
     }
-    
-    return result;
+    return roman;
 }
