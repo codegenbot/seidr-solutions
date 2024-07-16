@@ -6,10 +6,10 @@ int main() {
     std::string s;
     std::cin >> s;
 
-    std::string result = "";
+    std::string result;
     bool capitalizeNext = true;
-    size_t pos;  // Declare pos before using it
 
+    size_t pos = 0;
     for (char c : s) {
         if (c == '-') {
             capitalizeNext = true;
@@ -23,9 +23,5 @@ int main() {
         }
     }
 
-    // Remove trailing space
-    while ((pos = result.find(' ')) != std::string::npos) {
-        result.erase(pos, 1);
-    }
     return 0;
 }
