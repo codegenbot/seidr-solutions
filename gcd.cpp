@@ -31,15 +31,29 @@ int findGCD(int a, int b) {
 }
 
 int main() {
-    int a = 48;
-    int b = 18;
-    cout << "GCD of " << a << " and " << b << " is " << findGCD(a, b) << endl;
+    int num1, num2;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    int gcd = findGCD(num1, num2);
+    cout << "The GCD of " << num1 << " and " << num2 << " is " << gcd << endl;
     
-    string text = "banana";
-    string target = "ana";
+    string text;
+    cout << "Enter a text: ";
+    getline(cin, text);
+
+    string target;
+    cout << "Enter the target string: ";
+    cin >> target;
+
     vector<int> indices = findIndices(text, target);
+    cout << "The target string appears at indices ";
     for (int i : indices) {
-        cout << "Target string found at index " << i << endl;
+        cout << i << " ";
     }
+    cout << endl;
+    
     return 0;
 }
