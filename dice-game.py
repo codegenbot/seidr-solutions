@@ -1,3 +1,5 @@
-```
 def roll_higher(n, m):
-    return sum(1/(n*m) for _ in range(m)) / n
+    if n <= m:
+        return 0
+    else:
+        return (n - m) / (n * m)
