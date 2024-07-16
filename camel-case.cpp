@@ -1,36 +1,27 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool firstWord = true;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            if (!firstWord)
-                result += char(toupper(s[i + 1]));
-            else
-                firstWord = false;
-            i++;
-        } else if (s[i] == ' ') {
-            if (!firstWord)
-                result += char(toupper(s[i + 1]));
-            else
-                firstWord = false;
-            i++;
+    for (char c : str) {
+        if (c == '-') {
+            result += c;
+        } else if (c == ' ') {
+            continue;
         } else {
-            if (firstWord)
-                firstWord = false;
-            result += s[i];
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += tolower(c);
         }
     }
-    
     return result;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
