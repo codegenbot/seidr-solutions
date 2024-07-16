@@ -1,26 +1,33 @@
-```cpp
+```c++
 int code_counts[6] = {0};
 
-int main() {
-    string code, guess;
-    int whitePegs = 0, blackPegs = 0;
-
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-
-    cout << "Enter your guess: ";
-    cin >> guess;
+int mastermind(int code[], int guess[]) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else if (count(code.begin(), code.end(), guess[i]) > 0) {
-            whitePegs++;
+        } else {
+            for (int j = 0; j < 4; j++) {
+                if (code[j] == guess[i] && i != j) {
+                    whitePegs++;
+                    break;
+                }
+            }
         }
     }
 
-    cout << "Black pegs: " << blackPegs << endl;
-    cout << "White pegs: " << whitePegs << endl;
+    return {blackPegs, whitePegs};
+}
+
+int main() {
+    int code[] = {'R', 'G', 'B', 'Y'};
+    int guess[] = {'R', 'B', 'G', 'Y'};
+
+    int result[] = mastermind(code, guess);
+
+    std::cout << "Black pegs: " << result[0] << ", White pegs: " << result[1] << std::endl;
 
     return 0;
 }
