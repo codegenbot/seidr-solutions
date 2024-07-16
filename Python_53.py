@@ -3,8 +3,8 @@ def add(a, b):
 
 while True:
     try:
-        num1 = int(input("Enter first integer number: "))
-        num2 = int(input("Enter second integer number: "))
+        num1 = int(input("Enter first integer number: ").strip())
+        num2 = int(input("Enter second integer number: ").strip())
         
         result = add(num1, num2)
         print(result)
