@@ -2,7 +2,7 @@ vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Satur
     vector<string> result;
     
     if (find(planets.begin(), planets.end(), planet1) == planets.end() || find(planets.begin(), planets.end(), planet2) == planets.end()) {
-        return {};
+        return result;
     }
     
     int start = find(planets.begin(), planets.end(), planet1) - planets.begin();
@@ -17,3 +17,4 @@ vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Satur
     }
     
     return result;
+}
