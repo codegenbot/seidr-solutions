@@ -1,7 +1,8 @@
+import sys
 from typing import List
 
 def separate_paren_groups() -> List[str]:
-    paren_string = input("Enter a string with parentheses: ")
+    paren_string = sys.stdin.readline().rstrip()
 
     if paren_string.count("(") != paren_string.count(")"):
         return []
