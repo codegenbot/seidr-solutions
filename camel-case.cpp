@@ -6,7 +6,7 @@ std::string camelCase(std::string s) {
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += std::toupper(s.find(c)+1,c+1);
+            if(capitalizeNext) result += std::toupper(s.find(c));
             capitalizeNext = true;
             result.push_back(' ');
         } else if (capitalizeNext) {
