@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int> arr) {
@@ -22,21 +23,17 @@ vector<int> leaders(vector<int> arr) {
 
 vector<int> leaders(vector<int> arr) {
     int n = arr.size();
-    vector<int> leaders;
-    
-    if(n == 0)
-        return leaders;
-    
-    leaders.push_back(arr[n-1]);
+    vector<int> res;
+    int max_right = arr[n-1];
     
     for(int i=n-2; i>=0; i--){
-        while(i > 0 && arr[i] <= leaders.back()){
-            leaders.pop_back();
+        if(arr[i] >= max_right){
+            max_right = arr[i];
+            res.push_back(max_right);
         }
-        leaders.push_back(arr[i]);
     }
     
-    return leaders;
+    return res;
 }
 
 int main() {
