@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -13,15 +13,22 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0;
-    std::unordered_map<char, int> codeCount;
+    std::map<char, size_t> codeCount;
 
     // Count characters in the code
+    size_t count = 1;
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c]++;
-            if (c == guessStr[0] || c == guessStr[1] || c == guessStr[2] || c == guessStr[3]) {
-                blackPegs++;
+            if (codeCount.find(c) == codeCount.end()) {
+                codeCount[c] = count++;
             }
+        }
+    }
+
+    // Count black pegs
+    for (int i = 0; i < 4; i++) {
+        if (codeStr[i] == guessStr[i]) {
+            blackPegs++;
         }
     }
 
