@@ -1,5 +1,3 @@
-```cpp
-#include <vector>
 #include <algorithm>
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
