@@ -6,12 +6,12 @@ int skjkasdkd(vector<int> lst){
         if(isPrime(i) && i > max_prime)
             max_prime = i;
     }
-    int sum_digits = 0;
+    int sum = 0;
     while(max_prime > 0){
-        sum_digits += max_prime % 10;
+        sum += max_prime % 10;
         max_prime /= 10;
     }
-    return sum_digits;
+    return sum;
 }
 
 bool isPrime(int n){
