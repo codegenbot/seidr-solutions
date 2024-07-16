@@ -1,7 +1,7 @@
-int basement(vector<int> &nums) {
+int basement(vector<int> arr) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
         if (sum < 0) {
             return i;
         }
@@ -12,10 +12,10 @@ int basement(vector<int> &nums) {
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    cout << basement(nums) << endl;
+    cout << basement(arr) << endl;
     return 0;
 }
