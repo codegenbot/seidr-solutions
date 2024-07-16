@@ -6,7 +6,7 @@ def parse_music(music_string: str) -> list:
     while i < len(music_string):
         if music_string[i] == '.':
             if i + 2 <= len(music_string) and music_string[i:i+3] in notes:
-                result.append(notes['.|'])
+                result.append(notes[' .|'])
                 i += 3
             else:
                 raise ValueError("Invalid note")
