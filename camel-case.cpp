@@ -12,12 +12,10 @@ std::string kebabToCamel(const std::string& str) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            if(result != "") {
-                result += tolower(c);
-            }else{
-                result+=toupper(c);
-                capitalizeNext=true;
+            if (!result.empty()) {
+                result += ">";
             }
+            result += tolower(c);
         }
     }
 
