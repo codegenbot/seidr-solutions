@@ -4,7 +4,7 @@
 
 bool issame(const vector<string>& a, const vector<string>& b);
 
-vector<string> select_words(const string& s, int n) {
+vector<string> select_words(string s, int n) {
     vector<string> words;
     string word = "";
     int consonant_count = 0;
@@ -50,6 +50,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    // Main function implementation
+    // Main function logic here
     return 0;
 }
