@@ -10,13 +10,13 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else {
-        return std::to_string(x);
+        result = std::to_string(x);
+        return result;
     }
 }
 
 int main() {
     int x;
-    std::cout << "Enter a number: ";
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
     return 0;
