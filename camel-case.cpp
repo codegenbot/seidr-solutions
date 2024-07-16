@@ -29,6 +29,12 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     if (!str.empty()) {
         tokens.push_back(str);
     }
+    
+    for (auto& token : tokens) {
+        if (!token.empty())
+            tokens.push_back(token);
+    }
+    
     return tokens;
 }
 
