@@ -1,9 +1,7 @@
-#include <iostream>
 #include <boost/any.hpp>
 #include <string>
-#include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -33,4 +31,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else {
         return std::string("None");
     }
+}
+
+int main() {
+    // Main function body (if needed)
+    return 0;
 }
