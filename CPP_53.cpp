@@ -4,7 +4,8 @@
 int add(int x, int y);
 
 int main() {
-    // Main function code here
+    int result = add(5, 3);
+    return result;
 }
 
 int add(int x, int y) {
