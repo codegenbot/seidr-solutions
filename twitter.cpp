@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -9,13 +8,12 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     
-    if(tweet.length() > 140) {
+    size_t len = tweet.length();
+    if(len > 140) {
         cout << "Too many characters" << endl;
-    } else if(tweet.empty()) {
+    } else if(len == 0) {
         cout << "You didn't type anything" << endl;
-    } else if (tweet.length() == 140) {
-        cout << "Your tweet has 140 characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        cout << "Your tweet has " << len << " characters" << endl;
     }
 }
