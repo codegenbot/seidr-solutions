@@ -20,7 +20,7 @@ int main() {
         sum += (num / 3) - 2;
     }
 
-    cout << sum * 3 << endl;
+    cout << sum << endl;
 
     return 0;
 }
