@@ -1,4 +1,21 @@
-bool issame(int a, int b) {
+#include <algorithm>
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+sort(nums.begin(), nums.end(), [](int a, int b) {
     int sum_a = 0, sum_b = 0;
     if (a < 0) a = -a;
     if (b < 0) b = -b;
@@ -14,9 +31,6 @@ bool issame(int a, int b) {
         return a < b;
     }
     return sum_a < sum_b;
-}
+});
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), issame); 
-    return nums;
-}
+return nums;
