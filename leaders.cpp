@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 vector<int> leaders(vector<int> arr) {
@@ -26,10 +25,10 @@ vector<int> leaders(vector<int> arr) {
     vector<int> res;
     int max_right = arr[n-1];
     
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= max_right){
+    for(int i=n-1; i>=0; i--){
+        if(max_right <= arr[i]){
+            res.push_back(arr[i]);
             max_right = arr[i];
-            res.push_back(max_right);
         }
     }
     
@@ -40,7 +39,7 @@ int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2};
     vector<int> leadersVec = leaders(arr);
     for(int i:leadersVec){
-        cout << i << " ";
+        std::cout << i << " ";
     }
     return 0;
 }
