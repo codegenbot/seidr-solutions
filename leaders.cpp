@@ -1,5 +1,6 @@
 #include <vector>
 #include <initializer_list>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -24,8 +25,27 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-vector<int> arr = {1, 3, 4, 1, 5};
-vector<int> leadersResult = leaders(arr);
-for (int leader : leadersResult) {
-    cout << leader << " ";
+vector<int> leaders(vector<int>& arr) {
+    vector<int> leaders;
+    int n = arr.size();
+    int maxRightSoFar = arr[n-1];
+    leaders.push_back(maxRightSoFar);
+    
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= maxRightSoFar) {
+            maxRightSoFar = arr[i];
+            leaders.push_back(arr[i]);
+        }
+    }
+    
+    return leaders;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 1, 5};
+    vector<int> leadersResult = leaders(arr);
+    for (int leader : leadersResult) {
+        cout << leader << " ";
+    }
+    return 0;
 }
