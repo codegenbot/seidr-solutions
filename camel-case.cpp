@@ -2,38 +2,37 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    bool firstWord = true;
-    for (char c : s) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += std::toupper(c);
-            } else {
-                firstWord = false;
-            }
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += std::toupper(c);
-            } else {
-                firstWord = false;
-            }
-        } else {
-            if (!firstWord) {
-                result += c;
-            } else {
-                result += std::tolower(c);
-                firstWord = false;
-            }
-        }
+std::string kebabToCamelCase(const std::string& s) {
+    std::string result;
+    bool first = true;
+
+    for (const auto& word : s.split '-') {
+        if (!first)
+            result += std::toupper(word[0]);
+        else
+            result += word;
+        first = false;
     }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    while (true) {
+        std::string input;
+        std::cout << "Enter a string in kebab-case or 'stop' to quit: ";
+        std::cin >> input;
+
+        if (input == "stop")
+            break;
+
+        std::cout << kebabToCamelCase(input) << "\n";
     }
+
     return 0;
+}
+
+std::string& operator>>(std::istream& is, std::string& s) {
+    std::getline(is, s);
+    return is;
 }
