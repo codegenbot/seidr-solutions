@@ -1,36 +1,42 @@
-int numWhitePegs(const string &code, const string &guess) {
-    int whitePegs = 0;
-    for (int i = 0; i < 4; ++i) {
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++whitePegs;
+            count++;
         }
     }
-    return whitePegs;
+    return count;
 }
 
-int numBlackPegs(const string &code, const string &guess) {
-    int blackPegs = 0;
-    map<char, int> codeMap;
-    for (char c : code) {
-        codeMap[c]++;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeCount, guessCount;
+
+    for (int i = 0; i < 4; i++) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
     }
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            --codeMap[guess[i]];
+    for (auto it = codeCount.begin(); it != codeCount.end(); it++) {
+        if (it->second > 0 && guessCount[it->first] > 0) {
+            count += min(it->second, guessCount[it->first]);
         }
     }
 
-    for (int i = 0; i < 4; ++i) {
-        if (codeMap[guess[i]] > 0) {
-            ++blackPegs;
-        }
-    }
-
-    return blackPegs;
+    return count;
 }
 
-void printClue(int whitePegs, int blackPegs) {
-    cout << whitePegs << "\n";
-    cout << blackPegs << "\n";
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int black = blackPegs(code, guess);
+    int white = 4 - black;
+    cout << white << endl << black << endl;
+    return 0;
 }
