@@ -7,10 +7,11 @@ int main() {
 
     bounciness_index = first_bounce_height / start_height;
 
-    double total_distance = start_height;
-    for (int i = 0; i < num_bounces; ++i) {
-        total_distance += 2 * first_bounce_height; // Add next bounce height considering both up and down movement
+    double total_distance = start_height + first_bounce_height; // Include the initial drop distance
+
+    for (int i = 1; i < num_bounces; ++i) {
         first_bounce_height *= bounciness_index; // Update next bounce height
+        total_distance += 2 * first_bounce_height; // Add distance up and down
     }
 
     std::cout << total_distance << std::endl;
