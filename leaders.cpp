@@ -1,17 +1,17 @@
+```c++
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
     int n = v.size();
     vector<int> res;
-    int maxR = v[n-1];
+    int maxRight = v[n-1];
     for(int i=n-1; i>=0; i--) {
-        if(v[i] >= maxR) {
+        if(v[i] >= maxRight) {
             res.push_back(v[i]);
-            maxR = v[i];
+            maxRight = v[i];
         }
     }
-    reverse(res.begin(), res.end());
     return res;
 }
 
