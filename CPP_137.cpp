@@ -1,4 +1,11 @@
-```
+```cpp
+#include <boost/any.hpp>
+#include <boost/variant.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 boost::variant<int, float, string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
