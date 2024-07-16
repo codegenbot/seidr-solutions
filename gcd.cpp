@@ -1,27 +1,7 @@
-```cpp
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
-
-vector<int> findIndices(string text, string target) {
-    vector<int> result;
-    int targetLength = target.length();
-    for (int i = 0; i <= text.length() - targetLength; i++) {
-        bool isMatch = true;
-        for (int j = 0; j < targetLength; j++) {
-            if (text[i + j] != target[j]) {
-                isMatch = false;
-                break;
-            }
-        }
-        if (isMatch) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
 
 int findGCD(int a, int b) {
     while (b != 0) {
@@ -33,15 +13,9 @@ int findGCD(int a, int b) {
 }
 
 int main() {
-    int a = 48;
-    int b = 18;
-    cout << "GCD of " << a << " and " << b << " is " << findGCD(a, b) << endl;
-
-    string text = "banana";
-    string target = "ana";
-    vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        cout << "Target string found at index " << i << endl;
-    }
-    return 0;
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    int GCD = findGCD(num1, num2);
+    cout << "The GCD of the given numbers is: " << GCD << endl;
 }
