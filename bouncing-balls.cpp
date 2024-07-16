@@ -13,9 +13,9 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    if(first_bounce_height > start_height || first_bounce_height < 0) {
-        cout << "Invalid height" << endl;
-        return 1;
+    if(first_bounce_height <= 0.5*start_height) {
+        cout << fixed << setprecision(6) << 0;
+        return 0;
     }
 
     double bounciness_index = first_bounce_height / start_height;
@@ -25,7 +25,7 @@ int main() {
 
     for(int i = 1; i <= num_bounces && bounciness_index > 0.5; ++i) {
         total_distance += pow(bounciness_index, i) / (i+1);
-        prev_height /= 2.0; 
+        prev_height /= 2.0;
     }
 
     cout << fixed << setprecision(6) << total_distance;
