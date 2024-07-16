@@ -1,8 +1,4 @@
 ```cpp
-#include <string>
-#include <sstream>
-#include <iostream>
-
 std::string spinWords(std::string str) {
     std::string result;
     std::stringstream iss(str); 
@@ -16,9 +12,4 @@ std::string spinWords(std::string str) {
     }
 
     return result.substr(0, result.size()-1); 
-}
-
-int main() {
-    std::cout << spinWords("Hello World this is a test") << std::endl;
-    return 0;
 }

@@ -1,18 +1,24 @@
 ```cpp
 #include <sstream>
+#include <iostream>
+
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    std::stringstream ss;
-    ss.str(s); // Initialize the stringstream with the input string
-    ss >> boolalpha;
+    std::stringstream ss(std::string(s)); 
+
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
-            result = result || (ss >> nosboolalpha).good();
+            char ch;
+            ss >> ch;
+            result = result || (ch == 'T');
         } else if (c == '&') {
-            result = result && (ss >> nosboolalpha).good();
+            char ch;
+            ss >> ch;
+            result = result && (ch == 'T');
         }
     }
+    
     return result;
 }
 
