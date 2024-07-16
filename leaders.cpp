@@ -1,31 +1,49 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res;
+    
+    if(n == 0)
+        return res;
+    
+    res.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--){
+        if(arr[i] > res.back()){
+            res.push_back(arr[i]);
+        }
+    }
+    
+    return res;
+}
+
+vector<int> leaders(vector<int> arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    for (int i = n - 1; i >= 0; i--) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    if(n == 0)
+        return leaders;
+    
+    leaders.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--){
+        while(i > 0 && arr[i] <= leaders.back()){
+            leaders.pop_back();
         }
-        if (leader) {
-            leaders.push_back(arr[i]);
-        }
+        leaders.push_back(arr[i]);
     }
     
     return leaders;
 }
 
 int main() {
-    vector<int> input = {1, 3, 4, 1, 5};
-    vector<int> leadersResult = leaders(input);
-    for (int leader : leadersResult) {
-        cout << leader << " ";
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersVec = leaders(arr);
+    for(int i:leadersVec){
+        cout << i << " ";
     }
     return 0;
 }
