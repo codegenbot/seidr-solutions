@@ -13,9 +13,11 @@ int main() {
     double bouncinessIndex = (firstBounce / startHeight);
 
     double totalDistance = 0.0;
+    double maxHeight = firstBounce; // Initialize max height
     for (int i = 0; i < numBounces; ++i) {
-        startHeight = firstBounce * bouncinessIndex;
-        totalDistance += startHeight * (pow(2, i+1) - 1);
+        startHeight *= bouncinessIndex;
+        totalDistance += maxHeight * pow(2, i + 1);
+        maxHeight = startHeight; // Update max height for next bounce
     }
 
     cout << fixed << setprecision(10);
