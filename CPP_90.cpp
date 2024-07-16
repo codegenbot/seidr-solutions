@@ -1,11 +1,9 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst){
-    if(lst.empty()) return -1; // Return None (or -1 in this case)
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i = 0; i < sorted.size() - 1; i++){
-        if(sorted[i] != sorted[i+1]) return sorted[i+1];
-    }
-    return -1; // Return None (or -1 in this case)
-}
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // Return None as per problem description
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    auto it = prev(std::unique(copy.begin(), copy.end()), copy.end());
+    if (it == copy.begin()) return -1; 
+    else return *prev(it, copy.end());
