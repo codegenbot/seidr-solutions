@@ -1,13 +1,8 @@
-vector<int> sorted_indices;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sorted_indices.push_back(i);
+vector<int> l_copy = l;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 3 == 0){
+            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
-    
-    for (int index : sorted_indices) {
-        sort(l.begin() + index, l.begin() + index + 3);
-    }
-    
-    return l;
+    return l_copy;
 }
