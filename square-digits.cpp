@@ -7,4 +7,3 @@ string squareDigits(string n) {
         res += to_string(num * num);
     }
     return res;
-}
