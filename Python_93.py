@@ -13,3 +13,4 @@ def encode(message):
                 result += 'R'
             elif ord('a') <= ascii_offset and char.islower():
                 result += 'r'
+    return result
