@@ -11,8 +11,9 @@ int main() {
     while (i < text.size()) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
-            i += 1; // Update index increment to handle overlapping occurrences
+            i += target.size(); // Update index increment to handle overlapping occurrences
         } else {
+            indices.push_back(i); // Add this line to capture the starting position of the mismatch
             i += 1;
         }
     }
