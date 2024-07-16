@@ -1,6 +1,4 @@
 n = int(input())
-xs = []
-for _ in range(n):
-    xs.append(int(input()))
+xs = list(map(int, input().split()))
 xs.sort()
 print(*xs)
