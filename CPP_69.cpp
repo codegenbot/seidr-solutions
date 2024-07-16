@@ -1,18 +1,8 @@
-#include <unordered_map>
-#include <algorithm>
-
-int search(vector<int> lst){
-    unordered_map<int, int> freq;
+int res = -1;
     for (int num : lst) {
-        freq[num]++;
-    }
-    
-    int result = -1;
-    for (auto& pair : freq) {
-        if (pair.second >= pair.first && pair.second > result) {
-            result = pair.second;
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num && num > res) {
+            res = num;
         }
     }
-    
-    return result;
+    return res;
 }
