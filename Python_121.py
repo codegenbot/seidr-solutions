@@ -1,3 +1,4 @@
+```python
 while True:
     try:
         user_input = input("Enter numbers separated by space: ")
@@ -7,4 +8,5 @@ while True:
         break
     except (ValueError, EOFError):
         print("Invalid input. Please enter more than one number separated by spaces.")
-print(sum(i for i in lst[1::2] if i % 2 == 0))
+
+    print(sum(i for i in lst[1::2] if i % 2 == 0))
