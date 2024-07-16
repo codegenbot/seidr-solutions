@@ -4,7 +4,7 @@
 std::string circular_shift(int x, int shift);
 
 int main() {
-    // Your main function code here
+    // Main function code here
 }
 
 std::string circular_shift(int x, int shift) {
