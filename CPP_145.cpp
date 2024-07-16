@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
-#include <cmath>
-
-void order_by_points(std::vector<int>& nums) {
+void order_by_points(std::vector<int>& nums){
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = std::abs(a), temp_b = std::abs(b);
@@ -21,8 +16,9 @@ void order_by_points(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
-    order_by_points(input);
-    assert(input == std::vector<int>{-76, -21, 0, 4, 23, 6, 6});
+    std::vector<int> temp = {0, 6, 6, -76, -21, 23, 4};
+    order_by_points(temp);
+    assert(issame(temp, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
     
     return 0;
 }
