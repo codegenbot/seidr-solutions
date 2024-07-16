@@ -8,10 +8,4 @@ def coin_sums(cents):
             result.append(count)
             cents %= coin
     
-    return len(result), *result
-
-cents = int(input())
-num_coins, *counts = coin_sums(cents)
-print(num_coins)
-for count in counts:
-    print(count)
+    return result
