@@ -10,7 +10,7 @@ int main() {
 
     for (int i = 0; i < vec.size() - 1; ++i) {
         int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             idx = i;
         }
