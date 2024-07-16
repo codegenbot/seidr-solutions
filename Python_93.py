@@ -2,8 +2,12 @@ def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalpha():
-            encoded_char = chr((ord(char) - ord('a') + 1) % 26 + ord('a')) if char.islower() else chr((ord(char) - ord('A') + 1) % 26 + ord('A'))
-            encoded_message += encoded_char
+            if char.islower():
+                encoded_message += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+            else:
+                encoded_message += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
+        elif char.isspace():
+            encoded_message += " "
         else:
             encoded_message += char
     return encoded_message
