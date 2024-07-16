@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 int main() {
     string spinWords(string str) {
         string result = "";
