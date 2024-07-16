@@ -3,11 +3,10 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
+    double totalSnow = static_cast<double>(initialSnow);
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall; // add new snowfall
-        totalSnow *= (1 - proportionOfSnowMeltingPerHour); // subtract melted snow for this hour
+        totalSnow = static_cast<double>(totalSnow) + rateOfSnowFall - static_cast<double>(totalSnow * proportionOfSnowMeltingPerHour);
     }
     
     return totalSnow;
