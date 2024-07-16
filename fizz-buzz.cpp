@@ -1,7 +1,8 @@
+```c
 #include <iostream>
 using namespace std;
 
-string fizzBuzz(long long x) {
+string fizzBuzz(int x) {
     if ((long long)x % 3 == 0 && (long long)x % 5 == 0) return "FizzBuzz";
     else if ((long long)x % 3 == 0) return "Fizz";
     else if ((long long)x % 5 == 0) return "Buzz";
