@@ -1,6 +1,3 @@
-Here is your completed code:
-
-```c++
 #include <bits/stdc++.h>
 using namespace std;
 
