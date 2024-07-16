@@ -3,9 +3,16 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    if "&" in expression:
-        a, b = expression.split("&")
-        return solve_boolean(a) and solve_boolean(b)
-    if "|" in expression:
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    elif "&" in expression:
+        result = True
+        parts = expression.split("&")
+        for part in parts:
+            if part != "T":
+                result = False
+                break
+        return result
+    elif "|" in expression:
         a, b = expression.split("|")
-        return solve_boolean(a) or solve_boolean(b)
+        return bool(a) or bool(b)
