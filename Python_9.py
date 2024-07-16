@@ -2,10 +2,8 @@ numbers = []
 while True:
     try:
         num = input().strip()
-        if not num:
+        if num == "":
             break
         numbers.append(int(num))
-    except:
+    except EOFError:
         break
-
-print(sum(numbers))
