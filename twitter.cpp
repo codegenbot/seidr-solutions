@@ -3,7 +3,7 @@
 
 int main() {
     std::string tweet;
-    std::getline(std::cin, tweet);
+    std::getline(std::cin >> std::ws, tweet);
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
