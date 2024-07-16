@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <cassert>
 #include <string>
-#include <boost/any.hpp>
 
 using std::any;
 using std::string;
