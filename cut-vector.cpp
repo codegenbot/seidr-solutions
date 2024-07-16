@@ -1,8 +1,6 @@
 #include <vector>
 #include <climits> 
-#include <cmath> 
-
-using namespace std;
+#include <cmath>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
