@@ -7,3 +7,4 @@ int fuelCost(std::vector<int> v) {
         sum += static_cast<int>(floor((double)i / 3)) - 2;
     }
     return sum;
+}
