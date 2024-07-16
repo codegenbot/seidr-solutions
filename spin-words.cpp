@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 
@@ -18,5 +17,8 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Spin Words: " << spinWords(str) << std::endl;
     return 0;
-}
