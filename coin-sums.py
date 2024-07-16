@@ -1,25 +1,10 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    return min(
-        [
-            list(
-                map(
-                    sum,
-                    [
-                        (
-                            [coin // c, (coin % c) // d, (coin % c) % d]
-                            if c != 1
-                            else [(coin % c) // d, (coin % c) % d]
-                        )
-                        for d in coins[coins.index(c) :]
-                    ],
-                )
-            )
-            for coin in [cents]
-            + [x for x in range(cents - 24, -1, -1) if any(x // c for c in coins)]
-        ],
-        key=sum,
-    )
+    count = [0, 0, 0, 0]
 
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            count[i] += 1
 
-print(*coin_sums(int(input())))
+    return count[3], count[2], count[1], count[0]
