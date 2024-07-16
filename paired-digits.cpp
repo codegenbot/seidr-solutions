@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int pairedDigits(std::string s) {
@@ -8,4 +9,12 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    
+    int result = pairedDigits(input);
+    return 0;
 }
