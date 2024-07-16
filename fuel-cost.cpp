@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 int fuelCost(vector<int> v) {
