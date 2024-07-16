@@ -2,11 +2,11 @@
 #include <sstream>
 
 std::string spinWords(std::string str) {
-    std::stringstream ss(str);
+    std::stringstream iss(str);
     std::string word;
     std::string result;
 
-    while (ss >> word) {
+    while (getline(iss, word, ' ')) {
         if(word.size()>4)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
