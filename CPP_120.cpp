@@ -1,9 +1,8 @@
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
-    }
-    return result;
+Here is the completed code:
+
+```cpp
+vector<int> maximum(vector<int> arr,int k){
+    vector<int> result(arr.begin(),arr.end());
+    sort(result.begin(),result.end());
+    return vector<int>(result.begin(),result.begin()+k);
 }
