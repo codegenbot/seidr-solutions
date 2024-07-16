@@ -1,4 +1,6 @@
-int fuelCost(std::vector<int> v) {
+#include <vector>
+
+int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
         int temp = std::floor(i / 3.0);
