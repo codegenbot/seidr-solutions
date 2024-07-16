@@ -9,4 +9,3 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (j == target.size()) result.push_back(i);
     }
 }
-}
