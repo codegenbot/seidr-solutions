@@ -1,10 +1,11 @@
+```c++
 #include <string>
 
 int main() {
     int score = 0;
     int roll = 0;
 
-    for (char c : "1-4/2-3/3-5/10-") { 
+    for (char c : "1-3/5x7/8-2/") { 
         if (c == '/') {
             if (roll > 9)
                 score += 10;
