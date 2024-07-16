@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+using namespace std;
 
 string spinWords(string str) {
     string result = "";
@@ -8,11 +9,12 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str.substr(i);
             i++;
-        } else if (str.length() - i >= 5) {
-            for (int j = strlen(str.substr(i).c_str()); j > 0; j--) {
-                result += str[i + j - 1];
+        } else if (strlen(str.substr(i).c_str()) >= 5) { 
+            string temp = str.substr(i); 
+            for (int j = temp.length() - 1; j >= 0; j--) {
+                result += temp[j];
             }
-            i += str.substr(i).length();
+            i += temp.length(); 
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
