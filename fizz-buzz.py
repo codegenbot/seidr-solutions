@@ -1,13 +1,9 @@
-"""
-def fizz_buzz(x):
-    result = ""
-    if x % 15 == 0:
-        result = "FizzBuzz"
+"""def fizz_buzz(x):
+    if x % 3 == 0 and x % 5 == 0:
+        return "FizzBuzz"
     elif x % 3 == 0:
-        result = "Fizz"
+        return "Fizz"
     elif x % 5 == 0:
-        result = "Buzz"
+        return "Buzz"
     else:
-        result = str(x)
-    return result
-"""
+        return str(x)"""
