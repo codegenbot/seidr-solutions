@@ -5,17 +5,17 @@ std::deque<int> leaders(const std::deque<int>& arr) {
     int n = arr.size();
     std::deque<int> result;
 
-    int max_right = arr.back();  
-    result.push_back(arr.back());  
-
-    for(int i=n-2; i>=0; i--) { 
-        if(arr[i] >= max_right) {
-            while(i < n-1 && arr[i+1] <= arr[i]) {
-                max_right = arr[i];
-                i--;
+    for(int i=n-1; i>=0; i--) { 
+        int max_right = arr[i];  
+        bool is_leader = true;
+        for(int j=i+1; j<n; j++) { 
+            if(arr[j] >= max_right) {
+                max_right = arr[j];
+                is_leader = false;
             }
-            result.push_front(max_right);
         }
+        if(is_leader)
+            result.push_front(arr[i]);
     }
 
     return result;
