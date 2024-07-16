@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
@@ -6,11 +9,10 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == 'F') {
             result = false;
         } else if (s[i] == '|') {
-            bool temp = !result;
-            result = true;
+            result = !result;
         } else if (s[i] == '&') {
-            bool temp = result;
-            result = false;
+            if (!result) return false;
         }
     }
     return result;
+}
