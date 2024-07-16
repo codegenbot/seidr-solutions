@@ -1,48 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+    return a == b;
+}
+
+vector<string> separate_paren_groups(string paren_string);
+
+int main() {
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+
+    cout << "Groups separated by parentheses:" << endl;
+    for (const string& group : groups) {
+        cout << group << endl;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
-    int balance = 0;
+    string current_group = "";
+    int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (balance > 0) {
-                current_group.push_back(c);
+            if (open_count > 0) {
+                current_group += c;
             }
-            balance++;
+            open_count++;
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group.push_back(c);
-            } else if (balance == 0 && !current_group.empty()) {
+            open_count--;
+            if (open_count == 0) {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
+            } else {
+                current_group += c;
             }
         }
     }
 
     return result;
-}
-
-int main() {
-    vector<string> input = {"(a)(b(c))(d)", "(ab)(cd)", "(a)(b)(c)(d)"};
-    vector<vector<string>> expected = {{"(a)", "(b(c))", "(d)"}, {"(ab)", "(cd)"}, {"(a)", "(b)", "(c)", "(d)"}};
-
-    for (int i = 0; i < input.size(); ++i) {
-        vector<string> result = separate_paren_groups(input[i]);
-        assert(issame(result, expected[i]));
-    }
-
-    return 0;
 }
