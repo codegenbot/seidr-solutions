@@ -3,22 +3,23 @@
 #include <cassert>
 #include <iostream>
 
-long long double_the_difference(std::vector<float> lst);
+long double double_the_difference(std::vector<float> &lst);
 
 int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
-
-    assert(double_the_difference(lst) == double_the_difference(lst));
-
+    long double odd_sum = double_the_difference(lst);
+    
+    assert(double_the_difference(lst) == odd_sum);
+    
     return 0;
 }
 
-long long double_the_difference(std::vector<float> lst){
-    long long sum = 0;
+long double double_the_difference(std::vector<float> &lst){
+    long double sum = 0;
     for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
+        if (num > 0 && num == std::floor(num) && (int)num % 2 != 0) {
+            sum += std::pow(num, 2.0);
         }
     }
-    return sum * 2;
+    return sum * 2.0;
 }
