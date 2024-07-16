@@ -13,11 +13,11 @@ int luhn(int digits[16]) {
 }
 
 int main() {
-    int card_number[16];
+    int digits[16];
+    std::cout << "Enter the credit card number: ";
     for (int i = 0; i < 16; i++) {
-        std::cout << "Enter the digit: ";
-        std::cin >> card_number[i];
+        std::cin >> digits[i];
     }
-    std::cout << "The result is: " << luhn(card_number) << std::endl;
+    std::cout << "Luhn Check Result: " << luhn(digits) << std::endl;
     return 0;
 }
