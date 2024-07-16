@@ -5,12 +5,9 @@
 
 int main() {
     std::vector<int> nums;
-    std::string input;
-    std::getline(std::cin, input);
-    std::stringstream ss(input);
     int num;
     
-    while (ss >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
