@@ -1,6 +1,4 @@
-#include <string>
-#include <sstream>
-#include <bits/stdc++.h>
+using namespace std;
 
 string middleCharacter(string s) {
     int n = s.length();
