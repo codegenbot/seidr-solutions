@@ -1,28 +1,26 @@
-#include <vector>
 #include <iostream>
-#include <cmath>
 #include <iomanip>
+#include <vector>
+#include <cmath>
 
-using namespace std;
-
-double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
+double vectorDistance(int n, const std::vector<float>& v1, const std::vector<float>& v2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        sum += pow((v1[i] - v2[i]), 2);
     }
     return sqrt(sum);
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<float> v1(n), v2(n);
+    std::cin >> n;
+    std::vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+        std::cin >> v1[i];
     }
     for (int i = 0; i < n; i++) {
-        cin >> v2[i];
+        std::cin >> v2[i];
     }
-    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
+    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n, v1, v2) << std::endl;
     return 0;
 }
