@@ -1,30 +1,32 @@
-using namespace std;
+```cpp
+#include <iostream>
+#include <string>
 
-int main() {
-    string spinWords(string str) {
-        string result = "";
-        int i = 0;
-        while (i < str.length()) {
-            if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-                string word = str.substr(i);
-                if (word.length() >= 5)
-                    for (int k = word.length() - 1; k >= 0; --k)
-                        result += word[k];
-                else
-                    result += word;
-                break;
-            }
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5) {
+std::string spinWords(std::string str) {
+    std::string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
+            std::string word = str.substr(i);
+            if (word.length() >= 5)
                 for (int k = word.length() - 1; k >= 0; --k)
                     result += word[k];
-            } else
+            else
                 result += word;
-            i = j + 1;
+            break;
         }
-        return result;
+        int j = str.find(" ", i);
+        std::string word = str.substr(i, j - i);
+        if (word.length() >= 5) {
+            for (int k = word.length() - 1; k >= 0; --k)
+                result += word[k];
+        } else
+            result += word;
+        i = j + 1;
     }
-    
-    cout << spinWords("This is a test");
+    return result;
+}
+
+int main() {
+    std::cout << spinWords("This is a test");
 }
