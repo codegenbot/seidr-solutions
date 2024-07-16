@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -22,6 +22,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Main function implementation
+    // Test code here
     return 0;
 }
