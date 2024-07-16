@@ -5,18 +5,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     level = 0
 
     for char in paren_string:
-        temp = ""  # Initialize temp inside the loop
-        
         if char == '(':
             level += 1
         elif char == ')':
             level -= 1
             if level < 0:
                 level = 0
-        
-        temp += char
 
-        if level == 0:
-            result.append(temp)
+        if level == 1:
+            result.append("")
+            if result:
+                result[-1] += char
 
     return result
