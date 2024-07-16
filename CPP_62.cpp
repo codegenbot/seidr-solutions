@@ -2,20 +2,6 @@
 
 bool issame(vector<float> a, vector<float> b);
 
-vector<float> derivative(vector<float> xs);
-
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for(int i = 1; i < xs.size(); i++){
@@ -24,7 +10,24 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-int main(){
-    // Your main function code here
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
+}
+
+int main() {
+    vector<float> a = {1.1, 2.2, 3.3};
+    vector<float> b = {1.1, 2.2, 3.3};
+    
+    if (issame(a, b)){
+        cout << "Vectors a and b are the same." << endl;
+    } else {
+        cout << "Vectors a and b are different." << endl;
+    }
+    
+    vector<float> result = derivative(a);
+    for (float val : result){
+        cout << val << " ";
+    }
+    
     return 0;
 }
