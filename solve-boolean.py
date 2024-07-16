@@ -1,25 +1,29 @@
 def solve_boolean(expression):
-    def evaluate_token(token):
-        if token == 't':
-            return True
-        elif token == 'f':
-            return False
+    def or_operator(a, b):
+        return "T" if a == "T" else b
 
-    tokens = expression.split('&')
-    result = evaluate_token(tokens[0])
-    
-    for token in tokens[1:]:
-        operator = '|'
-        if token.startswith('|'):
-            operator = '|'
-            token = token[1:]
-        elif token.endswith('&'):
-            operator = '&'
-            token = token[:-1]
-        
-        if operator == '|':
-            result = result or evaluate_token(token)
+    def and_operator(a, b):
+        return "F" if a == "F" else b
+
+    result = "T"
+    operator_stack = []
+    for char in expression:
+        if char in ["|", "&"]:
+            b = result
+            result = char
+        elif char == "(":
+            operator_stack.append(char)
+        elif char == ")":
+            while operator_stack[-1] != "(":
+                b = result
+                result = or_operator(result, operator_stack.pop())
+            operator_stack.pop()
         else:
-            result = result and evaluate_token(token)
+            if result == "&" and char == "T":
+                result = and_operator(result, "F")
+            elif result == "|" and char == "T":
+                result = or_operator(result, "F")
 
-    return str(result)
+    return "T" if result == "T" else "F"
+
+print(solve_boolean('t|t&t&t&t&f|t'))
