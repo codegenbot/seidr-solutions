@@ -1,7 +1,11 @@
-bool solveBoolean(std::string s) {
+#include <iostream>
+#include <string>
+
+bool solveBoolean(const std::string& s) {
+    if (!s || s[0] == '\0') return false; // handle empty string
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; i < s.length(); ++i) {
+    for (int i = 0; s[i]; ++i) {
         if (s[i] == 'T') {
             result = true;
             operand = 1;
@@ -17,4 +21,16 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << "Enter a Boolean expression: ";
+    std::string input;
+    getline(std::cin, input); 
+    bool output = solveBoolean(input);
+    if (output)
+        std::cout << "True";
+    else
+        std::cout << "False";
+    return 0;
 }
