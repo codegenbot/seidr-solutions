@@ -1,11 +1,11 @@
 int is_bored(string S){
     int count = 0;
-    int i = 0;
-    while (i < S.size()) {
-        if (S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')) {
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (pos == 0 || S[pos-1] == '.' || S[pos-1] == '?' || S[pos-1] == '!') {
             count++;
         }
-        i++;
+        pos++;
     }
     return count;
 }
