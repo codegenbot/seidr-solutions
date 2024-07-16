@@ -1,55 +1,47 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-string spinWords(string s) {
+string spinWords(string sentence) {
     string result = "";
-    string temp = "";
+    int wordLength;
+    string word;
     
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == ' ') {
-            if(temp.length() >= 5)
-                result += reverse(temp) + " ";
-            else
-                result += temp + " ";
-            temp = "";
-        } 
-        else {
-            temp += s[i];
+    for(int i=0; i<sentence.length(); i++) {
+        if(sentence[i] == ' ') {
+            result += sentence.substr(i-wordLength+1);
+            wordLength = 0;
+            result += " ";
+        } else {
+            word += sentence[i];
+            wordLength++;
+            
+            if(wordLength >= 5) {
+                string reversedWord = "";
+                for(int j=wordLength-1; j>=0; j--) {
+                    reversedWord += word[j];
+                }
+                result += reversedWord;
+                word = "";
+                wordLength = 0;
+                result += " ";
+            }
         }
     }
-
-    if(temp.length() >= 5)
-        result += reverse(temp);
-    else
-        result += temp;
-
-    return result;
-}
-
-string reverse(string str) {
-    int start = 0;
-    int end = str.length() - 1;
     
-    while(start < end) {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
-        start++;
-        end--;
+    if(wordLength >= 5) {
+        string reversedWord = "";
+        for(int j=wordLength-1; j>=0; j--) {
+            reversedWord += word[j];
+        }
+        result += reversedWord;
+    } else {
+        result += word;
     }
     
-    return str;
+    return result.substr(1);
 }
 
 int main() {
-    // Your code here
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << spinWords(s) << endl;
-
+    // cout << spinWords("Hello World") << endl;
     return 0;
 }
