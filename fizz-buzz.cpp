@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <string>
 
 std::string fizzBuzz(int x) {
@@ -9,7 +10,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x).c_str();
+        return std::to_string(x);
 }
 
 int main() {
