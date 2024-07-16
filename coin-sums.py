@@ -12,7 +12,7 @@ def coin_sums(cents):
                             if c != 1
                             else [(coin % c) // d, (coin % c) % d]
                         )
-                        for _, c in enumerate(coins)
+                        for i, c in enumerate(coins)
                     ]
                 )
             )
