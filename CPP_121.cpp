@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int solution(std::vector<int> lst) {
+int solutions(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -12,6 +12,5 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::cout << solution({3, 13, 2, 9}) << std::endl;
-    return 0;
+    std::cout << solutions({3, 13, 2, 9}) << std::endl;
 }
