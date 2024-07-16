@@ -7,6 +7,6 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    cycpattern_check("winemtt", "tinem");
+    assert(cycpattern_check("winemtt", "tinem") == true);
     return 0;
 }
