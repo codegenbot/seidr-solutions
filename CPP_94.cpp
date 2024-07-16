@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-std::string g(std::vector<int> v) {
+std::string f(std::vector<int> v) {
     std::string s = "";
     for (int i : v) {
         if (i >= 128)
@@ -14,8 +15,6 @@ std::string g(std::vector<int> v) {
     return s;
 }
 
-int main() {
-    int result = g({127, 97, 8192});
-    assert(result == 10);
-    return 0;
-}
+std::string output = f({127, 97, 8192});
+assert(output == "011110100000101");
+return 0;
