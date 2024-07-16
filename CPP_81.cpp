@@ -1,23 +1,4 @@
-#include <vector>
 #include <string>
-
-bool issame(const vector<string>& v1, const vector<string>& v2){
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> numerical_letter_grade(vector<float> grades);
-
-int main() {
-    // Main function code here
-}
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
