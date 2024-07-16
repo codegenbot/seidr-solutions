@@ -1,17 +1,15 @@
 #include <vector>
-#include <iostream>
+#include <iostream> 
 
 using namespace std;
 
 int basement(const vector<int>& v) {
     int sum = 0;
     for (int i = 0; ; i++) {
-        if(i >= v.size()) break;
         sum += v[i];
         if (sum < 0)
-            return i;
+            return i+1; // return the first index where the sum becomes negative
     }
-    return -1;
 }
 
 int main() {
