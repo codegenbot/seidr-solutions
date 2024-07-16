@@ -2,7 +2,7 @@
 #include <string>
 
 bool solveBoolean(const std::string& s) {
-    if (s.empty()) return false;
+    if (s.empty()) return false; 
     bool result = true;
     int operand = 1; // initialize to true (1)
     for (int i = 0; s[i]; ++i) {
@@ -17,7 +17,7 @@ bool solveBoolean(const std::string& s) {
             operand = 1; // reset operand to true
         } else if (s[i] == '&') {
             result &= operand; // perform bitwise AND
-            operand *= s[i] == 'F'; // update operand based on current character
+            operand = s[i] == 'F'; // update operand based on current character
         }
     }
     return result;
