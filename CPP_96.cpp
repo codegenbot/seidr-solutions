@@ -12,4 +12,3 @@ vector<int> primes;
         }
     }
     return primes;
-}
