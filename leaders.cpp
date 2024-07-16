@@ -5,13 +5,14 @@ using namespace std;
 vector<int> leaders(vector<int>& v) {
     int n = v.size();
     vector<int> res;
-    int maxRight = v[n-1];
-    for(int i=n-2; i>=0; i--) {
-        if(v[i] >= maxRight) {
+    int max_right = v[n-1];
+    for(int i=n-1; i>=0; i--) {
+        if(v[i] >= max_right) {
             res.push_back(v[i]);
-            maxRight = v[i];
+            max_right = v[i];
         }
     }
+    reverse(res.begin(), res.end());
     return res;
 }
 
