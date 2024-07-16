@@ -1,28 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    // Test cases
-    vector<string> test_input = {"(abc)(def)", "(ab)(cd)", "((a)(b)(c))"};
-    for (string input : test_input) {
-        vector<string> result = separate_paren_groups(input);
-        for (string group : result) {
-            cout << group << " ";
-        }
-        cout << endl;
-    }
-
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
