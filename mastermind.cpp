@@ -1,3 +1,5 @@
+int white, black;
+
 #include <tuple>
 #include <vector>
 #include <iostream>
@@ -26,10 +28,8 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    int white, black;
     std::string code = "RGOR";
     std::string guess = "BRBB";
     std::tie(white, black) = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
-}
