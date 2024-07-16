@@ -1,26 +1,25 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-long long int n;
-std::string squareDigits(long long int n) {
+std::string squareDigits(std::string input) {
     std::string output = "";
-    while (n > 0) {
-        int digit = n % 10; 
-        n /= 10;
-        output = std::to_string(digit*digit) + output;
+    for (int i = 0; i < input.length(); i++) {
+        int digit = (input[i] - '0') * (input[i] - '0');
+        output += std::to_string(digit);
     }
     return output;
 }
 
 int main() {
+    std::string input;
     std::cout << "Enter a positive integer: ";
-    std::cin >> n;
+    std::cin >> input;
     
-    if (n < 0) {
-        std::cout << "Invalid input.\n";
+    if (input.length() > 0) {
+        std::cout << squareDigits(input) << "\n";
     } else {
-        std::cout << std::setfill('0') << std::setw(__LINE__-3) << squareDigits(n) << "\n";
+        std::cout << "Invalid input.\n";
     }
     
     return 0;
