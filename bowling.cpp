@@ -1,22 +1,16 @@
-```c++
-#include <cctype>
 #include <string>
 
-int main() {
-    std::string s;
-    std::cout << "Enter the bowling score: ";
-    std::getline(std::cin, s);
-    std::cout << "The score is: " << bowlingScore(s) << std::endl;
-    return 0;
-}
-
-int bowlingScore(const std::string& s) {
+std::string bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
     for (int i = 0; i < s.length(); ++i) {
         char c = s.at(i);
-        
+
+        if (!std::isdigit(c) && c != 'X' && c != '/') {
+            return "Invalid input";
+        }
+
         if (c == 'X') {
             score += 10;
             currentRoll = 0;
@@ -56,5 +50,5 @@ int bowlingScore(const std::string& s) {
         }
     }
 
-    return score;
+    return std::to_string(score);
 }
