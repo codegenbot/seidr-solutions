@@ -22,3 +22,4 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
