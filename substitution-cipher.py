@@ -1,3 +1,4 @@
+```
 def decipher():
     key1 = input("Enter the first string: ")
     key2 = input("Enter the second string: ")
