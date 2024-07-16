@@ -10,15 +10,14 @@ double vectorDistance(vector<float> v1, vector<float> v2) {
     for(int i=0; i<v1.size(); i++) {
         sum += pow(v1[i] - v2[i], 2);
     }
-    double result = sqrt(sum);
-    return result;
+    return sqrt(sum);
 }
 
 int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n), v2(n);
+    std::vector<float> v1(n), v2(n);
 
     for(int i=0; i<n; i++) {
         cin >> v1[i];
