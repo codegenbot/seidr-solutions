@@ -1,6 +1,6 @@
-#include <iostream>
+```c++
 #include <string>
-#include <ostream>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     std::string result;
@@ -15,4 +15,4 @@ int main() {
     int x;
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
-    return 0;
+}
