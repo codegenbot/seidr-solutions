@@ -16,7 +16,7 @@ int start1 = interval1[0];
         return "NO";
     }
 
-    for (int i = 2; i * i <= length; i++) {
+    for (int i = 2; i * i <= length; ++i) {
         if (length % i == 0) {
             return "NO";
         }
