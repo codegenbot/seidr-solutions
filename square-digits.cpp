@@ -1,10 +1,11 @@
 using namespace std;
 
-int squareDigits(string input) {
+int squareDigits(int n) {
     string res = "";
-    for (char c : input) {
-        int num = c - '0';
-        res += to_string(num * num);
+    while (n > 0) {
+        int digit = n % 10;
+        res = to_string(digit * digit) + res;
+        n /= 10;
     }
     return stoi(res);
 }
