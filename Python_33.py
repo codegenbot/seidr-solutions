@@ -6,6 +6,6 @@ def sort_third(l: list):
                 *[iter([x for x in l if x % 2 != 0 and x is not None])] * 3
             )
         ],
-        key=lambda x: min(x),
+        key=lambda x: x[2],
     )
     return sorted_triplets
