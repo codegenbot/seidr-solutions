@@ -10,4 +10,4 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 input_numbers = list(map(int, input().split()))
 result = rolling_max(input_numbers)
-print(*result)
+print(result)
