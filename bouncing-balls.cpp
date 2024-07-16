@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
@@ -23,6 +24,6 @@ int main() {
         prev_height /= 2.0; 
     }
 
-    cout << std::fixed << std::setprecision(6) << total_distance << endl;
+    cout << fixed << setprecision(15) << total_distance;
     return 0;
 }
