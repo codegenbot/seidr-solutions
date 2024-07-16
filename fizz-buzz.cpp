@@ -1,5 +1,6 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <ostream>
 
 std::string fizzBuzz(int x) {
     std::string result;
