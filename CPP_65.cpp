@@ -4,7 +4,10 @@ string circular_shift(int x, int shift) {
     shift %= n;
     if (shift == 0) {
         return str;
-    } else {
-        return str.substr(n - shift) + str.substr(0, n - shift);
     }
+    if (shift > n) {
+        reverse(str.begin(), str.end());
+        return str;
+    }
+    return str.substr(n - shift) + str.substr(0, n - shift);
 }
