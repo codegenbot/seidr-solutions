@@ -1,13 +1,35 @@
+#include <vector>
+#include <algorithm>
+
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
-    std::set<int> seen;
+    std::sort(nums.begin(), nums.end());
     
-    for (int num : nums) {
-        if (seen.count(target - num)) {
-            return {{num, target - num}};
+    std::vector<std::pair<int, int>> result;
+    
+    int i = 0;
+    int j = nums.size() - 1;
+    
+    while (i < j) {
+        int sum = nums[i] + nums[j];
+        
+        if (sum == target) {
+            result.push_back({nums[i], nums[j]});
+            i++;
+            j--;
+        } else if (sum < target) {
+            i++;
+        } else {
+            j--;
         }
-        seen.insert(num);
     }
     
-    // If no pair found, return an empty vector
-    return {};
+    return result;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    int target = 7;
+    std::vector<std::pair<int, int>> result = findPairs(nums, target);
+    // print or use result as needed
+    return 0;
 }
