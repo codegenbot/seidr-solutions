@@ -6,9 +6,15 @@ for (int i = 0; i < vec.size() - 1; ++i) {
     }
 }
 
-if (idx > 0 && idx < vec.size() - 1 && vec[idx - 1] == vec[idx + 1]) {
-    idx--;
-}
-
 std::vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
 std::vector<int> subvec2(vec.begin() + idx + 1, vec.end());
+
+for (const auto& num : subvec1) {
+    std::cout << num << std::endl;
+}
+
+std::cout << std::endl;
+
+for (const auto& num : subvec2) {
+    std::cout << num << std::endl;
+}
