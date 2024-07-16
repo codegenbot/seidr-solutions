@@ -8,8 +8,6 @@ def coin_sums(cents):
             results[i] = count
             cents %= coins[i]
 
-    return "{} quarters\n{} nickels\n{} dimes\n{} pennies".format(results[0]//25, results[1], results[2], results[3])
-
-if __name__ == "__main__":
-    cents = int(input("Enter the number of cents: "))
-    print(coin_sums(cents))
+    return "{} quarters\n{} nickels\n{} dimes\n{} pennies".format(
+        results[0] // 25, results[1], results[2], results[3]
+    )
