@@ -1,5 +1,14 @@
 ```c++
-int digits[16] = {4,3,2,1,8,7,9,1,6,5,4,3,2,8,7,9};
+int main() {
+    int digits[16];
+    // Read input from user
+    for (int i = 0; i < 16; i++) {
+        cin >> digits[i];
+    }
+    int result = luhn(digits);
+    cout << "The Luhn checksum is: " << result;
+    return 0;
+}
 
 int luhn(int digits[16]) {
     int sum = 0;
@@ -11,9 +20,4 @@ int luhn(int digits[16]) {
             sum += temp;
     }
     return sum;
-}
-
-int main() {
-    std::cout << luhn(digits) << std::endl;
-    return 0;
 }
