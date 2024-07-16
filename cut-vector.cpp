@@ -1,17 +1,20 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+vector<int> cutVector(vector<int>& nums) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            result = {{vec[0], vec[i]} , {vec[i+1], vec.back()}};
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int diff = abs(nums[i] - nums[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    return result;
+    vector<int> left(nums.begin(), nums.begin() + cut_index);
+    vector<int> right(nums.begin() + cut_index, nums.end());
+    
+    return {left, right};
 }
