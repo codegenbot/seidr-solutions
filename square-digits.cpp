@@ -1,4 +1,11 @@
+```c
 #include <string>
+#include <iostream>
+
+int main() {
+    std::cout << squareDigits("12") << std::endl;
+    return 0;
+}
 
 std::string squareDigits(std::string input) {
     std::string output = "";
@@ -7,11 +14,4 @@ std::string squareDigits(std::string input) {
         output += std::to_string(digit * digit);
     }
     return output;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << squareDigits(input) << std::endl;
-    return 0;
 }
