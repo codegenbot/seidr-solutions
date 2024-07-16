@@ -1,9 +1,17 @@
-Here is the completed code:
-
 def encode_cyclic(s: str):
-    groups = [s[i:i+3] if i+3 <= len(s) else s[i:] for i in range(0, len(s), 3)]
-    return "".join(groups[i][1:] + groups[i][0] if len(groups[i]) == 3 else groups[i] for i in range(len(groups)))
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
 
 def decode_cyclic(s: str):
-    groups = [s[i:i+3] if i+3 <= len(s) else s[i:] for i in range(0, len(s), 3)]
-    return "".join(group[1:] + group[0] if len(group) == 3 else group for group in groups)
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [
+        (
+            "abc"[ord(c) - 97]
+            if len(group) == 3 and (group[1] != "a" or group[2] != "b")
+            else group
+        )
+        for index, group in enumerate(groups)
+    ]
+    return "".join(groups)
