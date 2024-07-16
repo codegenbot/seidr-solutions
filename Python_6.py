@@ -1,4 +1,5 @@
-paren_strings = input().strip().split(',')
+n = int(input())
+paren_strings = [input().strip() for _ in range(n)]
 
 def parse_nested_parens(paren_strings):
     stack = []
