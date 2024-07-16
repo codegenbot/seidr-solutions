@@ -1,5 +1,6 @@
-try:
-    strings = [input().strip() for _ in range(int(input()))]
-    print(longest(strings))
-except Exception as e:
-    print("Error: Input not in expected format.")
+def longest(strings):
+    return max(strings, key=lambda x: (-len(x), x))
+
+num_strings = int(input())
+strings = [input().strip() for _ in range(num_strings)]
+print(longest(strings))
