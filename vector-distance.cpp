@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -17,10 +16,14 @@ int main() {
     std::cin >> n;
     std::vector<float> v1, v2;
     for (int i = 0; i < n; i++) {
-        float val1, val2;
-        std::cin >> val1 >> val2;
-        v1.push_back(val1);
-        v2.push_back(val2);
+        float val;
+        std::cin >> val;
+        v1.push_back(val);
+    }
+    for (int i = 0; i < n; i++) {
+        float val;
+        std::cin >> val;
+        v2.push_back(val);
     }
     std::cout << std::fixed << std::setprecision(10) << vectorDistance(n, v1, v2) << std::endl;
     return 0;
