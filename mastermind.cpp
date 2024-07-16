@@ -1,26 +1,33 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    int blackPegs = 0, whitePegs = 0;
-    unordered_map<char, int> codeFreq, guessFreq;
-
+    
+    int whitePegs = 0, blackPegs = 0;
+    vector<bool> codeVisited(4, false);
+    vector<bool> guessVisited(4, false);
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+            codeVisited[i] = true;
+            guessVisited[i] = true;
         }
     }
-
-    for (auto &it : codeFreq) {
-        if (guessFreq.find(it.first) != guessFreq.end()) {
-            whitePegs += min(it.second, guessFreq[it.first]);
+    
+    for (int i = 0; i < 4; ++i) {
+        if (!codeVisited[i]) {
+            for (int j = 0; j < 4; ++j) {
+                if (!guessVisited[j] && code[i] == guess[j]) {
+                    whitePegs++;
+                    codeVisited[i] = true;
+                    guessVisited[j] = true;
+                    break;
+                }
+            }
         }
     }
-
-    cout << whitePegs << endl << blackPegs << endl;
-
+    
+    cout << whitePegs << "\n" << blackPegs;
+    
     return 0;
 }
