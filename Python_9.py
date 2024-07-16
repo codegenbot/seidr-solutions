@@ -1,3 +1,1 @@
-numbers = []
-for _ in range(3):
-    numbers.append(int(input()))
+numbers = list(map(int, input().split()))
