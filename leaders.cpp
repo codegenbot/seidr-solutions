@@ -4,7 +4,7 @@
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> result;
+    std::vector<int> result(n);
 
     for(int i=n-1; i>=0; i--) {
         bool leader = true;
@@ -14,7 +14,7 @@ std::vector<int> leaders(const std::vector<int>& arr) {
                 break;
             }
         }
-        if(leader) result.push_back(arr[i]);
+        if(leader) result[i] = arr[i];
     }
 
     return result;
