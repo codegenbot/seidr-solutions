@@ -3,7 +3,7 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> solve(string txt) {
+vector<string> splitString(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
