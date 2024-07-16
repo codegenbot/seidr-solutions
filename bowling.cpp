@@ -1,6 +1,6 @@
-```c++
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -8,29 +8,25 @@ int bowlingScore(std::string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (roll > 9)
-                score += 10;
-            else
-                score += roll;
+            if (roll > 0) score += roll;
             roll = 0;
         } else if (isdigit(c)) {
             roll *= 10;
             roll += c - '0';
+        } else if (c == '+') {
+            roll++;
+        } else if (c == '-') {
+            roll--;
         }
     }
 
-    if (roll > 9)
-        score += 10;
-    else
-        score += roll;
+    if (roll > 0) score += roll;
 
     return score;
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::getline(std::cin, s);
+    std::string s = "1/81/2/34//5+64/7-3+/--8-9";
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
     return 0;
