@@ -4,11 +4,11 @@
 #include <cmath>
 
 double vectorDistance(int n, const std::vector<float>& v1, const std::vector<float>& v2) {
-    double sum = 0;
+    double dotProduct = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        dotProduct += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
-    return sqrt(sum);
+    return sqrt(dotProduct);
 }
 
 int main() {
