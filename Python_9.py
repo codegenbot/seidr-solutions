@@ -2,8 +2,8 @@ numbers = []
 try:
     while True:
         num = input().strip()
-        if not num:
-            raise EOFError
+        if num == '':
+            break
         numbers.append(int(num))
 except EOFError:
     pass
