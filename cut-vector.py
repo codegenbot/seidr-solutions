@@ -1,14 +1,19 @@
-n = int(input())
-arr = [int(input()) for _ in range(n)]
+# Read input
+input_list = []
+for _ in range(2):
+    input_list.append(int(input()))
 
-diff = float("inf")
-cut_idx = 0
+# Find the spot to cut the vector
+total_sum = sum(input_list)
+half_sum = total_sum // 2
+subvector1_sum = 0
+index = 0
+for i, num in enumerate(input_list):
+    subvector1_sum += num
+    if subvector1_sum >= half_sum:
+        index = i
+        break
 
-for i in range(1, n):
-    curr_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        cut_idx = i
-
-print(*arr[:cut_idx])
-print(*arr[cut_idx:])
+# Print output
+print(*input_list[: index + 1])
+print(*input_list[index + 1 :])
