@@ -1,6 +1,6 @@
-#include <vector>
+#include <vector> 
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b){ 
     if (a.size() != b.size()) {
         return false;
     }
