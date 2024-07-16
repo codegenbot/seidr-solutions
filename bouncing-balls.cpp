@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -8,7 +7,7 @@ int main() {
     double first_bounce_height;
     int num_bounces;
 
-    cin >> start_height >> ' ' >> first_bounce_height >> ' ' >> num_bounces;
+    cin >> start_height >> first_bounce_height >> num_bounces;
 
     double bounciness_index = first_bounce_height / start_height;
 
@@ -17,7 +16,7 @@ int main() {
         total_distance += (1 + bounciness_index) * pow(2.0, i);
     }
 
-    std::cout << std::fixed << std::setprecision(6) << total_distance;
+    cout << fixed << setprecision(6) << total_distance;
 
     return 0;
 }
