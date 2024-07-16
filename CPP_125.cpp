@@ -1,8 +1,8 @@
-bool issame(const string& a, const string& b) {
+bool issame(char a, char b) {
     return a == b;
 }
 
-vector<string> split_words(const string& txt) {
+vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
