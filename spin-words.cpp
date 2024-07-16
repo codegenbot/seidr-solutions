@@ -1,7 +1,4 @@
-```c++
 #include <iostream>
-#include <cstring>
-
 using namespace std;
 
 string spinWords(string str) {
