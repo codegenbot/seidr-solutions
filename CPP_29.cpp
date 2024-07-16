@@ -1,6 +1,6 @@
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
-    for (const auto &str : strings) {
+    for (const string& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
         }
