@@ -1,7 +1,9 @@
-#include <string>
-using namespace std;
+Here is the modified code:
 
-int mastermind(string code, string guess) {
+```cpp
+#include <string>
+
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
@@ -13,7 +15,7 @@ int mastermind(string code, string guess) {
     }
 
     // Count incorrect positions with correct colors (white pegs)
-    int code_counts[6] = {0};
+    int code_counts[7] = {0};
     for (char c : code) {
         code_counts[c-'A'+1]++;
     }
@@ -32,3 +34,4 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
