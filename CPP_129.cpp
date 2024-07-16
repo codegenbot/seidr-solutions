@@ -1,4 +1,3 @@
-#include <vector>
 #include <algorithm>
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -6,33 +5,43 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> path;
     vector<vector<int>> visited(n, vector<int>(n, 0));
     
-    auto cmp = [](const pair<int, int>& a, const pair<int, int>& b) {
+    auto cmp = [&](const pair<int, int>& a, const pair<int, int>& b) {
         return grid[a.first][a.second] < grid[b.first][b.second];
     };
     
-    vector<pair<int, int>> cells;
+    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    
+    pair<int, int> start;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            cells.push_back({i, j});
+            if (grid[i][j] == 1) {
+                start = {i, j};
+                break;
+            }
         }
     }
     
-    sort(cells.begin(), cells.end(), cmp);
-    
-    pair<int, int> start = cells[0];
     path.push_back(grid[start.first][start.second]);
     visited[start.first][start.second] = 1;
     
     while (path.size() < k) {
-        pair<int, int> current = start;
-        for (const pair<int, int>& dir : vector<pair<int, int>>{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}) {
-            pair<int, int> next = {current.first + dir.first, current.second + dir.second};
-            if (next.first >= 0 && next.first < n && next.second >= 0 && next.second < n && !visited[next.first][next.second]) {
-                path.push_back(grid[next.first][next.second]);
-                visited[next.first][next.second] = 1;
-                break;
+        vector<pair<int, int>> neighbors;
+        for (const auto& dir : directions) {
+            int x = start.first + dir.first;
+            int y = start.second + dir.second;
+            if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
+                neighbors.push_back({x, y});
             }
         }
+        
+        if (neighbors.empty()) {
+            break;
+        }
+        
+        sort(neighbors.begin(), neighbors.end(), cmp);
+        start = neighbors[0];
+        path.push_back(grid[start.first][start.second]);
+        visited[start.first][start.second] = 1;
     }
     
     return path;
