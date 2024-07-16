@@ -14,7 +14,7 @@ int main() {
 
     std::vector<size_t> indices;
     size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos && pos < text.size()) {
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
         pos += 1; // Move to the next position allowing overlaps
     }
