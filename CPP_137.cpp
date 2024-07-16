@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -39,25 +39,25 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         return i > f ? boost::variant<int, float, std::string>(i) : (f == i) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(f);
     }
     else {
-        return a;
+        return a > b ? boost::variant<int, float, std::string>(a.convert_to<boost::any>()) : (b == a) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(b.convert_to<boost::any>());
     }
 }
 
 int main() {
     boost::any a = 10;
-    boost::any b = "20.5";
+    boost::any b = "5.5";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (std::holds_alternative<int>(result)) {
-        int i = std::get<int>(result);
+    if (boost::holds_alternative<int>(result)) {
+        int i = boost::get<int>(result);
         std::cout << "The result is: " << i << std::endl;
     }
-    else if (std::holds_alternative<float>(result)) {
-        float f = std::get<float>(result);
+    else if (boost::holds_alternative<float>(result)) {
+        float f = boost::get<float>(result);
         std::cout << "The result is: " << f << std::endl;
     }
     else {
-        std::string str = std::get<std::string>(result);
+        std::string str = boost::get<std::string>(result);
         std::cout << "The result is: " << str << std::endl;
     }
 
