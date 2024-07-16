@@ -2,9 +2,9 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = []
 
-    for coin in coins:
+    for coin in sorted(coins, reverse=True):
         result = cents // coin
         cents %= coin
         results.append(str(result))
 
-    return "\n".join(map(str, results))
+    return '\n'.join(results)
