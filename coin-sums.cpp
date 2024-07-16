@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -9,7 +5,7 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int remainingCents = cents; 
+    int remainingCents = cents; // Store remaining cents for next iterations
     int dimes = remainingCents / 10;
     remainingCents %= 10;
 
