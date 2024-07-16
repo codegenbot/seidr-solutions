@@ -1,7 +1,15 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> x, vector<int> y) {
+    if (x.size() != y.size()) {
+        return false;
+    }
+    for (int i = 0; i < x.size(); ++i) {
+        if (x[i] != y[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -25,12 +33,11 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    vector<int> a = {123, 456, 789};
-    vector<int> b = unique_digits(a);
-    if (issame(a, b)) {
-        cout << "Same" << endl;
-    } else {
-        cout << "Different" << endl;
-    }
+    vector<int> input = {123, 456, 789};
+    vector<int> output = unique_digits(input);
+    vector<int> target = {123, 789};
+
+    bool result = issame(output, target);
+
     return 0;
 }
