@@ -26,8 +26,6 @@ int bowlingScore(const std::string& s) {
                         if (firstRoll + secondRoll == 10) {
                             score += 10;
                             currentRoll = 0;
-                            char c = 'X';
-                            s.insert(i+1, 1, c);
                             i++;
                         } else {
                             score += secondRoll;
