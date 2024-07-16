@@ -2,14 +2,11 @@
 using namespace std;
 
 double probability(int n, int m) {
-    double total_outcomes = (double)(n*m);
-    double favorable_outcomes = 0;
-
-    for(int i = m; i < n; ++i) {
-        favorable_outcomes += (double)(n - i) / ((double)n * m);
+    double result = 0.0;
+    for(int i = 1; i < m; ++i) { 
+        result += (n - i) / (double)n; 
     }
-
-    return favorable_outcomes;
+    return result;
 }
 
 int main() {
