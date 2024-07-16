@@ -8,9 +8,9 @@ vector<string> bf(string planet1, string planet2) {
     int start = -1, end = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
-        if (issame(planets[i], planet1)) {
+        if (planets[i] == planet1) {
             start = i;
-        } else if (issame(planets[i], planet2)) {
+        } else if (planets[i] == planet2) {
             end = i;
         }
     }
