@@ -1,8 +1,6 @@
 n = int(input())
 m = int(input())
-
-total_outcomes = n * m
-favorable_outcomes = sum(n - i for i in range(n))
-
-probability = favorable_outcomes / total_outcomes
-print(probability)
+if n > m:
+    print(round((n - 1) / (n * m), 2))
+else:
+    print(round(n / (n * m), 2))
