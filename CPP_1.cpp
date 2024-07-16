@@ -1,16 +1,17 @@
-vector<string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
-    int level = 0;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (level > 0) {
+            if (open_braces > 0) {
                 current_group += c;
             }
-            level++;
+            open_braces++;
         } else if (c == ')') {
-            level--;
-            if (level > 0) {
+            open_braces--;
+            if (open_braces > 0) {
                 current_group += c;
             } else {
                 result.push_back(current_group);
