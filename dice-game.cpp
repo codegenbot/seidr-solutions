@@ -1,9 +1,12 @@
-```c++
-#include <stdio.h>
+```cpp
+#include <iostream>
+using namespace std;
 
 int main() {
-    double result = probability(4, 6);
-    printf("Probability: %f\n", result);
+    int n, m;
+    cin >> n >> m;
+    double result = probability(n, m);
+    cout << fixed << setprecision(6) << result << endl;
     return 0;
 }
 
