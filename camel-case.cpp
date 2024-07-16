@@ -2,15 +2,13 @@ int main() {
     string input;
     getline(cin, input);
     
-    bool capitalize = true;
-    for (char& c : input) {
+    bool capitalize = false;
+    for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (capitalize && islower(c)) {
+        } else if (capitalize) {
             c = toupper(c);
             capitalize = false;
-        } else if (isspace(c)) {
-            capitalize = true;
         }
     }
     
