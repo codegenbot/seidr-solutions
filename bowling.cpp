@@ -1,6 +1,7 @@
-using namespace std;
+#include <iostream>
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll1, roll2;
 
@@ -23,10 +24,10 @@ int bowlingScore(string s) {
     return score;
 }
 
-int getBonus(string s) {
+int getBonus(std::string s, int index) {
     int bonus = 0;
 
-    for (int j = 0; j < s.size(); j++) {
+    for (int j = index; j < s.size(); j++) {
         if (s[j] == 'X') { // Strike
             bonus += 10;
         } else if (s[j] == '/') { // Spare
