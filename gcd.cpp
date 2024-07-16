@@ -1,11 +1,14 @@
+#include <numeric> // Add this line
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
-std::vector<int> findIndices(const std::vector<long long>& numbers, int a, int b) {
+std::vector<int> findIndices(const std::vector<int>& numbers, int a, int b) {
+    int gcd = std::gcd(a, b);
     std::vector<int> indices;
     for (int i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] % a == 0 && numbers[i] % b == 0) {
+        if (numbers[i] % gcd == 0) {
             indices.push_back(i);
         }
     }
@@ -14,7 +17,7 @@ std::vector<int> findIndices(const std::vector<long long>& numbers, int a, int b
 
 int main() {
     int n, a, b;
-    std::vector<long long> numbers;
+    std::vector<int> numbers;
     
     std::string line;
     std::getline(std::cin, line);
