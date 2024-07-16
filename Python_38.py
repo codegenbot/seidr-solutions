@@ -7,11 +7,6 @@ def encode_cyclic(s: str):
 def decode_cyclic(s: str):
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
     groups = [
-        (
-            "abc"[ord(c) - 97]
-            if len(group) == 3 and (group[1] != "a" or group[2] != "b")
-            else group
-        )
-        for index, group in enumerate(groups)
+        (groups[-1] + groups[0][1:]) if len(group) == 2 else group for group in groups
     ]
-    return "".join(groups)
+    return "".join(["".join(group)[::-1] for group in groups])
