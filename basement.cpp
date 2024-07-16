@@ -10,3 +10,10 @@ int basement(vector<int>& nums) {
     }
     return -1;
 }
+
+int main() {
+    vector<int> numbers = {-5, 1, -3, 4};
+    int result = basement(numbers);
+    cout << "First index with negative sum is: " << result << endl;
+    return 0;
+}
