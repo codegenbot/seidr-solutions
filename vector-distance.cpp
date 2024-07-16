@@ -5,7 +5,6 @@
 int main() {
     int n;
     std::cin >> n;
-    
     std::vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -18,7 +17,7 @@ int main() {
 
     float sum = 0.0f;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum += std::pow(vec1[i] - vec2[i], 2.0f);
     }
 
     float result = std::sqrt(sum);
