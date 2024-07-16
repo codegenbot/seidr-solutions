@@ -1,6 +1,3 @@
-#include <string>
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -19,11 +16,4 @@ string spinWords(string str) {
         i = j + 1;
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << "Spun sentence: " << spinWords(input) << endl;
 }
