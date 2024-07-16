@@ -3,21 +3,17 @@
 bool solveBoolean(const std::string& s) {
     bool result = true;
     std::stringstream ss;
-    ss << boolalpha;
+    ss.str(s); // Initialize the stringstream with the input string
+    ss >> boolalpha;
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
-            result = result || true;
+            result = result || (ss >> nosboolalpha).good();
         } else if (c == '&') {
-            result = result && true;
-        } else if (c == 'T' || c == 't') {
-            if (c == 'T' || c == 't') ss << true;
-        } else if (c == 'F' || c == 'f') {
-            if (c == 'F' || c == 'f') ss << false;
+            result = result && (ss >> nosboolalpha).good();
         }
     }
-    bool finalResult = (ss >> boolalpha).good();
-    return result && finalResult;
+    return result;
 }
 
 int main() {
