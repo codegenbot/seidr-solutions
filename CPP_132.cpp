@@ -1,13 +1,13 @@
 bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
-        if (c == '[' || c == '(' || c == '{') {
+        if (c == '[') {
             count++;
-        } else if (c == ']' || c == ')' || c == '}') {
+        } else if (c == ']') {
             if (count > 0) {
                 count--;
             } else {
-                return false;
+                return false; 
             }
         }
     }
