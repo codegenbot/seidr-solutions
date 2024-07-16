@@ -7,4 +7,4 @@ def coin_sums(cents):
         cents %= coin
         results.append(str(result))
 
-    return '\n'.join(results)
+    return "\n".join(map(str, results))
