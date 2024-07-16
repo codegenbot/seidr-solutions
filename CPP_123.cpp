@@ -1,11 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& vec1, const vector<int>& vec2) {
-    return vec1 == vec2;
-}
-
-vector<int> solve(int n) {
+vector<int> collatzSequence(int n){
     vector<int> result;
     while(n != 1){
         if(n % 2 == 1)
