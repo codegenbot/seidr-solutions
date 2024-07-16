@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -12,22 +9,22 @@ std::string spinWords(std::string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                {std::string tempRev = temp;
-                std::reverse(tempRev.begin(), tempRev.end());
-                result += tempRev + " ";
-                } else
-                    result += temp + " ";
+                result += std::string(temp).substr(0, temp.length()) + " ";
+            else
+                result += temp + " ";
             temp = "";
         } else {
             temp += c;
         }
     }
 
-    if (temp.length() >= 5)
-        {std::string tempRev = temp;
+    if (temp.length() >= 5) {
+        std::string tempRev = temp;
         std::reverse(tempRev.begin(), tempRev.end());
-        result += tempRev; }
-    else
+        for (char c : tempRev) {
+            result += c;
+        }
+    } else
         result += temp;
 
     return result;
@@ -43,4 +40,3 @@ int main() {
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
-}
