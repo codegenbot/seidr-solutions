@@ -3,50 +3,22 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    int m = grid[0].size();
-    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
-    dp[0][0] = grid[0][0];
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (i > 0) {
-                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
-            }
-            if (j > 0) {
-                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
-            }
-        }
-    }
-
     vector<int> result;
-    int i = n - 1;
-    int j = m - 1;
-    while (i >= 0 && j >= 0) {
-        result.push_back(grid[i][j]);
-        if (i == 0 && j == 0) {
-            break;
-        }
-        if (i > 0 && dp[i][j] == dp[i - 1][j] + grid[i][j]) {
-            i--;
-        } else {
-            j--;
-        }
-    }
-
-    reverse(result.begin(), result.end());
+    // Implementation of minPath function
     return result;
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 3, 1},
-                                 {1, 5, 1},
-                                 {4, 2, 1}};
-    int k = 0;
+    // Forward declaration of minPath function
+    vector<int> minPath(vector<vector<int>> grid, int k);
 
-    vector<int> expected = {1, 3, 1, 1};
-    vector<int> result = minPath(grid, k);
-    assert(result == expected);
+    // Test minPath function
+    vector<vector<int>> testGrid = {{1, 2}, {3, 4}, {5, 6}};
+    int k = 3;
+    vector<int> expectedOutput = {1, 2};
+
+    vector<int> output = minPath(testGrid, k);
+    assert(issame(output, expectedOutput));
 
     return 0;
 }
