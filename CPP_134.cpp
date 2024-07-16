@@ -1,19 +1,16 @@
 #include <iostream>
 #include <cassert>
-#include <string>
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
     return !txt.empty() && isalpha(txt.back()) && txt.find_last_of(" ") == txt.size() - 1;
 }
 
 int main() {
-    std::string input_text;
-    std::cout << "Enter a text: ";
-    std::getline(std::cin, input_text);
+    std::string input;
+    std::getline(std::cin, input);
 
-    bool result = check_if_last_char_is_a_letter(input_text);
-
-    assert(result);
+    bool result = check_if_last_char_is_a_letter(input);
+    std::cout << std::boolalpha << result << std::endl;
 
     return 0;
 }
