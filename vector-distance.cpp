@@ -15,5 +15,7 @@ double vectorDistance() {
 }
 
 int main() {
-    return vectorDistance();
+    double result = vectorDistance();
+    std::cout << "Vector distance: " << result << std::endl;
+    return 0;
 }
