@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -16,4 +17,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         return a.length() < b.length();
     });
     return lst;
+}
+
+void main() {
+    std::vector<std::string> b = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), b);
 }
