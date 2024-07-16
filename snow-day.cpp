@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
     float currentSnow = initialSnow;
@@ -10,19 +11,19 @@ int snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float mel
 
 int main() {
     int hours;
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
+    cout << "Enter the number of hours: ";
+    cin >> hours;
 
     float initialSnow, rateOfSnowFall, meltingRate;
-    std::cout << "Enter the initial snow: ";
-    std::cin >> initialSnow;
-    std::cout << "Enter the rate of snow fall: ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter the melting rate per hour: ";
-    std::cin >> meltingRate;
+    cout << "Enter the initial snow: ";
+    cin >> initialSnow;
+    cout << "Enter the rate of snow fall: ";
+    cin >> rateOfSnowFall;
+    cout << "Enter the melting rate per hour: ";
+    cin >> meltingRate;
 
     int result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
-    std::cout << "Snow after " << hours << " hours: " << result << std::endl;
+    cout << "Snow after " << hours << " hours: " << result << endl;
 
     return 0;
 }

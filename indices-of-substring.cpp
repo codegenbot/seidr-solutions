@@ -15,7 +15,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     while ((pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos); 
-        pos = text.find(target, pos);
+        pos += m; // Remove this
     }
 
     return result;
