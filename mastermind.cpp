@@ -24,5 +24,5 @@ int mastermind(std::string code, std::string guess) {
         white += std::min(codeCount[i], guessCount[i]) - black;
     }
 
-    return static_cast<int>(std::make_tuple(white, black));
+    return static_cast<std::tuple<int, int>>(white) + std::make_tuple(black);
 }
