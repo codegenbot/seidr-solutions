@@ -5,9 +5,9 @@ using namespace std;
 int main() {
     string input;
     cout << "Enter an integer: ";
-    cin >> input;
+    getline(cin, input);
     string result = squareDigits(input);
-    cout << "Squared digits are: " << result << endl;
+    cout << "The squared digits are: " << result << endl;
     return 0;
 }
 
