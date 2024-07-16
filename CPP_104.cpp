@@ -1,11 +1,25 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> unique_digits(vector<int> a) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int num : a) {
-        bool hasEvenDigit = false;
+    for (int num : x) {
         int temp = num;
+        bool hasEvenDigit = false;
         while (temp > 0) {
             if (temp % 2 == 0) {
                 hasEvenDigit = true;
@@ -20,5 +34,3 @@ vector<int> unique_digits(vector<int> a) {
     sort(result.begin(), result.end());
     return result;
 }
-
-unique_digits({135, 103, 31});
