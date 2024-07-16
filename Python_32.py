@@ -1,2 +1,3 @@
-xs = sorted(map(int, input().split()))
+xs = list(map(int, input().split()))
+xs.sort()
 print(*xs)
