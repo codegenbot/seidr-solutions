@@ -4,8 +4,8 @@
 
 vector<int> even_odd_palindrome(int n);
 
-bool issame(const string& str1, const string& str2){
-    return str1 == str2;
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
 }
 
 vector<int> even_odd_palindrome(int n){
