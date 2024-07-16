@@ -1,3 +1,5 @@
+Here's the modified code:
+
 ```
 def solve_boolean(expression):
     result = "T"
