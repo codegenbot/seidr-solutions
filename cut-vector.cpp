@@ -1,23 +1,44 @@
 #include <vector>
-#include <limits>
-#include <cmath>
+#include <climits>
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int min_diff = std::numeric_limits<int>::max();
-    int cut_index = -1;
-    for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+using namespace std;
+
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    vector<int> left, right;
-    for (int i = 0; i <= cut_index; i++) {
-        left.push_back(nums[i]);
+    return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    for (int i = cut_index + 1; i < nums.size(); i++) {
-        right.push_back(nums[i]);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i];
+        if (i < result.first.size() - 1) {
+            cout << ", ";
+        }
     }
-    return {left, right};
+    cout << "]\n[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if (i < result.second.size() - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n0\n";
+    return 0;
 }
