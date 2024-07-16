@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <initializer_list>
 
 using namespace std;
 
@@ -35,5 +36,6 @@ int main() {
     pair<string, string> results = reverse_delete("mamma", "mia");
     cout << "First part of the output: " << results.first << endl;
     cout << "Second part of the output: " << results.second << endl;
+    assert(results == make_pair("", "True"));
     return 0;
 }
