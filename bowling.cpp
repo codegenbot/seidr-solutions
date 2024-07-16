@@ -17,8 +17,6 @@ int bowlingScore(string s) {
         } else if (isdigit(s[i])) {
             roll *= 10;
             roll += s[i] - '0';
-            s.insert(i, 1, (roll + '0').c_str());
-            i++; 
         }
     }
 
