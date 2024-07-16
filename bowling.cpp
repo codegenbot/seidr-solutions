@@ -18,6 +18,7 @@ int bowlingScore(std::string s) {
         }
     }
 
+    // Last two rolls
     if (roll > 9)
         score += 10;
     else
