@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
     std::vector<std::string> words;
     int start = 0;
     for (int i = 0; i <= sentence.length(); i++) {
@@ -14,6 +12,7 @@ std::string spinWords(std::string sentence) {
         }
     }
 
+    std::string result = "";
     for (std::string word : words) {
         if (word.length() >= 5)
             word.reverse();
