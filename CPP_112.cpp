@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <initializer_list>
+#include <memory>
+#include <memory_resource>
+#include <ostream>
 
 using namespace std;
 
@@ -37,12 +41,16 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::string s = "hello";
-    std::string c = "olleh";
-    auto result = pmr::reverse_delete(s, c);
-    // Use the returned vector here
-    for (const auto& str : result) {
-        cout << str << endl;
+    std::string s, c;
+    cout << "Enter the string: ";
+    cin >> s;
+    cout << "Enter the character to be deleted: ";
+    cin >> c;
+    std::vector<std::string> result = reverse_delete(s, c);
+    if (isSame({s}, result)) {
+        cout << "The original string is the same as the reversed and deleted string." << endl;
+    } else {
+        cout << "The original string is not the same as the reversed and deleted string." << std::endl;
     }
     return 0;
 }
