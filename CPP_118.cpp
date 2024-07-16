@@ -1,7 +1,7 @@
-string get_closest_vowel(string word){
+string get_closest_vowel(string word) {
     string vowels = "aeiouAEIOU";
-    for(int i = word.size() - 2; i > 0; i--){
-        if(word[i] != ' ' && vowels.find(word[i]) != string::npos && word[i-1] != ' ' && vowels.find(word[i-1]) == string::npos && word[i+1] != ' ' && vowels.find(word[i+1]) == string::npos){
+    for (int i = word.size() - 3; i > 0; i--) {
+        if (vowels.find(word[i]) != string::npos && !isalpha(word[i - 1]) && !isalpha(word[i + 1])) {
             return string(1, word[i]);
         }
     }
