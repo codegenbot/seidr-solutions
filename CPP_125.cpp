@@ -14,7 +14,7 @@ vector<string> split_words(string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    if(result.size() == 0){
+    if(result.empty()){
         int count = 0;
         for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
