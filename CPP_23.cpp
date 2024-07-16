@@ -1,6 +1,5 @@
 #include <cstring>
 
-int main() {
-    assert(strlen("asdasnakj") == 9);
-    return strlen("asdasnakj");
+int functionName(const std::string& str) {
+    return strlen(str.c_str());
 }
