@@ -1,15 +1,12 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; ++i) {
         if (s[i] == '/') {
-            int firstRoll = (s[i-1] - '0');
-            int secondRoll = (s[i+1] - '0');
-            if (firstRoll + secondRoll == 10)
-                score += 10;
-            else
-                score += max(firstRoll, secondRoll) + min(firstRoll, secondRoll);
+            int firstRoll = s[i-1] - '0';
+            int secondRoll = s[i+1] - '0';
+            score += std::max(firstRoll, secondRoll);
         } else if (s[i] >= 'X') {
             score += 10;
         } else {
@@ -18,3 +15,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
