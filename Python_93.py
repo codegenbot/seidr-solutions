@@ -6,9 +6,9 @@ def encode(message):
         else:
             if char.isalpha():
                 if char.isupper():
-                    result += chr(((ord(char.upper()) - ord('A') + 3) % 26 + ord('A')))
+                    result += chr(((ord(char) - 65 + 3) % 26) + 65)
                 else:
-                    result += chr(((ord(char.lower()) - ord('a') + 3) % 26 + ord('a')))
-            else:
+                    result += chr(((ord(char.lower()) - 97 + 3) % 26) + 97)
+            else: 
                 result += char
     return result
