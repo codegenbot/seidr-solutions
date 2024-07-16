@@ -1,4 +1,4 @@
-if(x <= 0 || n <= 0) {
+if (x <= 0 || n <= 0) {
         return false;
     }
     
