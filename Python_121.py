@@ -1,3 +1,4 @@
+```
 while True:
     try:
         user_input = input("Enter numbers separated by space: ")
