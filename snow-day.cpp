@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     int hours;
-    float snowOnGround, rateOfSnowFall, proportionMeltingPerHour, totalSnow = 0; 
+    float snowOnGround, rateOfSnowFall, proportionMeltingPerHour;
 
     cout << "Enter number of hours: ";
     cin >> hours;
@@ -15,6 +15,7 @@ int main() {
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
+    float totalSnow = 0; 
     for (int i = 0; i < hours; i++) {
         float newSnow = rateOfSnowFall - proportionMeltingPerHour * snowOnGround;
         totalSnow += newSnow; 
@@ -22,7 +23,7 @@ int main() {
     }
 
     cout << "Amount of snow on ground after " << hours << " hours.\n";
-    cout << "The amount of snow is " << snowOnGround << " inches.\n";
+    cout << "The amount of snow is " << totalSnow << " inches.\n";
 
     return 0;
 }
