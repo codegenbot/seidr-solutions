@@ -1,30 +1,27 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-  
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] == ' ' || txt[i] == ','){
-            result.push_back(word);
-            word = "";
-        }
-        else{
-            word += txt[i];
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(word != ""){
+                result.push_back(word);
+                word = "";
+            }
+        } else{
+            word += c;
         }
     }
-    
     if(word != ""){
         result.push_back(word);
     }
-    
-    if(result.size() == 1){
-        int odd_count = 0;
-        for(char c : result[0]){
-            if(islower(c) && ((c - 'a') % 2 != 0)){
-                odd_count++;
+    if(result.size() == 0){
+        int oddLowercaseLetters = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                oddLowercaseLetters++;
             }
         }
-        result[0] = to_string(odd_count);
+        result.push_back(to_string(oddLowercaseLetters));
     }
-    
     return result;
 }
