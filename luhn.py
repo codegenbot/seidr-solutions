@@ -7,8 +7,6 @@ def luhn(card_number):
             digit *= 2  
             if (digit > 9): 
                 digit -= 9
-        else: 
-            pass
         sum_total += digit
 
-    return 100 - ((sum_total) % 10) if sum_total > 99 else (sum_total) % 10
+    return 100 - ((sum_total) % 10)
