@@ -1,10 +1,10 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+using namespace std;
 
-int basement(const vector<int>& nums) {
+int basement(vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
             return i;
@@ -13,7 +13,7 @@ int basement(const vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -3, 2, 5, -4};
+    vector<int> nums({1, -3, 2, 5, -4});
     int result = basement(nums);
     if (result == -1)
         cout << "No such index exists." << endl;
