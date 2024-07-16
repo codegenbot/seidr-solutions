@@ -29,5 +29,6 @@ bool check_map_case(map<string, string> dict) {
 
 int main() {
     assert(check_map_case({}) == false);
-    // more test cases...
+    // Add more test cases here
+    return 0;
 }
