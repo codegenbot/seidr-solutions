@@ -6,4 +6,4 @@ def leaders(nums):
         if nums[i] >= max_right:
             leaders.append(nums[i])
             max_right = nums[i]
-    return list(reversed(leaders))
+    return leaders```
