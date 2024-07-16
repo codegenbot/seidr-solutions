@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -10,13 +11,11 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
-    double bouncinessIndex = (firstBounce / startHeight);
+    double bouncinessIndex = (startHeight / firstBounce);
 
-    double totalDistance;
-    totalDistance = (1 - pow(2, numBounces)) / (1 - 2);
+    double totalDistance = 1 - pow((1 - bouncinessIndex), numBounces);
     
-    cout << fixed << std::setprecision(10);
-    cout << static_cast<int>(totalDistance + 0.00001) << endl;
+    cout << fixed << setprecision(10) << totalDistance + 0.00001 << endl;
 
     return 0;
 }

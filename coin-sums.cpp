@@ -5,12 +5,20 @@ int main() {
     std::cin >> cents;
 
     int quarters = cents / 25;
-    int pennies = cents % 25;
+    cents %= 25;
 
-    std::cout << "Quarters: " << quarters << "\n";
-    std::cout << "Dimes: " << (pennies / 10) << "\n";
-    std::cout << "Nickels: " << (pennies / 5) << "\n";
-    std::cout << "Pennies: " << pennies % 5 << "\n";
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickels: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
