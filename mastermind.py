@@ -8,6 +8,10 @@ def mastermind(code, guess):
         guess_counts[ord(g) - ord("B")] += 1
 
     white_pegs = sum(code_counts[j] - guess_counts[j] for j in range(6))
-    black_pegs = sum(1 for i in range(len(guess) // 4) if code[i*4:(i+1)*4] == guess[i*4:(i+1)*4])
+    black_pegs = sum(
+        1
+        for i in range(len(guess) // 4)
+        if code[i * 4 : (i + 1) * 4] == guess[i * 4 : (i + 1) * 4]
+    )
 
     return str(black_pegs) + "\n" + str(white_pegs)
