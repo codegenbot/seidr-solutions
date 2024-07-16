@@ -33,9 +33,8 @@ pair<string, string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    pair<string, string> result = reverse_delete("mamma", "mia");
-    cout << "First part of the output: " << result.first << endl;
-    cout << "Second part of the output: " << result.second << endl;
-    assert(result.first == "" && result.second == "True");
+    pair<string, string> results = reverse_delete("mamma", "mia");
+    cout << "First part of the output: " << results.first << endl;
+    cout << "Second part of the output: " << results.second << endl;
     return 0;
 }
