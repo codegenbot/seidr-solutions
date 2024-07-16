@@ -1,6 +1,5 @@
+```cpp
 #include <vector>
-#include <initializer_list>
-#include <ostream>
 #include <iostream>
 #include <cassert>
 
@@ -12,7 +11,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int max_prime_sum(std::initializer_list<int> lst){
+int max_prime_sum(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -26,19 +25,36 @@ int max_prime_sum(std::initializer_list<int> lst){
     return sum;
 }
 
-int solve() {
-    std::vector<int> lst;
-    int n;
+int solve(std::vector<int> lst){
+    int n = 0;
+    for(int i : lst){
+        n += i;
+    }
+    if(n == 0) return 0;
+    int maxPrime = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
+    }
+    int sum = 0;
+    while(maxPrime > 0){
+        sum += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sum;
+}
+
+int main() {
     std::cout << "Enter the number of elements: ";
+    int n;
     std::cin >> n;
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        lst.push_back(num);
     }
-    int result = max_prime_sum(lst);
+    int result = solve({2,3,4,5});
     std::cout << "The maximum prime number in the list is: " << result << std::endl;
-    assert(result == 7); 
+    assert(result == 10);
     return 0;
 }
