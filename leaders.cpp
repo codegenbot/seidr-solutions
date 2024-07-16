@@ -1,5 +1,6 @@
-```cpp
 #include <vector>
+#include <initializer_list>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -7,7 +8,16 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     
     for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
+        bool isLeader = true;
+        
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        
+        if (isLeader) {
             result.push_back(arr[i]);
         }
     }
@@ -15,11 +25,9 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersResult = leaders(arr);
-    for (int leader : leadersResult) {
-        cout << leader << " ";
-    }
-    return 0;
+vector<int> arr = {1, 3, 4, 1, 5};
+vector<int> leadersResult = leaders(arr);
+for (int leader : leadersResult) {
+    cout << leader << " ";
 }
+return 0;
