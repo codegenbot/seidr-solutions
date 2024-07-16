@@ -1,21 +1,45 @@
+```
 def solve_boolean(expression):
     def evaluate():
-        if expression[0] in ['T', 'F']:
-            return expression[0]
-        if expression[1] == '(':
-            return int(evaluate()[0]) + 1
-        operator = expression[0]
-        i = 2
-        while i < len(expression) and expression[i] not in ['|', '&']:
+        temp = True if expression[0] == 'T' else False
+        i = 1
+        while i < len(expression):
+            if expression[i] in ['|', '&']:
+                operator = expression[i]
+                i += 1
+                if operator == '|':
+                    temp = temp or evaluate()
+                elif operator == '&':
+                    temp = temp and evaluate()
+                return temp
+            elif expression[i] == '(':
+                i = evaluate() + 1
+            elif expression[i] in ['|', '&']:
+                i += 2
+            elif expression[i] != 'T' and expression[i] != 'F':
+                if expression[i] == '(':
+                    temp = evaluate()
+                else:
+                    return expression[i] == 'T'
+        return temp
+
+    stack = []
+    result = True if expression[0] == 'T' else False
+    i = 1
+    while i < len(expression):
+        if expression[i] in ['|', '&']:
+            operator = expression[i]
             i += 1
-        left = evaluate()
-        right = ''
-        if i < len(expression):
-            j = i + 1
-            while j < len(expression) and expression[j] != '(':
-                right += expression[j]
-                j += 1
-            return operator == '|' and (left == 'T' or right == 'F') or operator == '&' and (left == 'F' or right == 'F')
-        else:
-            return operator == '|' and left == 'F' or operator == '&' and left == 'T'
-    return 'T' if evaluate() else 'F'
+            if operator == '(':
+                stack.append('(')
+            elif operator == ')':
+                while stack and stack[-1] != '(':
+                    result = result ^ (stack.pop() == 'F')
+                stack.pop()
+        elif expression[i] == '(':
+            stack.append('(')
+        elif expression[i] == ')':
+            temp = evaluate()
+            i = temp + 1
+        i += 1
+    return result
