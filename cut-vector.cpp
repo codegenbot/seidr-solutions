@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <cmath>
-#include <iostream> 
+#include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -9,7 +11,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     for (int i = 0; i < n - 1; ++i) {
         if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
             res[0].insert(res[0].end(), v.begin(), v.end());
-            return {{}, std::vector<int>(res[0])};
+            return {{}, res[0]};
         }
     }
     int mid = n / 2;
@@ -24,9 +26,10 @@ int main() {
     for (const auto& sub : res) {
         cout << "[";
         for (const auto& num : sub) {
-            std::cout << num << " ";
+            cout << num << " ";
         }
-        cout << "]\n";
+        cout << "]"
+        << endl;
     }
     return 0;
 }
