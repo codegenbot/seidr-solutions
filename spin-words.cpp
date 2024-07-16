@@ -1,26 +1,26 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string output = "";
-    size_t start = 0;
-    for (size_t end = 0; end <= input.size(); ++end) {
-        if (end == input.size() || input[end] == ' ') {
-            std::string word = input.substr(start, end - start);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            output += word + " ";
-            start = end + 1;
+            result += word + " ";
+            start = i + 1;
         }
     }
-    return output;
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    // Your code here
     return 0;
 }
