@@ -4,11 +4,11 @@ def solve_boolean(expression):
             return True
         elif expression == 'F':
             return False
-        elif '|' in expression:
-            a, b = map(evaluate, expression.split('|'))
-            return a or b
         elif '&' in expression:
             a, b = map(evaluate, expression.split('&'))
             return a and b
+        elif '|' in expression:
+            a, b = map(evaluate, expression.split('|'))
+            return a or b
 
-    return eval('bool('+expression+')')
+    return evaluate(expression)
