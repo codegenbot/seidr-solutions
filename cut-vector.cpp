@@ -2,26 +2,20 @@
 #include <vector>
 #include <cmath>
 #include <climits>
+#include <algorithm>
 
 int main() {
-    std::vector<int> vec = {5, 6984, 8312, 921, 3362, 3078};
-    int idx = 0;
-    int min_diff = INT_MAX;
-
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
-        }
-    }
-
-    if (idx == vec.size() - 1) {
-        ++idx;
-    }
+    std::vector<int> vec = {1, 2, 3, 4, 5, 6};
+    int idx = std::min_element(vec.begin(), vec.end() - 1,
+        [](int a, int b) { return abs(a - b) < abs(b - a); }) - vec.begin();
 
     std::vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
     std::vector<int> subvec2(vec.begin() + idx + 1, vec.end());
+
+    if (subvec1.back() == subvec2.front()) {
+        subvec1.push_back(subvec2.front());
+        subvec2.erase(subvec2.begin());
+    }
 
     for (const auto& num : subvec1) {
         std::cout << num << std::endl;
