@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+#include <vector>
 using namespace std;
 
 double vectorDistance(int n) {
@@ -26,3 +26,4 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     
     return 0;
+}
