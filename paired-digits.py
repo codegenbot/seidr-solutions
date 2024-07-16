@@ -11,5 +11,6 @@ def paired_digits(s):
         prev_digit = s[i]
     return total + int(prev_digit) * count
 
+
 s = input("Enter a string of digits: ")
 print(paired_digits(s))
