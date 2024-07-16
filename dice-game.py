@@ -1,3 +1,5 @@
-n = int(input())
-m = int(input())
-print(round(sum((n-i)/(n*m) for i in range(1, n)), 2))
+n, m = int(input()), int(input())
+total_outcomes = n * m
+favorable_outcomes = n * (m-1)
+probability = favorable_outcomes / total_outcomes
+print(probability)
