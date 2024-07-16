@@ -1,4 +1,5 @@
 #include <vector>
+
 int basement(vector<int> nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
@@ -7,5 +8,5 @@ int basement(vector<int> nums) {
             return i;
         }
     }
-    return 0;
+    return -1;
 }
