@@ -1,11 +1,18 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a[2] == b[2];
 }
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result = l;
-    for (int i = 0; i < l.size(); i += 3) {
-        sort(result.begin() + i, result.begin() + i + 3);
+    vector<int> sorted_indices;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sorted_indices.push_back(i);
+        }
     }
-    return result;
+    
+    for (int index : sorted_indices) {
+        sort(l.begin() + index, l.begin() + index + 3, issame);
+    }
+    
+    return l;
 }
