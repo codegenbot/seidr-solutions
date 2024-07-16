@@ -1,7 +1,4 @@
 def decode_shift(s: str):
-    if not s.isalpha():
-        return "Input must contain only alphabetic characters"
-
     return "".join(
         [
             (
@@ -17,5 +14,9 @@ def decode_shift(s: str):
     )
 
 input_str = input("Enter a string to decode: ").strip()
-result = decode_shift(input_str)
-print(result)
+
+if any(char.isalpha() for char in input_str):
+    result = decode_shift(input_str)
+    print(result)
+else:
+    print("Input string should contain at least one alphabet character.")
