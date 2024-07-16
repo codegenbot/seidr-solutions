@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -18,3 +19,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(10) << diceGame(n, m) << endl;
     return 0;
+}
