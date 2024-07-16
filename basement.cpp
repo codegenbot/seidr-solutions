@@ -1,5 +1,6 @@
+```c++
 #include <vector>
-using namespace std;
+#include <iostream>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
@@ -12,7 +13,12 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -2, -3, 4};
-    cout << basement(nums) << endl; 
+    std::vector<int> nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+    int result = basement(nums);
+    if (result != -1) {
+        std::cout << "Basement found at index " << result << std::endl;
+    } else {
+        std::cout << "No basement found." << std::endl;
+    }
     return 0;
 }
