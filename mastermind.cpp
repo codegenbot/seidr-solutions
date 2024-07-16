@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```c++
 #include <iostream>
 #include <string>
 
@@ -32,7 +35,7 @@ int main() {
     int result = mastermind(code, guess);
 
     // Print the result
-    std::cout << "Black pegs: " << result - white << ", White pegs: " << white << std::endl;
+    std::cout << "Black pegs: " << black << ", White pegs: " << white << std::endl;
 
     return 0;
 }
