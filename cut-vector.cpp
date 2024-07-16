@@ -1,14 +1,20 @@
 #include <iostream>
-#include <vector>
 
-using namespace std;
-
-// Assuming idx and n are declared and vec is defined as the vector of integers
-
-for (int i = 0; i <= idx; ++i) {
-    cout << vec[i] << endl;
+int n = vec.size();
+int idx = 0;
+int min_diff = INT_MAX;
+for (int i = 1; i < n; ++i) {
+    int diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
+    if (diff < min_diff) {
+        idx = i;
+        min_diff = diff;
+    }
 }
-cout << endl;
+
+for (int i = 0; i < idx; ++i) {
+    std::cout << vec[i] << std::endl;
+}
+std::cout << std::endl;
 for (int i = idx; i < n; ++i) {
-    cout << vec[i] << endl;
+    std::cout << vec[i] << std::endl;
 }
