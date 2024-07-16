@@ -1,7 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+vector<int> factorize(int n);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> factorize(int n){
     vector<int> factors;
@@ -15,4 +19,9 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
