@@ -1,27 +1,30 @@
-```c++
+```cpp
 #include <string>
 
-int main() {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
+    int frame = 0;
 
-    for (char c : "1-3/5x7/8-2/") { 
-        if (c == '/') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
             if (roll > 9)
                 score += 10;
             else
                 score += roll;
             roll = 0;
-        } else if (isdigit(c)) {
+            frame++;
+        } else if (isdigit(s[i])) {
             roll *= 10;
-            roll += c - '0';
+            roll += s[i] - '0';
         }
     }
 
+    // Last two rolls
     if (roll > 9)
         score += 10;
     else
         score += roll;
 
-    return score; 
+    return score;
 }
