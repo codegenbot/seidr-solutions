@@ -4,7 +4,9 @@ def camel_case(input_str):
         if "-" in word:
             output_str += word.replace("-", "").capitalize()
         else:
-            output_str += word.capitalize()
-        if word != input_str.split()[-1]:
-            output_str += " "
+            if output_str:
+                output_str += word.capitalize()
+            else:
+                output_str += word
+        output_str += " "
     return output_str.strip().replace(" ", "")
