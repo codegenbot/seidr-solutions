@@ -19,7 +19,11 @@ pair<string, string> reverse_delete(string s, string c) {
     return {result, result == result_reverse ? "True" : "False"};
 }
 
-int main() {
+int solve_problem() {
     assert(reverse_delete("mamma", "mia") == make_pair("", "True"));
     return 0;
+}
+
+int main() {
+    return solve_problem();
 }
