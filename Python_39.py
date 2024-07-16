@@ -1,22 +1,14 @@
-def is_prime(num):
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
 def prime_fib(n):
     a, b = 0, 1
     count = 0
+    prime_fib_nums = []
     while count < n:
         a, b = b, a + b
         if is_prime(a):
-            print(a, end=' ')
+            prime_fib_nums.append(a)
             count += 1
+    return prime_fib_nums
 
-try:
-    n = int(input())
-    prime_fib(n)
-except ValueError:
-    print("Please enter a valid integer.")
+n = int(input("Enter an integer: "))
+result = prime_fib(n)
+print(result)
