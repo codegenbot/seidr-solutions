@@ -11,6 +11,8 @@ int main() {
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
     std::cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
 
-    std::cout << " " << snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0) << std::endl;
+    std::cout << " ";
+    std::cout << std::fixed << std::setprecision(2) << snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0);
+    std::cout << std::endl;
     return 0;
 }
