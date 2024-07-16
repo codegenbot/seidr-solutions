@@ -8,6 +8,7 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     }
     return total;
 }
+
 int main() {
     int n;
     cin >> n;
