@@ -2,10 +2,11 @@
 #include <iostream>
 
 int calculateFrameScore(int roll) {
-    if (roll == 10) 
+    if (roll == 10) // strike
         return 10;
-    else if (roll < 10) 
+    else if (roll < 10) { // spare
         return 10 - roll;
+    } 
     return roll;
 }
 
@@ -34,7 +35,6 @@ int bowlingScore(std::string s) {
         } else if (c == '-') {
             roll -= c - '0';
         }
-        previousRoll = roll;
     }
 
     return score;
