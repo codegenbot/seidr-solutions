@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open(0)
+
 from typing import List
 
 def parse_nested_parens() -> List[int]:
