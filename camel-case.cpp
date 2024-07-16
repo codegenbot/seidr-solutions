@@ -11,8 +11,9 @@ int main() {
 
     for (char c : s) {
         if (c == '-') {
+            if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
-            result += c;
+            if(result.back() != ' ') result.push_back(' ');
         } else if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
@@ -20,14 +21,6 @@ int main() {
             result += tolower(c);
         }
     }
-
-    // remove the space at the end
-    size_t pos = 0;
-    while ((pos = result.find(' ', pos)) != std::string::npos) {
-        if (pos > 0)
-            result.erase(pos, 1);
-        else
-            pos++;
-    }
     
     return 0;
+}
