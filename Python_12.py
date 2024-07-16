@@ -1,6 +1,10 @@
-def longest(strings):
-    return max(strings, key=len)
+try:
+    n = int(input())
+    strings = [input() for _ in range(n)]
 
-n = int(input())
-strings = [input() for _ in range(n)]
-print(longest(strings))
+    def longest(strings):
+        return max(strings, key=len)
+
+    print(longest(strings))
+except ValueError:
+    print("Please enter a valid integer for the number of strings.")
