@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
 bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
@@ -28,12 +32,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
-    if (!issame({reverse_delete("mamma", "mia")}, {"" , "True"})) {
+    if (!areEqual({reverse_delete("mamma", "mia")}, {"", "True"})) {
         return 1;
     }
     return 0;
