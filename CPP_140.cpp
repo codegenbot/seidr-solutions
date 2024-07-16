@@ -1,22 +1,12 @@
-string fix_spaces(string text){
-    string result = "";
-    bool inSpaceSequence = false;
-    
-    for(char c : text){
-        if(c == ' '){
-            if(!inSpaceSequence){
-                inSpaceSequence = true;
-                result += '_';
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            if (i >= 2 && text[i - 1] == ' ' && text[i - 2] == ' ') {
+                text.replace(i - 1, 2, "-");
+                i--;
+            } else {
+                text[i] = '_';
             }
-            else{
-                result += '-';
-            }
-        }
-        else{
-            inSpaceSequence = false;
-            result += c;
         }
     }
-    
-    return result;
+    return text;
 }
