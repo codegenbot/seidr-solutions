@@ -1,7 +1,3 @@
-if ((a == b + c) || (b == a + c) || (c == a + b)) {
-        if (a == (int)a && b == (int)b && c == (int)c) {
-            return true;
-        }
-    }
-    return false;
+bool checkTriangleSides(int a, int b, int c) {
+    return (a < b + c) && (b < a + c) && (c < a + b);
 }
