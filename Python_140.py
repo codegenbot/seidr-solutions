@@ -1,5 +1,4 @@
 import re
-import sys
 
 def process_text(text):
     text = re.sub(r'\s{2,}', '_', text)
@@ -7,7 +6,7 @@ def process_text(text):
     return text
 
 try:
-    input_text = sys.stdin.readline().strip()
+    input_text = input("Enter text: ").strip()
     result = process_text(input_text)
     print(result)
 except KeyboardInterrupt:
