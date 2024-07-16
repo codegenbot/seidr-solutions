@@ -1,12 +1,12 @@
-vector<int> counts(2, 0);
+int even_count = 0, odd_count = 0;
     while (num != 0) {
-        int digit = abs(num % 10);
+        int digit = abs(num) % 10;
         if (digit % 2 == 0) {
-            counts[0]++;
+            even_count++;
         } else {
-            counts[1]++;
+            odd_count++;
         }
         num /= 10;
     }
-    return counts;
+    return {even_count, odd_count};
 }
