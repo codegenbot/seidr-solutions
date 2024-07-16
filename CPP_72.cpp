@@ -1,7 +1,11 @@
-#include <numeric>
+#include <vector>
+#include <algorithm>
 
-bool will_it_fly(const std::vector<int>& q, int w) {
-    int sum = std::accumulate(q.begin(), q.end(), 0);
+bool will_it_fly(vector<int> q, int w) {
+    int sum = 0;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
+    }
     if (sum <= w && std::equal(q.begin(), q.end(), q.rbegin())) {
         return true;
     }
@@ -9,7 +13,12 @@ bool will_it_fly(const std::vector<int>& q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
-
+    std::vector<int> q = {1, 2, 3, 2, 1};
+    int w = 10;
+    if (will_it_fly(q, w)) {
+        std::cout << "It will fly!" << std::endl;
+    } else {
+        std::cout << "It will not fly!" << std::endl;
+    }
     return 0;
 }
