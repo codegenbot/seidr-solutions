@@ -1,9 +1,10 @@
+```
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operation;
     string temp = "";
-
+    
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operation.empty() && operation.top() == '|') {
@@ -35,7 +36,7 @@ bool evaluateBooleanExpression(string expression) {
             temp += expression[i];
         }
     }
-
+    
     while (!operation.empty()) {
         if (temp.empty()) {
             temp = to_string(operation.top());
@@ -59,6 +60,5 @@ bool evaluateBooleanExpression(string expression) {
             else if (op == "|" && temp == "False" && operation.top() == "F") temp = "False";
         }
     }
-
+    
     return temp == "True";
-}
