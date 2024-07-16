@@ -1,23 +1,37 @@
 #include <string>
+#include <iostream>
+
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    int op = -1; // operator
     for (auto c : s) {  
         if (c == 'T') {
             result = true;
         } else if (c == 'F') {
             result = false;
         } else if (c == '|') {
-            op = 0;
+            result = !result;
         } else if (c == '&') {
-            op = 1;
+            bool operand = true;
+            for (; c != '&' && c != '\0'; ++c) {
+                if (*c == 'F')
+                    operand = false;
+                else if (*c == 'T')
+                    operand = true;
+            }
+            result &= operand;
         }
     }
     return result;
 }
 
 int main() {
-    std::string s = "your_boolean_expression"; // replace with input string
-    bool result = solveBoolean(s);
+    std::string input;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> input;
+    bool output = solveBoolean(input);
+    if (output)
+        std::cout << "True";
+    else
+        std::cout << "False";
     return 0;
 }
