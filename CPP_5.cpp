@@ -1,6 +1,6 @@
 #include<vector>
 
-vector<int> intersperse(vector<int> numbers, int delimeter);
+vector<int> intersperse(vector<int> numbers, int delimeter); 
 
 vector<int> intersperse(vector<int> numbers, int delimeter){ 
     vector<int> result;
