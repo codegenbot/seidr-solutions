@@ -1,9 +1,20 @@
+#include <iostream>
+#include <string>
 using namespace std;
 
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    string result = squareDigits(input);
+    cout << "Squared digits: " << result << endl;
+    return 0;
+}
+
 string squareDigits(string input) {
-    string output = "";
+    string result = "";
     for (char c : input) {
-        int num = c - '0';
-        output += to_string(num * num);
+        int digit = c - '0';
+        result += to_string(digit * digit);
     }
-    return output;
+    return result;
