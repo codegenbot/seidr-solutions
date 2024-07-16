@@ -4,9 +4,9 @@
 bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
-        if (c == '[') {
+        if (c == '[' || c == '(' || c == '{') {
             count++;
-        } else if (c == ']') {
+        } else if (c == ']' || c == ')' || c == '}') {
             if (count > 0) {
                 count--;
             } else {
@@ -18,6 +18,6 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
+    assert(is_nested("]]]]]]]])" == false);
     return 0;
 }
