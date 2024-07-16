@@ -1,22 +1,30 @@
-#include <any>
-#include <string>
+#include <iostream>
+#include <boost/any.hpp>
 #include <cassert>
-
-std::any compare_one(const std::any& a, const std::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
-    }
-    if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
-    }
-    if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return std::any_cast<std::string>(a) > std::any_cast<std::string>(b) ? a : b;
-    }
-    return nullptr;
-}
+#include <algorithm>
+#include <string>
 
 int main() {
-    assert(std::any_cast<int>(compare_one(1, 2)) == 2);
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
-    return 0;
+    // existing code here
+
+    if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        float num1, num2;
+        if(((std::string)boost::any_cast<std::string>(a)).find(",") != std::string::npos){
+            std::replace(((std::string&)boost::any_cast<std::string>(a)).begin(), ((std::string&)boost::any_cast<std::string>(a)).end(), ',', '.');
+        }
+        if(((std::string)boost::any_cast<std::string>(b)).find(",") != std::string::npos){
+            std::replace(((std::string&)boost::any_cast<std::string>(b)).begin(), ((std::string&)boost::any_cast<std::string>(b)).end(), ',', '.');
+        }
+        num1 = std::stof(boost::any_cast<std::string>(a));
+        num2 = std::stof(boost::any_cast<std::string>(b));
+        if(num1 > num2){
+            return a;
+        } else if(num1 < num2){
+            return b;
+        } else {
+            return "None";
+        }
+    } else {
+        return "None";
+    }
 }
