@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 int main() {
     int n;
     std::cin >> n;
 
-    float diff, sum = 0.0f;
     std::vector<float> vec1(n), vec2(n);
 
     for (int i = 0; i < n; ++i) {
@@ -16,11 +14,14 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        diff = vec1[i] - vec2[i];
-        sum += diff * diff;
     }
 
-    std::cout << std::fixed << sqrt(sum) << std::endl;
+    float sum = 0.0f;
+    for (int i = 0; i < n; ++i) {
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
