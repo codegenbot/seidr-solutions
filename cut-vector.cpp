@@ -15,24 +15,17 @@ int main() {
         }
     }
 
-    std::vector<int> subvec1;
-    for (int i = 0; i <= idx; ++i) {
-        subvec1.push_back(vec[i]);
-    }
-
-    std::vector<int> subvec2;
-    for (int i = idx + 1; i < vec.size(); ++i) {
-        subvec2.push_back(vec[i]);
-    }
-
-    for (int v : subvec1) {
-        std::cout << v << " ";
+    // Outputs the left subvector
+    for (int i = 0; i < idx; ++i) {
+        std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
 
-    for (int v : subvec2) {
-        std::cout << v << " ";
+    // Outputs the right subvector
+    for (int i = idx; i < vec.size(); ++i) {
+        std::cout << vec[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
