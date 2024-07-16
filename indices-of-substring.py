@@ -1,10 +1,11 @@
-Here is the solution:
+Here is the solution to the problem:
 
 def indices_of_substring(text):
-    try:
-        text_index = int(input())
-        target = input()
-        indices = [i for i in range(len(text)) if text.startswith(target, i)]
-        return str(indices) if indices else '0'
-    except:
-        return '0'
+    result = []
+    i = 0
+    while i < len(text):
+        pos = text.find(text[i:i+1], i)
+        if pos != -1:
+            result.append(pos)
+        i += 1
+    return result
