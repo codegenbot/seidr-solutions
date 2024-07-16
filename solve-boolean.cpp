@@ -7,19 +7,16 @@ bool solveBoolean(const std::string& s) {
     int operand = 1; // initialize to true (1)
     for (int i = 0; s[i]; ++i) {
         if (s[i] == 'T') {
-            result = true;
+            result = result && true;
             operand = 1;
         } else if (s[i] == 'F') {
-            result = false;
+            result = result && false;
             operand = 0;
         } else if (s[i] == '|') {
-            result ^= operand; // perform bitwise OR
-            operand = 1; // reset operand to true
+            result = result || operand; 
+            operand = 1; 
         } else if (s[i] == '&') {
-            result &= operand; // perform bitwise AND
-            if (operand) {
-                operand = false;
-            }
+            operand &= s[i] == 'F'; // process current operand
         }
     }
     return result;
