@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 using namespace std;
 
 int main() {
@@ -9,8 +8,9 @@ int main() {
     int num_bounces;
 
     cin >> start_height >> num_bounces;
-    cin.ignore(); 
-    cin >> first_bounce_height;
+    char temp;  
+    cin >> temp;
+    cin >> first_bounce_height; 
 
     double bounciness_index = first_bounce_height / start_height;
 
