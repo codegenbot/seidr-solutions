@@ -11,7 +11,12 @@ double abs(double x){
 }
 
 double find_zero(vector<double> xs){
-    double a = poly(xs, 1.0);
-    double b = poly(xs, -1.0);
-    return -b/a;
+    double a = xs[0];
+    double b = xs[1];
+    double c = xs[2];
+    double discriminant = b * b - 4 * a * c;
+    double sqrt_discriminant = sqrt(abs(discriminant));
+    double x1 = (-b + sqrt_discriminant) / (2 * a);
+    double x2 = (-b - sqrt_discriminant) / (2 * a);
+    return abs(x1) < abs(x2) ? x1 : x2;
 }
