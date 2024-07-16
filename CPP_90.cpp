@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 int next_smallest(std::vector<int> lst) {
+    if (lst.empty()) {
+        return -1;
+    }
+
     sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); ++i) {
         if (lst[i] > lst[i - 1]) {
@@ -15,5 +18,6 @@ int next_smallest(std::vector<int> lst) {
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
+    
     return 0;
 }
