@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```c
 string fizzBuzz(int x) {
     if (x % 15 == 0)
         return "FizzBuzz";
