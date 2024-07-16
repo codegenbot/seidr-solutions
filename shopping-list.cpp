@@ -5,13 +5,10 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<double> prices(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> prices[i];
-    }
-
     std::vector<double> discounts(n);
+  
     for (int i = 0; i < n; ++i) {
-        std::cin >> discounts[i];
+        std::cin >> prices[i] >> discounts[i];
     }
 
     double total_price = 0.0;
