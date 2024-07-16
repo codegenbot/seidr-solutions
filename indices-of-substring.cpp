@@ -9,9 +9,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     int pos = 0;
-    while ((pos = (text.find(target, pos) == string::npos ? 0 : text.find(target, pos))) != string::npos) {
-        result.push_back(pos);
-        pos += 1; // increment by 1 for overlapping matches
+    if (text.find(target) != string::npos) {
+        result.push_back(0);
+        pos += m;
+    }
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos - m + 1); 
+        pos += m;
     }
 
     return result;
