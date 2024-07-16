@@ -1,20 +1,10 @@
 #include <vector>
-#include <algorithm>
+#include <numeric>
 
-bool will_it_fly(std::vector<int> q, int w) {
-    int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+bool will_it_fly(vector<int> q, int w){
+    if (!equal(q.begin(), q.begin() + q.size()/2, q.rbegin())){
+        return false;
     }
-    if (sum <= w && std::equal(q.begin(), q.end(), q.rbegin())) {
-        return true;
-    }
-    return false;
-}
-
-int main() {
-    std::vector<int> q = {1, 2, 3, 2, 1};
-    int w = 10;
-    bool result = will_it_fly(q, w);
-    return 0;
+    int sum = accumulate(q.begin(), q.end(), 0);
+    return sum <= w;
 }
