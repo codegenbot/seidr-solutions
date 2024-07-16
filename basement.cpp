@@ -1,6 +1,6 @@
+```c++
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
