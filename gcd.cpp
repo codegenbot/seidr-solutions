@@ -2,25 +2,31 @@
 #include <vector>
 #include <string>
 
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos++;
+using namespace std;
+
+vector<int> findIndices(const string& text, const string& target) {
+    vector<int> indices;
+
+    if (target.empty()) {
+        for (int i = 0; i < text.size(); ++i)
+            indices.push_back(i);
+    } else {
+        size_t pos = text.find(target, 0);
+        while (pos != string::npos) {
+            indices.push_back(pos);
+            pos = text.find(target, pos + 1);
+        }
     }
+
     return indices;
 }
 
 int main() {
-    std::string text = "247650299098";
-    std::string target = "299098";
-    
-    std::vector<int> result = findIndices(text, target);
-    
-    for (int idx : result) {
-        std::cout << idx << " ";
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
+        cout << i << " ";
     }
-    
     return 0;
 }
