@@ -7,13 +7,13 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> split_words(string txt);
 
-int main() {
-    // Test the split_words function
-    string input_text = "hello, world! This is a test.";
-    vector<string> words = split_words(input_text);
+int main(){
+    string text;
+    getline(cin, text);
+    vector<string> words = split_words(text);
 
-    for(const string& word : words){
-        cout << word << endl;
+    for(string word : words){
+        cout << word << " ";
     }
 
     return 0;
