@@ -1,10 +1,13 @@
 double num = stod(value);
-    int lower = floor(num);
-    int higher = ceil(num);
-    
-    if (num - lower < higher - num) {
-        return lower;
+int rounded = static_cast<int>(round(num));
+if (num - rounded > 0.5) {
+    return static_cast<int>(ceil(num));
+} else if (num - rounded < -0.5) {
+    return static_cast<int>(floor(num));
+} else {
+    if (num > 0) {
+        return static_cast<int>(ceil(num));
     } else {
-        return higher;
+        return static_cast<int>(floor(num));
     }
 }
