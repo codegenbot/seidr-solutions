@@ -10,10 +10,12 @@ int gcd(int a, int b) {
     return a; 
 }
 
+using namespace std;
+
 int main() {
     int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    std::cout << "GCD of " << num1 << " and " << num2 << ": " << gcd(num1, num2) << std::endl;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD of " << num1 << " and " << num2 << ": " << gcd(num1, num2) << endl;
     return 0;
 }
