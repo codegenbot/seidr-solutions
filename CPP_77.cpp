@@ -1,5 +1,4 @@
 #include <cmath>
-#include <cassert>
 
 bool iscuber(int a) {
     int root = round(cbrt(abs(a)));
@@ -8,6 +7,6 @@ bool iscuber(int a) {
 
 int main() {
     assert (iscuber(1729) == false);
-    
+    // Add more test cases if needed
     return 0;
 }
