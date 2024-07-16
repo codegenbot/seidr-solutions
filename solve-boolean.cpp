@@ -1,6 +1,6 @@
-#include <string>
 bool solveBoolean(const std::string& s) {
     bool result = true;
+    bool left = true;
     for (auto c : s) {  
         if (c == 'T') {
             result = true;
@@ -9,9 +9,8 @@ bool solveBoolean(const std::string& s) {
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
-            auto temp = s.find(c);
-            if (temp != std::string::npos) c = s[temp + 1];
+            left = result;
+            result = false;
         }
     }
     return result;
-}
