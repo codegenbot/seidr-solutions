@@ -1,4 +1,4 @@
-```
+#include <iostream>
 #include <string>
 
 std::string fizzBuzz(int x) {
@@ -13,5 +13,8 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
+    for(int i = 1; i <= 30; ++i) {
+        std::cout << fizzBuzz(i) << "\n";
+    }
     return 0;
 }
