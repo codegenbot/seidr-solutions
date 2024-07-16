@@ -1,22 +1,13 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(vec)
-left_sum = 0
-right_sum = total_sum
-min_diff = total_sum
-cut_index = -1
-
-for i in range(n):
-    left_sum += vec[i]
-    right_sum -= vec[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = vec[: cut_index + 1]
-subvector2 = vec[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+total_sum = sum(arr)
+half_sum = total_sum // 2
+prefix_sum = 0
+for i, num in enumerate(arr):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or prefix_sum - num == half_sum:
+            print(*arr[: i + 1])
+            print(*arr[i + 1 :])
+            break
