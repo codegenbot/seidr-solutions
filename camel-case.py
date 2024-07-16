@@ -5,4 +5,3 @@ def convert_to_camel_case(input_string):
             result += word.capitalize()
         else:
             result += word[1:].capitalize().replace("-", "")
-    return result
