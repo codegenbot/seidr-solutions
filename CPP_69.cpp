@@ -1,8 +1,9 @@
-int result = -1;
+int search(vector<int> lst){
+    int res = -1;
     for (int num : lst) {
         if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            result = max(result, num);
+            res = max(res, num);
         }
     }
-    return result;
+    return res;
 }
