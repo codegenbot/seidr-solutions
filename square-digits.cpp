@@ -1,5 +1,15 @@
+```c++
 #include <string>
 using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    string result = squareDigits(input);
+    cout << "Squared digits: " << result << endl;
+    return 0;
+}
 
 string squareDigits(string input) {
     string result = "";
@@ -8,13 +18,4 @@ string squareDigits(string input) {
         result += to_string(digit * digit);
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a positive integer: ";
-    cin >> input;
-    string output = squareDigits(input);
-    cout << output << endl;  // Output: concatenated and squared digits
-    return 0;
 }
