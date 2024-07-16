@@ -1,6 +1,7 @@
-try:
-    numbers = [float(x) for x in input("Enter a list of numbers separated by spaces: ").split()]
-    print("Sum of the numbers:", sum(numbers))
-except ValueError:
-    print("Invalid input. Please enter numbers separated by spaces.")
-    # Handle the error, such as asking for input again or exiting the program
+numbers = []
+while True:
+    try:
+        numbers = [float(x) for x in input("Enter a list of numbers separated by spaces: ").split()]
+        break
+    except ValueError:
+        print("Invalid input. Please enter numbers separated by spaces.")
