@@ -1,16 +1,5 @@
 ```cpp
-#include <iostream>
 #include <string>
-
-int main() {
-    std::string str;
-    // Read input from user (e.g., using cin)
-    std::cout << "Enter a string of digits: ";
-    std::getline(std::cin, str);
-    int result = pairedDigits(str);
-    std::cout << "Sum of the digits whose following digit is the same: " << result << "\n";
-    return 0;
-}
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
@@ -20,4 +9,12 @@ int pairedDigits(const std::string& str) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> input;
+    std::cout << "Sum of paired digits: " << pairedDigits(input) << std::endl;
+    return 0;
 }
