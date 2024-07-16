@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -15,4 +16,19 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int main() {
+    string text = "Hello world, Hello again";
+    string target = "Hello";
+
+    vector<int> result = indicesOfSubstring(text, target);
+
+    cout << "Indices of substring '" << target << "' in text are: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
