@@ -2,25 +2,20 @@ vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int start = -1, end = -1;
-    for (int i = 0; i < planets.size(); ++i) {
-        if (planet1 == planets[i]) {
-            start = i;
-        }
-        if (planet2 == planets[i]) {
-            end = i;
-        }
+    auto it1 = find(planets.begin(), planets.end(), planet1);
+    auto it2 = find(planets.begin(), planets.end(), planet2);
+
+    if (it1 == planets.end() || it2 == planets.end()) {
+        return {};
     }
 
-    if (start == -1 || end == -1) {
-        return result;
-    }
+    int idx1 = distance(planets.begin(), it1);
+    int idx2 = distance(planets.begin(), it2);
 
-    if (start > end) {
-        swap(start, end);
-    }
+    int start = min(idx1, idx2) + 1;
+    int end = max(idx1, idx2);
 
-    for (int i = start + 1; i < end; ++i) {
+    for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
     }
 
