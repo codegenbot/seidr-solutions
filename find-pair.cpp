@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -32,4 +31,3 @@ int main() {
         std::cout << "Pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
-}
