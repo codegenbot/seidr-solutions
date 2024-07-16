@@ -1,5 +1,5 @@
 def sum_product(numbers):
-    if not numbers or len(numbers) < 2:
+    if len(numbers) < 2:
         return None
     return sum(numbers), numbers[0] * numbers[1]
 
@@ -12,7 +12,7 @@ try:
             break
         result = sum_product(numbers_input)
         results.append(result)
-except ValueError:
+except EOFError:
     pass
 
 for result in results:
