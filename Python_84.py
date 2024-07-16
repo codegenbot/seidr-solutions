@@ -1,4 +1,3 @@
-```
 import base64
 
 def solve(N):
