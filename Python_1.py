@@ -5,18 +5,18 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
     current_group = ''
-
-    for char in paren_string:
-        if char == ' ':
+    
+    for c in paren_string:
+        if c == ' ':
             continue
-        if char == '(':
-            stack.append(char)
-            current_group += char
-        elif char == ')':
-            stack.pop()
-            current_group += char
-            if not stack:
+        if c == '(':
+            stack.append(c)
+            current_group += c
+        elif c == ')':
+            if stack and stack[-1] == '(':
+                stack.pop()
+                current_group += c
                 groups.append(current_group)
                 current_group = ''
-
+    
     return groups
