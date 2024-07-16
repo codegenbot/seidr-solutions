@@ -1,8 +1,3 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(round((n - 1) / n, 2))
-elif m > n:
-    print(round(n / m, 2))
-else:
-    print(0.5)
+print('{:.2f}'.format(sum([(n-i)/n * i/m for i in range(1, n)]) if n < m else 0.5)
