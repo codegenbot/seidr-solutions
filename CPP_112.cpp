@@ -1,11 +1,10 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-#include <vector>
 
 using namespace std;
 
-vector<string> reverse_delete(string s, string c) {
+pair<string, string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -20,6 +19,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    assert(reverse_delete("mamma", "mia") == make_pair("", "True"));
     return 0;
 }
