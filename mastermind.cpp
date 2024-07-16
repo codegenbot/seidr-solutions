@@ -1,4 +1,3 @@
-```c++
 #include <tuple>
 #include <vector>
 #include <iostream>
@@ -22,11 +21,7 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        white += std::min(codeCount[i], guessCount[i]) - black;
-    }
-
-    int remainingWhite = 0;
+    int white = 0;
     for (int i = 0; i < 4; i++) {
         bool foundInCode = false;
         for (char c : code) {
@@ -36,11 +31,10 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
             }
         }
         if (!foundInCode) {
-            remainingWhite++;
+            white++;
         }
     }
 
-    white -= black;
     return std::make_tuple(white, black);
 }
 
