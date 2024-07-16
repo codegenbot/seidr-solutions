@@ -1,36 +1,26 @@
-int numWhitePegs(const string &code, const string &guess) {
-    int whitePegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++whitePegs;
-        }
-    }
-    return whitePegs;
-}
+#include <vector>
+using namespace std;
 
-int numBlackPegs(const string &code, const string &guess) {
-    int blackPegs = 0;
-    map<char, int> codeMap;
-    for (char c : code) {
-        codeMap[c]++;
-    }
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            --codeMap[guess[i]];
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+            codeVector[i] = '\0';
+            guessVector[i] = '\0';
         }
     }
 
-    for (int i = 0; i < 4; ++i) {
-        if (codeMap[guess[i]] > 0) {
-            ++blackPegs;
+    for(int i = 0; i < 4; i++) {
+        if(find(codeVector.begin(), codeVector.end(), guess[i]) != codeVector.end()) {
+            white++;
+            codeVector.erase(remove(codeVector.begin(), codeVector.end(), guess[i]), codeVector.end());
         }
     }
 
-    return blackPegs;
-}
-
-void printClue(int whitePegs, int blackPegs) {
-    cout << whitePegs << "\n";
-    cout << blackPegs << "\n";
+    return {black, white};
 }
