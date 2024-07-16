@@ -1,39 +1,39 @@
-int bowlingScore(std::string s) {
-    int score = 0;
-    int currentFrame = 1;
-    int rollsInFrame = 0;
+using namespace std;
 
-    for (char c : s) {
-        if (c == '/') {
-            if (rollsInFrame == 2) {
-                currentFrame++;
-                rollsInFrame = 0;
-            }
-        } else if (c == 'X') {
-            score += 10 + 10;
-            currentFrame++;
-            rollsInFrame = 0;
-        } else if (isdigit(c)) {
-            int points = c - '0';
-            if (rollsInFrame == 1) {
-                if (points == 10) {
-                    score += 10;
-                    currentFrame++;
-                    rollsInFrame = 0;
-                } else {
-                    score += points;
-                    if (c + 1 < s.length() && s[c+1] == '/') {
-                        score += s[c+2] - '0';
-                        currentFrame++;
-                        rollsInFrame = 0;
-                    }
-                }
+int bowlingScore(string s) {
+    int score = 0;
+    int roll1, roll2;
+
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') { // Strike
+            score += 10 + getBonus(s.substr(i+1));
+        } else if (s[i] == '/') { // Spare
+            score += 5 + getBonus(s.substr(i+1));
+        } else { // Normal roll
+            roll1 = s[i] - '0';
+            if (i < 8 && s[i+1] != '/') {
+                roll2 = s[i+1] - '0';
+                score += roll1 + roll2;
             } else {
-                score += points;
-                rollsInFrame++;
+                score += roll1;
             }
         }
     }
 
     return score;
 }
+
+int getBonus(string s) {
+    int bonus = 0;
+
+    for (int j = 0; j < s.size(); j++) {
+        if (s[j] == 'X') { // Strike
+            bonus += 10;
+        } else if (s[j] == '/') { // Spare
+            bonus += 5;
+        } else { // Normal roll
+            bonus += s[j] - '0';
+        }
+    }
+
+    return bonus;
