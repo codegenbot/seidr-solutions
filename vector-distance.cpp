@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -10,5 +11,12 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 }
 
 int main() {
-    return 0; // Placeholder main function
+    std::vector<double> vec1{1.0, 2.0, 3.0};
+    std::vector<double> vec2{4.0, 5.0, 6.0};
+
+    double distance = calculateDistance(vec1, vec2);
+    
+    std::cout << "Euclidean distance between the two vectors: " << distance << std::endl;
+
+    return 0;
 }
