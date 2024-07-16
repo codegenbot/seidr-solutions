@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string line;
-    getline(cin, line);
-    istringstream iss(line);
     int n;
-    while (iss >> n) {
+    while (cin >> n) {
         nums.push_back(n);
+    }
+
+    if (nums.empty()) {
+        cout << "No input provided" << endl;
+        return 0;
     }
 
     int sum = 0;
