@@ -20,9 +20,10 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        std::string tempRev = temp;
-        std::reverse(tempRev.begin(), tempRev.end());
-        result += tempRev + " ";
+        std::string revTemp = std::string(temp).rbegin();
+        for (; revTemp != string(temp).rend(); ++revTemp) {
+            result += *revTemp;
+        }
     } else
         result += temp;
 
