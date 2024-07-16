@@ -1,4 +1,4 @@
-def indices_of_substring(text):
+def indices_of_substring(text): 
     target = input()
     indices = []
     for i in range(len(text)):
