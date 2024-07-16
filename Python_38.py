@@ -5,8 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input()
-if input_string.isalpha() and input_string.isupper():
+print("Enter a string in upper case alphabets:")
+input_string = input().strip()
+if input_string.isupper():
     result = decode_cyclic(input_string)
     print(result)
 else:
