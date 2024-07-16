@@ -1,12 +1,13 @@
+```
 def camel_case(s):
-    return (
-        "".join(word.capitalize() for word in s.split())
-        if "-" not in s
-        else " ".join(
-            [s[: s.index("-")].capitalize()] + 
-            ["-".join(map(lambda x: x.capitalize(), s[s.index("-") + 1:].split("-")))]
-        )
-    )
+    result = ""
+    words = s.split("-")
+    for i, word in enumerate(words):
+        if i > 0:
+            result += word.capitalize()
+        else:
+            result += word
+    return result
 
 
 input_string = input()
