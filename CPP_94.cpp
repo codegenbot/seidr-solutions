@@ -1,9 +1,6 @@
-int main(){
-    vector<int> lst = {1,2,3,4,5};
-    int result = skjkasdkd(lst);
-    cout << "The sum of digits for the max prime number is: " << result;
-    return 0;
-}
+#include <iostream>
+#include <vector>
+using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
@@ -31,4 +28,10 @@ int sumOfDigits(int num){
         num /= 10;
     }
     return sum;
+}
+
+int main() {
+    vector<int> lst = {2,3,4,5,6};
+    cout << skjkasdkd(lst) << endl;
+    return 0;
 }
