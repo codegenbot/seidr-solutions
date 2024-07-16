@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <utility>
 #include <cmath>
@@ -21,18 +20,5 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
 }
 
 int main() {
-    std::vector<int> nums = {2, 4, 1, 7, 5, 9};
-    auto result = findCutSpot(nums);
-
-    for (const auto& num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    for (const auto& num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
     return 0;
 }
