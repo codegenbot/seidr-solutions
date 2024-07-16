@@ -1,6 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-long long double_the_difference(const std::vector<double>& lst) {
+long long double_the_difference(std::vector<int>& lst) {
     long long sum = 0;
     for (const auto& num : lst) {
         if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
@@ -8,4 +10,12 @@ long long double_the_difference(const std::vector<double>& lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    long long odd_sum = 25;
+    assert(double_the_difference(lst) == odd_sum);
+    
+    return 0;
 }
