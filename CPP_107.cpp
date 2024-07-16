@@ -23,6 +23,9 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Main function implementation
+    int n;
+    std::cin >> n;
+    std::vector<int> result = even_odd_palindrome(n);
+    // Process the result as needed
     return 0;
 }
