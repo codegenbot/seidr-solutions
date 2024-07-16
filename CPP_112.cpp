@@ -1,31 +1,22 @@
-#include <vector>
-#include <string>
-
-bool issame(const std::string& s, const std::string& c) {
-    return false;
-}
-
-std::vector<string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char x : s) {
+    for (char ch : s) {
         bool found = false;
-        for (char y : c) {
-            if (x == y) {
+        for (char cc : c) {
+            if (ch == cc) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            temp += x;
+            temp += ch;
         }
     }
     result.push_back(temp);
-    string reversed = "";
-    for (int i = temp.length() - 1; i >= 0; i--) {
-        reversed += temp[i];
-    }
-    if (temp == reversed) {
+    string reverseTemp = temp;
+    reverse(temp.begin(), temp.end());
+    if (temp == reverseTemp) {
         result.push_back("True");
     } else {
         result.push_back("False");
