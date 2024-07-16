@@ -1,8 +1,5 @@
 ```cpp
-#include <string>
-using namespace std;
-
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -15,17 +12,5 @@ bool is_nested(string str) {
             }
         }
     }
-    return count != 0;
-
-int main() { 
-    string input;
-    cout << "Enter a string: ";
-    cin >> ws; 
-    getline(cin, input); 
-    if(is_nested(input)) {
-        cout << "The string is nested." << endl;
-    } else {
-        cout << "The string is not nested." << endl;
-    }
-    return 0; 
+    return count == 0;
 }
