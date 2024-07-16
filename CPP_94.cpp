@@ -12,9 +12,9 @@ bool isPrime(int n) {
     return true;
 }
 
-int max_prime_sum(std::initializer_list<int> lst){
+int max_prime_sum(int input[]){ 
     int maxPrime = 0;
-    for(int i : lst){
+    for(int i : {input[0], input[1], input[2]}){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
     }
@@ -26,18 +26,9 @@ int max_prime_sum(std::initializer_list<int> lst){
     return sum;
 }
 
-int solve() {
-    std::initializer_list<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++){
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    int result = max_prime_sum(lst);
+int main() {
+    int input[3] = {127, 97, 8192};
+    int result = max_prime_sum(input);
     std::cout << "The maximum prime number in the list is: " << result << std::endl;
     assert(result == 127); 
     return 0;
