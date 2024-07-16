@@ -6,8 +6,10 @@ double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
     
-    for(int i = 1; i < m; i++) {
-        p += ((double)i / n) * ((m-i)/(m-1));
+    for(int i = 1; i < min(n, m); i++) {
+        if (i < n && i < m) p += ((double)i / n) * ((n - i) / (m - 1));
+        else if (i == n - 1) p += (1.0 / n);
+        else p -= (1.0 / m);
     }
     
     return p;
