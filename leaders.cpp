@@ -5,14 +5,15 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
 
-    for(int i=n-1; i>=0; i--) { 
+    for(int i=0; i<n; i++) { 
         bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
+        for(int j=i+1; j<n; j++) { 
+            if(arr[i] <= arr[j]) {
                 leader = false;
                 break;
             }
         }
+
         if(leader) {
             result.push_back(arr[i]);
         }
