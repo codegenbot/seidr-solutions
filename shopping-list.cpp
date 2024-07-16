@@ -1,10 +1,11 @@
 #include <vector>
-#include <iostream>
+#include <iomanip>
+#include <initializer_list>
 
 int main() {
     double total = 0.0;
-    std::vector<float> prices; 
-    std::vector<float> discounts;
+    vector<float> prices; 
+    vector<float> discounts;
 
     int nPrices, nDiscounts;
     cin >> nPrices >> nDiscounts;
