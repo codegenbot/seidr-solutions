@@ -1,4 +1,4 @@
-input_str = input("Enter a string consisting of lowercase alphabets only: ")
+input_str = input("Enter a string consisting of lowercase alphabets only: ").strip()
 if input_str.islower():
     print(input_str)
 else:
