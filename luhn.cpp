@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> digits) {
@@ -18,8 +19,7 @@ int luhn(std::vector<int> digits) {
 
 int main() {
     int cardNumber[] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 3, 1, 6, 4, 3, 5};
-    int cardNumberLength = sizeof(cardNumber) / sizeof(cardNumber[0]);
-    std::vector<int> digits(cardNumber, cardNumber + cardNumberLength);
+    std::vector<int> digits(cardNumber, cardNumber + sizeof(cardNumber)/sizeof(cardNumber[0]));
     int result = luhn(digits);
     return 0;
 }
