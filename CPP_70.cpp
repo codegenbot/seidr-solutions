@@ -1,12 +1,28 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
 vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
     vector<int> result;
-    int i = 0, j = lst.size() - 1;
-    while (i <= j) {
-        result.push_back(lst[i++]);
-        if (i <= j) {
-            result.push_back(lst[j--]);
+    sort(lst.begin(), lst.end());
+    int n = lst.size();
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        result.push_back(lst[left]);
+        if (left != right) {
+            result.push_back(lst[right]);
         }
+        left++;
+        right--;
     }
     return result;
+}
+
+int main() {
+    // Main function logic here
+    return 0;
 }
