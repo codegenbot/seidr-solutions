@@ -9,7 +9,7 @@ std::string join(const std::vector<std::string>& tokens) {
         if (!result.empty()) {
             result += ' ';
         }
-        result += token;
+        result += std::move(token);
     }
     return result;
 }
