@@ -1,24 +1,17 @@
+```cpp
+#include <string>
+
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (i + 1 < s.length() && s[i+1] == '&') {
-                i++;
-            }
-            if (i + 1 >= s.length() || s[i+1] == '|') {
-                result = false;
-                break;
-            }
-        } else if (s[i] == '|') {
-            while (i + 1 < s.length() && s[i+1] == '|') {
-                i++;
-            }
-            if (i + 1 >= s.length()) {
-                return true;
-            }
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
             result = false;
-        } else {
-            result = (s[i] == 'T');
+        } else if (s[i] == '|') {
+            result = !result;
+        } else if (s[i] == '&') {
+            if (!result) return false;
         }
     }
     return result;
