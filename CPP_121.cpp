@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -11,5 +12,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-std::cout << solution({3, 13, 2, 9}) << std::endl;
-return 0;
+int main() {
+    std::cout << solution({3, 13, 2, 9}) << std::endl;
+    return 0;
+}
