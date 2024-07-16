@@ -4,13 +4,11 @@ def get_valid_input():
             input_numbers = list(
                 map(int, input("Enter comma-separated numbers: ").strip().split(","))
             )
-            if input_numbers:
-                return input_numbers
-            else:
-                raise ValueError
+            return input_numbers
         except ValueError:
             print("Invalid input. Please enter comma-separated numbers.\n")
-
+        except EOFError: 
+            print("Invalid input. Please enter comma-separated numbers.\n")
 
 input_numbers = get_valid_input()
 print(f"Input numbers: {input_numbers}")
