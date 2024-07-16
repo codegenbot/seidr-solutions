@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -29,12 +28,6 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     if (!str.empty()) {
         tokens.push_back(str);
     }
-    
-    for (auto& token : tokens) {
-        if (!token.empty())
-            tokens.push_back(token);
-    }
-    
     return tokens;
 }
 
@@ -54,7 +47,7 @@ std::string camelCase(const std::string& str) {
                 if (!result.empty()) {
                     result += " ";
                 }
-                result += std::tolower(words[i][0]) + words[i].substr(1);
+                result += std::tolower(static_cast<char>(words[i][0])) + words[i].substr(1);
             }
         }
     }

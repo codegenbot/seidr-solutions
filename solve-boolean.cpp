@@ -1,8 +1,7 @@
-```cpp
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    size_t i = 0;
-    for (char c : s) {  
+    bool left = true;
+    for (auto c : s) {  
         if (c == 'T') {
             result = true;
         } else if (c == 'F') {
@@ -10,13 +9,8 @@ bool solveBoolean(const std::string& s) {
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
-            while (true) {
-                if (!result) return false;
-                i = s.find(c, i);
-                if (i == std::string::npos) break;
-                i++;
-            }
+            left = result;
+            result = false;
         }
     }
     return result;
-}
