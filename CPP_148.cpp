@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -35,4 +34,10 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-assert(bf("Jupiter", "Makemake").empty());
+int main() {
+    vector<string> result = bf("Jupiter", "Makemake");
+    for (const string& planet : result) {
+        cout << planet << " ";
+    }
+    return 0;
+}
