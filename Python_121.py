@@ -5,6 +5,8 @@ def solution(lst):
 while True:
     try:
         user_input = input("Enter numbers separated by space: ")
+        if not user_input:
+            raise ValueError
         lst = list(map(int, filter(str.isdigit, user_input.split())))
         if not all(isinstance(num, int) for num in lst):
             raise ValueError
