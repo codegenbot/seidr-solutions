@@ -1,4 +1,9 @@
-int digitCount = 0;
+#include <iostream>
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
     
