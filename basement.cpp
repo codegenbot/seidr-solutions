@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ int basement(const vector<int>& v) {
     for (int i = 0; ; i++) {
         sum += v[i];
         if (sum < 0)
-            return i+1; // return the first index where the sum becomes negative
+            return i;
     }
 }
 
