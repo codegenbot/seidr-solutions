@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -16,10 +15,9 @@ int luhn(int digits[16]) {
 
 int main() {
     int digits[16];
-    for(int i = 0; i < 16; i++){
+    cout << "Enter your credit card number: ";
+    for (int i = 0; i < 16; i++) {
         cin >> digits[i];
     }
-    int result = luhn(digits);
-    cout << "The result is: " << result << endl;
-    return 0;
+    cout << "The Luhn check result is: " << luhn(digits);
 }
