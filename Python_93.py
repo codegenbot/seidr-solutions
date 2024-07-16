@@ -6,7 +6,9 @@ def encode(message):
         elif not char.isalpha():
             result += char
         else:
-            ascii_offset = 65 if char.isupper() else 97
-            shifted_char_code = (ord(char) - ascii_offset + 3) % 26 + ascii_offset
+            if char.isupper():
+                shifted_char_code = ((ord(char) - 65 + 3) % 26 + 65)
+            else:
+                shifted_char_code = ((ord(char) - 97 + 3) % 26 + 97)
             result += chr(shifted_char_code)
     return result
