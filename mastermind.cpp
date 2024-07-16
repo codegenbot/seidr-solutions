@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,20 +15,19 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        } else {
-            bool foundInCode = false;
-            for (int j = 0; j < 4; j++) {
-                if (guessStr[i] == codeStr[j]) {
-                    foundInCode = true;
-                    break;
-                }
-            }
-            if (!foundInCode) {
-                whitePegs++;
-            } else {
-                blackPegs--;
+        }
+    }
+
+    for (char c : codeStr) {
+        int count = 0;
+        for (char d : guessStr) {
+            if (c == d) {
+                count++;
+                break;
             }
         }
+        if (count == 0) blackPegs--;
+        else whitePegs += count - 1;
     }
 
     // Print the result
