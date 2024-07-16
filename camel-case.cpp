@@ -5,8 +5,7 @@ std::string kebabToCamel(const std::string& str) {
     std::string result;
     bool capitalize = false;
 
-    // Add a space to account for leading space
-    result += ' ';
+    result += ' ';  // Add a space to account for leading space
     for (char c : str + " ") {  
         if (c == '-') {
             result += ' ';  // Add a space to separate words
