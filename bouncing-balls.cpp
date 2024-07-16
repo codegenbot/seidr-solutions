@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <cmath> 
 using namespace std;
 
 int main() {
@@ -13,11 +13,14 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = pow(first_bounce_height / start_height, 0.5);
+    double bounciness_index = first_bounce_height / start_height;
 
-    double total_distance = 0.0;
+    double total_distance = 0.0; 
+    double prev_distance = bounciness_index;   
+
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += 2.0 * pow(first_bounce_height / start_height, i);
+        total_distance += prev_distance * (start_height + (first_bounce_height - start_height) / pow(2.0, i));
+        prev_distance *= 2.0; 
     }
 
     cout << fixed << setprecision(6) << total_distance;
