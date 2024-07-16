@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 std::string fizzBuzz(int x) {
@@ -13,5 +12,8 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
+    int x = 15;
+    std::cout << fizzBuzz(x) << std::endl;
+
     return 0;
 }
