@@ -26,13 +26,12 @@ bool is_same(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Read input from user
     string music_string;
     cin >> music_string;
 
     vector<int> parsed_beats = parse_music(music_string);
 
-    vector<int> test_beats = {4, 1, 2, 4, 1}; // Change this as per the test case
+    vector<int> test_beats = {4, 1, 2, 4, 1};
     if (is_same(parsed_beats, test_beats)) {
         cout << "Match" << endl;
     } else {
