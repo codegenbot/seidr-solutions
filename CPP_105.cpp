@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
