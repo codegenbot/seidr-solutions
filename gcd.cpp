@@ -32,18 +32,28 @@ int findGCD(int a, int b) {
 
 int main() {
     int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << findGCD(num1, num2) << endl;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
 
-    string text, target;
-    cout << "Enter a text and target string: ";
-    cin >> text >> target;
+    int gcd = findGCD(num1, num2);
+    cout << "The GCD of " << num1 << " and " << num2 << " is " << gcd << endl;
+    
+    string text;
+    cout << "Enter a text: ";
+    getline(cin, text);
+
+    string target;
+    cout << "Enter the target string: ";
+    cin >> target;
+
     vector<int> indices = findIndices(text, target);
-    cout << "Target found at indices: ";
-    for (int i : indices)
+    cout << "The target string appears at indices ";
+    for (int i : indices) {
         cout << i << " ";
+    }
     cout << endl;
-
+    
     return 0;
 }
