@@ -1,12 +1,24 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
 
     std::vector<int> result;
-    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
 
     result.erase(std::unique(result.begin(), result.end()), result.end());
 
