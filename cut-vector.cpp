@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -10,7 +11,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     
     for (int i = 1; i < v.size(); i++) {
         int leftSum = 0, rightSum = 0;
-        for(int j=1; j<i+1;j++) leftSum +=v[j];
+        for(int j=1; j<=i;j++) leftSum +=v[j];
         for(int j=i; j<v.size();j++) rightSum +=v[j];
         int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
@@ -19,7 +20,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + splitIndex);
+    vector<int> left(v.begin(), v.begin() + splitIndex+1);
     vector<int> right(v.begin() + splitIndex, v.end());
     
     return {left, right};
@@ -41,6 +42,6 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "0" << endl;
+    cout << "]" << endl;
     return 0;
 }
