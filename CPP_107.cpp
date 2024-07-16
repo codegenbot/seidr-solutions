@@ -2,7 +2,9 @@
 #include <string>
 #include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    // Implementation of the function
+}
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2, 0);
