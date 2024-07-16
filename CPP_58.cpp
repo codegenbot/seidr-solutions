@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
@@ -16,12 +17,11 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3, 4, 5};
-    vector<int> l2 = {3, 4, 5, 6, 7};
-    vector<int> expectedResult = {3, 4, 5};
-    
-    vector<int> result = common(l1, l2);
-    assert(issame(result, expectedResult));
-    
-    return 0;
+    vector<int> l1 = {1, 2, 2, 3, 4};
+    vector<int> l2 = {2, 2, 3, 3, 4};
+
+    vector<int> expectedResult = {2, 3, 4};
+    vector<int> actualResult = common(l1, l2);
+
+    assert(issame(expectedResult, actualResult));
 }
