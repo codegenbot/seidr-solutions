@@ -22,3 +22,4 @@ bool solveBoolean(const std::string& s) {
         }
     }
     return result;
+}
