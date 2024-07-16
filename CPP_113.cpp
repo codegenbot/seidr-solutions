@@ -1,3 +1,7 @@
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<int> odd_count(vector<string> lst) {
     vector<int> result;
     for (string s : lst) {
@@ -10,7 +14,4 @@ vector<int> odd_count(vector<string> lst) {
         result.push_back(oddCount);
     }
     return result;
-}
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
