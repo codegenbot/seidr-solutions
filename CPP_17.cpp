@@ -3,25 +3,20 @@ vector<int> parse_music(string music_string){
     string note = "";
     for (char c : music_string) {
         if (c == 'o') {
-            if (!note.empty()) {
-                if (note == "o|") {
-                    beats.push_back(2);
-                } else if (note == ".|") {
-                    beats.push_back(1);
-                }
-                note = "";
+            if (note == "o|") {
+                beats.push_back(2);
+            } else {
+                beats.push_back(4);
             }
-            note += c;
-        } else if (c == '|') {
+            note = "";
+        } else if (c == '.') {
+            if (note == ".|") {
+                beats.push_back(1);
+            }
+            note = "";
+        } else {
             note += c;
         }
-    }
-    if (note == "o") {
-        beats.push_back(4);
-    } else if (note == "o|") {
-        beats.push_back(2);
-    } else if (note == ".|") {
-        beats.push_back(1);
     }
     return beats;
 }
