@@ -1,36 +1,38 @@
 string solveBoolean(string s) {
-    bool res = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') res = true;
-        else if (s[i] == 'f') return "False";
-        else if (i+1 < s.length() && s[i] == '&') {
-            bool a = false, b = false;
-            for (int j = i-1; j >= 0; j--) {
-                if (s[j] == 't') a = true;
-                else if (s[j] == 'f') a = false;
-                if (!a) break;
-            }
-            for (int j = i+2; j < s.length(); j++) {
-                if (s[j] == 't') b = true;
-                else if (s[j] == 'f') b = false;
-                if (!b) break;
-            }
-            res = a && b;
-        } 
-        else if (i+1 < s.length() && s[i] == '|') {
-            bool a = false, b = false;
-            for (int j = i-1; j >= 0; j--) {
-                if (s[j] == 't') a = true;
-                else if (s[j] == 'f') a = false;
-                if (!a) break;
-            }
-            for (int j = i+2; j < s.length(); j++) {
-                if (s[j] == 't') b = true;
-                else if (s[j] == 'f') b = false;
-                if (!b) break;
-            }
-            res = a || b;
-        } 
+    bool result = true;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 't') {
+            result = true;
+            i += 1;
+            break;
+        } else if (s[i] == 'f') {
+            result = false;
+            i += 1;
+            break;
+        } else if (s[i] == '|') {
+            i += 1;
+        } else if (s[i] == '&') {
+            i += 1;
+        }
     }
-    return res ? "True" : "False";
+    for (; i < s.length(); i++) {
+        if (s[i] == 't')
+            result = true;
+        else if (s[i] == 'f')
+            result = false;
+        else if (s[i] == '|') {
+            if (!result)
+                result = true;
+            else
+                result = false;
+        } else if (s[i] == '&') {
+            if (result)
+                result &= (s[i + 1] != 'f');
+            else
+                result = false;
+            i++;
+        }
+    }
+    return (result ? "True" : "False");
 }
