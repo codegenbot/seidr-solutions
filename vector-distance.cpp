@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -6,11 +5,12 @@ double vectorDistance() {
     int n;
     std::cin >> n;
 
-    double sum = 0;
+    double sumX = 0, sumY = 0;
     for (int i = 0; i < n; i++) {
         double x1, y1, x2, y2;
         std::cin >> x1 >> y1 >> x2 >> y2;
-        sum += pow(x2 - x1, 2) + pow(y2 - y1, 2);
+        sumX += pow(x2 - x1, 2);
+        sumY += pow(y2 - y1, 2);
     }
-    return sqrt(sum);
+    return sqrt(sumX + sumY);
 }
