@@ -12,13 +12,11 @@ int main() {
         return 0;
     }
 
-    size_t target_length = target.length();
     std::vector<size_t> indices;
-
-    for (size_t i = 0; i <= text.length() - target_length; ++i) {
-        if (text.substr(i, target_length) == target) {
-            indices.push_back(i);
-        }
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += (target.empty() ? 1 : target.size()); // Move to the next position allowing overlaps
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
