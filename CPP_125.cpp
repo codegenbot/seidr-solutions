@@ -1,9 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(const std::vector<std::string>& txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+using namespace std;
+
+bool issame(vector<string> a,vector<string> b);
+
+vector<string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -24,12 +30,17 @@ bool issame(const std::vector<std::string>& txt) {
                 oddCount++;
             }
         }
-        result[0] = std::to_string(oddCount);
+        result[0] = to_string(oddCount);
     }
     return result;
 }
 
 int main() {
     assert(issame(split_words(""), {"0"}));
+    // Add more test cases here
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
