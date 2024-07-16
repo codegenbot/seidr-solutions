@@ -1,3 +1,1 @@
-import sys
-
-paren_string = sys.stdin.readline().strip()
+paren_string = input().strip()
