@@ -1,19 +1,18 @@
-string result = "";
-    bool isPrevSpace = false;
-    
+string result;
+    bool is_prev_space = false;
     for (char c : text) {
         if (c == ' ') {
-            if (!isPrevSpace) {
-                result += '_';
-            } else {
+            if (is_prev_space) {
+                result.pop_back();
                 result += '-';
+            } else {
+                result += '_';
             }
-            isPrevSpace = true;
+            is_prev_space = true;
         } else {
             result += c;
-            isPrevSpace = false;
+            is_prev_space = false;
         }
     }
-    
     return result;
 }
