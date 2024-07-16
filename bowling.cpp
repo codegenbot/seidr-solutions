@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int calculateBowlingScore(string s) {
     int score = 0;
     int frame = 1;
@@ -21,16 +25,13 @@ int calculateBowlingScore(string s) {
         }
     }
     
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i*2] == 10) {
-            score += 10 + rolls[i*2+2] + rolls[i*2+3];
-            if (rolls[i*2+2] == 10) {
-                score += rolls[i*2+4];
-            }
-        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
-            score += 10 + rolls[i*2+2];
+    for (int i = 0, frameIndex = 0; frameIndex < 10; i += (rolls[i] == 10) ? 1 : 2, frameIndex++) {
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i + 1] + rolls[i + 2];
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            score += 10 + rolls[i + 2];
         } else {
-            score += rolls[i*2] + rolls[i*2+1];
+            score += rolls[i] + rolls[i + 1];
         }
     }
     
