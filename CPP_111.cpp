@@ -1,15 +1,18 @@
-map<char, int> result;
-    map<char, int> count;
-    int maxCount = 0;
+map<char, int> histogram(string test) {
+    map<char, int> hist;
     for (char c : test) {
         if (c != ' ') {
-            count[c]++;
-            maxCount = max(maxCount, count[c]);
+            hist[c]++;
         }
     }
-    for (const auto &elem : count) {
-        if (elem.second == maxCount) {
-            result[elem.first] = elem.second;
+    int maxCount = 0;
+    for (const auto& p : hist) {
+        maxCount = max(maxCount, p.second);
+    }
+    map<char, int> result;
+    for (const auto& p : hist) {
+        if (p.second == maxCount) {
+            result[p.first] = p.second;
         }
     }
     return result;
