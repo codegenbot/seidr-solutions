@@ -1,2 +1,1 @@
-paren_string = input().strip()
-# Ensure the input is provided during the program execution
+paren_string = input().strip() if input() else ""
