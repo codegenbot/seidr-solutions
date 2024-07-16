@@ -1,7 +1,6 @@
-```
+```cpp
 #include <vector>
-#include <string>
-
+#include <string> 
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -20,6 +19,7 @@ vector<int> findIndices(string text, string target) {
         }
     }
     return result;
+
 }
 
 int findGCD(int a, int b) {
