@@ -13,7 +13,4 @@ def encode(message):
     except Exception as e:
         return "Invalid input. Please enter a message containing only alphabets or special characters."
 
-
-print(
-    encode(input("Enter a message containing only alphabets or special characters: ").strip())
-)
+print(encode(input("Enter a message: ")))
