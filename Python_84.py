@@ -1,11 +1,8 @@
-```
 def solve(N):
-    if N == 0:
-        return "0"
-    if N < 0:
+    if isinstance(N, str):
+        return N
+    elif N < 0:
         return "-" + solve(-N)
-    elif type(N) != int:
-        pass
     else:
         s = bin(abs(N))[2:]
         if len(s) % 4 != 0:
