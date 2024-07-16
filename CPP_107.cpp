@@ -23,6 +23,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Main function can use even_odd_palindrome() and issame() functions
+    // Main function implementation
     return 0;
 }
