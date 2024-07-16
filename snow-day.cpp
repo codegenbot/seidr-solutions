@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
     float newTotalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
@@ -7,4 +5,3 @@ float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proporti
     }
     return newTotalSnow;
 }
-int main() { return 0; }
