@@ -1,10 +1,4 @@
-```
 def paired_digits(s):
-    total = 0
-    for i in range(len(s)):
-        if i > 0 and s[i] == s[i-1]:
-            total += int(s[i-1:i+1])
-    return total
+    return sum(int(y) + int(x) for x, y in zip(s, s[1:]) if x == y)
 
-s = input("Enter a string of digits: ")
-print(paired_digits(s))
+print(paired_digits(input("Enter a string of digits: ")))
