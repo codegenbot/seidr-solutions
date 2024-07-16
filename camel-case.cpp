@@ -7,11 +7,12 @@ std::string camelCase(std::string s) {
             capitalizeNext = true;
             result += ' ';
         } else if (capitalizeNext) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
     
     return result;
+}
