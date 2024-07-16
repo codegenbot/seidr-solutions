@@ -1,14 +1,13 @@
-def check(N):
+import base64
+
+def solve(N):
     if isinstance(N, str):
         return N
     elif N < 0:
-        return "-" + check(-N)
+        return "-" + solve(-N)
     else:
-        s = bin(abs(N))[2:]
-        if len(s) % 4 != 0:
-            s = '0' * (4 - len(s) % 4) + s
-        result = ''
-        for i in range(0, len(s), 4):
-            d4 = s[i:i+4]
-            result += chr(int(d4, 2))
-        return result
+        s = base64.b64encode(str(N).encode()).decode().upper()
+        return s.replace("=", "")
+
+num = input("Enter a number: ")
+solve(int(num))
