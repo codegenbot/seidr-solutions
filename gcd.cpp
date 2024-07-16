@@ -16,6 +16,8 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
     }
     return result;
 
+}
+
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
