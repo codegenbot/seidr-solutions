@@ -4,7 +4,7 @@ def get_valid_input():
     while True:
         try:
             user_input = input("Enter comma-separated numbers: ").strip()
-            if re.match(r'^\d+(\s*,\s*\d+)*$', user_input):
+            if re.match(r'^\d+(,\d+)*$', user_input):
                 input_numbers = list(map(int, user_input.split(",")))
                 return input_numbers
             else:
