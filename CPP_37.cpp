@@ -7,6 +7,7 @@ vector<float> even_values;
         }
     }
     sort(sorted_even_values.begin(), sorted_even_values.end());
+    
     int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -14,5 +15,6 @@ vector<float> even_values;
             sorted_even_index++;
         }
     }
+    
     return l;
 }
