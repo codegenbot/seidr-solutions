@@ -2,7 +2,7 @@
 #include <any>
 #include <string>
 
-std::any compare_one(const std::string& a, const std::string& b) {
+std::any compare_one(const std::string &a, const std::string &b) {
     return b;
 }
 
