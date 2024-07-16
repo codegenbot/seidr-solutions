@@ -1,4 +1,3 @@
-```
 def middle_character(s):
     s = s.strip()
     length = len(s)
