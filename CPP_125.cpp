@@ -1,32 +1,38 @@
-vector<string> result;
-    size_t found = txt.find(' ');
-    if (found != string::npos) {
-        size_t start = 0;
-        while (found != string::npos) {
-            result.push_back(txt.substr(start, found - start));
-            start = found + 1;
-            found = txt.find(' ', start);
-        }
-        result.push_back(txt.substr(start));
-    } else {
-        found = txt.find(',');
-        if (found != string::npos) {
-            size_t start = 0;
-            while (found != string::npos) {
-                result.push_back(txt.substr(start, found - start));
-                start = found + 1;
-                found = txt.find(',', start);
-            }
-            result.push_back(txt.substr(start));
+vector<string> words;
+    string word = "";
+    bool hasWhitespace = false;
+    
+    for (char c : txt) {
+        if (c == ' ') {
+            hasWhitespace = true;
+            words.push_back(word);
+            word = "";
+        } else if (c == ',') {
+            hasWhitespace = true;
+            words.push_back(word);
+            word = "";
         } else {
-            int odd_count = 0;
-            for (char c : txt) {
-                if (islower(c) && (c - 'a') % 2 != 0) {
-                    odd_count++;
-                }
-            }
-            result.push_back(to_string(odd_count));
+            word += c;
         }
     }
-    return result;
+    
+    if (!hasWhitespace) {
+        if (word.empty()) {
+            words.push_back("0");
+        } else {
+            int count = 0;
+            for (char c : word) {
+                if (islower(c) && (c - 'a') % 2 == 1) {
+                    count++;
+                }
+            }
+            words.push_back(to_string(count));
+        }
+    } else {
+        if (!word.empty()) {
+            words.push_back(word);
+        }
+    }
+    
+    return words;
 }
