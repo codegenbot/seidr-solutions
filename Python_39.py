@@ -1,1 +1,1 @@
-n = int(input().strip()) # Make sure to provide input when running the code
+n = int(input("Enter a number: "))  # Prompt the user to enter a number
