@@ -1,5 +1,4 @@
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> result;
     string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
