@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = []
@@ -7,6 +6,8 @@ def coin_sums(cents):
         count = cents // coin
         if count > 0:
             results.append(str(count))
-            cents %= coin
+        else:
+            results.append('0')
+        cents %= coin
 
     return '\n'.join(results)
