@@ -3,7 +3,7 @@
 #include <vector>
 #include <numeric>
 
-void findCutSpot(const std::vector<int>& nums) {
+std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
     int cutIndex = 0;
     int minDiff = INT_MAX;
 
@@ -18,22 +18,26 @@ void findCutSpot(const std::vector<int>& nums) {
     std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex);
     std::vector<int> subvector2(nums.begin() + cutIndex, nums.end());
 
-    for (int num : subvector1) {
-        std::cout << num << std::endl;
-    }
-
-    for (int num : subvector2) {
-        std::cout << num << std::endl;
-    }
-
     if (minDiff == INT_MAX) {
-        std::cout << "No valid cut found." << std::endl;
+        return std::make_pair(std::vector<int>(), std::vector<int>());
     }
+
+    return std::make_pair(subvector1, subvector2);
 }
 
 int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
-    findCutSpot(nums);
+    auto result = findCutSpot(nums);
+
+    for (int num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
