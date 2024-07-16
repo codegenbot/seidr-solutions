@@ -15,7 +15,7 @@ int basement(std::vector<int> nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    for (; std::cin >> num;) {
         nums.push_back(num);
     }
 
