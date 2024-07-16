@@ -1,30 +1,37 @@
-int bowlingScore(std::string s) {
-    int score = 0;
-    int roll1, roll2 = 0;
+```cpp
+#include <iostream>
+#include <string>
 
-    for (char c : s) {
-        if (c == '/') {
-            if (roll1 + roll2 < 10)
-                score += roll1 + roll2;
-            else
+using namespace std;
+
+int bowlingScore(string s) {
+    int score = 0;
+    int roll = 0;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '/') {
+            if (roll > 9)
                 score += 10;
-            roll1 = 0;
-            roll2 = 0;
-        } else if (isdigit(c)) {
-            if (roll1 > 0) {
-                roll2 *= 10;
-                roll2 += c - '0';
-            } else {
-                roll1 *= 10;
-                roll1 += c - '0';
-            }
+            else
+                score += roll;
+            roll = 0;
+        } else if (isdigit(s[i])) {
+            roll *= 10;
+            roll += s[i] - '0';
         }
     }
 
-    if (roll1 + roll2 < 10)
-        score += roll1 + roll2;
-    else
+    if (roll > 9)
         score += 10;
+    else
+        score += roll;
 
     return score;
+}
+
+int main() {
+    string s = "1-2/3 4-5/6-7-8/9";
+    int score = bowlingScore(s);
+    cout << "The score is: " << score << endl;
+    return 0;
 }
