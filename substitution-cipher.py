@@ -17,5 +17,5 @@ def decipher():
 
     print("Deciphered message: " + result)
 
-if __name__ == "__main__":
-    decipher()
+    if __name__ == "__main__":
+        decipher()
