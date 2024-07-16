@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -13,7 +14,14 @@ bool isPrime(int n) {
 
 int main(){
     int maxPrime = 0;
-    vector<int> lst = {127, 97, 8192}; 
+    vector<int> lst;
+    int num;
+    while(true){
+        cout << "Enter a number (-1 to finish): ";
+        cin >> num;
+        if(num == -1) break;
+        lst.push_back(num);
+    }
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
@@ -24,4 +32,3 @@ int main(){
         maxPrime /= 10;
     }
     return sum;
-}
