@@ -1,36 +1,36 @@
 int main() {
+    vector<int> nums;
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    
-    int leftSum = 0, rightSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n; ++i) {
-        rightSum += nums[i];
-    }
-    
-    for (int i = 0; i < n; ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+
+    int diff = INT_MAX;
+    int cutIdx = 0;
+
+    for (int i = 1; i < nums.size(); ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        for (int j = i; j < nums.size(); ++j) {
+            rightSum += nums[j];
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIdx = i;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; ++i) {
+
+    for (int i = 0; i < cutIdx; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = cutIndex + 1; i < n; ++i) {
+    cout << endl;
+    for (int i = cutIdx; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
-    
+
     return 0;
 }
