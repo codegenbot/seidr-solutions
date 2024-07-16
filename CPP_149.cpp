@@ -15,16 +15,3 @@ vector<string> sorted_list_sum(vector<string> lst) {
     });
     return lst;
 }
-
-int main() {
-    vector<string> input;
-    string temp;
-    while (cin >> temp) {
-        input.push_back(temp);
-    }
-    vector<string> result = sorted_list_sum(input);
-    for (const auto& s : result) {
-        cout << s << " ";
-    }
-    return 0;
-}
