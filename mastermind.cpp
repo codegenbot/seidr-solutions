@@ -1,6 +1,6 @@
 int mastermind(string code, string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -15,14 +15,11 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1 && black == 4) {
+        if (count > 1 || count == 1 && black > 0) {
             continue;
-        } else if (count == 1) {
-            white++;
         }
+        white += count - 1;
     }
 
-    return black + white;
+    return white + black;
 }
