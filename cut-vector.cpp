@@ -7,13 +7,8 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while (std::cin >> num) {
+    while (!std::cin.eof() && std::cin >> num) {
         nums.push_back(num);
-    }
-
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(INT_MAX, '\n');
     }
     
     int n = nums.size();
