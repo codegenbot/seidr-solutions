@@ -1,34 +1,33 @@
-Here is the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string camelCase(string s) {
-    string res = "";
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == '-') {
-            if (res.size()) {
-                res[0] = toupper(res[0]);
-            }
-            int j = i + 1;
-            while (j < s.size() && s[j] != '-') {
-                res += tolower(s[j++]);
-            }
-            res += " ";
+std::string camelCase(std::string s) {
+    std::string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.size() && s[i] == ' ') i++; // skip the spaces
+            result += std::toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            res += s[i];
+            if (!result.empty()) {
+                result += std::tolower(s[i]);
+            } else {
+                result += std::toupper(s[i]);
+            }
         }
     }
-    return res.substr(0, res.size() - 1);
+    return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << camelCase(input) << endl;
+    std::string s;
+    while (true) {
+        std::cout << "Enter a string in kebab-case (or 'q' to quit): ";
+        std::cin >> s;
+        if (s == "q") break;
+        std::cout << camelCase(s) << std::endl;
+    }
     return 0;
 }
