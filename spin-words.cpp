@@ -8,11 +8,11 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str.substr(i);
             i++;
-        } else if (str.length() - i >= 5) {
+        } else if (strlen(&str.substr(i)) >= 5) {
             for (int j = strlen(&str.substr(i)); j > 0; j--) {
-                result += str[i + j - 1];
+                result += str.substr(i + j - 1, 1);
             }
-            i += strlen(&str.substr(i));
+            i += j;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
