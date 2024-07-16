@@ -1,47 +1,70 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> res(2);
     
-    for(int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[0]);
-        if(diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 0; i < n; ++i) {
+        if (i == 0 || i == n - 1) {
+            res[0].push_back(nums[i]);
+            res[1].push_back(nums[i]);
+        } else {
+            int leftSum = 0, rightSum = 0;
+            for (int j = 0; j < i; ++j) {
+                leftSum += nums[j];
+            }
+            for (int j = i; j < n; ++j) {
+                rightSum += nums[j];
+            }
+            
+            if (leftSum == rightSum) {
+                res[0].push_back(nums[i]);
+                res[1].push_back(nums[i]);
+            } else {
+                int diff = abs(leftSum - rightSum);
+                for (int j = i; j < n; ++j) {
+                    if (abs(leftSum + nums[j] - rightSum) <= diff) {
+                        res[0].push_back(nums[i]);
+                        res[1].push_back(nums[j]);
+                        return res;
+                    }
+                }
+            }
         }
     }
     
-    return {vector<int>(nums.begin(), nums.begin() + cut_index), vector<int>(nums.begin() + cut_index, nums.end())};
+    return res;
 }
 
 int main() {
-    // test the function
-    vector<int> nums1 = {1};
-    vector<int> result1 = cutVector(nums1);
-    for(int num : result1) cout << num << " ";
-    cout << endl;
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+    }
     
-    vector<int> nums2 = {1, 10};
-    vector<int> result2 = cutVector(nums2);
-    for(int num : result2) cout << num << " ";
-    cout << endl;
+    vector<vector<int>> res = cutVector(nums);
     
-    vector<int> nums3 = {1, 100};
-    vector<int> result3 = cutVector(nums3);
-    for(int num : result3) cout << num << " ";
-    cout << endl;
+    cout << "[";
+    for (int i = 0; i < res[0].size(); ++i) {
+        cout << res[0][i];
+        if (i != res[0].size() - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "], [";
     
-    vector<int> nums4 = {1, 1000};
-    vector<int> result4 = cutVector(nums4);
-    for(int num : result4) cout << num << " ";
-    cout << endl;
-    
-    vector<int> nums5 = {1, 10000};
-    vector<int> result5 = cutVector(nums5);
-    for(int num : result5) cout << num << " ";
-    cout << endl;
+    for (int i = 0; i < res[1].size(); ++i) {
+        cout << res[1][i];
+        if (i != res[1].size() - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "]" << endl;
     
     return 0;
 }
