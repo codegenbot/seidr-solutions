@@ -5,10 +5,15 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-print("Enter a string in upper case alphabets:")
-input_string = input().strip()
-if input_string.isupper():
-    result = decode_cyclic(input_string)
-    print(result)
-else:
-    print("Input string is not in correct format.")
+while True:
+    try:
+        print("Enter a string in upper case alphabets:")
+        input_string = input().strip()
+        if input_string.isupper():
+            result = decode_cyclic(input_string)
+            print(result)
+            break
+        else:
+            print("Input string is not in correct format. Please try again.")
+    except:
+        print("An error occurred. Please try again.")
