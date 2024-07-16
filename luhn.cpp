@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
 int luhn(vector<int> cardNumber) {
     int sum = 0;
