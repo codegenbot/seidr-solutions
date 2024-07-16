@@ -1,21 +1,26 @@
+```cpp
 #include <vector>
+#include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        if (text.substr(i, targetLen) == target) {
+    int i = 0;
+    while (i <= text.length() - target.length()) {
+        if (text.substr(i, target.length()).compare(target) == 0) {
             result.push_back(i);
-            i += targetLen - 1; // skip overlapping indices
+            i += target.length();
+        } else {
+            i++;
         }
     }
     return result;
-}
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
