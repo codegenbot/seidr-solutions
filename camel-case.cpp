@@ -32,6 +32,7 @@ int main() {
             pos++;
     }
     
-    std::this_thread::disable_stdio_sync();
+    std::this_thread::disable_stdio_sync(); 
+
     return 0;
 }
