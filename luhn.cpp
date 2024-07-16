@@ -1,10 +1,10 @@
 #include <iostream>
 
-int luhn(int cardNumber) {
+int luhn(std::string cardNumber) {
     int sum = 0;
-    for (int i = cardNumber.length() - 1; i >= 0; --i) {
+    for (int i = 0; i < cardNumber.length(); ++i) {
         int digit = cardNumber[i] - '0';
-        if ((cardNumber.length() - i) % 2 == 1) {
+        if ((i % 2) == 1) {
             int doubledDigit = digit * 2;
             if (doubledDigit > 9) {
                 doubledDigit -= 9;
@@ -19,7 +19,6 @@ int luhn(int cardNumber) {
 
 int main() {
     std::string cardNumber = "4321818976565432";
-    int sum = luhn(cardNumber);
-    std::cout << sum << std::endl;
+    std::cout << luhn(cardNumber) << std::endl;
     return 0;
 }
