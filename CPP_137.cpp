@@ -1,6 +1,5 @@
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
+#include <boost/convert.hpp>
 
 using namespace std;
 
