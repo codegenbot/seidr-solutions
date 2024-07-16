@@ -1,17 +1,10 @@
 bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+    return a[0] == b[0] && a[1] == b[1];
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
     int n = grid.size();
-    if (n == 0) return result;
-
     int m = grid[0].size();
-    if (m == 0) return result;
-
     vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
     dp[0][0] = grid[0][0];
 
@@ -26,29 +19,34 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    int i = n - 1, j = m - 1;
-    while (i >= 0 && j >= 0) {
-        result.push_back(grid[i][j]);
-        if (i == 0 && j == 0) break;
-        if (i > 0 && dp[i][j] - grid[i][j] == dp[i - 1][j]) {
-            --i;
+    vector<int> path;
+    int x = n - 1;
+    int y = m - 1;
+    while (x >= 0 && y >= 0) {
+        path.push_back(grid[x][y]);
+        if (x == 0 && y == 0) {
+            break;
+        }
+        if (x > 0 && dp[x][y] - grid[x][y] == dp[x - 1][y]) {
+            x--;
         } else {
-            --j;
+            y--;
         }
     }
 
-    reverse(result.begin(), result.end());
-
-    return result;
+    reverse(path.begin(), path.end());
+    return path;
 }
 
 int main() {
-    vector<vector<int>> testGrid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
-    vector<int> expectedOutput = {1, 3, 1, 1};
-    
-    vector<int> result = minPath(testGrid, 4);
-    
-    assert(result.size() == expectedOutput.size() && equal(result.begin(), result.end(), expectedOutput.begin(), issame));
-    
+    vector<vector<int>> grid = {{1, 3, 1},
+                                 {1, 5, 1},
+                                 {4, 2, 1}};
+    int k = 2;
+
+    vector<int> result = minPath(grid, k);
+
+    assert(result == vector<int>{1, 3, 1, 1});
+
     return 0;
 }
