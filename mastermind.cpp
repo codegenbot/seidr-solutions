@@ -1,4 +1,4 @@
-int mastermind(std::string code, std::string guess) {
+```int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -7,7 +7,7 @@ int mastermind(std::string code, std::string guess) {
             black++;
         } else {
             bool found = false;
-            for (int j = 0; j < 4; ++j) {
+            for (int j = 0; j < 4; ++j++) {
                 if (guess[j] == code[i] && j != i) {
                     found = true;
                     break;
@@ -18,4 +18,4 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
+}`
