@@ -1,8 +1,8 @@
-#include <numeric> // Add this line
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <numeric> // Include numeric header for std::gcd
 
 std::vector<int> findIndices(const std::vector<int>& numbers, int a, int b) {
     int gcd = std::gcd(a, b);
