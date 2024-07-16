@@ -1,17 +1,14 @@
-int total_chars1 = 0;
-    int total_chars2 = 0;
-    
-    for(auto str : lst1) {
-        total_chars1 += str.size();
+int totalChars1 = 0, totalChars2 = 0;
+    for (string str : lst1) {
+        totalChars1 += str.length();
+    }
+    for (string str : lst2) {
+        totalChars2 += str.length();
     }
     
-    for(auto str : lst2) {
-        total_chars2 += str.size();
-    }
-    
-    if (total_chars1 < total_chars2) {
+    if (totalChars1 < totalChars2) {
         return lst1;
     } else {
-        return lst2;
+        return totalChars1 == totalChars2 ? lst1 : lst2;
     }
 }
