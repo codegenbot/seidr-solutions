@@ -8,4 +8,4 @@ def add_elements(arr, k=0):
     if k == 0:
         return sorted_filtered_nums[0]
     
-    return sum(sorted_filtered_nums[:k]) if len(sorted_filtered_nums) >= k else 0
+    return sum(sorted_filtered_nums[:k]) if k > 0 else sum(sorted_filtered_nums)
