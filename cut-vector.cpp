@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -7,7 +7,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> result;
     
     for (int i = 1; i <= n; i++) {
-        if (i == n || abs(v[i] - v[0]) > abs(v[n-i-1] - v[0])) {
+        if (i == n || v[i] - v[0] > v[n-i-1] - v[0]) {
             result.push_back({v.begin(), v.begin() + i});
             break;
         }
@@ -39,3 +39,4 @@ int main() {
         std::cout << std::endl;
     }
     return 0;
+}
