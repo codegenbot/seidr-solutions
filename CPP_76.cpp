@@ -1,10 +1,8 @@
-if (x == 1) return true;
-    for (int i = 2; i <= sqrt(x); i++) {
-        int p = i;
-        while (p <= x) {
-            if (p == x) return true;
-            p *= i;
-        }
+if (x <= 0 || n <= 0) {
+        return false;
     }
-    return false;
+    
+    double result = log(x) / log(n);
+    
+    return (result == (int)result);
 }
