@@ -1,2 +1,2 @@
-xs = [int(input()) for _ in range(5)]
+xs = list(map(int, input("Enter space-separated integers: ").split()))
 print(xs)
