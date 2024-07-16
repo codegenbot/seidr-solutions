@@ -1,13 +1,16 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+string solve(string s){
+    for(char &c : s){
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    int i = 0, j = s.size() - 1;
-    while (i < j) {
-        swap(s[i], s[j]);
-        i++;
-        j--;
+    int n = s.size();
+    for(int i = 0; i < n / 2; ++i){
+        swap(s[i], s[n - i - 1]);
     }
     return s;
 }
