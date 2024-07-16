@@ -1,6 +1,4 @@
-#include <string>
-
-int bowlingScore(string s) {
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
     for (char c : s) {

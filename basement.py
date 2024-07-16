@@ -1,3 +1,4 @@
+```python
 def basement(nums):
     cum_sum = 0
     for i in range(len(nums)):
