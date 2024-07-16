@@ -1,5 +1,3 @@
-````
-#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -28,4 +26,3 @@ int main() {
     cout << calculateFuelCost(numbers) << endl;
     return 0;
 }
-```
