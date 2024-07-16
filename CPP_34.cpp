@@ -1,19 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    a.erase(unique(a.begin(), a.end()), a.end());
-    sort(b.begin(), b.end());
-    b.erase(unique(b.begin(), b.end()), b.end());
-    
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 int main() {
-    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
-    
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    sort(l.begin(), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
+    assert(issame(l, vector<int>{0, 2, 3, 5, 9, 123}));
+  
     return 0;
 }
