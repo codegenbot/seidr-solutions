@@ -9,6 +9,7 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     
     result.push_back(arr[n-1]);  //rightmost element is always a leader.
+    
     for (int i = n - 2; i >= 0; i--) {
         if (arr[i] >= arr[i+1]) {
             result.push_back(arr[i]);
