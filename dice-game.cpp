@@ -16,4 +16,3 @@ int main() {
     std::cin >> n >> m;
     std::cout << std::fixed << std::setprecision(6) << probability(n, m) << std::endl;
     return 0;
-}
