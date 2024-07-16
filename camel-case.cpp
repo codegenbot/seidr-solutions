@@ -23,10 +23,14 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    if (!(std::cin >> input)) {
-        std::cerr << "Invalid input. Please enter a valid string." << std::endl;
-        return 1;
+    try {
+        std::cout << "Enter a string in kebab-case: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            throw std::runtime_error("Input cannot be empty!");
+        }
+        std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
-    std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
