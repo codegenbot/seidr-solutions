@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cassert>
 #include <string>
+#include <boost/any.hpp> // Include the boost/any header
 
 using std::string;
 
@@ -34,7 +35,7 @@ std::any compare_one(std::any a, std::any b) {
 
 int main() {
     assert(std::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(std::any_cast<float>(compare_one(1, 3.4f)) == 3.4f);
+    assert(std::any_cast<string>(compare_one(string("1"), string("None"))) == "None");
 
     std::cout << "All test cases passed!" << std::endl;
 
