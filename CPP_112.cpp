@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <cassert>
 #include <utility>
-#include <vector>
 
 using namespace std;
 
@@ -21,6 +20,6 @@ pair<string, string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == pair<string, string>{"", "True"});
+    assert(reverse_delete("mamma", "mia") == make_pair("", "True"));
     return 0;
 }
