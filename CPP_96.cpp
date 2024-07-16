@@ -14,6 +14,7 @@ vector<int> count_up_to(int n) {
     }
     return primes;
 }
+
 int main() {
     int n = 20;
     vector<int> a = count_up_to(n);
