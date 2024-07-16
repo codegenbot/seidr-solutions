@@ -10,8 +10,12 @@ int bowlingScore(string s) {
             lastRoll = true;
         } else if (s[i] == '/') {
             int roll1 = s[i-1] - '0';
-            int roll2 = s[i+1] - '0';
-            score += roll1 + roll2;
+            int roll2 = s[i+1] - '0' - 1;
+            if(roll2 > 0) {
+                score += roll1 + roll2;
+            } else {
+                score += roll1 + 10;
+            }
             lastRoll = false;
         } else {
             int roll = s[i] - '0';
@@ -24,3 +28,4 @@ int bowlingScore(string s) {
     }
 
     return score;
+}
