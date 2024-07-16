@@ -1,8 +1,7 @@
-float num = stof(value);
-    int roundedNum = round(num);
-    if (num > 0) {
-        return (num - roundedNum) > 0.5 ? ceil(num) : floor(num);
-    } else {
-        return (num - roundedNum) < -0.5 ? floor(num) : ceil(num);
-    }
+double num = stod(value);
+int rounded = static_cast<int>(round(num));
+if (num - rounded == 0.5) {
+    return (num > 0) ? static_cast<int>(ceil(num)) : static_cast<int>(floor(num));
+} else {
+    return rounded;
 }
