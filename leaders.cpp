@@ -1,32 +1,48 @@
-```cpp
+#include <iostream>
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
     int n = arr.size();
+    vector<int> result;
     
-    if(n == 0)
-        return leaders;
+    for (int i = 0; i < n; i++) {
+        bool isLeader = true;
         
-    int maxRight = arr[n-1];
-    leaders.push_back(maxRight);
-    
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= maxRight) {
-            maxRight = arr[i];
-            leaders.push_front(maxRight);
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        
+        if (isLeader) {
+            result.push_back(arr[i]);
         }
     }
     
-    return leaders;
+    return result;
+}
+
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> result;
+    result.push_back(arr[n-1]);  //rightmost element is always a leader.
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= arr[i+1]) {
+            result.push_back(arr[i]);
+        }
+    }
+    
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
 
 int main() {
-    vector<int> input = {1, 2, 8, 5};
-    vector<int> result = leaders(input);
-    for(int i: result) {
-        cout << i << " ";
+    vector<int> arr = {1, 3, 4, 1, 5};
+    vector<int> leadersResult = leaders(arr);
+    for (int leader : leadersResult) {
+        cout << leader << " ";
     }
-    return 0;
 }
