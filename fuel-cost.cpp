@@ -1,15 +1,16 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
         sum += (nums[i] / 3) - 2;
     }
-    std::cout << sum << std::endl;
+    cout << sum << endl;
     return 0;
 }
