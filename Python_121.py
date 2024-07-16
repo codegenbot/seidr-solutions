@@ -1,5 +1,6 @@
-```
-while True:
+```python
+user_input = None
+while user_input is None:
     try:
         user_input = input("Enter numbers separated by space: ")
         lst = list(map(int, user_input.split()))
