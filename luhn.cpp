@@ -1,6 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int luhnCheck(vector<int>& card) {
