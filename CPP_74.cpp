@@ -22,16 +22,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> list1 = {"apple", "banana", "cherry"};
-    vector<string> list2 = {"orange", "pear"};
-    
-    vector<string> result = total_match(list1, list2);
-    
-    if (issame(list1, list2)) {
-        cout << "Lists are the same" << endl;
-    } else {
-        cout << "Lists are different" << endl;
-    }
-    
+    // Test cases
+    vector<string> test1 = {"apple", "banana", "orange"};
+    vector<string> test2 = {"kiwi", "grape", "pear"};
+
+    vector<string> result = total_match(test1, test2);
+
     return 0;
 }
