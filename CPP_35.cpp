@@ -1,8 +1,8 @@
-float max = l[0];
-    for (int i = 1; i < l.size(); i++) {
-        if (l[i] > max) {
-            max = l[i];
-        }
-    }
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+
+float max_element(const std::vector<float>& l) {
+    float max = *std::max_element(l.begin(), l.end());
     return max;
 }
