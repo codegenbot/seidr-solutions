@@ -15,8 +15,3 @@ std::string spinWords(std::string str) {
 
     return result.substr(0, result.find_last_of(" ")).substr(0);
 }
-
-int main() {
-    std::cout << spinWords("Hello World this is a test") << std::endl;
-    return 0;
-}
