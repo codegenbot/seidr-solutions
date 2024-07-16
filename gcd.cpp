@@ -1,6 +1,8 @@
-#include <vector>
-#include <string>
+Here is the modified code with `std::` prefix and `<string>` header file included:
 
+```cpp
+#include <vector>
+#include <string> 
 using namespace std;
 
 vector<int> indicesOfSubstring(std::string text, std::string target) {
