@@ -16,7 +16,7 @@ namespace contest {
 }
 
 int main() {
-    assert(contest::issame(contest::generate_integers(17, 89), contest::generate_integers(17, 89)));
+    assert(contest::issame(contest::generate_integers(17, 89), {}));
     
     return 0;
 }
