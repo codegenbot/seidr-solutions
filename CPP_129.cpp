@@ -1,27 +1,33 @@
 int N = grid.size();
-    vector<int> path;
-    int row = 0, col = 0;
+    vector<int> result;
+    int x = 0, y = 0;
     for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col == N - 1) {
-                row++;
-            } else if (row == 0) {
-                col++;
+        result.push_back(grid[x][y]);
+        if ((x + y) % 2 == 0) {
+            if (y == N - 1) {
+                x++;
+            } else if (x == 0) {
+                y++;
             } else {
-                row--;
-                col++;
+                if (grid[x - 1][y] > grid[x][y + 1]) {
+                    y++;
+                } else {
+                    x--;
+                }
             }
         } else {
-            if (row == N - 1) {
-                col++;
-            } else if (col == 0) {
-                row++;
+            if (x == N - 1) {
+                y++;
+            } else if (y == 0) {
+                x++;
             } else {
-                row++;
-                col--;
+                if (grid[x][y - 1] > grid[x + 1][y]) {
+                    x++;
+                } else {
+                    y--;
+                }
             }
         }
     }
-    return path;
+    return result;
 }
