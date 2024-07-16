@@ -1,15 +1,11 @@
 #include <iostream>
 #include <string>
-#include <cstdint>
 
-std::string validateTweet(const std::string& tweet) {
-    uint32_t bytes = static_cast<uint32_t>(tweet.length() * sizeof(char) + 
-                                            (tweet.length() > 0 ? 
-                                             &(*tweet.begin() == '\0' ? -1 : 2) : 0));
-    if (bytes == 0) {
+std::string validateTweet(std::string tweet) {
+    if (tweet.empty()) {
         return "You didn't type anything";
     }
-    else if (bytes > 140) {
+    else if (std::wcstombs(nullptr, &tweet[0], 1) > 140) {
         return "Too many characters";
     }
     else {
