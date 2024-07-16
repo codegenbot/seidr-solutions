@@ -25,4 +25,3 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::cout << "camelCase: " << camelCase(str) << std::endl;
     return 0;
-}
