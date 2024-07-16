@@ -31,4 +31,3 @@ int main() {
     std::tie(white, black) = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
-}
