@@ -1,5 +1,4 @@
-#include <vector>
-
+```
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
     for (auto i : stations) { 
