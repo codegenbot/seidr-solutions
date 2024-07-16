@@ -30,6 +30,18 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl;
+    string class_name;
+    cin >> class_name;
+
+    int n;
+    cin >> n;
+
+    vector<string> extensions(n);
+    for (int i = 0; i < n; i++) {
+        cin >> extensions[i];
+    }
+
+    cout << Strongest_Extension(class_name, extensions) << endl;
+    
     return 0;
 }
