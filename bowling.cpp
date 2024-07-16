@@ -30,6 +30,6 @@ int calculateScore(const std::string& bowls) {
 int main() {
     std::string bowls;
     std::cin >> bowls;
-    std::cout << calculateScore(bowls) << "\n";
+    std::cout << calculateScore(bowls) << std::endl;
     return 0;
 }

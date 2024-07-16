@@ -1,14 +1,19 @@
+#include <vector>
+
 int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return gcd(b, a % b);
+    return a;
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int n = text.size();
-    int m = target.size();
+    int n = text.length();
+    int m = target.length();
+    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -21,5 +26,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             indices.push_back(i);
         }
     }
+    
     return indices;
 }
