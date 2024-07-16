@@ -1,6 +1,8 @@
+```cpp
 string result = "";
-    for (const string& str : strings) {
-        result += str;
-    }
-    return result;
+for (const string& s : strings) {
+    result += s;
 }
+return result;
+```
+```
