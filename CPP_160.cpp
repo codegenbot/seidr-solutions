@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include<cmath> // Include cmath for pow function
+#include<cmath>
 using namespace std;
 
 int do_algebra(vector<string> operato, vector<int> operand) {
