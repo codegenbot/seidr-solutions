@@ -1,30 +1,44 @@
-int N = grid.size();
-    int row = 0, col = 0;
-    vector<int> path;
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
+    if (grid.empty() || grid[0].empty()) {
+        return result;
+    }
     
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        
-        if ((row + col) % 2 == 0) {
-            if (col == N - 1) {
-                ++row;
-            } else if (row == 0) {
-                ++col;
-            } else {
-                --row;
-                ++col;
+    int n = grid.size();
+    int m = grid[0].size();
+    
+    vector<vector<int>> dp(n, vector<int>(m, k + 1));
+    dp[0][0] = grid[0][0];
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            if (i > 0) {
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
             }
-        } else {
-            if (row == N - 1) {
-                ++col;
-            } else if (col == 0) {
-                ++row;
-            } else {
-                ++row;
-                --col;
+            if (j > 0) {
+                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
             }
         }
     }
     
-    return path;
+    int i = n - 1, j = m - 1;
+    result.push_back(grid[i][j]);
+    
+    while (i > 0 || j > 0) {
+        if (i > 0 && dp[i][j] == dp[i - 1][j] + grid[i][j]) {
+            result.push_back(grid[i - 1][j]);
+            --i;
+        } else {
+            result.push_back(grid[i][j - 1]);
+            --j;
+        }
+    }
+    
+    return result;
 }
