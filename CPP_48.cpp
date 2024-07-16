@@ -1,11 +1,11 @@
-int left = 0;
-    int right = text.size() - 1;
-    while (left < right) {
-        if (text[left] != text[right]) {
+bool is_palindrome(const std::string& text) {
+    int i = 0, j = text.length() - 1;
+    while (i < j) {
+        if (text[i] != text[j]) {
             return false;
         }
-        left++;
-        right--;
+        i++;
+        j--;
     }
     return true;
 }
