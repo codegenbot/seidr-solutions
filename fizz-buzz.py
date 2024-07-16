@@ -1,9 +1,4 @@
-def fizz_buzz(n):
-    if n % 3 == 0 and n % 5 == 0:
-        return "FizzBuzz"
-    elif n % 3 == 0:
-        return "Fizz"
-    elif n % 5 == 0:
-        return "Buzz"
-    else:
-        return str(n)
+def fizz_buzz(x):
+    return "FizzBuzz" if str(x).endswith("3") and str(x).endswith("5") else \
+           "Fizz" if str(x).endswith("3") else \
+           "Buzz" if str(x).endswith("5") else str(x)
