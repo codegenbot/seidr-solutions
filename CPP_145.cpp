@@ -17,6 +17,6 @@ bool issame(int a, int b) {
 }
 
 vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), issame); 
+    sort(nums.begin(), nums.end(), issame);
     return nums;
 }
