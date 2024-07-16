@@ -3,8 +3,15 @@ def add(a, b):
 
 while True:
     try:
-        num1 = int(input("Enter first number: ").strip())
-        num2 = int(input("Enter second number: ").strip())
+        num1 = input("Enter first integer number: ")
+        if not num1.isdigit():
+            raise ValueError
+        num1 = int(num1)
+
+        num2 = input("Enter second integer number: ")
+        if not num2.isdigit():
+            raise ValueError
+        num2 = int(num2)
 
         result = add(num1, num2)
         print(result)
@@ -19,7 +26,3 @@ while True:
 
     except Exception as e:
         print("An error occurred:", e)
-
-    except KeyboardInterrupt:
-        print("\nProgram interrupted by user. Exiting...")
-        break
