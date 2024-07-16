@@ -1,25 +1,37 @@
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    for (char c : input) {
-        if (c == '/') {
-            continue;
+    int currentFrame = 1;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            score += 10 + (currentFrame < 10 ? getBonus(currentFrame, s) : 0);
+            currentFrame++;
+        } else if(s[i] == '/') {
+            int firstRoll = s[i-1] - '0';
+            int secondRoll = s[i+1] - '0';
+            score += firstRoll + secondRoll;
+            currentFrame++;
+        } else {
+            int roll = s[i] - '0';
+            score += roll;
+            if(s[i+1] == 'X' || (i+2 < s.length() && s[i+2] == '/')) {
+                currentFrame++;
+            }
         }
-        int count = 0;
-        while (c != '/' && c >= '0' && c <= '9') {
-            count *= 10;
-            count += c - '0';
-            c = nextChar(input, c);
-        }
-        score += count;
     }
     return score;
 }
 
-char nextChar(string input, char c) {
-    for (int i = input.find(c); i < input.length(); i++) {
-        if (input[i] >= '0' && input[i] <= '9') {
-            return input[i];
+int getBonus(int frame, string s) {
+    int bonus = 0;
+    for(int i=frame*2-1; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            bonus += 10;
+        } else if(s[i] == '/') {
+            int firstRoll = s[i-1] - '0';
+            int secondRoll = s[i+1] - '0';
+            bonus += firstRoll + secondRoll;
+            break;
         }
     }
-    return ' ';
+    return bonus;
 }
