@@ -15,7 +15,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= idx; ++i) {
+    for (int i = 0; i < idx + 1; ++i) {
         std::cout << vec[i] << std::endl;
     }
     std::cout << std::endl;
