@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,7 +16,7 @@ std::string camelCase(const std::string& str) {
     std::string result;
     for (const auto& word : words) {
         if (!result.empty()) {
-            result += std::toupper(word[0]);
+            result += char(toupper(word[0]));
             result.erase(0, 1);
         } else {
             result += word;
