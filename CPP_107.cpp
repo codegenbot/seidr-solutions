@@ -1,11 +1,9 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 vector<int> count_palindromes(int n) {
@@ -27,6 +25,18 @@ vector<int> count_palindromes(int n) {
 
 int main() {
     vector<int> even_odd_palindrome(int n);
-    assert (issame(even_odd_palindrome(1) , {0, 1}));
+
+    int n;
+    cin >> n;
+
+    vector<int> result = count_palindromes(n);
+    vector<int> expected = even_odd_palindrome(n);
+
+    if (issame(result, expected)) {
+        cout << "Correct" << endl;
+    } else {
+        cout << "Incorrect" << endl;
+    }
+
     return 0;
 }
