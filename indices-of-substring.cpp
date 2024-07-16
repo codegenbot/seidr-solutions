@@ -1,15 +1,24 @@
 #include <iostream>
 #include <string>
-#include <cstring>
+#include <vector>
 
 int main() {
     std::string text, target;
     std::cin >> text >> target;
 
-    for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (memcmp(text.c_str() + i, target.c_str(), target.size()) == 0) {
-            std::cout << i << " ";
+    std::vector<int> indices;
+    size_t i = 0;
+    while (i <= text.size() - target.size()) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i + 1);
+            i += 1; // Update the position to check overlapping targets
+        } else {
+            i += 1;
         }
+    }
+
+    for (int idx : indices) {
+        std::cout << idx << " ";
     }
 
     return 0;
