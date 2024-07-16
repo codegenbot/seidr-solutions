@@ -1,7 +1,7 @@
-```cpp
+```
 #include <iostream>
 
-int luhn(int digits[], int n) {
+int luhn(int* digits, int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         if ((i % 2) == 1) {
