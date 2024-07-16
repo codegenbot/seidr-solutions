@@ -5,7 +5,9 @@ def process_text(text):
     text = "_".join(text.split())
     return text
 
-input_text = input()
-
-result = process_text(input_text)
-print(result)
+try:
+    input_text = input()
+    result = process_text(input_text)
+    print(result)
+except EOFError:
+    print("Error reading input. Please provide valid input.")
