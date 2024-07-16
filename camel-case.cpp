@@ -1,34 +1,27 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-void toCamelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.length() && s[i] == ' ') {
-                i++; // skip the spaces
-            }
-            if (!result.empty()) {
-                result += char(toupper(s[i]));
-            } else {
-                result += s[i];
-            }
-        } else if (s[i] == ' ') {
-            continue; // just ignore the space
-        } else {
-            if (!result.empty()) {
-                result += char(tolower(s[i]));
-            } else {
-                result += s[i];
-            }
+std::string camelCase(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (c == '-') {
+            c = ' ';
         }
     }
-    cout << result;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            result += toupper(s[++i]);
+        } else {
+            result += tolower(s[i]);
+        }
+    }
+    return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    toCamelCase(input);
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
+    }
     return 0;
 }
