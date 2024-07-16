@@ -1,5 +1,6 @@
-```python
+```
 import base64
+import sys
 
 def solve(N):
     if isinstance(N, str):
@@ -12,7 +13,7 @@ def solve(N):
 
     return result
 
-while True:
+while   four spaces here
     try:
         num = int(input("Enter a number: "))
         print(solve(num))
