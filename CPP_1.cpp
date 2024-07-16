@@ -2,29 +2,27 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+bool issame(vector<string> a, vector<string> b);
 
-int main() {
-    // Test cases
-    std::vector<std::string> test_input = {"(a(b)c)", "(ab)(c)", "((a)(b))"};
-    for (const std::string& input : test_input) {
-        std::vector<std::string> result = separate_paren_groups(input);
-        for (const std::string& group : result) {
-            std::cout << group << " ";
-        }
-        std::cout << std::endl;
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-
-    return 0;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -48,4 +46,9 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
