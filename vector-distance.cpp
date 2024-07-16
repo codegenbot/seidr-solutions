@@ -5,8 +5,8 @@
 using namespace std;
 
 double vectorDistance(int) {
-    float v1[100];
-    float v2[100];
+    float v1[1000];
+    float v2[1000];
 
     int n;
     cin >> n;
