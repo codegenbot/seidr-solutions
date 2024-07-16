@@ -1,11 +1,8 @@
 def basement(nums):
     cum_sum = 0
-    i = 0
-    neg_index = None
+    i = 1
     while i < len(nums): 
         cum_sum += nums[i]
         if cum_sum < 0:
-            neg_index = i + 1
-        elif neg_index is not None:  
-            return neg_index
+            return i + 1
         i += 1
