@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 int main() {
@@ -7,10 +8,10 @@ int main() {
     int quarters = std::min(cents / 25, int(1));
     cents %= 25;
 
-    int dimes = std::min(cents / 10, int(1));
+    int dimes = std::min(cents / 10, int(quarters));
     cents %= 10;
 
-    int nickles = std::min(cents / 5, int(1));
+    int nickles = std::min(cents / 5, int(dimes));
     cents %= 5;
 
     int pennies = cents;
