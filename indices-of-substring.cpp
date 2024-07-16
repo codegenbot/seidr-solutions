@@ -11,12 +11,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int pos = 0;
     if (text.find(target) != string::npos) {
         result.push_back(0);
-        pos += 1;
+        pos += m;
     }
     while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        // Continue searching from the end of the previous match
-        pos += 1;
+        result.push_back(pos); 
+        pos += m;
     }
 
     return result;
