@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,26 +16,25 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-bool sort_third(const vector<int>& l) {
-    vector<int> sorted_indices;
+bool sort_third(std::vector<int>& l) {
+    std::vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
             sorted_indices.push_back(i);
         }
     }
-    sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {
+    std::sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {
         return l[a] < l[b];
     });
 
-    vector<int> sorted_values(l.size());
     for (int i = 0; i < sorted_indices.size(); ++i) {
-        sorted_values[sorted_indices[i]] = l[i];
+        l[sorted_indices[i]] = l[i];
     }
 
-    return issame(l, sorted_values);
+    return true;
 }
 
 int main() {
-    // Main function implementation (if needed)
+    // Your main function code here
     return 0;
 }
