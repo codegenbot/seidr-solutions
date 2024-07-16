@@ -3,7 +3,7 @@ for(char &c : s){
         c = isupper(c) ? tolower(c) : toupper(c);
     }
 }
-if(count_if(s.begin(), s.end(), isalpha) == 0){
-    reverse(s.begin(), s.end());
+if(std::all_of(s.begin(), s.end(), [](char c){return !isalpha(c);})) {
+    std::reverse(s.begin(), s.end());
 }
 return s;
