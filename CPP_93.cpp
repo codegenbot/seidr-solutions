@@ -1,12 +1,23 @@
-transform(message.begin(), message.end(), message.begin(), [](char c) {
-        if(isalpha(c)){
-            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-                return isupper(c) ? char(toupper((c - 'A' + 2) % 26 + 'A')) : char(tolower((c - 'a' + 2) % 26 + 'a'));
+string encode(string message){
+    for (char& c : message) {
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = tolower(c);
             } else {
-                return isupper(c) ? char(tolower(c)) : char(toupper(c));
+                c = toupper(c);
+            }
+            if (c == 'a') {
+                c = 'c';
+            } else if (c == 'e') {
+                c = 'g';
+            } else if (c == 'i') {
+                c = 'k';
+            } else if (c == 'o') {
+                c = 'q';
+            } else if (c == 'u') {
+                c = 'w';
             }
         }
-        return c;
-    });
+    }
     return message;
 }
