@@ -3,15 +3,7 @@
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> strange_sort_list(vector<int> lst){
@@ -30,7 +22,7 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
-int main() {
-    // Main function implementation
+int main(){
+    // Test the modified code here if needed
     return 0;
 }
