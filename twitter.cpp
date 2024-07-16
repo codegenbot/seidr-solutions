@@ -6,14 +6,16 @@ std::string validateTweet(const std::string& tweet) {
         return "You didn't type anything";
     }
     
-    std::string::size_type size = 0;
+    size_t count = 0;
     for (char c : tweet) {
-        ++size;
-        if (size > 140)
-            return "Too many characters";
+        ++count;
     }
     
-    return "Your tweet has " + std::to_string(size) + " characters";
+    if (count > 140) {
+        return "Too many characters";
+    }
+    
+    return "Your tweet has " + std::to_string(count) + " characters";
 }
 
 int main() {
