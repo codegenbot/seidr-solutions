@@ -3,11 +3,10 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool firstWord = true;
     size_t i = 0;
+    bool firstWord = true;
 
-    for (i; i < str.length(); i++) {
-        char c = str[i];
+    for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
                 result += char(toupper(str[++i]));
