@@ -5,11 +5,12 @@ int main() {
     int n, m;
     std::cin >> n >> m;
 
-    long double probability = 0.0L;
+    long long numerator = 0, denominator = n * m;
     for (int i = 1; i <= n; ++i) {
-        int count = std::min(i - 1, m);
-        probability += (1.0L * count) / (1.0L * n * m);
+        numerator += 1LL * (i - 1) * m;
     }
+    
+    double probability = (double)numerator / (double)denominator;
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
