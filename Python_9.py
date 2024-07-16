@@ -2,8 +2,10 @@ numbers = []
 while True:
     try:
         num = input().strip()
-        if num == "":
+        if not num:
             break
         numbers.append(int(num))
-    except KeyboardInterrupt:
+    except:
         break
+
+print(sum(numbers))
