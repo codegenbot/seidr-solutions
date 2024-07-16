@@ -19,7 +19,7 @@ int main() {
         std::cout << vec[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = idx + 1; i < vec.size(); ++i) {
+    for (int i = idx+1; i < vec.size(); ++i) {
         std::cout << vec[i] << std::endl;
     }
 
