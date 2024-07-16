@@ -1,11 +1,11 @@
 int main() {
-    string digits;
-    cin >> digits;
+    string num;
+    cin >> num;
     
     int sum = 0;
-    for (int i = 0; i < digits.size() - 1; ++i) {
-        if (digits[i] == digits[i + 1]) {
-            sum += digits[i] - '0';
+    for (int i = 0; i < num.size() - 1; ++i) {
+        if (num[i] == num[i + 1]) {
+            sum += num[i] - '0';
         }
     }
     
