@@ -1,16 +1,25 @@
 ```
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
-    group = ''
-    count = 0
-    for char in paren_string:
-        if char == '(':
-            count += 1
-            group += char
-        elif char == ')':
-            count -= 1
-            group += char
-            if count == 0:
-                result.append(group)
-                group = ''
-    return result
+    stack = []
+    groups = []
+    current_group = ''
+    
+    for paren in paren_string:
+        if paren == ' ':
+            continue
+        
+        if paren in '({':
+            stack.append(paren)
+            current_group += paren
+        elif paren in ')}':
+            if stack and stack[-1] + paren in '())':
+                stack.pop()
+                current_group += paren
+            else:
+                groups.append(current_group)
+                current_group = ''
+    
+    if stack or current_group:
+        raise ValueError("Invalid parentheses")
+    
+    return [group.strip() for group in current_group.split('(')]
