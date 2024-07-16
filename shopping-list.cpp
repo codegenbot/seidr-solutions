@@ -1,6 +1,8 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
@@ -13,7 +15,8 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices = {1.99, 2.99, 3.99};
-    vector<float> discounts = {5, 10, 15};
+    vector<float> prices = {1.99f, 2.99f, 3.99f};
+    vector<float> discounts = {5.0f, 10.0f, 15.0f};
     cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
     return 0;
+}
