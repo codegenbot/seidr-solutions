@@ -1,4 +1,6 @@
-```cpp
+Here is the modified code:
+
+```c++
 #include <iostream>
 #include <vector>
 #include <climits>
