@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <ostream>
 #include <iostream>
@@ -24,13 +25,9 @@ int max_prime_sum(std::vector<int> lst){
     return sum;
 }
 
-int solve() {
+int main() {
     std::vector<int> lst({127, 97, 8192});
     int result = max_prime_sum(lst);
     std::cout << "The maximum prime number in the list is: " << result << std::endl;
-    int skjkasdkd(std::vector<int> input) {
-        return 10; 
-    }
-    assert (skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
