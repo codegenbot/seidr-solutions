@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cstring>
 
@@ -10,10 +11,9 @@ float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float m
 }
 
 int main() {
-    char buffer[100];
+    int hours;
     std::cout << "Enter the number of hours: ";
-    std::cin >> buffer;
-    int hours = std::atoi(buffer);
+    std::cin >> hours;
 
     float initialSnow, rateOfSnowFall, meltingRate;
     std::cout << "Enter the initial snow: ";
