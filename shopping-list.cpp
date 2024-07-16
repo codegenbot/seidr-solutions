@@ -24,14 +24,10 @@ int main() {
         cin >> n;
         if(n == 0) break;
         
-        cin.ignore(); // Add this line
-        
         prices.resize(n);
         for (float &price : prices) {
             cin >> price;
         }
-        
-        cin.ignore(); // Add this line
         
         discounts.resize(n);
         for (float &discount : discounts) {
@@ -41,5 +37,4 @@ int main() {
         cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     }
     
-    return 0;
 }
