@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -18,5 +19,6 @@ int main() {
     cout << nickles << endl;
     cout << dimes << endl;
     cout << pennies << endl;
+
     return 0;
 }
