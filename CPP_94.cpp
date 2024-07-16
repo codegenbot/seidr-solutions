@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list>
+
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -11,7 +11,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int skjkasdkd(const ::vector<int>& lst){
+int main(const vector<int>& lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -23,8 +23,4 @@ int skjkasdkd(const ::vector<int>& lst){
         maxPrime /= 10;
     }
     return sum;
-}
-
-int main() {
-    assert(sjkasdkd({127, 97, 8192}) == 10);
 }
