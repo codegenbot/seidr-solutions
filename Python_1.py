@@ -1,9 +1,8 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    level = 1
+    level = 0
     current_group = ""
 
     for char in paren_string:
@@ -25,8 +24,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
-
-
-paren_string = input("Enter parent string: ")
-output = separate_paren_groups(paren_string)
-print(output)
