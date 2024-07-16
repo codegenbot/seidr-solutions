@@ -1,4 +1,6 @@
-```bool same(std::vector<int>& a, std::vector<int>& b) {
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -8,4 +10,4 @@
         }
     }
     return true;
-}``
+}

@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <initializer_list>
+#include <cassert>
 
 int sum_squares(std::initializer_list<float> lst){
     int total = 0;
