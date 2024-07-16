@@ -1,20 +1,20 @@
-#include <iostream>
 #include <string>
+#include <cwchar>
 
 using namespace std;
 
 int main() {
-    string tweet;
+    wstring tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
+    wgetline(wcin, tweet);
     
     if(tweet.empty()) {
-        cout << "You didn't type anything" << endl;
+        cout << L"You didn't type anything" << endl;
     }
     else if(tweet.length() > 140) {
-        cout << "Too many characters" << endl;
+        cout << L"Too many characters" << endl;
     } 
     else {
-        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        cout << L"Your tweet has " << tweet.length() << L" characters" << endl;
     }
 }
