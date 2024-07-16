@@ -1,9 +1,11 @@
-int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+#include <vector>
+#include <algorithm>
+#include <numeric>
+
+bool will_it_fly(std::vector<int> q, int w){
+    if (!std::equal(q.begin(), q.begin() + q.size()/2, q.rbegin())){
+        return false;
     }
-    if (sum <= w && equal(q.begin(), q.end(), q.rbegin())) {
-        return true;
-    }
-    return false;
+    int sum = std::accumulate(q.begin(), q.end(), 0);
+    return sum <= w;
 }
