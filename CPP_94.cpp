@@ -13,14 +13,7 @@ bool isPrime(int n) {
 
 int main(){
     int maxPrime = 0;
-    vector<int> lst;
-    int num;
-    while(true){
-        cout << "Enter a number (-1 to finish): ";
-        cin >> num;
-        if(num == -1) break;
-        lst.push_back(num);
-    }
+    vector<int> lst = {127, 97, 8192}; 
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
