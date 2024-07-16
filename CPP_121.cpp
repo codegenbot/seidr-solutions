@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
