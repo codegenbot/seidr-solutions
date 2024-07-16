@@ -4,7 +4,7 @@
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    float snowToBeAdded = rateOfSnowfall * hours;
+    int snowToBeAdded = static_cast<int>(rateOfSnowfall * hours);
     return initialSnow + snowToBeAdded - proportionMeltingPerHour * hours;
 }
 

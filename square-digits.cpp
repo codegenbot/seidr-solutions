@@ -14,6 +14,7 @@ int main() {
     std::string input;
     std::cout << "Enter a positive integer: ";
     std::cin >> input; 
+
     if (input.length() > 0) {
         std::cout << squareDigits(input) << "\n";
     } else {
