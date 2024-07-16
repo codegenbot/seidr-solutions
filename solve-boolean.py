@@ -1,5 +1,5 @@
-```
 def solve_boolean(expression):
+    operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
     def evaluate(start=0):
         if start >= len(expression):  
             return None
@@ -9,18 +9,18 @@ def solve_boolean(expression):
             i = 1
             while expression[i] != ")":
                 i += 1
-            return "(%s)" % evaluate(i + 1)[1:-1]
-        operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
+            return evaluate(i + 1)[1:-1]
         op = None
         if start < len(expression) and expression[start] in operators:
             op = expression[start]
             start += 1  
             left = evaluate(start)
             right_start = expression.find(")", start)
-            return "(%s) %s (%s)" % (left, op, evaluate(right_start + 1)[1:-1])
+            if op == "&":
+                return left and evaluate(right_start + 1)[1:-1]
+            else:
+                return left or evaluate(right_start + 1)[1:-1]
         else:
             if start < len(expression):
-                return evaluate()
-    return evaluate(0)
-
-print(solve_boolean('t|t&t&t&t&f|t')) # Should return True
+                return expression[start]
+    return eval(evaluate())
