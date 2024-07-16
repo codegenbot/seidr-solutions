@@ -3,26 +3,36 @@
 
 bool solveBoolean(std::string s) {
     stack<char> st;
+    bool res = true;
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+        if (s[i] == '|') {
+            while (!st.empty() && (st.top() == '|' || st.top() == '&')) {
+                if (st.top() == '|') {
+                    res |= (st.pop() == 'T');
+                } else {
+                    res &= (st.pop() == 'T');
+                }
             }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+        } 
+        else if (s[i] == '&') {
+            while (!st.empty() && (st.top() == '|' || st.top() == '&')) {
+                if (st.top() == '&') {
+                    res &= (st.pop() == 'T');
+                } else {
+                    res |= (st.pop() == 'T');
+                }
             }
-            if (st.empty()) return true;
-            st.push('|');
-        } else if (s[i] != 'T' && s[i] != 'F') {
+        } 
+        else if ((s[i] != 'T' && s[i] != 'F') || st.empty()) {
             return false;
-        } else {
+        } 
+        else {
             st.push(s[i]);
         }
     }
-    while (!st.empty() && st.top() == '&') {
+    while (!st.empty()) {
+        res &= (st.top() == 'T');
         st.pop();
     }
-    return !st.empty();
+    return res;
+}
