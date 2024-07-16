@@ -3,41 +3,36 @@
 #include <string>
 
 int main() {
-    std::string codeStr, guessStr;
+    char code[5], guess[5];
 
     // Read user input
     std::cout << "Enter the Mastermind code: ";
-    std::cin >> codeStr;
+    std::cin >> code;
 
     std::cout << "Enter your guess: ";
-    std::cin >> guessStr;
+    std::cin >> guess;
 
     int blackPegs = 0, whitePegs = 0;
-    std::string codeStrCopy = codeStr;
+    std::string codeStr(code);
+    std::string guessStr(guess);
 
     // Count black pegs
     for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
+        if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
     // Count white pegs
-    int codeCount[6] = {0};
     for (int i = 0; i < 4; i++) {
         bool found = false;
         for (int j = 0; j < 4; j++) {
             if (codeStr[j] == guessStr[i]) {
-                codeCount[codeStr.find(guessStr[i])]++;
                 found = true;
                 break;
             }
         }
-    }
-
-    // Count white pegs
-    for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessStr.count(std::string(1, '0' + i)));
+        if (!found) whitePegs++;
     }
 
     // Print the result
