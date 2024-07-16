@@ -1,62 +1,33 @@
+#include <iostream>
+using namespace std;
+
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operation;
-    string temp = "";
-    
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!operation.empty() && operation.top() == '|') {
-                operation.pop();
-            }
-            if (!temp.empty()) {
-                if (temp == "T") temp = "True";
-                else if (temp == "F") temp = "False";
-                operation.push(temp);
-                temp = "";
-            } else if (!operation.empty()) {
-                temp = to_string(operation.top());
-                operation.pop();
-            }
+    bool result = true;
+    int i = 0;
+    while (i < expression.length()) {
+        if (expression[i] == 'T') {
+            return true;
+        } else if (expression[i] == 'F') {
+            return false;
         } else if (expression[i] == '|') {
-            while (!operation.empty() && (operation.top() == '&' || operation.top() == '|')) {
-                operation.pop();
-            }
-            if (!temp.empty()) {
-                if (temp == "T") temp = "True";
-                else if (temp == "F") temp = "False";
-                operation.push(temp);
-                temp = "";
-            } else if (!operation.empty()) {
-                temp = to_string(operation.top());
-                operation.pop();
-            }
-        } else if (expression[i] != 'T' && expression[i] != 'F') {
-            temp += expression[i];
+            result = true;
+        } else if (expression[i] == '&') {
+            result = false;
         }
+        i++;
     }
-    
-    while (!operation.empty()) {
-        if (temp.empty()) {
-            temp = to_string(operation.top());
-            operation.pop();
-        } else {
-            if (temp == "T") temp = "True";
-            else if (temp == "F") temp = "False";
-            string op = to_string(operation.top());
-            operation.pop();
-            if (op == "T" && temp == "True") temp = "True";
-            else if (op == "F" && temp == "True") temp = "False";
-            else if (op == "T" && temp == "False") temp = "False";
-            else if (op == "F" && temp == "False") temp = "False";
-            else if (op == "&" && temp == "True" && operation.top() == "T") temp = "True";
-            else if (op == "&" && temp == "True" && operation.top() == "F") temp = "False";
-            else if (op == "&" && temp == "False" && operation.top() == "T") temp = "False";
-            else if (op == "&" && temp == "False" && operation.top() == "F") temp = "False";
-            else if (op == "|" && temp == "True" && operation.top() == "T") temp = "True";
-            else if (op == "|" && temp == "True" && operation.top() == "F") temp = "True";
-            else if (op == "|" && temp == "False" && operation.top() == "T") temp = "True";
-            else if (op == "|" && temp == "False" && operation.top() == "F") temp = "False";
-        }
+    return result;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
-    
-    return temp == "True";
+    return 0;
 }
