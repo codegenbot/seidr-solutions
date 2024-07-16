@@ -9,6 +9,6 @@ int main() {
             }
         }
     }
-    cout << fixed << setprecision(2) << result << endl;
+    cout << result << endl;
     return 0;
 }
