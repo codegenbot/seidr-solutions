@@ -1,15 +1,14 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<int> freq(26, 0);
-    for (char c : str) {
-        if (isalpha(c)) {
-            freq[c - 'a']++;
-        }
-    }
-    int count = 0;
-    for (int f : freq) {
-        if (f > 0) {
-            count++;
-        }
-    }
-    return count;
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+
+int count_distinct_characters(std::string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    return std::distance(str.begin(), std::unique(str.begin(), str.end()));
+}
+
+int main() {
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    return 0;
 }
