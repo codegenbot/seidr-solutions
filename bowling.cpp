@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(string s) {
     int score = 0;
 
