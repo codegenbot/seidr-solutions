@@ -1,10 +1,10 @@
-int cnt = 0;
-        for (int j = 0; j < grid[0].size(); ++j) {
-            int water = 0;
-            for (int i = 0; i < grid.size(); ++i) {
-                water += grid[i][j];
+int num_buckets = 0;
+        for (const auto &row : grid) {
+            int well_total = 0;
+            for (int well : row) {
+                well_total += well;
             }
-            cnt += water / capacity + (water % capacity != 0);
+            num_buckets += (well_total + capacity - 1) / capacity;
         }
-        return cnt;
+        return num_buckets;
     }
