@@ -1,4 +1,6 @@
+```c++
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -10,3 +12,12 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string of digits: ";
+    cin >> s;
+    cout << "The sum of paired digits is: " << pairedDigits(s) << endl;
+    return 0;
+}
