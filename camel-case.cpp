@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string camelCase(std::string str) {
     std::string result = "";
@@ -10,12 +10,13 @@ std::string camelCase(std::string str) {
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += char(toupper(str[++i]));
+                result += char(toupper(str[i + 1]));
             }
             firstWord = false;
+            i++;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += char(tolower(c));
+                result += char(toupper(c));
             }
             firstWord = true;
         } else {
