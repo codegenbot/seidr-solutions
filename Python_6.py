@@ -1,18 +1,20 @@
-paren_strings = input("Enter parentheses strings separated by commas (e.g. '(())', '()'): ").split(',')
-def parse_nested_parens(paren_strings):
-    stack = []
-    for string in paren_strings:
-        for char in string:
-            if char not in ['(', ')']:
-                return False
-            if char == '(':
-                stack.append(char)
-            elif char == ')':
-                if not stack or stack[-1] != '(':
+test_cases = int(input())
+for _ in range(test_cases):
+    paren_strings = input().split(',')
+    def parse_nested_parens(paren_strings):
+        stack = []
+        for string in paren_strings:
+            for char in string:
+                if char not in ['(', ')']:
                     return False
-                stack.pop()
-        if stack:
-            return False
-    return True
+                if char == '(':
+                    stack.append(char)
+                elif char == ')':
+                    if not stack or stack[-1] != '(':
+                        return False
+                    stack.pop()
+            if stack:
+                return False
+        return True
 
-print(parse_nested_parens(paren_strings))
+    print(parse_nested_parens(paren_strings))
