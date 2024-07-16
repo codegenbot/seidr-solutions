@@ -1,5 +1,4 @@
-```
-python
+```python
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)[::-1]]  
     sum_total = 0
