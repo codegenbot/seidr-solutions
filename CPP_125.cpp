@@ -1,7 +1,19 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& txt) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
     std::string word = "";
     for (char c : txt) {
@@ -27,4 +39,9 @@ bool issame(const std::vector<std::string>& txt) {
         result[0] = std::to_string(oddCount);
     }
     return result;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
