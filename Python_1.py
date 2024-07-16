@@ -23,6 +23,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = sys.stdin.readline().strip()
+paren_string = input().strip()
 result = separate_paren_groups(paren_string)
 print(result)
