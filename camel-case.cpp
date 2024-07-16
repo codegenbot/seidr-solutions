@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -28,4 +27,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
-}
