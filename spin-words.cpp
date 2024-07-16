@@ -1,14 +1,16 @@
 std::string spinWords(std::string input) {
     std::stringstream ss(input);
     std::string word;
-    std::string result;
+    std::stringstream result;
 
     while (ss >> word) {
         if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            for (int i = word.length() - 1; i >= 0; --i)
+                result << word[i];
         else
-            result += word + " ";
+            result << word;
+        result << " ";
     }
 
-    return result.substr(0, result.size()-1); 
+    return result.rdbuf()->sbeam() ? result.sputn(result.gptr(), result.gcount()) : "";
 }
