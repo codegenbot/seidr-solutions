@@ -18,8 +18,7 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-
-    if (std::cin.fail() && nums.empty()) {
+    if (std::cin.eof() && nums.empty()) {
         std::cerr << "No valid input provided." << std::endl;
         return 1;
     }
