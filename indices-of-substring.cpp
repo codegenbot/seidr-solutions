@@ -13,7 +13,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         int pos = text.find(target, i);
         while (pos != string::npos) {
             result.push_back(pos); 
-            pos = text.find(target, i+1); // start searching from the next position of previous match
+            pos = text.find(target, i + (pos != string::npos ? m : 0)); // start searching from the next position
         }
     }
 
