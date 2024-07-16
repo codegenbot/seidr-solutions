@@ -1,10 +1,10 @@
 string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    string rev = result;
-    reverse(rev.begin(), rev.end());
-    return {result, result == rev ? "True" : "False"};
+    string palindrome_check = result;
+    reverse(palindrome_check.begin(), palindrome_check.end());
+    return {result, result == palindrome_check ? "True" : "False"};
 }
