@@ -10,12 +10,7 @@ double probability(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n; 
-    std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m; 
-    double result = probability(n, m); 
-    cout << "The probability is: " << result << endl;
+    double result = probability(6, 6); 
+    cout << "The probability is: " << setprecision(17) << fixed << result << endl; 
     return 0;
 }
