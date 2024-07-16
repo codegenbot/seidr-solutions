@@ -15,4 +15,6 @@ bool triples_sum_to_zero(const vector<int>& l) {
 }
 
 int main() {
+    // Test your function here if needed
+    return 0;
 }
