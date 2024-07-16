@@ -6,5 +6,5 @@ char get_closest_vowel(const string& word) {
             return word[i];
         }
     }
-    return ' ';
+    return '\0';
 }
