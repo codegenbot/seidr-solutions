@@ -1,12 +1,11 @@
-```
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
+    std::string result = " ";
     int wordLength = 0;
 
-    for (char c : sentence + " ") {
+    for (char c : sentence) {
         if (c == ' ') {
             if (wordLength >= 5)
                 for (int i = wordLength - 1; i >= 0; --i)
@@ -21,7 +20,10 @@ std::string spinWords(std::string sentence) {
         }
     }
 
-    return result;
+    if (wordLength >= 5)
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += sentence[wordLength - i - 1];
+    return result.substr(1);
 }
 
 int main() {
