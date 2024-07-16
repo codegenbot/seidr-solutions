@@ -21,5 +21,5 @@ int main() {
     cout << fixed;
     cout << setprecision(6);
     cout << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour) << endl;
-    return 0
+    return 0;
 }
