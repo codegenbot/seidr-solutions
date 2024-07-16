@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -5,22 +9,34 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else {
-            int j = i + 1; // start of word
-            int len = 0;
-            while (j < str.length() && str[j] != ' ') {
-                j++;
-                len++;
+        } else if ((int)(str.substr(i).c_str()[str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).size() - 1]) <= 96) {
+            int len = str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size();
+            for (int j = len; j > 0; j--) {
+                result += str.substr(i, len)[j - 1];
             }
-            if (len >= 5) { // check length
-                for (; len > 0; --len) {
-                    result += str[--j];
+            i += len;
+        } else {
+            int k = 0;
+            while (i < str.length() && str[i] != ' ') {
+                result += str[i];
+                i++;
+                k++;
+            }
+            if (k > 0) {
+                for (int j = k; j > 0; j--) {
+                    result += str[i - 1];
                 }
+                i--;
             } else {
-                while (i < j) {
-                result += str[i++];
+                result += str.substr(i);
+                i++;
             }
         }
     }
     return result;
+}
+
+int main() {
+    cout << spinWords("Hello World") << endl;
+    return 0;
 }
