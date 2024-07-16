@@ -1,5 +1,8 @@
-n = int(input("Enter the number of strings: "))
-strings = [input("Enter string: ") for _ in range(n)]
+n = int(input())
+if n < 1 or n > 100:
+    raise ValueError("Invalid input for n")
+
+strings = [input() for _ in range(n)]
 
 def longest(strings):
     return max(strings, key=len)
