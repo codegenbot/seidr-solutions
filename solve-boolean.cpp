@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return false; 
     bool result = true;
@@ -13,10 +16,21 @@ bool solveBoolean(const std::string& s) {
             result = result || operand; 
             operand = 1; 
         } else if (s[i] == '&') {
-            bool tempOperand = operand;
-            operand = 1;
-            result = result && tempOperand;
+            result = result && (!operand); // negate operand
+            operand = 0;
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << "Enter a Boolean expression: ";
+    std::string input;
+    getline(std::cin, input); 
+    bool output = solveBoolean(input);
+    if (output)
+        std::cout << "True";
+    else
+        std::cout << "False";
+    return 0;
 }
