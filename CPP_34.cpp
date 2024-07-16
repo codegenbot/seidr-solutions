@@ -2,5 +2,17 @@
 #include <vector>
 
 bool issame(vector<int>& a, vector<int>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
+
+assert(issame(std::unique(l.begin(), l.end()), {0, 2, 3, 5, 9, 123}));
