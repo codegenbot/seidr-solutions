@@ -1,22 +1,33 @@
 def solve_boolean(expression):
-    def evaluate(i=0):
-        if i == len(expression):
+    def evaluate(start=0):
+        if start >= len(expression):  
             return None
-        if expression[i] in ["T", "F"]:
-            return expression[i] == "T"
-        elif expression[i] == "(":
-            i += 1
+        if expression[start] in ["T", "F"]:
+            return expression[start] == "T"
+        elif expression[start] == "(":
+            i = 1
             while expression[i] != ")":
                 i += 1
-            return evaluate(i)
+            return "(%s)" % evaluate(i + 1)[1:-1]
         operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
-        if expression[i] in ["|", "&"]:
-            op = expression[i]
-            j = i + 1
-            while expression[j] in [" ", ")"]:
-                j += 1
-            left = evaluate(j)
-            right = expression[expression.index(")") + 1:]
-            return eval(f"({left}) {op} ({str(evaluate(0))[1:-1]})")
+        op_stack = []
+        current_val = None
+        for char in expression:
+            if char == "(":
+                op_stack.append(char)
+            elif char == ")":
+                while op_stack[-1] != "(":
+                    operators[op_stack.pop()](
+                        current_val, evaluate(start + 1)[1:-1])
+                op_stack.pop()
+            elif char in operators:
+                while len(op_stack) > 0 and op_stack[-1] in operators:
+                    current_val = operators[op_stack.pop()](current_val, 
+                                                              expression[start])
+                op_stack.append(char)
+            else:
+                if current_val is None:
+                    current_val = evaluate(start + 1)[1:-1]
+        return current_val
 
-    return str(evaluate())
+    return evaluate()

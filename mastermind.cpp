@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int main() {
     std::string codeStr, guessStr;
@@ -15,15 +16,15 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        } else {
-            int count = 0;
-            for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == guessStr[i]) {
-                    count++;
-                }
-            }
-            if (count > 0) {
+        }
+    }
+
+    for (char c : guessStr) {
+        bool found = false;
+        for (int i = 0; i < 4; i++) {
+            if (codeStr[i] == c && !found) {
                 whitePegs++;
+                found = true;
             }
         }
     }

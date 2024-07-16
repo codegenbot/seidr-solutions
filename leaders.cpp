@@ -6,10 +6,8 @@ std::deque<int> leaders(const std::deque<int>& arr) {
     std::deque<int> result;
 
     for(int i=n-1; i>=0; i--) { 
-        if(result.empty() || arr[i] >= result.back()) {
+        if(i==n-1 || arr[i] >= arr[i+1]) {
             result.push_front(arr[i]);
-        } else {
-            break;
         }
     }
 
