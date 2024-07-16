@@ -1,20 +1,12 @@
-string result = "";
+string encrypted = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encryptedChar = c + 2 * 2;
-            if (islower(c)) {
-                if (encryptedChar > 'z') {
-                    encryptedChar = 'a' + (encryptedChar - 'z' - 1);
-                }
-            } else {
-                if (encryptedChar > 'Z') {
-                    encryptedChar = 'A' + (encryptedChar - 'Z' - 1);
-                }
-            }
-            result += encryptedChar;
+            char base = islower(c) ? 'a' : 'A';
+            char encrypted_char = base + (c - base + 2 * 2) % 26;
+            encrypted += encrypted_char;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
