@@ -3,7 +3,5 @@ def find_zero(xs: list):
     a = xs[0]
     b = xs[1]
     c = xs[2]
-    if n == 2:
-        return -b / c
-    else:
-        return 1.0
+    d = xs[3]
+    return round((-b + math.sqrt(b**2 - 3 * a * c)) / (3 * a), 2)
