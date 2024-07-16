@@ -1,28 +1,32 @@
-```
-#include <stack>
-#include <string>
-
 bool solveBoolean(std::string s) {
     stack<char> st;
-    stack<bool> val; // Store the actual value of T/F
+    bool result = true;
+
     for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&') {
-            while (!val.empty() && !val.top()) { // Evaluate the & operator
-                val.pop();
+        if (s[i] == '|') {
+            while (!st.empty() && (st.top() == '|' || st.top() == '&')) {
+                st.pop();
             }
+            if (st.empty()) result = false;
+            else st.push('|');
+        } 
+        else if (s[i] == '&') {
+            while (!st.empty() && (st.top() == '&' || st.top() == '|')) {
+                st.pop();
+            }
+            if (st.empty()) return false;
             st.push('&');
-        } else if (s[i] == '|') {
-            while (!val.empty() && val.top()) { // Evaluate the | operator
-                val.pop();
-            }
-            st.push('|');
-        } else {
-            val.push(s[i] == 'T'); // Store the value of T/F as bool
+        }
+        else if (s[i] != 'T' && s[i] != 'F') {
+            return false;
+        } 
+        else {
             st.push(s[i]);
         }
     }
-    while (!st.empty() && st.top() == '&') { // Evaluate the remaining operators
+
+    while (!st.empty() && (st.top() == '|' || st.top() == '&')) {
         st.pop();
     }
-    return val.empty(); // Return true if all values were F, false otherwise
-}
+
+    return !st.empty();
