@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -21,8 +22,8 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = sum;
-    std::cout << sqrt(result) << std::endl;
+    double result = sqrt(sum);
+    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
 }
