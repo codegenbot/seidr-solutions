@@ -6,17 +6,17 @@ std::vector<int> leaders(const std::vector<int>& arr) {
 
     if(n == 0) return result;
 
-    for(int i=n-1; i>=0; i--) { 
-        int max_right = 0;
-        for(int j=i; j<n; j++) {
-            if(arr[j] > max_right) {
-                max_right = arr[j];
-            }
-        }
-        if(max_right >= arr[i]) {
+    int max_right = arr[n-1];
+    result.push_back(max_right);
+
+    for(int i=n-2; i>=0; i--) { 
+        if(arr[i] >= max_right) {
             result.push_back(arr[i]);
+            max_right = arr[i];
         }
     }
+
+    std::reverse(result.begin(), result.end());
 
     return result;
 }
