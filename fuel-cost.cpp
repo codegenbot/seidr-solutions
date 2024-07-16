@@ -1,9 +1,6 @@
 #include <vector>
-#include <cmath> 
 
-using namespace std;
-
-int fuelCost(vector<int> v) {
+int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
         int temp = floor(i / 3.0);
@@ -12,6 +9,5 @@ int fuelCost(vector<int> v) {
             temp = 0;
         }
         sum += temp;
-    }
+    } 
     return sum;
-}
