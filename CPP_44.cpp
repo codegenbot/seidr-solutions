@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <iostream>
 
 std::string change_base(int x, int base) {
     std::string result = "";
@@ -7,11 +8,11 @@ std::string change_base(int x, int base) {
         result = std::to_string(x % base) + result;
         x /= base;
     }
-    return result == "" ? "0" : result;
+    return result;
 }
-
+    
 int main() {
-    int x = 42;
+    int x;
+    std::cin >> x;
     assert(change_base(x, x + 1) == std::to_string(x));
-    return 0;
 }
