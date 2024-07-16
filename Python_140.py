@@ -1,7 +1,4 @@
-def fix_spaces():
-    text = input().strip()
-    text = "_".join(text.split())
-    return text
-
-result = fix_spaces()
-print(result)
+text = input().strip()
+text = re.sub(r'\s{2,}', '_', text)
+text = "_".join(text.split())
+return text
