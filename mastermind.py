@@ -8,12 +8,15 @@ def mastermind():
     for c in code:
         code_counts[c] = code_counts.get(c, 0) + 1
 
+    whites = 0
+    blacks = 0
     for c in code:
         if c in guess:
+            black_count = 0
             if c == guess[guess.index(c)]:
-                black_count = blacks
+                black_count = 1
             else:
-                black_count = white_counts[ord(c) - ord("A")] += 1
+                white_counts[ord(c) - ord("A")] += 1
+            blacks += black_count
 
-    whites = sum(1 for c in range(6) if code_counts.get(chr(c + ord("A")), 0) > 0 and white_counts[c] == 0)
-    return str(whites), str(blacks)
+    return str(sum(1 for x in white_counts if x > 0)), str(blacks)
