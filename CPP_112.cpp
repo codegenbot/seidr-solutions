@@ -1,8 +1,9 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
+#include <utility>
+#include <initializer_list>
 
 using namespace std;
 
@@ -32,9 +33,8 @@ pair<string, string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    string result1 = "", result2 = "";
-    tie(result1, result2) = reverse_delete("mamma", "mia");
-    cout << "First part of the output: " << result1 << endl;
-    cout << "Second part of the output: " << result2 << endl;
+    pair<string, string> results = reverse_delete("mamma", "mia");
+    cout << "First part of the output: " << results.first << endl;
+    cout << "Second part of the output: " << results.second << endl;
     return 0;
 }
