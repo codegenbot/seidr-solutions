@@ -1,16 +1,18 @@
-def solve_boolean(expression):
-    if expression == "T":
+```
+def solve_boolean(input_string):
+    if input_string == 't':
         return True
-    elif expression == "F":
+    elif input_string == 'f':
         return False
-    elif "&" in expression:
-        parts = expression.split("&")
-        return all(eval(part) for part in parts)
-    elif "|" in expression:
-        parts = expression.split("|")
-        return any(eval(part) for part in parts)
-
-
-print(solve_boolean("t"))
-print(solve_boolean("f&f"))
-print(solve_boolean("t|f"))
+    elif '&' in input_string:
+        inputs = input_string.split('&')
+        if all(x in ['t', 'T'] for x in inputs):
+            return True
+        else:
+            return False
+    elif '|' in input_string:
+        inputs = input_string.split('|')
+        if any(x in ['t', 'T'] for x in inputs):
+            return True
+        else:
+            return False
