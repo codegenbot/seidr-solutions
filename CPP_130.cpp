@@ -1,19 +1,24 @@
-vector<int> result(n + 1);
-    if (n == 1) {
-        result[0] = 3;
+vector<int> result;
+    if (n == 0) {
         return result;
     }
-    
-    result[0] = 3;
-    result[1] = 1;
-    
-    for (int i = 2; i <= n; ++i) {
-        if (i % 2 == 0) {
-            result[i] = 1 + i / 2;
-        } else {
-            result[i] = result[i - 1] + result[i - 2] + result[i + 1];
-        }
+    result.push_back(3);
+    if (n == 1) {
+        return result;
     }
-    
+    result.push_back(1);
+    if (n == 2) {
+        return result;
+    }
+    int prev = 1, cur = 3, next;
+    for (int i = 3; i <= n; ++i) {
+        if (i % 2 == 0) {
+            next = 1 + i / 2;
+        } else {
+            next = prev + cur + 1 + (i + 1) / 2;
+        }
+        result.push_back(next);
+        prev = cur;
+        cur = next;
+    }
     return result;
-}
