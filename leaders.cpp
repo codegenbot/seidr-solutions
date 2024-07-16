@@ -1,9 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list> 
+#include <initializer_list>
 
 using namespace std;
 
@@ -30,4 +27,3 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
