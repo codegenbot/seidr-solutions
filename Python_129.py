@@ -7,13 +7,12 @@ def minPath(grid, k):
     while len(path) < 2 * k:
         next_cell = next(((i, j) for i, j in visited for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)] if (i + di, j + dj) in visited), None)
         if next_cell is None:
-            break
+            if len(visited) == 0:
+                visited = {(i, j) for i in range(n) for j in range(n)}
+            else:
+                break
         i, j = next_cell
         visited.discard((i, j))
         path.append(grid[i][j])
-        if len(visited) == 0:
-            visited = {(i, j) for i in range(n) for j in range(n)}
-    
-    grid = [[grid[j][i] for j in range(n)] for i in range(n)]
-    
+
     return path[:k]
