@@ -1,11 +1,12 @@
+```c++
 #include <vector>
 #include <unordered_map>
 #include <initializer_list>
 
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> numMap;
+    std::unordered_map<int, size_t> numMap;
     
-    for (int i = 0; i < nums.size(); i++) {
+    for (size_t i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
             return {{complement, nums[i]}};
@@ -31,3 +32,4 @@ int main() {
         std::cout << "Pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
+}
