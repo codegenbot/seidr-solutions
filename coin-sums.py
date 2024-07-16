@@ -9,7 +9,7 @@ def coin_sums(cents):
             result.append(count)
             cents %= coin
     
-    return len([coin for coin in result if coin != 0]), * [coin for coin in result if coin != 0]
+    return count(len(result)) + len([coin for coin in result if coin != 0]), * [coin for coin in result if coin != 0]
 
 cents = int(input())
 num_coins, *counts = coin_sums(cents)
