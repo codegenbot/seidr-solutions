@@ -8,10 +8,10 @@ int main() {
 
     std::vector<int> indices;
     size_t i = 0;
-    while (i < text.size()) {
+    while (i + target.size() <= text.size()) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i + 1);
-            i += 1; // Update index increment to handle overlapping occurrences
+            i += 1; // Move to the next character as targets can overlap
         } else {
             i += 1;
         }
