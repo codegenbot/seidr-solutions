@@ -1,9 +1,9 @@
-```
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
-    std::stack<char> st;
+    stack<char> st;
+    stack<char> st2;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
