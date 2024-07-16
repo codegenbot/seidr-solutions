@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 string spinWords(string str) {
@@ -8,11 +9,12 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else if (str.substr(i).size() >= 5) {
-            for (int j = str.substr(i).size(); j > 0; j--) {
-                result += str[i + j - 1];
+        } else if ((int)str[i + 1] >= 122 || (int)str[i + 1] <= 96) {
+            string temp = str.substr(i);
+            for (auto it = temp.rbegin(); it != temp.rend(); ++it) {
+                result += *it;
             }
-            i += str.substr(i).size();
+            i += temp.size();
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
