@@ -7,15 +7,13 @@ def separate_paren_groups(paren_string):
         if char == '(':
             stack.append('(')
             if len(stack) > 1:
-                if current_group:
-                    groups.append(''.join(current_group))
-                    current_group = []
+                current_group.append(char)
         elif char == ')':
             stack.pop()
-            if len(stack) == 0 and current_group:
+            if not stack and current_group:
                 groups.append(''.join(current_group) + char)
                 current_group = []
-        else:
+        elif stack:
             current_group.append(char)
 
     if current_group:
