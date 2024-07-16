@@ -12,25 +12,20 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    for (auto const& pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+    string result = "";
+    map<int, string> sorted_numbers;
+    
+    size_t pos = 0;
+    while ((pos = numbers.find(" ")) != string::npos) {
+        string num_str = numbers.substr(0, pos);
+        sorted_numbers[number_map[num_str]] = num_str;
+        numbers.erase(0, pos + 1);
     }
-
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        sorted_numbers.push_back(number_map[token]);
+    sorted_numbers[number_map[numbers]] = numbers;
+    
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
     }
-
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
-    }
-
-    result.pop_back(); // Remove the extra space at the end
+    
     return result;
 }
