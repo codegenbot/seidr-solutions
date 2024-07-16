@@ -24,7 +24,7 @@ int main() {
     }
 
     int result = basement(nums);
-    std::cout << "The first index where the sum is negative: " << result << std::endl;
+    std::cout << "The first index where the sum is negative: " << result <<std::endl;
 
     return 0;
 }
