@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
-
+#include <iostream> 
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
@@ -24,4 +24,20 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
+
+int main() {
+    string text = "Hello, world!";
+    string target = "o";
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    int a = 48;
+    int b = 24;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+
+    return 0;
 }
