@@ -16,10 +16,12 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 2, 3, 4};
-    vector<int> l2 = {2, 2, 3, 5};
-    vector<int> expected_result = {2, 3};
+    vector<int> l1 = {1, 2, 3, 4, 5};
+    vector<int> l2 = {3, 4, 5, 6, 7};
+    vector<int> expectedResult = {3, 4, 5};
+    
     vector<int> result = common(l1, l2);
-    assert(issame(result, expected_result));
+    assert(issame(result, expectedResult));
+    
     return 0;
 }
