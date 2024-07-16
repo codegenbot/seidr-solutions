@@ -1,9 +1,9 @@
 vector<int> filter_integers(list_any values){
-    vector<int> integers;
+    vector<int> result;
     for(auto val : values){
-        if(typeid(int) == val.type()){
-            integers.push_back(boost::any_cast<int>(val));
+        if(val.type() == typeid(int)){
+            result.push_back(boost::any_cast<int>(val));
         }
     }
-    return integers;
+    return result;
 }
