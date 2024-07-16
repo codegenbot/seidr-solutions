@@ -29,8 +29,11 @@ int countWhitePegs(string code, string guess) {
 }
 
 int main() {
+    int blackPegs, whitePegs;
     string code, guess;
     cin >> code >> guess;
-    cout << countWhitePegs(code, guess) << endl;
-    cout << countBlackPegs(code, guess) << endl;
+    blackPegs = countBlackPegs(code, guess);
+    whitePegs = countWhitePegs(code, guess);
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
     return 0;
