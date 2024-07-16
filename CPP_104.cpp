@@ -1,18 +1,19 @@
-vector<int> result;
-    for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
+for(auto it = x.begin(); it != x.end(); ){
+    bool evenDigit = false;
+    int num = *it;
+    while(num > 0) {
+        if(num % 2 == 0){
+            evenDigit = true;
+            break;
         }
-        if (!hasEvenDigit) {
-            result.push_back(num);
-        }
+        num /= 10;
     }
-    sort(result.begin(), result.end());
-    return result;
+    if(evenDigit) {
+        it = x.erase(it);
+    } else {
+        ++it;
+    }
+}
+sort(x.begin(), x.end());
+return x;
 }
