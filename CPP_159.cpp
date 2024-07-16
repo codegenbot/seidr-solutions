@@ -1,4 +1,4 @@
 int total = number + need;
-    int carrotsEaten = remaining >= need ? total : total - (need - remaining);
-    return {carrotsEaten, remaining >= need ? 0 : need - remaining};
+    vector<int> result = {total, max(0, remaining - need)};
+    return result;
 }
