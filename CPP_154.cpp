@@ -1,7 +1,3 @@
-int n = a.size();
-    int m = b.size();
-    if (n != m) return false;
-    
-    string doubleA = a + a;
-    return doubleA.find(b) != string::npos;
+string c = a + a;
+    return c.find(b) != string::npos;
 }
