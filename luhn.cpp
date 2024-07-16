@@ -1,31 +1,14 @@
 #include <vector>
-using namespace std;
 
-int luhnCheck(vector<int>& creditCard) {
+int luhn(std::vector<int>& numbers) {
     int sum = 0;
-    for(int i = creditCard.size() - 1; i >= 0; i--) {
-        if(i % 2 == 1) {
-            int digit = creditCard[i] * 2;
-            if(digit > 9) {
-                digit -= 9;
-            }
-            sum += digit;
+    for (int i = numbers.size() - 1; i >= 0; --i) {
+        if ((numbers[i] * 2) > 9) {
+            sum += (numbers[i] * 2) - 9;
         } else {
-            sum += creditCard[i];
+            sum += numbers[i] * 2;
         }
+        sum += numbers[i-1];
     }
     return sum;
-}
-
-int main() {
-    vector<int> creditCard;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        creditCard.push_back(x);
-    }
-    cout << luhnCheck(creditCard) << endl;
-    return 0;
 }
