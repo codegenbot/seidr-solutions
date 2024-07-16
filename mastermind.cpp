@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
 int main() {
     std::string codeStr, guessStr;
 
@@ -9,26 +12,39 @@ int main() {
     std::cout << "Enter your guess: ";
     std::cin >> guessStr;
 
-    int blackPegs = 0;
-    int whitePegs = 0;
+    if (codeStr.length() != 4 || guessStr.length() != 4) {
+        std::cout << "Error: Code and guess must be 4 characters long." << std::endl;
+        return 1;
+    }
 
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            blackPegs++;
+    int blackPegs = 0;
+    std::unordered_map<int, int> codeCount;
+
+    // Count characters in the code
+    for (char c : codeStr) {
+        if ('0' <= c && c <= '5') {
+            codeCount[static_cast<int>(c)] = 0; 
+            codeCount[static_cast<int>(c)]++;
         }
     }
 
-    // Count white pegs
-    for (char c : codeStr) {
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            if (c == guessStr[i] && c != codeStr[i]) {
-                count++;
+    int whitePegs = 0;
+    for (int i = 0; i < 4; i++) {
+        char c = guessStr[i];
+        if ('0' <= c && c <= '5') {
+            if (codeCount.find(c - '0') != codeCount.end()) {
+                auto& count = codeCount[c - '0'];
+                if (count > 1) {
+                    codeCount[c - '0']--;
+                    blackPegs++;
+                } else {
+                    whitePegs++;
+                    codeCount[c - '0']--;
+                }
+            } else {
+                // The character is not in the code
+                whitePegs++;
             }
-        }
-        if (count > 0) {
-            whitePegs += count;
         }
     }
 
