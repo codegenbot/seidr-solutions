@@ -1,38 +1,36 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int mastermindCode(string code, string guess) {
-    int black = 0;
-    int white = 0;
-
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
+int numWhitePegs(const string &code, const string &guess) {
+    int whitePegs = 0;
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++whitePegs;
         }
     }
+    return whitePegs;
+}
 
-    // Count remaining correct colors in the code
-    int remainingBlack = 0;
-    vector<int> colorCount(6, 0);
-    for (int i = 0; i < 4; i++) {
+int numBlackPegs(const string &code, const string &guess) {
+    int blackPegs = 0;
+    map<char, int> codeMap;
+    for (char c : code) {
+        codeMap[c]++;
+    }
+
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            continue;
-        }
-        colorCount[code[i] - 'A']++;
-    }
-
-    // Count white pegs
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            continue;
-        }
-        colorCount[guess[i] - 'A']--;
-        if (colorCount[guess[i] - 'A'] > 0) {
-            white++;
+            --codeMap[guess[i]];
         }
     }
 
-    return black + white;
+    for (int i = 0; i < 4; ++i) {
+        if (codeMap[guess[i]] > 0) {
+            ++blackPegs;
+        }
+    }
+
+    return blackPegs;
+}
+
+void printClue(int whitePegs, int blackPegs) {
+    cout << whitePegs << "\n";
+    cout << blackPegs << "\n";
 }
