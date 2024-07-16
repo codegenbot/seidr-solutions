@@ -2,32 +2,28 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    int rolls = 0;
+    int roll = 0;
+    bool spare = false;
 
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] == 'X') {
             score += 10;
-            rolls++;
-            if (frame < 10) {
-                score += 10;
-            }
-        } else if (c == '/') {
-            int firstRoll = s[rolls] - '0';
-            int secondRoll = s[rolls + 1] - '0';
-            score += firstRoll + secondRoll;
-            rolls += 2;
-            frame++;
+            spare = true;
+        } else if (s[i] == '/') {
+            int firstRoll = s[i-1] - '0';
+            roll = 10 - firstRoll;
+            score += firstRoll + roll;
+            spare = false;
         } else {
-            int roll = c - '0';
-            score += roll;
-            rolls++;
-            if (frame < 10) {
-                if (s[rolls] == '/') {
-                    score -= roll;
-                }
+            int currentRoll = s[i] - '0';
+            if (!spare) {
+                score += currentRoll;
+                roll = currentRoll;
+            } else {
+                score += currentRoll + roll;
+                spare = false;
             }
-            frame++;
         }
     }
     return score;
+}
