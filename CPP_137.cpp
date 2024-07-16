@@ -1,6 +1,6 @@
 #include <cassert>
 #include <variant>
-#include <string> // Add missing header
+#include <string>
 
 std::variant<int, float, std::string> compare_one(const std::variant<int, float, std::string>& a, const std::variant<int, float, std::string>& b) {
     if (a.index() == 0 && b.index() == 0) {
@@ -26,7 +26,7 @@ std::variant<int, float, std::string> compare_one(const std::variant<int, float,
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), std::string("1"))).empty()); // Compare std::string objects
-    
+    assert(std::get<std::string>(compare_one(1, 2)).empty());
+
     return 0;
 }
