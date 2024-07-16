@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 
 std::string squareDigits(std::string input) {
@@ -7,4 +9,12 @@ std::string squareDigits(std::string input) {
         output += std::to_string(digit*digit);
     }
     return output;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> std::setw(0)>>input;
+    std::cout << squareDigits(input) << "\n";
+    
 }
