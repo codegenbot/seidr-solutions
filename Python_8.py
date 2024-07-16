@@ -9,7 +9,7 @@ try:
     while True:
         try:
             numbers_input = list(map(int, input().strip().split()))
-        except ValueError:
+        except (ValueError, EOFError):
             break
         if not numbers_input or numbers_input[0] == -1:
             break
