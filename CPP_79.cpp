@@ -15,10 +15,3 @@ string decimal_to_binary(int decimal){
     }
     return binary + "db";
 }
-
-int main(){
-    int decimal;
-    cin >> decimal;
-    cout << decimal_to_binary(decimal) << endl;
-    return 0;
-}
