@@ -1,14 +1,21 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == 'f' || expression[i] == 'F') {
+    int i = 0;
+    while(i < expression.length()) {
+        if(expression[i] == 'f') {
             result = false;
             break;
+        } else if(expression[i] == '|') {
+            result = !result;
+        } else if(expression[i] == '&') {
+            return result;
         }
+        i++;
     }
     return result;
 }
@@ -24,3 +31,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
