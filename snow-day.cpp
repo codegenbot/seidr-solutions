@@ -15,19 +15,27 @@ float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float m
 }
 
 int main() {
-    int initialSnow, rateOfSnowFall, meltingRate;
-    float hours;
+    std::string input;
+    int hours;
+    float initialSnow, rateOfSnowFall, meltingRate;
 
     std::cout << "Enter number of hours: ";
-    std::cin >> hours;
+    std::cin >> input;
+    hours = stoi(input);
+    
     std::cout << "Enter initial snow (inches): ";
-    std::cin >> initialSnow;
-    std::cout << "Enter rate of snow fall per hour (inches): ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter melting rate per hour (proportion): ";
-    std::cin >> meltingRate;
+    std::cin >> input;
+    initialSnow = stof(input);
 
-    float result = snowAfterHours(int(hours), initialSnow, rateOfSnowFall, meltingRate);
+    std::cout << "Enter rate of snow fall per hour (inches): ";
+    std::cin >> input;
+    rateOfSnowFall = stof(input);
+
+    std::cout << "Enter melting rate per hour (proportion): ";
+    std::cin >> input;
+    meltingRate = stof(input);
+
+    float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
 
     std::cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
