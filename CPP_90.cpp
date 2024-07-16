@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
-    // Your test cases...
-}
-
 std::vector<int> next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return vector<int>();
     sort(lst.begin(), lst.end());
