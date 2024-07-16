@@ -18,8 +18,7 @@ string spinWords(string str) {
                 }
             } else {
                 while (i < j) {
-                    result += str[i++];
-                }
+                result += str[i++];
             }
         }
     }
