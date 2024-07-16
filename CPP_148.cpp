@@ -1,6 +1,6 @@
 #include <string>
 
-bool issame(const std::string& planet1, const std::string& planet2);
+bool issame(string planet1, string planet2);
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
