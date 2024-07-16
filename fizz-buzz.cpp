@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <climits>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
