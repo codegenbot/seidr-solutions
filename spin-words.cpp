@@ -9,12 +9,12 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else if ((int)(str.substr(i).c_str()[str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).size() - 1]) <= 96) {
-            int len = str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size();
+        } else if ((int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) <= 96) {
+            int len = str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size()).size();
             for (int j = len; j > 0; j--) {
-                result += str.substr(i, len)[j - 1];
+                result += str.substr(i + j - 1, 1);
             }
-            i += len;
+            i += str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size()).size();
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
