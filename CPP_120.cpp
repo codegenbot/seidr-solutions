@@ -1,15 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
-    }
+    vector<int> result(k);
+    copy(std::make_heap(arr.begin(), arr.end()), arr.end() - k + 1, result.begin());
     return result;
 }
