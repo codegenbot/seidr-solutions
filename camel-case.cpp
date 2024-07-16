@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -7,21 +8,14 @@ std::string camelCase(std::string s) {
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) {
-                char cTemp = s[static_cast<int>(s.find(c)) + 1];
-                if (capitalizeNext) {
-                    result += std::toupper(cTemp);
-                } else {
-                    result += std::tolower(cTemp);
-                }
-            }
+            if(capitalizeNext) result += std::toupper(s[static_cast<int>(s.find(c)) + 1]);
             capitalizeNext = true;
             result.push_back(' ');
         } else if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
         } else {
-            result += c;
+            result += std::tolower(c);
         }
     }
 
