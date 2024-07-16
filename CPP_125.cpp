@@ -1,11 +1,13 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
+}
 
-vector<string> solve(string txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -26,7 +28,7 @@ vector<string> solve(string txt) {
                 oddLowerCaseCount++;
             }
         }
-        result.push_back(to_string(oddLowerCaseCount));
+        result.push_back(std::to_string(oddLowerCaseCount));
     }
     return result;
 }
