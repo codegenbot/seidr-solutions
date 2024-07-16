@@ -15,3 +15,4 @@ long long minSubArraySum(vector<long long> nums){
     }
 
     return (res == LLONG_MAX)? nums[0] : res;
+}
