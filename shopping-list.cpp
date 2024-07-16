@@ -17,7 +17,7 @@ int main() {
 
     int result = shoppingList(prices, nPrices, discounts);
 
-    std::cout << "Total price after discount: $" << result << std::endl;
+    std::cout << "Total price after discount: $" << static_cast<float>(result) / 100.0f << std::endl;
 
     return 0;
 }
