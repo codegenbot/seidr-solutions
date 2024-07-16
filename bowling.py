@@ -13,10 +13,9 @@ def bowling_score(frames):
             frames = frames[frames.index(char):]
         else:
             if frame_num < 10:
-                if len(frames) > 2 and frames[1] == 'X' and char == '0':
-                    score += 20
+                if int(char) >= 10:
+                    score += 10 + bowling_score(frames[:frames.index(str(10))])
                     frame_num += 1
-                    frames = ''
                 else:
                     score += int(char)
                     frame_num += 1
