@@ -1,45 +1,31 @@
-#include <string>
-#include <vector>
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(int a, int b) {
     return a == b;
 }
 
-vector<string> split_words(string txt);
-
-int main() {
-    // Test split_words function
-    vector<string> words = split_words("Hello, world! This is a test.");
-    for(const string& word : words){
-        cout << word << endl;
-    }
-    return 0;
-}
-
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> split_words(string txt) {
+    vector<string> words;
     string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                result.push_back(word);
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
                 word = "";
             }
         } else {
             word += c;
         }
     }
-    if(!word.empty()){
-        result.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
     }
-    if(result.empty()){
+    if (words.empty()) {
         int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        words.push_back(to_string(count));
     }
-    return result;
+    return words;
 }
