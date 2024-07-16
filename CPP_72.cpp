@@ -1,8 +1,5 @@
-bool will_it_fly(vector<int> q, int w) {
-    int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
-    }
+bool will_it_fly(const vector<int>& q, int w) {
+    int sum = accumulate(q.begin(), q.end(), 0);
     
     if (sum <= w) {
         vector<int> reversed_q = q;
