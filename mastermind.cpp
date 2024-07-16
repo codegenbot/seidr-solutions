@@ -29,7 +29,7 @@ int blackPegs(string code, string guess) {
         }
     }
 
-    return 4 - count;
+    return count;
 }
 
 int main() {
