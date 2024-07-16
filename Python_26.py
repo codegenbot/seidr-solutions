@@ -1,1 +1,5 @@
-return [num for num in numbers if numbers.count(num) == 1]
+def remove_duplicates(numbers):
+    return list(set(numbers))
+
+def check(numbers):
+    return remove_duplicates(numbers)
