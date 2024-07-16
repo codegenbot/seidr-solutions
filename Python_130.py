@@ -6,5 +6,8 @@ def tri(n):
     else:
         tribonacci = [0, 1, 1]
         for i in range(3, n):
-            tribonacci.append(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3])
-        return tribonacci[:n]
+            if i % 2 == 0:
+                tribonacci.append(tribonacci[-1] + tribonacci[-2] + tribonacci[-3])
+            else:
+                tribonacci.append(tribonacci[-1] + tribonacci[-2])
+        return tribonacci
