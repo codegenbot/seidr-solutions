@@ -5,16 +5,20 @@
 
 using namespace std;
 
+bool issame(std::vector<int>& a, std::vector<int>& b);
+
+vector<int> compare(const vector<int>& a, const vector<int>& b);
+
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    return a == b;
+}
+
 vector<int> compare(const vector<int>& a, const vector<int>& b) {
     vector<int> result;
     for(size_t i = 0; i < min(a.size(), b.size()); ++i) {
         result.push_back(abs(a[i] - b[i]));
     }
     return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
 }
 
 int main() {
