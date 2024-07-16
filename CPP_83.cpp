@@ -1,3 +1,6 @@
-int starts_one_ends(int n){
-    return 2 * 9 * pow(10, n - 2);
+int count = 0;
+    count += 9; // for numbers starting with 1
+    count += 9; // for numbers ending with 1
+    count -= 1; // to remove the double counting of numbers starting and ending with 1
+    return count;
 }
