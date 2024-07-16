@@ -1,7 +1,7 @@
-import sys
+import ast
 
-input_str = sys.stdin.read().rstrip()
-paren_strings = input_str.splitlines()
+input_str = input()
+paren_strings = ast.literal_eval(input_str)
 
 def parse_nested_parens(paren_strings):
     stack = []
