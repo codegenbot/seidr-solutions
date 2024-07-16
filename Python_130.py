@@ -1,10 +1,9 @@
 def tri(n):
-    if n == 0:
-        return [0]
-    elif n == 1:
-        return [0, 1]
-    else:
-        tribonacci = [0, 1, 1]
-        for i in range(3, n):
-            tribonacci.append(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3])
-        return tribonacci
+    result = [0, 3]
+    if n <= 1:
+        return result[:n + 1]
+    a, b, c = 0, 0, 3
+    for i in range(2, n + 1):
+        a, b, c = b, c, a + b + c
+        result.append(c)
+    return result
