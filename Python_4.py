@@ -1,9 +1,8 @@
-while True:
-    try:
-        numbers = list(
-            map(int, input("Enter the numbers separated by space: ").split())
-        )
+try:
+    numbers = list(map(int, input().split()))
+    if all(isinstance(num, int) for num in numbers):
         print(sum(numbers))
-        break
-    except ValueError:
+    else:
         print("Invalid input. Please enter numbers separated by space.")
+except:
+    print("Invalid input. Please enter numbers separated by space.")
