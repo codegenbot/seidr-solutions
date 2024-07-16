@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <map>
-
-using namespace std;
-
 int main() {
     int n, target;
     cin >> n;
@@ -13,19 +7,16 @@ int main() {
     }
     cin >> target;
     
-    map<int, int> numIndex;
-    pair<int, int> result;
+    map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            result = make_pair(numIndex[complement], i);
+        if (numToIndex.find(complement) != numToIndex.end()) {
+            cout << complement << endl;
+            cout << nums[i] << endl;
             break;
         }
-        numIndex[nums[i]] = i;
+        numToIndex[nums[i]] = i;
     }
-    
-    cout << nums[result.first] << endl;
-    cout << nums[result.second] << endl;
     
     return 0;
 }
