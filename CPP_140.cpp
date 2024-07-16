@@ -1,19 +1,24 @@
 string result = "";
-    int consecutiveSpaces = 0;
+    bool isPrevSpace = false;
+    int spaceCount = 0;
+    
     for (char c : text) {
         if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+            spaceCount++;
+            if (spaceCount > 2) {
+                if (!isPrevSpace) {
+                    result += '-';
+                }
+                isPrevSpace = true;
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
-            consecutiveSpaces = 0;
+            spaceCount = 0;
+            isPrevSpace = false;
         }
     }
+    
     return result;
 }
