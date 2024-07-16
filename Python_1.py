@@ -11,7 +11,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             level -= 1
             if level < 0:
-                temp = ""
+                level = 0
         
         temp += char
 
