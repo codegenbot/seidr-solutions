@@ -2,7 +2,7 @@
 def bowling_score(frames):
     score = 0
     roll = 0
-    for frame in frames.split('/'):
+    for frame in frames.replace('-', ' ').split():
         if len(frame) == 1:
             score += int(frame)
             roll = 1
@@ -12,35 +12,20 @@ def bowling_score(frames):
             if roll == 1:
                 score += first_roll + second_roll
             else:
-                strike = first_roll + second_roll
-                bonus = 0
-                for i in range(2):
-                    next_frame = frames.split('/')[i+1]
-                    if len(next_frame) > 1:
-                        bonus += int(next_frame[0])
-                    elif len(next_frame) == 1:
-                        bonus += int(next_frame)
-                    else:
-                        break
-                score += strike + bonus
+                if first_roll == 10:
+                    score += 10 + (second_roll + next_frame[0]) if len(next_frames) > 0 and next_frames[0].split()[0] != 'X' else 10
+                else:
+                    score += max(first_roll, second_roll) + min(first_roll, second_roll)
             roll = 0
-        elif len(frame) > 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = int(frame[2])
-            if roll == 1:
-                score += first_roll + second_roll + third_roll
+        elif len(frame) == 3:
+            if frame[0] == 'X':
+                score += 10 + (int(next_frames.split()[1]) + int(next_frames.split()[2])) if len(next_frames) > 1 else 10
+                next_frames = ''
+            elif frame[0] == '/':
+                first_roll = 10 - int(frame[1:])
+                score += first_roll + (int(next_frames.split()[0]) if roll == 1 and len(next_frames) > 0 else 0)
+                next_frames = ''
             else:
-                strike = first_roll + second_roll
-                bonus = third_roll
-                for i in range(3):
-                    next_frame = frames.split('/')[i+1]
-                    if len(next_frame) > 2:
-                        bonus += int(next_frame[0]) + int(next_frame[1])
-                    elif len(next_frame) == 1 or len(next_frame) == 2:
-                        bonus += int(next_frame)
-                    else:
-                        break
-                score += strike + bonus
-            roll = 0
+                score += 10
+        next_frames = frames.split().index(frame)+1
     return score
