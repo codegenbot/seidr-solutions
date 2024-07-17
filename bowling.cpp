@@ -1,7 +1,11 @@
-int bowlingScore(string input) {
+```cpp
+#include <string>
+using namespace std;
+
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    for (char c : input) {
+    for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
                 score += 10 - (10 - roll);
@@ -24,8 +28,9 @@ int bowlingScore(string input) {
 }
 
 int main() {
-    string s = "12-3/7-X/X/8-5/9/1-4/X/10";
-    int score = bowlingScore(s);
-    cout << "The score is: " << score;
+    string input;
+    cout << "Enter the individual bowls: ";
+    cin >> input;
+    cout << "Your score is: " << bowlingScore(input);
     return 0;
 }
