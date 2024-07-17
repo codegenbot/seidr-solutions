@@ -17,5 +17,4 @@ int main() {
     std::cin >> m;
     double result = probability(n, m);
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
-    return 0;
-}
+    return 0 }
