@@ -1,12 +1,11 @@
 ```cpp
 #include <iostream>
-#include <cmath>
 
 int main() {
     int totalDistance = 0;
     int numBounces;
     double startingHeight;
-    double firstBounceHeight;
+    double bouncinessIndex;
 
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
@@ -15,12 +14,12 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    std::cin >> firstBounceHeight;
+    std::cin >> bouncinessIndex;  // assuming input is height, not index
 
-    double calculatedBouncinessIndex = (firstBounceHeight / startingHeight);
+    double calculatedBouncinessIndex = (bouncinessIndex / startingHeight);
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2 * i));
+        totalDistance += 2 * (startingHeight * calculatedBouncinessIndex - startingHeight);
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
