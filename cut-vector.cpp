@@ -13,7 +13,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         if(i == v.size()) {
             vector<int> left(v.begin(), v.end());
             vector<int> right({});
-            int diff = abs(left[0] - 0);
+            int diff = std::abs(left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
@@ -21,7 +21,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         } else {
             vector<int> left(v.begin(), v.begin() + i);
             vector<int> right(v.begin() + i, v.end());
-            int diff = abs(left[0] - right[0]);
+            int diff = std::abs(left[0] - right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
