@@ -2,7 +2,11 @@
 using namespace std;
 
 double probability(int n, int m) {
-    return (m - 1.0) / n;
+    double p = 0.0;
+    for (int i = m + 1; i <= n; i++) {
+        p += (1.0 / n) * (1.0 / m);
+    }
+    return p;
 }
 
 int main() {
