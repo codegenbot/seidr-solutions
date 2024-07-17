@@ -1,4 +1,5 @@
-```c++
+#include <iostream>
+
 int main() {
     int totalDistance = 0; 
     int numBounces;
@@ -17,7 +18,7 @@ int main() {
     bouncinessIndex = (double)temp / startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
+        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight); 
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
