@@ -1,37 +1,25 @@
 ```cpp
-#include <string>
-#include <algorithm>
-
-int main() {
-    std::string code;  // get the input from user
-    std::cout << "Enter the Mastermind code (4 characters): ";
-    std::cin >> code;
-
-    std::string guess;  // get the input from user
-    std::cout << "Enter your guess (4 characters): ";
-    std::cin >> guess;
-
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
+    std::map<char, int> colorMap; // correct colors regardless of position
+    std::map<char, int> placementMap; // correct placements
+
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+        if (code[i] == guess[i]) { // match and same position
             black++;
-        }
-    }
-
-    for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && guess.find(std::string(1, c)) != std::string::npos) {
-            black++;
-        } else if (std::count(code.begin(), code.end(), c) > 0) {
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { // match but not at same position
             white++;
+            colorMap[code[i]]++; // count in colorMap
         }
     }
 
-    int result = black;
-    // To return both black and white pegs, uncomment the line below
-    // result = {black, white};
-    std::cout << "Black pegs: " << black << ", White pegs: " << white << std::endl;
+    for (auto& pair : colorMap) {
+        placementMap[pair.first] = pair.second; // add to placementMap
+    }
 
-    return 0;
+    black -= std::count(placementMap.begin(), placementMap.end(), 4); // subtract correct placements
+
+    return black;
 }
