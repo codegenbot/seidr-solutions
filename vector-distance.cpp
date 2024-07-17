@@ -1,14 +1,8 @@
-#include <iostream>
-#include <cmath>
-#include <vector>
-#include <iomanip>
-using namespace std;
-
 double calculateEuclideanDistance(int n, vector<double> v1, vector<double> v2) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
         double diff = pow((v1[i] - v2[i]), 2);
-        sum += pow(diff, 0.5); // or just sqrt(sum) afterwards
+        sum += diff;
     }
     return sqrt(sum);
 }
