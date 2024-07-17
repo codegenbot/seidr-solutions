@@ -1,3 +1,4 @@
+```
 prices_and_discounts = []
 while True:
     temp = list(map(float, input().strip().split()))
