@@ -1,8 +1,6 @@
-```cpp
-#include <string>
-#include <algorithm>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
+bool solveBoolean(string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
 
@@ -11,7 +9,7 @@ bool solveBoolean(std::string expression) {
         if (expression[i] == '&') {
             int j = i + 1;
             while (j < expression.size() && expression[j] != '|') j++;
-            std::string subexpr = expression.substr(i + 1, j - i - 1);
+            string subexpr = expression.substr(i + 1, j - i - 1);
             result &= solveBoolean(subexpr);
             i = j;
         }
@@ -19,9 +17,8 @@ bool solveBoolean(std::string expression) {
     if (expression[i] == '|') {
         int j = i + 1;
         while (j < expression.size() && expression[j] != ' ') j++;
-        std::string subexpr2 = expression.substr(i + 1, j - i);
+        string subexpr2 = expression.substr(i + 1, j - i);
         result |= solveBoolean(subexpr2);
     }
 
     return !result;
-}
