@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -19,6 +20,8 @@ int main(){
     int n;
     cin >> n;
     vector<float> vec1(n), vec2(n);
+    vec1.reserve(n);  
+    vec2.reserve(n);  
 
     for(int i = 0; i < n; ++i){
         cin >> vec1[i];
