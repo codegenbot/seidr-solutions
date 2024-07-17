@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const char* frames) {
     int score = 0;
     int currentRolls = 0;
@@ -17,3 +18,4 @@ int bowlingScore(const char* frames) {
         }
     }
     return score;
+}
