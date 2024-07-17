@@ -1,4 +1,3 @@
-```c
 #include <vector>
 using namespace std;
 
@@ -14,11 +13,12 @@ int basement(vector<int>& nums) {
 
 int main() {
     vector<int> nums;
-    int input;
-    cout << "Enter a sequence of numbers separated by space:" << endl;
-    while (cin >> input) {
-        nums.push_back(input);
-    }
+    for(int i = 0 ;i<4; i++){
+        if(i == 0) nums.push_back(1);
+        else if(i == 1) nums.push_back(-2);
+        else if(i == 2) nums.push_back(3);
+        else nums.push_back(-4);
+    } 
     int result = basement(nums);
     if (result != -1) {
         cout << "Basement found at index " << result << endl;
