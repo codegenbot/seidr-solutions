@@ -1,4 +1,3 @@
-```cpp
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -21,6 +20,6 @@ int main() {
         cin >> v1[i] >> v2[i];
     }
     
-    cout << fixed << setprecision(20) << calculateEuclideanDistance(n, v1, v2) << std::endl;
+    cout << std::fixed << std::setprecision(20) << calculateEuclideanDistance(n, v1, v2) << std::endl;
     return 0;
 }
