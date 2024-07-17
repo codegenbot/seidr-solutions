@@ -1,8 +1,9 @@
-def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet if e.isalnum() or e.isspace())
+```
+def validate_tweet():
+    tweet = input("Enter your tweet: ").strip()
     if len(tweet) > 140:
-        return "Too many characters"
+        print("Too many characters")
     elif tweet == "":
-        return "You didn't type anything"
+        print("You didn't type anything")
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        print(f"Your tweet has {len(tweet)} characters")
