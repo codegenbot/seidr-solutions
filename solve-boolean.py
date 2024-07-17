@@ -1,13 +1,13 @@
-def solveBoolean(s):
-    stack = []
-    for c in s[::-1]:
-        if c in ["|", "&"]:
-            b2 = stack.pop()
-            b1 = stack.pop()
-            if c == "|":
-                stack.append(b1 or b2)
-            else:
-                stack.append(b1 and b2)
-        else:
-            stack.append(c == "T")
-    return stack[0]
+Here is the solution:
+
+def solve_boolean(expression):
+    if expression == 't':
+        return True
+    elif expression == 'f':
+        return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    elif '&' in expression:
+        return all(c == 't' for c in expression)
+    else:
+        return any(c == 't' for c in expression)
