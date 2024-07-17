@@ -1,7 +1,6 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
-#include <algorithm>
 
 double calculateEuclideanDistance(const std::vector<float>& vector1, const std::vector<float>& vector2) {
     return sqrt(std::inner_product(vector1.begin(), vector1.end(), vector2.begin(), 0.0));
