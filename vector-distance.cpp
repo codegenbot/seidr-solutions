@@ -1,11 +1,14 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 
-double calculateEuclideanDistance(int n, double* v1, double* v2) {
+double calculateEuclideanDistance(int n, vector<double> v1, vector<double> v2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow((v1[i] - v2[i]), 2);
+        double diff = pow(v1[i] - v2[i], 2);
+        cout << "diff: " << diff << endl;
+        sum += diff;
     }
     return sqrt(sum);
 }
@@ -13,7 +16,7 @@ double calculateEuclideanDistance(int n, double* v1, double* v2) {
 int main() {
     int n;
     cin >> n; 
-    double* v1 = new double[n], *v2 = new double[n]; 
+    vector<double> v1(n), v2(n); 
     for (int i = 0; i < n; i++) { 
         cin >> v1[i] >> v2[i];
     }
