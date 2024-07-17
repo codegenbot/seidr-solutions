@@ -6,11 +6,10 @@ def bouncing_balls():
 
     total_distance = 0
     for _ in range(num_bounces):
-        total_distance += math.log2(bounciness_index) * (
-            start_height + first_bounce_height
-        )
+        total_distance += start_height * (1 + bounciness_index)
+        start_height *= 1 + bounciness_index
 
-    return round(total_distance, 5)
+    return str(round(total_distance, 4))
 
 
-print(round(bouncing_balls(), 5))
+print(bouncing_balls())
