@@ -1,4 +1,12 @@
+Here is a Python function to solve this problem:
+
+```
 def mastermind(code, guess):
-    white = sum(c in code for c in guess)
-    black = sum(1 for i in range(len(guess)) if code[i] == guess[i])
-    return str(black) + "\n" + str(4 - black + white)
+    white = 0
+    black = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+        elif str(code[i]) in str(guess):
+            white += 1
+    return black, white
