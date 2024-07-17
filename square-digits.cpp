@@ -1,6 +1,5 @@
-```c++
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string squareDigitsStr(std::string n) {
     std::string result = "";
@@ -17,4 +16,3 @@ int main() {
     std::cin >> input;
     std::cout << "The square of the digits is: " << squareDigitsStr(input) << std::endl;
     return 0;
-}
