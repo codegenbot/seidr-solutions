@@ -1,12 +1,11 @@
-Here is a Python function to solve this problem:
-
-```
 def mastermind(code, guess):
     white = 0
     black = 0
+    code_set = set(code)
+    guess_set = set(guess)
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
-        elif str(code[i]) in str(guess):
+        elif code[i] in guess:
             white += 1
-    return black, white
+    return str(black) + "\n" + str(white)
