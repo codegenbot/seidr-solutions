@@ -1,6 +1,5 @@
-```cpp
+```c
 #include <iostream>
-using namespace std;
 
 int main() {
     int totalDistance = 0;
@@ -8,25 +7,19 @@ int main() {
     double startingHeight;
     double bouncinessIndex;
 
-    cout << "Enter the number of bounces: ";
-    cin >> numBounces;
-    
-    cout << "Enter the starting height: ";
-    cin >> startingHeight;
+    std::cout << "Enter number of bounces: ";
+    std::cin >> numBounces;
 
-    // calculate the first bounce
-    for(int i = 0; i < numBounces; ++i) {
-        double firstBounce = startingHeight; 
-        bouncinessIndex = firstBounce / startingHeight;
-        
-        while(firstBounce > 1.0) {
-            totalDistance += (2 * startingHeight);
-            firstBounce /= 2.0;
-            bouncinessIndex = firstBounce / startingHeight;
-        }
+    std::cout << "Enter starting height: ";
+    std::cin >> startingHeight;
+
+    std::cout << "Enter first bounce height: ";
+    bouncinessIndex = (double)std::cin.get() / startingHeight;
+
+    for(int i = 1; i <= numBounces; ++i) {
+        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
     }
 
-    cout << "The total distance is: " << totalDistance << endl;
-    
+    std::cout << "Total distance traveled: " << totalDistance << std::endl;
     return 0;
 }
