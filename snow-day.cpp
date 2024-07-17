@@ -1,14 +1,15 @@
 #include <iostream>
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
+    double totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
         double newSnow = rateOfSnowFall; 
-        totalSnow += newSnow - proportionOfSnowMeltingPerHour * totalSnow;
+        totalSnow += newSnow - proportionOfSnowMeltingPerHour * initialSnow;
+        initialSnow = totalSnow;
     }
     
-    return totalSnow;
+    return initialSnow;
 }
 
 int main() {
