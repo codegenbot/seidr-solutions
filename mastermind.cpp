@@ -17,10 +17,10 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code;
-    std::cin >> code;
-    std::string guess;
-    std::cin >> guess;
+    std::string code = "ABCD";
+    std::string guess = "ADCF";
+
     int result = mastermind(code, guess);
+
     return 0;
 }
