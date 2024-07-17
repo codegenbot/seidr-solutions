@@ -13,10 +13,8 @@ bool solveBoolean(string expression) {
             while (!stack.empty() && stack.top() == "&") {
                 stack.pop();
             }
-        } else {
-            if(expression[i] == 'T' || expression[i] == 'F' || expression[i] == ' ')
-                stack.push(string(1, expression[i]));
-        }
+        } else if (expression[i] == 'T' || expression[i] == 'F' || expression[i] == ' ') 
+            stack.push(string(1, expression[i]));
     }
 
     bool result = true;
