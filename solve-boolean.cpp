@@ -1,42 +1,38 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
+bool solveBoolean(string s) {
+    stack<char> st;
+    bool result = false;
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '|') {
-                operatorStack.pop();
-                string op1 = operandStack.top();
-                operandStack.pop();
-                string op2 = operandStack.top();
-                operandStack.pop();
-                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            operatorStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            while (!operatorStack.empty() && operatorStack.top() != '&') {
-                operatorStack.pop();
-                string op1 = operandStack.top();
-                operandStack.pop();
-                string op2 = operandStack.top();
-                operandStack.pop();
-                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
+            if (st.empty()) {
+                result = true;
+            } else {
+                result = false;
             }
-            operatorStack.push('|');
-        } else if (booleanExpression[i] == 't' || booleanExpression[i] == 'T') {
-            operandStack.push("T");
-        } else if (booleanExpression[i] == 'f' || booleanExpression[i] == 'F') {
-            operandStack.push("F");
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push(s[i]);
+        } else if (s[i] == 'T') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            st.push('T');
+        } else if (s[i] == 'F') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push('F');
         }
     }
 
-    while (!operatorStack.empty()) {
-        string op1 = operandStack.top();
-        operandStack.pop();
-        string op2 = operandStack.top();
-        operandStack.pop();
-        operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
+    while (!st.empty()) {
+        st.pop();
     }
 
-    return operandStack.top();
+    return result;
 }
