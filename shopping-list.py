@@ -10,4 +10,4 @@ while True:
     user_input = input("Do you want to continue? (yes/no): ")
     if user_input.lower() != "yes":
         break
-print("%.1f" % sum(price * discount for price, discount in zip(prices, discounts)))
+print("%.1f" % sum(p * d for p, d in zip(prices, discounts)))
