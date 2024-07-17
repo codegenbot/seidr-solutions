@@ -1,5 +1,8 @@
+```cpp
 #include <iostream>
 #include <iomanip>
+#include <vector>
+
 using namespace std;
 
 float totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
