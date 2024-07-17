@@ -29,5 +29,5 @@ int bowlingScore(std::string s) {
 int main() {
     std::string s = "XXXX/2X/X/8-4/3+7/X/3-1/5-X/X";
     int score = bowlingScore(s);
-    return 0;
+    return score;
 }
