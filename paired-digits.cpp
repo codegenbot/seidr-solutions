@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 int main() {
     std::string str;
@@ -10,6 +10,6 @@ int main() {
             sum += str[i] - '0';
         }
     }
-    std::cout << "Sum of paired digits: " << sum << "\n";
+    std::cout << "Sum of paired digits: " << sum << std::endl;
     return 0;
 }
