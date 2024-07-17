@@ -1,3 +1,4 @@
+```cpp
 int mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
