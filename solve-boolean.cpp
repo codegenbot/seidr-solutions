@@ -1,11 +1,4 @@
-````
-#include <initializer_list>
-#include <stack>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     stack<string> s;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
@@ -17,13 +10,13 @@ bool solveBoolean(string expression) {
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                s.push(to_string(expression[i]));
+                s.push(std::to_string(expression[i]));
         }
     }
 
     bool result = true;
     while (!s.empty()) {
-        string op = s.top();
+        std::string op = s.top();
         s.pop();
         if (op == "&") {
             result &= (s.top() == "T") ? true : false;
@@ -39,5 +32,3 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
-}
-```
