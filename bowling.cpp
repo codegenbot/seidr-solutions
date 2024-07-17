@@ -1,20 +1,33 @@
+```c++
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
+    int roll = 0;
     for (char c : s) {
         if (c == '/') {
-            if ('X' != prevChar && 'X' != prevNextChar) {
-                score += 10 - (10 - (prevRoll + 1));
+            if (roll < 2) {
+                score += 10 - (10 - roll);
             }
-            prevRoll = 0;
+            roll = 0;
         } else if (c >= '1' && c <= '9') {
-            prevRoll++;
+            roll++;
         } else if (c == 'X') {
             score += 10;
-            prevRoll = 0;
+            roll = 0;
         }
-    prevChar = nextChar;
-    nextChar = c;
-    prevNextChar = c;
+    }
+    if (roll < 2) {
+        if (roll == 1)
+            score += roll * 10;
+        else
+            score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
+}
+
+int main() {
+    std::string s = "XXXX/2X/X/8-4/3+7/X/3-1/5-X/X";
+    int score = bowlingScore(s);
+    return 0;
 }
