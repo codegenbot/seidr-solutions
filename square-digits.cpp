@@ -1,7 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
+```cpp
 using namespace std;
 
 string squareDigits(string input) {
