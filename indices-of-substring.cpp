@@ -11,7 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     while (i <= n - m) { 
         if (text.substr(i, m) == target) { 
             result.push_back(i); 
-            i = i + m; // Move i forward by the length of the target string
+            i = i + m; // Increment i by the length of the target for the next search
         }
         else {
             i++;
