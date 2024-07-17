@@ -23,4 +23,3 @@ int bowlingScore(std::string s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-}
