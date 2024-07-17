@@ -4,19 +4,6 @@
 
 using namespace std;
 
-vector<string> split(const string& str, char ch) {
-    vector<string> tokens;
-    string token;
-    for (char c : str) {
-        if (c == ch)
-            tokens.push_back(token), token = "";
-        else
-            token += c;
-    }
-    tokens.push_back(token);
-    return tokens;
-}
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -35,11 +22,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string input;
-    getline(cin, input);
+    cin >> input;
     size_t pos = 0;
-    vector<string> tokens = split(input, ' ');
-    string text = tokens[0];
-    string target = tokens[1];
+    string text;
+    string target;
+
+    cin >> text >> target; 
 
     vector<int> results = indicesOfSubstring(text, target);
     for (int i : results) {
