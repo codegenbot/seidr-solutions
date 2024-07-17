@@ -1,6 +1,5 @@
 def substitution_cipher(key, message):
-    combined = "".join(sorted([key, message]))
-    key_map = {k: v for k, v in zip(key, [(i for i in combined if i not in key).next() for _ in range(len(message)) - len(key)])}
+    key_map = {k: v for k, v in zip(key, [c for c in message if c not in key])}
 
     rev_key_map = {v: k for k, v in key_map.items()}
     
