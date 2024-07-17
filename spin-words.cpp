@@ -32,9 +32,8 @@ int main() {
     while (true) {
         cout << "Enter a sentence (or 'q' to quit): ";
         cin >> input;
-        if (input == "q") {
+        if (input == "q")
             break;
-        }
         cout << spinWords(input) << endl;
         cin.ignore();
     }
