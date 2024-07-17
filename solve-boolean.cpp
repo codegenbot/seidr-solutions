@@ -3,9 +3,9 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            stack.push("&");
+            stack.push('&');
         } else if (expression[i] == '|') {
-            while (!stack.empty() && stack.top() == "&") {
+            while (!stack.empty() && stack.top() == '&') {
                 stack.pop();
             }
         } else {
@@ -18,8 +18,7 @@ bool solveBoolean(std::string expression) {
         std::string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.size() > 0 ? solveBoolean(stack.top()) : false);
-            stack.pop();
+            result &= (stack.size() > 0 ? op == "T" : false);
         } else if (op == "|") {
             if (stack.size() > 1) {
                 result |= (stack.top() == "T");
@@ -31,4 +30,3 @@ bool solveBoolean(std::string expression) {
     }
 
     return !result;
-}
