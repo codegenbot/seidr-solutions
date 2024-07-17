@@ -1,10 +1,7 @@
-Here is the solution:
-
-int fuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3) - 2;
-        total += newPrice;
+int fuelCost(vector<int> nums) {
+    int sum = 0;
+    for (int num : nums) {
+        sum += (num / 3 - 2);
     }
-    return total;
+    return sum;
 }
