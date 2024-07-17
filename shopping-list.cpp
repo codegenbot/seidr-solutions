@@ -13,14 +13,16 @@ int main() {
     printf("Number of items: ");
     scanf("%d", &nItems);
     float prices[nItems];
+    printf("Prices: ");
     for(int i = 0; i < nItems; i++) {
         printf("Price of item %d: ", i+1);
         scanf("%f", &prices[i]);
     }
 
-    float discounts[nItems];
-    for(int i = 0; i < nItems; i++) {
-        printf("Discount of item %d (in percent): ", i+1);
+    float discounts[nItems-3];
+    printf("Discounts (in percent): ");
+    for(int i = 0; i < nItems-3; i++) {
+        printf("Discount of item %d: ", i+1);
         scanf("%f", &discounts[i]);
     }
     double totalPrice = shoppingList(prices, nItems, discounts);
