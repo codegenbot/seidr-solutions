@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int validateTweet(const std::string& tweet) {
-    if (tweet.empty()) return 1; 
-    else if (tweet.length() > 140) return 2; 
-    else return 3; 
+    if (tweet.empty()) return 1;
+    else if (tweet.length() > 140) return 2;
+    else return 3;
 }
 
 int main() {
