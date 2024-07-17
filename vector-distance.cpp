@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -40,8 +41,7 @@ int main(){
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
     char ch;
-    cin >> ch; // Read and discard any remaining input characters
-    cin.ignore(); // or this can be used
-
+    while(cin.get(ch) && ch != '\n'); 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     return 0;
 }
