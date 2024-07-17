@@ -4,13 +4,13 @@
 
 std::vector<int> leaders(std::vector<int> v) {
     std::vector<int> res;
-    int maxRight = v.back();
-    res.push_back(maxRight);
+    int rightmost = v.back();
+    res.push_back(rightmost);
 
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= maxRight) {
-            res.push_back(v[i]);
-            maxRight = v[i];
+        if (v[i] >= rightmost) {
+            rightmost = v[i];
+            res.push_back(rightmost);
         }
     }
 
