@@ -1,4 +1,3 @@
-```
 def validate_tweet():
     tweet = input("Enter your tweet: ").strip()
     if len(tweet) > 140:
