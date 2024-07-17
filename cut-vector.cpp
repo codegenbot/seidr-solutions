@@ -1,4 +1,3 @@
-```cpp
 #include <climits>
 #include <vector>
 #include <initializer_list>
@@ -43,8 +42,8 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
+    vector<int> v = {1, 2, 3, 4};
     vector<vector<int>> result = cutVector(v);
-    // do something with result
+    // process result
     return 0;
 }

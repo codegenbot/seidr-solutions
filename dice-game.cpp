@@ -3,8 +3,7 @@
 double probability(int n, int m) {
     double sum = 0;
     for (int i = std::max(m, 1); i <= n; i++) {
-        if(i > m)
-            sum += 1.0 / (double)n;
+        sum += (i - std::min(i, m)) / (double)n;
     }
     return sum;
 }
