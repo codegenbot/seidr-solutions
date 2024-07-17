@@ -11,6 +11,6 @@ int pairedDigits(const std::string& str) {
 }
 
 int main(int argc, char** argv) {
-    std::cout << pairedDigits("123211"); // test the function with a test string
+    std::cout << pairedDigits("123334555"); 
     return 0;
 }
