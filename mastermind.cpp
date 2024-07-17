@@ -29,4 +29,3 @@ int mastermind(std::string code, std::string guess) {
     black -= blackCount;
 
     return black;
-}
