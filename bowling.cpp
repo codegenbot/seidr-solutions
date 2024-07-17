@@ -1,15 +1,12 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Please enter a string of bowling scores." << std::endl;
-        return 1;
-    }
-    
+using namespace std;
+
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    for (char c : argv[1]) {
+    for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
                 score += 10 - (10 - roll);
@@ -28,6 +25,14 @@ int main(int argc, char* argv[]) {
         else
             score += 10 + (roll - 2) * 10 / 3;
     }
-    std::cout << "The total score is: " << score << std::endl;
-    return bowlingScore(argv[1]);
+    return score;
+}
+
+int main(int argc, char* argv[]){
+    if(argc != 2){
+        cout << "Usage: ./program_name <input_string>" << endl;
+        exit(1);
+    }
+    cout << bowlingScore(argv[1]) << endl;
+    return 0;
 }
