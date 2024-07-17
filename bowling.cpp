@@ -14,11 +14,5 @@ int bowlingScore(std::string s) {
             roll = 0;
         }
     }
-    if (roll < 2) {
-        if (roll == 1)
-            score += roll * 10;
-        else
-            score += 10 + (roll - 2) * 10 / 3;
-    }
     return score;
 }
