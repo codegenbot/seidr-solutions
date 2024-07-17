@@ -5,11 +5,12 @@
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
     for (char c : message) {
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
-        } else {
-            result += c; // keep non-alphabetic characters the same
+        if (c == '\0') break;  // Break if we've reached the end of the message
+        for (int i = 0; i < cipher1.length(); ++i) {
+            if (cipher1[i] == c) {
+                result += cipher2[i];
+                break;
+            }
         }
     }
     return result;
