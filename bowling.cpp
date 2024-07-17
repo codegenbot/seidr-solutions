@@ -1,7 +1,11 @@
-int bowlingScore(const char* s) {
+```cpp
+#include <string>
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (char c : string(s)) {
+    for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
                 score += 10 - (10 - roll);
@@ -21,4 +25,11 @@ int bowlingScore(const char* s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
+}
+
+int main() {
+    string s = "12-3/7-X/X/8-5/9/1-4/X/10";
+    int score = bowlingScore(s);
+    cout << "The score is: " << score;
+    return 0;
 }
