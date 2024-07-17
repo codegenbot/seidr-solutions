@@ -1,4 +1,3 @@
-```c++
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -8,4 +7,9 @@ int gcd(int a, int b) {
     return a;
 }
 
-int main() { return gcd(12, 15); }
+int main() {
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "The GCD of these numbers is: " << gcd(num1, num2) << endl;
+    return 0;
