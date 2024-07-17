@@ -1,11 +1,10 @@
 Here is the solution:
 
-int fuelCost(vector<int>& vec) {
-    int sum = 0;
-    for (int i : vec) {
-        if(i < 3) continue; // If number is less than 3, no operation needed
-        int temp = (i/3) - 2;
-        sum += temp;
+int fuelCost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        int newPrice = (price / 3) - 2;
+        total += newPrice;
     }
-    return sum;
+    return total;
 }
