@@ -13,9 +13,5 @@ int main() {
             return to_string(x);
     }
 
-    for(int i = 1; i <= 30; i++) {
-        cout << fizzBuzz(i) << endl;
-    }
-    
     return 0;
 }
