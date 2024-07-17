@@ -6,47 +6,33 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int cut_index = -1;
     
     for (int i = 0; i < v.size() - 1; i++) {
-        int sum1 = 0, sum2 = 0;
+        int sum_left = 0, sum_right = 0;
         
         for (int j = 0; j <= i; j++) {
-            sum1 += v[j];
+            sum_left += v[j];
         }
         
         for (int j = i + 1; j < v.size(); j++) {
-            sum2 += v[j];
+            sum_right += v[j];
         }
         
-        int diff = abs(sum1 - sum2);
+        int diff = abs(sum_left - sum_right);
         
-        if (diff < min_diff) {
+        if (diff == 0 || diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
+    vector<int> left, right;
+    
+    for (int i = 0; i <= cut_index; i++) {
+        left.push_back(v[i]);
+    }
+    
+    for (int i = cut_index + 1; i < v.size(); i++) {
+        right.push_back(v[i]);
+    }
     
     return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for (int x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "Right: ";
-    for (int x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    return 0;
 }
