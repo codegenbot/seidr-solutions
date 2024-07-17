@@ -1,26 +1,26 @@
 #include <algorithm>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-vector<int> leaders(vector<int> v) {
-    vector<int> res;
-    int max_right = v.back();
-    res.push_back(max_right);
+std::vector<int> leaders(std::vector<int> v) {
+    std::vector<int> res;
+    int rightmost = v.back();
+    res.push_back(rightmost);
 
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= max_right) {
-            max_right = v[i];
-            res.push_back(max_right);
+        if (v[i] >= rightmost) {
+            rightmost = v[i];
+            res.push_back(rightmost);
         }
     }
 
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
-    vector<int> v = {12, 993, 557, 890, 695, 295, 484, 866, 801, 909, 397, 667, 431};
-    vector<int> result = leaders(v);
+    std::vector<int> v = {1, 3, 4, 1, 5};
+    std::vector<int> result = leaders(v);
     for (int x : result) cout << x << " ";
     return 0;
 }
