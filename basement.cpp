@@ -2,14 +2,15 @@
 #include <vector>
 #include <numeric>
 #include <sstream>
+#include <climits>
 
 int basement(const std::vector<int>& nums) {
-    int sum = 0, index = -1;
+    int sum = 0, min_sum = INT_MAX, index = -1;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if (sum <= 0) {
+        if (sum < min_sum) {
+            min_sum = sum;
             index = i;
-            break;
         }
     }
     return index + 1;
