@@ -1,4 +1,4 @@
-```cpp
+```
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     if (prices.size() != discounts.size()) {
         return -std::numeric_limits<double>::infinity(); 
