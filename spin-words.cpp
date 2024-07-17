@@ -1,19 +1,14 @@
-Here's the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-
-    for (char c : str) {
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string word;
+    
+    for (char c : sentence) {
         if (c == ' ') {
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                std::reverse(word.begin(), word.end());
             }
             result += word + " ";
             word = "";
@@ -21,19 +16,21 @@ string spinWords(string str) {
             word += c;
         }
     }
-
+    
     if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
+        std::reverse(word.begin(), word.end());
     }
     result += word;
-
+    
     return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::string sentence;
+    while (true) {
+        std::cout << "Enter a sentence: ";
+        std::getline(std::cin, sentence);
+        std::cout << spinWords(sentence) << std::endl;
+    }
     return 0;
 }
