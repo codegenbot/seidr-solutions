@@ -19,6 +19,5 @@ int main() {
     int hours;
     float groundSnow, rate, melt;
     cin >> hours >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10);
-    cout << snowDay(hours, groundSnow, rate, melt) << endl;
+    cout << std::setiosflags(std::ios::fixed) << std::setprecision(10) << snowDay(hours, groundSnow, rate, melt);
     return 0;
