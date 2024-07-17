@@ -22,9 +22,9 @@ std::string spinWords(std::string sentence) {
         std::reverse(temp.begin(), temp.end());
         result += temp + " ";
     } else
-        result += temp;
+        result += temp + " ";
 
-    return result;
+    return result.substr(0, result.size()-1);
 }
 
 int main() {
@@ -34,7 +34,7 @@ int main() {
         std::getline(std::cin, input);
         if (input == "q")
             break;
-        std::cout << spinWords(input) + std::endl; 
+        std::cout << spinWords(input) << std::endl;
     }
     return 0;
 }
