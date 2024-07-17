@@ -6,8 +6,7 @@
 double calculateEuclideanDistance(int n, std::vector<double> v1, std::vector<double> v2) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = pow(v1[i] - v2[i], 2);
-        sum += diff; 
+        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]); 
     }
     return sqrt(sum); 
 }
