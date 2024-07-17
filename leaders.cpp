@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -24,5 +23,4 @@ int main() {
     std::vector<int> v = {1, 3, 4, 1, 5};
     std::vector<int> result = leaders(v);
     for (int x : result) std::cout << x << " ";
-    return 0;
 }
