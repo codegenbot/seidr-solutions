@@ -12,7 +12,6 @@ int main() {
     std::string text;
     std::string target;
 
-    // Get the input from the user
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target substring: ";
@@ -21,13 +20,11 @@ int main() {
     int idx = 0;
     std::vector<int> indices;
 
-    // Find all occurrences of the target in the text
     while ((idx = text.find(target)) != std::string::npos) {
         indices.push_back(idx);
         text.erase(idx, target.length());
     }
 
-    // Print the indices
     for (int i : indices) {
         std::cout << "Target found at index: " << i << std::endl;
     }
@@ -37,5 +34,6 @@ int main() {
     std::cout << "Enter two numbers: ";
     std::cin >> a >> b;
     std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
+
     return 0;
 }
