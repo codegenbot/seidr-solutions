@@ -1,3 +1,4 @@
+```
 n = int(input())
 prices = list(map(float, input().split()[:n]))
 discounts = list(map(float, input().split()[:n]))
@@ -8,3 +9,4 @@ for i in range(n):
     total_price += price
 
 return round(total_price, 1)
+print(shopping_list())
