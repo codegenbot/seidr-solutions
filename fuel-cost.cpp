@@ -1,10 +1,10 @@
-int fuelCost(vector<int> numbers) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int num : numbers) {
-        int result = (num / 3);
-        result = std::floor(result); // round down to nearest integer
-        result -= 2; 
-        sum += result;
+    for (int num : nums) {
+        int res = num / 3;
+        if (res < 1) res = 0;
+        else res -= 2;
+        sum += res;
     }
     return sum;
 }
