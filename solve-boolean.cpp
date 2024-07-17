@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(string expression) {
     bool result = true;
     for (int i = 0; i < expression.size(); i++) {
