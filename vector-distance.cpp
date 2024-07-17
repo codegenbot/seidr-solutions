@@ -7,7 +7,7 @@ double calculateEuclideanDistance(const std::vector<float>& vector1, const std::
     for (int i = 0; i < vector1.size(); ++i) {
         sum += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i]);
     }
-    return sqrt(sum);
+    return std::sqrt(sum);
 }
 
 int main() {
