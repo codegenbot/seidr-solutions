@@ -1,4 +1,8 @@
-string spinWords(std::string str) {
+#include <string>
+
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -23,5 +27,5 @@ string spinWords(std::string str) {
             i = j;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
