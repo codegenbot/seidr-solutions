@@ -4,17 +4,23 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    bool result = false;
+    bool result = true; // Start with TRUE
     for (char c : expression) {
-        if (c == 'T') result = true;
+        if (c == 'T') continue;
         else if (c == 'F') return false;
         else if (c == '&') {
-            bool temp = result;
-            result = false;
+            while (expression[expression.find(c)+1] != '&' && expression[expression.find(c)+1] != '|') {
+                if (expression[expression.find(c)+1] == 'F')
+                    result = false;
+                expression.erase(expression.find(c), 2);
+            }
         }
         else if (c == '|') {
-            bool temp = result;
-            result = true;
+            while (expression[expression.find(c)+1] != '|' && expression[expression.find(c)+1] != '&') {
+                if (expression[expression.find(c)+1] == 'F')
+                    result = true;
+                expression.erase(expression.find(c), 2);
+            }
         }
     }
     return result;
