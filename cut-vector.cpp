@@ -1,57 +1,42 @@
+```cpp
+#include <climits>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int n = nums.size();
-    vector<vector<int>> res;
+vector<vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int pos = 0;
     
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || nums[i] != nums[0]) {
-            int leftSum = 0, rightSum = 0;
-            for (int j = 0; j <= i; ++j) {
-                leftSum += nums[j];
+    for(int i = 1; i <= v.size(); i++) {
+        if(i == v.size()) {
+            vector<int> left(v.begin(), v.end());
+            vector<int> right({});
+            int diff = abs((int)left[0] - (int)right[0]);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i;
             }
-            for (int j = i + 1; j < n; ++j) {
-                rightSum += nums[j];
-            }
-            if (leftSum == rightSum) {
-                res.push_back({nums.begin(), nums.begin() + i + 1});
-                res.push_back({nums.begin() + i + 1, nums.end()});
-                return res;
-            } else if (i > 0 && leftSum >= rightSum) {
-                res.push_back({nums.begin(), nums.begin() + i});
-                res.push_back({nums.begin() + i, nums.end()});
-                return res;
-            }
-        }
-    }
-    
-    vector<int> firstHalf = {nums[0]};
-    for (int i = 1; i < n - 1; ++i) {
-        if (nums[i] <= nums[i - 1]) {
-            firstHalf.push_back(nums[i]);
         } else {
-            res.push_back(firstHalf);
-            res.push_back({nums.begin() + i, nums.end()});
-            return res;
+            vector<int> left(v.begin(), v.begin() + i);
+            vector<int> right(v.begin() + i, v.end());
+            int diff = abs((int)left[0] - (int)right[0]);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i;
+            }
         }
     }
     
-    res.push_back(firstHalf);
-    res.push_back({{nums[n - 1]}});
-    return res;
-}
-
-int main() {
-    vector<int> nums = {1};
-    vector<vector<int>> res = cutVector(nums);
-    for (auto &v : res) {
-        for (int num : v) {
-            cout << num << " ";
-        }
-        cout << endl;
+    vector<vector<int>> result(2);
+    result[0].resize(pos);
+    for(int i = 0; i < pos; i++) {
+        result[0].push_back(v[i]);
     }
-    return 0;
+    result[1].resize(v.size() - pos);
+    for(int i = pos; i < v.size(); i++) {
+        result[1].push_back(v[i]);
+    }
+    
+    return result;
 }
