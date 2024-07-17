@@ -1,4 +1,3 @@
-def substitution_cipher(cipher1, cipher2, message):
-    mapping = {cipher1[i]: cipher2[i] for i in range(len(cipher1))}
-    deciphered_message = "".join(mapping.get(char, char) for char in message)
-    return deciphered_message
+def substitution_cipher(key, message):
+    key_map = {k: v for k, v in zip(key, message)}
+    return "".join([key_map.get(char, char) for char in message])
