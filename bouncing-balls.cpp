@@ -4,7 +4,7 @@ int main() {
     int totalDistance = 0;
     int numBounces;
     double startingHeight;
-    double firstBounceHeight;
+    int firstBounceHeight;
 
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
@@ -15,10 +15,14 @@ int main() {
     std::cout << "Enter first bounce height: ";
     std::cin >> firstBounceHeight;
 
-    double bouncinessIndex = (firstBounceHeight / startingHeight);
+    double bouncinessIndex = (double)firstBounceHeight / startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
+        int currentHeight = (int)startingHeight;
+        for(int j = 0; j < i; ++j) {
+            currentHeight /= bouncinessIndex;
+        }
+        totalDistance += 2 * (currentHeight - startingHeight);
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
