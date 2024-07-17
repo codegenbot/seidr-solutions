@@ -1,3 +1,4 @@
+```c
 #include <vector>
 using namespace std;
 
@@ -12,13 +13,7 @@ int basement(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums;
-    for(int i = 0 ;i<4; i++){
-        if(i == 0) nums.push_back(1);
-        else if(i == 1) nums.push_back(-2);
-        else if(i == 2) nums.push_back(3);
-        else nums.push_back(-4);
-    } 
+    vector<int> nums = {1, -2, 3, -4}; 
     int result = basement(nums);
     if (result != -1) {
         cout << "Basement found at index " << result << endl;
