@@ -6,9 +6,9 @@ int mastermind(std::string code, std::string guess) {
     std::map<char, int> placementMap; 
 
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) { 
+        if (code[i] == guess[i]) { // match and same position
             black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { 
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { // match but not at same position
             white++;
             colorMap[code[i]]++; 
         }
