@@ -1,13 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <climits>
-#include <cmath>
 
 using namespace std;
-
-int main() {
-    return 0;
-}
 
 vector<vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
@@ -44,4 +39,10 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     return result;
+}
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    vector<vector<int>> result = cutVector(v);
+    return 0;
 }
