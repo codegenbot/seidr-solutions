@@ -1,6 +1,5 @@
-```cpp
 #include <string>
-#include <algorithm> 
+#include <algorithm>
 #include <map>
 
 int mastermind(std::string code, std::string guess) {
@@ -20,11 +19,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (auto& pair : colorMap) {
-        placementMap[pair.first] = pair.second; 
+        // You don't need this part, it's unnecessary.
+        // placementMap[pair.first] = pair.second; 
     }
 
     int blackCount = 0;
-    for (const auto& pair : placementMap) {
+    for (const auto& pair : colorMap) {
         if (pair.second == 4) {
             blackCount++;
         }
