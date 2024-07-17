@@ -10,19 +10,19 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {{}, {}};
+    return {}; // or throw an exception
 }
 
 int main() {
-    int n;
+    int n, x1, y1, x2, y2;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    int target;
     cin >> target;
-    pair<int, int> result = findPair(nums, target);
-    cout << result.first << '\n' << result.second << '\n';
+    pair<int, int> res = findPair(nums, target);
+    cout << res.first << endl;
+    cout << res.second << endl;
     return 0;
 }
