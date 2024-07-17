@@ -3,12 +3,11 @@
 #include <string>
 
 double probability(int n, int m) {
-    double total = static_cast<double>(n * m);
-    double failureProbability = 0;
-    for (int i = 1; i <= std::min(n - 1, m); i++) { 
-        failureProbability += (i + 1) / total;
+    double sum = 0;
+    for (int i = 1; i <= m && i <= n; i++) { 
+        sum += 1.0 / static_cast<double>(n * m);
     }
-    return 1 - failureProbability;
+    return 1 - sum;
 }
 
 int main() {
