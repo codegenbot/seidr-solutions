@@ -1,21 +1,53 @@
-int bowlingScore(string s) {
+#include <vector>
+#include <string>
+
+int bowlingScore(std::string rounds) {
     int score = 0;
-    for(int i = 0; i < 10; i++) {
-        if(s[i] == '/') {
-            string part1 = s.substr(0, i);
-            string part2 = s.substr(i+1);
-            int first = (part1[0] - '0') * (part1.length() > 1 ? 1 : 10);
-            int second = (part2[0] - '0') * (part2.length() > 1 ? 1 : 10);
-            score += max(first, 10) + second;
-        } else if(s[i] == 'X') {
-            score += 30;
-        } else {
-            int sum = 0;
-            for(int j = i; j < i+2 && j < s.length(); j++) {
-                sum = sum * 10 + (s[j] - '0');
+    int currentRound = 0;
+    int rollsLeftInRound = 2;
+
+    std::vector<int> rolls;
+
+    for (char c : rounds) {
+        if (c == '/') {
+            int roll1, roll2;
+            sscanf(&rounds[rolls.size() * 3 - 4], "%d/%d", &roll1, &roll2);
+            if (roll1 + roll2 >= 10) {
+                score += roll1 + roll2;
+            } else {
+                rolls.push_back(roll1);
+                rollsLeftInRound = 1;
             }
-            score += sum;
+        } else {
+            int roll = c - '0';
+            rolls.push_back(roll);
+
+            if (--rollsLeftInRound == 0) {
+                currentRound++;
+                score += calculateScoreForRound(rolls);
+                rolls.clear();
+                rollsLeftInRound = 2;
+            }
         }
     }
+
     return score;
+}
+
+int calculateScoreForRound(const std::vector<int>& rolls) {
+    int score = 0;
+
+    if (rolls.size() == 1) {
+        return rolls[0];
+    } else if (rolls.size() == 2) {
+        return rolls[0] + rolls[1];
+    } else {
+        int firstRoll = rolls[0] + rolls[1];
+        int secondRoll = rolls[2];
+
+        score += firstRoll;
+        score += secondRoll;
+
+        return score;
+    }
 }
