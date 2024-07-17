@@ -20,7 +20,7 @@ std::vector<int> leaders(std::vector<int> v) {
 
 int main() {
     std::vector<int> v = {1, 3, 4, 1, 5};
-    std::vector<int> result;
+    std::vector<int> result; 
     result = leaders(v);
     for (int x : result) std::cout << x << " ";
     return 0;
