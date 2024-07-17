@@ -1,18 +1,23 @@
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            score += max(roll, 10);
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            score += 10 + (roll > 0 ? 10 : 0);
             roll = 0;
-        } else if (c == 'X') {
-            score += 10 + max(roll, 10);
+        } else if (s[i] == '/') {
+            int prevRoll = std::stoi(s.substr(i - 1, 1));
+            int thisRoll = 10 - prevRoll;
+            score += prevRoll + thisRoll;
+            i++;
             roll = 0;
         } else {
-            int temp = c - '0';
-            roll += temp;
+            roll += s[i] - '0';
+        }
+        if (roll == 10) {
+            score += 10;
+            roll = 0;
         }
     }
-    score += max(roll, 10);
     return score;
 }
