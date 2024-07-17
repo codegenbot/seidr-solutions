@@ -10,13 +10,13 @@ bool solveBoolean(std::string expression) {
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                s.push(to_string(expression[i]));
+                s.push(std::to_string(expression[i]));
         }
     }
 
     bool result = true;
     while (!s.empty()) {
-        string op = s.top();
+        std::string op = s.top();
         s.pop();
         if (op == "&") {
             result &= (s.top() == "T") ? true : false;
