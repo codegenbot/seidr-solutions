@@ -3,9 +3,11 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
     elif "&" in expression:
-        a, b = expression.split("&")
-        return bool(int(a)) and bool(int(b))
+        left, right = expression.split("&")
+        return not (bool(left), bool(right))[0]
     elif "|" in expression:
-        a, b = expression.split("|")
-        return bool(int(a)) or bool(int(b))
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
