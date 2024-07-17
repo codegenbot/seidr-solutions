@@ -1,6 +1,6 @@
 #include <iostream>
 #include <map>
-#include <algorithm>
+#include <string>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -29,15 +29,13 @@ int mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code, guess;
-    // Ask user for input
     std::cout << "Enter the Mastermind code: ";
     std::cin >> code;
-    std::cout << "Enter a guess: ";
+    std::cout << "Enter your guess: ";
     std::cin >> guess;
 
     int result = mastermind(code, guess);
-
-    std::cout << "Black pegs: " << result << "\n";
+    std::cout << "Number of black pegs: " << result << std::endl;
 
     return 0;
 }
