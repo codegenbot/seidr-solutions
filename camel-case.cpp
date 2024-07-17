@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -22,7 +23,7 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string str;
     while (std::cin >> str) {
-        str += ' '; // Add space at the end
+        str += ' '; 
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
