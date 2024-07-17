@@ -1,18 +1,17 @@
 #include <vector>
+using namespace std;
 
-int basement(const std::vector<int>& nums) {
-    int minIndex = 0;
+int basement(vector<int>& nums) {
+    int minIndex = -1;
     int total = 0;
     for (int i = 0; i < nums.size(); i++) {
         total += nums[i];
         if (total < 0)
             return i + 1;
-        else if (total > 0 && minIndex == 0) 
+        else if (total > 0 && minIndex == -1) 
             minIndex = i + 1;  
     }
-    if(minIndex != 0) 
-        return minIndex; 
-    return -1;
+    return minIndex;
 
 }
 
