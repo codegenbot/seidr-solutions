@@ -1,15 +1,14 @@
-```c++
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
     int n = v.size();
     vector<int> res;
-    int maxRight = v[n-1];
+    int maxRightSoFar = v[n-1];
     for(int i=n-2; i>=0; i--) {
-        if(v[i] >= maxRight) {
+        if(v[i] >= maxRightSoFar) {
             res.push_back(v[i]);
-            maxRight = v[i];
+            maxRightSoFar = v[i];
         }
     }
     return res;
