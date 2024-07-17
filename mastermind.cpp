@@ -1,18 +1,23 @@
 int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-
+    int black = 0;
+    int white = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            black++;
         }
     }
-
     for (char c : guess) {
-        if (count(code.begin(), code.end(), c) > 0) {
-            ++whitePegs;
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            black--;
         }
     }
-
-    return whitePegs - blackPegs;
+    return white, black;
 }
