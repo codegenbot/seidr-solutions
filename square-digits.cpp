@@ -1,3 +1,6 @@
+#include <string>
+#include <vector>
+
 std::string squareDigits(std::string input) {
     std::string result = "";
     for (char c : input) {
@@ -6,4 +9,3 @@ std::string squareDigits(std::string input) {
         result += std::to_string(square);
     }
     return result;
-}
