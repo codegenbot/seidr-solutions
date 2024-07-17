@@ -1,33 +1,23 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + (i < 9 ? bowlingScoreHelper(&s[i+1]) : 0);
-        } else if (s[i] == '/') {
-            int firstRoll = s[i-1] - '0';
-            int secondRoll = s[i+1] - '0';
-            score += firstRoll + secondRoll;
-            i++;
+    int roll = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            roll = 2;
+        } else if (c == '/') {
+            score += 10 + min(roll, 1);
+            roll = 0;
         } else {
-            score += s[i] - '0';
+            int thisRoll = c - '0';
+            score += thisRoll;
+            roll--;
         }
     }
-    return score;
-}
-
-int bowlingScoreHelper(string* s) {
-    int score = 0;
-    for (int i = 0; i < min(2, s->length()); i++) {
-        if ((*s)[i] == 'X') {
-            score += 10;
-        } else if ((*s)[i] == '/') {
-            int firstRoll = (*s)[i-1] - '0';
-            int secondRoll = (*s)[i+1] - '0';
-            score += firstRoll + secondRoll;
-            i++;
-        } else {
-            score += (*s)[i] - '0';
-        }
+    while (roll > 0) {
+        if (roll == 2) score += 20;
+        else if (roll == 1) score += min(10, roll);
+        roll = 0;
     }
     return score;
 }
