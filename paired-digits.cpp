@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
 
 int main() {
     std::string str;
-    std::cout << "Enter a string of digits: ";
     std::cin >> str;
     int sum = 0;
     for (int i = 0; i < str.size() - 1; i++) {
