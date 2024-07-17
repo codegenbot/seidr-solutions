@@ -1,5 +1,4 @@
-```cpp
-int bowlingScore(std::string s) {
+int bowlingScore(const char* s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
@@ -22,4 +21,3 @@ int bowlingScore(std::string s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-}
