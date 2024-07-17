@@ -6,22 +6,27 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (i + j < n && j < m && text[i + j] == target[j]) {
-            j++;
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
-        if (j == m) {
+        if (found) {
             result.push_back(i);
         }
-        if (i + j >= n) break;
     }
+
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
