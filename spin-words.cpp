@@ -3,47 +3,31 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word;
+    size_t start = 0;
     
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
+    for (size_t i = 0; i <= sentence.size(); ++i) {
+        if (i == sentence.size() || sentence[i] == ' ') {
+            std::string word = sentence.substr(start, i - start);
+            
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            
             result += word + " ";
-            word.clear();
-        } else {
-            word += sentence[i];
+            start = i + 1;
         }
     }
     
-    result += word;
-    
-    std::string newResult = "";
-    int j = 0;
-    
-    while (j < result.length()) {
-        if (result[j] == ' ') {
-            newResult += " ";
-            j++;
-        } else {
-            int k = j;
-            while (k < result.length() && result[k] != ' ') {
-                k++;
-            }
-            std::string temp = result.substr(j, k - j);
-            for (int i = 0; i < temp.length(); i++) {
-                newResult += temp[temp.length() - i - 1];
-            }
-            j = k;
-        }
-    }
-    
-    return newResult;
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    
+    std::string sentence;
+    while (true) {
+        std::cout << "Enter a sentence: ";
+        std::getline(std::cin, sentence);
+        if (sentence == "exit") break;
+        std::cout << spinWords(sentence) << std::endl;
+    }
     return 0;
 }
