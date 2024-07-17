@@ -1,11 +1,11 @@
-```
-def indices_of_substring(text):
-    target_indices = []
-    i = 0
-    while i < len(text):
-        j = text.find(target=str(input()), start=i)
-        if j == -1:
+def indices_of_substring(text, target):
+    indices = []
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            indices.append(pos)
+            start = pos + 1
+        else:
             break
-        target_indices.append(j)
-        i = j + 1
-    return target_indices
+    return indices
