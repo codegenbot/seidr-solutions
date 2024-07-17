@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string squareDigitsStr(std::string n) {
     std::string result = "";
     for (char c : n) {
