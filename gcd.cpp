@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -8,18 +8,30 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
+    if(b != 0) return 1; 
     return a;
 }
 
 int main() {
-    int text = 10920; // or any other input
-    int target = 346266;
+    int a = 12; 
+    int b = 15;
+    std::cout << "GCD: " << gcd(a, b) << std::endl;
 
+    int text = 1234567;
+    int target = 345;
+    
     std::vector<int> result;
-    for (int i = 0; i <= text - target; i++) {
-        if (std::to_string(text).substr(i, std::to_string(target).size()) == std::to_string(target)) {
-            result.push_back(i);
+    int index = 0;
+    while (index <= text - target + 1) {
+        if ((text - index) >= target && (text - index) % target == 0) {
+            for (int i = 0; i < target; i++) {
+                if ((text - index + i) % target != 0 || i >= target) {
+                    break;
+                }
+            }
+            result.push_back(index);
         }
+        index += target;
     }
 
     for (int i : result) {
