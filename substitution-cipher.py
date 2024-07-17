@@ -1,19 +1,12 @@
-def substitution_cipher(cipher_map, text):
-    result = ""
-    for char in text:
-        if char.isalpha():
-            result += (
-                cipher_map[ord(char.lower()) - 97]
-                if char.islower()
-                else cipher_map[ord(char.upper()) - 65].upper()
-            )
-        else:
-            result += char
-    return result
+Here is the solution:
 
+def substitution_cipher(cipher, message):
+    return "".join([cipher[i] for i in range(len(message)) if cipher[i] != ""])
 
-cipher_map1 = input().strip()
-cipher_map2 = input().strip()
-text = input().strip()
+input_ciphers = input().split()
+cipher1 = input_ciphers[0]
+cipher2 = input_ciphers[1]
+message = input()
 
-print(substitution_cipher(cipher_map1, cipher_map2), end="")
+deciphered_message = substitution_cipher(cipher1, message)
+print(deciphered_message)
