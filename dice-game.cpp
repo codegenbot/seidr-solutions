@@ -1,6 +1,7 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double calculateProbability(int n, int m) {
-    double total = (n * 1.0 + m - 1);
-    return min(1.0, (n - 1) / total);
+double getProbability(int n, int m) {
+    double total = (long long)n*m;
+    return 1.0 - (n + 1)*(m)/(total);
 }
