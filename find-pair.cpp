@@ -25,9 +25,9 @@ int main() {
     cin >> target;
     vector<int> result = findPair(nums, target);
     if (!result.empty()) {
-        cout << result[0] << " " << result[1] << endl;
+        cout << result[0] << " " << result[1] << std::endl;
     } else {
-        cout << "No pair found" << endl;
+        cout << "No pair found" << std::endl;
     }
     return 0;
 }
