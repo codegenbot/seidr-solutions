@@ -1,5 +1,11 @@
-def camel_case(s):
-    result = s.title().replace("-", "")
-    return " ".join(
-        [result[:1]] + [word.capitalize() for word in result[1:].split(" ")]
-    )
+```
+def convert_to_camelcase(s):
+    s = s.replace("-", " ").replace(" ", "")
+    return ''.join(word.capitalize() for word in s.split()) if len(s) > 0 else ''
+
+while True:
+    try:
+        s = input()
+        print(convert_to_camelcase(s))
+    except EOFError:
+        break
