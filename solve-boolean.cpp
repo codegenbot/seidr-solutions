@@ -1,9 +1,9 @@
-```cpp
 #include <string>
 #include <stack>
+
 using namespace std;
 
-bool solveBoolean(std::string expression) {
+bool solveBoolean(string expression) {
     stack<string> stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
