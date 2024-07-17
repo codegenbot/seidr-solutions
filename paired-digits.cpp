@@ -1,16 +1,15 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 int main() {
     std::string str;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> str;
+    getline(std::cin, str);
     int sum = 0;
     for (int i = 0; i < str.size() - 1; i++) {
         if (str[i] == str[i + 1]) {
             sum += str[i] - '0';
         }
     }
-    std::cout << "Sum of paired digits: " << sum << std::endl;
+    std::cout << "Sum of paired digits: " << sum << "\n";
     return 0;
 }
