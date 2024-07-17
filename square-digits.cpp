@@ -1,10 +1,12 @@
+```cpp
 #include <string>
-#include <iostream>
+#include <cstring>
 
 std::string squareDigitsStr(std::string n) {
     std::string result = "";
-    for (char c : n) {
-        int digit = c - '0';
+    const char *str = n.c_str();
+    for (int i = 0, len = strlen(str); i < len; ++i) {
+        int digit = str[i] - '0';
         result += std::to_string(digit * digit);
     }
     return result;
