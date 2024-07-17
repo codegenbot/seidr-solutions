@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -5,6 +6,7 @@ using namespace std;
 
 int main() {
     string tweet;
+    
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cout << "Enter a tweet: ";
     
