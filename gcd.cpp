@@ -3,49 +3,29 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int index = 0;
+    int n = text.size();
+    int m = target.size();
     
-    while (index <= text.length() - target.length()) {
-        int tempIndex = index;
+    for (int i = 0; ; i++) {
+        if (i + m > n) break;
         
-        while (tempIndex < text.length() && text.substr(tempIndex, target.length()).compare(target) == 0) {
-            result.push_back(tempIndex);
-            tempIndex += target.length();
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
         
-        if (text[index] != '\0') {
-            index++;
-        } else {
-            break;
-        }
+        if (found) result.push_back(i);
     }
     
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
-
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
+long long gcd(long long a, long long b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
