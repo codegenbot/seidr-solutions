@@ -1,17 +1,23 @@
-#include <vector>
-using namespace std;
+#include <iostream>
 
-double probability(int n, int m) {
-    double total = (long long)n * m;
-    double peterWins = 0;
-    
-    for(int i = 1; i <= n - 1; i++) {
-        if(i > m) {
-            peterWins += (m + 1);
-        } else {
-            peterWins += min(n, m) - i;
+double diceGame(int n, int m) {
+    double total = (double)n * m;
+    double count = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                count++;
+            }
         }
     }
-    
-    return peterWins / total;
+
+    return count / total;
+}
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(1) << diceGame(n, m);
+    return 0;
 }
