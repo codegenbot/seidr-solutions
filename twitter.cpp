@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <limits>
-
 using namespace std;
 
 int main() {
@@ -18,8 +16,6 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
-    std::cout << "Press Enter to continue..."; 
-    cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-    
+    cin.ignore(std::cin.eof(), '\n'); 
     return 0;
 }
