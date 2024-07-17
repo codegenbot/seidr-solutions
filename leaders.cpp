@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -24,3 +25,4 @@ int main() {
     vector<int> result = leaders(v);
     for (int x : result) cout << x << " ";
     return 0;
+}
