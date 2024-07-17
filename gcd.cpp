@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <string>
 #include <iostream>
@@ -28,10 +27,13 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 0;
-    int b = 0;
+    int a = 0, b = 0;
     std::cout << "Enter two numbers: ";
     std::cin >> a >> b;
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
+    if(b != 0) {
+        std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
+    } else {
+        std::cout << "GCD of " << a << " and " << b << " is: " << a << std::endl;
+    }
     return 0;
 }
