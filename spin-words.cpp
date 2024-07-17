@@ -1,27 +1,27 @@
-Here is the completed code:
-
+#include <iostream>
+#include <sstream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
+std::string spinWords(std::string str) {
+    std::stringstream ss(str);
+    std::string word;
+    std::string result = "";
     
-    while (i < str.length()) {
-        if (str.find(" ", i) == string::npos || str.find(" ", i) > i + 4) {
-            result += str.substr(i);
-            i = str.find(" ", i);
-            if (i != string::npos) {
-                result += " ";
-            }
-        } else {
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            result += word;
-            i = j + 1;
-        }
+    while (ss >> word) {
+        if (word.length() >= 5)
+            word = std::string(word.rbegin(), word.rend());
+        result += word + " ";
     }
     
-    return result;
+    return result.substr(0, result.size()-1);
+}
+
+int main() {
+    // Testing the code
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
 }
