@@ -1,51 +1,31 @@
-#include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string &input) {
-    std::vector<std::string> words = split(input, ' ');
-    std::string result;
-    
-    for (int i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result += std::toupper(words[i][0]);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
+                i++;
+            }
+            result += ' ';
         } else {
-            result += words[i];
-        }
-        
-        if (i < words.size() - 1) {
-            result += " ";
+            if (result.length() > 0) {
+                result[0] = tolower(result[0]);
+            }
+            result += tolower(s[i]);
         }
     }
-    
     return result;
 }
 
-std::vector<std::string> split(const std::string &str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::string token;
-    for (const auto &c : str) {
-        if (c == delimiter) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
-    }
-    
-    if (!token.empty()) {
-        tokens.push_back(token);
-    }
-    
-    return tokens;
-}
-
 int main() {
-    std::cout << camelCase("camel-case example-test-string") << std::endl;
-    std::cout << camelCase("nospaceordash") << std::endl;
-    std::cout << camelCase("two-words") << std::endl;
-    std::cout << camelCase("two words") << std::endl;
-    std::cout << camelCase("all separate words") << std::endl;
-    
+    string s;
+    cout << "Enter a string in kebab-case: ";
+    getline(cin, s);
+    cout << camelCase(s) << endl;
     return 0;
 }
