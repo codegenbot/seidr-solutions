@@ -1,6 +1,4 @@
 ```cpp
-#include <string>
-
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
@@ -24,12 +22,4 @@ int bowlingScore(std::string s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The score is: " << result << std::endl;
-    return 0;
 }
