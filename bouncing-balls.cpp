@@ -3,16 +3,16 @@
 #include <iostream>
 
 int main() {
-    double startHeight, firstBounce;
+    double startHeight, firstBounceHeight, bouncinessIndex;
     int numBounces;
 
     std::cout << "Enter the starting height: ";
     std::cin >> startHeight;
-    
-    std::cout << "Enter the height after the first bounce: ";
-    std::cin >> firstBounce;
 
-    double bouncinessIndex = firstBounce / startHeight;
+    std::cout << "Enter the height after the first bounce: ";
+    std::cin >> firstBounceHeight;
+
+    bouncinessIndex = firstBounceHeight / startHeight;
 
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
