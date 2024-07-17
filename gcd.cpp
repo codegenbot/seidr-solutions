@@ -11,41 +11,28 @@ int gcd(int a, int b) {
     return a;
 }
 
+std::vector<int> indices(std::string text, std::string target) {
+    std::vector<int> result;
+    int pos = 0; // position where we last found the target
+
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos++; // move to the next position
+    }
+
+    return result;
+}
+
 int main() {
     int a = 12; 
     int b = 15;
-    std::cout << "GCD: " << gcd(b, a) << std::endl;
+    std::cout << "GCD: " << gcd(a, b) << std::endl;
 
-    int text = 1234567;
-    int target = 345;
-    
-    std::vector<int> result;
-    int index = 0;
-    while (index <= text - target) {
-        if ((text - index) % target == 0) {
-            bool match = true;
-            for (int i = 0; i < target; i++) {
-                if (text - index + i >= 0 && text - index + i < text && ((text - index + i) / target) != ((target - 1) / target)) {
-                    if (text - index + i % target != target - (i % target)) {
-                        match = false;
-                        break;
-                    }
-                } else {
-                    match = false;
-                    break;
-                }
-            }
-            if (match) {
-                result.push_back(index);
-            }
-        }
-        index += 1;
+    std::string text = "HelloWorld";
+    std::string target = "Wor";
+    for (int i : indices(text, target)) {
+        std::cout << "Index " << i << ": " << text.substr(i, target.size()) << std::endl;
     }
-
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
 
     return 0;
 }
