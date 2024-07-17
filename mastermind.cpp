@@ -2,37 +2,42 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++black;
+    
+    // Count black pegs
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+            code[i] = 'X';
+            guess[i] = 'X';
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                ++count;
-            }
-        }
-        if (count > 1 || count == 1 && black > 0) {
-            continue;
-        }
-        white += count - (code.find(c) != std::string::npos);
+    // Count white pegs
+    map<char, int> codeMap;
+    map<char, int> guessMap;
+
+    for(int i=0; i<4; i++) {
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
     }
 
-    return white + black;
+    for(auto p : codeMap) {
+        if(p.second > 0 && guessMap.find(p.first) != guessMap.end()) {
+            white += min(p.second, guessMap[p.first]);
+        }
+    }
+
+    return make_pair(white, black).second;
 }
 
 int main() {
-    std::cout << mastermind("RRRR", "RRRR") << std::endl; // output: 4
-    std::cout << mastermind("BOYG", "GYOB") << std::endl; // output: 4,0
-    std::cout << mastermind("WYYW", "BBOG") << std::endl; // output: 0,0
-    std::cout << mastermind("GGGB", "BGGG") << std::endl; // output: 2,2
-    std::cout << mastermind("BBBB", "OOOO") << std::endl; // output: 0,0
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
