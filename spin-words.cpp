@@ -1,40 +1,45 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        size_t wordEnd = pos;
-        if (wordEnd + 1 < str.length() && str[wordEnd] >= 'a' && str[wordEnd] <= 'z') {
-            ++wordEnd;
-        }
-        int len = wordEnd - pos;
-        if (len > 4) {
-            for (int i = len - 1; i >= 0; --i) {
-                result += str[pos + i];
-            }
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    string word;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ' ') {
+            word += str[i];
         } else {
-            result += str.substr(pos, len);
-        }
-        str.erase(0, wordEnd + 1);
-    }
-    if (!str.empty()) {
-        if (str.length() > 4) {
-            for (int i = str.length() - 1; i >= 0; --i) {
-                result += str[i];
+            if (word.length() >= 5) {
+                string revWord = word;
+                reverse(revWord.begin(), revWord.end());
+                result += revWord + " ";
+            } else {
+                result += word + " ";
             }
-        } else {
-            result += str;
+            word = "";
         }
     }
+    
+    if (word.length() >= 5) {
+        string revWord = word;
+        reverse(revWord.begin(), revWord.end());
+        result += revWord;
+    } else {
+        result += word;
+    }
+    
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << spinWords(str) << std::endl;
-    }
+    // Test cases
+    cout << spinWords("a") << endl;       // Output: a
+    cout << spinWords("this is a test") << endl; // Output: this is a test
+    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
+    cout << spinWords("hi") << endl;         // Output: hi
+
     return 0;
 }
