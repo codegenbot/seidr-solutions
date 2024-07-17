@@ -1,14 +1,9 @@
-def substitution_cipher():
-    cipher_key = input().strip()
-    text_to_decrypt = input().strip()
+def substitution_cipher(cipher1, cipher2, message):
+    mapping = {k: v for k, v in zip(cipher1, cipher2)}
     result = ""
-    for char in text_to_decrypt:
-        if char in cipher_key:
-            index = (cipher_key.index(char) % len(cipher_key))
-            result += cipher_key[index]
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
     return result
-
-
-print(substitution_cipher())
