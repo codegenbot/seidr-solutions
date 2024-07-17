@@ -4,7 +4,7 @@
 int basement() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (std::cin >> num || !std::cin.fail()) {
         nums.push_back(num);
     }
 
