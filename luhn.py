@@ -1,11 +1,12 @@
-```
-def luhn(card_num):
-    card_num = [int(x) for x in str(card_num)]
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number)]
+    double_even = False
     total = 0
-    for i, num in enumerate(card_num):
-        if (i % 2 == 1):
-            num *= 2
-            if num > 9:
-                num -= 9
-        total += num
+    for i in card_number:
+        if double_even:
+            i *= 2
+            if i > 9:
+                i -= 9
+        double_even = not double_even
+        total += i
     return total
