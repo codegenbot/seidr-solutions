@@ -1,3 +1,8 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -24,4 +29,9 @@ string spinWords(string str) {
         }
     }
     return result;
+}
+
+int main() {
+    cout << spinWords("Hello World this is test") << endl;
+    return 0;
 }
