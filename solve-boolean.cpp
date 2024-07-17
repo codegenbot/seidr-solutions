@@ -1,48 +1,31 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
+string solveBoolean(string s) {
     stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            if(st.top() == 'T') {
+    string res = "";
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&') {
+            while(!st.empty() && st.top() == '&') {
                 st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('T');
             }
-            while(!st.empty()) {
-                char c = st.top(); 
+            if(st.empty()) res += "T";
+            else res += "F";
+        } 
+        else if(s[i] == '|') {
+            while(!st.empty() && st.top() == '|') {
                 st.pop();
-                if(c == '&') {
-                    st.push('&');
-                    break;
-                } else if(c == '|') {
-                    st.push('|');
-                    break;
-                }
             }
-        } else if(s[i] == '&') {
-            if(st.top() == 'T') {
-                st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('F');
-            }
-            while(!st.empty()) {
-                char c = st.top(); 
-                st.pop();
-                if(c == '|') {
-                    st.push('|');
-                    break;
-                } else if(c == '&') {
-                    st.push('&');
-                    break;
-                }
-            }
+            if(st.empty()) res += "F";
+            else res += "T";
+        } 
+        else {
+            st.push(s[i]);
         }
     }
-    return st.top() == 'T';
+    
+    while(!st.empty()) {
+        st.pop();
+    }
+    
+    if(res.length() > 0) return (res[0] == 'T') ? "True" : "False";
+    else return s;
 }
