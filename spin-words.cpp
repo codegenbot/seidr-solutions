@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 string spinWords(string str) {
