@@ -1,6 +1,4 @@
 ```cpp
-#include <string>
-
 bool solveBoolean(std::string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
