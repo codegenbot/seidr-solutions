@@ -1,38 +1,22 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
-        } else if (s[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push(s[i]);
-        } else if (s[i] == 'T') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            st.push('T');
-        } else if (s[i] == 'F') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push('F');
+bool solveBoolean(string booleanExpression) {
+    stack<char> s;
+    for(int i = 0; i < booleanExpression.size(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(s.size() && s.top() == '&') 
+                s.pop();
+            if(s.size() && s.top() == '|')
+                return false;
+            s.push('&');
+        } else if(booleanExpression[i] == '|') {
+            while(s.size() && (s.top() == '&' || s.top() == '|')) 
+                s.pop();
+            s.push('|');
+        } else if(booleanExpression[i] != 'T' && booleanExpression[i] != 'F' && 
+                 booleanExpression[i] != '&' && booleanExpression[i] != '|') {
+            return false;
         }
     }
-
-    while (!st.empty()) {
-        st.pop();
-    }
-
-    return result;
+    while(s.size()) 
+        s.pop();
+    return s.size() ? true : false;
 }
