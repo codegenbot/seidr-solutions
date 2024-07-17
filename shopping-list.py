@@ -1,8 +1,9 @@
+```
 prices = []
 discounts = []
 while True:
-    temp = list(map(float, input().strip().split()))
-    if len(temp) <= 1:  
+    temp = list(map(float, input().read().split()))
+    if len(temp) % 2 != 0:  
         print("Invalid input. Please provide price and discount as two separate float values.")
     else:
         for i in range(0, len(temp), 2):
