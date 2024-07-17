@@ -30,11 +30,3 @@ string spinWords(string str) {
     }
     return result.substr(0, result.length() - 1);
 }
-
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
-}
