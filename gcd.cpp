@@ -17,7 +17,9 @@ int main() {
     int n, a, b;
     std::vector<int> numbers;
     
-    std::cin >> n >> a >> b;
+    std::cin >> n;
+    std::cin >> a;
+    std::cin >> b;
     
     numbers.resize(n);
     for (int i = 0; i < n; ++i) {
