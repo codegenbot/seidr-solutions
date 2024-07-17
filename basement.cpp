@@ -8,10 +8,9 @@ int basement(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
-            return i;
+            return i + 1;
     }
     return -1;
-
 }
 
 int main() {
@@ -23,3 +22,4 @@ int main() {
         std::cout << "No negative sum found." << std::endl;
     }
     return 0;
+}
