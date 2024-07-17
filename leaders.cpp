@@ -4,17 +4,16 @@
 
 std::vector<int> leaders(std::vector<int> v) {
     std::vector<int> res;
-    int rightmost = v.back();
-    res.push_back(rightmost);
+    int max_right = v.back();
+    res.push_back(max_right);
 
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            rightmost = v[i];
-            res.push_back(rightmost);
+        if (v[i] >= max_right) {
+            max_right = v[i];
+            res.push_front(max_right);
         }
     }
 
-    std::reverse(res.begin(), res.end());
     return res;
 }
 
