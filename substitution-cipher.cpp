@@ -3,16 +3,18 @@
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
+    std::string decipheredMessage;
+    
     for (char c : message) {
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
+        int index = c - 'a'; // Convert character to 0-indexed position
+        if (index >= 0 && index < cipher1.length()) { // Check if the character is in the range of cipher1
+            decipheredMessage += cipher2[index]; // Append the corresponding character from cipher2
         } else {
-            result += c; // keep non-alphabetic characters the same
+            decipheredMessage += c; // If not, append the original character
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
