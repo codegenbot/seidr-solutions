@@ -1,27 +1,20 @@
-#include <string>
-
-int bowlingScore(string s) {
+int bowlingScore(const string& frames) {
     int score = 0;
     int currentRolls = 0;
-    int frame = 0;
-
-    for (char c : s) {
+    for (char c : frames) {
         if (c == 'X') {
-            score += 10 + (currentRolls > 0 ? 10 : 0);
-            currentRolls = 0;
-            frame++;
+            score += 30;
+            currentRolls = 2;
         } else if (c == '/') {
-            score += 10 - currentRolls;
+            score += (10 - currentRolls);
             currentRolls = 0;
-            frame++;
-        } else {
+        } else if (isdigit(c)) {
+            int roll = c - '0';
             currentRolls++;
             if (currentRolls == 2) {
-                score += 10 - c - '0';
-                frame++;
-                currentRolls = 0;
+                score += 1 * roll + 1 * (10 - roll);
             }
         }
     }
-
     return score;
+}
