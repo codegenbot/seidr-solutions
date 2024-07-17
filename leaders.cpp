@@ -1,10 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int> v) {
-    vector<int> res;
+std::vector<int> leaders(std::vector<int> v) {
+    std::vector<int> res;
     int rightmost = v.back();
     res.push_back(rightmost);
 
@@ -15,13 +14,13 @@ vector<int> leaders(vector<int> v) {
         }
     }
 
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
-    vector<int> v = {1, 3, 4, 1, 5};
-    vector<int> result = leaders(v);
-    for (int x : result) cout << x << " ";
+    std::vector<int> v = {1, 3, 4, 1, 5};
+    std::vector<int> result = leaders(v);
+    for (int x : result) std::cout << x << " ";
     return 0;
 }
