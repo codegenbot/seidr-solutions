@@ -16,6 +16,6 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
-    cin.ignore(std::cin.eof(), '\n'); 
+    cin.ignore((std::cin).eof(), '\n'); 
     return 0;
 }
