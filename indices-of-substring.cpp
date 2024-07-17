@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,12 +10,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i = 0; i <= n - m; ++i) { 
         bool found = true;
         for(int j = 0; j < m; ++j) {
-            if(text[i+j] != target[j]) { 
-                if(text[i+j] == '%') {
-                    if(target[j] != '%') {
-                        found = false;
-                        break;
-                    }
+            if(text[i+j] != target[j] && text[i+j] != ']') {
+                int k = i + j; 
+                if(k >= 1 && text[k-1] == '[' && target[j] == ']') { 
+                    found = true;
                 } else {
                     found = false;
                     break;
