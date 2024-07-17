@@ -7,10 +7,18 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
         }
     }
 
-    return black;
+    for (char c : code) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d && c != ' ') {
+                count++;
+            }
+        }
+        white += min(count, 1);
+    }
+
+    return black + white - black;
 }
