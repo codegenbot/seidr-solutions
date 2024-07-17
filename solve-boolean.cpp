@@ -1,16 +1,29 @@
-bool solveBoolean(std::string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            int j = i + 1;
-            while (j < expression.size() && expression[j] != '|') j++;
-            std::string subexpr = expression.substr(i + 1, j - i - 1);
-            result &= solveBoolean(subexpr);
-            i = j;
-        } else if (expression[i] == 't') {
-            result = true;
-        } else if (expression[i] == 'f') {
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    bool result = false;
+    for (char c : expression) {
+        if (c == 'T') result = true;
+        else if (c == 'F') return false;
+        else if (c == '&') {
+            bool temp = result;
             result = false;
+        }
+        else if (c == '|') {
+            bool temp = result;
+            result = true;
         }
     }
     return result;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    cout << "Result: " << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
+    return 0;
+}
