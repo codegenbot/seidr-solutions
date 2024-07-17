@@ -11,8 +11,9 @@ def bouncing_balls():
         else:
             height_diff = first_bounce_height / start_height * first_bounce_height
         total_distance += (2 * first_bounce_height) + first_bounce_height
-        first_bounce_height /= bounciness_index
+        first_bounce_height /= start_height * bounciness_index
 
     print(total_distance)
+
 
 bouncing_balls()
