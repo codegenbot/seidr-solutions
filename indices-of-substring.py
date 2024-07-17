@@ -4,8 +4,10 @@ def indices_of_substring(text):
     for i in range(len(text)):
         if text[i:].startswith(input()):
             while True:
-                pos = text[i:].find(input())
-                if pos == -1: break
-                result.append(i + pos)
-                i += pos + 1
+                try:
+                    j = text.index(input(), i)
+                    result.append(j)
+                    i = j
+                except ValueError:
+                    break
     return result
