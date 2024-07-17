@@ -3,11 +3,11 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        if (text.substr(i, targetLen) == target) {
+    int n = text.length();
+    int m = target.length();
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m) == target){
             result.push_back(i);
-            i += targetLen - 1; // skip overlapping targets
         }
     }
     return result;
