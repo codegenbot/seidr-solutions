@@ -1,40 +1,34 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    char currentOperator = '\0';
-    bool lastTerm = false;
+#include <string>
+using namespace std;
 
-    for (char c : booleanExpression) {
-        if (c == 't' || c == 'T') {
-            return true;
-        } else if (c == 'f' || c == 'F') {
-            return false;
-        } else if (c == '|') {
-            while (!operationStack.empty() && operationStack.top() != '&') {
-                currentOperator = operationStack.top();
-                operationStack.pop();
-            }
-            if (!operationStack.empty()) {
-                if (currentOperator == '&') {
-                    lastTerm = !lastTerm;
-                }
-            } else {
-                currentOperator = '|';
-            }
-        } else if (c == '&') {
-            operationStack.push('&');
-            currentOperator = '&';
-        }
+bool evaluateBooleanExpression(string expression) {
+    if (expression == "T" || expression == "t")
+        return true;
+    else if (expression == "F" || expression == "f")
+        return false;
+    else if (expression.find('&') != string::npos) {
+        size_t pos = expression.find('&');
+        bool left = evaluateBooleanExpression(expression.substr(0, pos));
+        bool right = evaluateBooleanExpression(expression.substr(pos + 1));
+        return left && right;
     }
-
-    while (!operationStack.empty()) {
-        if (currentOperator == '|') {
-            return true;
-        } else {
-            lastTerm = !lastTerm;
-        }
-        currentOperator = operationStack.top();
-        operationStack.pop();
+    else if (expression.find('|') != string::npos) {
+        size_t pos = expression.find('|');
+        bool left = evaluateBooleanExpression(expression.substr(0, pos));
+        bool right = evaluateBooleanExpression(expression.substr(pos + 1));
+        return left || right;
     }
+    return false; // Should not reach here
+}
 
-    return lastTerm;
+int main() {
+    string input;
+    cout << "Enter a Boolean expression: ";
+    cin >> input;
+    bool result = evaluateBooleanExpression(input);
+    if (result)
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+    return 0;
 }
