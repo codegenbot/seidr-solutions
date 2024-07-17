@@ -19,3 +19,4 @@ int main() {
     bool result = solveBoolean(s);
     std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
+}
