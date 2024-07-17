@@ -1,51 +1,35 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int bowlingScore(const std::string& input) {
+int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    int currentFrame = 1;
     int currentRolls = 0;
-    int currentRoll = 0;
+    int currentFrame = 1;
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == '/') {
-            if (currentRoll > 1) {
-                score += currentRoll;
-                currentRoll = 0;
-            }
-            inFrame = false;
-            currentFrame++;
-            currentRolls = 2;
-        } else if (isdigit(c)) {
-            currentRoll = currentRoll * 10 + c - '0';
-            currentRolls--;
-            if (!inFrame) {
-                inFrame = true;
-            }
-            if (currentRolls == 0) {
-                score += currentRoll;
-                currentRoll = 0;
+            if (currentRolls == 2) {
+                score += 10 + getBonus(currentFrame);
+                currentFrame++;
+                currentRolls = 0;
+            } else {
+                score += getBonus(currentFrame);
+                currentFrame++;
+                currentRolls = 1;
             }
         } else if (c == 'X') {
-            score += 10 + currentRoll;
-            currentRoll = 0;
-            currentRolls = 0;
-            inFrame = false;
+            score += 10 + getBonus(currentFrame);
             currentFrame++;
+            currentRolls = 2;
+        } else {
+            int roll = c - '0';
+            score += roll;
+            currentRolls++;
         }
     }
 
     return score;
 }
 
-int main() {
-    std::cout << bowlingScore("0") << std::endl; // output: 0
-    std::cout << bowlingScore("XXXXXXXXXXXX") << std::endl; // output: 300
-    std::cout << bowlingScore("5/5/5/5/5/5/5/5/5/5/5") << std::endl; // output: 150
-    std::cout << bowlingScore("7115XXX548/279-X53") << std::endl; // output: 145
-    std::cout << bowlingScore("532/4362X179-41447/5") << std::endl; // output: 100
-
+int getBonus(int frame) {
+    if (frame == 10) return 0;
+    if (frame < 10 && s[frame*2+1] == '/') return 10;
     return 0;
 }
