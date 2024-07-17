@@ -1,28 +1,29 @@
 #include <string>
-#include <map>
 #include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::map<char, int> colorMap; // correct colors regardless of position
-    std::map<char, int> placementMap; // correct placements
+    // Count correct colors in wrong positions
+    for (char c : code) {
+        int count = std::count(guess.begin(), guess.end(), c);
+        white += count - (c == guess[0] ? 1 : 0);
+    }
 
+    // Count exact matches
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) { // match and same position
+        if (code[i] == guess[i]) {
             black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { // match but not at same position
-            white++;
-            colorMap[code[i]]++; // count in colorMap
         }
     }
 
-    for (auto& pair : colorMap) {
-        placementMap[pair.first] = pair.second; // add to placementMap
-    }
-
-    black -= std::count(placementMap.begin(), placementMap.end(), 4); // subtract correct placements
-
     return black;
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "BBAE";
+    int result = mastermind(code, guess);
+    return 0;
 }
