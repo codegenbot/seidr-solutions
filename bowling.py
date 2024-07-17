@@ -1,15 +1,16 @@
-def bowling_score(frames):
+```
+def bowling_game(s):
+    s = s.replace('/', '')
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i].isdigit() and frames[i + 1].isdigit():
-            strike_count = int(frames[i]) + int(frames[i + 1])
-            score += strike_count
-        elif frames[i] == "X":
-            score += 10 + int(frames[i - 1 : i + 1].replace("/", "")) * 2
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i] == 'X':
+            score += 10 + (10 - int(s[i+1:])) * 2 if i < 18 and s[i+1].isdigit() else 10
+            frame += 1
+        elif s[i] == '-':
+            score += 10 + int(s[i-1]) * 2 if i > 0 and s[i-1].isdigit() else 10
+            frame += 1
         else:
-            score += (
-                sum(int(x) for x in frames[i].split("/"))
-                if "/" in frames[i]
-                else int(frames[i])
-            )
+            score += sum(int(i) for i in s[i:i+2])
+            frame += 1
     return score
