@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <ostream>
 
 using namespace std;
 
