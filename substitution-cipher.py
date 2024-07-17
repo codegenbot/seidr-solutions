@@ -1,4 +1,4 @@
-def substitution_cipher(key, message1, message2):
-    key_map = {char: message1[i] for i, char in enumerate(message2)}
+def substitution_cipher(message, key):
+    key_map = {char: message[i] for i, char in enumerate(key)}
 
-    return "".join([key_map.get(char, char) for char in message1])
+    return "".join([key_map.get(char, char) for char in key])
