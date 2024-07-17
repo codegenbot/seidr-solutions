@@ -1,7 +1,5 @@
-```
 #include <iostream>
-using std::cout;
-using std::endl;
+using namespace std;
 
 #include <vector>
 using namespace std;
