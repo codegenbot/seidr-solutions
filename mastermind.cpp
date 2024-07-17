@@ -1,30 +1,41 @@
+#include <iostream>
+#include <map>
+#include <string>
+
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::map<char, int> colorMap; // correct colors regardless of position
-    std::map<char, int> placementMap; // correct placements
+    std::map<char, int> colorMap; 
+    std::map<char, int> placementMap; 
 
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) { // match and same position
+        if (code[i] == guess[i]) { 
             black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { // match but not at same position
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { 
             white++;
-            colorMap[code[i]]++; // count in colorMap
+            colorMap[code[i]]++; 
         }
     }
 
     for (auto& pair : colorMap) {
-        placementMap[pair.first] = pair.second; // add to placementMap
+        placementMap[pair.first] = pair.second; 
     }
 
-    int correctPlacements = 0;
-    for (auto& pair : placementMap) {
-        if (pair.second == 1) {
-            correctPlacements++;
-        }
-    }
-    black -= correctPlacements;
+    black -= std::count(placementMap.begin(), placementMap.end(), 4); 
 
     return black;
+}
+
+int main() {
+    std::string code, guess;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+    std::cout << "Number of black pegs: " << result << std::endl;
+
+    return 0;
 }
