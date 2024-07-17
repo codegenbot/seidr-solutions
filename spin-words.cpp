@@ -1,4 +1,4 @@
-string spinWords(string str) {
+string spinWords(std::string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
