@@ -1,12 +1,15 @@
-Here is the solution:
+def substitution_cipher(cipher_map, message):
+    deciphered_message = "".join(
+        [
+            cipher_map[i] if i < len(cipher_map) else message[i]
+            for i in range(len(message))
+        ]
+    )
+    return deciphered_message
 
-def substitution_cipher(cipher, message):
-    return "".join([cipher[i] for i in range(len(message)) if cipher[i] != ""])
 
-input_ciphers = input().split()
-cipher1 = input_ciphers[0]
-cipher2 = input_ciphers[1]
+cipher_map1 = input()
+cipher_map2 = input()
 message = input()
 
-deciphered_message = substitution_cipher(cipher1, message)
-print(deciphered_message)
+print(substitution_cipher(cipher_map1, message))
