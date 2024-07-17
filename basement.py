@@ -1,7 +1,7 @@
-def basement(nums):
-    total_sum = 0
-    for i, num in enumerate(nums):
-        total_sum += num
-        if total_sum < 0:
+```
+def basement(vector):
+    for i in range(len(vector)):
+        total = sum(vector[:i+1])
+        if total < 0:
             return i
     return -1
