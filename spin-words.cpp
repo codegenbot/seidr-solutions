@@ -1,4 +1,4 @@
-```
+```cpp
 #include<iostream>
 #include<string>
 
@@ -36,6 +36,6 @@ int main() {
     string str; 
     cout << "Enter a sentence: ";
     cin >> str;
-    getline(cin, str);
+    getline(cin, str); // Add this line to read the entire line
     cout << spinWords(str);
 }
