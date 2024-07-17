@@ -3,7 +3,9 @@ def bowling_score(s):
     frame = 1
     for i in range(0, len(s), 2):
         if s[i] == 'X':
-            score += 10 + (10 if frame < 9 and s[i+2:i+4] == 'XX' else 0)
+            score += 10
+            if frame < 9 and s[i+2:i+4] == 'XX':
+                score += 10
             frame += 1
         elif s[i] == '/':
             first_roll = int(s[i-1])
@@ -20,5 +22,6 @@ def bowling_score(s):
                 frame += 1
             else:
                 score += first_roll + int(s[i+1])
-                frame += (1 if first_roll + int(s[i+1]) < 10 else 0)
+                if first_roll + int(s[i+1]) < 10:
+                    frame += 1
     return score
