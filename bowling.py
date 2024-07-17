@@ -1,30 +1,29 @@
 ```
-def bowling_score(bowling):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in range(1, 11):
-        if '/' in str(bowling)[frame*2-1:frame*2+2]:
-            strike = False
-            spare = False
-            if str(bowling)[frame*2-1:frame*2] == 'X':
+    frame = 1
+    for i in range(0, len(frames), 2):
+        if frames[i].isdigit():
+            if int(frames[i]) == 10:
+                score += 10 + (10 if i+1 < len(frames) and frames[i+1].isdigit() else 0)
+                frame += 1
+            elif int(frames[i]) + int(frames[i+1]) <= 10:
+                score += int(frames[i]) + int(frames[i+1])
+                frame += 1
+            else:
                 score += 10
-                roll += 1
-                continue
-            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
-            if sum(parts) >= 10:
-                spare = True
-                score += sum(parts)
-                roll += len(parts)
-            else:
-                strike = True
-                score += parts[0]
-                roll += 1
+                frame += 1
+                if i+3 < len(frames) and frames[i+2].isdigit() and frames[i+1] == '/':
+                    score += int(frames[i+2])
+                    frame += 1
+        elif frames[i] == 'X':
+            score += 10
+            frame += 1
         else:
-            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
-            if sum(parts) >= 10:
-                score += sum(parts)
-                roll += len(parts)
+            if i+1 < len(frames) and frames[i+1].isdigit():
+                score += int(frames[i]) + int(frames[i+1])
+                frame += 1
             else:
-                score += parts[0]
-                roll += 1
+                score += 10
+                frame += 1
     return score
