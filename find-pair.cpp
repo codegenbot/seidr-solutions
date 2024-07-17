@@ -30,4 +30,3 @@ int main() {
         cout << "No pair found" << std::endl;
     }
     return 0;
-}
