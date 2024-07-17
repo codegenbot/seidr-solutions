@@ -1,36 +1,31 @@
-Here is the completed code:
-
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string temp = "";
-    
-    for (char c : str) {
-        if (c != ' ') {
-            temp += c;
+string spinWords(string sentence) {
+    string result = "";
+    int count = 0;
+    for(int i = 0; i < sentence.length(); i++) {
+        if(sentence[i] == ' ') {
+            result += " ";
+            count = 0;
         } else {
-            if (temp.length() >= 5) {
-                std::reverse(temp.begin(), temp.end());
+            count++;
+            if(count >= 5) {
+                for(int j = i; j >= i-count+1 && j >= 0; j--) {
+                    result += sentence[j];
+                }
+            } else {
+                result += sentence[i];
             }
-            result += temp + " ";
-            temp = "";
         }
     }
-    
-    if (temp.length() >= 5) {
-        std::reverse(temp.begin(), temp.end());
-    }
-    result += temp;
-    
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
