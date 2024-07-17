@@ -1,48 +1,28 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            if(st.top() == 'T') {
-                st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('T');
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
-            while(!st.empty()) {
-                char c = st.top(); 
-                st.pop();
-                if(c == '&') {
-                    st.push('&');
-                    break;
-                } else if(c == '|') {
-                    st.push('|');
-                    break;
-                }
+            if (!s.empty()) {
+                s.push('&');
             }
-        } else if(s[i] == '&') {
-            if(st.top() == 'T') {
-                st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('F');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
             }
-            while(!st.empty()) {
-                char c = st.top(); 
-                st.pop();
-                if(c == '|') {
-                    st.push('|');
-                    break;
-                } else if(c == '&') {
-                    st.push('&');
-                    break;
-                }
-            }
+            s.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            s.push(expression[i]);
         }
     }
-    return st.top() == 'T';
+    string result = "";
+    while (!s.empty()) {
+        result += s.top();
+        s.pop();
+    }
+    return result;
 }
