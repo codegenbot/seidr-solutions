@@ -1,32 +1,29 @@
-#include <iostream>
-#include <string>
+```
+std::string spinWords(std::string sentence) {
+    std::string result;
+    std::string word;
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += " ";
-            i++;
+    for (char c : sentence) {
+        if (c == ' ') {
+            result += word + " ";
+            word.clear();
         } else {
-            int j = i;
-            while (j < str.length() && str[j] != ' ') {
-                j++;
-            }
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5) {
-                string revWord = "";
-                for (int k = word.length() - 1; k >= 0; k--) {
-                    revWord += word[k];
-                }
-                result += revWord + " ";
-            } else {
-                result += word + " ";
-            }
-            i = j;
+            word += c;
         }
     }
-    return result.substr(0, result.length() - 1);
+
+    result += word;
+
+    size_t pos = 0;
+    while ((pos = result.find(" ")) != std::string::npos) {
+        if(result.substr(pos, 5).find_first_of({ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' }) != std::string::npos) {
+            std::string temp = result.substr(0, pos);
+            temp += std::reverse(result.substr(pos + 1)).toString();
+            result = temp;
+        } else {
+            break;
+        }
+    }
+
+    return result;
 }
