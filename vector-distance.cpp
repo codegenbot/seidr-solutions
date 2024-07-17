@@ -5,12 +5,12 @@
 using namespace std;
 
 double calculateEuclideanDistance(int n, vector<double> v1, vector<double> v2) {
-    double sumOfSquares = 0.0;
+    double sum = 0.0;
     for (int i = 0; i < n; i++) {
         double diff = pow((v1[i] - v2[i]), 2);
-        sumOfSquares += diff;
+        sum += diff;
     }
-    return sqrt(sumOfSquares); 
+    return sqrt(sum);
 }
 
 int main() {
