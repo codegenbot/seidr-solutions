@@ -1,26 +1,41 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(const std::string& s) {
+    if (s.empty()) return s;
+    std::string result = "";
+    bool first = true;
 
-int main() {
-    string input;
-    cin >> input;
-    
-    int start = 0;
-    for(int i = 0; i <= input.size(); i++) {
-        if(i == input.size() || (input[i] >= 'A' && input[i] <= 'Z' || input[i] >= 'a' && input[i] <= 'z')) {
-            string word = input.substr(start, i - start);
-            cout << (char)toupper(word[0]);
-            for(int j = 1; j < word.size(); j++) {
-                cout << tolower(word[j]);
+    for (char c : s) {
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            } else {
+                first = false;
             }
-            start = i + 1;
+        } else if (c == ' ') {
+            if (!first) {
+                result += char(toupper(c));
+            } else {
+                first = false;
+            }
+        } else {
+            if (first) {
+                result += tolower(c);
+                first = false;
+            } else {
+                result += c;
+            }
         }
     }
-    
+
+    return result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
+    std::cout << "camelCase: " << camelCase(s) << std::endl;
     return 0;
 }
