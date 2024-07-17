@@ -1,4 +1,4 @@
-#include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
@@ -15,4 +15,3 @@ vector<int> leaders(vector<int> v) {
     
     reverse(res.begin(), res.end());
     return res;
-}
