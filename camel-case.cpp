@@ -1,25 +1,40 @@
 Here is the solution:
 
-string camelCase(string s) {
-    string result = "";
-    for (auto &x : split(s, " ")) {
-        if (!result.empty()) {
-            result[0] = toupper(x[0]);
+#include <iostream>
+#include <string>
+
+std::string camelCase(const std::string& str) {
+    std::string result;
+    size_t i = 0;
+
+    while (i < str.size()) {
+        if (str[i] == '-') {
+            i++;
+            while (i < str.size() && str[i] == '-') {
+                i++;
+            }
+            if (i < str.size()) {
+                result += std::toupper(str[i]);
+                i++;
+            }
+        } else if (str[i] != ' ') {
+            if (!result.size()) {
+                result = std::string(1, std::tolower(str[i]));
+            } else {
+                result += std::string(1, str[i]);
+            }
+            i++;
         }
-        result += x;
     }
+
     return result;
 }
 
-vector<string> split(const string &s, char c) {
-    vector<string> v2;
-    string::size_type i = 0;
-    string::size_type j = s.find(c);
-    while (j != string::npos) {
-        v2.push_back(s.substr(i, j - i));
-        i = j + 1;
-        j = s.find(c, i);
-    }
-    v2.push_back(s.substr(i));
-    return v2;
+int main() {
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
+
+    return 0;
 }
