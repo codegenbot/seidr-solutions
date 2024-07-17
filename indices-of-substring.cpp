@@ -16,7 +16,7 @@ vector<int> indicesOfSubstring(string text, string target) {
             }
         }
         if(found) {
-            result.push_back(i); 
+            result.push_back(i); // add index to result
             i += (m-1); // move search window forward to account for overlap
         }
     }
