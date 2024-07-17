@@ -1,8 +1,7 @@
-```cpp
-int bowlingScore(const std::string& str) {
+int bowlingScore(const char* frames) {
     int score = 0;
     int currentRolls = 0;
-    for (char c : str) { 
+    for (char c : std::string(frames)) { 
         if (c == 'X') {
             score += 30;
             currentRolls = 2;
@@ -18,4 +17,3 @@ int bowlingScore(const std::string& str) {
         }
     }
     return score;
-}
