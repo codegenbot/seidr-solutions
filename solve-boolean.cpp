@@ -1,9 +1,9 @@
 #include <stack>
 #include <string>
 
-std::string solveBoolean(std::string s) {
-    std::stack<char> st;
-    std::string res = "";
+string solveBoolean(string s) {
+    stack<char> st;
+    string res = "";
     
     for(int i=0; i<s.length(); i++) {
         if(s[i] == '&') {
