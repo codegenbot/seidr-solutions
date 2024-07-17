@@ -1,10 +1,12 @@
 ```cpp
-int bowlingScore(std::string s) {
+int bowlingScore(const char* s) {
     int score = 0;
+    std::string str(s);
     int roll = 0;
-    for (char c : s) {
+    bool lastFrame = false;
+    for (char c : str) {
         if (c == '/') {
-            if (roll < 2) {
+            if (!lastFrame && roll < 2) {
                 score += 10 - (10 - roll);
             }
             roll = 0;
@@ -13,10 +15,11 @@ int bowlingScore(std::string s) {
         } else if (c == 'X') {
             score += 10;
             roll = 0;
+            lastFrame = true;
         }
     }
-    if (roll < 2) {
-        if (roll == 1)
+    if (!lastFrame) {
+        if (roll < 2)
             score += roll * 10;
         else
             score += 10 + (roll - 2) * 10 / 3;
