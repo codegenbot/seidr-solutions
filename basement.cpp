@@ -17,7 +17,7 @@ int basement(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (std::cin >> num || !std::cin.eof()) {
         nums.push_back(num);
     }
     std::cout << basement(nums) << std::endl;
