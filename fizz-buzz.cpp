@@ -1,7 +1,3 @@
-```c++
-#include <string>
-using namespace std;
-
 string fizzBuzz(int x) {
     if (x % 15 == 0) 
         return "FizzBuzz";
@@ -11,11 +7,4 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return std::to_string(x);
-}
-
-int main() {
-    int x = 42; // or get input from user
-    string result = fizzBuzz(x);
-    cout << result << endl;
-    return 0;
 }
