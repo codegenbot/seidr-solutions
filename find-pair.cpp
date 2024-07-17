@@ -10,7 +10,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1}; // or throw an exception
+    return {-1, -1};
 }
 
 int main() {
@@ -23,7 +23,6 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    cout << result.first << "\n" << result.second << "\n";
     return 0;
 }
