@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -8,7 +8,7 @@ using namespace std;
 float shoppingList(vector<float> prices, vector<float> discounts, int n) {
     float total = 0;
     for (int i = 0; i < n; i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0f);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
     return total;
 }
