@@ -1,7 +1,6 @@
-```cpp
+```c++
 #include <stack>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -39,12 +38,7 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
+
 }
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
-    return result ? 0 : 1;
-}
+int main() { return solveBoolean("T&F|T"); }
