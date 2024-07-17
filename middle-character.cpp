@@ -2,12 +2,12 @@
 #include <iostream>
 #include <string>
 
-std::string middleCharacter(std::string input) {
-    int len = input.length();
-    if (len % 2 == 1) {
-        return input.substr(len / 2, 1);
+std::string middleCharacter(std::string str) {
+    int len = str.length();
+    if (len % 2 == 0) {
+        return str.substr(len / 2 - 1, 2);
     } else {
-        return input.substr((len - 1) / 2, 2);
+        return str.substr(len / 2, 1);
     }
 }
 
@@ -15,10 +15,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input); 
-    if (input.empty()) {
-        std::cout << "Input is empty." << std::endl;
-        return 0;
-    }
     std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
