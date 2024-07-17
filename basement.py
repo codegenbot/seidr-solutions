@@ -1,3 +1,4 @@
+```
 def basement(nums):
     for i in range(len(nums)):
         total_sum = 0
