@@ -1,6 +1,7 @@
-#include <iostream>
+```c
 #include <vector>
 #include <string>
+#include <iostream>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;

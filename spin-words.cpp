@@ -1,31 +1,27 @@
-```c++
-string spinWords(string str) {
-    string result = "";
+std::string spinWords(std::string str) {
+    std::stringstream result;
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
-            result += " ";
+            result << " ";
             i++;
         } else {
             int j = i;
             while (j < str.length() && str[j] != ' ') {
                 j++;
             }
-            string wordStr = str.substr(i, j - i);
-            stringstream ss(wordStr);
-            string word;
-            ss >> word;
+            std::string word = str.substr(i, j - i);
             if (word.length() >= 5) {
-                string revWord = "";
+                std::string revWord = "";
                 for (int k = word.length() - 1; k >= 0; k--) {
                     revWord += word[k];
                 }
-                result += revWord + " ";
+                result << revWord << " ";
             } else {
-                result += word + " ";
+                result << word << " ";
             }
             i = j;
         }
     }
-    return result;
+    return result.str();
 }

@@ -15,12 +15,8 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if(found) {
+        if(found && (i + m == n || text.substr(i, m) != target)) {
             result.push_back(i);
-            if (i + m == n)
-                break;
-            else
-                i += m - 1;
         }
     }
 
