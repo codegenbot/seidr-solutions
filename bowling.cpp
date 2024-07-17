@@ -1,39 +1,50 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    int rolls = 0;
+    vector<int> frames;
+
     for (char c : s) {
         if (c == 'X') {
-            score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 + (frame == 9 ? 10 : getRemainingFrame(s, frame));
-            frame++;
-        } else {
-            int remaining = c - '0';
-            score += remaining;
-            if (remaining < 10) {
-                if (s[frame] == 'X') {
-                    score += 10 - remaining;
-                    frame++;
-                } else if (s[frame] == '/') {
-                    score += getRemainingFrame(s, frame);
-                    frame++;
-                }
+            frames.push_back(10);
+            score += 10;
+            rolls++;
+        } else if (isdigit(c)) {
+            int pins = c - '0';
+            if (c == '5' || c == '/') {
+                frames.push_back(pins + (c == '/' ? 1 : 0));
+                score += pins;
+                rolls++;
             } else {
-                frame++;
+                int nextPins = s[s.find(c) + 1] - '0';
+                if (nextPins == 10) {
+                    frames.push_back(10);
+                    score += 10;
+                    rolls += 2;
+                } else {
+                    score += pins + nextPins;
+                    rolls++;
+                }
             }
         }
     }
-    return score;
-}
 
-int getRemainingFrame(string s, int frame) {
-    for (char c : s.substr(frame * 2, 2)) {
-        if (c == 'X') {
-            return 10;
-        } else if (c == '/') {
-            return 10 - (frame < 9 ? s[frame * 2 + 1] - '0' : 0);
+    while (rolls < 10) {
+        if (frames[rolls - 1] == 0) {
+            frames.push_back(10);
+            score += 10;
+            rolls++;
+        } else {
+            int nextPins = 10 - frames[rolls - 1];
+            if (nextPins > frames[rolls]) {
+                frames.push_back(frames[rolls]);
+                score += frames[rolls];
+                rolls++;
+            } else {
+                score += frames[rolls] + nextPins;
+                rolls++;
+            }
         }
     }
-    return 0;
+
+    return score;
 }
