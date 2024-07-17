@@ -10,7 +10,7 @@ double calculateEuclideanDistance(const vector<float>& vector1, const vector<flo
         return -1; 
     }
     for (int i = 0; i < vector1.size(); ++i) {
-        sum += pow(vector2[i] - vector1[i], 2); 
+        sum += pow((vector2[i] - vector1[i]), 2); 
     }
     return sqrt(sum);
 }
@@ -25,18 +25,19 @@ int main(){
     vec2.reserve(n);
 
     for(int i = 0; i < n; ++i){
-        float val;
-        cin >> val;
-        vec1.push_back(val);
+        float temp;
+        cin >> temp;
+        vec1.push_back(temp);
     }
 
     for(int i = 0; i < n; ++i){
-        float val;
-        cin >> val;
-        vec2.push_back(val);
+        float temp;
+        cin >> temp;
+        vec2.push_back(temp);
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
     return 0;
+}
