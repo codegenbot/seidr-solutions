@@ -1,7 +1,4 @@
-#include <string>
-#include <sstream>
-using namespace std;
-
+```c++
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -14,7 +11,10 @@ string spinWords(string str) {
             while (j < str.length() && str[j] != ' ') {
                 j++;
             }
-            string word = str.substr(i, j - i);
+            string wordStr = str.substr(i, j - i);
+            stringstream ss(wordStr);
+            string word;
+            ss >> word;
             if (word.length() >= 5) {
                 string revWord = "";
                 for (int k = word.length() - 1; k >= 0; k--) {
