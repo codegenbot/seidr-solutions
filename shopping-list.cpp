@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 float totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
@@ -26,3 +26,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
+}
