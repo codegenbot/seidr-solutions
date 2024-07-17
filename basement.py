@@ -1,6 +1,10 @@
-def basement(input_vector):
-    for i in range(len(input_vector)):
-        total = sum(input_vector[: i + 1])
+Here is a Python solution for the problem:
+
+```
+def basement(nums):
+    total = 0
+    for i, num in enumerate(nums):
+        total += num
         if total < 0:
             return i
     return -1
