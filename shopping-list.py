@@ -1,3 +1,4 @@
+```
 prices = []
 discounts = []
 while True:
