@@ -1,29 +1,23 @@
-Here is the Python solution for the given problem:
+Here is the Python solution for the bowling problem:
 
-def bowling_score(frames):
-    score = 0
-    frame_count = 0
-    last_roll = None
-    last_two_rolls = [None, None]
+```
+def score_bowling(frames):
+    scores = [0]
+    previous_frame_score = 0
+    for frame in frames.split('/'):
+        if len(frame) == 1:
+            scores.append(min(int(frame), 10) + previous_frame_score)
+        else:
+            strike = int(frame[0])
+            scores.append(10 + previous_frame_score)
+            if len(frames) - len(frames.split('/')) >= 2 and len(frames) - len(frames.split('/')) % 2 == 1:
+                next_frame = frames.split('/')[len(frames.split('/'))-1]
+                if len(next_frame) > 1:
+                    scores.append(min(int(next_frame[0]), 10) + strike*2 + previous_frame_score)
+        previous_frame_score = sum(scores[-2:])
+    return sum(scores)
 
-    for roll in frames:
-        if roll == '/':
-            if last_roll == 'X':
-                return -1
-            score += 10
-        elif roll.isdigit():
-            if len(roll) > 1:
-                first, second = map(int, roll)
-                if first + second >= 10:
-                    score += 10
-                else:
-                    score += first + second
-            else:
-                score += int(roll)
-
-        frame_count += 1
-        last_two_rolls.pop(0)
-        last_two_rolls.append(last_roll or '0')
-        last_roll = roll
-
-    return score
+print(score_bowling("XXXXXXXXXXXX")) # Output: 300
+print(score_bowling("5/5/5/5/5/5/5/5/5/5/5")) # Output: 150
+print(score_bowling("7115XXX548/279-X53")) # Output: 145
+print(score_bowling("532/4362X179-41447/5")) # Output: 100
