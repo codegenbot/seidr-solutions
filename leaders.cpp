@@ -1,19 +1,21 @@
+```c++
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int> v) {
     std::vector<int> res;
-    int max_right = v.back();
-    res.push_back(max_right);
+    int maxRight = v.back();
+    res.push_back(maxRight);
 
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= max_right) {
-            max_right = v[i];
-            res.push_front(max_right);
+        if (v[i] >= maxRight) {
+            res.push_back(v[i]);
+            maxRight = v[i];
         }
     }
 
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
