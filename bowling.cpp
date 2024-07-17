@@ -1,23 +1,36 @@
+```cpp
+#include <iostream>
+#include <vector>
 #include <string>
 
-int bowlingScore(const string& frames) {
-    int score = 0;
-    int currentRolls = 0;
+using namespace std;
 
-    for (int i = 0; i < frames.length(); i++) {
-        if (frames[i] == 'X') {
-            score += 30;
-            currentRolls = 2;
-        } else if (frames[i] == '/') {
-            score += (10 - currentRolls);
-            currentRolls = 0;
-        } else if (std::isdigit(frames[i])) {
-            int roll = frames[i] - '0';
-            currentRolls++;
-            if (currentRolls == 2) {
-                score += 1 * roll + 1 * (10 - roll);
+int bowlingScore(string s) {
+    int score = 0;
+    vector<int> frames;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '/') {
+            frames.push_back(i + 1);
+        }
+    }
+
+    for (int i = 0; i < frames.size(); i++) {
+        int frame = frames[i];
+        string str = s.substr(0, frame);
+        int first = str[str.length() - 1] - '0';
+        int second = str[str.length() - 2] - '0';
+        if (frame == 10) {
+            score += 10;
+        } else if (first + second == 10) {
+            score += 10;
+        } else {
+            score += first + second;
+            if (first + second < 10) {
+                score += s[str.length() - 1] - '0';
             }
         }
     }
+
     return score;
 }
