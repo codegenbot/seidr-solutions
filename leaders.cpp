@@ -1,9 +1,9 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
     vector<int> res;
-    
     int rightmost = v.back();
     res.push_back(rightmost);
     
@@ -19,9 +19,8 @@ vector<int> leaders(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 3, 4, 1, 5};
-    vector<int> result = leaders(v);
-    // print or use your result here
-    for(int i : result) cout << i << " ";
+    vector<int> input = {1, 3, 4, 1, 5};
+    vector<int> output = leaders(input);
+    for(int i : output) cout << i << " ";
     return 0;
 }
