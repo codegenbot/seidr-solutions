@@ -22,18 +22,17 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    if(text.empty()) {
-        cout << "Text cannot be empty." << endl;
-        return 0;
-    }
-    cout << "Enter the target: ";
-    getline(cin, target);
-    if(target.empty()) {
-        cout << "Target cannot be empty." << endl;
-        return 0;
-    }
+    std::string temp;
+    do {
+        if (!cin) break;  // exit loop on failure to read
+        cin >> temp;
+    } while (temp.empty());
+    text = temp;
+
+    do {
+        if (!cin) break;  // exit loop on failure to read
+        cin >> target;
+    } while (target.empty());
 
     vector<int> results = indicesOfSubstring(text, target);
     for (int i : results) {
