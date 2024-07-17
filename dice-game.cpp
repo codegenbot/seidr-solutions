@@ -1,10 +1,14 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
 
 double probability(int n, int m) {
-    if (n < m)
-        return 0;
-    double total = pow(n + m - 1, 2);
-    double peter = pow(n, 2);
-    double colin = pow(m, 2);
-    return (peter - colin) / total;
+    double total = (double)n * m;
+    return 1.0 - (n + m) / total;
+}
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << fixed << setprecision(10) << probability(n, m) << std::endl;
+    return 0;
 }
