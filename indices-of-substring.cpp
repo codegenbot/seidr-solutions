@@ -17,6 +17,8 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if(found) {
             result.push_back(i);
+            while (i + m <= n && text.substr(i, m) == target)
+                i += m;
         }
     }
 
@@ -37,3 +39,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
