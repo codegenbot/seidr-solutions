@@ -6,3 +6,4 @@ int pairedDigits(const std::string& str) {
         }
     }
     return sum;
+}
