@@ -1,8 +1,20 @@
-string squareDigits(string n) {
-    string result = "";
-    for (char c : n) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+#include <vector>
+#include <iostream>
+using namespace std;
+
+string squareDigits(string input) {
+    string output = "";
+    for (int i = 0; i < input.length(); i++) {
+        int digit = input[i] - '0';
+        int square = digit * digit;
+        output += to_string(square);
     }
-    return result;
+    return output;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
 }
