@@ -1,34 +1,33 @@
+```cpp
 #include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<string> st;
+bool solveBoolean(std::string expression) {
+    stack<string> std::stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            st.push("&");
+            stack.push("&");
         } else if (expression[i] == '|') {
-            while (!st.empty() && st.top() == "&") {
-                st.pop();
+            while (!stack.empty() && stack.top() == "&") {
+                stack.pop();
             }
         } else {
-            if(expression[i] == 'T' || expression[i] == 'F')
-                st.push(string(1, expression[i]));
+            stack.push(std::to_string(expression[i]));
         }
     }
 
     bool result = true;
-    while (!st.empty()) {
-        string op = st.top();
-        st.pop();
+    while (!stack.empty()) {
+        string op = stack.top();
+        stack.pop();
         if (op == "&") {
-            result &= (st.top() == "T");
-            st.pop();
+            result &= (stack.top() == "T");
+            stack.pop();
         } else if (op == "|") {
-            if (st.size() > 1) {
-                result |= (st.top() == "T");
-                st.pop();
+            if (stack.size() > 1) {
+                result |= (stack.top() == "T");
+                stack.pop();
             }
         } else {
             result = op == "T";
@@ -36,3 +35,4 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
+}
