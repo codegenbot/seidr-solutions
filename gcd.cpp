@@ -10,32 +10,33 @@ int gcd(int a, int b) {
     return a;
 }
 
+std::vector<int> indices(std::string text, std::string target) {
+    std::vector<int> result;
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.size(); j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
 int main() {
     int a = 12; 
     int b = 15;
     std::cout << "GCD: " << gcd(a, b) << std::endl;
 
-    int text = 1234567;
-    int target = 345;
-    
-    std::vector<int> result;
-    int index = 0;
-    while (index <= text) {
-        if ((text - index) >= target && (text - index) % target == 0) {
-            for (int i = 0; i < target; i++) {
-                if ((text - index + i) % target != 0) {
-                    break;
-                }
-            }
-            result.push_back(index);
-        }
-        index++;
+    std::string text = "HelloWorld";
+    std::string target = "Wor";
+    for (int i : indices(text, target)) {
+        std::cout << "Index " << i << ": " << text.substr(i, target.size()) << std::endl;
     }
-
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
 
     return 0;
 }
