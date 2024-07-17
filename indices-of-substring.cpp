@@ -10,11 +10,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     int i = 0; 
-    while (i <= n - m + 1) { 
+    while (i <= n - m) { 
         if(text.substr(i, m) == target) {
             result.push_back(i); 
+            i = i + 1; // continue searching from where the previous occurrence ended
+        } else {
+            i++; 
         }
-        i++; 
     }
 
     return result;
