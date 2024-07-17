@@ -1,10 +1,10 @@
-```cpp
 #include <string>
 #include <cctype>
 
 int bowlingScore(const string& frames) {
     int score = 0;
     int currentRolls = 0;
+
     for (char c : frames) {
         if (c == 'X') {
             score += 30;
@@ -20,5 +20,6 @@ int bowlingScore(const string& frames) {
             }
         }
     }
+
     return score;
 }
