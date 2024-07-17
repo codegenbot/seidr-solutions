@@ -1,34 +1,13 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
-    if (s == "T" || s == "t") return true;
-    if (s == "F" || s == "f") return false;
-    
-    bool a = solveBoolean(s.substr(0, s.find('&') ? s.find('|') : string::npos));
-    bool b;
-    size_t pos = s.find('&');
-    if (pos != string::npos) {
-        b = solveBoolean(s.substr(pos + 1));
-        return a && b;
+bool solveBoolean(string expression) {
+    bool result = true;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            int j = i + 1;
+            while (j < expression.size() && expression[j] != '|') j++;
+            string subexpr = expression.substr(i + 1, j - i - 1);
+            result &= solveBoolean(subexpr);
+            i = j;
+        }
     }
-    
-    pos = s.find('|');
-    if (pos != string::npos) {
-        b = solveBoolean(s.substr(pos + 1));
-        return a || b;
-    }
-    
-    return false; // should not reach here
-}
-
-int main() {
-    string s;
-    cout << "Enter the Boolean expression: ";
-    cin >> s;
-    if (s.size() > 0) {
-        bool result = solveBoolean(s);
-        cout << (result ? "True" : "False") << endl;
-    }
-    return 0;
+    return expression == "t" ? true : expression == "f";
 }
