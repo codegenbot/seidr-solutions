@@ -1,13 +1,11 @@
-```
+#include <iostream>
+using namespace std;
+
 float snowDay(int hours, float groundSnow, float rate, float meltRate) {
     float totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rate;
-        if(totalSnow > meltRate){
-            totalSnow -= meltRate;
-        } else {
-            totalSnow = 0;
-        }
+        float newSnow = totalSnow + rate - min(totalSnow + rate, meltRate);
+        totalSnow = newSnow;
     }
     return totalSnow;
 }
