@@ -1,3 +1,6 @@
+```
+#include <string>
+#include <cctype>
 using namespace std;
 
 int bowlingScore(const string& frames) {
@@ -22,3 +25,4 @@ int bowlingScore(const string& frames) {
     }
 
     return score;
+}
