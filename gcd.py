@@ -3,7 +3,6 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-
 def indices_of_substring(text, target):
     indices = []
     start = 0
@@ -16,16 +15,13 @@ def indices_of_substring(text, target):
             break
     return indices
 
+# example inputs
+a = int(input())
+b = int(input())
 
-def main():
-    a = int(input())
-    b = int(input())
-    print(gcd(a, b))
+print(gcd(a, b))
 
-    text = input()
-    target = input()
-    print(indices_of_substring(text, target))
+text = input()
+target = input()
 
-
-if __name__ == "__main__":
-    main()
+print(indices_of_substring(text, target))
