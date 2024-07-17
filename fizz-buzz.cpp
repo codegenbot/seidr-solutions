@@ -1,3 +1,23 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
 string fizzBuzz(int x) {
-    return x % 15 == 0 ? "FizzBuzz" : (x % 3 == 0 && x % 5 != 0) ? "Fizz" : (x % 5 == 0) ? "Buzz" : std::to_string(x);
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0 && x % 5 != 0)
+        return "Fizz"; 
+    else if (x % 5 == 0)
+        return "Buzz";
+    else
+        return to_string(x);
+}
+
+int main() {
+    int x;
+    cout << "Enter a number: ";
+    cin >> x;
+    string result = fizzBuzz(x);
+    cout << result << endl;
+    return 0;
 }
