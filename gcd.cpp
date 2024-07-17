@@ -17,9 +17,7 @@ std::vector<int> findIndices(int n, int a, int b, std::vector<int>& numbers) {
 int main() {
     int n, a, b;
     
-    std::cin >> n;
-    std::cin >> a;
-    std::cin >> b;
+    std::cin >> n >> a >> b;
     
     std::vector<int> numbers;
     for (int i = 0; i < n; ++i) {
