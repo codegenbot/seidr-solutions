@@ -1,20 +1,26 @@
 int bowlingScore(const string& input) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < 10; ++i) {
-        if (input[i] == 'X') {
+    int frame = 1;
+    for (char c : input) {
+        if (c == 'X') {
             score += 30;
-        } else if (input[i + 1] == '/') {
-            roll1 = input[i] - '0';
-            roll2 = 10 - roll1;
-            score += roll1 * 10 + roll2;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - ((input[input.size() - input.find(c)] - '0') + (input[input.size() - input.find('/', input.find(c) + 1)] - '0')));
+            frame++;
         } else {
-            roll1 = input[i] - '0';
-            roll2 = input[i + 1] - '0';
-            if (roll1 + roll2 >= 10) {
-                score += roll1 * 10 + roll2;
+            int points = c - '0' + (input[input.size() - input.find(c, input.find(c)) - 1] - '0');
+            if (points == 10) {
+                score += 10;
+                frame++;
             } else {
-                score += roll1 * 10 + roll2;
+                score += points;
+                frame++;
+                if (frame < 10 && input[input.size() - input.find(c)] != '/') {
+                    points = c - '0' + (input[input.size() - input.find(c, input.find(c)) - 1] - '0');
+                    score += points;
+                    frame++;
+                }
             }
         }
     }
