@@ -11,13 +11,8 @@ vector<int> indicesOfSubstring(string text, string target) {
         bool found = true;
         for(int j = 0; j < m; ++j) {
             if(text[i+j] != target[j] && text[i+j] != ']') {
-                int k = i + j; 
-                if(k >= 1 && text[k-1] == '[' && target[j] == ']') { 
-                    found = true;
-                } else {
-                    found = false;
-                    break;
-                }
+                found = false;
+                break;
             }
         }
         if(found) {
