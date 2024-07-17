@@ -12,40 +12,38 @@ bool evaluateBooleanExpression(string expression) {
             while (j < expression.length() && expression[j] != '&') {
                 j++;
             }
-            if (j <= expression.length()) {
+            if (j <= expression.length()) { 
                 string subExpression = expression.substr(i + 1, j - i - 1);
                 bool left = (subExpression == "t") ? true : false;
                 int k = j + 1;
-                while (k < expression.length() && expression[k] != '|') {
-                    k++;
-                }
-                if (k <= expression.length()) {
-                    string subSubExpression = expression.substr(j + 1, k - j - 1);
-                    bool right = (subSubExpression == "t") ? true : false;
-                    result &= left && right;
-                } else {
-                    result &= left;
-                }
+            while (k < expression.length() && expression[k] != '|') {
+                k++;
+            }
+            if (k <= expression.length()) { 
+                string subRight = expression.substr(j + 1, k - j - 1);
+                bool right = (subRight == "t") ? true : false;
+                result &= (left && right);
+            } else {
+                result &= left;
             }
         } else if (expression[i] == '|') {
             int j = i + 1;
             while (j < expression.length() && expression[j] != '|') {
                 j++;
             }
-            if (j <= expression.length()) {
+            if (j <= expression.length()) { 
                 string subExpression = expression.substr(i + 1, j - i - 1);
                 bool left = (subExpression == "t") ? true : false;
                 int k = j + 1;
-                while (k < expression.length() && expression[k] != '&') {
-                    k++;
-                }
-                if (k <= expression.length()) {
-                    string subSubExpression = expression.substr(j + 1, k - j - 1);
-                    bool right = (subSubExpression == "t") ? true : false;
-                    result |= left || right;
-                } else {
-                    result |= left;
-                }
+            while (k < expression.length() && expression[k] != '&') {
+                k++;
+            }
+            if (k <= expression.length()) { 
+                string subRight = expression.substr(j + 1, k - j - 1);
+                bool right = (subRight == "t") ? true : false;
+                result |= (left || right);
+            } else {
+                result |= left;
             }
         }
     }
