@@ -1,19 +1,20 @@
+```c++
 #include <vector>
 #include <string>
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int start = 0;
     while (start < text.length()) {
         size_t found = text.find(target, start);
-        if (found != std::string::npos) {
-            indices.push_back(found);
+        if (found != string::npos) {
+            result.push_back(found);
             start = found + 1;
         } else {
             break;
         }
     }
-    return indices;
+    return result;
 }
 
 int gcd(int a, int b) {
