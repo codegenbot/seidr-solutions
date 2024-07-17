@@ -6,7 +6,6 @@ double snowDay(int hours, double currentSnow, double rateOfSnowfall, double melt
     
     for (int i = 0; i < hours; ++i) {
         currentSnow += rateOfSnowfall - meltingRate;
-        
         if (currentSnow < 0)
             currentSnow = 0;
         
