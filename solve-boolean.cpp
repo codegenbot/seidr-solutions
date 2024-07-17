@@ -1,22 +1,35 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool a = (s[0] == 'T');
-    for(int i = 1; i < s.size(); i++) {
-        if(s[i] == '&') {
-            return a && (s[i+1] == 'T');
+    bool res = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'f') {
+            res = false;
+            break;
         }
-        else if(s[i] == '|') {
-            return a || (s[i+1] == 'T');
+        else if (s[i] == '&') {
+            res &= true;
+        }
+        else if (s[i] == '|') {
+            res |= true;
         }
     }
-    return a;
+    return res;
 }
 
 int main() {
     string s;
+    cout << "Enter a Boolean expression: ";
     cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False");
+    bool result = solveBoolean(s);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
