@@ -12,7 +12,7 @@ int basement(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -2, 3, -4}; 
+    vector<int> nums({1, -2, 3, -4}); 
     int result = basement(nums);
     if (result != -1) {
         cout << "Basement found at index " << result << endl;
