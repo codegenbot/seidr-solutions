@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 int basement(vector<int>& nums) {
     int minIndex = -1;
     int total = 0;
@@ -11,6 +14,7 @@ int basement(vector<int>& nums) {
     return minIndex;
 
 }
+
 int main() {
     const std::vector<int> nums = {17,12,77,-31,85,-34,52,77,67,-81,-43,-2,-63,-58,-45,-44,-70};
     int result = basement(const_cast<vector<int>&>(nums));
