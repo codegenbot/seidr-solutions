@@ -1,16 +1,14 @@
-Here is the Python solution:
-
-def bowling_score(gutter_balls):
+def bowling_score(game):
     score = 0
-    frames = gutter_balls.split('/')
-    for i in range(len(frames)):
-        if len(frames[i]) == 1:
-            score += 10 - (9 - i)
-        else:
-            first_roll = int(frames[i][0])
-            second_roll = int(frames[i][1])
-            if first_roll + second_roll >= 10:
-                score += 10
+    frame = 0
+    roll = game.replace("/", "0").split("X")
+    for i in range(len(roll)):
+        if roll[i] == "":
+            score += 10
+        elif roll[i] != "0":
+            if len(roll) > i + 1 and roll[i + 1] == "X":
+                score += 10 + int(roll[i])
             else:
-                score += first_roll + second_roll
+                score += max(int(roll[i]), 10)
+        frame += int(roll[i]) or 2
     return score
