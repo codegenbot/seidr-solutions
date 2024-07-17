@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -6,18 +5,9 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return not (bool(left) and bool(right))
     else:
-        result = True
-        for part in expression.split('&'):
-            if '|' in part:
-                raise ValueError("Invalid expression")
-            temp = False
-            for char in part:
-                if char == 'T':
-                    temp = True
-                elif char == 'F':
-                    break
-            if not temp:
-                result = False
-                break
-        return result
+        left, right = expression.split('|')
+        return bool(left) or bool(right)
