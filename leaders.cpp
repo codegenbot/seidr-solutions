@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -15,5 +15,4 @@ vector<int> leaders(vector<int> v) {
         }
     }
     
-    return temp;
-}
+    return res;
