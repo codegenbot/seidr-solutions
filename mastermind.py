@@ -1,7 +1,9 @@
 def mastermind(code, guess):
     white = sum(c in guess for c in code)
     black = sum(
-        (c1 == c2) and (guess.index(c1) < guess.index(c2))
-        for c1, c2 in zip(code, guess)
+        [
+            c1 == c2 and code.index(c1) < i
+            for i, (c1, c2) in enumerate(zip(code, guess))
+        ].count(True)
     )
-    return str(white), str(black)
+    return str(black), str(white)
