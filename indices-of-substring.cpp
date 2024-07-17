@@ -9,9 +9,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(int i=0; i+n-m <= n; i++) {
+    for(int i=0; i <= n-m; i++) { 
         if(text.substr(i, m) == target) {
             result.push_back(i); 
+            i = i + m; // Adjust the condition to account for overlapping substrings.
         }
     }
 
