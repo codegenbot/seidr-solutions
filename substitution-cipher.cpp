@@ -3,18 +3,19 @@
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
-    
+    std::string result;
     for (char c : message) {
-        int index = c - 'a'; // Convert character to 0-indexed position
-        if (index >= 0 && index < cipher1.length()) { // Check if the character is in the range of cipher1
-            decipheredMessage += cipher2[index]; // Append the corresponding character from cipher2
+        if (c >= 'a' && c <= 'z') {
+            int index = c - 'a';
+            result += cipher2[index];
+        } else if (c >= 'A' && c <= 'Z') {
+            int index = c - 'A';
+            result += (cipher2[index] < 'a') ? toupper(cipher2[index]) : tolower(cipher2[index]);
         } else {
-            decipheredMessage += c; // If not, append the original character
+            result += c;
         }
     }
-    
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
