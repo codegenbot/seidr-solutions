@@ -1,39 +1,28 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &v) {
-    int n = v.size();
-    vector<vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] == v[i - 1]) {
-            res.push_back({v[i]});
-        } else if (abs(v[i] - v[0]) <= abs(v[i] - v.back())) {
-            res.push_back({v[0], v[i]});
-        } else {
-            res.push_back({v[0], v.back()});
+    for(int i = 0; i < v.size() - 1; i++) {
+        int sum1 = 0, sum2 = 0;
+        for(int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for(int j = i + 1; j < v.size(); j++) {
+            sum2 += v[j];
+        }
+        
+        int diff = abs(sum1 - sum2);
+        if(diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+    vector<int> left(v.begin(), v.begin() + cut_index + 1);
+    vector<int> right(v.begin() + cut_index, v.end());
     
-    vector<vector<int>> result = cutVector(v);
-    
-    for (auto &sub : result) {
-        for (auto num : sub) {
-            cout << num << " ";
-        }
-        cout << endl;
-    }
-    
-    return 0;
+    return {left, right};
 }
