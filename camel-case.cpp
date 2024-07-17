@@ -1,30 +1,27 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (const auto& word : str.split("-")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
+std::string camelCase(const std::string& s) {
+    std::string result;
+    for (char c : s) {
+        if (c == '-') {
+            c = ' ';
+        } else if (c == ' ') {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += c;
+        } else {
+            result += tolower(c);
         }
-        result += word;
     }
     return result;
 }
 
 int main() {
-    std::cout << camelCase("nospaceordash") << std::endl;
-    std::cout << camelCase("two-words") << std::endl;
-    std::cout << camelCase("two words") << std::endl;
-    std::cout << camelCase("all separate words") << std::endl;
-    return 0;
-}
-
-std::string& split(std::string& str, char c) {
-    size_t pos = 0;
-    while ((pos = str.find(c)) != std::string::npos) {
-        str.replace(pos, 1, " ");
-        pos += 1;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
-    return str;
+    return 0;
 }
