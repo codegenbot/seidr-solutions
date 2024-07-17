@@ -13,3 +13,19 @@ int basement(const std::vector<int>& nums) {
     }
     return index + 1;
 }
+
+int main() {
+    std::vector<int> nums;
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream stream(line);
+    int num;
+    while (stream >> num) {
+        nums.push_back(num);
+    }
+    
+    int result = basement(nums);
+    std::cout << result << std::endl;
+
+    return 0;
+}
