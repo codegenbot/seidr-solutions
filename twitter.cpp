@@ -14,9 +14,11 @@ void validateTweet(string tweet) {
 
 int main() {
     string tweet;
-    
-    if (cout << "Enter a tweet: ") getline(cin, tweet);
-    validateTweet(tweet);
-    
+
+    if (cout << "Enter a tweet: ") {
+        getline(cin, tweet);
+        validateTweet(tweet);
+    }
+
     return 0;
 }
