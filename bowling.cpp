@@ -1,7 +1,4 @@
-```
-#include <string>
-
-int bowlingScore(const std::string& frames) {
+int bowlingScore(const string& frames) {
     int score = 0;
     int currentRolls = 0;
 
