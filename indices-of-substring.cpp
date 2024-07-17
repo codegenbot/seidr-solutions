@@ -4,12 +4,13 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
     int i = 0; 
-    while (i <= text.length() - target.length()) { 
-        int pos = text.find(target);
-        while (pos != string::npos && i <= pos) {
-            result.push_back(pos);
-            pos = text.find(target, pos + 1);
+    while (i <= n - m + 1) { 
+        if (text.substr(i, m) == target) { 
+            result.push_back(i); 
         }
         i++; 
     }
