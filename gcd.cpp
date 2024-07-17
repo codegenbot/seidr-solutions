@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
 int gcd(int a, int b) {
     if(b == 0)
@@ -10,10 +11,10 @@ int gcd(int a, int b) {
 
 int main() {
     int a = 0, b = 0;
-    std::cout << "Enter two numbers: ";
-    std::cin >> a >> b;
-    std::string strA = std::to_string(a);
-    std::string strB = std::to_string(b);
-    
-    // your code here
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    string strA = to_string(a);
+    string strB = to_string(b);
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    return 0;
 }
