@@ -1,19 +1,21 @@
+```
 #include <iostream>
 #include <string>
 
-std::string squareDigitsStr(std::string n) {
+std::string squareDigitsStr(int n) {
     std::string result = "";
-    for (char c : n) {
-        int digit = c - '0';
-        result += std::to_string(digit * digit);
+    while (n != 0) {
+        int digit = n % 10;
+        result = std::to_string(digit * digit).append(result);
+        n /= 10;
     }
     return result;
 }
 
 int main() {
-    std::string input;
+    int input;
     std::cout << "Enter a positive integer: ";
-    std::getline(std::cin, input); 
+    std::cin >> input;
     std::cout << "The square of the digits is: " << squareDigitsStr(input) << std::endl;
     return 0;
 }
