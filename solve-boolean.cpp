@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
@@ -12,23 +6,16 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) return false;
-            st.push('&');
+            else st.pop();
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return true;
-            st.push('|');
+            else st.pop();
         } else {
             st.push(s[i]);
         }
     }
     return !st.empty();
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
 }
