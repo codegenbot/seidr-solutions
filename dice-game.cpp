@@ -1,10 +1,8 @@
-Here's the modified code:
-
 #include <iostream>
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= m; i++) { 
+    for (int i = 1; i <= m && i < n; i++) { 
         sum += (n - i) / (double)(n * m);
     }
     return sum;
@@ -19,4 +17,3 @@ int main() {
     double result = probability(n, m);
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
     return 0;
-}
