@@ -1,51 +1,55 @@
-string solveBoolean(string booleanExp) {
-    stack<char> opStack;
-    stack<string> valStack;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < booleanExp.length(); i++) {
-        if (booleanExp[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
+using namespace std;
+
+bool evaluateBoolean(string s) {
+    if (s.size() == 0) return false;
+    
+    stack<char> ops;
+    stack<string> values;
+    
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == '(') {
+            ops.push('(');
+        } else if (s[i] == ')') {
+            while (ops.top() != '(') {
+                char op = ops.top();
+                ops.pop();
+                values.push(op == '&' ? "and" : "|");
             }
-            opStack.push('&');
-        } else if (booleanExp[i] == '|') {
-            while (!opStack.empty()) {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1 == "True" || operand2 == "True") ? "True" : "False");
+            ops.pop(); // pop the '('
+        } else if (s[i] == '&' || s[i] == '|') {
+            while (!ops.empty() && ops.top() != '(') {
+                char op = ops.top();
+                ops.pop();
+                values.push(op == '&' ? "and" : "|");
             }
-            opStack.push('|');
-        } else if (booleanExp[i] != 'T' && booleanExp[i] != 'F') {
-            int j = i;
-            while (booleanExp[j] != '&' && booleanExp[j] != '|' && j < booleanExp.length()) {
-                j++;
+            ops.push(s[i]);
+        } else if (s[i] == 'T' || s[i] == 'F') {
+            string val;
+            while (i + 1 < s.size() && (s[i+1] >= '0' && s[i+1] <= '9' || s[i+1] >= 'A' && s[i+1] <= 'Z')) {
+                val += s[i++];
             }
-            string operand = booleanExp.substr(i, j - i);
-            if (operand == "True") {
-                valStack.push("True");
-            } else {
-                valStack.push("False");
-            }
-            i = j;
+            values.push(val);
         }
     }
-
-    while (!opStack.empty()) {
-        opStack.pop();
-        string operand2 = valStack.top();
-        valStack.pop();
-        string operand1 = valStack.top();
-        valStack.pop();
-        valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
+    
+    while (!ops.empty()) {
+        char op = ops.top();
+        ops.pop();
+        string leftVal = values.top();
+        values.pop();
+        string rightVal = values.top();
+        values.pop();
+        
+        if (op == '&') {
+            values.push(leftVal + " and " + rightVal);
+        } else {
+            values.push(leftVal + " or " + rightVal);
+        }
     }
-
-    return valStack.top();
+    
+    return values.top() == "T";
 }
