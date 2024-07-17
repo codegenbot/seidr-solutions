@@ -1,13 +1,10 @@
-```
-def luhn(card_number):
-    total = 0
-    is_second = False
-    for i in range(len(card_number) - 1, -1, -1):
-        num = int(card_number[i])
-        if is_second:
-            num *= 2
-            if num > 9:
-                num -= 9
-        total += num
-        is_second = not is_second
-    return total
+def luhn_sum(card_number):
+    card_number = [int(x) for x in str(card_number).split()]
+    result = 0
+    for i in range(len(card_number)):
+        if i % 2 == 1:
+            card_number[i] *= 2
+            if card_number[i] > 9:
+                card_number[i] -= 9
+        result += card_number[i]
+    return result
