@@ -1,14 +1,15 @@
-def solve(input_str):
+```
+def solve_boolean(s):
     def evaluate(expression):
-        if expression == "T":
+        if 'T' in expression and 'F' in expression:
             return True
-        elif expression == "F":
+        elif 'F' * len(expression) == expression:
             return False
-        elif "&" in expression:
-            left, right = expression.split("&")
-            return evaluate(left) and evaluate(right)
-        elif "|" in expression:
-            left, right = expression.split("|")
-            return evaluate(left) or evaluate(right)
+        else:
+            for i in range(len(expression)):
+                if expression[i] == '|':
+                    return evaluate(expression[:i]) or evaluate(expression[i+1:])
+                elif expression[i] == '&':
+                    return evaluate(expression[:i]) and evaluate(expression[i+1:])
 
-    return evaluate(input_str)
+    return evaluate(s)
