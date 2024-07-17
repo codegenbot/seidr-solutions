@@ -17,9 +17,11 @@ int basement(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num || !std::cin.eof()) {
+    while (std::cin.peek() != EOF) {
+        std::cin >> num;
         nums.push_back(num);
     }
+    nums.pop_back(); // Remove the last element (EOF)
     std::cout << basement(nums) << std::endl;
     return 0;
 }
