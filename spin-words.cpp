@@ -1,6 +1,3 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -35,6 +32,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    // Your code here
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
