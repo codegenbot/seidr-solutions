@@ -2,30 +2,39 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            wordLength = i - result.length();
-            if (wordLength >= 5) {
-                for (int j = wordLength - 1; j >= 0; j--)
-                    result += str[result.length() + j];
-            } else
-                result += str.substr(result.length(), wordLength);
-            if (i != str.length())
-                result += ' ';
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += word + " ";
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+    
+    result += word;
+    
+    std::string newResult = "";
+    for (int i = 0; i < result.length(); i++) {
+        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
+            int j = i;
+            while (j > 0 && (result[j-1] >= 'a' && result[j-1] <= 'z' || result[j-1] >= 'A' && result[j-1] <= 'Z')) {
+                j--;
+            }
+            if (j - i >= 5) {
+                for (; j >= i; j--) {
+                    newResult += result[j];
+                }
+            } else {
+                newResult += result[i];
+            }
+        } else {
+            newResult += result[i];
+        }
+    }
+    
+    return newResult;
 }
