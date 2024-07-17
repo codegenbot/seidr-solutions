@@ -1,16 +1,25 @@
 def solve_boolean(expression):
-    def evaluate_expression(expression):
-        stack = []
-        operations = {"|": lambda a, b: a or b, "&": lambda a, b: a and b}
-        for char in expression:
-            if char in operations:
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(operations[char](a, b))
-            elif char == "T":
-                stack.append(True)
-            elif char == "F":
-                stack.append(False)
-        return stack[0]
+    stack = []
+    result = None
+    operator = None
 
-    return str(evaluate_expression(expression))
+    for char in expression:
+        if char == "t":
+            stack.append(True)
+        elif char == "f":
+            stack.append(False)
+        elif char in ["&", "|"]:
+            operator = char
+        else:
+            op1 = stack.pop()
+            op2 = stack.pop()
+            
+            if result is None:
+                result = op1
+            else:
+                if operator == "&":
+                    result = result and op1
+                elif operator == "|":
+                    result = result or op1
+
+    return result
