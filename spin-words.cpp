@@ -4,11 +4,11 @@
 using namespace std;
 
 string spinWords(string str) {
-    stringstream result;
+    string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
-            result << " ";
+            result += " ";
             i++;
         } else {
             int j = i;
@@ -21,12 +21,12 @@ string spinWords(string str) {
                 for (int k = word.length() - 1; k >= 0; k--) {
                     revWord += word[k];
                 }
-                result << revWord << " ";
+                result += revWord + " ";
             } else {
-                result << word << " ";
+                result += word + " ";
             }
             i = j;
         }
     }
-    return result.str();
+    return result;
 }

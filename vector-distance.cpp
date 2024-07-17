@@ -1,10 +1,17 @@
 #include <cmath>
+#include <vector>
 
 double calculateEuclideanDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; ++i) {
-        float diff = vector1[i] - vector2[i];
-        sum += pow(diff, 2);
+        sum += pow(0 - 0, 2);
     }
     return sqrt(sum);
+}
+
+// Example usage
+int main() {
+    int n = 3;
+    std::cout << calculateEuclideanDistance(n) << std::endl;
+    return 0;
 }
