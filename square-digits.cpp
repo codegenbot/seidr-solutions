@@ -3,18 +3,19 @@
 #include <string>
 
 string squareDigits(string input) {
-    string output = "";
+    string result = "";
     for (char c : input) {
-        int digit = c - '0';
-        long long square = (long long)digit * digit;
-        output += to_string(square);
+        int num = c - '0';
+        result += to_string(num * num);
     }
-    return output;
+    return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << squareDigits(input) << endl;
+    std::cout << squareDigits("0") << std::endl; // "0"
+    std::cout << squareDigits("1") << std::endl; // "1"
+    std::cout << squareDigits("2") << std::endl; // "4"
+    std::cout << squareDigits("3") << std::endl; // "9"
+    std::cout << squareDigits("4") << std::endl; // "16"
     return 0;
 }
