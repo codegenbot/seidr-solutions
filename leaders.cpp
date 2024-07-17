@@ -1,18 +1,16 @@
-```c++
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
     int n = v.size();
     vector<int> res;
-    int max_right = v.back();
-    for(int i=n-1; i>=0; i--) {
-        if(v[i] >= max_right) {
+    int maxRightSoFar = v[n-1];
+    for(int i=n-2; i>=0; i--) {
+        if(v[i] >= maxRightSoFar) {
             res.push_back(v[i]);
-            max_right = v[i];
+            maxRightSoFar = v[i];
         }
     }
-    reverse(res.begin(), res.end());
     return res;
 }
 
