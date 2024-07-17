@@ -1,10 +1,9 @@
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 string fizzBuzz(int x) {
-    if (x % 15 == 0)
+    if (x % 15 == 0) 
         return "FizzBuzz";
     else if (x % 3 == 0 && x % 5 != 0)
         return "Fizz"; 
@@ -16,7 +15,9 @@ string fizzBuzz(int x) {
 
 int main() {
     int x;
+    cout << "Enter a number: ";
     cin >> x;
     string result = fizzBuzz(x);
     cout << result << endl;
     return 0;
+}
