@@ -1,11 +1,30 @@
-def bowling_score(frames):
+```
+def bowling_score(bowling):
     score = 0
-    roll = [int(x) for x in re.findall("\d+", frames)]
-    for i in range(0, len(roll), 2):
-        if roll[i] == 10:
-            score += 10 + roll[i + 1]
-        elif roll[i] + roll[i + 1] >= 10:
-            score += 10
+    roll = 0
+    for frame in range(1, 11):
+        if '/' in str(bowling)[frame*2-1:frame*2+2]:
+            strike = False
+            spare = False
+            if str(bowling)[frame*2-1:frame*2] == 'X':
+                score += 10
+                roll += 1
+                continue
+            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
+            if sum(parts) >= 10:
+                spare = True
+                score += sum(parts)
+                roll += len(parts)
+            else:
+                strike = True
+                score += parts[0]
+                roll += 1
         else:
-            score += roll[i] + roll[i + 1]
+            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
+            if sum(parts) >= 10:
+                score += sum(parts)
+                roll += len(parts)
+            else:
+                score += parts[0]
+                roll += 1
     return score
