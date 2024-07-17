@@ -7,45 +7,18 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps = computeLPSArray(target);
-
     int i = 0; 
-    while (i <= n - m + 1) { 
+    while (i <= n - m) { 
         if (text.substr(i, m) == target) { 
             result.push_back(i); 
+            i++; // Increment i by 1 for the next search
         }
-
-        i += (i + m > n ? m : lps[i]);
-
+        else {
+            i++;
+        }
     }
 
     return result;
-}
-
-vector<int> computeLPSArray(string target) {
-    int M = target.length();
-    vector<int> lps(M);
-    int length = 0;
-
-    lps[0] = 0; // no pattern for empty string
-
-    int i = 1;
-    while (i < M) {
-        if (target[i] == target[length]) {
-            length++;
-            lps[i] = length;
-            i++;
-        } else {
-            if (length != 0) {
-                length = lps[length - 1];
-            } else {
-                lps[i] = 0;
-                i++;
-            }
-        }
-    }
-
-    return lps;
 }
 
 int main() {
