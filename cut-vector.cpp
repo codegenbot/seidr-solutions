@@ -1,6 +1,6 @@
-```cpp
 #include <climits>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -11,7 +11,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     for(int i = 1; i <= v.size(); i++) {
         if(i == v.size()) {
             vector<int> left(v.begin(), v.end());
-            vector<int> right({});
+            vector<int> right(vector<int>());
             int diff = abs(left[0] - 0);
             if(diff < min_diff) {
                 min_diff = diff;
