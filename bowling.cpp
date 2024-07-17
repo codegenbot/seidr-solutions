@@ -22,4 +22,3 @@ int bowlingScore(const string& frames) {
     }
 
     return score;
-}
