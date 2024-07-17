@@ -1,13 +1,9 @@
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    
-    // Cases where Colin rolls 1
-    double count = m;
+Here is the solution:
 
-    // Other cases where Colin rolls higher than 1
-    for(int i = 2; i <= m; i++) {
-        count += ((n-m+1)/n);
+double probability(int n, int m) {
+    double sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += (n - i + 1) / (double)n * (m - i) / (double)m;
     }
-
-    return count / total;
+    return sum;
 }
