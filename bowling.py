@@ -1,20 +1,16 @@
-def bowling_score(frames):
+Here is the Python solution:
+
+def bowling_score(gutter_balls):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i].isdigit():
-            if frames[i + 1] == "/":
-                score += int(frames[i]) * 10 + 10 - int(frames[i])
+    frames = gutter_balls.split('/')
+    for i in range(len(frames)):
+        if len(frames[i]) == 1:
+            score += 10 - (9 - i)
+        else:
+            first_roll = int(frames[i][0])
+            second_roll = int(frames[i][1])
+            if first_roll + second_roll >= 10:
+                score += 10
             else:
-                score += int(frames[i]) * 10 + int(frames[i + 1])
-        elif frames[i] == "X":
-            score += 30
-        elif frames[i] == "-":
-            continue
-        elif frames[i].isdigit():
-            if frames[i + 1] == "X":
-                score += 30 - int(frames[i])
-            elif frames[i + 1] == "/":
-                score += 10 + 10 - int(frames[i])
-            else:
-                score += 10 + int(frames[i + 1]) - int(frames[i])
+                score += first_roll + second_roll
     return score
