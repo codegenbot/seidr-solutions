@@ -5,7 +5,7 @@ using namespace std;
 double calculateEuclideanDistance(int n, double* v1, double* v2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v1[i] - v2[i], 2);
+        sum += pow((v1[i] - v2[i]), 2);
     }
     return sqrt(sum);
 }
@@ -19,6 +19,5 @@ int main() {
     }
     
     cout << calculateEuclideanDistance(n, v1, v2) << endl;
-    delete[] v1, v2;
     return 0;
 }
