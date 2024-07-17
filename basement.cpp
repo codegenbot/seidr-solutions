@@ -1,3 +1,4 @@
+```cpp
 int basement(vector<int>& nums) {
     int running_sum = 0;
     int first_negative_index = -1;
