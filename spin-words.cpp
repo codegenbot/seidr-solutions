@@ -1,9 +1,6 @@
-```c++
-#include <string>
-using namespace std;
-
+```
 string spinWords(string str) {
-    std::string result = "";
+    string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
@@ -28,10 +25,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    string str = "Hello World";
-    cout << spinWords(str) << endl;
-    return 0;
 }
