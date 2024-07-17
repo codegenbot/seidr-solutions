@@ -1,5 +1,10 @@
 #include <vector>
-#include <algorithm> 
+
+int main() {
+    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    int result = basement(nums);
+    return 0;
+}
 
 int basement(std::vector<int>& nums) {
     int minIndex = 0;
@@ -10,10 +15,4 @@ int basement(std::vector<int>& nums) {
             return i + 1; 
     }
     return -1;
-}
-
-int main() {
-    std::vector<int> nums = {-5, 1, -3, 4, -2};
-    int result = basement(nums);
-    return 0;
 }
