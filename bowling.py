@@ -1,14 +1,29 @@
-```
+Here is the Python solution for the given problem:
+
 def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if frames[i] == 'X':
-            score += 30
-        elif frames[i] == '/':
-            continue
-        else:
-            bonus = int(frames[i].split('/')[0])
-            if i < 9 and frames[i+1] != 'X':
-                bonus += int(frames[i].split('/')[1]) // 2
-            score += bonus
+    frame_count = 0
+    last_roll = None
+    last_two_rolls = [None, None]
+
+    for roll in frames:
+        if roll == '/':
+            if last_roll == 'X':
+                return -1
+            score += 10
+        elif roll.isdigit():
+            if len(roll) > 1:
+                first, second = map(int, roll)
+                if first + second >= 10:
+                    score += 10
+                else:
+                    score += first + second
+            else:
+                score += int(roll)
+
+        frame_count += 1
+        last_two_rolls.pop(0)
+        last_two_rolls.append(last_roll or '0')
+        last_roll = roll
+
     return score
