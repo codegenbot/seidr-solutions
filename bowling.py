@@ -1,18 +1,32 @@
-def calculate_bowling_score(score):
-    score = score.replace('/', '')
-    total_score = 0
+```
+def bowling_score(game):
+    score = 0
     frame = 1
-    for i in range(0, len(score), 2):
-        if score[i] == 'X':
-            total_score += 10 + (10 - int(score[i+1])) if i < len(score) - 1 and score[i+1] != 'X' else 10
+    i = 0
+    while frame <= 10:
+        if game[i:i+2] == 'X ':
+            score += 30
+            i += 2
             frame += 1
-        elif score[i] == '-':
-            first_roll = 10 - int(score[i-1])
-            total_score += first_roll + int(score[i+1]) if i < len(score) - 2 and score[i+2] != 'X' else first_roll
+        elif game[i] == '/':
+            first_roll = int(game[i-1])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            i += 2
             frame += 1
         else:
-            first_roll = int(score[i])
-            second_roll = int(score[i+1])
-            total_score += first_roll + second_roll
-            frame += 1
-    return total_score
+            if game[i:i+2].strip() == '10':
+                score += 10
+                i += 2
+                frame += 1
+            elif int(game[i]) + int(game[i+1]) == 10:
+                score += 10
+                i += 2
+                frame += 1
+            else:
+                first_roll = int(game[i])
+                second_roll = int(game[i+1])
+                score += first_roll + second_roll
+                i += 2
+                frame += 1
+    return score
