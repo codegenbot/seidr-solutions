@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
@@ -10,7 +11,7 @@ int pairedDigits(const std::string& str) {
     return sum;
 }
 
-int main(int argc, char** argv) {
-    std::cout << pairedDigits("123334555"); 
+int main() {
+    std::cout << pairedDigits("your_string") << std::endl;
     return 0;
 }
