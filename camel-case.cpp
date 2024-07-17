@@ -1,40 +1,26 @@
 Here is the solution:
 
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result;
-    size_t i = 0;
-
-    while (i < str.size()) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.size() && str[i] == '-') {
-                i++;
-            }
-            if (i < str.size()) {
-                result += std::toupper(str[i]);
-                i++;
-            }
-        } else if (str[i] != ' ') {
-            if (!result.size()) {
-                result = std::string(1, std::tolower(str[i]));
-            } else {
-                result += std::string(1, str[i]);
-            }
-            i++;
-        }
-    }
-
-    return result;
-}
+using namespace std;
 
 int main() {
-    std::cout << camelCase("nospaceordash") << std::endl;
-    std::cout << camelCase("two-words") << std::endl;
-    std::cout << camelCase("two words") << std::endl;
-    std::cout << camelCase("all separate words") << std::endl;
-
+    string input;
+    cin >> input;
+    
+    int start = 0;
+    for(int i = 0; i <= input.size(); i++) {
+        if(i == input.size() || (input[i] >= 'A' && input[i] <= 'Z' || input[i] >= 'a' && input[i] <= 'z')) {
+            string word = input.substr(start, i - start);
+            cout << (char)toupper(word[0]);
+            for(int j = 1; j < word.size(); j++) {
+                cout << tolower(word[j]);
+            }
+            start = i + 1;
+        }
+    }
+    
     return 0;
 }
