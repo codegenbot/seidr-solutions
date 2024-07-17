@@ -1,22 +1,20 @@
+```c++
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-int basement(vector<int>& nums) {
+int basement(std::vector<int>& nums) {
     int minIndex = -1;
-    int total = 0;
     for (int i = 0; i < nums.size(); i++) {
-        total += nums[i];
-        if (total < 0)
-            return i + 1;
-        else if (total > 0 && minIndex == -1) 
-            minIndex = i + 1;  
+        int total = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
+        if(total < 0 && minIndex == -1)
+            minIndex = i;
     }
-    return minIndex;
+    return minIndex + 1;
 
 }
 
 int main() {
-    const std::vector<int> nums = {17,12,77,-31,85,-34,52,77,67,-81,-43,-2,-63,-58,-45,-44,-70};
+    std::vector<int> nums = {17,12,77,-31,85,-34,52,77,67,-81,-43,-2,-63,-58,-45,-44,-70};
     int result = basement(nums);
     return 0;
 }
