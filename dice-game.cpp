@@ -1,9 +1,12 @@
 Here is the solution:
 
-double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m && i < n; i++) {
-        total += 1.0 / m;
+double diceGame(int n, int m) {
+    double total = (double)n * m;
+    double p = 0.0;
+
+    for (int i = 1; i < n; i++) {
+        p += (double)(n - i) / total;
     }
-    return total;
+
+    return p;
 }
