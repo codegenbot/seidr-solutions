@@ -1,9 +1,7 @@
-#include <string>
-
 using namespace std;
 
 string spinWords(string str) {
-    string result = "";
+    std::string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
@@ -28,3 +26,4 @@ string spinWords(string str) {
         }
     }
     return result;
+}
