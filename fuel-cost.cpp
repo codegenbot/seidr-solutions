@@ -1,10 +1,11 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int fuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3) - 2;
-        total += newPrice;
+int fuelCost(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        int newNum = ((i / 3) - 2);
+        sum += newNum;
     }
-    return total;
+    return sum;
 }
