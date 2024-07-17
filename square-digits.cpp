@@ -1,6 +1,6 @@
-```cpp
+```
 #include <string>
-#include <sstream>
+#include <iostream>
 
 std::string squareDigits(std::string input) {
     std::string result = "";
