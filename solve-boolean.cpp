@@ -1,9 +1,7 @@
+```cpp
 #include <string>
 
 bool solveBoolean(string expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
-
     bool result = true;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
@@ -14,12 +12,17 @@ bool solveBoolean(string expression) {
             i = j;
         }
     }
-    if (expression[i] == '|') {
-        int j = i + 1;
-        while (j < expression.size() && expression[j] != ' ') j++;
-        string subexpr2 = expression.substr(i + 1, j - i);
-        result |= solveBoolean(subexpr2);
+    if(expression == "t") return true;
+    else if(expression == "f") return false;
+    else {
+        bool a = (expression[0] == 't');
+        for(int i=1; i<expression.size(); i++){
+            if(expression[i] == '|'){
+                break;
+            }else{
+                a ^= (expression[i] == 't');
+            }
+        }
+        return a;
     }
-
-    return !result;
 }
