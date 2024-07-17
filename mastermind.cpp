@@ -14,7 +14,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black;
+    return white;
 }
 
 int main() {
@@ -24,3 +24,4 @@ int main() {
     std::cin >> guess;
     int result = mastermind(code, guess);
     return 0;
+}
