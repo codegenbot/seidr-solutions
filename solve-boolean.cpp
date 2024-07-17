@@ -1,9 +1,6 @@
-#include <stack>
-#include <string>
-
-string solveBoolean(string s) {
-    stack<char> st;
-    string res = "";
+std::string solveBoolean(std::string s) {
+    std::stack<char> st;
+    std::string res = "";
     
     for(int i=0; i<s.length(); i++){
         if(s[i] == '&'){
@@ -33,4 +30,5 @@ string solveBoolean(string s) {
         st.pop();
     }
     
-    return (res == "TT") ? "True" : "False";
+    return (res == "T") ? "True" : "False";
+}
