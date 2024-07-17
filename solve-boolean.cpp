@@ -1,28 +1,32 @@
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<bool> values;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            bool v1 = values.top();
-            values.pop();
-            bool v2 = values.top();
-            values.pop();
-            values.push(v1 && v2);
-            ops.push('&');
-        } else if (expression[i] == '|') {
-            bool v1 = values.top();
-            values.pop();
-            bool v2 = values.top();
-            values.pop();
-            values.push(v1 || v2);
-            ops.push('|');
-        } else if (expression[i] == 'T') {
-            values.push(true);
-        } else if (expression[i] == 'F') {
-            values.push(false);
+bool solveBoolean(string s) {
+    if(s[0] == 'T')
+        return true;
+    else if(s[0] == 'F')
+        return false;
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            
+            if(left == "T" && right == "T")
+                return true;
+            else
+                return false;
+        }
+        else if(s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            
+            if(left == "T" || right == "T")
+                return true;
+            else
+                return false;
         }
     }
-
-    return values.top();
+    
+    return false;  // default to False
 }
