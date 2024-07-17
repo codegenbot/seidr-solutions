@@ -1,35 +1,24 @@
-```
-def bowling_score(game):
+def bowling_score(s):
     score = 0
-    game += 'X' * (10 - len(game)) # ensure a full round of 10 frames
     frame = 1
-    while frame <= 10:
-        if game[2*frame-2:2*frame] == 'XXX':
-            score += 30
+    for i in range(0, len(s), 2):
+        if s[i] == 'X':
+            score += 10 + (10 if frame < 9 and s[i+2:i+4] == 'XX' else 0)
             frame += 1
-        elif game[2*frame-2] == '/':
-            first_roll = int(game[2*frame-3])
+        elif s[i] == '/':
+            first_roll = int(s[i-1])
             second_roll = 10 - first_roll
-            if first_roll + second_roll < 10:
-                while frame <= 10 and (game[2*frame-4:2*frame] == 'X' or game[2*frame-4] == '/'):
-                    score += int(game[2*frame-3])
-                    frame += 1
-            else:
-                score += first_roll + second_roll
+            score += first_roll + second_roll
             frame += 1
         else:
-            first_roll = int(game[2*frame-2:2*frame])
-            second_roll = int(game[2*frame-1])
-            if first_roll + second_roll == 10:
-                if frame < 10 and game[4*frame-3] == 'X':
-                    while frame <= 10 and (game[2*frame-4:2*frame] == 'X' or game[2*frame-4] == '/'):
-                        score += int(game[2*frame-3])
-                        frame += 1
-                else:
-                    score += first_roll + second_roll
-            elif first_roll == 10:
-                score += first_roll + second_roll
+            first_roll = int(s[i])
+            if s[i+1] == 'X':
+                score += 10 + first_roll
+                frame += 1
+            elif s[i+1] == '/':
+                score += first_roll + (10 - first_roll)
+                frame += 1
             else:
-                score += first_roll + second_roll
-            frame += 1
+                score += first_roll + int(s[i+1])
+                frame += (1 if first_roll + int(s[i+1]) < 10 else 0)
     return score
