@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
-    float snow = 0;
+    float snow = groundSnow;
     for (int i = 0; i < hours; i++) {
         snow += rate;
         if (melt > 0) {
