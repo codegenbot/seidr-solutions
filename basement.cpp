@@ -12,7 +12,7 @@ int basement(const std::vector<int>& nums) {
             break;
         }
     }
-    return index + 1;
+    return index;
 }
 
 int main() {
