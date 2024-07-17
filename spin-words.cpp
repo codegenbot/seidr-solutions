@@ -1,4 +1,7 @@
-string spinWords(string str) {
+```c++
+using namespace std;
+
+auto spinWords(auto str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -23,5 +26,5 @@ string spinWords(string str) {
             i = j;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
