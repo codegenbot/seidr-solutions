@@ -20,3 +20,4 @@ int main() {
     cin >> tweet;
     cout << validateTweet(tweet) << endl;
     return 0;
+}
