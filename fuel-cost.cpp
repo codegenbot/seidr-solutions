@@ -1,23 +1,19 @@
 #include <vector>
 using namespace std;
 
-int solve(vector<int>& vec) {
-    int sum = 0;
-    for (int i : vec) {
-        int temp = (i / 3);
-        temp = temp - 2;
-        sum += temp;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int number : numbers) {
+        int newNumber = (number / 3);
+        newNumber = min(newNumber, 0); 
+        newNumber--; 
+        total += newNumber; 
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int& x : vec) {
-        cin >> x;
-    }
-    cout << solve(vec) << endl;
+    vector<int> numbers = {10, 15, 20}; // Provide your input here
+    cout << "The fuel cost is: " << calculateFuelCost(numbers) << endl;
     return 0;
 }
