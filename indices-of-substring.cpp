@@ -9,13 +9,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(i);
+            if (i == 0 || text.substr(i-1, 1) != target[0]) {
+                result.push_back(i);
+            }
         }
-    }
-
-    // Additional check
-    if (text.find(target) != string::npos) {
-        result.push_back(n - m); // Add the index of the last occurrence
     }
 
     return result;
