@@ -2,32 +2,43 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string output;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); i++) {
-        if (i == str.size() || str[i] == ' ') {
-            size_t length = i - start;
-            if (length >= 5) {
-                std::string word = str.substr(start, length);
-                std::reverse(word.begin(), word.end());
-                output += word;
-            } else {
-                output += str.substr(start, length);
-            }
-            if (i < str.size()) {
-                output += ' ';
-            }
-            start = i + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    size_t pos = 0;
+    
+    while (pos < str.length()) {
+        size_t spacePos = str.find(' ', pos);
+        
+        if (spacePos == string::npos) {
+            result += str.substr(pos);
+            break;
+        } else {
+            string word = str.substr(pos, spacePos - pos);
+            
+            if (word.length() >= 5)
+                reverse(word.begin(), word.end());
+            
+            result += word + " ";
+            pos = spacePos + 1;
         }
     }
-    return output;
+    
+    return result.substr(0, result.length() - 1); // remove the extra space
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string str;
+    while (true) {
+        cout << "Enter a sentence ('exit' to quit): ";
+        cin >> str;
+        
+        if (str == "exit")
+            break;
+        
+        cout << spinWords(str) << endl;
+    }
+    
     return 0;
 }
