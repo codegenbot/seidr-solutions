@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     while (i <= n - m) { 
         if (text.substr(i, m) == target) { 
             result.push_back(i); 
-            i += (m == 0 ? 1 : m); // Increment i by 1 for the next search
+            i += (m == 0 ? 1 : 1); // Increment i by 1 for the next search
         }
         else {
             i++;
