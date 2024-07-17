@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,5 +16,6 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
+    cin.ignore(1024, '\n'); 
     return 0;
 }
