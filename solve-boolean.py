@@ -2,8 +2,9 @@ def solve_boolean(expression):
     def evaluate_expression(expression):
         stack = []
         expression += ")"  
+
         for char in expression:
-            if char == "(": 
+            if char == "(":  
                 stack.append(char)
             elif char == ")":
                 while stack[-1] != "(":
@@ -14,7 +15,7 @@ def solve_boolean(expression):
                 b = stack.pop()
                 if char == "&":
                     stack.append(a and b)
-                else: 
+                else:  
                     stack.append(a or b)
             else:
                 stack.append(char == "T")  
