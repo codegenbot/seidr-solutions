@@ -44,5 +44,5 @@ bool solveBoolean(string s) {
             }
         }
     }
-    return st.top() == 'T';
+    return st.size() > 0 && st.top() == '&';
 }
