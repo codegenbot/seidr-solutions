@@ -1,11 +1,2 @@
-Here is the solution:
-
-def snow_day(hours, initial_snow, rate, melt_rate):
-    return initial_snow + (rate * hours) - (melt_rate * hours)
-
-hours = int(input())
-initial_snow = float(input())
-rate = float(input())
-melt_rate = float(input())
-
-print(snow_day(hours, initial_snow, rate, melt_rate))
+def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
+    return int(initial_snow) + (int(int(rate_of_fall * hours))) - (int(int(melting_rate * hours)))
