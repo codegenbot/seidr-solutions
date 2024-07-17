@@ -12,26 +12,29 @@ int main() {
     int numBouncesTemp;
     std::cin >> numBouncesTemp;
 
-    // Convert int to std::string
+    // Convert int to string
     std::string numBouncesStr = std::to_string(numBouncesTemp);
 
     std::cout << numBouncesStr << std::endl; 
 
-    std::cout << "Enter starting height: ";
-    int startingHeightTemp;
-    std::cin >> startingHeightTemp;
+    std::cout << "Enter number of bounces: ";
+    std::cin >> numBounces;
 
-    // Convert int to std::string
-    std::string startingHeightStr = std::to_string(startingHeightTemp);
+    std::cout << "Enter starting height: ";
+    double startingHeight;
+    std::cin >> startingHeight;
+
+    // Convert int to string
+    std::string startingHeightStr = std::to_string(startingHeight);
 
     std::cout << startingHeightStr << std::endl; 
 
     std::cout << "Enter first bounce height: ";
-    int firstBounceHeightTemp;
-    std::cin >> firstBounceHeightTemp;
+    double firstBounceHeight;
+    std::cin >> firstBounceHeight;
 
-    // Convert int to std::string
-    std::string firstBounceHeightStr = std::to_string(firstBounceHeightTemp);
+    // Convert double to string
+    std::string firstBounceHeightStr = std::to_string(firstBounceHeight);
 
     std::cout << firstBounceHeightStr << std::endl; 
 
