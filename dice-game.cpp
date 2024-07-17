@@ -3,7 +3,7 @@
 double probability(int n, int m) {
     double total = static_cast<double>(n * m);
     double failureProbability = 0;
-    for (int i = 1; i <= std::min((double)n - 1, (double)m); i++) { 
+    for (int i = 1; i <= std::min(n - 1, m) && i < n; i++) { 
         failureProbability += (m - i + 1) / (n * m);
     }
     return 1 - failureProbability;
