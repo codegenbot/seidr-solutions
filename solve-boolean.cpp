@@ -1,13 +1,17 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string solveBoolean(string s) {
-    bool result = (s == "t");
-    for(int i = 0; i < s.length(); i++) {
+bool solveBoolean(string s) {
+    bool a = (s[0] == 'T'), b;
+    for(int i = 1; i < s.size(); ++i) {
         if(s[i] == '&') {
-            result &= (s.substr(i+1, 1) == "t");
+            b = a;
+            a = false;
         } else if(s[i] == '|') {
-            result |= (s.substr(i+1, 1) == "t");
+            bool temp = a;
+            a = (a || b);
+            b = temp;
         }
     }
-    return result ? "True" : "False";
+    return a;
 }
