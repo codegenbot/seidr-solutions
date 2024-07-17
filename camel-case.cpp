@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool inWord = false;
@@ -17,12 +15,4 @@ std::string kebabToCamel(const std::string& s) {
         }
     }
     return result;
-}
-
-int main() {
-    std::cout << kebabToCamel("nospaceordash") << std::endl;
-    std::cout << kebabToCamel("two-words") << std::endl;
-    std::cout << kebabToCamel("two words") << std::endl;
-    std::cout << kebabToCamel("all separate words") << std::endl;
-    return 0;
 }
