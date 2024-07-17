@@ -7,15 +7,20 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(int i = 0; i + m <= n; ++i) { 
+    for(int i = 0; i <= n - m; ++i) { 
         bool found = true;
         for(int j = 0; j < m; ++j) {
-            if(text[i+j] != target[j]) {
-                found = false;
-                break;
+            if(std::tolower(text[i+j]) != std::tolower(target[j])) { 
+                int k = i + j; // Convert 'text' index to 'target' index
+                if(k >= 1 && text[k-1] == '[' && target[j] == ']') { // Special case for [%]
+                    found = true;
+                } else {
+                    found = false;
+                    break;
+                }
             }
         }
-        if(found && (i + m == n || text.substr(i, m) != target)) {
+        if(found) {
             result.push_back(i);
         }
     }
