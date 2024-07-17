@@ -2,24 +2,22 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> res;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.size(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) res.push_back(i);
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i = 0; i <= n - m; i++) {
+        if(text.substr(i, m) == target)
+            result.push_back(i);
     }
-    return res;
+    
+    return result;
 }
 
 int main() {
     string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) cout << i << " ";
+    for(int i : result) cout << i << " ";
     return 0;
 }
