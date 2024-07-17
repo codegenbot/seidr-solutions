@@ -3,7 +3,6 @@
 int bowlingScore(const string& frames) {
     int score = 0;
     int currentRolls = 0;
-
     for (int i = 0; i < frames.length(); i++) {
         if (frames[i] == 'X') {
             score += 30;
