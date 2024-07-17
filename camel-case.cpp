@@ -1,39 +1,40 @@
-Here is the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t pos = 0;
 
-string camelCase(string str) {
-    string result = "";
-    int i = 0;
-    
-    while (i < str.length()) {
-        if (str[i] != '-') {
-            result += toupper(str[i]);
-        } else {
-            i++;
-            while (i < str.length() && str[i] == '-') {
-                i++;
-            }
-            if (i < str.length()) {
-                if (!result.empty())
-                    result += ' ';
-                for (; i < str.length() && str[i] != '-'; i++) {
-                    result += tolower(str[i]);
-                }
-            }
-        }
+    while ((pos = str.find(" ")) != std::string::npos) {
+        words.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
-    
+
+    if (!str.empty()) {
+        words.push_back(str);
+    }
+
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (i > 0)
+            words[i][0] = toupper(words[i][0]);
+    }
+
+    std::string result;
+    for (const auto& word : words) {
+        result += word;
+        if (i + 1 < words.size()) {
+            result += " ";
+        }
+        ++i;
+    }
+
     return result;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    cout << camelCase(str) << endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
