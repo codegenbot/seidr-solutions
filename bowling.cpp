@@ -1,24 +1,21 @@
-int bowlingScore(const std::string& s) {
+#include <iostream>
+#include <vector>
+
+int bowlingScore(std::vector<int>& s) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                score += 10 - (10 - roll);
+    for (int i = 0; i < s.size(); ) {
+        if (s[i] == '/') {
+            if (s[i - 1] + s[i] <= 10) {
+                score += 10;
+            } else {
+                score += 10 + s[i - 1] + s[i] - 10;
             }
-            roll = 0;
-        } else if (c >= '1' && c <= '9') {
-            int pin = c - '0';
-            while (pin-- > 0) {
-                roll++;
-            }
-        } else if (c == 'X') {
+            i++;
+        } else if (s[i] >= 1 && s[i] <= 9) {
+            score += s[i];
+        } else if (s[i] == 10) {
             score += 10;
-            roll = 0;
+            i++;
         }
     }
-    if (roll < 2) {
-        score += roll * 10;
-    }
     return score;
-}
