@@ -14,10 +14,13 @@ std::string middleCharacter(std::string input) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    if (!(std::cin >> input)) {
+    std::getline(std::cin, input); 
+    if (input.empty()) {
         std::cout << "Input is empty." << std::endl;
         return 0;
     }
-    std::cout << middleCharacter(input) << std::endl;
+    if (!input.empty()) { // Check if the input is not empty
+        std::cout << middleCharacter(input) << std::endl; 
+    } 
     return 0;
 }
