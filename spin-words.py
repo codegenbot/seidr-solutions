@@ -1,4 +1,5 @@
-```
+Here's the solution:
+
 def spin_words(sentence):
     words = sentence.split()
     result = []
