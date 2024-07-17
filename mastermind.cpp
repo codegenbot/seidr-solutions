@@ -1,18 +1,26 @@
-int getHint(string s, string p) {
-    int white = 0;
+#include <vector>
+using namespace std;
+
+int mastermind(string code, string guess) {
     int black = 0;
-    vector<char> ss(s.begin(), s.end());
-    for (char c : p) {
-        if (c == ss[0]) {
+    int white = 0;
+    
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
             black++;
-            ss.erase(ss.begin());
+        } else {
+            bool found = false;
+            for (int j = 0; j < 4; j++) {
+                if (guess[j] == code[i] && j != i) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                white++;
+            }
         }
     }
-    for (char c : p) {
-        if (count(ss.begin(), ss.end(), c)) {
-            white++;
-            ss.erase(remove(ss.begin(), ss.end(), c), ss.end());
-        }
-    }
-    return to_string(white) + " " + to_string(black);
+    
+    return {black, white};
 }
