@@ -2,7 +2,7 @@
 #include <cmath>
 
 int main() {
-    double totalDistance = 0;
+    int totalDistance = 0;
     int numBounces;
     double startingHeight;
     double firstBounceHeight;
@@ -16,10 +16,14 @@ int main() {
     std::cout << "Enter first bounce height: ";
     std::cin >> firstBounceHeight;
 
-    double calculatedBouncinessIndex = (firstBounceHeight / startingHeight);
+    double calculatedBouncinessIndex = (firstBounceHeight > 0 ? firstBounceHeight / startingHeight : 0);
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2*i));
+        if(i == 1) {
+            totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2*i));
+        } else {
+            totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2*i));
+        }
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
