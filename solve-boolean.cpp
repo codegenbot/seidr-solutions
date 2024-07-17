@@ -1,11 +1,12 @@
+```c
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = false;
+    bool res = true;
     for (char c : s) {
-        if (c == 'T') res = true;
-        else if (c == 'F') break;
+        if (c == 'T') continue;
+        else if (c == 'F') res = false;
         else if (c == '|') res = !res;
         else if (c == '&') res &= true;
     }
