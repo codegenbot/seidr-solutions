@@ -1,43 +1,28 @@
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    queue<int> pinsInFrame;
-    
-    for(int i=0; i<input.length(); i++) {
-        char c = input[i];
-        
-        if(c == 'X') {
+    bool lastRoll = false;
+
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
             score += 10;
-            inFrame = false;
-            pinsInFrame = queue<int>();
-        } else if(c == '/') {
-            int currentPins = 10 - (int)('0' + input[i-1]) - (int)('0' + input[i]);
-            score += currentPins;
-            inFrame = false;
-            pinsInFrame = queue<int>();
-        } else {
-            if(inFrame) {
-                pinsInFrame.push((int)('0' + c));
+            lastRoll = true;
+        } else if (isdigit(s[i])) {
+            int roll1, roll2;
+            roll1 = s[i] - '0';
+            if (i < 8 && s[i + 1] == '/') {
+                roll2 = 10 - roll1;
+                i++;
+            } else if (s[i + 1] == 'X') {
+                roll2 = 10;
+                lastRoll = true;
+                i++;
             } else {
-                int currentPins = (int)('0' + c);
-                while(currentPins > 0 && !pinsInFrame.empty()) {
-                    score += pinsInFrame.front();
-                    pinsInFrame.pop();
-                    currentPins -= 10;
-                }
-                inFrame = true;
+                roll2 = s[i + 1] - '0';
+                i++;
             }
-        }
-        
-        if(inFrame) {
-            pinsInFrame.push((int)('0' + c));
+            score += roll1 + roll2;
         }
     }
-    
-    while(!pinsInFrame.empty()) {
-        score += pinsInFrame.front();
-        pinsInFrame.pop();
-    }
-    
+
     return score;
 }
