@@ -7,7 +7,7 @@ float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingR
             currentSnow = newSnow;
         else
             currentSnow = 0.0f;
-
+        
         if (currentSnow > 0)
             currentSnow -= std::min(currentSnow, meltingRate);
     }
