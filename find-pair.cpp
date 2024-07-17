@@ -1,33 +1,32 @@
 #include <vector>
 using namespace std;
 
-vector<int> findPair(vector<int>& nums, int target) {
+pair<int, int> findPair(vector<int>& numbers, int target) {
     unordered_map<int, int> numMap;
-    vector<int> result;
-
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
+    for (int i = 0; i < numbers.size(); i++) {
+        int complement = target - numbers[i];
         if (numMap.find(complement) != numMap.end()) {
-            result.push_back(nums[i]);
-            result.push_back(complement);
-            return result;
+            return {complement, numbers[i]};
         }
-        numMap[nums[i]] = i;
+        numMap[numbers[i]] = i;
     }
-
-    // If no pair is found
-    return {};
+    return {-1, -1};
 }
 
 int main() {
-    int n, x1, x2, t;
+    int n;
     cin >> n;
+    vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        cin >> t;
-        cin >> x1 >> x2;
-        vector<int> res = findPair({x1, x2}, t);
-        cout << res[0] << endl;
-        cout << res[1] << endl;
+        cin >> numbers[i];
     }
+    int target;
+    cin >> target;
+    
+    pair<int, int> result = findPair(numbers, target);
+
+    cout << result.first << endl;
+    cout << result.second << endl;
+
     return 0;
 }
