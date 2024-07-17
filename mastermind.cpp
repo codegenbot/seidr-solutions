@@ -13,10 +13,14 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (char c : guess) {
-        if (std::find(code.begin(), code.end(), c) != code.end() && !std::count(code.begin(), code.end(), c)) {
-            white++;
-        }
-    }
+    return black;
+}
 
-    return black + white;
+int main() {
+    std::string code;
+    std::cin >> code;
+    std::string guess;
+    std::cin >> guess;
+    int result = mastermind(code, guess);
+    return 0;
+}
