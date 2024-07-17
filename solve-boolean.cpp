@@ -1,38 +1,43 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
+Here is the completed code:
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
+#include <vector>
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string s) {
+    bool result = false;
+    int i = 0;
+
+    while (i < s.length()) {
+        if (s[i] == 't') {
+            result = true;
+            break;
+        } else if (s[i] == 'f') {
+            result = false;
+            break;
+        } else if (s[i] == '&') {
+            i++;
+            bool left = evaluateBooleanExpression(s.substr(i));
+            i += 1;
+            if (!left) return false;
+            result &= left;
         } else if (s[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push(s[i]);
-        } else if (s[i] == 'T') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            st.push('T');
-        } else if (s[i] == 'F') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push('F');
+            i++;
+            bool left = evaluateBooleanExpression(s.substr(i));
+            i += 1;
+            result |= left;
         }
     }
 
-    while (!st.empty()) {
-        st.pop();
-    }
-
     return result;
+}
+
+int main() {
+    string s;
+    cin >> s;
+
+    cout << (evaluateBooleanExpression(s) ? "True" : "False") << endl;
+
+    return 0;
 }
