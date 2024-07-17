@@ -15,4 +15,3 @@ int main() {
     double total = shoppingList(prices, discounts);
     std::cout << "Total cost after discount: $" << total << std::endl;
     return 0;
-}
