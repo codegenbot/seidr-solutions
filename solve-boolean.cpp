@@ -1,17 +1,16 @@
-string solveBoolean(string input) {
-    stack<char> s;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '&') {
-            char a = s.top(); s.pop();
-            char b = s.top(); s.pop();
-            s.push((a == 'T' && b == 'T') ? 'T' : 'F');
-        } else if (input[i] == '|') {
-            char a = s.top(); s.pop();
-            char b = s.top(); s.pop();
-            s.push((a == 'T' || b == 'T') ? 'T' : 'F');
-        } else {
-            s.push(input[i]);
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool result = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'f' || s[i] == 'F') {
+            result = false;
+            break;
+        } else if (s[i] == '&') {
+            while (i + 1 < s.length() && s[i+1] != '&') i++;
+            i++; // skip the &
         }
     }
-    return (s.top() == 'T') ? "True" : "False";
+    return result;
 }
