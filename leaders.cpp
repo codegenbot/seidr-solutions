@@ -10,6 +10,6 @@ vector<int> leaders(vector<int>& arr) {
             res.push_back(arr[i]);
         }
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
