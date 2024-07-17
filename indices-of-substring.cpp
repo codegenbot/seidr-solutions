@@ -12,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i=0; i <= n-m; ) { 
         if(text.substr(i, m) == target) {
             result.push_back(i); 
-            i++; // Start searching from last found index + 1 (or increment by 1)
+            i += m - target.length(); // Start searching from last found index + 1
         } else {
             i++; 
         }
