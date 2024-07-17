@@ -12,5 +12,6 @@ def indices_of_substring(text, target):
             result.append(i)
     return result
 
-print(gcd(int(input()), int(input())))
-print(indices_of_substring(input(), input()))
+# test cases
+print(gcd(1, 1)) 
+print(indices_of_substring("banana", "ana"))
