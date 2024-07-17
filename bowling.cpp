@@ -17,4 +17,3 @@ int bowlingScore(const char* frames) {
         }
     }
     return score;
-}
