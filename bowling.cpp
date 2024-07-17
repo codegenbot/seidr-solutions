@@ -1,10 +1,10 @@
-```cpp
 #include <string>
 
 int bowlingScore(const char* s) {
     int score = 0;
     int roll = 0;
-    for (auto c : std::string(s)) {
+    std::string str(s);
+    for (char c : str) {
         if (c == '/') {
             if (roll < 2) {
                 score += 10 - (10 - roll);
@@ -24,4 +24,3 @@ int bowlingScore(const char* s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-}
