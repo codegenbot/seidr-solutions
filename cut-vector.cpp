@@ -1,6 +1,7 @@
 #include <climits>
 #include <vector>
-#include <numeric>
+#include <initializer_list>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,12 +14,12 @@ vector<vector<int>> cutVector(vector<int> v) {
         vector<int> right(v.begin() + i, v.end());
         
         int diff = abs((accumulate(left.begin(), left.end(), 0) - 
-                        (accumulate(right.begin(), right.end(), 0))));
+                       (accumulate(right.begin(), right.end(), 0))));
         
         if(diff < min_diff) {
             min_diff = diff;
-            result[0] = vector<int>(left.begin(), left.end());
-            result[1] = vector<int>(right.begin(), right.end());
+            result[0] = left;
+            result[1] = right;
         }
     }
     
