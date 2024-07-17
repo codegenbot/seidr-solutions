@@ -15,10 +15,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    if (input.empty()) {
-        std::cout << "Input is empty." << std::endl;
-        return 0;
-    }
-    std::cout << middleCharacter(input) << std::endl;
+    std::cout << "Enter a string: " << middleCharacter(input) << std::endl;
     return 0;
 }
