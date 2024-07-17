@@ -2,37 +2,43 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++black;
+    for (int i = 0; i < 4; i++) {
+        if (codeVector[i] == guessVector[i]) {
+            black++;
+            codeVector[i] = '\0';
+            guessVector[i] = '\0';
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                ++count;
+    vector<char> remainingCode(codeVector.begin() + black, codeVector.end());
+    vector<char> remainingGuess(guessVector.begin() + black, guessVector.end());
+
+    for (int i = 0; i < 4; i++) {
+        int j = 0;
+        while (j < 4) {
+            if (remainingCode[j] == remainingGuess[i]) {
+                white++;
+                remainingCode[j] = '\0';
+                break;
             }
+            j++;
         }
-        if (count > 1 || count == 1 && black > 0) {
-            continue;
-        }
-        white += count - (code.find(c) != std::string::npos);
     }
 
-    return white + black;
+    return black + white;
 }
 
 int main() {
-    std::cout << mastermind("RRRR", "RRRR") << std::endl; // output: 4
-    std::cout << mastermind("BOYG", "GYOB") << std::endl; // output: 4,0
-    std::cout << mastermind("WYYW", "BBOG") << std::endl; // output: 0,0
-    std::cout << mastermind("GGGB", "BGGG") << std::endl; // output: 2,2
-    std::cout << mastermind("BBBB", "OOOO") << std::endl; // output: 0,0
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
