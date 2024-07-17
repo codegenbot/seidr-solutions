@@ -9,11 +9,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(int i=0; ; ) { 
-        if(i+n-m > n) break; // Check if we have reached the end of the string
+    int i = 0; 
+    while (i <= n - m) { 
         if(text.substr(i, m) == target) {
             result.push_back(i); 
-            i += m; // Start searching from last found index + target length
+            i += 1; 
         } else {
             i++; 
         }
