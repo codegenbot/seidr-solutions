@@ -1,36 +1,29 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
+    std::size_t start = 0;
+    for (std::size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            std::size_t len = i - start;
+            if (len >= 5) {
+                std::string word = str.substr(start, len);
                 std::reverse(word.begin(), word.end());
+                result += word + " ";
+            } else {
+                result += str.substr(start, len) + " ";
             }
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+            start = i + 1;
         }
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    result += word;
-    
-    return result;
+    return result.substr(0, result.size() - 1); // remove the trailing space
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
