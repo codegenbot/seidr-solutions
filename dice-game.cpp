@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
+#include <string>
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = std::max(m, 1); i <= n; i++) {
-        sum += (i - std::min(i, m)) / (double)n;
+    for (int i = 1; i <= m; i++) { 
+        sum += (n - i) / (double)(n * m);
     }
     return sum;
 }
@@ -15,5 +17,7 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double result = probability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl;
+    std::string output = std::to_string(result); 
+    std::cout << "The probability that Peter rolls strictly higher is: " << output << std::endl; 
     return 0;
+}
