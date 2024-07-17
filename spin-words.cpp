@@ -1,4 +1,4 @@
-string spinWords(string str) {
+```string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -24,4 +24,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
+}```
