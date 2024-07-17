@@ -2,7 +2,7 @@
 #include <string>
 
 std::string solveBoolean(std::string s) {
-    stack<char> st;
+    std::stack<char> st;
     std::string res = "";
     
     for(int i=0; i<s.length(); i++) {
