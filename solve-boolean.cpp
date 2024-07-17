@@ -1,47 +1,42 @@
-string solveBoolean(string boolExp) {
-    stack<char> opStack;
-    stack<string> valStack;
+string solveBoolean(string booleanExpression) {
+    stack<char> operatorStack;
+    stack<string> operandStack;
 
-    for (int i = 0; i < boolExp.length(); i++) {
-        if (boolExp[i] == '&' || boolExp[i] == '|') {
-            while (!opStack.empty() && opStack.top() != '(') {
-                valStack.push(valStack.top());
-                opStack.pop();
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
+                string op1 = operandStack.top();
+                operandStack.pop();
+                string op2 = operandStack.top();
+                operandStack.pop();
+                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
             }
-            opStack.push(boolExp[i]);
-        } else if (boolExp[i] == '(') {
-            opStack.push('(');
-        } else if (boolExp[i] == ')') {
-            while (!opStack.empty() && opStack.top() != '&') {
-                valStack.push(valStack.top());
-                opStack.pop();
+            operatorStack.push('&');
+        } else if (booleanExpression[i] == '|') {
+            while (!operatorStack.empty() && operatorStack.top() != '&') {
+                operatorStack.pop();
+                string op1 = operandStack.top();
+                operandStack.pop();
+                string op2 = operandStack.top();
+                operandStack.pop();
+                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
             }
-            opStack.pop();
-        } else {
-            string temp = "";
-            while (i + 1 < boolExp.length() && boolExp[i + 1] != '&' && boolExp[i + 1] != '|') {
-                temp += boolExp[i++];
-            }
-            valStack.push(temp);
+            operatorStack.push('|');
+        } else if (booleanExpression[i] == 't' || booleanExpression[i] == 'T') {
+            operandStack.push("T");
+        } else if (booleanExpression[i] == 'f' || booleanExpression[i] == 'F') {
+            operandStack.push("F");
         }
     }
 
-    while (!opStack.empty()) {
-        string op = opStack.top();
-        opStack.pop();
-        string b1 = valStack.top();
-        valStack.pop();
-        string b2;
-        if (op == '&') {
-            if (b1 == "t" && b2 == "t") return "True";
-            else if (b1 == "f" || b2 == "f") return "False";
-            else return "False";
-        } else {
-            if (b1 == "t" && b2 == "t") return "True";
-            else if (b1 == "f" || b2 == "f") return "False";
-            else return "True";
-        }
+    while (!operatorStack.empty()) {
+        string op1 = operandStack.top();
+        operandStack.pop();
+        string op2 = operandStack.top();
+        operandStack.pop();
+        operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
     }
 
-    return valStack.top();
+    return operandStack.top();
 }
