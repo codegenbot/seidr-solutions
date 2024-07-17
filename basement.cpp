@@ -1,11 +1,11 @@
 #include <vector>
 using namespace std;
 
-int basement(const vector<int>& numbers) {
+int basementIndex(vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); ++i) {
-        sum += numbers[i];
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1; // or throw an exception, depending on the problem requirements
+    return -1; // not found
 }
