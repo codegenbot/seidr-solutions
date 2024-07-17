@@ -5,7 +5,14 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
     for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) {
             result.push_back(arr[i]);
         }
     }
