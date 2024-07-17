@@ -7,14 +7,8 @@ bool evaluateBooleanExpression(string expression) {
     for (char c : expression) {
         if (c == 'T') result = true;
         else if (c == 'F') return false;
-        else if (c == '&') {
-            bool temp = result;
-            result &= temp;
-        }
-        else if (c == '|') {
-            bool temp = result;
-            result |= temp;
-        }
+        else if (c == '&') result &= true;
+        else if (c == '|') result |= true;
     }
     return result;
 }
