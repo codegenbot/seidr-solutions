@@ -23,10 +23,9 @@ int main() {
     for(int i=0; i<n; i++) {
         cin >> v2[i];
     }
-    if (n == 0) {
-        cout << "Error: Input vector size cannot be zero." << endl;
-    } else {
-        cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+    if (n <= 0) {
+        cerr << "Error: Number of dimensions must be greater than zero." << endl;
     }
     return 0;
 }
