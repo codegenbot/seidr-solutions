@@ -1,12 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    vector<int> frames;
+    std::vector<int> frames;
 
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
@@ -19,7 +13,7 @@ int bowlingScore(string s) {
         if (frame == 10) {
             score += 30;
         } else {
-            string str = s.substr(0, frame);
+            std::string str = s.substr(0, frame);
             int first = str[str.length() - 1] - '0';
             int second = str[str.length() - 2] - '0';
             score += first + second;
