@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <string>
 
@@ -15,7 +14,13 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            stack.push(string(1, expression[i]));
+            string s = "";
+            while(i < expression.size() && (expression[i] == 'T' || expression[i] == 'F')) {
+                s += expression[i];
+                i++;
+            }
+            if(!s.empty())
+                stack.push(s);
         }
     }
 
@@ -24,16 +29,15 @@ bool solveBoolean(string expression) {
         string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.top() == "T" || stack.top() == "F");
+            result &= (stack.top() == "T") ? true : false;
             stack.pop();
         } else if (op == "|") {
             if (stack.size() > 1) {
-                result |= (stack.top() == "T" || stack.top() == "F");
+                result |= (stack.top() == "T") ? true : false;
                 stack.pop();
             }
         } else {
-            result = stack.top() == "T";
-            stack.pop();
+            result = op == "T" ? true : false;
         }
     }
 
