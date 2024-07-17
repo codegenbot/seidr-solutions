@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <iostream>
 
 std::string squareDigitsStr(std::string n) {
     std::string result = "";
@@ -11,7 +11,7 @@ std::string squareDigitsStr(std::string n) {
 }
 
 int main() {
-    std::string num = "493193";  // test number
+    std::string num = "493193";  
     std::cout << squareDigitsStr(num) << std::endl;  
     return 0;
 }
