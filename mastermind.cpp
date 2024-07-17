@@ -1,6 +1,4 @@
 #include <string>
-#include <algorithm>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -8,16 +6,16 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && guess.find(std::string(1, c)) != std::string::npos) {
-            black++;
-        } else if (std::count(code.begin(), code.end(), c) > 0) {
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
 
-    return black;
+    for (char c : guess) {
+        if (std::count(code.begin(), code.end(), c) > 0 && code.find(c) == std::string::npos) {
+            white++;
+        }
+    }
+
+    return black + white;
 }
