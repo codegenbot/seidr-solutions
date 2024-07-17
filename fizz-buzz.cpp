@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 std::string fizzBuzz(int x) {
     if (x % 15 == 0) 
         return "FizzBuzz";
@@ -7,5 +8,4 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x);
-}
+        return std::to_string(x) + "";
