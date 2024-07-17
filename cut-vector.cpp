@@ -1,7 +1,6 @@
 #include <climits>
 #include <vector>
 #include <numeric>
-#include <cmath>
 
 using namespace std;
 
@@ -14,6 +13,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         long long left_sum = accumulate(v.begin(), v.begin() + (i + 1), 0LL);
         long long right_sum = total_sum - left_sum;
         
+        if(left_sum == right_sum) {
+            return {{v.begin(), v.begin() + (i + 1)}, {v.begin() + i, v.end()}};
+        }
+        
         int diff = abs(left_sum - right_sum);
         
         if(diff < min_diff) {
@@ -22,7 +25,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    return {{v.begin(), v.begin() + (split_index + 1)}, {v.begin() + split_index, v.end()}};
+    return {{v}, {}};
 }
 
-pair<vector<int>, vector<int>> result = cutVector({9191, 652, 6176, 2479, 8717});
+int main() {
+    vector<int> v = {9191, 652, 6176, 2479, 8717};
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    return 0;
+}
