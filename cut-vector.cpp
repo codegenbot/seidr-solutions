@@ -15,8 +15,13 @@ vector<vector<int>> cutVector(vector<int> v) {
         vector<int> temp;
         int diff = 0;
         for(int j = 0; j < min(left.size(), right.size()); j++){
-            if(abs(left[j]-right[j]) > diff) {
-                diff = abs(left[j]-right[j]);
+            if(left[j] != right[j]) {
+                temp.push_back(abs(left[j]-right[j]));
+                if(temp[j] > diff) {
+                    diff = temp[j];
+                }
+            } else {
+                break;
             }
         }
         
