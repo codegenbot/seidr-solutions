@@ -2,15 +2,11 @@ int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            roll++;
-        } else if (c == '/') {
-            score += 10 - ('X' - c);
-            roll++;
-        } else {
-            int strike = c - '0';
-            score += strike;
+        if (c == '/') {
+            if (roll < 2)
+                score += 10 - (10 - (roll == 1 ? 10 - stoi(&s[0]) : 10 - stoi(&s[s.find('/') + 1]))) * roll;
+            roll = 0;
+        } else if (isdigit(c)) {
             roll++;
         }
     }
