@@ -23,8 +23,9 @@ int main() {
     for(int i=0; i<n; i++) {
         cin >> v2[i];
     }
-    if (n == 0) {
-        cout << "Error: Number of dimensions cannot be zero." << endl;
+    if(v1.size() != v2.size()) {
+        cout << "Error: Vectors must be the same size." << endl;
+        return 1;
     } else {
         cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
     }
