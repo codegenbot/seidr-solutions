@@ -1,4 +1,10 @@
-```string spinWords(string str) {
+```
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -23,5 +29,13 @@
             i = j;
         }
     }
-    return result;
-}```
+    return result.substr(0, result.length() - 1);
+}
+
+int main() {
+    string str; 
+    cout << "Enter a sentence: ";
+    cin >> str;
+    getline(cin, str);
+    cout << spinWords(str);
+}
