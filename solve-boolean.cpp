@@ -1,33 +1,42 @@
-#include <string>
-bool solveBoolean(string expression) {
-    stack<string> stack;
+```bool solveBoolean(std::string expression) {
+    stack<std::string> stack;
     bool lastOp = false;
-    string result = "T"; // Initialize with True
+    std::string result = "T";
     for (char c : expression) {
         if (c == ' ') continue;
         if (c == '&') {
-            while (!stack.empty() && stack.top() != "|") stack.pop();
-            stack.push(string(1, "&"));
-        } else if (c == '|') {
-            while (!stack.empty()) {
-                if (stack.top() == "&") {
-                    if (result == "T" || result == "F")
-                        result = (result == "T") ? "T" : "F";
-                    else return false;
-                }
+            while (!stack.empty() && stack.top() != "|") {
+                if (stack.top() == "F")
+                    result = "F";
+                else
+                    result = "T";
                 stack.pop();
             }
-            stack.push("|");
-        } else {
-            if (c == 'T' || c == 'F') stack.push(c == 'T' ? "T" : "F");
+            lastOp = false;
+        } 
+        else if (c == '|') {
+            while (!stack.empty()) {
+                if (stack.top() == "&") {
+                    if (result == "F")
+                        result = "F";
+                    else
+                        result = "T";
+                    break;
+                } else if (stack.top() == "|") {
+                    stack.pop();
+                    lastOp = true;
+                    break;
+                }
+            }
+        } 
+        else {
+            if (c == 'T')
+                stack.push("T");
+            else
+                stack.push("F");
             lastOp = false;
         }
     }
 
-    while (!stack.empty()) {
-        if (stack.top() == "&") return false;
-        stack.pop();
-    }
-    
     return result == "T";
-}
+}```
