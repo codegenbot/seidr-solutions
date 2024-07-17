@@ -1,7 +1,4 @@
-#include <iostream>
-#include <map>
 #include <string>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -25,17 +22,4 @@ int mastermind(std::string code, std::string guess) {
     black -= std::count(placementMap.begin(), placementMap.end(), 4); 
 
     return black;
-}
-
-int main() {
-    std::string code, guess;
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
-
-    int result = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << result << std::endl;
-
-    return 0;
 }
