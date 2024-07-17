@@ -19,3 +19,4 @@ int main() {
         std::cout << "No negative sum found." << std::endl;
     }
     return 0;
+}
