@@ -11,7 +11,7 @@ int bowlingScore(const string& frames) {
         } else if (c == '/') {
             score += (10 - currentRolls);
             currentRolls = 0;
-        } else if (isdigit(c)) {
+        } else if (std::isdigit(c)) {
             int roll = c - '0';
             currentRolls++;
             if (currentRolls == 2) {
