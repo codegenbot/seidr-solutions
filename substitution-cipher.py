@@ -1,3 +1,4 @@
-def substitution_cipher(key, message):
-    key_map = {k: v for k, v in zip(key, message)}
-    return "".join([key_map.get(char, char) for char in message])
+```
+def substitution_cipher(cipher1, cipher2, message):
+    cipher_dict = {k: v for k, v in zip(cipher1, cipher2)}
+    return "".join([cipher_dict.get(char, char) for char in message])
