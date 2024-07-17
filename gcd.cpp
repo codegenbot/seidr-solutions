@@ -8,30 +8,38 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    if(b != 0) return 1; 
     return a;
 }
 
 int main() {
     int a = 12; 
     int b = 15;
-    std::cout << "GCD: " << gcd(a, b) << std::endl;
+    std::cout << "GCD: " << gcd(b, a) << std::endl;
 
     int text = 1234567;
     int target = 345;
     
     std::vector<int> result;
     int index = 0;
-    while (index <= text - target + 1) {
-        if ((text - index) >= target && (text - index) % target == 0) {
+    while (index <= text - target) {
+        if ((text - index) % target == 0) {
+            bool match = true;
             for (int i = 0; i < target; i++) {
-                if ((text - index + i) % target != 0 || i >= target) {
+                if (text - index + i >= 0 && text - index + i < text && ((text - index + i) / target) != ((target - 1) / target)) {
+                    if (text - index + i % target != target - (i % target)) {
+                        match = false;
+                        break;
+                    }
+                } else {
+                    match = false;
                     break;
                 }
             }
-            result.push_back(index);
+            if (match) {
+                result.push_back(index);
+            }
         }
-        index += target;
+        index += 1;
     }
 
     for (int i : result) {
