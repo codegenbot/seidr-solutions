@@ -1,3 +1,4 @@
+```cpp
 #include <iomanip>
 #include <iostream>
 #include <vector>
