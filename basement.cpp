@@ -13,11 +13,11 @@ int basement(vector<int>& nums) {
 
 int main() {
     vector<int> nums;
-    for(int i=0; i<4; i++){
+    for(int i=0; i<4; i++) {
         if(i==0) nums.push_back(1);
         else if(i==1) nums.push_back(-2);
         else if(i==2) nums.push_back(3);
-        else nums.push_back(-4);
+        else nums.push_back(-4); 
     } 
     int result = basement(nums);
     if (result != -1) {
