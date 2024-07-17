@@ -1,7 +1,4 @@
-#include <iostream>
-#include <map>
 #include <string>
-#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -13,7 +10,7 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) { 
             black++;
-        } else if (std::any_of(guess.begin(), guess.end(), [&](char c){return c==code[i];})) { 
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { 
             white++;
             colorMap[code[i]]++; 
         }
@@ -23,20 +20,13 @@ int mastermind(std::string code, std::string guess) {
         placementMap[pair.first] = pair.second; 
     }
 
-    black -= std::count_if(placementMap.begin(), placementMap.end(), [](const auto &p){return p.second == 4;}); 
+    int blackCount = 0;
+    for (const auto& pair : placementMap) {
+        if (pair.second == 4) {
+            blackCount++;
+        }
+    }
+    black -= blackCount;
 
     return black;
-}
-
-int main() {
-    std::string code, guess;
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
-
-    int result = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << result << std::endl;
-
-    return 0;
 }
