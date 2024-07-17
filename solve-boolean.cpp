@@ -14,7 +14,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             string subExpression = expression.substr(i + 1, j - i - 1);
             bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j) == "t") ? true : false;
+            bool right = (expression.substr(j + 1) == "t") ? true : false;
             result &= (left && right);
         } else if (expression[i] == '|') {
             int j = i + 1;
@@ -23,7 +23,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             string subExpression = expression.substr(i + 1, j - i - 1);
             bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j) == "t") ? true : false;
+            bool right = (expression.substr(j + 1) == "t") ? true : false;
             result |= (left || right);
         }
     }
