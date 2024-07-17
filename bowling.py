@@ -1,4 +1,18 @@
 ```
-def bowling(score):
-    score = [int(x) if x.isdigit() else 10 for x in score]
-    return sum(max(0, i) + max(0, min(i, 10)) if k == '/' else k for i, (k, j) in enumerate(zip(score, score[1:]))) if len(score) > 0 else 0
+def bowling_score(game):
+    score = 0
+    roll = 0
+    frame = 0
+    for char in game:
+        if char == 'X':
+            score += 30
+            roll += 3
+            frame += 1
+        elif char == '/':
+            continue
+        else:
+            score += int(char)
+            roll += 1
+        if roll >= 10 and frame < 9:
+            score += (10 - int(char)) * 2
+    return score
