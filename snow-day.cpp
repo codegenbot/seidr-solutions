@@ -2,16 +2,10 @@
 using namespace std;
 
 float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingRate) {
-    float totalSnow = abs(currentSnow);
+    float totalSnow = 0;
     
     for (int i = 0; i < hours; ++i) {
-        currentSnow += rateOfSnowfall;
-        currentSnow -= meltingRate;
-        
-        if (currentSnow < 0)
-            currentSnow = 0;
-        
-        totalSnow = fmin(fmax(0.f, currentSnow), 10000.f);
+        currentSnow = fmin(fmax(0.f, currentSnow + rateOfSnowfall - meltingRate), 10000.f); // assume max snow is 10000 cm
         totalSnow += abs(currentSnow);
     }
     
