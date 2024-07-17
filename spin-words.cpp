@@ -1,28 +1,19 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string s) {
+string spinWords(string str) {
     string result = "";
-    int wordLength;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += " ";
-        } else {
-            wordLength = 0;
-            while (i < s.length() && s[i] != ' ') {
-                i++;
-                wordLength++;
-            }
-            if (wordLength >= 5) {
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    result += s[i - j];
-                }
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += string(word.rbegin(), word.rend()) + " ";
             } else {
-                while (i < s.length() && s[i] != ' ') {
-                    i++;
-                    result += s[i - 1];
-                }
+                result += word + " ";
             }
+            start = i + 1;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
