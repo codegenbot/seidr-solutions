@@ -1,12 +1,12 @@
 def bouncing_balls():
-    h1 = float(input())
-    h2 = float(input())
-    bounces = int(input())
-
-    bounciness_index = h2 / h1
-    total_distance = (h1 + h2) * (1 - 0.5**bounces) / (1 - 0.5)
-
-    return f"{total_distance:.4f}"
+    h0 = float(input())
+    hf = float(input())
+    bounciness_index = hf / h0
+    num_bounces = int(input())
+    total_distance = (2 * (1 + bounciness_index) ** num_bounces - 1) / (
+        bounciness_index**2
+    )
+    return "{:.6f}".format(total_distance)
 
 
 print(bouncing_balls())
