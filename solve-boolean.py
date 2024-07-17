@@ -1,14 +1,21 @@
-def solve(input_str):
-    def evaluate(expression):
-        if expression == "T":
-            return True
-        elif expression == "F":
-            return False
-        elif "&" in expression:
-            left, right = expression.split("&")
-            return evaluate(left) and evaluate(right)
-        elif "|" in expression:
-            left, right = expression.split("|")
-            return evaluate(left) or evaluate(right)
-
-    return evaluate(input_str)
+def solve_boolean(s):
+    s = s.lower()
+    stack = []
+    for c in reversed(s):
+        if c in ['|', '&']:
+            stack.append(c)
+        elif c == 't':
+            stack.append(True)
+        elif c == 'f':
+            stack.append(False)
+        else:
+            raise ValueError("Invalid input")
+    result = None
+    while stack:
+        op = stack.pop()
+        b2 = stack.pop()
+        if op == '&':
+            result = result and b2 if result is not None else b2
+        elif op == '|':
+            result = result or b2 if result is not None else b2
+    return result
