@@ -1,13 +1,17 @@
-def bowling_score(game):
+```
+def bowling_score(s):
+    frames = [list(map(int, frame.split('/'))) for frame in s.split('X') if frame]
+    frames += [['X']]
+
     score = 0
-    for i in range(10):
-        frame = game[i * 2 : (i + 1) * 2]
-        if "/" in frame:
-            roll1, roll2 = map(int, re.split("/", frame))
-            if i < 9 and (roll1 + roll2) == 10:
-                score += 10
-            else:
-                score += sum(roll1, roll2)
+    prev_frame = None
+    for frame in frames:
+        if len(frame) == 1: 
+            score += 10
+        elif frame[0] == 10:
+            score += sum(frame)
         else:
-            score += int(frame[0])
+            score += sum(prev_frame[:2]) + min(frame[0], 10)
+        prev_frame = frame
+
     return score
