@@ -1,6 +1,6 @@
-```c
+```cpp
 #include <string>
-using namespace std;
+#include <iostream>
 
 bool solveBoolean(string s) {
     bool res = false;
@@ -14,9 +14,10 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    bool result = solveBoolean(input);
-    cout << (result ? "TRUE" : "FALSE") << endl;
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
+    bool result = solveBoolean(s);
+    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
 }
