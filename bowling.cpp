@@ -1,20 +1,20 @@
-```cpp
-int bowlingScore(std::vector<int>& s) {
+int bowlingScore(std::vector<char>& s) {
     int score = 0;
     for (int i = 0; i < s.size(); ) {
         if (s[i] == '/') {
-            if (s[i - 1] + s[i] <= 10) {
+            if (i > 0 && (s[i - 1] == 'X' || s[i - 1] >= '2' && s[i - 1] <= '9')) {
                 score += 10;
+                i++;
+            } else if (s.size() > i + 1 && s[i + 1] == '/') {
+                score += s[i - 1] - '0';
+                i += 2;
             } else {
-                score += 10 + s[i - 1] + s[i] - 10;
+                return -1; // invalid input
             }
-            i++;
-        } else if (s[i] >= 1 && s[i] <= 9) {
-            score += s[i];
-        } else if (s[i] == 10) {
+        } else if (s[i] >= 'X') { 
             score += 10;
-            i++;
+        } else {
+            score += s[i] - '0';
         }
     }
-    return score; 
-}
+    return score;
