@@ -23,15 +23,16 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text, target;
     cout << "Enter the text: ";
-    while (getline(cin, text).empty()) {
-        cout << "Invalid input. Please try again.\n";
-        cout << "Enter the text: ";
+    getline(cin, text);
+    if(text.empty()) {
+        cout << "Text cannot be empty." << endl;
+        return 0;
     }
-
     cout << "Enter the target: ";
-    while (getline(cin, target).empty()) {
-        cout << "Invalid input. Please try again.\n";
-        cout << "Enter the target: ";
+    getline(cin, target);
+    if(target.empty()) {
+        cout << "Target cannot be empty." << endl;
+        return 0;
     }
 
     vector<int> results = indicesOfSubstring(text, target);
