@@ -25,5 +25,5 @@ string spinWords(string str) {
             i = j;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
