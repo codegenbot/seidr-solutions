@@ -1,34 +1,49 @@
-```
+```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
-    st.push('&');
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == '|') {
-            while(st.top() != '&') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('T');
+            }
+            while(!st.empty()) {
                 char c = st.top(); 
                 st.pop();
-                if(c == 'T') {
-                    st.push('T');
-                } else if(c == 'F') {
-                    st.push('F');
+                if(c == '&') {
+                    st.push('&');
+                    break;
+                } else if(c == '|') {
+                    st.push('|');
+                    break;
                 }
             }
-            st.pop();
         } else if(s[i] == '&') {
-            while(st.top() != '|') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('F');
+            }
+            while(!st.empty()) {
                 char c = st.top(); 
                 st.pop();
-                if(c == 'T') {
-                    st.push('T');
-                } else if(c == 'F') {
-                    st.push('F');
+                if(c == '|') {
+                    st.push('|');
+                    break;
+                } else if(c == '&') {
+                    st.push('&');
+                    break;
                 }
             }
-            st.push('&');
         }
     }
-    return st.top() == '&';
+    return st.top() == 'T';
 }
