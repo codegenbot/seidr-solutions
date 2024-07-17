@@ -9,6 +9,4 @@ for i in range(n):
     total_price += price
 
 return round(total_price, 1)
-
-
-print(round(int(input()), 1))
+print(round(total_price, 1))
