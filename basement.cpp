@@ -15,17 +15,14 @@ int basement(const std::vector<int>& nums) {
 }
 
 int main() {
+    std::string input;
+    std::getline(std::cin, input);
     std::vector<int> nums;
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream stream(line);
+    std::istringstream iss(input);
     int num;
-    while (stream >> num) {
+    while (iss >> num) {
         nums.push_back(num);
     }
-    
-    int result = basement(nums);
-    std::cout << result << std::endl;
-
+    std::cout << basement(nums) << std::endl;
     return 0;
 }
