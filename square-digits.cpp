@@ -11,6 +11,6 @@ std::string squareDigitsStr(std::string n) {
 }
 
 int main() {
-    std::cout << squareDigitsStr("8174") << std::endl;
+    std::cout << squareDigitsStr("8174") << std::endl; 
     return 0;
 }
