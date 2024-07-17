@@ -1,13 +1,24 @@
-Here is a Python function to solve the problem:
-
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
     elif '&' in expression:
-        a, b = expression.split('&')
-        return solve_boolean(a) and solve_boolean(b)
+        return evaluate_and(expression)
     elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
+        return evaluate_or(expression)
+
+def evaluate_and(expression):
+    parts = expression.split('&')
+    for part in parts:
+        if part != 'F':
+            return False
+    return True
+
+def evaluate_or(expression):
+    parts = expression.split('|')
+    for part in parts:
+        if part == 'T':
+            return True
+    return False
