@@ -1,10 +1,9 @@
 #include <iostream>
-#include <string>
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= m; i++) { 
-        sum += (n - i) / static_cast<double>(n * m);
+    for (int i = 1; i <= n-1; i++) { 
+        sum += (m + 1) / static_cast<double>(n * m);
     }
     return sum;
 }
@@ -17,4 +16,5 @@ int main() {
     std::cin >> m;
     double result = probability(n, m);
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
-    return 0}
+    return 0;
+}
