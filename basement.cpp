@@ -1,26 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 int basement(const std::vector<int>& nums) {
-    int sum = 0;
+    int sum = 0, min_sum = 0, index = -1;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if (sum < 0) {
-            return i + 1;
+        if (sum < min_sum) {
+            min_sum = sum;
+            index = i;
         }
     }
-    return -1;
-}
-
-int main(int argc, char *argv[]) {
-    std::vector<int> nums;
-    for (int i = 1; i < argc; ++i) {
-        if (std::isdigit(*argv[i])) {
-            nums.push_back(std::stoi(argv[i]));
-        }
-    }
-
-    int result = basement(nums);
-    std::cout << result << std::endl;
-    return 0;
+    return index + 1;
 }
