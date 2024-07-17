@@ -1,28 +1,18 @@
 ```cpp
-#include <string>
-
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     bool result = true;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
             int j = i + 1;
             while (j < expression.size() && expression[j] != '|') j++;
-            string subexpr = expression.substr(i + 1, j - i - 1);
+            std::string subexpr = expression.substr(i + 1, j - i - 1);
             result &= solveBoolean(subexpr);
             i = j;
         }
+        else if (expression[i] == 't' || expression[i] == 'T')
+            result = true;
+        else if (expression[i] == 'f' || expression[i] == 'F')
+            result = false;
     }
-    if(expression == "t") return true;
-    else if(expression == "f") return false;
-    else {
-        bool a = (expression[0] == 't');
-        for(int i=1; i<expression.size(); i++){
-            if(expression[i] == '|'){
-                break;
-            }else{
-                a ^= (expression[i] == 't');
-            }
-        }
-        return a;
-    }
+    return result;
 }
