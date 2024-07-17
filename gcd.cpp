@@ -2,8 +2,14 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> findIndices(int n, int a, int b, std::vector<int>& numbers) {
+std::vector<int> findIndices(int n, int a, int b) {
     int gcd = std::gcd(a, b);
+    std::vector<int> numbers;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
+    }
     
     std::vector<int> indices;
     for (int i = 0; i < n; ++i) {
@@ -19,14 +25,7 @@ int main() {
     
     std::cin >> n >> a >> b;
     
-    std::vector<int> numbers;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-    
-    std::vector<int> result = findIndices(n, a, b, numbers);
+    std::vector<int> result = findIndices(n, a, b);
     
     for (int idx : result) {
         std::cout << idx << " ";
