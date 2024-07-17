@@ -1,20 +1,15 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double diceGame(int n, int m) {
+double game(int n, int m) {
     double total = (double)n * m;
-    double peterWins = 0;
+    int count = 0;
 
-    for (int i = m + 1; i <= n; i++) {
-        peterWins += (double)(n - i + 1);
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j)
+                count++;
+        }
     }
 
-    return peterWins / total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
-    return 0;
+    return (double)count / total;
 }
