@@ -1,10 +1,5 @@
-#include <string>
-#include <stack>
-
-using namespace std;
-
-bool solveBoolean(string expression) {
-    stack<string> stack;
+bool solveBoolean(std::string expression) {
+    std::stack<std::string> stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
@@ -14,16 +9,16 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            stack.push(string(1, expression[i]));
+            stack.push(std::string(1, expression[i]));
         }
     }
 
     bool result = true;
     while (!stack.empty()) {
-        string op = stack.top();
+        std::string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.top() == "T");
+            result &= (stack.size() > 0 ? solveBoolean(stack.top()) : false);
             stack.pop();
         } else if (op == "|") {
             if (stack.size() > 1) {
