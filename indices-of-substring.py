@@ -5,8 +5,7 @@ def indices_of_substring(text):
         if text[i:].startswith(input()):
             while True:
                 pos = text[i:].find(input())
-                if pos == -1:
-                    break
+                if pos == -1: break
                 result.append(i + pos)
                 i += pos + 1
-    return result
+    return sorted(result)
