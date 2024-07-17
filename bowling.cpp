@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(std::vector<int>& s) {
     int score = 0;
     for (int i = 0; i < s.size(); ) {
@@ -15,4 +16,5 @@ int bowlingScore(std::vector<int>& s) {
             i++;
         }
     }
-    return score;
+    return score; 
+}
