@@ -24,3 +24,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     
     return {{v.begin(), v.begin() + (split_index + 1)}, {v.begin() + split_index, v.end()}};
 }
+
+pair<vector<int>, vector<int>> result = cutVector({9191, 652, 6176, 2479, 8717});
