@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {
     cin.ignore();
+    
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
