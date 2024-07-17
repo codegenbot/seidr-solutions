@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
@@ -24,3 +25,4 @@ int main() {
     std::getline(std::cin, str);
     std::cout << spinWords(str) << std::endl;
     return 0;
+}
