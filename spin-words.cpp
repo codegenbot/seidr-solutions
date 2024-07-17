@@ -1,4 +1,3 @@
-```c++
 using namespace std;
 
 auto spinWords(auto str) {
