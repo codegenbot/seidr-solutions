@@ -4,7 +4,7 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid Expression")
+        raise ValueError("Invalid expression")
     else:
-        result = eval(expression.replace('T', 'True').replace('F', 'False').replace('&', 'and').replace('|', 'or'))
+        result = eval('True' + expression.replace('&', '&').replace('|', '|'))
         return result
