@@ -1,10 +1,7 @@
-#include <string>
-
-int bowlingScore(const char* s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    std::string str(s);
-    for (char c : str) {
+    for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
                 score += 10 - (10 - roll);
