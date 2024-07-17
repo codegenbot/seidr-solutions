@@ -13,6 +13,6 @@ std::string squareDigitsStr(std::string n) {
 int main() {
     std::string input;
     std::cout << "Enter a positive integer: ";
-    std::getline(std::cin, input).erase(0, 1);
+    std::getline(std::cin, input);
     std::cout << "The square of the digits is: " << squareDigitsStr(input) << std::endl;
-    return 0;
+    return 0 }
