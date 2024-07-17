@@ -1,30 +1,37 @@
-bool solveBoolean(std::string expression) {
-    stack<string> s;
+#include <stack>
+#include <string>
+#include <initializer_list>
+#include <iostream>
+
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<string> stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            s.push("&");
+            stack.push("&");
         } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == "&") {
-                s.pop();
+            while (!stack.empty() && stack.top() == "&") {
+                stack.pop();
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                s.push(std::to_string(expression[i]));
+                stack.push(string(1, expression[i]));
         }
     }
 
     bool result = true;
-    while (!s.empty()) {
-        std::string op = s.top();
-        s.pop();
+    while (!stack.empty()) {
+        string op = stack.top();
+        stack.pop();
         if (op == "&") {
-            result &= (s.top() == "T") ? true : false;
-            s.pop();
+            result &= (stack.top() == "T") ? true : false;
+            stack.pop();
         } else if (op == "|") {
-            if (s.size() > 1) {
-                result |= (s.top() == "T") ? true : false;
-                s.pop();
+            if (stack.size() > 1) {
+                result |= (stack.top() == "T") ? true : false;
+                stack.pop();
             }
         } else {
             result = op == "T" ? true : false;
@@ -32,3 +39,12 @@ bool solveBoolean(std::string expression) {
     }
 
     return !result;
+}
+
+int main() {
+    string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+    bool result = solveBoolean(expression);
+    return result ? 0 : 1;
+}
