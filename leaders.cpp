@@ -20,4 +20,3 @@ vector<int> leaders(vector<int> v) {
 
 vector<int> result = leaders({1, 3, 4, 1, 5});
 for (int x : result) cout << x << " ";
-return 0;
