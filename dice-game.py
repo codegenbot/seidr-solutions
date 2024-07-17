@@ -1,2 +1,2 @@
-def solution(n, m):
-    return 1 - (n + m - 2) / (n * m)
+def dice_game(n, m):
+    return (m - 1) / (n * m)
