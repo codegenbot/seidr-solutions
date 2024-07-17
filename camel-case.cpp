@@ -1,10 +1,10 @@
-Here is the solution:
-
 #include <string>
 #include <cctype>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
+using namespace std;
+
+std::string camelCase(const string& s) {
+    string result;
     bool capitalizeNext = true;
 
     for (char c : s) {
@@ -22,8 +22,9 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
     }
     return 0;
+}
