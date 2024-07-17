@@ -1,4 +1,3 @@
-```
 def substitution_cipher(key, message):
     key_map = {k: v for k, v in zip(key, message)}
     
