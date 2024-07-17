@@ -1,18 +1,8 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
+std::string squareDigitsStr(std::string n) {
+    std::string result = "";
+    for (char c : n) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        result += std::to_string(digit * digit);
     }
-    return output;
-}
-
-int main() {
-    string test = "493193";
-    cout << squareDigits(test) << endl;  
-    return 0;
+    return result;
 }
