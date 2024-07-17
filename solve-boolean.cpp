@@ -1,6 +1,6 @@
+```
 #include <stack>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -28,7 +28,7 @@ bool solveBoolean(string expression) {
             result &= (stack.top() == "T") ? true : false;
             stack.pop();
         } else if (op == "|") {
-            if (stack.empty()) {
+            if (stack.size() > 1) {
                 result |= (stack.top() == "T") ? true : false;
                 stack.pop();
             }
