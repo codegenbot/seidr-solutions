@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 
 int main() {
-    cin.ignore();
-    
     string tweet;
     cout << "Enter a tweet: ";
+    
     getline(cin, tweet);
     
     if (tweet.length() > 140) {
@@ -17,6 +18,6 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
-    cin.get(); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     return 0;
 }
