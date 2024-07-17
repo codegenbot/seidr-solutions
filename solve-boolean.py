@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression.strip() == "T":
         return True
