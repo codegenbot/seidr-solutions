@@ -1,20 +1,17 @@
 #include <iostream>
 using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (long long)n * m;
-    double p = 0;
-    
-    if(n >= m)
-        p += (n - m + 1.0) / total;
-        
-    return p;
+double game(int n, int m) {
+    if (n == 1)
+        return 0;
+    if (m == 1)
+        return 1;
+    return (double)(m - 1) / (n + m - 2);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(9);
-    cout << diceGame(n, m) << endl;
+    cout << fixed << setprecision(4) << game(n, m) << endl;
     return 0;
 }
