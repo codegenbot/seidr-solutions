@@ -1,23 +1,22 @@
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
-float snowDay(int hours, float groundSnow, float rate, float melt) {
-    float snow = 0;
+double snowDay(int hours, float groundSnow, float rate, float melt) {
+    double result = groundSnow;
+    
     for (int i = 0; i < hours; i++) {
-        snow += rate;
-        if (melt > 0) {
-            snow -= min(snow, melt);
-        }
+        result += rate;
+        if (result > 0.0)
+            result -= result * melt / 100.0;
     }
-    return snow;
+    
+    return result;
 }
 
 int main() {
     int hours;
-    cin >> hours;
     float groundSnow, rate, melt;
-    cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
+    cin >> hours >> groundSnow >> rate >> melt;
+    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt);
     return 0;
-}
