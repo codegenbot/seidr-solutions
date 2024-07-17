@@ -1,15 +1,21 @@
-bool solveBoolean(string s) {
-    bool result = false;
-    for (int i = 0; i < s.length(); i++) {
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            return result;
+            char left = st.top();
+            st.pop();
+            char right = s[i + 1];
+            st.push((left == 'T' && right == 'T') ? 'T' : 'F');
+            i++;
         } else if (s[i] == '|') {
-            result = true;
-        } else if (s[i] == 't') {
-            result = true;
-        } else if (s[i] == 'f') {
-            return false;
+            char left = st.top();
+            st.pop();
+            char right = s[i + 1];
+            st.push((left == 'T' || right == 'T') ? 'T' : 'F');
+            i++;
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
+    return (st.top() == 'T') ? "True" : "False";
 }
