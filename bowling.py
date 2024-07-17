@@ -1,4 +1,3 @@
-```
 def bowling():
     score = input().replace('/', '')
     total_score = 0
