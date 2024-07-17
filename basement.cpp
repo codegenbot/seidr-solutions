@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -10,10 +9,11 @@ int basement(vector<int> arr) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
-    vector<int> arr = {-2, 3, 5, -9, -13};
+    vector<int> arr = {-2, 1, 3};
     int result = basement(arr);
     cout << "Basement found at index: " << result << endl;
     return 0;
