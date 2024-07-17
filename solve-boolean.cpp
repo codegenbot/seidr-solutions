@@ -3,35 +3,31 @@
 
 std::string solveBoolean(std::string s) {
     std::stack<char> st;
-    std::string res = "";
-    
+    bool res = false;
+
     for(int i=0; i<s.length(); i++){
         if(s[i] == '&'){
             while(!st.empty() && st.top() == '&') {
                 st.pop();
             }
             if(st.empty()) 
-                res += "T";
+                res = true;
             else
-                res += "F";
+                res = false;
             st.push('&');
         }else if(s[i] == '|'){
             while(!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if(st.empty()) 
-                res += "T";
+                res = true;
             else
-                res += "F";
+                res = false;
             st.push('|');
         }else{
             st.push(s[i]);
         }
     }
-    
-    while(!st.empty()){
-        st.pop();
-    }
-    
-    return (res == "T") ? "True" : "False";
+
+    return (res) ? "True" : "False";
 }
