@@ -1,7 +1,9 @@
+```cpp
 #include <stack>
 #include <string>
 
-using namespace std;
+using std::stack;
+using std::string;
 
 bool solveBoolean(string expression) {
     stack<string> stack;
@@ -14,13 +16,8 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            string s = "";
-            while(i < expression.size() && (expression[i] == 'T' || expression[i] == 'F')) {
-                s += expression[i];
-                i++;
-            }
-            if(!s.empty())
-                stack.push(s);
+            if(expression[i] == 'T' || expression[i] == 'F')
+                stack.push(string(1, expression[i]));
         }
     }
 
@@ -46,8 +43,8 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
     bool result = solveBoolean(expression);
     return result ? 0 : 1;
 }
