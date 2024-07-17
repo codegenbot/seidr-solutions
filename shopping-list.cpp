@@ -1,32 +1,37 @@
-```cpp
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <sstream>
+#include <string>
 
-double shoppingList() {
-    int numItems;
-    std::cout << "Enter number of items: ";
-    std::cin >> numItems;
-
-    std::vector<double> prices(numItems);
-    std::vector<double> discounts(numItems);
-
-    for (int i = 0; i < numItems; i++) {
-        std::cout << "Price of item " << i + 1 << ": ";
-        std::cin >> prices[i];
-        std::cout << "Discount percentage: ";
-        std::cin >> discounts[i];
+double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
+    if (prices.size() != discounts.size()) {
+        return -1;
     }
-
+    
     double total = 0;
-    for (int i = 0; i < numItems; i++) {
+    for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i]/100.0); 
     }
     return total;
 }
 
 int main() {
-    double result = shoppingList();
-    std::cout << "Total price after discount: " << result << std::endl;
+    std::string input1, input2;
+    std::getline(std::cin, input1);
+    std::istringstream iss1(input1);
+    double price;
+    std::vector<double> prices;
+    while (iss1 >> price) {
+        prices.push_back(price);
+    }
+
+    std::getline(std::cin, input2);
+    std::istringstream iss2(input2);
+    discounts.clear();
+    while (iss2 >> price) {
+        discounts.push_back(price);
+    }
+    
+    double result = shoppingList(prices, discounts);
     return 0;
 }
