@@ -1,21 +1,21 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    int frame = 1;
-
+    int currentRolls = 0;
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + (currentRoll > 0 ? currentRoll : 10);
-            currentRoll = 0;
-            frame++;
+            score += 30;
+            currentRolls = 2;
         } else if (c == '/') {
-            score += 10 - currentRoll;
-            currentRoll = 0;
-            frame++;
+            score += 10 - (currentRolls > 1 ? 20 : 10);
+            currentRolls = 0;
         } else {
-            currentRoll += c - '0';
+            int roll = c - '0';
+            score += roll;
+            currentRolls++;
+            if (currentRolls >= 2) {
+                score += roll;
+            }
         }
     }
-
     return score;
 }
