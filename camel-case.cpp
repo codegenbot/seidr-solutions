@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(const std::string& str) {
     std::string result = "";
     for (char c : str) {
         if (c == '-') {
-            result += c;
+            result += c + c;
         } else if (c == ' ') {
             continue;
         } else {
