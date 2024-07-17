@@ -6,10 +6,10 @@
 double calculateEuclideanDistance(int n, std::vector<double> v1, std::vector<double> v2) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = pow((v1[i] - v2[i]), 2);
-        sum += diff; // calculate square root at each iteration
+        double diff = (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        sum += diff; 
     }
-    return sqrt(sum); // calculate square root only once at the end
+    return sqrt(sum); 
 }
 
 int main() {
