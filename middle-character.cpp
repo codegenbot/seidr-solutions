@@ -1,24 +1,13 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 std::string middleCharacter(std::string input) {
-    int len = input.length();
-    if (len % 2 == 1) {
-        return input.substr(len / 2, 1);
+    int length = input.length();
+    if (length % 2 == 0) {
+        std::string result = "";
+        for (int i = length / 2 - 1; i <= length / 2 + 1; i++) {
+            result += input[i];
+        }
+        return result;
     } else {
-        return input.substr((len - 1) / 2, 2);
+        return input.substr(length / 2, 1);
     }
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input); 
-    if (input.empty()) {
-        std::cout << "Input is empty." << std::endl;
-        return 0;
-    }
-    std::cout << middleCharacter(input) << std::endl;
-    return 0;
 }
