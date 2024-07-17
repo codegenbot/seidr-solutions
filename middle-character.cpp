@@ -19,7 +19,7 @@ int main() {
         std::cout << "Input is empty." << std::endl;
         return 0;
     }
-    if (!input.empty()) { // Check if the input is not empty
+    if (!input.empty()) { 
         std::cout << middleCharacter(input) << std::endl; 
     } 
     return 0;
