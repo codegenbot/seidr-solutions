@@ -14,7 +14,7 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    double temp; 
+    double temp; // declare as double for precision
     std::cin >> temp;
     bouncinessIndex = (double)temp / startingHeight;
 
