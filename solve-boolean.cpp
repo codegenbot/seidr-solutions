@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <string>
 #include <initializer_list>
@@ -44,8 +43,8 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
     bool result = solveBoolean(expression);
     return result ? 0 : 1;
 }
