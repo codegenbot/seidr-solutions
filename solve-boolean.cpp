@@ -1,18 +1,24 @@
-#include <string>
-
-bool solveBoolean(string expression) {
-    stack<string> stack;
+bool solveBoolean(std::string expression) {
+    stack<std::string> stack;
     bool lastOp = false;
-    string result = "";
     for (char c : expression) {
         if (c == ' ') continue;
         if (c == '&') {
-            result = !lastOp ? "T" : "F";
-            stack.push(string(1, "&"));
+            while (!stack.empty() && stack.top() != "|") stack.pop();
+            stack.push("&");
+            lastOp = true;
         } else if (c == '|') {
-            while (!stack.empty() && stack.top() == "&") {
-                stack.pop();
-                lastOp = true;
+            while (!stack.empty()) {
+                if (stack.top() == "&") {
+                    stack.pop();
+                    lastOp = false;
+                    break;
+                }
+                else if(stack.top() == "|") {
+                    stack.pop();
+                    lastOp = !lastOp;
+                    break;
+                }
             }
             stack.push("|");
         } else {
@@ -21,5 +27,17 @@ bool solveBoolean(string expression) {
         }
     }
 
-    return result == "T";
+    while (!stack.empty()) {
+        if (stack.top() == "&") {
+            stack.pop();
+            lastOp = true;
+        } 
+        else if(stack.top() == "|") {
+            stack.pop();
+            lastOp = !lastOp;
+        }
+        else break;
+    }
+
+    return lastOp ? "T" : "F";
 }
