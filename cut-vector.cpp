@@ -27,6 +27,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 int main() {
     vector<int> v = {9191, 652, 6176, 2479, 8717};
     pair<vector<int>, vector<int>> result = cutVector(v);
-    // do something with result
     return 0;
 }
