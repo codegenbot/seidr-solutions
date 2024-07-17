@@ -1,3 +1,4 @@
+```
 def substitution_cipher(key1, message):
     upper_key_map = {k: v for k, v in zip(key1[:26], message[:26])}
     lower_key_map = {k: v for k, v in zip(key1[26:], message[26:])}
