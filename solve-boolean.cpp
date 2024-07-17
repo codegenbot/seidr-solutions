@@ -5,7 +5,7 @@ bool solveBoolean(std::string expression) {
         if (expression[i] == '&') {
             stack.push('&');
         } else if (expression[i] == '|') {
-            while (!stack.empty() && stack.top() == '&') {
+            while (!stack.empty() && stack.top() == "&") {
                 stack.pop();
             }
         } else {
@@ -18,15 +18,18 @@ bool solveBoolean(std::string expression) {
         std::string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.size() > 0 ? op == "T" : false);
+            result &= (stack.size() > 0 ? solveBoolean(stack.top()).second : false);
+            stack.pop();
         } else if (op == "|") {
             if (stack.size() > 1) {
-                result |= (stack.top() == "T");
+                result |= (stack.top()[0] == 'T');
                 stack.pop();
             }
         } else {
-            result = op == "T";
+            result = stack.top()[0] == 'T';
+            stack.pop();
         }
     }
 
     return !result;
+}
