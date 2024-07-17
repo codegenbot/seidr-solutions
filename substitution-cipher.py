@@ -1,17 +1,10 @@
-def substitution_cipher(cipher_map, message):
+```
+def substitution_cipher(cipher_text1, cipher_text2, text):
     result = ""
-    for char in message:
-        if char.isalpha():
-            ascii_offset = 65 if char.isupper() else 97
-            result += chr(
-                (ord(char) - ascii_offset + cipher_map.index(char)) % 26 + ascii_offset
-            )
+    for char in text:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            result += cipher_text2[index]
         else:
             result += char
     return result
-
-
-cipher_map1, message1 = input().split()
-cipher_map2, message2 = input().split()
-
-print(substitution_cipher(cipher_map1, message2))
