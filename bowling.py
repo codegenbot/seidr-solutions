@@ -1,11 +1,11 @@
 def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if "/" in frames[i]:
-            parts = frames[i].split("/")
-            score += int(parts[0])
-            if len(parts) > 1:
-                score += int(parts[1])
+    roll = [int(x) for x in re.findall("\d+", frames)]
+    for i in range(0, len(roll), 2):
+        if roll[i] == 10:
+            score += 10 + roll[i + 1]
+        elif roll[i] + roll[i + 1] >= 10:
+            score += 10
         else:
-            score += int(frames[i])
+            score += roll[i] + roll[i + 1]
     return score
