@@ -1,22 +1,17 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool match = true;
-        for (int j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                match = false;
-                break;
-            }
-        }
-        if (match) {
-            indices.push_back(i);
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m).compare(target)==0){
+            result.push_back(i);
         }
     }
-    return indices;
+    return result;
 }
 
 int gcd(int a, int b) {
