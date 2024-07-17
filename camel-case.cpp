@@ -9,7 +9,7 @@ std::string camelCase(std::string str) {
         if (str[i] == '-') {
             i++;
             while (i < str.length() && str[i] != ' ') {
-                result += toupper(str[i]);
+                result += std::toupper(str[i]);
                 i++;
             }
             result += " ";
