@@ -1,11 +1,10 @@
 #include <vector>
-#include <cmath>
-#include <initializer_list>
+#include <pair>
 
-double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
+double shoppingList(std::vector<std::pair<double, double>> pricesDiscounts) {
     double total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i]/100.0); 
+    for (auto& pair : pricesDiscounts) {
+        total += pair.first * (1 - pair.second / 100.0); 
     }
     return total;
 }
