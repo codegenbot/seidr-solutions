@@ -9,9 +9,9 @@ def bouncing_balls():
         if i == 0:
             height_diff = (start_height + first_bounce_height) / 2
         else:
-            height_diff = height_diff * bounciness_index
+            first_bounce_height = first_bounce_height * bounciness_index
         total_distance += 2 * height_diff
-        first_bounce_height = int(height_diff)
+        first_bounce_height *= 2
 
     print(total_distance)
 
