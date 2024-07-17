@@ -1,17 +1,18 @@
 def solve_boolean(s):
-    s += "&"
     stack = []
-    for c in s:
+    ops = []
+    for c in s + "|&":
         if c == "T":
             stack.append(True)
         elif c == "F":
             stack.append(False)
         elif c == "|":
-            v2 = stack.pop()
-            v1 = stack.pop()
-            stack.append(v1 or v2)
+            while ops and ops[-1] == "&":
+                v2 = stack.pop()
+                v1 = stack.pop()
+                stack.append(v1 or v2)
+                ops.pop()
+            ops.append("|")
         elif c == "&":
-            v2 = stack.pop()
-            v1 = stack.pop()
-            stack.append(v1 and v2)
+            ops.append("&")
     return stack[0]
