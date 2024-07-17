@@ -1,4 +1,5 @@
-#include <iostream>
+Here is the solution:
+
 #include <string>
 #include <cctype>
 
@@ -26,4 +27,3 @@ int main() {
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
-}
