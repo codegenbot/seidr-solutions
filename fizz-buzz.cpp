@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 string fizzBuzz(int x) {
@@ -15,9 +16,7 @@ string fizzBuzz(int x) {
 
 int main() {
     int x;
-    cout << "Enter a number: ";
     cin >> x;
     string result = fizzBuzz(x);
     cout << result << endl;
     return 0;
-}
