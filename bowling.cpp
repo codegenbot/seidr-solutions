@@ -9,14 +9,19 @@ int bowlingScore(const std::string& frames) {
             score += 30;
             currentRolls = 2;
         } else if (c == '/') {
-            score += (10 - currentRolls);
+            score += 10 - currentRolls;
             currentRolls = 0;
         } else if (std::isdigit(c)) {
             int roll = c - '0';
             currentRolls++;
-            if (currentRolls == 2) {
-                score += 1 * roll + 1 * (10 - roll);
+            if (currentRolls > 1) {
+                while (currentRolls < 2) {
+                    score += roll;
+                    currentRolls++;
+                }
+                currentRolls = 0;
             }
         }
     }
     return score;
+}
