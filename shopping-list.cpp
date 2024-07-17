@@ -1,12 +1,10 @@
 #include <vector>
 using namespace std;
 
-float calculateShoppingTripTotalPrice(const vector<float>& prices, const vector<float>& discounts) {
+float shoppingList(vector<float> prices, vector<float> discounts) {
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        float price = prices[i];
-        float discount = price * (discounts[i] / 100.0f);
-        total += price - discount;
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     return total;
 }
@@ -14,15 +12,9 @@ float calculateShoppingTripTotalPrice(const vector<float>& prices, const vector<
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n);
-    for (auto& price : prices) {
-        cin >> price;
-    }
-    vector<float> discounts(n);
-    for (auto& discount : discounts) {
-        cin >> discount;
-    }
-    float total = calculateShoppingTripTotalPrice(prices, discounts);
-    cout << fixed << setprecision(1) << total << endl;
+    vector<float> prices(n), discounts(n);
+    for (float &p : prices) cin >> p;
+    for (float &d : discounts) cin >> d;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
