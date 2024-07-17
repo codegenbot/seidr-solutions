@@ -7,9 +7,9 @@ double calculateEuclideanDistance(int n, std::vector<double> v1, std::vector<dou
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
         double diff = pow((v1[i] - v2[i]), 2);
-        sum += sqrt(diff); // calculate square root at each iteration
+        sum += diff;
     }
-    return sum;
+    return sqrt(sum / n);
 }
 
 int main() {
