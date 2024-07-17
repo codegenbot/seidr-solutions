@@ -1,23 +1,23 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    double startHeight;
-    double firstBounce;
+    double startHeight, firstBounce;
     int numBounces;
-
+    
     cin >> startHeight >> firstBounce >> numBounces;
-
-    double bouncinessIndex = firstBounce / startHeight;
-
-    double totalDistance = 0.0;
-    for(int i = 1; i <= numBounces; i++) {
-        totalDistance += (startHeight * pow(1 - bouncinessIndex, i));
+    
+    if(startHeight == 0) {
+        cout << "Error: Start height cannot be zero." << endl;
+        return -1;
     }
-
-    cout.precision(6);
-    cout << fixed << setprecision(6) << startHeight + totalDistance;
+    
+    double bounciness = firstBounce / startHeight;
+    
+    int totalDistance = (int) (((bounciness + 1) * (2.0 / (1.0 + pow(bounciness, numBounces))) - 1));
+    
+    cout << fixed << setprecision(4);
+    cout << totalDistance << endl;
 
     return 0;
 }
