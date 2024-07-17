@@ -14,8 +14,8 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            std::string temp = std::string(1, expression[i]);
-            stack.push(temp);
+            if(expression[i] == 'T' || expression[i] == 'F' || expression[i] == ' ')
+                stack.push(string(1, expression[i]));
         }
     }
 
