@@ -1,4 +1,3 @@
-```
 def bowling():
     score = input("Enter the score for each frame: ")
     score = score.replace('/', '')
