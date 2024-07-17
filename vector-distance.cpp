@@ -40,7 +40,7 @@ int main(){
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
     char ch;
-    cin >> ch; 
+    cin >> ch; // Read and discard any remaining input characters
     cin.ignore(); 
 
     return 0;
