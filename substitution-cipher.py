@@ -1,14 +1,14 @@
 def substitution_cipher():
     cipher_key = input().strip()
     text_to_decrypt = input().strip()
-    result = ""
+    decrypted_text = ""
     for char in text_to_decrypt:
         if char in cipher_key:
-            index = (cipher_key.index(char) % len(cipher_key))
-            result += cipher_key[index]
+            index = (cipher_key.index(char) + 1) % len(cipher_key)
+            decrypted_text += cipher_key[index]
         else:
-            result += char
-    return result
+            decrypted_text += char
+    return decrypted_text
 
 
 print(substitution_cipher())
