@@ -4,30 +4,32 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<string> stack;
+    stack<string> expressionStack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            stack.push("&");
+            expressionStack.push("&");
         } else if (expression[i] == '|') {
-            while (!stack.empty() && stack.top() == "&") {
-                stack.pop();
+            while (!expressionStack.empty() && expressionStack.top() == "&") {
+                expressionStack.pop();
             }
-        } else if (expression[i] == 'T' || expression[i] == 'F' || expression[i] == ' ') 
-            stack.push(string(1, expression[i]));
+        } else {
+            if(expression[i] == 'T' || expression[i] == 'F')
+                expressionStack.push(string(1, expression[i]));
+        }
     }
 
     bool result = true;
-    while (!stack.empty()) {
-        string op = stack.top();
-        stack.pop();
+    while (!expressionStack.empty()) {
+        string op = expressionStack.top();
+        expressionStack.pop();
         if (op == "&") {
-            result &= (stack.top() == "T");
-            stack.pop();
+            result &= (expressionStack.top() == "T");
+            expressionStack.pop();
         } else if (op == "|") {
-            if (stack.size() > 1) {
-                result |= (stack.top() == "T");
-                stack.pop();
+            if (expressionStack.size() > 1) {
+                result |= (expressionStack.top() == "T");
+                expressionStack.pop();
             }
         } else {
             result = op == "T";
