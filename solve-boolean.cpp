@@ -43,8 +43,8 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     return result ? 0 : 1;
 }
