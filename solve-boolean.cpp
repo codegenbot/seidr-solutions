@@ -1,21 +1,47 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (char c : s) {
-        if (c == '&') {
-            bool b1 = st.top() == 'T';
-            st.pop();
-            bool b2 = st.top() == 'T';
-            st.pop();
-            st.push((b1 && b2) ? 'T' : 'F');
-        } else if (c == '|') {
-            bool b1 = st.top() == 'T';
-            st.pop();
-            bool b2 = st.top() == 'T';
-            st.pop();
-            st.push((b1 || b2) ? 'T' : 'F');
+string solveBoolean(string boolExp) {
+    stack<char> opStack;
+    stack<string> valStack;
+
+    for (int i = 0; i < boolExp.length(); i++) {
+        if (boolExp[i] == '&' || boolExp[i] == '|') {
+            while (!opStack.empty() && opStack.top() != '(') {
+                valStack.push(valStack.top());
+                opStack.pop();
+            }
+            opStack.push(boolExp[i]);
+        } else if (boolExp[i] == '(') {
+            opStack.push('(');
+        } else if (boolExp[i] == ')') {
+            while (!opStack.empty() && opStack.top() != '&') {
+                valStack.push(valStack.top());
+                opStack.pop();
+            }
+            opStack.pop();
         } else {
-            st.push(c);
+            string temp = "";
+            while (i + 1 < boolExp.length() && boolExp[i + 1] != '&' && boolExp[i + 1] != '|') {
+                temp += boolExp[i++];
+            }
+            valStack.push(temp);
         }
     }
-    return st.top() == 'T';
+
+    while (!opStack.empty()) {
+        string op = opStack.top();
+        opStack.pop();
+        string b1 = valStack.top();
+        valStack.pop();
+        string b2;
+        if (op == '&') {
+            if (b1 == "t" && b2 == "t") return "True";
+            else if (b1 == "f" || b2 == "f") return "False";
+            else return "False";
+        } else {
+            if (b1 == "t" && b2 == "t") return "True";
+            else if (b1 == "f" || b2 == "f") return "False";
+            else return "True";
+        }
+    }
+
+    return valStack.top();
 }
