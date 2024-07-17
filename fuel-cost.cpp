@@ -1,25 +1,14 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int solve(const vector<int>& nums) {
+int calculateFuelCost(vector<int> &numbers) {
     int sum = 0;
-    for (int num : nums) {
-        if (num >= 3) {
-            sum += ((num / 3) - 2);
-        }
+    for (int num : numbers) {
+        int newNum = static_cast<int>(num / 3.0);
+        if (newNum < 1)
+            newNum = 0; // round down to nearest integer
+        else
+            newNum -= 2;
+        sum += newNum;
     }
     return sum;
-}
-
-int main() {
-    int n, x;
-    cin >> n;
-    vector<int> numbers(n);
-    for(int i = 0; i < n; ++i){
-        cin >> numbers[i];
-    }
-
-    cout << solve(numbers) << endl;
-
-    return 0;
 }
