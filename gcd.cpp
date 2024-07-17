@@ -34,11 +34,8 @@ int main() {
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    string text;
-    getline(cin, text);
-
-    string target;
-    getline(cin, target);
+    string text, target;
+    cin >> text >> target;
     vector<int> result = findIndices(text, target);
     for (int i : result) {
         cout << i << " ";
