@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -5,7 +6,6 @@ int main() {
     int totalDistance = 0;
     int numBounces;
     double startingHeight;
-    double firstBounce;
     double bouncinessIndex;
 
     cout << "Enter the number of bounces: ";
@@ -13,13 +13,17 @@ int main() {
     
     cout << "Enter the starting height: ";
     cin >> startingHeight;
-    
-    // calculate the first bounce
-    firstBounce = (startingHeight * 0.75); 
-    bouncinessIndex = firstBounce / startingHeight;
 
-    for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (2 * startingHeight * (bouncinessIndex / pow(3, -0.25)));
+    // calculate the first bounce
+    for(int i = 0; i < numBounces; ++i) {
+        double firstBounce = startingHeight; 
+        bouncinessIndex = firstBounce / startingHeight;
+        
+        while(firstBounce > 1.0) {
+            totalDistance += (2 * startingHeight);
+            firstBounce /= 2.0;
+            bouncinessIndex = firstBounce / startingHeight;
+        }
     }
 
     cout << "The total distance is: " << totalDistance << endl;
