@@ -20,4 +20,3 @@ int bowlingScore(const std::string& frames) {
         }
     }
     return score;
-}
