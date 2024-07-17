@@ -6,8 +6,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m).compare(target)==0){
             result.push_back(i);
         }
     }
@@ -15,9 +15,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-long long gcd(long long a, long long b) {
+int gcd(int a, int b) {
     while (b != 0) {
-        long long temp = b;
+        int temp = b;
         b = a % b;
         a = temp;
     }
