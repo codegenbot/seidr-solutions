@@ -1,5 +1,6 @@
+```cpp
 #include <string>
-#include <algorithm>
+#include <algorithm> 
 #include <map>
 
 int mastermind(std::string code, std::string guess) {
@@ -31,3 +32,4 @@ int mastermind(std::string code, std::string guess) {
     black -= blackCount;
 
     return black;
+}
