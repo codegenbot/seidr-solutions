@@ -1,6 +1,5 @@
 ```cpp
 #include <string>
-#include <cstring>
 
 std::string squareDigitsStr(std::string n) {
     std::string result = "";
