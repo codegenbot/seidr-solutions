@@ -5,10 +5,15 @@ def solve_boolean(expression):
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    result = True
-    for char in expression:
-        if char == "&":
-            result &= expression[expression.index(char) + 1] == "T"
-        elif char == "|":
-            result |= expression[expression.index(char) + 1] == "T"
-    return result
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char in ["&", "|"]:
+                b1, b2 = stack.pop(), stack.pop()
+                if char == "&":
+                    stack.append(b1 and b2)
+                elif char == "|":
+                    stack.append(b1 or b2)
+            else:
+                stack.append(char == "T")
+        return stack[0]
