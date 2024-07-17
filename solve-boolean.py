@@ -1,13 +1,14 @@
-Here is the Python solution for the problem:
-
-def solveBoolean(expression):
+```
+def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     elif '&' in expression:
-        a, b = expression.split('&')
-        return solveBoolean(a) and solveBoolean(b)
+        return all([subexpression.strip() for subexpression in expression.split('&')]) 
     elif '|' in expression:
-        a, b = expression.split('|')
-        return solveBoolean(a) or solveBoolean(b)
+        return any([subexpression.strip() for subexpression in expression.split('|')]) 
+    else:
+        raise ValueError("Invalid expression")
