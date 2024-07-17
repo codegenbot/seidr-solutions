@@ -19,7 +19,7 @@ int main() {
     if (result >= 0) {
         std::cout << "The probability that Peter rolls strictly higher is: " << std::to_string(result) << std::endl; 
     } else {
-        std::cout << "Invalid result. Please try again." << std::endl;
+        // handle invalid result
     }
     return 0;
 }
