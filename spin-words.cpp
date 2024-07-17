@@ -1,44 +1,36 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-string spinWords(string str) {
+string spinWords(string s) {
     string result = "";
-    size_t pos = 0;
-    
-    while (pos < str.length()) {
-        size_t spacePos = str.find(' ', pos);
-        
-        if (spacePos == string::npos) {
-            result += str.substr(pos);
-            break;
-        } else {
-            string word = str.substr(pos, spacePos - pos);
-            
-            if (word.length() >= 5)
+    string word = "";
+
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            if(word.length() >= 5)
                 reverse(word.begin(), word.end());
-            
             result += word + " ";
-            pos = spacePos + 1;
+            word = "";
+        } else {
+            word += s[i];
         }
     }
-    
-    return result.substr(0, result.length() - 1); // remove the extra space
+
+    // Handle the last word
+    if(word.length() >= 5)
+        reverse(word.begin(), word.end());
+    result += word;
+
+    return result;
 }
 
 int main() {
-    string str;
-    while (true) {
-        cout << "Enter a sentence ('exit' to quit): ";
-        cin >> str;
-        
-        if (str == "exit")
-            break;
-        
-        cout << spinWords(str) << endl;
-    }
-    
+    string s1, s2, s3, s4;
+    cin >> s1 >> s2 >> s3 >> s4;
+    cout << spinWords(s1) << endl;
+    cout << spinWords(s2) << endl;
+    cout << spinWords(s3) << endl;
+    cout << spinWords(s4) << endl;
+
     return 0;
 }
