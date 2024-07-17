@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <sstream>
 
 string spinWords(string str) {
     stringstream result;
