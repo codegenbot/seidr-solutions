@@ -1,26 +1,21 @@
 #include <iostream>
 using namespace std;
 
-double bouncingIndex(double heightAfterFirstBounce, double startingHeight) {
-    return heightAfterFirstBounce / startingHeight;
-}
-
-double totalDistance(double bouncinessIndex, int numBounces) {
-    return 2.0 * (1 - pow(bouncinessIndex, -numBounces)) / (1 - bouncinessIndex);
-}
-
 int main() {
-    double heightAfterFirstBounce, startingHeight;
+    double startHeight;
+    double firstBounce;
     int numBounces;
 
-    cin >> startingHeight >> heightAfterFirstBounce >> numBounces;
+    cin >> startHeight >> firstBounce >> numBounces;
 
-    double bounciness = bouncingIndex(heightAfterFirstBounce, startingHeight);
+    // Calculate bounciness index (height of first bounce / starting height)
+    double bouncinessIndex = firstBounce / startHeight;
 
-    double totalDist = totalDistance(bounciness, numBounces);
+    // Calculate total distance that the ball travels
+    double totalDistance = 0.5 * (startHeight + firstBounce) * pow(2, numBounces);
 
-    cout.precision(5);
-    cout << fixed << totalDist << endl;
+    cout << fixed << setprecision(4);
+    cout << totalDistance << endl;
 
     return 0;
 }
