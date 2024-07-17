@@ -28,7 +28,7 @@ bool solveBoolean(string expression) {
             result &= (stack.top() == "T") ? true : false;
             stack.pop();
         } else if (op == "|") {
-            if (stack.empty() > 1) {
+            if (stack.empty()) {
                 result |= (stack.top() == "T") ? true : false;
                 stack.pop();
             }
