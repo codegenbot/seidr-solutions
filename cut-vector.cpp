@@ -1,6 +1,6 @@
+```cpp
 #include <climits>
 #include <vector>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,8 +9,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     int pos = 0;
     
     for(int i = 1; i <= v.size(); i++) {
+        vector<int> left;
+        for(int j = 0; j < i; j++) {
+            left.push_back(v[j]);
+        }
+        
         if(i == v.size()) {
-            vector<int> left(v.begin(), v.end());
             vector<int> right({});
             int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
@@ -18,8 +22,11 @@ vector<vector<int>> cutVector(vector<int> v) {
                 pos = i;
             }
         } else {
-            vector<int> left(v.begin(), v.begin() + i);
-            vector<int> right(v.begin() + i, v.end());
+            vector<int> right;
+            for(int j = i; j < v.size(); j++) {
+                right.push_back(v[j]);
+            }
+            
             int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
