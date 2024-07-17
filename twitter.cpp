@@ -13,7 +13,7 @@ int main() {
     } else if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << static_cast<int>(tweet.length()) << " characters" << endl;
+        cout << "Your tweet has " << tweet.length()-1 << " characters" << endl;
     }
     
     return 0;
