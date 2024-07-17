@@ -24,7 +24,7 @@ int main() {
         cin >> v2[i];
     }
     if (n == 0) {
-        cout << "Error: Vector size cannot be zero." << endl;
+        cout << "Error: Input vector size cannot be zero." << endl;
     } else {
         cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
     }
