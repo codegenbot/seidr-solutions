@@ -1,27 +1,40 @@
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int start = 0;
-    for (int i = 0; i <= input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
-            string word = input.substr(start, i - start);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    for (const auto& word : input.split(" ")) {
+        if (word.length() >= 5) {
+            for (int i = word.length() - 1; i >= 0; --i) {
+                output += word[i];
             }
+        } else {
             output += word + " ";
-            start = i + 1;
         }
     }
-    return output.substr(0, output.length() - 1);
+    return output;
 }
 
-int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << spinWords(input) << endl;
-    return 0;
+std::string std::string::split(const char* delimiter) const {
+    std::vector<std::string> words;
+    size_t pos = 0, pos2 = this->find(delimiter);
+    while (pos2 != std::string::npos) {
+        words.push_back(std::string(this->substr(pos, pos2 - pos)));
+        pos = pos2 + delimiter->length();
+        pos2 = this->find(delimiter, pos);
+    }
+    words.push_back(std::string(this->substr(pos)));
+    return join(words, " ");
+}
+
+std::string std::string::join(const std::vector<std::string>& words, const char* delimiter) {
+    std::string output;
+    for (const auto& word : words) {
+        output += word + delimiter;
+    }
+    if (!output.empty()) {
+        output.pop_back();
+    }
+    return output;
 }
