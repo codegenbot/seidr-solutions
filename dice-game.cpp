@@ -1,17 +1,13 @@
 #include <iostream>
 using namespace std;
 
-double game(int n, int m) {
-    if (n == 1)
-        return 0;
-    if (m == 1)
-        return 1;
-    return (double)(m - 1) / (n + m - 2);
+double probability(int n, int m) {
+    return 1.0 * (n - 1) / (n * m);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(4) << game(n, m) << endl;
+    cout << fixed << setprecision(1) << probability(n, m) << endl;
     return 0;
 }
