@@ -3,39 +3,20 @@
 bool solveBoolean(string expression) {
     stack<string> stack;
     bool lastOp = false;
-    string result = "T";
+    string result = "";
     for (char c : expression) {
         if (c == ' ') continue;
         if (c == '&') {
-            while (!stack.empty() && stack.top() != "|") {
-                if (stack.top() == "F")
-                    result = "F";
-                else
-                    result = "T";
+            result = !lastOp ? "T" : "F";
+            stack.push(string(1, "&"));
+        } else if (c == '|') {
+            while (!stack.empty() && stack.top() == "&") {
                 stack.pop();
+                lastOp = true;
             }
-            lastOp = false;
-        } 
-        else if (c == '|') {
-            while (!stack.empty()) {
-                if (stack.top() == "&") {
-                    if (result == "F")
-                        result = "F";
-                    else
-                        result = "T";
-                    break;
-                } else if (stack.top() == "|") {
-                    stack.pop();
-                    lastOp = true;
-                    break;
-                }
-            }
-        } 
-        else {
-            if (c == 'T')
-                stack.push("T");
-            else
-                stack.push("F");
+            stack.push("|");
+        } else {
+            stack.push(c == 'T' ? "T" : "F");
             lastOp = false;
         }
     }
