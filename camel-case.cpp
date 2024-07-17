@@ -1,21 +1,26 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result;
-    bool capitalizeNext = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+std::string camelCase(std::string str) {
+    std::string result = "";
+    for (int i = 0; i <= str.size(); i++) {
+        if (i == str.size() || str[i] == '-') {
+            if (result.empty()) {
+                // First word, no need to capitalize
+            } else {
+                result[0] = toupper(str[i]);
+            }
+            result += str.substr(i + 1);
+            break;
+        } else if (str[i] != ' ') {
+            if (i == 0) {
+                // First character of the first word, capitalize it
+                result += toupper(str[i]);
+            } else {
+                result += tolower(str[i]);
+            }
         }
     }
-
     return result;
 }
 
