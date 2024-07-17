@@ -1,12 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-
-int main() {
-    int a = 10;
-    int b = 15;
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-}
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
