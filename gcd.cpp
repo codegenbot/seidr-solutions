@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,10 +8,10 @@ int main() {
     int target = 346266;
     
     std::vector<int> result;
-    char* textChar = (char*)&text;
-    char* targetChar = (char*)&target;
-    for (int i = 0; i <= sizeof(int)*text - sizeof(int)*target; i++) {
-        if (std::equal(textChar + i, textChar + i + sizeof(int)*target, targetChar, sizeof(int))) {
+    for (int i = 0; i <= text - target; i++) {
+        if (std::equal(std::to_string(text).begin() + i, 
+                       std::to_string(text).begin() + i + std::to_string(target).size(), 
+                       std::to_string(target).begin())) {
             result.push_back(i);
         }
     }
