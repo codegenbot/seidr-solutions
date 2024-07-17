@@ -1,5 +1,3 @@
-#include <vector>
-
 int basement(const std::vector<int>& nums) {
     int total = 0;
     int minIndex = 0;
@@ -7,9 +5,7 @@ int basement(const std::vector<int>& nums) {
         total += nums[i];
         if (total < 0)
             return i + 1;
-        else 
+        else
             minIndex = i + 1;  
     }
     return -1;
-
-}
