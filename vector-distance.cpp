@@ -14,10 +14,10 @@ double calculateEuclideanDistance(int n, vector<double> v1, vector<double> v2) {
 
 int main() {
     int n;
-    std::cin >> n; 
-    std::vector<double> v1(n), v2(n); 
+    cin >> n; 
+    vector<double> v1(n), v2(n); 
     for (int i = 0; i < n; i++) { 
-        std::cin >> v1[i] >> v2[i];
+        cin >> v1[i] >> v2[i];
     }
     
     std::cout << std::fixed << std::setprecision(20) << calculateEuclideanDistance(n, v1, v2) << std::endl;
