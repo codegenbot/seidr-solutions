@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> leaders(std::vector<int> v) {
     std::vector<int> res;
     int max_right = v.back();
