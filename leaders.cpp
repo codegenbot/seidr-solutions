@@ -1,8 +1,6 @@
-```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
