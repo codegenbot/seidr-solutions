@@ -1,6 +1,8 @@
+#include <string>
+
 using namespace std;
 
-auto spinWords(auto str) {
+string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -25,5 +27,4 @@ auto spinWords(auto str) {
             i = j;
         }
     }
-    return result.substr(0, result.length() - 1);
-}
+    return result;
