@@ -1,11 +1,10 @@
-```
 prices_and_discounts = []
 while True:
     temp = list(map(float, input().strip().split()))
-    if len(temp) != 2:
+    if len(temp) % 2 != 0:  
         print("Invalid input. Please provide price and discount as two separate float values.")
     else:
-        prices_and_discounts.append((temp[0], (100 - temp[1]) / 100.0))
+        prices_and_discounts.extend(zip(temp[::2], map(lambda x: (100 - x) / 100.0, temp[1::2])))
     user_input = input("Do you want to continue? (yes/no): ")
     if user_input.lower() != "yes":
         break
