@@ -1,29 +1,47 @@
 ```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frame = 0
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            if int(s[i]) + int(s[i+1]) >= 10:
-                if frame < 9:
-                    score += min(int(s[i]), int(s[i+1])) * 2
-                else:
-                    score += min(int(s[i]), int(s[i+1]))
-                frame += 1
-            elif frame == 0 and s[i] != 'X' and s[i+1] != 'X':
-                if sum(map(int, list(s[:i]))) < 10:
-                    return "Invalid input"
+    for i in range(0, len(frames), 2):
+        if frames[i].isdigit():
+            frame = int(frames[i])
+        else:
+            if '/' in frames[i]:
+                strike = True
             else:
-                score += 10
-                frame += 1
-        elif s[i] == 'X':
+                spare = True
+            score += get_frame_score(frame, strike, spare)
+        if i < len(frames) - 1 and frames[i+1] == 'X':
             score += 10
-            frame += 1
-        elif s[i] == '/':
-            if sum(map(int, list(s[:i-1]))) < 10:
-                return "Invalid input"
-            score += 10 - int(s[i+1])
-            frame += 1
-    if frame < 10:
-        return "Invalid input"
     return score
+
+def get_frame_score(frame, strike, spare):
+    if strike:
+        return 10 + get_next_two_scores()
+    elif spare:
+        return 10 + int(frame)
+    else:
+        return frame
+
+def get_next_two_scores():
+    frames = ''
+    i = 0
+    while True:
+        if len(frames) == 2:
+            break
+        frames += next_frame()[1]
+        i += 1
+    return sum([int(x) for x in frames])
+
+def next_frame():
+    frame = input()
+    while not is_valid_frame(frame):
+        frame = input()
+    return frame, True
+
+def is_valid_frame(frame):
+    if len(frame) > 2:
+        return False
+    for char in frame:
+        if char not in '0123456789X/-':
+            return False
+    return True
