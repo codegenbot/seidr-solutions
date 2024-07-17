@@ -41,6 +41,7 @@ int main(){
 
     char ch;
     cin >> ch; // Read and discard any remaining input characters
-    cin.ignore(); 
+    cin.ignore(); // or this can be used
 
     return 0;
+}
