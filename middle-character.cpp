@@ -6,3 +6,11 @@ std::string middleCharacter(std::string s) {
         return s.substr((len-1)/2, 1);
     }
 }
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << middleCharacter(input) << std::endl;
+    return 0;
+}
