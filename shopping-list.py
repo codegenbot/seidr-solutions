@@ -10,4 +10,5 @@ def shopping_list():
 
     return format(total_price, ".2f")
 
+
 print(shopping_list())
