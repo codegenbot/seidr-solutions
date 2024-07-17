@@ -12,10 +12,10 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && !code.includes(c)) {
+        if (std::count(code.begin(), code.end(), c) > 0 && !code.find(c)) {
             white++;
         }
     }
 
-    return black + white;
+    return black;
 }
