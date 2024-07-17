@@ -20,4 +20,3 @@ int main() {
     string result = fizzBuzz(x);
     cout << result << endl;
     return 0;
-}
