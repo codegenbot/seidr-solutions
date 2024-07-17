@@ -1,28 +1,19 @@
+#include <string>
+using namespace std;
+
 bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return false;
-            }
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return true;
-            }
-            st.push('|');
-        } else {
-            st.push(s[i]);
+    bool res = true;
+    for (char c : s) {
+        if (c == 'f') {
+            res = false;
+            break;
+        }
+        else if (c == '&') {
+            continue;
+        }
+        else if (c == '|') {
+            return !res;
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    return st.empty();
+    return res;
 }
