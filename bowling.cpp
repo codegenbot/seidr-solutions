@@ -1,29 +1,25 @@
-```cpp
+```#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == 'X') {
-            score += 10;
-            roll++;
-        } else if (s[i] >= '1' && s[i] <= '9') {
-            int rolls = std::stoi(s.substr(i, 2));
-            i += 1;
-            roll = 0;
-            for (int j = 0; j < rolls; ++j) {
-                if (s[i] == '/') {
-                    score += 10 - (10 - roll);
-                    roll = 0;
-                } else if (s[i] >= '1' && s[i] <= '9') {
-                    roll++;
-                }
-                i++;
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (10 - roll);
             }
-        } else if (s[i] == '/') {
-            score += 10 - (10 - roll);
             roll = 0;
-        } else if (s[i] >= '1' && s[i] <= '9') {
+        } else if (c >= '1' && c <= '9') {
             roll++;
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
         }
     }
-    return score + roll * 10;
-}
+    if (roll < 2) {
+        if (roll == 1)
+            score += roll * 10;
+        else
+            score += 10 + (roll - 2) * 10 / 3;
+    }
+    return score;
