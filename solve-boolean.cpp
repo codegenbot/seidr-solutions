@@ -1,34 +1,34 @@
+```
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
+    st.push('&');
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == '|') {
-            while(!st.empty()) {
+            while(st.top() != '&') {
                 char c = st.top(); 
                 st.pop();
-                if(c == '&') {
-                    st.push('&');
-                    break;
-                } else if(c == '|') {
-                    st.push('|');
-                    break;
+                if(c == 'T') {
+                    st.push('T');
+                } else if(c == 'F') {
+                    st.push('F');
                 }
             }
+            st.pop();
         } else if(s[i] == '&') {
-            while(!st.empty()) {
+            while(st.top() != '|') {
                 char c = st.top(); 
                 st.pop();
-                if(c == '|') {
-                    st.push('|');
-                    break;
-                } else if(c == '&') {
-                    st.push('&');
-                    break;
+                if(c == 'T') {
+                    st.push('T');
+                } else if(c == 'F') {
+                    st.push('F');
                 }
             }
+            st.push('&');
         }
     }
-    return st.empty() ? false : true;
+    return st.top() == '&';
 }
