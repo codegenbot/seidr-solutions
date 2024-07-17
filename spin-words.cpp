@@ -1,10 +1,6 @@
-#include<iostream>
-#include<string>
-
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
+```
+std::string spinWords(std::string str) {
+    std::string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
@@ -15,9 +11,9 @@ string spinWords(string str) {
             while (j < str.length() && str[j] != ' ') {
                 j++;
             }
-            string word = str.substr(i, j - i);
+            std::string word = str.substr(i, j - i);
             if (word.length() >= 5) {
-                string revWord = "";
+                std::string revWord = "";
                 for (int k = word.length() - 1; k >= 0; k--) {
                     revWord += word[k];
                 }
@@ -29,11 +25,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    string str; 
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str);
 }
