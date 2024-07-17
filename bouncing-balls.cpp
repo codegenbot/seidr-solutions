@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ int main() {
         totalDistance += pow(2, i) * (bouncinessIndex - 1);
     }
 
-    cout << fixed << setfill(' ') << showpoint << setiosflags(ios::fixed | ios::showpoint);
+    cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
