@@ -1,4 +1,6 @@
-```c++
+```cpp
+#include <string>
+
 std::string fizzBuzz(int x) {
     if (x % 15 == 0) 
         return "FizzBuzz";
