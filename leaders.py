@@ -4,6 +4,6 @@ def leaders(arr):
 
     for i in range(n - 2, -1, -1):
         if arr[i] >= arr[i + 1]:
-            leaders_list.append(arr[i])
+            leaders_list.insert(0, arr[i])
 
-    return leaders_list[::-1]
+    return leaders_list
