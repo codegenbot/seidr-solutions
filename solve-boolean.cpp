@@ -1,6 +1,7 @@
+```cpp
 #include <stack>
 #include <string>
-#include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ bool solveBoolean(string expression) {
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                stack.push(to_string(expression[i]));
+                stack.push(string(1, expression[i]));
         }
     }
 
@@ -28,7 +29,7 @@ bool solveBoolean(string expression) {
             result &= (stack.top() == "T") ? true : false;
             stack.pop();
         } else if (op == "|") {
-            if (stack.empty() > 1) {
+            if (stack.size() > 1) {
                 result |= (stack.top() == "T") ? true : false;
                 stack.pop();
             }
@@ -38,4 +39,12 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
+    return result ? 0 : 1;
 }
