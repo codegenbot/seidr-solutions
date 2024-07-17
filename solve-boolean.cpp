@@ -1,26 +1,30 @@
-Here is the solution:
+#include <string>
 
-string solveBoolean(string expression) {
-    stack<char> operators;
-    stack<bool> values;
+bool solveBoolean(string expr) {
+    bool result = true;
+    int i = 0;
 
-    for (char c : expression) {
-        if (c == 't' || c == 'T') {
-            values.push(true);
-        } else if (c == 'f' || c == 'F') {
-            values.push(false);
-        } else if (c == '&') {
-            bool right = values.top(); values.pop();
-            bool left = values.top(); values.pop();
-
-            values.push(left && right);
-        } else if (c == '|') {
-            bool right = values.top(); values.pop();
-            bool left = values.top(); values.pop();
-
-            values.push(left || right);
+    while (i < expr.length()) {
+        if (expr[i] == 't') {
+            return true;
         }
+        else if (expr[i] == 'f') {
+            return false;
+        }
+        else if (expr[i] == '&') {
+            i++;
+            bool left = (i < expr.length() && expr[i] == 't');
+            bool right = (i < expr.length() && expr[i] == 't');
+            result &= right;
+        }
+        else if (expr[i] == '|') {
+            i++;
+            bool left = (i < expr.length() && expr[i] == 't');
+            bool right = (i < expr.length() && expr[i] == 't');
+            result |= right;
+        }
+        i++;
     }
 
-    return values.top() ? "True" : "False";
+    return result;
 }
