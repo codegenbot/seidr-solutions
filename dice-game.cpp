@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 double probability(int n, int m) {
     double total = static_cast<double>(n * m);
