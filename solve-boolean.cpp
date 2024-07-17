@@ -1,8 +1,4 @@
-#include <initializer_list>
-#include <stack>
-#include <string>
-
-using namespace std;
+using std::stack;
 
 bool solveBoolean(string expression) {
     stack<string> s;
@@ -16,7 +12,7 @@ bool solveBoolean(string expression) {
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                s.push(to_string(expression[i]));
+                s.push(std::to_string(expression[i]));
         }
     }
 
