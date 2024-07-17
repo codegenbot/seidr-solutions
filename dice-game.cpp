@@ -1,12 +1,10 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double probability(int n, int m) {
+double diceGame(int n, int m) {
     double total = 1.0;
-    for (int i = 1; i <= n && i < m; i++) {
-        total += 1.0 / m;
+    for (int i = 1; i <= m; i++) {
+        total += pow(n - i + 1, m);
     }
-    for (int i = m + 1; i <= n; i++) {
-        total += 1.0 / n;
-    }
-    return total;
+    return 1.0 / pow(m + 1, m);
 }
