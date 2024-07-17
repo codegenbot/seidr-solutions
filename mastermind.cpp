@@ -1,22 +1,25 @@
 int mastermind(string code, string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++black;
+            black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                ++count;
-            }
-        }
-        white += count - (c == code[0] || c == code[1] || c == code[2] || c == code[3]) ? 1 : 0;
+    map<char, int> code_count, guess_count;
+
+    for (int i = 0; i < 4; i++) {
+        code_count[code[i]]++;
+        guess_count[guess[i]]++;
     }
 
-    return black + white;
+    for (auto& p : code_count) {
+        if (p.second > 0 && guess_count.find(p.first) != guess_count.end() && guess_count[p.first] > 0) {
+            white += min(p.second, guess_count[p.first]);
+        }
+    }
+
+    return black + (4 - black);
 }
