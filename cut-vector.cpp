@@ -1,36 +1,39 @@
-```
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+#include <vector>
+using namespace std;
+
+vector<vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int pos = 0;
     
-    for (int i = 1; i < v.size(); ++i) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i; j < v.size(); ++j) {
-            rightSum += v[j];
-        }
-        
-        if(leftSum == 0 && rightSum == 0){
-            return {{},{}};
-        }else if((leftSum == rightSum)){
-            return {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    for(int i = 1; i <= v.size(); i++) {
+        if(i == v.size()) {
+            vector<int> left(v.begin(), v.begin());
+            vector<int> right(v.begin() + i, v.end());
+            int diff = abs((int)left[0] - (int)right[0]);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i;
+            }
+        } else {
+            vector<int> left(v.begin(), v.begin() + i);
+            vector<int> right(v.begin() + i, v.end());
+            int diff = abs((int)left[0] - (int)right[0]);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i;
+            }
         }
     }
     
-    pair<vector<int>, vector<int>> result;
-    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
-    result.second = vector<int>(v.begin() + splitIndex, v.end());
+    vector<vector<int>> result(2);
+    result[0].resize(pos);
+    for(int i = 0; i < pos; i++) {
+        result[0].push_back(v[i]);
+    }
+    result[1].resize(v.size() - pos);
+    for(int i = pos; i < v.size(); i++) {
+        result[1].push_back(v[i]);
+    }
     
     return result;
 }
