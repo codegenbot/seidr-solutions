@@ -1,2 +1,1 @@
-```cpp
 return (len % 2 == 1) ? std::string(1, input.at(input.size() / 2)) : input.substr(input.size() / 2 - 1, 2);
