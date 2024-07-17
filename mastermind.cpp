@@ -1,21 +1,39 @@
-int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
-
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
-        } else {
-            int j = 0;
-            while (j < 4) {
-                if (code[j] == guess[i]) {
-                    white++;
-                    break;
-                }
-                j++;
-            }
+            count++;
         }
     }
+    return 4 - count;
+}
 
-    return black + white - 4;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeVector(code.begin(), code.end());
+    for (int i = 0; i < 4; i++) {
+        if (countChar(codeVector, guess[i]) > 0) {
+            count++;
+            replaceChar(codeVector, guess[i], -1);
+        }
+    }
+    return count;
+}
+
+int countChar(vector<char> code, char c) {
+    int count = 0;
+    for (char ch : code) {
+        if (ch == c) {
+            count++;
+        }
+    }
+    return count;
+}
+
+void replaceChar(vector<char>& code, char c, int val) {
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == c) {
+            code[i] = static_cast<char>(val);
+        }
+    }
 }
