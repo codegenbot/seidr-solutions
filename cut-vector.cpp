@@ -12,18 +12,10 @@ vector<vector<int>> cutVector(vector<int> v) {
         vector<int> left(v.begin(), v.begin() + i);
         vector<int> right(v.begin() + i, v.end());
         
-        vector<int> temp;
-        int diff = 0;
-        for(int j = 0; j < min(left.size(), right.size()); j++){
-            if(left[j] != right[j]) {
-                temp.push_back(abs(left[j]-right[j]));
-                if(temp[j] > diff) {
-                    diff = temp[j];
-                }
-            } else {
-                break;
-            }
-        }
+        double mean_left = (double)accumulate(left.begin(), left.end(), 0) / left.size();
+        double mean_right = (double)accumulate(right.begin(), right.end(), 0) / right.size();
+        
+        int diff = abs((int)(mean_left - mean_right));
         
         if(diff < min_diff) {
             min_diff = diff;
