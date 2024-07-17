@@ -4,40 +4,35 @@
 
 using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    string word = "";
-
-    for(int i=0; i<input.length(); i++) {
-        if(input[i] != ' ') {
-            word += input[i];
-        } else {
-            if(word.length() >= 5) {
-                for(int j=word.length()-1; j>=0; j--) {
-                    output += word[j];
-                }
-            } else {
-                output += word;
-            }
-            word = "";
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for(int i=0; i<=str.length(); i++) {
+        if(i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i-start);
+            if(word.length() >= 5)
+                result += reverse(word) + " ";
+            else
+                result += word + " ";
+            start = i+1;
         }
     }
+    return result;
+}
 
-    if(word.length() >= 5) {
-        for(int i=word.length()-1; i>=0; i--) {
-            output += word[i];
-        }
-    } else {
-        output += word;
-    }
-
-    return output;
+string reverse(string s) {
+    string r = "";
+    for(int i=s.length()-1; i>=0; i--)
+        r += s[i];
+    return r;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string of one or more words (separated by spaces): ";
-    getline(cin, input);
-    cout << "Output: " << spinWords(input) << endl;
+    // Testing the function
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("this is another test") << endl;
+    cout << spinWords("hi") << endl;
+
     return 0;
 }
