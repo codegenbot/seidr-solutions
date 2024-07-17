@@ -1,40 +1,34 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> op;
-    stack<bool> val;
+bool solveBoolean(string expression) {
+    stack<char> operatorStack;
+    stack<string> valueStack;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T' || s[i] == 't') {
-            val.push(true);
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            val.push(false);
-        } else if (s[i] == '|') {
-            bool b = val.top();
-            val.pop();
-            while (!op.empty() && op.top() != '&') {
-                bool a = val.top();
-                val.pop();
-                op.pop();
-                val.push(a || b);
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|')
+                operatorStack.pop(), valueStack.pop();
+            operatorStack.push(expression[i]);
+        } else if (expression[i] == '|') {
+            while (!operatorStack.empty())
+                operatorStack.pop(), valueStack.pop();
+            operatorStack.push(expression[i]);
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            string val = "";
+            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
+                val += expression[i];
+                i++;
             }
-            if (!op.empty()) {
-                op.pop();
-                val.push(val.top() && !val.top());
-                val.pop();
-            }
-        } else if (s[i] == '&') {
-            op.push('&');
-        }
+            i--;
+            valueStack.push(val);
+        } 
     }
 
-    return val.top();
-}
+    while (!operatorStack.empty()) {
+        operatorStack.pop(), valueStack.pop();
+    }
 
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False");
-    return 0;
+    string result = valueStack.top();
+    return result == "T";
 }
