@@ -40,6 +40,6 @@ int main(){
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
     char ch;
-    while(cin.get(ch) && ch != '\n'); 
+    while(cin.get(ch) && ch != '\n'); // Consume remaining input characters
 
     return 0;
