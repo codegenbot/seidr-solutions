@@ -20,6 +20,7 @@ int main() {
         std::cin >> v1[i] >> v2[i];
     }
     
-    std::cout << std::fixed << std::setprecision(20) << calculateEuclideanDistance(n, v1, v2) << std::endl;
+    double distance = calculateEuclideanDistance(n, v1, v2);
+    std::cout << std::fixed << std::setprecision(20) << distance << std::endl;
     return 0;
 }
