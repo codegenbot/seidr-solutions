@@ -5,3 +5,6 @@ def bouncing_balls():
     n = int(input())
     total_distance = 2 * (1 + bi) ** n - 2
     print(format(total_distance, ".4f"))
+
+
+bouncing_balls()
