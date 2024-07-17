@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int main() {
@@ -14,7 +13,7 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    std::cin >> bouncinessIndex;  // assuming input is height, not index
+    std::cin >> bouncinessIndex;  
 
     double calculatedBouncinessIndex = (bouncinessIndex / startingHeight);
 
