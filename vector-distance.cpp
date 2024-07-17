@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -20,7 +20,6 @@ int main() {
         cin >> v1[i] >> v2[i];
     }
     
-    double distance = calculateEuclideanDistance(n, v1, v2);
-    cout << fixed << setprecision(20) << distance << endl;
+    cout << fixed << setprecision(20) << calculateEuclideanDistance(n, v1, v2) << std::endl;
     return 0;
 }
