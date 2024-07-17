@@ -1,27 +1,49 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str.find(" ", i) == -1 || i + 1 >= str.length())
-            result += str.substr(i);
-        else {
-            string word = str.substr(i, str.find(" ", i) - i);
-            if (word.length() >= 5)
-                result += reverse(word) + " ";
-            else
-                result += word + " ";
-            i = str.find(" ", i) + 1;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string word;
+    
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            result += word + " ";
+            word.clear();
+        } else {
+            word += sentence[i];
         }
     }
-    return result;
+    
+    result += word;
+    
+    std::string newResult = "";
+    int j = 0;
+    
+    while (j < result.length()) {
+        if (result[j] == ' ') {
+            newResult += " ";
+            j++;
+        } else {
+            int k = j;
+            while (k < result.length() && result[k] != ' ') {
+                k++;
+            }
+            std::string temp = result.substr(j, k - j);
+            for (int i = 0; i < temp.length(); i++) {
+                newResult += temp[temp.length() - i - 1];
+            }
+            j = k;
+        }
+    }
+    
+    return newResult;
 }
 
-string reverse(string s) {
-    string rev = "";
-    for (int i = s.length() - 1; i >= 0; --i)
-        rev += s[i];
-    return rev;
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
+    return 0;
 }
