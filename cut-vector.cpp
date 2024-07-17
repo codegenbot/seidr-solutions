@@ -1,24 +1,29 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
     int min_diff = INT_MAX;
-    int cut_index = -1;
-    
-    for(int i = 0; i < nums.size() - 1; i++) {
-        if(abs(nums[i] - nums[i+1]) <= min_diff) {
-            min_diff = abs(nums[i] - nums[i+1]);
-            cut_index = i;
+    int cut_idx = -1;
+
+    for (int i = 0; i < n; ++i) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum_left += vec[j];
+        }
+        for (int j = i + 1; j < n; ++j) {
+            sum_right += vec[j];
+        }
+
+        int diff = abs(sum_left - sum_right);
+        if (diff == 0 || diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-    
-    vector<int> left, right;
-    for(int i = 0; i < cut_index; i++) {
-        left.push_back(nums[i]);
-    }
-    for(int i = cut_index + 1; i < nums.size(); i++) {
-        right.push_back(nums[i]);
-    }
-    
-    return {left, right};
+
+    vector<int> left_vec(vec.begin(), vec.begin() + cut_idx);
+    vector<int> right_vec(vec.begin() + cut_idx, vec.end());
+
+    return {left_vec, right_vec};
 }
