@@ -1,9 +1,13 @@
 def indices_of_substring(text):
-    indices = []
+    result = []
     for i in range(len(text)):
-        if text[i:].startswith(input()):
-            start_index = i
-            while text[i:].startswith(input()):
-                i += len(input())
-            indices.append(start_index)
-    return indices
+        if len(text) - i >= len(
+            text[i : i + len(text)]
+        ):  # check if there is enough string left
+            if (
+                text[i : i + len(text)].find(text) != -1
+            ):  # check if the substring appears in the remaining string
+                result.extend(
+                    [j + i for j in range(len(text) - i) if text[i + j] == text]
+                )
+    return [str(i) for i in set(result)]
