@@ -10,3 +10,4 @@ int pairedDigits(const char* str) {
         }
     }
     return sum;
+}
