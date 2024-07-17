@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <map>
+#include <string>
 #include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
@@ -8,7 +8,7 @@ int mastermind(std::string code, std::string guess) {
     int black = 0;
 
     std::map<char, int> colorMap; 
-    std::vector<std::pair<char, int>> placementArray; 
+    std::map<char, int> placementMap; 
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) { 
@@ -20,27 +20,22 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (auto& pair : colorMap) {
-        placementArray.push_back(pair); 
+        placementMap[pair.first] = pair.second; 
     }
 
-    int correctPlacement = std::count(placementArray.begin(), placementArray.end(), std::make_pair('?', 4)); 
-
-    black -= correctPlacement; 
+    black -= std::count(placementMap.begin(), placementMap.end(), 1); 
 
     return black;
 }
 
 int main() {
     std::string code, guess;
-    // Ask user for input
     std::cout << "Enter the Mastermind code: ";
     std::cin >> code;
-    std::cout << "Enter a guess: ";
+    std::cout << "Enter your guess: ";
     std::cin >> guess;
 
     int result = mastermind(code, guess);
-
-    std::cout << "Black pegs: " << result << "\n";
+    std::cout << "Number of black pegs: " << result << std::endl;
 
     return 0;
-}
