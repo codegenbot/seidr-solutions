@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +16,7 @@ int main() {
     std::cin >> n;
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
-    double result = std::stod(probability(n, m));  
+    double result = std::stod(probability(n, m));  // Convert string to double
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl;
     return 0;
 }
