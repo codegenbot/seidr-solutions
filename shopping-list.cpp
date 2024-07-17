@@ -1,13 +1,11 @@
-#include <vector>
 #include <iostream>
-#include <iomanip>
-
+#include <vector>
 using namespace std;
 
-double shoppingList(double* price, double* discount, int n) {
+double shoppingList(double price[], double discount[], int n) {
     double total = 0;
     for (int i = 0; i < n; i++) {
-        total += *price++ * (1 - (*discount++ / 100.0));
+        total += price[i] * (1 - discount[i] / 100.0);
     }
     return total;
 }
