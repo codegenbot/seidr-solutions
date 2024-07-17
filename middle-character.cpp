@@ -3,12 +3,5 @@ std::string middleCharacter(std::string input) {
         return "";
     }
     int len = input.length();
-    std::string result;
-    if (len == 1) {
-        result = input; 
-    } else {
-        int midIndex = len / 2;
-        result = len % 2 ? input.substr(midIndex, 1) : input.substr(midIndex - 1, 2);
-    }
-    return result;
+    return len == 1 ? "" : (len % 2 == 1 ? input.substr(len / 2, 1) : input.substr((len - 1) / 2, 2));
 }
