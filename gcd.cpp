@@ -3,21 +3,24 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int start = 0;
-    while (start < text.length()) {
-        size_t found = text.find(target, start);
-        if (found != string::npos) {
-            indices.push_back(found);
-            start = found + 1;
-        } else {
-            break;
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
+        bool found = true;
+        for (int j = 0; j < targetLen; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
+        if (found) indices.push_back(i);
     }
     return indices;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
