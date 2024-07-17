@@ -1,3 +1,8 @@
+```cpp
+#include <string>
+#include <sstream>
+using namespace std;
+
 string spinWords(string str) {
     stringstream result;
     int i = 0;
@@ -24,3 +29,4 @@ string spinWords(string str) {
         }
     }
     return result.str().substr(0, result.str().find(' '));
+}
