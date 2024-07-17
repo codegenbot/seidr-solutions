@@ -1,30 +1,38 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(std::string str) {
-    std::vector<std::string> words = {""};
-    std::stringstream ss(str);
-    std::string word;
-    while (getline(ss, word, '-')) {
-        if (!word.empty()) {
-            words.back() += word[0].toupper();
-            words.push_back(word.substr(1));
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            if (i > 0 && s[i - 1] != ' ') {
+                result += toupper(s[i + 1]);
+                i++;
+            } else {
+                int j = i;
+                while (j < s.length() && s[j] != '-' && s[j] != ' ')
+                    j++;
+                if (i > 0)
+                    result += s.substr(i, j - i);
+                i = j;
+            }
+        } else if (s[i] == ' ') {
+            continue;
+        } else {
+            if (!result.empty())
+                result += tolower(s[i]);
+            else
+                result += s[i];
         }
     }
-
-    str = "";
-    for (int i = 0; i < words.size(); ++i) {
-        str += words[i];
-        if (i != words.size() - 1)
-            str += " ";
-    }
-
-    return str;
+    return result;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << kebabToCamel(input) << std::endl;
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    getline(cin, input);
+    cout << "The camelCase equivalent is: " << camelCase(input) << endl;
     return 0;
 }
