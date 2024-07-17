@@ -1,14 +1,19 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
-double getProbability(int n, int m) {
-    if(n <= m) return 1.0 - (double)m / (n * 1.0);
-    else return (double)(m-1) / (n * 1.0);
+double diceGame(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            total += 1.0 / (n * m);
+        }
+    }
+    return 1 - (m / (double) (n * m));
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << getProbability(n, m) << endl;
+    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
     return 0;
 }
