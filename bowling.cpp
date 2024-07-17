@@ -1,6 +1,4 @@
-#include <string>
-#include <cctype>
-
+```cpp
 int bowlingScore(const char* frames) {
     int score = 0;
     int currentRolls = 0;
