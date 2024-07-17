@@ -5,6 +5,7 @@ int main() {
     int numBounces;
     double startingHeight;
     double bouncinessIndex;
+    double firstBounceHeight;
 
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
@@ -12,10 +13,10 @@ int main() {
     std::cout << "Enter starting height: ";
     std::cin >> startingHeight;
 
-    int height;
     std::cout << "Enter first bounce height: ";
-    std::cin >> height;
-    bouncinessIndex = static_cast<double>(height) / startingHeight;
+    std::cin >> firstBounceHeight;
+
+    bouncinessIndex = (double)firstBounceHeight / startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
         totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);

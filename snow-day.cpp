@@ -5,7 +5,8 @@ float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingR
     float totalSnow = currentSnow;
     
     for (int i = 0; i < hours; ++i) {
-        currentSnow += rateOfSnowfall - meltingRate;
+        currentSnow += rateOfSnowfall;
+        currentSnow -= meltingRate;
         
         if (currentSnow < 0)
             currentSnow = 0;
