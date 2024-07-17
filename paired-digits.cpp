@@ -1,9 +1,10 @@
+#include <iostream>
 #include <string>
 
 int main() {
     std::string str;
     std::cout << "Enter a string of digits: ";
-    std::getline(std::cin, str);
+    std::cin >> str;
     int sum = 0;
     for (int i = 0; i < str.size() - 1; i++) {
         if (str[i] == str[i + 1]) {
