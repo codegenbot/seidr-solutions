@@ -6,11 +6,7 @@ int bowlingScore(string s) {
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
-                if (roll == 1) {
-                    score += 10 - (10 - roll);
-                } else {
-                    score += 10;
-                }
+                score += 10 - (10 - roll);
             }
             roll = 0;
         } else if (c >= '1' && c <= '9') {
@@ -20,10 +16,7 @@ int bowlingScore(string s) {
             roll = 0;
         }
     }
-    if (roll > 1) {
-        score += roll * 10;
-    } else if (roll == 1) {
+    if (roll < 2) {
         score += 10 - (10 - roll);
     }
     return score;
-}
