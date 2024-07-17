@@ -1,5 +1,8 @@
+```cpp
 #include <climits>
 #include <vector>
+#include <initializer_list>
+#include <cmath>
 
 using namespace std;
 
@@ -43,7 +46,5 @@ vector<vector<int>> cutVector(vector<int> v) {
 int main() {
     vector<int> v = {1, 2, 3, 4, 5};
     vector<vector<int>> result = cutVector(v);
-    
-    // Print or use the result as needed
     return 0;
 }
