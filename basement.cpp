@@ -1,13 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int basement() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num || !std::cin.fail()) {
-        nums.push_back(num);
-    }
-
+int basement(const std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
@@ -18,8 +12,13 @@ int basement() {
     return -1;
 }
 
-int main() {
-    int result = basement();
+int main(int argc, char *argv[]) {
+    std::vector<int> nums;
+    for (int i = 1; i < argc; ++i) {
+        nums.push_back(std::stoi(argv[i]));
+    }
+
+    int result = basement(nums);
     std::cout << result << std::endl;
     return 0;
 }
