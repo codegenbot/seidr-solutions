@@ -1,6 +1,3 @@
-#include <string>
-#include <cctype>
-
 int bowlingScore(const string& frames) {
     int score = 0;
     int currentRolls = 0;
@@ -22,3 +19,4 @@ int bowlingScore(const string& frames) {
     }
 
     return score;
+}
