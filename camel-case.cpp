@@ -2,45 +2,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string camelCase(string s) {
-    string result = "";
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] != '-') {
-            if (result.empty()) {
-                result += toupper(s[i]);
-            } else {
-                result += tolower(s[i]);
-            }
-        } else {
-            if (!result.empty()) {
-                result += ' ';
-            }
-            i++;
-            while (i < s.size() && s[i] == '-') {
-                i++;
-            }
-            if (s[i] != ' ') {
-                if (result.size() > 0) {
-                    result[0] = tolower(result[0]);
-                } else {
-                    result += " ";
-                }
-            }
+std::string camelCase(const std::string& str) {
+    std::string result;
+    for (char c : str) {
+        if (c == '-') {
+            result += toupper(str[str.find(c) + 1]);
+            str.erase(str.find(c), 1);
+        } else if (c != ' ') {
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
-        string s;
-        cin >> s;
-        cout << camelCase(s) << endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
