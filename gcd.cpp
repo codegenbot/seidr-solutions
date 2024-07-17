@@ -1,12 +1,13 @@
-vector<int> indicesOfSubstring(string text, string target) {
+#include <vector>
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
     vector<int> result;
-    int len = target.length();
-    
-    for(int i=0; i<=text.length()-len; i++) {
-        if(text.substr(i, len).compare(target) == 0)
-            result.push_back(i);
+    int pos = 0;
+    while ((pos = text.find(target)) != string::npos) {
+        result.push_back(pos);
+        pos += target.length();
     }
-    
     return result;
 }
 
