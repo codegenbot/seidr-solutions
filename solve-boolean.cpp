@@ -1,36 +1,36 @@
+#include <initializer_list>
 #include <stack>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<string> stack;
+    stack<string> s;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            stack.push("&");
+            s.push("&");
         } else if (expression[i] == '|') {
-            while (!stack.empty() && stack.top() == "&") {
-                stack.pop();
+            while (!s.empty() && s.top() == "&") {
+                s.pop();
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                stack.push(string(1, expression[i]));
+                s.push(to_string(expression[i]));
         }
     }
 
     bool result = true;
-    while (!stack.empty()) {
-        string op = stack.top();
-        stack.pop();
+    while (!s.empty()) {
+        string op = s.top();
+        s.pop();
         if (op == "&") {
-            result &= (stack.top() == "T") ? true : false;
-            stack.pop();
+            result &= (s.top() == "T") ? true : false;
+            s.pop();
         } else if (op == "|") {
-            if (stack.size() > 1) {
-                result |= (stack.top() == "T") ? true : false;
-                stack.pop();
+            if (s.size() > 1) {
+                result |= (s.top() == "T") ? true : false;
+                s.pop();
             }
         } else {
             result = op == "T" ? true : false;
@@ -38,4 +38,3 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
-}
