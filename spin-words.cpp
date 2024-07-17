@@ -1,25 +1,40 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::size_t start = 0;
-    for (std::size_t end = 0; end <= sentence.size(); ++end) {
-        if ((end == sentence.size()) || (sentence[end] == ' ')) {
-            std::string word = sentence.substr(start, end - start);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
+    size_t pos = 0;
+    while ((pos = str.find(" ")) != std::string::npos) {
+        size_t wordEnd = pos;
+        if (wordEnd + 1 < str.length() && str[wordEnd] >= 'a' && str[wordEnd] <= 'z') {
+            ++wordEnd;
+        }
+        int len = wordEnd - pos;
+        if (len > 4) {
+            for (int i = len - 1; i >= 0; --i) {
+                result += str[pos + i];
             }
-            result += word + " ";
-            start = end + 1;
+        } else {
+            result += str.substr(pos, len);
+        }
+        str.erase(0, wordEnd + 1);
+    }
+    if (!str.empty()) {
+        if (str.length() > 4) {
+            for (int i = str.length() - 1; i >= 0; --i) {
+                result += str[i];
+            }
+        } else {
+            result += str;
         }
     }
     return result;
 }
 
 int main() {
-    // Example usage:
-    std::cout << spinWords("this is another test") << std::endl; 
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
+    }
     return 0;
 }
