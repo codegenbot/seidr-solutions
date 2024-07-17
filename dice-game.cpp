@@ -2,8 +2,8 @@
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= m; i++) { 
-        sum += (n - m) / (double)(n * m);
+    for (int i = std::max(m, 1); i <= n; i++) {
+        sum += (i - std::min(i, m)) / (double)n;
     }
     return sum;
 }
@@ -17,4 +17,3 @@ int main() {
     double result = probability(n, m);
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl;
     return 0;
-}

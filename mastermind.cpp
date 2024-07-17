@@ -1,6 +1,8 @@
+```cpp
 #include <string>
+#include <algorithm>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -10,14 +12,10 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && c != ' ') {
-                count++;
-            }
+    for (char c : guess) {
+        if (std::count(code.begin(), code.end(), c) > 0) {
+            white++;
         }
-        white += min(count, 1);
     }
 
     return black;
