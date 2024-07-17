@@ -1,4 +1,3 @@
-```cpp
 int basement(const std::vector<int>& nums) {
     int total = 0;
     for (int i = 0; i < nums.size(); i++) {
@@ -7,5 +6,4 @@ int basement(const std::vector<int>& nums) {
             return i + 1;
     }
     return -1;
-
 }

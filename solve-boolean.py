@@ -1,18 +1,18 @@
-def solve_boolean(expression):
-    if expression.lower() == "t":
-        return True
-    elif expression.lower() == "f":
-        return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
-
-print(solve_boolean("t"))  
-print(solve_boolean("f"))  
-print(solve_boolean("f&f"))  
-print(solve_boolean("f&t"))  
-print(solve_boolean("t&f"))  
-print(solve_boolean("f&f&t|f|t&f&f|f|t|f&f&t|t&f&f"))
+def solve_boolean(s):
+    stack = []
+    ops = []
+    for c in s + "|&":
+        if c == "T":
+            stack.append(True)
+        elif c == "F":
+            stack.append(False)
+        elif c == "|":
+            while ops and ops[-1] == "&":
+                v2 = stack.pop()
+                v1 = stack.pop()
+                stack.append(v1 or v2)
+                ops.pop()
+            ops.append("|")
+        elif c == "&":
+            ops.append("&")
+    return stack[0]
