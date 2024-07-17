@@ -6,7 +6,7 @@ std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) {
         int digit = c - '0';
-        long long square = static_cast<long long>(digit) * digit;
+        long long square = (long long)digit * digit;
         output += std::to_string(square);
     }
     return output;
