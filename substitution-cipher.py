@@ -1,17 +1,9 @@
-def substitution_cipher(cipher, message):
+def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
-        if char.isalpha():
-            index = ord(char.upper()) - ord("A")
-            if cipher[0].isupper():
-                result += chr((index + 1) % 26 + ord("A"))
-            else:
-                result += chr((index + 1) % 26 + ord("a")) if char.islower() else " "
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
             result += char
     return result
-
-
-cipher = input().strip()
-message = input().strip()
-print(substitution_cipher(cipher, message))
