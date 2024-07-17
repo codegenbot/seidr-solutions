@@ -12,7 +12,7 @@ bool evaluateBooleanExpression(string expression) {
             while (j < expression.length() && expression[j] != '&') {
                 j++;
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
+            string subExpression = expression.substr(i + 1, j - i);
             bool left = (subExpression == "t") ? true : false;
             bool right = (expression.substr(j) == "t") ? true : false;
             result &= (left && right);
@@ -21,7 +21,7 @@ bool evaluateBooleanExpression(string expression) {
             while (j < expression.length() && expression[j] != '|') {
                 j++;
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
+            string subExpression = expression.substr(i + 1, j - i);
             bool left = (subExpression == "t") ? true : false;
             bool right = (expression.substr(j) == "t") ? true : false;
             result |= (left || right);
