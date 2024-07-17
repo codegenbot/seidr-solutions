@@ -1,28 +1,23 @@
-Here is the solution:
-
-string solveBoolean(string expression) {
+bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '|') {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() != '&') {
                 s.pop();
             }
-            if (!s.empty()) {
-                s.push('&');
-            }
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
+            if (s.empty()) {
+                return true;
+            } else {
                 s.pop();
             }
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
+        } else if (expression[i] == '&') {
+            s.push('&');
+        } else {
             s.push(expression[i]);
         }
     }
-    string result = "";
-    while (!s.empty()) {
-        result += s.top();
+    while (!s.empty() && s.top() != '&') {
         s.pop();
     }
-    return result;
+    return s.empty();
 }
