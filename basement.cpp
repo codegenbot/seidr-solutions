@@ -1,8 +1,8 @@
 int basement(vector<int>& nums) {
-    int sum = 0;
+    int runningSum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        if (sum < 0)
+        runningSum += nums[i];
+        if (runningSum < 0)
             return i;
     }
     return -1;
