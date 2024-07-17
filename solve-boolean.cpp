@@ -1,39 +1,34 @@
-#include <vector>
-#include <iostream>
+#include <stack>
 #include <string>
 
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            int j = i + 1;
-            while (j < expression.length() && expression[j] != '&') {
-                j++;
+string solveBoolean(string s) {
+    stack<char> st;
+    string res = "";
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&') {
+            while(!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
-            bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j + 1) == "t") ? true : false;
-            result &= (left && right);
-        } else if (expression[i] == '|') {
-            int j = i + 1;
-            while (j < expression.length() && expression[j] != '|') {
-                j++;
+            if(st.empty()) res += "T";
+            else res += "F";
+        } 
+        else if(s[i] == '|') {
+            while(!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
-            bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j + 1) == "t") ? true : false;
-            result |= (left || right);
+            if(st.empty()) res += "F";
+            else res += "T";
+        } 
+        else {
+            st.push(s[i]);
         }
     }
-    return result;
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    cout << "Result: " << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
-    return 0;
+    
+    while(!st.empty()) {
+        st.pop();
+    }
+    
+    if(res.length() > 0) return (res[0] == 'T') ? "True" : "False";
+    else return s;
 }
