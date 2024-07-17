@@ -1,5 +1,5 @@
-```cpp=
-int bowlingScore(stdstring s) {
+```cpp
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
