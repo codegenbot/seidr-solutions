@@ -1,3 +1,6 @@
+#include <stack>
+#include <string>
+
 using std::stack;
 
 bool solveBoolean(string expression) {
@@ -34,3 +37,4 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
+}
