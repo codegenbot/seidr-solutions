@@ -1,3 +1,8 @@
+```cpp
+#include <string>
+#include <sstream>
+using namespace std;
+
 string spinWords(string str) {
     stringstream result;
     int i = 0;
