@@ -1,28 +1,51 @@
-#include <string>
-using namespace std;
+string solveBoolean(string booleanExp) {
+    stack<char> opStack;
+    stack<string> valStack;
 
-bool solveBoolean(string expression) {
-    bool result = false;
-    for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == 't') {
-            result = true;
-            break;
-        } else if (expression[i] == 'f') {
-            return false;
-        }
-        else if (i < expression.length() - 1 && expression[i+1] == '&') {
-            i++;
-            if (expression[i] == 'f') {
-                return false;
+    for (int i = 0; i < booleanExp.length(); i++) {
+        if (booleanExp[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string operand2 = valStack.top();
+                valStack.pop();
+                string operand1 = valStack.top();
+                valStack.pop();
+                valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
             }
-        }
-        else if (i < expression.length() - 1 && expression[i+1] == '|') {
-            i++;
-            if (expression[i] == 'f') {
-                result = true;
-                break;
+            opStack.push('&');
+        } else if (booleanExp[i] == '|') {
+            while (!opStack.empty()) {
+                opStack.pop();
+                string operand2 = valStack.top();
+                valStack.pop();
+                string operand1 = valStack.top();
+                valStack.pop();
+                valStack.push((operand1 == "True" || operand2 == "True") ? "True" : "False");
             }
+            opStack.push('|');
+        } else if (booleanExp[i] != 'T' && booleanExp[i] != 'F') {
+            int j = i;
+            while (booleanExp[j] != '&' && booleanExp[j] != '|' && j < booleanExp.length()) {
+                j++;
+            }
+            string operand = booleanExp.substr(i, j - i);
+            if (operand == "True") {
+                valStack.push("True");
+            } else {
+                valStack.push("False");
+            }
+            i = j;
         }
     }
-    return result;
+
+    while (!opStack.empty()) {
+        opStack.pop();
+        string operand2 = valStack.top();
+        valStack.pop();
+        string operand1 = valStack.top();
+        valStack.pop();
+        valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
+    }
+
+    return valStack.top();
 }
