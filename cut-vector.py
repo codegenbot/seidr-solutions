@@ -1,9 +1,20 @@
+Here is the Python solution:
+
 def cut_vector(vector):
-    min_diff = float("inf")
+    min_diff = float('inf')
     cut_index = 0
+    
     for i in range(1, len(vector)):
-        diff = abs(np.sum(vector[:i]) - np.sum(vector[i:]))
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
+        
+        if left_sum == right_sum:
+            return (vector[:i], vector[i:])
+        
+        diff = abs(left_sum - right_sum)
+        
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-    return vector[:cut_index], vector[cut_index:]
+    
+    return (vector[:cut_index], vector[cut_index:])
