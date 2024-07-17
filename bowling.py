@@ -11,11 +11,12 @@ def bowling(score):
                 total_score += 10
             frame += 1
         elif score[i] == '-':
-            first_roll = 10 - int(score[i-1])
-            if i < len(score) - 2 and score[i+2] != 'X':
-                total_score += first_roll + int(score[i+1])
+            if i < len(score) - 1 and score[i+1] == 'X':
+                total_score += 10 + (int(score[i-1]) + int(score[i+2]))
+            elif i < len(score) - 2 and score[i+2] != 'X':
+                total_score += 10 + int(score[i+1])
             else:
-                total_score += first_roll
+                total_score += 10
             frame += 1
         else:
             first_roll = int(score[i])
