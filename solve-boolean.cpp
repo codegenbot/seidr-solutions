@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <string>
 
@@ -15,7 +14,8 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            stack.push(string(1, expression[i]));
+            std::string temp = std::string(1, expression[i]);
+            stack.push(temp);
         }
     }
 
