@@ -26,7 +26,7 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, i/2.0) * (bouncinessIndex - 1);
+        totalDistance += (startingHeight * (pow(2, i/2.0) + pow(2, (i-1)/2.0))) * bouncinessIndex;
     }
 
     cout << "The total distance travelled by the ball is: " << totalDistance;
