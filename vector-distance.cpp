@@ -13,14 +13,11 @@ double calculateEuclideanDistance(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n; 
-    double* v1 = new double[n], *v2 = new double[n]; 
-    for (int i = 0; i < n; i++) { 
+    double v1[100], v2[100]; 
+    for (int i = 0; i < 100; i++) { 
         cin >> v1[i] >> v2[i];
     }
     
-    cout << calculateEuclideanDistance(n) << endl;
-    delete[] v1, v2;
+    cout << calculateEuclideanDistance(100) << endl;
     return 0;
 }
