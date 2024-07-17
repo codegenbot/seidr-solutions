@@ -1,33 +1,44 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    bool currentBoolean = (booleanExpression[0] == 'T');
-
-    for(int i = 1; i < booleanExpression.size(); ++i) {
-        if(booleanExpression[i] == '|') {
-            while(!operationStack.empty() && operationStack.top() == '&') {
-                operationStack.pop();
-                currentBoolean ^= true;
-            }
-            operationStack.push('|');
-        } else if (booleanExpression[i] == '&') {
-            operationStack.push('&');
+string solveBoolean(string s) {
+    stack<char> st;
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            
+            if(a == 'T' && b == 'T')
+                st.push('T');
+            else
+                st.push('F');
+        } else if(s[i] == '&') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            
+            if(a == 'T' && b == 'T')
+                st.push('T');
+            else if(a == 'T' || b == 'T')
+                st.push('F');
+            else
+                st.push('F');
         } else {
-            bool nextBoolean = (booleanExpression[i] == 'T');
-            while(!operationStack.empty() && operationStack.top() != '|') {
-                operationStack.pop();
-                currentBoolean &= nextBoolean;
-            }
-            if(!operationStack.empty()) {
-                operationStack.pop();
-                currentBoolean ^= true;
-            } else {
-                currentBoolean = nextBoolean;
-            }
+            st.push(s[i]);
         }
     }
+    
+    return (st.top() == 'T') ? "True" : "False";
+}
 
-    return currentBoolean;
+int main() {
+    string s;
+    cout << "Enter Boolean expression: ";
+    cin >> s;
+    cout << solveBoolean(s) << endl;
+    return 0;
 }
