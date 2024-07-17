@@ -12,25 +12,33 @@ bool evaluateBooleanExpression(string expression) {
             while (j <= expression.length() && expression[j] != '&') {
                 j++;
             }
-            string subExpression = expression.substr(i, j - i);
+            string subExpression = expression.substr(i + 1, j - i - 1);
             bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j) == "t") ? true : false;
+            int k = j + 1;
+            while (k <= expression.length() && expression[k] != '&') {
+                k++;
+            }
+            string rightSubExpression = expression.substr(j + 1, k - j - 1);
+            bool right = (rightSubExpression == "t") ? true : false;
             result &= (left && right);
         } else if (expression[i] == '|') {
             int j = i + 1;
             while (j <= expression.length() && expression[j] != '|') {
                 j++;
             }
-            string subExpression = expression.substr(i, j - i);
+            string subExpression = expression.substr(i + 1, j - i - 1);
             bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j) == "t") ? true : false;
+            int k = j + 1;
+            while (k <= expression.length() && expression[k] != '|') {
+                k++;
+            }
+            string rightSubExpression = expression.substr(j + 1, k - j - 1);
+            bool right = (rightSubExpression == "t") ? true : false;
             result |= (left || right);
         } else if (expression[i] == 'T' || expression[i] == 't') {
             result = true;
-            return result;
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             result = false;
-            return result;
         }
     }
     return result;
