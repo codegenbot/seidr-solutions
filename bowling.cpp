@@ -1,37 +1,22 @@
 #include <string>
+#include <cctype>
 
-int bowlingScore(string s) {
+int bowlingScore(const std::string& frames) {
     int score = 0;
-    bool spare = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + (i < 9 ? getFrameValue(s, i+1) : 0);
-            spare = false;
-        } else if (s[i] == '/') {
-            int a = s[i-1] - '0';
-            int b = s[i+1] - '0';
-            score += a + b + (i < 9 ? getFrameValue(s, i+2) : 0);
-            spare = true;
-        } else {
-            int a = s[i] - '0';
-            if (!spare) {
-                score += a;
-            } else {
-                score += a;
-                spare = false;
+    int currentRolls = 0;
+    for (char c : frames) {
+        if (c == 'X') {
+            score += 30;
+            currentRolls = 2;
+        } else if (c == '/') {
+            score += (10 - currentRolls);
+            currentRolls = 0;
+        } else if (std::isdigit(c)) {
+            int roll = c - '0';
+            currentRolls++;
+            if (currentRolls == 2) {
+                score += 1 * roll + 1 * (10 - roll);
             }
         }
     }
     return score;
-}
-
-int getFrameValue(string s, int i) {
-    while (s[i] != 'X' && s[i] != '/') {
-        i++;
-    }
-    if (i < s.length() && s[i] == '/') {
-        return 10 - (s[i-1] - '0') - (s[i+1] - '0');
-    } else {
-        return 10;
-    }
-}
