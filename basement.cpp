@@ -1,9 +1,23 @@
-int basement(std::vector<int>& vec) {
+#include <vector>
+using namespace std;
+
+int basement(const vector<int>& v) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        sum += vec[i];
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
         if (sum < 0)
             return i;
     }
-    return -1; // or any other value indicating no basement found
+    return -1; // or throw an exception, depending on your needs
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << basement(v) << endl;
+    return 0;
 }
