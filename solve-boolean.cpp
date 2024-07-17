@@ -1,39 +1,38 @@
-```c++
 #include <stack>
 #include <string>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<string> std::stack;
+    stack<string> stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            std::stack.push("&");
+            stack.push("&");
         } else if (expression[i] == '|') {
-            while (!std::stack.empty() && std::stack.top() == "&") {
-                std::stack.pop();
+            while (!stack.empty() && stack.top() == "&") {
+                stack.pop();
             }
         } else {
-            if(expression[i] == 'T' || expression[i] == 'F')
-                std::stack.push(std::to_string(expression[i]));
+            std::string temp = std::string(1, expression[i]);
+            stack.push(temp);
         }
     }
 
     bool result = true;
-    while (!std::stack.empty()) {
-        string op = std::stack.top();
-        std::stack.pop();
+    while (!stack.empty()) {
+        string op = stack.top();
+        stack.pop();
         if (op == "&") {
-            result &= (std::stack.top() == "T") ? true : false;
-            std::stack.pop();
+            result &= (stack.top() == "T");
+            stack.pop();
         } else if (op == "|") {
-            if (std::stack.size() > 1) {
-                result |= (std::stack.top() == "T") ? true : false;
-                std::stack.pop();
+            if (stack.size() > 1) {
+                result |= (stack.top() == "T");
+                stack.pop();
             }
         } else {
-            result = op == "T" ? true : false;
+            result = op == "T";
         }
     }
 
