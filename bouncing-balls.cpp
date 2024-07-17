@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 int main() {
@@ -5,7 +6,6 @@ int main() {
     int numBounces;
     double startingHeight;
     double bouncinessIndex;
-    double firstBounceHeight;
 
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
@@ -14,12 +14,14 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    std::cin >> firstBounceHeight;
+    std::cin >> bouncinessIndex;
 
-    bouncinessIndex = (double)firstBounceHeight / startingHeight;
+    double originalHeight = bouncinessIndex;
+    bouncinessIndex /= startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
         totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
+        bouncinessIndex *= originalHeight / startingHeight;
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
