@@ -45,5 +45,6 @@ vector<vector<int>> cutVector(vector<int> v) {
 int main() {
     vector<int> v = {1, 2, 3, 4, 5};
     vector<vector<int>> result = cutVector(v);
+    // do something with result
     return 0;
 }
