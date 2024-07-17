@@ -1,5 +1,5 @@
-bool solveBoolean(std::string expression) {
-    std::stack<std::string> stack;
+```bool solveBoolean(std::string expression) {
+    stack<std::string> stack;
     bool lastOp = false;
     std::string result = "T";
     for (char c : expression) {
@@ -39,4 +39,4 @@ bool solveBoolean(std::string expression) {
     }
 
     return result == "T";
-}
+}```
