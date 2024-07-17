@@ -19,3 +19,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(10) << diceGame(n, m) << endl;
     return 0;
+}
