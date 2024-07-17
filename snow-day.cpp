@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,6 @@ float snowDay(int hours, float groundSnow, float rate, float meltRate) {
 
 int main() {
     int hours;
-    cout << "Enter the number of hours: ";
     cin >> hours;
 
     float groundSnow, rate, meltRate;
