@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
