@@ -1,32 +1,23 @@
-#include <string>
-using namespace std;
-
 bool solveBoolean(string s) {
-    if(s[0] == 'T')
-        return true;
-    else if(s[0] == 'F')
-        return false;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            
-            if(left == "T" && right == "T")
-                return true;
-            else
-                return false;
+    bool result = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') {
+            result = true;
+            break;
         }
-        else if(s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            
-            if(left == "T" || right == "T")
-                return true;
-            else
-                return false;
+        else if (s[i] == 'f') {
+            return false;
+        }
+        else if (s[i] == '&') {
+            if (i+1 < s.length() && s[i+1] == '&') {
+                i++;
+            } 
+        }
+        else if (s[i] == '|') {
+            if (i+1 < s.length() && s[i+1] == '|') {
+                i++;
+            } 
         }
     }
-    
-    return false;  // default to False
+    return result;
 }
