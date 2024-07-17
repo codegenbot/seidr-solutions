@@ -1,9 +1,8 @@
-Here is the Python solution for the problem:
+Here is the Python solution:
 
-def basement(arr):
-    total_sum = 0
-    for i in range(len(arr)):
-        total_sum += arr[i]
-        if total_sum < 0:
+def basement(input_vector):
+    for i in range(len(input_vector)):
+        current_sum = sum(input_vector[:i+1])
+        if current_sum < 0:
             return i
     return -1
