@@ -1,21 +1,18 @@
-#include <algorithm>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
 
-    for (char c : code) {
-        for (char g : guess) {
-            if (c == g) {
-                if (&c == &g) {
-                    black++;
-                    break;
-                } else {
-                    white++;
-                }
-            }
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
         }
     }
 
-    return black + white;
+    for (char c : guess) {
+        if (std::count(code.begin(), code.end(), c) > 0) {
+            white++;
+        }
+    }
+
+    return black;
 }
