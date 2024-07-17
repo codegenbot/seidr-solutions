@@ -1,18 +1,11 @@
-```
 def solve_boolean(expression):
-    if expression.strip() == "T":
+    if expression == "T":
         return True
-    elif expression.strip() == "F":
+    elif expression == "F":
         return False
-    else:
-        parts = expression.replace("  ", " ").strip().split()
-        result = bool(int(parts[0]))
-        for operator in "&|":
-            while operator in parts:
-                index = parts.index(operator)
-                if operator == "&":
-                    result &= bool(int(parts[index-1]))
-                else:
-                    result |= bool(int(parts[index-1]))
-                del parts[index]
-        return result
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
