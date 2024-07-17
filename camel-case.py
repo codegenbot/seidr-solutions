@@ -1,10 +1,6 @@
-def camel_case(s):
-    return "".join(
-        word.capitalize() for word in s.split() if not word.startswith("-")
-    ) + "".join(
-        i[1:].capitalize() if i else "" for i in s.split("-") if i.startswith("-")
-    )
+Here is the solution:
 
+def camel_case(input_string):
+    return ''.join(word.capitalize() for word in input_string.replace('-', ' ').split())
 
-s = input()
-print(camel_case(s))
+print(camel_case(input("Enter a string: ")))
