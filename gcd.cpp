@@ -4,28 +4,23 @@
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        bool found = true;
-        for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
+    int index = 0;
+    while ((index = text.find(target)) != std::string::npos) {
+        result.push_back(index);
+        if (!target.empty() && target == text.substr(index, target.length())) {
+            text.erase(0, index + target.length());
+        } else {
+            text.erase(0, index + 1);
         }
     }
-
     return result;
 }
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+int greatestCommonDivisor(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
