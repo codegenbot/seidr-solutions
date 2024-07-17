@@ -13,7 +13,7 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) { 
             black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) { 
+        } else if (std::count_if(guess.begin(), guess.end(), [code, i](char c){ return c == code[i]; }) > 0) { 
             white++;
             colorMap[code[i]]++; 
         }
@@ -23,7 +23,7 @@ int mastermind(std::string code, std::string guess) {
         placementMap[pair.first] = pair.second; 
     }
 
-    black -= std::count(placementMap.begin(), placementMap.end(), 1); 
+    black -= std::count_if(placementMap.begin(), placementMap.end(), [placementMap](const auto& pair){ return pair.second == 4; }); 
 
     return black;
 }
