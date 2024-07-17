@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
-#include <cmath> // for pow and sqrt
-#include <iomanip> // for setprecision
+#include <cmath> 
+#include <iomanip> 
 
 using namespace std;
 
