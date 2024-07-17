@@ -1,10 +1,9 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string squareDigits(std::string input) {
-    std::string result = "";
-    for (char c : input) {
+string squareDigits(int n) {
+    string str = to_string(n);
+    string result;
+    for (char c : str) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
