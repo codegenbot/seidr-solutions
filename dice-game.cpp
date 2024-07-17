@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
 
-double probability(int n, int m) {
+std::string probability(int n, int m) {
     double sum = 0;
     for (int i = 1; i <= m; i++) { 
-        sum += (n - i) / (double)(n * m);
+        sum += (n - m) / static_cast<double>(n * m);
     }
-    return sum;
+    return std::to_string(sum);
 }
 
 int main() {
@@ -15,8 +16,7 @@ int main() {
     std::cin >> n;
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
-    double result = probability(n, m);
-    std::string output = std::to_string(result); 
-    std::cout << "The probability that Peter rolls strictly higher is: " << output << std::endl; 
+    double result = std::stod(probability(n, m));  // Convert string to double
+    std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl;
     return 0;
 }

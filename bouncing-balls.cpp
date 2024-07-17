@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
 int main() {
     double startingHeight, heightAfterFirstBounce;
     int numBounces;
+    double bouncinessIndex;
 
     std::cout << "Enter the starting height: ";
     std::cin >> startingHeight;
@@ -12,10 +12,10 @@ int main() {
     std::cout << "Enter the height after first bounce: ";
     std::cin >> heightAfterFirstBounce;
 
-    double bouncinessIndex = (heightAfterFirstBounce / startingHeight);
+    bouncinessIndex = (heightAfterFirstBounce / startingHeight);
 
     numBounces = 0;
-    while(numBounces < 10) {
+    while(numBounces < 1) {
         std::cout << "Enter the number of bounces: ";
         std::cin >> numBounces;
         if(numBounces > 0)
