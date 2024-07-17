@@ -7,15 +7,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(int i = 0; i <= n - m; ++i) { 
-        bool found = true;
-        for(int j = 0; j < m; ++j) {
-            if(text[i+j] != target[j]) {
-                found = false;
-                break;
-            }
+    int i = 0; 
+    while (i <= n - m) { 
+        if (text.substr(i, m) == target) { 
+            result.push_back(i); 
+            i++; // Only increment i by 1 to allow for overlapping matches
         }
-        if(found) result.push_back(i); 
+        else {
+            i++;
+        }
     }
 
     return result;

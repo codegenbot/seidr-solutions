@@ -1,9 +1,11 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::fixed;
+using std::ios_base;
 
 double vectorDistance(int n) {
     float v1[n];
