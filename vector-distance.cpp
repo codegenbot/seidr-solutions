@@ -18,7 +18,6 @@ double calculateEuclideanDistance(const vector<float>& vector1, const vector<flo
 int main(){
     int n;
     cin >> n;
-
     vector<float> vec1(n), vec2(n);
 
     for(int i = 0; i < n; ++i){
