@@ -18,5 +18,6 @@ vector<int> leaders(vector<int> v) {
     return res;
 }
 
-vector<int> result = leaders({1, 3, 4, 1, 5});
+vector<int> v = {1, 3, 4, 1, 5};
+vector<int> result = leaders(v);
 for (int x : result) cout << x << " ";
