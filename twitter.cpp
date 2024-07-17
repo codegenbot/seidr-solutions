@@ -7,6 +7,7 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     
+    cin.ignore(); 
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else if (tweet.empty()) {
@@ -15,6 +16,5 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
-    cin.get();
     return 0;
 }
