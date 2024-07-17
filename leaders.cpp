@@ -1,5 +1,3 @@
-#include <algorithm>
-#include <iostream>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int> v) {
@@ -15,11 +13,4 @@ std::vector<int> leaders(std::vector<int> v) {
     }
 
     return res;
-}
-
-int main() {
-    std::vector<int> v = {1, 3, 4, 1, 5};
-    std::vector<int> result = leaders(v);
-    for (int x : result) std::cout << x << " ";
-    return 0;
 }
