@@ -4,7 +4,7 @@ int mastermind(string code, string guess) {
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++black;
+            black++;
         }
     }
 
@@ -12,10 +12,10 @@ int mastermind(string code, string guess) {
         int count = 0;
         for (char d : guess) {
             if (c == d) {
-                ++count;
+                count++;
             }
         }
-        if (count > 1 || count == 0) {
+        if (count > 1 || count == 1 && code.find(c) != string::npos) {
             continue;
         }
         white += count - black;
