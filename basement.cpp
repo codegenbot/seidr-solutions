@@ -1,3 +1,4 @@
+````
 #include <vector>
 
 int basement(std::vector<int>& nums) {
@@ -6,15 +7,9 @@ int basement(std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         total += nums[i];
         if (total < 0)
-            return i + 1;
+            return i + 1; 
     }
     return -1;
 }
 
-int main() {
-    std::vector<int> nums = {-2, 3, 1, -5, 4};
-    int result = basement(nums);
-    if (result == -1) std::cout << "No such index found." << std::endl;
-    else std::cout << "First negative sum index: " << result << std::endl;
-    return 0;
-}
+int main() { return basement({-2,3,-4,5,-6,7,-8,9,-10,15}); }
