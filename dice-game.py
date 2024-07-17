@@ -1,2 +1,2 @@
-def roll_game(n, m):
-    return (n - 1) / (n * m - n - m)
+def dice_game(n, m):
+    return (n - 1) / n if n > m else (m - 1) / m
