@@ -1,9 +1,14 @@
-def cut_vector(vector):
-    min_diff = float("inf")
+Here is the solution:
+
+def cut_vector(lst):
+    min_diff = float('inf')
     cut_index = 0
-    for i in range(1, len(vector)):
-        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+    
+    for i in range(1, len(lst)):
+        diff = abs(sum(lst[:i]) - sum(lst[i:]))
+        
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-    return vector[:cut_index], vector[cut_index:]
+    
+    return lst[:cut_index], lst[cut_index:]
