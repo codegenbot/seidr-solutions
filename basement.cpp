@@ -2,9 +2,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int basement(vector<int>& nums) {
+int basement(std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -15,12 +13,12 @@ int basement(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -2, 3, -4}; 
+    std::vector<int> nums = {1, -2, 3, -4}; 
     int result = basement(nums);
     if (result != -1) {
-        cout << "Basement found at index " << result << endl;
+        std::cout << "Basement found at index " << result << std::endl;
     } else {
-        cout << "No negative sum found." << endl;
+        std::cout << "No negative sum found." << std::endl;
     }
     return 0;
 }
