@@ -5,7 +5,7 @@ int basement(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
-            return i + 1; // return the first index with a negative sum
+            return i;
     }
     return -1;
 }
