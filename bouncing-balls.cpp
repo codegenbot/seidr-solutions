@@ -1,21 +1,28 @@
+```c++
 #include <iostream>
 using namespace std;
 
 int main() {
-    int startingHeight, heightAfterFirstBounce;
-    cout << "Enter starting height: ";
+    int startingHeight;
+    cout << "Enter the starting height of the ball: ";
     cin >> startingHeight;
-    cout << "Enter height after first bounce: ";
-    cin >> heightAfterFirstBounce;
-    float bouncinessIndex = (float)heightAfterFirstBounce / startingHeight;
 
-    int numBounces;
-    cout << "Enter number of bounces: ";
-    cin >> numBounces;
+    double bouncinessIndex;
+    cout << "Enter the height after the first bounce of the ball: ";
+    cin >> bouncinessIndex;
+    
+    bouncinessIndex /= startingHeight;
+
     int totalDistance = 0;
+    int numBounces;
+    cout << "Enter the number of bounces: ";
+    cin >> numBounces;
+
     for(int i = 1; i <= numBounces; ++i) {
         totalDistance += (startingHeight * bouncinessIndex - startingHeight) + (startingHeight * bouncinessIndex - startingHeight);
     }
-    cout << "Total distance traveled: " << totalDistance << endl;
+
+    cout << "Total distance travelled by the ball is: " << totalDistance << endl;
+    
     return 0;
 }
