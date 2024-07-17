@@ -1,5 +1,6 @@
-```cpp
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 int bowlingScore(std::string s) {
@@ -27,10 +28,11 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int main() {
-    string input;
-    cout << "Enter the individual bowls: ";
-    cin >> input;
-    cout << "Your score is: " << bowlingScore(input);
+int main(int argc, char* argv[]){
+    if(argc != 2){
+        cout << "Usage: ./program_name <input_string>" << endl;
+        exit(1);
+    }
+    cout << bowlingScore(argv[1]) << endl;
     return 0;
 }
