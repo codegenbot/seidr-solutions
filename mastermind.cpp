@@ -1,30 +1,21 @@
-#include <string>
-using namespace std;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-pair<int, int> mastermindCode(string code, string guess) {
-    pair<int, int> result;
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    // Count black pegs
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-            code[i] = ' '; // mark as used in the code
-            guess[i] = ' '; // mark as used in the guess
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
         }
     }
 
-    // Count white pegs
-    for (int i = 0; i < 4; ++i) {
-        if (code.find(guess[i]) != string::npos && code[i] != ' ') {
-            whitePegs++;
-            code[i] = ' '; // mark as used in the code
+    for(int i = 0; i < 6; i++) {
+        int countCode = 0, countGuess = 0;
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == i+'0' || code[j] == i+'A'-10) countCode++;
+            if(guess[j] == i+'0' || guess[j] == i+'A'-10) countGuess++;
         }
+        white += min(countCode, countGuess);
     }
 
-    result.first = blackPegs;
-    result.second = whitePegs;
-
-    return result;
+    return black + (4 - black);
 }
