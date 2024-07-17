@@ -1,12 +1,37 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int len = target.length();
-    for(int i = 0; i <= text.length() - len; i++) {
-        if(text.substr(i, len).compare(target) == 0) {
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
+        bool found = true;
+        for (int j = 0; j < targetLen; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
             result.push_back(i);
+            // Check for overlapping occurrences
+            while (i + targetLen <= text.length()) {
+                i++;
+                found = true;
+                for (int j = 0; j < targetLen; j++) {
+                    if (text[i + j] != target[j]) {
+                        found = false;
+                        break;
+                    }
+                }
+                if (found) {
+                    result.push_back(i);
+                } else {
+                    break;
+                }
+            }
         }
     }
     return result;
