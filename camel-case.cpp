@@ -1,24 +1,25 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(std::string str) {
-    std::string result;
-    for (char c : str) {
-        if (c == '-') {
-            ++str; // skip the hyphen
-        } else if (!result.empty() && !std::isupper(c)) { // capitalize first letter of each word after the first one
-            result.push_back(std::toupper(c));
-        } else {
-            result += c;
+string camelCase(string s) {
+    string result = "";
+    for (auto &x : split(s, " ")) {
+        if (!result.empty()) {
+            result[0] = toupper(x[0]);
         }
+        result += x;
     }
     return result;
 }
 
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << camelCase(str) << "\n";
-    return 0;
+vector<string> split(const string &s, char c) {
+    vector<string> v2;
+    string::size_type i = 0;
+    string::size_type j = s.find(c);
+    while (j != string::npos) {
+        v2.push_back(s.substr(i, j - i));
+        i = j + 1;
+        j = s.find(c, i);
+    }
+    v2.push_back(s.substr(i));
+    return v2;
 }
