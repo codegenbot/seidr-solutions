@@ -1,9 +1,12 @@
+#include <initializer_list>
+
 int basement(vector<int>& nums) {
-    int runningSum = 0;
+    int minIndex = 0;
+    int total = 0;
     for (int i = 0; i < nums.size(); i++) {
-        runningSum += nums[i];
-        if (runningSum < 0)
-            return i;
+        total += nums[i];
+        if (total < 0)
+            return i + 1; // Because indices are zero-based, we should return the index plus one
     }
     return -1;
 }
