@@ -1,3 +1,4 @@
+```
 def substitution_cipher(key, message):
     combined = "".join(sorted([key, message]))
     key_map = {k: v for k, v in zip(key, combined[len(key):])}
