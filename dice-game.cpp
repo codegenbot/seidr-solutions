@@ -18,3 +18,4 @@ int main() {
     double result = probability(n, m);
     std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
     return 0;
+}
