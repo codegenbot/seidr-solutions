@@ -1,5 +1,5 @@
 def solve_boolean(expression):
-    expression = expression.lower() 
+    expression = expression.lower()  
     if expression == "t":
         return True
     elif expression == "f":
@@ -11,8 +11,8 @@ def solve_boolean(expression):
         left, right = expression.split("|")
         return solve_boolean(left) or solve_boolean(right)
 
-print(solve_boolean("t"))  # True
-print(solve_boolean("f"))  # False
-print(solve_boolean("f&f"))  # False
-print(solve_boolean("f&t"))  # False
-print(solve_boolean("t&f"))  # False
+print(solve_boolean("t"))  
+print(solve_boolean("f"))  
+print(solve_boolean("f&f"))  
+print(solve_boolean("f&t"))  
+print(solve_boolean("t&f")) 
