@@ -1,10 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        x = int(input())
-        y = (x // 3) - 2
-        total += y
-    print(total)
+def fuel_cost(input_list):
+    return sum((i // 3 - 2) for i in input_list)
