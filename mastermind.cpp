@@ -1,4 +1,3 @@
-#include <string>
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -19,7 +18,13 @@ int mastermind(std::string code, std::string guess) {
         placementMap[pair.first] = pair.second; 
     }
 
-    black -= std::count(placementMap.begin(), placementMap.end(), 4); 
+    int blackCount = 0;
+    for (const auto& pair : placementMap) {
+        if (pair.second == 4) {
+            blackCount++;
+        }
+    }
+    black -= blackCount;
 
     return black;
 }
