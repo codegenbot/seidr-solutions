@@ -1,6 +1,6 @@
 #include <vector>
 
-int calculateFuelCost(std::vector<int> costs) {
+int calculateFuelCost(vector<int> costs) {
     int total = 0;
     for (int cost : costs) {
         int newCost = static_cast<int>(cost / 3.0);
