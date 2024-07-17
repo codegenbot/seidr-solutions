@@ -1,16 +1,16 @@
 ```
 def solve_boolean(expression):
-    def evaluate_operator(op, a, b):
-        if op == '&':
-            return a and b
-        elif op == '|':
-            return a or b
-        else:
-            raise ValueError("Invalid operator")
-
-    result = expression[0]
-    for i in range(1, len(expression), 2):
-        op = expression[i]
-        value = expression[i+1] == 'T'
-        result = evaluate_operator(op, result, value)
-    return result
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True if expression[0] == 'T' else False
+        for op, val in zip(['&', '|'], [expression.replace(op, '').split(), expression.replace(op, '').split()]):
+            if op == '&':
+                result = result and (val[0] == 'T' or val[1] == 'T')
+            elif op == '|':
+                result = result or (val[0] == 'T' or val[1] == 'T')
+        return result
