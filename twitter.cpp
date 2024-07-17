@@ -18,7 +18,8 @@ int main() {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
-    std::cout << "Press Enter to continue..."; std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+    std::cout << "Press Enter to continue..."; 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     
     return 0;
 }
