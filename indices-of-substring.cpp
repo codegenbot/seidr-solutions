@@ -21,9 +21,13 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    getline(cin, text);
-    getline(cin, target);
+    string input;
+    cin >> input;
+    size_t pos = 0;
+    vector<string> tokens = split(input, ' ');
+    string text = tokens[0];
+    string target = tokens[1];
+
     vector<int> results = indicesOfSubstring(text, target);
     for (int i : results) {
         cout << i << " ";
