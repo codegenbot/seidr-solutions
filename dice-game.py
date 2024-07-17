@@ -1,3 +1,4 @@
+```
 def dice_game(n, m):
     p = 0
     for i in range(1, min(n, m)):
