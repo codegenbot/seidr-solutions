@@ -2,9 +2,15 @@
 #include <string>
 
 std::string middleCharacter(std::string input) {
+    if (input.empty()) {
+        return "";
+    }
     int len = input.length();
-    int mid = len / 2;
-    return len % 2 ? std::string(1, input[mid]) : input.substr(mid-1, 2);
+    if (len % 2 == 1) {
+        return input.substr(len / 2, 1);
+    } else {
+        return input.substr((len - 1) / 2, 2);
+    }
 }
 
 int main() {
@@ -14,6 +20,6 @@ int main() {
         std::cout << "Input is empty." << std::endl;
         return 0;
     }
-    std::cout << middleCharacter(input) << std::endl;
+    std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
     return 0;
 }
