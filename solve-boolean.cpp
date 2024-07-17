@@ -1,11 +1,11 @@
-```c++
 #include <stack>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<string> std::stack;
+    stack<string> stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
@@ -16,7 +16,7 @@ bool solveBoolean(string expression) {
             }
         } else {
             if(expression[i] == 'T' || expression[i] == 'F')
-                std::stack.push(std::to_string(expression[i]));
+                stack.push(to_string(expression[i]));
         }
     }
 
