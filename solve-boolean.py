@@ -1,18 +1,26 @@
 ```
 def solve_boolean(expression):
-    if expression.strip() == "T":
-        return True
-    elif expression.strip() == "F":
-        return False
-    else:
-        parts = expression.replace("  ", " ").strip().split()
-        result = bool(int(parts[0]))
-        for operator in "&|":
-            while operator in parts:
-                index = parts.index(operator)
+    stack = []
+    result = None
+    operator = None
+
+    for char in expression:
+        if char == "t":
+            stack.append(True)
+        elif char == "f":
+            stack.append(False)
+        elif char in ["&", "|"]:
+            operator = char
+        else:
+            op1 = stack.pop()
+            op2 = stack.pop()
+            
+            if result is None:
+                result = op1
+            else:
                 if operator == "&":
-                    result &= bool(int(parts[index-1]))
-                else:
-                    result |= bool(int(parts[index-1]))
-                del parts[index]
-        return result
+                    result = result and op1
+                elif operator == "|":
+                    result = result or op1
+
+    return result

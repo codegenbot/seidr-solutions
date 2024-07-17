@@ -1,14 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int fuelCost(vector<int> v) {
+int fuelCost(const std::vector<int>& v) {
     int sum = 0;
     for (int i : v) {
-        int result = (i / 3);
+        int result = static_cast<int>(i / 3.0);
         if (result >= 1) {
-            result--;
+            --result;
             sum += result;
         }
     }
@@ -17,11 +16,11 @@ int fuelCost(vector<int> v) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> v(n);
+    std::cin >> n;
+    std::vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        std::cin >> v[i];
     }
-    cout << fuelCost(v) << endl;
+    std::cout << fuelCost(v) << std::endl;
     return 0;
 }

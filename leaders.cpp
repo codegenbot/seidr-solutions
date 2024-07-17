@@ -3,13 +3,14 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> res;
+    vector<int> result;
     int n = arr.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
-            res.push_back(arr[i]);
+    int max_right = arr[n-1];
+    for(int i=n-1; i>=0; i--) {
+        if(arr[i] >= max_right) {
+            max_right = arr[i];
+            result.push_back(max_right);
         }
     }
-    std::reverse(res.begin(), res.end());
-    return res;
+    return result;
 }
