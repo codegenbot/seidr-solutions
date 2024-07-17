@@ -1,7 +1,8 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
+std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool capitalizeNext = true;
 
@@ -21,10 +22,8 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "CamelCase conversion: " << camelCase(input) << std::endl;
-
+    std::cout << "Input: ";
+    std::cin >> input;
+    std::cout << "Output: " << kebabToCamel(input) << std::endl;
     return 0;
 }
