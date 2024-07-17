@@ -2,37 +2,24 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i-start);
-            if(word.length() >= 5)
-                result += reverse(word) + " ";
-            else
-                result += word + " ";
-            start = i+1;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::size_t start = 0;
+    for (std::size_t end = 0; end <= sentence.size(); ++end) {
+        if ((end == sentence.size()) || (sentence[end] == ' ')) {
+            std::string word = sentence.substr(start, end - start);
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            start = end + 1;
         }
     }
     return result;
 }
 
-string reverse(string s) {
-    string r = "";
-    for(int i=s.length()-1; i>=0; i--)
-        r += s[i];
-    return r;
-}
-
 int main() {
-    // Testing the function
-    cout << spinWords("a") << endl;
-    cout << spinWords("this is a test") << endl;
-    cout << spinWords("this is another test") << endl;
-    cout << spinWords("hi") << endl;
-
+    // Example usage:
+    std::cout << spinWords("this is another test") << std::endl; 
     return 0;
 }
