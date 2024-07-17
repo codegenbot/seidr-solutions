@@ -1,32 +1,15 @@
-Here is the solution:
-
-bool solveBoolean(string s) {
-    bool result = true;
-    int i = 0;
-
-    while (i < s.size()) {
-        if (s[i] == 'T') {
-            return true;
-        } else if (s[i] == 'F') {
-            return false;
-        } else if (s[i] == '&') {
-            i++;
-            bool left = solveBoolean(s.substr(i));
-            i += 1;
-            while (i < s.size() && s[i] != '&') {
-                i++;
-            }
-            result &= left;
-        } else if (s[i] == '|') {
-            i++;
-            bool left = solveBoolean(s.substr(i));
-            i += 1;
-            while (i < s.size() && s[i] != '|') {
-                i++;
-            }
-            result |= left;
+string solveBoolean(string booleanExpr) {
+    stack<char> s;
+    for (int i = 0; i < booleanExpr.length(); i++) {
+        if (booleanExpr[i] == '&') {
+            s.pop();
+            s.push('&');
+        } else if (booleanExpr[i] == '|') {
+            s.pop();
+            s.push('|');
+        } else if (booleanExpr[i] == 'T' || booleanExpr[i] == 'F') {
+            s.push(booleanExpr[i]);
         }
     }
-
-    return result;
+    return (s.top() == 'T') ? "True" : "False";
 }
