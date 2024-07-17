@@ -1,12 +1,8 @@
-Here is the solution:
-
-int calculateFuelCost(vector<int> numbers) {
-    int total = 0;
-    for (int num : numbers) {
-        int result = (num / 3) - 2;
-        if (result < 0)
-            result = 0;
-        total += result;
+int fuelCost(vector<int> vec) {
+    int sum = 0;
+    for (int num : vec) {
+        int new_num = ((num / 3) - 2);
+        sum += new_num;
     }
-    return total;
+    return sum;
 }
