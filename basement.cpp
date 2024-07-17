@@ -17,8 +17,7 @@ int basement(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    nums = {17,12,77,-31,85,-34,52,77,67,-81,-43,-2,-63,-58,-45,-44,-70};
+    std::vector<int> nums = {17,12,77,-31,85,-34,52,77,67,-81,-43,-2,-63,-58,-45,-44,-70};
     int result = basement(nums);
     return 0;
 }
