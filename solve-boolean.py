@@ -1,9 +1,15 @@
-def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        return all(map(lambda x: x.lower() == 't', expression))
-    elif '|' in expression:
-        return any(map(lambda x: x.lower() == 't', expression))
+```
+def solve_boolean(s):
+    def evaluate(expression):
+        if 'T' in expression and 'F' in expression:
+            return True
+        elif 'F' * len(expression) == expression:
+            return False
+        else:
+            for i in range(len(expression)):
+                if expression[i] == '|':
+                    return evaluate(expression[:i]) or evaluate(expression[i+1:])
+                elif expression[i] == '&':
+                    return evaluate(expression[:i]) and evaluate(expression[i+1:])
+
+    return evaluate(s)
