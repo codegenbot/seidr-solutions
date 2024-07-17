@@ -1,11 +1,12 @@
-#include <vector>
-using namespace std;
-
-int findFirstNegativeSumIndex(const vector<int>& arr) {
+int firstNegativeIndex(vector<int>& numbers) {
     int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
-        if (sum < 0) return i;
+    int index = -1;
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
+        if (sum < 0) {
+            index = i;
+            break;
+        }
     }
-    return -1;
+    return index;
 }
