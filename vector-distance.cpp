@@ -3,4 +3,5 @@ double calculateEuclideanDistance(const std::vector<float>& vector1, const std::
     for (int i = 0; i < vector1.size(); ++i) {
         distance += pow(vector1[i] - vector2[i], 2);
     }
-    return sqrt(distance);
+    return sqrt(distance); 
+}
