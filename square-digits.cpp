@@ -1,12 +1,12 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string squareDigits(std::string input) {
-    std::string result = "";
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
-        result += to_string(digit * digit);
+        long long squared = (long long)digit * digit;
+        output += to_string(squared);
     }
-    return result;
+    return output;
 }
