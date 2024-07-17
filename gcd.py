@@ -3,9 +3,23 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
-    indices = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-    return indices
+    result = []
+    pos = 0
+    while pos < len(text):
+        pos = text.find(target, pos)
+        if pos == -1:
+            break
+        result.append(pos)
+        pos += 1
+    return result
+
+
+a = int(input())
+b = int(input())
+print(gcd(a, b))
+
+text = input()
+target = input()
+print(indices_of_substring(text, target))
