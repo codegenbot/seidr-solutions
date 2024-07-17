@@ -7,7 +7,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int i = 0; 
     while ((i = text.find(target, i)) != string::npos) { 
         result.push_back(i); 
-        i += 1; // Increment i by 1 for the next search
+        i += 1; // Increment i by m for the next search
     }
 
     return result;
