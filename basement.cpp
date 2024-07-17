@@ -17,13 +17,13 @@ int basement(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
+    char c;
     while (std::cin >> num) {
         nums.push_back(num);
-    }
-    if (!std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::cin >> dummy;
+        c = std::cin.get(); // Consume the space character
+        if (c == '\n') {
+            break; // Exit loop if newline is encountered
+        }
     }
     std::cout << basement(nums) << std::endl;
     return 0;
