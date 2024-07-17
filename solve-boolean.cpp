@@ -1,29 +1,13 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    string result = "T";
-    
-    for (char c : booleanExpression) {
-        if (c == 'T' || c == 'F') {
-            result = c + "";
-        } else if (c == '&') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
-                result += "&";
-                operationStack.pop();
-            }
-            operationStack.push('&');
-        } else if (c == '|') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
-                result += "&";
-                operationStack.pop();
-            }
-            operationStack.push('|');
+Here is the solution:
+
+string solveBoolean(string s) {
+    bool result = (s == "t");
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            result &= (s.substr(i+1, 1) == "t");
+        } else if(s[i] == '|') {
+            result |= (s.substr(i+1, 1) == "t");
         }
     }
-    
-    while (!operationStack.empty()) {
-        result += operationStack.top();
-        operationStack.pop();
-    }
-    
-    return result;
+    return result ? "True" : "False";
 }
