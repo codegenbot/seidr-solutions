@@ -1,51 +1,58 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    for(int i = 0; i < n-1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for(int j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-        for(int j = i+1; j < n; j++) {
-            rightSum += v[j];
-        }
-        if(abs(leftSum-rightSum) == 0 || abs(leftSum-rightSum) < abs((n-1)/2-(n-1)/2)) {
-            return {{v[0],v[0]}, v.substr(1)};
+vector<vector<int>> cutVector(vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int index = -1;
+    
+    for(int i=0; i<vec.size()-1; i++) {
+        int diff = abs(vec[i] - vec[i+1]);
+        if(diff <= minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
-    // If no cut is found, the entire vector is one subvector
-    return {{}, v};
+    
+    vector<vector<int>> result(2);
+    result[0].reserve(index + 1);
+    result[1].reserve(vec.size() - (index + 1));
+    
+    for(int i=0; i<=index; i++) {
+        result[0].push_back(vec[i]);
+    }
+    for(int i=index+1; i<vec.size(); i++) {
+        result[1].push_back(vec[i]);
+    }
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
+    vector<int> vec(n);
+    for(auto& x : vec) {
+        cin >> x;
     }
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    
+    vector<vector<int>> res = cutVector(vec);
+    
     cout << "[";
-
-    if(res.first.size() > 0) {
-        for(int i = 0; i < res.first.size(); i++) {
-            cout << res.first[i] << (i == res.first.size()-1 ? "" : ",");
+    for(int i=0; i<res[0].size(); i++) {
+        cout << res[0][i];
+        if(i < res[0].size() - 1) {
+            cout << " ";
         }
-        cout << "] [";  
-    } else {
-        cout << "] [";
     }
-
-    if(res.second.size() > 0) {
-        for(int i = 0; i < res.second.size(); i++) {
-            cout << res.second[i] << (i == res.second.size()-1 ? "" : ",");
+    cout << "]\n[";
+    
+    for(int i=0; i<res[1].size(); i++) {
+        cout << res[1][i];
+        if(i < res[1].size() - 1) {
+            cout << " ";
         }
-        cout << "]\n";
-    } else {
-        cout << "]\n";
     }
-
+    cout << "]";
+    
     return 0;
 }
