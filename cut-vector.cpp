@@ -1,52 +1,36 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; j++) {
-            left_sum += vec[j];
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    int minDiff = INT_MAX;
+    int idx = -1;
+    
+    for (int i = 0; i < n; ++i) {
+        if ((v[i] == 0 && i == 0) || (v[i] != 0 && v[0] == 0)) {
+            res[0].clear();
+            res[1].clear();
+            res[0].push_back(v[i]);
+            res[1].push_back(v[i]);
+            return res;
         }
-        for (int j = i + 1; j < vec.size(); j++) {
-            right_sum += vec[j];
-        }
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        
+        if ((i > 0) && (v[i] - v[i-1]) < minDiff) {
+            minDiff = v[i] - v[i-1];
+            idx = i;
         }
     }
-    vector<int> left_vec(vec.begin(), vec.begin() + cut_index + 1);
-    vector<int> right_vec(vec.begin() + cut_index + 1, vec.end());
-    return make_pair(left_vec, right_vec);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        if (i == result.first.size() - 1) {
-            cout << result.first[i];
+    
+    res[0].clear();
+    res[1].clear();
+    for (int i = 0; i < n; ++i) {
+        if (i <= idx) {
+            res[0].push_back(v[i]);
         } else {
-            cout << result.first[i] << ", ";
+            res[1].push_back(v[i]);
         }
     }
-    cout << "], [";
-    for (int i = 0; i < result.second.size(); i++) {
-        if (i == result.second.size() - 1) {
-            cout << result.second[i];
-        } else {
-            cout << result.second[i] << ", ";
-        }
-    }
-    cout << "]";
-    return 0;
+    
+    return res;
 }
