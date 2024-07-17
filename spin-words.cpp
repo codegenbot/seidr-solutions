@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,8 +9,8 @@ std::string spinWords(std::string sentence) {
 
     for (char c : sentence) {
         if (c == ' ') {
-            if (temp.length() >= 5)
-                result += std::string(temp).substr(0, temp.length()) + " ";
+            if (!temp.empty() && temp.length() >= 5)
+                result += std::string(temp).rbegin()->substr(0, temp.length()) + " ";
             else
                 result += temp + " ";
             temp = "";
@@ -18,7 +19,7 @@ std::string spinWords(std::string sentence) {
         }
     }
 
-    if (temp.length() >= 5) {
+    if (!temp.empty() && temp.length() >= 5) {
         std::reverse(temp.begin(), temp.end());
         result += temp;
     } else
@@ -37,3 +38,4 @@ int main() {
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
+}
