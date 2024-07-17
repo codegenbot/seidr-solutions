@@ -6,11 +6,11 @@ pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return make_pair(complement, nums[i]);
+            return {complement, nums[i]};
         }
         numMap[nums[i]] = i;
     }
-    return make_pair(-1, -1);
+    return {-1, -1};  // Return default values if no pair found
 }
 
 int main() {
@@ -24,12 +24,12 @@ int main() {
     cin >> target;
     
     pair<int, int> result = findPair(nums, target);
-    if(result.first != -1 && result.second != -1) {
-        cout << result.first << endl;
-        cout << result.second << endl;
+
+    if (result.first != -1) {
+        cout << result.first << "\n" << result.second << endl;
     } else {
-        cout << "No two elements sum to the target." << endl;
+        cout << "No pair found!" << endl;
     }
-    
+
     return 0;
 }
