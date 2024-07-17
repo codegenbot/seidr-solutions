@@ -1,26 +1,36 @@
 #include <vector>
-#include <iostream>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    int index = 0;
-    while ((index = text.find(target)) != std::string::npos) {
-        result.push_back(index);
-        if (!target.empty() && target == text.substr(index, target.length())) {
-            text.erase(0, index + target.length());
-        } else {
-            text.erase(0, index + 1);
-        }
+vector<int> findIndices(string text, string target) {
+    vector<int> result;
+    int last = 0;
+    while (true) {
+        size_t pos = text.find(target, last);
+        if (pos == string::npos)
+            break;
+        result.push_back(pos);
+        last = pos + 1;
     }
     return result;
 }
 
-int greatestCommonDivisor(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+int gcd(int a, int b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+    vector<int> result = findIndices(text, target);
+    for(int i : result)
+        cout << i << " ";
+    return 0;
 }
