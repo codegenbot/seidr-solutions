@@ -1,10 +1,4 @@
-#include <initializer_list>
-#include <stack>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     stack<string> s;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
@@ -38,4 +32,3 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
-}
