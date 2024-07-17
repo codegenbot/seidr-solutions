@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -14,8 +13,7 @@ std::string middleCharacter(std::string input) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input); 
-    if (input.empty()) {
+    if (!(std::getline(std::cin, input)) || input.empty()) {
         std::cout << "Input is empty." << std::endl;
         return 0;
     }
