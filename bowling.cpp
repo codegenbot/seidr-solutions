@@ -1,15 +1,9 @@
-```cpp
-int bowlingScore(std::vector<int>& s) {
+int bowlingScore(vector<int>& s) {
     int score = 0;
     for (int i = 0; i < s.size(); ) {
         if (s[i] == '/') {
-            if (i > 0 && s[i - 1] + 5 <= 10) {
-                score += 10;
-                i++;
-            } else {
-                score += 15;
-                i+=2;
-            }
+            score += (10 - (s[i+1] + s[i+2]) % 10);
+            i += 3;
         } else if (s[i] >= 1 && s[i] <= 9) {
             score += s[i];
             i++;
@@ -19,4 +13,3 @@ int bowlingScore(std::vector<int>& s) {
         }
     }
     return score;
-}
