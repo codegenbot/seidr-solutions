@@ -14,5 +14,5 @@ vector<int> leaders(vector<int> v) {
         }
     }
     
-    vector<int> temp(res.begin(), res.end());
-    return temp;
+    reverse(res.begin(), res.end());
+    return res;
