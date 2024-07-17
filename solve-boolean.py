@@ -11,6 +11,4 @@ def solve_boolean(expression):
                 stack.append(True)
             elif char == "F":
                 stack.append(False)
-        return stack[0]
-
-    return str(evaluate_expression(expression))
+        return str(stack[0])
