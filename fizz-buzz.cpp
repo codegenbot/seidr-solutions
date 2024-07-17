@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -9,12 +10,12 @@ string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return to_string(x);
+        return std::to_string(x);
 }
 
 int main() {
-    for(int i = 1; i <= 30; i++) {
-        cout << fizzBuzz(i) << endl;
-    }
+    int x = 42; // or get input from user
+    string result = fizzBuzz(x);
+    cout << result << endl;
     return 0;
 }
