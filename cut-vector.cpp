@@ -1,4 +1,4 @@
-```cpp
+```
 #include <climits>
 #include <vector>
 
@@ -9,24 +9,26 @@ vector<vector<int>> cutVector(vector<int> v) {
     int pos = 0;
     
     for(int i = 1; i <= v.size(); i++) {
-        vector<int> left;
-        for(int j = 0; j < i; j++) {
-            left.push_back(v[j]);
-        }
-        
         if(i == v.size()) {
-            vector<int> right({});
+            vector<int> left;
+            for(int j = 0; j < i; j++) {
+                left.push_back(v[j]);
+            }
+            vector<int> right({v[i-1]});
             int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
             }
         } else {
+            vector<int> left;
+            for(int j = 0; j < i; j++) {
+                left.push_back(v[j]);
+            }
             vector<int> right;
             for(int j = i; j < v.size(); j++) {
                 right.push_back(v[j]);
             }
-            
             int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
@@ -36,11 +38,9 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> result(2);
-    result[0].resize(pos);
     for(int i = 0; i < pos; i++) {
         result[0].push_back(v[i]);
     }
-    result[1].resize(v.size() - pos);
     for(int i = pos; i < v.size(); i++) {
         result[1].push_back(v[i]);
     }
