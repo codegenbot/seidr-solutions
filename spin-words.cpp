@@ -1,31 +1,41 @@
-```cpp
+#include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t prev = 0;
-    for (std::size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            std::size_t wordLen = i - prev;
-            if (wordLen >= 5) {
-                std::string word = str.substr(prev, wordLen);
-                std::reverse(word.begin(), word.end());
-                result += word + " ";
-            } else {
-                result += str.substr(prev, wordLen) + " ";
-            }
-            prev = i + 1;
+using namespace std;
+
+string spinWords(string input) {
+    string output = "";
+    int wordLength;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            output += " ";
+        } else if (i < input.length() - 1 && isalpha(input[i+1])) {
+            wordLength = 0;
+            while (i + wordLength < input.length() && isalpha(input[i + wordLength]))
+                wordLength++;
+            if (wordLength >= 5) {
+                for (int j = wordLength - 1; j >= 0; j--)
+                    output += input[i+j];
+            } else
+                output += input.substr(i, wordLength);
+            i += wordLength - 1;
+        } else {
+            output += input[i];
         }
     }
-    return result.substr(0, result.size() - 1);
+    return output;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
+    string input;
+    while (true) {
+        cout << "Enter a sentence (or 'q' to quit): ";
+        cin >> input;
+        if (input == "q")
+            break;
+        cout << spinWords(input) << endl;
+        cin.ignore();
     }
     return 0;
 }
