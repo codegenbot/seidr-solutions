@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int bowlingScore(string s) {
