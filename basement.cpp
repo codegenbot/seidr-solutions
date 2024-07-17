@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 int basement(const std::vector<int>& nums) {
     int sum = 0;
@@ -15,7 +16,11 @@ int basement(const std::vector<int>& nums) {
 int main(int argc, char *argv[]) {
     std::vector<int> nums;
     for (int i = 1; i < argc; ++i) {
-        nums.push_back(std::stoi(argv[i]));
+        std::istringstream iss(argv[i]);
+        int num;
+        if (iss >> num) {
+            nums.push_back(num);
+        }
     }
 
     int result = basement(nums);
