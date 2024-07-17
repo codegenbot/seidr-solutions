@@ -1,19 +1,10 @@
-```cpp
 #include <iostream>
 
 double probability(int n, int m) {
     double sum = 0;
-    
-    // When n > m
-    for (int i = m + 1; i <= n; i++) {
-        sum += (n - i + 1) / (double)n * (m - (i-1)) / (double)m;
+    for (int i = 1; i <= n && i <= m; i++) {
+        sum += min(n, i) / (double)n * max(0, m - i + 1) / (double)m;
     }
-    
-    // When n < m
-    for (int i = 1; i < m && i <= n; i++) {
-        sum += (n - (i-1)) / (double)n * (m - i) / (double)m;
-    }
-    
     return sum;
 }
 
