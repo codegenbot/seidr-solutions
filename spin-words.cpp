@@ -1,32 +1,36 @@
-#include <string>
-using namespace std;
+Here's the solution:
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-    
-    for (char c : str) {
-        if (c != ' ') {
-            word += c;
-        } else {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += str[i];
+        } else if (i + 1 >= str.length() || tolower(str[i]) > tolower(str[i + 1])) {
+            string word = "";
+            while (i + 1 < str.length() && str[i] != ' ') {
+                word += str[i];
+                i++;
+            }
             if (word.length() >= 5) {
-                for (int i = word.length() - 1; i >= 0; --i) {
-                    result += word[i];
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
                 }
             } else {
                 result += word;
             }
-            word = "";
+        } else {
+            while (i + 1 < str.length() && str[i] == ' ') {
+                i++;
+            }
+            if (i < str.length()) {
+                string word = "";
+                while (i + 1 < str.length() && str[i] != ' ') {
+                    word += str[i];
+                    i++;
+                }
+                result += word;
+            }
         }
     }
-    
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; --i) {
-            result += word[i];
-        }
-    } else {
-        result += word;
-    }
-    
     return result;
 }
