@@ -35,3 +35,4 @@ int main() {
         std::cout << spinWords(sentence) << std::endl;
     }
     return 0;
+}
