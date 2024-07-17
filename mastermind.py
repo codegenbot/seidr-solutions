@@ -1,13 +1,6 @@
 def mastermind(code, guess):
-    correct_color_wrong_place = 0
-    correct_color_correct_place = 0
-    code_list = [char for char in code]
-    guess_list = [char for char in guess]
-
-    for i in range(4):
-        if code_list[i] == guess_list[i]:
-            correct_color_correct_place += 1
-        elif code_list.count(guess_list[i]) > 0:
-            correct_color_wrong_place += 1
-
-    return str(correct_color_wrong_place), str(correct_color_correct_place)
+    correct_place = sum(1 for a, b in zip(code, guess) if a == b)
+    correct_color = sum(
+        min(c.count(b), g.count(b)) for c, g in (zip(code, guess), zip(guess, code))
+    )
+    return str(correct_place), str(4 - correct_place + correct_color)
