@@ -1,10 +1,13 @@
 def cut_vector(vector):
-    left = right = 0
+    if len(vector) == 1:
+        return [vector], []
     min_diff = float("inf")
+    left_subvec = None
+    right_subvec = None
     for i in range(1, len(vector)):
         diff = abs(sum(vector[:i]) - sum(vector[i:]))
-        if diff <= min_diff:
+        if diff < min_diff:
             min_diff = diff
-            left = i - 1
-            right = i
-    return (vector[: left + 1], vector[left + 1 :])
+            left_subvec = vector[:i]
+            right_subvec = vector[i:]
+    return [left_subvec], [right_subvec]
