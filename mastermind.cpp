@@ -24,7 +24,7 @@ int mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code = "ABCD";
-    std::string guess = "BCDE";
+    std::string guess = "ABDE";
     int result = mastermind(code, guess);
     std::cout << "Black pegs: " << result << std::endl;
     return 0;
