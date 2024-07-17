@@ -1,36 +1,38 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int splitIndex = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[i] - vec[0] <= min_diff) {
+            min_diff = vec[i] - vec[0];
+            cut_index = i;
+        }
+    }
+    
+    return {vector<int>(vec.begin(), vec.begin() + cut_index), vector<int>(vec.begin() + cut_index, vec.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
-        }
+        cin >> vec[i];
     }
     
-    vector<vector<int>> result(2);
-    for (int i = 0; i < splitIndex; i++) {
-        result[0].push_back(nums[i]);
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "{";
+    for (auto x : result.first) {
+        cout << x << " ";
     }
-    for (int i = splitIndex; i < nums.size(); i++) {
-        result[1].push_back(nums[i]);
+    cout << "}\n{";
+    for (auto x : result.second) {
+        cout << x << " ";
     }
+    cout << "}\n0\n";
     
-    return result;
+    return 0;
 }
