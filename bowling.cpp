@@ -1,6 +1,8 @@
+```cpp
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
+    bool strike = false;
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
@@ -8,16 +10,26 @@ int bowlingScore(std::string s) {
             }
             roll = 0;
         } else if (c >= '1' && c <= '9') {
+            int pin = c - '0';
             roll++;
+            if (roll > pin) {
+                score -= 2 + pin;
+                strike = true;
+            }
         } else if (c == 'X') {
             score += 10;
-            roll = 0;
+            strike = true;
         }
     }
-    if (roll < 2) {
-        if (roll == 1)
-            score += roll * 10;
-        else
-            score += 10 + (roll - 2) * 10 / 3;
+    if (strike) {
+        score += 10 * 3;
+    } else {
+        if (roll < 2) {
+            if (roll == 1)
+                score += roll * 10;
+            else
+                score += 10 + (roll - 2) * 10 / 3;
+        }
     }
     return score;
+}
