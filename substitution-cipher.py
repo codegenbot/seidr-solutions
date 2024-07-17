@@ -1,3 +1,9 @@
-def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
-    cipher = str.maketrans({c: d for c, d in zip(cipher_text1, cipher_text2)})
-    return text_to_decrypt.translate(cipher)
+def substitution_cipher(cipher1, cipher2, message):
+    result = ""
+    for char in message:
+        if char in cipher1:
+            idx = cipher1.index(char)
+            result += cipher2[idx]
+        else:
+            result += char
+    return result
