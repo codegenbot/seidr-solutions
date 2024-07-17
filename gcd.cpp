@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,9 +32,6 @@ int main() {
     int b = 0;
     std::cout << "Enter two numbers: ";
     std::cin >> a >> b;
-    std::vector<int> indices = findIndices(std::to_string(a) + std::to_string(b), std::to_string(gcd(a, b)).substr(1));
-    for (int i : indices) {
-        std::cout << "The target appears at index " << i << std::endl;
-    }
+    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
     return 0;
 }
