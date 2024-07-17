@@ -10,7 +10,7 @@ std::vector<int> leaders(std::vector<int> v) {
     for (int i = v.size() - 2; i >= 0; --i) {
         if (v[i] >= max_right) {
             max_right = v[i];
-            res.insert(res.begin(), max_right);
+            res.push_back(max_right);
         }
     }
 
