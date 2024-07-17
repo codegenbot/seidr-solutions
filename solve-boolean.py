@@ -1,15 +1,20 @@
-```
-def solve_boolean(s):
-    def evaluate(expression):
-        if 'T' in expression and 'F' in expression:
-            return True
-        elif 'F' * len(expression) == expression:
+def solveBoolean(boolExp):
+    if boolExp == "T":
+        return True
+    elif boolExp == "F":
+        return False
+    elif "&" in boolExp and "|" in boolExp:
+        raise ValueError("Invalid expression")
+    else:
+        try:
+            a, op, b = boolExp.split()
+            a = a.strip().lower() == "t"
+            b = b.strip().lower() == "t"
+            if op == "&":
+                return a and b
+            elif op == "|":
+                return a or b
+            else:
+                raise ValueError("Invalid operation")
+        except ValueError:
             return False
-        else:
-            for i in range(len(expression)):
-                if expression[i] == '|':
-                    return evaluate(expression[:i]) or evaluate(expression[i+1:])
-                elif expression[i] == '&':
-                    return evaluate(expression[:i]) and evaluate(expression[i+1:])
-
-    return evaluate(s)
