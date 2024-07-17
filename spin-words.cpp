@@ -1,5 +1,8 @@
-#include <iostream>
-#include <string>
+Here is the solution:
+
+```cpp
+#include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -32,9 +35,8 @@ string spinWords(string str) {
 }
 
 int main() {
-    string str;
+    string str; 
     cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+    cin >> str;
+    cout << spinWords(str);
 }
