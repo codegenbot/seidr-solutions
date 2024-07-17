@@ -5,10 +5,10 @@ using namespace std;
 double snowDay(int hours, float groundSnow, float rate, float meltRate) {
     double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        groundSnow += rate;
+        totalSnow += rate;
         groundSnow *= (1 - meltRate);
     }
-    return groundSnow;
+    return totalSnow + groundSnow;
 }
 
 int main() {
