@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -38,5 +39,5 @@ int main(){
 
     double distance = calculateEuclideanDistance(vec1, vec2);
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
-
+    
     return 0;
