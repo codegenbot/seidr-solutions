@@ -2,26 +2,20 @@
 using namespace std;
 
 int main() {
-    int totalDistance = 0;
-    int numBounces;
-    double startingHeight;
-    double bouncinessIndex;
-
-    cout << "Enter the number of bounces: ";
-    cin >> numBounces;
-    
-    cout << "Enter the starting height: ";
+    int startingHeight, heightAfterFirstBounce;
+    cout << "Enter starting height: ";
     cin >> startingHeight;
-    
-    // calculate the first bounce
-    double firstBounce = (startingHeight * 0.5); 
-    bouncinessIndex = firstBounce / startingHeight;
+    cout << "Enter height after first bounce: ";
+    cin >> heightAfterFirstBounce;
+    float bouncinessIndex = (float)heightAfterFirstBounce / startingHeight;
 
+    int numBounces;
+    cout << "Enter number of bounces: ";
+    cin >> numBounces;
+    int totalDistance = 0;
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (2 * startingHeight * bouncinessIndex);
+        totalDistance += (startingHeight * bouncinessIndex - startingHeight) + (startingHeight * bouncinessIndex - startingHeight);
     }
-
-    cout << "The total distance is: " << totalDistance << endl;
-    
+    cout << "Total distance traveled: " << totalDistance << endl;
     return 0;
 }
