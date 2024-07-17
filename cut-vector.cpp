@@ -1,35 +1,39 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+vector<vector<int>> cutVector(vector<int> &v) {
+    int n = v.size();
+    vector<vector<int>> res;
     
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || v[i] == v[i - 1]) {
+            res.push_back({v[i]});
+        } else if (abs(v[i] - v[0]) <= abs(v[i] - v.back())) {
+            res.push_back({v[0], v[i]});
+        } else {
+            res.push_back({v[0], v.back()});
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v) cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    vector<vector<int>> result = cutVector(v);
     
-    cout << "[";
-    for (const auto &x : result.first) cout << x << " ";
-    cout << "]" << endl;
-    cout << "[";
-    for (const auto &x : result.second) cout << x << " ";
-    cout << "0]" << endl;
+    for (auto &sub : result) {
+        for (auto num : sub) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
     
     return 0;
 }
