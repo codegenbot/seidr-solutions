@@ -1,16 +1,26 @@
 def bowling_score(frames):
     score = 0
     for i in range(10):
-        if "/" in frames[i]:
-            first_roll, second_roll = map(int, re.split("/", frames[i]))
-            if first_roll == 10:
-                score += 10 + sum(map(int, frames[i + 1 : i + 3]))
-            elif first_roll + second_roll == 10:
-                score += first_roll + second_roll
-                if i < 8 and "/" in frames[i + 1]:
-                    score += sum(map(int, frames[i + 2 : i + 4]))
+        if "/" in frames[i * 2 : i * 2 + 2]:
+            strike = False
+            spare = False
+            if frames[i * 2 : i * 2 + 1] == "X":
+                strike = True
+            elif frames[i * 2 : i * 2 + 2].count("/"):
+                spare = True
             else:
-                score += first_roll + second_roll
+                score += 10 + int(frames[i * 2 + 1])
         else:
-            score += int(frames[i])
+            if frames[i * 2 : i * 2 + 2].count("/"):
+                score += 10 - int(frames[i * 2])
+            elif frames[i * 2] == "X":
+                score += 10
+            elif frames[i * 2 : i * 2 + 1].count("/"):
+                score += 10 - int(frames[i * 2])
+            else:
+                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
+        if strike and i < 9:
+            score += 10 + int(frames[(i + 1) * 2 : i * 2 + 2].replace("/", "0"))
+        elif spare and i < 9:
+            score += 10 + int(frames[(i + 1) * 2 : (i + 2) * 2].replace("/", "0"))
     return score
