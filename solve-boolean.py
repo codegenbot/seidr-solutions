@@ -1,7 +1,8 @@
 def solve_boolean(expression):
-    if expression == "T":
+    expression = expression.lower() 
+    if expression == "t":
         return True
-    elif expression == "F":
+    elif expression == "f":
         return False
     elif "&" in expression:
         left, right = expression.split("&")
@@ -9,7 +10,6 @@ def solve_boolean(expression):
     elif "|" in expression:
         left, right = expression.split("|")
         return solve_boolean(left) or solve_boolean(right)
-
 
 print(solve_boolean("t"))  # True
 print(solve_boolean("f"))  # False
