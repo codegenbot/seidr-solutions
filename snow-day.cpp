@@ -7,9 +7,7 @@ double snowDay(int hours, float groundSnow, float rate, float melt) {
     double result = groundSnow;
     
     for (int i = 0; i < hours; i++) {
-        if (result > 0.0)
-            result -= result * melt / 100.0;
-        result += rate;
+        result += (rate - result * melt / 100.0);
     }
     
     return result;
