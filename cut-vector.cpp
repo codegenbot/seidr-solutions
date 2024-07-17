@@ -1,66 +1,50 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int min_diff = INT_MAX;
-    int pos = 0;
-    
-    for(int i = 1; i <= n/2; i++){
-        int left_sum = 0, right_sum = 0;
-        for(int j = 0; j < i; j++){
-            left_sum += v[j];
+    int cut_index = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum_left += vec[j];
         }
-        for(int k = i; k<n; k++){
-            right_sum += v[k];
+        for (int k = i + 1; k < vec.size(); ++k) {
+            sum_right += vec[k];
         }
-        
-        if(abs(left_sum - right_sum) < min_diff){
-            min_diff = abs(left_sum - right_sum);
-            pos = i;
+
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    
-    vector<vector<int>> result(2);
-    result[0].resize(pos);
-    for(int i = 0; i < pos; i++){
-        result[0].push_back(v[i]);
-    }
-    result[1].resize(n-pos);
-    for(int i = pos; i < n; i++){
-        result[1].push_back(v[i]);
-    }
-    
-    return result;
+
+    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
     }
 
-    vector<vector<int>> res = cutVector(v);
+    auto result = cutVector(vec);
 
-    cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i];
-        if (i != res[0].size() - 1) {
-            cout << " ";
-        }
+    std::cout << "[";
+    for (const auto& x : result.first) {
+        std::cout << x << " ";
     }
-    cout << "]" << endl;
+    std::cout << "] [";
 
-    cout << "[";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i];
-        if (i != res[1].size() - 1) {
-            cout << " ";
-        }
+    for (const auto& x : result.second) {
+        std::cout << x << " ";
     }
-    cout << "]" << endl;
+    std::cout << "]" << std::endl;
 
     return 0;
 }
