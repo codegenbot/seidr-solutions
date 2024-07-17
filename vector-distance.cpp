@@ -25,8 +25,7 @@ int main() {
         cin >> v2[i];
     }
 
-    double distance = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << distance << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
 
     return 0;
 }
