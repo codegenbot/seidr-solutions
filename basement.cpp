@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int basement(vector<int>& nums) {
@@ -22,3 +21,4 @@ int main() {
         cout << "No negative sum found." << endl;
     }
     return 0;
+}
