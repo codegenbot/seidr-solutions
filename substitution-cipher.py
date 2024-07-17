@@ -1,15 +1,14 @@
-def substitution_cipher(cipher, message):
-    deciphered_message = ""
+def substitution_cipher(cipher_map, message):
+    deciphered = ""
     for char in message:
-        if char.isalpha():
-            index = ord(char.lower()) - 97 if char.islower() else ord(char.lower()) - 65
-            deciphered_message += (
-                cipher[index].lower() if char.islower() else cipher[index].upper()
-            )
+        if char in cipher_map[0]:
+            index = cipher_map[0].index(char)
+            deciphered += cipher_map[1][index]
         else:
-            deciphered_message += char
-    return deciphered_message
+            deciphered += char
+    return deciphered
 
 
-cipher1, cipher2, message = input().splitlines()
-print(substitution_cipher(cipher1, message))
+cipher_map = [input(), input()]
+message = input()
+print(substitution_cipher((cipher_map,), message))
