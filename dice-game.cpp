@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 
 double probability(int n, int m) {
     double total = static_cast<double>(n * m);
     double failureProbability = 0;
     for (int i = 1; i <= std::min(n - 1, m); i++) { 
-        failureProbability += (m - i + 1) / total;
+        failureProbability += std::stod(std::to_string((m - i + 1))) / total;
     }
     return 1 - failureProbability;
 }
