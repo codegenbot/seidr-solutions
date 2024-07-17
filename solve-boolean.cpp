@@ -1,61 +1,65 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 bool evaluateBooleanExpression(string expression) {
     bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+    while (i < expression.length()) {
         if (expression[i] == '&') {
             int j = i + 1;
             while (j < expression.length() && expression[j] != '&') {
                 j++;
             }
-            if (j <= expression.length()) {
+            if (j <= expression.length()) { 
                 string subExpression = expression.substr(i + 1, j - i - 1);
                 bool left = (subExpression == "t") ? true : false;
                 int k = j + 1;
-                while (k < expression.length() && expression[k] != '|') {
-                    k++;
+            while (k < expression.length() && expression[k] != '&') {
+                k++;
+            }
+            if (k <= expression.length()) { 
+                string rightSubExpression = expression.substr(j + 1, k - j - 1);
+                bool right = (rightSubExpression == "t") ? true : false;
+                result &= (left && right);
+            } else {
+                int end = expression.find('&', j);
+                if (end == -1) {
+                    end = expression.length();
                 }
-                if (k <= expression.length()) {
-                    string subSubExpression = expression.substr(j + 1, k - j - 1);
-                    bool right = (subSubExpression == "t") ? true : false;
-                    result &= left && right;
-                } else {
-                    result &= left;
-                }
+                string rightSubExpression = expression.substr(j + 1, end - j - 1);
+                bool right = (rightSubExpression == "t") ? true : false;
+                result &= (left && right);
             }
         } else if (expression[i] == '|') {
             int j = i + 1;
             while (j < expression.length() && expression[j] != '|') {
                 j++;
             }
-            if (j <= expression.length()) {
+            if (j <= expression.length()) { 
                 string subExpression = expression.substr(i + 1, j - i - 1);
                 bool left = (subExpression == "t") ? true : false;
                 int k = j + 1;
-                while (k < expression.length() && expression[k] != '&') {
-                    k++;
-                }
-                if (k <= expression.length()) {
-                    string subSubExpression = expression.substr(j + 1, k - j - 1);
-                    bool right = (subSubExpression == "t") ? true : false;
-                    result |= left || right;
-                } else {
-                    result |= left;
-                }
+            while (k < expression.length() && expression[k] != '|') {
+                k++;
             }
+            if (k <= expression.length()) { 
+                string rightSubExpression = expression.substr(j + 1, k - j - 1);
+                bool right = (rightSubExpression == "t") ? true : false;
+                result |= (left || right);
+            } else {
+                int end = expression.find('|', j);
+                if (end == -1) {
+                    end = expression.length();
+                }
+                string rightSubExpression = expression.substr(j + 1, end - j - 1);
+                bool right = (rightSubExpression == "t") ? true : false;
+                result |= (left || right);
+            }
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            result = true;
+            break;
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            result = false;
+            break;
         }
+        i++;
     }
     return result;
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    cout << "Result: " << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
-    return 0;
 }
