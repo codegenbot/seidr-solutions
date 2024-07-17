@@ -1,22 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
-            score += 10 + (roll > 0 ? 10 : 0);
-            roll = 0;
+            score += 10 + (i < 9 ? bowlingScoreHelper(&s[i+1]) : 0);
         } else if (s[i] == '/') {
-            int prevRoll = std::stoi(s.substr(i - 1, 1));
-            int thisRoll = 10 - prevRoll;
-            score += prevRoll + thisRoll;
+            int firstRoll = s[i-1] - '0';
+            int secondRoll = s[i+1] - '0';
+            score += firstRoll + secondRoll;
             i++;
-            roll = 0;
         } else {
-            roll += s[i] - '0';
+            score += s[i] - '0';
         }
-        if (roll == 10) {
+    }
+    return score;
+}
+
+int bowlingScoreHelper(string* s) {
+    int score = 0;
+    for (int i = 0; i < min(2, s->length()); i++) {
+        if ((*s)[i] == 'X') {
             score += 10;
-            roll = 0;
+        } else if ((*s)[i] == '/') {
+            int firstRoll = (*s)[i-1] - '0';
+            int secondRoll = (*s)[i+1] - '0';
+            score += firstRoll + secondRoll;
+            i++;
+        } else {
+            score += (*s)[i] - '0';
         }
     }
     return score;
