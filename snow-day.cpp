@@ -4,7 +4,9 @@ using namespace std;
 float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingRate) {
     for (int i = 0; i < hours; ++i) {
         currentSnow += rateOfSnowfall;
-        currentSnow = max(0.0f, currentSnow - meltingRate);
+        if (currentSnow > meltingRate) {
+            currentSnow -= min(meltingRate, 0);
+        }
     }
     
     return currentSnow;
