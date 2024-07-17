@@ -5,6 +5,13 @@ bool solveBoolean(string s) {
     stack<char> st;
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == '|') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('T');
+            }
             while(!st.empty()) {
                 char c = st.top(); 
                 st.pop();
@@ -17,6 +24,13 @@ bool solveBoolean(string s) {
                 }
             }
         } else if(s[i] == '&') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('F');
+            }
             while(!st.empty()) {
                 char c = st.top(); 
                 st.pop();
@@ -30,5 +44,5 @@ bool solveBoolean(string s) {
             }
         }
     }
-    return st.empty();
+    return st.top() == 'T';
 }
