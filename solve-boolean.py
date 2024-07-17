@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -13,6 +12,6 @@ def solve_boolean(expression):
                 result &= True
             elif char == '|':
                 result |= True
-            elif char not in ['T', 'F']:
-                raise ValueError("Invalid character")
+            elif char in ['T', 'F']:
+                result = (char == 'T')
         return result
