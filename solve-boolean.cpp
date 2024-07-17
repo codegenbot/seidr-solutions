@@ -1,17 +1,29 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
+            result &= (expression[i+1] == 'T');
+            i++;
         } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
-            }
-        } else {
-            s.push(expression[i]);
+            result |= (expression[i+1] == 'T');
+            i++;
         }
     }
-    return s.top() == 'T';
+    return result;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
