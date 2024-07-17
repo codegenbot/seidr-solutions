@@ -1,46 +1,40 @@
-#include <iostream>
-using namespace std;
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    char currentOperator = '\0';
+    bool lastTerm = false;
 
-bool evaluateBooleanExpression(string expression) {
-    bool res = true;
-    int i = 0, j = 0;
-    while (i < expression.size()) {
-        if (expression[i] == 't') {
-            res &= true;
-            i++;
-        } else if (expression[i] == 'f') {
-            res &= false;
-            i++;
-        } else if (expression[i] == '|') {
-            j = i + 1;
-            while (j < expression.size() && expression[j] != '&') {
-                j++;
+    for (char c : booleanExpression) {
+        if (c == 't' || c == 'T') {
+            return true;
+        } else if (c == 'f' || c == 'F') {
+            return false;
+        } else if (c == '|') {
+            while (!operationStack.empty() && operationStack.top() != '&') {
+                currentOperator = operationStack.top();
+                operationStack.pop();
             }
-            string subexpr = expression.substr(i, j - i);
-            res &= (subexpr == "t" || subexpr == "f");
-            i = j;
-        } else if (expression[i] == '&') {
-            j = i + 1;
-            while (j < expression.size() && expression[j] != '|') {
-                j++;
+            if (!operationStack.empty()) {
+                if (currentOperator == '&') {
+                    lastTerm = !lastTerm;
+                }
+            } else {
+                currentOperator = '|';
             }
-            string subexpr = expression.substr(i, j - i);
-            res &= (subexpr == "t" && subexpr != "f");
-            i = j;
+        } else if (c == '&') {
+            operationStack.push('&');
+            currentOperator = '&';
         }
     }
-    return res;
-}
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    while (!operationStack.empty()) {
+        if (currentOperator == '|') {
+            return true;
+        } else {
+            lastTerm = !lastTerm;
+        }
+        currentOperator = operationStack.top();
+        operationStack.pop();
     }
-    return 0;
+
+    return lastTerm;
 }
