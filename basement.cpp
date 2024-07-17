@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int basement(vector<int>& nums) {
@@ -7,7 +9,7 @@ int basement(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
-            return i + 1;
+            return i;
     }
     return -1;
 }
@@ -21,3 +23,4 @@ int main() {
         cout << "No negative sum found." << endl;
     }
     return 0;
+}
