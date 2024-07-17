@@ -1,27 +1,40 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t start = 0;
-    for (std::size_t end = 0; end <= str.length(); ++end) {
-        if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
-            result += str.substr(start, end - start);
-            std::reverse(result.begin() + start, result.begin() + end);
-            start = end + (str[end] != ' ' ? 1 : 0);
-        } else if (end == str.length()) {
-            result += str.substr(start);
-            break;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += " ";
+            i++;
+        } else {
+            int j = i;
+            while (j < str.length() && str[j] != ' ') {
+                j++;
+            }
+            string word = str.substr(i, j - i);
+            if (word.length() >= 5) {
+                string revWord = "";
+                for (int k = word.length() - 1; k >= 0; k--) {
+                    revWord += word[k];
+                }
+                result += revWord + " ";
+            } else {
+                result += word + " ";
+            }
+            i = j;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::string input;
-    while (std::cout << "input: ", std::getline(std::cin, input)) {
-        std::cout << "output: " << spinWords(input) << std::endl;
-    }
+    // Your code here
     return 0;
 }
