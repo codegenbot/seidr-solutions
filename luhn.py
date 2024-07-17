@@ -1,12 +1,11 @@
-Here is the solution:
-
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
-    sum = 0
-    for i in range(15,-1,-2):
-        if card_number[i] * 2 > 9:
-            sum += (card_number[i] * 2) - 9
-        else:
-            sum += card_number[i] * 2
-    return sum + card_number[15]
-print(luhn(int(input("Enter a vector of 16 digits: "))))
+def luhn(card_num):
+    card_num = [int(x) for x in str(card_num)]
+    card_num.reverse()
+    total = 0
+    for i in range(len(card_num)):
+        if i % 2 == 1:
+            card_num[i] *= 2
+            if card_num[i] > 9:
+                card_num[i] -= 9
+        total += card_num[i]
+    return total
