@@ -1,13 +1,6 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-    
-    for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess.count(guess[i]) > 0:
-            white_pegs += 1
-            
+    code_set = set(code)
+    guess_count = [guess.count(c) for c in set(guess)]
+    white_pegs = sum(min(code_set, guess).count(c) for c in set(guess))
+    black_pegs = sum((code == g) and 1 or 0 for g in itertools.permutations(guess, 4))
     return str(white_pegs) + "\n" + str(black_pegs)
