@@ -1,4 +1,4 @@
-bool solveBoolean(string s) {
+string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -6,20 +6,26 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) {
-                return false;
+                return "True";
+            } else {
+                st.push('&');
             }
-            st.pop();
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) {
-                return true;
+                return "False";
+            } else {
+                st.push('|');
             }
-            st.pop();
         } else {
             st.push(s[i]);
         }
     }
-    return !st.empty();
+    if (st.empty()) {
+        return "True";
+    } else {
+        return "False";
+    }
 }
