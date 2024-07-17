@@ -1,14 +1,15 @@
-Here is the solution:
-
 #include <vector>
-using namespace std;
+#include <iostream>
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
         bool found = true;
-        for (int j = 0; j < targetLen; j++) {
+        for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -16,32 +17,15 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            // Check for overlapping occurrences
-            while (i + targetLen <= text.length()) {
-                i++;
-                found = true;
-                for (int j = 0; j < targetLen; j++) {
-                    if (text[i + j] != target[j]) {
-                        found = false;
-                        break;
-                    }
-                }
-                if (found) {
-                    result.push_back(i);
-                } else {
-                    break;
-                }
-            }
         }
     }
+
     return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
