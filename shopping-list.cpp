@@ -13,12 +13,13 @@ int main() {
     int n;
     cin >> n;
     vector<float> prices(n);
-    for (float &price : prices) {
-        cin >> price;
+    for (int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
+    cin >> n;
     vector<float> discounts(n);
-    for (float &discount : discounts) {
-        cin >> discount;
+    for (int i = 0; i < n; i++) {
+        cin >> discounts[i];
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
