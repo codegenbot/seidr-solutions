@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <cmath>
 
@@ -11,10 +10,9 @@ double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
+    // test your function
     std::vector<double> prices = {10.0, 20.0, 30.0};
-    std::vector<double> discounts = {5.0, 10.0, 15.0};
+    std::vector<double> discounts = {5.0, 7.0, 3.0};
     double result = shoppingList(prices, discounts);
-    std::cout << "Total price after discount: " << result << std::endl;
     return 0;
 }
-```
