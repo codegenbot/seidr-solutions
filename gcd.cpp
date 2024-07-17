@@ -1,22 +1,12 @@
-#include <vector>
-using namespace std;
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+    int len = target.length();
+    
+    for(int i=0; i<=text.length()-len; i++) {
+        if(text.substr(i, len).compare(target) == 0)
             result.push_back(i);
-            // Check for overlapping occurrences
-            while (i + m < n && text.substr(i, m) == target) {
-                i++;
-                result.push_back(i);
-            }
-        }
     }
-
+    
     return result;
 }
 
