@@ -2,22 +2,22 @@
 using namespace std;
 
 int main() {
-    double start_height;
-    cin >> start_height;
-    double first_bounce;
-    cin >> first_bounce;
-    int num_bounces;
-    cin >> num_bounces;
-
-    double bounciness_index = first_bounce / start_height;
+    double startHeight, firstBounce;
+    int numBounces;
     
-    double total_distance = 0.0;
-    for (int i = 1; i <= num_bounces; ++i) {
-        total_distance += pow(2, -1) * (start_height + (start_height * bounciness_index));
+    cin >> startHeight >> firstBounce >> numBounces;
+    
+    if(startHeight == 0) {
+        cout << "Error: Start height cannot be zero." << endl;
+        return -1;
     }
-
-    cout.precision(5);
-    cout << fixed << total_distance << endl;
+    
+    double bounciness = firstBounce / startHeight;
+    
+    int totalDistance = (int) (((bounciness + 1) * (2.0 / (1.0 + pow(bounciness, numBounces))) - 1));
+    
+    cout << fixed << setprecision(4);
+    cout << totalDistance << endl;
 
     return 0;
 }
