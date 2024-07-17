@@ -9,5 +9,4 @@ int main() {
         cin >> discounts[i];
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts, n) << endl;
-    return 0;
-}
+    return 0;}
