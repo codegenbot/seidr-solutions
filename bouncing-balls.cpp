@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
 int main() {
-    double totalDistance = 0;
+    int totalDistance = 0;
     int numBounces;
     double startingHeight;
     double firstBounceHeight;
@@ -10,16 +11,26 @@ int main() {
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
 
+    std::cout << numBounces << std::endl; 
+
     std::cout << "Enter starting height: ";
-    std::cin >> startingHeight;
+    int startingHeightTemp;
+    std::cin >> startingHeightTemp;
+
+    startingHeight = static_cast<double>(startingHeightTemp);
+
+    std::cout << startingHeight << std::endl; 
 
     std::cout << "Enter first bounce height: ";
-    std::cin >> firstBounceHeight;
+    int firstBounceHeightTemp;
+    std::cin >> firstBounceHeightTemp;
+
+    firstBounceHeight = static_cast<double>(firstBounceHeightTemp);
 
     double calculatedBouncinessIndex = (firstBounceHeight / startingHeight);
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2*i));
+        totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2 * i));
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
