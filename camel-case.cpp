@@ -1,6 +1,5 @@
 #include <string>
 #include <cctype>
-
 using namespace std;
 
 std::string camelCase(const string& s) {
