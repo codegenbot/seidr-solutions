@@ -1,7 +1,10 @@
-int basement(std::vector<int>& vec) {
+#include <vector>
+using namespace std;
+
+int findFirstNegativeSumIndex(const vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        sum += vec[i];
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
         if (sum < 0) return i;
     }
     return -1;
