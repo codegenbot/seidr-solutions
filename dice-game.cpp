@@ -1,10 +1,12 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    if (n == m) return 0;
     double sum = 0;
-    for (int i = std::max(1, m - n + 2); i <= n; i++) {
-        sum += 1 / (double)n;
+    for (int i = 1; i <= std::min(n, m); i++) {
+        if(i != n && i == m){
+            continue;
+        }
+        sum += (n - i + 1) / (double)n * (m - i) / (double)m;
     }
     return sum;
 }
