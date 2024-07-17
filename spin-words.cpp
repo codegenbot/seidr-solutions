@@ -1,34 +1,27 @@
-#include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t start = pos + 1;
-        if (str.substr(pos, 5).find_first_not_of(" ") == std::string::npos)
-            break;
-        result += str.substr(0, pos);
-        for (int i = pos; i > start - 6 && str.substr(i-6, 1) != " "; i--) {
-            if (i - 6 <= 0)
-                break;
-            start = i - 6;
+string spinWords(string input) {
+    string output = "";
+    int start = 0;
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            string word = input.substr(start, i - start);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            output += word + " ";
+            start = i + 1;
         }
-        if (start + strlen(&str[pos]) > str.length())
-            result += str.substr(pos);
-        else
-            result += std::string(&str[start], pos-start).reverse();
-        str.erase(0, pos+1);
     }
-    result += str;
-    return result;
+    return output.substr(0, output.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
