@@ -2,17 +2,17 @@
 #include <string>
 
 std::string middleCharacter(std::string input) {
+    if (input.empty()) {
+        return "";
+    }
     int len = 0;
     for (char c : input) {
         if (!std::isspace(c)) {
             len++;
         }
     }
-    if (input.empty()) {
-        return "";
-    }
     if (len % 2 == 1) {
-        return std::string(1, input.substr(len / 2 - len / (len > 0), 1)[0]);
+        return input.substr(len / 2, 1);
     } else {
         return input.substr((len - 1) / 2, 2);
     }
