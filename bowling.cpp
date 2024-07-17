@@ -1,24 +1,39 @@
-int bowlingScore(string s) {
+int bowling(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
+    int frame = 1;
+    string roll;
+
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
-            string firstPart = s.substr(0, i);
-            string secondPart = s.substr(i + 1);
-            int strike = count(firstPart.begin(), firstPart.end(), 'X') - 1;
-            int spare = 10 - strike;
-            score += strike * 10 + spare;
-        } else {
-            if (s[i] == 'X') {
-                score += 30;
-            } else if (s[i] == '/') {
-                string part = s.substr(i);
-                int firstRoll = part[0] - '0';
-                int secondRoll = part[1] - '0';
-                score += 10 + firstRoll + secondRoll;
+            int leftPin = stoi(s.substr(0, i));
+            int rightPin = stoi(s.substr(i + 1));
+
+            if (leftPin + rightPin >= 10) {
+                score += 10;
             } else {
-                score += s[i] - '0' * 2;
+                score += leftPin + rightPin;
             }
+
+            frame++;
+
+            // If it's the last frame and it's a spare, add an extra roll
+            if (frame == 10 && s[i] == '/') {
+                i++;
+                if (s[i] != 'X') {
+                    score += stoi(s.substr(i));
+                }
+            }
+        } else {
+            score += stoi(s.substr(0, i + 1));
+
+            // If it's the last frame and it's a strike
+            if (i == s.size() - 1 && s[i] == 'X') {
+                score += 10;
+            }
+
+            frame++;
         }
     }
+
     return score;
 }
