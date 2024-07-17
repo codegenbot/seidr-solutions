@@ -9,3 +9,4 @@ float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingR
     }
     
     return currentSnow;
+}
