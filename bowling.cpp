@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <string>
 #include <cctype>
 
@@ -24,6 +24,8 @@ int bowlingScore(const std::string& frames) {
 }
 
 int main() {
-    int score = bowlingScore("X||--");
+    std::string frames = "X/X/X/X/X/X/X/X/2/-5";
+    int score = bowlingScore(frames);
+    std::cout << "The score is: " << score << std::endl;
     return 0;
 }
