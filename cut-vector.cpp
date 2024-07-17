@@ -1,5 +1,6 @@
-#include <vector>
+```cpp
 #include <climits>
+#include <vector>
 
 using namespace std;
 
@@ -9,9 +10,9 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for(int i = 1; i <= v.size(); i++) {
         if(i == v.size()) {
-            vector<int> left(v.begin(), v.begin());
-            vector<int> right(v.begin() + i, v.end());
-            int diff = abs(left[0] - right[0]);
+            vector<int> left(v.begin(), v.end());
+            vector<int> right({});
+            int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
@@ -19,7 +20,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         } else {
             vector<int> left(v.begin(), v.begin() + i);
             vector<int> right(v.begin() + i, v.end());
-            int diff = abs(left[0] - right[0]);
+            int diff = abs((int)left[0] - (int)right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
@@ -38,10 +39,4 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; 
-    vector<vector<int>> result = cutVector(v);
-    return 0;
 }
