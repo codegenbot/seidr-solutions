@@ -3,7 +3,7 @@
 
 std::string solveBoolean(std::string s) {
     std::stack<char> st;
-    bool res = false;
+    std::string res = "";
 
     for(int i=0; i<s.length(); i++){
         if(s[i] == '&'){
@@ -11,23 +11,27 @@ std::string solveBoolean(std::string s) {
                 st.pop();
             }
             if(st.empty()) 
-                res = true;
+                res += "T";
             else
-                res = false;
+                res += "F";
             st.push('&');
         }else if(s[i] == '|'){
             while(!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if(st.empty()) 
-                res = true;
+                res += "T";
             else
-                res = false;
+                res += "F";
             st.push('|');
         }else{
             st.push(s[i]);
         }
     }
-
-    return (res) ? "True" : "False";
+    
+    while(!st.empty()){
+        st.pop();
+    }
+    
+    return (res == "T") ? "True" : "False";
 }
