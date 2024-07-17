@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```cpp
 using namespace std;
 
 string spinWords(string str) {
