@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -6,26 +5,27 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (i + j < n && i + j < m) {
-            if (text.substr(i, j).find(target) != string::npos)
-                result.push_back(i);
-            j++;
+    int targetLength = target.length();
+    for(int i=0; i <= text.length() - targetLength; i++) {
+        bool match = true;
+        for(int j=0; j<targetLength; j++) {
+            if(text[i+j] != target[j]) {
+                match = false;
+                break;
+            }
         }
-        i += m;
+        if(match) {
+            result.push_back(i);
+        }
     }
-
-};
+    return result;
+}
 
 int gcd(int a, int b) {
-    while (b != 0) {
+    while(b) {
         int temp = b;
         b = a % b;
         a = temp;
     }
     return a;
-};
+}
