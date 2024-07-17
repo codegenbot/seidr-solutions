@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
+#include <string>
 
 double probability(int n, int m) {
     double sum = 0;
     for (int i = 1; i <= m; i++) { 
-        sum += (n - i) / (double)(n * m);
+        sum += (n - i) / static_cast<double>(n * m);
     }
     return sum;
 }
