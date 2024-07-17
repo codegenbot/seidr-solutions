@@ -1,19 +1,13 @@
-```cpp
+```c++
 #include <vector>
 #include <string>
 
-int main() {
-    int a = 10;
-    int b = 15;
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-}
-
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int start = 0;
     while (start < text.length()) {
         size_t found = text.find(target, start);
-        if (found != std::string::npos) {
+        if (found != string::npos) {
             indices.push_back(found);
             start = found + 1;
         } else {
