@@ -1,4 +1,4 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
-    cipher_dict = {k: v for k, v in zip(cipher1, cipher2)}
-    return "".join([cipher_dict.get(char, char) for char in message])
+    mapping = {char: cipher2[i] for i, char in enumerate(cipher1)}
+    deciphered_message = "".join(mapping.get(char, char) for char in message)
+    return deciphered_message

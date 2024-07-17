@@ -1,5 +1,8 @@
+#include <string>
+
 std::string squareDigitsStr(std::string n); 
-{
+
+std::string squareDigitsStr(std::string n) {
     std::string result = "";
     for (char c : n) {
         int digit = c - '0';
