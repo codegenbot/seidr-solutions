@@ -10,7 +10,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m; // Start searching from i + m
+            // Start searching from i + 1
+        }
+        else {
+            i += m;
         }
     }
 
