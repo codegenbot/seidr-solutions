@@ -1,6 +1,7 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 int basement(vector<int>& nums) {
     int sum = 0;
@@ -16,9 +17,8 @@ int main() {
     vector<int> nums = {1, -2, 3, -4}; 
     int result = basement(nums);
     if (result != -1) {
-        std::cout << "Basement found at index " << result << std::endl;
+        cout << "Basement found at index " << result << endl;
     } else {
-        std::cout << "No negative sum found." << std::endl;
+        cout << "No negative sum found." << endl;
     }
     return 0;
-}
