@@ -1,37 +1,39 @@
+```c++
 #include <stack>
 #include <string>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<string> std;
+    stack<string> std::stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            std.push("&");
+            std::stack.push("&");
         } else if (expression[i] == '|') {
-            while (!std.empty() && std.top() == "&") {
-                std.pop();
+            while (!std::stack.empty() && std::stack.top() == "&") {
+                std::stack.pop();
             }
         } else {
-            std.push(string(1, expression[i]));
+            if(expression[i] == 'T' || expression[i] == 'F')
+                std::stack.push(std::to_string(expression[i]));
         }
     }
 
     bool result = true;
-    while (!std.empty()) {
-        string op = std.top();
-        std.pop();
+    while (!std::stack.empty()) {
+        string op = std::stack.top();
+        std::stack.pop();
         if (op == "&") {
-            result &= (std.top() == "T");
-            std.pop();
+            result &= (std::stack.top() == "T") ? true : false;
+            std::stack.pop();
         } else if (op == "|") {
-            if (std.size() > 1) {
-                result |= (std.top() == "T");
-                std.pop();
+            if (std::stack.size() > 1) {
+                result |= (std::stack.top() == "T") ? true : false;
+                std::stack.pop();
             }
         } else {
-            result = op == "T";
+            result = op == "T" ? true : false;
         }
     }
 
