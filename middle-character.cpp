@@ -5,13 +5,16 @@ std::string middleCharacter(std::string input) {
     if (input.empty()) {
         return "";
     }
-    int len = input.length();
-    if (len == 1) {
-        return input;
-    } else if (len % 2 == 0) {
-        return input.substr(len / 2 - 1, 2);
-    } else {
+    int len = 0;
+    for (char c : input) {
+        if (!std::isspace(c)) {
+            len++;
+        }
+    }
+    if (len % 2 == 1) {
         return input.substr(len / 2, 1);
+    } else {
+        return input.substr((len - 1) / 2, 2);
     }
 }
 

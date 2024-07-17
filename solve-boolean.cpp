@@ -1,9 +1,9 @@
+```cpp
 #include <stack>
 #include <string>
-#include <initializer_list>
-#include <iostream>
 
-using namespace std;
+using std::stack;
+using std::string;
 
 bool solveBoolean(string expression) {
     stack<string> stack;
@@ -43,8 +43,8 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     return result ? 0 : 1;
 }
