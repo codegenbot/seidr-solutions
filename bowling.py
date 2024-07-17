@@ -1,24 +1,29 @@
-```
 def bowling_score(game):
     score = 0
-    frame = 1
-    while frame <= 10:
-        if game[2*frame-2:2*frame] == 'X':
+    roll = 1
+    for i in range(0, len(game), 2):
+        if game[i] == "X":
             score += 30
-            frame += 1
-        elif game[2*frame-2] == '/':
-            first_roll = int(game[2*frame-3])
+            roll += 1
+        elif game[i] == "/":
+            first_roll = int(game[i - 1])
             second_roll = 10 - first_roll
-            score += first_roll + second_roll
-            frame += 1
-        else:
-            first_roll = int(game[2*frame-2:2*frame])
-            second_roll = int(game[2*frame-1])
-            if first_roll + second_roll == 10:
-                score += 10
-            elif first_roll == 10:
+            if second_roll > 0:
                 score += first_roll + second_roll
             else:
+                frame_score = 10
+            roll += 1
+        else:
+            first_roll = int(game[i])
+            second_roll = int(game[i + 1])
+            if first_roll + second_roll == 10:
+                score += 10
+                roll += 1
+            elif first_roll == 10:
+                frame_score = first_roll + second_roll
+                score += frame_score
+                roll += 1
+            else:
                 score += first_roll + second_roll
-            frame += 1
+                roll += 1
     return score
