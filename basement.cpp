@@ -1,3 +1,4 @@
+```cpp
 int basement(vector<int>& nums) {
     int minIndex = 0;
     for (int i = 1; i < nums.size(); i++) {
