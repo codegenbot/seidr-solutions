@@ -11,4 +11,4 @@ def solve_boolean(expression):
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
     else:
-        return bool(expression)
+        return True
