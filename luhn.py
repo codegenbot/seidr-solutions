@@ -1,13 +1,6 @@
-def luhn(card):
-    card = list(map(int, card))
-    card.reverse()
+Here is the solution:
 
-    for i in range(1, len(card)):
-        if i % 2 != 0:
-            continue
-        else:
-            card[i] *= 2
-            if card[i] > 9:
-                card[i] -= 9
-
-    return sum(card)
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number).split()]
+    result = sum(2 * int(digit) if i % 2 else int(digit) for i, digit in enumerate(card_number))
+    return result - ((result // 10 + 1) * (result % 10))
