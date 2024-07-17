@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <cctype>
 using namespace std;
 
@@ -8,13 +6,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; ++i) { 
-        if (std::equal(to_string(text).begin(), to_string(text).begin() + m, to_string(target).begin())) {
-            result.push_back(i); 
-        }
+    int i = 0; 
+    while (i <= n - m + 1) { 
+        if ((text.substr(i, m)).compare(0, m, target) == 0 ||
+            (text.substr(i, m)).compare(0, m, std::tolower(target)) == 0 ||
+            (text.substr(i, m)).compare(0, m, std::toupper(target)) == 0) { 
+        result.push_back(i); 
     }
-
-    return result;
+    i++; 
 }
 
 int main() {
