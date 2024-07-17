@@ -18,7 +18,7 @@ bool solveBoolean(std::string expression) {
         std::string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.size() > 0 ? solveBoolean(stack.top()).second : false);
+            result &= (stack.size() > 0 ? solveBoolean(stack.top()) : false);
             stack.pop();
         } else if (op == "|") {
             if (stack.size() > 1) {
