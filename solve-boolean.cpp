@@ -4,43 +4,31 @@
 
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            while (!s.empty() && s.top() != '&') {
-                s.pop();
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (s.empty()) return true;
-        } else if (expression[i] == '&') {
-            s.push('&');
-        } else if (expression[i] == 't' || expression[i] == 'T') {
-            while (!s.empty() && s.top() != '|') {
-                s.pop();
+            if (st.empty()) return false;
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            if (s.empty()) return true;
-        } else if (expression[i] == 'f' || expression[i] == 'F') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            return false;
+            if (st.empty()) return true;
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    while (!s.empty()) {
-        s.pop();
-    }
-    return true;
+    return !st.empty();
 }
 
 int main() {
-    string input;
-    cout << "Enter a Boolean expression (T/F/|/&): ";
-    cin >> input;
-    bool result = solveBoolean(input);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
