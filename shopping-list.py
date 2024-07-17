@@ -1,5 +1,4 @@
-```
-def shopping_list():
+def solve():
     n = int(input())
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
