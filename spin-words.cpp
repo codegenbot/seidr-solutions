@@ -1,5 +1,6 @@
+```
 #include <string>
-#include <sstream>
+using namespace std;
 
 string spinWords(string str) {
     stringstream result;
