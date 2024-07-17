@@ -17,7 +17,6 @@ def bowling(score):
                 total_score += 10 + int(score[i+1])
             else:
                 total_score += 10
-            frame += 1
         else:
             first_roll = int(score[i])
             second_roll = int(score[i+1])
