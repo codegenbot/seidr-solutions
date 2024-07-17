@@ -1,3 +1,5 @@
+#include <cstdio>
+
 double shoppingList(float prices[], int nPrices, float discounts[]) {
     double total = 0;
     for (int i = 0; i < nPrices; i++) {
@@ -9,7 +11,7 @@ double shoppingList(float prices[], int nPrices, float discounts[]) {
 int main() {
     int nItems;
     printf("Number of items: ");
-    scanf("%d", &nItems);
+    scanf("%d\n", &nItems);
     float prices[nItems];
     for(int i = 0; i < nItems; i++) {
         printf("Price of item %d: ", i+1);
@@ -21,7 +23,7 @@ int main() {
         printf("Discount of item %d (in percent): ", i+1);
         scanf("%f", &discounts[i]);
     }
-    double totalPrice = (float)shoppingList(prices, nItems, discounts);
+    double totalPrice = shoppingList(prices, nItems, discounts);
     printf("Total price: %f\n", totalPrice); 
     return 0;
 }
