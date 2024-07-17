@@ -6,7 +6,14 @@ std::string middleCharacter(std::string input) {
         return "";
     }
     int len = input.length();
-    return len == 1 ? "" : (len % 2 == 1 ? input.substr(len / 2, 1) : input.substr((len - 1) / 2, 2));
+    if (len == 1) {
+        return input;
+    }
+    if (len % 2 == 1) {
+        return input.substr(len / 2, 1);
+    } else {
+        return input.substr((len - 1) / 2, 2);
+    }
 }
 
 int main() {
