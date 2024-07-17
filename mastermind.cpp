@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+#include <map>
+#include <algorithm>
+
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -24,4 +28,19 @@ int mastermind(std::string code, std::string guess) {
     black -= correctPlacement; 
 
     return black;
+}
+
+int main() {
+    std::string code, guess;
+    // Ask user for input
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter a guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+
+    std::cout << "Black pegs: " << result << "\n";
+
+    return 0;
 }
