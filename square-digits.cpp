@@ -6,5 +6,5 @@ int squareDigitsStr(std::string n) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
-    return std::stoi(result);
+    return stoi(result);
 }
