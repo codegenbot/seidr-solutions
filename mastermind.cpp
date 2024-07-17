@@ -1,29 +1,43 @@
-int countWhitePegs(string code, string guess) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int getWhitePegs(string code, string guess) {
     int whitePegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (count(code.begin(), code.end(), c) > 0 && guess.find(c) != code.find(c)) {
-            ++whitePegs;
+    for (char c : code) {
+        for (char g : guess) {
+            if (c == g && c != g) {
+                whitePegs++;
+                break;
+            }
         }
     }
     return whitePegs;
 }
 
-int countBlackPegs(string code, string guess) {
+int getBlackPegs(string code, string guess) {
     int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (c == code[i]) {
-            ++blackPegs;
+    for (char c : code) {
+        if (c == guess[0]) {
+            blackPegs++;
+            break;
         }
     }
-    return blackPegs;
+    for (char g : guess) {
+        if (g == code[0]) {
+            blackPegs++;
+            break;
+        }
+    }
+    return max(blackPegs - getWhitePegs(code, guess), 0);
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << countBlackPegs(code, guess) << endl;
-    cout << countWhitePegs(code, guess) << endl;
+    cout << getWhitePegs(code, guess) << endl;
+    cout << getBlackPegs(code, guess) << endl;
     return 0;
 }
