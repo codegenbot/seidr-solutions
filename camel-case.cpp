@@ -7,7 +7,7 @@ std::string camelCase(std::string str) {
         if (c == '-') {
             result += c;
         } else if (c == ' ') {
-            continue;
+            result += c;
         } else {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
