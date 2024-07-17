@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cstring>
 
@@ -9,8 +10,8 @@ bool solveBoolean(string expression) {
             int k = j;
             while (k < expression.size() && expression[k] != '|') k++;
             char subexpr[k - j + 1];
-            strcpy(subexpr, &expression[j]);
-            result &= solveBoolean(string(subexpr));
+            strcpy(subexpr, &expression.substr(j, k-j).c_str());
+            result &= solveBoolean(std::string(subexpr));
             i = k;
         }
     }
