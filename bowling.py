@@ -1,30 +1,24 @@
 ```
-def bowling_score(bowling):
+def bowling_score(game):
     score = 0
-    roll = 0
-    for frame in range(1, 11):
-        if '/' in str(bowling)[frame*2-1:frame*2+2]:
-            strike = False
-            spare = False
-            if str(bowling)[frame*2-1:frame*2] == 'X':
-                score += 10
-                roll += 1
-                continue
-            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
-            if sum(parts) >= 10:
-                spare = True
-                score += sum(parts)
-                roll += len(parts)
-            else:
-                strike = True
-                score += parts[0]
-                roll += 1
+    frame = 1
+    for i in range(0, len(game), 2):
+        if game[i] == 'X':
+            score += 10 + (10 if i < 18 and game[i+2] == 'X' else 0)
+            frame += 1
+        elif game[i] == '/':
+            first_roll = int(game[i-1])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame += 1
         else:
-            parts = list(map(int, re.findall('\d', str(bowling)[frame*2-1:frame*2+2])))
-            if sum(parts) >= 10:
-                score += sum(parts)
-                roll += len(parts)
+            first_roll = int(game[i])
+            if i < 18 and game[i+2] == 'X':
+                score += first_roll + 10
+            elif game[i+1] == '/':
+                score += first_roll + (10 - int(game[i+1]))
             else:
-                score += parts[0]
-                roll += 1
+                second_roll = int(game[i+1])
+                score += first_roll + second_roll
+            frame += (game[i+2:] == 'X/X' or game[i+2:] == 'XX') and 1 or 0
     return score
