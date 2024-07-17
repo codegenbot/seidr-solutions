@@ -1,13 +1,21 @@
-Here is the solution:
-
-string solveBoolean(string s) {
-    bool result = (s == "t");
+bool solveBoolean(string s) {
+    stack<char> st;
+    
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == '&') {
-            result &= (s.substr(i+1, 1) == "t");
+            while(!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            st.push('&');
         } else if(s[i] == '|') {
-            result |= (s.substr(i+1, 1) == "t");
+            while(!st.empty()) {
+                st.pop();
+            }
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    return result ? "True" : "False";
+    
+    return (st.top() == 'T');
 }
