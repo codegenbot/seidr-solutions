@@ -1,2 +1,2 @@
-def roll_dice(n, m):
-    return sum(1 for i in range(m) for j in range(i + 1, n + 1)) / (n * m)
+def solution(n, m):
+    return 1 - (n + m - 2) / (n * m)
