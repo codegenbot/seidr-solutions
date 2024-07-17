@@ -8,12 +8,12 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     int i = 0; 
-    do {
-        if (text.substr(i, m) == target) { 
+    while (i <= n - m + 1) { 
+        if (text.substr(i, m) == "%" + target + "%") { 
             result.push_back(i); 
         }
         i++; 
-    } while (i <= n - m);
+    }
 
     return result;
 }
