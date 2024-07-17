@@ -1,36 +1,43 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int frame = 1;
-    int spare = 0;
-    int strike = 0;
-
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (spare * 10);
-            spare = 0;
-            strike++;
-            continue;
+    bool inFrame = false;
+    queue<int> pinsInFrame;
+    
+    for(int i=0; i<input.length(); i++) {
+        char c = input[i];
+        
+        if(c == 'X') {
+            score += 10;
+            inFrame = false;
+            pinsInFrame = queue<int>();
+        } else if(c == '/') {
+            int currentPins = 10 - (int)('0' + input[i-1]) - (int)('0' + input[i]);
+            score += currentPins;
+            inFrame = false;
+            pinsInFrame = queue<int>();
+        } else {
+            if(inFrame) {
+                pinsInFrame.push((int)('0' + c));
+            } else {
+                int currentPins = (int)('0' + c);
+                while(currentPins > 0 && !pinsInFrame.empty()) {
+                    score += pinsInFrame.front();
+                    pinsInFrame.pop();
+                    currentPins -= 10;
+                }
+                inFrame = true;
+            }
         }
-        if (c == '/') {
-            score += 10 - frame + 1;
-            spare = 1;
-            continue;
-        }
-        int pins = c - '0';
-        score += pins;
-
-        if (frame < 9 && score >= 10) {
-            frame++;
-        }
-
-        if (frame == 10) {
-            break;
+        
+        if(inFrame) {
+            pinsInFrame.push((int)('0' + c));
         }
     }
-
-    for (int i = 0; i < strike; i++) {
-        score += 10;
+    
+    while(!pinsInFrame.empty()) {
+        score += pinsInFrame.front();
+        pinsInFrame.pop();
     }
-
+    
     return score;
 }
