@@ -1,7 +1,6 @@
+```cpp
 #include <stack>
 #include <string>
-#include <initializer_list>
-#include <iostream>
 
 using namespace std;
 
@@ -16,8 +15,7 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            if(expression[i] == 'T' || expression[i] == 'F')
-                stack.push(string(1, expression[i]));
+            stack.push(string(1, expression[i]));
         }
     }
 
@@ -26,15 +24,16 @@ bool solveBoolean(string expression) {
         string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.top() == "T") ? true : false;
+            result &= (stack.top() == "T" || stack.top() == "F");
             stack.pop();
         } else if (op == "|") {
             if (stack.size() > 1) {
-                result |= (stack.top() == "T") ? true : false;
+                result |= (stack.top() == "T" || stack.top() == "F");
                 stack.pop();
             }
         } else {
-            result = op == "T" ? true : false;
+            result = stack.top() == "T";
+            stack.pop();
         }
     }
 
