@@ -1,12 +1,17 @@
-Here is the solution:
+Here is the Python solution for the problem:
 
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return abs(a)
 
-# Read input from user
-a = int(input())
-b = int(input())
-
-print(gcd(a, b))
+def find_indices(text, target):
+    indices = []
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
+        if pos == -1:
+            break
+        indices.append(pos + i)
+        i += pos + 1
+    return indices
