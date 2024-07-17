@@ -1,5 +1,3 @@
-Here is the modified code:
-
 using namespace std;
 
 string spinWords(string input) {
@@ -16,7 +14,7 @@ string spinWords(string input) {
             }
             string word = input.substr(i, j - i);
             if (word.length() >= 5) {
-                std::string revWord = "";
+                string revWord = "";
                 for (int k = word.length() - 1; k >= 0; k--) {
                     revWord += word[k];
                 }
