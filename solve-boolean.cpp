@@ -1,24 +1,29 @@
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
-
+bool solveBoolean(string expression) {
+    if(expression == "T") return true;
+    if(expression == "F") return false;
+    
     bool result = true;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
+    int i = 0;
+    while(i < expression.size()) {
+        if(expression[i] == '&') {
             int j = i + 1;
-            while (j < expression.size() && expression[j] != '|') j++;
-            std::string subexpr = expression.substr(i + 1, j - i - 1);
+            while(j < expression.size() && expression[j] != '|') j++;
+            string subexpr = expression.substr(i + 1, j - i - 1);
             result &= solveBoolean(subexpr);
             i = j;
+        } else if(expression[i] == '|') {
+            int j = i + 1;
+            while(j < expression.size() && (expression[j] == '&' || expression[j] == '|')) j++;
+            string subexpr2 = expression.substr(i, j - i);
+            result |= solveBoolean(subexpr2) ? true : false;
+            i = j;
+        } else {
+            i++;
         }
     }
-    if (expression[i] == '|') {
-        int j = i + 1;
-        while (j < expression.size() && expression[j] != ' ') j++;
-        std::string subexpr2 = expression.substr(i + 1, j - i);
-        result |= solveBoolean(subexpr2);
-    }
-
-    return !result;
+    
+    return result;
+}
