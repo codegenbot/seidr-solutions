@@ -8,16 +8,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (i + j < n && i + j < m) {
-            if (text.substr(i, j).find(target) != string::npos)
-                result.push_back(i);
-            j++;
-        }
-        if (i >= n - m)
-            break;
-        i += m;
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m).find(target) != string::npos)
+            result.push_back(i);
     }
 
     return result;
