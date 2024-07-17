@@ -1,4 +1,3 @@
-```cpp
 #include<iostream>
 #include<string>
 
@@ -29,13 +28,12 @@ string spinWords(string str) {
             i = j;
         }
     }
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
     string str; 
     cout << "Enter a sentence: ";
-    cin >> str;
-    getline(cin, str); // Add this line to read the entire line
+    getline(cin, str);
     cout << spinWords(str);
 }
