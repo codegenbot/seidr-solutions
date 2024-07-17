@@ -1,3 +1,5 @@
+Here's the modified code:
+
 #include <stack>
 #include <string>
 
@@ -33,4 +35,4 @@ string solveBoolean(string s) {
         st.pop();
     }
     
-    return (res == "TT") ? "True" : "False";
+    return (res == "T") ? "True" : "False";
