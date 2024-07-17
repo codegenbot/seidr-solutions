@@ -1,8 +1,11 @@
-int bowlingScore(const string& frames) {
+```c++
+#include <string>
+#include <cctype>
+
+int bowlingScore(const std::string& frames) {
     int score = 0;
     int currentRolls = 0;
-
-    for (char c : std::string(frames)) {
+    for (char c : frames) {
         if (c == 'X') {
             score += 30;
             currentRolls = 2;
@@ -13,10 +16,14 @@ int bowlingScore(const string& frames) {
             int roll = c - '0';
             currentRolls++;
             if (currentRolls == 2) {
-                score += roll * 2;
+                score += 1 * roll + 1 * (10 - roll);
             }
         }
     }
-
     return score;
+}
+
+int main() {
+    int score = bowlingScore("X||--");
+    return 0;
 }
