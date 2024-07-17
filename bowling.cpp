@@ -1,23 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    int rolls = 0;
+    bool firstRollInFrame = true;
+
     for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            rolls++;
-        } else if (c == '/') {
-            score += 10 - (stoi(s.substr(rolls*2, 1)) + stoi(s.substr(rolls*2+1, 1)));
-            rolls++;
+        if (c == '/') {
+            if (firstRollInFrame) {
+                score += 10 - ('X' - '0');
+                firstRollInFrame = false;
+            } else {
+                score += 10 + ('X' - '0') - (c - '0');
+            }
+        } else if (c == 'X') {
+            score += 10;
+            firstRollInFrame = true;
         } else {
-            int roll = stod(c) * 10 + stod(s.substr(rolls*2+1, 1));
-            if (roll == 10) {
-                score += 10;
-                rolls++;
+            int roll = c - '0';
+            if (!firstRollInFrame) {
+                if (roll + ('X' - '0') <= 10) {
+                    score += roll + ('X' - '0');
+                } else {
+                    score += 10;
+                }
             } else {
                 score += roll;
-                rolls++;
             }
+            firstRollInFrame = false;
         }
     }
+
     return score;
 }
