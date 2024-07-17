@@ -1,35 +1,28 @@
 #include <climits>
 #include <vector>
 #include <numeric>
+#include <cmath>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    long long total_sum = accumulate(v.begin(), v.end(), 0LL);
     int min_diff = INT_MAX;
-    vector<vector<int>> result(2);
+    int split_index = -1;
     
-    for(int i = 1; i <= v.size(); i++) {
-        vector<int> left(v.begin(), v.begin() + i);
-        vector<int> right(v.begin() + i, v.end());
+    for(int i = 0; i < v.size(); i++) {
+        long long left_sum = accumulate(v.begin(), v.begin() + (i + 1), 0LL);
+        long long right_sum = total_sum - left_sum;
         
-        double mean_left = (double)accumulate(left.begin(), left.end(), 0) / left.size();
-        double mean_right = (double)accumulate(right.begin(), right.end(), 0) / right.size();
-        
-        int diff = abs((int)(mean_left - mean_right));
+        int diff = abs(left_sum - right_sum);
         
         if(diff < min_diff) {
             min_diff = diff;
-            result[0] = vector<int>(left.begin(), left.end());
-            result[1] = vector<int>(right.begin(), right.end());
+            split_index = i;
         }
     }
     
-    return result;
+    return {{v.begin(), v.begin() + (split_index + 1)}, {v.begin() + split_index, v.end()}};
 }
 
-int main() {
-    vector<int> v = {9191, 652, 6176, 2479, 8717};
-    vector<vector<int>> result = cutVector(v);
-    // do something with result
-    return 0;
-}
+pair<vector<int>, vector<int>> result = cutVector({9191, 652, 6176, 2479, 8717});
