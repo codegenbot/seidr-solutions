@@ -22,19 +22,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cout << "Enter the text: ";
-    if (!(cin >> str)) {
-        cout << "Invalid input. Please try again.\n";
-        cout << "Enter the text: ";
-        getline(cin, text);  // Clear the bad input
-    }
-
-    cout << "Enter the target: ";
-    if (!(cin >> str)) {
-        cout << "Invalid input. Please try again.\n";
-        cout << "Enter the target: ";
-        getline(cin, target);  // Clear the bad input
-    }
+    cin >> text >> target;
 
     vector<int> results = indicesOfSubstring(text, target);
     for (int i : results) {
