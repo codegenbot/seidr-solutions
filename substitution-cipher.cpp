@@ -2,30 +2,23 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string key1, std::string key2, std::string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        if (i < key1.length()) {
-            int index = key1.find(message[i]);
-            if (index != std::string::npos)
-                result += key2[index];
-            else
-                result += message[i]; // If the character is not in the cipher, add it to the result as is.
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        if (c == '\0') break;  // assuming null character marks the end of the message
+        int idx = cipher1.find(c);
+        if (idx != std::string::npos) {
+            result += cipher2[idx];
         } else {
-            result += message[i]; // If the character is beyond the length of the key, add it to the result as is.
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    std::string key1, key2, message;
-    std::cout << "Enter the first string (key): ";
-    std::cin >> key1;
-    std::cout << "Enter the second string: ";
-    std::cin >> key2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(key1, key2, message) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
