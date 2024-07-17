@@ -1,10 +1,5 @@
+````
 #include <vector>
-
-int main() {
-    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-    int result = basement(nums);
-    return 0;
-}
 
 int basement(std::vector<int>& nums) {
     int minIndex = 0;
@@ -16,3 +11,5 @@ int basement(std::vector<int>& nums) {
     }
     return -1;
 }
+
+int main() { return basement({-2,3,-4,5,-6,7,-8,9,-10,15}); }
