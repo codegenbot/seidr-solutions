@@ -1,48 +1,19 @@
-#include <string>
-using namespace std;
-
 bool solveBoolean(string s) {
-    stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            if(st.top() == 'T') {
-                st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('T');
-            }
-            while(!st.empty()) {
-                char c = st.top(); 
-                st.pop();
-                if(c == '&') {
-                    st.push('&');
-                    break;
-                } else if(c == '|') {
-                    st.push('|');
-                    break;
-                }
-            }
-        } else if(s[i] == '&') {
-            if(st.top() == 'T') {
-                st.pop();
-                st.push('T');
-            } else if(st.top() == 'F') {
-                st.pop();
-                st.push('F');
-            }
-            while(!st.empty()) {
-                char c = st.top(); 
-                st.pop();
-                if(c == '|') {
-                    st.push('|');
-                    break;
-                } else if(c == '&') {
-                    st.push('&');
-                    break;
-                }
-            }
+    if (s == "T") return true;
+    if (s == "F") return false;
+    if (s.size() > 1) {
+        bool res = solveBoolean(s.substr(0, s.find('&')));
+        for (int i = s.find('&') + 1; i < s.size(); ++i) {
+            res &= solveBoolean(s.substr(i));
         }
+        return res;
+    } else if (s.size() > 1) {
+        bool res = solveBoolean(s.substr(0, s.find('|')));
+        for (int i = s.find('|') + 1; i < s.size(); ++i) {
+            res |= solveBoolean(s.substr(i));
+        }
+        return res;
+    } else {
+        return s == "T";
     }
-    return st.top() == 'T';
 }
