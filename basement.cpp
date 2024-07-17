@@ -5,12 +5,7 @@ int basement(std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         total += nums[i];
         if (total > 0)
-            total = 0;
-        if (total < 0 && minIndex == 0) 
-            return i + 1;
-        if (total < 0 && total < 0 - total)  
-            return i + 1;
+            minIndex = i + 1;
     }
-    return -1;
-
+    return minIndex;
 }
