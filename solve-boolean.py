@@ -1,14 +1,14 @@
-```
-def solve_boolean(expression):
-    if expression == 'T':
+def solveBoolean(input_str):
+    if input_str == "T":
         return True
-    elif expression == 'F':
+    elif input_str == "F":
         return False
-    elif '&' in expression and '|' in expression:
+    elif "&" in input_str and "|" in input_str:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all([subexpression.strip() for subexpression in expression.split('&')]) 
-    elif '|' in expression:
-        return any([subexpression.strip() for subexpression in expression.split('|')]) 
-    else:
-        raise ValueError("Invalid expression")
+    elif "&" in input_str:
+        return all(x == "T" for x in input_str)
+    elif "|" in input_str:
+        return any(x == "T" for x in input_str)
+
+
+print(solveBoolean(input("Enter a Boolean expression: ")))
