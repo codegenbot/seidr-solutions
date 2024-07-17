@@ -1,12 +1,12 @@
-```
+```c++
 #include <iostream>
 #include <string>
 
 std::string squareDigitsStr(int n) {
     std::string result = "";
-    while (n != 0) {
+    while(n != 0) {
         int digit = n % 10;
-        result = std::to_string(digit * digit).append(result);
+        result = (digit * digit) + result;
         n /= 10;
     }
     return result;
