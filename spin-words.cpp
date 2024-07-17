@@ -1,4 +1,3 @@
-```
 string spinWords(string str) {
     string result = "";
     int i = 0;
