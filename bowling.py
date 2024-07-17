@@ -1,5 +1,6 @@
 ```
-def bowling(score):
+def bowling():
+    score = input("Enter the score for each frame: ")
     score = score.replace('/', '')
     total_score = 0
     frame = 1
