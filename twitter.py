@@ -5,4 +5,4 @@ def validate_tweet(tweet):
     elif tweet == "":
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet.encode('utf-8','ignore').decode().replace(" ", ""))} characters"
+        return f"Your tweet has {len(tweet.encode('utf-8','ignore').decode().replace(\" \", \"\""))} characters"
