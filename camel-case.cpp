@@ -3,17 +3,22 @@
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool capitalize = true;
-
+    std::vector<std::string> words = {""};
     for (char c : str) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+            words.back() += ' ';
+            words.push_back("");
         } else {
-            result += tolower(c);
+            words.back() += c;
+        }
+    }
+
+    std::string result = "";
+    for (const auto& word : words) {
+        if (!word.empty()) {
+            if (!result.empty())
+                result[0] = toupper(result[0]);
+            result += word;
         }
     }
 
@@ -21,12 +26,14 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string in kebab-case (or 'quit' to stop): ";
-        std::cin >> input;
-        if (input == "quit") break;
-        std::cout << "camelCase: " << kebabToCamel(input) << std::endl;
+    int t;
+    std::cin >> t;
+
+    while (t--) {
+        std::string str;
+        std::cin >> str;
+        cout << kebabToCamel(str) << endl;
     }
+
     return 0;
 }
