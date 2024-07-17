@@ -18,18 +18,13 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (auto& pair : colorMap) {
-        // You don't need this part, it's unnecessary.
-        // placementMap[pair.first] = pair.second; 
-    }
-
-    int blackCount = 0;
+    int correctColors = 0;
     for (const auto& pair : colorMap) {
-        if (pair.second == 4) {
-            blackCount++;
+        if (pair.second == 1) {
+            correctColors++;
         }
     }
-    black -= blackCount;
+    white -= correctColors;
 
-    return black;
+    return black + white;
 }
