@@ -1,3 +1,4 @@
+````
 #include <vector>
 #include <cmath>
 
@@ -10,21 +11,10 @@ double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
-    std::vector<double> prices;
-    int n;
-    std::cout << "Enter the number of items: ";
-    std::cin >> n;
-
-    std::cout << "Enter the prices and corresponding discounts for each item:\n";
-    prices.resize(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Price " << i+1 << ": ";
-        std::cin >> prices[i];
-        std::cout << "Discount: ";
-        std::cin >> discounts[i];
-    }
-    
+    std::vector<double> prices = {10.0, 20.0, 30.0};
+    std::vector<double> discounts = {5.0, 10.0, 15.0};
     double result = shoppingList(prices, discounts);
     std::cout << "Total price after discount: " << result << std::endl;
     return 0;
 }
+```
