@@ -1,53 +1,41 @@
-#include <vector>
-#include <string>
+Here is the solution:
 
-int bowlingScore(std::string rounds) {
+```cpp
+int bowlingScore(string s) {
     int score = 0;
-    int currentRound = 0;
-    int rollsLeftInRound = 2;
+    int roll = 0;
+    bool lastRoll = false;
 
-    std::vector<int> rolls;
-
-    for (char c : rounds) {
-        if (c == '/') {
-            int roll1, roll2;
-            sscanf(&rounds[rolls.size() * 3 - 4], "%d/%d", &roll1, &roll2);
-            if (roll1 + roll2 >= 10) {
-                score += roll1 + roll2;
-            } else {
-                rolls.push_back(roll1);
-                rollsLeftInRound = 1;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '/') {
+            if(roll == 1) {
+                lastRoll = true;
             }
-        } else {
-            int roll = c - '0';
-            rolls.push_back(roll);
-
-            if (--rollsLeftInRound == 0) {
-                currentRound++;
-                score += calculateScoreForRound(rolls);
-                rolls.clear();
-                rollsLeftInRound = 2;
+            else {
+                roll++;
             }
         }
+        else if(s[i] != 'X') {
+            score += (s[i] - '0') * 10 / (roll + 1);
+            if(lastRoll) {
+                return -1; // Invalid input
+            }
+        }
+
+    }
+
+    while(roll < 10) {
+        if(s[s.length() - 1] == 'X' || s[s.length() - 1] != '0') {
+            score += 10;
+            break;
+        }
+        else {
+            score += (10 - roll) * 10 / (10 - roll);
+            break;
+        }
+
     }
 
     return score;
-}
 
-int calculateScoreForRound(const std::vector<int>& rolls) {
-    int score = 0;
-
-    if (rolls.size() == 1) {
-        return rolls[0];
-    } else if (rolls.size() == 2) {
-        return rolls[0] + rolls[1];
-    } else {
-        int firstRoll = rolls[0] + rolls[1];
-        int secondRoll = rolls[2];
-
-        score += firstRoll;
-        score += secondRoll;
-
-        return score;
-    }
 }
