@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -31,7 +31,6 @@ string spinWords(string str) {
     return result;
 }
 
-int main() {
-    cout << spinWords("Hello World this is test") << endl;
-    return 0;
+int main() { 
+    cout << spinWords("Hello World this is a test"); 
 }
