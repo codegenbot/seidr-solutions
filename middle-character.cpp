@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -19,8 +19,6 @@ int main() {
         std::cout << "Input is empty." << std::endl;
         return 0;
     }
-    if (!input.empty()) { 
-        std::cout << middleCharacter(input) << std::endl; 
-    } 
+    std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
