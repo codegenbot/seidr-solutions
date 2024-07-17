@@ -1,38 +1,49 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for (int i = 1; i < vec.size(); i++) {
-        if (vec[i] - vec[0] <= min_diff) {
-            min_diff = vec[i] - vec[0];
-            cut_index = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j <= i; ++j) {
+            sumLeft += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); ++j) {
+            sumRight += vec[j];
+        }
+
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-    
-    return {vector<int>(vec.begin(), vec.begin() + cut_index), vector<int>(vec.begin() + cut_index, vec.end())};
+
+    return {{vec.begin(), vec.begin() + splitIndex}, {vec.begin() + splitIndex, vec.end()}};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "{";
-    for (auto x : result.first) {
-        cout << x << " ";
+
+    auto result = cutVector(vec);
+
+    cout << "First subvector: ";
+    for (const auto& x : result.first) {
+        cout << x << ' ';
     }
-    cout << "}\n{";
-    for (auto x : result.second) {
-        cout << x << " ";
+    cout << endl;
+
+    cout << "Second subvector: ";
+    for (const auto& x : result.second) {
+        cout << x << ' ';
     }
-    cout << "}\n0\n";
-    
-    return 0;
+    cout << endl;
 }
