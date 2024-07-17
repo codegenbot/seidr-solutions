@@ -1,20 +1,23 @@
-Here is the corrected code:
-
-```cpp
 #include <vector>
 #include <string>
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; ++i) {
-        if (text.find(target, i) != std::string::npos)
-            result.push_back(i);
+    for (int i = 0; ; i++) {
+        int j = 0;
+        while (i + j < n && i + j < m) {
+            if (text.substr(i, m).find(target) != string::npos)
+                result.push_back(i);
+            j++;
+        }
+        i += m;
     }
 
-    return result;
 }
 
 int gcd(int a, int b) {
