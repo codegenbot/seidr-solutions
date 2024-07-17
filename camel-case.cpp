@@ -17,9 +17,9 @@ std::string camelCase(std::string str) {
             i++;
         } else {
             if (!result.size()) {
-                result = tolower(std::string(1, str[i]), std::locale());
+                result = std::string(1, tolower(str[i], std::locale()));
             } else {
-                result += std::tolower(str[i], std::locale());
+                result += std::string(1, std::tolower(str[i], std::locale()));
             }
             i++;
         }
