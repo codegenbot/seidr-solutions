@@ -1,13 +1,8 @@
-Here is the solution:
-
-#include <vector>
-using namespace std;
-
-int basementIndex(const vector<int>& nums) {
+int basement(std::vector<int>& v) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
         if (sum < 0) return i;
     }
-    return -1; // not found
+    return -1;
 }
