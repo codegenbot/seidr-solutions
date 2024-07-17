@@ -1,4 +1,5 @@
 #include <cmath>
+using namespace std;
 
 float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingRate) {
     for (int i = 0; i < hours; ++i) {
@@ -9,4 +10,3 @@ float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingR
     }
     
     return currentSnow;
-}
