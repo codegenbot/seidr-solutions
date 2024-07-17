@@ -3,7 +3,7 @@
 using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
-    float snow = groundSnow;
+    float snow = 0;
     for (int i = 0; i < hours; i++) {
         snow += rate;
         if (melt > 0) {
