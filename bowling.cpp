@@ -1,3 +1,5 @@
+#include <string>
+#include <cctype>
 using namespace std;
 
 int bowlingScore(const string& frames) {
@@ -11,7 +13,7 @@ int bowlingScore(const string& frames) {
         } else if (frames[i] == '/') {
             score += (10 - currentRolls);
             currentRolls = 0;
-        } else if (isdigit(frames[i])) {
+        } else if (std::isdigit(frames[i])) {
             int roll = frames[i] - '0';
             currentRolls++;
             if (currentRolls == 2) {
