@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,8 +16,11 @@ vector<int> indicesOfSubstring(string text, string target) {
                 result.push_back(i);
             j++;
         }
+        if (i >= n - m) break;
         i += m;
     }
+
+    return result;
 }
 
 int gcd(int a, int b) {
