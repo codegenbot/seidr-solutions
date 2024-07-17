@@ -2,7 +2,7 @@
 #include <string>
 
 std::string solveBoolean(std::string s) {
-    std::stack<char> st;
+    stack<char> st;
     bool res = false;
 
     for(int i=0; i<s.length(); i++){
@@ -25,9 +25,17 @@ std::string solveBoolean(std::string s) {
                 res = false;
             st.push('|');
         }else{
+            if(s[i] == 'T')
+                res = true;
+            else
+                res = false;
             st.push(s[i]);
         }
     }
-
+    
+    while(!st.empty()){
+        st.pop();
+    }
+    
     return (res) ? "True" : "False";
 }
