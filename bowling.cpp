@@ -23,8 +23,10 @@ int bowlingScore(std::vector<int>& s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
+
 }
 
 int main() {
-    return bowlingScore({1,4,-1,3,5,-1,0,6,7,8});
+    std::vector<int> s = {1,4,-1,0,2,8,10,1,4,9};
+    return bowlingScore(s);
 }
