@@ -9,6 +9,4 @@ for i in range(n):
     total_price += price
 
 return round(total_price, 1)
-
-
-print(_shopping_list())
+print(round(total_price, 1))
