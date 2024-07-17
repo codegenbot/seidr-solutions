@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int bowlingScore(std::vector<int>& s) {
     int score = 0;
@@ -23,10 +24,10 @@ int bowlingScore(std::vector<int>& s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-
 }
 
 int main() {
-    std::vector<int> s = {1,4,-1,0,2,8,10,1,4,9};
-    return bowlingScore(s);
+    std::vector<int> s = {1, 4, -1, 2, 7, 3, -1, 1, 5, 8, 1, 9};
+    std::cout << "The bowling score is: " << bowlingScore(s) << std::endl;
+    return 0;
 }
