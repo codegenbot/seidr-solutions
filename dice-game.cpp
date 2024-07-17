@@ -1,6 +1,28 @@
-Here is the solution:
+#include <iostream>
 
-double probability(int n, int m) {
-    double total = (double)n * m;
-    return 1.0 - ((double)n / total) * (n - (m + 1));
+double diceGame(int n, int m) {
+    double numerator = 1;
+    double denominator = 1;
+
+    if(n > m) {
+        for(int i = 1; i <= m; i++) {
+            numerator *= (n - i);
+            denominator *= (m + n - i);
+        }
+    } else {
+        for(int i = 1; i <= n; i++) {
+            numerator *= (m - i);
+            denominator *= (m + n - i);
+        }
+    }
+
+    return numerator / denominator;
+}
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    double result = diceGame(n, m);
+    std::cout << result << std::endl;
+    return 0;
 }
