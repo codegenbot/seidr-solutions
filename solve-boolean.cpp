@@ -1,30 +1,40 @@
-#include <string>
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    char currentOperator = '\0';
+    bool lastTerm = false;
 
-bool solveBoolean(string expr) {
-    bool result = true;
-    int i = 0;
-
-    while (i < expr.length()) {
-        if (expr[i] == 't') {
+    for (char c : booleanExpression) {
+        if (c == 't' || c == 'T') {
             return true;
-        }
-        else if (expr[i] == 'f') {
+        } else if (c == 'f' || c == 'F') {
             return false;
+        } else if (c == '|') {
+            while (!operationStack.empty() && operationStack.top() != '&') {
+                currentOperator = operationStack.top();
+                operationStack.pop();
+            }
+            if (!operationStack.empty()) {
+                if (currentOperator == '&') {
+                    lastTerm = !lastTerm;
+                }
+            } else {
+                currentOperator = '|';
+            }
+        } else if (c == '&') {
+            operationStack.push('&');
+            currentOperator = '&';
         }
-        else if (expr[i] == '&') {
-            i++;
-            bool left = (i < expr.length() && expr[i] == 't');
-            bool right = (i < expr.length() && expr[i] == 't');
-            result &= right;
-        }
-        else if (expr[i] == '|') {
-            i++;
-            bool left = (i < expr.length() && expr[i] == 't');
-            bool right = (i < expr.length() && expr[i] == 't');
-            result |= right;
-        }
-        i++;
     }
 
-    return result;
+    while (!operationStack.empty()) {
+        if (currentOperator == '|') {
+            return true;
+        } else {
+            lastTerm = !lastTerm;
+        }
+        currentOperator = operationStack.top();
+        operationStack.pop();
+    }
+
+    return lastTerm;
 }
