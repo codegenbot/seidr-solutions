@@ -1,14 +1,15 @@
-#include <vector>
-#include <iostream>
+Here is the solution:
 
-double probability(int n, int m) {
-    double total = (double)n * m;
-    return 1.0 - (n + m) / total;
+double game(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m && i < n; i++) {
+        total += 1.0 / m;
+    }
+    return total;
 }
-
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << fixed << setprecision(10) << probability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(2) << game(n, m) << endl;
     return 0;
 }
