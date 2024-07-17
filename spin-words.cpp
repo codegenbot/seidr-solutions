@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string spinWords(string str) {
+std::string spinWords(std::string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
@@ -14,7 +14,7 @@ string spinWords(string str) {
             while (j < str.length() && str[j] != ' ') {
                 j++;
             }
-            string word = str.substr(i, j - i);
+            std::string word = str.substr(i, j - i);
             if (word.length() >= 5) {
                 string revWord = "";
                 for (int k = word.length() - 1; k >= 0; k--) {
