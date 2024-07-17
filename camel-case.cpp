@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     std::vector<std::string> groups = split(s, '-');
@@ -15,4 +19,24 @@ std::string kebabToCamel(const std::string& s) {
         }
     }
     return result;
+}
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> v;
+    size_t pos = 0, pos2 = 0;
+    while ((pos = s.find(c, pos)) != std::string::npos) {
+        pos2 = pos + 1;
+        v.push_back(s.substr(pos, pos2 - pos));
+        pos = pos2;
+    }
+    v.push_back(s.substr(pos));
+    return v;
+}
+
+int main() {
+    std::cout << kebabToCamel("nospaceordash") << std::endl;
+    std::cout << kebabToCamel("two-words") << std::endl;
+    std::cout << kebabToCamel("two words") << std::endl;
+    std::cout << kebabToCamel("all separate words") << std::endl;
+    return 0;
 }
