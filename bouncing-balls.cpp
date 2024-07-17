@@ -4,39 +4,18 @@
 
 int main() {
     int totalDistance = 0;
-    int numBouncesTemp;
+    int numBounces;
     double startingHeight;
     double firstBounceHeight;
-
-    std::cout << "Enter number of bounces: ";
-    int numBouncesTemp;
-    std::cin >> numBouncesTemp;
-
-    // Convert int to string
-    std::string numBouncesStr = std::to_string(numBouncesTemp);
-
-    std::cout << numBouncesStr << std::endl; 
 
     std::cout << "Enter number of bounces: ";
     std::cin >> numBounces;
 
     std::cout << "Enter starting height: ";
-    double startingHeight;
     std::cin >> startingHeight;
 
-    // Convert int to string
-    std::string startingHeightStr = std::to_string(startingHeight);
-
-    std::cout << startingHeightStr << std::endl; 
-
     std::cout << "Enter first bounce height: ";
-    double firstBounceHeight;
     std::cin >> firstBounceHeight;
-
-    // Convert double to string
-    std::string firstBounceHeightStr = std::to_string(firstBounceHeight);
-
-    std::cout << firstBounceHeightStr << std::endl; 
 
     double calculatedBouncinessIndex = (firstBounceHeight / startingHeight);
 
