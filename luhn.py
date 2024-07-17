@@ -1,11 +1,9 @@
-Here is the Python solution:
-
-def luhn(card):
-    sum = 0
-    for i in range(len(card)):
+def luhn_algorithm(card_number):
+    total = 0
+    for i in range(len(card_number)):
         if i % 2 == 1:
-            card[i] *= 2
-            if card[i] > 9:
-                card[i] -= 9
-        sum += card[i]
-    return sum
+            card_number[i] = str(int(card_number[i]) * 2)
+            if len(card_number[i]) > 1:
+                card_number[i] = str(int(card_number[i]) - 9)
+        total += int(card_number[i])
+    return total
