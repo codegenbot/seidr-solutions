@@ -1,18 +1,10 @@
-```
 def solve_boolean(expression):
-    def evaluate_expression(s):
-        while '|' in s or '&' in s:
-            if '|' in s:
-                s = s.replace('|', ' or ', 1)
-            elif '&' in s:
-                s = s.replace('&', ' and ', 1)
-        return eval(s)
-
-    expression = expression.strip().lower()
-    
-    if expression == 't':
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid Expression")
     else:
-        return evaluate_expression(expression)
+        result = eval(expression.replace('T', 'True').replace('F', 'False').replace('&', 'and').replace('|', 'or'))
+        return result
