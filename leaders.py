@@ -1,11 +1,6 @@
-Here is the Python solution for the problem:
-
-def leaders(input):
-    return [i for i in reversed(input) if all(j <= i for j in input[input.index(i)+1:])]
-
-# test cases
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+def leaders(a):
+    leaders = [a[-1]]
+    for i in range(len(a) - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders.append(a[i])
+    return leaders[::-1]
