@@ -1,25 +1,23 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 int main() {
     double startingHeight, heightAfterFirstBounce;
     int numBounces;
     double bouncinessIndex;
 
-    cout << "Enter the starting height: ";
-    cin >> startingHeight;
+    std::cout << "Enter the starting height: ";
+    std::cin >> startingHeight;
 
-    cout << "Enter the height after first bounce: ";
-    cin >> heightAfterFirstBounce;
+    std::cout << "Enter the height after first bounce: ";
+    std::cin >> heightAfterFirstBounce;
 
     bouncinessIndex = (heightAfterFirstBounce / startingHeight);
 
     numBounces = 0;
-    while(numBounces < 10) {
-        cout << "Enter the number of bounces: ";
-        cin >> numBounces;
+    while(numBounces < 1) {
+        std::cout << "Enter the number of bounces: ";
+        std::cin >> numBounces;
         if(numBounces > 0)
             break;
     }
@@ -29,7 +27,7 @@ int main() {
         totalDistance += (pow(2, i/2.0) + pow(2, (i-1)/2.0)) * (bouncinessIndex - 1);
     }
 
-    cout << "The total distance travelled by the ball is: " << totalDistance;
+    std::cout << "The total distance travelled by the ball is: " << totalDistance;
 
     return 0;
 }
