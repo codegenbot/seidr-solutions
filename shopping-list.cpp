@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cmath>
 
 double shoppingList(float prices[], int nPrices, float discounts[]) {
     double total = 0;
