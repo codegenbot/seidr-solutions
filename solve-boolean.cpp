@@ -5,18 +5,21 @@ bool solveBoolean(string s) {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return false;
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if (st.empty()) return true;
+            if (st.empty()) {
+                return true;
+            }
+            st.pop();
         } else {
             st.push(s[i]);
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    return false;
+    return st.size() > 0;
 }
