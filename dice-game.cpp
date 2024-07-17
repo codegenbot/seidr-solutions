@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 double probability(int n, int m) {
@@ -16,6 +16,10 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double result = probability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
+    if (result >= 0) {
+        std::cout << "The probability that Peter rolls strictly higher is: " << std::to_string(result) << std::endl; 
+    } else {
+        // handle invalid result
+    }
     return 0;
 }
