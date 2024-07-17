@@ -1,29 +1,28 @@
-```cpp
 #include <iostream>
+using namespace std;
 
 int main() {
     int totalDistance = 0;
     int numBounces;
     double startingHeight;
+    double firstBounce;
     double bouncinessIndex;
 
-    std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
+    cout << "Enter the number of bounces: ";
+    cin >> numBounces;
+    
+    cout << "Enter the starting height: ";
+    cin >> startingHeight;
+    
+    // calculate the first bounce
+    firstBounce = (startingHeight * 0.75); 
+    bouncinessIndex = firstBounce / startingHeight;
 
-    std::cout << "Enter starting height: ";
-    std::cin >> startingHeight;
-
-    std::cout << "Enter first bounce height: ";
-    double temp; // declare as double for precision
-    std::cin >> temp;
-    bouncinessIndex = (double)temp / startingHeight;
-
-    totalDistance = 0;
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
+        totalDistance += (2 * startingHeight * (bouncinessIndex / (pow(3, -0.25))));
     }
 
-    std::cout << "Total distance traveled: " << totalDistance << std::endl;
-
+    cout << "The total distance is: " << totalDistance << endl;
+    
     return 0;
 }
