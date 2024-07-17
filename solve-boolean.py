@@ -6,12 +6,9 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
+    elif '&' in expression:
+        return all([subexpression.strip() for subexpression in expression.split('&')]) 
+    elif '|' in expression:
+        return any([subexpression.strip() for subexpression in expression.split('|')]) 
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (expression[0] == 'T')
-            elif char == '|':
-                result |= (expression[0] == 'T')
-            expression = expression[1:]
-        return result
+        raise ValueError("Invalid expression")
