@@ -3,7 +3,7 @@
 
 double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
     if (prices.size() != discounts.size()) {
-        return -1; 
+        return -1;
     }
     
     double total = 0;
