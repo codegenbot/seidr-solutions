@@ -1,29 +1,13 @@
 def cut_vector(lst):
-    min_diff = float("inf")
-    split_idx = -1
-    for i in range(1, len(lst)):
-        left_sum = sum(lst[:i])
-        right_sum = sum(lst[i:])
-        if left_sum == right_sum:
-            return (lst[:i], lst[i:])
+    if len(lst) == 1 or all(x == lst[0] for x in lst):
+        return (str(lst), str(lst))
 
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            split_idx = i
+    left = [x for x in lst[:-1] if x <= lst[-1]]
+    right = [x for x in lst[1:] if x >= lst[0]]
 
-    left_sum = sum(lst[:split_idx])
-    right_sum = sum(lst[split_idx:])
-    if left_sum == right_sum:
-        return (lst[:split_idx], lst[split_idx:])
-    else:
-        return (lst[:split_idx], [lst[split_idx]] + lst[split_idx + 1 :])
+    diff_min = min(abs(x - y) for x in left for y in right)
 
+    left_diff = [x for x in left if abs(x - lst[0]) == diff_min]
+    right_diff = [y for y in right if abs(y - lst[-1]) == diff_min]
 
-# test cases
-print(cut_vector([1]))  # ([1], [])
-print(cut_vector([1, 0]))  # ([1], [0])
-print(cut_vector([1, 10]))  # ([1], [10])
-print(cut_vector([1, 100]))  # ([1], [100])
-print(cut_vector([1, 1000]))  # ([1], [1000])
-print(cut_vector([1, 10000]))  # ([1], [10000])
+    return (str(left_diff + [lst[0]]), str([lst[-1]] + right_diff))
