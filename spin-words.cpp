@@ -7,29 +7,33 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int start = 0;
-    
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i-start);
-            
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += reverse(word) + " ";
+            } else {
+                result += word + " ";
             }
-            
-            result += word + " ";
-            start = i+1;
+            start = i + 1;
         }
     }
-    
-    return result;
+    return result.substr(0, result.length() - 1);
+}
+
+string reverse(string str) {
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        rev += str[i];
+    }
+    return rev;
 }
 
 int main() {
-    // Test cases
-    cout << spinWords("a") << endl;  // Output: a
-    cout << spinWords("this is a test") << endl;  // Output: this is a test
-    cout << spinWords("this is another test") << endl;  // Output: this is rehtona test
-    cout << spinWords("hi") << endl;  // Output: hi
-    
+    // Your test cases here
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("this is another test") << endl;
+    cout << spinWords("hi") << endl;
     return 0;
 }
