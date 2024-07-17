@@ -13,7 +13,8 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    bouncinessIndex = (double)startingHeight / startingHeight;
+    double firstBounce = (double)std::cin.get(); // convert cin to int
+    bouncinessIndex = firstBounce / startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
         totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
