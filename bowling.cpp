@@ -2,18 +2,29 @@
 
 int bowlingScore(std::vector<int>& s) {
     int score = 0;
-    for (int i = 0; i < s.size(); i += 2) {
-        if (s[i] == 10) {
-            score += 10;
-        } else if (s[i] + s[i+1] >= 10) {
-            score += 10;
-            if (s[i] + s[i+1] == 10) continue;
-            if (s[i+1] == 0) {
-                int bonus = bowlingScore(std::vector<int>(s.begin() + i, s.end()));
-                return score + bonus;
+    int roll = 0;
+    for (int c : s) {
+        if (c == -1) {
+            if (roll < 2) {
+                score += 10 - (10 - roll);
             }
-        } else {
-            score += s[i] + s[i+1];
+            roll = 0;
+        } else if (c > 0) {
+            roll++;
+        } else if (c == 10) {
+            score += 10;
+            roll = 0;
         }
     }
+    if (roll < 2) {
+        if (roll == 1)
+            score += roll * 10;
+        else
+            score += 10 + (roll - 2) * 10 / 3;
+    }
     return score;
+}
+
+int main() {
+    return bowlingScore({1,4,-1,3,5,-1,0,6,7,8});
+}
