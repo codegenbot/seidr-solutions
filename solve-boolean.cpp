@@ -2,26 +2,31 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    if(s[0] == 'T')
+        return true;
+    else if(s[0] == 'F')
+        return false;
     
     for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            while(!st.empty() && st.top() != '&') {
-                st.pop();
-            }
-            if(st.empty()) {
+        if(s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            
+            if(left == "T" && right == "T")
                 return true;
-            }
-        } else if(s[i] == '&') {
-            st.push('&');
-        } else if(s[i] == 't' || s[i] == 'f') {
-            st.push((s[i] == 't') ? 1 : 0);
+            else
+                return false;
+        }
+        else if(s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
+            
+            if(left == "T" || right == "T")
+                return true;
+            else
+                return false;
         }
     }
     
-    while(!st.empty()) {
-        st.pop();
-    }
-    
-    return false;
+    return false;  // default to False
 }
