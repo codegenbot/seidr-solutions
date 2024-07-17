@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -17,6 +16,6 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double result = probability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher is: " << std::to_string(result) << std::endl; 
+    std::cout << "The probability that Peter rolls strictly higher is: " << std::fixed << std::setprecision(6) << result << std::endl; 
     return 0;
 }
