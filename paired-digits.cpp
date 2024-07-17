@@ -10,7 +10,10 @@ int pairedDigits(const std::string& str) {
     return sum;
 }
 
-int main(int argc, char** argv) {
-    std::cout << pairedDigits("123211"); // test the function with a test string
+int main() {
+    std::string input;
+    std::cin >> input; 
+    int result = pairedDigits(input); 
+    std::cout << "Result: " << result << std::endl; 
     return 0;
 }
