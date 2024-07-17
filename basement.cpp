@@ -17,9 +17,17 @@ int basement(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num || !std::cin.eof()) {
+    
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-    std::cout << basement(nums) << std::endl;
+    
+    if (std::cin.eof()) {
+        std::cout << basement(nums) << std::endl;
+    } else {
+        std::cerr << "Error reading input" << std::endl;
+        return 1;
+    }
+    
     return 0;
 }
