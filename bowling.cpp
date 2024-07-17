@@ -1,28 +1,26 @@
-int bowlingScore(string s) {
+int bowling(string s) {
     int score = 0;
-    bool firstRollInFrame = true;
-
-    for (char c : s) {
-        if (c == '/') {
-            if (firstRollInFrame) {
-                score += 10 - (10 -stoi(string(1,c))) + min(stoi(string(1,c)),10);
-            } else {
-                score += min(stoi(string(1,c)),10);
-            }
-            firstRollInFrame = true;
-        } else if (c == 'X') {
+    for(int i=0; i<10; i++) {
+        if(s[i] == 'X') { // Strike
+            score += 10 + (i < 8 ? getBonus(s, i+1) : 0);
+        } else if(s[i] == '/') { // Spare
             score += 10;
-            firstRollInFrame = false;
-        } else {
-            int roll = stoi(string(1,c));
-            if (firstRollInFrame) {
-                score += roll + min(roll,10);
-                firstRollInFrame = false;
-            } else {
-                score += roll;
+            int bonus = getBonus(s, i+2);
+            score += bonus;
+            if(i < 8) {
+                score += getBonus(s, i+3);
             }
+        } else { // Normal roll
+            int firstRoll = s[i] - '0';
+            int secondRoll = (s[i+1] == '/') ? 10 : (s[i+1] - '0');
+            score += firstRoll + secondRoll;
         }
     }
-
     return score;
+}
+
+int getBonus(string s, int i) {
+    if(s[i] == 'X') return 10;
+    if(s[i] == '/') return 10 - (s[i-1] - '0' + s[i-2] - '0');
+    return s[i] - '0';
 }
