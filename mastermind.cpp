@@ -1,4 +1,5 @@
 #include <string>
+
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -12,7 +13,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && !code.find(c)) {
+        if (std::count(code.begin(), code.end(), c) > 0) {
             white++;
         }
     }
