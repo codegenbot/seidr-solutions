@@ -1,4 +1,3 @@
-```
 def calculate_bowling_score(score):
     score = score.replace('/', '')
     total_score = 0
