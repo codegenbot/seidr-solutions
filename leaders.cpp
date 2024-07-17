@@ -1,17 +1,16 @@
-```cpp
 #include <algorithm>
 #include <iostream> 
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
     vector<int> res;
-    int last_leader = v.back();
-    res.push_back(last_leader);
+    int lastLeader = v.back();
+    res.push_back(lastLeader);
 
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= last_leader) {
-            last_leader = v[i];
-            res.push_back(last_leader);
+        if (v[i] >= lastLeader) {
+            lastLeader = v[i];
+            res.push_back(lastLeader);
         }
     }
 
