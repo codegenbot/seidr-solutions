@@ -18,10 +18,12 @@ int main() {
     std::vector<int> numbers;
     
     std::cin >> n >> a >> b;
-    
+
     numbers.resize(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> numbers[i];
+        int num;
+        std::cin >> num;
+        numbers[i] = num;
     }
     
     std::vector<int> result = findIndices(numbers, a, b);
