@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 
@@ -32,29 +31,28 @@ int main() {
         20.49, 
         43.54, 
         43.53
-    };
-    std::vector<double> discounts = {
-        19.0,
-        81.32, 
-        31.31, 
-        26.19, 
-        96.16, 
-        32.56, 
-        32.36, 
-        14.12, 
-        65.3, 
-        17.21, 
-        40.34, 
-        60.48, 
-        7.87, 
-        93.81, 
-        65.45, 
-        8.54, 
-        88.42, 
-        18.73, 
-        99.39, 
-        18.31
-    };
-    double result = shoppingList(prices, discounts);
-    return 0;
-}
+};
+std::vector<double> discounts = {
+    19.0,
+    81.32, 
+    31.31, 
+    26.19, 
+    96.16, 
+    32.56, 
+    32.36, 
+    14.12, 
+    65.3, 
+    17.21, 
+    40.34, 
+    60.48, 
+    7.87, 
+    93.81, 
+    65.45, 
+    8.54, 
+    88.42, 
+    18.73, 
+    99.39, 
+    18.31
+};
+double result = shoppingList(prices, discounts);
+return 0;
