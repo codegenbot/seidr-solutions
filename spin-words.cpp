@@ -1,7 +1,4 @@
-```cpp
-#include<iostream>
-#include<string>
-
+```c++
 using namespace std;
 
 string spinWords(string str) {
@@ -30,11 +27,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    string str; 
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str);
 }
