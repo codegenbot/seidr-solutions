@@ -1,3 +1,6 @@
+```c++
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
@@ -14,5 +17,17 @@ int bowlingScore(std::string s) {
             roll = 0;
         }
     }
+    if (roll < 2) {
+        if (roll == 1)
+            score += roll * 10;
+        else
+            score += 10 + (roll - 2) * 10 / 3;
+    }
     return score;
+}
+
+int main() {
+    std::string s = "XXXX/2X/X/8-4/3+7/X/3-1/5-X/X";
+    int score = bowlingScore(s);
+    return 0;
 }
