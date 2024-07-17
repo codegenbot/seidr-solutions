@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -23,10 +22,5 @@ int main() {
     for(int i=0; i<n; i++) {
         cin >> v2[i];
     }
-    if (n != v1.size() || n != v2.size()) {
-        cout << "Error: Vectors must have the same size." << endl;
-        return 1;
-    }
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+    cout << fixed << std::setprecision(10) << vectorDistance(v1, v2) << endl;
     return 0;
-}
