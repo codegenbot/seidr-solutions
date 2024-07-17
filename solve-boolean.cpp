@@ -1,36 +1,27 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            char op1 = s.top();
-            s.pop();
-            char op2 = s.top();
-            s.pop();
-            s.push((op1 == 'T' && op2 == 'T') || (op1 == 'F' && op2 == 'T') || (op1 == 'T' && op2 == 'F') || (op1 == 'F' && op2 == 'F'));
-        } else if (expression[i] == '&') {
-            char op1 = s.top();
-            s.pop();
-            char op2 = s.top();
-            s.pop();
-            s.push((op1 == 'T' && op2 == 'T') || (op1 == 'F' && op2 == 'F'));
-        } else if (expression[i] != 'T' && expression[i] != 'F') {
-            s.push(expression[i]);
+bool solveBoolean(string s) {
+    stack<char> st;
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            while(!st.empty() && st.top() != '&') {
+                st.pop();
+            }
+            if(st.empty()) {
+                return true;
+            }
+        } else if(s[i] == '&') {
+            st.push('&');
+        } else if(s[i] == 't' || s[i] == 'f') {
+            st.push((s[i] == 't') ? 1 : 0);
         }
     }
-    return s.top() == 'T';
-}
-
-int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
+    
+    while(!st.empty()) {
+        st.pop();
+    }
+    
+    return false;
 }
