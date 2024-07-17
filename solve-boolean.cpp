@@ -1,14 +1,21 @@
-string solveBoolean(string s) {
-    bool res = (s == "t");
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            res &= (s.substr(i+1, 1) == "t");
-            i++;
-        }
-        else if(s[i] == '|') {
-            res |= (s.substr(i+1, 1) == "t");
-            i++;
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool a = (s[0] == 'T');
+    for(int i = 1; i < s.size(); ++i){
+        if(s[i] == '&'){
+            return a && (s[i+1] == 'T');
+        }else if(s[i] == '|'){
+            return a || (s[i+1] == 'T');
         }
     }
-    return res ? "True" : "False";
+    return a;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
