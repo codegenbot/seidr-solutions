@@ -1,37 +1,35 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        words.push_back(word);
-    }
-
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            words[i] = std::string(words[i].rbegin(), words[i].rend());
+string spinWords(string str) {
+    string result = "";
+    int wordStart = 0;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(wordStart, i - wordStart);
+            
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            
+            result += word + " ";
+            wordStart = i + 1;
         }
     }
-
-    for (int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if (i != words.size() - 1) {
-            result += " ";
-        }
-    }
-
-    return result;
+    
+    return result.substr(0, result.length() - 1); // remove the trailing space
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
