@@ -1,20 +1,21 @@
-#include <string>
-#include <algorithm>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
 
     for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && guess.find(std::string(1, c)) != std::string::npos) {
+        if (count(code.begin(), code.end(), c) > 0 && find(guess.begin(), guess.end(), c) != string::npos) {
             black++;
-        } else if (std::count(code.begin(), code.end(), c) > 0) {
+        } else if (count(code.begin(), code.end(), c) > 0) {
             white++;
         }
     }
