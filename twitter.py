@@ -1,5 +1,5 @@
 def validate_tweet(tweet):
-    tweet = tweet.encode('utf-8').decode('utf-8').encode('ascii', 'ignore').decode()
+    tweet = tweet.replace(" ", "")
     if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
