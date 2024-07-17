@@ -1,9 +1,10 @@
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int num = (i / 3);
-        num = std::floor(num) - 2;
-        sum += num;
+        int temp = i / 3 - 2;
+        if(temp<0)
+            temp=0;
+        sum += temp;
     }
     return sum;
 }
