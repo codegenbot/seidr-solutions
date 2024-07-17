@@ -4,4 +4,4 @@ def validate_tweet(tweet):
     elif tweet == "":
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        return f"Your tweet has {sum(1 for c in tweet)} characters"
