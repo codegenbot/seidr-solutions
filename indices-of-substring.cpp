@@ -9,9 +9,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            if (i == 0 || text.substr(i-1, 1) != target[0]) {
-                result.push_back(i);
-            }
+            result.push_back(i);
+            i += m; // Start searching from i + m
         }
     }
 
