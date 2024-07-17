@@ -1,13 +1,10 @@
-```cpp
 int basement(vector<int>& nums) {
-    int running_sum = 0;
-    int first_negative_index = -1;
+    int sum = 0;
+    int minIndex = -1;
     for (int i = 0; i < nums.size(); i++) {
-        running_sum += nums[i];
-        if (running_sum < 0) {
-            first_negative_index = i;
-            break;
-        }
+        sum += nums[i];
+        if (sum < 0 && minIndex == -1)
+            minIndex = i;
     }
-    return first_negative_index;
+    return minIndex;
 }
