@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <sstream>
@@ -27,7 +28,7 @@ int main() {
 
     std::getline(std::cin, input2);
     std::istringstream iss2(input2);
-    discounts.clear();
+    std::vector<double> discounts;
     while (iss2 >> price) {
         discounts.push_back(price);
     }
