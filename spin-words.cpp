@@ -9,22 +9,19 @@ std::string spinWords(std::string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                result += temp + " ";
-            else
-                result += temp + " ";
+                std::reverse(temp.begin(), temp.end());
+            result += temp + " ";
             temp = "";
         } else {
             temp += c;
         }
     }
 
-    if (temp.length() >= 5) {
+    if (temp.length() >= 5)
         std::reverse(temp.begin(), temp.end());
-        result += temp + " ";
-    } else
-        result += temp + " ";
+    result += temp;
 
-    return result.substr(0, result.size()-1);
+    return result;
 }
 
 int main() {
