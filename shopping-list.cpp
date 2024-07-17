@@ -1,4 +1,5 @@
-#include <vector>
+```#include <vector>
+#include <cmath>
 
 double shoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
