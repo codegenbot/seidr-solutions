@@ -20,7 +20,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             string rightSubExpression = expression.substr(j + 1, k - j - 1);
             bool right = (rightSubExpression == "t") ? true : false;
-            result &= left && right;
+            result &= (left && right);
         } else if (expression[i] == '|') {
             int j = i + 1;
             while (j <= expression.length() && expression[j] != '|') {
@@ -34,9 +34,13 @@ bool evaluateBooleanExpression(string expression) {
             }
             string rightSubExpression = expression.substr(j + 1, k - j - 1);
             bool right = (rightSubExpression == "t") ? true : false;
-            result |= left || right;
+            result |= (left || right);
         } else if (expression[i] == 'T' || expression[i] == 't') {
-            result = (expression[i] == 'T');
+            result = true;
+            return result;
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            result = false;
+            return result;
         }
     }
     return result;
