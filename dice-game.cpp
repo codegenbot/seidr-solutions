@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 double probability(int n, int m) {
     double sum = 0;
