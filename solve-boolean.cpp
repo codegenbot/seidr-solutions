@@ -37,8 +37,10 @@ bool evaluateBooleanExpression(string expression) {
             result |= (left || right);
         } else if (expression[i] == 'T' || expression[i] == 't') {
             result = true;
+            return result;
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             result = false;
+            return result;
         }
     }
     return result;
