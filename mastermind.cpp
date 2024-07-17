@@ -3,8 +3,8 @@
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
-    int white = 0;
     int black = 0;
+    int white = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -12,20 +12,26 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
+    int code_count[6] = {0};
     for (char c : code) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i]) {
-                count++;
-            }
-        }
-        if (count > 1) {
-            white += count - black;
+        code_count[c - 'A']++;
+    }
+
+    int guess_count[6] = {0};
+    for (char c : guess) {
+        guess_count[c - 'A']++;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) continue;
+        if (guess_count[guess[i] - 'A'] > 0 && code_count[code[i] - 'A'] > 0) {
+            white++;
+            code_count[code[i] - 'A']--;
+            guess_count[guess[i] - 'A']--;
         }
     }
 
-    return white + black;
-
+    return black + white;
 }
 
 int main() {
