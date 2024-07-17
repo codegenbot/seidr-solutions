@@ -57,3 +57,4 @@ int getBonus(string s) {
         }
     }
     return bonus;
+}
