@@ -1,34 +1,44 @@
 #include <climits>
 #include <vector>
 #include <initializer_list>
-#include <algorithm>
 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    vector<vector<int>> result(2);
+    int pos = 0;
     
-    for(int i = 1; i <= v.size(); i++) {
-        vector<int> left(v.begin(), v.begin() + i);
-        vector<int> right(v.begin() + i, v.end());
+    int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        left_sum += v[i];
         
-        int diff = abs((accumulate(left.begin(), left.end(), 0) - 
-                       (accumulate(right.begin(), right.end(), 0))));
-        
-        if(diff < min_diff) {
-            min_diff = diff;
-            result[0] = left;
-            result[1] = right;
+        if(i == v.size() - 1) {
+            vector<int> left(vector<int>(left_sum));
+            vector<int> right({});
+            int diff = abs(left[0] - 0);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i + 1;
+            }
+        } else {
+            right_sum += v[i];
+            int diff = abs(left_sum - right_sum);
+            if(diff < min_diff) {
+                min_diff = diff;
+                pos = i + 1;
+            }
         }
     }
     
+    vector<vector<int>> result(2);
+    result[0].resize(pos);
+    for(int i = 0; i < pos; i++) {
+        result[0].push_back(v[i]);
+    }
+    result[1].resize(v.size() - pos);
+    for(int i = pos; i < v.size(); i++) {
+        result[1].push_back(v[i]);
+    }
+    
     return result;
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    vector<vector<int>> result = cutVector(v);
-    // do something with result
-    return 0;
 }
