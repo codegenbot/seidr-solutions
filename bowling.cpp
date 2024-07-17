@@ -6,10 +6,10 @@ int bowlingScore(string s) {
             score += 30;
             currentRoll = 0;
         } else if (c == '/') {
-            score += 10 + currentRoll;
+            score += currentRoll + 10;
             currentRoll = 0;
         } else {
-            currentRoll += (c - '0');
+            currentRoll *= 10 + (c - '0');
         }
     }
     return score;
