@@ -1,34 +1,37 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> operatorStack;
-    stack<string> valueStack;
+bool evaluateBooleanExpression(string expression) {
+    if (expression == "t" || expression == "T") return true;
+    if (expression == "f" || expression == "F") return false;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '|')
-                operatorStack.pop(), valueStack.pop();
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == '|') {
-            while (!operatorStack.empty())
-                operatorStack.pop(), valueStack.pop();
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string val = "";
-            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
-                val += expression[i];
-                i++;
-            }
-            i--;
-            valueStack.push(val);
-        } 
+    int i = 0;
+    while (i < expression.length() && (expression[i] != '&' && expression[i] != '|')) i++;
+
+    string leftExpr = expression.substr(0, i);
+    string rightExpr = expression.substr(i + 1);
+
+    if (expression[i] == '&') {
+        return evaluateBooleanExpression(leftExpr) && evaluateBooleanExpression(rightExpr);
+    } else {
+        return evaluateBooleanExpression(leftExpr) || evaluateBooleanExpression(rightExpr);
     }
+}
 
-    while (!operatorStack.empty()) {
-        operatorStack.pop(), valueStack.pop();
-    }
+int main() {
+    string input;
+    cout << "Enter a Boolean expression: ";
+    cin >> input;
 
-    string result = valueStack.top();
-    return result == "T";
+    bool result = evaluateBooleanExpression(input);
+
+    if (result)
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+
+    return 0;
 }
