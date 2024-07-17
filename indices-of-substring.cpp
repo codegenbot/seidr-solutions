@@ -9,15 +9,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for(int i = 0; i <= n - m; ++i) { 
         bool found = true;
-        for(int j = 0; j < m; ++j) {
-            if(text[i+j] != target[j]) { 
-                int k = i + j; // Convert 'text' index to 'target' index
-                if(k >= 1 && text[k-1] == '[' && target[j] == ']') { // Special case for [%]
-                    found = true;
-                } else {
-                    found = false;
-                    break;
-                }
+        for(int j = 0; j < m || i + j >= n; ++j) {
+            if(text[i+j] != target[j]) {
+                found = false;
+                break;
             }
         }
         if(found) {
