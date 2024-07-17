@@ -1,26 +1,23 @@
 #include <vector>
 using namespace std;
 
-float shoppingList(vector<float> prices, vector<float> discounts) {
-    float total = 0;
+double shoppingList(vector<double> prices, vector<double> discounts) {
+    double total_price = 0;
     for (int i = 0; i < prices.size(); i++) {
-        float price = prices[i];
-        float discount = discounts[i] / 100.0f;
-        float discountedPrice = price * (1 - discount);
-        total += discountedPrice;
+        total_price += prices[i] * (1 - discounts[i] / 100.0);
     }
-    return total;
+    return total_price;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n);
-    for (float &price : prices) {
+    vector<double> prices(n);
+    for (auto &price : prices) {
         cin >> price;
     }
-    vector<float> discounts(n);
-    for (float &discount : discounts) {
+    vector<double> discounts(n);
+    for (auto &discount : discounts) {
         cin >> discount;
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
