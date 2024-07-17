@@ -1,19 +1,27 @@
-bool solveBoolean(string s) {
-    if (s == "T" || s == "t") return true;
-    if (s == "F" || s == "f") return false;
-    
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            return solveBoolean(left) || solveBoolean(right);
-        }
-        else if (s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            return solveBoolean(left) && solveBoolean(right);
+string solveBoolean(string s) {
+    stack<char> st;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&') {
+            while(st.size() && st.top() == '&') st.pop();
+            st.push('&');
+        } else if(s[i] == '|') {
+            while(st.size() && st.top() == '|') st.pop();
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    
-    return false;
+    string res = "";
+    while(!st.empty()) {
+        char c = st.top(); st.pop();
+        if(c == '&' || c == '|') {
+            if(res.length() > 0) {
+                if(c == '&') res += "&&";
+                else res += "||";
+            } else res = (c == '&') ? "True" : "False";
+        } else {
+            res = c;
+        }
+    }
+    return res;
 }
