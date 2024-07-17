@@ -1,70 +1,20 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    pair<vector<int>, vector<int>> res;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
     
-    for (int i = 1; i <= n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += vec[j];
+    for(int i=0; i<n-1; i++) {
+        if(abs(v[i]-v[i+1]) <= abs(v[0]-v[n-1])) {
+            res[0] = v.substr(0, i+1);
+            res[1] = v.substr(i+1, n-i-1);
+            break;
         }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += vec[j];
-        }
-        
-        if (leftSum == rightSum) {
-            res.first = vector<int>(vec.begin(), vec.begin() + i);
-            res.second = vector<int>(vec.begin() + i, vec.end());
-            return res;
-        }
+    } else {
+        res[0] = v;
+        res[1].clear();
     }
-    
-    int minDiff = INT_MAX, bestIndex = 0;
-    
-    for (int i = 1; i <= n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += vec[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += vec[j];
-        }
-        
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            bestIndex = i;
-        }
-    }
-    
-    res.first = vector<int>(vec.begin(), vec.begin() + bestIndex);
-    res.second = vector<int>(vec.begin() + bestIndex, vec.end());
     
     return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto &i : vec) {
-        cin >> i;
-    }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    cout << "1 ";
-    for (const auto &i : res.first) {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << "0 ";
-    for (const auto &i : res.second) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
 }
