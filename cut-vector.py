@@ -1,11 +1,9 @@
-def cut_vector(lst):
+def cut_vector(vector):
     min_diff = float("inf")
     cut_index = 0
-
-    for i in range(1, len(lst)):
-        diff = abs(np.mean(lst[:i]) - np.mean(lst[i:]))
+    for i in range(1, len(vector)):
+        diff = abs(np.sum(vector[:i]) - np.sum(vector[i:]))
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-
-    return lst[:cut_index], lst[cut_index:]
+    return vector[:cut_index], vector[cut_index:]
