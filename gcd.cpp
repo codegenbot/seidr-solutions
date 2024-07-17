@@ -8,9 +8,4 @@ int gcd(int a, int b) {
     return a;
 }
 
-int main() {
-    int a = 12; // example inputs
-    int b = 15;
-    std::cout << "GCD: " << gcd(a, b) << std::endl;
-    return 0;
-}
+int main() { return gcd(12, 15); }
