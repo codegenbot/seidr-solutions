@@ -1,16 +1,19 @@
 int mastermind(std::string code, std::string guess) {
-    int white = 0;
     int black = 0;
+    int white = 0;
+
+    std::map<char, int> placementMap; 
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) { 
             black++;
-        } else {
-            auto iter = guess.find(code[i]);
-            if(iter != std::string::npos) {
-                white++;
-                guess[iter] = '#'; // mark the matched character as used
-            }
+        }
+    }
+
+    for (char c : code) {
+        if (std::count(guess.begin(), guess.end(), c) > 0 && placementMap[c] < 1) {
+            white++;
+            placementMap[c]++;
         }
     }
 
