@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```
 float snowDay(int hours, float groundSnow, float rate, float meltRate) {
     float totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
