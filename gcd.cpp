@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.size(), m = target.size();
-    for (int i = 0; i <= n - m; i++) {
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
         bool found = true;
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < targetLen; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -20,9 +17,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    while (b) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
