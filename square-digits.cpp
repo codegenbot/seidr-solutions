@@ -6,7 +6,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> input;
     string result = squareDigits(input);
-    cout << "The squared digits are: " << result << endl;
+    cout << "Square of each digit: " << result << endl;
     return 0;
 }
 
