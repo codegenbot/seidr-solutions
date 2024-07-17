@@ -1,26 +1,44 @@
+```cpp
 #include <iostream>
+#include <cmath>
 
 int main() {
     int totalDistance = 0;
-    int numBounces;
+    int numBouncesTemp;
     double startingHeight;
-    double bouncinessIndex;
+    double firstBounceHeight;
 
     std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
+    int numBouncesTemp;
+    std::cin >> numBouncesTemp;
+
+    // Convert int to std::string
+    std::string numBouncesStr = std::to_string(numBouncesTemp);
+
+    std::cout << numBouncesStr << std::endl; 
 
     std::cout << "Enter starting height: ";
-    std::cin >> startingHeight;
+    int startingHeightTemp;
+    std::cin >> startingHeightTemp;
+
+    // Convert int to std::string
+    std::string startingHeightStr = std::to_string(startingHeightTemp);
+
+    std::cout << startingHeightStr << std::endl; 
 
     std::cout << "Enter first bounce height: ";
-    std::cin >> bouncinessIndex;
+    int firstBounceHeightTemp;
+    std::cin >> firstBounceHeightTemp;
 
-    double originalHeight = bouncinessIndex;
-    bouncinessIndex /= startingHeight;
+    // Convert int to std::string
+    std::string firstBounceHeightStr = std::to_string(firstBounceHeightTemp);
+
+    std::cout << firstBounceHeightStr << std::endl; 
+
+    double calculatedBouncinessIndex = (firstBounceHeight / startingHeight);
 
     for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
-        bouncinessIndex *= originalHeight / startingHeight;
+        totalDistance += (startingHeight * pow(calculatedBouncinessIndex, 2 * i));
     }
 
     std::cout << "Total distance traveled: " << totalDistance << std::endl;
