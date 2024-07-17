@@ -1,5 +1,6 @@
 #include <stack>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,8 +15,8 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            if(expression[i] == 'T' || expression[i] == 'F' || expression[i] == ' ')
-                stack.push(string(1, expression[i]));
+            if(expression[i] == 'T' || expression[i] == 'F')
+                stack.push(to_string(expression[i]));
         }
     }
 
@@ -24,15 +25,15 @@ bool solveBoolean(string expression) {
         string op = stack.top();
         stack.pop();
         if (op == "&") {
-            result &= (stack.top() == "T");
+            result &= (stack.top() == "T") ? true : false;
             stack.pop();
         } else if (op == "|") {
-            if (stack.size() > 1) {
-                result |= (stack.top() == "T");
+            if (stack.empty() > 1) {
+                result |= (stack.top() == "T") ? true : false;
                 stack.pop();
             }
         } else {
-            result = op == "T";
+            result = op == "T" ? true : false;
         }
     }
 
