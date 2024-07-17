@@ -1,27 +1,38 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string input) {
-    std::stringstream ss(input);
+std::string spinWords(std::string str) {
+    std::string result = "";
     std::string word;
-    std::string output;
-
-    while (ss >> word) {
-        if (word.length() >= 5)
-            output += std::string(word.rbegin(), word.rend()) + " ";
-        else
-            output += word + " ";
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
+        }
     }
-
-    return output.substr(0, output.size()-1);
+    
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    return result;
 }
 
 int main() {
     // Test cases
-    cout << spinWords("a") << endl;  // Should print: a
-    cout << spinWords("this is a test") << endl;  // Should print: this is a test
-    cout << spinWords("this is another test") << endl;  // Should print: this is rehtona test
-    cout << spinWords("hi") << endl;  // Should print: hi
+    std::cout << spinWords("a") << std::endl;     // a
+    std::cout << spinWords("this is a test") << std::endl;   // this is a test
+    std::cout << spinWords("this is another test") << std::endl;  // this is rehtona test
+    std::cout << spinWords("hi") << std::endl;      // hi
 
     return 0;
 }
