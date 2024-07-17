@@ -1,6 +1,6 @@
 #include <vector>
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -41,4 +41,3 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
