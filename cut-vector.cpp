@@ -1,9 +1,9 @@
-#include <climits>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
-std::vector<std::vector<int>> cutVector(std::vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
     int pos = 0;
     
@@ -11,7 +11,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         if(i == v.size()) {
             vector<int> left(v.begin(), v.begin());
             vector<int> right(v.begin() + i, v.end());
-            int diff = abs((int)left[0] - (int)right[0]);
+            int diff = abs(left[0] - right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
@@ -19,7 +19,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         } else {
             vector<int> left(v.begin(), v.begin() + i);
             vector<int> right(v.begin() + i, v.end());
-            int diff = abs((int)left[0] - (int)right[0]);
+            int diff = abs(left[0] - right[0]);
             if(diff < min_diff) {
                 min_diff = diff;
                 pos = i;
@@ -27,7 +27,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     
-    std::vector<std::vector<int>> result(2);
+    vector<vector<int>> result(2);
     result[0].resize(pos);
     for(int i = 0; i < pos; i++) {
         result[0].push_back(v[i]);
@@ -38,4 +38,10 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     return result;
+}
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5}; 
+    vector<vector<int>> result = cutVector(v);
+    return 0;
 }
