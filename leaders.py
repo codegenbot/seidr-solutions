@@ -1,2 +1,6 @@
 def leaders(input):
-    return [x for x in reversed(input)]
+    output = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i + 1]:
+            output.insert(0, input[i])
+    return output
