@@ -4,9 +4,9 @@ def bouncing_balls():
     bounces = int(input())
 
     bounciness_index = h2 / h1
-    total_distance = (h1 + h2) * (2**bounces - 1)
+    total_distance = (h1 + h2) * (1 - 0.5**bounces) / (1 - 0.5)
 
-    return str(bounciness_index) + "\n" + str(total_distance)
+    return f"{total_distance:.4f}"
 
 
 print(bouncing_balls())
