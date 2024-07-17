@@ -2,8 +2,8 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> leaders(std::vector<int> v) {
-    std::vector<int> res;
+vector<int> leaders(vector<int> v) {
+    vector<int> res;
     int rightmost = v.back();
     res.push_back(rightmost);
 
@@ -14,13 +14,13 @@ std::vector<int> leaders(std::vector<int> v) {
         }
     }
 
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
-    std::vector<int> v = {1, 3, 4, 1, 5};
-    std::vector<int> result = leaders(v);
+    vector<int> v = {1, 3, 4, 1, 5};
+    vector<int> result = leaders(v);
     for (int x : result) cout << x << " ";
     return 0;
 }

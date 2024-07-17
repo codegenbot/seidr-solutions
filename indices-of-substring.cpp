@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -7,12 +8,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int i = 0; 
-    while (i <= n - m + 1) { 
-        if (text.substr(i, m) == "%" + target + "%") { 
+    for (int i = 0; i <= n - m; ++i) { 
+        if (text.substr(i, m) == target) { 
             result.push_back(i); 
         }
-        i++; 
     }
 
     return result;
