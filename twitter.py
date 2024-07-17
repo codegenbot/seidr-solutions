@@ -1,5 +1,7 @@
+```
 def validate_tweet(tweet):
-    if len(tweet.translate({ord(c): None for c in "!@#$%^&*()_+-={}[]|~:`<>,./?"})) > 140:
+    tweet = tweet.replace(" ", "").replace("\n", "")
+    if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
         return "You didn't type anything"
