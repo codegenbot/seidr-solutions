@@ -1,35 +1,33 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string s) {
-    bool res = true;
+string solveBoolean(string s) {
+    stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'f') {
-            res = false;
-            break;
-        }
-        else if (s[i] == '&') {
-            res &= true;
-        }
-        else if (s[i] == '|') {
-            res |= true;
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return "False";
+            } else {
+                st.pop();
+            }
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return "False";
+            } else {
+                st.pop();
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return res;
-}
-
-int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
-    bool result = solveBoolean(s);
-    if (result) {
-        cout << "True" << endl;
+    if (st.size() > 1) {
+        return "True";
+    } else if (st.size() == 0) {
+        return "False";
     } else {
-        cout << "False" << endl;
+        return st.top() == 'T' ? "True" : "False";
     }
-    return 0;
 }
