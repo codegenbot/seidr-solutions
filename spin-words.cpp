@@ -1,5 +1,3 @@
-#include <string>
-
 string spinWords(string str) {
     stringstream result;
     int i = 0;
@@ -25,5 +23,4 @@ string spinWords(string str) {
             i = j;
         }
     }
-    return result.str();
-}
+    return result.str().substr(0, result.str().find(' '));
