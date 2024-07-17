@@ -1,50 +1,44 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    bool result = false;
-    char prevOp = 'f';  // assume first operand is F
-
-    for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == '&') {
-            prevOp = 'T' ? true : false;
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            bool temp = 'T' ? true : false;
-            result = !temp; // Invert the result for |
-        } else if (expression[i] == 't') {
-            prevOp = true;
+string solveBoolean(string s) {
+    stack<char> st;
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            
+            if(a == 'T' && b == 'T')
+                st.push('T');
+            else
+                st.push('F');
+        } else if(s[i] == '&') {
+            char a = st.top();
+            st.pop();
+            char b = st.top();
+            st.pop();
+            
+            if(a == 'T' && b == 'T')
+                st.push('T');
+            else if(a == 'T' || b == 'T')
+                st.push('F');
+            else
+                st.push('F');
         } else {
-            prevOp = false;
-        }
-
-        if (i == expression.length() - 1 || expression[i + 1] == '|') {
-            bool temp2 = 'T' ? true : false;
-            result = (prevOp && !temp2) || (!prevOp && temp2);
+            st.push(s[i]);
         }
     }
-
-    return result;
+    
+    return (st.top() == 'T') ? "True" : "False";
 }
 
 int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-    if (expression == "t") {
-        cout << "True";
-    } else if (expression == "f") {
-        cout << "False";
-    } else {
-        bool result = solveBoolean(expression);
-        if (result)
-            cout << "True";
-        else
-            cout << "False";
-    }
+    string s;
+    cout << "Enter Boolean expression: ";
+    cin >> s;
+    cout << solveBoolean(s) << endl;
     return 0;
 }
