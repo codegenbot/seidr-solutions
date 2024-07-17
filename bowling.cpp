@@ -1,21 +1,28 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    bool firstRoll = true;
-    
-    for (char c : s) {
-        if (c == '/') {
-            firstRoll = false;
-            continue;
+    int roll = 0;
+    bool inTurn = false;
+
+    for (char c : input) {
+        if (c >= 'X' && c <= 'Z') {
+            if (!inTurn) {
+                inTurn = true;
+                roll = 10 - 'X';
+            } else {
+                score += roll;
+                roll = 0;
+            }
+        } else if (c == '/') {
+            inTurn = false;
+        } else {
+            int temp = c - '0';
+            if (!inTurn) {
+                roll += temp;
+            } else {
+                score += temp;
+            }
         }
-        
-        int rolls = stoi(c == 'X' ? "10" : c == '-' ? "0" : c);
-        if (!firstRoll)
-            score += firstRoll ? 10 : min(rolls, 10) + (rolls - 1 > 0 ? 10 : 0);
-        else
-            score += rolls;
-        
-        firstRoll = false;
     }
-    
+
     return score;
 }
