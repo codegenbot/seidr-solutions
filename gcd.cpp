@@ -3,19 +3,26 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int len = target.length();
-    for (int i = 0; i <= text.length() - len; i++) {
-        if (text.substr(i, len).compare(target) == 0) {
+    int textLen = text.length();
+    int targetLen = target.length();
+
+    for (int i = 0; i <= textLen - targetLen; i++) {
+        if (text.substr(i, targetLen) == target) {
             result.push_back(i);
+            // Check for overlapping targets
+            while (i + targetLen < textLen && text.substr(i, targetLen) == target) {
+                i++;
+                result.push_back(i);
+            }
         }
     }
+
     return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
