@@ -1,20 +1,22 @@
-def bowling_score(frames):
+def bowling_score(games):
     score = 0
-    for i in range(10):
-        if frames[i] == "X":
-            score += 30
-        elif frames[i].isdigit():
-            if len(frames[i]) == 1:
-                score += int(frames[i])
-            else:
-                score += (int(frames[i][:1]) + int(frames[i][1:])) * 2
+    frame = []
+    for char in games:
+        if char.isdigit():
+            frame.append(int(char))
         else:
-            parts = frames[i].split("/")
-            if "X" in parts:
-                if "X" == parts[0]:
-                    score += 10 + int(parts[1])
+            if len(frame) == 1 and int("".join(map(str, frame))) < 10:
+                score += sum(frame)
+            elif len(frame) == 2 and int("".join(map(str, frame))) >= 10:
+                if int("".join(map(str, frame))) == 10:
+                    score += 10 + sum(bowling_score(games[games.index(char) + 1 :]))
                 else:
-                    score += int(parts[0]) + (10 - int(parts[0]))
-            elif len(parts) > 1:
-                score += sum(map(int, parts))
-    return score
+                    score += int("".join(map(str, frame))) + sum(
+                        bowling_score(games[games.index(char) + 2 :])
+                    )
+            frame = []
+    if len(frame) == 3 and int("".join(map(str, frame))) == 10:
+        return [score] + bowling_score(games[1:])
+    elif len(frame) == 3:
+        score += sum(frame)
+    return [score]
