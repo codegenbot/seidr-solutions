@@ -11,7 +11,7 @@ double shoppingList(float prices[], int nPrices, float discounts[]) {
 int main() {
     int nItems;
     printf("Number of items: ");
-    scanf("%d\n", &nItems);
+    scanf("%d", &nItems);
     float prices[nItems];
     for(int i = 0; i < nItems; i++) {
         printf("Price of item %d: ", i+1);
