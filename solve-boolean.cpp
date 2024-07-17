@@ -1,25 +1,37 @@
-```cpp
-bool solveBoolean(std::string expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
+#include <stack>
+using namespace std;
 
-    bool result = true;
-    int i = 0;
-    for (; i < expression.size(); i++) {
+bool solveBoolean(string expression) {
+    stack<string> std::stack;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == ' ') continue;
         if (expression[i] == '&') {
-            int j = i + 1;
-            while (j < expression.size() && expression[j] != '|') j++;
-            std::string subexpr = expression.substr(i + 1, j - i - 1);
-            result &= solveBoolean(subexpr);
-            i = j;
+            std::stack.push("&");
+        } else if (expression[i] == '|') {
+            while (!std::stack.empty() && std::stack.top() == "&") {
+                std::stack.pop();
+            }
+        } else {
+            if(expression[i] == 'T' || expression[i] == 'F')
+                std::stack.push(string(1, expression[i]));
         }
     }
 
-    if (i < expression.size() && expression[i] == '|') {
-        int j = i + 1;
-        while (j < expression.size()) j++;
-        std::string subexpr2 = expression.substr(i + 1, j - i);
-        result |= solveBoolean(subexpr2);
+    bool result = true;
+    while (!std::stack.empty()) {
+        string op = std::stack.top();
+        std::stack.pop();
+        if (op == "&") {
+            result &= (std::stack.top() == "T");
+            std::stack.pop();
+        } else if (op == "|") {
+            if (std::stack.size() > 1) {
+                result |= (std::stack.top() == "T");
+                std::stack.pop();
+            }
+        } else {
+            result = op == "T";
+        }
     }
 
     return !result;
