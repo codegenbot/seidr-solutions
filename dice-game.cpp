@@ -16,5 +16,6 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double result = probability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl;
+    std::cout << "The probability that Peter rolls strictly higher is: " << result << std::endl; 
+    return 0;
 }
