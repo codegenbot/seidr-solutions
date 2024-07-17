@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -26,3 +27,4 @@ int bowlingScore(std::string s) {
         score += 10 - (10 - roll);
     }
     return score;
+}
