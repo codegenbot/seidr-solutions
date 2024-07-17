@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <string>
 #include <iostream>
@@ -19,7 +18,7 @@ std::vector<int> findIndices(std::string text, std::string target) {
 }
 
 int gcd(int a, int b) {
-    while(b != 0) {
+    while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
