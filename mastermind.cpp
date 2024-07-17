@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
+#include <iostream>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -24,4 +24,3 @@ int main() {
     std::cin >> guess;
     int result = mastermind(code, guess);
     return 0;
-}
