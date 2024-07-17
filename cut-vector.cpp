@@ -15,8 +15,8 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         for(int j = i+1; j < nums.size(); j++) 
             rightSum += nums[j];
         
-        if(std::abs(leftSum - rightSum) < minDiff) {
-            minDiff = std::abs(leftSum - rightSum);
+        if(abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
             cutIndex = i;
         }
     }
