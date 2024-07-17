@@ -1,26 +1,18 @@
-#include <stack>
 #include <string>
 
 bool solveBoolean(string expression) {
     stack<string> stack;
     bool lastOp = false;
     string result = "T";
-    
     for (char c : expression) {
         if (c == ' ') continue;
         if (c == '&') {
-            while (!stack.empty() && stack.top() == "&") {
-                stack.pop();
-                lastOp = true;
-            }
-            stack.push("&");
-            lastOp = false;
+            while (!stack.empty() && stack.top() != "|") stack.pop();
+            result = (result == "F") ? "F" : "T";
+            stack.push(string(1, "&"));
         } else if (c == '|') {
-            while (!stack.empty() && stack.top() == "|") {
-                stack.pop();
-                result = "T";
-            }
-            stack.push("|");
+            while (!stack.empty() && stack.top() != "&") stack.pop();
+            stack.push(string(1, "|"));
             lastOp = false;
         } else {
             stack.push(c == 'T' ? "T" : "F");
@@ -28,13 +20,7 @@ bool solveBoolean(string expression) {
         }
     }
 
-    while (!stack.empty()) {
-        if (stack.top() == "&") {
-            result = (result == "T" && stack.pop() == "T") ? "T" : "F";
-        } else {
-            result = (result == "T" || stack.pop() == "T") ? "T" : "F";
-        }
-    }
+    while (!stack.empty()) stack.pop();
 
     return result == "T";
 }
