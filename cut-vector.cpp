@@ -1,9 +1,10 @@
+```cpp
 #include <climits>
 #include <vector>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int min_diff = INT_MAX;
     int pos = 0;
     
@@ -27,7 +28,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<vector<int>> result(2);
+    std::vector<std::vector<int>> result(2);
     result[0].resize(pos);
     for(int i = 0; i < pos; i++) {
         result[0].push_back(v[i]);
