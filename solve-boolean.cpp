@@ -1,15 +1,28 @@
-```
+```cpp
 #include <string>
+
 bool solveBoolean(std::string expression) {
+    if (expression == "t") return true;
+    if (expression == "f") return false;
+
     bool result = true;
-    int i = -1; // declare and initialize
-    for (int j = 0; j <= expression.size(); j++) {
-        if (i + 1 < j && (expression[i+1] == '&' || expression[i+1] == '|')) {
-            std::string subexpr = expression.substr(i + 2, j - i - 2);
-            if (expression[i+1] == '&') result &= solveBoolean(subexpr);
-            else result |= solveBoolean(subexpr);
+    int i = 0;
+    for (; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            int j = i + 1;
+            while (j < expression.size() && expression[j] != '|') j++;
+            std::string subexpr = expression.substr(i + 1, j - i - 1);
+            result &= solveBoolean(subexpr);
+            i = j;
         }
-        i++;
     }
+
+    if (i < expression.size() && expression[i] == '|') {
+        int j = i + 1;
+        while (j < expression.size()) j++;
+        std::string subexpr2 = expression.substr(i + 1, j - i);
+        result |= solveBoolean(subexpr2);
+    }
+
     return !result;
 }
