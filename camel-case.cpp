@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
+std::string camelCase(const std::string& s) {
+    std::string result;
     bool capitalizeNext = true;
 
     for (char c : s) {
@@ -21,8 +21,10 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
-    }
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "CamelCase conversion: " << camelCase(input) << std::endl;
+
     return 0;
 }
