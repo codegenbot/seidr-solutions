@@ -1,10 +1,10 @@
 #include <string>
 
-std::string squareDigitsStr(std::string n) {
+int squareDigitsStr(std::string n) {
     std::string result = "";
     for (char c : n) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
-    return result;
+    return std::stoi(result);
 }
