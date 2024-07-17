@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string middleCharacter(std::string input) {
@@ -13,4 +14,8 @@ std::string middleCharacter(std::string input) {
         result = len % 2 ? input.substr(midIndex, 1) : input.substr(midIndex - 1, 2);
     }
     return result;
+}
+
+int main() {
+    return 0;
 }
