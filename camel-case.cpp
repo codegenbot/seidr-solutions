@@ -2,21 +2,18 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
+std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool first = true;
+    size_t prevSpace = 0;
 
-    for (char c : str) {
-        if (c == '-') {
-            result += ((first) ? "" : std::toupper(c));
-            first = false;
-        } else {
-            if (!first) {
-                result += std::toupper(c);
-                first = true;
-            } else {
-                result += c;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == '-') {
+            if (prevSpace > 0) {
+                result.push_back(std::toupper(s[prevSpace]));
             }
+            prevSpace = i + 1;
+        } else if (s[i] == ' ') {
+            prevSpace = i;
         }
     }
 
@@ -25,8 +22,9 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cin >> input;
-    std::cout << kebabToCamel(input) << std::endl;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "In camelCase: " << kebabToCamel(input) << std::endl;
 
     return 0;
 }
