@@ -18,8 +18,8 @@ vector<int> leaders(vector<int> v) {
 }
 
 int main() {
-    vector<int> input = {1, 3, 4, 1, 5};
-    vector<int> output = leaders(input);
-    for(int i : output) cout << i << " ";
+    vector<int> v = {1, 3, 4, 2, 6};
+    vector<int> leaders_result = leaders(v);
+    // print or use the result here
     return 0;
 }

@@ -3,7 +3,7 @@
 double probability(int n, int m) {
     double sum = 0;
     for (int i = std::max(m, 1); i <= n; i++) {
-        sum += (i - std::min(i, m)) / static_cast<double>(n);
+        sum += (i - std::min(i, m)) / (double)n;
     }
     return sum;
 }
