@@ -30,5 +30,5 @@ bool solveBoolean(string s) {
             }
         }
     }
-    return st.empty() ? false : true;
+    return st.empty();
 }
