@@ -1,3 +1,4 @@
+````
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -40,6 +41,8 @@ int main(){
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
     char ch;
-    while(cin.get(ch) && ch != '\n'); // Consume remaining input characters
+    cin >> ch; // Read and discard any remaining input characters
+    cin.ignore(); // or this can be used
 
     return 0;
+}
