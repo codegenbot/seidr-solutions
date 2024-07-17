@@ -1,8 +1,8 @@
-```cpp
 #include <stack>
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
+bool solveBoolean(string expression) {
     stack<string> std::stack;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == ' ') continue;
@@ -13,7 +13,7 @@ bool solveBoolean(std::string expression) {
                 stack.pop();
             }
         } else {
-            stack.push(std::to_string(expression[i]));
+            stack.push(string(1, expression[i]));
         }
     }
 
