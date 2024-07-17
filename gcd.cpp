@@ -1,16 +1,19 @@
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int n = text.length();
-    int m = target.length();
+#include <vector>
+using namespace std;
 
-    for (int i = 0; i <= n - m; i++) {
-        int j = 0;
-        while (j < m && text[i + j] == target[j]) {
-            j++;
-        }
-        if (j == m) {
-            indices.push_back(i);
-        }
+vector<int> findIndices(string text, string target) {
+    vector<int> result;
+    int pos = 0;
+    while ((pos = text.find(target)) != string::npos) {
+        result.push_back(pos);
+        pos += target.length();
     }
-    return indices;
+    return result;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
