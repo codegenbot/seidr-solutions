@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -18,22 +19,15 @@ double calculateEuclideanDistance(const vector<float>& vector1, const vector<flo
 int main(){
     int n;
     cin >> n;
-    vector<float> vec1; 
-    vec1.reserve(n); 
 
-    vector<float> vec2; 
-    vec2.reserve(n);
+    vector<float> vec1(n), vec2(n);
 
     for(int i = 0; i < n; ++i){
-        float temp;
-        cin >> temp;
-        vec1.push_back(temp);
+        cin >> vec1[i];
     }
 
     for(int i = 0; i < n; ++i){
-        float temp;
-        cin >> temp;
-        vec2.push_back(temp);
+        cin >> vec2[i];
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
