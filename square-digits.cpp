@@ -1,13 +1,14 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 std::string squareDigitsStr(std::string n) {
-    std::string result = "";
+    std::vector<std::string> result;
     for (char c : n) {
         int digit = c - '0';
-        result += std::to_string(digit * digit);
+        result.push_back(std::to_string(digit * digit));
     }
-    return result;
+    return std::string(result.begin(), result.end());
 }
 
 int main() {
