@@ -1,27 +1,19 @@
-#include <string>
-#include <cctype>
-
-int bowlingScore(const std::string& frames) {
+int bowlingScore(const std::string& str) {
     int score = 0;
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 'X') {
+    int currentRolls = 0;
+    for (char c : str) { 
+        if (c == 'X') {
             score += 30;
-            i++;
-        } else if (frames[i] == '/') {
+            currentRolls = 2;
+        } else if (c == '/') {
             score += (10 - currentRolls);
             currentRolls = 0;
-        } else if (std::isdigit(frames[i])) {
-            int roll = frames[i] - '0';
+        } else if (std::isdigit(c)) {
+            int roll = c - '0';
             currentRolls++;
             if (currentRolls == 2) {
-                if (frames[i+1] == '/' || i + 2 >= frames.size()) {
-                    score += roll * 2;
-                } else {
-                    score += roll * 2 + frames[i+1] - '0';
-                }
-                currentRolls = 0;
+                score += 1 * roll + 1 * (10 - roll);
             }
         }
     }
     return score;
-}
