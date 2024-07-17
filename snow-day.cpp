@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -30,3 +31,4 @@ int main() {
     cout << "Total snow on the ground after " << hours << " hours is " << totalSnow << " cm." << endl;
     
     return 0;
+}
