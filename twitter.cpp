@@ -7,16 +7,14 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;  
-    return 0;
-}
-
-void validateTweet(string tweet) {
+    
     if (tweet.empty()) {
-        return "You didn't type anything";
+        cout << "You didn't type anything" << endl;
     } else if (tweet.length() > 140) {
-        return "Too many characters";
+        cout << "Too many characters" << endl;
     } else {
-        return "Your tweet has " + to_string(tweet.length()) + " characters";
+        cout << "Your tweet has " << static_cast<int>(tweet.length()) << " characters" << endl;
     }
+    
+    return 0;
 }
