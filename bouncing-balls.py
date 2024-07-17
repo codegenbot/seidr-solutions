@@ -12,8 +12,7 @@ def bouncing_balls():
             first_bounce_height *= bounciness_index
         total_distance += 2 * first_bounce_height + first_bounce_height
         first_bounce_height *= bounciness_index
-
+  
     print(total_distance)
-
 
 bouncing_balls()
