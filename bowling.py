@@ -1,22 +1,22 @@
-def bowling_score(games):
+```
+def bowling_score(s):
     score = 0
-    frame = []
-    for char in games:
-        if char.isdigit():
-            frame.append(int(char))
+    roll = 0
+    for frame in s.split('/'):
+        if len(frame) == 1:
+            score += int(frame)
+            roll += 1
+        elif len(frame) == 2:
+            a, b = map(int, frame)
+            score += a + b
+            roll += 1
         else:
-            if len(frame) == 1 and int("".join(map(str, frame))) < 10:
-                score += sum(frame)
-            elif len(frame) == 2 and int("".join(map(str, frame))) >= 10:
-                if int("".join(map(str, frame))) == 10:
-                    score += 10 + sum(bowling_score(games[games.index(char) + 1 :]))
-                else:
-                    score += int("".join(map(str, frame))) + sum(
-                        bowling_score(games[games.index(char) + 2 :])
-                    )
-            frame = []
-    if len(frame) == 3 and int("".join(map(str, frame))) == 10:
-        return [score] + bowling_score(games[1:])
-    elif len(frame) == 3:
-        score += sum(frame)
-    return [score]
+            a, b, c = map(int, frame)
+            if a + b < 10:
+                score += a + b
+                score += c
+                roll += 1
+            else:
+                score += 10 + c
+                roll += 1
+    return score
