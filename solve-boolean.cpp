@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+#include <algorithm>
+
 bool solveBoolean(std::string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
@@ -20,3 +24,4 @@ bool solveBoolean(std::string expression) {
     }
 
     return !result;
+}
