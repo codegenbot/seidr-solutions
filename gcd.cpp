@@ -5,16 +5,14 @@ vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int targetLen = target.length();
     for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool match = true;
+        bool found = true;
         for (int j = 0; j < targetLen; j++) {
             if (text[i + j] != target[j]) {
-                match = false;
+                found = false;
                 break;
             }
         }
-        if (match) {
-            indices.push_back(i);
-        }
+        if (found) indices.push_back(i);
     }
     return indices;
 }
@@ -26,4 +24,3 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
-}
