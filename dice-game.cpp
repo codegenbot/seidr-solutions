@@ -1,28 +1,18 @@
 #include <iostream>
+using namespace std;
 
-double diceGame(int n, int m) {
-    double numerator = 1;
-    double denominator = 1;
-
-    if(n > m) {
-        for(int i = 1; i <= m; i++) {
-            numerator *= (n - i);
-            denominator *= (m + n - i);
-        }
-    } else {
-        for(int i = 1; i <= n; i++) {
-            numerator *= (m - i);
-            denominator *= (m + n - i);
-        }
-    }
-
-    return numerator / denominator;
+double solution(int n, int m) {
+    double p = 0.0;
+    if(n > m)
+        p += (1.0 - (1.0 / n)) * (1.0 / m);
+    else
+        p += (1.0 - (1.0 / m)) * (1.0 / n);
+    return p;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    double result = diceGame(n, m);
-    std::cout << result << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(1) << solution(n, m) << endl;
     return 0;
 }
