@@ -39,3 +39,4 @@ int main() {
     std::cout << "Number of black pegs: " << result << std::endl;
 
     return 0;
+}
