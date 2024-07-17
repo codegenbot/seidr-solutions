@@ -6,3 +6,4 @@ std::string squareDigits(std::string input) {
         result += std::to_string(square);
     }
     return result;
+}
