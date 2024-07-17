@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include <climits>
+#include <numeric>
 
 int basement(const std::vector<int>& nums) {
-    int sum = 0, min_sum = INT_MAX, index = -1;
+    int sum = 0, min_sum = 0, index = -1;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < min_sum) {
