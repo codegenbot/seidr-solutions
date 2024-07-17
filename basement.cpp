@@ -22,3 +22,4 @@ int main() {
         cout << "No negative sum found." << endl;
     }
     return 0;
+}
