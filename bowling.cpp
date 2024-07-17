@@ -2,24 +2,18 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    bool spare = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
-            score += 10 + (i < 9 ? getFrameValue(s, i+1) : 0);
-            spare = false;
+            score += 10 + (i >= 9 ? 0 : getFrameValue(s, i+1));
         } else if (s[i] == '/') {
             int a = s[i-1] - '0';
             int b = s[i+1] - '0';
-            score += a + b + (i < 9 ? getFrameValue(s, i+2) : 0);
-            spare = true;
+            score += a + b;
+            if (i < 8) score += getFrameValue(s, i+2);
         } else {
             int a = s[i] - '0';
-            if (!spare) {
-                score += a;
-            } else {
-                score += a;
-                spare = false;
-            }
+            score += a;
+            if (i == 6 || (i < 8 && s[i+1] != 'X' && s[i+1] != '/')) score += getFrameValue(s, i+1);
         }
     }
     return score;
