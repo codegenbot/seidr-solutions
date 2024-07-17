@@ -2,33 +2,30 @@ string solveBoolean(string s) {
     stack<char> st;
     string res = "";
     
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == '&'){
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&') {
             while(!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if(st.empty()) 
-                res += "T";
-            else
-                res += "F";
-            st.push('&');
-        }else if(s[i] == '|'){
+            if(st.empty()) res += "T";
+            else res += "F";
+        } 
+        else if(s[i] == '|') {
             while(!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if(st.empty()) 
-                res += "T";
-            else
-                res += "F";
-            st.push('|');
-        }else{
+            if(st.empty()) res += "F";
+            else res += "T";
+        } 
+        else {
             st.push(s[i]);
         }
     }
     
-    while(!st.empty()){
+    while(!st.empty()) {
         st.pop();
     }
     
-    return (res == "T") ? "True" : "False";
+    if(res.length() > 0) return (res[0] == 'T') ? "True" : "False";
+    else return s;
 }
