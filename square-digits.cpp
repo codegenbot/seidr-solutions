@@ -7,4 +7,3 @@ std::string squareDigitsStr(std::string n) {
         result += std::to_string(digit * digit);
     }
     return result;
-}
