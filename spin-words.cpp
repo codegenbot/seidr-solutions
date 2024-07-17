@@ -1,19 +1,30 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-std::string spinWords(std::string str) {
-    std::istringstream iss(str);
-    std::string word;
-    
-    while (iss >> word) {
-        if (word.size() >= 5)
-            std::reverse(word.begin(), word.end());
-        
-        std::cout << word << " ";
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string temp = "";
+
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (temp.length() >= 5)
+                result += temp + " ";
+            else
+                result += temp + " ";
+            temp = "";
+        } else {
+            temp += c;
+        }
     }
-    
-    return "";
+
+    if (temp.length() >= 5) {
+        std::reverse(temp.begin(), temp.end());
+        result += temp + " ";
+    } else
+        result += temp;
+
+    return result;
 }
 
 int main() {
@@ -23,7 +34,7 @@ int main() {
         std::getline(std::cin, input);
         if (input == "q")
             break;
-        std::cout << spinWords(input) << std::endl;
+        std::cout << spinWords(input) + std::endl; 
     }
     return 0;
 }
