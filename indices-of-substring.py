@@ -1,13 +1,9 @@
-Here is the Python solution for the problem:
-
-```
 def indices_of_substring(text):
-    target_indices = []
-    start_index = 0
-    while start_index < len(text):
-        index = text.find(text[start_index:], start_index)
-        if index == -1:
-            break
-        target_indices.append(index)
-        start_index = index + 1
-    return target_indices
+    result = []
+    for i in range(len(text)):
+        if len(text) - i >= len(text[i:].lstrip()):
+            index = text.index(text[i : i + len(text[i:].lstrip())], i)
+            if i == index:
+                continue
+            result.append(i)
+    return sorted(result)
