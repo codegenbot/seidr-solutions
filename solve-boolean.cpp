@@ -1,29 +1,42 @@
-#include <string>
-using namespace std;
+string solveBoolean(string booleanExpression) {
+    stack<char> operatorStack;
+    stack<string> operandStack;
 
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            result &= (expression[i+1] == 'T');
-            i++;
-        } else if (expression[i] == '|') {
-            result |= (expression[i+1] == 'T');
-            i++;
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
+                string op1 = operandStack.top();
+                operandStack.pop();
+                string op2 = operandStack.top();
+                operandStack.pop();
+                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
+            }
+            operatorStack.push('&');
+        } else if (booleanExpression[i] == '|') {
+            while (!operatorStack.empty() && operatorStack.top() != '&') {
+                operatorStack.pop();
+                string op1 = operandStack.top();
+                operandStack.pop();
+                string op2 = operandStack.top();
+                operandStack.pop();
+                operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
+            }
+            operatorStack.push('|');
+        } else if (booleanExpression[i] == 't' || booleanExpression[i] == 'T') {
+            operandStack.push("T");
+        } else if (booleanExpression[i] == 'f' || booleanExpression[i] == 'F') {
+            operandStack.push("F");
         }
     }
-    return result;
-}
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    while (!operatorStack.empty()) {
+        string op1 = operandStack.top();
+        operandStack.pop();
+        string op2 = operandStack.top();
+        operandStack.pop();
+        operandStack.push(to_string((op1=="T"&&op2=="T")?"T":"F"));
     }
-    return 0;
+
+    return operandStack.top();
 }
