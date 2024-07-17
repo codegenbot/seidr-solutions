@@ -1,7 +1,5 @@
 #include <stack>
 #include <string>
-#include <initializer_list>
-#include <iostream>
 
 using namespace std;
 
@@ -16,8 +14,13 @@ bool solveBoolean(string expression) {
                 stack.pop();
             }
         } else {
-            if(expression[i] == 'T' || expression[i] == 'F')
-                stack.push(string(1, expression[i]));
+            string s = "";
+            while(i < expression.size() && (expression[i] == 'T' || expression[i] == 'F')) {
+                s += expression[i];
+                i++;
+            }
+            if(!s.empty())
+                stack.push(s);
         }
     }
 
@@ -43,8 +46,8 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     return result ? 0 : 1;
 }
