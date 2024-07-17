@@ -1,7 +1,7 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <limits>
-#include <iostream>
 
 int main() {
     std::vector<float> prices;
@@ -9,15 +9,15 @@ int main() {
 
     // Read input from user
     int n;
-    std::cout << "Enter the number of goods: ";
+    std::cout << "Enter the number of items: ";
     std::cin >> n;
-    
-    prices.resize(n);
-    discounts.resize(n);
 
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter price and discount percentage for good " << i+1 << ": ";
-        std::cin >> prices[i] >> discounts[i];
+        float price, discount;
+        std::cout << "Enter price and discount for item " << i + 1 << ": ";
+        std::cin >> price >> discount;
+        prices.push_back(price);
+        discounts.push_back(discount);
     }
 
     if (prices.size() != discounts.size()) {
@@ -28,7 +28,7 @@ int main() {
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - discounts[i]/100.0); 
     }
-    std::cout << "Total price after applying discount: " << total << std::endl;
-
+    std::cout << "Total price after discount: $" << total << "\n";
+    
     return 0;
 }
