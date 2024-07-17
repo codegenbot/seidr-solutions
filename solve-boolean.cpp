@@ -1,21 +1,30 @@
 #include <string>
 
-bool evaluateBooleanExpression(std::string expression) {
+bool solveBoolean(string expr) {
     bool result = true;
     int i = 0;
-    
-    while (i < expression.length()) {
-        if (expression[i] == '&') {
-            result &= (expression[i + 1] == 'T');
-            i += 2;
-        } else if (expression[i] == '|') {
-            result |= (expression[i + 1] == 'T');
-            i += 2;
-        } else {
-            result = expression[i] == 'T';
-            i++;
+
+    while (i < expr.length()) {
+        if (expr[i] == 't') {
+            return true;
         }
+        else if (expr[i] == 'f') {
+            return false;
+        }
+        else if (expr[i] == '&') {
+            i++;
+            bool left = (i < expr.length() && expr[i] == 't');
+            bool right = (i < expr.length() && expr[i] == 't');
+            result &= right;
+        }
+        else if (expr[i] == '|') {
+            i++;
+            bool left = (i < expr.length() && expr[i] == 't');
+            bool right = (i < expr.length() && expr[i] == 't');
+            result |= right;
+        }
+        i++;
     }
-    
+
     return result;
 }
