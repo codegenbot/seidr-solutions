@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -24,3 +25,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts, n) << endl;
     return 0;
+}
