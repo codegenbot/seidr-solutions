@@ -1,13 +1,6 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-    
-    for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess.count(guess[i]) > 0:
-            white_pegs += 1
-            
-    return str(white_pegs) + "\n" + str(black_pegs)
+    correct_positions = sum([a == b for a, b in zip(code, guess)])
+    correct_colors = sum(
+        [a in b for a in code for b in [guess, code]].count(a) - correct_positions
+    )
+    return str(correct_positions), str(correct_colors)
