@@ -1,6 +1,8 @@
+```cpp
+#include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
 
@@ -22,3 +24,4 @@ bool solveBoolean(string expression) {
     }
 
     return !result;
+}
