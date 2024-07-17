@@ -1,14 +1,14 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int calculateFuelCost(vector<int> &numbers) {
+int fuelCost(vector<int> arr) {
     int sum = 0;
-    for (int num : numbers) {
-        int newNum = static_cast<int>(num / 3.0);
-        if (newNum < 1)
-            newNum = 0; // round down to nearest integer
-        else
-            newNum -= 2;
-        sum += newNum;
+    for (int num : arr) {
+        if (num % 3 == 0) {
+            sum += (num / 3 - 2);
+        } else {
+            sum += (num / 3 - 1);
+        }
     }
     return sum;
 }
