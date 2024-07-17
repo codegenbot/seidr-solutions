@@ -9,23 +9,23 @@ double shoppingList(float prices[], int nPrices, float discounts[]) {
 }
 
 int main() {
-    int nItems = 0;
+    int nItems;
     printf("Number of items: ");
     scanf("%d", &nItems);
     float* prices = new float[nItems];
     for(int i = 0; i < nItems; i++) {
         printf("Price of item %d: ", i+1);
-        scanf("%f", &(prices[i]));
+        scanf("%f", &prices[i]);
     }
 
     float* discounts = new float[nItems];
     for(int i = 0; i < nItems; i++) {
         printf("Discount of item %d (in percent): ", i+1);
-        scanf("%f", &(discounts[i]));
+        scanf("%f", &discounts[i]);
     }
     double totalPrice = shoppingList(prices, nItems, discounts);
     printf("Total price: %f\n", totalPrice); 
     delete[] prices;
-    delete[] discounts; // Don't forget to free the memory
+    delete[] discounts;
     return 0;
 }
