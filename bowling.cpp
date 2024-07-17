@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
@@ -26,13 +22,4 @@ int bowlingScore(std::string s) {
             score += 10 + (roll - 2) * 10 / 3;
     }
     return score;
-}
-
-int main(int argc, char* argv[]){
-    if(argc != 2){
-        cout << "Usage: ./program_name <input_string>" << endl;
-        exit(1);
-    }
-    cout << bowlingScore(argv[1]) << endl;
-    return 0;
 }
