@@ -10,7 +10,7 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 12; // example inputs
+    int a = 12; 
     int b = 15;
     std::cout << "GCD: " << std::gcd(a, b) << std::endl;
     return 0;
