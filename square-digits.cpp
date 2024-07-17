@@ -1,10 +1,18 @@
 #include <string>
 
-int squareDigitsStr(std::string n) {
+std::string squareDigitsStr(std::string n) {
     std::string result = "";
     for (char c : n) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
-    return stoi(result);
+    return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> input;
+    std::cout << "The square of the digits is: " << squareDigitsStr(input) << std::endl;
+    return 0;
 }
