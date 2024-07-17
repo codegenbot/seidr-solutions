@@ -1,23 +1,24 @@
-```
-def bowling_score(frames):
-    score = 0
-    strike_count = 0
-    spare_count = 0
-
-    for i in range(10):
-        if frames[i*2:i*2+2] == "X":
-            score += 10
-            strike_count += 1
-            if strike_count < 3:
-                score += int(frames[(i+1)*2:(i+2)*2]) + int(frames[(i+2)*2:(i+3)*2])
-        elif "/".join(sorted(frames[i*2:i*2+2].split("/"))) == "00" or int(frames[i*2:i*2+2]) == 10:
-            score += 10
-            spare_count += 1
-            if spare_count < 2 and i < 8:
-                score += int(frames[(i+1)*2:(i+2)*2])
+def bowling(score):
+    score = score.replace('/', '')
+    total_score = 0
+    frame = 1
+    for i in range(0, len(score), 2):
+        if score[i] == 'X':
+            if i < len(score) - 1 and score[i+1] != 'X':
+                total_score += 10 + (10 - int(score[i+1]))
+            else:
+                total_score += 10
+            frame += 1
+        elif score[i] == '-':
+            first_roll = 10 - int(score[i-1])
+            if i < len(score) - 2 and score[i+2] != 'X':
+                total_score += first_roll + int(score[i+1])
+            else:
+                total_score += first_roll
+            frame += 1
         else:
-            score += int(frames[i*2:i*2+2])
-
-    return score
-
-print(bowling_score("X1-6/3372-5179-4-72"))
+            first_roll = int(score[i])
+            second_roll = int(score[i+1])
+            total_score += first_roll + second_roll
+            frame += 1
+    return total_score
