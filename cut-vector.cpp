@@ -43,10 +43,7 @@ vector<vector<int>> cutVector(vector<int> nums) {
     return res;
 }
 
-vector<vector<int>> res = cutVector({1});
-for (auto &v : res) {
-    for (int num : v) {
-        cout << num << " ";
-    }
-    cout << endl;
+vector<vector<int>> main() {
+    vector<int> nums = {1};
+    return cutVector(nums);
 }
