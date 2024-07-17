@@ -1,8 +1,7 @@
-```
-def basement(lst):
-    total_sum = 0
-    for i in range(len(lst)):
-        if total_sum >= 0 and lst[i] < 0:
+def basement(vector):
+    total = 0
+    for i, num in enumerate(vector):
+        total += num
+        if total < 0:
             return i
-        total_sum += lst[i]
     return -1
