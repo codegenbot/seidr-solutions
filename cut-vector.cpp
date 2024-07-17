@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 
@@ -42,7 +41,7 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
+    vector<int> v = {1, 2, 3, 4, 5}; 
     vector<vector<int>> result = cutVector(v);
     return 0;
 }
