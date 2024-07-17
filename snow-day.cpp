@@ -5,13 +5,8 @@ float snowDay(int hours, float currentSnow, float rateOfSnowfall, float meltingR
     float totalSnow = 0;
     
     for (int i = 0; i < hours; ++i) {
-        currentSnow += rateOfSnowfall;
-        currentSnow -= meltingRate;
-        
-        if (currentSnow < 0)
-            currentSnow = 0;
-        
-        totalSnow += currentSnow > 0 ? currentSnow : 0;
+        currentSnow = fmin(fmax(0.f, currentSnow + rateOfSnowfall - meltingRate), 10000.f); // assume max snow is 10000 cm
+        totalSnow += abs(currentSnow);
     }
     
     return totalSnow;
