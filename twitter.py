@@ -1,1 +1,1 @@
-return f"Your tweet has {len(tweet.replace(" ", ""))} characters"
+f"Your tweet has {len(tweet.replace(" ", ""))} characters"
