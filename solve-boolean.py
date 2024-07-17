@@ -6,8 +6,8 @@ def solve_boolean(expression):
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
     elif "&" in expression:
-        left, right = expression.split("&")
-        return not (bool(left) and bool(right))
+        a, b = expression.split("&")
+        return not (bool(a) and bool(b))
     elif "|" in expression:
-        left, right = expression.split("|")
-        return bool(left) or bool(right)
+        a, b = expression.split("|")
+        return bool(a) or bool(b)

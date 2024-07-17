@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -6,52 +5,31 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
     
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
             result += word + " ";
             word = "";
         } else {
-            word += str[i];
+            word += c;
         }
     }
     
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
     result += word;
     
-    std::string newResult = "";
-    int j = 0;
-    
-    while (j < result.length()) {
-        if (result[j] == ' ') {
-            for (int i = j + 1; i <= result.find(' ', j); i++) {
-                newResult += result[i];
-            }
-            newResult += " ";
-            j = result.find(' ', j) + 1;
-        } else {
-            int k = j;
-            while (k < result.length() && result[k] != ' ') {
-                k++;
-            }
-            if (k - j >= 5) {
-                for (int i = k; i > j; i--) {
-                    newResult += result[i-1];
-                }
-                newResult += " ";
-                j = k;
-            } else {
-                for (int i = j; i <= k; i++) {
-                    newResult += result[i];
-                }
-                newResult += " ";
-                j = k + 1;
-            }
-        }
-    }
-    
-    return newResult.substr(0, newResult.length() - 1);
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
