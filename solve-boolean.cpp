@@ -1,39 +1,48 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            int j = i + 1;
-            while (j < expression.length() && expression[j] != '&') {
-                j++;
+bool solveBoolean(string s) {
+    stack<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('T');
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
-            bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j + 1) == "t") ? true : false;
-            result &= (left && right);
-        } else if (expression[i] == '|') {
-            int j = i + 1;
-            while (j < expression.length() && expression[j] != '|') {
-                j++;
+            while(!st.empty()) {
+                char c = st.top(); 
+                st.pop();
+                if(c == '&') {
+                    st.push('&');
+                    break;
+                } else if(c == '|') {
+                    st.push('|');
+                    break;
+                }
             }
-            string subExpression = expression.substr(i + 1, j - i - 1);
-            bool left = (subExpression == "t") ? true : false;
-            bool right = (expression.substr(j + 1) == "t") ? true : false;
-            result |= (left || right);
+        } else if(s[i] == '&') {
+            if(st.top() == 'T') {
+                st.pop();
+                st.push('T');
+            } else if(st.top() == 'F') {
+                st.pop();
+                st.push('F');
+            }
+            while(!st.empty()) {
+                char c = st.top(); 
+                st.pop();
+                if(c == '|') {
+                    st.push('|');
+                    break;
+                } else if(c == '&') {
+                    st.push('&');
+                    break;
+                }
+            }
         }
     }
-    return result;
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    cout << "Result: " << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
-    return 0;
+    return st.top() == 'T';
 }
