@@ -1,4 +1,2 @@
-Here is the solution:
-
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    return round(initial_snow + hours * rate_of_snowfall - hours * melting_rate, 5)
+def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
+    return int(initial_snow) + (int(int(rate_of_fall * hours))) - (int(int(melting_rate * hours)))
