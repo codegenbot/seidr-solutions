@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
@@ -15,11 +14,8 @@ int basement(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    std::string input;
-    std::getline(std::cin, input);
-    std::istringstream iss(input);
     int num;
-    while (iss >> num) {
+    while (std::cin >> num || !std::cin.eof()) {
         nums.push_back(num);
     }
 
