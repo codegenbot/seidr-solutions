@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -39,7 +40,7 @@ int main(){
     double distance = calculateEuclideanDistance(vec1, vec2);
     cout << "The Euclidean Distance between two vectors is: " << distance << endl;
 
-    char ch;
-    while(cin.get(ch) && ch != '\n'); // Consume remaining input characters
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     return 0;
+}
