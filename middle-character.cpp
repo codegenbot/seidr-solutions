@@ -1,9 +1,10 @@
-Here is the completed code:
+Here is the solution:
 
 string middleCharacter(string s) {
-    int n = s.length();
-    if (n % 2 == 1)
-        return string(1, s[n/2]);
-    else
-        return string(2, s[(n-1)/2]) + s[n/2];
+    int len = s.length();
+    if (len % 2 == 0) {
+        return s.substr(len / 2 - 1, 2);
+    } else {
+        return string(1, s[len / 2]);
+    }
 }
