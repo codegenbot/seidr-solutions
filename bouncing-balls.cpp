@@ -1,8 +1,7 @@
-```c
 #include <iostream>
 
 int main() {
-    int totalDistance = 0;
+    int totalDistance;
     int numBounces;
     double startingHeight;
     double bouncinessIndex;
@@ -14,10 +13,9 @@ int main() {
     std::cin >> startingHeight;
 
     std::cout << "Enter first bounce height: ";
-    double temp = (double)temp;
-    bouncinessIndex = temp / startingHeight;
-
-    ; // remove extra statement
+    double temp;
+    std::cin >> temp;
+    bouncinessIndex = (double)temp / startingHeight;
 
     for(int i = 1; i <= numBounces; ++i) {
         totalDistance += 2 * (startingHeight * bouncinessIndex - startingHeight);
