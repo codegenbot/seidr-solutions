@@ -6,13 +6,12 @@ std::string middleCharacter(std::string input) {
         return "";
     }
     int len = input.length();
-    else if (len == 1) {
+    if (len == 1) {
         return input;
-    }
-    if (len % 2 == 1) {
-        return input.substr(len / 2, 1);
+    } else if (len % 2 == 0) {
+        return input.substr(len / 2 - 1, 2);
     } else {
-        return input.substr((len - 1) / 2, 2);
+        return input.substr(len / 2, 1);
     }
 }
 
