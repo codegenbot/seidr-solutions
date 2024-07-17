@@ -5,13 +5,13 @@ using namespace std;
 
 int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+    int i = -1;
+    for (int j = 0; j < nums.size(); j++) {
+        sum += nums[j];
         if (sum < 0)
-            return i;
+            return j;
     }
     return -1;
-
 }
 
 int main() {
@@ -20,6 +20,6 @@ int main() {
     if (result != -1) {
         cout << "Basement found at index " << result << std::endl;
     } else {
-        std::cout << "No negative sum found." << std::endl;
+        cout << "No negative sum found." << std::endl;
     }
     return 0;
