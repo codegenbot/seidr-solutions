@@ -11,7 +11,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](auto a, auto b) mutable {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
         return __builtin_popcount(a) == __builtin_popcount(b) ? a < b : __builtin_popcount(a) < __builtin_popcount(b);
     });
     return arr;
