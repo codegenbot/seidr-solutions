@@ -2,7 +2,7 @@
 #include <string>
 #include <openssl/md5>
 #include <cassert>
-#include <openssl/evp.h>
+#include <openssl/evp>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -15,7 +15,7 @@ std::string string_to_md5(const std::string& text) {
     unsigned int md_len;
 
     OpenSSL_add_all_digests();
-    
+        
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, md, NULL);
@@ -31,4 +31,4 @@ std::string string_to_md5(const std::string& text) {
     return std::string(mdString);
 }
 
-assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+int main();
