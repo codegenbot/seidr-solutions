@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> issame(std::vector<std::string> lst1, std::vector<std::string> lst2){
+std::vector<std::string> issame(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
