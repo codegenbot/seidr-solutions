@@ -1,3 +1,3 @@
 double truncate_number(double number) {
-    return floor(number);
+    return number - floor(number);
 }
