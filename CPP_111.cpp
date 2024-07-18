@@ -24,13 +24,9 @@ bool issame(map<char, int> a, map<char, int> b) {
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-
-    // Additional test cases as required by contest problem
-    assert(issame(histogram("ab"), {{'a', 1}, {'b', 1}}));
     assert(issame(histogram("hello"), {{'h', 1}, {'e', 1}, {'l', 2}, {'o', 1}}));
-    
-    cout << "All test cases passed successfully." << endl;
-
+    assert(issame(histogram("programming"), {{'p', 1}, {'r', 2}, {'o', 1}, {'g', 2}, {'a', 1}, {'m', 2}, {'i', 2}, {'n', 1}}));
+    assert(issame(histogram("cppcontest"), {{'c', 2}, {'p', 1}, {'t', 2}, {'o', 1}, {'n', 1}, {'e', 1}, {'s', 1}}));
     return 0;
 }
 
