@@ -20,7 +20,7 @@ std::vector<int> f(int n){
             result.push_back(factorial * 2);
         } else {
             sum += i;
-            result.push_back(sum * 2);
+            result.push_back(sum);
         }
     }
 
