@@ -1,18 +1,27 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <cassert>
-#include <string>
-#include <vector>
 
-std::pair<std::string, std::string> solve(const std::string& s, const std::string& c) {
-    std::string temp = s;
-    
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = s;
     for (char ch : c) {
-        temp.erase(std::remove(temp.begin(), temp.end(), ch), temp.end());
+        result.erase(std::remove(result.begin(), result.end(), ch), result.end());
     }
 
-    std::string result = temp;
-    std::string reversed = temp;
+    std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
 
     return {result, (result == reversed) ? "True" : "False"};
+}
+
+int main() {
+    std::pair<std::string, std::string> test_result = reverse_delete("mamma", "mia");
+    assert(issame(test_result, {"", "True"}));
+
+    return 0;
 }
