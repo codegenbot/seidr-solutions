@@ -1,37 +1,38 @@
 #include <iostream>
-#include <sstream>
 #include <map>
-#include <algorithm>
 #include <cassert>
 
-bool issame(map<char, int> a, map<char, int> b) {
-    // Implementation of the function
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    return a == b;
 }
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    istringstream iss(test);
-    string word;
-    while(iss >> word) {
-        for (char c : word) {
-            result[c]++;
-        }
-    }
-    int maxCount = 0;
-    for (auto it : result) {
-        maxCount = max(maxCount, it.second);
-    }
-    map<char, int> res;
-    for (auto it : result) {
-        if (it.second == maxCount) {
-            res[it.first] = it.second;
-        }
-    }
-    return res;
-}
+std::map<char, int> histogram(std::string test);
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    // Add more test cases here
     return 0;
+}
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::map<char, int> count;
+
+    for (char c : test) {
+        if (c != ' ') {
+            count[c]++;
+        }
+    }
+
+    int maxCount = 0;
+    for (const auto &pair : count) {
+        maxCount = std::max(maxCount, pair.second);
+    }
+
+    for (const auto &pair : count) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
+        }
+    }
+
+    return result;
 }
