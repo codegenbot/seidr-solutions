@@ -1,17 +1,22 @@
+#include <iostream>
 #include <string>
 
-string decimal_to_binary(int decimal);
-
-string decimal_to_binary(int decimal){
-    string binary = "db";
-    while(decimal > 0){
-        binary = to_string(decimal % 2) + binary;
-        decimal /= 2;
-    }
-    return binary + "db";
-}
+std::string decimal_to_binary(int decimal);
 
 int main() {
-    // Your main function code here
+    int decimal;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::string binary = decimal_to_binary(decimal);
+    std::cout << "Binary representation: " << binary << std::endl;
     return 0;
+}
+
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
+    while(decimal > 0){
+        binary = std::to_string(decimal % 2) + binary;
+        decimal /= 2;
+    }
+    return binary.empty() ? "0" : binary;
 }
