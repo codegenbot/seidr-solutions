@@ -9,7 +9,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 2, 3, 3, 4, 5};
-    vector<int> uniqueNumbers = remove_duplicates(numbers);
+    vector<int> numbers = {1, 2, 2, 3, 4, 4, 5};
+    vector<int> unique_numbers = remove_duplicates(numbers);
+    for (int num : unique_numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
