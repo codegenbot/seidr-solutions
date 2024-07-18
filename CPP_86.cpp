@@ -1,13 +1,17 @@
-string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.size(); ++i) {
-        if (s[i] == ' ' || i == s.size()) {
-            string word = s.substr(start, i - start);
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    for(int i = 0; i < s.length(); ++i){
+        if(s[i] == ' '){
             sort(word.begin(), word.end());
-            result += word + ' ';
-            start = i + 1;
+            result += word + " ";
+            word = "";
+        }
+        else{
+            word += s[i];
         }
     }
-    result.pop_back();
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
