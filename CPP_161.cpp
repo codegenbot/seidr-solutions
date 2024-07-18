@@ -1,6 +1,6 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 #include <cctype>
 
 using namespace std;
@@ -25,9 +25,10 @@ int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
-
+    
     string result = solve(input);
-    cout << "Result: " << result << endl;
-
+    
+    cout << "Output: " << result << endl;
+    
     return 0;
 }
