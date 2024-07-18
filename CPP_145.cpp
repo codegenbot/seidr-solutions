@@ -1,14 +1,14 @@
 bool issame(vector<int> a, vector<int> b) {
     int sumA = 0, sumB = 0;
-    for (int num : a) {
-        int tempA = abs(num);
+    for (int i : a) {
+        int tempA = abs(i);
         while (tempA > 0) {
             sumA += tempA % 10;
             tempA /= 10;
         }
     }
-    for (int num : b) {
-        int tempB = abs(num);
+    for (int i : b) {
+        int tempB = abs(i);
         while (tempB > 0) {
             sumB += tempB % 10;
             tempB /= 10;
@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
     return sumA == sumB;
 }
 
-void order_by_points(vector<int>& nums) {
+void order_by_points(vector<int> &nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         int tempA = abs(a), tempB = abs(b);
@@ -34,11 +34,4 @@ void order_by_points(vector<int>& nums) {
         }
         return sumA < sumB;
     });
-}
-
-// Main function with assert removed as requested
-int main() {
-    vector<int> nums = {123, 456, 789};
-    order_by_points(nums);
-    return 0;
 }
