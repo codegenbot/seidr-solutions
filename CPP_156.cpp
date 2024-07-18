@@ -1,5 +1,6 @@
-#include <cassert>
+#include <string>
 #include <vector>
+#include <cassert>
 
 std::string int_to_mini_romank(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
