@@ -1,4 +1,8 @@
-int how_many_times(string str, string substring) {
+#include <string>
+#include <cassert>
+using namespace std;
+
+int how_many_times(std::string str, std::string substring) {
     if (substring.empty()) {
         return 0;
     }
