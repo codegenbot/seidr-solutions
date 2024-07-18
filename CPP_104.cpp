@@ -1,28 +1,26 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <unordered_set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::is_permutation(a.begin(), a.end(), b.begin());
-}
+std::vector<int> unique_digits(const std::vector<int>& a) {
+    std::unordered_set<int> uniqueSet;
 
-bool unique_digits(const std::vector<int>& nums) {
-    for (int num : nums) {
-        std::vector<int> digits;
+    for (int num : a) {
         while (num > 0) {
-            int digit = num % 10;
-            if (std::find(digits.begin(), digits.end(), digit) != digits.end()) {
-                return false;
-            }
-            digits.push_back(digit);
+            uniqueSet.insert(num % 10);
             num /= 10;
         }
     }
-    return true;
+
+    return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return unique_digits(a) == unique_digits(b);
 }
 
 int main() {
-    assert(issame({135, 103, 31}, {31, 135}));
-    assert(unique_digits({135, 103, 31}));
+    assert(issame(std::vector<int>{135, 103, 31}, std::vector<int>{31, 135}));
     return 0;
 }
