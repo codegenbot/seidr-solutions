@@ -34,9 +34,10 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Test cases
-    cout << intersection({1, 5}, {3, 7}) << endl; // Should output YES
-    cout << intersection({1, 5}, {6, 10}) << endl; // Should output NO
+    vector<int> interval1 = {3, 7};
+    vector<int> interval2 = {5, 9};
+
+    cout << intersection(interval1, interval2) << endl;
 
     return 0;
 }
