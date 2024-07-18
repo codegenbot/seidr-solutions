@@ -1,2 +1,2 @@
 def cycpattern_check(a, b):
-    return b in a
+    return b in a * 2
