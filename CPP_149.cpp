@@ -1,24 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
-    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> res = lst;
+    
+    sort(res.begin(), res.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return lst;
+
+    return res;
 }
 
 int main() {
-    // Input reading and processing
+    // Code for reading input and calling sorted_list_sum function
     return 0;
 }
