@@ -16,6 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 group += char
             if level == 0:
                 result.append(group)
+                group = ""
         else:
             group += char
 
