@@ -1,15 +1,8 @@
-#include <iostream>
 #include <string>
 
 std::string decimal_to_binary(int decimal);
 
-int main() {
-    int num;
-    std::cout << "Enter a decimal number: ";
-    std::cin >> num;
-    std::cout << "Binary equivalent: " << decimal_to_binary(num) << std::endl;
-    return 0;
-}
+#include <iostream>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "db";
@@ -18,4 +11,12 @@ std::string decimal_to_binary(int decimal){
         decimal /= 2;
     }
     return binary + "db";
+}
+
+int main() {
+    int decimal;
+    std::cin >> decimal;
+    std::string result = decimal_to_binary(decimal);
+    std::cout << result << std::endl;
+    return 0;
 }
