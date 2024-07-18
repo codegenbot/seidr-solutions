@@ -1,4 +1,9 @@
-int digitCount = 0;
+#include <string>
+#include <cctype>
+#include <cassert>
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
     for (char c : file_name) {
         if (isdigit(c)) {
             digitCount++;
