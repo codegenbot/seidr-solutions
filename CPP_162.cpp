@@ -8,7 +8,7 @@ std::string string_to_md5(const std::string& input) {
     EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     EVP_DigestUpdate(ctx, input.c_str(), input.length());
 
-    const int MD5_DIGEST_LENGTH = EVP_MD_size(EVP_md5()); // Define MD5_DIGEST_LENGTH using EVP_MD_size
+    const int MD5_DIGEST_LENGTH = 16; // Define MD5_DIGEST_LENGTH
     unsigned char md[MD5_DIGEST_LENGTH];
     unsigned int mdLen;
     EVP_DigestFinal_ex(ctx, md, &mdLen);
