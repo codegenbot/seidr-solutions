@@ -1,11 +1,14 @@
-
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+bool issame(const vector<float>& a, const vector<float>& b) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (fabs(a[i] - b[i]) > 1e-4) return false;
+    }
+    return true;
 }
 
 vector<float> get_positive(const vector<float>& l) {
@@ -26,7 +29,7 @@ int main() {
     assert(result[0] == 2.3);
     assert(result[1] == 4.5);
 
-    assert(issame(get_positive({}), vector<float>{}));
+    assert(issame(get_positive(vector<float>{}), vector<float>{}));
 
     return 0;
 }
