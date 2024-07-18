@@ -22,13 +22,10 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input1 = {10, -5, 8, -15, 7, -3};
-    vector<int> output1 = largest_smallest_integers(input1);
-    assert(issame(output1, {10, -3}));
-
-    vector<int> input2 = {-1, -2, -3, -4};
-    vector<int> output2 = largest_smallest_integers(input2);
-    assert(issame(output2, {-1, -1}));
+    vector<int> input = {3, -5, 2, -8, 9, -4};
+    vector<int> expected_output = {-4, 2};
+    
+    assert(issame(largest_smallest_integers(input), expected_output));
     
     return 0;
 }
