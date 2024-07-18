@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 int count_upper(const std::string &s);
 
