@@ -1,9 +1,9 @@
+#include <iostream>
 #include <cstring>
-#include <string>
 
-int main() {
-    std::string str = "asdasnakj";
-    assert(strlen(str.c_str()) == 9);
-    
+int main(){
+    std::string str;
+    std::cin >> str;
+    std::cout << str.length();
     return 0;
 }
