@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> solveProblem(int n) {
+vector<int> findOddNumbers(vector<int> a, vector<int> b) {
+    int n;
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
