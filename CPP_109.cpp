@@ -22,5 +22,6 @@ void solve_problem() {
     assert(move_one_ball({2, 2, 2, 2}) == true);
 }
 
-solve_problem();
-return 0;
+void main() {
+    solve_problem();
+}
