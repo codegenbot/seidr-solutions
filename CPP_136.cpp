@@ -1,4 +1,4 @@
-vector<int> largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = 0, smallest_positive = 0;
     
     for (int num : lst) {
