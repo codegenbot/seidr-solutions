@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(int a, int b){
-    return a < b;
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
