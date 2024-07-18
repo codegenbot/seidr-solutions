@@ -11,3 +11,5 @@ sort(uniqueVec.begin(), uniqueVec.end());
 uniqueVec.erase(std::unique(uniqueVec.begin(), uniqueVec.end()), uniqueVec.end());
 
 assert(issame(uniqueVec, {0, 2, 3, 5, 9, 123}));
+
+return uniqueVec;
