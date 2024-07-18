@@ -1,5 +1,4 @@
-#include <cassert>
-#include <iostream>
+#include <cassert> 
 
 int fib(int n) {
     if (n <= 1)
@@ -7,15 +6,13 @@ int fib(int n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-int main_contest() {
-    assert(fib(12) == 144);
-    return 0;
+namespace Solution {
+    int main() {
+        assert(fib(12) == 144);
+        return 0;
+    }
 }
 
 int main() {
-    int n;
-    std::cout << "Enter n: ";
-    std::cin >> n;
-    std::cout << "Fibonacci of " << n << " is: " << fib(n) << std::endl;
-    return 0;
+    return Solution::main();
 }
