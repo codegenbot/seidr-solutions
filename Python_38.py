@@ -3,6 +3,9 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-s = input("Enter the string: ")
-result = decode_cyclic(s)
-print(result)
+try:
+    s = input("Enter the string: ")
+    result = decode_cyclic(s)
+    print(result)
+except Exception as e:
+    print("Error occurred:", e)
