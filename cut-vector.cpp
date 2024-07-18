@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-
 int main() {
     int n;
     std::cin >> n;
@@ -10,19 +6,20 @@ int main() {
         std::cin >> nums[i];
     }
     
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
+    }
+    
+    int sumLeft = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 1; i < n; ++i) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; ++j) {
-            sumLeft += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            sumRight += nums[j];
-        }
-        
+    for (int i = 0; i < n; ++i) {
+        sumLeft += nums[i];
+        int sumRight = totalSum - sumLeft;
         int diff = abs(sumLeft - sumRight);
+        
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -30,12 +27,12 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
-        std::cout << nums[i] << " ";
+        std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < nums.size(); ++i) {
-        std::cout << nums[i] << " ";
+    for (int i = cutIndex + 1; i < n; ++i) {
+        std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
