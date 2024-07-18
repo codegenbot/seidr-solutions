@@ -20,7 +20,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if level == 0:
                 result.append(group)
                 group = ""
-                
+        else:
+            group += char
     if level == 0:
         result.append(group)
         
