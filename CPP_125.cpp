@@ -3,16 +3,16 @@
 #include <cctype>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt) {
+std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -20,13 +20,13 @@ std::vector<std::string> split_words(std::string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.empty()) {
+    if(result.empty()){
         int oddCount = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt){
+            if(std::islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
@@ -36,7 +36,10 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), { "0" }));
-    // Add more test cases here
+    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words("Hello, world!"), {"Hello", "world!"}));
+    assert(issame(split_words("This is a sentence"), {"This", "is", "a", "sentence"}));
+    assert(issame(split_words("12345"), {"12345"}));
+    assert(issame(split_words("Lowercaseletters"), {"Lowercaseletters", "2"})); // Contains 2 odd lowercase letters
     return 0;
 }
