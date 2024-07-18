@@ -1,10 +1,16 @@
 #include <vector>
-bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
-    return v1 == v2;
+bool issame(int num){
+    vector<int> res = tri(num);
+    for(int i=0; i<res.size(); ++i){
+        if(res[i] != 1 && res[i] != 2 && res[i] != 3){
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> tri(int n) {
-    std::vector<int> result;
+vector<int> tri(int n){
+    vector<int> result;
     if (n >= 0) {
         result.push_back(3);
         if (n > 0) {
