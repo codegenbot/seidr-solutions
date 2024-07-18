@@ -1,8 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> get_odd_collatz(int n) {
+bool issame(vector<int> a, vector<int> b) {
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
