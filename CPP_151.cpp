@@ -14,7 +14,7 @@ long long double_the_difference(std::vector<float> lst){
 
 int main(){
     std::vector<float> lst = {3.0, 2.0, 4.0, 5.0};
-    long long odd_sum = 41;
+    long long odd_sum = 34; // 3^2 + 5^2 = 9 + 25 = 34
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
