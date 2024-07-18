@@ -1,14 +1,14 @@
 #include <vector>
-#include <utility>
 
-std::pair<int, int> issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a == b) {
-        return {1, 0};
-    } else {
-        return {0, 1};
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    assert (issame({4, 5}, {4, 5}) == std::make_pair(1, 0));
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+
+    bool result = issame(vec1, vec2);
+
+    return 0;
 }
