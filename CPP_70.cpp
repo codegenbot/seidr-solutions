@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
