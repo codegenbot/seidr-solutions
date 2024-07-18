@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> issame(int num) {
+bool issame(int num) {
     vector<int> result(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
