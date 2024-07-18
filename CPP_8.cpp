@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <vector> 
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
