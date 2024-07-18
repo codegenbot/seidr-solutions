@@ -8,8 +8,3 @@ vector<int> incr_list(vector<int> l) {
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
-
-int main() {
-    // Add main function body if needed
-    return 0;
-}
