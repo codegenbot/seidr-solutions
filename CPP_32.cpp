@@ -15,9 +15,9 @@ double find_zero(const vector<double>& xs) {
 }
 
 int main() {
-    vector<double> coeffs = {1, -2, 1};
+    vector<double> coeffs = {1, -2, 1};  // Example coefficients of a quadratic equation
     double solution;
-    vector<double> xs = {1, -2};
+    vector<double> xs = {1, -2};  // Coefficients of equation derived from original equation
     solution = find_zero(xs);
     assert(abs(poly(coeffs, solution) < 1e-3));
     return 0;
