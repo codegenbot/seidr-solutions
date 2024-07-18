@@ -1,8 +1,11 @@
-int len = text.length();
-    for (int i = 0; i < len / 2; i++) {
-        if (text[i] != text[len - i - 1]) {
+int i = 0;
+    int j = text.length() - 1;
+    while (i < j) {
+        if (text[i] != text[j]) {
             return false;
         }
+        i++;
+        j--;
     }
     return true;
 }
