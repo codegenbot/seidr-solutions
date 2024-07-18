@@ -18,11 +18,10 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> input = {1, 3, 5, 2, 6, 4};
-    vector<int> expected = {5, 5, 6, 6, 6, 4};
+    vector<int> numbers = {1, 3, 5, 2, 7, 6, 4};
+    vector<int> expected = {5, 7, 7, 7, 7, 6, 4};
     
-    vector<int> result = rolling_max(input);
-    
+    vector<int> result = rolling_max(numbers);
     bool same = issame(result, expected);
     
     return 0;
