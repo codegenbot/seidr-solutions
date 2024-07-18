@@ -1,16 +1,16 @@
 #include <vector>
 #include <cassert>
 
-double findRoot(const std::vector<double>& xs) {
-    auto coeffs = [](double x) { 
-        return x * x - 5; 
-    };
+std::vector<double> coeffs(std::vector<double> xs){
+    double a = xs[0];
+    double b = xs[1];
+    return {-b, a};
+}
 
-    auto poly = [](double x) { 
-        return x * x * x - 3 * x + 2; 
-    };
-
-    double a = coeffs(xs[0]);
-    double b = coeffs(xs[1]);
-    return -b / a;
+double calculate_zero(std::vector<double> xs){
+    assert(xs.size() == 2);
+    std::vector<double> coefficients = coeffs(xs);
+    double a = coefficients[0];
+    double b = coefficients[1];
+    return -b/a;
 }
