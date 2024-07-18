@@ -1,33 +1,21 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> compare_vector_strings(const vector<string>& lst1, const vector<string>& lst2) {
-    int total_chars1 = 0;
-    int total_chars2 = 0;
-    
-    for (const string& str : lst1) {
-        total_chars1 += str.size();
+using namespace std;
+
+int totalChars(const vector<string>& lst) {
+    int total = 0;
+    for (const string& str : lst) {
+        total += str.size();
     }
-    
-    for (const string& str : lst2) {
-        total_chars2 += str.size();
-    }
-    
-    if (total_chars1 < total_chars2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
+    return total;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+    if (totalChars(lst1) < totalChars(lst2)) {
+        return lst1;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return totalChars(lst1) == totalChars(lst2) ? lst1 : lst2;
 }
