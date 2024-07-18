@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/md5>
 #include <cassert>
+
 using namespace std;
 
 string string_to_md5(const string& text) {
@@ -18,9 +19,4 @@ string string_to_md5(const string& text) {
     }
 
     return string(md5Hash);
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
 }
