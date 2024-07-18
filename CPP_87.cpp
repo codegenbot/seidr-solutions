@@ -1,10 +1,10 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     if(a[0] == b[0]){
-        return a[1] == b[1];
+        return a[1] > b[1];
     }
-    return false;
+    return a[0] < b[0];
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
@@ -16,11 +16,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
-        if(a[0] == b[0]){
-            return a[1] > b[1];
-        }
-        return a[0] < b[0];
-    });
+    sort(result.begin(), result.end(), issame);
     return result;
 }
