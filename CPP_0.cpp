@@ -1,9 +1,9 @@
 #include <vector>
 
-int has_close_elements(const std::vector<float>& numbers, float threshold) {
+int has_close_elements(const vector<float>& numbers, float threshold) {
     for (size_t i = 0; i < numbers.size(); ++i) {
         for (size_t j = i + 1; j < numbers.size(); ++j) {
-            if (std::fabs(numbers[i] - numbers[j]) < threshold) {
+            if (fabs(numbers[i] - numbers[j]) < threshold) {
                 return true;
             }
         }
