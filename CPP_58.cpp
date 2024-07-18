@@ -1,12 +1,18 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Your comparison logic here
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
-    // Your existing code here
-
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    vector<int> common({4, 3, 2, 8});
+    vector<int> empty;
+    
+    assert(issame(common, empty));
+    
     return 0;
 }
