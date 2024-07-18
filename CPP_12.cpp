@@ -4,9 +4,9 @@ string longest(vector<string> strings){
     }
     
     string longestStr = strings[0];
-    for(int i = 1; i < strings.size(); ++i){
-        if(strings[i].length() > longestStr.length() || (strings[i].length() == longestStr.length() && strings[i] < longestStr)){
-            longestStr = strings[i];
+    for(const string& str : strings){
+        if(str.size() > longestStr.size() || (str.size() == longestStr.size() && str < longestStr)){
+            longestStr = str;
         }
     }
     
