@@ -1,3 +1,4 @@
+#define _OPENSSL_API_COMPAT 0x10100000L
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
@@ -11,11 +12,7 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit(mdctx, EVP_md5());
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char md5Hash[MD5_DIGEST_LENGTH*2+1];
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
@@ -25,7 +22,7 @@ string string_to_md5(const string& text) {
     return string(md5Hash);
 }
 
-int contest_main() {
+int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
