@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <string>
-
 string anti_shuffle(string s) {
     string result = "";
     string word = "";
