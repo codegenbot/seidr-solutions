@@ -3,10 +3,7 @@ def find_zero(xs: list):
     return x
 
 
-input_str = input()
-input_list = list(map(int, input_str.split()))
-if len(input_list) != 2:
-    raise ValueError("Input should contain exactly two integers separated by a space")
-
-result = find_zero(input_list)
-print(result)
+input_list = list(map(int, input().split()))
+if len(input_list) == 2:
+    result = find_zero(input_list)
+    print(result)
