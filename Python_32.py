@@ -1,9 +1,10 @@
-def find_zero():
-    xs = list(map(float, input().split()))
-    n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
+def find_zero(xs: list):
+    n = len(xs)
+    a = xs[n - 1]
+    b = xs[n - 2]
     return -b / a
 
-result = find_zero()
+# Take input from the user and call the find_zero function
+input_list = list(map(int, input().split()))
+result = find_zero(input_list)
 print(result)
