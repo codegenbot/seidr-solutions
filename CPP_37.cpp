@@ -1,10 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(float a, float b) {
-    return abs(a - b) < 1e-9;
+    // Define the issame function correctly
+    return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_values;
-    vector<float> sorted_even_values;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> even_values;
+    std::vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_values.push_back(l[i]);
@@ -20,4 +25,13 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return l;
+}
+
+int main() {
+    std::vector<float> input = {5.5, 2.2, 3.3, 4.4, 1.1};
+    std::vector<float> result = sort_even(input);
+    for (float num : result) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
