@@ -7,12 +7,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for char in paren_string:
         if char == "(":
             current_depth += 1
-        elif char == ")":
             depths.append(current_depth)
+        elif char == ")" and current_depth > 0:
             current_depth -= 1
+            if current_depth <= 0:
+                current_depth = 0
     return depths
-
-
-# Add the following line to print the input
-paren_string = input("Enter the nested parentheses string: ")
-print(parse_nested_parens(paren_string))
