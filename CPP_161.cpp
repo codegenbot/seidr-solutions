@@ -1,8 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-
-std::string solve(const std::string& s);
+#include <cassert> // Include <cassert> header
 
 std::string solve(const std::string& s) {
     for (char &c : s) {
@@ -17,6 +16,6 @@ std::string solve(const std::string& s) {
 }
 
 int main() {
-    std::cout << solve("#ccc") << std::endl;
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
