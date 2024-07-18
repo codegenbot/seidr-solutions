@@ -2,11 +2,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<int> parse_music(string music_string);
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,17 +18,15 @@ vector<int> parse_music(string music_string){
     vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
-            beats.push_back(4);
-            i++;
-        }
         if (music_string[i] == 'o' && music_string[i + 1] == '|') {
             beats.push_back(2);
             i += 2;
-        }
-        if (music_string[i] == '.' && music_string[i + 1] == '|') {
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
+        } else {
+            beats.push_back(4);
+            i++;
         }
     }
     return beats;
