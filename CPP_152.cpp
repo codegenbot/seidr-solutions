@@ -12,8 +12,3 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
                    [](int a, int b) { return std::abs(a - b); });
     return result;
 }
-
-int main(int argc, char *argv[]) {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
-    return 0;
-}
