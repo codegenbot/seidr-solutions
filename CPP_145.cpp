@@ -1,6 +1,6 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <cstdlib>
+#include <algorithm>
 
 bool issame(int a, int b) {
     int sum_a = 0, sum_b = 0;
@@ -17,7 +17,7 @@ bool issame(int a, int b) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int a_temp = abs(a), b_temp = abs(b);
         while (a_temp > 0) {
