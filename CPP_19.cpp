@@ -1,18 +1,34 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-multimap<int, string> sorted_nums;
-string result = "";
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-for (size_t i = 0, j = 0; i <= numbers.length(); ++i) {
-    if (i == numbers.length() || numbers[i] == ' ') {
-        string num_str = numbers.substr(j, i - j);
-        sorted_nums.insert({num_map[num_str], num_str});
-        j = i + 1;
+string sort_numbers(string numbers){
+    string result = "";
+    map<int, string> sorted_numbers;
+    
+    string temp = "";
+    for (char c : numbers) {
+        if (c != ' ') {
+            temp += c;
+        } else {
+            sorted_numbers[num_map[temp]] = temp;
+            temp = "";
+        }
     }
-}
+    sorted_numbers[num_map[temp]] = temp;
 
-for (const auto &num : sorted_nums) {
-    result += num.second + " ";
-}
-
-return result.substr(0, result.size() - 1);
+    for (auto const& pair : sorted_numbers) {
+        result += pair.second + " ";
+    }
+    
+    return result;
 }
