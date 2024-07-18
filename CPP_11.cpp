@@ -1,4 +1,3 @@
-
 string string_xor(const string& a, const string& b) {
     string result;
     for(int i=0; i < a.size(); i++){
