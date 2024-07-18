@@ -1,4 +1,4 @@
-#include <cassert> 
+#include <cassert>
 
 int fib(int n) {
     if (n <= 1)
