@@ -4,24 +4,11 @@
 
 namespace solution_name {
     int odd_count(const std::vector<std::string>& strings) {
-        int count = 0;
-        for (const std::string& str : strings) {
-            for (char c : str) {
-                if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
-                    count++;
-                }
-            }
-        }
-        return count;
+        // Implement odd_count logic here
     }
 
     bool issame(int result, const std::vector<std::string>& expected_output) {
-        for (int i = 0; i < result; ++i) {
-            if (expected_output[i].find(std::to_string(result)) == std::string::npos) {
-                return false;
-            }
-        }
-        return true;
+        // Implement issame logic here
     }
 }
 
