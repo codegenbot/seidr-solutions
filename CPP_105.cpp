@@ -7,9 +7,7 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
