@@ -1,5 +1,7 @@
-bool increasing = true;
-    bool decreasing = true;
+#include <vector>
+
+bool monotonic(std::vector<float> l) {
+    bool increasing = true, decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
         if (l[i] < l[i - 1]) {
             increasing = false;
@@ -10,3 +12,5 @@ bool increasing = true;
     }
     return increasing || decreasing;
 }
+
+// assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
