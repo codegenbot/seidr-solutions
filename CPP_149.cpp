@@ -20,7 +20,7 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     return a;
 }
 
-void solve_problem() {
+int main() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
     
     for (const auto& str : result) {
@@ -28,10 +28,6 @@ void solve_problem() {
     }
 
     assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
-}
-
-int main() {
-    solve_problem();
 
     return 0;
 }
