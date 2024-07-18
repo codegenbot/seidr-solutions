@@ -8,7 +8,7 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
         total_fill += well_fill;
     }
     
-    int buckets_needed = (total_fill + capacity - 1) / capacity;
+    int buckets_needed = (total_fill + capacity - 1) / capacity; 
     
     return buckets_needed;
 }
