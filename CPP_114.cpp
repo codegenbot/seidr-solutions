@@ -13,7 +13,9 @@ long long minSubArraySum(std::vector<long long>& nums){
 }
 
 int main() {
-    std::vector<long long> input = {3, -5, 2, 1, -4, 6, -5, 1};
-    long long result = minSubArraySum(input);
+    std::vector<long long> nums = {3, -4, 2, -3, -1, 7, -5}; // Example input vector
+    long long result = minSubArraySum(nums);
+    
+    // Output the result here
     return 0;
 }
