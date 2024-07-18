@@ -1,22 +1,28 @@
-string fix_spaces(string text){
-    string result = "";
+string result = "";
+    bool prev_space = false;
     int consecutive_spaces = 0;
-    
     for(char c : text){
         if(c == ' '){
-            consecutive_spaces++;
-            if(consecutive_spaces > 2){
-                result.pop_back();
-                result.pop_back();
-                result += '-';
+            if(prev_space){
+                consecutive_spaces++;
             } else {
-                result += '_';
+                prev_space = true;
+                consecutive_spaces = 1;
             }
         } else {
-            result += c;
+            if(consecutive_spaces > 2){
+                result += '-';
+            } else {
+                result += (prev_space) ? '_' : c;
+            }
+            prev_space = false;
             consecutive_spaces = 0;
         }
     }
-    
+    if(consecutive_spaces > 2){
+        result += '-';
+    } else {
+        result += (prev_space) ? '_' : text[text.size() - 1];
+    }
     return result;
 }
