@@ -1,17 +1,16 @@
 #include <cassert>
 #include <vector>
+#include <algorithm>
 
-vector<int> incr_list(vector<int> l);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
 vector<int> incr_list(vector<int> l) {
-    for (int &num : l) {
+    for (int& num : l) {
         num++;
     }
     return l;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
