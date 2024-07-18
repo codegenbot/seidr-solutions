@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool are_vectors_equal(vector<string> a, vector<string> b){
+bool are_same(vector<string> a, vector<string> b){
     return a == b;
 }
 
@@ -37,7 +37,11 @@ vector<string> split_words(string txt){
     return result;
 }
 
+bool are_same(vector<string> a, vector<string> b);
+
+bool are_same(vector<string> a, vector<string> b);
+
 int main(){
-    assert(are_vectors_equal(split_words(""), {"0"}));
+    assert(are_same(split_words(""), {"0"}));
     return 0;
 }
