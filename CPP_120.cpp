@@ -9,10 +9,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 std::vector<int> maximum(const std::vector<int>& arr, int k){
-    std::vector<int> temp_arr = arr;
-    std::sort(temp_arr.begin(), temp_arr.end(), std::greater<int>());
-    temp_arr.resize(k);
-    return temp_arr;
+    std::vector<int> sortedArr = arr;
+    std::sort(sortedArr.begin(), sortedArr.end(), std::greater<int>());
+    sortedArr.resize(k);
+    return sortedArr;
 }
 
 int main(){
