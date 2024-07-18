@@ -1,15 +1,32 @@
-int sum = 0;
-for (string s : lst) {
-    for (char c : s) {
-        if (c == '(') {
-            sum++;
-        } else {
-            if (sum == 0) {
-                return "No";
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+string match_parens(vector<string> lst){
+    string result = "No";
+    int count = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                count++;
+            } else {
+                if (count > 0) {
+                    count--;
+                } else {
+                    return "No";
+                }
             }
-            sum--;
         }
     }
+    if (count == 0) {
+        result = "Yes";
+    }
+    return result;
 }
 
-return (sum == 0) ? "Yes" : "No";
+int main() {
+    vector<string> input = {"()(", ")"};
+    cout << match_parens(input) << endl;
+    return 0;
+}
