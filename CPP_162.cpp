@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5>
-#include <assert.h>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -20,13 +19,7 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    std::string expected_hash = "5f4dcc3b5aa765d61d8327deb882cf99";
-    std::string input = "password";
-
-    std::string result = string_to_md5(input);
-
-    std::cout << "Result: " << result << std::endl;
-    assert(result == expected_hash);
-
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    
     return 0;
 }
