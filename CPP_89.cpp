@@ -1,14 +1,16 @@
-string result = s;
-    for (char &c : result) {
-        if (isalpha(c)) {
-            char base;
-            if (isupper(c)) {
-                base = 'A';
-            } else {
-                base = 'a';
-            }
-            c = ((c - base) * 2 + 2) % 26 + base;
+#include <iostream>
+#include <string>
+using namespace std;
+
+string encrypt(string s){
+    string encrypted = "";
+    for(char c : s){
+        if(isalpha(c)){
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += base + (c - base + 4) % 26;
+        } else {
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
