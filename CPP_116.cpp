@@ -4,14 +4,15 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr);
+vector<int> sort_array(const vector<int>& arr);
 
 bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
+vector<int> sort_array(const vector<int>& arr) {
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
         if (count_a == count_b) {
@@ -19,7 +20,7 @@ vector<int> sort_array(vector<int> arr) {
         }
         return count_a < count_b;
     });
-    return arr;
+    return sorted_arr;
 }
 
 int main() {
