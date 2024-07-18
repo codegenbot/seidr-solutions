@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -13,7 +12,7 @@ vector<string> odd_count(vector<string> lst){
                 count++;
             }
         }
-        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + " of the input.";
+        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + "\nOf the input.";
         result.push_back(res);
     }
     return result;
