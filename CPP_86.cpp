@@ -1,7 +1,6 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
-using namespace std;
+#include <algorithm>
 
 string anti_shuffle(string s) {
     string result = "";
