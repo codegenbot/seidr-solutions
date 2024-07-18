@@ -1,3 +1,4 @@
+
 #include <openssl/evp.h>
 #include <cassert>
 #include <string>
@@ -18,6 +19,6 @@ std::string string_to_md5(const std::string& input) {
     for (int i = 0; i < EVP_MD_size(EVP_md5()); i++) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)md[i]);
     }
-
+    
     return std::string(mdString);
 }
