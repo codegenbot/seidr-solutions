@@ -1,17 +1,17 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+vector = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-half_sum = total_sum // 2
-cum_sum = 0
-idx = 0
-
-for i, num in enumerate(arr):
-    cum_sum += num
-    if cum_sum >= half_sum:
-        if cum_sum == half_sum or cum_sum - half_sum < total_sum - cum_sum:
-            idx = i
+mid = n // 2
+if sum(vector[:mid]) == sum(vector[mid:]):
+    print(vector[:mid])
+    print(vector[mid:])
+else:
+    min_diff = abs(sum(vector[:mid]) - sum(vector[mid:]))
+    for i in range(1, mid):
+        diff = abs(sum(vector[: mid - i]) - sum(vector[mid - i :]))
+        if diff <= min_diff:
+            min_diff = diff
+        else:
             break
-
-print(*arr[: idx + 1])
-print(*arr[idx + 1 :])
+    print(vector[: mid - i + 1])
+    print(vector[mid - i + 1 :])
