@@ -2,16 +2,16 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    int even_count = 0, odd_count = 0;
-    while (n > 0) {
+    int evenCount = 0, oddCount = 0;
+    while (n != 0) {
         if (n % 2 == 0) {
-            even_count++;
+            evenCount++;
         } else {
-            odd_count++;
+            oddCount++;
         }
         n = n / 10;
     }
-    return {even_count, odd_count};
+    return {evenCount, oddCount};
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
