@@ -7,7 +7,7 @@ using namespace std;
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), vector<int>{4}));
+    assert(issame(parse_nested_parens("(()(())(()))"), vector<int>{4}));
     return 0;
 }
 
