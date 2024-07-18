@@ -1,23 +1,24 @@
-vector<string> groups;
-    int count = 0;
-    string currGroup = "";
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string cur_group;
+    int open_paren_count = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
-            count++;
-            if (count > 1) {
-                currGroup += c;
+            open_paren_count++;
+            if (open_paren_count > 1) {
+                cur_group += c;
             }
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                currGroup += c;
-            } else if (count == 0) {
-                groups.push_back(currGroup);
-                currGroup = "";
+            open_paren_count--;
+            if (open_paren_count > 0) {
+                cur_group += c;
+            } else {
+                result.push_back(cur_group);
+                cur_group = "";
             }
-        } else if (count > 0) {
-            currGroup += c;
         }
     }
-    return groups;
+
+    return result;
 }
