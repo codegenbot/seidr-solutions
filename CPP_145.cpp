@@ -1,15 +1,17 @@
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum1 = 0, sum2 = 0;
-    auto calc_digit_sum = [](int num) {
-        int sum = 0;
-        while (num) {
-            sum += abs(num % 10);
-            num /= 10;
+        int sum_a = 0, sum_b = 0;
+        int num_a = abs(a), num_b = abs(b);
+        while (num_a > 0) {
+            sum_a += num_a % 10;
+            num_a /= 10;
         }
-        return sum;
-    };
-    sum1 = calc_digit_sum(a);
-    sum2 = calc_digit_sum(b);
-    return sum1 == sum2 ? a < b : sum1 < sum2;
-});
-return nums;
+        while (num_b > 0) {
+            sum_b += num_b % 10;
+            num_b /= 10;
+        }
+        if (sum_a == sum_b) {
+            return a < b;
+        }
+        return sum_a < sum_b;
+    });
+    return nums;
