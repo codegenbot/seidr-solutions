@@ -1,4 +1,3 @@
-#include <string>
 #include <cassert>
 
 bool is_palindrome(const std::string& text) {
