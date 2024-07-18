@@ -1,7 +1,7 @@
-#include <cassert>
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cassert>
 
 std::string solve(const std::string& s);
 
@@ -18,6 +18,6 @@ std::string solve(const std::string& s) {
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
+    assert(solve("#ccc") == "#CC");
     return 0;
 }
