@@ -1,10 +1,9 @@
-
 #include <vector>
 #include <string>
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    return {n % 2 == 0, n % 2 == 1};
+    return {1, n % 2};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
