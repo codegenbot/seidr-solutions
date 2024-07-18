@@ -1,9 +1,17 @@
-float max_element(vector<float> l){
-    float max = l[0];
-    for(int i=1; i<l.size(); i++){
-        if(l[i] > max){
-            max = l[i];
-        }
+#include <vector>
+#include <algorithm>
+
+float max_element(const vector<float>& l){
+    return *std::max_element(l.begin(), l.end());
+}
+
+int main() {
+    std::vector<float> vec(5);
+    for (int i = 0; i < vec.size(); i++) {
+        std::cin >> vec[i];
     }
-    return max;
+    
+    std::cout << "Max element in the vector: " << max_element(vec) << std::endl;
+    
+    return 0;
 }
