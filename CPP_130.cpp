@@ -1,18 +1,18 @@
 #include <vector>
 
+vector<int> tri(int n);
+
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
-
-vector<int> tri(int n);
 
 vector<int> tri(int n){
     vector<int> result;
