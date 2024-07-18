@@ -4,9 +4,9 @@ int sum = 0;
     }
     
     if (sum <= w) {
-        vector<int> reversed_q = q;
-        reverse(reversed_q.begin(), reversed_q.end());
-        return q == reversed_q;
+        vector<int> rev_q = q;
+        reverse(rev_q.begin(), rev_q.end());
+        return q == rev_q;
     }
     
     return false;
