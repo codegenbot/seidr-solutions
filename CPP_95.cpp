@@ -17,7 +17,7 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 }
 
 int main() {
-    std::unordered_map<std::string, int> dict = {{"apple", 1}, {"banana", 2}, {"cherry", 3}};
+    std::unordered_map<std::string, int> dict = {{"apple", 1}, {"Banana", 2}, {"CHERRY", 3}};
     std::cout << std::boolalpha << check_dict_case(dict) << std::endl;
     return 0;
 }
