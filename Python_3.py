@@ -1,7 +1,6 @@
 def below_zero(operations):
     return len([num for num in operations if num < 0])
 
-
 try:
     operations = [int(x) for x in input("Enter space-separated integers: ").split()]
     if len(operations) == 0:
