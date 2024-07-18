@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool is_sorted(const std::vector<int>& lst) {
-    for (size_t i = 1; i < lst.size(); i++) {
+    for (int i = 1; i < lst.size(); i++) {
         if (lst[i] <= lst[i - 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
             return false;
         }
@@ -13,5 +13,6 @@ bool is_sorted(const std::vector<int>& lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
+    // Add more test cases if needed
     return 0;
 }
