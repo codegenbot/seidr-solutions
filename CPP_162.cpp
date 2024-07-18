@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/md5>
 #include <cassert>
-using namespace std;
 
 string string_to_md5(const string& text) {
     if (text.empty()) {
