@@ -1,17 +1,33 @@
-n = int(input())
-vector = [int(input()) for _ in range(n)]
+def cut_vector(arr):
+    prefix_sum = [0]
+    for num in arr:
+        prefix_sum.append(prefix_sum[-1] + num)
 
-mid = n // 2
-if sum(vector[:mid]) == sum(vector[mid:]):
-    print(vector[:mid])
-    print(vector[mid:])
-else:
-    min_diff = abs(sum(vector[:mid]) - sum(vector[mid:]))
-    for i in range(1, mid):
-        diff = abs(sum(vector[: mid - i]) - sum(vector[mid - i :]))
-        if diff <= min_diff:
-            min_diff = diff
-        else:
-            break
-    print(vector[: mid - i + 1])
-    print(vector[mid - i + 1 :])
+    total_sum = prefix_sum[-1]
+    min_diff = total_sum
+    cut_index = 0
+
+    for i in range(1, len(arr)):
+        left_sum = prefix_sum[i]
+        right_sum = total_sum - left_sum
+        current_diff = abs(left_sum - right_sum)
+
+        if current_diff < min_diff:
+            min_diff = current_diff
+            cut_index = i
+
+    return arr[:cut_index], arr[cut_index:]
+
+
+# Read input vector
+arr = list(map(int, input().split()))
+
+# Call the function and get the two subvectors
+left_subvector, right_subvector = cut_vector(arr)
+
+# Print the two subvectors
+for num in left_subvector:
+    print(num)
+
+for num in right_subvector:
+    print(num)
