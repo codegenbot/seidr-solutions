@@ -1,26 +1,13 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                if (result.back() != '-') {
-                    result += '-';
-                }
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ' && i + 2 < text.size() && text[i+1] == ' ' && text[i+2] == ' ') {
+            while (i < text.size() && text[i] == ' ') {
+                text[i] = '-';
+                ++i;
             }
-        } else {
-            if (count > 2) {
-                result += '-';
-            } else {
-                result += (count > 0) ? '_' : c;
-            }
-            count = 0;
+            --i;
+        } else if (text[i] == ' ') {
+            text[i] = '_';
         }
     }
-    if (count > 2) {
-        result += '-';
-    } else {
-        result += (count > 0) ? '_' : text.back();
-    }
-    return result;
+    return text;
 }
