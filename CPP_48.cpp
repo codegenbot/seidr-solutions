@@ -14,8 +14,8 @@ bool is_palindrome(const std::string& text) {
 }
 
 int main() {
-    std::cout << is_palindrome("madam") << std::endl; // Should return 1
-    std::cout << is_palindrome("hello") << std::endl; // Should return 0
+    std::cout << is_palindrome("radar") << std::endl;  // Output: 1
+    std::cout << is_palindrome("hello") << std::endl;  // Output: 0
 
     return 0;
 }
