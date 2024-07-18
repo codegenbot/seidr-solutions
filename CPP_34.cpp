@@ -1,4 +1,9 @@
 #include <algorithm>
-std::sort(l.begin(), l.end());
-l.erase(std::unique(l.begin(), l.end()), l.end());
-assert(std::equal(l.begin(), l.end(), expected.begin()));
+
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+sort(l.begin(), l.end());
+l.erase(unique(l.begin(), l.end()), l.end());
+return l;
