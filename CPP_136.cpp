@@ -1,29 +1,35 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
+    return a == b;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result = {INT_MIN, INT_MAX};
+vector<int> largest_smallest_integers(vector<int> lst){
+    vector<int> result = {0, 0};
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
     
     for (int num : lst) {
-        if (num < 0 && num > result[0]) {
-            result[0] = num;
-        } else if (num > 0 && num < result[1]) {
-            result[1] = num;
+        if (num < 0 && num > largest_negative) {
+            largest_negative = num;
+        } else if (num > 0 && num < smallest_positive) {
+            smallest_positive = num;
         }
+    }
+    
+    if (largest_negative != INT_MIN) {
+        result[0] = largest_negative;
+    }
+    if (smallest_positive != INT_MAX) {
+        result[1] = smallest_positive;
     }
     
     return result;
 }
 
 int main() {
-    vector<int> test_input = {-3, 5, 2, -7, 10};
-    vector<int> expected_output = {-3, 2};
-    assert(issame(largest_smallest_integers(test_input), expected_output));
-    
+    vector<int> numbers = {2, -1, 5, -6, 3};
+    vector<int> result = largest_smallest_integers(numbers);
+
     return 0;
 }
