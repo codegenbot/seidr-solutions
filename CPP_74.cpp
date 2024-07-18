@@ -1,15 +1,15 @@
-#include <string>
 #include <vector>
+#include <string>
 
-bool issame(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2){
+bool issame(const vector<string>& a, const vector<string>& b){
     int total_chars1 = 0;
     int total_chars2 = 0;
     
-    for(const std::string& s : lst1){
+    for(const string& s : a){
         total_chars1 += s.size();
     }
     
-    for(const std::string& s : lst2){
+    for(const string& s : b){
         total_chars2 += s.size();
     }
     
