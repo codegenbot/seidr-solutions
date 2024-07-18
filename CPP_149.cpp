@@ -32,6 +32,7 @@ void solve_problem() {
 
 int main() {
     solve_problem();
-
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
+    
     return 0;
 }
