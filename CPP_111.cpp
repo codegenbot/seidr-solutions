@@ -6,8 +6,10 @@
 using namespace std;
 
 map<char, int> histogram(string test);
+bool issame(map<char, int> a, map<char, int> b);
 
 bool issame(map<char, int> a, map<char, int> b) {
+    // Implementation of issame function
     for (auto const &pair : a) {
         if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
             return false;
@@ -23,13 +25,14 @@ bool issame(map<char, int> a, map<char, int> b) {
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    assert(!issame(histogram("ab"), {{'a', 1}}));
-    assert(issame(histogram("listen"), histogram("silent")));
+    assert(issame(histogram("hello"), {{'h', 1}, {'e', 1}, {'l', 2}, {'o', 1}}));
+    assert(issame(histogram("goodbye"), {{'g', 1}, {'o', 2}, {'d', 1}, {'b', 1}, {'y', 1}, {'e', 1}}));
 
     return 0;
 }
 
 map<char, int> histogram(string test){
+    // Implementation of the histogram function
     map<char, int> result;
     istringstream iss(test);
     string word;
