@@ -1,21 +1,34 @@
-// Define function sort_third
-vector<int> sort_third(vector<int> l) {
-    vector<int> res = l;
-    for (int i = 0; i < l.size(); i++) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> l_divisible_by_three;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            sort(res.begin() + i, res.begin() + i + 3);
+            l_divisible_by_three.push_back(l[i]);
         }
     }
-    return res;
+    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
+
+    std::vector<int> l_prime = l;
+    int j = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            l_prime[i] = l_divisible_by_three[j];
+            ++j;
+        }
+    }
+
+    return l_prime;
 }
 
-// Correct function signature for issame
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    // Ensure issame is declared before using it
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     
     return 0;
