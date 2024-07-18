@@ -1,14 +1,18 @@
-int total = 0;
-        for (int i = 0; i < grid.size(); i++) {
-            int current = 0;
-            for (int j = 0; j < grid[i].size(); j++) {
-                current += grid[i][j];
-                if (current >= capacity) {
-                    total += current / capacity;
-                    current %= capacity;
-                }
+int rows = grid.size();
+        int cols = grid[0].size();
+        int total_water = 0;
+        int total_buckets = 0;
+
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                total_water += grid[i][j];
             }
-            total += current > 0 ? 1 : 0;
         }
-        return total;
+
+        total_buckets = total_water / capacity;
+        if (total_water % capacity != 0) {
+            total_buckets++;
+        }
+
+        return total_buckets;
     }
