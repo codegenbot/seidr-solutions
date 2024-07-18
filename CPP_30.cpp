@@ -18,7 +18,6 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main(){
-    assert(issame(3.0, 3.0));
     assert(get_positive({}).size() == 0);
     return 0;
 }
