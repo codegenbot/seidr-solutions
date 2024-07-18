@@ -17,8 +17,3 @@ vector<int> generate_integers(int a, int b){
     }
     return result;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
