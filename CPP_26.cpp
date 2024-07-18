@@ -1,8 +1,12 @@
 vector<int> remove_duplicates(const vector<int>& numbers) {
-    vector<int> uniqueNumbers;
+    unordered_map<int, int> frequencyMap;
     for (int num : numbers) {
-        if (count(numbers.begin(), numbers.end(), num) == 1) {
-            uniqueNumbers.push_back(num);
+        frequencyMap[num]++;
+    }
+    vector<int> uniqueNumbers;
+    for (auto& entry : frequencyMap) {
+        if (entry.second == 1) {
+            uniqueNumbers.push_back(entry.first);
         }
     }
     return uniqueNumbers;
