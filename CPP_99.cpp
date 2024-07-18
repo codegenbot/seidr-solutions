@@ -15,12 +15,11 @@ int closest_integer(std::string value) {
 }
 
 int main() {
-    std::string input_value;
-    std::cout << "Enter a value: ";
-    std::cin >> input_value;
+    std::string input;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> input;
     
-    int result = closest_integer(input_value);
-    
+    int result = closest_integer(input);
     std::cout << "Closest integer: " << result << std::endl;
     
     return 0;
