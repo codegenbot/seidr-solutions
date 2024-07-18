@@ -1,5 +1,6 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     depths = []
     current_depth = 0
@@ -12,9 +13,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 current_depth -= 1
             else:
                 return []
-            if current_depth < 0:
+            if current_depth == -1:
                 return []
-    
+
     if current_depth != 0:
         return []
 
