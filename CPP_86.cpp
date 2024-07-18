@@ -1,15 +1,17 @@
-string result = "";
+string ordered = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            ordered += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        ordered += word;
+    }
+    return ordered;
 }
