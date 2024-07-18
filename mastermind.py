@@ -1,22 +1,7 @@
-import collections
+code = input()
+guess = input()
 
-code = input().strip()
-guess = input().strip()
+black_pegs = sum(c == g for c, g in zip(code, guess))
+white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(code))
 
-if len(code) != 4 or len(guess) != 4 or not all(c in 'ABCDEF' for c in code+guess):
-    print("Invalid input. Please enter 4-character strings consisting of the characters A, B, C, D, E, F.")
-else:
-    black_pegs = sum(c == g for c, g in zip(code, guess))
-
-    code_char_count = collections.Counter(code)
-    guess_char_count = collections.Counter(guess)
-    white_pegs = (
-        sum(
-            min(code_char_count[c], guess_char_count[c])
-            for c in code_char_count
-            if c in guess_char_count
-        )
-        - black_pegs
-    )
-
-    print(white_pegs, black_pegs)
+print(white_pegs - black_pegs, black_pegs)
