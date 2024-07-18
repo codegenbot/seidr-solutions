@@ -19,7 +19,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 
 int main() {
     vector<int> game = {1, 2, 3};
-    vector<int> guess = {2, 3, 4};
+    vector<int> guess = {3, 2, 1};
     
     vector<int> difference = compare(game, guess);
     
