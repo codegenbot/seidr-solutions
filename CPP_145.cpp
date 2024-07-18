@@ -20,15 +20,7 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // input nums vector
-    vector<int> nums = {123, 456, 789};
-    
-    nums = order_by_points(nums);
-
-    // print sorted nums vector
-    for (int num : nums) {
-        cout << num << " ";
-    }
-
+    // Code for taking input, processing it, and calling order_by_points function
+    // Display output
     return 0;
 }
