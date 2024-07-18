@@ -1,14 +1,21 @@
 n = int(input())
 a = [int(input()) for _ in range(n)]
+
 total_sum = sum(a)
-half_sum = total_sum // 2
-running_sum = 0
-for i, num in enumerate(a):
-    running_sum += num
-    if running_sum >= half_sum:
-        if running_sum == half_sum or abs(total_sum - 2 * running_sum) < abs(
-            total_sum - 2 * (running_sum - num)
-        ):
-            print(*a[: i + 1])
-            print(*a[i + 1 :])
-            break
+left_sum = 0
+right_sum = total_sum
+min_diff = total_sum
+
+for i in range(n):
+    left_sum += a[i]
+    right_sum -= a[i]
+    diff = abs(left_sum - right_sum)
+    if diff == 0 or diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+result_left = a[: cut_index + 1]
+result_right = a[cut_index + 1 :]
+
+print(*result_left)
+print(*result_right)
