@@ -1,8 +1,10 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <algorithm>
 
 vector<string> by_length(vector<int> arr);
+
 bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b) {
