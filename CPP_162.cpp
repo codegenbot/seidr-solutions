@@ -21,11 +21,6 @@ string string_to_md5(const string& text) {
 }
 
 int main() {
-    if (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99") {
-        cout << "MD5 hash calculation correct!" << endl;
-    } else {
-        cout << "MD5 hash calculation incorrect!" << endl;
-    }
-    
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
