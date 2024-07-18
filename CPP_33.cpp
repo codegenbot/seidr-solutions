@@ -6,15 +6,7 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
-
 vector<int> sort_third(vector<int> l);
-
-int main() {
-    vector<int> input = {5, 2, 9, 3, 7, 6, 1, 4, 8};
-    vector<int> expected_output = {1, 2, 9, 4, 7, 6, 5, 3, 8};
-    vector<int> output = sort_third(input);
-    assert(issame(output, expected_output));
-}
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -45,4 +37,11 @@ vector<int> sort_third(vector<int> l) {
     }
 
     return l;
+}
+
+int main() {
+    vector<int> input = {5, 2, 9, 3, 7, 6, 1, 4, 8};
+    vector<int> expected_output = {1, 2, 9, 4, 7, 6, 5, 3, 8};
+    vector<int> output = sort_third(input);
+    assert(issame(output, expected_output));
 }
