@@ -1,9 +1,8 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> tri(int n){
@@ -35,9 +34,7 @@ std::vector<int> tri(int n){
 }
 
 int main(){
-    std::vector<int> expected = {1, 3};
-    std::vector<int> result = tri(2); 
-    assert(issame(result, expected));
+    assert(issame(tri(1), std::vector<int>{1, 3}));
     
     return 0;
 }
