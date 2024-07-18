@@ -13,9 +13,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
 
 int main() {
     vector<int> input = {1, 2, 2, 3, 4, 4, 5};
-    vector<int> output = remove_duplicates(input);
-    for (int num : output) {
+    vector<int> unique_numbers = remove_duplicates(input);
+
+    for (int num : unique_numbers) {
         std::cout << num << " ";
     }
+
     return 0;
 }
