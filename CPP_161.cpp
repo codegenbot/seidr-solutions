@@ -1,20 +1,19 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            if (isupper(c)) {
-                c = tolower(c);
-            } else {
+for(char &c : s){
+        if(isalpha(c)){
+            if(islower(c)){
                 c = toupper(c);
+            }
+            else{
+                c = tolower(c);
             }
         }
     }
     
-    size_t i = 0, j = s.length() - 1;
-    while (i < j) {
-        char temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
-        i++;
-        j--;
+    int left = 0, right = s.size() - 1;
+    while(left < right){
+        swap(s[left], s[right]);
+        ++left;
+        --right;
     }
     
     return s;
