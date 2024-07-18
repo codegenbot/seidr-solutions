@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b);
 
