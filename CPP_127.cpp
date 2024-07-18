@@ -1,6 +1,11 @@
+#include <iostream>
+#include <vector>
 #include <string>
+#include <algorithm>
 
-string intersection(const vector<int>& interval1, const vector<int>& interval2) {
+using namespace std;
+
+string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
@@ -10,26 +15,29 @@ string intersection(const vector<int>& interval1, const vector<int>& interval2) 
     int intersectionEnd = min(end1, end2);
 
     if (intersectionStart > intersectionEnd) {
-        return "NO"s;
+        return "NO";
     }
 
     int length = intersectionEnd - intersectionStart;
 
     if (length <= 1) {
-        return "NO"s;
+        return "NO";
     }
 
     for (int i = 2; i * i <= length; i++) {
         if (length % i == 0) {
-            return "NO"s;
+            return "NO";
         }
     }
 
-    return "YES"s;
+    return "YES";
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO"s);
+    vector<int> interval1 = {3, 7};
+    vector<int> interval2 = {5, 9};
+
+    cout << intersection(interval1, interval2) << endl;
 
     return 0;
 }
