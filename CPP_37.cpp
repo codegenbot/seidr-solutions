@@ -8,12 +8,14 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even_elements;
     std::vector<float> sorted_even_elements;
+
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_elements.push_back(l[i]);
             sorted_even_elements.push_back(l[i]);
         }
     }
+
     std::sort(sorted_even_elements.begin(), sorted_even_elements.end());
     
     int sorted_index = 0;
