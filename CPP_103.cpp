@@ -2,12 +2,8 @@
 #include <cassert>
 
 std::string rounded_avg(int n, int m) {
-    assert(n >= 0 && m >= 0);
+    assert(n <= m);
 
-    if (n > m) {
-        return "-1";
-    }
-    
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
