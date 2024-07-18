@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-#include <vector>
 #include <utility>
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
@@ -8,10 +7,8 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b) {
 }
 
 std::pair<int, int> eat(int number) {
-    int remaining = number;
-    int total = number + remaining;
-    int eaten = total > remaining ? remaining : total;
-    int left = remaining - eaten;
+    int eaten = number + 1;
+    int left = 0;
     return {eaten, left};
 }
 
