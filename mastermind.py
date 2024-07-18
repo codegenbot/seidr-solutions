@@ -12,6 +12,6 @@ for c in code:
 for g in guess:
     guess_count[g] = guess_count.get(g, 0) + 1
 
-white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in set(code) for _ in range(4) if code[_] != guess[_])
+white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in code if c in guess)
 
 print(white_pegs, black_pegs)
