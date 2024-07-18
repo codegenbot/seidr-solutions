@@ -1,11 +1,11 @@
 #include <vector>
 #include <cmath>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return abs(x - y) < 1e-9;
 }
 
-std::vector<int> count_up_to(int n) {
+bool count_up_to(int n) {
     std::vector<int> res;
     if (n <= 1) {
         return res;
