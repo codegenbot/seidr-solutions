@@ -9,16 +9,22 @@ std::string string_to_md5(const std::string& input) {
     EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     EVP_DigestUpdate(ctx, input.c_str(), input.length());
 
-    unsigned char md[EVP_MD_size(EVP_md5())];
+    unsigned char md[EVP_MAX_MD_SIZE];
     unsigned int mdLen;
     EVP_DigestFinal_ex(ctx, md, &mdLen);
 
     EVP_MD_CTX_free(ctx);
 
     char mdString[33];
-    for (int i = 0; i < EVP_MD_size(EVP_md5()); i++) {
+    for (int i = 0; i < mdLen; i++) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)md[i]);
     }
-    
+
     return std::string(mdString);
+}
+
+int main() {
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+
+    return 0;
 }
