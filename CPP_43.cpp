@@ -1,14 +1,14 @@
-sort(l.begin(), l.end());
-    int i = 0;
-    int j = l.size() - 1;
-    while (i < j) {
-        if (l[i] + l[j] == 0) {
+#include <unordered_set>
+
+bool pairs_sum_to_zero(vector<int> l) {
+    unordered_set<int> seen;
+    
+    for (int num : l) {
+        if (seen.count(-num)) {
             return true;
-        } else if (l[i] + l[j] < 0) {
-            i++;
-        } else {
-            j--;
         }
+        seen.insert(num);
     }
+    
     return false;
 }
