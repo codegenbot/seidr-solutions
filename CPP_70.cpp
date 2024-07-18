@@ -2,13 +2,13 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     // function body
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst){
-    std::vector<int> result;
-    std::sort(lst.begin(), lst.end());
+vector<int> strange_sort_list(vector<int> lst){
+    vector<int> result;
+    sort(lst.begin(), lst.end());
     int i = 0, j = lst.size() - 1;
     while (i <= j) {
         result.push_back(lst[i]);
@@ -22,6 +22,5 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 }
 
 int main() {
-    // Main function logic using strange_sort_list()
-    return 0;
+    // main function code goes here (not provided in the task description)
 }
