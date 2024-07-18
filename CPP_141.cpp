@@ -1,25 +1,36 @@
-int digitCount = 0;
-    bool hasDot = false;
-    bool validExt = false;
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string file_name_check(const std::string& file_name) {
+    int count_digits = 0;
+    int dot_pos = -1;
     
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digitCount++;
-        } else if (c == '.') {
-            hasDot = true;
+    for (size_t i = 0; i < file_name.length(); ++i) {
+        if (std::isdigit(file_name[i])) {
+            count_digits++;
+        } else if (file_name[i] == '.') {
+            if (dot_pos != -1) {
+                return "No";
+            }
+            dot_pos = i;
         }
     }
     
-    if (file_name.find('.') != string::npos) {
-        string ext = file_name.substr(file_name.find('.') + 1);
-        if (ext == "txt" || ext == "exe" || ext == "dll") {
-            validExt = true;
-        }
+    if (count_digits > 3 || dot_pos == -1 || dot_pos == 0 || dot_pos == file_name.length() - 1) {
+        return "No";
     }
     
-    if (digitCount <= 3 && hasDot && validExt && isalpha(file_name[0])) {
-        return "Yes";
+    std::string extension = file_name.substr(dot_pos + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
     }
     
-    return "No";
+    return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    assert(file_name_check("sample.txt") == "Yes");
+    return 0;
 }
