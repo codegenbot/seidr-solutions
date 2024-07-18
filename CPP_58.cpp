@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iterator>
-#include <numeric>
+#include <algorithm>
 
 using namespace std;
 
