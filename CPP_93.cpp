@@ -1,22 +1,20 @@
-string encode(string message){
-    string encoded = message;
-    transform(encoded.begin(), encoded.end(), encoded.begin(), [](char c){
-        if(isalpha(c)){
-            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-                if(islower(c)){
-                    c = (c - 'a' + 2) % 26 + 'a';
-                } else {
-                    c = (c - 'A' + 2) % 26 + 'A';
-                }
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message);
+
+std::string encode(std::string message){
+    for(int i=0; i<message.length(); i++){
+        if(isalpha(message[i])){
+            if(islower(message[i])){
+                message[i] = toupper(message[i]);
             } else {
-                if(islower(c)){
-                    c = toupper(c);
-                } else {
-                    c = tolower(c);
-                }
+                message[i] = tolower(message[i]);
+            }
+            if(message[i] == 'A' || message[i] == 'E' || message[i] == 'I' || message[i] == 'O' || message[i] == 'U'){
+                message[i] = static_cast<char>(message[i] + 2);
             }
         }
-        return c;
-    });
-    return encoded;
+    }
+    return message;
 }
