@@ -1,20 +1,17 @@
 #include <iostream>
+#include <cassert>
 
-bool is_prime(int n) {
-    if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-bool is_multiply_prime(int a){
+bool is_multiply_prime(int a) {
+    if (a < 30) return false;
     for (int i = 2; i <= a / 3; ++i) {
-        if (is_prime(i) && a % i == 0) {
+        if (a % i == 0) {
             int b = a / i;
-            for (int j = i + 1; j <= b / 2; ++j) {
-                if (is_prime(j) && b % j == 0 && is_prime(b / j)) {
-                    return true;
+            for (int j = 2; j <= b / 2; ++j) {
+                if (b % j == 0) {
+                    int c = b / j;
+                    if (c != 1 && c != i && c != j) {
+                        return true;
+                    }
                 }
             }
         }
@@ -23,15 +20,7 @@ bool is_multiply_prime(int a){
 }
 
 int main() {
-    int num;
-    std::cout << "Enter a number less than 100: ";
-    std::cin >> num;
-
-    if (is_multiply_prime(num)) {
-        std::cout << num << " is a multiplication of 3 prime numbers." << std::endl;
-    } else {
-        std::cout << num << " is not a multiplication of 3 prime numbers." << std::endl;
-    }
-
+    assert(is_multiply_prime(11 * 13 * 7) == true);
+    
     return 0;
 }
