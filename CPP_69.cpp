@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 int search(const std::vector<int>& lst) {
     int maxFreqNum = 0;
