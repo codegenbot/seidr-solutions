@@ -1,13 +1,14 @@
 int balance = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
+    for (const string& s : lst) {
+        for (char c : s) {
             if (c == '(') {
                 balance++;
             } else {
-                if (balance == 0) {
+                if (balance > 0) {
+                    balance--;
+                } else {
                     return "No";
                 }
-                balance--;
             }
         }
     }
