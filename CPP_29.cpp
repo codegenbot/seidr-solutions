@@ -1,14 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(vector<string> a, vector<string> b){
-    // Compare if vectors a and b are the same
     return a == b;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    // Filter strings based on prefix
     vector<string> result;
-    for (const string& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
+    for (const string& s : strings) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
         }
     }
     return result;
@@ -16,6 +19,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-
-    return 0;
 }
