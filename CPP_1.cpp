@@ -1,14 +1,14 @@
-bool issame(const string& str) {
-    char first_char = str[0];
-    for (char c : str) {
-        if (c != first_char) {
-            return false;
+bool issame(string s){
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
         }
     }
-    return true;
+    return count == 0;
 }
-
-vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -36,17 +36,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    string paren_string;
-    cin >> paren_string;
-
-    vector<string> res = separate_paren_groups(paren_string);
-
-    for (const string& group : res) {
-        cout << group << endl;
-    }
-
-    return 0;
 }
