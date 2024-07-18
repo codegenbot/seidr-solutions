@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 vector<int> get_odd_collatz(int n);
 
@@ -34,7 +34,7 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    vector<int> result = get_odd_collatz(1);
+    auto result = get_odd_collatz(1);
     for (int num : result) {
         std::cout << num << " ";
     }
