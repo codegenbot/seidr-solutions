@@ -4,17 +4,19 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     depths = []
     current_depth = 0
     for char in paren_string:
-        if char not in "()":
+        if char != "(" and char != ")":
             return []
         
         if char == "(":
             current_depth += 1
             depths.append(current_depth)
         elif char == ")":
-            if current_depth <= 0:
+            if current_depth > 0:
+                current_depth -= 1
+            else:
                 return []
-            
-            current_depth -= 1
+            if current_depth < 0:
+                return []
     
     if current_depth != 0:
         return []
