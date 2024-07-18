@@ -1,3 +1,4 @@
 def parse_music(music_string):
-    notes_count = [measure.count("o") for measure in music_string.split("|")]
+    music_list = music_string.split("|")
+    notes_count = [measure.strip().count("o") for measure in music_list]
     return notes_count
