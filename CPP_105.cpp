@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> res;
     vector<int> valid_nums;
     map<int, string> num_to_name = {
@@ -30,7 +30,7 @@ vector<string> by_length(vector<int> arr) {
     return res;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
