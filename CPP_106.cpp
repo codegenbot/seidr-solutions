@@ -1,14 +1,15 @@
-vector<int> result(n);
-    result[0] = 1;
+vector<int> result;
     int sum = 1;
-    int fact = 1;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
-            fact *= i;
-            result[i] = fact;
+            sum *= i;
+            result.push_back(sum);
         } else {
-            sum += i;
-            result[i] = sum;
+            sum = 0;
+            for (int j = 1; j <= i; j++) {
+                sum += j;
+            }
+            result.push_back(sum);
         }
     }
     return result;
