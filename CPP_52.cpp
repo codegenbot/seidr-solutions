@@ -1,8 +1,11 @@
+#include <iostream>
 #include <vector>
 
-bool below_threshold(const vector<int>& l, int t) {
-    for (int num : l) {
-        if (num >= t) {
+using namespace std;
+
+bool below_threshold(const std::vector<int>& l, int t) {
+    for(int num : l){
+        if(num >= t){
             return false;
         }
     }
@@ -10,14 +13,6 @@ bool below_threshold(const vector<int>& l, int t) {
 }
 
 int main() {
-    vector<int> l = {1, 3, 5, 7, 9};
-    int t = 10;
-    
-    if (below_threshold(l, t)) {
-        cout << "All elements are below threshold." << endl;
-    } else {
-        cout << "At least one element is at or above threshold." << endl;
-    }
-    
+    assert(!below_threshold({1, 8, 4, 10}, 10));
     return 0;
 }
