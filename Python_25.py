@@ -1,6 +1,5 @@
 from typing import List
 
-
 def factorize(n: int) -> List[int]:
     factors = []
     divisor = 2
@@ -12,14 +11,14 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-
 while True:
     try:
-        n = int(input("Please enter a positive integer: "))
-        if n > 0:
+        n = int(input("Please enter a positive integer greater than 1: "))
+        if n > 1:
             break
-        print("Please enter a positive integer.")
+        else:
+            print("Please enter a positive integer greater than 1.")
     except ValueError:
-        print("Invalid input. Please enter a positive integer.")
+        print("Invalid input. Please enter a positive integer greater than 1.")
 
 print(factorize(n))
