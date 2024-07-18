@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> parse_music(string music_string){
     vector<int> beats;
     for(char c : music_string){
