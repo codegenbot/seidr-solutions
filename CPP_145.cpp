@@ -1,14 +1,14 @@
 bool issame(vector<int> a, vector<int> b) {
     int sumA = 0, sumB = 0;
-    for (int i : a) {
-        int tempA = abs(i);
+    for (int num : a) {
+        int tempA = abs(num);
         while (tempA > 0) {
             sumA += tempA % 10;
             tempA /= 10;
         }
     }
-    for (int i : b) {
-        int tempB = abs(i);
+    for (int num : b) {
+        int tempB = abs(num);
         while (tempB > 0) {
             sumB += tempB % 10;
             tempB /= 10;
@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
     return sumA == sumB;
 }
 
-void order_by_points(vector<int> &nums) {
+void order_by_points(vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         int tempA = abs(a), tempB = abs(b);
