@@ -1,37 +1,18 @@
-map<string, int> numMap = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+multimap<int, string> sorted_nums;
+string result = "";
 
-string sort_numbers(string numbers) {
-    vector<string> numList;
-    string currNum = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            numList.push_back(currNum);
-            currNum = "";
-        } else {
-            currNum += c;
-        }
+for (size_t i = 0, j = 0; i <= numbers.length(); ++i) {
+    if (i == numbers.length() || numbers[i] == ' ') {
+        string num_str = numbers.substr(j, i - j);
+        sorted_nums.insert({num_map[num_str], num_str});
+        j = i + 1;
     }
-    numList.push_back(currNum);
+}
 
-    sort(numList.begin(), numList.end(), [&](const string &a, const string &b) {
-        return numMap[a] < numMap[b];
-    });
+for (const auto &num : sorted_nums) {
+    result += num.second + " ";
+}
 
-    string sortedNumbers = "";
-    for (const string &num : numList) {
-        sortedNumbers += num + " ";
-    }
-    sortedNumbers.pop_back(); // Remove extra space at the end
-    return sortedNumbers;
+return result.substr(0, result.size() - 1);
 }
