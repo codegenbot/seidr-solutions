@@ -1,8 +1,6 @@
 #include<vector>
-#include<assert.h>
 
 vector<int> incr_list(vector<int> l);
-
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> incr_list(vector<int> l) {
