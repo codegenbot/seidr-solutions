@@ -1,6 +1,6 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
 
 int main() {
     int n;
@@ -22,7 +22,7 @@ int main() {
             sumRight += nums[j];
         }
         
-        int diff = abs(sumLeft - sumRight);
+        int diff = std::abs(sumLeft - sumRight);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
