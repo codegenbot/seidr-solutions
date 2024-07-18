@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
