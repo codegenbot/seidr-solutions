@@ -1,6 +1,8 @@
 #include <vector>
 
-bool issame(int n);
+bool issame(int a, int b) {
+    return a == b;
+}
 
 vector<int> result;
 while (n != 1) {
