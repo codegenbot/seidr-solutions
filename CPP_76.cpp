@@ -1,7 +1,16 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if(x == 1){
+        return true;
     }
     
-    double result = log(x) / log(n);
-    return result == int(result);
+    for(int i=2; i<=sqrt(x); i++){
+        int temp = i;
+        while(temp <= x){
+            if(temp == x){
+                return true;
+            }
+            temp *= i;
+        }
+    }
+    
+    return false;
 }
