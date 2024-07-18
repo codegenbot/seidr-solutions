@@ -1,3 +1,5 @@
-#include <vector> // Add this line to include the vector header
+#include <vector>
 
-vector<int> generate_integers(int a, int b); // Declare function before using in 'main'
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> generate_integers(int a, int b);
