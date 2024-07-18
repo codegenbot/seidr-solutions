@@ -8,7 +8,7 @@ def is_prime(num):
 
 def prime_fib():
     n = int(input())
-
+    
     def fibonacci(n):
         if n <= 1:
             return n
