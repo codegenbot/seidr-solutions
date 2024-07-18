@@ -1,15 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-std::vector<float> sort_even(std::vector<float> l);
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> l_odd, l_even_sorted;
+vector<float> sort_even(const vector<float>& l) {
+    vector<float> l_odd, l_even_sorted;
+    
     for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
             l_even_sorted.push_back(l[i]);
@@ -17,8 +17,11 @@ std::vector<float> sort_even(std::vector<float> l) {
             l_odd.push_back(l[i]);
         }
     }
+    
     sort(l_even_sorted.begin(), l_even_sorted.end());
-    std::vector<float> result;
+    
+    vector<float> result;
+    
     for (int i = 0, j = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
             result.push_back(l_even_sorted[j++]);
@@ -26,5 +29,12 @@ std::vector<float> sort_even(std::vector<float> l) {
             result.push_back(l_odd[i / 2]);
         }
     }
+    
     return result;
+}
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    
+    return 0;
 }
