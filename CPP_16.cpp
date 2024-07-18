@@ -1,6 +1,13 @@
-int count_distinct_characters(string str){
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    auto it = unique(str.begin(), str.end());
-    return distance(str.begin(), it);
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> charPresent(26, false);
+    int count = 0;
+
+    for (char c : str) {
+        if (isalpha(c) && !charPresent[tolower(c) - 'a']) {
+            charPresent[tolower(c) - 'a'] = true;
+            count++;
+        }
+    }
+
+    return count;
 }
