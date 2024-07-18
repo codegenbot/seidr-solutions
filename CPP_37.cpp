@@ -1,19 +1,18 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+vector<float> sort_even(vector<float> l);
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> sort_even(vector<float> l) {
-    vector<float> even_indices;
-    vector<float> sorted_even_indices;
+    vector<float> even_indicesoverview;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
-            sorted_even_indices.push_back(l[i]);
+            even_indicesoverview.push_back(l[i]);
         }
     }
+    vector<float> sorted_even_indices = even_indicesoverview;
     sort(sorted_even_indices.begin(), sorted_even_indices.end());
     int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
