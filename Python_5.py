@@ -1,13 +1,12 @@
-def process_numbers(numbers, delimiter):
-    return [item for sublist in [[num, delimiter] for num in numbers] for item in sublist][:-1]
+def intersperse(numbers, delimiter):
+    def process_numbers(numbers, delimiter):
+        return [item for sublist in [[num, delimiter] for num in numbers] for item in sublist][:-1]
+    
+    result = process_numbers(numbers, delimiter)
+    return result
 
-def check(lst):
-    return "".join(str(x) for x in lst)
+numbers = list(map(int, input().split()))
+delimiter = input()
 
-def main(numbers, delimiter):
-    return check(process_numbers(numbers, delimiter))
-
-# Task description
-numbers = [1, 2, 3, 4, 5]
-delimiter = '-'
-print(main(numbers, delimiter))
+output = intersperse(numbers, delimiter)
+print(output)
