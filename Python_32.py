@@ -1,10 +1,8 @@
+from scipy.optimize import fsolve
+
+
 def find_zero(xs: list):
-    n = len(xs) - 1
-    if n % 2 != 0:
-        return None
-    if xs[0] == 0:
-        return 0
-    for i in range(n, 0, -2):
-        if xs[i] != 0:
-            return -xs[i - 1] / xs[i]
-    return None
+    def poly(x):
+        return sum([coeff * x**i for i, coeff in enumerate(xs)])
+
+    return fsolve(poly, 0)[0]
