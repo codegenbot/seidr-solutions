@@ -1,6 +1,6 @@
-#include <vector>
 #include <cassert>
 #include <iostream>
+#include <vector>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
@@ -21,15 +21,11 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> result = factorize(n);
+    // Test cases
+    assert(issame(factorize(12), {2, 2, 3}));
+    assert(issame(factorize(30), {2, 3, 5}));
     
-    assert(issame(result, factorize(n))); // Ensuring that factorize function works correctly
-    
-    for(int num : result){
-        cout << num << " ";
-    }
+    std::cout << "All test cases pass\n";
     
     return 0;
 }
