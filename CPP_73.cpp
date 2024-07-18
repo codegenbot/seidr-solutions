@@ -1,12 +1,9 @@
 int smallest_change(vector<int> arr){
-    int n = arr.size();
     int changes = 0;
-    
-    for(int i=0, j=n-1; i<j; i++, j--){
-        if(arr[i] != arr[j]){
+    for (int i = 0; i < arr.size() / 2; i++) {
+        if (arr[i] != arr[arr.size() - 1 - i]) {
             changes++;
         }
     }
-    
     return changes;
 }
