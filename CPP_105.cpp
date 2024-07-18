@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-void by_length(std::vector<int> arr){
+void by_length(std::vector<int> arr){ // Changed function signature
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -26,7 +26,7 @@ void by_length(std::vector<int> arr){
     }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){ // Updated function signature
     if(a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
