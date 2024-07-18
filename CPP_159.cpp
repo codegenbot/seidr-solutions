@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <cassert>
-#include <vector>
 
 std::pair<int, int> eat(const std::vector<int>& input) {
     int number = input[0];
