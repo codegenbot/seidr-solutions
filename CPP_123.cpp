@@ -1,18 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool is_same(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -37,10 +25,13 @@ vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
+bool cmp(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    vector<int> expected_output = {1, 3, 5, 7, 9, 27};
     vector<int> result = get_odd_collatz(10);
-    assert(equal(result.begin(), result.end(), expected_output.begin(), expected_output.end()));
+    assert(result == vector<int>({1, 3, 5, 7, 9, 1}));
     
     return 0;
 }
