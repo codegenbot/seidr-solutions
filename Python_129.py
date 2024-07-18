@@ -11,7 +11,7 @@ def minPath(grid, k):
         next_pos = min(
             (x, y)
             for x in range(max(0, i - 1), min(n, i + 2))
-            for y in range(max(0, j - 1), min(n, j + 2)
+            for y in range(max(0, j - 1), min(n, j + 2))
         )
         if next_pos in seen:
             cycle_start = seen[next_pos]
@@ -21,8 +21,8 @@ def minPath(grid, k):
             remaining_values = cycle_values * (remaining_steps // cycle_length)
             path = path[:cycle_start] + remaining_values
             break
-        
-        path.append(grid[next_pos[0]][next_pos[1]]
+            
+        path.append(grid[next_pos[0]][next_pos[1]])
         pos = next_pos
         seen[pos] = len(path)
     
