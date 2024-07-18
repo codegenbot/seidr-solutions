@@ -2,7 +2,7 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    return {n%2 != 0, n%2 == 0};
+    return {n % 2 == 0, n % 2 != 0};
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -10,5 +10,5 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(0), {0, 1}));
 }
