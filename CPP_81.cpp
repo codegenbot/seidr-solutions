@@ -1,5 +1,14 @@
+#include <vector>
 #include <string>
 #include <cassert>
+
+bool is_same(const std::vector<float>& A, const std::vector<float>& B){
+    assert(A.size() == B.size());
+    for(size_t i = 0; i < A.size(); i++){
+        if(A[i] != B[i]) return false;
+    }
+    return true;
+}
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     std::vector<std::string> letter_grades;
@@ -22,6 +31,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
 }
 
 int main(){
-    // Add test cases here
+    std::vector<float> grades = {3.8, 2.5, 4.0, 1.7};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    // Print or use the result as needed
     return 0;
 }
