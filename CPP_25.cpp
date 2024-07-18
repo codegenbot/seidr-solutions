@@ -1,4 +1,3 @@
-
 #include <vector>
 
 std::vector<int> factorize(int n) {
