@@ -1,4 +1,8 @@
-if(date.empty()) {
+#include <string>
+#include <cassert>
+
+bool valid_date(const std::string &date) {
+    if(date.empty()) {
         return false;
     }
 
@@ -6,9 +10,9 @@ if(date.empty()) {
         return false;
     }
 
-    int month = stoi(date.substr(0, 2));
-    int day = stoi(date.substr(3, 2));
-    int year = stoi(date.substr(6, 4));
+    int month = std::stoi(date.substr(0, 2));
+    int day = std::stoi(date.substr(3, 2));
+    int year = std::stoi(date.substr(6, 4));
 
     if(month < 1 || month > 12) {
         return false;
