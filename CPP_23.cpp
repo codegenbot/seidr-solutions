@@ -1,2 +1,7 @@
-return str.length();
+#include <iostream>
+#include <cstring>
+
+int main() {
+    std::string str = "asdasnakj";
+    assert(str.length() == 9);
 }
