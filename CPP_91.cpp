@@ -1,16 +1,16 @@
 int is_bored(string S){
-    int boredom_count = 0;
-    bool is_i_present = false;
+    int count = 0;
+    string sentence;
     
-    for(int i = 0; i < S.size(); ++i){
-        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
-            is_i_present = true;
-        }
-        if((S[i] == '.' || S[i] == '?' || S[i] == '!') && is_i_present){
-            boredom_count++;
-            is_i_present = false;
+    for (char c : S) {
+        sentence += c;
+        if (c == '.' || c == '?' || c == '!') {
+            if (sentence.find("I ") == 0) {
+                count++;
+            }
+            sentence = "";
         }
     }
     
-    return boredom_count;
+    return count;
 }
