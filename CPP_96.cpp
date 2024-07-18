@@ -1,23 +1,40 @@
-#include <vector>
-
-std::vector<int> count_up_to(int n) {
-    std::vector<int> result;
-    if (n < 2) {
-        return result;
-    }
-    std::vector<bool> is_prime(n, true);
-    is_prime[0] = is_prime[1] = false;
-    for (int i = 2; i < n; ++i) {
-        if (is_prime[i]) {
-            result.push_back(i);
-            for (int j = i * 2; j < n; j += i) {
-                is_prime[j] = false;
-            }
+int count_up_to(vector<int> primes, int n) {
+    int count = 0;
+    for (int prime : primes) {
+        if (prime <= n) {
+            ++count;
+        } else {
+            break;
         }
     }
-    return result;
+    return count;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> result = sieve_of_eratosthenes(n);
+    
+    vector<int> expected{2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+    
+    if (count_up_to(result, n) == count_up_to(expected, n) && issame(result, expected)) {
+        cout << "Correct";
+    } else {
+        cout << "Incorrect";
+    }
+    
+    return 0;
 }
