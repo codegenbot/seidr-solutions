@@ -8,10 +8,7 @@ int fib(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
     std::cin >> n;
-    
-    std::cout << "Output of fib(n): " << fib(n) << std::endl;
-    
+    std::cout << fib(n) << std::endl;
     return 0;
 }
