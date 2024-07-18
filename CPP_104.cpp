@@ -2,11 +2,16 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
-vector<int> removeNumbersWithEvenDigits(vector<int> x) {
-    vector<int> result;
+std::vector<int> filterOddDigits(const std::vector<int>& x) {
+    std::vector<int> result;
     for (int num : x) {
         int temp = num;
         bool hasEvenDigit = false;
@@ -24,4 +29,8 @@ vector<int> removeNumbersWithEvenDigits(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    // Your main function code here
 }
