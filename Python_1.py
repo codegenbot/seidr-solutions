@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
@@ -11,6 +12,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             result.append(current_group)
             current_group = ""
     return result
+
 
 # Read input from user
 paren_string = input("Enter the string of parentheses: ")
