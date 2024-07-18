@@ -15,9 +15,13 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-int main(){
+void get_positive_test(){
     std::vector<float> v = {1.5, -2.3, 4.0, -5.2};
-    assert(issame(3.0, 3.0));
     assert(get_positive(v).size() == 2);
+}
+
+int main(){
+    assert(issame(3.0, 3.0));
+    get_positive_test();
     return 0;
 }
