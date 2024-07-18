@@ -2,7 +2,17 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::vector<float> derivative(std::vector<float> xs) {
@@ -11,9 +21,4 @@ std::vector<float> derivative(std::vector<float> xs) {
         result.push_back(xs[i] - xs[i - 1]);
     }
     return result;
-}
-
-int main() {
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
-    return 0;
 }
