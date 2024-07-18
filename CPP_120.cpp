@@ -6,12 +6,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<int> arr, size_t k) {
     std::sort(arr.begin(), arr.end(), std::greater<int>());
-    if (k > arr.size()) {
-        arr.clear();
-        return arr;
-    }
     arr.resize(k);
     return arr;
 }
