@@ -4,11 +4,19 @@
 
 using namespace std;
 
-vector<int> parse_music(string music_string);
-bool issame(vector<int> v1, vector<int> v2);
-
 bool issame(vector<int> v1, vector<int> v2) {
     return v1 == v2;
+}
+
+vector<int> parse_music(string music_string);
+
+int main() {
+    string my_music = "o|.o.|.o";
+    vector<int> result = parse_music(my_music);
+    for (int beat : result) {
+        cout << beat << " ";
+    }
+    return 0;
 }
 
 vector<int> parse_music(string music_string) {
@@ -29,17 +37,4 @@ vector<int> parse_music(string music_string) {
         pos += 2;
     }
     return beats;
-}
-
-int main() {
-    string music_string;
-    cin >> music_string;
-
-    vector<int> result = parse_music(music_string);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
