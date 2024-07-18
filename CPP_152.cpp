@@ -20,18 +20,18 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 int main() {
     vector<int> game = {1, 2, 3};
     vector<int> guess = {2, 3, 4};
-
-    vector<int> comparison = compare(game, guess);
-
-    for (int num : comparison) {
-        cout << num << " ";
+    
+    vector<int> difference = compare(game, guess);
+    
+    for (int i = 0; i < difference.size(); ++i) {
+        cout << difference[i] << " ";
     }
-
+    
     if (issame(game, guess)) {
-        cout << "\nThe game and guess are the same." << endl;
+        cout << "The game and guess are the same." << endl;
     } else {
-        cout << "\nThe game and guess are different." << endl;
+        cout << "The game and guess are different." << endl;
     }
-
+    
     return 0;
 }
