@@ -12,11 +12,10 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 2, 3, 3, 4, 5, 5, 6};
-    
-    vector<int> result = remove_duplicates(numbers);
+    vector<int> input = {1, 2, 3, 3, 4, 5, 5, 6};
+    vector<int> uniqueNumbers = remove_duplicates(input);
 
-    for (const auto& num : result) {
+    for (int num : uniqueNumbers) {
         std::cout << num << " ";
     }
 
