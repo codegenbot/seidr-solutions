@@ -1,22 +1,22 @@
 map<char, int> result;
-    for (char c : test) {
-        if (c != ' ') {
+    stringstream ss(test);
+    string token;
+    while (ss >> token) {
+        for (char c : token) {
             result[c]++;
         }
     }
-    
-    int max_count = 0;
-    for (const auto& pair : result) {
-        if (pair.second > max_count) {
-            max_count = pair.second;
+    int maxCount = 0;
+    for (auto itr = result.begin(); itr != result.end(); ++itr) {
+        if (itr->second > maxCount) {
+            maxCount = itr->second;
         }
     }
-    
-    map<char, int> max_occurrences;
-    for (const auto& pair : result) {
-        if (pair.second == max_count) {
-            max_occurrences[pair.first] = pair.second;
+    map<char, int> res;
+    for (auto itr = result.begin(); itr != result.end(); ++itr) {
+        if (itr->second == maxCount) {
+            res[itr->first] = itr->second;
         }
     }
-    
-    return max_occurrences;
+    return res;
+}
