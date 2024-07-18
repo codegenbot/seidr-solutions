@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -19,17 +18,22 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), 
-        {
-            "the number of odd elements 2 in the string 271 of the input.",
-            "the number of odd elements 2 in the string 137 of the input.",
-            "the number of odd elements 2 in the string 314 of the input."
+    vector<string> test_input = {"271", "137", "314"};
+    vector<string> expected_output = {
+        "the number of odd elements 2 in the string 271 of the input.",
+        "the number of odd elements 2 in the string 137 of the input.",
+        "the number of odd elements 2 in the string 314 of the input."
+    };
+
+    vector<string> result = odd_count(test_input);
+
+    for(size_t i = 0; i < result.size(); ++i){
+        if(result[i] != expected_output[i]){
+            cout << "Test case " << i+1 << " failed." << endl;
+            return 1;
         }
-    ));
+    }
+    cout << "All test cases passed successfully." << endl;
     return 0;
 }
