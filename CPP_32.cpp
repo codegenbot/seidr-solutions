@@ -23,4 +23,4 @@ int main(){
     assert(fabs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
-}
+}  
