@@ -4,12 +4,6 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr);
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) mutable {
         int count_a = __builtin_popcount(a);
@@ -20,6 +14,10 @@ vector<int> sort_array(vector<int> arr) {
         return count_a < count_b;
     });
     return arr;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
