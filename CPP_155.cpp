@@ -1,9 +1,9 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> result(2, 0);
+vector<int> even_odd_count(int num) {
+    vector<int> result(2, 0);
     while (num != 0) {
         int digit = abs(num % 10);
         if (digit % 2 == 0) {
@@ -14,4 +14,9 @@ std::vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+int main() {
+    // Main function implementation
+    return 0;
 }
