@@ -2,7 +2,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-bool count_up_to(int n) {
+void count_up_to(int n) {
     vector<int> primes;
     if (n < 2) {
         return primes;
