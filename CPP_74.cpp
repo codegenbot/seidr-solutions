@@ -1,9 +1,6 @@
-#include <string>
 #include <vector>
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    vector<string> total_match;
-    
     int total_chars1 = 0;
     int total_chars2 = 0;
     
@@ -16,7 +13,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     }
     
     if (total_chars1 < total_chars2) {
-        return total_match;
+        return a;
     } else {
         return b;
     }
