@@ -1,4 +1,8 @@
-int digitCount = 0;
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
     for (char c : file_name) {
         if (isdigit(c)) {
             digitCount++;
@@ -13,7 +17,7 @@ int digitCount = 0;
     string beforeDot = file_name.substr(0, dotPos);
     string afterDot = file_name.substr(dotPos + 1);
     
-    if (!isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    if (!isalpha(beforeDot[0]) || (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")) {
         return "No";
     }
     
