@@ -1,14 +1,15 @@
-int count_nums(vector<int> n) {
+int count_nums(vector<int> n){
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int temp = abs(num);
-        while (temp != 0) {
-            sum += temp % 10;
-            temp /= 10;
-        }
+        int sign = 1;
         if (num < 0) {
-            sum *= -1;
+            sign = -1;
+            num *= -1;
+        }
+        while (num > 0) {
+            sum += sign * (num % 10);
+            num /= 10;
         }
         if (sum > 0) {
             count++;
