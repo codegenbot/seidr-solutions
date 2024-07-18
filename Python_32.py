@@ -4,5 +4,5 @@ def find_zero(nums):
         return nums[(zero_index + 1) % len(nums)]
     return "No zero found"
 
-input_list = list(map(float, input().split())
+input_list = list(map(float, input().split()))
 print(find_zero(input_list))
