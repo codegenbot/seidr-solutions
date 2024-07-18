@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 std::pair<int, int> issame(int number, int need, int remaining) {
     int total = number + need;
