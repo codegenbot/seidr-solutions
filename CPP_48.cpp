@@ -16,4 +16,6 @@ bool is_palindrome(const std::string& text) {
 // Add any additional functions or code needed to complete the task
 
 // Example test cases
-assert(is_palindrome("xywzx") == false);
+int main() {
+    assert(is_palindrome("xywzx") == false);
+}
