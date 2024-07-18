@@ -16,11 +16,3 @@ int fib4(int n) {
     
     return res;
 }
-
-int main() {
-    int n;
-    cin >> n;
-    cout << fib4(n) << endl;
-    
-    return 0;
-}
