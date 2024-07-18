@@ -3,8 +3,7 @@ vector<int> result;
         int temp = num;
         bool hasEvenDigit = false;
         while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
+            if (temp % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
