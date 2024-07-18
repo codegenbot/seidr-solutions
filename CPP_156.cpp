@@ -34,6 +34,5 @@ int test_roman_conversion(){
 
 int main() {
     test_roman_conversion();
-
     return 0;
 }
