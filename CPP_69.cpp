@@ -1,15 +1,14 @@
-int search(vector<int> lst) {
-    int result = -1;
+int maxFreq = -1;
     for (int num : lst) {
         int freq = 0;
-        for (int val : lst) {
-            if (val == num) {
+        for (int i : lst) {
+            if (i == num) {
                 freq++;
             }
         }
-        if (freq >= num && num > result) {
-            result = num;
+        if (num > 0 && freq >= num && num > maxFreq) {
+            maxFreq = num;
         }
     }
-    return result;
+    return maxFreq;
 }
