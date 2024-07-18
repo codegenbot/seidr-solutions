@@ -2,7 +2,7 @@
 
 bool issame(const vector<int>& a, const vector<int>& b);
 
-vector<int> f(int n) {
+vector<int> f(int n){
     vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
@@ -24,8 +24,5 @@ vector<int> f(int n) {
 
 int main() {
     assert(issame(f(3), {1, 2, 6}));
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    return 0;
 }
