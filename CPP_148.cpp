@@ -5,12 +5,12 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()){
+    if(a.size() != b.size()){
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++){
-        if (a[i] != b[i]){
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -19,5 +19,6 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    assert(issame({"Jupiter", "Makemake"}, {"Jupiter", "Makemake"}));
+    assert(!issame({"Jupiter", "Makemake"}, vector<string>{}));
+    assert(issame({"Mercury", "Venus"}, {"Mercury", "Venus"}));
 }
