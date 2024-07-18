@@ -2,8 +2,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     // Add your implementation
 }
 
-vector<std::string> split_words(std::string txt){
-    vector<std::string> result;
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
     std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
