@@ -1,1 +1,1 @@
-print(result)
+result = check_threshold(numbers, threshold)
