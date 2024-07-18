@@ -1,7 +1,10 @@
-string result = "";
+string change_base(int x, int base) {
+    if (x == 0) {
+        return "0";
+    }
+    string result = "";
     while (x > 0) {
-        char digit = (x % base) + '0';
-        result = digit + result;
+        result = to_string(x % base) + result;
         x /= base;
     }
     return result;
