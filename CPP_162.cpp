@@ -2,11 +2,14 @@
 #include <string>
 #include <openssl/md5.h>
 #include <openssl/evp.h>
+#include <openssl/ssl.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
+
+    SSL_library_init();
     
     OpenSSL_add_all_digests();
     
