@@ -1,15 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> sum_product(std::vector<int> numbers) {
@@ -22,7 +14,4 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-int main() {
-    assert(issame(sum_product({10}), {10, 10}));
-    return 0;
-}
+assert(issame(sum_product({10}), {10, 10}));
