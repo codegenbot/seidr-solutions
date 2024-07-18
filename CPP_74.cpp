@@ -1,8 +1,7 @@
-#include <vector>
 #include <string>
-#include <cassert>
+#include <vector>
 
-std::vector<std::string> issame(std::vector<std::string> lst1, std::vector<std::string> lst2){
+bool issame(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2){
     int total_chars1 = 0;
     int total_chars2 = 0;
     
@@ -15,8 +14,8 @@ std::vector<std::string> issame(std::vector<std::string> lst1, std::vector<std::
     }
     
     if(total_chars1 < total_chars2){
-        return lst1;
+        return true;
     }
     
-    return lst2;
+    return false;
 }
