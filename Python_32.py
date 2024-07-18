@@ -4,5 +4,8 @@ def find_zero(nums):
         return nums[(zero_index + 1) % len(nums)]
     return "No zero found"
 
-input_list = list(map(float, input().split()))
-print(find_zero(input_list))
+input_list = list(map(float, input('Enter space-separated numbers: ').split()))
+if not input_list:
+    print("Input list is empty")
+else:
+    print(find_zero(input_list))
