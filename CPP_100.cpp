@@ -1,5 +1,13 @@
-vector<int> stones;
-    for (int i = 0; i < n; ++i) {
-        stones.push_back(n + 2 * i);
+vector<int> make_a_pile(int n){
+    vector<int> stones;
+    stones.push_back(n);
+    while (n > 1){
+        if (n % 2 == 0){
+            n += 2;
+        } else {
+            n += 1;
+        }
+        stones.push_back(n);
     }
     return stones;
+}
