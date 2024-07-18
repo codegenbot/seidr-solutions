@@ -4,28 +4,36 @@
 #include <cassert>
 
 namespace solution_name {
-    int count_odd_digits(const std::string& str) {
+    int count_odd_digits(const std::string &num) {
         int count = 0;
-        for (char c : str) {
-            if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+        for (char c : num) {
+            if ((c - '0') % 2 != 0) {
                 count++;
             }
         }
         return count;
     }
 
-    std::vector<std::string> odd_count(const std::vector<std::string>& input) {
+    std::vector<std::string> odd_count(const std::vector<std::string> &numbers) {
         std::vector<std::string> result;
-        for (const std::string& str : input) {
-            int odd_digits = count_odd_digits(str);
+        for (const auto &num : numbers) {
+            int odd_digits = count_odd_digits(num);
             result.push_back("the number of odd elements " + std::to_string(odd_digits) +
-                             "\nthe string " + str + " of the input.");
+                             "\nthe string " + num + " of the input.");
         }
         return result;
     }
 
-    bool issame(const std::vector<std::string>& result, const std::vector<std::string>& expected) {
-        return result == expected;
+    bool issame(const std::vector<std::string> &first, const std::vector<std::string> &second) {
+        if (first.size() != second.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < first.size(); ++i) {
+            if (first[i] != second[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
