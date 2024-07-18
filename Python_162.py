@@ -7,7 +7,6 @@ while True:
     text = input("Enter a string: ").strip()
     if text:
         break
-    print("Please enter a valid string.")
 
 result = string_to_md5(text)
 print(result)
