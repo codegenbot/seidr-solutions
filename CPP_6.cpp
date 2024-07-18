@@ -31,6 +31,7 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
 }
 
 int main() {
+    using namespace std;
     assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
     return 0;
 }
