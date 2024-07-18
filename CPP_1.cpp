@@ -2,16 +2,18 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-}
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
