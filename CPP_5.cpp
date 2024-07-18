@@ -7,11 +7,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimeter);
 
-int main(){
-    assert (issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
-}
-
 std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     std::vector<int> result;
     if(numbers.empty()){
@@ -23,4 +18,9 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+int main(){
+    assert (issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    return 0;
 }
