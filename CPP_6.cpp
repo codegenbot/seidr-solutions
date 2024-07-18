@@ -4,22 +4,22 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-vector<int> parse_nested_parens(string paren_string);
+vector<int> parse_nested_parens(const string& paren_string);
 
-int main() {
+int main(){
     assert(issame(parse_nested_parens("(()(())((())))"), {4}));
 }
 
-vector<int> parse_nested_parens(string paren_string) {
+vector<int> parse_nested_parens(const string& paren_string){
     vector<int> result;
     int max_depth = 0;
     int depth = 0;
 
-    for (char c : paren_string) {
+    for (char c : paren_string){
         if (c == '(') {
             depth++;
             if (depth > max_depth) {
