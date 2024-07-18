@@ -1,23 +1,21 @@
-vector<string> groups;
-    string current_group;
-    int open_braces = 0;
+vector<string> result;
+    int n = paren_string.size();
+    string group;
+    int open = 0;
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            open_braces++;
-            if (open_braces > 1) {
-                current_group += c;
-            }
-        } else if (c == ')') {
-            open_braces--;
-            if (open_braces == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            } else {
-                current_group += c;
+    for (int i = 0; i < n; i++) {
+        if (paren_string[i] == '(') {
+            open++;
+            group += paren_string[i];
+        } else if (paren_string[i] == ')') {
+            open--;
+            group += paren_string[i];
+            if (open == 0) {
+                result.push_back(group);
+                group = "";
             }
         }
     }
 
-    return groups;
+    return result;
 }
