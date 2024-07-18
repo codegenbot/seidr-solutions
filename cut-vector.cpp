@@ -9,24 +9,27 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-    
-    int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-        totalSum += nums[i];
-    }
-    
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    int leftSum = 0;
 
-    for (int i = 0; i < n; ++i) {
-        if (abs(totalSum - 2 * leftSum) < minDiff) {
-            minDiff = abs(totalSum - 2 * leftSum);
-            cutIndex = i;
-        }
-        leftSum += nums[i];
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
     }
-    
+
+    int sumLeft = 0, sumRight = totalSum;
+    int halfSum = totalSum / 2;
+    int prefixSum = 0;
+    int cutIndex;
+
+    for (cutIndex = 0; cutIndex < n; ++cutIndex) {
+        prefixSum += nums[cutIndex];
+        sumLeft = prefixSum;
+        sumRight = totalSum - prefixSum;
+
+        if (sumLeft >= halfSum) {
+            break;
+        }
+    }
+
     for (int i = 0; i <= cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
@@ -34,6 +37,6 @@ int main() {
     for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    
+
     return 0;
 }
