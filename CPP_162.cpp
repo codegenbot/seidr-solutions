@@ -1,7 +1,5 @@
-// Modify the MD5 function to EVP_MD_CTX_new, EVP_MD_CTX_free, EVP_DigestInit_ex, EVP_DigestUpdate, and EVP_DigestFinal_ex for OpenSSL 3.0
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
 #include <cassert>
 
@@ -12,16 +10,18 @@ string string_to_md5(const string& text) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    unsigned char hash[EVP_MAX_MD_SIZE];
+    EVP_MD_CTX* mdctx;
+    const EVP_MD* md = EVP_md5();
+    mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, nullptr);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
+    EVP_DigestFinal_ex(mdctx, hash, nullptr);
     EVP_MD_CTX_free(mdctx);
 
-    char md5Hash[MD5_DIGEST_LENGTH*2+1];
-    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&md5Hash[i*2], "%02x", (unsigned int)digest[i]);
+    char md5Hash[EVP_MAX_MD_SIZE * 2 + 1];
+    for (int i = 0; i < EVP_MD_size(md); i++) {
+        sprintf(&md5Hash[i * 2], "%02x", hash[i]);
     }
 
     return string(md5Hash);
