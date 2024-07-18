@@ -1,13 +1,19 @@
-int vowels_count(string s){
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+int vowels_count(std::string s){
     int count = 0;
-    char vowels[] = {'a', 'e', 'i', 'o', 'u'};
-    for(char& c : s){
-        if(find(begin(vowels), end(vowels), tolower(c)) != end(vowels)){
+    for(char c : s){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && c == s.back())){
             count++;
         }
     }
-    if(s.back() == 'y' || s.back() == 'Y'){
-        count++;
-    }
     return count;
+}
+
+int main() {
+    assert(vowels_count("ACEDY") == 3);
+    return 0;
 }
