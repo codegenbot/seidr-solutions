@@ -1,17 +1,17 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <set>
+#include <unordered_set>
 
 std::vector<int> unique_digits(const std::vector<int>& nums) {
-    std::set<int> uniqueDigits;
+    std::unordered_set<int> unique;
     for (int num : nums) {
         while (num > 0) {
-            uniqueDigits.insert(num % 10);
+            unique.insert(num % 10);
             num /= 10;
         }
     }
-    return std::vector<int>(uniqueDigits.begin(), uniqueDigits.end());
+    return std::vector<int>(unique.begin(), unique.end());
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
