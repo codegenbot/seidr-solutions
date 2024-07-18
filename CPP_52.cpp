@@ -2,7 +2,9 @@
 #include <vector>
 #include <cassert>
 
-bool below_threshold(const std::vector<int>& l, int t) {
+using namespace std;
+
+bool below_threshold(const vector<int>& l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
