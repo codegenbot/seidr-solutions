@@ -1,4 +1,12 @@
 #include <algorithm>
-std::sort(l.begin(), l.end());
-l.erase(std::unique(l.begin(), l.end()), l.end());
-assert(std::equal(l.begin(), l.end(), expected.begin()));
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> solve(vector<int>& l) {
+    vector<int> uniqueVec = l;
+    sort(uniqueVec.begin(), uniqueVec.end());
+    uniqueVec.erase(unique(uniqueVec.begin(), uniqueVec.end()), uniqueVec.end());
+    assert(issame(uniqueVec, {0, 2, 3, 5, 9, 123}));
+    return uniqueVec;
+}
