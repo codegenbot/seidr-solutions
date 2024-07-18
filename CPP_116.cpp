@@ -6,15 +6,13 @@ using namespace std;
 
 vector<int> sort_array(vector<int> arr);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return sort_array(a) == sort_array(b);
+}
 
 vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end());
     return arr;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return sort_array(a) == sort_array(b);
 }
 
 int main() {
