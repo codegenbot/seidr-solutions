@@ -1,21 +1,24 @@
 #include <iostream>
 #include <cassert>
 
-int fib(int n) {
+int fibfib(int n) {
     if (n == 0 || n == 1) {
-        return n;
+        return 0;
+    } else if (n == 2) {
+        return 1;
     } else {
-        int a = 0, b = 1, c, result;
-        for (int i = 2; i <= n; ++i) {
-            c = a + b;
+        int a = 0, b = 0, c = 1, result = 0;
+        for (int i = 3; i <= n; ++i) {
+            result = a + b + c;
             a = b;
             b = c;
+            c = result;
         }
-        return c;
+        return result;
     }
 }
 
 int main() {
-    assert(fib(14) == 377);
+    assert(fibfib(14) == 927);
     return 0;
 }
