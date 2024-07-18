@@ -1,9 +1,27 @@
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <map>
 
-vector<string> by_length(vector<int> arr){
+using namespace std;
 
+vector<string> by_length(vector<int> arr);
+
+bool issame(vector<string> a, vector<string> b);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"},
@@ -25,4 +43,9 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
