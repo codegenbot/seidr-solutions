@@ -13,7 +13,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
