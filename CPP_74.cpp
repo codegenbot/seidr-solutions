@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
 
 int totalChars(const vector<string>& lst) {
     int total = 0;
@@ -8,10 +8,6 @@ int totalChars(const vector<string>& lst) {
         total += str.size();
     }
     return total;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return totalChars(a) == totalChars(b);
 }
 
 vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
@@ -22,12 +18,10 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
 }
 
 int main() {
-    vector<string> list1 = {"apple", "banana", "cherry"};
-    vector<string> list2 = {"orange", "grape"};
+    vector<string> lst1 = {"abc", "def", "ghi"};
+    vector<string> lst2 = {"jkl", "mno"};
 
-    vector<string> result = total_match(list1, list2);
+    vector<string> result = total_match(lst1, lst2);
 
-    assert(result == list2);
-
-    return 0;
+    assert(result == lst2);
 }
