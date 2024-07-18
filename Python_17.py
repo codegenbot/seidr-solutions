@@ -1,7 +1,4 @@
-def parse_music(music_input):
-    music_list = music_input.split('|')
-    music_dict = {}
-    for idx, music in enumerate(music_list, 1):
-        music_dict[idx] = len(music.split())
-    
-    return list(music_dict.values())
+def parse_music(music_string):
+    music_list = music_string.split("|")
+    notes_count = [sum(1 for note in measure if note == "o") for measure in music_list if measure.strip()]
+    return notes_count
