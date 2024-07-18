@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // Add your implementation here
+    return a == b;
 }
 
 int main() {
