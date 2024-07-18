@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
@@ -18,6 +22,6 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    assert(factorize(3 * 2 * 3) == vector<int>{2, 3, 3});
+    assert(issame(factorize(3 * 2 * 3), vector<int>{2, 3, 3}));
     return 0;
 }
