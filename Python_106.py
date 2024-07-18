@@ -1,4 +1,3 @@
-
 def f(n, memo={0: 1}):
     if n == 0:
         return [1]
