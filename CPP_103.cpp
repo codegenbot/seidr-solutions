@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 #include <bitset>
-#include <cassert>
 #include <cmath>
 
 std::string rounded_avg(int n, int m) {
@@ -13,13 +13,12 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round((double)sum / (m - n + 1));
     
     return std::bitset<sizeof(int)*8>(avg).to_string().substr(1);
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101");
-    
+    assert (rounded_avg(5, 5) == "101");
     return 0;
 }
