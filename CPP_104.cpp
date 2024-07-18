@@ -3,27 +3,32 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(int a, int b) {
+    return a < b;
 }
 
-std::vector<int> unique_digits(const std::vector<int>& input) {
-    std::vector<int> unique;
-    for (int num : input) {
-        while (num > 0) {
-            int digit = num % 10;
-            if (std::find(unique.begin(), unique.end(), digit) == unique.end()) {
-                unique.push_back(digit);
+std::vector<int> unique_digits(const std::vector<int>& nums) {
+    std::vector<int> result;
+
+    for (int num : nums) {
+        std::string numStr = std::to_string(num);
+        std::string uniqueStr = "";
+        
+        for (char digit : numStr) {
+            if (uniqueStr.find(digit) == std::string::npos) {
+                uniqueStr += digit;
             }
-            num /= 10;
         }
+        
+        result.push_back(std::stoi(uniqueStr));
     }
-    std::sort(unique.begin(), unique.end());
-    return unique;
+    
+    std::sort(result.begin(), result.end(), issame);
+    
+    return result;
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>({1, 3, 5})));
-    
+    assert((unique_digits({135, 103, 31}) == std::vector<int>({31, 135})));
     return 0;
 }
