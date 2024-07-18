@@ -1,15 +1,9 @@
 vector<int> remove_duplicates(const vector<int>& numbers) {
-    unordered_map<int, int> numCount;
-    for (int num : numbers) {
-        numCount[num]++;
-    }
-    
     vector<int> uniqueNumbers;
-    for (const auto& entry : numCount) {
-        if (entry.second == 1) {
-            uniqueNumbers.push_back(entry.first);
+    for (int num : numbers) {
+        if (count(numbers.begin(), numbers.end(), num) == 1) {
+            uniqueNumbers.push_back(num);
         }
     }
-    
     return uniqueNumbers;
 }
