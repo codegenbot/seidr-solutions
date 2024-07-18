@@ -1,9 +1,14 @@
-std::string encode(std::string message) {
-    for(auto &c : message){
-        if(isalpha(c)){
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+string encode(string message){
+    for (char &c : message) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                c = char(c + 2);
             }
         }
     }
@@ -11,13 +16,6 @@ std::string encode(std::string message) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a message: ";
-    std::cin >> input;
-    
-    std::string encodedMessage = encode(input);
-    
-    std::cout << "Encoded message: " << encodedMessage << std::endl;
-    
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "K DqNt KnQw WhCt Tq WrKtG");
     return 0;
 }
