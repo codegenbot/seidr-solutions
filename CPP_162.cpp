@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <iostream>
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
@@ -14,4 +15,15 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(md5_hash);
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    std::string md5 = string_to_md5(input);
+    std::cout << "MD5 hash: " << md5 << std::endl;
+
+    return 0;
 }
