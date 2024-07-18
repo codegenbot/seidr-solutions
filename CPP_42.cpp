@@ -7,11 +7,9 @@ vector<int> incr_list(vector<int> l) {
 
 int main() {
     vector<int> v = {1, 2, 3, 4, 5};
-    v = incr_list(v);
-
-    for (int num : v) {
-        cout << num << " ";
+    vector<int> result = incr_list(v);
+    for (int x : result) {
+        cout << x << " ";
     }
-
     return 0;
 }
