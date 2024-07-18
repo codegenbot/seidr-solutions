@@ -1,17 +1,11 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> unique_digits(vector<int> x);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -37,4 +31,16 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    vector<int> test1 = {123, 456, 789};
+    vector<int> test2 = unique_digits(test1);
+    vector<int> expected = {123, 789};
+    if (issame(test2, expected)) {
+        cout << "Test passed." << endl;
+    } else {
+        cout << "Test failed." << endl;
+    }
+    return 0;
 }
