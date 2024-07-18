@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool areSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
@@ -17,6 +17,6 @@ std::vector<int> common(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(areSame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
     return 0;
 }
