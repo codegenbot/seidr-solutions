@@ -19,6 +19,8 @@ using namespace std;
 
 int main() {
     assert(specialFilter({}) == 0);
+    
+    // Additional test cases can be added here
 
     return 0;
 }
