@@ -1,6 +1,5 @@
 def filter_strings(strings, substring):
-    return [s for s in strings if substring in s]
+    return [s for s in strings if substring in s]  # Provided function definition
 
-# Call the function with required parameters
-filtered_strings = filter_strings(['apple', 'banana', 'cherry'], 'an')
-print(filtered_strings)   # Output: ['banana']
+# Function call to filter strings based on the substring
+filter_strings(["apple", "banana", "cherry"], "an")  # Output: ['banana']
