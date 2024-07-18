@@ -1,22 +1,19 @@
 #include <iostream>
-#include <string>
-#include <cctype>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
-using namespace std;
+std::string solve(const std::string& s);
 
-string solve(const string& s) {
-    string result = s;
-    for (char &c : result) {
+std::string solve(const std::string& s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (result.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-        reverse(result.begin(), result.end());
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+        std::reverse(s.begin(), s.end());
     }
-    return result;
+    return s;
 }
 
 int main() {
