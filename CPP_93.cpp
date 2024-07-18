@@ -3,11 +3,11 @@
 #include <cctype>
 
 std::string encode(std::string message) {
-    for(auto &c : message){
-        if(isalpha(c)){
+    for (auto &c : message) {
+        if (isalpha(c)) {
             c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                c += 2;
             }
         }
     }
@@ -15,13 +15,12 @@ std::string encode(std::string message) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a message to encode: ";
-    std::getline(std::cin, input);
+    std::string input_message;
+    std::cout << "Enter a message: ";
+    std::getline(std::cin, input_message);
 
-    std::string encodedMessage = encode(input);
-
-    std::cout << "Encoded message: " << encodedMessage << std::endl;
+    std::string encoded_message = encode(input_message);
+    std::cout << "Encoded message: " << encoded_message << std::endl;
 
     return 0;
 }
