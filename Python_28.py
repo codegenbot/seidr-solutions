@@ -1,6 +1,2 @@
-def check(fn):
-    correct_name = "concatenate_strings"
-    return fn.__name__ == correct_name
-
-def concatenate_strings(strings):
-    return "".join(strings)
+def check(func_name):
+    return func_name == "concatenate_strings"
