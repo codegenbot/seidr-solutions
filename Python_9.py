@@ -1,6 +1,7 @@
 from typing import List
 from collections import deque
 
+
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
     queue = deque()
@@ -13,6 +14,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         if queue[0] == i - len(numbers) + 1:
             queue.popleft()
 
-        result.append(numbers[queue[0])
+        result.append(numbers[queue[0]])
 
     return result
