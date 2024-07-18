@@ -7,12 +7,7 @@ def find_zero(xs: list):
     x = -a / b
     return x
 
-while True:
-    try:
-        input_list = list(map(float, input("Enter space-separated numbers: ").split()))
-        break
-    except ValueError:
-        print("Please enter valid space-separated numbers.")
-
+    
+input_list = list(map(float, input("Enter space-separated numbers: ").split()))
 result = find_zero(input_list)
 print(result)
