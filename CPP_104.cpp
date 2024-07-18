@@ -25,3 +25,5 @@ std::vector<int> unique_digits(std::vector<int> x){
     std::sort(result.begin(), result.end());
     return result;
 }
+
+assert(issame(unique_digits({135, 103, 31}), {31, 135}));
