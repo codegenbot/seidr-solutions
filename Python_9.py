@@ -7,11 +7,11 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-numbers = []
+input_numbers = []
 while True:
-    num = input("Enter a number (or 'done' to finish): ")
-    if num == 'done':
+    num = input("Enter a number (press 'q' to stop): ")
+    if num == 'q':
         break
-    numbers.append(int(num))
+    input_numbers.append(int(num))
 
-print(rolling_max(numbers))
+print(rolling_max(input_numbers))
