@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 vector<int> intersperse(const vector<int>& numbers, int delimeter){
     vector<int> result;
@@ -18,7 +17,8 @@ bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-int main(){
+int main() {
+    using namespace std;
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
 }
