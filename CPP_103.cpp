@@ -1,11 +1,19 @@
-if(n > m)
+if (n > m) {
         return "-1";
+    }
     
     int sum = 0;
-    for(int i = n; i <= m; i++)
+    for (int i = n; i <= m; ++i) {
         sum += i;
-        
-    int average = round((double)sum / (m - n + 1));
+    }
     
-    return bitset<8>(average).to_string().substr(0, 5);  
+    int avg = sum / (m - n + 1);
+    string binaryAvg = "";
+    
+    while (avg > 0) {
+        binaryAvg = to_string(avg % 2) + binaryAvg;
+        avg /= 2;
+    }
+    
+    return binaryAvg;
 }
