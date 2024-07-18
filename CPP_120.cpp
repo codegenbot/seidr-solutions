@@ -1,6 +1,9 @@
+#include <algorithm>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    // add your implementation here
+}
 
 bool maximum(int a, int b) {
     return a > b;
