@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a.size() == b.size();
 }
 
-std::vector<std::string> compare_lists(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+std::vector<std::string> compareLists(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
 
