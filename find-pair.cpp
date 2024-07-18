@@ -14,7 +14,7 @@ std::vector<int> findPair(const std::vector<int>& nums, int target) {
             break;
         }
         numMap[nums[i]] = i;
-        numMap[complement] = i; // Update index for each number
+        numMap[complement] = i;  // Update index for each number
     }
 
     return result;
