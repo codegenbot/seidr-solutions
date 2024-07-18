@@ -2,12 +2,18 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end());
+using namespace std;
+
+vector<int> sort_array(vector<int> arr);
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end());
     return arr;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return sort_array(a) == sort_array(b);
 }
 
