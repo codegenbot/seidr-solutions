@@ -1,38 +1,37 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <cassert>
+#include <vector>
+#include <iostream>
+#include <cassert> 
 
-bool issame(int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int a_temp = abs(a), b_temp = abs(b);
-    while (a_temp > 0) {
-        sum_a += a_temp % 10;
-        a_temp /= 10;
+int sumOfDigits(int num) {
+    int sum = 0;
+    int temp = abs(num);
+    while (temp > 0) {
+        sum += temp % 10;
+        temp /= 10;
     }
-    while (b_temp > 0) {
-        sum_b += b_temp % 10;
-        b_temp /= 10;
-    }
-    return sum_a == sum_b;
+    return sum;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        int a_temp = abs(a), b_temp = abs(b);
-        while (a_temp > 0) {
-            sum_a += a_temp % 10;
-            a_temp /= 10;
-        }
-        while (b_temp > 0) {
-            sum_b += b_temp % 10;
-            b_temp /= 10;
-        }
-        if (sum_a == sum_b) {
-            return a < b;
-        }
-        return sum_a < sum_b;
-    });
-    return nums;
+bool issame(int a, int b) {
+    return sumOfDigits(a) == sumOfDigits(b);
+}
+
+bool order_by_points(int a, int b) {
+    int sum_a = sumOfDigits(a);
+    int sum_b = sumOfDigits(b);
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+    return sum_a < sum_b;
+}
+
+int main() {
+    std::vector<int> nums = {3, 45, 12, 6, 21}; // example input
+    std::sort(nums.begin(), nums.end(), order_by_points);
+
+    for (int num : nums) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
