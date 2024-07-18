@@ -19,5 +19,5 @@ int main(){
     vector<double> coeffs = {1, -3, 2}; // Example coefficients of a polynomial
     vector<double> solution;
     solution.push_back(find_zero(coeffs));
-    assert (std::abs(poly(coeffs, solution[0])) < 1e-3);
+    assert (abs(poly(coeffs, solution[0])) < 1e-3);
 }
