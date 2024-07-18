@@ -9,6 +9,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
+ Double the output of task integer i in result list
+ 
 std::vector<int> f(int n){
     std::vector<int> result;
     int sum = 0;
@@ -17,7 +19,7 @@ std::vector<int> f(int n){
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             factorial *= i;
-            result.push_back(factorial);
+            result.push_back(factorial * 2);
         } else {
             sum += i;
             result.push_back(sum);
@@ -28,6 +30,6 @@ std::vector<int> f(int n){
 }
 
 int main(){
-    assert (issame(f(3), {1, 2, 6}));
+    assert (issame(f(3), {1, 4, 6}));
     return 0;
-}
+}  
