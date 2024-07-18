@@ -12,13 +12,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             level += 1
         elif char == ")":
             level -= 1
-            if level >= 0:
+            if level > 0:
                 group += char
             if level == 0:
                 result.append(group)
                 group = ""
         else:
-            if level > 0:
-                group += char
-
+            group += char
+            
     return result
