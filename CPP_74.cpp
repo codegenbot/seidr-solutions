@@ -1,12 +1,13 @@
-int sum1 = 0, sum2 = 0;
-    for (const string& str : lst1) {
-        sum1 += str.size();
+int total_chars1 = 0, total_chars2 = 0;
+    for(const string& str : lst1) {
+        total_chars1 += str.size();
     }
-    for (const string& str : lst2) {
-        sum2 += str.size();
+    for(const string& str : lst2) {
+        total_chars2 += str.size();
     }
-    if (sum1 < sum2) {
+    
+    if(total_chars1 < total_chars2) {
         return lst1;
+    } else {
+        return lst2;
     }
-    return (sum1 == sum2) ? lst1 : lst2;
-}
