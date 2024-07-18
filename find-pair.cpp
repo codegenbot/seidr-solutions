@@ -1,26 +1,38 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
-using namespace std;
+std::vector<int> findPair(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> numIdxMap;
+    
+    for (int i = 0; i < nums.size(); ++i) {
+        int complement = target - nums[i];
+        if (numIdxMap.find(complement) != numIdxMap.end()) {
+            return {complement, nums[i]};
+        }
+        numIdxMap[nums[i]] = i;
+    }
+    
+    return {};
+}
 
 int main() {
-    int n, target;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
-    cin >> target;
-
-    map<int, int> mp;
-    for (int i = 0; i < n; i++) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl << nums[i] << endl;
-            break;
-        }
-        mp[nums[i]] = i;
+    
+    int target;
+    std::cin >> target;
+    
+    std::vector<int> result = findPair(nums, target);
+    
+    for (int num : result) {
+        std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
