@@ -17,8 +17,6 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    
-    std::cout << "Fibonacci of " << n << " is: " << fib(n) << std::endl;
-    
+    std::cout << "Result: " << fib(n) << std::endl;
     return 0;
 }
