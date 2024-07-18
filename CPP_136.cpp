@@ -2,6 +2,10 @@
 #include <climits>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 std::vector<int> largest_smallest_integers(std::vector<int>& lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
@@ -15,10 +19,6 @@ std::vector<int> largest_smallest_integers(std::vector<int>& lst){
     }
     
     return {largest_negative, smallest_positive};
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
 }
 
 int main(){
