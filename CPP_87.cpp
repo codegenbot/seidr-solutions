@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+vector<vector<int>> get_row(vector<vector<int>> lst, int x); // Forward declaration
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return a == b;
@@ -13,7 +13,7 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    return issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}});
+    return false;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
