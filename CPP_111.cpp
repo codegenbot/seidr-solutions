@@ -1,22 +1,19 @@
-map<char, int> result;
-    stringstream ss(test);
-    string token;
-    while (ss >> token) {
-        for (char c : token) {
-            result[c]++;
+map<char,int> histogram(string test){
+    map<char,int> hist;
+    for (char letter : test) {
+        if (isalpha(letter) && islower(letter)) {
+            hist[letter]++;
         }
     }
-    int maxCount = 0;
-    for (auto itr = result.begin(); itr != result.end(); ++itr) {
-        if (itr->second > maxCount) {
-            maxCount = itr->second;
+    int max_count = 0;
+    for (const auto& entry : hist) {
+        max_count = max(max_count, entry.second);
+    }
+    map<char,int> result;
+    for (const auto& entry : hist) {
+        if (entry.second == max_count) {
+            result[entry.first] = entry.second;
         }
     }
-    map<char, int> res;
-    for (auto itr = result.begin(); itr != result.end(); ++itr) {
-        if (itr->second == maxCount) {
-            res[itr->first] = itr->second;
-        }
-    }
-    return res;
+    return result;
 }
