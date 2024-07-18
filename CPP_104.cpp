@@ -9,12 +9,6 @@ namespace cpp_104 {
         return a.size() == b.size() && std::is_permutation(a.begin(), a.end(), b.begin());
     }
 
-    std::vector<int> unique_digits(const std::vector<int>& nums);
-
-    void main() {
-        assert(issame(unique_digits({135, 103, 31}), {31, 135}));
-    }
-
     std::vector<int> unique_digits(const std::vector<int>& nums) {
         std::unordered_set<int> uniqueSet;
         for (int num : nums) {
@@ -23,7 +17,10 @@ namespace cpp_104 {
                 num /= 10;
             }
         }
-        std::vector<int> uniqueDigits(uniqueSet.begin(), uniqueSet.end());
-        return uniqueDigits;
+        return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
+    }
+
+    void main() {
+        assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     }
 }
