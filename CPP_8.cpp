@@ -16,10 +16,10 @@ pair<int, int> sum_product(vector<int> numbers) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
+    return make_pair(sum, product);
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({10}), make_pair(10, 10)));
     return 0;
 }
