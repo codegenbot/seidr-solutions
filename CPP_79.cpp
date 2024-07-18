@@ -11,7 +11,9 @@ string decimal_to_binary(int decimal){
     return binary + "db";
 }
 
-int main() {
-    // Your main function code here
+int main(){
+    int decimal;
+    cin >> decimal;
+    cout << decimal_to_binary(decimal);
     return 0;
 }
