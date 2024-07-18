@@ -4,14 +4,14 @@
 #include <set>
 
 std::vector<int> unique_digits(const std::vector<int>& nums) {
-    std::set<int> uniqueNums;
+    std::set<int> uniqueDigits;
     for (int num : nums) {
         while (num > 0) {
-            uniqueNums.insert(num % 10);
+            uniqueDigits.insert(num % 10);
             num /= 10;
         }
     }
-    return std::vector<int>(uniqueNums.begin(), uniqueNums.end());
+    return std::vector<int>(uniqueDigits.begin(), uniqueDigits.end());
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
