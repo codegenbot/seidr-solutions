@@ -13,8 +13,6 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
-
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
     std::vector<int> result;
     if(numbers.empty()){
@@ -26,4 +24,13 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+int main() {
+    // Test the intersperse function
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    int delimiter = 0;
+    std::vector<int> result = intersperse(numbers, delimiter);
+    
+    return 0;
 }
