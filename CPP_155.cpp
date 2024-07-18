@@ -1,9 +1,5 @@
-#include <vector>
 #include <cassert>
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return (a[0] == b[0] && a[1] == b[1]);
-}
+#include <vector>
 
 vector<int> countEvenOddDigits(int num) {
     vector<int> result(2, 0);
