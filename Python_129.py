@@ -4,10 +4,7 @@ def minPath(grid, k):
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
     def dfs(i, j, path):
-        if len(path) > k:  # Update condition for path length exceeding k
-            return None
-        
-        if len(path) == k:
+        if len(path) >= k:
             return path
 
         visited.add((i, j))
