@@ -1,6 +1,8 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
