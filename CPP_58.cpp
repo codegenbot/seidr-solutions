@@ -6,9 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result;
-    // Your logic to find common elements between a and b
-    return result;
+    return {};
 }
 
 int main() {
