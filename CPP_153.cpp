@@ -1,4 +1,9 @@
-int CAP(string s) {
+#include <string>
+#include <vector>
+#include <climits>
+#include <cassert>
+
+int CAP(std::string s) {
     int count = 0;
     for (char c : s) {
         if (isupper(c)) {
@@ -8,7 +13,7 @@ int CAP(string s) {
     return count;
 }
 
-int SM(string s) {
+int SM(std::string s) {
     int count = 0;
     for (char c : s) {
         if (islower(c)) {
@@ -18,11 +23,11 @@ int SM(string s) {
     return count;
 }
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    std::string strongest_extension;
     int max_strength = INT_MIN;
 
-    for (string ext : extensions) {
+    for (std::string ext : extensions) {
         int strength = CAP(ext) - SM(ext);
         if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
             max_strength = strength;
