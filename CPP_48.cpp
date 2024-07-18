@@ -13,10 +13,9 @@ bool is_palindrome(const std::string& text) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::cout << (is_palindrome(input) ? "true" : "false") << std::endl;
+    assert(is_palindrome("xywzx") == false);
+    assert(is_palindrome("radar") == true);
+    assert(is_palindrome("level") == true);
 
     return 0;
 }
