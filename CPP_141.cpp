@@ -1,25 +1,21 @@
-int count_digits = 0;
-    int dot_pos = -1;
-    
-    for (int i = 0; i < file_name.length(); ++i) {
-        if (isdigit(file_name[i])) {
-            count_digits++;
-        } else if (file_name[i] == '.') {
-            if (dot_pos != -1) {
-                return "No";
-            }
-            dot_pos = i;
+int digit_count = 0;
+    int dot_count = 0;
+    int dot_index = -1;
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            digit_count++;
+        }
+        if (file_name[i] == '.') {
+            dot_count++;
+            dot_index = i;
         }
     }
-    
-    if (count_digits > 3 || dot_pos == -1 || dot_pos == 0 || dot_pos == file_name.length() - 1) {
+    if (digit_count > 3 || dot_count != 1 || dot_index == 0 || dot_index == file_name.length() - 1) {
         return "No";
     }
-    
-    string extension = file_name.substr(dot_pos + 1);
+    string extension = file_name.substr(dot_index + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
-    
     return "Yes";
 }
