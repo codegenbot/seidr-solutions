@@ -1,10 +1,10 @@
-int is_nested(string str) {
-    int count = 0;
-    for (char bracket : str) {
-        if (bracket == '[')
+int count = 0;
+    for (char c : str) {
+        if (c == '[') {
             count++;
-        else if (bracket == ']' && count > 0)
+        } else if (c == ']' && count > 0) {
             count--;
+        }
     }
-    return count < 0 ? false : true;
+    return count < 0 && str.size() > 2;
 }
