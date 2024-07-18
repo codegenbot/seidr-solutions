@@ -1,8 +1,11 @@
-from typing import List
+from collections import Counter
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [num for num in numbers if numbers.count(num) == 1]
 
-numbers = list(map(int, input("Enter a list of integers separated by space: ").split()))
+def remove_duplicates(numbers):
+    num_counts = Counter(numbers)
+    return [num for num in numbers if num_counts[num] == 1]
+
+
+numbers = list(map(int, input().split()))
 output = remove_duplicates(numbers)
 print(output)
