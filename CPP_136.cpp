@@ -2,25 +2,21 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
-    
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[i])
             return false;
-        }
     }
-    
     return true;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
+vector<int> largest_smallest_integers(vector<int> lst) {
+    int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
+        if (num < 0 && num > largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
+        } else if (num > 0 && num < smallest_positive) {
             smallest_positive = num;
         }
     }
@@ -28,15 +24,16 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input = {3, -4, 5, -1, 6, -10};
-    std::vector<int> output = largest_smallest_integers(input);
-    std::vector<int> expected_output = {-1, 3};
-    
-    if (issame(output, expected_output)) {
-        std::cout << "Test passed. Output matches expected." << std::endl;
+    vector<int> test_input = {3, -7, 9, 2, -5, 6};
+    vector<int> expected_output = {-5, 2};
+
+    vector<int> result = largest_smallest_integers(test_input);
+
+    if (issame(result, expected_output)) {
+        std::cout << "Test Passed\n";
     } else {
-        std::cout << "Test failed. Output does not match expected." << std::endl;
+        std::cout << "Test Failed\n";
     }
-    
+
     return 0;
 }
