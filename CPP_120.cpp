@@ -7,9 +7,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    if(k < 0) {
-        return {};
-    }
     std::sort(arr.begin(), arr.end(), std::greater<int>());
     arr.resize(k);
     return arr;
