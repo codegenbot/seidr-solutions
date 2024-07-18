@@ -1,11 +1,24 @@
-if(dict.empty())
+if (dict.empty()) {
     return false;
-bool is_lower = true, is_upper = true;
-for(auto& kv : dict){
-    if(!islower(kv.first[0]))
-        is_lower = false;
-    if(!isupper(kv.first[0]))
-        is_upper = false;
 }
-return is_lower || is_upper;
+
+bool is_lowercase = true;
+bool is_uppercase = true;
+
+for (const auto& pair : dict) {
+    for (char c : pair.first) {
+        if (!islower(c)) {
+            is_lowercase = false;
+            break;
+        }
+    }
+    for (char c : pair.first) {
+        if (!isupper(c)) {
+            is_uppercase = false;
+            break;
+        }
+    }
+}
+
+return is_lowercase || is_uppercase;
 }
