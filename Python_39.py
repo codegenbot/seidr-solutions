@@ -1,23 +1,25 @@
+n = int(input())
+
 def is_prime(num):
     if num < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
     return True
 
 def prime_fib(n: int):
-    if n == 1:
-        return 2
-    if n == 2:
-        return 3
+    def fibonacci(n):
+        if n <= 1:
+            return n
+        else:
+            return fibonacci(n-1) + fibonacci(n-2)
 
-    fib_sequence = [1, 1]
-    while len(fib_sequence) < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-
-    for num in fib_sequence:
+    count = 0
+    num = 1
+    while count < n:
+        num += 1
         if is_prime(num):
-            n -= 1
-            if n == 0:
-                return num
+            if num == fibonacci(num):
+                count += 1
+    return num
