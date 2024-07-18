@@ -9,6 +9,6 @@ int fib(int n) {
 int main() {
     int n;
     std::cin >> n;
-    fib(n);
+    std::cout << fib(n);
     return 0;
 }
