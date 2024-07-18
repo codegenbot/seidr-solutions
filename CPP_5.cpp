@@ -2,8 +2,6 @@
 #include <cassert>
 using namespace std;
 
-vector<int> intersperse(vector<int> numbers, int delimiter);
-
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
