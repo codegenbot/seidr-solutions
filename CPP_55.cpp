@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 int fib(int n) {
@@ -14,6 +15,9 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(12) == 144);
+    int n;
+    std::cout << "Enter a number to calculate Fibonacci number: ";
+    std::cin >> n;
+    std::cout << "Fibonacci number at position " << n << " is " << fib(n) << std::endl;
     return 0;
 }
