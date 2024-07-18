@@ -1,0 +1,21 @@
+#include <vector>
+#include <algorithm>
+
+bool triples_sum_to_zero(std::vector<int>& l) {
+    std::sort(l.begin(), l.end());
+    
+    for (int i = 0; i < l.size(); ++i) {
+        for (int j = i + 1; j < l.size(); ++j) {
+            for (int k = j + 1; k < l.size(); ++k) {
+                if (l[i] + l[j] + l[k] == 0) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int main() {
+    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+}
