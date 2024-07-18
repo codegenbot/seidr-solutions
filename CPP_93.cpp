@@ -1,13 +1,22 @@
-transform(message.begin(), message.end(), message.begin(), [](char c) {
+string encode(string message) {
+    string encoded_message = "";
+    for (char c : message) {
         if (isalpha(c)) {
-            char new_char = (c + ((c >= 'a') ? 'A' - 'a' : 0)) ^ 32; // Swap case
-            if (new_char == 'A' || new_char == 'E' || new_char == 'I' || new_char == 'O' || new_char == 'U') {
-                c = new_char + 2;
+            if (isupper(c)) {
+                encoded_message += tolower(c);
             } else {
-                c = new_char;
+                encoded_message += toupper(c);
             }
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                char new_char = c + 2;
+                if (new_char > 'z') {
+                    new_char -= 26;
+                }
+                encoded_message += new_char;
+            }
+        } else {
+            encoded_message += c;
         }
-        return c;
-    });
-    return message;
+    }
+    return encoded_message;
 }
