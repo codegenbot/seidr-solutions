@@ -1,9 +1,13 @@
 #include <iostream>
-#include <sstream>
 #include <map>
+#include <sstream>
 #include <cassert>
 
+using namespace std;
+
 map<char, int> histogram(string test);
+
+bool issame(map<char, int> a, map<char, int> b);
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -27,6 +31,12 @@ map<char, int> histogram(string test) {
     return maxChars;
 }
 
-bool issame(map<char, int>& a, map<char, int>& b) {
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    // Add more test cases as needed
+    return 0;
 }
