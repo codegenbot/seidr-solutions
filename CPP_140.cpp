@@ -1,19 +1,22 @@
-int count = 0;
+string fix_spaces(string text){
     string result = "";
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back(); // Remove the last space
-                result += "-";
-                count = 1; // Reset count to 1 for the current space
+    int consecutive_spaces = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            consecutive_spaces++;
+            if(consecutive_spaces > 2){
+                result.pop_back();
+                result.pop_back();
+                result += '-';
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
-            count = 0; // Reset count if non-space character is encountered
+            consecutive_spaces = 0;
         }
     }
+    
     return result;
 }
