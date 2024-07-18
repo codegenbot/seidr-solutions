@@ -1,5 +1,5 @@
-def concatenate_strings(strings):
-    return "".join(strings)
+def concat_strings(strings):
+    return ''.join(strings)
 
-input_strings = input().split()
-print(concatenate_strings(input_strings))
+# Call the function with appropriate input
+concat_strings(['hello', 'world'])
