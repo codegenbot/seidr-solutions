@@ -1,14 +1,17 @@
 string int_to_mini_roman(int number){
-        string roman_numeral = "";
-        vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        vector<string> numerals = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    vector<pair<int, string>> roman_map = {
+        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+    };
 
-        for (int i = 0; i < values.size(); i++) {
-            while (number >= values[i]) {
-                roman_numeral += numerals[i];
-                number -= values[i];
-            }
+    string result = "";
+    for(const auto& pair : roman_map){
+        while(number >= pair.first){
+            result += pair.second;
+            number -= pair.first;
         }
-
-        return roman_numeral;
     }
+
+    return result;
+}
