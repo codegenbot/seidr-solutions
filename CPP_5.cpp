@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
-using namespace std;
 
-vector<int> intersperse(const vector<int>& numbers, int delimiter){
-    vector<int> result;
+std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
+    std::vector<int> result;
     if(numbers.empty()){
         return result;
     }
@@ -15,6 +14,12 @@ vector<int> intersperse(const vector<int>& numbers, int delimiter){
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
+}
+
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    
+    return 0;
 }
