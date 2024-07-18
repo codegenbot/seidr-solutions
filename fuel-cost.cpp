@@ -7,10 +7,10 @@ int main() {
 
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += (nums[i] / 3) - 2;
+        sum += max(nums[i] / 3 - 2, 0);
     }
 
-    cout << sum << endl;
+    cout << sum;
 
     return 0;
 }
