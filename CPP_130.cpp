@@ -1,10 +1,11 @@
 #include <vector>
 
+vector<int> tri(int n);
+bool issame(const vector<int>& a, const vector<int>& b);
+
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-vector<int> tri(int n);
 
 vector<int> tri(int n){
     vector<int> result;
@@ -22,9 +23,4 @@ vector<int> tri(int n){
         }
     }
     return result;
-}
-
-int main() {
-    // Your main function goes here if needed
-    return 0;
-}
+} 
