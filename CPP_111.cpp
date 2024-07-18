@@ -1,28 +1,22 @@
-// Include needed headers and specify std namespace
 #include <iostream>
-#include <sstream>
 #include <map>
 #include <cassert>
-using namespace std;
 
-// Define function prototypes
-map<char, int> histogram(string test);
-bool issame(map<char, int>& a, map<char, int>& b);
+std::map<char, int> histogram(std::string test);
 
-// Implement histogram function
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    istringstream ... 
-    return maxChars;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    for (char c : test) {
+        result[c]++;
+    }
+    return result;
 }
 
-// Implement issame function to compare maps
-bool issame(map<char, int>& a, map<char, int>& b) {
+bool is_same(std::map<char, int>& a, std::map<char, int>& b) {
     return a == b;
 }
 
-// Write main function to test the implementation
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}})); // Test case
+    assert(is_same(histogram("a"), {{'a', 1}}));
     return 0;
 }
