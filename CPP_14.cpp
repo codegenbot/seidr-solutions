@@ -16,11 +16,12 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string str = "hello";
-    vector<string> prefixes = all_prefixes(str);
-    for (const auto &prefix : prefixes) {
+    string test_str = "prefixes";
+    vector<string> prefixes = all_prefixes(test_str);
+
+    for (const string& prefix : prefixes) {
         cout << prefix << " ";
     }
-    cout << endl;
+
     return 0;
 }
