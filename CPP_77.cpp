@@ -1,6 +1,12 @@
 #include <cmath>
+#include <cassert>
 
-bool iscube(int a) {
-    int cube_root = static_cast<int>(round(cbrt(static_cast<double>(a))));
+bool iscuber(int a) {
+    int cube_root = round(cbrt(a));
     return (cube_root * cube_root * cube_root == a);
+}
+
+int main() {
+    assert(iscuber(1729) == false);
+    return 0;
 }
