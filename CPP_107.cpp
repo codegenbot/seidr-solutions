@@ -12,7 +12,10 @@ std::vector<int> even_odd_palindrome(int n) {
         std::string rev = num;
         std::reverse(rev.begin(), rev.end());
         if (num == rev) {
-            (i % 2 == 0) ? even++ : odd++;
+            if (i % 2 == 0)
+                even++;
+            else
+                odd++;
         }
     }
     
