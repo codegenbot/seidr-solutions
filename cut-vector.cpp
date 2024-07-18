@@ -33,7 +33,6 @@ int main() {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
-    
     for (int i = cutIndex; i < nums.size(); ++i) {
         std::cout << nums[i] << " ";
     }
