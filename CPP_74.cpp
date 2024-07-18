@@ -1,19 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
+    vector<string> vec1 = {"apple", "banana", "orange"};
+    vector<string> vec2 = {"apple", "banana", "orange"};
 
-    if (issame(a, b)) {
-        cout << "Vectors a and b are the same";
-    } else {
-        cout << "Vectors a and b are different";
-    }
-
+    bool result = issame(vec1, vec2);
     return 0;
 }
