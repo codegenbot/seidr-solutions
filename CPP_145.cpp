@@ -12,7 +12,7 @@ vector<int> order_by_points(vector<int> nums) {
             b /= 10;
         }
         if (sumA == sumB) {
-            return a < b;
+            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
         }
         return sumA < sumB;
     });
@@ -20,10 +20,15 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {123, 456, 789, 321};
+    // input nums vector
+    vector<int> nums = {123, 456, 789};
+    
     nums = order_by_points(nums);
+
+    // print sorted nums vector
     for (int num : nums) {
         cout << num << " ";
     }
+
     return 0;
 }
