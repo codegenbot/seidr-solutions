@@ -1,13 +1,14 @@
-vector<int> parse_music(string music_string){ 
+vector<int> parse_music(string music_string){
     vector<int> beats;
-    for (int i = 0; i < music_string.size(); ++i) {
+    int length = music_string.length();
+    for (int i = 0; i < length; ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == '|') {
             if (music_string[i - 1] == 'o') {
-                beats.back() = 2;
+                beats[beats.size() - 1] = 2;
             } else {
-                beats.back() = 1;
+                beats.push_back(1);
             }
         }
     }
