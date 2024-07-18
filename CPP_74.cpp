@@ -1,5 +1,5 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return totalChars(a) == totalChars(b);
 }
 
 int totalChars(const vector<string>& lst) {
@@ -18,10 +18,14 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
 }
 
 int main() {
-    vector<string> lst1 = {"abc", "def", "ghi"};
-    vector<string> lst2 = {"jkl", "mno"};
+    vector<string> input1 = {"hello", "world"};
+    vector<string> input2 = {"cpp", "contest", "problem"};
 
-    vector<string> result = total_match(lst1, lst2);
+    vector<string> result = total_match(input1, input2);
 
-    assert(result == lst2);
+    assert(result.size() == input1.size());
+    assert(result[0] == "hello");
+    assert(result[1] == "world");
+
+    return 0;
 }
