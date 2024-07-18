@@ -1,9 +1,9 @@
-int n = txt.length();
-if (n == 0) return false;
-char lastChar = txt[n - 1];
-if (isalpha(lastChar)) {
-    if (n == 1) return true;
-    if (txt[n - 2] == ' ') return true;
-}
-return false;
+if(txt.empty())
+        return false;
+    
+    char lastChar = txt.back();
+    if(isalpha(lastChar) && !isalnum(*(txt.end()-2)))
+        return true;
+    
+    return false;
 }
