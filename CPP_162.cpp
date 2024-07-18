@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert>  // Add this line to fix the 'assert' error
+#include <cassert>
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
