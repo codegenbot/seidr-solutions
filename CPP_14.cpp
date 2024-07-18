@@ -1,11 +1,23 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool is_same(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size())
+        return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> all_prefixes(string str);
+
+int main() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+}
 
 vector<string> all_prefixes(string str) {
     vector<string> prefixes;
@@ -13,12 +25,4 @@ vector<string> all_prefixes(string str) {
         prefixes.push_back(str.substr(0, i));
     }
     return prefixes;
-}
-
-int main() {
-    vector<string> prefixes = all_prefixes("hello");
-    for (const auto& prefix : prefixes) {
-        cout << prefix << " ";
-    }
-    return 0;
 }
