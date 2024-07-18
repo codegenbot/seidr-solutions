@@ -1,20 +1,26 @@
 #include <string>
+#include <cstring>
 #include <openssl/evp.h>
 
-using namespace std;
-
-string string_to_md5(const string& text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_Digest((unsigned char*)text.c_str(), text.length(), digest, NULL, EVP_md5(), NULL);
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md = EVP_md5();
+    unsigned char digest[EVP_MD_size(md)];
+
+    mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(mdctx, digest, NULL);
+    EVP_MD_CTX_free(mdctx);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return string(mdString);
+    return std::string(mdString);
 }
