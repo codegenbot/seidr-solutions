@@ -13,7 +13,7 @@ std::pair<int, int> eat(int number, int remaining) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{eat(4, 5).first, eat(4, 5).second}, {5, 0}));
+    assert (issame(eat(4, 5), {5, 0}));
     
     return 0;
 }
