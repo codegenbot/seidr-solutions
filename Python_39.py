@@ -21,7 +21,6 @@ def prime_fib():
         num += 1
         if is_prime(num) and num == fib(count):
             count += 1
-            
     return num
 
 print(prime_fib())
