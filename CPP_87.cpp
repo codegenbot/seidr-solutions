@@ -1,10 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b);
+vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -22,14 +23,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
-}
-
-bool issame(vector<vector<int>> a, vector<vector<int>> b){
-    return a == b;
-}
-
-int main(){
-    assert (issame(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
-    
-    return 0;
 }
