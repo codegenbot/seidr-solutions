@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
