@@ -1,5 +1,10 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b) {
+    // Function body...
+}
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
