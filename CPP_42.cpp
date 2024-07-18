@@ -1,8 +1,8 @@
-#include <vector>
 #include <cassert>
+#include <vector>
 
 std::vector<int> incr_list(std::vector<int> l) {
-    for (int& num : l) {
+    for (int &num : l) {
         num++;
     }
     return l;
