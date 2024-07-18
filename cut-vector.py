@@ -1,17 +1,18 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-total_sum = sum(arr)
-half_sum = total_sum // 2
-prefix_sum = 0
+vec = [int(input()) for _ in range(n)]
+
+total_sum = sum(vec)
+left_sum = 0
+min_diff = total_sum
+cut_index = -1
+
 for i in range(n):
-    prefix_sum += arr[i]
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or abs(total_sum - 2 * prefix_sum) < abs(
-            total_sum - 2 * (prefix_sum - arr[i])
-        ):
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-        else:
-            print(*arr[:i])
-            print(*arr[i:])
-        break
+    left_sum += vec[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+print(*vec[: cut_index + 1])
+print(*vec[cut_index + 1 :])
