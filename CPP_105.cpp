@@ -1,13 +1,13 @@
+#include <algorithm>
 #include <iostream>
+#include <map>
 #include <vector>
 #include <string>
-#include <map>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int> arr) {
     vector<string> res;
     vector<int> valid_nums;
     map<int, string> num_to_name = {
@@ -21,7 +21,8 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(valid_nums.begin(), valid_nums.end(), greater<int>());
+    sort(valid_nums.begin(), valid_nums.end());
+    reverse(valid_nums.begin(), valid_nums.end());
 
     for (int num : valid_nums) {
         res.push_back(num_to_name[num]);
@@ -30,11 +31,12 @@ vector<string> by_length(vector<int> arr){
     return res;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    
     return 0;
 }
