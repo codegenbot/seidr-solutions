@@ -19,6 +19,5 @@ std::string circular_shift(int x, int shift) {
 
 int main() {
     assert(circular_shift(11, 101) == "11");
-    // Add more test cases if needed
     return 0;
 }
