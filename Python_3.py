@@ -5,10 +5,14 @@ def below_zero(operations: List[int]) -> bool:
     for op in operations:
         balance += op
         if balance < 0:
-            return True
+           return True
     return False
 
-# Read input as space-separated integers and call the function
+# Read input from user
 operations = list(map(int, input().split()))
+
+# Call the function with the input list
 result = below_zero(operations)
+
+# Output the result
 print(result)
