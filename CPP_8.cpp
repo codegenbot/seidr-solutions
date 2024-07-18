@@ -1,10 +1,7 @@
 #include <vector>
+using namespace std;
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+vector<int> sum_product(const vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
