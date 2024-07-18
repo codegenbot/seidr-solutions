@@ -14,11 +14,8 @@ bool is_palindrome(const std::string& text) {
 }
 
 int main() {
-    std::string test1 = "level";
-    std::string test2 = "hello";
-    
-    std::cout << is_palindrome(test1) << std::endl; // Output should be 1
-    std::cout << is_palindrome(test2) << std::endl; // Output should be 0
-    
+    std::cout << is_palindrome("radar") << std::endl;  // Output: 1
+    std::cout << is_palindrome("hello") << std::endl;  // Output: 0
+
     return 0;
 }
