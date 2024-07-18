@@ -1,11 +1,11 @@
-bool is_nested(string str){
-    int level = 0;
-    for(char c : str){
-        if(c == '['){
-            level++;
-        } else if(c == ']' && level > 0){
-            level--;
+bool is_nested(const std::string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return level < 0;
+    return count == 0;
 }
