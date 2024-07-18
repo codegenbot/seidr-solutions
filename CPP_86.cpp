@@ -1,10 +1,14 @@
-string anti_shuffle(string s){
+#include <algorithm>
+#include <string>
+#include <cassert>
+
+string anti_shuffle(string s) {
     string result = "";
     string word = "";
-    for(char c : s){
-        if(c == ' '){
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + " ";
+            result += word + ' ';
             word = "";
         } else {
             word += c;
@@ -13,4 +17,6 @@ string anti_shuffle(string s){
     sort(word.begin(), word.end());
     result += word;
     return result;
-}
+} 
+
+assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == "Hi. My aemn is Reimrst Boot. How aer you?");
