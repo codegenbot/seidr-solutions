@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <memory>
 #include <cassert>
 
 using namespace std;
@@ -13,7 +12,7 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 
 int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    return false;
+    return 0;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
