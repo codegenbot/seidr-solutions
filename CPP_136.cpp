@@ -1,7 +1,17 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -28,7 +38,12 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, -1, 5, -10, 2};
-    vector<int> result = largest_smallest_integers(input);
+    vector<int> numbers = {5, -3, 0, 10, -7};
+    vector<int> result = largest_smallest_integers(numbers);
+    
+    for (int num : result) {
+        cout << num << " ";
+    }
+    
     return 0;
 }
