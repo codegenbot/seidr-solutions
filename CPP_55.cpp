@@ -12,7 +12,7 @@ int fib(int n) {
         b = c;
     }
     return b;
-}
+} 
 
 int main() {
     int n;
