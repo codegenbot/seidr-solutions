@@ -1,6 +1,12 @@
-vector<float> sort_even(vector<float> l) { 
+bool issame(vector<float> a, vector<float> b) {
+    sort_even(a);
+    sort_even(b);
+
+    return a == b;
+}
+
+void sort_even(vector<float> &l) {
     vector<float> even_vals;
-    vector<float> result;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -13,12 +19,8 @@ vector<float> sort_even(vector<float> l) {
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_vals[even_index]);
+            l[i] = even_vals[even_index];
             even_index++;
-        } else {
-            result.push_back(l[i]);
         }
     }
-
-    return result;
 }
