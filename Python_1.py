@@ -3,19 +3,18 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     group = ""
-    open_count = 0
-
     for char in paren_string:
         if char == "(":
-            if open_count > 0:
-                result.append(group)
-                group = ""
-            open_count += 1
-        group += char
-        if char == ")":
-            open_count -= 1
-            if open_count == 0:
-                result.append(group)
-                group = ""
-
+            group += char
+        elif char == ")":
+            group += char
+            result.append(group)
+            group = ""
+    if group:
+        result.append(group)
     return result
+
+# Read input from user
+input_string = input("Enter parentheses string: ")
+output = separate_paren_groups(input_string)
+print(output)
