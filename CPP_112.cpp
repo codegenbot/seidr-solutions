@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -26,12 +27,16 @@ vector<string> reverse_delete(string s, string c){
 
 int main() {
     string s, c;
-    cin >> s >> c;
+    cout << "Enter the original string: ";
+    cin >> s;
+    cout << "Enter the characters to delete: ";
+    cin >> c;
 
     vector<string> result = reverse_delete(s, c);
-    for(const string& str : result){
+    for(const auto& str : result){
         cout << str << " ";
     }
+    cout << endl;
 
     return 0;
 }
