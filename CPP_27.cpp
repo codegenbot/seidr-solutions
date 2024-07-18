@@ -1,9 +1,9 @@
 #include <iostream>
-#include <cctype>
-#include <cassert>
+#include <string>
+using namespace std;
 
-std::string filp_case(std::string str) {
-    for(size_t i=0; i<str.length(); i++){
+string flip_case(string str) {
+    for(size_t i = 0; i < str.length(); i++){
         if(islower(str[i])){
             str[i] = toupper(str[i]);
         }
@@ -14,8 +14,15 @@ std::string filp_case(std::string str) {
     return str;
 }
 
-int main() {
-    assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main(int argc, char *argv[]) {
+    if(argc < 2) {
+        cout << "Usage: ./program_name <string>" << endl;
+        return 1;
+    }
+    
+    string input_str = argv[1];
+    string flipped_str = flip_case(input_str);
+    cout << flipped_str << endl;
     
     return 0;
 }
