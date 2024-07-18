@@ -1,3 +1,5 @@
-paren_string = input("Enter the parentheses string: ")
+paren_string = input()
+
 result = separate_paren_groups(paren_string)
-print(result)
+for group in result:
+    print(group)
