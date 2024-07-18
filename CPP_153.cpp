@@ -1,20 +1,17 @@
 
 #include <iostream>
-#include <cctype>
 #include <vector>
-#include <algorithm>
+#include <cctype>
 #include <cassert>
 
-using namespace std;
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
+std::string Strongest_Extension(const std::string &class_name, const std::vector<std::string> &extensions) {
     int CAP, SM, max_strength = -1;
-    string strongest_extension = "";
-    for (string ext : extensions) {
+    std::string strongest_extension = "";
+    for (const std::string &ext : extensions) {
         CAP = SM = 0;
         for (char c : ext) {
-            if (isupper(c)) CAP++;
-            else if (islower(c)) SM++;
+            if (std::isupper(c)) CAP++;
+            else if (std::islower(c)) SM++;
         }
         int strength = CAP - SM;
         if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
