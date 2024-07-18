@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -20,7 +20,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::assert(std::issame(even_odd_count(0), {1, 0}));
+    std::assert(issame(even_odd_count(0), std::{1, 0}));
     
     return 0;
 }
