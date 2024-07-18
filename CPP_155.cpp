@@ -1,7 +1,6 @@
 #include <vector>
-#include <cassert>
 
-bool issame(int num) {
+bool issame(vector<int> a, vector<int> b) {
     vector<int> result(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
@@ -13,3 +12,5 @@ bool issame(int num) {
     }
     return result;
 }
+
+assert(issame(even_odd_count(0), vector<int>{1, 0}));
