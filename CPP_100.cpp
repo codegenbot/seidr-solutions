@@ -1,11 +1,7 @@
 #include <vector>
 
-bool issame(std::vector<int>& p1, std::vector<int>& p2) {
-    if (p1.size() != p2.size()) return false;
-    for (int i = 0; i < p1.size(); i++) {
-        if (p1[i] != p2[i]) return false;
-    }
-    return true;
+bool issame(int n, int m) {
+    return n == m;
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -15,7 +11,7 @@ std::vector<int> make_a_pile(int n) {
         if (n % 2 == 0) {
             n /= 2;
         } else {
-            n -= 1;
+            n += 1;
         }
         stones.push_back(n);
     }
