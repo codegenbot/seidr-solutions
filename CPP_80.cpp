@@ -1,4 +1,8 @@
-if(s.length() < 3) {
+#include <string>
+#include <cassert>
+
+bool is_happy(std::string s) {
+    if(s.length() < 3) {
         return false;
     }
     
