@@ -7,5 +7,5 @@ def encode(message):
             else:
                 encoded_message += char.swapcase()
         else:
-            encoded_message += char  # keep non-alphabetic characters unchanged
+            encoded_message += char
     return encoded_message
