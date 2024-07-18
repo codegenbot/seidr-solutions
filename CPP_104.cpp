@@ -27,9 +27,6 @@ std::vector<int> unique_digits(std::vector<int> x) {
 }
 
 int main() {
-    std::vector<int> input = {135, 103, 31};
-    std::vector<int> expected_output = {31, 135};
-    std::vector<int> output = unique_digits(input);
-    assert(output == expected_output);
+    assert(unique_digits({135, 103, 31}) == std::vector<int>({31, 135}));
     return 0;
 }
