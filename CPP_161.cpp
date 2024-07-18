@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 #include <cassert>
+#include <algorithm>
+
 using namespace std;
 
 string solve(string s){
@@ -19,9 +18,7 @@ string solve(string s){
     return s;
 }
 
-int main() {
-    string input;
-    cin >> input;
-    cout << solve(input) << endl;
+int main(){
+    assert (solve("#ccc") == "#CCC");
     return 0;
 }
