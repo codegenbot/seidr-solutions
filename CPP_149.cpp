@@ -1,3 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<string> sorted_list_sum(vector<string> a, vector<string> b);
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     a.insert(a.end(), b.begin(), b.end());
     
@@ -19,6 +32,8 @@ int main() {
     for (const auto& str : result) {
         cout << str << " ";
     }
+
+    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
