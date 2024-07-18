@@ -1,11 +1,14 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> seen(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (isalpha(c) && !seen[c - 'a']) {
-            seen[c - 'a'] = true;
-            count++;
+int count = 0;
+    vector<int> freq(256, 0);
+    
+    for(char c : str){
+        if(isalpha(c)){
+            if(freq[toupper(c)] == 0){
+                freq[toupper(c)] = 1;
+                count++;
+            }
         }
     }
+    
     return count;
 }
