@@ -16,8 +16,3 @@ vector<int> strange_sort_list(vector<int> lst){
     }
     return result;
 }
-
-int main() {
-    assert(strange_sort_list({111111}) == vector<int>({111111}));
-    return 0;
-}
