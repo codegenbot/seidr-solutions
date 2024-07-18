@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-#include <memory_resource>
 
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -23,6 +22,11 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    return 0;
 }
