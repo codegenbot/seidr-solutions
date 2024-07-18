@@ -16,7 +16,4 @@ std::vector<int> common(std::vector<int> a, std::vector<int> b) {
     return result;
 }
 
-int main() {
-    assert(issame(common({4, 3, 2, 8}, std::vector<int>{}), std::vector<int>{}));
-    return 0;
-}
+assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
