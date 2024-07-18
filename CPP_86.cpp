@@ -2,20 +2,18 @@ string anti_shuffle(string s){
     string result = "";
     string word = "";
     
-    for(char c : s){
-        if(c == ' '){
+    for (int i = 0; i < s.length(); ++i) {
+        if (s[i] == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            result += word + " ";
             word = "";
         } else {
-            word += c;
+            word += s[i];
         }
     }
     
-    if(!word.empty()){
-        sort(word.begin(), word.end());
-        result += word;
-    }
-    
+    sort(word.begin(), word.end());
+    result += word;
+
     return result;
 }
