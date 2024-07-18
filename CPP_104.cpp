@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(int a, int b) {
     return a < b;
 }
 
@@ -28,6 +28,8 @@ std::vector<int> unique_digits(std::vector<int> x) {
 
 int main() {
     std::vector<int> expected_result = {31, 135};
-    assert(unique_digits({135, 103, 31}) == expected_result);
+    std::vector<int> input = {135, 103, 31};
+    std::vector<int> result = unique_digits(input);
+    assert(result == expected_result);
     return 0;
 }
