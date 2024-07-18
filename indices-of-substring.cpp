@@ -3,6 +3,7 @@ int main() {
     cin >> text >> target;
     
     vector<int> indices;
+    
     size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         indices.push_back(pos);
