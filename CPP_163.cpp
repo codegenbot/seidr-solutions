@@ -4,8 +4,15 @@
 vector<int> generate_integers(int a, int b);
 
 bool issame(vector<int> a, vector<int> b){
-    // Your implementation here
-    return false; // Placeholder return value
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return  true; 
 }
 
 vector<int> generate_integers(int a, int b){
@@ -19,6 +26,10 @@ vector<int> generate_integers(int a, int b){
 }
 
 int main() {
-    // Your main function code here
+    vector<int> test1 = generate_integers(1, 10);
+    vector<int> test2 = generate_integers(2, 12);
+    
+    assert(issame(test1, test2) == false);
+    
     return 0;
 }
