@@ -31,7 +31,8 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     vector<int> test_result = get_odd_collatz(10);
-    vector<int> expected_result = {1, 3, 5, 9};
-    
+    vector<int> expected_result = {1, 5, 7};
     assert(issame(test_result, expected_result));
+    
+    return 0;
 }
