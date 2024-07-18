@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
