@@ -8,7 +8,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
+    return std::vector<int>{sum, product};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
