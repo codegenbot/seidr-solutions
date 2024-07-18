@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>  
 
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+std::pair<int, int> sum_product(const std::vector<int>& numbers) {  
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
@@ -12,11 +12,11 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<int> numbers = {2, 3, 4, 5};
-    std::pair<int, int> result = sum_product(numbers);
-    
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    auto result = sum_product(numbers);
+
     std::cout << "Sum: " << result.first << std::endl;
     std::cout << "Product: " << result.second << std::endl;
-    
+
     return 0;
 }
