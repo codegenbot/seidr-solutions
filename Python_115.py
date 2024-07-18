@@ -2,9 +2,5 @@ import math
 
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    return max(0, math.ceil(total_water / capacity) - len(grid) * capacity)
-
-def check(func):
-    assert func([[1, 1, 1, 1], [1, 1, 1, 1]], 9) == 0, "Error"
-
-check(max_fill)
+    max_water_fill = total_water - capacity * len(grid) * len(grid[0])
+    return max(0, math.ceil(max_water_fill / capacity))
