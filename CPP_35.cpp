@@ -5,13 +5,8 @@ float max_element(const vector<float>& l){
     return *std::max_element(l.begin(), l.end());
 }
 
-int main() {
-    std::vector<float> vec(5);
-    for (int i = 0; i < vec.size(); i++) {
-        std::cin >> vec[i];
-    }
-    
-    std::cout << "Max element in the vector: " << max_element(vec) << std::endl;
-    
+int main(){
+    std::vector<float> nums( {1.2, 3.4, 5.6, 7.8, 9.0} );
+    float result = max_element(nums);
     return 0;
 }
