@@ -1,11 +1,14 @@
-vector<int> result(2, 0);
-    string num_str = to_string(abs(num));
-    for (char c : num_str) {
-        if ((c - '0') % 2 == 0) {
+vector<int> result = {0, 0};
+    
+    while (num != 0) {
+        int digit = abs(num % 10);
+        if (digit % 2 == 0) {
             result[0]++;
         } else {
             result[1]++;
         }
+        num /= 10;
     }
+    
     return result;
 }
