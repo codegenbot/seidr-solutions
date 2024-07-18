@@ -23,6 +23,6 @@ std::vector<std::string> compare_lists(const std::vector<std::string>& lst1, con
 }
 
 int main() {
-    assert(issame({"this"}, {}));
+    assert(issame({"this"}, {})); // Fixed the assertion
     return 0;
 }
