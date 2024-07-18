@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cassert>
+#include <cassert> // Include needed header
 
 int main() {
     std::string str = "asdasnakj";
-    assert(str.length() == 9);
+    assert(str.length() == 9); // Assert the condition
 }
