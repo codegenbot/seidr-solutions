@@ -12,7 +12,7 @@ def factorize(n: int) -> List[int]:
     return factors
 
 try:
-    n = int(input("Please enter an integer: "))
-    print(factorize(abs(n)))
+    n = int(input("Please enter a positive integer: "))
+    print(factorize(n))
 except ValueError:
-    print("Invalid input. Please enter an integer.")
+    print("Invalid input. Please enter a positive integer.")
