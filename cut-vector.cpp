@@ -4,9 +4,8 @@
 
 using namespace std;
 
-vector<int> numbers;
-
 int main() {
+    vector<int> numbers;
     int num;
     
     while (cin >> num) {
