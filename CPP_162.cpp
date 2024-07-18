@@ -1,4 +1,3 @@
-// Modify the MD5 function to EVP_MD_CTX_new, EVP_MD_CTX_free, EVP_DigestInit_ex, EVP_DigestUpdate, and EVP_DigestFinal_ex for OpenSSL 3.0
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
