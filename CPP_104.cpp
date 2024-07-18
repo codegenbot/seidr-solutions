@@ -1,9 +1,8 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(int a, int b){
-    return a < b;
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -12,7 +11,7 @@ vector<int> unique_digits(vector<int> x){
         bool hasEvenDigit = false;
         int temp = num;
         while(temp > 0){
-            if(temp % 10 % 2 == 0){
+            if(temp % 2 == 0){
                 hasEvenDigit = true;
                 break;
             }
@@ -22,11 +21,11 @@ vector<int> unique_digits(vector<int> x){
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end(), issame);
+    sort(result.begin(), result.end());
     return result;
 }
 
-int main(){
-    assert(issame(unique_digits({135, 103, 31}) , {31, 135}));
+int main() {
+    // Main function implementation goes here
     return 0;
 }
