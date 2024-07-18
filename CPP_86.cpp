@@ -1,9 +1,9 @@
-string ordered = "";
+string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            ordered += word + ' ';
+            result += word + ' ';
             word = "";
         } else {
             word += c;
@@ -11,7 +11,7 @@ string ordered = "";
     }
     if (!word.empty()) {
         sort(word.begin(), word.end());
-        ordered += word;
+        result += word;
     }
-    return ordered;
+    return result;
 }
