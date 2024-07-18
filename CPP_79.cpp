@@ -1,7 +1,7 @@
 string binary = "db";
     while (decimal > 0) {
-        binary = ((decimal & 1) ? '1' : '0') + binary;
-        decimal >>= 1;
+        binary = (decimal % 2 == 0 ? '0' : '1') + binary;
+        decimal /= 2;
     }
     return binary + "db";
 }
