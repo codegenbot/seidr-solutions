@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
