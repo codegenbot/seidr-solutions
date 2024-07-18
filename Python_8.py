@@ -1,5 +1,6 @@
 numbers = list(map(int, input("Enter space-separated numbers: ").split()))
 
+
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = sum(numbers)
     product = 1
