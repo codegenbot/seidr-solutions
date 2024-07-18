@@ -1,28 +1,24 @@
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     sort(numbers.begin(), numbers.end());
     numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
 
 int main() {
-    // Test the remove_duplicates function
-    vector<int> test_input = {1, 2, 3, 1, 2, 4, 5, 3};
-    vector<int> result = remove_duplicates(test_input);
+    std::vector<int> numbers = {3, 1, 2, 2, 3, 3, 4, 5, 5};
     
-    for (int num : result) {
-        cout << num << " ";
+    numbers = remove_duplicates(numbers);
+    
+    for (int num : numbers) {
+        std::cout << num << " ";
     }
     
     return 0;
