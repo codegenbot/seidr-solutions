@@ -1,10 +1,9 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
 bool correct_bracketing(string brackets) {
     int count = 0;
-    For(int i = 0; i < brackets.size(); i++){
+    for(int i = 0; i < brackets.size(); i++){
         if(brackets[i] == '<'){
             count++;
         } else if(brackets[i] == '>'){
