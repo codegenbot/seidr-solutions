@@ -1,5 +1,7 @@
 if ((a == b + c) || (b == a + c) || (c == a + b)) {
-        return true;
+        if (a == (int)a && b == (int)b && c == (int)c) {
+            return true;
+        }
     }
     return false;
 }
