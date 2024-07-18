@@ -8,7 +8,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
             result.push_back(num);
         }
     }
-    return result == b;
+    return result;
 }
 
 int main() {
