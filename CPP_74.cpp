@@ -4,15 +4,15 @@
 #include <cassert>
 
 int total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    int matches = 0;
-    for (const std::string& str1 : a) {
-        for (const std::string& str2 : b) {
-            if (str1 == str2) {
-                matches++;
+    int count = 0;
+    for (const std::string& str_a : a) {
+        for (const std::string& str_b : b) {
+            if (str_a == str_b) {
+                count++;
             }
         }
     }
-    return matches;
+    return count;
 }
 
 std::vector<std::string> compare_lists(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
@@ -35,7 +35,7 @@ std::vector<std::string> compare_lists(const std::vector<std::string>& lst1, con
 }
 
 int main() {
-    assert(total_match({"this", "is", "a", "test"}, {"test", "is", "good"}) == 2);
+    assert(total_match({"this", "is", "a", "test"}, {"is", "test"}) == 2);
     
     return 0;
 }
