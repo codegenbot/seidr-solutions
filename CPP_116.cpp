@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -22,6 +21,5 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 
 int main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    std::cout << "Test passed!" << std::endl;
     return 0;
 }
