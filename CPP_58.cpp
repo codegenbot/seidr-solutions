@@ -1,10 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-bool is_same(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     vector<int> result;
@@ -14,7 +15,7 @@ bool is_same(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert(is_same(vector<int>{4, 3, 2, 8}, vector<int>{}));
+    assert(issame(vector<int>{4, 3, 2, 8}, vector<int>{}));
     
     return 0;
 }
