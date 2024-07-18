@@ -1,10 +1,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
-
-sort(arr.begin(), arr.end(), greater<int>());
-vector<int> result(arr.begin(), arr.begin() + k);
-return result;
