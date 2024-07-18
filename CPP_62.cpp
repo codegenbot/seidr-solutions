@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return std::vector<float>(a.begin(), a.end()) == std::vector<float>(b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<float> derivative(std::vector<float> xs){
@@ -14,5 +14,5 @@ std::vector<float> derivative(std::vector<float> xs){
 }
 
 int main(){
-    assert(issame(derivative({1}), std::vector<float>()));
+    assert(issame(derivative({1}), {}));
 }
