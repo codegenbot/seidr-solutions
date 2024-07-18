@@ -1,21 +1,12 @@
-int n = s.size();
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (isalpha(s[i]) && isalpha(s[j])) {
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-            s[j] = islower(s[j]) ? toupper(s[j]) : tolower(s[j]);
-            i++;
-            j--;
-        } else if (!isalpha(s[i])) {
-            i++;
-        } else if (!isalpha(s[j])) {
-            j--;
+string solve(string s){
+    bool hasLetter = false;
+    for (char &c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
+            hasLetter = true;
         }
     }
-    if (i == j && isalpha(s[i])) {
-        s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-    }
-    if (i >= j) {
+    if (!hasLetter) {
         reverse(s.begin(), s.end());
     }
     return s;
