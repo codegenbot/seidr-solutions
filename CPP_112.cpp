@@ -3,13 +3,14 @@
 #include <string>
 #include <vector>
 
-pair<string, string> solve(string s, string c) {
+pair<string, string> solve(const string& s, const string& c) {
+    string result = s;
+
     for (char ch : c) {
-        s.erase(remove(s.begin(), s.end(), ch), s.end());
+        result.erase(remove(result.begin(), result.end(), ch), result.end());
     }
 
-    string result = s;
-    string reversed = s;
+    string reversed = result;
     reverse(reversed.begin(), reversed.end());
 
     return {result, (result == reversed) ? "True" : "False"};
