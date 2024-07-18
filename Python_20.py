@@ -1,9 +1,9 @@
+import sys
+
 def find_min_difference(numbers):
     return max(numbers) - min(numbers)
 
-try:
-    input_numbers = [int(x) for x in input().split()]
+for line in sys.stdin:
+    input_numbers = [int(x) for x in line.split()]
     output = find_min_difference(input_numbers)
     print(output)
-except EOFError:
-    pass
