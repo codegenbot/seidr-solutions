@@ -15,7 +15,7 @@ namespace solution_name {
                     count++;
                 }
             }
-            result.push_back("the number of odd elements " + to_string(count) + "\n the string " + s + " of the input.");
+            result.push_back("the number of odd elements " + to_string(count) + "\nthe string " + s + " of the input.");
         }
         return result;
     }
@@ -44,8 +44,8 @@ namespace solution_name {
 
 int main() {
     assert(solution_name::issame(solution_name::odd_count({"271", "137", "314"}),
-                                  {"the number of odd elements 2\n the string 271 of the input.",
-                                   "the number of odd elements 2\n the string 137 of the input.",
-                                   "the number of odd elements 2\n the string 314 of the input."}));
+                                  {"the number of odd elements 2\nthe string 271 of the input.",
+                                   "the number of odd elements 2\nthe string 137 of the input.",
+                                   "the number of odd elements 2\nthe string 314 of the input."}));
     return 0;
 }
