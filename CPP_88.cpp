@@ -1,12 +1,12 @@
-if(arr.size() == 0) return arr;
-    
-    int sum = arr[0] + arr[arr.size()-1];
-    
-    if(sum % 2 == 0){
-        sort(arr.rbegin(), arr.rend());
-    } else {
-        sort(arr.begin(), arr.end());
+if (array.empty()) {
+        return array;
     }
     
-    return arr;
+    if ((array[0] + array[array.size() - 1]) % 2 == 0) {
+        sort(array.begin(), array.end(), greater<int>());
+    } else {
+        sort(array.begin(), array.end());
+    }
+    
+    return array;
 }
