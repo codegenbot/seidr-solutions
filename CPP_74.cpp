@@ -11,7 +11,7 @@ bool issame(vector<string> a, vector<string> b) {
         total_chars2 += str.length();
     }
 
-    if (total_chars1 < total_chars2) {
+    if (total_chars1 == total_chars2) {
         return true;
     } else {
         return false;
