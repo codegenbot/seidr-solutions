@@ -5,9 +5,11 @@
 #include <cassert>
 
 bool issame(map<char, int> a, map<char, int> b){
-    if (a.size() != b.size()) return false;
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(auto it : a){
+        if(b.find(it.first) == b.end() || b[it.first] != it.second){
             return false;
         }
     }
