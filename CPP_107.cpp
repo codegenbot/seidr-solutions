@@ -16,16 +16,11 @@ std::vector<int> even_odd_palindrome(int n){
         if(str == rev){
             if(i % 2 == 0){
                 result[0]++;
-            } else {
+            }
+            else {
                 result[1]++;
             }
         }
     }
     return result;
-}
-
-int main(){
-    assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1}));
-    
-    return 0;
 }
