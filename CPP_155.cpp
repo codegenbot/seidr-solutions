@@ -1,14 +1,15 @@
-vector<int> result = {0, 0};
-    
-    while (num != 0) {
-        int digit = abs(num % 10);
+int even_count = 0, odd_count = 0;
+    num = abs(num);
+
+    while (num > 0) {
+        int digit = num % 10;
         if (digit % 2 == 0) {
-            result[0]++;
+            even_count++;
         } else {
-            result[1]++;
+            odd_count++;
         }
         num /= 10;
     }
-    
-    return result;
+
+    return {even_count, odd_count};
 }
