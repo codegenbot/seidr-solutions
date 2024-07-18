@@ -1,39 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(const std::string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
-            if (count < 0) {
-                return false;
-            }
-        }
-    }
-    return count == 0;
+bool issame(string a, string b) {
+    return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
-    int count = 0;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
+            if (open_braces > 0) {
                 current_group += c;
             }
-            count++;
+            open_braces++;
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
+            open_braces--;
+            if (open_braces > 0) {
                 current_group += c;
-            }
-            if (count == 0) {
+            } else if (open_braces == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -41,21 +25,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string with balanced parentheses: ";
-    std::cin >> input;
-
-    std::vector<std::string> groups = separate_paren_groups(input);
-    for (const std::string& group : groups) {
-        if (issame(group)) {
-            std::cout << "Parentheses group: " << group << std::endl;
-        } else {
-            std::cout << "Invalid parentheses group: " << group << std::endl;
-        }
-    }
-
-    return 0;
 }
