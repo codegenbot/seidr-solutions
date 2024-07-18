@@ -13,9 +13,12 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 2, 3, 4, 4};
-    std::vector<int> expected = {1, 2, 3, 4};
-    std::vector<int> result = remove_duplicates(input);
-    assert(issame(result, expected));
+    std::vector<int> input = {5, 2, 8, 2, 6, 5, 8, 2, 3};
+    std::vector<int> expected_output = {2, 3, 5, 6, 8};
+    
+    auto result = remove_duplicates(input);
+    
+    assert(issame(result, expected_output));
+    
     return 0;
 }
