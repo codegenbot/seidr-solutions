@@ -1,1 +1,2 @@
-[l[i] + 1 for i in range(len(l))]
+def increment_list(l):
+    return [num + 1 for num in l]
