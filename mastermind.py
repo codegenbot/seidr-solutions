@@ -4,8 +4,8 @@ guess = input()
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
 white_pegs = sum(
-    max(0, min(code.count(c), guess.count(c))) 
+    min(code.count(c), guess.count(c)) - (1 if c == g else 0)
     for c, g in zip(code, guess)
 )
 
-print(white_pegs - black_pegs, black_pegs)
+print(white_pegs, black_pegs)
