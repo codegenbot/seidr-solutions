@@ -1,9 +1,12 @@
 transform(s.begin(), s.end(), s.begin(), ::tolower);
-    if (!s.empty() && (s.back() == 'y')) {
-        s.pop_back(); 
+    int count = 0;
+    for(char c : s) {
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            count++;
+        }
     }
-    int count = count_if(s.begin(), s.end(), [](char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-    });
+    if(s.back() == 'y') {
+        count++;
+    }
     return count;
 }
