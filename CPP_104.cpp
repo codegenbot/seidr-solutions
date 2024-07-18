@@ -1,22 +1,21 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
-            result.push_back(num);
+#include <vector>
+
+bool is_same(const vector<int> &a, const vector<int> &b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    return true;
+}
+
+int main(){
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    assert(is_same(a, b));
+
+    return 0;
 }
