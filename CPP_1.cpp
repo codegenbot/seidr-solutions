@@ -1,28 +1,37 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Implement your logic for comparing two vectors of strings here
+}
 
-vector<string> separate_paren_groups(string paren_string);
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
+    int balance = 0;
 
-int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-
-    vector<string> groups = separate_paren_groups(input);
-
-    for (const auto& group : groups) {
-        cout << group << endl;
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (balance > 0) {
+                current_group += c;
+            }
+            balance++;
+        } else if (c == ')') {
+            balance--;
+            if (balance > 0) {
+                current_group += c;
+            } else if (balance == 0) {
+                result.push_back(current_group);
+                current_group.clear();
+            }
+        }
     }
 
+    return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation of issame function
-}
-
-vector<string> separate_paren_groups(string paren_string) {
-    // Implementation of separate_paren_groups function
 }
