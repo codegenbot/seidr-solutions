@@ -1,27 +1,24 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-bool issame(int x, int y) {
-    return abs(x - y) < 1e-9;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
-bool count_up_to(int n) {
-    std::vector<int> res;
-    if (n <= 1) {
-        return res;
-    }
-    std::vector<bool> isPrime(n, true);
-    for (int p = 2; p * p < n; p++) {
-        if (isPrime[p]) {
-            for (int i = p * p; i < n; i += p) {
-                isPrime[i] = false;
+std::vector<int> count_up_to(int n){
+    std::vector<int> primes;
+    for (int i = 2; i < n; ++i) {
+        bool is_prime = true;
+        for (int j = 2; j * j <= i; ++j) {
+            if (i % j == 0) {
+                is_prime = false;
+                break;
             }
         }
-    }
-    for (int i = 2; i < n; i++) {
-        if (isPrime[i]) {
-            res.push_back(i);
+        if (is_prime) {
+            primes.push_back(i);
         }
     }
-    return res;
+    return primes;
 }
