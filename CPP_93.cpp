@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string encode(std::string message) {
     for(auto &c : message){
