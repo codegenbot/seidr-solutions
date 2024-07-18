@@ -5,7 +5,7 @@ using namespace std;
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
-        result.push_back(numbers.at(i));
+        result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
             result.push_back(delimiter);
         }
@@ -13,7 +13,4 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-int main() {
-    assert(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
-    return 0;
-}
+assert(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
