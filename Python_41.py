@@ -1,5 +1,2 @@
 def car_race_collision(n: int):
-    if n % 2 == 0:
-        return n * (n - 2) // 2
-    else:
-        return (n - 1) * (n - 3) // 2
+    return n * (n + 1)  # Fix the formula to calculate the number of collisions
