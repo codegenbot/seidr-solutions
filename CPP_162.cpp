@@ -5,10 +5,10 @@ if (text.empty()) {
 unsigned char result[MD5_DIGEST_LENGTH];
 MD5((unsigned char*)text.c_str(), text.length(), result);
 
-char md5_string[MD5_DIGEST_LENGTH * 2 + 1];
+stringstream ss;
 for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-    sprintf(&md5_string[i * 2], "%02x", (unsigned int)result[i]);
+    ss << hex << setw(2) << setfill('0') << (int)result[i];
 }
 
-return string(md5_string);
+return ss.str();
 }
