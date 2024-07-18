@@ -1,18 +1,37 @@
 bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
-            return a < b;
-        }
-        return a.length() < b.length();
-    });
-    return lst;
+int sorted_list_sum(const vector<string>& lst) {
+    vector<string> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    int sum = 0;
+    for (const string& s : sorted_lst) {
+        sum += stoi(s);
+    }
+    return sum;
 }
 
 int main() {
-    // Your main function code here
+    // Read input
+    int n;
+    cin >> n;
+    vector<string> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];
+    }
+
+    // Sort the list and calculate sum
+    int result = sorted_list_sum(lst);
+    cout << result << endl;
+
+    return 0;
 }
