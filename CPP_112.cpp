@@ -5,11 +5,7 @@
 
 using namespace std;
 
-bool issame(const pair<string, string>& a, const pair<string, string>& b) {
-    return a == b;
-}
-
-pair<string, string> reverse_delete(const string& s, const string& c) {
+vector<string> reverse_delete(string s, string c) {
     string result;
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -21,7 +17,7 @@ pair<string, string> reverse_delete(const string& s, const string& c) {
     return {result, (result == reversed) ? "True" : "False"};
 }
 
-int main(){
-    assert (issame(reverse_delete("mamma", "mia"), make_pair("", "True")));
+int main() {
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
