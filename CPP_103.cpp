@@ -1,14 +1,18 @@
-if (n > m) {
-    return "-1";
-}
-int sum = 0;
+#include <cmath>
+#include <string>
 
-for (int i = n; i <= m; i++) {
-    sum += i;
-}
-
-int avg = round(sum / (m - n + 1.0));
-string binary = bitset<32>(avg).to_string();
-int index = binary.find("1");
-return binary.substr(index);
+std::string rounded_average(int n, int m) {
+    if (n > m) {
+        return "-1";
+    }
+    
+    int sum = 0;
+    for (int i = n; i <= m; i++) {
+        sum += i;
+    }
+    
+    int avg = std::round(static_cast<double>(sum) / (m - n + 1));
+    std::string binary_avg = std::bitset<32>(avg).to_string();
+    
+    return binary_avg.substr(binary_avg.find('1'));
 }
