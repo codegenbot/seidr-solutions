@@ -1,4 +1,8 @@
-#include <cassert>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     a.insert(a.end(), b.begin(), b.end());
