@@ -1,4 +1,4 @@
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 bool is_prime(int n) {
@@ -24,14 +24,10 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
-void solve_problem(int num) {
-    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
-}
-
 int main() {
     int num;
     cout << "Enter a number less than 100: ";
     cin >> num;
-    solve_problem(num);
+    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
     return 0;
 }
