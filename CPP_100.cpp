@@ -1,9 +1,9 @@
 vector<int> make_a_pile(int n){
-    vector<int> pile;
-    int stones = n;
-    for (int i = 0; i < n; i++){
-        pile.push_back(stones);
-        stones = (n % 2 == 0) ? stones + 2 : stones + 1;
+    vector<int> result;
+    result.push_back(n);
+    for(int i = 2; i <= n; i++){
+        n = (n % 2 == 0) ? n + i : n + i + 1;
+        result.push_back(n);
     }
-    return pile;
+    return result;
 }
