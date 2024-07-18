@@ -1,26 +1,12 @@
-int count = 0;
-for (int i = 0; i < text.length(); ++i) {
-    if (text[i] == ' ') {
-        count++;
-        if (count > 2) {
-            text[i] = '-';
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            if (i+1 < text.size() && text[i+1] == ' ') {
+                text.replace(i, text.find_first_not_of(' ', i+1) - i, "-");
+                i = text.find_first_not_of('-', i);
+            } else {
+                text.replace(i, 1, "_");
+            }
         }
-    } else {
-        count = 0;
     }
+    return text;
 }
-
-for (int i = 0; i < text.length(); ++i) {
-    if (text[i] == ' ') {
-        text[i] = '_';
-    } else if (text[i] == '-') {
-        int j = i + 1;
-        while (j < text.length() && text[j] == '-') {
-            text[j] = '_';
-            j++;
-        }
-        i = j - 1;
-    }
-}
-
-return text;
