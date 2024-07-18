@@ -3,7 +3,7 @@ from typing import List
 def factorize(n: int) -> List[int]:
     if n <= 0:
         return []
-    
+
     factors = []
     divisor = 2
     while n > 1:
