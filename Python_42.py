@@ -1,3 +1,3 @@
-l = [2, 4, 6, 8, 10]
-result = [num + 1 for num in l]
+l = input().split()
+result = [int(i) + 1 for i in l]
 print(result)
