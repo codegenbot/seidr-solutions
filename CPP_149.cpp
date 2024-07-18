@@ -1,7 +1,5 @@
 bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -16,6 +14,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    // Main function implementation
-    return 0;
+    // Your main function code here
 }
