@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int get_matrix_triples(int n) {
     int count = 0;
