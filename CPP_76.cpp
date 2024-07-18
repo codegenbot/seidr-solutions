@@ -1,16 +1,11 @@
-#include <iostream>
-#include <cmath>
-#include <cassert>
-
 bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
         return false;
     }
+    
+    // Find the logarithm
     double result = std::log(x) / std::log(n);
+    
+    // Check if result is an integer
     return (result == (int)result);
-}
-
-int main() {
-    assert(is_simple_power(1, 12) == true);
-    return 0;
 }
