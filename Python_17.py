@@ -1,15 +1,5 @@
-def parse_music(music_string):
-    notes_dict = {
-        "C": "Do",
-        "D": "Re",
-        "E": "Mi",
-        "F": "Fa",
-        "G": "Sol",
-        "A": "La",
-        "B": "Ti",
-    }
-    music_list = music_string.split()
-    notes_translated = []
-    for note in music_list:
-        notes_translated.append(notes_dict.get(note, "Unknown"))
-    return " ".join(notes_translated)
+def parse_music(music_input: str) -> str:
+    notes = music_input.split()
+    count = len(notes)
+    longest_note_len = max([len(note) for note in notes])
+    return f"{count} {longest_note_len}"

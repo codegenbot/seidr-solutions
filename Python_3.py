@@ -8,9 +8,9 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
+
 try:
-    numbers = input("Enter space-separated integers: ").split()
-    operations = [int(x) for x in numbers]
+    operations = [int(x) for x in input("Enter space-separated integers: ").split()]
     result = below_zero(operations)
     print(result)
 except:
