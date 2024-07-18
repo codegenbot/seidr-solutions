@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
+bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -14,6 +14,6 @@ std::vector<int> maximum(const std::vector<int>& arr, int k){
 }
 
 int main(){
-    assert(std::issame(std::vector<int>(), maximum({1, 2, 3, -23, 243, -400, 0}, 0)));
+    assert(std::vector<int>::issame(std::vector<int>(), maximum({1, 2, 3, -23, 243, -400, 0}, 0)));
     return 0;
 }
