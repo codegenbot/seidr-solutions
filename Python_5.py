@@ -1,9 +1,12 @@
-def intersperse():
-    numbers = list(map(int, input().split()))
-    delimiter = input()
+def intersperse(numbers, delimiter):
+    def process_numbers(numbers, delimiter):
+        return [item for sublist in zip(numbers, [delimiter]*len(numbers)) for item in sublist][:-1]
     
     result = process_numbers(numbers, delimiter)
-    
-    print(result)
+    return result
 
-intersperse()
+numbers = list(map(int, input().strip().split()))
+delimiter = input().strip()
+
+output = intersperse(numbers, delimiter)
+print(output)
