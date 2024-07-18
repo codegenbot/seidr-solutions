@@ -5,7 +5,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     current_depth = 0
     for char in paren_string:
         if char not in "()":
-            return []
+            continue
         
         if char == "(":
             current_depth += 1
@@ -16,7 +16,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             
             current_depth -= 1
     
-    if current_depth != 0:
-        return []
-
+    depths.append(0)
     return depths
