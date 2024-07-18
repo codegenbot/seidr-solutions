@@ -1,14 +1,12 @@
-int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
-    }
+vector<int> sorted_q = q;
+    sort(sorted_q.begin(), sorted_q.end());
     
-    if (sum <= w) {
-        vector<int> reversed_q(q.rbegin(), q.rend());
-        if (q == reversed_q) {
-            return true;
-        }
-    }
+    if (sorted_q != q)
+        return false;
     
-    return false;
+    int sum = 0;
+    for (int num : q)
+        sum += num;
+    
+    return (sum <= w);
 }
