@@ -1,9 +1,9 @@
-def decode_shift(input_list):
+def decode_shift(input_str):
     decoded = ""
-    for num in input_list:
-        decoded += chr((num + 2) % 128)
+    for char in input_str:
+        decoded += chr((char - 2) % 128)
     return decoded
 
-input_list = list(map(int, input("Enter the string to decode: ").strip().split()))
-result = decode_shift(input_list)
+input_str = list(map(int, input("Enter the string to decode: ").strip().split()))
+result = decode_shift([x % 128 for x in input_str])
 print(result)
