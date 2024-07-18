@@ -1,5 +1,5 @@
 #include <string>
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 using namespace std;
 
 string string_to_md5(const string& text) {
@@ -27,4 +27,5 @@ string string_to_md5(const string& text) {
     return string(mdString);
 }
 
+// Example usage
 string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99";
