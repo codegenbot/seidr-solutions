@@ -1,12 +1,11 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
+bool issame(const vector<int>& vec1, const vector<int>& vec2) {
+    return vec1 == vec2;
 }
 
-pair<float, float> find_closest_elements(const vector<float>& numbers) {
+pair<int, int> find_closest_elements(const vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
-    
     for (int i = 1; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
@@ -14,6 +13,5 @@ pair<float, float> find_closest_elements(const vector<float>& numbers) {
             closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    
     return {closest_pair.first, closest_pair.second};
 }
