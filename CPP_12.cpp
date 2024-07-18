@@ -18,7 +18,7 @@ string longest(vector<string> strings){
     return longestStr;
 }
 
-int main() {
+void solve() {
     int n;
     cin >> n;
     vector<string> strings(n);
@@ -27,6 +27,9 @@ int main() {
     }
 
     cout << longest(strings) << endl;
+}
 
+int main() {
+    solve();
     return 0;
 }
