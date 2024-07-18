@@ -5,7 +5,7 @@ bool areSame(string a, string b) {
 }
 
 int main() {
-    vector<string> groups = separate_paren_groups("((group1)(group2))");
+    vector<string> groups = separate_paren_groups("((hello)(world))");
     for (string group : groups) {
         cout << group << endl;
     }
