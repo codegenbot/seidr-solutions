@@ -1,6 +1,6 @@
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -27,6 +27,6 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> b) {
+    return (b[0] == b[1]);
 }
