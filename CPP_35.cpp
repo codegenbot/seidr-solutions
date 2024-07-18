@@ -6,12 +6,14 @@ float max_element(const vector<float>& l){
 }
 
 int main() {
-    std::vector<float> vec(5);
-    for (int i = 0; i < vec.size(); i++) {
-        std::cin >> vec[i];
+    std::vector<float> l(5); // Change the size as needed
+    // Read input values from the user
+    for(int i = 0; i < l.size(); i++){
+        std::cin >> l[i];
     }
     
-    std::cout << "Max element in the vector: " << max_element(vec) << std::endl;
+    // Find and output the maximum element
+    std::cout << "Max element: " << max_element(l) << std::endl;
     
     return 0;
 }
