@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(vector<int> lst) {
-    sort(lst.begin(), lst.end());
+int next_smallest(std::vector<int> lst) {
+    std::sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
     
