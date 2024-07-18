@@ -1,12 +1,12 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -37,8 +37,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return result;
 }
 
-int main() {
-    vector<int> numbers = {5, -3, 0, 10, -7};
+int main(){
+    vector<int> numbers = {-5, 7, 10, -2, 3};
     vector<int> result = largest_smallest_integers(numbers);
     
     for (int num : result) {
