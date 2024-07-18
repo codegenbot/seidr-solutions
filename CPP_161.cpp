@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -11,12 +12,12 @@ std::string solve(const std::string& s) {
         }
     }
     if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
-    std::cout << solve("#ccc") << std::endl;
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
