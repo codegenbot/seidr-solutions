@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
 #include <algorithm>
+using namespace std;
 
-std::string solve(const std::string& s) {
-    std::string result = s;
-    
-    for (char &c : result) {
+string solve(string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
                 c = toupper(c);
@@ -13,17 +13,13 @@ std::string solve(const std::string& s) {
             }
         }
     }
-    
-    if (result.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        std::reverse(result.begin(), result.end());
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+    return s;
 }
 
-// Example test cases
 int main() {
     assert(solve("#ccc") == "#CCC");
-    
     return 0;
 }
