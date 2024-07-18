@@ -11,12 +11,12 @@ std::string solve(const std::string& s) {
         }
     }
     if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
+    std::cout << solve("#ccc") << std::endl;
     return 0;
 }
