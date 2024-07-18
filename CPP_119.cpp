@@ -1,16 +1,15 @@
-int balance = 0;
-    for (const string& s : lst) {
+int count = 0;
+    for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
-                balance++;
+                count++;
             } else {
-                if (balance > 0) {
-                    balance--;
-                } else {
+                if (count == 0) {
                     return "No";
                 }
+                count--;
             }
         }
     }
-    return (balance == 0) ? "Yes" : "No";
+    return count == 0 ? "Yes" : "No";
 }
