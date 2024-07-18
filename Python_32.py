@@ -5,4 +5,8 @@ def find_zero(nums):
     return "No zero found"
 
 input_list = list(map(float, input("Enter space-separated numbers: ").split()))
-print(find_zero(input_list))
+
+if 0 not in input_list:
+    print("Ensure at least one zero is included in the input.")
+else:
+    print(find_zero(input_list))
