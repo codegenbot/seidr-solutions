@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
+vector<int> unique_digits(std::vector<int> x){
     std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
@@ -26,8 +26,6 @@ std::vector<int> unique_digits(std::vector<int> x){
 }
 
 int main() {
-    std::vector<int> input = {123, 456, 789};
-    std::vector<int> expected_output = {123, 789};
-    assert(issame(unique_digits(input), expected_output));
+    assert(issame(unique_digits({123, 456, 789}), {123, 789}));
     return 0;
 }
