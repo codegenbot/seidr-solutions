@@ -5,4 +5,4 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 numbers = list(map(int, input().strip().split()))
 output = remove_duplicates(numbers)
-print(*output)
+print(output)

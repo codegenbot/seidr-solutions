@@ -1,13 +1,12 @@
-def decode_shift(input_str):
-    result = ""
-    for char in input_str:
-        if char.isalpha():
-            shifted_char = chr((ord(char) - 97 + 3) % 26 + 97)
-            result += shifted_char
-        else:
-            result += char
-    return result
+import sys
 
-input_str = input("Enter the string to decode: ").strip()
+def decode_shift(input_str):
+    decoded = ""
+    for char in input_str:
+        decoded += chr((ord(char) - 2) % 128)
+    return decoded
+
+# Specify the input value here
+input_str = sys.stdin.readline().strip()
 result = decode_shift(input_str)
 print(result)
