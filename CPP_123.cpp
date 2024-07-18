@@ -4,15 +4,13 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
-
-bool issame(vector<int> a, vector<int> b);
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -32,7 +30,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Example usage of get_odd_collatz function
-    vector<int> odd_result = get_odd_collatz(20);
+    // Your main function logic here
     return 0;
 }
