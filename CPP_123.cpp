@@ -1,15 +1,17 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> CPP123(vector<int> a, vector<int> b) {
+vector<int> solveProblem(int n) {
     vector<int> result;
-    int n = a.size();
-    
-    for (int i = 0; i < n; i++) {
-        result.push_back(a[i]);
-        result.push_back(b[i]);
+    while (n != 1) {
+        result.push_back(n);
+        if (n % 2 == 0) {
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
+        }
     }
-
+    result.push_back(1);
     vector<int> odd_nums;
     for (int num : result) {
         if (num % 2 != 0) {
