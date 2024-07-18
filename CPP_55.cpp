@@ -3,12 +3,11 @@
 int fib(int n);
 
 int main() {
+    // Test the function with some sample inputs
     assert(fib(0) == 0);
     assert(fib(1) == 1);
-    assert(fib(2) == 1);
-    assert(fib(3) == 2);
-    assert(fib(4) == 3);
-    // Add more test cases as needed
+    assert(fib(5) == 5);
+    assert(fib(10) == 55);
 
     return 0;
 }
