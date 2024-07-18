@@ -1,21 +1,12 @@
-#include<vector>
-#include<assert.h>
+#include <vector>
 
-vector<int> incr_list(vector<int> l);
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> incr_list(vector<int> l) {
+std::vector<int> incr_list(std::vector<int> l) {
     for (int &num : l) {
         num++;
     }
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-int main() {
-    // Code to test the functions
-    return 0;
 }
