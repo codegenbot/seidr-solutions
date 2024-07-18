@@ -2,6 +2,8 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> rolling_max(vector<int> numbers);
+
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int n = numbers.size();
@@ -18,11 +20,15 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 3, 5, 2, 7, 6, 4};
-    vector<int> expected = {5, 7, 7, 7, 7, 6, 4};
-    
+    vector<int> numbers = {1, 3, 5, 2, 6, 4};
+    vector<int> expected = {5, 5, 6, 6, 6, 4};
     vector<int> result = rolling_max(numbers);
-    bool same = issame(result, expected);
+    
+    if (issame(result, expected)) {
+        cout << "The rolling maximum is correct." << endl;
+    } else {
+        cout << "The rolling maximum is incorrect." << endl;
+    }
     
     return 0;
 }
