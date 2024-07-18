@@ -11,6 +11,11 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(generate_integers(17, 89), {}));
+    return 0;
 }
