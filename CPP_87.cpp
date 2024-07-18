@@ -7,6 +7,10 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
+int main() {
+    // Test cases or main logic can be added here
+}
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
