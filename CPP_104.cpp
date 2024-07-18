@@ -21,6 +21,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end(), issame), result.end());
     return result;
 }
