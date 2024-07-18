@@ -1,13 +1,13 @@
-int sum = 0;
-    int currNum = N;
-    while (currNum > 0) {
-        sum += currNum % 2;
-        currNum /= 2;
+int sumOfDigitsInBinary(int N) {
+    int sum = 0;
+    while (N > 0) {
+        sum += N % 2;
+        N /= 2;
     }
-    string binary = "";
+    string binarySum = "";
     while (sum > 0) {
-        binary = to_string(sum % 2) + binary;
+        binarySum = to_string(sum % 2) + binarySum;
         sum /= 2;
     }
-    return binary.empty() ? "0" : binary;
+    return binarySum;
 }
