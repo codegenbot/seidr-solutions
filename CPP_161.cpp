@@ -1,15 +1,20 @@
 for (char &c : s) {
         if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
+            if (isupper(c)) {
                 c = tolower(c);
+            } else {
+                c = toupper(c);
             }
         }
     }
     
-    if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
-        reverse(s.begin(), s.end());
+    size_t i = 0, j = s.length() - 1;
+    while (i < j) {
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+        i++;
+        j--;
     }
     
     return s;
