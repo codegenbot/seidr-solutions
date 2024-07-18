@@ -16,7 +16,6 @@ def is_fibonacci(num):
 
 try:
     n = int(input("Enter a number: "))
-    
     def prime_fib(n):
         count = 0
         num = 1
