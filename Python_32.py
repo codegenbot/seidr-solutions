@@ -3,9 +3,9 @@ def find_zero(xs: list):
     return x
 
 
+# Read input from user as two integers from a single line
 input_list = list(map(int, input().split()))
-if len(input_list) != 2:
-   raise ValueError("Input must contain exactly two integers separated by a space")
-    
+
+# Call the function with the input list
 result = find_zero(input_list)
 print(result)
