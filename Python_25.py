@@ -14,10 +14,9 @@ while True:
     try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
+            print(factorize(n))
             break
         else:
             print("Please enter a positive integer.")
     except ValueError:
-        print("Invalid input. Please enter a positive integer.")
-
-print(factorize(n))
+        print("Please enter a valid integer.")
