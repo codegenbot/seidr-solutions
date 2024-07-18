@@ -12,17 +12,14 @@ bool move_one_ball(std::vector<int> arr) {
     return true;
 }
 
-
+void solve_problem() {
+    assert(move_one_ball({}) == true);
+    assert(move_one_ball({1, 2, 3, 4, 5}) == true);
+    assert(move_one_ball({5, 4, 3, 2, 1}) == false);
+    assert(move_one_ball({1, 3, 2, 4, 5}) == false);
+}
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        input.push_back(num);
-    }
-    std::cout << (move_one_ball(input) ? "true" : "false") << std::endl;
+    solve_problem();
     return 0;
 }
