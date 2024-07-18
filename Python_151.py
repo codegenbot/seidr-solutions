@@ -1,8 +1,7 @@
-# Read input from user
-lst = list(map(int, input().split()))
+def double_the_difference(lst):
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0)
 
-# Call the function with the correct argument
+lst = [1, 2, 3, 4, 5]
+odd_sum = sum(x for x in lst if x % 2 != 0)
 result = double_the_difference(lst)
-
-# Print the result
 print(result)
