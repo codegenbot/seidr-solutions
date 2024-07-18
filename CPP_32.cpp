@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <cmath> 
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0;
@@ -10,7 +10,7 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 double find_zero(const std::vector<double>& coeffs){
-    return -coeffs[1] / coeffs[0];
+    return -coeffs[1] / coeffs[0]; 
 }
 
 int main() {
