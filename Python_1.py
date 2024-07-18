@@ -1,8 +1,11 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string or paren_string[0] != '(' or paren_string[-1] != ')':
-        return []
+    if not paren_string:
+        return "Input is empty"
+    
+    if paren_string.count("(") != paren_string.count(")"):
+        return "Invalid input: Unbalanced parentheses"
     
     result = []
     group = ""
