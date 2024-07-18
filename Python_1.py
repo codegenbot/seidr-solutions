@@ -15,11 +15,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if level > 0:
                 group += char
             if level == 0:
-                result.append(group + char)
+                result.append(group)
                 group = ""
+        else:
+            group += char
     
     return result
-
-
-paren_string = input()
-print(separate_paren_groups(paren_string))
