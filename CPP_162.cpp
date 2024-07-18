@@ -22,7 +22,7 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestFinal_ex(mdctx, md_value, &md_len);
     EVP_MD_CTX_free(mdctx);
     
-    char mdString[33] = {0};
+    char mdString[33];
     for (int i = 0; i < md_len; i++) {
         sprintf(&mdString[i * 2], "%02x", md_value[i]);
     }
