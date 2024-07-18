@@ -1,4 +1,4 @@
-def concatenate_numbers_with_delimiter(numbers, delimiter):
+def concatenate_with_delimiter(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
         result.extend([num, delimiter])
