@@ -14,3 +14,8 @@ std::vector<int> sort_array(std::vector<int> array) {
     }
     return array;
 }
+
+int main() {
+    // Main function logic here
+    return 0;
+}
