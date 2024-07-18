@@ -27,3 +27,9 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 
     return result;
 }
+
+// Corrected assert statement usage
+int main() {
+    assert(issame({"(abc)", "(def)"}, separate_paren_groups("(abc)(def)")));
+    return 0;
+}
