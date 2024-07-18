@@ -2,6 +2,10 @@
 
 vector<string> by_length(vector<int> arr);
 
+bool issame(string s1, string s2){
+    return s1 == s2;
+}
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
