@@ -9,10 +9,5 @@ for (int i = n; i <= m; i++) {
 
 int avg = round((double)sum / (m - n + 1));
 string binary_avg = bitset<32>(avg).to_string();
-size_t pos = binary_avg.find('1');
-if (pos != string::npos) {
-    return binary_avg.substr(pos);
-}
-
-return "0";
+return binary_avg.substr(binary_avg.find('1'));
 }
