@@ -1,15 +1,13 @@
 int next_smallest(vector<int> lst){
-    if(lst.size() < 2){
+    if(lst.size() < 2) {
         return -1;
     }
-    
-    vector<int> unique_lst = lst;
-    sort(unique_lst.begin(), unique_lst.end());
-    unique_lst.erase(unique(unique_lst.begin(), unique_lst.end()), unique_lst.end());
-    
-    if(unique_lst.size() < 2){
-        return -1;
+    sort(lst.begin(), lst.end());
+    int smallest = lst[0];
+    for(int num : lst) {
+        if(num > smallest) {
+            return num;
+        }
     }
-    
-    return unique_lst[1];
+    return -1;
 }
