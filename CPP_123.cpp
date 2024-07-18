@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
+
 vector<int> findOddNumbers(vector<int> a, vector<int> b) {
+    int n;
     vector<int> result;
-    int n = a.size() + b.size();
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
