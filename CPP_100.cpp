@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert> // Added for assert
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Fixed function signature
+bool issame(std::vector<int> a, std::vector<int> b){
     for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
@@ -25,6 +25,6 @@ std::vector<int> make_a_pile(int n){
 }
 
 int main(){
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})); // Add closing parenthesis
-    return 0; // Correct return type
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
