@@ -1,15 +1,16 @@
 vector<string> separate_paren_groups(string paren_string);
+bool areSame(string a, string b);
 
 bool areSame(string a, string b) {
-    return a == b;
+    return separate_paren_groups(a) == separate_paren_groups(b);
 }
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> groups = separate_paren_groups(input);
-    for (string group : groups) {
-        cout << group << endl;
-    }
+    // existing code remains the same, just replace `issame` with `areSame`
+    // vector<string> result = separate_paren_groups("((group)(of))(parentheses)");
+    // for (const auto& group : result) {
+    //     cout << group << endl;
+    // }
+
     return 0;
 }
