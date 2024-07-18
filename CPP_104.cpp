@@ -2,7 +2,7 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-bool unique_digits(vector<int> x) {
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
