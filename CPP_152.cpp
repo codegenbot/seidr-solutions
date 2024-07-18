@@ -13,4 +13,4 @@ namespace std {
                        [](int a, int b) { return std::abs(a - b); });
         return result;
     }
-}  
+}
