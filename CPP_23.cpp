@@ -1,11 +1,7 @@
-#include <string>
-
-int function_name(const std::string& str) {
-    return str.length();
-}
+#include <iostream>
+#include <cassert>
 
 int main() {
-    assert(function_name("asdasnakj") == 9);
-    // Add more test cases if needed
-    return 0;
+    std::string str = "asdasnakj";
+    assert(str.length() == 9);
 }
