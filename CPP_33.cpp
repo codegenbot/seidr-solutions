@@ -1,13 +1,9 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -29,15 +25,13 @@ vector<int> sort_third(vector<int> l) {
             l[i] = sorted_indices[sorted_idx++];
         }
     }
-    
+
     return l;
 }
 
 int main() {
-    vector<int> input = {7, 2, 8, 5, 1, 3, 4, 6, 9};
-    vector<int> expected_output = {1, 2, 3, 5, 7, 6, 4, 8, 9};
-    vector<int> result = sort_third(input);
-    assert(issame(result, expected_output));
-  
-    return 0;
+    vector<int> input = {5, 2, 9, 3, 7, 6, 1, 4, 8};
+    vector<int> expected_output = {1, 2, 9, 4, 7, 6, 5, 3, 8};
+    vector<int> output = sort_third(input);
+    assert(issame(output, expected_output));
 }
