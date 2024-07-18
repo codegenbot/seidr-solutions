@@ -1,5 +1,5 @@
 #include <string>
-#include <vector>
+#include <vector> 
 
 int CAP(string s) {
     int count = 0;
