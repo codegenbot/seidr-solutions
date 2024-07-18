@@ -15,4 +15,7 @@ std::vector<int> maximum(const std::vector<int>& arr, int k){
     return sortedArr;
 }
 
-assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+int main(){
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    return 0;
+}
