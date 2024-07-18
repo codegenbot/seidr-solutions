@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 std::string solve(const std::string& s) {
     for (char &c : s) {
         if (isalpha(c)) {
