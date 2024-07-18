@@ -1,5 +1,11 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    auto it = unique(str.begin(), str.end());
-    return distance(str.begin(), it);
+    vector<bool> seen(256, false);
+    int count = 0;
+    for (char c : str) {
+        if (!seen[c]) {
+            seen[c] = true;
+            count++;
+        }
+    }
+    return count;
 }
