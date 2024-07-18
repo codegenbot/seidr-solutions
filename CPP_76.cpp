@@ -12,7 +12,9 @@ bool is_simple_power(int x, int n) {
 
 int main() {
     assert(is_simple_power(1, 12) == true);
-    // Add more test cases here
+    assert(is_simple_power(16, 2) == true);
+    assert(is_simple_power(81, 3) == true);
+    assert(is_simple_power(5, 2) == false);
 
     return 0;
 }
