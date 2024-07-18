@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> count_up_to(int n) {
-    std::vector<int> result;
+vector<int> count_up_to(int n) {
+    vector<int> result;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -18,12 +18,19 @@ std::vector<int> count_up_to(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    std::vector<int> expected = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-    assert(issame(count_up_to(101), expected));
+    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
     return 0;
 }
