@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
 std::string encode(std::string message) {
     for(auto &c : message){
         if(isalpha(c)){
@@ -12,12 +16,12 @@ std::string encode(std::string message) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a message: ";
-    std::cin >> input;
-    
+    std::cout << "Enter a message to encode: ";
+    std::getline(std::cin, input);
+
     std::string encodedMessage = encode(input);
-    
+
     std::cout << "Encoded message: " << encodedMessage << std::endl;
-    
+
     return 0;
 }
