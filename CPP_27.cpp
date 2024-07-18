@@ -1,25 +1,19 @@
-#include <iostream>
+#include <cassert>
+#include <cctype>
 #include <string>
 
-std::string flip_case(std::string str) {
-    for (size_t i = 0; i < str.length(); i++) {
-        if (islower(str[i])) {
-            str[i] = toupper(str[i]);
-        } else if (isupper(str[i])) {
-            str[i] = tolower(str[i]);
+std::string flip_case(std::string str){
+    for(char &c : str){
+        if(islower(c)){
+            c = toupper(c);
+        } else if(isupper(c)){
+            c = tolower(c);
         }
     }
     return str;
 }
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        std::cout << "Usage: ./program_name <string_to_flip_case>\n";
-        return 1;
-    }
-    
-    std::string str(argv[1]);
-    std::cout << flip_case(str) << std::endl;
-
+int main() {
+    assert(flip_case("Hello, World!") == "hELLO, wORLD!");
     return 0;
 }
