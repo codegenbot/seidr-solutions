@@ -1,24 +1,18 @@
-unordered_map<char, int> countUniqueChars(const string& word) {
-    unordered_map<char, int> charCount;
-    for (char c : word) {
-        charCount[c]++;
-    }
-    return charCount;
-}
+#include <string>
+#include <vector>
+#include <set>
 
-string find_max(vector<string> words) {
-    string maxWord = "";
+std::string find_max(const std::vector<std::string>& words) {
+    std::string maxWord;
     int maxUniqueChars = 0;
-
-    for (const string& word : words) {
-        unordered_map<char, int> charCount = countUniqueChars(word);
-        int uniqueChars = charCount.size();
-
+    
+    for (const std::string& word : words) {
+        int uniqueChars = std::set<char>(word.begin(), word.end()).size();
         if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
-            maxWord = word;
             maxUniqueChars = uniqueChars;
+            maxWord = word;
         }
     }
-
+    
     return maxWord;
 }
