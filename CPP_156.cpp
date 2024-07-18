@@ -1,8 +1,7 @@
 #include <string>
-#include <vector>
 #include <cassert>
+#include <vector>
 
-// Function signature remains the same
 std::string int_to_mini_romank(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
@@ -22,6 +21,6 @@ std::string int_to_mini_romank(int number){
 }
 
 int main(){
-    assert (int_to_mini_romank(1000) == "m");
+    assert(int_to_mini_romank(1000) == "m");
     return 0;
 }
