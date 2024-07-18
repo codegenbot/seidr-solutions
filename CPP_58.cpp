@@ -2,8 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator>
-#include <algorithm> // Include this header for set_intersection to work
+#include <iterator> // Include this header for set_intersection
 
 using namespace std;
 
@@ -16,7 +15,7 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2){
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter<vector<int>>(result));
     result.erase(unique(result.begin(), result.end()), result.end());
     
     return result;
