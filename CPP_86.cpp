@@ -1,12 +1,16 @@
-for (int i = 0; i < s.length(); i++) {
-    if (s[i] != ' ') {
-        int j = i;
-        while (j < s.length() && s[j] != ' ') {
-            j++;
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    for(char c : s){
+        if(c == ' '){
+            sort(word.begin(), word.end());
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
-        sort(s.begin() + i, s.begin() + j);
-        i = j;
     }
-}
-return s;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
