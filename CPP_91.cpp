@@ -1,9 +1,14 @@
-int is_bored(string S){
+#include <string>
+
+using namespace std;
+
+int is_bored(string S) {
     int count = 0;
-    string sentence;
+    
+    string sentence = "";
     for (char c : S) {
         if (c == '.' || c == '?' || c == '!') {
-            if (sentence.length() > 2 && sentence[0] == 'I') {
+            if (sentence.substr(0, 2) == "I ") {
                 count++;
             }
             sentence = "";
@@ -11,5 +16,10 @@ int is_bored(string S){
             sentence += c;
         }
     }
+    
+    if (!sentence.empty() && sentence.substr(0, 2) == "I ") {
+        count++;
+    }
+    
     return count;
 }
