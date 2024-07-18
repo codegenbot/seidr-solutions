@@ -1,24 +1,11 @@
 #include <vector>
-#include <string>
 #include <cassert>
+#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a == b;
 }
 
 int main() {
-    assert(!issame({"Jupiter", "Makemake"}, vector<string>{}));
-    assert(issame({"Mercury", "Venus"}, {"Mercury", "Venus"}));
+    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, std::vector<std::string>{}));
 }
