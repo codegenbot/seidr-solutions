@@ -1,21 +1,19 @@
-#include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(vector<string> a, vector<string> b) {
     int total_chars1 = 0;
+    for (string str : a) {
+        total_chars1 += str.length();
+    }
+
     int total_chars2 = 0;
-    
-    for(const std::string& s : a){
-        total_chars1 += s.size();
+    for (string str : b) {
+        total_chars2 += str.length();
     }
-    
-    for(const std::string& s : a){
-        total_chars2 += s.size();
-    }
-    
-    if(total_chars1 < total_chars2){
+
+    if (total_chars1 < total_chars2) {
         return true;
+    } else {
+        return false;
     }
-    
-    return false;
 }
