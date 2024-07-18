@@ -16,6 +16,8 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
     
+    mdString[32] = '\0';
+    
     return mdString;
 }
 
