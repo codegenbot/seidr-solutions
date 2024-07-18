@@ -11,12 +11,12 @@ def is_prime(num):
 def prime_fib(n):
     result = []
     a, b = 1, 1
-
+    
     while len(result) < n:
         if is_prime(a) and a % 5 == 0:
             result.append(a)
         a, b = b, a + b
-
+    
     return result
 
 print(prime_fib(n))
