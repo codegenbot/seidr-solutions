@@ -9,4 +9,6 @@ def encode(message):
                 encoded_message += char.swapcase()
         elif char.isspace():
             encoded_message += char
+        else:
+            encoded_message += char
     return encoded_message
