@@ -14,3 +14,5 @@ std::vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
+
+assert(issame(generate_integers(17, 89), {}));
