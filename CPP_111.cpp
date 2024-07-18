@@ -32,6 +32,6 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    // Add test cases or code to verify the histogram function if needed
+    // Your test cases here
     return 0;
 }
