@@ -1,13 +1,7 @@
-int sumOfDigitsInBinary(int N) {
-    int sum = 0;
-    while (N > 0) {
+int sum = 0;
+    while(N > 0){
         sum += N % 2;
         N /= 2;
     }
-    string binarySum = "";
-    while (sum > 0) {
-        binarySum = to_string(sum % 2) + binarySum;
-        sum /= 2;
-    }
-    return binarySum;
+    return bitset<sizeof(int) * 8>(sum).to_string().substr(sizeof(int) * 8 - 4);
 }
