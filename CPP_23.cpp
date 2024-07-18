@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <cstring>
+#include <cassert>
 
 int main() {
     std::string str = "asdasnakj";
