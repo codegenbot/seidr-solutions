@@ -1,3 +1,1 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+assert(issame(separate_paren_groups("(abc)(def)"), {"(abc)", "(def)"}));
