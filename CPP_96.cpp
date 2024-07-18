@@ -2,25 +2,23 @@
 #include <vector>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b){
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
+}
 
-    std::vector<int> count_up_to(int n){
-        std::vector<int> primes;
-        for (int i = 2; i < n; ++i) {
-            bool is_prime = true;
-            for (int j = 2; j * j <= i; ++j) {
-                if (i % j == 0) {
-                    is_prime = false;
-                    break;
-                }
-            }
-            if (is_prime) {
-                primes.push_back(i);
+std::vector<int> count_up_to(int n) {
+    std::vector<int> primes;
+    for (int i = 2; i < n; ++i) {
+        bool is_prime = true;
+        for (int j = 2; j * j <= i; ++j) {
+            if (i % j == 0) {
+                is_prime = false;
+                break;
             }
         }
-        return primes;
+        if (is_prime) {
+            primes.push_back(i);
+        }
     }
+    return primes;
 }
