@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 #include <cassert>
-#include <iterator> // Include this header for set_intersection
+#include <iterator>
+#include <algorithm> // Include this header for set_intersection to work
 
 using namespace std;
 
