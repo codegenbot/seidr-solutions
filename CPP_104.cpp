@@ -1,52 +1,22 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-vector<int> unique_digits(vector<int> x);
-
-bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
+std::vector<int> unique_digits(std::vector<int> nums) {
+    for(auto &num : nums) {
+        std::string num_str = std::to_string(num);
+        std::sort(num_str.begin(), num_str.end());
+        num = std::stoi(num_str);
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    std::sort(nums.begin(), nums.end());
+    return nums;
 }
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for(int num : x){
-        bool hasEvenDigit = false;
-        int temp = num;
-        while(temp > 0){
-            if((temp % 10) % 2 == 0){
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if(!hasEvenDigit){
-            result.push_back(num);
-        }
-    }
-    sort(result.begin(), result.end());
-    return result;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return unique_digits(a) == unique_digits(b);
 }
 
-int main(){
-    vector<int> input = {123, 456, 789, 135, 246, 802};
-    vector<int> expected_output = {135, 789};
-    vector<int> actual_output = unique_digits(input);
-    
-    if(is_same(expected_output, actual_output)){
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
-    
+int main() {
+    assert(issame({135, 103, 31}, {31, 135}));
     return 0;
 }
