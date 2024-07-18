@@ -21,7 +21,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     return letter_grades;
 }
 
-int main() {
-    // Add test cases here
+int main(){
+    // Test cases can be added here
     return 0;
 }
