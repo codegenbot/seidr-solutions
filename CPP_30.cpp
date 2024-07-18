@@ -14,7 +14,7 @@ bool issame(vector<float> l1, vector<float> l2){
     return true;
 }
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive (vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
