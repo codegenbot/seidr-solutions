@@ -1,3 +1,5 @@
+#include <vector>
+
 vector<int> res;
 if (n == 0) {
     res.push_back(0);
