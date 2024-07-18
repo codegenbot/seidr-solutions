@@ -21,6 +21,6 @@ std::string int_to_mini_roman(int number){
 }
 
 int main(){
-    int_to_mini_roman(1000);
+    std::cout << int_to_mini_roman(1000) << std::endl;
     return 0;
 }
