@@ -1,4 +1,7 @@
-def f(n, memo={0: 1, 1: 1}):
-    if n not in memo:
-        memo[n] = n * f(n - 1, memo)
-    return [memo[i] for i in range(n+1)]
+def f(n):
+    result = []
+    fact = 1
+    for i in range(n):
+        fact *= (i + 1)
+        result.append(fact)
+    return result
