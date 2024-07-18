@@ -1,6 +1,6 @@
-#include <cassert>
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool is_nested(const std::string& str) {
     int count = 0;
