@@ -1,4 +1,7 @@
-int is_bored(string S){
+#include <string>
+using namespace std;
+
+int is_bored(std::string S){
     int boredom_count = 0;
     bool is_i_present = false;
     
