@@ -1,13 +1,14 @@
 n = int(input())
-numbers = [int(input()) for _ in range(n)]
-min_diff = float("inf")
-cut_index = -1
-
-for i in range(1, n):
-    diff = abs(sum(numbers[:i]) - sum(numbers[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-print(*numbers[:cut_index])
-print(*numbers[cut_index:])
+nums = [int(input()) for _ in range(n)]
+total_sum = sum(nums)
+half_sum = total_sum // 2
+running_sum = 0
+for i in range(n):
+    running_sum += nums[i]
+    if running_sum >= half_sum:
+        if running_sum == half_sum or abs(running_sum - half_sum) < abs(
+            running_sum - nums[i] - half_sum
+        ):
+            print(*nums[: i + 1])
+            print(*nums[i + 1 :])
+            break
