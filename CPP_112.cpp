@@ -5,15 +5,15 @@
 
 using namespace std;
 
-bool issame(pair<string, string> a, pair<string, string> b) {
+bool issame(const pair<string, string>& a, const pair<string, string>& b) {
     return a == b;
 }
 
-pair<string, string> reverse_delete(string s, string c) {
+pair<string, string> reverse_delete(const string& s, const string& c) {
     string result;
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
-            result += ch; 
+            result += ch;
         }
     }
     string reversed = result;
@@ -22,6 +22,6 @@ pair<string, string> reverse_delete(string s, string c) {
 }
 
 int main(){
-    assert(issame(reverse_delete("mamma", "mia"), make_pair("", "True")));
+    assert (issame(reverse_delete("mamma", "mia"), make_pair("", "True")));
     return 0;
 }
