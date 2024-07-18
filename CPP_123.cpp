@@ -1,8 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
+
+vector<int> get_odd_collatz(int n);
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
