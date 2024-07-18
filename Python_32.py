@@ -1,12 +1,7 @@
 def find_zero(xs: list):
-    n = len(xs)
-    if n < 2:
-        return "Input list should contain at least two elements."
-    
-    a = xs[-1]
-    b = xs[-2]
-    
-    if b == 0:
-        return "Division by zero is not allowed."
-    
-    return -a / b
+    return (xs[0] + xs[-1]) / 2
+
+# Read input from the user
+input_list = [float(x) for x in input().split()]
+# Call the function with the input list and print the result
+print(find_zero(input_list))
