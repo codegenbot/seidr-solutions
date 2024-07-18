@@ -1,5 +1,6 @@
 #include <vector>
 using namespace std;
+
 bool monotonic(vector<float> l) {
     bool increasing = true, decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
