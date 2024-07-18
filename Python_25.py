@@ -5,7 +5,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
 if __name__ == "__main__":
     n = int(input("Enter a number to factorize: "))
     result = factorize(n)
