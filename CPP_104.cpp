@@ -2,11 +2,11 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -33,4 +33,7 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-```
+int main() {
+    // Your main function code here
+    return 0;
+}
