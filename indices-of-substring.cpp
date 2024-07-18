@@ -12,6 +12,9 @@ int main() {
     for (int i = 0; i < indices.size(); ++i) {
         cout << indices[i] << " ";
     }
+    if (!indices.empty()) {
+        cout << endl;
+    }
     
     return 0;
 }
