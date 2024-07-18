@@ -15,18 +15,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> input(n);
-    for(int i = 0; i < n; i++){
-        cin >> input[i];
-    }
-
-    vector<int> result = incr_list(input);
-
-    for(int i = 0; i < result.size(); i++){
-        cout << result[i] << " ";
-    }
-
+    // main function code here
     return 0;
 }
