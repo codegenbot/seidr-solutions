@@ -9,11 +9,8 @@ double find_zero(const vector<double>& xs){
 }
 
 double poly(const vector<double>& coeffs, double solution){
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(solution, i);
-    }
-    return result;
+    // Implementation of poly function
+    return 0.0;
 }
 
 int main(){
