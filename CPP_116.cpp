@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 #include <vector>
 
 std::vector<int> sort_array(std::vector<int> arr) {
