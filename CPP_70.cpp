@@ -18,3 +18,8 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     return result;
 }
+
+int main() {
+    // Your main function logic here
+    return 0;
+}
