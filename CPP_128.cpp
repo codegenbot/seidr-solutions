@@ -2,7 +2,7 @@
 
 int prod_signs(std::vector<int> arr){
     if(arr.empty()) return 0;
-
+    
     int product = 1;
     int sum = 0;
     
