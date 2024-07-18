@@ -1,8 +1,8 @@
 #include <vector>
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2);
+bool issame(int a, int b){ return a == b; }
 
-std::vector<int> tri(int n){
-    std::vector<int> result;
+vector<int> tri(int n){
+    vector<int> result;
     if (n >= 0) {
         result.push_back(3);
         if (n > 0) {
@@ -12,7 +12,8 @@ std::vector<int> tri(int n){
                 for (int i = 3; i <= n; ++i) {
                     if (i % 2 == 0) {
                         result.push_back(1 + i / 2);
-                    } else {
+                    }
+                    else {
                         result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                     }
                 }
