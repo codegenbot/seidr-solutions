@@ -23,7 +23,7 @@ int main() {
     assert(!issame(list1, list2));
     assert(issame(list1, incremented_list1));
 
-    assert (issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
 
     return 0;
 }
