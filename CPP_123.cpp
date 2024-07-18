@@ -2,9 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> get_odd_collatz(int n);
-
-bool issame(vector<int> a);
+using namespace std;
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -30,10 +28,10 @@ vector<int> get_odd_collatz(int n) {
     return odd_result;
 }
 
-bool issame(vector<int> a) {
-    return a == get_odd_collatz(1);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame({1}));
+    assert(issame(get_odd_collatz(1), {1}));
 }
