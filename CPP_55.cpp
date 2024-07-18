@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 int fib(int n) {
     if (n <= 1) {
@@ -15,7 +16,8 @@ int fib(int n) {
 
 int main() {
     int n;
+    std::cout << "Enter a number to calculate Fibonacci number: ";
     std::cin >> n;
-    std::cout << fib(n) << std::endl;
+    std::cout << "Fibonacci number at position " << n << " is " << fib(n) << std::endl;
     return 0;
 }
