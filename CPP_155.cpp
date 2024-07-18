@@ -1,10 +1,7 @@
 #include <vector>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
-}
-
-vector<int> countEvenOddDigits(int num) {
+bool issame(int num) {
     vector<int> result(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
