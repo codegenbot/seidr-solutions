@@ -14,6 +14,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    // Your main function logic here
+    // Main function implementation
     return 0;
 }
