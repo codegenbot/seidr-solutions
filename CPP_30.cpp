@@ -1,8 +1,7 @@
 #include <vector>
-#include <cassert>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
@@ -11,6 +10,6 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
