@@ -1,2 +1,6 @@
-def transform_string(string):
-    return "".join([char.upper() if char.islower() else char.lower() for char in string])
+def manipulate_string(string):
+    return "".join(char.lower() if char.isupper() else char.upper() for char in string)
+
+
+output = manipulate_string(input())
+print(output)
