@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cassert>
-
 bool is_multiply_prime(int a) {
     if (a < 30) return false;
     for (int i = 2; i <= a / 2; ++i) {
@@ -21,7 +18,5 @@ bool is_multiply_prime(int a) {
 
 int main() {
     assert(is_multiply_prime(11 * 13 * 7) == true);
-    // Add more test cases here
-
     return 0;
 }
