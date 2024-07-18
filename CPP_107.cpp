@@ -5,8 +5,9 @@
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
-    if (n == 1) {
-        result = {0, 1};
+    result.push_back(0);
+    if (n > 0) {
+        result.push_back(1);
     }
     return result;
 }
