@@ -1,18 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        a = (a < 0) ? -a : a;
-        b = (b < 0) ? -b : b;
+        if (a < 0) a = -a;
+        if (b < 0) b = -b;
         while (a > 0) {
             sumA += a % 10;
             a /= 10;
@@ -22,7 +21,7 @@ vector<int> order_by_points(vector<int> nums) {
             b /= 10;
         }
         if (sumA == sumB) {
-            return a < b;
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         }
         return sumA < sumB;
     });
@@ -30,14 +29,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {123, 456, 789};
-    nums = order_by_points(nums);
-    
-    for (int num : nums) {
-        cout << num << " ";
-    }
-
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
