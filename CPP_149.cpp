@@ -13,8 +13,11 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     return a;
 }
 
-int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
+int solve_problem() {
+    vector<string> a = {"apple", "orange", "banana"};
+    vector<string> b = {"kiwi", "grape", "peach"};
+    
+    vector<string> result = sorted_list_sum(a, b);
     
     for (const auto& str : result) {
         cout << str << " ";
