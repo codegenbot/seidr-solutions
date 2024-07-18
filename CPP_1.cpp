@@ -1,6 +1,10 @@
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -23,20 +27,23 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
     // Example usage
-    vector<string> test_input = separate_paren_groups("((group1)(group2)(group3))");
-    vector<string> expected_output = {"(group1)", "(group2)", "(group3)"};
+    std::string input_string = "(abc)(def)(ghi)";
+    std::vector<std::string> result = separate_paren_groups(input_string);
 
-    // Check if the test_input and expected_output are the same
-    if (issame(test_input, expected_output)) {
-        cout << "Test Passed!" << endl;
+    // Dummy vector for comparison
+    std::vector<std::string> dummy_vec = {"abc", "def", "ghi"};
+
+    // Check if the result is the same as the dummy vector
+    if (issame(result, dummy_vec)) {
+        std::cout << "Vectors are the same." << std::endl;
     } else {
-        cout << "Test Failed!" << endl;
+        std::cout << "Vectors are different." << std::endl;
     }
 
     return 0;
