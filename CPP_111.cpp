@@ -1,30 +1,45 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> counts;
-    
-    for (char c : test) {
-        if (c != ' ') {
-            counts[c]++;
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
+map<char, int> histogram(string test);
+
+bool issame(map<char, int> a, map<char, int> b) {
+    // Implementation of issame function
+    for (auto const &pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+            return false;
         }
     }
-    
-    int maxCount = 0;
-    for (const auto& pair : counts) {
-        maxCount = max(maxCount, pair.second);
-    }
-    
-    for (const auto& pair : counts) {
-        if (pair.second == maxCount) {
-            result[pair.first] = pair.second;
+    for (auto const &pair : b) {
+        if (a.find(pair.first) == a.end() || a[pair.first] != pair.second) {
+            return false;
         }
     }
-    
-    return result;
+    return true;
 }
 
-// Testing
 int main() {
-    assert(histogram("a") == {{'a', 1}});
-    
+    // Test cases for issame function
+    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(!issame(histogram("ab"), {{'a', 1}}));
+    assert(issame(histogram("listen"), histogram("silent")));
+
     return 0;
+}
+
+map<char, int> histogram(string test){
+    // Implementation of the histogram function
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
+    while(iss >> word){
+        for(char c : word){
+            result[c]++;
+        }
+    }
+    return result;
 }
