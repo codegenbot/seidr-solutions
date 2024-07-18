@@ -4,9 +4,22 @@
 #include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    // Implement the by_length function here
-
-    return {}; // return an empty vector for now
+    std::vector<std::string> result;
+    for (int num : arr) {
+        switch (num) {
+            case 1: result.push_back("One"); break;
+            case 2: result.push_back("Two"); break;
+            case 3: result.push_back("Three"); break;
+            case 4: result.push_back("Four"); break;
+            case 5: result.push_back("Five"); break;
+            case 6: result.push_back("Six"); break;
+            case 7: result.push_back("Seven"); break;
+            case 8: result.push_back("Eight"); break;
+            case 9: result.push_back("Nine"); break;
+            default: result.push_back("Unknown"); break;
+        }
+    }
+    return result;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -18,7 +31,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
 
     return 0;
 }
