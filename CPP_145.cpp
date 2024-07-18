@@ -5,15 +5,15 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        a = abs(a);
-        b = abs(b);
+        if (a < 0) a = -a;
+        if (b < 0) b = -b;
         while (a > 0) {
             sumA += a % 10;
             a /= 10;
