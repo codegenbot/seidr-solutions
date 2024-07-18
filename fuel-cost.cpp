@@ -4,13 +4,13 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-
-    int total = 0;
+    
+    int sum = 0;
     for (int num : nums) {
-        total += (num / 3) - 2;
+        sum += (num / 3) - 2;
     }
-
-    cout << total << endl;
-
+    
+    cout << sum << endl;
+    
     return 0;
 }
