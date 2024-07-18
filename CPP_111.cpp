@@ -1,3 +1,17 @@
+bool issame(map<char, int> a, map<char, int> b) {
+    for (auto it : a) {
+        if (b.find(it.first) == b.end() || b[it.first] != it.second) {
+            return false;
+        }
+    }
+    for (auto it : b) {
+        if (a.find(it.first) == a.end() || a[it.first] != it.second) {
+            return false;
+        }
+    }
+    return true;
+}
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     map<char, int> freq;
@@ -14,8 +28,4 @@ map<char, int> histogram(string test) {
         }
     }
     return result;
-}
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
 }
