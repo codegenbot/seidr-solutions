@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-
-bool move_one_ball(std::vector<int>& arr) {
+bool move_one_ball(vector<int>& arr) {
     int n = arr.size();
     
     if (n == 0) {
@@ -27,9 +24,4 @@ bool move_one_ball(std::vector<int>& arr) {
     }
     
     return true;
-}
-
-int main() {
-    // Input handling and function call can be added here for testing
-    return 0;
 }
