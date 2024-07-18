@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
+using namespace std;
 
-std::string string_to_md5(const std::string& text) {
+string string_to_md5(const string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -11,19 +12,14 @@ std::string string_to_md5(const std::string& text) {
     MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
-    for(int i = 0; i < 16; i++) {
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
-    return std::string(mdString);
+    return string(mdString);
 }
 
 int main() {
-    std::cout << "Enter text: ";
-    std::string input;
-    std::cin >> input;
-
-    std::cout << string_to_md5(input) << std::endl;
-
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
