@@ -1,15 +1,15 @@
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
+vector<int> remove_duplicates(const vector<int>& numbers) {
+    unordered_map<int, int> numCount;
     for (int num : numbers) {
-        if (count(numbers.begin(), numbers.end(), num) == 1) {
-            uniqueNumbers.push_back(num);
+        numCount[num]++;
+    }
+    
+    vector<int> uniqueNumbers;
+    for (const auto& entry : numCount) {
+        if (entry.second == 1) {
+            uniqueNumbers.push_back(entry.first);
         }
     }
+    
     return uniqueNumbers;
 }
