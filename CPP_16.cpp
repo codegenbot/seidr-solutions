@@ -1,8 +1,7 @@
 #include <algorithm>
-#include <iostream>
 #include <cassert>
 
-int count_distinct_characters(std::string str) {
+int count_distinct_characters(const std::string& str) {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
     std::sort(str.begin(), str.end());
     auto it = std::unique(str.begin(), str.end());
