@@ -21,14 +21,14 @@ std::string int_to_mini_roman(int number){
     return result;
 }
 
-int main(){
+int main_roman_conversion(){
     assert(int_to_mini_roman(1000) == "m");
     assert(int_to_mini_roman(3999) == "mmmcmxcix");
     assert(int_to_mini_roman(49) == "xlix");
-    // Add more test cases here
+    // Additional test cases
+    assert(int_to_mini_roman(139) == "cxxxix");
+    assert(int_to_mini_roman(726) == "dccxxvi");
     assert(int_to_mini_roman(2021) == "mmxxi");
-    assert(int_to_mini_roman(777) == "dcclxxvii");
-    assert(int_to_mini_roman(1234) == "mccxxxiv");
-    
+
     return 0;
 }
