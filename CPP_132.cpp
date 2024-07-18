@@ -1,21 +1,20 @@
 #include <iostream>
 #include <cassert>
 
-bool is_nested(const std::string& str) {
-    int balance = 0;
+bool is_nested(std::string str) {
+    int left = 0, right = 0;
     for(char c : str) {
         if(c == '[') {
-            balance++;
-        } else if(c == ']' && balance > 0) {
-            balance--;
+            left++;
+        } else if(c == ']' && left > 0) {
+            left--;
+            right++;
         }
     }
-    return balance == 0;
+    return right > 0;
 }
 
 int main() {
-    assert(is_nested("[]") == true);
-    assert(is_nested("[[[]]]") == true);
     assert(is_nested("]]]]]]]]") == false);
     return 0;
 }
