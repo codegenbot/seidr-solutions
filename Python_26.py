@@ -1,4 +1,3 @@
-print("Enter a list of numbers separated by spaces:")
 numbers = list(map(int, input().split()))
 
 def remove_duplicates(numbers):
