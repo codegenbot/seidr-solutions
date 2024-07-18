@@ -1,17 +1,13 @@
 int is_bored(string S){
-    int boredom_count = 0;
-    bool is_previous_i = false;
+    int boredom = 0;
+    size_t pos = 0;
     
-    for(int i = 0; i < S.length(); ++i){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            is_previous_i = false;
-        } else if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
-            is_previous_i = true;
-        } else if(is_previous_i && S[i] == ' '){
-            ++boredom_count;
-            is_previous_i = false;
+    while((pos = S.find("I ", pos)) != string::npos) {
+        if(pos == 0 || S[pos-1] == '.' || S[pos-1] == '?' || S[pos-1] == '!') {
+            boredom++;
         }
+        pos++;
     }
-
-    return boredom_count;
+    
+    return boredom;
 }
