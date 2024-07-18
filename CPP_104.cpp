@@ -1,11 +1,14 @@
-vector<int> unique_digits(vector<int> x){
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    for (const auto &num : x) {
+    for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
+            if (temp % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
