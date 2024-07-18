@@ -2,15 +2,10 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
-int main() {
+vector<int> removeNumbersWithEvenDigits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         int temp = num;
