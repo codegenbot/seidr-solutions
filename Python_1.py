@@ -1,10 +1,10 @@
 from typing import List
 
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups() -> List[str]:
+    paren_string = input()
     result = []
     group = ""
     level = 0
-    paren_string = input()
     
     for char in paren_string:
         if char == "(":
