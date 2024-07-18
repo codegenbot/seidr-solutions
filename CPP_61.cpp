@@ -1,17 +1,13 @@
-#include<stdio.h>
-#include<string>
-using namespace std;
-bool correct_bracketing(string brackets){
-    int balance = 0;
-    for (char c : brackets) {
-        if (c == '(') {
-            balance++;
-        } else if (c == ')') {
-            if (balance == 0) {
+int count = 0;
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            count++;
+        } else if (bracket == ')') {
+            if (count == 0) {
                 return false;
             }
-            balance--;
+            count--;
         }
     }
-    return balance == 0;
+    return count == 0;
 }
