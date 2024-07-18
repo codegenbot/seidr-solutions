@@ -5,15 +5,7 @@
 #include <cassert>
 
 bool issame(map<char, int> a, map<char, int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(auto it : a){
-        if(b.find(it.first) == b.end() || b[it.first] != it.second){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 map<char, int> histogram(string test){
