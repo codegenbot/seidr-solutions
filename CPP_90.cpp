@@ -1,18 +1,20 @@
-sort(lst.begin(), lst.end());
-    int smallest = -1;
-    for (int num : lst){
-        if (num > smallest){
-            smallest = num;
-        }
+int next_smallest(vector<int> lst) {
+  if (lst.size() < 2) {
+    return -1;
+  }
+
+  vector<int> sortedList = lst;
+  sort(sortedList.begin(), sortedList.end());
+  
+  int smallest = sortedList[0];
+  int secondSmallest = -1;
+  
+  for (int num : lst) {
+    if (num > smallest) {
+      secondSmallest = num;
+      break;
     }
-    int second_smallest = -1;
-    for (int num : lst){
-        if (num > smallest){
-            second_smallest = num;
-            break;
-        }
-    }
-    if (second_smallest == -1)
-        return None;
-    return second_smallest;
+  }
+  
+  return secondSmallest;
 }
