@@ -4,8 +4,9 @@
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
+
+vector<int> sort_third(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
