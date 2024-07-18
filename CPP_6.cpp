@@ -29,7 +29,7 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     return depths;
 }
 
-int main() {
+int main(){
     assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
     return 0;
 }
