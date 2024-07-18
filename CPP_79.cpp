@@ -14,6 +14,6 @@ string decimal_to_binary(int decimal){
 int main() {
     int decimal;
     cin >> decimal;
-    cout << decimal_to_binary(decimal) << endl;
+    cout << decimal_to_binary(decimal);
     return 0;
 }
