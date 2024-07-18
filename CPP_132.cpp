@@ -1,6 +1,3 @@
-#include <string>
-#include <cassert>
-
 bool is_nested(const string& str) {
     int count = 0;
     for (char c : str) {
@@ -10,5 +7,5 @@ bool is_nested(const string& str) {
             count--;
         }
     }
-    return count == 0;
+    return count != 0;
 }
