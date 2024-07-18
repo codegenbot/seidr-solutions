@@ -21,7 +21,7 @@ def minPath(grid, k):
             remaining_values = cycle_values * (remaining_steps // cycle_length)
             path = path[:cycle_start] + remaining_values
             break
-            
+        
         path.append(grid[next_pos[0]][next_pos[1]])
         pos = next_pos
         seen[pos] = len(path)
