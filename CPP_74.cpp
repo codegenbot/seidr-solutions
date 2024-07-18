@@ -1,6 +1,8 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
@@ -20,6 +22,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
-    assert(total_match({"this"}, {}).empty());
-}
+assert(total_match({"this"}, {}).empty());
