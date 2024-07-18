@@ -8,12 +8,14 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b) {
 }
 
 std::pair<int, int> eat(int number) {
-    int eaten = 1;
-    int remaining = number - eaten;
-    return {eaten, remaining};
+    int remaining = number; 
+    int total = number + remaining;
+    int eaten = total > remaining ? remaining : total;
+    int left = remaining - eaten;
+    return {eaten, left};
 }
 
 int main() {
-    assert(issame(eat(5), {1, 4}));
+    assert(issame(eat(4), {5, 0}));
     return 0;
 }
