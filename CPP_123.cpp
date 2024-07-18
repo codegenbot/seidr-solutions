@@ -1,11 +1,5 @@
 #include <vector>
 
-vector<int> get_odd_collatz(int n);
-
-bool issame(vector<int> a, vector<int> b) {
-    // Implementation of issame function
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -29,6 +23,8 @@ vector<int> get_odd_collatz(int n) {
     
     return odd_numbers;
 }
+
+bool issame(vector<int> a, vector<int> b); 
 
 int main() {
     get_odd_collatz(1);
