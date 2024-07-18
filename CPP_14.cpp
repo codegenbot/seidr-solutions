@@ -2,10 +2,15 @@
 #include <cassert>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-vector<string> all_prefixes(string str){
+bool issame(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
+}
+
+vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
         result.push_back(str.substr(0, i));
@@ -14,7 +19,7 @@ vector<string> all_prefixes(string str){
 }
 
 int main() {
-    assert(all_prefixes("WWW") == vector<string>{"W", "WW", "WWW"});
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
     cout << "Test Passed\n";
     return 0;
 }
