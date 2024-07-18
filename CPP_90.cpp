@@ -1,16 +1,15 @@
 sort(lst.begin(), lst.end());
-int smallest = INT_MAX, second_smallest = INT_MAX;
-for (int i = 0; i < lst.size(); i++) {
-    if (lst[i] < smallest) {
-        second_smallest = smallest;
-        smallest = lst[i];
-    } else if (lst[i] < second_smallest && lst[i] != smallest) {
-        second_smallest = lst[i];
+int pos = 0, count = 0;
+for (int i = 0; i < lst.size(); ++i) {
+    if (i > 0 && lst[i] != lst[i - 1]) {
+        ++count;
+    }
+    if (count == 1) {
+        pos = i;
+        break;
     }
 }
-if (second_smallest == INT_MAX) {
-    return -1;
-} else {
-    return second_smallest;
+if (count < 2) {
+    return -1; // None
 }
-}
+return lst[pos];
