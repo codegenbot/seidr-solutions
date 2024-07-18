@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -34,19 +28,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> input = separate_paren_groups("((group1)group2(group3)(group4))");
-    for (string group : input) {
-        cout << group << endl;
-    }
-
-    vector<string> test1 = {"group1", "group2", "group3", "group4"};
-    vector<string> test2 = separate_paren_groups("((group1)group2(group3)(group4))");
-
-    if (issame(test1, test2)) {
-        cout << "Test passed: The groups are the same." << endl;
-    } else {
-        cout << "Test failed: The groups are different." << endl;
-    }
-
+    // Add test cases here if needed
     return 0;
 }
