@@ -1,2 +1,3 @@
-def increment_list(l):
-    return [num + 1 for num in l]
+l = input().split()
+result = [int(i) + 1 for i in l]
+print(result)
