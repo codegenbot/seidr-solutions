@@ -1,6 +1,6 @@
-vector<int> findLeaders(vector<int> nums) {
-    int n = nums.size();
+vector<int> findLeaders(vector<int>& nums) {
     vector<int> leaders;
+    int n = nums.size();
     int maxRight = INT_MIN;
     
     for (int i = n - 1; i >= 0; i--) {
