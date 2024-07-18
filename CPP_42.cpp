@@ -1,7 +1,22 @@
-#include<vector>
+#include <vector>
+#include <assert.h>
+
+using namespace std;
 
 vector<int> incr_list(vector<int> l);
+
 bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    vector<int> l = {1, 2, 3};
+    vector<int> l_inc = incr_list(l);
+    vector<int> l_copy = {2, 3, 4};
+  
+    assert(issame(l_inc, l_copy));
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+
+    return 0;
+}
 
 vector<int> incr_list(vector<int> l) {
     for (int &num : l) {
@@ -12,13 +27,4 @@ vector<int> incr_list(vector<int> l) {
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
-}
-
-int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = incr_list(l1);
-    
-    assert(issame(l1, l2) && l1 == vector<int>{2, 3, 4});
-    
-    return 0;
 }
