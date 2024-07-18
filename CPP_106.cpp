@@ -18,11 +18,11 @@ std::vector<int> f(int n) {
             sum += i;
             result.push_back(sum);
         }
-     }
+    }
 
-     return result;
+    return result;
 }
 
 void main() {
-     assert(issame(f(3), {1, 2, 6}));
+    assert(issame(f(3), {1, 2, 6}));
 }
