@@ -1,14 +1,20 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
+total_sum = sum(numbers)
 half_sum = total_sum // 2
+current_sum = 0
+cut_index = 0
 
-prefix_sum = 0
-for i, num in enumerate(arr):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or prefix_sum - half_sum < total_sum - prefix_sum:
-            print(arr[: i + 1])
-            print(arr[i + 1 :])
-            break
+for i, num in enumerate(numbers):
+    current_sum += num
+    if current_sum >= half_sum:
+        cut_index = i
+        break
+
+if abs(total_sum - 2 * current_sum) < abs(total_sum - 2 * (current_sum - num)):
+    print(numbers[: cut_index + 1])
+    print(numbers[cut_index + 1 :])
+else:
+    print(numbers[:cut_index])
+    print(numbers[cut_index:])
