@@ -1,13 +1,10 @@
 string encrypt(string s){
     string encrypted = "";
     for(char c : s){
-        if(c >= 'a' && c <= 'z'){
-            char newChar = 'a' + (c - 'a' + 2 * 2) % 26;
-            encrypted += newChar;
-        }else if(c >= 'A' && c <= 'Z'){
-            char newChar = 'A' + (c - 'A' + 2 * 2) % 26;
-            encrypted += newChar;
-        }else{
+        if(isalpha(c)){
+            char encrypted_char = (c - 'a' + 2 * 2) % 26 + 'a';
+            encrypted += encrypted_char;
+        } else {
             encrypted += c;
         }
     }
