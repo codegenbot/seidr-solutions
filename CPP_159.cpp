@@ -1,4 +1,4 @@
-#include <utility>
+#include <vector>
 
 std::pair<int, int> issame(int number, int need, int remaining) {
     int total = number + need;
@@ -7,4 +7,7 @@ std::pair<int, int> issame(int number, int need, int remaining) {
     return std::make_pair(eaten, left);
 }
 
-assert(issame(4, 5, 1) == std::make_pair(5, 0));
+int main() {
+    assert(issame(4, 5, 1) == std::make_pair(5, 0));
+    return 0;
+}
