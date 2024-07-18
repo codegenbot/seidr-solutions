@@ -1,6 +1,5 @@
 #include <vector>
-
-std::vector<int> incr_list(std::vector<int> l);
+#include <cassert>
 
 std::vector<int> incr_list(std::vector<int> l) {
     for(int i = 0; i < l.size(); i++) {
