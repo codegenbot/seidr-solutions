@@ -1,11 +1,10 @@
-import math
-
 try:
     n = int(input("Enter a number: "))
 except ValueError:
     print("Invalid input. Please enter a valid integer.")
     exit()
 
+import math
 def is_prime(num):
     if num < 2:
         return False
