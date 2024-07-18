@@ -1,8 +1,12 @@
 def find_zero(xs: list):
     if len(xs) < 2:
-        return None
+        return "Input list should contain at least two elements"
+    
+    n = len(xs) - 1
     a = xs[-1]
     b = xs[-2]
+    
     if b == 0:
-        return None
+        return "Division by zero is not allowed"
+    
     return -a / b
