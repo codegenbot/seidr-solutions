@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 
 int fib(int n) {
     if (n <= 1)
@@ -10,6 +9,6 @@ int fib(int n) {
 int main() {
     int n;
     std::cin >> n;
-    std::cout << fib(n);
+    fib(n);
     return 0;
 }
