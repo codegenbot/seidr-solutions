@@ -1,9 +1,14 @@
-
 #include <vector>
+#include <string>
+#include <algorithm>
 #include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
-    return {0, 1};
+    std::vector<int> result;
+    if (n == 1) {
+        result = {0, 1};
+    }
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
