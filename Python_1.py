@@ -1,8 +1,11 @@
 from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     group = ""
     level = 0
+    
+    paren_string = input()
     
     for char in paren_string:
         if char == "(":
@@ -18,5 +21,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 group = ""
     
     return result
-
-paren_string = input("Enter the parentheses string: ")
