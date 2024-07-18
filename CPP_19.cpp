@@ -1,3 +1,7 @@
+#include <string>
+#include <map>
+#include <cassert>
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -13,22 +17,27 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers){
     string result = "";
-    map<int, string> sorted_numbers;
+    map<int, string> rev_map;
     
-    string temp = "";
-    for (char c : numbers) {
-        if (c != ' ') {
-            temp += c;
-        } else {
-            sorted_numbers[num_map[temp]] = temp;
-            temp = "";
+    for (string::size_type pos = 0; pos < numbers.size();){
+        string word = "";
+        while (pos < numbers.size() && numbers[pos] != ' '){
+            word += numbers[pos];
+            pos++;
         }
+        pos++;
+        rev_map[num_map[word]] = word;
     }
-    sorted_numbers[num_map[temp]] = temp;
-
-    for (auto const& pair : sorted_numbers) {
+    
+    for (auto const& pair : rev_map){
         result += pair.second + " ";
     }
     
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
