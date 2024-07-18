@@ -1,4 +1,8 @@
-int total_eaten = number + need;
-    int carrots_left = max(0, remaining - need);
-    return {total_eaten, carrots_left};
+#include <vector>
+
+std::pair<int, int> issame(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = total > remaining ? total - remaining : total;
+    int left = remaining > total ? remaining - total : 0;
+    return std::make_pair(eaten, left);
 }
