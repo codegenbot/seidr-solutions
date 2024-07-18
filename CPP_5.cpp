@@ -13,14 +13,12 @@ vector<int> intersperse(const vector<int>& numbers, int delimeter){
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
 int main() {
     using namespace std;
-    
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
     return 0;
 }
