@@ -3,7 +3,7 @@ def find_zero(xs: list):
     return x
 
 
-# Read input from user
+# Read input from user as two integers from a single line
 input_list = list(map(int, input().split()))
 
 # Call the function with the input list
