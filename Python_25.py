@@ -6,5 +6,3 @@ try:
         print("Please enter a positive integer.")
 except ValueError:
     print("Invalid input. Please enter a positive integer.")
-except OverflowError:
-    print("Input integer is too large.")
