@@ -2,17 +2,17 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+std::vector<int> sort_array(std::vector<int> arr);
 
-vector<int> sort_array(vector<int> arr);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-bool issame(vector<int> a, vector<int> b) {
-    return sort_array(a) == sort_array(b);
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end());
+    return arr;
 }
 
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end());
-    return arr;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
