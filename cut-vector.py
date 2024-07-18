@@ -1,13 +1,18 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-diff = float("inf")
-cut_idx = 0
+nums = [int(input()) for _ in range(n)]
 
-for i in range(1, n):
-    new_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if new_diff < diff:
-        diff = new_diff
-        cut_idx = i
+total_sum = sum(nums)
+half_sum = total_sum // 2
 
-print(*arr[:cut_idx])
-print(*arr[cut_idx:])
+running_sum = 0
+for i, num in enumerate(nums):
+    running_sum += num
+    if running_sum >= half_sum:
+        if running_sum == half_sum:
+            print(*nums[: i + 1])
+        else:
+            if running_sum - num <= half_sum:
+                print(*nums[: i + 1])
+            else:
+                print(*nums[:i], 0, sep="\n")
+        break
