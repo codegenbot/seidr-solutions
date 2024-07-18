@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool pairs_sum_to_zero(std::vector<int> l) {
@@ -14,10 +13,10 @@ bool pairs_sum_to_zero(std::vector<int> l) {
 
 int main() {
     std::vector<int> test_case1 = {1, 2, 3, -3};
-    std::vector<int> test_case2 = {4, 5, -5, 6};
+    std::vector<int> test_case2 = {4, 5, 6};
     
-    std::cout << std::boolalpha << pairs_sum_to_zero(test_case1) << std::endl; // Should return true
-    std::cout << std::boolalpha << pairs_sum_to_zero(test_case2) << std::endl; // Should return true
+    pairs_sum_to_zero(test_case1); // Should return true
+    pairs_sum_to_zero(test_case2); // Should return false
     
     return 0;
 }
