@@ -1,8 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
