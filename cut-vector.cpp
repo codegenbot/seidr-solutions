@@ -36,6 +36,6 @@ int main() {
     for (int i = cutIndex; i < nums.size(); ++i) {
         std::cout << nums[i] << " ";
     }
-    
+
     return 0;
 }
