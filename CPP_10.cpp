@@ -6,7 +6,7 @@ bool is_palindrome(const std::string& str) {
     return str == std::string(str.rbegin(), str.rend());
 }
 
-std::string make_palindrome(const std::string& str) {
+std::string make_palindrome(const std::string\_ {
     if (str.empty()) return "";
     int n = str.size();
     for (int i = n - 1; i >= 0; i--) {
