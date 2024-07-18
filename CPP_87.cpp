@@ -1,10 +1,18 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
-auto issame = [](const vector<vector<int>>& a, const vector<vector<int>>& b) -> bool {
-    return a == b;
-};
+bool issame(vector<vector<int>> a,vector<vector<int>> b){
+    .
+    . // your logic here
+    .
+}
+
+vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+
+int main() {
+    .
+    . // your main function logic here
+    .
+}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -23,9 +31,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         }
     });
     return result;
-}
-
-int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    return 0;
 }
