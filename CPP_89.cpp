@@ -1,9 +1,13 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 string encrypt(string s){
     string encrypted = "";
     for(char c : s){
         if(isalpha(c)){
-            char encrypted_char = (c - 'a' + 2 * 2) % 26 + 'a';
-            encrypted += encrypted_char;
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += base + (c - base + 4) % 26;
         } else {
             encrypted += c;
         }
