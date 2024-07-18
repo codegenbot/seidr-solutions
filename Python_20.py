@@ -1,3 +1,5 @@
+import sys
+
 def find_min_difference(numbers):
     return max(numbers) - min(numbers)
 
