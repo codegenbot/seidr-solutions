@@ -8,4 +8,3 @@ vector<int> result;
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
-}
