@@ -1,6 +1,6 @@
-#include <string>  // Include the necessary header
+#include <string>
 
-std::string binary_avg(int n, int m) {  // Change string to std::string
+std::string binary_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -10,7 +10,7 @@ std::string binary_avg(int n, int m) {  // Change string to std::string
         sum += i;
     }
     
-    int avg = sum / (m - n + 1);  // Remove the round function
+    int avg = sum / (m - n + 1);
     
     std::string binary_avg = "";
     while (avg > 0) {
@@ -22,6 +22,6 @@ std::string binary_avg(int n, int m) {  // Change string to std::string
 }
 
 int main() {
-    assert(binary_avg(5, 5) == "101");  // Update the function name to binary_avg
+    assert(binary_avg(5, 5) == "101");
     return 0;
 }
