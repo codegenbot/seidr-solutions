@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cassert>
 
-#include <algorithm>
-
 string solve(const string& s) {
     for (char &c : s) {
         if (isalpha(c)) {
