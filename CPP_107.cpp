@@ -22,5 +22,6 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
+    
     return 0;
 }
