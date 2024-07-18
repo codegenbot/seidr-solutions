@@ -1,2 +1,6 @@
-def interleave_numbers(numbers, delimiter):
-    return [e for sublist in [[num, delimiter] for num in numbers] for e in sublist][:-1]
+def reconstruct_list(numbers, delimiter):
+    result = []
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()
+    return result
