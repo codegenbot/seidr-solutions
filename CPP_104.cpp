@@ -1,14 +1,11 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> unique_digits(vector<int> x) {
+vector<int> removeNumbersWithEvenDigits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         int temp = num;
@@ -27,9 +24,4 @@ vector<int> unique_digits(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
-    return 0;
 }
