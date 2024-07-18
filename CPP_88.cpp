@@ -1,12 +1,14 @@
-if(array.empty())
+if (array.empty()) {
         return array;
-    
-    int sum = array.front() + array.back();
+    }
 
-    if(sum % 2 == 0)
-        sort(array.rbegin(), array.rend());
-    else
-        sort(array.begin(), array.end());
+    vector<int> sortedArray = array;
 
-    return array;
+    if ((array.front() + array.back()) % 2 == 0) {
+        sort(sortedArray.rbegin(), sortedArray.rend());
+    } else {
+        sort(sortedArray.begin(), sortedArray.end());
+    }
+
+    return sortedArray;
 }
