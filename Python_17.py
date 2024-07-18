@@ -1,9 +1,15 @@
-from typing import List
-
-def parse_music(music_string: str) -> List[int]:
-    beats = {"o": 4, "o|": 2, ".|": 1}
-    return [beats[note] for note in music_string.split(" ")]
-
-music_input = input("Please enter the music string separated by spaces: ").strip()
-result = parse_music(music_input)
-print(result)
+def parse_music(music_string):
+    notes_dict = {
+        "C": "Do",
+        "D": "Re",
+        "E": "Mi",
+        "F": "Fa",
+        "G": "Sol",
+        "A": "La",
+        "B": "Ti",
+    }
+    music_list = music_string.split()
+    notes_translated = []
+    for note in music_list:
+        notes_translated.append(notes_dict.get(note, "Unknown"))
+    return " ".join(notes_translated)
