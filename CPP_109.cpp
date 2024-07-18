@@ -5,12 +5,6 @@
 
 bool move_one_ball(std::vector<int> arr);
 
-int main() {
-    // Test cases
-    assert(move_one_ball({}) == true);
-    // Add more test cases here
-}
-
 bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     if (n == 0) {
@@ -25,4 +19,10 @@ bool move_one_ball(std::vector<int> arr) {
     }
 
     return std::is_sorted(arr.begin(), arr.end()) || (minIndex == n - 1);
+}
+
+int main() {
+    // Test cases
+    assert(move_one_ball({}) == true);
+    // Add more test cases here
 }
