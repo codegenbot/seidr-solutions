@@ -1,4 +1,9 @@
-string encode(string message){
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message);
+
+std::string encode(std::string message){
     for(int i=0; i<message.length(); i++){
         if(isalpha(message[i])){
             if(islower(message[i])){
