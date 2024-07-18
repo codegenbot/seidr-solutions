@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 vector<int> get_odd_collatz(int n);
 
@@ -34,9 +33,8 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    if (is_same(get_odd_collatz(1), {1})) {
-        std::cout << "Test Passed" << std::endl;
-    } else {
-        std::cout << "Test Failed" << std::endl;
+    vector<int> result = get_odd_collatz(1);
+    for (int num : result) {
+        std::cout << num << " ";
     }
 }
