@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -26,6 +26,6 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main() {
-    // Main function implementation can go here if needed
+    // Main function can be implemented here for testing purposes
     return 0;
 }
