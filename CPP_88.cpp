@@ -3,18 +3,20 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b);
+vector<int> sort_array(vector<int> array);
 
-std::vector<int> sort_array(std::vector<int> array) {
+vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
     if((array.front() + array.back()) % 2 == 0) {
-        std::sort(array.rbegin(), array.rend());
+        sort(array.rbegin(), array.rend());
     } else {
-        std::sort(array.begin(), array.end());
+        sort(array.begin(), array.end());
     }
     return array;
 }
 
 int main() {
-    // Main function code here
+    // Your main function code here
+    return 0;
 }
