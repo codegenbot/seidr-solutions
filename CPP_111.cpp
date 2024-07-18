@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::map<char,int> a, std::map<char,int> b){
+bool issame(std::map<char, int> a, std::map<char, int> b){
     return a == b;
 }
 
@@ -32,5 +32,6 @@ std::map<char, int> histogram(std::string test){
 }
 
 int main() {
+    // Add test cases here if needed
     return 0;
 }
