@@ -1,5 +1,7 @@
 #include <string>
 
+int count_upper(std::string s);
+
 int count_upper(std::string s){
     int count = 0;
     for(int i = 0; i < s.length(); i += 2){
@@ -11,7 +13,7 @@ int count_upper(std::string s){
     return count;
 }
 
-int main() {
-    assert(count_upper("EEEE") == 2);
+int main(){
+    assert (count_upper("EEEE") == 2);
     return 0;
 }
