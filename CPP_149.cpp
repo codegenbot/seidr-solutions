@@ -5,23 +5,24 @@
 
 using namespace std;
 
-vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
-    a.insert(a.end(), b.begin(), b.end());
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> sorted_list_sum(const vector<string>& a, const vector<string>& b) {
+    vector<string> result = a;
+    result.insert(result.end(), b.begin(), b.end());
     
-    a.erase(remove_if(a.begin(), a.end(), [](const string& s) { return s.length() % 2 != 0; }), a.end());
+    result.erase(remove_if(result.begin(), result.end(), [](const string& s) { return s.length() % 2 != 0; }), result.end());
     
-    sort(a.begin(), a.end(), [](const string& a, const string& b) {
+    sort(result.begin(), result.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
 
-    return a;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return result;
 }
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
         cout << str << " ";
     }
 
-    assert (issame(result, {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
