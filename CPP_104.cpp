@@ -2,15 +2,14 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -18,21 +17,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-vector<int> result;
-for (int num : x) {
-    int temp = num;
-    bool hasEvenDigit = false;
-    while (temp > 0) {
-        int digit = temp % 10;
-        if (digit % 2 == 0) {
-            hasEvenDigit = true;
-            break;
-        }
-        temp /= 10;
-    }
-    if (!hasEvenDigit) {
-        result.push_back(num);
-    }
+int main() {
+    // Your main function code here
 }
-sort(result.begin(), result.end());
-return result;
