@@ -1,27 +1,22 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
-using namespace std;
+std::string solve(const std::string& s);
 
-string solve(const string& s) {
-    // Modify each alpha character's case
+std::string solve(const std::string& s) {
     for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    // Reverse the string if it does not contain any alphabets
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-    
+    assert (solve("#ccc") == "#CCC");
     return 0;
 }
