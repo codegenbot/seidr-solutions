@@ -2,6 +2,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 std::vector<int> count_up_to(int n){
     std::vector<int> primes;
     for (int num = 2; num <= n; num++) {
@@ -17,10 +21,6 @@ std::vector<int> count_up_to(int n){
         }
     }
     return primes;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
 }
 
 int main(){
