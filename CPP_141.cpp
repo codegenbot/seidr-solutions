@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 #include <cassert>
 
 std::string file_name_check(const std::string& file_name) {
@@ -9,9 +10,7 @@ std::string file_name_check(const std::string& file_name) {
             digitCount++;
         }
     }
-    if (digitCount > 3) {
-        return "No";
-    }
+    assert(digitCount <= 3);
 
     size_t dotPos = file_name.find('.');
     if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
