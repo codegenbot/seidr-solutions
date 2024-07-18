@@ -2,11 +2,13 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::sort(l1.begin(), l1.end());
-    std::sort(l2.begin(), l2.end());
+std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
+    std::vector<int> l1Copy = l1;
+    std::vector<int> l2Copy = l2;
+    std::sort(l1Copy.begin(), l1Copy.end());
+    std::sort(l2Copy.begin(), l2Copy.end());
     std::vector<int> result;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
+    std::set_intersection(l1Copy.begin(), l1Copy.end(), l2Copy.begin(), l2Copy.end(), std::back_inserter(result));
     result.erase(std::unique(result.begin(), result.end()), result.end());
     return result;
 }
