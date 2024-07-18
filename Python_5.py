@@ -5,10 +5,10 @@ def process_numbers(numbers, delimiter):
     result.pop() if result else None
     return result
 
+
 # Read input from the user
-numbers = input("Enter numbers separated by space: ").split()
-numbers = numbers if numbers != [''] else []
-delimiter = input("Enter the delimiter: ").rstrip()
+numbers = input().strip().split()
+delimiter = input().strip()
 
 # Call the function
 output = process_numbers(numbers, delimiter)
