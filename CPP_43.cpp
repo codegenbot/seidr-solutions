@@ -12,11 +12,11 @@ bool pairs_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> test_case1 = {2, -3, 5, -2, -6};
-    std::vector<int> test_case2 = {4, 7, -1, 3, 2};
+    std::vector<int> test_case1 = {1, 2, 3, -3};
+    std::vector<int> test_case2 = {4, 5, 6};
     
-    bool result1 = pairs_sum_to_zero(test_case1);
-    bool result2 = pairs_sum_to_zero(test_case2);
+    pairs_sum_to_zero(test_case1); // Should return true
+    pairs_sum_to_zero(test_case2); // Should return false
     
     return 0;
 }
