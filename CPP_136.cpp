@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
@@ -22,10 +21,9 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input = {3, -5, 2, -8, 9, -4};
-    vector<int> expected_output = {-4, 2};
-    
-    assert(issame(largest_smallest_integers(input), expected_output));
+    vector<int> test_input = {-3, 5, 2, -7, 10};
+    vector<int> expected_output = {-3, 2};
+    assert(issame(largest_smallest_integers(test_input), expected_output));
     
     return 0;
 }
