@@ -28,5 +28,7 @@ std::vector<std::string> compareLists(const std::vector<std::string>& lst1, cons
 
 int main() {
     assert(issame({"this"}, {}));
+    assert(compareLists({"contest", "problem"}, {"code", "solution"}) == std::vector<std::string>{"code", "solution"});
+
     return 0;
 }
