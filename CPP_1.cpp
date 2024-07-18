@@ -3,19 +3,19 @@ vector<string> separate_paren_groups(string paren_string) {
     string current_group;
     int open_braces = 0;
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            open_braces++;
-            if (open_braces > 1) {
-                current_group += c;
+    for (char ch : paren_string) {
+        if (ch == '(') {
+            if (open_braces > 0) {
+                current_group += ch;
             }
-        } else if (c == ')') {
+            open_braces++;
+        } else if (ch == ')') {
             open_braces--;
             if (open_braces > 0) {
-                current_group += c;
+                current_group += ch;
             } else if (open_braces == 0) {
                 result.push_back(current_group);
-                current_group = "";
+                current_group.clear();
             }
         }
     }
