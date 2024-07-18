@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<int> v1, vector<int> v2) {
+bool is_same(vector<int> v1, vector<int> v2) {
     return v1 == v2;
 }
 
@@ -16,12 +16,9 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string test_str = "prefixes";
-    vector<string> prefixes = all_prefixes(test_str);
-
-    for (const string& prefix : prefixes) {
+    vector<string> prefixes = all_prefixes("hello");
+    for (const auto& prefix : prefixes) {
         cout << prefix << " ";
     }
-
     return 0;
 }
