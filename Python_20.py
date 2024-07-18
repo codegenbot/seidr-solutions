@@ -1,6 +1,7 @@
 def find_min_difference(numbers):
     numbers.sort()
-    return min(numbers[i+1] - numbers[i] for i in range(len(numbers) - 1))
+    return min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
+
 
 while True:
     try:
