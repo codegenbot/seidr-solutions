@@ -1,17 +1,16 @@
 #include <string>
 using namespace std;
-
-bool correct_bracketing(string brackets){
-    int counter = 0;
-    for (char c : brackets) {
-        if (c == '(') {
-            counter++;
-        } else if (c == ')') {
-            counter--;
-        }
-        if (counter < 0) {
-            return false;
+bool correct_bracketing(string brackets) {
+    int balance = 0;
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            balance++;
+        } else if (bracket == ')') {
+            if (balance == 0) {
+                return false;
+            }
+            balance--;
         }
     }
-    return counter == 0;
+    return balance == 0;
 }
