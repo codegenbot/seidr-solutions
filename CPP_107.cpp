@@ -1,12 +1,22 @@
-std::vector<int> even_odd_palindrome(int n){
-    if (n == 0) {
-        return {0};
-    } else {
-        std::vector<int> palindrome = {0};
-        for (int i = 1; i <= n; ++i) {
-            palindrome.insert(palindrome.begin(), i);
-            palindrome.push_back(i);
-        }
-        return palindrome;
+#include <vector>
+#include <cassert>
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> palindrome;
+    for (int i = 0; i <= n; ++i) {
+        palindrome.push_back(i);
     }
+    for (int i = n - 1; i >= 0; --i) {
+        palindrome.push_back(i);
+    }
+    return palindrome;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    return 0;
 }
