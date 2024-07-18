@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <cassert>
+#include <assert>
 
 bool total_match(const vector<string>& lst1, const vector<string>& lst2) {
     int sum_length1 = 0;
