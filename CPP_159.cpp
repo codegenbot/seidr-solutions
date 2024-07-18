@@ -5,13 +5,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 4};
+    std::vector<int> first = {1, 2, 3};
+    std::vector<int> second = {1, 2, 3};
 
-    if (issame(a, b)) {
-        std::cout << "Vectors are same";
+    if (issame(first, second)) {
+        std::cout << "Vectors are the same" << std::endl;
     } else {
-        std::cout << "Vectors are different";
+        std::cout << "Vectors are different" << std::endl;
     }
+
     return 0;
 }
