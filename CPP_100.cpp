@@ -1,12 +1,25 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
-vector<int> make_a_pile(int n){
-    vector<int> stones;
+std::vector<int> make_a_pile(int n){
+    std::vector<int> stones;
     stones.push_back(n);
-    while(n > 1){
+    for(int i = 1; i < n; ++i){
         if(n % 2 == 0){
             n += 2;
         } else {
@@ -17,11 +30,16 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+int main() {
+    std::vector<int> result = make_a_pile(10); // Example call with n = 10
+    assert(issame(result, {10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30}));
 
-int main(){
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    result = make_a_pile(5);
+    assert(issame(result, {5, 6, 7, 8, 9}));
+
+    result = make_a_pile(3);
+    assert(issame(result, {3, 4, 5}));
+
+    std::cout << "All test cases passed." << std::endl;
     return 0;
 }
