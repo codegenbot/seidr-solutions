@@ -1,12 +1,20 @@
-int N = arr.size();
-    if (N == 0) {
+bool move_one_ball(vector<int> arr){
+    if (arr.empty()) {
         return true;
     }
-    int minIdx = -1;
-    for (int i = 0; i < N; ++i) {
-        if ((minIdx == -1 || arr[i] < arr[minIdx]) && arr[i] != i + 1) {
-            minIdx = i;
+    
+    // Find the minimum element in the vector
+    int minElement = *min_element(arr.begin(), arr.end());
+
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] == minElement) {
+            if (is_sorted(arr.begin(), arr.end())) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
-    return minIdx != -1;
+
+    return false;
 }
