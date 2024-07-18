@@ -1,17 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst){
-    vector<int> result;
-    sort(lst.begin(), lst.end());
+std::vector<int> strange_sort_list(std::vector<int> lst){
+    std::vector<int> result;
+    std::sort(lst.begin(), lst.end());
     int start = 0, end = lst.size() - 1;
     while (start <= end) {
         result.push_back(lst[start++]);
