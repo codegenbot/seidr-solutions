@@ -2,28 +2,31 @@
 #include <algorithm>
 #include <cassert>
 
-bool hasEvenDigit(int num){
-    while(num > 0){
-        if(num % 10 % 2 == 0){
-            return true;
-        }
-        num /= 10;
-    }
-    return false;
+bool issame(int a, int b) {
+    return a < b;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
+std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
-    for(int num : x){
-        if(!hasEvenDigit(num)){
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int temp = num;
+        while (temp > 0) {
+            if (temp % 10 % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end(), std::greater<int>());
     return result;
 }
 
-int main(){
-    assert(unique_digits({135, 103, 31}) == std::vector<int>({31, 135}));
+int main() {
+    assert(unique_digits({135, 103, 31}) == std::vector<int>({135, 31}));
     return 0;
 }
