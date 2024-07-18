@@ -3,7 +3,8 @@ def check_numbers(numbers, threshold):
     for i in range(len(numbers) - 1):
         if abs(numbers[i] - numbers[i + 1]) < threshold:
             return True
-    return False
+    return False  
 
-# Assuming 'has_close_elements' and 'threshold' are defined before calling the function
-check_numbers(has_close_elements, threshold)
+has_close_elements = [1, 5, 8, 12]
+result = check_numbers(has_close_elements, 4)
+print(result)
