@@ -22,9 +22,8 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
 
 int main() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
-    vector<string> second_result = sorted_list_sum({"cc", "dd"}, {"eeee", "zzzz"});
     
-    for (const auto& str : second_result) {
+    for (const auto& str : result) {
         cout << str << " ";
     }
 
