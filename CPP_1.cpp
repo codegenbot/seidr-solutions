@@ -1,25 +1,23 @@
-vector<string> result;
-    string current_group = "";
-    int open_brackets = 0;
+vector<string> groups;
+    string current_group;
+    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            open_brackets++;
-            if (open_brackets > 1) {
+            if (balance > 0) {
                 current_group += c;
             }
+            balance++;
         } else if (c == ')') {
-            open_brackets--;
-            if (open_brackets == 0) {
-                result.push_back(current_group);
-                current_group = "";
-            } else {
+            balance--;
+            if (balance > 0) {
                 current_group += c;
+            } else if (balance == 0) {
+                groups.push_back(current_group);
+                current_group = "";
             }
-        } else if (open_brackets > 0) {
-            current_group += c;
         }
     }
 
-    return result;
+    return groups;
 }
