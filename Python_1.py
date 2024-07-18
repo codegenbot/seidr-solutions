@@ -1,10 +1,11 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     group = ""
     level = 0
-    
+
     for char in paren_string:
         if char == "(":
             if level > 0:
@@ -16,8 +17,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 group += char
             if level == 0:
                 result.append(group)
-                group = ""
         else:
             group += char
-            
+
     return result
