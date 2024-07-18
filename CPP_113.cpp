@@ -4,6 +4,14 @@
 #include <algorithm>
 
 namespace solution_name {
+    int count_odd_digits(const std::string& str);
+
+    std::vector<std::string> odd_count(const std::vector<std::string>& input);
+
+    bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+        return std::equal(vec1.begin(), vec1.end(), vec2.begin());
+    }
+
     int count_odd_digits(const std::string& str) {
         return std::count_if(str.begin(), str.end(), [](char c) { return c >= '0' && c <= '9' && (c - '0') % 2 != 0; });
     }
@@ -16,10 +24,6 @@ namespace solution_name {
                              "\nthe string " + str + " of the input.");
         }
         return result;
-    }
-
-    bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-        return std::equal(vec1.begin(), vec1.end(), vec2.begin());
     }
 }
 
