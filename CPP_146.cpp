@@ -1,4 +1,4 @@
-int specialFilter(vector<int>& nums) {
+int specialFilter(const vector<int>& nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
@@ -9,4 +9,16 @@ int specialFilter(vector<int>& nums) {
         }
     }
     return count;
+}
+
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+int main() {
+    assert(specialFilter({}) == 0);
+
+    return 0;
 }
