@@ -15,3 +15,8 @@ std::pair<int, int> eat(const std::vector<int>& input) {
 bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return (a.first == b.first) && (a.second == b.second);
 }
+
+int main() {
+    assert(issame(eat({4, 5, 1}), {5, 0}));
+    return 0;
+}
