@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
