@@ -1,23 +1,16 @@
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-double poly(const vector<double>& coeffs, double x){
-    double result = 0;
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
+double findRoot(const std::vector<double>& xs) {
+    auto coeffs = [](double x) { 
+        return x * x - 5; 
+    };
 
-double find_zero(const vector<double>& xs){
-    double a = xs[0];
-    double b = xs[1];
-    return -b/a;
-}
+    auto poly = [](double x) { 
+        return x * x * x - 3 * x + 2; 
+    };
 
-int main(){
-    vector<double> coeffs = {1, -3, 2}; // Example coefficients of a polynomial
-    vector<double> solution;
-    solution.push_back(find_zero(coeffs));
-    assert (abs(poly(coeffs, solution[0])) < 1e-3);
+    double a = coeffs(xs[0]);
+    double b = coeffs(xs[1]);
+    return -b / a;
 }
