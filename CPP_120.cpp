@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -8,8 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::sort(arr.begin(), arr.end(), std::greater<int>());
-    arr.resize(k);
-    return arr;
+    return std::vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
