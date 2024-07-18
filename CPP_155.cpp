@@ -20,7 +20,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::assert(issame(even_odd_count(0), std::{1, 0}));
+    assert(std::issame(std::even_odd_count(0), {1, 0}));
     
     return 0;
 }
