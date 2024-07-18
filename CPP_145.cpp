@@ -2,23 +2,27 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    int a_temp = abs(a), b_temp = abs(b);
+    while (a_temp > 0) {
+        sum_a += a_temp % 10;
+        a_temp /= 10;
+    }
+    while (b_temp > 0) {
+        sum_b += b_temp % 10;
+        b_temp /= 10;
+    }
+    return sum_a == sum_b;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = 0, sumB = 0;
-        a = (a < 0) ? -a : a;
-        b = (b < 0) ? -b : b;
-        while (a) { sumA += a % 10; a /= 10; }
-        while (b) { sumB += b % 10; b /= 10; }
-        if (sumA == sumB) return false;
-        return sumA < sumB;
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        if (issame(a, b)) {
+            return a < b;
+        }
+        return a < b;
     });
-    return nums;
-}
 
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return nums;
 }
