@@ -1,4 +1,8 @@
-int count_digits = 0;
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int count_digits = 0;
     int dot_pos = -1;
     
     for (int i = 0; i < file_name.length(); ++i) {
