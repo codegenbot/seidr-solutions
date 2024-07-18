@@ -13,13 +13,15 @@ bool has_close_elements(std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    // Sample Input and Output to validate correctness
-    std::vector<float> num1 = {1.0, 2.0, 3.0};
-    std::vector<float> num2 = {1.0, 2.9, 3.0};
-    float threshold = 1.1;
+    // Sample input to test the function
+    std::vector<float> numbers = {1.1, 2.2, 3.3, 4.4};
+    float threshold = 1.0;
 
-    std::cout << has_close_elements(num1, threshold) << std::endl; // Output: 0
-    std::cout << has_close_elements(num2, threshold) << std::endl; // Output: 1
+    if (has_close_elements(numbers, threshold)) {
+        std::cout << "Close elements found within the threshold." << std::endl;
+    } else {
+        std::cout << "No close elements found within the threshold." << std::endl;
+    }
 
     return 0;
 }
