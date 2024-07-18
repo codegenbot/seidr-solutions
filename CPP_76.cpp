@@ -1,5 +1,6 @@
-if (n <= 1 || x <= 1)
-        return false;
-    
-    double result = log(x) / log(n);
-    return (result == (int)result);
+bool is_simple_power(int n, int x) {
+    while (n != 1 && x % n == 0) {
+        x /= n;
+    }
+    return x == 1;
+}
