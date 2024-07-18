@@ -1,18 +1,18 @@
 string words_in_sentence(string sentence){
-    string result;
-    string word;
+    string result = "";
+    string word = "";
     for (char c : sentence) {
         if (c == ' ') {
-            if (is_prime(word.size())) {
-                result += (result.empty() ? "" : " ") + word;
+            if (is_prime(word.length())) {
+                result += word + " ";
             }
-            word.clear();
+            word = "";
         } else {
             word += c;
         }
     }
-    if (is_prime(word.size())) {
-        result += (result.empty() ? "" : " ") + word;
+    if (is_prime(word.length())) {
+        result += word;
     }
     return result;
 }
