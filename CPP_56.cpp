@@ -1,4 +1,7 @@
-int correct_bracketing(const std::string& brackets) {
+#include <iostream>
+#include <string>
+
+bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for (char c : brackets) {
         if (c == '<') {
@@ -14,11 +17,15 @@ int correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string test1 = "<><><>";
-    std::string test2 = "<><><";
-    
-    std::cout << "Test 1: " << correct_bracketing(test1) << std::endl;
-    std::cout << "Test 2: " << correct_bracketing(test2) << std::endl;
-    
+    std::string input;
+    std::cout << "Enter a string of brackets: ";
+    std::cin >> input;
+
+    if (correct_bracketing(input)) {
+        std::cout << "Brackets are correctly matched." << std::endl;
+    } else {
+        std::cout << "Brackets are not correctly matched." << std::endl;
+    }
+
     return 0;
 }
