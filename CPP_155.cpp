@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> even_odd_count(int num) {
+vector<int> even_odd_count(int num){
     vector<int> result(2, 0);
     string num_str = to_string(abs(num));
     for(char c : num_str){
@@ -11,10 +11,4 @@ vector<int> even_odd_count(int num) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b); 
-
-int main() {
-    // Your main function code here
 }
