@@ -23,5 +23,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
     
-    return 0; // Update main to return int
+    return 0;
 }
