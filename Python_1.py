@@ -1,9 +1,9 @@
-from typing import List
 
+from typing import List
 
 def separate_paren_groups() -> List[str]:
     paren_string = input("Enter the string containing parentheses: ")
-
+    
     result = []
     group = ""
     level = 0
@@ -22,9 +22,7 @@ def separate_paren_groups() -> List[str]:
                 group = ""
         else:
             group += char
-
+            
     return result
 
-
-# Call the function to separate the groups of parentheses
 print(separate_paren_groups())
