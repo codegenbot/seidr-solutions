@@ -9,6 +9,9 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
-input_numbers = [int(x) for x in input().split()]
+def get_input_numbers():
+    return [int(x) for x in input().split()]
+
+input_numbers = get_input_numbers()
 output = find_min_difference(input_numbers)
 print(output)
