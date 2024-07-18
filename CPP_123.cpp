@@ -1,6 +1,10 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -25,13 +29,8 @@ vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
-bool cmp(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    vector<int> result = get_odd_collatz(10);
-    assert(result == vector<int>({1, 3, 5, 7, 9, 1}));
+    assert(issame(get_odd_collatz(10), {1, 5, 3, 1}));
     
     return 0;
 }
