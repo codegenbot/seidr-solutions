@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <cassert>
 
 std::string int_to_mini_roman(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
@@ -18,9 +17,4 @@ std::string int_to_mini_roman(int number){
     }
 
     return result;
-}
-
-int main(){
-    assert(int_to_mini_roman(354) == "cccliv");
-    return 0;
 }
