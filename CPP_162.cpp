@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <openssl/md5.h>
-#include <cassert>
+#define MD5_DIGEST_LENGTH 16
 
 std::string string_to_md5(const std::string& text) {
     if(text.empty()) {
@@ -12,21 +9,9 @@ std::string string_to_md5(const std::string& text) {
     MD5((unsigned char*)text.c_str(), text.length(), digest);
     
     char mdString[33];
-    for(size_t i = 0; i < 16; i++) {
+    for(size_t i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
     
     return std::string(mdString);
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    
-    std::string result = string_to_md5(input);
-    std::cout << result << std::endl;
-    
-    assert(result == "expected_output");
-    
-    return 0;
 }
