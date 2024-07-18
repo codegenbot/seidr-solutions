@@ -9,7 +9,7 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 try:
-    operations = list(map(int, input().strip().split()))
+    operations = list(map(int, input().split()))
     result = below_zero(operations)
     print(result)
 except:
