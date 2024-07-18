@@ -5,24 +5,26 @@
 #include <cassert>
 using namespace std;
 
-string solve(string s){
+string solve(string s) {
     bool hasLetter = false;
-    for(char &c : s){
-        if(isalpha(c)){
+    for (char &c : s) {
+        if (isalpha(c)) {
             hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!hasLetter){
+    if (!hasLetter) {
         reverse(s.begin(), s.end());
     }
     return s;
 }
 
-int main(){
+int main() {
     string input;
-    cin >> input;
-    string result = solve(input);
-    cout << result << endl;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    cout << "Result: " << solve(input) << endl;
+
     return 0;
 }
