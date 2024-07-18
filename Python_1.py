@@ -6,6 +6,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     level = 0
     
     for char in paren_string:
+
         if char == "(":
             if level > 0:
                 group += char
