@@ -1,2 +1,2 @@
-def is_simple_power(x, n):
-    return x > 0 and n > 0 and n != 1 and x == n ** int(x ** (1 / n))
+def is_simple_power(x: int, n: int) -> bool:
+    return x > 0 and n > 0 and x == n ** int(round(x ** (1 / n)))
