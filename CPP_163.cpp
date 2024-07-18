@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,6 +22,6 @@ std::vector<int> generate_integers(int start, int end){
 }
 
 int main(){
-    assert (std::vector<int>::issame(generate_integers(17, 89), {}));
+    assert (issame(generate_integers(17, 89), {}));
     return 0;
 }
