@@ -13,5 +13,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depths
 
 
+# Add the following line to print the input
 paren_string = input("Enter the nested parentheses string: ")
 print(parse_nested_parens(paren_string))
