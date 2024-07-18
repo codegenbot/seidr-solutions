@@ -1,7 +1,7 @@
 #include <string>
 
-bool issame(string a, string b) {
-    return a == b;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 vector<string> by_length(vector<int> arr){
