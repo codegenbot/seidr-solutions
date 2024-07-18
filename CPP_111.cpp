@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-std::map<char, int> histogram(std::string test) {
+std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> result;
     for (char c : test) {
         result[c]++;
