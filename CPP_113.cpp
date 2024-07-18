@@ -18,7 +18,7 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-int main(){
+void solveProblem(){
     int n;
     cin >> n; // Reading the number of strings
     vector<string> input(n);
@@ -31,6 +31,10 @@ int main(){
     for(string res : output){
         cout << res << endl; // Output the result
     }
+}
+
+int main(){
+    solveProblem();
     
     return 0;
 }
