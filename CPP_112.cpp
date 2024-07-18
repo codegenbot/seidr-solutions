@@ -16,8 +16,3 @@ vector<string> reverse_delete(string s, string c) {
     reverse(reversed.begin(), reversed.end());
     return {result, (result == reversed) ? "True" : "False"};
 }
-
-int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
-    return 0;
-}
