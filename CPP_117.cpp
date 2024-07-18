@@ -1,14 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
+
+vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -44,20 +38,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-int main() {
-    string input;
-    int n;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Enter the consonant count: ";
-    cin >> n;
-
-    vector<string> result = select_words(input, n);
-    for (const string& word : result) {
-        cout << word << " ";
-    }
-
-    return 0;
 }
