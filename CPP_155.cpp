@@ -3,6 +3,7 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
+    // Count the number of even and odd digits in 'n'
     int even = 0, odd = 0;
     while (n != 0) {
         if (n % 2 == 0) even++;
