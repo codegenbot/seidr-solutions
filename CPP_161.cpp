@@ -1,10 +1,17 @@
 string solve(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (isalpha(c) && isupper(c)) {
-            count++;
+    for (char &c : s) {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
     
-    return to_string(count);
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+        reverse(s.begin(), s.end());
+    }
+    
+    return s;
 }
