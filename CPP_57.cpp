@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 bool monotonic(vector<float> l) {
