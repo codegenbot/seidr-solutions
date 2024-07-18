@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-bool is_happy(string s){
+bool is_happy(std::string s) {
     if(s.length() < 3){
         return false;
     }
@@ -17,8 +16,9 @@ bool is_happy(string s){
     return true;
 }
 
-int main(){
-    assert (is_happy("iopaxioi") == false );
+int main() {
+    assert(is_happy("iopaxioi") == false);
+    // Add more test cases here
     
     return 0;
 }
