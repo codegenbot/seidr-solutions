@@ -23,6 +23,7 @@ std::vector<int> f(int n) {
     return result;
 }
 
-void main() {
-    assert(issame(f(3), {1, 2, 6}));
+int main() {
+    assert(std::issame(f(3), {1, 2, 6}));
+    return 0;
 }
