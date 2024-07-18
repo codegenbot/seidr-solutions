@@ -1,14 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(const std::string &a, const std::string &b) {
-    return a == b;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(const string& paren_string) {
+    vector<string> result;
+    string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
