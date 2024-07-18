@@ -1,34 +1,22 @@
-vector<string> select_words(string s, int n){
+vector<string> select_words(string s, int n) {
     vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
-    string word;
-    int count;
-    bool isVowel;
-    
+    string word = "";
+    string vowels = "aeiouAEIOU";
+
     for (char c : s) {
-        if (c == ' ') {
-            if (count == n && !isVowel) {
+        if (c != ' ' && vowels.find(c) == string::npos) {
+            word += c;
+        } else {
+            if (word.size() == n) {
                 result.push_back(word);
             }
             word = "";
-            count = 0;
-            isVowel = false;
-        } else {
-            word += c;
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
-                count++;
-            } else if (isalpha(c)) {
-                isVowel = true;
-            }
         }
     }
-    
-    if (count == n && !isVowel) {
+
+    if (word.size() == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
