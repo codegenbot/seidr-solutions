@@ -1,13 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+bool total_match(const vector<string>& lst1, const vector<string>& lst2) {
     int sum_length1 = 0;
     for (const auto& str : lst1) {
         sum_length1 += str.length();
@@ -23,9 +18,4 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     } else {
         return lst2;
     }
-}
-
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    return 0;
 }
