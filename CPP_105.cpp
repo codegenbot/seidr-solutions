@@ -1,15 +1,7 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> sorted_arr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sorted_arr.push_back(num);
-        }
-    }
-
-    sort(sorted_arr.begin(), sorted_arr.end());
-    reverse(sorted_arr.begin(), sorted_arr.end());
-
-    map<int, string> num_to_name = {
+vector<string> by_length(vector<int> arr){
+    vector<int> sortedArr;
+    vector<string> result;
+    map<int, string> digitNames = {
         {1, "One"},
         {2, "Two"},
         {3, "Three"},
@@ -21,9 +13,17 @@ vector<string> by_length(vector<int> arr) {
         {9, "Nine"}
     };
 
-    vector<string> result;
-    for (int num : sorted_arr) {
-        result.push_back(num_to_name[num]);
+    for(int num : arr){
+        if(num >= 1 && num <= 9){
+            sortedArr.push_back(num);
+        }
+    }
+
+    sort(sortedArr.begin(), sortedArr.end());
+    reverse(sortedArr.begin(), sortedArr.end());
+
+    for(int num : sortedArr){
+        result.push_back(digitNames[num]);
     }
 
     return result;
