@@ -1,16 +1,16 @@
 #include <vector>
 #include <cassert>
 
-vector<double> coeffs(vector<double> xs){
-    vector<double> result;
-    result.push_back(xs[0]);
-    result.push_back(-xs[1]);
-    return result;
+std::vector<double> coeffs(std::vector<double> xs){
+    double a = xs[0];
+    double b = xs[1];
+    return {-b, a};
 }
 
-double find_root(vector<double> xs){
+double calculate_zero(std::vector<double> xs){
     assert(xs.size() == 2);
-    double a = coeffs(xs)[0];
-    double b = coeffs(xs)[1];
+    std::vector<double> coefficients = coeffs(xs);
+    double a = coefficients[0];
+    double b = coefficients[1];
     return -b/a;
 }
