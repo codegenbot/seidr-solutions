@@ -37,10 +37,6 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool are_same(vector<string> a, vector<string> b);
-
-bool are_same(vector<string> a, vector<string> b);
-
 int main(){
     assert(are_same(split_words(""), {"0"}));
     return 0;
