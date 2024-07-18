@@ -1,10 +1,6 @@
 #include <vector>
-#include <string>
 #include <algorithm>
-
-std::vector<int> even_odd_palindrome(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b);
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
