@@ -5,9 +5,18 @@ bool areSame(string a, string b) {
 }
 
 int main() {
-    vector<string> groups = separate_paren_groups("((hello)(world))");
-    for (string group : groups) {
-        cout << group << endl;
+    string input;
+    getline(cin, input);
+
+    vector<string> groups = separate_paren_groups(input);
+
+    for (const string& group : groups) {
+        if (areSame(group, "")) {
+            cout << "Empty group" << endl;
+        } else {
+            cout << group << endl;
+        }
     }
+
     return 0;
 }
