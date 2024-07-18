@@ -1,10 +1,11 @@
+#include <iostream>
 #include <map>
-#include <string>
+#include <vector>
+#include <algorithm>
 #include <cassert>
+using namespace std;
 
-string sort_numbers(string numbers);
-
-map<string, int> num_map = {
+map<string, int> numMap = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -17,23 +18,34 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    string result = "";
-    map<int, string> rev_map;
-    
-    for (string::size_type pos = 0; pos < numbers.size();){
-        string word = "";
-        while (pos < numbers.size() && numbers[pos] != ' '){
-            word += numbers[pos];
-            pos++;
+string sort_numbers(string numbers) {
+    vector<string> numList;
+    string currNum = "";
+    for (char c : numbers) {
+        if (c == ' ') {
+            numList.push_back(currNum);
+            currNum = "";
+        } else {
+            currNum += c;
         }
-        pos++;
-        rev_map[num_map[word]] = word;
     }
-    
-    for (auto const& pair : rev_map){
-        result += pair.second + " ";
+    numList.push_back(currNum);
+
+    sort(numList.begin(), numList.end(), [&](const string &a, const string &b) {
+        return numMap[a] < numMap[b];
+    });
+
+    string sortedNumbers = "";
+    for (const string &num : numList) {
+        sortedNumbers += num + " ";
     }
-    
-    return result;
+    sortedNumbers.pop_back(); // Remove extra space at the end
+    return sortedNumbers;
+}
+
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
