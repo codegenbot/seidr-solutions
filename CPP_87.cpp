@@ -2,13 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
-int main() {
-    // Code logic for main function
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
