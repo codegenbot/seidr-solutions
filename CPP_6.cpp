@@ -24,31 +24,3 @@ vector<int> parse_nested_parens(string paren_string) {
 
     return depths;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    // Sample code to test the functions
-    vector<int> vec1 = parse_nested_parens("( ( ) ( ) )");
-    vector<int> vec2 = parse_nested_parens("( ( ( ) ) )");
-
-    if (issame(vec1, vec2)) {
-        cout << "The vectors are the same." << endl;
-    } else {
-        cout << "The vectors are not the same." << endl;
-    }
-
-    return 0;
-}
