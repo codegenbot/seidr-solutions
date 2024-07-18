@@ -1,16 +1,13 @@
 #include <string>
-#include <vector>
-#include <map>
-#include <algorithm>
 
-bool issame(const std::string &str1, const std::string &str2) {
-    return str1.length() == str2.length();
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr){
-    std::vector<std::string> result;
-    std::vector<int> filtered_arr;
-    std::map<int, std::string> num_to_name = {
+vector<string> by_length(vector<int> arr){
+    vector<string> result;
+    vector<int> filtered_arr;
+    map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
@@ -21,8 +18,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
         }
     }
 
-    std::sort(filtered_arr.begin(), filtered_arr.end());
-    std::reverse(filtered_arr.begin(), filtered_arr.end());
+    sort(filtered_arr.begin(), filtered_arr.end());
+    reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
         result.push_back(num_to_name[num]);
