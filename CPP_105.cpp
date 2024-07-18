@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 std::vector<std::string> by_length(std::vector<int> arr);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
