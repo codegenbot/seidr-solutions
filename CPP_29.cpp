@@ -1,8 +1,10 @@
 bool issame(vector<string> a, vector<string> b){
+    // Compare if vectors a and b are the same
     return a == b;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    // Filter strings based on prefix
     vector<string> result;
     for (const string& str : strings) {
         if (str.find(prefix) == 0) {
