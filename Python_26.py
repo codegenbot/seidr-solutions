@@ -1,2 +1,1 @@
-def remove_duplicates(numbers):
-    return list(set(numbers))
+numbers = list(map(int, input().strip().split()))
