@@ -1,20 +1,27 @@
-vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find_first_of(" ,", pos)) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-        pos = 0;
+vector<string> split_words(string txt){
+    vector<string> words;
+    string word = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
     }
-    if (!txt.empty()) {
-        result.push_back(txt);
+    if(!word.empty()){
+        words.push_back(word);
     }
-    if (result.empty()) {
+    if(words.empty()){
         int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
+        for(char c : txt){
+            if(islower(c) && (c-'a') % 2 == 1){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        words.push_back(to_string(count));
     }
-    return result;
+    return words;
+}
