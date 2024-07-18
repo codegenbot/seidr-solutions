@@ -2,6 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<float> sort_even(std::vector<float> l);
+
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> l_odd, l_even_sorted;
     for (int i = 0; i < l.size(); ++i) {
@@ -21,10 +27,4 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
-
-std::vector<float> sort_even(std::vector<float> l);
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
 }
