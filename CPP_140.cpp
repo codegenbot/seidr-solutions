@@ -1,26 +1,26 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                if (result.back() != '-') {
-                    result += '-';
-                }
-            }
-        } else {
-            if (count > 2) {
-                result += '-';
-            } else {
-                result += (count > 0) ? '_' : c;
-            }
-            count = 0;
+int count = 0;
+for (int i = 0; i < text.length(); ++i) {
+    if (text[i] == ' ') {
+        count++;
+        if (count > 2) {
+            text[i] = '-';
         }
-    }
-    if (count > 2) {
-        result += '-';
     } else {
-        result += (count > 0) ? '_' : text.back();
+        count = 0;
     }
-    return result;
 }
+
+for (int i = 0; i < text.length(); ++i) {
+    if (text[i] == ' ') {
+        text[i] = '_';
+    } else if (text[i] == '-') {
+        int j = i + 1;
+        while (j < text.length() && text[j] == '-') {
+            text[j] = '_';
+            j++;
+        }
+        i = j - 1;
+    }
+}
+
+return text;
