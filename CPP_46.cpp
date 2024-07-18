@@ -1,4 +1,7 @@
-if (n == 0) return 0;
+#include <iostream>
+
+int fib4(int n) {
+    if (n == 0) return 0;
     if (n == 1) return 0;
     if (n == 2) return 2;
     if (n == 3) return 0;
@@ -14,4 +17,13 @@ if (n == 0) return 0;
     }
     
     return sum;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter n: ";
+    std::cin >> n;
+    std::cout << "fib4(" << n << ") = " << fib4(n) << std::endl;
+    
+    return 0;
 }
