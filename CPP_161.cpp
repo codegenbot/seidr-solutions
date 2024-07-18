@@ -19,9 +19,9 @@ string solve(string s){
     return s;
 }
 
-int main() {
+int main(){
     string input;
-    cin >> input;
+    getline(cin, input);
     cout << solve(input) << endl;
     return 0;
 }
