@@ -11,7 +11,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         elif char == ")":
             if current_depth > 0:
                 current_depth -= 1
-            else:  # Reset current depth if encountered a ")" without corresponding "("
+            else:
                 current_depth = 0
                 depths.append(0)
     return depths
