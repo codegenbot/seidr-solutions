@@ -14,7 +14,8 @@ int main() {
     string input;
     cin >> input;
     
-    cout << count_upper(input) << endl;
+    int result = count_upper(input);
+    cout << result << endl;
     
     return 0;
 }
