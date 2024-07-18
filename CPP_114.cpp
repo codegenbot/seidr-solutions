@@ -1,6 +1,6 @@
 #include <vector>
 
-long long minSubArraySum(const std::vector<long long> &nums){
+long long minSubArraySum(std::vector<long long>& nums){
     long long minSum = nums[0];
     long long currentSum = 0;
     
@@ -13,8 +13,7 @@ long long minSubArraySum(const std::vector<long long> &nums){
 }
 
 int main() {
-    std::vector<long long> nums = {3, -2, 5, -1};
-    long long result = minSubArraySum(nums);
-    
+    std::vector<long long> input = {3, -5, 2, 1, -4, 6, -5, 1};
+    long long result = minSubArraySum(input);
     return 0;
 }
