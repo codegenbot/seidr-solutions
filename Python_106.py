@@ -1,2 +1,2 @@
 def f(n):
-    return [math.factorial(i) if i % 2 == 0 else sum(range(1, i + 1)) for i in range(1, n + 1)]
+    return [1] + [i * (i + 1) // 2 if i % 2 else math.factorial(i) for i in range(1, n)]
