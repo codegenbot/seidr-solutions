@@ -1,3 +1,7 @@
-def find_min_difference(numbers):
-    numbers.sort()
-    return min(abs(numbers[i] - numbers[i+1]) for i in range(len(numbers)-1))
+while True:
+    try:
+        input_numbers = [int(x) for x in input().split()]
+        output = find_min_difference(input_numbers)
+        print(output)
+    except EOFError:
+        break
