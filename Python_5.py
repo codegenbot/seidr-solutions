@@ -1,5 +1,4 @@
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-delimiter = input("Enter delimiter: ")
+import sys
 
 def intersperse(numbers, delimiter):
     def process_numbers(numbers, delimiter):
@@ -7,6 +6,9 @@ def intersperse(numbers, delimiter):
     
     result = process_numbers(numbers, delimiter)
     return result
+
+numbers = list(map(int, sys.argv[1:-1]))
+delimiter = sys.argv[-1]
 
 output = intersperse(numbers, delimiter)
 print(output)
