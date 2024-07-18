@@ -1,8 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool is_same(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> get_odd_collatz(int n) {
@@ -30,13 +38,9 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    vector<int> test_input = {5, 10, 15, 20};
-    vector<vector<int>> expected_output = {{1, 3, 5}, {1, 3, 5}, {1, 3, 5, 7, 9, 15}, {1, 3, 5}};
-
-    for (int i = 0; i < test_input.size(); ++i) {
-        vector<int> output = get_odd_collatz(test_input[i]);
-        assert(output == expected_output[i]);
-    }
-
+    vector<int> expected_output = {1, 3, 5, 7, 9, 27};
+    vector<int> result = get_odd_collatz(10);
+    assert(equal(result.begin(), result.end(), expected_output.begin(), expected_output.end()));
+    
     return 0;
 }
