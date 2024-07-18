@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(const string& str : strings){
