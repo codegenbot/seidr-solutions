@@ -3,11 +3,9 @@
 #include <string>
 #include <cassert>
 
-using string = std::basic_string<char>;
-
-std::vector<string> all_prefixes(string str){
-    std::vector<string> result;
-    string prefix = "";
+std::vector<std::string> all_prefixes(std::string str){
+    std::vector<std::string> result;
+    std::string prefix = "";
     for (char c : str) {
         prefix += c;
         result.push_back(prefix);
@@ -15,7 +13,7 @@ std::vector<string> all_prefixes(string str){
     return result;
 }
 
-bool issame(std::vector<string> a, std::vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,4 +23,10 @@ bool issame(std::vector<string> a, std::vector<string> b){
         }
     }
     return true;
+}
+
+int main() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+  
+    return 0;
 }
