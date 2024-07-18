@@ -1,12 +1,11 @@
-#include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <map>
-#include <cassert>
 
-using namespace std;
+vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -31,11 +30,4 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
-}
-
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    
-    cout << "Test Passed" << endl;
-    return 0;
 }
