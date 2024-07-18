@@ -32,6 +32,6 @@ int main() {
     vector<int> expected = {2, 2, 2, 2, 2};
     vector<int> result = intersperse({2, 2, 2}, 2);
     assert(issame(result, expected));
-
+    
     return 0;
 }
