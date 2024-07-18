@@ -26,7 +26,7 @@ int main() {
     for (const auto& str : result) {
         cout << str << " ";
     }
-
+    
     assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
 
     return 0;
