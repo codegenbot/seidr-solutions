@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,10 +34,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    vector<int> interval1 = {1, 5};
-    vector<int> interval2 = {3, 7};
-
-    cout << intersection(interval1, interval2) << endl;
+    cout << intersection({1, 5}, {3, 7}) << endl; // Expected output: YES
+    cout << intersection({1, 5}, {7, 10}) << endl; // Expected output: NO
+    cout << intersection({5, 10}, {3, 7}) << endl; // Expected output: NO
 
     return 0;
 }
