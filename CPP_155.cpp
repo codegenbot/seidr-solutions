@@ -11,5 +11,5 @@ bool issame(int num) {
             result[1]++;
         }
     }
-    return result[0] == result[1];
+    return result;
 }
