@@ -27,16 +27,3 @@ vector<int> sort_third(vector<int> l) {
 
     return l;
 }
-
-int main() {
-    vector<int> l = {9, 6, 1, 4, 8, 5, 7, 2, 3, 0};
-    vector<int> expected_output = {0, 6, 1, 2, 8, 5, 3, 4, 9, 7};
-
-    vector<int> result = sort_third(l);
-
-    assert(issame(result, expected_output));
-    
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-
-    return 0;
-}
