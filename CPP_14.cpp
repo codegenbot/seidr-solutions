@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+vector<string> all_prefixes(string str);
+
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -14,16 +16,14 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> all_prefixes(string str);
-
-int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-}
-
 vector<string> all_prefixes(string str) {
     vector<string> prefixes;
     for (int i = 1; i <= str.size(); ++i) {
         prefixes.push_back(str.substr(0, i));
     }
     return prefixes;
+}
+
+int main() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 }
