@@ -10,16 +10,14 @@ bool below_threshold(const vector<int>& l, int t) {
 }
 
 int main() {
-    // Input reading and vector creation
-    int threshold;
-    vector<int> numbers;
+    vector<int> l = {1, 3, 5, 7, 9};
+    int t = 10;
     
-    // Call the function below_threshold
-    if (below_threshold(numbers, threshold)) {
-        // Do something if true
+    if (below_threshold(l, t)) {
+        cout << "All elements are below threshold." << endl;
     } else {
-        // Do something if false
+        cout << "At least one element is at or above threshold." << endl;
     }
-
+    
     return 0;
 }
