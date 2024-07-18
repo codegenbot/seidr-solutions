@@ -10,3 +10,8 @@ string decimal_to_binary(int decimal){
     }
     return binary + "db";
 }
+
+int main() {
+    // Your main function code here
+    return 0;
+}
