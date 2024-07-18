@@ -1,5 +1,5 @@
 #include <vector>
-bool checkIncreasingOrDecreasing(std::vector<int>& l) {
+bool checkSequence(std::vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
     for (int i = 1; i < l.size(); i++) {
