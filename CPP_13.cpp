@@ -1,7 +1,8 @@
 while (b != 0) {
-    int t = b;
-    b = a % b;
-    a = t;
-}
-return a;
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    
+    return a;
 }
