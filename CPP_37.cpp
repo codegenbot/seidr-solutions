@@ -1,4 +1,8 @@
-vector<float> sort_even(vector<float> l) {
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> sort_even(vector<float> l){
     vector<float> even_indices;
     vector<float> sorted_even_indices;
     for (int i = 0; i < l.size(); i++) {
@@ -15,11 +19,7 @@ vector<float> sort_even(vector<float> l) {
             sorted_even_index++;
         }
     }
-    return l;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+       return l;
 }
 
 int main() {
