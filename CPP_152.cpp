@@ -1,12 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
@@ -18,13 +13,13 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game = {1, 2, 3};
-    vector<int> guess = {3, 2, 1};
+    vector<int> game = {1, 2, 3, 4};
+    vector<int> guess = {2, 2, 3, 5};
 
-    vector<int> comparison = compare(game, guess);
+    vector<int> result = compare(game, guess);
 
-    for (int i = 0; i < comparison.size(); ++i) {
-        cout << comparison[i] << " ";
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
     }
 
     return 0;
