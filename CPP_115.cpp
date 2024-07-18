@@ -1,4 +1,3 @@
-
 int max_fill(const vector<vector<int>>& grid, int capacity) {
     int count = 0;
     for (size_t j = 0; j < grid[0].size(); j++) {
