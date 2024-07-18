@@ -15,7 +15,7 @@ namespace solution_name {
         return count;
     }
 
-    bool issame(int result, const std::vector<std::string>& expected_output) {
+    static bool issame(int result, const std::vector<std::string>& expected_output) {
         for (int i = 0; i < result; ++i) {
             if (expected_output[i].find(std::to_string(result)) == std::string::npos) {
                 return false;
