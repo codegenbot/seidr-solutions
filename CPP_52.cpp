@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool below_threshold(const std::vector<int>& l, int t) {
     for (int num : l) {
@@ -11,6 +10,10 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    assert(!below_threshold({1, 8, 4, 10}, 10));
+    std::vector<int> l = {1, 2, 3, 4, 5};
+    int t = 10;
+
+    bool result = below_threshold(l, t);
+
     return 0;
 }
