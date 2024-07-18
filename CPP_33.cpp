@@ -3,33 +3,40 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> l_divisible_by_three;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            l_divisible_by_three.push_back(l[i]);
-        }
-    }
-    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
+using namespace std;
 
-    std::vector<int> l_prime = l;
-    int j = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            l_prime[i] = l_divisible_by_three[j];
-            ++j;
-        }
-    }
-
-    return l_prime;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> sort_third(vector<int> l) {
+    vector<int> sorted_indices;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sorted_indices.push_back(l[i]);
+        }
+    }
+    sort(sorted_indices.begin(), sorted_indices.end());
+
+    int sorted_idx = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            l[i] = sorted_indices[sorted_idx++];
+        }
+    }
+
+    return l;
+}
+
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    vector<int> l = {9, 6, 1, 4, 8, 5, 7, 2, 3, 0};
+    vector<int> expected_output = {0, 6, 1, 2, 8, 5, 3, 4, 9, 7};
+
+    vector<int> result = sort_third(l);
+
+    assert(issame(result, expected_output));
     
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+
     return 0;
 }
