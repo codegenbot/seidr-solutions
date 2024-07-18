@@ -3,13 +3,13 @@
 #include <string>
 #include <cassert>
 
-bool issame(map<char, int> a, map<char, int> b){
+bool issame(std::map<char, int> a, std::map<char, int> b){
     return a == b;
 }
 
-map<char, int> histogram(string test){
-    map<char, int> result;
-    map<char, int> count;
+std::map<char, int> histogram(std::string test){
+    std::map<char, int> result;
+    std::map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
@@ -19,7 +19,7 @@ map<char, int> histogram(string test){
 
     int maxCount = 0;
     for (const auto& pair : count) {
-        maxCount = max(maxCount, pair.second);
+        maxCount = std::max(maxCount, pair.second);
     }
 
     for (const auto& pair : count) {
@@ -32,6 +32,14 @@ map<char, int> histogram(string test){
 }
 
 int main() {
-    // Add testing or additional functionality here if needed
+    // Add your test cases to verify the histogram function
+    std::string testStr = "hello world";
+    std::map<char, int> result = histogram(testStr);
+
+    // Print the result for verification
+    for (const auto& pair : result) {
+        std::cout << pair.first << " : " << pair.second << std::endl;
+    }
+
     return 0;
 }
