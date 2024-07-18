@@ -1,12 +1,8 @@
-int is_nested(string str) {
-    int left = 0, right = 0;
-    for (char c : str) {
-        if (c == '[') {
-            left++;
-        } else if (c == ']' && left > 0) {
-            left--;
-            right++;
-        }
+bool is_nested(string str){
+    int cnt = 0;
+    for(char c : str){
+        if(c == '[') cnt++;
+        else if(cnt > 0) cnt--;
     }
-    return right > 0;
+    return cnt < str.length() && cnt > 0;
 }
