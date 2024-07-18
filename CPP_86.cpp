@@ -1,19 +1,11 @@
-string anti_shuffle(string s){
-    string result = "";
-    string word = "";
-    
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == ' ') {
-            sort(word.begin(), word.end());
-            result += word + " ";
-            word = "";
-        } else {
-            word += s[i];
+string anti_shuffle(const string& s) {
+    string ordered_word = s;
+    int start = 0;
+    for (size_t i = 0; i <= s.size(); i++) {
+        if (i == s.size() || s[i] == ' ') {
+            sort(ordered_word.begin() + start, ordered_word.begin() + i);
+            start = i + 1;
         }
     }
-    
-    sort(word.begin(), word.end());
-    result += word;
-
-    return result;
+    return ordered_word;
 }
