@@ -1,40 +1,35 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+    bool hasWhitespace = false;
+    for(char c : txt){
+        if(c == ' '){
+            result.push_back(word);
+            word = "";
+            hasWhitespace = true;
+        } else if(c == ','){
+            result.push_back(word);
+            word = "";
+            hasWhitespace = true;
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(word != ""){
         result.push_back(word);
     }
-    if (result.empty()) {
-        int oddLowercaseCount = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                oddLowercaseCount++;
+    if(result.empty() && !hasWhitespace){
+        int count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
+        result.push_back(to_string(count));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-
-    return 0;
 }
