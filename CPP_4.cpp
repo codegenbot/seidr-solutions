@@ -1,27 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
+#include <cmath>
 
-float mean_absolute_deviation(const std::vector<float>& numbers) {
-    float sum = 0;
-    float mean = 0;
+auto sum = 0.0;
+auto mean = 0.0;
 
-    for (float num : numbers) {
-        sum += num;
-    }
-
-    mean = sum / numbers.size();
-
-    float total_diff = 0;
-
-    for (float num : numbers) {
-        total_diff += std::abs(num - mean);
-    }
-
-    return total_diff / numbers.size();
+for (auto num : numbers) {
+    sum += num;
 }
 
-int main() {
-    assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
-    return 0;
+mean = sum / numbers.size();
+
+auto total_diff = 0.0;
+
+for (auto num : numbers) {
+    total_diff += abs(num - mean);
 }
+
+return total_diff / numbers.size();
