@@ -1,22 +1,24 @@
-def prime_fib():
-    def is_prime(num):
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-    
-    def fib(n):
-        a, b = 0, 1
-        for _ in range(n):
-            a, b = b, a + b
-        return a
+import math
 
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def prime_fib():
     n = int(input("Enter the number of prime Fibonacci numbers to find: "))
     
+    def fib(n):
+        if n <= 1:
+            return n
+        else:
+            return fib(n - 1) + fib(n - 2)
+
     count = 0
-    num = 1
+    num = 0
     while count < n:
         num += 1
         if is_prime(num):
