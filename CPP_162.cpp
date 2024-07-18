@@ -12,7 +12,8 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    EVP_MD_CTX* ctx;
+    ctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     EVP_DigestUpdate(ctx, text.c_str(), text.size());
     EVP_DigestFinal_ex(ctx, digest, NULL);
@@ -20,7 +21,7 @@ string string_to_md5(const string& text) {
 
     char mdString[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
     return string(mdString);
