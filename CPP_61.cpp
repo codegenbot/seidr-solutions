@@ -1,13 +1,13 @@
 int count = 0;
-for (char c : brackets) {
-    if (c == '(') {
-        count++;
-    } else if (c == ')') {
-        if (count == 0) {
-            return false;
+    for(char bracket : brackets){
+        if(bracket == '('){
+            count++;
+        } else if(bracket == ')'){
+            count--;
+            if(count < 0){
+                return false;
+            }
         }
-        count--;
     }
-}
-return count == 0;
+    return count == 0;
 }
