@@ -2,7 +2,6 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b);
-
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
     std::vector<int> result;
     int max_val = INT_MIN;
