@@ -5,5 +5,6 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-result = decode_cyclic(input())
+s = input().strip()
+result = decode_cyclic(s)
 print(result)
