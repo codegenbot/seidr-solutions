@@ -1,6 +1,5 @@
 #include <string>
 #include <cctype>
-#include <iostream>
 #include <cassert>
 
 std::string flip_case(std::string str){
@@ -15,12 +14,7 @@ std::string flip_case(std::string str){
 }
 
 int main(){
-    std::string input_str;
-    std::getline(std::cin, input_str);
-    
-    std::string result = flip_case(input_str);
-    
-    assert(result == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     
     return 0;
 }
