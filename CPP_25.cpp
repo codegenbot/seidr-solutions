@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 vector<int> factorize(int n){
     vector<int> factors;
@@ -13,4 +12,13 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    return 0;
 }
