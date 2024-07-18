@@ -1,17 +1,18 @@
-if (n == 0 || n == 1) {
+int fibfib(int n) {
+    if (n == 0 || n == 1) {
         return 0;
     } else if (n == 2) {
         return 1;
     }
     
-    int a = 0, b = 0, c = 1, sum;
+    int arr[n + 1];
+    arr[0] = 0;
+    arr[1] = 0;
+    arr[2] = 1;
     
     for (int i = 3; i <= n; ++i) {
-        sum = a + b + c;
-        a = b;
-        b = c;
-        c = sum;
+        arr[i] = arr[i-1] + arr[i-2] + arr[i-3];
     }
     
-    return sum;
+    return arr[n];
 }
