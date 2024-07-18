@@ -2,20 +2,7 @@
 #include <cassert>
 
 vector<int> parse_nested_parens(string paren_string);
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(string a, string b);
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
@@ -40,4 +27,8 @@ vector<int> parse_nested_parens(string paren_string) {
     result.push_back(max_depth);
 
     return result;
+}
+
+bool issame(string a, string b) {
+    return a == b;
 }
