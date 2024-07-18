@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -34,9 +31,10 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    cout << intersection({1, 5}, {3, 8}) << endl; // Expected output: YES
-    cout << intersection({3, 6}, {8, 10}) << endl; // Expected output: NO
-    cout << intersection({2, 4}, {5, 7}) << endl; // Expected output: YES
+    vector<int> interval1 = {1, 5};
+    vector<int> interval2 = {3, 7};
+
+    cout << intersection(interval1, interval2) << endl;
 
     return 0;
 }
