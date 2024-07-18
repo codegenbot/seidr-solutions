@@ -1,4 +1,4 @@
-def find_min_difference(numbers):
+def find_min_difference_pair(numbers):
     numbers.sort()
     min_diff = float("inf")
     result = (0, 0)
