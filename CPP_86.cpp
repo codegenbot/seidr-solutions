@@ -1,13 +1,12 @@
-string anti_shuffle(string s){
-    string result = "";
+string result = "";
     string word = "";
-    for(char c : s){
-        if(c == ' '){
-            sort(word.begin(), word.end());
-            result += word + " ";
-            word = "";
-        } else {
+    for (char c : s) {
+        if (c != ' ') {
             word += c;
+        } else {
+            sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
         }
     }
     sort(word.begin(), word.end());
