@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
-
+  
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
@@ -19,7 +19,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
             tempB /= 10;
         }
         if (sumA == sumB) {
-            return a < b;
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         }
         return sumA < sumB;
     });
