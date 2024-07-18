@@ -1,9 +1,11 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
+    if len(xs) < 2:
+        return "Input list should contain at least two elements"
+    
     a = xs[-1]
     b = xs[-2]
+    
+    if b == 0:
+        return "Division by zero is not allowed"
+    
     return -a / b
-
-
-inputs = list(map(float, input().split()))
-print(find_zero(inputs))
