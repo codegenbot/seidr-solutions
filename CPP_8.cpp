@@ -11,8 +11,8 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return std::vector<int>{sum, product};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::vector<int>::operator==(a, b);
 }
 
 int main() {
