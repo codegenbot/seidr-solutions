@@ -19,9 +19,10 @@ string solve(string s){
     return s;
 }
 
-int main() {
+int main(){
     string input;
     cin >> input;
-    cout << solve(input) << endl;
+    string result = solve(input);
+    cout << result << endl;
     return 0;
 }
