@@ -5,10 +5,11 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     int n = text.length();
     int m = target.length();
+    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -17,9 +18,11 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
+        
         if (found) {
             indices.push_back(i);
         }
     }
+    
     return indices;
 }
