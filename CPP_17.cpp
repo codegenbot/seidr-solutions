@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
-std::vector<int> parse_music(std::string music_string);
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
@@ -23,5 +23,11 @@ std::vector<int> parse_music(std::string music_string){
 }
 
 int main() {
+    std::string music_string;
+    std::cin >> music_string;
+    std::vector<int> beats = parse_music(music_string);
+    for (int beat : beats) {
+        std::cout << beat << " ";
+    }
     return 0;
 }
