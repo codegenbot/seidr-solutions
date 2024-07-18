@@ -3,13 +3,6 @@
 
 using namespace std;
 
-string solve(string s);
-
-int main() {
-    assert (solve("#ccc") == "#CCC");
-    return 0;
-}
-
 string solve(string s){
     bool hasLetter = false;
     for (char& c : s) {
@@ -22,4 +15,10 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    
+    return 0;
 }
