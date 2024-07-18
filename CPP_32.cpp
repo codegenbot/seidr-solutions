@@ -1,7 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
@@ -18,10 +17,13 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main(){
-    std::vector<double> coeffs = {1.0, -3.0, 2.0}; // coefficients of the polynomial
+    std::vector<double> coeffs;
+    for (int i = 0; i <= 2; i++) {
+        coeffs.push_back(i+1);
+    }
     double solution;
     solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
-    
+
     return 0;
 }
