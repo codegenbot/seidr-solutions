@@ -1,9 +1,5 @@
-vector<int> filter_integers(list_any values){
-    vector<int> result;
-    for (auto &val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
-        }
-    }
-    return result;
-}
+vector<int> filter_integers(list_any values);
+bool issame(vector<int> a, vector<int> b);
+
+using list_any = std::list<boost::any>;
+```
