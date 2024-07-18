@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::vector<int>(a) == std::vector<int>(b);
