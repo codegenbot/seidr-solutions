@@ -1,10 +1,7 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::pair<int, int> even_odd_palindrome(int n) {
+std::pair<int, int> countPalindromeNumbers(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
