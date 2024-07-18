@@ -20,6 +20,7 @@ std::string int_to_mini_roman(int number){
 int main() {
     int number;
     std::cin >> number;
-    std::cout << int_to_mini_roman(number);
+    std::string roman_numeral = int_to_mini_roman(number);
+    std::cout << roman_numeral;
     return 0;
 }
