@@ -3,7 +3,7 @@
 #include <cmath>
 
 bool issame(float a, float b){
-    return std::abs(a - b) < 0.0001;
+    return std::abs(a - b) < 1e-5;
 }
 
 std::vector<float> get_positive(std::vector<float> l);
