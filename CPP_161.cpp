@@ -1,9 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <cctype>
-#include <cassert>
-
-std::string solve(std::string s){
+string solve(string s) {
     for(char &c : s){
         if(isalpha(c)){
             if(islower(c)){
@@ -13,13 +8,8 @@ std::string solve(std::string s){
             }
         }
     }
-    if(std::count_if(s.begin(), s.end(), ::isalpha) == 0){
-        std::reverse(s.begin(), s.end());
+    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
+        reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main(){
-    assert (solve("#ccc") == "#CCC");
-    return 0;
 }
