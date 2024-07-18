@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
