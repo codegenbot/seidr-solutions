@@ -8,7 +8,6 @@ vector<int> get_odd_collatz(int n) {
         n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
-
     vector<int> odd_nums;
     for (int num : result) {
         if (num % 2 != 0) {
@@ -24,13 +23,14 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> odd_nums_result = get_odd_collatz(n);
-    
-    vector<int> test_nums = {1, 3, 5};
-    bool same = issame(odd_nums_result, test_nums);
-    
+    vector<int> result = get_odd_collatz(10);
+    vector<int> expected = {1, 3, 5, 9};
+
+    if (issame(result, expected)) {
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+
     return 0;
 }
