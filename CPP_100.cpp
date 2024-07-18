@@ -1,12 +1,11 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Add this header for assert usage
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    std::size_t i; 
-    for (i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -17,7 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> stones;
     stones.push_back(n);
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i < n; ++i) { // Declare variable i
         if (n % 2 == 0) {
             n += 2;
         } else {
@@ -28,4 +27,7 @@ std::vector<int> make_a_pile(int n) {
     return stones;
 }
 
-assert(issame(make_a_pile(8), std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+int main() { // Add main function for invoking assert
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
+}
