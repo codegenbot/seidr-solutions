@@ -1,16 +1,18 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) {
-        return -1;
-    }
-    
-    sort(lst.begin(), lst.end());
-    
-    int smallest = lst[0];
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] > smallest) {
-            return lst[i];
+sort(lst.begin(), lst.end());
+    int smallest = -1;
+    for (int num : lst){
+        if (num > smallest){
+            smallest = num;
         }
     }
-    
-    return -1;
+    int second_smallest = -1;
+    for (int num : lst){
+        if (num > smallest){
+            second_smallest = num;
+            break;
+        }
+    }
+    if (second_smallest == -1)
+        return None;
+    return second_smallest;
 }
