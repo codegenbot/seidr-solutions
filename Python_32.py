@@ -1,7 +1,8 @@
-def find_zero(xs: list):
-    x = -xs[0] / xs[1]
+def find_zero(a: int, b: int):
+    x = -a / b
     return x
 
-input_list = list(map(int, input().split()))
-result = find_zero(input_list)
+a, b = map(int, input().split())
+
+result = find_zero(a, b)
 print(result)
