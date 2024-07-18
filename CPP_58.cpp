@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <cassert>
 #include <iterator>
-#include <algorithm>
 
 using namespace std;
 
