@@ -4,14 +4,12 @@
 #include <cassert>
 
 std::vector<int> unique_digits(std::vector<int> nums) {
-    // Implement unique_digits function
     std::sort(nums.begin(), nums.end());
     nums.erase(std::unique(nums.begin(), nums.end()), nums.end());
     return nums;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implement issame function
     return a == b;
 }
 
