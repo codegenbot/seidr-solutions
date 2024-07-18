@@ -1,9 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <functional>
 
-using namespace std;
+bool issame(vector<int>& a, vector<int>& b) {
+    return a == b;
+}
 
 vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
@@ -12,8 +12,4 @@ vector<int> sort_array(vector<int> array) {
     else
         sort(array.begin(), array.end());
     return array;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
