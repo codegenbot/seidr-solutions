@@ -1,11 +1,8 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string flip_case(string str);
-
-string flip_case(string str){
-    for(size_t i=0; i<str.length(); i++){
+std::string flip_case(std::string str){
+    for(size_t i = 0; i < str.length(); i++){
         if(islower(str[i])){
             str[i] = toupper(str[i]);
         }
@@ -17,8 +14,9 @@ string flip_case(string str){
 }
 
 int main(int argc, char *argv[]){
-    string str;
-    cin >> str;
-    cout << flip_case(str) << endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::cout << "String after flipping case: " << flip_case(input) << std::endl;
     return 0;
 }
