@@ -1,2 +1,2 @@
 def add_elements(arr, k):
-    return sum(num for num in arr if 10 <= num <= 99 and num < k)
+    return sum(num for num in arr if 10 <= num <= 99 and 10 <= k <= 99)
