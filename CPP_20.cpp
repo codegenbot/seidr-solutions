@@ -7,8 +7,18 @@ using namespace std;
 
 pair<float, float> find_closest_elements(vector<float> numbers);
 
-bool issame(pair<float, float> a, pair<float, float> b) {
-    return a.first == b.first && a.second == b.second;
+bool are_same(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
+    pair<float, float> result = find_closest_elements(numbers);
+    cout << "Closest elements are: " << result.first << " and " << result.second << endl;
+    
+    assert(are_same(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+
+    return 0;
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
@@ -22,9 +32,4 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
         }
     }
     return closest_elements;
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    return 0;
 }
