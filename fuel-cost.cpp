@@ -10,7 +10,7 @@ int main() {
         sum += max(0, num / 3 - 2);
     }
     
-    cout << sum << endl;
+    cout << sum;
     
     return 0;
 }
