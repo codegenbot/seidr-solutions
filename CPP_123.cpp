@@ -1,10 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
 vector<int> get_odd_collatz(int n);
+
+bool is_same(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -31,11 +36,5 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    
-    for(int num : result) {
-        cout << num << " ";
-    }
+    assert(is_same(get_odd_collatz(1), {1}));
 }
