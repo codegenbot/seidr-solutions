@@ -1,9 +1,15 @@
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(const auto &num : l){
-        if(num > 0){
-            result.push_back(num);
+#include <vector>
+#include <cassert>
+#include <cmath>
+
+using namespace std;
+
+vector<float> get_positive(const vector<float>& l) {
+    vector<float> positive_nums;
+    for (float num : l) {
+        if (num > 0) {
+            positive_nums.push_back(num);
         }
     }
-    return result;
+    return positive_nums;
 }
