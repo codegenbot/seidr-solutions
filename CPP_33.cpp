@@ -1,19 +1,37 @@
-vector<int> l_divisible_by_three;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> sort_third(vector<int> l) {
+    vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            l_divisible_by_three.push_back(l[i]);
+            sorted_indices.push_back(l[i]);
         }
     }
-    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
+    sort(sorted_indices.begin(), sorted_indices.end());
 
-    vector<int> l_prime = l;
-    int j = 0;
+    int sorted_idx = 0;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            l_prime[i] = l_divisible_by_three[j];
-            ++j;
+            l[i] = sorted_indices[sorted_idx++];
         }
     }
 
-    return l_prime;
+    return l;
+}
+
+int main() {
+    vector<int> l = {9, 6, 1, 4, 8, 5, 7, 2, 3, 0};
+    vector<int> expected_output = {0, 6, 1, 2, 8, 5, 3, 4, 9, 7};
+
+    vector<int> result = sort_third(l);
+
+    assert(issame(result, expected_output));
+
+    return 0;
 }
