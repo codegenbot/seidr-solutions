@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
@@ -7,3 +8,5 @@ vector<float> derivative(vector<float> xs){
     }
     return result;
 }
+
+bool issame(vector<float> a, vector<float> b){
