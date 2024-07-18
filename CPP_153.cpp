@@ -1,27 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cctype>
-#include <cassert>
+#include <climits>
 
-std::string Strongest_Extension(const std::string &class_name, const std::vector<std::string> &extensions) {
-    int CAP, SM, max_strength = -1;
-    std::string strongest_extension = "";
-    for (const std::string &ext : extensions) {
-        CAP = SM = 0;
-        for (char c : ext) {
-            if (std::isupper(c)) CAP++;
-            else if (std::islower(c)) SM++;
-        }
-        int strength = CAP - SM;
-        if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
-            max_strength = strength;
-            strongest_extension = ext;
-        }
-    }
-    return class_name + "." + strongest_extension;
-}
+using namespace std;
+
+string Strongest_Extension(string class_name, vector<string> extensions);
 
 int main() {
     assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
+}
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
+
+    for (const string& ext : extensions) {
+        int cap_count = 0, sm_count = 0;
+        for (char c : ext) {
+            if (isupper(c)) {
+                cap_count++;
+            } else if (islower(c)) {
+                sm_count++;
+            }
+        }
+
+        int strength = cap_count - sm_count;
+        if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
+            max_strength = strength;
+            strongest_extension = ext;
+        }
+    }
+
+    return class_name + "." + strongest_extension;
 }
