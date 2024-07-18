@@ -1,22 +1,14 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+v = [int(input()) for i in range(n)]
 
-total_sum = sum(arr)
-half_sum = total_sum // 2
+diff = float("inf")
+cut_index = 0
 
-prefix_sum = 0
-min_diff = float("inf")
-cut_idx = 0
+for i in range(1, n):
+    new_diff = abs(sum(v[:i]) - sum(v[i:]))
+    if new_diff < diff:
+        cut_index = i
+        diff = new_diff
 
-for i, num in enumerate(arr):
-    prefix_sum += num
-    diff = abs(prefix_sum - half_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_idx = i
-
-subvector1 = arr[: cut_idx + 1]
-subvector2 = arr[cut_idx + 1 :]
-
-print(*subvector1, sep="\n")
-print(*subvector2, sep="\n")
+print(*v[:cut_index])
+print(*v[cut_index:])
