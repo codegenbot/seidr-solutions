@@ -13,7 +13,7 @@ int fib(int n) {
     return b;
 }
 
-int main(){
+int main() {
     assert(fib(12) == 144);
     return 0;
 }
