@@ -5,6 +5,5 @@ def find_zero():
     b = xs[-2]
     return -b / a
 
-
 result = find_zero()
 print(result)
