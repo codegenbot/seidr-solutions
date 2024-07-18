@@ -6,4 +6,4 @@ def double_the_difference(lst):
             odd_sum += x
         elif x > 0 and x % 2 == 0:
             even_sum += x
-    return 2 * (odd_sum - even_sum ** 2)
+    return 2 * (odd_sum - even_sum**2)
