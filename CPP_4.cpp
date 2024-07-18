@@ -17,11 +17,3 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
 
     return mean_absolute_deviation;
 }
-
-int main() {
-    assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
-    
-    std::cout << "Mean Absolute Deviation: " << mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) << std::endl;
-    
-    return 0;
-}
