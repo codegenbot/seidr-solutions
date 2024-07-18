@@ -16,7 +16,7 @@ namespace solution_name {
     }
 
     bool issame(int result, const std::vector<std::string>& expected_output) {
-        for (int i = 0; i < result; ++i) {
+        for (int i = 0; i < expected_output.size(); ++i) {
             if (expected_output[i].find(std::to_string(result)) == std::string::npos) {
                 return false;
             }
