@@ -1,14 +1,16 @@
-int res = 0;
-        for (auto& row : grid) {
-            int cur_fill = 0;
-            for (int cell : row) {
-                cur_fill += cell;
-                if (cur_fill >= capacity) {
-                    res += cur_fill / capacity;
-                    cur_fill %= capacity;
+int rows = grid.size();
+        int cols = grid[0].size();
+        int count = 0;
+        
+        for (int j = 0; j < cols; ++j) {
+            int bucket = 0;
+            for (int i = 0; i < rows; ++i) {
+                if (grid[i][j] == 1) {
+                    bucket++;
                 }
             }
-            res += (cur_fill > 0) ? 1 : 0;
+            count += (bucket + capacity - 1) / capacity;
         }
-        return res;
+        
+        return count;
     }
