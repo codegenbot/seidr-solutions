@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator>
+#include <algorithm> // Include this header for set_intersection
 
 using namespace std;
 
