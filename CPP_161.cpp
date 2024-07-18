@@ -2,7 +2,9 @@
 #include <algorithm>
 
 std::string solve(const std::string& s) {
-    for (char &c : s) {
+    std::string result = s;
+    
+    for (char &c : result) {
         if (isalpha(c)) {
             if (islower(c)) {
                 c = toupper(c);
@@ -12,9 +14,16 @@ std::string solve(const std::string& s) {
         }
     }
     
-    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(s.begin(), s.end());
+    if (result.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+        std::reverse(result.begin(), result.end());
     }
     
-    return s;
+    return result;
+}
+
+// Example test cases
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    
+    return 0;
 }
