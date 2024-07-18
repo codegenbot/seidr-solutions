@@ -21,7 +21,7 @@ string solve(string s){
 
 int main() {
     string input;
-    cin >> input;
+    getline(cin, input);
     cout << solve(input) << endl;
     return 0;
 }
