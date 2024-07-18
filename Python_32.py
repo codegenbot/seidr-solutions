@@ -1,5 +1,5 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
+    n = len(xs)
     if n % 2 != 0:
         return None
     a = xs[-1]
@@ -7,7 +7,12 @@ def find_zero(xs: list):
     x = -a / b
     return x
 
+while True:
+    try:
+        input_list = list(map(float, input("Enter space-separated numbers: ").split()))
+        break
+    except ValueError:
+        print("Please enter valid space-separated numbers.")
 
-input_list = list(map(float, input("Enter space-separated list of numbers: ").split()))
 result = find_zero(input_list)
 print(result)
