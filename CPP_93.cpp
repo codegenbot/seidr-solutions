@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-using namespace std;
+#include <cassert>
 
-string encode(string message){
+std::string encode(std::string message){
     for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 c = char(c + 2);
             }
         }
@@ -16,6 +16,6 @@ string encode(string message){
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "K DqNt KnQw WhCt Tq WrKtG");
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
     return 0;
 }
