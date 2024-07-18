@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> sort_third(vector<int> l) {
     vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
@@ -30,9 +34,9 @@ int main() {
 
     vector<int> result = sort_third(l);
 
-    assert(result == expected_output);
+    assert(issame(result, expected_output));
 
-    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == vector<int>{2, 6, 3, 4, 8, 9, 5, 1});
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
 
     return 0;
 }
