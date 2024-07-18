@@ -1,17 +1,15 @@
-int open = 0;
-    int close = 0;
-    for (string s : lst) {
-        for (char c : s) {
-            if (c == '(') {
-                open++;
-            } else {
-                if (open > 0) {
-                    open--;
-                } else {
-                    close++;
-                }
+int sum = 0;
+for (string s : lst) {
+    for (char c : s) {
+        if (c == '(') {
+            sum++;
+        } else {
+            if (sum == 0) {
+                return "No";
             }
+            sum--;
         }
     }
-    return (open == 0 && close == 0) ? "Yes" : "No";
 }
+
+return (sum == 0) ? "Yes" : "No";
