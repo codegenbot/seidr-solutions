@@ -1,9 +1,10 @@
-sort(arr.begin(), arr.end(), [](int x, int y) {
-    int count_x = __builtin_popcount(x);
-    int count_y = __builtin_popcount(y);
-    if (count_x == count_y) {
-        return x < y;
+sort(arr.begin(), arr.end(), [](int a, int b) {
+    int count_a = __builtin_popcount(a);
+    int count_b = __builtin_popcount(b);
+    if (count_a == count_b) {
+        return a < b;
     }
-    return count_x < count_y;
+    return count_a < count_b;
 });
 return arr;
+}
