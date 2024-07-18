@@ -17,6 +17,6 @@ bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
 }
 
 int main() {
-    assert(issame(eat({4, 5, 1}), {5, 0}));
+    assert(issame(eat({4, 5, 1}), {5, 0});
     return 0;
 }
