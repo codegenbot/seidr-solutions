@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     // function body
 }
 
@@ -22,6 +22,5 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Main function logic using strange_sort_list
-    return 0;
+    // main function body
 }
