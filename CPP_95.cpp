@@ -1,7 +1,6 @@
-#include <iostream>
 #include <map>
 #include <string>
-#include <cassert>
+#include <cctype>
 
 bool check_dict_case(std::map<std::string, std::string> dict){
     if(dict.empty()) return false;
@@ -16,15 +15,15 @@ bool check_dict_case(std::map<std::string, std::string> dict){
         
         if(key.empty() || key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != std::string::npos) return false;
         
-        all_lower = all_lower && (key == tolower(key[0]));
-        all_upper = all_upper && (key == toupper(key[0]));
+        std::string lower_key;
+        std::transform(key.begin(), key.end(), std::back_inserter(lower_key), ::tolower);
+        
+        std::string upper_key;
+        std::transform(key.begin(), key.end(), std::back_inserter(upper_key), ::toupper);
+        
+        all_lower = all_lower && (key == lower_key);
+        all_upper = all_upper && (key == upper_key);
     }
     
     return all_lower || all_upper;
-}
-
-int main() {
-    assert(check_dict_case(std::map<std::string, std::string>{}) == false);
-    
-    return 0;
 }
