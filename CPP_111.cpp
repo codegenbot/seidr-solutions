@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b){
+bool issame(std::map<char,int> a, std::map<char,int> b){
     return a == b;
 }
 
@@ -32,14 +32,5 @@ std::map<char, int> histogram(std::string test){
 }
 
 int main() {
-    // Add your test cases to verify the histogram function
-    std::string testStr = "hello world";
-    std::map<char, int> result = histogram(testStr);
-
-    // Print the result for verification
-    for (const auto& pair : result) {
-        std::cout << pair.first << " : " << pair.second << std::endl;
-    }
-
     return 0;
 }
