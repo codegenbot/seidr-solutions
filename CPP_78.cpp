@@ -1,8 +1,16 @@
-int count = 0;
-    for (char c : num) {
-        if (c == '2' || c == '3' || c == '5' || c == '7' || c == 'B' || c == 'D') {
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int hex_key(string num){
+    int count = 0;
+    string primes = "2357BD";
+    
+    for(char c : num){
+        if(primes.find(c) != string::npos){
             count++;
         }
     }
+    
     return count;
 }
