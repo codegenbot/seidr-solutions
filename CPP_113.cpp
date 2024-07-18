@@ -1,29 +1,30 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    
-    for(string str : a){
+    for(string str : lst){
         int count = 0;
-        
         for(char c : str){
             if((c - '0') % 2 != 0){
                 count++;
             }
         }
-        
-        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + " of the input.\n";
+        string res = "the number of odd elements " + to_string(count) + " in the string " + str + " of the input.";
         result.push_back(res);
     }
-    
-    // Check if a and b have the same content
-    if (result == b) {
-        return true;
-    } else {
-        return false;
-    }
+    return result;
+}
+
+int main() {
+    assert(odd_count({"271", "137", "314"}) == 
+           vector<string>{"the number of odd elements 2 in the string 271 of the input.",
+                          "the number of odd elements 2 in the string 137 of the input.",
+                          "the number of odd elements 2 in the string 314 of the input."});
+                          
+    return 0;
 }
