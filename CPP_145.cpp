@@ -1,17 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
+vector<int> order_by_points(vector<int> nums);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
+}
+
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
+        a = abs(a);
+        b = abs(b);
         while (a > 0) {
             sumA += a % 10;
             a /= 10;
@@ -21,15 +23,9 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             b /= 10;
         }
         if (sumA == sumB) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+            return a < b;
         }
         return sumA < sumB;
     });
     return nums;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    std::cout << "Test Passed!" << std::endl;
-    return 0;
 }
