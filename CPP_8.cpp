@@ -1,6 +1,10 @@
-bool issame(vector<int> a, vector<int> b);
+#include <vector>
 
-pair<int, int> sum_product(vector<int> numbers) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
@@ -11,6 +15,6 @@ pair<int, int> sum_product(vector<int> numbers) {
 }
 
 int main() {
-    pair<int, int> result = sum_product(vector<int>{10});
+    assert(issame(sum_product({10}), {10, 10}));
     return 0;
 }
