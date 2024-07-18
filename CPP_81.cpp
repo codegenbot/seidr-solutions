@@ -22,6 +22,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
 }
 
 int main() {
-    // Your main function implementation here
+    // Code review task, actual main function not required
     return 0;
 }
