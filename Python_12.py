@@ -1,3 +1,4 @@
+
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -5,9 +6,6 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-# Read a space-separated list of strings from the user
 strings = input().split()
-
-# Call the longest function with the input strings
 result = longest(strings)
 print(result)
