@@ -1,16 +1,15 @@
-#include <iostream>
+#include <vector>
 #include <cassert>
 
-std::pair<int, int> issame(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = total > remaining ? total - remaining : total;
-    int left = remaining > total ? remaining - total : 0;
-    return std::make_pair(eaten, left);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    auto result = issame(4, 5, 1);
-    assert(result == std::make_pair(5, 0));
-
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    
+    assert(issame(a, b));
+    
     return 0;
 }
