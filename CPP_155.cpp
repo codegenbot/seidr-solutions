@@ -1,11 +1,17 @@
-vector<int> even_odd_count(int num){
-    vector<int> counts(2, 0);
-    string num_str = to_string(abs(num));
-    for(char c : num_str){
-        if((c - '0') % 2 == 0)
+#include <vector> 
+bool issame(std::vector<int> a, std::vector<int> b) { 
+    return a == b; 
+}
+
+int main() {
+    std::vector<int> counts(2, 0); 
+    std::string numStr = std::to_string(abs(num)); 
+    for (char c : numStr) {
+        if (c % 2 == 0) {
             counts[0]++;
-        else
+        } else {
             counts[1]++;
+        }
     }
-    return counts;
+    return counts; 
 }
