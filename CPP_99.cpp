@@ -1,11 +1,10 @@
-double num = stod(value);
-    int closestInt;
-    
-    if (num >= 0) {
-        closestInt = (int)(num + 0.5);
-    } else {
-        closestInt = (int)(num - 0.5);
-    }
-    
-    return closestInt;
+#include <string>
+#include <cmath>
+
+int closest_integer(std::string value);
+
+int closest_integer(std::string value) {
+    float num = std::stof(value);
+    int res = std::round(num);
+    return res;
 }
