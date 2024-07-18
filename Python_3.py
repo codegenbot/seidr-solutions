@@ -10,11 +10,9 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 
-# Read input from user
-operations = list(map(int, input().split()))
+# Read input from the user
+operations = [int(x) for x in input().split()]
 
-# Call the function with the input list
+# Call the function with user input
 result = below_zero(operations)
-
-# Output the result
 print(result)
