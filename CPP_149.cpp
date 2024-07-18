@@ -20,19 +20,6 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     return a;
 }
 
-void solve_problem() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
-    
-    for (const auto& str : result) {
-        cout << str << " ";
-    }
+vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
 
-    assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
-}
-
-int main() {
-    solve_problem();
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
-    
-    return 0;
-}
+assert(result == sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
