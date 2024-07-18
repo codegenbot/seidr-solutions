@@ -21,10 +21,3 @@ map<char, int> histogram(string test) {
     
     return result;
 }
-
-// Testing
-int main() {
-    assert(histogram("a") == {{'a', 1}});
-    
-    return 0;
-}
