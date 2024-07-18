@@ -16,19 +16,13 @@ def is_fibonacci(num):
 
 try:
     n = int(input("Enter a number: "))
-    if n <= 0:
-        print("Invalid input. Please enter a positive integer.")
-    else:
-        def prime_fib(n):
-            count = 0
-            num = 1
-            while count < n:
-                if is_prime(num) and is_fibonacci(num):
-                    count += 1
-                num += 1
-            return num - 1
-
-        print(prime_fib(n))
+    count = 0
+    num = 1
+    while count < n:
+        if is_prime(num) and is_fibonacci(num):
+            count += 1
+        num += 1
+    print(num - 1)
 
 except ValueError:
     print("Invalid input. Please enter a valid integer.")
