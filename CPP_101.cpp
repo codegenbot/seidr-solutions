@@ -1,32 +1,26 @@
 vector<string> issame(vector<string> a, vector<string> b){
-    vector<string> same_words;
-    for(string word_a : a){
-        for(string word_b : b){
-            if(word_a == word_b){
-                same_words.push_back(word_a);
+    vector<string> same;
+    for(string word1 : a){
+        for(string word2 : b){
+            if(word1 == word2){
+                same.push_back(word1);
                 break;
             }
         }
     }
-    return same_words;
+    return same;
 }
 
 vector<string> words_string(string s);
 
 int main(){
-    string input;
-    getline(cin, input);
-    vector<string> words = words_string(input);
-    vector<string> words_duplicate = words;
-    sort(words_duplicate.begin(), words_duplicate.end());
-    words_duplicate.erase(unique(words_duplicate.begin(), words_duplicate.end()), words_duplicate.end());
-
-    vector<string> result = issame(words, words_duplicate);
-    for(string word : result){
+    string s;
+    getline(cin, s);
+    vector<string> words = words_string(s);
+    for(string word : words){
         cout << word << " ";
     }
     cout << endl;
-
     return 0;
 }
 
