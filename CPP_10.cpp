@@ -3,17 +3,18 @@
 #include <cassert>
 
 bool is_palindrome(const std::string& str) {
-    return str == std::string(str.rbegin(), str.rend());
+    return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
 }
 
-std::string make_palindrome(const std::string\_ {
-    if (str.empty()) return "";
-    int n = str.size();
-    for (int i = n - 1; i >= 0; i--) {
-        if (is_palindrome(str.substr(i)))
-            return str + std::string(str.rbegin(), str.rbegin() + n - i);
+std::string make_palindrome(const std::string& str) {
+    std::string palindrome = str;
+    for (int i = str.size() - 1; i >= 0; i--) {
+        if (is_palindrome(str.substr(i))) {
+            palindrome += std::string(str.rbegin(), str.rbegin() + str.size() - i);
+            break;
+        }
     }
-    return str + std::string(str.rbegin() + 1, str.rend());
+    return palindrome;
 }
 
 int main() {
