@@ -1,12 +1,5 @@
 from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string:
-        return "Input is empty"
-    
-    if paren_string.count("(") != paren_string.count(")"):
-        return "Invalid input: Unbalanced parentheses"
-    
     result = []
     group = ""
     level = 0
@@ -23,5 +16,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if level == 0:
                 result.append(group + char)
                 group = ""
+    
+    if group:
+        result.append(group)
     
     return result
