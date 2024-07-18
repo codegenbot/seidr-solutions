@@ -9,5 +9,10 @@ double poly(vector<double> coeffs, double x){
 double find_zero(vector<double> coeffs){
     double a = coeffs[0];
     double b = coeffs[1];
-    return -b/a;
+    const double epsilon = 1e-6;
+    double x = 0.0;
+    while(fabs(poly(coeffs, x)) > epsilon){
+        x += 0.1;
+    }
+    return x;
 }
