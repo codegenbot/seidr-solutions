@@ -6,7 +6,6 @@ except ValueError:
     print("Invalid input. Please enter a valid integer.")
     exit()
 
-
 def is_prime(num):
     if num < 2:
         return False
@@ -15,13 +14,8 @@ def is_prime(num):
             return False
     return True
 
-
 def is_fibonacci(num):
-    return (
-        math.isqrt(5 * num * num + 4) ** 2 == 5 * num * num + 4
-        or math.isqrt(5 * num * num - 4) ** 2 == 5 * num * num - 4
-    )
-
+    return math.isqrt(5 * num * num + 4) ** 2 == 5 * num * num + 4 or math.isqrt(5 * num * num - 4) ** 2 == 5 * num * num - 4
 
 def prime_fib(n):
     count = 0
@@ -31,6 +25,5 @@ def prime_fib(n):
             count += 1
         num += 1
     return num - 1
-
 
 print(prime_fib(n))
