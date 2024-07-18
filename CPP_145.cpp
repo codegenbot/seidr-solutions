@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> order_by_points(std::vector<int> nums);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
+
+std::vector<int> order_by_points(std::vector<int> nums);
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
