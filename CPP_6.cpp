@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(int a, int b);
+
 vector<int> parse_nested_parens(string paren_string);
 
 bool issame(int a, int b) {
