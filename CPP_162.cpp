@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
@@ -15,8 +16,6 @@ std::string string_to_md5(const std::string& text) {
     for (int i = 0; i < 16; i++) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
-    
-    mdString[32] = '\0';
     
     return mdString;
 }
