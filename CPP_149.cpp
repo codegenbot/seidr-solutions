@@ -2,19 +2,15 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]) return false;
     }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
     return true;
 }
+
+vector<string> sorted_list_sum(vector<string> lst);
 
 vector<string> sorted_list_sum(vector<string> lst){
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
@@ -28,6 +24,6 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main() {
-    // Test the functions if needed
+    // Main function code goes here
     return 0;
 }
