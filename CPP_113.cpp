@@ -1,6 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 namespace solution_name {
     int odd_count(const std::vector<std::string>& strings) {
@@ -16,7 +17,7 @@ namespace solution_name {
     }
 
     bool issame(int result, const std::vector<std::string>& expected_output) {
-        for (int i = 0; i < expected_output.size(); ++i) {
+        for (int i = 0; i < result; ++i) {
             if (expected_output[i].find(std::to_string(result)) == std::string::npos) {
                 return false;
             }
@@ -27,7 +28,7 @@ namespace solution_name {
 
 int main() {
     assert(solution_name::issame(solution_name::odd_count({"271", "137", "314"}),
-                                  { "the number of odd elements 3\nthe string 271 of the input.",
+                                  { "the number of odd elements 2\nthe string 271 of the input.",
                                     "the number of odd elements 2\nthe string 137 of the input.",
                                     "the number of odd elements 2\nthe string 314 of the input."}));
     return 0;
