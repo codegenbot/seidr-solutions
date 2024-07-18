@@ -22,6 +22,6 @@ string string_to_md5(const string& text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
-
+    
     return string(mdString);
 }
