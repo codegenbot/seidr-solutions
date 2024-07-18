@@ -12,10 +12,10 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<int> numbers = {2, 3, 5, 7}; // Example input
+    std::vector<int> numbers = {2, 3, 4, 5};
     auto result = sum_product(numbers);
     std::cout << "Sum: " << result.first << std::endl;
     std::cout << "Product: " << result.second << std::endl;
-    
+
     return 0;
 }
