@@ -13,6 +13,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    // Your main code here
+    // Main function content goes here
     return 0;
 }
