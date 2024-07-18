@@ -4,6 +4,7 @@ def decode_shift(input_str):
         decoded += chr((char - 2) % 128)
     return decoded
 
+
 input_str = list(map(int, input("Enter the string to decode: ").strip().split()))
 result = decode_shift(input_str)
 print(result)
