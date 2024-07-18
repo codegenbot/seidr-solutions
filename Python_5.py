@@ -8,8 +8,8 @@ def process_numbers(numbers, delimiter):
     return result
 
 # Read input from the user
-numbers = input().strip().split()
-delimiter = input().strip()
+numbers = input().split()
+delimiter = input()
 
 # Call the function
 output = process_numbers(numbers, delimiter)
