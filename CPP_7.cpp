@@ -1,6 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool issame(vector<string> a, vector<string> b);
+int main(){
+    vector<string> words = {"apple", "banana", "grape", "orange", "kiwi"};
+    string sub = "ap";
+    
+    vector<string> filtered_words = filter_by_substring(words, sub);
+    
+    for(const string& word : filtered_words){
+        cout << word << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
@@ -10,8 +32,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
         }
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
