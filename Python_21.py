@@ -3,6 +3,6 @@ def normalize(numbers):
     max_num = max(numbers)
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
-# Call the function with appropriate argument
-result = normalize([5, 10, 15, 20])
+# Call the function with the appropriate argument
+result = normalize([5, 10, 15, 20, 25])
 print(result)
