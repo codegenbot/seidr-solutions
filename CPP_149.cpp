@@ -27,7 +27,7 @@ int main() {
         cout << str << " ";
     }
 
-    assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
+    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
