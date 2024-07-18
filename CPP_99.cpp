@@ -12,7 +12,7 @@ int closest_integer(std::string value) {
 }
 
 int main() {
-    assert (closest_integer("0") == 0);
+    assert(closest_integer("0") == 0);
     
     return 0;
 }
