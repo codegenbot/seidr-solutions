@@ -1,6 +1,6 @@
 int main() {
-    vector<int> nums;
     int n;
+    vector<int> nums;
     
     while (cin >> n) {
         nums.push_back(n);
@@ -11,7 +11,7 @@ int main() {
         sum += (num / 3) - 2;
     }
     
-    cout << sum << endl;
+    cout << sum;
     
     return 0;
 }
