@@ -1,17 +1,29 @@
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    while (tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sumA = 0, sumB = 0;
+        if (a < 0) a = -a;
+        if (b < 0) b = -b;
+        while (a > 0) {
+            sumA += a % 10;
+            a /= 10;
+        }
+        while (b > 0) {
+            sumB += b % 10;
+            b /= 10;
+        }
+        if (sumA == sumB) {
+            return a < b;
+        }
+        return sumA < sumB;
+    });
+    return nums;
+}
+
+int main() {
+    vector<int> nums = {123, 456, 789, 321};
+    nums = order_by_points(nums);
+    for (int num : nums) {
+        cout << num << " ";
     }
-    while (tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
-    }
-    if (sumA == sumB) {
-        return a < b;
-    }
-    return sumA < sumB;
-});
-return nums;
+    return 0;
+}
