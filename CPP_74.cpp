@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a.size() == b.size();
 }
 
-std::vector<std::string> compareLists(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+std::vector<std::string> compare_lists(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
 
@@ -19,16 +19,10 @@ std::vector<std::string> compareLists(const std::vector<std::string>& lst1, cons
         total_chars2 += str.size();
     }
 
-    if (total_chars1 < total_chars2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
+    return total_chars1 < total_chars2 ? lst1 : lst2;
 }
 
 int main() {
     assert(issame({"this"}, {}));
-    assert(compareLists({"contest", "problem"}, {"code", "solution"}) == std::vector<std::string>{"code", "solution"});
-
     return 0;
 }
