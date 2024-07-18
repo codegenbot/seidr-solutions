@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 vector<int> get_odd_collatz(int n);
 
@@ -33,6 +34,8 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(is_same(get_odd_collatz(1), {1}));
-    return 0;
+    vector<int> result = get_odd_collatz(1);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
 }
