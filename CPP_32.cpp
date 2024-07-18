@@ -4,7 +4,7 @@
 
 double poly(const std::vector<double>& coeffs, double x) {
     double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
+    for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
@@ -17,13 +17,11 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -1.0, -6.0};
+    std::vector<double> coeffs = {1.0, -1.0, -6.0}; // Example coefficients
     double solution;
 
     solution = find_zero(coeffs);
-
-    double error = std::abs(poly(coeffs, solution));
-    assert(error < 1e-3);
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
     return 0;
 }
