@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <utility>
 #include <cassert>
 
 using namespace std;
@@ -16,10 +15,10 @@ pair<int, int> sum_product(vector<int> numbers) {
         sum += num;
         product *= num;
     }
-    return make_pair(sum, product);
+    return {sum, product};
 }
 
 int main() {
-    assert(issame(sum_product({10}), make_pair(10, 10)));
+    assert(issame(sum_product({10}), {10, 10}));
     return 0;
 }
