@@ -1,5 +1,11 @@
 import math
 
+try:
+    n = int(input("Enter a number: "))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+    exit()
+
 
 def is_prime(num):
     if num < 2:
@@ -17,13 +23,7 @@ def is_fibonacci(num):
     )
 
 
-def prime_fib():
-    try:
-        n = int(input("Enter a number: "))
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
-        exit()
-
+def prime_fib(n):
     count = 0
     num = 1
     while count < n:
@@ -33,4 +33,4 @@ def prime_fib():
     return num - 1
 
 
-print(prime_fib())
+print(prime_fib(n))
