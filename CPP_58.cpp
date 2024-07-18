@@ -7,6 +7,6 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     // Your existing code here
 
-    assert(issame(common({4, 3, 2, 8}, {}), {})); // Ensure 'issame' is defined before calling it
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
