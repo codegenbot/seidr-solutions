@@ -1,15 +1,16 @@
 #include <vector>
+#include <cmath>
 
 bool issame(int a, int b) {
     return a == b;
 }
 
-int count_up_to(int n) {
-    vector<int> res;
+std::vector<int> count_up_to(int n) {
+    std::vector<int> res;
     if (n <= 1) {
         return res;
     }
-    vector<bool> isPrime(n, true);
+    std::vector<bool> isPrime(n, true);
     for (int p = 2; p * p < n; p++) {
         if (isPrime[p]) {
             for (int i = p * p; i < n; i += p) {
