@@ -1,11 +1,24 @@
-vector<string> reverse_delete(string s, string c){
-    for(int i = 0; i < c.size(); i++){
-        s.erase(remove(s.begin(), s.end(), c[i]), s.end());
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = "";
+    for(char ch : s){
+        if(c.find(ch) == std::string::npos){
+            result += ch;
+        }
     }
-    string result = s;
-    string reversed = s;
-    reverse(reversed.begin(), reversed.end());
-    bool is_palindrome = (result == reversed);
-    
-    return {result, is_palindrome ? "True" : "False"};
+    std::string rev_result = result;
+    std::reverse(rev_result.begin(), rev_result.end());
+    return {result, result == rev_result ? "True" : "False"};
+}
+
+int main() {
+    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    return 0;
 }
