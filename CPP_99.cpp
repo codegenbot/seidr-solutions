@@ -1,10 +1,11 @@
 double num = stod(value);
-    int lower = floor(num);
-    int upper = ceil(num);
+    int closestInt;
     
-    if (num - lower < upper - num) {
-        return lower;
+    if (num >= 0) {
+        closestInt = (int)(num + 0.5);
     } else {
-        return upper;
+        closestInt = (int)(num - 0.5);
     }
+    
+    return closestInt;
 }
