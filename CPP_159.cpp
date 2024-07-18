@@ -9,7 +9,7 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b){
 
 std::pair<int, int> eat(int number, int remaining) {
     int total = number + remaining;
-    int eaten = total > remaining ? remaining : total;
+    int eaten = total > number ? number : total;
     int left = remaining - eaten;
     return {eaten, left};
 }
