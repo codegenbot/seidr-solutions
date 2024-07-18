@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 #include <numeric>
-#include <iterator> 
 
 using namespace std;
 
