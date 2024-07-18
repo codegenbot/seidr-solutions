@@ -1,5 +1,4 @@
-print("Enter a list of numbers separated by spaces:")
-numbers = list(map(int, input().split()))
+numbers = list(map(int, input().strip().split()))
 
 def remove_duplicates(numbers):
     return [num for num in numbers if numbers.count(num) == 1]
