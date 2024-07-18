@@ -1,10 +1,13 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if "(" not in paren_string or ")" not in paren_string:
+        return []
+    
     result = []
     group = ""
     level = 0
-
+    
     for char in paren_string:
         if char == "(":
             if level > 0:
@@ -21,6 +24,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             group += char
             
     return result
-
-paren_string = input("Enter the string with parentheses: ")
-print(separate_paren_groups(paren_string))
