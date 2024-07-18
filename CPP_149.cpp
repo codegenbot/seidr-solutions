@@ -16,7 +16,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+    // Implement the comparison logic
 }
 
 int main(){
