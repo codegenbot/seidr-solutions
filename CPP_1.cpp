@@ -6,7 +6,7 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> separate_paren_groups(string paren_string);
 
 bool issame(vector<string> a, vector<string> b) {
-    // Function implementation here
+    // Implementation of issame function
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -32,4 +32,8 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    // Test the functions here if needed
 }
