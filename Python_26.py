@@ -1,4 +1,8 @@
-from typing import List
+print("Enter a list of numbers separated by spaces:")
+numbers = list(map(int, input().split()))
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
+def remove_duplicates(numbers):
     return [num for num in numbers if numbers.count(num) == 1]
+
+result = remove_duplicates(numbers)
+print(result)
