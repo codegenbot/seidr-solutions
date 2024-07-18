@@ -4,9 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b);
-vector<int> sort_third(vector<int> l);
-
 bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size()) {
         return false;
@@ -18,6 +15,8 @@ bool issame(const vector<int>& a, const vector<int>& b){
     }
     return true;
 }
+
+vector<int> sort_third(vector<int> l);
 
 vector<int> sort_third(vector<int> l) {
     vector<int> sorted_indices;
