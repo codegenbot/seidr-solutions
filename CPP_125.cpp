@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool are_same(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -37,11 +33,11 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool are_same(vector<string> a, vector<string> b);
-
-bool are_same(vector<string> a, vector<string> b);
-
 int main(){
-    assert(are_same(split_words(""), {"0"}));
+    assert(split_words("") == vector<string>{"0"});
+    assert(split_words("Hello, World") == vector<string>{"Hello", "World"});
+    assert(split_words("a e i o u") == vector<string>{"a", "e", "i", "o", "u"});
+    assert(split_words("tEsT") == vector<string>{"tEsT"});
+    assert(split_words("cpp 125") == vector<string>{"cpp", "125"});
     return 0;
 }
