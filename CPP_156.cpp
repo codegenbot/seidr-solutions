@@ -1,4 +1,5 @@
-#include <iostream>
+#include <string>
+#include <vector>
 #include <cassert>
 
 std::string int_to_mini_roman(int number){
@@ -19,13 +20,7 @@ std::string int_to_mini_roman(int number){
     return result;
 }
 
-int main(){
-    int number;
-    std::cin >> number;
-    std::string result = int_to_mini_roman(number);
-    std::cout << result << std::endl;
-    
-    assert(int_to_mini_roman(number) == result);
-    
+int main() {
+    assert(int_to_mini_roman(354) == "cccliv");
     return 0;
 }
