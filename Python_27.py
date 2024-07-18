@@ -1,1 +1,2 @@
-return string.swapcase()
+def flip_case(string):
+    return string.swapcase()
