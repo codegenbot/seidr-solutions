@@ -1,25 +1,26 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+using namespace std;
 
-std::string int_to_mini_roman(int number){
-    std::vector<std::string> roman = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
-    std::vector<int> values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-    std::string result = "";
-    int i = 12;
-    while (number > 0) {
-        int div = number / values[i];
-        number %= values[i];
-        while (div--) {
-            result += roman[i];
+string int_to_mini_romank(int number){
+    string roman = "";
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<string> numerals = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+
+    for (int i = 0; i < values.size(); i++) {
+        while (number >= values[i]) {
+            number -= values[i];
+            roman += numerals[i];
         }
-        i--;
     }
-    return result;
+
+    return roman;
 }
 
 int main() {
-    int number;
-    std::cin >> number;
-    std::cout << int_to_mini_roman(number);
+    // Example tests
+    assert(int_to_mini_romank(1000) == "m");
+
     return 0;
 }
