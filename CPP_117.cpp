@@ -1,17 +1,16 @@
-#include <iostream>
-#include <vector>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
+vector<string> select_words(string s, int n);
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
     if (s.empty()) {
         return result;
     }
     
-    std::string word = "";
+    string word = "";
     int consonantCount = 0;
     for (char c : s) {
         if (isalpha(c)) {
@@ -39,18 +38,4 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     
     return result;
-}
-
-int main() {
-    std::string input;
-    int n;
-    std::cin >> input >> n;
-
-    std::vector<std::string> selectedWords = select_words(input, n);
-
-    for (const auto& word : selectedWords) {
-        std::cout << word << " ";
-    }
-
-    return 0;
 }
