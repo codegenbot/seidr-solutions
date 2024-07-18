@@ -1,3 +1,5 @@
+#include <cassert>
+
 bool is_multiply_prime(int a) {
     if (a < 30) return false;
     for (int i = 2; i <= a / 2; ++i) {
