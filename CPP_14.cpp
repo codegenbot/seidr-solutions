@@ -1,6 +1,6 @@
 #include <string>
 
-bool issame(char a, char b){
+bool issame(string a, string b){
     return a == b;
 }
 
