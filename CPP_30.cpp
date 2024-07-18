@@ -18,7 +18,7 @@ vector<float> get_positive(const vector<float>& l) {
     return positive_nums;
 }
 
-int main() {
+int main2() {
     vector<float> input = {-1.5, 2.3, -3.7, 4.5, -5.2};
     vector<float> result = get_positive(input);
 
