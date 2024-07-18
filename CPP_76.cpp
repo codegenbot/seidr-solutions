@@ -11,7 +11,8 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    assert(is_simple_power(1, 12) == true);
-    // Additional test cases can be added here
+    int x, n;
+    std::cin >> x >> n;
+    std::cout << (is_simple_power(x, n) ? "true" : "false") << std::endl;
     return 0;
 }
