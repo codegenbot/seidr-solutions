@@ -1,4 +1,5 @@
-#include <cassert> 
+#include <iostream>
+#include <cassert>
 
 int fib(int n) {
     if (n <= 1)
@@ -6,13 +7,9 @@ int fib(int n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-namespace Solution {
-    int main() {
-        assert(fib(12) == 144);
-        return 0;
-    }
-}
-
 int main() {
-    return Solution::main();
+    int n;
+    std::cin >> n;
+    assert(fib(n) == 144);
+    return 0;
 }
