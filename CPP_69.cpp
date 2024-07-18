@@ -1,7 +1,13 @@
 int result = -1;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            result = max(result, num);
+        int frequency = 0;
+        for (int n : lst) {
+            if (n == num) {
+                frequency++;
+            }
+        }
+        if (frequency >= num && num > result) {
+            result = num;
         }
     }
     return result;
