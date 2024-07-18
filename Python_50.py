@@ -4,7 +4,6 @@ def decode_shift(input_str):
         decoded += chr((ord(char) - 2) % 128)
     return decoded
 
-# Specify the input value here
-input_str = input().strip()
+input_str = "codingisfun"
 result = decode_shift(input_str)
 print(result)
