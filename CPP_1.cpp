@@ -1,23 +1,21 @@
 vector<string> result;
-    string current_group = "";
-    int open_brackets = 0;
+    string current_group;
+    int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            open_brackets++;
-            if (open_brackets > 1) {
+            if (open_count > 0) {
                 current_group += c;
             }
+            open_count++;
         } else if (c == ')') {
-            open_brackets--;
-            if (open_brackets == 0) {
+            open_count--;
+            if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
             } else {
                 current_group += c;
             }
-        } else if (open_brackets > 0) {
-            current_group += c;
         }
     }
 
