@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> parse_nested_parens(string paren_string);
 
 bool issame(vector<int> a, vector<int> b) {
