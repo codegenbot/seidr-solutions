@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string encode(std::string message) {
     for(auto &c : message){
@@ -19,7 +20,6 @@ int main() {
     std::getline(std::cin, input);
 
     std::string encodedMessage = encode(input);
-
     std::cout << "Encoded message: " << encodedMessage << std::endl;
 
     return 0;
