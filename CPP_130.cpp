@@ -1,12 +1,13 @@
 #include <vector>
+
 vector<int> tri(int n);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if(a.size() != b.size()){
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -15,12 +16,12 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 vector<int> tri(int n){
     vector<int> result;
-    if(n >= 0){
+    if (n >= 0) {
         result.push_back(3);
-        if(n > 0){
+        if (n > 0) {
             result.push_back(1);
-            for(int i = 2; i <= n; ++i){
-                if(i % 2 == 0){
+            for (int i = 2; i <= n; ++i){
+                if (i % 2 == 0) {
                     result.push_back(1 + i / 2);
                 } else {
                     result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
@@ -32,6 +33,6 @@ vector<int> tri(int n){
 }
 
 int main() {
-    // Your test code can be added here
+    // Code for testing the tri and issame functions
     return 0;
 }
