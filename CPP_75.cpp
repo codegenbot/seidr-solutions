@@ -1,9 +1,9 @@
 #include <iostream>
-#include <cassert>
 
 bool is_multiply_prime(int a) {
     if (a < 30) return false;
-    for (int i = 2; i <= a / 3; ++i) {
+    int i;
+    for (i = 2; i <= a / 3; ++i) {
         if (a % i == 0) {
             int b = a / i;
             for (int j = 2; j <= b / 2; ++j) {
@@ -20,7 +20,8 @@ bool is_multiply_prime(int a) {
 }
 
 int main() {
-    assert(is_multiply_prime(11 * 13 * 7) == true);
-    
+    int x;
+    std::cin >> x;
+    std::cout << std::boolalpha << is_multiply_prime(x) << std::endl;
     return 0;
 }
