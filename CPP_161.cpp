@@ -1,10 +1,28 @@
-for (char &c : s) {
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
+std::string solve(const std::string& s);
+
+std::string solve(const std::string& s) {
+    std::string modified = s;
+    for (char &c : modified) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-        reverse(s.begin(), s.end());
+    if (modified.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+        std::reverse(modified.begin(), modified.end());
     }
-    return s;
+    return modified;
 }
+
+/*
+int main() {
+    std::string input = "#ccc";
+    std::string output = solve(input);
+    std::cout << output << std::endl;
+    return 0;
+}
+*/
