@@ -1,18 +1,13 @@
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> split_words(string txt){
-    vector<string> result;
-    // Your existing implementation for split_words function
+std::vector<std::string> split_words(std::string s) {
+    // Implement split_words function here
+    return {}; // Placeholder return
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
