@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool has_close_elements(const vector<float>& numbers, float threshold) {
