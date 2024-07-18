@@ -1,6 +1,7 @@
 string result = "";
     while (x > 0) {
-        result = to_string(x % base) + result;
+        char digit = (x % base) + '0';
+        result = digit + result;
         x /= base;
     }
     return result;
