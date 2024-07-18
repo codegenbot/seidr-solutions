@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -14,5 +13,5 @@ std::vector<int> unique_digits(std::vector<int> nums) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return unique_digits(a) == unique_digits(b);
+    return std::unique_digits(a) == std::unique_digits(b);
 }
