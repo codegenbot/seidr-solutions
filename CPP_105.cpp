@@ -6,6 +6,12 @@
 
 bool issame(vector<string> a, vector<string> b);
 
+vector<string> by_length(vector<int> arr);
+
+bool issame(vector<string> a, vector<string> b){
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_string = {
@@ -28,8 +34,4 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
