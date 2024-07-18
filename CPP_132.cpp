@@ -1,16 +1,11 @@
-int n = str.size();
+int is_nested(string str){
     int count = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i] == '[') {
+    for(char c : str){
+        if(c == '['){
             count++;
-        } else {
-            if (count > 0) {
-                count--;
-            }
-        }
-        if (count > 0 && i < n - 1 && str[i+1] == '[') {
-            return true;
+        } else if(c == ']' && count > 0){
+            count--;
         }
     }
-    return false;
+    return count < 0 ? true : false;
 }
