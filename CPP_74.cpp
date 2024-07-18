@@ -1,19 +1,19 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> lst1, vector<string> lst2) {
     int total_chars1 = 0;
-    for (string str : a) {
+    for (string str : lst1) {
         total_chars1 += str.length();
     }
 
     int total_chars2 = 0;
-    for (string str : b) {
+    for (string str : lst2) {
         total_chars2 += str.length();
     }
 
     if (total_chars1 < total_chars2) {
-        return true;
+        return lst1;
     } else {
-        return false;
+        return lst2;
     }
 }
