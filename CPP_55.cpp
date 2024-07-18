@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 
 int fib(int n) {
     if (n <= 1)
@@ -7,4 +6,9 @@ int fib(int n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-assert(fib(n) == 89); // Update expected value to match the problem description
+int main() {
+    int n;
+    std::cin >> n;
+    fib(n);
+    return 0;
+}
