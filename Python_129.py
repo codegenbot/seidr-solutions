@@ -10,7 +10,7 @@ def minPath(grid, k):
             for x in range(max(0, i - 1), min(n, i + 2))
             for y in range(max(0, j - 1), min(n, j + 2))
         )
-        path.append(grid[next_pos[0]][next_pos[1]])
+        path.append(grid[next_pos[0]][next_pos[1])
         pos = next_pos
-        
+    
     return path
