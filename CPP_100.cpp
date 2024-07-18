@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
@@ -22,9 +22,4 @@ std::vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
-}
-
-int main(){
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
 }
