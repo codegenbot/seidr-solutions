@@ -5,9 +5,9 @@
 
 std::vector<int> count_up_to(int limit) {
     std::vector<int> primes;
-    for (int num = 2; num <= limit; num++) {
+    for (int num = 2; num <= limit; ++num) {
         bool is_prime = true;
-        for (int i = 2; i <= sqrt(num); i++) {
+        for (int i = 2; i <= sqrt(num); ++i) {
             if (num % i == 0) {
                 is_prime = false;
                 break;
