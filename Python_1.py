@@ -1,6 +1,9 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if not paren_string.startswith("(") or not paren_string.endswith(")"):
+        return []
+
     result = []
     group = ""
     level = 0
