@@ -1,4 +1,6 @@
 import math
+
+
 def is_prime(num):
     if num < 2:
         return False
@@ -7,16 +9,21 @@ def is_prime(num):
             return False
     return True
 
+
 def is_fibonacci(num):
-    return int(math.sqrt(5 * num * num + 4)) ** 2 == 5 * num * num + 4 or int(math.sqrt(5 * num * num - 4)) ** 2 == 5 * num * num - 4
+    return (
+        math.isqrt(5 * num * num + 4) ** 2 == 5 * num * num + 4
+        or math.isqrt(5 * num * num - 4) ** 2 == 5 * num * num - 4
+    )
 
-try:
-    n = int(input("Enter a number: "))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
-    exit()
 
-def prime_fib(n):
+def prime_fib():
+    try:
+        n = int(input("Enter a number: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+        exit()
+
     count = 0
     num = 1
     while count < n:
@@ -25,4 +32,5 @@ def prime_fib(n):
         num += 1
     return num - 1
 
-print(prime_fib(n))
+
+print(prime_fib())
