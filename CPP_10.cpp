@@ -1,32 +1,22 @@
-#include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
-bool is_palindrome(string s){
-    int i = 0;
-    int j = s.size() - 1;
-    while (i < j){
-        if (s[i] != s[j]){
-            return false;
-        }
-        i++;
-        j--;
-    }
-    return true;
-}
-
 string make_palindrome(string str){
-    string palindrome = str;
-    for(int i = str.size() - 1; i >= 0; i--){
-        if(is_palindrome(str.substr(i))){
-            palindrome += string(str.rbegin(), str.rbegin() + str.size() - i);
-            break;
-        }
-    }
+    if(str.empty()) return "";
+    
+    int n = str.length();
+    int i = n-1;
+    while(i >= 0 && str[i] == str[n-1]) i--;
+    
+    string prefix = str.substr(0, i+1);
+    string suffix = str.substr(i+1);
+    
+    string palindrome = str + string(prefix.rbegin(), prefix.rend()) + suffix;
     return palindrome;
 }
 
-int main(){
+int main() {
     assert(make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
