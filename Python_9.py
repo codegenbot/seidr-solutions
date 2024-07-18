@@ -9,8 +9,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 numbers = []
 while True:
-    num = input("Enter a number (or 'done' to finish): ")
-    if num == 'done':
+    num = input("Enter a number (or 'q' to quit): ")
+    if num == 'q':
         break
     numbers.append(int(num))
 
