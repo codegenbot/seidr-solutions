@@ -5,7 +5,8 @@ def find_zero(xs: list):
     
     a = xs[-1]
     b = xs[-2]
+    
     if b == 0:
-        return "Second last element should be non-zero."
+        return "Division by zero is not allowed."
     
     return -a / b
