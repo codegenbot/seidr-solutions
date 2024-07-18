@@ -12,15 +12,14 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* ctx;
-    ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(ctx, digest, NULL);
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    EVP_DigestInit(ctx, EVP_md5());
+    EVP_DigestUpdate(ctx, text.c_str(), text.length());
+    EVP_DigestFinal(ctx, digest, NULL);
     EVP_MD_CTX_free(ctx);
 
     char mdString[33];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    for (int i = 0; i < 16; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
