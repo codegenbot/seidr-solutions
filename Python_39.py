@@ -1,4 +1,6 @@
-n = int(input("Enter the number of prime Fibonacci numbers to find: ").strip())
+import sys
+
+n = int(sys.stdin.readline().strip())
 
 def is_prime(num):
     if num < 2:
@@ -14,8 +16,8 @@ def prime_fib(n):
     
     while len(result) < n:
         a, b = b, a + b
-        if is_prime(b) and b % 5 == 0:
-            result.append(b)
+        if is_prime(a) and a % 5 == 0:
+            result.append(a)
     
     return result
 
