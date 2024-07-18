@@ -6,5 +6,14 @@ bool maximum(int a, int b) {
     return a > b;
 }
 
-sort(arr.begin(), arr.end(), maximum);
-return vector<int>(arr.begin(), arr.begin() + k);
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
