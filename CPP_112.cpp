@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
@@ -28,8 +27,8 @@ vector<string> reverse_delete(string s, string c){
 int main() {
     string s, c;
     cin >> s >> c;
-    vector<string> result = reverse_delete(s, c);
-    for(const auto& str : result){
+    vector<string> output = reverse_delete(s, c);
+    for(const auto& str : output){
         cout << str << " ";
     }
     cout << endl;
