@@ -5,7 +5,7 @@
 class solution_name {
 public:
     static std::vector<std::string> odd_count(const std::vector<std::string>& input);
-    static bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+    static bool issame(std::vector<std::string> a, std::vector<std::string> b);
     static int count_odd_digits(const std::string& num);
 };
 
@@ -18,7 +18,7 @@ std::vector<std::string> solution_name::odd_count(const std::vector<std::string>
     return result;
 }
 
-bool solution_name::issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool solution_name::issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -33,7 +33,7 @@ int solution_name::count_odd_digits(const std::string& num) {
 }
 
 int main() {
-    assert(solution_name::issame(solution_name::odd_count({"271", "137", "314"}), {
+    assert(issame(solution_name::odd_count({"271", "137", "314"}), {
         "the number of odd elements 1\nthe string 271 of the input.",
         "the number of odd elements 2\nthe string 137 of the input.",
         "the number of odd elements 2\nthe string 314 of the input."
