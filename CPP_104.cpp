@@ -1,31 +1,23 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(int a, int b){
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int num : x) {
+    for(int num : x){
         bool hasEvenDigit = false;
         int temp = num;
-        while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
+        while(temp > 0){
+            if(temp % 2 == 0){
                 hasEvenDigit = true;
                 break;
             }
             temp /= 10;
         }
-        if (!hasEvenDigit) {
+        if(!hasEvenDigit){
             result.push_back(num);
         }
     }
@@ -34,6 +26,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    // Main function implementation here
+    // Main function implementation goes here
     return 0;
 }
