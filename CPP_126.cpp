@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,5 +13,6 @@ bool is_sorted(const std::vector<int>& lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
+    // Add more test cases if needed
     return 0;
 }
