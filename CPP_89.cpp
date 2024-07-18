@@ -1,14 +1,18 @@
+#include<stdio.h>
+#include<string>
+using namespace std;
+
 string encrypt(string s){
     string result = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
-            if((c >= 'A' && encrypted > 'Z') || (c >= 'a' && encrypted > 'z')){
-                encrypted -= 26;
+    for (int i = 0; i < s.length(); i++) {
+        if(isalpha(s[i])){
+            char new_char = s[i] + 2 * 'A' - 'a' + 2;
+            if(new_char > 'Z') {
+                new_char = 'A' + (new_char - 'Z' - 1);
             }
-            result += encrypted;
+            result += new_char;
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
