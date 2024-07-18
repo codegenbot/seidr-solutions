@@ -1,15 +1,17 @@
-int balance = 0;
-for (const string& str : lst) {
-    for (char c : str) {
-        if (c == '(') {
-            balance++;
-        } else {
-            if (balance == 0) {
-                return "No";
+std::string match_parens(const std::vector<std::string>& lst) {
+    int open = 0, close = 0;
+    for (const auto &str : lst) {
+        for (char c : str) {
+            if (c == '(') {
+                open++;
+            } else {
+                if (open > 0) {
+                    open--;
+                } else {
+                    close++;
+                }
             }
-            balance--;
         }
     }
+    return (open == 0 && close == 0) ? "Yes" : "No";
 }
-
-return (balance == 0) ? "Yes" : "No";
