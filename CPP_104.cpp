@@ -4,6 +4,10 @@
 
 bool issame(int a, int b);
 
+bool issame(int a, int b) {
+    return a < b;
+}
+
 std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
@@ -30,8 +34,4 @@ int main() {
     std::vector<int> result = unique_digits(input);
     assert(result == expected_result);
     return 0;
-}
-
-bool issame(int a, int b) {
-    return a < b;
 }
