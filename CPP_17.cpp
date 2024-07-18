@@ -1,27 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
-    int length = music_string.length();
-    for(int i=0; i<length; i+=3){
-        if(music_string[i] == 'o'){
-            beats.push_back(2);
-        } else if(music_string[i] == '.'){
-            beats.push_back(1);
-        } else if(music_string[i] == '|'){
-            i += 2; // skip the next two characters
-        }
-    }
-    return beats;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
+vector<int> parse_music(string music_string);
+
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    string input;
+    getline(cin, input);
+    vector<int> result = parse_music(input);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
     return 0;
+}
+
+vector<int> parse_music(string music_string){
+    vector<int> beats;
+    int length = music_string.size();
+    for (int i = 0; i < length; ++i) {
+        if (music_string[i] == 'o') {
+            beats.push_back(4);
+        } else if (music_string[i] == '|') {
+            if (music_string[i - 1] == 'o') {
+                beats[beats.size() - 1] = 2;
+            } else {
+                beats.push_back(1);
+            }
+        }
+    }
+    return beats;
 }
