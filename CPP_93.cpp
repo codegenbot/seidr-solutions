@@ -1,8 +1,8 @@
+#include <iostream>
 #include <string>
-#include <cctype>
-#include <cassert>
+using namespace std;
 
-std::string encode(std::string message){
+string encode(string message){
     for(char &c: message){
         if(isalpha(c)){
             c = isupper(c) ? tolower(c) : toupper(c);
@@ -14,8 +14,7 @@ std::string encode(std::string message){
     return message;
 }
 
-int main(){
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
-    
+int main() {
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItTg");
     return 0;
 }
