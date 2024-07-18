@@ -1,6 +1,8 @@
-bool issame(int a, int b) {
-    return a > b;
-}
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(int a, int b);
 
 std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
@@ -28,4 +30,8 @@ int main() {
     std::vector<int> result = unique_digits(input);
     assert(result == expected_result);
     return 0;
+}
+
+bool issame(int a, int b) {
+    return a < b;
 }
