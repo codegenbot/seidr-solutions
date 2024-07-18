@@ -1,17 +1,7 @@
-#include <iostream>
-#include <cmath>
-#include <cassert>
-
 bool is_simple_power(int x, int n) {
-    if (x <= 0 || n <= 0) {
-        return false;
-    }
-    double result = log(x) / log(n);
-    return (result == (int)result);
-}
-
-int main() {
-    assert(is_simple_power(1, 12) == true);
-    // Add more test cases if needed
-    return 0;
+    if(x == 1) return true;
+    if(n == 1) return false;
+    
+    double result = log(static_cast<double>(x)) / log(static_cast<double>(n));
+    return (result == static_cast<int>(result));
 }

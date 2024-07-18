@@ -1,6 +1,6 @@
 def intersperse():
-    numbers = list(map(int, raw_input().split()))
-    delimiter = raw_input()
+    numbers = list(map(int, input().split()))
+    delimiter = input()
     
     result = process_numbers(numbers, delimiter)
     
