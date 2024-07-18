@@ -10,5 +10,5 @@ bool issame(vector<int> a, vector<int> b) {
 
     result.erase(unique(result.begin(), result.end()), result.end());
 
-    return result.empty();
+    return result;
 }
