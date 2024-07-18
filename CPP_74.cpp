@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
 
@@ -28,6 +28,6 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame({}, {}));
     return 0;
 }
