@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert> // Include the necessary header file
+#include <cassert>
 
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
@@ -11,7 +11,7 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
