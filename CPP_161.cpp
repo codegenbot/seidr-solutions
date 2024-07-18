@@ -6,16 +6,16 @@
 std::string solve(const std::string& s);
 
 std::string solve(const std::string& s) {
-    std::string modifiedString = s;
-    for (char &c : modifiedString) {
+    std::string modified = s;
+    for (char &c : modified) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        std::reverse(modifiedString.begin(), modifiedString.end());
+    if (modified.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+        std::reverse(modified.begin(), modified.end());
     }
-    return modifiedString;
+    return modified;
 }
 
 int main() {
