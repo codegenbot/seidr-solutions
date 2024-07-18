@@ -1,5 +1,13 @@
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
@@ -9,12 +17,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 2, 3, 4, 4, 4, 5};
-    vector<int> unique_numbers = remove_duplicates(numbers);
-
-    for (int num : unique_numbers) {
-        cout << num << " ";
-    }
-
+    // Main function implementation
     return 0;
 }
