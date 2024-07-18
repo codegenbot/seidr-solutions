@@ -10,13 +10,3 @@ std::vector<int> factorize(int n) {
     }
     return factors;
 }
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> result = factorize(n);
-    for (int factor : result) {
-        std::cout << factor << " ";
-    }
-    return 0;
-}
