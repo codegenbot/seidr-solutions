@@ -1,18 +1,11 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i < a.size(); ++i) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> sum_product(vector<int> a) {
+std::vector<int> sum_product(std::vector<int> a) {
     int sum = 0;
     int product = 1;
     for (int num : a) {
@@ -23,12 +16,7 @@ vector<int> sum_product(vector<int> a) {
 }
 
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    vector<int> input = {num};
-    vector<int> result = sum_product(input);
-    assert(issame(result, {num, num}));
+    assert(issame(sum_product(std::vector<int>{10}), std::vector<int>{10, 10}));
     
     return 0;
 }
