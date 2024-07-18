@@ -1,19 +1,11 @@
 if (n > m) {
-        return "-1";
-    }
-    
-    int sum = 0;
-    for (int i = n; i <= m; i++) {
-        sum += i;
-    }
-    
-    int avg = round((double)sum / (m - n + 1));
-    
-    string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
-    
-    return binary_avg;
+    return "-1";
 }
+
+int sum = 0;
+for (int i = n; i <= m; ++i) {
+    sum += i;
+}
+int avg = round((double)sum / (m - n + 1));
+
+return bitset<sizeof(int)*8>(avg).to_string().substr(sizeof(int)*8-ceil(log2(avg)));
