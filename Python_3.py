@@ -1,9 +1,8 @@
 try:
-    input_text = input("Enter space-separated integers: ")
-    if not input_text.strip():
+    operations = [int(x) for x in input("Enter space-separated integers: ").split()]
+    if len(operations) == 0:
         raise ValueError
-    operations = [int(x) for x in input_text.split()]
     result = below_zero(operations)
     print(result)
-except ValueError:
+except:
     print("No input provided.")
