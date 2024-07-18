@@ -20,6 +20,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    // Your main function logic here
+    // main code here
     return 0;
 }
