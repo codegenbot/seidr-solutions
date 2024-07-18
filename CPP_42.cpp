@@ -6,10 +6,12 @@ vector<int> incr_list(vector<int> l) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    vector<int> result = incr_list(v);
-    for (int x : result) {
-        cout << x << " ";
+    vector<int> nums = {1, 2, 3, 4, 5};
+    vector<int> updated_nums = incr_list(nums);
+
+    for (int num : updated_nums) {
+        cout << num << " ";
     }
+
     return 0;
 }
