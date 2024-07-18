@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -20,10 +20,4 @@ std::pair<int, int> even_odd_palindrome(int n) {
         }
     }
     return {even, odd};
-}
-
-int main() {
-    std::pair<int, int> result = even_odd_palindrome(1);
-    std::cout << (issame(result, std::vector<int>{0, 1}) ? "Pass" : "Fail") << std::endl;
-    return 0;
 }
