@@ -1,4 +1,4 @@
-paren_string = input("Enter the string with parentheses: ")
+from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -20,4 +20,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     return result
 
+paren_string = input()
 print(separate_paren_groups(paren_string))
