@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a < b;
+bool issame(int a, int b) {
+    return a == b;
 }
 
 std::vector<int> unique_digits(std::vector<int> x) {
@@ -22,11 +22,12 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end(), issame);
+    std::sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(unique_digits({135, 103, 31}) == std::vector<int>({31, 135}));
+    std::vector<int> expected = {31, 135};
+    assert(issame(unique_digits({135, 103, 31}), expected));
     return 0;
 }
