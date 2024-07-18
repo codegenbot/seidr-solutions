@@ -27,9 +27,11 @@ vector<string> reverse_delete(string s, string c){
 int main() {
     string s, c;
     cin >> s >> c;
-    vector<string> res = reverse_delete(s, c);
-    for(string str : res){
+
+    vector<string> result = reverse_delete(s, c);
+    for(const string& str : result){
         cout << str << " ";
     }
+
     return 0;
 }
