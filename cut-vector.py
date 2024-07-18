@@ -1,20 +1,12 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
-
-min_diff = float("inf")
-cut_index = 0
-
+vec = [int(input()) for _ in range(n)]
+diff = sum(vec)
+half_diff = 0
+cut_index = -1
 for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
+    half_diff += vec[i]
+    if abs(diff - 2 * half_diff) <= abs(diff - 2 * (half_diff - vec[i])):
         cut_index = i
-
-print(*arr[: cut_index + 1])
-print(*arr[cut_index + 1 :])
+        break
+print(*vec[: cut_index + 1])
+print(*vec[cut_index + 1 :])
