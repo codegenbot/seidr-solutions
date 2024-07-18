@@ -1,6 +1,8 @@
-#include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b);
+vector<string> by_length(vector<int> arr);
+
+bool issame(int x);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -18,6 +20,8 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
+
+    reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
