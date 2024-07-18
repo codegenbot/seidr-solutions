@@ -1,7 +1,6 @@
-if(a + b > c && b + c > a && a + c > b) {
+if(a + b > c && a + c > b && b + c > a) {
         float s = (a + b + c) / 2;
-        return round(sqrt(s * (s - a) * (s - b) * (s - c)) * 100) / 100;
-    } else {
-        return -1;
+        return sqrt(s * (s - a) * (s - b) * (s - c));
     }
+    return -1;
 }
