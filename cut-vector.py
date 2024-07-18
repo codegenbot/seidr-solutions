@@ -1,15 +1,21 @@
 n = int(input())
 v = [int(input()) for _ in range(n)]
-diff = float("inf")
-cut_index = -1
 
-for i in range(1, n):
-    left_sum = sum(v[:i])
-    right_sum = sum(v[i:])
-    current_diff = abs(left_sum - right_sum)
-    if current_diff < diff:
-        diff = current_diff
-        cut_index = i
+total_sum = sum(v)
+partial_sum = 0
+min_diff = float("inf")
+cut_position = 0
 
-print(*v[:cut_index])
-print(*v[cut_index:])
+for i in range(n):
+    partial_sum += v[i]
+    other_sum = total_sum - partial_sum
+    diff = abs(partial_sum - other_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_position = i
+
+subvector1 = v[: cut_position + 1]
+subvector2 = v[cut_position + 1 :]
+
+print(*subvector1)
+print(*subvector2)
