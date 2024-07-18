@@ -7,4 +7,5 @@ def check_numbers(numbers, threshold):
 
 input_numbers = [5, 10, 2, 8]
 input_threshold = 3
-print(check_numbers(input_numbers, input_threshold))
+result = check_numbers(input_numbers, input_threshold)
+print(result)
