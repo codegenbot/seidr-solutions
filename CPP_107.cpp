@@ -26,5 +26,3 @@ std::vector<int> even_odd_palindrome(int n) {
 bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     return a == b;
 }
-
-```
