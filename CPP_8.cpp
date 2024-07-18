@@ -13,11 +13,10 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
+    return std::make_pair(sum, product);
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
-    std::cout << "All tests passed successfully!" << std::endl;
+    assert(issame(sum_product(std::vector<int>{10}), std::make_pair(10, 10)));
     return 0;
 }
