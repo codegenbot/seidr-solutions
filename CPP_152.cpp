@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
@@ -9,8 +9,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for (int i = 0; i < game.size(); ++i) {
         result.push_back(abs(game[i] - guess[i]));
     }
@@ -18,20 +18,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game = {1, 2, 3, 4};
-    vector<int> guess = {2, 3, 4, 5};
+    std::vector<int> game = {1, 2, 3};
+    std::vector<int> guess = {2, 3, 4};
 
-    vector<int> result = compare(game, guess);
-
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
-    }
-
-    if (issame(game, guess)) {
-        cout << "Game and guess are the same." << endl;
-    } else {
-        cout << "Game and guess are different." << endl;
-    }
-
+    std::vector<int> compared = compare(game, guess);
     return 0;
 }
