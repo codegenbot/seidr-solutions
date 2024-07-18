@@ -2,7 +2,7 @@
 #include <cctype>
 #include <cassert>
 
-string encode(string message){
+std::string encode(std::string message){
     for(char &c: message){
         if(isalpha(c)){
             c = isupper(c) ? tolower(c) : toupper(c);
