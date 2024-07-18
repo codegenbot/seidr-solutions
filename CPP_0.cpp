@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -13,6 +12,6 @@ bool has_close_elements(std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    // Test your function here
+    // Your main function code here, if needed
     return 0;
 }
