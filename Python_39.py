@@ -21,5 +21,6 @@ def solve_problem(n):
         num += 1
     return num - 1
 
+
 n = int(input())
 print(solve_problem(n))
