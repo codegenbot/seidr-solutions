@@ -1,8 +1,2 @@
-strings = input().split()
-
-
-def concatenate_strings(strings):
+def join_strings(strings):
     return "".join(strings)
-
-
-print(concatenate_strings(strings))
