@@ -1,11 +1,29 @@
-int a = 0, b = 0, c = 2, d = 0, temp;
-    if (n < 3) return n == 2 ? c : 0;
-    for (int i = 3; i <= n; ++i) {
-        temp = d + c + b + a;
+#include <iostream>
+
+int fib4(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 0;
+    if (n == 2) return 2;
+    if (n == 3) return 0;
+    
+    int a = 0, b = 0, c = 2, d = 0, sum = 0;
+    
+    for (int i = 4; i <= n; ++i) {
+        sum = a + b + c + d;
         a = b;
         b = c;
         c = d;
-        d = temp;
+        d = sum;
     }
-    return d;
+    
+    return sum;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter n: ";
+    std::cin >> n;
+    std::cout << "fib4(" << n << ") = " << fib4(n) << std::endl;
+    
+    return 0;
 }
