@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool has_close_elements(std::vector<float>& numbers, float threshold) {
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     for (int i = 0; i < numbers.size() - 1; ++i) {
-        if (abs(numbers[i] - numbers[i + 1]) < threshold) {
+        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
             return true;
         }
     }
@@ -13,6 +12,6 @@ bool has_close_elements(std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    // Test your function here
+    // Your test cases can be added here
     return 0;
 }
