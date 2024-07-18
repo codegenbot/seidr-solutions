@@ -1,12 +1,14 @@
 def prime_fib():
-    n = int(input("Enter the value of 'n': "))
+    n = input("Enter the value of 'n': ")
     
     def fibonacci(n):
         if n <= 1:
             return n
         else:
             return fibonacci(n - 1) + fibonacci(n - 2)
-
+    
+    n = int(n)
+    
     prime_fibonacci = []
     count = 0
     num = 1
