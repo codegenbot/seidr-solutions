@@ -1,11 +1,14 @@
-vector<int> a;
-    for (int i = 1; i <= n; ++i) {
-        a.push_back(i * i - i + 1);
-    }
+#include <iostream>
+#include <vector>
 
+int get_matrix_triples(int n) {
     int count = 0;
-    for (int i = 0; i < n-2; ++i) {
-        for (int j = i + 1; j < n-1; ++j) {
+    std::vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        a[i] = i * i - i + 1;
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
             for (int k = j + 1; k < n; ++k) {
                 if ((a[i] + a[j] + a[k]) % 3 == 0) {
                     count++;
@@ -13,6 +16,10 @@ vector<int> a;
             }
         }
     }
-
     return count;
+}
+
+int main() {
+    assert(get_matrix_triples(100) == 53361);
+    return 0;
 }
