@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string flip_case(string str) {
-    for(size_t i = 0; i < str.length(); i++){
-        if(islower(str[i])){
+std::string flip_case(std::string str) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (islower(str[i])) {
             str[i] = toupper(str[i]);
-        }
-        else if(isupper(str[i])){
+        } else if (isupper(str[i])) {
             str[i] = tolower(str[i]);
         }
     }
@@ -15,14 +13,13 @@ string flip_case(string str) {
 }
 
 int main(int argc, char *argv[]) {
-    if(argc < 2) {
-        cout << "Usage: ./program_name <string>" << endl;
+    if (argc != 2) {
+        std::cout << "Usage: ./program_name <string_to_flip_case>\n";
         return 1;
     }
     
-    string input_str = argv[1];
-    string flipped_str = flip_case(input_str);
-    cout << flipped_str << endl;
-    
+    std::string str(argv[1]);
+    std::cout << flip_case(str) << std::endl;
+
     return 0;
 }
