@@ -1,6 +1,6 @@
-unordered_map<char, int> histogram(const string& test) {
-    unordered_map<char, int> result;
-    unordered_map<char, int> counts;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    map<char, int> counts;
     
     for (char c : test) {
         if (c != ' ') {
@@ -20,4 +20,11 @@ unordered_map<char, int> histogram(const string& test) {
     }
     
     return result;
+}
+
+// Testing
+int main() {
+    assert(histogram("a") == {{'a', 1}});
+    
+    return 0;
 }
