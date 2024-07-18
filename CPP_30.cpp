@@ -11,12 +11,7 @@ vector<float> get_positive(const vector<float>& l) {
 }
 
 int main() {
-    vector<float> input = {-1.5, 2.3, -3.7, 4.5, -5.2};
-    vector<float> result = get_positive(input);
-
-    assert(result.size() == 2);
-    assert(result[0] == 2.3);
-    assert(result[1] == 4.5);
-
-    return 0;
+    vector<float> l = {-2.5, 3.0, -1.2, 5.4, 0.0};
+    vector<float> result = get_positive(l);
+    assert(result.size() == 2 && result[0] == 3.0 && result[1] == 5.4);
 }
