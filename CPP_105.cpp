@@ -1,13 +1,8 @@
 #include <vector>
-#include <map>
 #include <string>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
+#include <map>
 
 vector<string> by_length(vector<int> arr);
-
 bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b) {
