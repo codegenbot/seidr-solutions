@@ -1,4 +1,5 @@
 #include <cassert>
+#include <string>
 
 bool is_palindrome(const std::string& text) {
     int len = text.length();
