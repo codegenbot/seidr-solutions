@@ -1,15 +1,16 @@
-bool isAllEven(vector<int>& lst) {
-    for (int num : lst) {
-        if (num % 2 != 0) {
-            return false;
+#include<vector>
+#include<string>
+using namespace std;
+string exchange(vector<int> lst1, vector<int> lst2){
+    for(int num : lst1){
+        if(num % 2 != 0){
+            for(int num2 : lst2){
+                if(num2 % 2 == 0){
+                    return "YES";
+                }
+            }
+            return "NO";
         }
     }
-    return true;
-}
-
-string exchange(vector<int> lst1, vector<int> lst2) {
-    if (isAllEven(lst1)) {
-        return "YES";
-    }
-    return "NO";
+    return "YES";
 }
