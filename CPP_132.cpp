@@ -1,12 +1,14 @@
 int n = str.size();
-    int cnt = 0;
-    for(int i=0; i<n; i++){
-        if(str[i] == '['){
-            cnt++;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (str[i] == '[') {
+            count++;
         } else {
-            cnt--;
+            if (count > 0) {
+                count--;
+            }
         }
-        if(cnt > 0 && cnt < n){
+        if (count > 0 && i < n - 1 && str[i+1] == '[') {
             return true;
         }
     }
