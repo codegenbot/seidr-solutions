@@ -19,4 +19,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     // main function logic here
+    return 0;
 }
