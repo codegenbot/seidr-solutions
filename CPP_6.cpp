@@ -1,6 +1,10 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-bool vector<int> parse_nested_parens(string paren_string) {
+using namespace std;
+
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
     int current_depth = 0;
@@ -24,16 +28,6 @@ bool vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string containing nested parentheses: ";
-    getline(cin, input);
-
-    vector<int> result = parse_nested_parens(input);
-
-    cout << "Max depths of nested parentheses: ";
-    for (int depth : result) {
-        cout << depth << " ";
-    }
-
+    assert(parse_nested_parens("(()(())((())))") == vector<int>{4});
     return 0;
 }
