@@ -1,12 +1,13 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Implement your logic for comparing two vectors of strings here
+using namespace std;
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    // Add your logic here
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string current_group;
     int balance = 0;
@@ -29,9 +30,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
