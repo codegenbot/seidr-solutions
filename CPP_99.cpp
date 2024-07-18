@@ -3,16 +3,25 @@
 
 int closest_integer(std::string value) {
     double num = std::stod(value);
-    int rounded = std::round(num);
-    if (num - rounded == 0.5) {
-        return (num > 0) ? std::ceil(num) : std::floor(num);
-    } else {
-        return std::round(num);
+    int closest = std::round(num);
+    
+    if (num - closest == 0.5) {
+        closest = std::ceil(num);
+    } else if (num - closest == -0.5) {
+        closest = std::floor(num);
     }
+    
+    return closest;
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
+    std::string input_value;
+    std::cout << "Enter a value: ";
+    std::cin >> input_value;
+    
+    int result = closest_integer(input_value);
+    
+    std::cout << "Closest integer: " << result << std::endl;
     
     return 0;
 }
