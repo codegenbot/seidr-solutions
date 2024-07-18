@@ -2,7 +2,16 @@
 #include <string>
 #include <openssl/md5.h>
 
-using namespace std;
+string string_to_md5(const string &text);
+
+int main() {
+    string input_text;
+    cin >> input_text;
+    
+    cout << string_to_md5(input_text) << endl;
+    
+    return 0;
+}
 
 string string_to_md5(const string &text) {
     if(text.empty()){
