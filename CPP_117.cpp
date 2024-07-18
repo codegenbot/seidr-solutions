@@ -9,7 +9,7 @@ vector<string> select_words(string s, int n) {
     if (s.empty()) {
         return result;
     }
-    
+
     string word = "";
     int consonantCount = 0;
     for (char c : s) {
@@ -36,6 +36,6 @@ vector<string> select_words(string s, int n) {
     if (!word.empty() && consonantCount == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
