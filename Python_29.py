@@ -1,1 +1,2 @@
-return [s for s in strings if s.startswith(prefix)]
+def find_strings(strings, prefix):
+    return [s for s in strings if s.startswith(prefix)]
