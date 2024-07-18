@@ -6,13 +6,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for char in paren_string:
         if char == "(":
             current_depth += 1
-            depths.append(current_depth)
-        elif char == ")" and current_depth > 0:
+        elif char == ")":
             current_depth -= 1
-    
-    if current_depth < 0:
-        return []
-        
+        if current_depth < 0:
+            return []
+        depths.append(current_depth)
+
     if current_depth != 0:
         return []
 
