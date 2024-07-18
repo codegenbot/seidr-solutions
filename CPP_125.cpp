@@ -3,22 +3,14 @@
 #include <cctype> // for islower
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+vector<string> split_words(string txt){
+    vector<string> result;
+    // Add your implementation
+    return result;
 }
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    // Implementation to split txt into words and store in result
-    return result;
+bool issame(vector<string> a, vector<string> b){
+    // Add your implementation
 }
 
 int main(){
