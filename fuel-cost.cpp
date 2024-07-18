@@ -7,6 +7,6 @@ int main() {
         cin >> nums[i];
         sum += (nums[i] / 3) - 2;
     }
-    cout << sum << endl;
+    cout << sum;
     return 0;
 }
