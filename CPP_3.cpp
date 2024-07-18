@@ -1,6 +1,8 @@
-bool below_zero(const vector<int>& operations) {
+#include <vector>
+
+bool below_zero(const std::vector<int>& operations) {
     int balance = 0;
-    for (int op : operations) {
+    for (const int& op : operations) {
         balance += op;
         if (balance < 0) {
             return true;
