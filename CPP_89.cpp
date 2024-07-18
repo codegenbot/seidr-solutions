@@ -5,8 +5,8 @@
 std::string encrypt(std::string s){
     std::string encrypted = "";
     for (char c : s) {
-        if (std::isalpha(c)) {
-            char base = std::islower(c) ? 'a' : 'A';
+        if (isalpha(c)) {
+            char base = islower(c) ? 'a' : 'A';
             char encrypted_char = base + ((c - base + 2 * 2) % 26);
             encrypted += encrypted_char;
         } else {
@@ -17,6 +17,6 @@ std::string encrypt(std::string s){
 }
 
 int main() {
-    assert (encrypt("a") == "e");
+    assert(encrypt("a") == "e");
     return 0;
 }
