@@ -1,13 +1,9 @@
 #include <vector>
-#include <string>
-#include <algorithm>
-#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
-    result.push_back(0);
-    if (n > 0) {
-        result.push_back(1);
+    if (n == 1) {
+        result = {0, 1};
     }
     return result;
 }
