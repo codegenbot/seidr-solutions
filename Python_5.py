@@ -1,7 +1,2 @@
-def intersperse(numbers: List[int], delimeter: int) -> List[int]:
-    result = []
-    for i in range(len(numbers)):
-        result.append(numbers[i])
-        if i != len(numbers) - 1:
-            result.append(delimeter)
-    return result
+def interleave_numbers(numbers, delimiter):
+    return [e for sublist in [[num, delimiter] for num in numbers] for e in sublist][:-1]
