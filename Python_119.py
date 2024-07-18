@@ -5,7 +5,9 @@ def match_parens(lst):
             if char == '(':
                 open_count += 1
             else:
-                if open_count <= 0:
+                if open_count < 0:
                     return 'No'
                 open_count -= 1
-    return 'Yes' if open_count == 0 else 'No'
+    if open_count == 0:
+        return 'Yes'
+    return 'No'
