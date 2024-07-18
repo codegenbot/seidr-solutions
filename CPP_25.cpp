@@ -5,7 +5,7 @@ vector<int> factors;
             n /= i;
         }
     }
-    if (n > 1) {
+    if(n > 1){
         factors.push_back(n);
     }
     return factors;
