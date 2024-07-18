@@ -23,14 +23,11 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> result = get_odd_collatz(10);
-    vector<int> expected = {1, 3, 5, 9};
-
-    if (issame(result, expected)) {
-        cout << "Test passed!" << endl;
+    vector<int> res = get_odd_collatz(10);
+    vector<int> expected = {1, 5};
+    if (issame(res, expected)) {
+        return 0;
     } else {
-        cout << "Test failed!" << endl;
+        return 1;
     }
-
-    return 0;
 }
