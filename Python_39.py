@@ -23,5 +23,4 @@ def prime_fib():
             count += 1
     return num
 
-
 print(prime_fib())
