@@ -1,23 +1,25 @@
 #include <string>
-#include <cassert>
 #include <cctype>
+#include <cassert>
 
 using namespace std;
 
-string file_name_check(const string& file_name);
+string file_name_check(string file_name);
 
 int main() {
-    assert (file_name_check("s.") == "No");
+    assert(file_name_check("s.") == "No");
 }
 
-string file_name_check(const string& file_name) {
+string file_name_check(string file_name) {
     int digitCount = 0;
     for (char c : file_name) {
         if (isdigit(c)) {
             digitCount++;
         }
     }
-    assert(digitCount <= 3);
+    if (digitCount > 3) {
+        return "No";
+    }
 
     size_t dotPos = file_name.find('.');
     if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
