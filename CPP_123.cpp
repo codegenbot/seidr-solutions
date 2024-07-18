@@ -4,6 +4,8 @@
 
 vector<int> get_odd_collatz(int n);
 
+bool issame(vector<int> a);
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -33,5 +35,5 @@ bool issame(vector<int> a) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1)));
+    assert(issame({1}));
 }
