@@ -1,8 +1,9 @@
-def find_zero(xs: list):
-    n = len(xs)
-    if n != 2:
-        return None
-    a, b = xs
-    if b == 0:
-        return None
-    return -a / b
+def find_zero(nums):
+    if nums[0] == 0:
+        return nums[1]
+    if nums[1] == 0:
+        return nums[0]
+    return "No zero found"
+
+input_list = list(map(float, input().split()))
+print(find_zero(input_list))
