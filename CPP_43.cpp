@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 bool pairs_sum_to_zero(std::vector<int> l) {
     for (size_t i = 0; i < l.size(); ++i) {
         for (size_t j = i + 1; j < l.size(); ++j) {
@@ -13,12 +10,20 @@ bool pairs_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> test_case1 = {2, -2, 3, 1};
+    std::vector<int> test_case1 = {1, 2, 3, -2, -1};
     std::vector<int> test_case2 = {4, 5, 6, 7};
-
-    std::cout << std::boolalpha;
-    std::cout << pairs_sum_to_zero(test_case1) << std::endl; // Output: true
-    std::cout << pairs_sum_to_zero(test_case2) << std::endl; // Output: false
-
+    
+    if (pairs_sum_to_zero(test_case1)) {
+        std::cout << "Pair summing to zero found in test_case1\n";
+    } else {
+        std::cout << "No pair summing to zero found in test_case1\n";
+    }
+    
+    if (pairs_sum_to_zero(test_case2)) {
+        std::cout << "Pair summing to zero found in test_case2\n";
+    } else {
+        std::cout << "No pair summing to zero found in test_case2\n";
+    }
+    
     return 0;
 }
