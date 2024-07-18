@@ -1,3 +1,18 @@
+#include <cassert>
+
+int fib(int n);
+
+int main() {
+    assert(fib(0) == 0);
+    assert(fib(1) == 1);
+    assert(fib(2) == 1);
+    assert(fib(3) == 2);
+    assert(fib(4) == 3);
+    // Add more test cases as needed
+
+    return 0;
+}
+
 int fib(int n) {
     if (n <= 1) {
         return n;
@@ -9,9 +24,4 @@ int fib(int n) {
         b = c;
     }
     return b;
-}
-
-int main() {
-    assert(fib(12) == 144);
-    return 0;
 }
