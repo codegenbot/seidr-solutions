@@ -11,6 +11,6 @@ bool below_threshold(std::vector<int>& l, int t) {
 }
 
 int main() {
-    std::vector<int> vec = {1, 8, 4, 10};
-    assert(!below_threshold(vec, 10));
+    std::vector<int> nums = {1, 8, 4, 10};
+    assert(!below_threshold(nums, 10));
 }
