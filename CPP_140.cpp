@@ -1,17 +1,26 @@
 string result = "";
-    bool consecutive = false;
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            if (!consecutive) {
-                result += '_';
-                consecutive = true;
-            } else {
-                result += '-';
+            count++;
+            if (count > 2) {
+                if (result.back() != '-') {
+                    result += '-';
+                }
             }
         } else {
-            result += c;
-            consecutive = false;
+            if (count > 2) {
+                result += '-';
+            } else {
+                result += (count > 0) ? '_' : c;
+            }
+            count = 0;
         }
+    }
+    if (count > 2) {
+        result += '-';
+    } else {
+        result += (count > 0) ? '_' : text.back();
     }
     return result;
 }
