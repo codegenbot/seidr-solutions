@@ -4,6 +4,6 @@ def find_zero(xs: list, x: int):
         n -= 1
     for i in range(n, -1, -2):
         if xs[i] != 0:
-            return -xs[i - 1] / (2 * xs[i]) * x
+            return ((-xs[i - 1]) + x) / (2 * xs[i])
 
 print(find_zero([-1, 0, 2, 3], 5))
