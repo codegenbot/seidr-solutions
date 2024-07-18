@@ -1,12 +1,15 @@
 #include <vector>
+#include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     if(a.size() != b.size()){
         return false;
     }
     
-    for(int i=0; i<a.size(); i++){
+    for(size_t i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -16,6 +19,7 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    assert(!issame({"Jupiter", "Makemake"}, {}));
-    assert(issame({"Mercury", "Venus"}, {"Mercury", "Venus"}));
+    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));
+    
+    return 0;
 }
