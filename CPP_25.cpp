@@ -1,10 +1,7 @@
-#include <cassert>
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+using namespace std;
 
 vector<int> factorize(int n){
     vector<int> factors;
@@ -18,9 +15,4 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
-}
-
-int main() {
-    // Your test code or main logic here
-    return 0;
 }
