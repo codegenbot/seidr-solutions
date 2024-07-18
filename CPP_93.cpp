@@ -1,11 +1,20 @@
-string encode(string message){
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            message[i] = islower(message[i]) ? toupper(message[i]) : tolower(message[i]);
-            if(message[i]=='a' || message[i]=='e' || message[i]=='i' || message[i]=='o' || message[i]=='u'){
-                message[i] = char(message[i] + 2);
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message) {
+    for(auto &c : message){
+        if(isalpha(c)){
+            c = isupper(c) ? tolower(c) : toupper(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
             }
         }
     }
     return message;
+}
+
+int main() {
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    return 0;
 }
