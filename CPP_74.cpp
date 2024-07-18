@@ -1,13 +1,5 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
@@ -26,4 +18,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
+}
+
+int main() {
+    assert(total_match({"this"}, {}).empty());
 }
