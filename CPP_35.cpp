@@ -6,7 +6,14 @@ float max_element(const vector<float>& l){
 }
 
 int main(){
-    std::vector<float> nums( {1.2, 3.4, 5.6, 7.8, 9.0} );
-    float result = max_element(nums);
+    std::vector<float> numbers(5);
+    // Input numbers from the user
+    for(int i=0; i<5; i++){
+        std::cin >> numbers[i];
+    }
+    
+    float max = max_element(numbers);
+    std::cout << "Max Element: " << max << std::endl;
+
     return 0;
 }
