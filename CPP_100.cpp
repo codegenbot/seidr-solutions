@@ -30,9 +30,11 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-void main() {
+int main(){
     std::vector<int> result = make_a_pile(5);
 
     std::vector<int> expected = {5, 6, 8, 10, 12};
     assert(issame(result, expected));
+
+    return 0;
 }
