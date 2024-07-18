@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
@@ -33,10 +32,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    vector<int> interval1 = {1, 5};
-    vector<int> interval2 = {3, 7};
-
-    cout << intersection(interval1, interval2) << endl;
+    cout << intersection({0, 5}, {3, 7}) << endl;
+    cout << intersection({1, 4}, {7, 10}) << endl;
+    cout << intersection({2, 6}, {4, 8}) << endl;
 
     return 0;
 }
