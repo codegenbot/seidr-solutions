@@ -1,4 +1,8 @@
-int len = text.length();
+#include <string>
+#include <cassert>
+
+bool is_palindrome(const std::string& text) {
+    int len = text.length();
     for (int i = 0; i < len / 2; i++) {
         if (text[i] != text[len - i - 1]) {
             return false;
