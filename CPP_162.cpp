@@ -9,7 +9,7 @@ string string_to_md5(const string& text) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
+    unsigned char digest[EVP_MAX_MD_SIZE];
     EVP_Digest((unsigned char*)text.c_str(), text.length(), digest, NULL, EVP_md5(), NULL);
 
     char mdString[33];
