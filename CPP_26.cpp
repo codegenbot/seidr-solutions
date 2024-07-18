@@ -10,7 +10,7 @@ std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b; // Assuming comparison is based on element-wise equality
+    return a == b;
 }
 
 int main() {
