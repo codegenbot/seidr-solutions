@@ -6,13 +6,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sum_product(std::vector<int> a) {
-    long long sum = 0;
-    long long product = 1;
+    int sum = 0;
+    int product = 1;
     for (int num : a) {
         sum += num;
         product *= num;
     }
-    return {static_cast<int>(sum), static_cast<int>(product)};
+    return {sum, product};
 }
 
 int main() {
