@@ -1,35 +1,36 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+bool is_consonant(char c) {
+    return !isspace(c) && !strchr("AEIOUaeiou", c) && isalpha(c);
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
+    string current_word;
+    int consonant_count = 0;
     
     for (char c : s) {
-        if (c == ' ' || c == '\n' || c == '\t') {
-            int consonants = 0;
-            for (char ch : word) {
-                if (isalpha(ch) && !strchr("aeiouAEIOU", ch)) {
-                    consonants++;
-                }
+        if (!isalpha(c) && !current_word.empty()) {
+            if (consonant_count == n) {
+                result.push_back(current_word);
             }
-            if (consonants == n) {
-                result.push_back(word);
+            consonant_count = 0;
+            current_word.clear();
+        } else if (isalpha(c)) {
+            current_word += c;
+            if (is_consonant(c)) {
+                consonant_count++;
             }
-            word = "";
-        } else {
-            word += c;
         }
     }
-    
-    if (!word.empty()) {
-        int consonants = 0;
-        for (char ch : word) {
-            if (isalpha(ch) && !strchr("aeiouAEIOU", ch)) {
-                consonants++;
-            }
-        }
-        if (consonants == n) {
-            result.push_back(word);
-        }
+
+    if (!current_word.empty() && consonant_count == n) {
+        result.push_back(current_word);
     }
-    
+
     return result;
 }
