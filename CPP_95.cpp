@@ -1,17 +1,24 @@
-if(dict.empty()) return false;
-bool all_lower = true, all_upper = true;
-for(auto &it : dict){
-    string key = it.first;
-    if(key.size() == 0){
-        continue;
+if (dict.empty()) {
+    return false;
+}
+
+bool is_lowercase = true;
+bool is_uppercase = true;
+
+for (const auto& pair : dict) {
+    for (char c : pair.first) {
+        if (!islower(c)) {
+            is_lowercase = false;
+            break;
+        }
     }
-    if(key[0]>='a' && key[0]<='z'){
-        all_upper = false;
-    } else if(key[0]>='A' && key[0]<='Z'){
-        all_lower = false;
-    } else{
-        return false;
+    for (char c : pair.first) {
+        if (!isupper(c)) {
+            is_uppercase = false;
+            break;
+        }
     }
 }
-return all_lower || all_upper;
+
+return is_lowercase || is_uppercase;
 }
