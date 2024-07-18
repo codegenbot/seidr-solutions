@@ -3,11 +3,9 @@
 
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         for (int j = 0; j < lst[i].size(); j++) {
@@ -24,4 +22,8 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
         }
     });
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
