@@ -1,8 +1,8 @@
 int result = -1;
     for (int num : lst) {
         int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
+        for (int val : lst) {
+            if (val == num) {
                 freq++;
             }
         }
