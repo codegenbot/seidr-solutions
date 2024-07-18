@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
@@ -12,12 +12,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 2, 3, 3, 4, 5, 5, 6};
-    
-    vector<int> result = remove_duplicates(numbers);
+    vector<int> input = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    vector<int> result = remove_duplicates(input);
 
-    for (const auto& num : result) {
-        std::cout << num << " ";
+    for (int num : result) {
+        cout << num << " ";
     }
 
     return 0;
