@@ -1,9 +1,13 @@
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    if not all(isinstance(operation, int) for operation in operations):
+    if not isinstance(operations, list):
         return False
+    for operation in operations:
+        if not isinstance(operation, int):
+            return False
+    
+    balance = 0
     for operation in operations:
         balance += operation
         if balance < 0:
