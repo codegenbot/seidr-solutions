@@ -1,11 +1,15 @@
-string x_str = to_string(x);
-    int n = x_str.length();
-    
-    if (shift >= n) {
-        reverse(x_str.begin(), x_str.end());
+#include <string>
+
+std::string circular_shift(int x, int shift);
+
+std::string circular_shift(int x, int shift) {
+    std::string str = std::to_string(x);
+    int n = str.size();
+    shift = shift % n;
+    if (shift == 0) {
+        return str;
     } else {
-        rotate(x_str.rbegin(), x_str.rbegin() + shift, x_str.rend());
+        std::string shifted = str.substr(n - shift) + str.substr(0, n - shift);
+        return shifted;
     }
-    
-    return x_str;
 }
