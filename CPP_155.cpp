@@ -3,7 +3,13 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    return {n % 2 == 0, n % 2 != 0};
+    int even = 0, odd = 0;
+    while (n != 0) {
+        if (n % 2 == 0) even++;
+        else odd++;
+        n /= 10;
+    }
+    return {even, odd};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
