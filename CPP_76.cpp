@@ -10,9 +10,19 @@ bool is_simple_power(int x, int n) {
     return (result == (int)result);
 }
 
+bool solve() {
+    // Add your test cases here
+    assert(is_simple_power(1, 12) == true);
+    
+    return true;
+}
+
 int main() {
-    int x, n;
-    std::cin >> x >> n;
-    std::cout << (is_simple_power(x, n) ? "true" : "false") << std::endl;
+    if (solve()) {
+        std::cout << "All test cases passed." << std::endl;
+    } else {
+        std::cout << "Some test cases failed." << std::endl;
+    }
+    
     return 0;
 }
