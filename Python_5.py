@@ -1,2 +1,2 @@
-def check_numbers(numbers, delimiter):
-    return process_numbers(numbers, delimiter)
+def process_numbers(numbers, delimiter):
+    return [item for sublist in [[num, delimiter] for num in numbers] for item in sublist][:-1]
