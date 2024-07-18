@@ -15,8 +15,8 @@ bool is_palindrome(const std::string& text) {
 int main() {
     std::string input;
     std::cin >> input;
-    
+
     std::cout << (is_palindrome(input) ? "true" : "false") << std::endl;
-    
+
     return 0;
 }
