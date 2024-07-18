@@ -1,12 +1,22 @@
 string encode(string message){
-    for(auto &c : message) {
+    string encoded = message;
+    transform(encoded.begin(), encoded.end(), encoded.begin(), [](char c){
         if(isalpha(c)){
-            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
-                c = isupper(c) ? toupper((c - 'A' + 2) % 26 + 'A') : tolower((c - 'a' + 2) % 26 + 'a');
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                if(islower(c)){
+                    c = (c - 'a' + 2) % 26 + 'a';
+                } else {
+                    c = (c - 'A' + 2) % 26 + 'A';
+                }
             } else {
-                c = isupper(c) ? tolower(c) : toupper(c);
+                if(islower(c)){
+                    c = toupper(c);
+                } else {
+                    c = tolower(c);
+                }
             }
         }
-    }
-    return message;
+        return c;
+    });
+    return encoded;
 }
