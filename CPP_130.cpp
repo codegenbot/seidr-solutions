@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 vector<int> tri(int n) {
     vector<int> result;
     if (n == 0) {
@@ -27,10 +31,6 @@ vector<int> tri(int n) {
     }
     
     return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
 }
 
 assert(issame(tri(1), {1, 3}));
