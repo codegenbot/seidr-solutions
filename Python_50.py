@@ -1,12 +1,9 @@
-import sys
-
 def decode_shift(input_str):
     decoded = ""
     for char in input_str:
         decoded += chr((ord(char) - 2) % 128)
-    return decoded.encode('utf-8')
+    return decoded
 
-# Specify the input value by running the code and entering the input when prompted
-input_str = sys.stdin.readline().strip()
+input_str = input("Enter the input string: ").strip()
 result = decode_shift(input_str)
-print(result.decode('utf-8'))
+print(result)
