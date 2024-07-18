@@ -21,7 +21,6 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
-int main() {
-    // Main function logic using strange_sort_list
-    return 0;
+int main(){
+    // main function body
 }
