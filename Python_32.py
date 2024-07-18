@@ -7,7 +7,6 @@ def find_zero(xs: list):
     x = -a / b
     return x
 
-
 print("Enter space-separated list of numbers:")
 input_list = list(map(float, input().split()))
 result = find_zero(input_list)
