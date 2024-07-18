@@ -12,6 +12,7 @@ int main() {
     for (int i = 0; i < indices.size(); ++i) {
         cout << indices[i] << " ";
     }
+    cout << endl;
 
     return 0;
 }
