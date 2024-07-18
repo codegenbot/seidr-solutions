@@ -5,13 +5,6 @@
 #include <cassert>
 using namespace std;
 
-string sort_numbers(string numbers);
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
-}
-
 map<string, int> numMap = {
     {"zero", 0},
     {"one", 1},
@@ -46,6 +39,11 @@ string sort_numbers(string numbers) {
     for (const string &num : numList) {
         sortedNumbers += num + " ";
     }
-    sortedNumbers.pop_back();
+    sortedNumbers.pop_back(); // Remove extra space at the end
     return sortedNumbers;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
