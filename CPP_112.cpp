@@ -1,12 +1,17 @@
-vector<string> reverse_delete(string s, string c){
-    string result;
-    for(auto ch : s){
-        if (c.find(ch) == string::npos) {
-            result += ch;
-        }
-    }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
+#include <algorithm>
+#include <cassert>
+#include <string>
+#include <vector>
 
-    return {result, result == result_reverse ? "True" : "False"};
+pair<string, string> solve(const string& s, const string& c) {
+    string str = s;
+    for (char ch : c) {
+        str.erase(remove(str.begin(), str.end(), ch), str.end());
+    }
+
+    string result = str;
+    string reversed = str;
+    reverse(reversed.begin(), reversed.end());
+
+    return {result, (result == reversed) ? "True" : "False"};
 }
