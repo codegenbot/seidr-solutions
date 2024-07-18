@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
+
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
-}
+} 
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -26,15 +27,14 @@ std::vector<int> get_odd_collatz(int n) {
     std::sort(odd_result.begin(), odd_result.end());
 
     return odd_result;
-}
+} 
 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> output = get_odd_collatz(n);
-    for (int num : output) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+
+    std::vector<int> result = get_odd_collatz(n);
+    // Do something with the result vector
+
     return 0;
 }
