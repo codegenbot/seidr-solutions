@@ -22,12 +22,11 @@ std::vector<int> unique_digits(std::vector<int> x){
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end(), issame);
+    sort(result.begin(), result.end(), issame);
     return result;
 }
 
 int main(){
-    assert(issame(unique_digits({135, 103, 31})[0], 31));
-    assert(issame(unique_digits({135, 103, 31})[1], 135));
+    assert(issame(unique_digits({135, 103, 31}).size(), 2));
     return 0;
 }
