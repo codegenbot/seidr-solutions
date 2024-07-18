@@ -1,10 +1,10 @@
 #include <vector>
 
-std::vector<int> make_a_pile(int n) {
+std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
     stones.push_back(n);
-    while (n > 1) {
-        if (n % 2 == 0) {
+    while(n > 1){
+        if(n % 2 == 0){
             n += 2;
         } else {
             n += 1;
@@ -14,19 +14,6 @@ std::vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
