@@ -1,14 +1,11 @@
 def decode_shift(input_str):
-    decoded = ""
+    decoded_str = ''
     for char in input_str:
         if char.isalpha():
-            new_char = chr(ord(char) - 3)
-            if not new_char.isalpha():
-                new_char = chr(ord(new_char) + 26)
-            decoded += new_char
+            decoded_str += chr(ord(char) - 1)
         else:
-            decoded += char
-    return decoded
+            decoded_str += char
+    return decoded_str
 
 input_str = input().strip()
 result = decode_shift(input_str)
