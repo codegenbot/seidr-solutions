@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 
 std::vector<int> incr_list(std::vector<int> l);
 
