@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cassert>
+#include <utility>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::pair<int, int> a, std::pair<int, int> b){
     return a == b;
 }
 
@@ -14,6 +15,6 @@ std::pair<int, int> eat(int number, int remaining) {
 }
 
 int main() {
-    assert(issame({5, 0}, eat(4, 5)));
+    assert(issame(eat(4, 5), {5, 0}));
     return 0;
 }
