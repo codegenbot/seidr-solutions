@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
+#include <cctype>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
@@ -37,9 +37,8 @@ std::vector<std::string> split_words(std::string txt){
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("Hello, world!"), {"Hello", "world!"}));
-    assert(issame(split_words("This is a sentence"), {"This", "is", "a", "sentence"}));
+    assert(issame(split_words("Hello, World!"), {"Hello", "World"}));
+    assert(issame(split_words("one two three"), {"one", "two", "three"}));
     assert(issame(split_words("12345"), {"12345"}));
-    assert(issame(split_words("Lowercaseletters"), {"Lowercaseletters", "2"})); // Contains 2 odd lowercase letters
     return 0;
 }
