@@ -2,12 +2,18 @@
 #include <cassert>
 
 int greatest_common_divisor(int a, int b) {
-    if (b == 0) return a;
-    return greatest_common_divisor(b, a % b);
+    while (a != b) {
+        if (a > b) {
+            a = a - b;
+        } else {
+            b = b - a;
+        }
+    }
+    return a;
 }
 
 int main() {
     assert(greatest_common_divisor(144, 60) == 12);
-
+    // Add more test cases if needed
     return 0;
 }
