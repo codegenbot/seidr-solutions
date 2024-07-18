@@ -10,4 +10,3 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
-```
