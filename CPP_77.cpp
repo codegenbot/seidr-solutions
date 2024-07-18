@@ -1,3 +1,6 @@
-int x = round(pow(abs(a), 1.0/3));
+#include <cmath>
+
+bool iscuber(int a) {
+    int x = round(pow(abs(a), 1.0/3));
     return a == x * x * x;
 }
