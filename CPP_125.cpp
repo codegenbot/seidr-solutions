@@ -1,24 +1,44 @@
-vector<string> result;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> result;
     string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            result.push_back(word);
-            word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if(word != ""){
+    if (!word.empty()) {
         result.push_back(word);
     }
-    if(result.size() == 0){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+    if (result.size() == 1) {
+        int oddLowerCaseCount = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddLowerCaseCount++;
             }
         }
-        result.push_back(to_string(count));
+        result[0] = to_string(oddLowerCaseCount);
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+
+    return 0;
 }
