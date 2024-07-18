@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(int a, int b) {
-    return a < b; // Change comparison condition as needed
+    return a < b;
 }
 
 vector<int> unique_digits(vector<int> x);
@@ -29,6 +29,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main(){
-    assert(issame(unique_digits({135, 103, 31}), {31, 135})); // Modify the comparison logic
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
