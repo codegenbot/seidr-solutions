@@ -1,5 +1,4 @@
 #include <string>
-
 bool issame(vector<string> lst1, vector<string> lst2) {
     int total_chars1 = 0;
     for (string str : lst1) {
