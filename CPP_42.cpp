@@ -1,15 +1,19 @@
-vector<int> incr_list(vector<int> l) {
-    for (int i = 0; i < l.size(); ++i) {
-        l[i]++;
+#include <vector>
+#include <cassert>
+
+std::vector<int> incr_list(const std::vector<int>& l) {
+    std::vector<int> result = l;
+    for (int i = 0; i < result.size(); i++) {
+        result[i]++;
     }
-    return l;
+    return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    vector<int> result = incr_list(v);
-    for (int num : result) {
-        cout << num << " ";
-    }
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
