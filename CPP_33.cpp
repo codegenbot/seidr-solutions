@@ -33,7 +33,7 @@ int main() {
     vector<int> expected_output = {0, 6, 1, 2, 8, 5, 3, 4, 9, 7};
 
     vector<int> result = sort_third(l);
-
+    
     assert(issame(result, expected_output));
     
     assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
