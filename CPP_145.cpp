@@ -1,20 +1,16 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums);
-
-int main() {
-    // Add your code here
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        a = abs(a);
-        b = abs(b);
+        if (a < 0) a = -a;
+        if (b < 0) b = -b;
         while (a > 0) {
             sumA += a % 10;
             a /= 10;
@@ -24,9 +20,18 @@ vector<int> order_by_points(vector<int> nums) {
             b /= 10;
         }
         if (sumA == sumB) {
-            return abs(a) < abs(b);
+            return a > b;
         }
         return sumA < sumB;
     });
     return nums;
+}
+
+int main() {
+    std::vector<int> nums = {123, 456, 789, 321};
+    nums = order_by_points(nums);
+    for (int num : nums) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
