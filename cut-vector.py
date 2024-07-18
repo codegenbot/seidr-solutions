@@ -1,13 +1,23 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-diff = float("inf")
-cut_point = 0
-for i in range(1, n):
-    cur_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if cur_diff < diff:
-        diff = cur_diff
-        cut_point = i
+mid = n // 2
+left_sum = sum(numbers[:mid])
+right_sum = sum(numbers[mid:])
 
-print(*arr[:cut_point])
-print(*arr[cut_point:])
+if left_sum == right_sum or abs(left_sum - right_sum) <= 1:
+    print(*numbers[:mid])
+    print(*numbers[mid:])
+else:
+    if left_sum < right_sum:
+        while abs(left_sum - right_sum) > 1:
+            mid += 1
+            left_sum += numbers[mid - 1]
+            right_sum -= numbers[mid - 1]
+    else:
+        while abs(left_sum - right_sum) > 1:
+            mid -= 1
+            left_sum -= numbers[mid]
+            right_sum += numbers[mid]
+    print(*numbers[:mid])
+    print(*numbers[mid:])
