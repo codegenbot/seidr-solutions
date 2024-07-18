@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 
 int main() {
     int n;
@@ -10,33 +9,34 @@ int main() {
         std::cin >> nums[i];
     }
     
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    int sumLeft = 0, sumRight = 0;
-    for (int i = 0; i < n; ++i) {
-        sumRight += nums[i];
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
     }
 
-    int halfSum = 0;
+    int sumLeft = 0, sumRight = totalSum;
+    int minDiff = abs(sumLeft - sumRight);
+    int cutIndex = 0;
+    
     for (int i = 0; i < n; ++i) {
         sumLeft += nums[i];
-        halfSum += nums[i];
-
-        if (sumLeft >= halfSum) {
-            break;
+        sumRight -= nums[i];
+        
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-
-    cutIndex = sumLeft < sumRight ? (n - 1) : n;
-
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+    
+    for (int i = 0; i <= cutIndex; ++i) {
+        std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+    
+    for (int i = cutIndex + 1; i < n; ++i) {
+        std::cout << nums[i] << " ";
     }
-
+    
     return 0;
 }
