@@ -1,5 +1,4 @@
 #include <string>
-
 std::string int_to_mini_roman(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
