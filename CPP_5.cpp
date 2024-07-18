@@ -1,19 +1,22 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
+std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
     std::vector<int> result;
-    for (size_t i = 0; i < numbers.size(); ++i) {
+    if(numbers.empty()){
+        return result;
+    }
+    result.push_back(numbers[0]);
+    for(size_t i = 1; i < numbers.size(); ++i){
+        result.push_back(delimiter);
         result.push_back(numbers[i]);
-        if (i != numbers.size() - 1) {
-            result.push_back(delimiter);
-        }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
