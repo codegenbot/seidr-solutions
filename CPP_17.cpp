@@ -18,7 +18,7 @@ vector<int> parse_music(string music_string){
 }
 
 int main(){
-    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>{2, 1, 2, 1, 2, 2, 2, 2});
+    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>({2, 1, 2, 1, 2, 2, 2, 2}));
     
     return 0;
 }
