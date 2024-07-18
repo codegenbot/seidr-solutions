@@ -2,6 +2,16 @@ code = input()
 guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
-white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(code)) - black_pegs
+
+code_count = {}
+guess_count = {}
+
+for c in code:
+    code_count[c] = code_count.get(c, 0) + 1
+
+for g in guess:
+    guess_count[g] = guess_count.get(g, 0) + 1
+
+white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in set(code)) - black_pegs
 
 print(white_pegs, black_pegs)
