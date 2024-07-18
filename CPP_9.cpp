@@ -18,15 +18,12 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 3, 5, 4, 2};
-    vector<int> expected_result = {5, 5, 5, 4, 2};
-    vector<int> result = rolling_max(numbers);
+    vector<int> input = {1, 3, 5, 2, 6, 4};
+    vector<int> expected = {5, 5, 6, 6, 6, 4};
     
-    if (issame(result, expected_result)) {
-        cout << "Result matches expected output." << endl;
-    } else {
-        cout << "Result does not match expected output." << endl;
-    }
+    vector<int> result = rolling_max(input);
+    
+    bool same = issame(result, expected);
     
     return 0;
 }
