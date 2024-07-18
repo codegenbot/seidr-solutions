@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 
 int fib(int n) {
@@ -15,8 +16,7 @@ int fib(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Result: " << fib(n) << std::endl;
+    std::cout << fib(n);
     return 0;
 }
