@@ -1,13 +1,8 @@
-int result = -1;
+int search(const vector<int>& lst) {
+    int result = -1;
     for (int num : lst) {
-        int frequency = 0;
-        for (int n : lst) {
-            if (n == num) {
-                frequency++;
-            }
-        }
-        if (frequency >= num && num > result) {
-            result = num;
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            result = max(result, num);
         }
     }
     return result;
