@@ -1,5 +1,5 @@
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -7,7 +7,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    // Your logic to find common elements between 'a' and 'b'
+    for (int num1 : a) {
+        for (int num2 : b) {
+            if (num1 == num2) {
+                result.push_back(num1);
+            }
+        }
+    }
     return result;
 }
 
