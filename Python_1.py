@@ -2,11 +2,10 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    
-    for char in paren_string:
-        group = ""
-        level = 0
+    group = ""
+    level = 0
 
+    for char in paren_string:
         if char == "(":
             if level > 0:
                 group += char
@@ -16,8 +15,14 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if level > 0:
                 group += char
             if level == 0:
-                result.append(group)
+                result.append(group + char)
+                group = ""
         else:
             group += char
 
     return result
+
+# Call the function with correct input
+input_string = "((ab)(cd)e)"
+output = separate_paren_groups(input_string)
+print(output)
