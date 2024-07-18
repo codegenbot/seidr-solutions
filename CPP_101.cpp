@@ -1,28 +1,9 @@
-vector<string> issame(vector<string> a, vector<string> b){
-    vector<string> same;
-    for(string word1 : a){
-        for(string word2 : b){
-            if(word1 == word2){
-                same.push_back(word1);
-                break;
-            }
-        }
-    }
-    return same;
-}
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> words_string(string s);
-
-int main(){
-    string s;
-    getline(cin, s);
-    vector<string> words = words_string(s);
-    for(string word : words){
-        cout << word << " ";
-    }
-    cout << endl;
-    return 0;
-}
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -41,4 +22,18 @@ vector<string> words_string(string s){
         words.push_back(word);
     }
     return words;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    cout << "Test passed!" << endl;
+    return 0;
 }
