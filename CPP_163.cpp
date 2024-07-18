@@ -1,7 +1,7 @@
 #include <vector>
 
-vector<int> evenNumbers(int a, int b) {
-    vector<int> result;
+std::vector<int> evenNumbers(int a, int b) {
+    std::vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
             result.push_back(i);
