@@ -10,7 +10,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         elif char == ")" and current_depth > 0:
             current_depth -= 1
         else:
-            return []  
+            return []
 
     if current_depth != 0:
         return []
