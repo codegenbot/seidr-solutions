@@ -10,33 +10,33 @@ int main() {
         std::cin >> nums[i];
     }
     
-    int totalSum = 0;
-    for (int num : nums) {
-        totalSum += num;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    int sumLeft = 0, sumRight = 0;
+    for (int i = 0; i < n; ++i) {
+        sumRight += nums[i];
     }
 
-    int sumLeft = 0, sumRight = totalSum;
-    int halfSum = totalSum / 2;
-    int prefixSum = 0;
-    int cutIndex;
+    int halfSum = 0;
+    for (int i = 0; i < n; ++i) {
+        sumLeft += nums[i];
+        halfSum += nums[i];
 
-    for (cutIndex = 0; cutIndex < n; ++cutIndex) {
-        prefixSum += nums[cutIndex];
-        sumLeft = prefixSum;
-        sumRight = totalSum - prefixSum;
-        
         if (sumLeft >= halfSum) {
             break;
         }
     }
 
-    for (int i = 0; i <= cutIndex; ++i) {
+    cutIndex = sumLeft < sumRight ? (n - 1) : n;
+
+    for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cutIndex + 1; i < n; ++i) {
+    for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
