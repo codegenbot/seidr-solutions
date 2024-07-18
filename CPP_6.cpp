@@ -3,17 +3,17 @@
 
 vector<int> parse_nested_parens(string paren_string);
 
-bool issame(const vector<int>& vec1, const vector<int>& vec2) {
-    if (vec1.size() != vec2.size()) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
-
-    for (size_t i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) {
+    
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
             return false;
         }
     }
-
+    
     return true;
 }
 
