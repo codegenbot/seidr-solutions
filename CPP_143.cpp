@@ -3,15 +3,16 @@ string words_in_sentence(string sentence){
     string word = "";
     for(char c : sentence){
         if(c == ' '){
-            if(is_prime(word.length())){
+            if(is_prime(word.size())){
                 result += word + " ";
             }
             word = "";
-        } else {
+        }
+        else{
             word += c;
         }
     }
-    if(is_prime(word.length())){
+    if(is_prime(word.size())){
         result += word;
     }
     return result;
