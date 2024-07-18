@@ -1,7 +1,10 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> sortArray(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    arr.resize(k);
-    return arr;
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
+```
