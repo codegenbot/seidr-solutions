@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cctype> // Include for islower
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
@@ -35,8 +34,6 @@ std::vector<std::string> split_words(std::string txt){
     return result;
 }
 
-int main(){
-    assert(issame(split_words(""), {"0"}));
-    // Add more test cases here
-    return 0;
-}
+assert(issame(split_words(""), {"0"}));
+// Add more test cases here
+return 0;
