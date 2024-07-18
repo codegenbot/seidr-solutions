@@ -1,25 +1,25 @@
-int count_digits = 0;
-    int dot_pos = -1;
+int digitCount = 0;
+    bool hasDot = false;
+    bool validExt = false;
     
-    for (int i = 0; i < file_name.length(); ++i) {
-        if (isdigit(file_name[i])) {
-            count_digits++;
-        } else if (file_name[i] == '.') {
-            if (dot_pos != -1) {
-                return "No";
-            }
-            dot_pos = i;
+    for (char c : file_name) {
+        if (c >= '0' && c <= '9') {
+            digitCount++;
+        } else if (c == '.') {
+            hasDot = true;
         }
     }
     
-    if (count_digits > 3 || dot_pos == -1 || dot_pos == 0 || dot_pos == file_name.length() - 1) {
-        return "No";
+    if (file_name.find('.') != string::npos) {
+        string ext = file_name.substr(file_name.find('.') + 1);
+        if (ext == "txt" || ext == "exe" || ext == "dll") {
+            validExt = true;
+        }
     }
     
-    string extension = file_name.substr(dot_pos + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
+    if (digitCount <= 3 && hasDot && validExt && isalpha(file_name[0])) {
+        return "Yes";
     }
     
-    return "Yes";
+    return "No";
 }
