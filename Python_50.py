@@ -1,4 +1,4 @@
-import sys
+input_str = input("Enter a string: ")
 
 def decode_shift(input_str):
     decoded = ""
@@ -6,6 +6,5 @@ def decode_shift(input_str):
         decoded += chr((ord(char) - 2) % 128)
     return decoded
 
-input_str = sys.stdin.readline().strip()
 result = decode_shift(input_str)
 print(result)
