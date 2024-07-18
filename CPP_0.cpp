@@ -17,5 +17,4 @@ int main() {
     vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     float threshold = 0.1;
     bool result = has_close_elements(a, threshold);
-    // Add any necessary output or usage of the 'result' variable here
 }
