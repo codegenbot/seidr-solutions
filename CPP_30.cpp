@@ -1,4 +1,3 @@
-# Code:
 #include <vector>
 #include <cassert>
 
