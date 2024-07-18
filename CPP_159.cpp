@@ -10,5 +10,5 @@ std::pair<int, int> issame(const std::vector<int>& a, const std::vector<int>& b)
 }
 
 int main() {
-    assert(issame({4, 5}, {4, 5}) == std::make_pair(1, 0));
+    assert (issame({4, 5}, {4, 5}) == std::make_pair(1, 0));
 }
