@@ -21,8 +21,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             group += char
 
     return result
-
-# Call the function with correct input
-input_string = "((ab)(cd)e)"
-output = separate_paren_groups(input_string)
-print(output)
