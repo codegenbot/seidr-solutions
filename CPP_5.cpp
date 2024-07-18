@@ -18,8 +18,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     using namespace std;
-
+    
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-
+    
     return 0;
 }
