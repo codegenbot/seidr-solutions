@@ -18,29 +18,19 @@ std::vector<int> common(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int n;
-    std::vector<int> a, b;
+    int a_size, b_size;
+    std::cin >> a_size >> b_size;
     
-    std::cout << "Enter the number of elements in the first vector a: ";
-    std::cin >> n;
-    a.resize(n);
-    std::cout << "Enter " << n << " elements for vector a: ";
-    for (int i = 0; i < n; ++i) {
+    std::vector<int> a(a_size), b(b_size);
+    for (int i = 0; i < a_size; ++i) {
         std::cin >> a[i];
     }
-
-    std::cout << "Enter the number of elements in the second vector b: ";
-    std::cin >> n;
-    b.resize(n);
-    std::cout << "Enter " << n << " elements for vector b: ";
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < b_size; ++i) {
         std::cin >> b[i];
     }
     
-    std::vector<int> commonElements = common(a, b);
-    
-    std::cout << "Common elements are: ";
-    for (int num : commonElements) {
+    std::vector<int> result = common(a, b);
+    for (int num : result) {
         std::cout << num << " ";
     }
     
