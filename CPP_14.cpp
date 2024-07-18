@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 vector<string> all_prefixes(string str){
