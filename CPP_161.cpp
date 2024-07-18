@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cctype>
 
 std::string solve(const std::string& s);
 
