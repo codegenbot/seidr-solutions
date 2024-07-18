@@ -16,8 +16,7 @@ std::vector<int> even_odd_palindrome(int n){
         if(str == rev){
             if(i % 2 == 0){
                 result[0]++;
-            }
-            else {
+            } else {
                 result[1]++;
             }
         }
