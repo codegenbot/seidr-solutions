@@ -5,6 +5,5 @@ def find_zero(nums):
         return nums[0]
     return "No zero found"
 
-print("Enter two numbers separated by a space:")
-input_list = list(map(float, input().split()))
+input_list = list(map(float, input("Enter two numbers separated by a space: ").split()))
 print(find_zero(input_list))
