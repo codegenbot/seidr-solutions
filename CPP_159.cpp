@@ -1,12 +1,12 @@
 #include <iostream>
 #include <cassert>
-#include <utility>
+#include <vector> // Include vector header
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::pair<int, int> eat(int number, int remaining) {
+std::vector<int> eat(int number, int remaining) {
     int total = number + remaining;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
