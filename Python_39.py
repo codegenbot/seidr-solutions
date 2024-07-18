@@ -11,14 +11,16 @@ def prime_fib(n: int):
         if n <= 1:
             return n
         else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
+            return fibonacci(n-1) + fibonacci(n-2)
 
-    prime_fibonacci = []
     count = 0
     num = 1
     while count < n:
         num += 1
-        if is_prime(num) and num == fibonacci(num):
-            prime_fibonacci.append(num)
-            count += 1
-    return prime_fibonacci
+        if is_prime(num):
+            if num == fibonacci(num):
+                count += 1
+    return num
+
+n = int(input())
+print(prime_fib(n))
