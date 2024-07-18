@@ -1,22 +1,21 @@
-map<char, int> result;
-    stringstream ss(test);
-    string token;
-    while (ss >> token) {
-        for (char letter : token) {
-            result[letter]++;
+map<char, int> histogram(string test) {
+    map<char, int> count;
+    for (char c : test) {
+        if (c == ' ') continue;
+        count[c]++;
+    }
+    
+    map<char, int> result;
+    int maxFreq = 0;
+    for (const auto& pair : count) {
+        if (pair.second > maxFreq) {
+            maxFreq = pair.second;
+            result.clear();
+        }
+        if (pair.second == maxFreq) {
+            result.insert(pair);
         }
     }
-    int maxCount = 0;
-    for (const auto &entry : result) {
-        if (entry.second > maxCount) {
-            maxCount = entry.second;
-        }
-    }
-    map<char, int> output;
-    for (const auto &entry : result) {
-        if (entry.second == maxCount) {
-            output[entry.first] = maxCount;
-        }
-    }
-    return output;
+    
+    return result;
 }
