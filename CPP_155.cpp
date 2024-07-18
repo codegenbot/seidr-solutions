@@ -2,19 +2,10 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    int evenCount = 0, oddCount = 0;
-    while (n != 0) {
-        if (n % 2 == 0) {
-            evenCount++;
-        } else {
-            oddCount++;
-        }
-        n = n / 10;
-    }
-    return {evenCount, oddCount};
+    return {n % 2 == 0, n % 2 != 0};
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int> &a, const std::vector<int> &b) {
     return a == b;
 }
 
