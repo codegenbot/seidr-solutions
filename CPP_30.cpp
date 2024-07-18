@@ -14,7 +14,7 @@ bool issame(vector<float> l1, vector<float> l2){
     return true;
 }
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive (vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -29,7 +29,7 @@ int main(){
     vector<float> l2 = {-1.2, 3.4, -5.6, 7.8};
 
     assert(issame(l1, l2));
-    assert(!get_positive(l1).empty());
+    assert(get_positive(l1).size() == 2);
 
     return 0;
 }
