@@ -1,5 +1,4 @@
 #include <string>
-#include <unordered_set>
 
 string find_max(const vector<string>& words) {
     string result;
