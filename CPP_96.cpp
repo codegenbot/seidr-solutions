@@ -2,11 +2,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> count_up_to(int n){
+std::vector<int> std::count_up_to(int n) {
     std::vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
