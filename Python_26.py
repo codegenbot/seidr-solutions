@@ -1,7 +1,10 @@
-numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
+try:
+    numbers = list(map(int, input().strip().split()))
 
-def remove_duplicates(numbers):
-    return [num for num in set(numbers) if numbers.count(num) == 1]
+    def remove_duplicates(numbers):
+        return [num for num in numbers if numbers.count(num) == 1]
 
-result = remove_duplicates(numbers)
-print(result)
+    result = remove_duplicates(numbers)
+    print(result)
+except:
+    print("Invalid input. Please enter a list of numbers separated by spaces.")
