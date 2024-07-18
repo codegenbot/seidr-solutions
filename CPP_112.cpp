@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b);
@@ -14,6 +19,7 @@ vector<string> reverse_delete(string s, string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+int main() {
+    // Main function logic
+    return 0;
 }
