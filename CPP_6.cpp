@@ -1,6 +1,6 @@
 #include <vector>
 
-bool parse_nested_parens(string paren_string) {
+bool vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
     int current_depth = 0;
@@ -19,6 +19,17 @@ bool parse_nested_parens(string paren_string) {
     }
 
     depths.push_back(max_depth);
-    
+
     return depths;
+}
+
+int main() {
+    string input_string = "( ( ) ( ( ) ) )";
+    vector<int> result = parse_nested_parens(input_string);
+
+    for (int depth : result) {
+        cout << depth << " ";
+    }
+
+    return 0;
 }
