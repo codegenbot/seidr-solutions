@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 std::pair<int, int> countPalindromeNumbers(int n) {
     int even = 0, odd = 0;
