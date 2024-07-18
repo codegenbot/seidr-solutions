@@ -27,7 +27,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert (issame(even_odd_palindrome(1) , {0, 1}));
     
     return 0;
 }
