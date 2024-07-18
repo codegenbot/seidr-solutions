@@ -1,9 +1,8 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <iterator>
-
+#include <iterator> 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
