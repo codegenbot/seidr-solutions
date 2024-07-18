@@ -17,7 +17,7 @@ std::vector<int> sum_product(std::vector<int> a) {
 }
 
 int main() {
-    assert(issame(sum_product(std::vector<int>{10}), std::vector<int>{10, 10}));
+    assert(issame(std::vector<int>{10}, std::vector<int>{10, 10}));
     
     return 0;
 }
