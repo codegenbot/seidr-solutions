@@ -5,12 +5,12 @@ int main() {
         nums.push_back(n);
     }
 
-    int sum = 0;
+    int total = 0;
     for (int num : nums) {
-        sum += max(0, num / 3 - 2);
+        total += (num / 3) - 2;
     }
 
-    cout << sum << endl;
+    cout << total << endl;
 
     return 0;
 }
