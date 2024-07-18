@@ -19,15 +19,28 @@ vector<int> get_odd_collatz(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    vector<int> res = get_odd_collatz(10);
-    vector<int> expected = {1, 5};
-    if (issame(res, expected)) {
-        return 0;
+    int input;
+    cin >> input;
+    vector<int> result = get_odd_collatz(input);
+    vector<int> expected_output = {1, 3, 5, 9, 17, 25};
+
+    if (issame(result, expected_output)) {
+        cout << "The output is correct.";
     } else {
-        return 1;
+        cout << "The output is incorrect.";
     }
+    
+    return 0;
 }
