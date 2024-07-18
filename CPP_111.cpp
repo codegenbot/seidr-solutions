@@ -16,6 +16,6 @@ bool is_same(std::map<char, int>& a, std::map<char, int>& b) {
 }
 
 int main() {
-    assert(is_same(histogram("a"), std::map<char, int>{}));
+    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
     return 0;
 }
