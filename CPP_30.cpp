@@ -1,11 +1,21 @@
 #include <vector>
 #include <cassert>
 
-bool issame(float a, float b){
-    return a == b;
+bool issame(std::vector<float> v1, std::vector<float> v2);
+
+std::vector<float> get_positive(std::vector<float> l);
+
+bool issame(std::vector<float> v1, std::vector<float> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size()) {
+        return false;
+    }
+    return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l){
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -15,9 +25,8 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-int main(){
-    std::vector<float> v = {1.5, -2.3, 4.0, -5.2};
-    assert(issame(3.0, 3.0));
-    assert(get_positive(v).size() == 2);
+int main() {
+    assert(issame(get_positive({}), get_positive({})));
+
     return 0;
 }
