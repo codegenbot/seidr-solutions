@@ -1,14 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
+#include <cassert>
 
 bool issame(pair<float, float> a, pair<float, float> b) {
-    return a == b;
+    return a.first == b.first && a.second == b.second;
 }
 
-pair<float, float> find_closest_elements(vector<float>& numbers) {
+pair<float, float> find_closest_elements(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> closest_elements = {numbers[0], numbers[1]};
@@ -20,11 +18,4 @@ pair<float, float> find_closest_elements(vector<float>& numbers) {
         }
     }
     return {closest_elements.first, closest_elements.second};
-}
-
-int main() {
-    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 6.1};
-    pair<float, float> closest = find_closest_elements(numbers);
-    cout << "Closest Elements: " << closest.first << " and " << closest.second << endl;
-    return 0;
 }
