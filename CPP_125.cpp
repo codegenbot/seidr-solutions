@@ -1,45 +1,19 @@
-#include <string>
 #include <vector>
+#include <string>
+#include <cctype> // for islower
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    // Add your implementation
 }
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    std::string word = "";
-    
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    
-    if(!word.empty()){
-        result.push_back(word);
-    }
-    
-    if(result.size() == 0){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c-'a') % 2 == 1){
-                count++;
-            }
-        }
-        result.push_back(std::to_string(count));
-    }
-    
+vector<string> split_words(string txt){
+    vector<string> result;
+    // Add your implementation
     return result;
 }
 
 int main(){
-    assert(issame(split_words("") ,{"0"}));
-    
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
