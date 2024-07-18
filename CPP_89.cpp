@@ -1,10 +1,7 @@
 string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encrypted = c + 2 * 2;
-            if ((islower(c) && encrypted > 'z') || (isupper(c) && encrypted > 'Z')) {
-                encrypted -= 26;
-            }
+            char encrypted = (c - 'a' + 2 * 2) % 26 + 'a';
             result += encrypted;
         } else {
             result += c;
