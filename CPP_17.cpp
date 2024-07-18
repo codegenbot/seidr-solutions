@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <assert>
+#include <cassert>
 
 using namespace std;
 
@@ -11,8 +11,7 @@ vector<int> parse_music(string music_string){
     for(int i=0; i<length; i+=2){
         if(music_string[i] == 'o'){
             beats.push_back(2);
-        } 
-        else if(music_string[i] == '.'){
+        } else if(music_string[i] == '.'){
             beats.push_back(1);
         }
     }
