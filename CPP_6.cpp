@@ -24,12 +24,11 @@ bool vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    string input_string = "( ( ) ( ( ) ) )";
-    vector<int> result = parse_nested_parens(input_string);
-
-    for (int depth : result) {
-        cout << depth << " ";
+    string input;
+    getline(cin, input);
+    vector<int> result = parse_nested_parens(input);
+    for (int i : result) {
+        cout << i << " ";
     }
-
     return 0;
 }
