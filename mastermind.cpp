@@ -1,29 +1,29 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    
-    int black_pegs = 0, white_pegs = 0;
-    
+    std::string code, guess;
+    std::cin >> code >> guess;
+
+    int blackPegs = 0, whitePegs = 0;
+    std::vector<int> codeFreq(6, 0), guessFreq(6, 0);
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black_pegs++;
-            code[i] = 'x'; // mark the used characters
-            guess[i] = 'x';
+            blackPegs++;
+        } else {
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
-    
-    for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] != 'x' && code[i] == guess[j]) {
-                white_pegs++;
-                code[i] = 'x'; // mark the used characters
-                guess[j] = 'x';
-                break;
-            }
-        }
+
+    for (int i = 0; i < 6; ++i) {
+        whitePegs += std::min(codeFreq[i], guessFreq[i]);
     }
-    
-    cout << white_pegs << "\n" << black_pegs;
-    
+
+    std::cout << whitePegs << std::endl << blackPegs << std::endl;
+
     return 0;
 }
