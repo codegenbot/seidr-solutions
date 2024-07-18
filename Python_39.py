@@ -14,7 +14,7 @@ def prime_fib(n):
     
     while len(result) < n:
         a, b = b, a + b
-        if is_prime(a):
+        if is_prime(a) and a % 5 != 0:
             result.append(a)
     
     return result
