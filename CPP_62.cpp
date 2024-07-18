@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 std::vector<float> derivative(std::vector<float> xs) {
     std::vector<float> result;
     for (size_t i = 1; i < xs.size(); i++) {
@@ -9,12 +13,7 @@ std::vector<float> derivative(std::vector<float> xs) {
     return result;
 }
 
-template<typename T>
-bool issame(std::vector<T> a, std::vector<T> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
+    assert(issame(derivative({1.0}), std::vector<float>{}));
     return 0;
 }
