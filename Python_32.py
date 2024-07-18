@@ -3,6 +3,8 @@ def find_zero(xs: list):
     return x
 
 
-input_list = list(map(int, input().split()))
-result = find_zero(input_list)
-print(result)
+# Read input
+xs = [int(input()), int(input())]
+
+# Call the function and print the result
+print(find_zero(xs))
