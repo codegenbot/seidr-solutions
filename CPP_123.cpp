@@ -6,6 +6,10 @@ vector<int> get_odd_collatz(int n);
 
 bool issame(vector<int> a, vector<int> b);
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -30,8 +34,6 @@ vector<int> get_odd_collatz(int n) {
     return odd_result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
 }
-
-assert(issame(get_odd_collatz(1), {1}));
