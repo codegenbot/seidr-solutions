@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <string>
 #include <cassert>
@@ -34,7 +35,7 @@ std::vector<std::string> split_words(std::string txt){
     return result;
 }
 
-int main() {
+int main(){
     assert(issame(split_words(""), {"0"}));
     // Add more test cases here
     return 0;
