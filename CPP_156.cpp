@@ -31,8 +31,4 @@ int test_roman_conversion(){
     return 0;
 }
 
-int main(){
-    test_roman_conversion();
-    
-    return 0;
-}
+test_roman_conversion();
