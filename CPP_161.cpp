@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <cctype>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -20,6 +20,6 @@ string solve(const string& s) {
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
