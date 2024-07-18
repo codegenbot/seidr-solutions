@@ -1,7 +1,10 @@
 def add(x: int, y: int) -> int:
     return x + y
 
-inputs = input("Enter the numbers: ")
-x, y = map(int, inputs.split())
-result = add(x, y)
-print(result)
+try:
+    x = int(input("Enter the first number: "))
+    y = int(input("Enter the second number: "))
+    result = add(x, y)
+    print(result)
+except ValueError:
+    print("Invalid input. Please enter valid integers.")
