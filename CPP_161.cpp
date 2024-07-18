@@ -1,4 +1,10 @@
-for (char &c : s) {
+
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+std::string solve(std::string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
                 c = toupper(c);
@@ -7,10 +13,8 @@ for (char &c : s) {
             }
         }
     }
-    
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
         reverse(s.begin(), s.end());
     }
-    
-    return s;
 }
