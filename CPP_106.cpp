@@ -31,8 +31,3 @@ vector<int> f(int n) {
     
     return result;
 }
-
-int main() {
-    // Code that uses the f function
-    return 0;
-}
