@@ -1,5 +1,5 @@
-from typing import List
 
+from typing import List
 
 def factorize(n: int) -> List[int]:
     factors = []
