@@ -1,2 +1,2 @@
-def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
+filtered_values = [value for value in values if isinstance(value, int)]
+return filtered_values
