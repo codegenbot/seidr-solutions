@@ -5,4 +5,5 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
+# Assuming 'has_close_elements' and 'threshold' are defined before calling the function
 check_numbers(has_close_elements, threshold)
