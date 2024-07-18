@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -17,6 +17,6 @@ std::vector<int> common(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(std::issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
     return 0;
 }
