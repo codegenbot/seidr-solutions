@@ -1,16 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b);
-
-vector<string> reverse_delete(string s, string c);
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
 
 vector<string> reverse_delete(string s, string c){
     string result = "";
@@ -24,13 +17,16 @@ vector<string> reverse_delete(string s, string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
-int main(){
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main() {
     string s, c;
     cin >> s >> c;
-    vector<string> output = reverse_delete(s, c);
-    for(string str : output){
+    vector<string> result = reverse_delete(s, c);
+    for(const auto& str : result){
         cout << str << " ";
     }
-    cout << endl;
     return 0;
 }
