@@ -28,8 +28,3 @@ void solve() {
 
     cout << longest(strings) << endl;
 }
-
-inline int main() {
-    solve();
-    return 0;
-}
