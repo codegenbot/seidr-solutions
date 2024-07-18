@@ -6,13 +6,8 @@ double poly(vector<double> coeffs, double x){
     return result;
 }
 
-double find_zero(vector<double> coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
-    const double epsilon = 1e-6;
-    double x = 0.0;
-    while(fabs(poly(coeffs, x)) > epsilon){
-        x += 0.1;
-    }
-    return x;
+double find_zero(vector<double> xs){
+    double a = poly({1}, xs[0]);
+    double b = poly({1, 0}, xs[1]);
+    return -b/a;
 }
