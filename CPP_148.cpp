@@ -8,6 +8,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::vector<std::string> bf{"Jupiter", "Makemake"};
-    assert(!issame(bf, std::vector<std::string>{}));
+    assert(issame(bf, std::vector<std::string>{}));
     return 0;
 }
