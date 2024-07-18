@@ -35,6 +35,6 @@ string file_name_check(string file_name) {
 int main() {
     assert(file_name_check("sample.txt") == "Yes");
     assert(file_name_check("report.123") == "No");
-    
+
     return 0;
 }
