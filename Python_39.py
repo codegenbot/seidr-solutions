@@ -1,4 +1,5 @@
 n = int(input("Enter the value of 'n': "))
+
 def is_prime(num):
     if num < 2:
         return False
