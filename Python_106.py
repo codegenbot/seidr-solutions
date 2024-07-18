@@ -1,2 +1,4 @@
-def f(n):
-    return [1] if n == 0 else [f(n-1)[0] * n] + f(n-1)[1:]
+def f(n, memo={0: 1}):
+    if n not in memo:
+        memo[n] = n * f(n - 1)
+    return [memo[i] for i in range(n+1)]
