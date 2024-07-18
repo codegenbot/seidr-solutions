@@ -1,17 +1,20 @@
-string anti_shuffle(string s){
-    string result = "";
+string ordered_string = "";
     string word = "";
-    for(int i = 0; i < s.length(); ++i){
-        if(s[i] == ' '){
+    
+    for (char& c : s) {
+        if (isalpha(c)) {
+            word += c;
+        } else {
             sort(word.begin(), word.end());
-            result += word + " ";
+            ordered_string += word + c;
             word = "";
         }
-        else{
-            word += s[i];
-        }
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
+    
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        ordered_string += word;
+    }
+    
+    return ordered_string;
 }
