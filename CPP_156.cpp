@@ -1,20 +1,14 @@
 string int_to_mini_romank(int number){
+    vector<string> roman_numeral = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
+    vector<int> values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
     string result = "";
-    vector<pair<int, string>> roman_numerals = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
-    };
-
-    for(const auto& roman_pair : roman_numerals){
-        int value = roman_pair.first;
-        string roman = roman_pair.second;
-
-        while(number >= value){
-            result += roman;
-            number -= value;
+    
+    for (int i = 12; i >= 0; i--) {
+        while (number >= values[i]) {
+            result += roman_numeral[i];
+            number -= values[i];
         }
     }
-
+    
     return result;
 }
