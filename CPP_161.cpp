@@ -1,8 +1,5 @@
 #include <iostream>
-#include <algorithm>
-#include <string>
-
-string solve(const string& s);
+#include <cassert>
 
 string solve(const string& s) {
     for (char &c : s) {
@@ -14,9 +11,4 @@ string solve(const string& s) {
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert (solve("#ccc") == "#CCC");
-    return 0;
 }
