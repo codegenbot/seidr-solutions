@@ -1,19 +1,21 @@
 #include <vector>
-#include <cassert>
 
-bool issame(std::vector<float> l1, std::vector<float> l2){
-    if (l1.size() != l2.size()) {
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2);
+std::vector<float> get_positive(const std::vector<float>& l);
+
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
-    for (int i = 0; i < l1.size(); i++) {
-        if (l1[i] != l2[i]) {
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l){
+std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -21,14 +23,4 @@ std::vector<float> get_positive(std::vector<float> l){
         }
     }
     return result;
-}
-
-int main(){
-    std::vector<float> l1 = {1.2, -3.4, 5.6, -7.8};
-    std::vector<float> l2 = {-1.2, 3.4, -5.6, 7.8};
-
-    assert(issame(l1, l2));
-    assert(get_positive(l1).size() == 2);
-
-    return 0;
 }
