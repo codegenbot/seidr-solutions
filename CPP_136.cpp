@@ -28,8 +28,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> numbers = {2, -1, 5, -6, 3};
-    vector<int> result = largest_smallest_integers(numbers);
-
+    vector<int> input = {3, -1, 5, -10, 2};
+    vector<int> result = largest_smallest_integers(input);
     return 0;
 }
