@@ -1,10 +1,7 @@
 sort(lst.begin(), lst.end());
-    int prev = lst[0];
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] > prev) {
-            return lst[i];
-        }
-        prev = lst[i];
+    lst.erase(unique(lst.begin(), lst.end()), lst.end());
+    if (lst.size() < 2) {
+        return -1;
     }
-    return -1;
+    return lst[1];
 }
