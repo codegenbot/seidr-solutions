@@ -2,7 +2,8 @@ def find_zero(xs: list):
     x = -xs[0] / xs[1]
     return x
 
-# Read input from user as two integers from a single line
+
+# Read input from user
 input_list = list(map(int, input().split()))
 
 # Call the function with the input list
