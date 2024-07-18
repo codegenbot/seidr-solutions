@@ -13,12 +13,8 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-void solve_problem() {
+int main() {
     assert(all_prefixes("WWW") == vector<string>{"W", "WW", "WWW"});
     cout << "Test Passed\n";
-}
-
-int main() {
-    solve_problem();
     return 0;
 }
