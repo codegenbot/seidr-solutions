@@ -1,13 +1,16 @@
-int count_nums(vector<int> n){
+int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
-        int sumDigits = 0;
-        int numCopy = num;
-        while (numCopy != 0) {
-            sumDigits += abs(numCopy % 10);
-            numCopy /= 10;
+        int sum = 0;
+        int temp = abs(num);
+        while (temp != 0) {
+            sum += temp % 10;
+            temp /= 10;
         }
-        if (sumDigits > 0) {
+        if (num < 0) {
+            sum *= -1;
+        }
+        if (sum > 0) {
             count++;
         }
     }
