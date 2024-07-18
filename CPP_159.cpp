@@ -1,6 +1,5 @@
 #include <vector>
 #include <utility>
-#include <cassert>
 
 std::pair<int, int> issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a == b) {
