@@ -1,12 +1,13 @@
+#include <iostream>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -14,35 +15,27 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {0, 0};
-    int largest_negative = INT_MIN;
-    int smallest_positive = INT_MAX;
-    
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
+    int largest_negative = 0, smallest_positive = 0;
     for (int num : lst) {
-        if (num < 0 && num > largest_negative) {
+        if (num < 0 && num < largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && num < smallest_positive) {
+        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
             smallest_positive = num;
         }
     }
-    
-    if (largest_negative != INT_MIN) {
-        result[0] = largest_negative;
-    }
-    if (smallest_positive != INT_MAX) {
-        result[1] = smallest_positive;
-    }
-    
-    return result;
+    return {largest_negative, smallest_positive};
 }
 
-int main(){
-    vector<int> numbers = {-5, 7, 10, -2, 3};
-    vector<int> result = largest_smallest_integers(numbers);
+int main() {
+    std::vector<int> input = {3, -4, 5, -1, 6, -10};
+    std::vector<int> output = largest_smallest_integers(input);
+    std::vector<int> expected_output = {-1, 3};
     
-    for (int num : result) {
-        cout << num << " ";
+    if (issame(output, expected_output)) {
+        std::cout << "Test passed. Output matches expected." << std::endl;
+    } else {
+        std::cout << "Test failed. Output does not match expected." << std::endl;
     }
     
     return 0;
