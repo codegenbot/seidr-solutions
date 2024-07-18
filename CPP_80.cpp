@@ -1,4 +1,5 @@
 bool is_happy(string s){
+
     if(s.length() < 3){
         return false;
     }
