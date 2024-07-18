@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ vector<string> reverse_delete(string s, string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
-int main() {
+int main(){
     string s, c;
     cin >> s >> c;
     vector<string> output = reverse_delete(s, c);
