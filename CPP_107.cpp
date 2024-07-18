@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std; 
+using namespace std;
 
 std::vector<int> even_odd_palindrome(int n) {
     
