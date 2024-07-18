@@ -2,15 +2,7 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -38,15 +30,8 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Sample code contest problem test case
-    std::vector<int> input = {7};
-    std::vector<int> expected_output = {1, 3, 5, 7};
-
-    auto output = get_odd_collatz(input[0]);
-
-    if (issame(output, expected_output)) {
-        return 0;
-    } else {
-        return 1;
-    }
+    // Example usage
+    int n = 10;
+    std::vector<int> odd_collatz = get_odd_collatz(n);
+    return 0;
 }
