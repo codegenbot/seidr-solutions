@@ -1,5 +1,8 @@
-#include <cassert>
 #include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
+}
 
 vector<int> countEvenOddDigits(int num) {
     vector<int> result(2, 0);
