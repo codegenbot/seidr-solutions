@@ -10,4 +10,4 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b)
