@@ -29,3 +29,9 @@ std::map<char, int> histogram(std::string test) {
 
     return result;
 }
+
+int main() {
+    // Test your code here
+    assert(issame(histogram("hello world"), std::map<char, int>{{'l', 3}}));
+    return 0;
+}
