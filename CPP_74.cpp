@@ -1,31 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+int totalChars(int elCount) {
+    return elCount;
+}
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int sum_length1 = 0;
-    for (const auto& str : lst1) {
-        sum_length1 += str.length();
-    }
-    
-    int sum_length2 = 0;
-    for (const auto& str : lst2) {
-        sum_length2 += str.length();
-    }
-    
-    if (sum_length1 < sum_length2) {
+vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+    if (totalChars(lst1.size()) < totalChars(lst2.size())) {
         return lst1;
-    } else {
-        return lst2;
     }
+    return lst2;
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert (issame(total_match({"this"}, {}), {}));
+    
     return 0;
 }
