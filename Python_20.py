@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers.sort()
     min_diff = float("inf")
@@ -11,7 +12,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             result = (numbers[i], numbers[i + 1])
     return result
 
-numbers = list(map(float, input("Enter numbers separated by commas: ").split(',')))
+
+numbers = list(map(float, input().split(",")))
 
 output = find_closest_elements(numbers)
 
