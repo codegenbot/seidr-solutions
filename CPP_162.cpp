@@ -1,16 +1,15 @@
 #include <openssl/md5.h>
 #include <openssl/sha.h>
-#include <cstring>
-#include <sstream>
-#include <iomanip>
+#include <string>
+#include <iostream>
 
 std::string string_to_md5(const std::string& input) {
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5((const unsigned char*)input.c_str(), input.length(), digest);
 
-    std::stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)digest[i];
-    }
-    return ss.str();
+    char mdString[33];
+    for(int i = 0; i < 16; i++)
+         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+
+    return std::string(mdString);
 }
