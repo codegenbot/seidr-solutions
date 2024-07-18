@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-pair<string, string> solve(const string& s, const string& c) {
+pair<string, string> removeChars(string s, const string& c) {
     for (char ch : c) {
         s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
