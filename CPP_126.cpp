@@ -1,3 +1,22 @@
-bool sorted = is_sorted(lst.begin(), lst.end());
-    return sorted && unique(lst.begin(), lst.end()) == lst.end();
+if (lst.size() <= 1) {
+        return true;
+    }
+    
+    int prev = lst[0];
+    bool hasDuplicate = false;
+
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] <= prev) {
+            return false;
+        }
+        if (lst[i] == prev) {
+            if (hasDuplicate) {
+                return false;
+            }
+            hasDuplicate = true;
+        }
+        prev = lst[i];
+    }
+
+    return true;
 }
