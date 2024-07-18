@@ -16,7 +16,7 @@ vector<int> largest_smallest_integers(const vector<int>& lst){
         }
     }
     
-    return {largest_negative == INT_MIN ? 0 : largest_negative, smallest_positive == INT_MAX ? 0 : smallest_positive};
+    return {largest_negative, smallest_positive};
 }
 
 bool issame(vector<int> a, vector<int> b){
