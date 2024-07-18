@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <string>
 #include <cctype>
@@ -5,9 +6,7 @@
 
 using namespace std;
 
-bool are_same(vector<string> a, vector<string> b){
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -37,7 +36,11 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main(){
-    assert(are_same(split_words(""), {"0"}));
-    return 0;
-}
+// bool issame(vector<string> a, vector<string> b){
+//     return a == b;
+// }
+
+// int main(){
+//     assert(issame(split_words(""), {"0"}));
+//     return 0;
+// }
