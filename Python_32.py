@@ -7,9 +7,9 @@ def find_zero(xs: list):
     x = -a / b
     return x
 
-input_list = list(map(float, input("Enter space-separated numbers (2 elements): ").split()))
-if len(input_list) != 2:
-    print("Error: Please enter exactly 2 numbers.")
-else:
+try:
+    input_list = list(map(float, input("Enter space-separated numbers: ").split()))
     result = find_zero(input_list)
     print(result)
+except ValueError:
+    print("Please enter valid numbers separated by spaces.")
