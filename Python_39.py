@@ -15,4 +15,4 @@ def prime_fib(n: int):
                 n -= 1
     except StopIteration:
         pass
-    return result
+    return result uni
