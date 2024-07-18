@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // Include this header for set_intersection
+#include <algorithm>
 #include <cassert>
-#include <algorithm> // Include this header for set_intersection
+#include <iterator> // Include this header for set_intersection
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
