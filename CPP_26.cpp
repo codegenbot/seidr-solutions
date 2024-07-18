@@ -3,7 +3,17 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
@@ -14,8 +24,10 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> input = {1, 2, 2, 3, 4, 4, 5};
-    std::vector<int> expected_output = {1, 2, 3, 4, 5};
-    assert(issame(remove_duplicates(input), expected_output));
-  
+    std::vector<int> expected = {1, 2, 3, 4, 5};
+    std::vector<int> result = remove_duplicates(input);
+    
+    assert(issame(result, expected));
+
     return 0;
 }
