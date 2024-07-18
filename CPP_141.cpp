@@ -2,7 +2,7 @@ string file_name_check(string file_name) {
     int digitCount = 0;
     bool hasDot = false;
     string beforeDot, afterDot;
-    
+
     for (char c : file_name) {
         if (c >= '0' && c <= '9') {
             digitCount++;
@@ -17,11 +17,11 @@ string file_name_check(string file_name) {
             beforeDot += c;
         }
     }
-    
+
     if (digitCount > 3 || !hasDot || beforeDot.empty() || !isalpha(beforeDot[0]) || 
         (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")) {
-            return "No";
-        }
-    
+        return "No";
+    }
+
     return "Yes";
 }
