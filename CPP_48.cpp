@@ -1,13 +1,12 @@
-bool is_palindrome(const string& text) {
-    int len = text.length();
-    for (int i = 0; i < len / 2; i++) {
-        if (text[i] != text[len - i - 1]) {
+bool is_palindrome(const std::string& text) {
+    int i = 0;
+    int j = text.length() - 1;
+    while (i < j) {
+        if (text[i] != text[j]) {
             return false;
         }
+        i++;
+        j--;
     }
     return true;
-}
-
-int main() {
-    assert(is_palindrome("xywzx") == false);
 }
