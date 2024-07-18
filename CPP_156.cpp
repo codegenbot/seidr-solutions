@@ -1,17 +1,17 @@
-string int_to_mini_romank(int number){
-    vector<pair<int, string>> roman_numerals = {
+string int_to_mini_roman(int number){
+    string roman = "";
+    vector<pair<int, string>> romanMap = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
     };
 
-    string result = "";
-    for (const auto& pair : roman_numerals) {
-        while (number >= pair.first) {
-            result += pair.second;
+    for(const auto& pair : romanMap){
+        while(number >= pair.first){
+            roman += pair.second;
             number -= pair.first;
         }
     }
 
-    return result;
+    return roman;
 }
