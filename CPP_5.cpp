@@ -14,6 +14,8 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 }
 
 int main() {
-    assert(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
+    vector<int> result = intersperse({2, 2, 2}, 2);
+    vector<int> expected = {2, 2, 2, 2, 2};
+    assert(result == expected);
     return 0;
 }
