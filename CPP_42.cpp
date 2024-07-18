@@ -1,16 +1,17 @@
-#include<vector>
-#include<assert.h>
+#include <vector>
+#include <assert.h>
 
 vector<int> incr_list(vector<int> l);
 
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = incr_list(l1);
-    
-    assert(issame(l1, l2));
-    
+    vector<int> l = {1, 2, 3};
+    vector<int> l_inc = incr_list(l);
+    vector<int> l_copy = {2, 3, 4};
+  
+    assert(issame(l_inc, l_copy));
+
     return 0;
 }
 
