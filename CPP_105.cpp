@@ -1,28 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
 #include <string>
-#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-vector<string> by_length(vector<int> arr);
-
-int main() {
-    // Main function implementation goes here
+bool issame(string a, string b) {
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr){
