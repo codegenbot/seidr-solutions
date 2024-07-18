@@ -12,11 +12,10 @@ std::string solve(int N) {
 }
 
 int main() {
-    std::cout << "Enter a number: ";
+    std::cout << "Enter an integer: ";
     int num;
     std::cin >> num;
-    
-    std::cout << "Output: " << solve(num) << std::endl;
-    
+    std::cout << "Binary representation of sum of binary digits: " << solve(num) << std::endl;
+   
     return 0;
 }
