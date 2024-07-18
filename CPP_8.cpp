@@ -1,5 +1,9 @@
 #include <vector>
 
+bool issame(int a, int b) {
+    return a == b;
+}
+
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
     int product = 1;
