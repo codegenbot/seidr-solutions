@@ -21,6 +21,14 @@ def prime_fib(n):
             count += 1
     return num
 
+while True:
+    try:
+        n = int(input("Enter the number of prime Fibonacci numbers to find: "))
+        if n > 0:
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Please enter a valid integer.")
 
-n = int(input("Enter the number of prime Fibonacci numbers to find: ").strip())
 print(prime_fib(n))
