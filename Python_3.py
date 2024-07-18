@@ -1,5 +1,12 @@
 def below_zero(operations):
-    if not operations:
-        return "No input provided."  
-    negative_count = sum(1 for num in operations if num < 0)
-    return negative_count or "No negative numbers found."
+    return len([num for num in operations if num < 0])
+
+
+try:
+    operations = [int(x) for x in input("Enter space-separated integers: ").split()]
+    if len(operations) == 0:
+        raise ValueError
+    result = below_zero(operations)
+    print(result)
+except:
+    print("No input provided.")
