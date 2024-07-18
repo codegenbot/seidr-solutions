@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -28,7 +27,7 @@ int main() {
         cout << str << " ";
     }
 
-    assert(result == sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
+    assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
 
     return 0;
 }
