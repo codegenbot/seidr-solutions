@@ -29,7 +29,7 @@ void solve() {
     cout << longest(strings) << endl;
 }
 
-int main() {
+inline int main() {
     solve();
     return 0;
 }
