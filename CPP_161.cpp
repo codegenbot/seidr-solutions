@@ -1,8 +1,8 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
-using namespace std;
+string solve(const string& s);
 
 string solve(const string& s) {
     for (char &c : s) {
@@ -10,16 +10,13 @@ string solve(const string& s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
     if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-    
+    assert (solve("#ccc") == "#CCC");
     return 0;
 }
