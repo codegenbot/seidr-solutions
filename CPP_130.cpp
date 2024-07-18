@@ -1,5 +1,3 @@
-#include <vector>
-
 vector<int> res;
 if (n == 0) {
     res.push_back(0);
@@ -22,4 +20,3 @@ for (int i = 3; i <= n; ++i) {
     }
 }
 return res;
-
