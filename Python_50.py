@@ -1,1 +1,1 @@
-input_str = input("Enter the string to decode: ").strip()
+input_values = input().strip().split()
