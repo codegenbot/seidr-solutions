@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -7,13 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
-    for (size_t i = 0; i < game.size(); ++i) {
-        result.push_back(std::abs(game[i] - guess[i]));
-    }
+    std::transform(game.begin(), game.end(), guess.begin(), std::back_inserter(result),
+                   [](int a, int b) { return std::abs(a - b); });
     return result;
-}
-
-int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
-    return 0;
 }
