@@ -1,17 +1,13 @@
-vector<int> depths;
-    int max_depth = 0, depth = 0;
+vector<int> parse_nested_parens(string paren_string){
+    vector<int> depths;
+    int cur_depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
-            depth++;
-            max_depth = max(max_depth, depth);
+            cur_depth++;
+            depths.push_back(cur_depth);
         } else if (c == ')') {
-            depth--;
-        } else if (c == ' ') {
-            depths.push_back(max_depth);
-            max_depth = 0;
-            depth = 0;
+            cur_depth--;
         }
     }
-    depths.push_back(max_depth);
     return depths;
 }
