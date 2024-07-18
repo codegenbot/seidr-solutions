@@ -21,7 +21,7 @@ int main() {
             sumRight += nums[j];
         }
         
-        int diff = std::abs(sumLeft - sumRight);
+        int diff = abs(sumLeft - sumRight);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
