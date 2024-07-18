@@ -16,6 +16,6 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
