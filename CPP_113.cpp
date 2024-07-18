@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -19,19 +18,19 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-int main() {
+int main(){
     int n;
-    cin >> n;
-    vector<string> lst(n);
-    for(int i=0; i<n; i++){
-        cin >> lst[i];
+    cin >> n; // Reading the number of strings
+    vector<string> input(n);
+    for(int i = 0; i < n; ++i){
+        cin >> input[i]; // Reading the strings
     }
 
-    vector<string> result = odd_count(lst);
-
-    for(string s : result){
-        cout << s << endl;
+    vector<string> output = odd_count(input);
+    
+    for(string res : output){
+        cout << res << endl; // Output the result
     }
-
+    
     return 0;
 }
