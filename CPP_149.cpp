@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     return a;
 }
 
-int main() {
+void solve_problem() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
     
     for (const auto& str : result) {
@@ -27,6 +28,10 @@ int main() {
     }
 
     assert(result == vector<string>{"cc", "dd", "aaaa", "bbbb"});
+}
+
+int main() {
+    solve_problem();
 
     return 0;
 }
