@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     int total_chars1 = 0;
@@ -14,7 +14,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         total_chars2 += s.size();
     }
     
-    if(total_chars1 == total_chars2){
+    if(total_chars1 < total_chars2){
         return true;
     }
     
