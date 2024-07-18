@@ -6,7 +6,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,7 +16,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
-    int i = 0;
+    size_t i = 0;
     while (i < music_string.size()) {
         if (music_string[i] == 'o' && music_string[i + 1] == '|') {
             beats.push_back(2);
