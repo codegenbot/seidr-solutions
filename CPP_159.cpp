@@ -6,7 +6,8 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
 }
 
-std::pair<int, int> eat(int number, int remaining) {
+std::pair<int, int> eat(int number) {
+    int remaining = number; // Assuming remaining equals number
     int total = number + remaining;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
@@ -14,6 +15,6 @@ std::pair<int, int> eat(int number, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5), {5, 0}));
+    assert(issame(eat(4), {5, 0}));
     return 0;
 }
