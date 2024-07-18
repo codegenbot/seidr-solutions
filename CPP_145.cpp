@@ -5,10 +5,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        a = std::abs(a);
-        b = std::abs(b);
+        a = abs(a);
+        b = abs(b);
         while (a > 0) {
             sumA += a % 10;
             a /= 10;
@@ -18,7 +18,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             b /= 10;
         }
         if (sumA == sumB) {
-            return std::abs(a) < std::abs(b);
+            return abs(a) < abs(b);
         }
         return sumA < sumB;
     });
