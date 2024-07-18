@@ -1,2 +1,1 @@
-n = int(input("Enter a number: "))
-print(prime_fib(n))
+print(prime_fib(int(input("Enter a number: "))))
