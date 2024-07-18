@@ -1,14 +1,9 @@
-#include<stdio.h>
-#include<vector>
-#include<unordered_set>
-using namespace std;
-bool pairs_sum_to_zero(vector<int> l){
-    unordered_set<int> s;
-    for(int num : l){
-        if(s.count(-num) > 0){
+unordered_set<int> seen;
+    for (int num : l) {
+        if (seen.count(-num)) {
             return true;
         }
-        s.insert(num);
+        seen.insert(num);
     }
     return false;
 }
