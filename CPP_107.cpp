@@ -11,7 +11,7 @@ vector<int> even_odd_palindrome(int n){
             if (i % 2 == 0) {
                 res[0]++;
             } else {
-               res[1]++;
+                res[1]++;
             }
         }
     }
