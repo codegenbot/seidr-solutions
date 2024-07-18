@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cctype>
 #include <cassert>
 
 using namespace std;
@@ -19,8 +18,10 @@ string solve(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << solve(s) << endl;
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << "Result: " << solve(input) << endl;
+    
     return 0;
 }
