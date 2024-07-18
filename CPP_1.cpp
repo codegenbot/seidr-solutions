@@ -27,7 +27,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             }
         }
     }
-    
+
     return result;
 }
 
