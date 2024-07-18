@@ -6,7 +6,6 @@ def string_to_md5(text):
 while True:
     text = input("Enter a string: ").strip()
     if text:
+        result = string_to_md5(text)
+        print(result)
         break
-
-result = string_to_md5(text)
-print(result)
