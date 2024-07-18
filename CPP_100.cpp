@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,9 +33,9 @@ std::vector<int> make_a_pile(int n){
 int main() {
     std::vector<int> result = make_a_pile(10); // Example call with n = 10
     
-    assert(issame(result, {10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30})); // Test case to verify make_a_pile
-    
-    // Add more test cases if needed
+    // Test cases to verify the function make_a_pile
+    assert(issame(make_a_pile(3), {3, 5, 6}));
+    assert(issame(make_a_pile(5), {5, 7, 8, 10, 12}));
     
     return 0;
 }
