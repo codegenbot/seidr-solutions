@@ -34,8 +34,8 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    vector<int> interval1 = {3, 7};
-    vector<int> interval2 = {5, 10};
+    vector<int> interval1 = {3, 8};
+    vector<int> interval2 = {6, 10};
 
     cout << intersection(interval1, interval2) << endl;
 
