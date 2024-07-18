@@ -2,10 +2,10 @@
 #include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    return std::to_string(a) == std::to_string(b);
 }
 
-bool unique_digits(std::vector<int> x) {
+std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
