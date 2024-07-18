@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::pair<int, int> eat(int number, int remaining) {
+std::pair<int, int> eat(int number, int remaining, int dummy = 0) {
     int total = number + remaining;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
@@ -13,7 +13,7 @@ std::pair<int, int> eat(int number, int remaining) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{eat(4, 0).first, eat(4, 0).second}, {4, 0}));
-    
+    assert(issame(std::vector<int>{eat(4, 5).first, eat(4, 5).second}, {5, 0}));
+
     return 0;
 }
