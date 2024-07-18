@@ -1,7 +1,7 @@
 #include <vector>
 
-int maximum(const std::vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), std::greater<int>());
+int maximum(vector<int>& arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
     arr.resize(k);
-    return arr[k-1];
+    return arr;
 }
