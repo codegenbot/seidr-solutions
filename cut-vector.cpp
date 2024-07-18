@@ -13,23 +13,22 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    int sumLeft = 0, sumRight = 0;
-    for (int i = 0; i < n; ++i) {
-        sumRight += nums[i];
-    }
-
-    int halfSum = 0;
-    for (int i = 0; i < n; ++i) {
-        sumLeft += nums[i];
-        halfSum += nums[i];
-
-        if (sumLeft >= halfSum) {
-            break;
+    for (int i = 1; i < n; ++i) {
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j < i; ++j) {
+            sumLeft += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            sumRight += nums[j];
+        }
+        
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-
-    cutIndex = sumLeft < sumRight ? (n - 1) : n;
-
+    
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
