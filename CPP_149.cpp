@@ -5,12 +5,6 @@
 
 using namespace std;
 
-vector<string> sorted_list_sum(vector<string> a, vector<string> b);
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     a.insert(a.end(), b.begin(), b.end());
     
@@ -24,6 +18,10 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     });
 
     return a;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
 int main() {
