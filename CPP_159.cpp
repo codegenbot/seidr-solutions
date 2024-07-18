@@ -1,8 +1,17 @@
 #include <vector>
 
-std::pair<int, int> issame(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = total > remaining ? total - remaining : total;
-    int left = remaining > total ? remaining - total : 0;
-    return {eaten, left};
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 4};
+
+    if (issame(a, b)) {
+        std::cout << "Vectors are same";
+    } else {
+        std::cout << "Vectors are different";
+    }
+    return 0;
 }
