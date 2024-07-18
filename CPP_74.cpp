@@ -1,8 +1,11 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return totalChars(a) == totalChars(b);
-}
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
 
-int totalChars(const vector<string>& lst) {
+using namespace std;
+
+int total_chars(const vector<string>& lst) {
     int total = 0;
     for (const string& str : lst) {
         total += str.size();
@@ -10,22 +13,17 @@ int totalChars(const vector<string>& lst) {
     return total;
 }
 
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
-    if (totalChars(lst1) < totalChars(lst2)) {
-        return lst1;
-    }
-    return lst2;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<string> total_match(vector<string>& lst1, vector<string>& lst2);
+
+vector<string>& total_match(vector<string>& lst1, vector<string>& lst2) {
+    return total_chars(lst1) <= total_chars(lst2) ? lst1 : lst2;
 }
 
 int main() {
-    vector<string> input1 = {"hello", "world"};
-    vector<string> input2 = {"cpp", "contest", "problem"};
-
-    vector<string> result = total_match(input1, input2);
-
-    assert(result.size() == input1.size());
-    assert(result[0] == "hello");
-    assert(result[1] == "world");
-
+    assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
