@@ -23,6 +23,3 @@ def prime_fib(n: int):
             if num == fib(count):
                 count += 1
     return num
-
-result = prime_fib(n)
-print(result)
