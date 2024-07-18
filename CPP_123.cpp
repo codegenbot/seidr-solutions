@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<int> get_odd_collatz(int n);
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -35,5 +35,5 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(is_same(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), {1}));
 }
