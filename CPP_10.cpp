@@ -1,28 +1,19 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-using namespace std;
 
-bool is_palindrome(string str){
-    int l = 0;
-    int h = str.size()-1;
-    while (h > l){
-        if (str[l++] != str[h--]){
-            return false;
-        }
-    }
-    return true;
+bool is_palindrome(const std::string& str) {
+    return str == std::string(str.rbegin(), str.rend());
 }
 
-string make_palindrome(string str){
-    if(str.empty()) return "";
+std::string make_palindrome(const std::string& str) {
+    if (str.empty()) return "";
     int n = str.size();
-    for(int i = n-1; i >= 0; i--){
-        if(is_palindrome(str.substr(i))){
-            return str+string(str.rbegin(), str.rbegin()+(n-i));
-        }
+    for (int i = n - 1; i >= 0; i--) {
+        if (is_palindrome(str.substr(i)))
+            return str + std::string(str.rbegin(), str.rbegin() + n - i);
     }
-    return str+string(str.begin()+1, str.end());
+    return str + std::string(str.rbegin() + 1, str.rend());
 }
 
 int main() {
