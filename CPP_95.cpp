@@ -1,17 +1,11 @@
-if(dict.empty()) return false;
-bool all_lower = true, all_upper = true;
-for(auto &it : dict){
-    string key = it.first;
-    if(key.size() == 0){
-        continue;
-    }
-    if(key[0]>='a' && key[0]<='z'){
-        all_upper = false;
-    } else if(key[0]>='A' && key[0]<='Z'){
-        all_lower = false;
-    } else{
-        return false;
-    }
+if(dict.empty())
+    return false;
+bool is_lower = true, is_upper = true;
+for(auto& kv : dict){
+    if(!islower(kv.first[0]))
+        is_lower = false;
+    if(!isupper(kv.first[0]))
+        is_upper = false;
 }
-return all_lower || all_upper;
+return is_lower || is_upper;
 }
