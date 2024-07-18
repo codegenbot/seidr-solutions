@@ -23,5 +23,5 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
 }
 
 int main() {
-    // Your main function code here
+    // Your main function implementation here
 }
