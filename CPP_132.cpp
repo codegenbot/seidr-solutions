@@ -1,11 +1,11 @@
 bool is_nested(string str){
-    int open_count = 0;
+    int level = 0;
     for(char c : str){
         if(c == '['){
-            open_count++;
-        } else if(c == ']' && open_count > 0){
-            open_count--;
+            level++;
+        } else if(c == ']' && level > 0){
+            level--;
         }
     }
-    return open_count < str.length() / 2 && open_count > 0;
+    return level < 0;
 }
