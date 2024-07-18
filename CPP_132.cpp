@@ -1,13 +1,21 @@
-bool is_nested(string str){
-    int cnt = 0;
-    for(char bracket : str){
-        if(bracket == '['){
-            cnt++;
-        } else if(bracket == ']'){
-            if(cnt > 0){
-                cnt--;
-            }
+#include <iostream>
+#include <cassert>
+
+bool is_nested(const std::string& str) {
+    int balance = 0;
+    for(char c : str) {
+        if(c == '[') {
+            balance++;
+        } else if(c == ']' && balance > 0) {
+            balance--;
         }
     }
-    return cnt < str.length() / 2 && cnt > 0;
+    return balance == 0;
+}
+
+int main() {
+    assert(is_nested("[]") == true);
+    assert(is_nested("[[[]]]") == true);
+    assert(is_nested("]]]]]]]]") == false);
+    return 0;
 }
