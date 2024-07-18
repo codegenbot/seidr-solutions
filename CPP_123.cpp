@@ -35,5 +35,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-assert(issame(get_odd_collatz(1), {1}));
-return 0;
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    return 0;
+}
