@@ -1,3 +1,5 @@
+#include <string>
+
 int how_many_times(string str, string substring) {
     if (substring.empty()) {
         return 0;
