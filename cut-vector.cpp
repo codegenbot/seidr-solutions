@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 
 int main() {
     int n;
@@ -24,7 +23,7 @@ int main() {
         prefixSum += nums[cutIndex];
         sumLeft = prefixSum;
         sumRight = totalSum - prefixSum;
-
+        
         if (sumLeft >= halfSum) {
             break;
         }
