@@ -1,11 +1,13 @@
-int is_nested(string str){
-    int count = 0;
-    for(char c : str){
-        if(c == '['){
-            count++;
-        } else if(c == ']' && count > 0){
-            count--;
+bool is_nested(string str){
+    int cnt = 0;
+    for(char bracket : str){
+        if(bracket == '['){
+            cnt++;
+        } else if(bracket == ']'){
+            if(cnt > 0){
+                cnt--;
+            }
         }
     }
-    return count < 0 ? true : false;
+    return cnt < str.length() / 2 && cnt > 0;
 }
