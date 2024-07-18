@@ -16,3 +16,17 @@ vector<int> rolling_max(vector<int> numbers) {
     }
     return result;
 }
+
+int main() {
+    vector<int> numbers = {1, 3, 5, 4, 2};
+    vector<int> expected_result = {5, 5, 5, 4, 2};
+    vector<int> result = rolling_max(numbers);
+    
+    if (issame(result, expected_result)) {
+        cout << "Result matches expected output." << endl;
+    } else {
+        cout << "Result does not match expected output." << endl;
+    }
+    
+    return 0;
+}
