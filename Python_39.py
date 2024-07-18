@@ -1,5 +1,4 @@
 import math
-
 def is_prime(num):
     if num < 2:
         return False
@@ -8,17 +7,17 @@ def is_prime(num):
             return False
     return True
 
+def is_fibonacci(num):
+    return math.isqrt(5 * num * num + 4) ** 2 == 5 * num * num + 4 or math.isqrt(5 * num * num - 4) ** 2 == 5 * num * num - 4
+
 def prime_fib(n):
-    if n <= 1:
-        return 0
-    elif n == 2:
-        return 1
+    count = 0
+    num = 1
+    while count < n:
+        if is_prime(num) and is_fibonacci(num):
+            count += 1
+        num += 1
+    return num - 1
 
-    a, b = 0, 1
-    for _ in range(n - 2):
-        a, b = b, a + b
-
-    return 1 if is_prime(b) else 0
-
-n = int(input())
+n = int(input("Enter a number: "))
 print(prime_fib(n))
