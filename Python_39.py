@@ -1,4 +1,4 @@
-def prime_fib():
+def prime_fib(n):
     def is_prime(num):
         if num < 2:
             return False
@@ -13,14 +13,15 @@ def prime_fib():
             a, b = b, a + b
         return a
 
-    n = int(input("Enter the number of prime Fibonacci numbers to find: "))
-
     count = 0
     num = 1
     while count < n:
         num += 1
-        if is_prime(num) and num == fib(count):
-            count += 1
+        if is_prime(num):
+            if num == fib(count):
+                count += 1
     return num
 
-print(prime_fib())
+
+n = int(input("Enter the number of prime Fibonacci numbers to find: "))
+print(prime_fib(n))
