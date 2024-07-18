@@ -1,15 +1,19 @@
 #include <string>
 
-bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-    int total_chars1 = 0;
-    for (const string& str : lst1) {
-        total_chars1 += str.length();
+bool issame(const vector<string>& a, const vector<string>& b) {
+    size_t total_chars1 = 0, total_chars2 = 0;
+    
+    for (const string& str : a) {
+        total_chars1 += str.size();
     }
-
-    int total_chars2 = 0;
-    for (const string& str : lst2) {
-        total_chars2 += str.length();
+    
+    for (const string& str : b) {
+        total_chars2 += str.size();
     }
-
-    return total_chars1 == total_chars2;
+    
+    if (total_chars1 < total_chars2) {
+        return true;
+    } else {
+        return false;
+    }
 }
