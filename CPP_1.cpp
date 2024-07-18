@@ -34,11 +34,12 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> groups = separate_paren_groups(input);
-    for (string group : groups) {
-        cout << group << endl;
+    string s = "((abc)(def))(ghi)";
+    
+    vector<string> groups = separate_paren_groups(s);
+    
+    for (const string& group : groups) {
+        std::cout << group << std::endl;
     }
 
     return 0;
