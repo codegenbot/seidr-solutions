@@ -1,4 +1,6 @@
-int fib(int n) {
+#include <cassert>
+
+int fibfib(int n) {
     if (n == 0 || n == 1) {
         return 0;
     } else if (n == 2) {
@@ -14,4 +16,9 @@ int fib(int n) {
     }
 
     return result;
+}
+
+int main() {
+    assert(fibfib(14) == 927);
+    return 0;
 }
