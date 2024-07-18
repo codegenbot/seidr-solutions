@@ -36,7 +36,7 @@ void order_by_points(vector<int>& nums) {
     });
 }
 
-// Main function without assert statement
+// Main function with assert removed as requested
 int main() {
     vector<int> nums = {123, 456, 789};
     order_by_points(nums);
