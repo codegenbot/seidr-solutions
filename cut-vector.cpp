@@ -9,7 +9,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-
+    
     int totalSum = 0;
     for (int num : nums) {
         totalSum += num;
@@ -37,6 +37,6 @@ int main() {
     for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
