@@ -5,7 +5,9 @@ def decode_cyclic(s: str):
 
 try:
     s = input("Enter the string: ")
+    if len(s) % 3 != 0:
+        raise ValueError("Input string length must be a multiple of 3.")
     result = decode_cyclic(s)
     print(result)
-except Exception as e:
-    print("Error occurred:", e)
+except ValueError as e:
+    print(e)
