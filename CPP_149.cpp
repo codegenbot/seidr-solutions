@@ -1,37 +1,24 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-int sorted_list_sum(const vector<string>& lst) {
-    vector<string> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    int sum = 0;
-    for (const string& s : sorted_lst) {
-        sum += stoi(s);
-    }
-    return sum;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
+    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
+    });
+    return lst;
 }
 
 int main() {
-    // Read input
-    int n;
-    cin >> n;
-    vector<string> lst(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-
-    // Sort the list and calculate sum
-    int result = sorted_list_sum(lst);
-    cout << result << endl;
-
+    // Input reading and processing
     return 0;
 }
