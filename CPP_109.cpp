@@ -1,13 +1,27 @@
-bool move_one_ball(const vector<int>& arr) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool move_one_ball(std::vector<int> arr);
+
+int main() {
+    // Test cases
+    assert(move_one_ball({}) == true);
+    // Add more test cases here
+}
+
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     if (n == 0) {
         return true;
     }
+
     int minIndex = 0;
     for (int i = 0; i < n; ++i) {
         if (arr[i] < arr[minIndex]) {
             minIndex = i;
         }
     }
-    return is_sorted(arr.begin(), arr.end()) || (minIndex == n - 1);
+
+    return std::is_sorted(arr.begin(), arr.end()) || (minIndex == n - 1);
 }
