@@ -1,5 +1,5 @@
 def find_min_difference(numbers):
-    numbers = sorted(numbers)
+    numbers.sort()
     min_diff = float("inf")
     result = (0, 0)
     for i in range(len(numbers) - 1):
@@ -9,6 +9,7 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
+# Call the function with input numbers
 input_numbers = [int(x) for x in input().split()]
 output = find_min_difference(input_numbers)
 print(output)
