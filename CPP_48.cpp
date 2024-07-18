@@ -1,3 +1,4 @@
+
 bool is_palindrome(const std::string &text) {
     int n = text.length();
     for (int i = 0; i < n / 2; ++i) {
