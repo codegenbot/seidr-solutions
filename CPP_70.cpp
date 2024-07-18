@@ -2,11 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) { 
-    // Your implementation of issame function
-}
-
 vector<int> strange_sort_list(vector<int> lst);
+
+bool issame(const vector<int>& a, const vector<int>& b) { ... }
 
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
