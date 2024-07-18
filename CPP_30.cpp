@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> l1, vector<float> l2){
+bool issame(std::vector<float> l1, std::vector<float> l2){
     if (l1.size() != l2.size()) {
         return false;
     }
@@ -14,8 +13,8 @@ bool issame(vector<float> l1, vector<float> l2){
     return true;
 }
 
-vector<float> get_positive (vector<float> l) {
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
@@ -25,8 +24,8 @@ vector<float> get_positive (vector<float> l) {
 }
 
 int main(){
-    vector<float> l1 = {1.2, -3.4, 5.6, -7.8};
-    vector<float> l2 = {-1.2, 3.4, -5.6, 7.8};
+    std::vector<float> l1 = {1.2, -3.4, 5.6, -7.8};
+    std::vector<float> l2 = {-1.2, 3.4, -5.6, 7.8};
 
     assert(issame(l1, l2));
     assert(get_positive(l1).size() == 2);
