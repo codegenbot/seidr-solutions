@@ -1,4 +1,4 @@
-result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    return result[:-1]
+def interleave_numbers(numbers, delimiter):
+    return [e for sublist in [[num, delimiter] for num in numbers] for e in sublist][
+        :-1
+    ]
