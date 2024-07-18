@@ -2,10 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-namespace std {
-    using ::std::vector;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
