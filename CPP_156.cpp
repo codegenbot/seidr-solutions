@@ -21,6 +21,6 @@ std::string int_to_mini_roman(int number){
 }
 
 int main() {
-    assert(int_to_mini_roman(354) == "cccliv");
+    assert(int_to_mini_roman(876) == "dcccclxxvi");
     return 0;
 }
