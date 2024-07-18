@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include <iterator>
+#include <cassert>
 
 template <typename T>
 bool issame(std::vector<T> a, std::vector<T> b) {
@@ -15,4 +14,9 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
     result.erase(std::unique(result.begin(), result.end()), result.end());
     return result;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    return 0;
 }
