@@ -1,9 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> f(int n) {
     vector<int> result;
     int sum = 0;
