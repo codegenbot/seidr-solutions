@@ -1,4 +1,4 @@
-std::string match_parens(const std::vector<std::string>& lst) {
+string match_parens(const vector<string>& lst) {
     int open = 0, close = 0;
     for (const auto &str : lst) {
         for (char c : str) {
