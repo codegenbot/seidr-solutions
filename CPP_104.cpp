@@ -5,12 +5,17 @@ bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-std::vector<int> filterNumbers(std::vector<int> x) {
+int main() {
     std::vector<int> result;
     for (int num : x) {
         int temp = num;
@@ -27,10 +32,6 @@ std::vector<int> filterNumbers(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    // Your main function code here
 }
