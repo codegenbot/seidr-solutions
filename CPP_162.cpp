@@ -2,8 +2,6 @@
 #include <openssl/evp.h>
 #include <openssl/md5.h>
 
-#define MD5_DIGEST_LENGTH 16
-
 using namespace std;
 
 string string_to_md5(const string& text) {
