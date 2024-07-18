@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <openssl/evp.h>
 #include <cassert>
 
 std::string string_to_md5(const std::string& text) {
@@ -9,19 +9,19 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    EVP_MD_CTX* mdctx;
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    unsigned int md_len;
-
-    mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, &md_len);
-    EVP_MD_CTX_free(mdctx);
+    EVP_MD_CTX* ctx;
+    const EVP_MD* md = EVP_get_digestbyname("md5");
+    ctx = EVP_MD_CTX_new();
+    unsigned int len;
+    unsigned char mdValue[EVP_MAX_MD_SIZE];
+    EVP_DigestInit_ex(ctx, md, NULL);
+    EVP_DigestUpdate(ctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(ctx, mdValue, &len);
+    EVP_MD_CTX_free(ctx);
 
     char mdString[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
+    for (unsigned int i = 0; i < len; i++) {
+        sprintf(&mdString[i * 2], "%02x", mdValue[i]);
     }
 
     return std::string(mdString);
