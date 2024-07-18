@@ -1,2 +1,2 @@
-def concat_strings(strings):
-    return ''.join(strings)
+def concatenate_strings(strings: list) -> str:
+    return "".join(strings)
