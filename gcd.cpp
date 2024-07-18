@@ -17,11 +17,24 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            for (int k = 0; k < m; ++k) {
-                indices.push_back(i + k);
-            }
+            indices.push_back(i);
         }
     }
     
     return indices;
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+    
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int idx : result) {
+        cout << idx << " ";
+    }
+    
+    return 0;
 }
