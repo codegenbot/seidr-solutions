@@ -4,7 +4,7 @@ bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -26,6 +26,6 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
