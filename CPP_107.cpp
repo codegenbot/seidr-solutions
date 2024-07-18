@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
 
@@ -24,4 +23,10 @@ vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
+}
+
+int main() {
+    assert(even_odd_palindrome(1) == vector<int>{0, 1});
+    
+    return 0;
 }
