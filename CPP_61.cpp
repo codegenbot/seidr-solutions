@@ -1,13 +1,13 @@
-int balance = 0;
-    for (char c : brackets) {
-        if (c == '(') {
-            balance++;
-        } else {
-            if (balance == 0) {
+int count = 0;
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            count++;
+        } else if (bracket == ')') {
+            count--;
+            if (count < 0) {
                 return false;
             }
-            balance--;
         }
     }
-    return balance == 0;
+    return count == 0;
 }
