@@ -4,12 +4,6 @@
 
 using namespace std;
 
-vector<int> sort_array(const vector<int>& arr);
-
-bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
-}
-
 vector<int> sort_array(const vector<int>& arr) {
     vector<int> sorted_arr = arr;
     sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
