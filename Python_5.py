@@ -5,8 +5,8 @@ def process_numbers(numbers, delimiter):
     result.pop()
     return result
 
-# Call the function with appropriate arguments
+
 numbers = [1, 2, 3]
-delimiter = '_'
+delimiter = "_"
 output = process_numbers(numbers, delimiter)
 print(output)
