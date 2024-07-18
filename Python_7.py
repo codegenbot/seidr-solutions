@@ -1,8 +1,8 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-# Call the function with required parameters
-strings = ["apple", "banana", "cherry"]
-substring = "a"
+# Test the function
+strings = ['apple', 'banana', 'cherry', 'orange']
+substring = 'an'
 filtered_strings = filter_strings(strings, substring)
-filtered_strings
+print(filtered_strings)
