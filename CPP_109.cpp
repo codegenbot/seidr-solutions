@@ -4,27 +4,23 @@
 
 bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
-    if (n <= 1) {
-        return true;
-    }
-    int count = 0;
     for (int i = 1; i < n; ++i) {
         if (arr[i] < arr[i - 1]) {
-            if (count == 1) {
-                return false;
-            }
-            if (i == 1 || arr[i] >= arr[i - 2]) {
-                count++;
-            }
-            if (i == n - 1 || arr[i + 1] >= arr[i - 1]) {
-                count++;
-            }
+            return false;
         }
     }
-    return count == 1;
+    return true;
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
+    std::vector<int> input;
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+    std::cout << (move_one_ball(input) ? "true" : "false") << std::endl;
     return 0;
 }
