@@ -1,11 +1,12 @@
 #include <iostream>
 #include <unordered_map>
+#include <cctype>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
     bool all_lowercase = true;
     bool all_uppercase = true;
-    for(const auto& pair : dict) {
+    for(auto const& pair : dict) {
         if(pair.first != tolower(pair.first[0])) {
             all_lowercase = false;
         }
@@ -17,13 +18,7 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 }
 
 int main() {
-    std::unordered_map<std::string, int> dict = {
-        {"Apple", 1},
-        {"banana", 2},
-        {"Cherry", 3}
-    };
-
+    std::unordered_map<std::string, int> dict = {{"apple", 1}, {"banana", 2}, {"Cherry", 3}};
     std::cout << std::boolalpha << check_dict_case(dict) << std::endl;
-
     return 0;
 }
