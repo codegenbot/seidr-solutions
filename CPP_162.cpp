@@ -14,7 +14,7 @@ string string_to_md5(const string& text) {
     unsigned char digest[MD5_DIGEST_LENGTH];
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     EVP_DigestInit(ctx, EVP_md5());
-    EVP_DigestUpdate(ctx, text.c_str(), text.length());
+    EVP_DigestUpdate(ctx, (unsigned char*)text.c_str(), text.length());
     EVP_DigestFinal(ctx, digest, NULL);
     EVP_MD_CTX_free(ctx);
 
