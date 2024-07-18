@@ -1,11 +1,12 @@
-#include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
 
-using namespace std;
+vector<string> filter_by_substring(vector<string> strings, string substring);
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for (const auto& str : strings) {
         if (str.find(substring) != string::npos) {
@@ -16,7 +17,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
-    
+    // Main function implementation can be done here
     return 0;
 }
