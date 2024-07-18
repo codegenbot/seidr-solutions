@@ -14,8 +14,8 @@ bool issame(const std::vector<std::string>& lst1, const std::vector<std::string>
     }
     
     if(total_chars1 < total_chars2){
-        return true;
+        return lst1;
     }
     
-    return false;
+    return lst2;
 }
