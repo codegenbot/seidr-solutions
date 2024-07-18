@@ -15,26 +15,26 @@ bool is_prime(int num) {
     return true;
 }
 
-int main() {
-    auto is_multiply_prime = [](int a) {
-        vector<int> primes;
-        for (int i = 2; i < 100; i++) {
-            if (is_prime(i)) {
-                primes.push_back(i);
-            }
+bool is_multiply_prime(int a) {
+    vector<int> primes;
+    for (int i = 2; i < 100; i++) {
+        if (is_prime(i)) {
+            primes.push_back(i);
         }
-        for (int i = 0; i < primes.size(); i++) {
-            for (int j = i + 1; j < primes.size(); j++) {
-                for (int k = j + 1; k < primes.size(); k++) {
-                    if (primes[i] * primes[j] * primes[k] == a) {
-                        return true;
-                    }
+    }
+    for (int i = 0; i < primes.size(); i++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
+                if (primes[i] * primes[j] * primes[k] == a) {
+                    return true;
                 }
             }
         }
-        return false;
-    };
+    }
+    return false;
+}
 
+int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
