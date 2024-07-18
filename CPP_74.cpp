@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     int total_chars1 = 0;
     int total_chars2 = 0;
     
