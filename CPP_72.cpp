@@ -1,12 +1,12 @@
-vector<int> sorted_q = q;
-    sort(sorted_q.begin(), sorted_q.end());
-    
-    if (sorted_q != q)
+int sum = 0;
+    for (int elem : q) {
+        sum += elem;
+    }
+    if (sum > w) {
         return false;
-    
-    int sum = 0;
-    for (int num : q)
-        sum += num;
-    
-    return (sum <= w);
+    }
+
+    vector<int> q_reverse = q;
+    reverse(q_reverse.begin(), q_reverse.end());
+    return q == q_reverse;
 }
