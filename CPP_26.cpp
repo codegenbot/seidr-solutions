@@ -10,11 +10,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return numbers;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    // Main function code (if any) goes here
+    // Your main function code here
     return 0;
 }
