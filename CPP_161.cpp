@@ -1,9 +1,11 @@
 #include <iostream>
+#include <string>
 #include <algorithm>
 #include <cctype>
-#include <cassert>
 
-std::string solve(std::string s) {
+using namespace std;
+
+string solve(string s){
     for(char &c : s){
         if(isalpha(c)){
             if(islower(c)){
@@ -13,14 +15,20 @@ std::string solve(std::string s) {
             }
         }
     }
-    if(std::count_if(s.begin(), s.end(), isalpha) == 0){
-        std::reverse(s.begin(), s.end());
+    if(count_if(s.begin(), s.end(), isalpha) == 0){
+        reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    
+    string result = solve(input);
+    
+    cout << "Output: " << result << endl;
+    
     return 0;
 }
