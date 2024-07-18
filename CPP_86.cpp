@@ -3,7 +3,7 @@ string result = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + " ";
+            result += word + ' ';
             word = "";
         } else {
             word += c;
