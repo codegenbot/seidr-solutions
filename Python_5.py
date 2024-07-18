@@ -6,8 +6,9 @@ def process_numbers(numbers, delimiter):
     return result
 
 # Read input from the user
-numbers = input("Enter numbers separated by space: ").strip().split()
-delimiter = input("Enter the delimiter: ")
+numbers = input("Enter numbers separated by space: ").split()
+numbers = numbers if numbers != [''] else []
+delimiter = input("Enter the delimiter: ").rstrip()
 
 # Call the function
 output = process_numbers(numbers, delimiter)
