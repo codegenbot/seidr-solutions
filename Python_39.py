@@ -7,13 +7,14 @@ def is_prime(num):
     return True
 
 
-def prime_fib(n):
-    def fib(n):
-        if n <= 1:
-            return n
-        else:
-            return fib(n - 1) + fib(n - 2)
+def fib(n):
+    if n <= 1:
+        return n
+    else:
+        return fib(n - 1) + fib(n - 2)
 
+
+def prime_fib(n):
     count = 0
     num = 0
     while count < n:
