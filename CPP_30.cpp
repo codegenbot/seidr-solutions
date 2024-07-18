@@ -19,5 +19,5 @@ int main() {
     vector<float> l = {-2.5, 3.0, -1.2, 5.4, 0.0};
     vector<float> result = get_positive(l);
     assert(result.size() == 2 && result[0] == 3.0 && result[1] == 5.4);
-    assert(issame(get_positive({}), vector<float>{}));
+    assert(issame(get_positive({}), {}));
 }
