@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (std::size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,7 +13,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> std::generate_integers(int start, int end) {
+std::vector<int> generate_integers(int start, int end) {
     std::vector<int> result;
     for (int i = start; i <= end; ++i) {
         result.push_back(i);
