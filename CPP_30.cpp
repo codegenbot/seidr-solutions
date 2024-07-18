@@ -7,7 +7,7 @@ using namespace std;
 bool issame(const vector<float>& a, const vector<float>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-4) return false;
+        if (abs(a[i] - b[i]) > 1e-4) return false;
     }
     return true;
 }
