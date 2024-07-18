@@ -4,8 +4,7 @@ vector<int> incr_list(vector<int> l);
 bool issame(vector<int> a, vector<int> b);
 
 int main() {
-    // Main function code here
-
+    // Test the functions here
     return 0;
 }
 
