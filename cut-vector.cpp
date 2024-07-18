@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int main() {
     std::vector<int> numbers;
@@ -14,7 +14,6 @@ int main() {
     
     for (int i = 1; i < numbers.size(); ++i) {
         int diff = std::abs(std::accumulate(numbers.begin(), numbers.begin() + i, 0) - std::accumulate(numbers.begin() + i, numbers.end(), 0));
-        
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
