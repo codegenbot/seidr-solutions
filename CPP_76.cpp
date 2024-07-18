@@ -7,7 +7,6 @@ bool is_simple_power(int x, int n) {
     }
     double result = std::log(x) / std::log(n);
     return (result == (int)result);
-    return true;
 }
 
 int main() {
