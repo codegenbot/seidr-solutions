@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -8,8 +7,7 @@ using namespace std;
 string file_name_check(string file_name);
 
 int main() {
-    assert (file_name_check("s.") == "No");
-    return 0;
+    assert(file_name_check("s.") == "No");
 }
 
 string file_name_check(string file_name) {
