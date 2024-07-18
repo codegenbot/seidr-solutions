@@ -6,14 +6,12 @@
 namespace solution_name {
     using namespace std;
 
-    vector<string> odd_count(vector<string> lst);
-
-    vector<string> odd_count(vector<string> lst){
+    vector<string> odd_count(vector<string> lst) {
         vector<string> result;
-        for(string s : lst){
+        for (string s : lst) {
             int count = 0;
-            for(char c : s){
-                if((c - '0') % 2 != 0){
+            for (char c : s) {
+                if ((c - '0') % 2 != 0) {
                     count++;
                 }
             }
@@ -22,29 +20,32 @@ namespace solution_name {
         return result;
     }
 
-    bool issame(const vector<string>& v1, const vector<string>& v2){
-        return v1 == v2;
+    bool issame(vector<string> a, vector<string> b) {
+        return a == b;
     }
 
-    int main(){
+    int main() {
         int n;
         cin >> n; // Reading the number of strings
         vector<string> input(n);
-        for(int i = 0; i < n; ++i){
+        for (int i = 0; i < n; ++i) {
             cin >> input[i]; // Reading the strings
         }
 
         vector<string> output = solution_name::odd_count(input);
-        
-        for(string res : output){
+
+        for (string res : output) {
             cout << res << endl; // Output the result
         }
-        
+
         return 0;
     }
 }
 
 int main() {
-    assert(solution_name::issame(solution_name::odd_count({"271", "137", "314"}), {"the number of odd elements 2\n the string 271 of the input.", "the number of odd elements 2\n the string 137 of the input.", "the number of odd elements 1\n the string 314 of the input."}));
+    assert(solution_name::issame(solution_name::odd_count({"271", "137", "314"}),
+                                  {"the number of odd elements 2\n the string 271 of the input.",
+                                   "the number of odd elements 2\n the string 137 of the input.",
+                                   "the number of odd elements 2\n the string 314 of the input."}));
     return 0;
 }
