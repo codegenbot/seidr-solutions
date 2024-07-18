@@ -1,12 +1,18 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ' && i + 2 < text.size() && text[i+1] == ' ' && text[i+2] == ' ') {
-            while (i < text.size() && text[i] == ' ') {
-                text[i] = '-';
-                ++i;
-            }
-            --i;
-        } else if (text[i] == ' ') {
+int i = 0;
+    while(i < text.length()) {
+        if (text[i] == ' ') {
             text[i] = '_';
+            int count = 1;
+            while (i + count < text.length() && text[i + count] == ' ') {
+                count++;
+            }
+            if (count > 2) {
+                text.replace(i, count, "-");
+            }
+            i += count;
+        }
+        else {
+            i++;
         }
     }
     return text;
