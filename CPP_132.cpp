@@ -1,11 +1,10 @@
-int left = 0, right = 0;
-    for(char c : str) {
-        if(c == '[') {
-            left++;
-        } else if(c == ']' && left > 0) {
-            left--;
-            right++;
+int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return right > 0;
+    return count < 0 ? true : false;
 }
