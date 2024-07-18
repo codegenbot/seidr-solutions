@@ -14,13 +14,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             level -= 1
             if level > 0:
                 group += char
-            if level == 0:
+            if level == 0 and group != "":
                 result.append(group + char)
                 group = ""
         else:
             group += char
 
     return result
-
-paren_string = input()
-print(separate_paren_groups(paren_string))
