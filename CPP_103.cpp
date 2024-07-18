@@ -20,3 +20,8 @@ std::string binary_avg(int n, int m) {
     
     return binary_avg;
 }
+
+int main() {
+    assert(binary_avg(5, 5) == "101");  
+    return 0;
+}
