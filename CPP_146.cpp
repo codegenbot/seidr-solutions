@@ -20,5 +20,5 @@ int specialFilter(const vector<int>& nums){
 
 int main() {
     assert(specialFilter({10, 15, 25}) == 2);
-    return 0; // indicating successful completion
+    return 0;
 }
