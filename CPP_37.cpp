@@ -1,4 +1,8 @@
-vector<float> sort_even(const vector<float>& l) {
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> sort_even(vector<float> l) {
     vector<float> even_values;
     vector<float> result;
 
@@ -21,8 +25,4 @@ vector<float> sort_even(const vector<float>& l) {
     }
 
     return result;
-}
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
 }
