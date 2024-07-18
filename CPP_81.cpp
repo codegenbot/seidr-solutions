@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include <cassert>
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
@@ -22,6 +23,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
 }
 
 int main(){
-    // Add test cases here if needed
+    // Your main function code here
     return 0;
 }
