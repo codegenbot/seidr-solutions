@@ -6,7 +6,7 @@ def process_numbers(numbers, delimiter):
     return result
 
 # Read input from the user
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+numbers = input("Enter numbers separated by space: ").strip().split()
 delimiter = input("Enter the delimiter: ")
 
 # Call the function
