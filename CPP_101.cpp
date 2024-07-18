@@ -1,6 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <cassert>
 #include <sstream>
+
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
