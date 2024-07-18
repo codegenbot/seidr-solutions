@@ -1,3 +1,6 @@
+from typing import List
+
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
@@ -10,6 +13,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group = ""
     return result
 
-paren_string = input("Enter a string with parentheses: ")
+
+# Read input from user
+paren_string = input("Enter the string of parentheses: ")
+# Call the function with the input string
 output = separate_paren_groups(paren_string)
+# Print the result
 print(output)
