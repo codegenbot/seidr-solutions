@@ -1,9 +1,9 @@
-
 from typing import List
 
-def separate_paren_groups() -> List[str]:
-    paren_string = input("Enter the string containing parentheses: ")
-    
+def separate_paren_groups(paren_string: str) -> List[str]:
+    if not paren_string.startswith("(") or not paren_string.endswith(")"):
+        return []
+
     result = []
     group = ""
     level = 0
@@ -20,9 +20,8 @@ def separate_paren_groups() -> List[str]:
             if level == 0:
                 result.append(group)
                 group = ""
-        else:
-            group += char
-            
+                
+    if level == 0:
+        result.append(group)
+        
     return result
-
-print(separate_paren_groups())
