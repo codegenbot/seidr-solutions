@@ -1,4 +1,5 @@
-def decode_cyclic():
-    groups = [input("Enter a list of strings: ")[i:i+3] for i in range(0, len(input("Enter a list of strings: ")), 3)]
+def decode_cyclic(groups):
+    # Shift each group cyclically by one
     groups = [group[-1] + group[:-1] if len(group) == 3 else group for group in groups]
+    # Join the groups to form the decoded string
     return "".join(groups)
