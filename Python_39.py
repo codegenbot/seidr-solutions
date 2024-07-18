@@ -21,6 +21,5 @@ def prime_fib(n):
             count += 1
     return num
 
-
-n = int(input().strip())
+n = int(input("Enter the number of prime Fibonacci numbers to find: ").strip())
 print(prime_fib(n))
