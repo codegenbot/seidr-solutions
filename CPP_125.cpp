@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <cctype>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
@@ -10,6 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
+  
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -26,7 +27,7 @@ std::vector<std::string> split_words(std::string txt){
     if(result.empty()){
         int oddCount = 0;
         for(char c : txt){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
@@ -37,8 +38,8 @@ std::vector<std::string> split_words(std::string txt){
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("Hello, World!"), {"Hello", "World"}));
-    assert(issame(split_words("one two three"), {"one", "two", "three"}));
-    assert(issame(split_words("12345"), {"12345"}));
+    assert(issame(split_words("hello, world"), {"hello", "world"}));
+    assert(issame(split_words("1234,abc,^^^"), {"1234", "abc", "^^^"}));
+    assert(issame(split_words("test, thIS, text, here"), {"test", "thIS", "text", "here"}));
     return 0;
 }
