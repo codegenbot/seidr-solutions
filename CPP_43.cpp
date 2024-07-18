@@ -1,8 +1,13 @@
-for (int i = 0; i < l.size(); i++) {
-        for (int j = i + 1; j < l.size(); j++) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
+sort(l.begin(), l.end());
+    int i = 0;
+    int j = l.size() - 1;
+    while (i < j) {
+        if (l[i] + l[j] == 0) {
+            return true;
+        } else if (l[i] + l[j] < 0) {
+            i++;
+        } else {
+            j--;
         }
     }
     return false;
