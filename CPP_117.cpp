@@ -2,8 +2,6 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n);
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -38,4 +36,25 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
+}
+
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::string input;
+    int n;
+    
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::cout << "Enter a consonant count: ";
+    std::cin >> n;
+    
+    vector<string> selectedWords = select_words(input, n);
+    
+    for (const string& word : selectedWords) {
+        std::cout << word << " ";
+    }
+    
+    return 0;
 }
