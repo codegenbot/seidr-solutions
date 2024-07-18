@@ -4,14 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 1e-4) return false;
-    }
-    return true;
-}
-
 vector<float> get_positive(const vector<float>& l) {
     vector<float> positive_nums;
     for (float num : l) {
@@ -30,7 +22,7 @@ int main() {
     assert(result[0] == 2.3);
     assert(result[1] == 4.5);
 
-    assert(issame(get_positive(vector<float>{}), vector<float>{}));
+    assert(get_positive(vector<float>{}).empty());
 
     return 0;
 }
