@@ -3,6 +3,6 @@
 #include <cstring>
 
 int main() {
-    const char *str = "asdasnakj";
-    assert(strlen(str) == 9);
+    std::string str = "asdasnakj";
+    assert(str.length() == 9);
 }
