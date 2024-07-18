@@ -13,6 +13,9 @@ std::vector<int> unique_digits(std::vector<int> nums) {
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return unique_digits(a) == unique_digits(b);
+bool issame(std::vector<int> a, std::vector<int> b);
+
+int main() {
+    assert(issame({135, 103, 31}, {31, 135}));
+    return 0;
 }
