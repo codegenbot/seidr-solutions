@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 
@@ -38,9 +39,8 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
-int main() {
+void solve_problem() {
     int num;
     std::cin >> num;
     std::cout << (is_multiply_prime(num) ? "true" : "false") << std::endl;
-    return 0;
 }
