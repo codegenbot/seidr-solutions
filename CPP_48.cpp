@@ -1,8 +1,7 @@
-int len = text.length();
-for(int i=0; i<len/2; i++){
-    if(text[i] != text[len-1-i]){
-        return false;
+int n = text.size();
+    for(int i=0; i<n/2; i++){
+        if(text[i] != text[n-i-1]){
+            return false;
+        }
     }
-}
-return true;
-}
+    return true;
