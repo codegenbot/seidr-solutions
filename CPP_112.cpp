@@ -1,9 +1,10 @@
 string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+    for(char ch : s){
+        if(c.find(ch) == string::npos){
             result += ch;
         }
     }
-    string palindrome_check = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
-    return {result, palindrome_check};
+    string resultReversed = result;
+    reverse(resultReversed.begin(), resultReversed.end());
+    return {result, result == resultReversed ? "True" : "False"};
 }
