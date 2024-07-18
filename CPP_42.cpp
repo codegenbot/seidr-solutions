@@ -1,21 +1,17 @@
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-vector<int> incr_list(const vector<int>& l){
-    vector<int> res = l;
-    for (int i = 0; i < res.size(); ++i) {
-        res[i]++;
+vector<int> incr_list(vector<int> l) {
+    for (int i = 0; i < l.size(); ++i) {
+        l[i]++;
     }
-    return res;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    return l;
 }
 
 int main() {
-    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    vector<int> nums = {1, 2, 3, 4, 5};
+    vector<int> updated_nums = incr_list(nums);
+
+    for (int num : updated_nums) {
+        cout << num << " ";
+    }
+
     return 0;
 }

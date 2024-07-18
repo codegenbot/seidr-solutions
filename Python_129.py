@@ -1,29 +1,20 @@
 def minPath(grid, k):
     n = len(grid)
-    pos = min((i, j) for i in range(n) for j in range(n))
-    path = [grid[pos[0]][pos[1]]
-    
-    seen = {(pos[0], pos[1]): 0}
-    cycles = []
-    
-    for _ in range(k - 1):
-        i, j = pos
-        next_pos = min(
-            (x, y)
-            for x in range(max(0, i - 1), min(n, i + 2))
-            for y in range(max(0, j - 1), min(n, j + 2))
+    start = min((grid[i][j], i, j) for i in range(n) for j in range(n))[1:]
+    path = [grid[start[0]][start[1]]
+    visited = set(start)
+
+    while len(path) < k:
+        x, y = visited.pop()
+        neighbors = [
+            (x + dx, y + dy)
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]
+            if 0 <= x + dx < n and 0 <= y + dy < n
+        ]
+        next_cell = min(
+            (grid[i][j], i, j) for i, j in neighbors if (i, j) not in visited
         )
-        if next_pos in seen:
-            cycle_start = seen[next_pos]
-            cycle_length = len(path) - cycle_start
-            cycle_values = path[cycle_start:]
-            remaining_steps = k - cycle_start
-            remaining_values = cycle_values * (remaining_steps // cycle_length)
-            path = path[:cycle_start] + remaining_values
-            break
-            
-        path.append(grid[next_pos[0]][next_pos[1]])
-        pos = next_pos
-        seen[pos] = len(path)
-    
+        path.append(grid[next_cell[1]][next_cell[2]])
+        visited.add((next_cell[1], next_cell[2]))
+
     return path
