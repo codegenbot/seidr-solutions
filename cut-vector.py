@@ -1,23 +1,16 @@
 n = int(input())
-numbers = [int(input()) for _ in range(n)]
-
-mid = n // 2
-left_sum = sum(numbers[:mid])
-right_sum = sum(numbers[mid:])
-
-if left_sum == right_sum or abs(left_sum - right_sum) <= 1:
-    print(*numbers[:mid])
-    print(*numbers[mid:])
-else:
-    if left_sum < right_sum:
-        while abs(left_sum - right_sum) > 1:
-            mid += 1
-            left_sum += numbers[mid - 1]
-            right_sum -= numbers[mid - 1]
+A = [int(input()) for _ in range(n)]
+total_sum = sum(A)
+half_sum = total_sum // 2
+closest_sum = 0
+for i in range(n):
+    if closest_sum + A[i] <= half_sum:
+        closest_sum += A[i]
     else:
-        while abs(left_sum - right_sum) > 1:
-            mid -= 1
-            left_sum -= numbers[mid]
-            right_sum += numbers[mid]
-    print(*numbers[:mid])
-    print(*numbers[mid:])
+        break
+if closest_sum == half_sum:
+    print(*A[: i + 1])
+    print(*A[i + 1 :])
+else:
+    print(*A)
+    print(0)
