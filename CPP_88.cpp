@@ -1,14 +1,14 @@
 if (array.empty()) {
         return array;
     }
-
-    vector<int> sortedArray = array;
-
+    
+    vector<int> result = array;
+    
     if ((array.front() + array.back()) % 2 == 0) {
-        sort(sortedArray.rbegin(), sortedArray.rend());
+        sort(result.rbegin(), result.rend());
     } else {
-        sort(sortedArray.begin(), sortedArray.end());
+        sort(result.begin(), result.end());
     }
-
-    return sortedArray;
+    
+    return result;
 }
