@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
-vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
+bool unique_digits(std::vector<int> x) {
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;

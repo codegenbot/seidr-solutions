@@ -1,16 +1,25 @@
-std::string anti_shuffle(const std::string& s) {
-    std::string result = "";
-    std::string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            std::sort(word.begin(), word.end());
+#include <string>
+
+string anti_shuffle(string s);
+
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    
+    for(char c : s){
+        if(c == ' '){
+            sort(word.begin(), word.end());
             result += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
-    std::sort(word.begin(), word.end());
-    result += word;
+    
+    if(!word.empty()){
+        sort(word.begin(), word.end());
+        result += word;
+    }
+    
     return result;
 }
