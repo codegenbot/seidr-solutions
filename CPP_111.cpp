@@ -5,21 +5,22 @@
 
 using namespace std;
 
+map<char, int> histogram(string test);
+bool issame(map<char, int> a, map<char, int> b);
+
 bool issame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+    for (const auto &elem : a) {
+        if (b.find(elem.first) == b.end() || b[elem.first] != elem.second) {
             return false;
         }
     }
-    
+    for (const auto &elem : b) {
+        if (a.find(elem.first) == a.end() || a[elem.first] != elem.second) {
+            return false;
+        }
+    }
     return true;
 }
-
-map<char, int> histogram(string test);
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
@@ -35,15 +36,5 @@ map<char, int> histogram(string test){
             result[c]++;
         }
     }
-    int maxCount = 0;
-    for(auto it : result){
-        maxCount = max(maxCount, it.second);
-    }
-    map<char, int> res;
-    for(auto it : result){
-        if(it.second == maxCount){
-            res[it.first] = it.second;
-        }
-    }
-    return res;
+    return result;
 }
