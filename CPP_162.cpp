@@ -20,7 +20,7 @@ string string_to_md5(const string& text) {
 
     char mdString[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
     return string(mdString);
