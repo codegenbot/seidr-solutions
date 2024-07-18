@@ -4,24 +4,35 @@
 #include <cassert>
 
 namespace solution_name {
-    using namespace std;
-
-    vector<string> odd_count(vector<string> lst) {
-        vector<string> result;
-        for (string s : lst) {
-            int count = 0;
-            for (char c : s) {
-                if ((c - '0') % 2 != 0) {
-                    count++;
-                }
+    int count_odds(const std::string& input) {
+        int count = 0;
+        for (char c : input) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 == 1) {
+                count++;
             }
-            result.push_back("the number of odd elements " + to_string(count) + "\nthe string " + s + " of the input.");
+        }
+        return count;
+    }
+
+    std::vector<std::string> odd_count(const std::vector<std::string>& inputs) {
+        std::vector<std::string> result;
+        for (const std::string& input : inputs) {
+            int count = count_odds(input);
+            result.push_back("the number of odd elements " + std::to_string(count) + "\nthe string " + input + " of the input.");
         }
         return result;
     }
 
-    bool issame(vector<string> a, vector<string> b) {
-        return a == b;
+    bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+        if (vec1.size() != vec2.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < vec1.size(); ++i) {
+            if (vec1[i] != vec2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
