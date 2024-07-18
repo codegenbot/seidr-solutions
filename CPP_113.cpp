@@ -1,18 +1,18 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-vector<string> odd_count(vector<string> lst){
-    vector<string> result;
-    for(string str : lst){
+std::vector<std::string> odd_count(std::vector<std::string> lst){
+    std::vector<std::string> result;
+    for(std::string str : lst){
         int count = 0;
         for(char c : str){
             if((c - '0') % 2 != 0){
                 count++;
             }
         }
-        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + " of the input.";
+        std::string res = "The number of odd elements " + std::to_string(count) + "\nIn the string " + str + " of the input.";
         result.push_back(res);
     }
     return result;
