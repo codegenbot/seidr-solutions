@@ -1,5 +1,6 @@
-def below_zero(operations):
-    return len([num for num in operations if num < 0])
+def below_zero(numbers):
+    count = sum(1 for num in numbers if num < 0)
+    return count
 
 
 try:
