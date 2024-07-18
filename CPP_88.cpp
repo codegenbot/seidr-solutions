@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 std::vector<int> sort_array(const std::vector<int>& array){
     if(array.empty()) return array;
     std::vector<int> sorted_array = array;
