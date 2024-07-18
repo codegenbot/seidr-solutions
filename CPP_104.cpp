@@ -1,12 +1,18 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 vector<int> unique_digits(vector<int> x);
 
 bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
     }
     return true;
 }
@@ -32,12 +38,15 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main(){
-    // Test the unique_digits function
-    vector<int> input = {123, 456, 789, 135, 246};
+    vector<int> input = {123, 456, 789, 135, 246, 802};
     vector<int> expected_output = {135, 789};
-    vector<int> output = unique_digits(input);
+    vector<int> actual_output = unique_digits(input);
     
-    assert(is_same(output, expected_output));
-
+    if(is_same(expected_output, actual_output)){
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+    
     return 0;
 }
