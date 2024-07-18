@@ -1,6 +1,7 @@
-def add(nums: list) -> int:
-    return sum(nums)
+def add(x: int, y: int) -> int:
+    return x + y
 
-inputs = list(map(int, input("Enter the numbers: ").split()))
-result = add(inputs)
+x = int(input("Enter the first number: "))
+y = int(input("Enter the second number: "))
+result = add(x, y)
 print(result)
