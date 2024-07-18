@@ -1,16 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+vector<int> sort_third(vector<int> l);
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_third(vector<int> l);
-
-vector<int> sort_third(std::vector<int> l){
-    std::vector<int> sorted_indices;
+vector<int> sort_third(vector<int> l){
+    vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
             sorted_indices.push_back(l[i]);
@@ -29,10 +31,10 @@ vector<int> sort_third(std::vector<int> l){
 }
 
 int main() {
-    std::vector<int> input = {7, 3, 2, 4, 9, 1, 5, 8, 6};
-    std::vector<int> expected_output = {2, 3, 1, 4, 9, 5, 6, 8, 7};
+    vector<int> input = {7, 3, 2, 4, 9, 1, 5, 8, 6};
+    vector<int> expected_output = {2, 3, 1, 4, 9, 5, 6, 8, 7};
 
-    std::vector<int> result = sort_third(input);
+    vector<int> result = sort_third(input);
 
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(result, expected_output));
 }
