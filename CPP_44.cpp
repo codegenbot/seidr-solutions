@@ -1,8 +1,8 @@
-#include <string> 
+#include <string>
 
-std::string change_base(int x, int base) {
+std::string change_base(int x, int base){
     std::string result = "";
-    while (x > 0) {
+    while(x > 0){
         int remainder = x % base;
         result = std::to_string(remainder) + result;
         x /= base;
