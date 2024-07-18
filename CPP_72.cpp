@@ -1,14 +1,18 @@
-int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+#include <vector>
+#include <algorithm>
+
+bool will_it_fly(const std::vector<int>& q, int w) {
+    int sum = 0;
+    for (int num : q) {
+        sum += num;
     }
-    if (sum > w) {
-        return false;
-    }
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            return false;
+
+    if (sum <= w) {
+        std::vector<int> reversed_q = q;
+        std::reverse(reversed_q.begin(), reversed_q.end());
+        if (q == reversed_q) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
