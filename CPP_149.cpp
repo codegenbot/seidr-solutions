@@ -20,7 +20,7 @@ vector<string> sorted_list_sum(vector<string> a, vector<string> b) {
     return a;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
 
