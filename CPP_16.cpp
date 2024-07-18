@@ -1,9 +1,11 @@
-vector<char> distinctChars;
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> seen(26, false);
+    int count = 0;
     for (char c : str) {
-        char lowerC = tolower(c);
-        if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
-            distinctChars.push_back(lowerC);
+        if (isalpha(c) && !seen[c - 'a']) {
+            seen[c - 'a'] = true;
+            count++;
         }
     }
-    return distinctChars.size();
+    return count;
 }
