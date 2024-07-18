@@ -1,8 +1,8 @@
 #include <vector>
-#include <string>
+#include <string> // Add this include directive
 #include <cmath>
 
-string intersection(vector<int> interval1, vector<int> interval2) {
+std::string intersection(std::vector<int> interval1, std::vector<int> interval2) { // Replace 'string' with 'std::string'
     int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
