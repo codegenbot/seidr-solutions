@@ -1,3 +1,6 @@
+def add(x: int, y: int) -> int:
+    return x + y
+
 # Read input from the user
 x, y = map(int, input().split())
 
