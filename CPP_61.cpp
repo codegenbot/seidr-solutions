@@ -17,11 +17,13 @@ bool correct_bracketing(const std::string &brackets) {
 }
 
 void test_correct_bracketing() {
-    std::string test1 = "((()))";
-    std::string test2 = "(()))";
+    std::string input1 = "((()))";
+    std::string input2 = "(()())";
+    std::string input3 = "(()))(";
     
-    std::cout << "Test 1 Result: " << correct_bracketing(test1) << std::endl;
-    std::cout << "Test 2 Result: " << correct_bracketing(test2) << std::endl;
+    std::cout << "Input 1 result: " << (correct_bracketing(input1) ? "true" : "false") << std::endl;
+    std::cout << "Input 2 result: " << (correct_bracketing(input2) ? "true" : "false") << std::endl;
+    std::cout << "Input 3 result: " << (correct_bracketing(input3) ? "true" : "false") << std::endl;
 }
 
 int main() {
