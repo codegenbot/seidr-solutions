@@ -1,15 +1,15 @@
 #include <string>
-#include <cassert>
-#include <iostream>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
-string string_to_md5(const string &text) {
-    assert(!text.empty());
+string string_to_md5(const string& text) {
+    if (text.empty()) {
+        return "None";
+    }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    EVP_Digest((unsigned char*)text.c_str(), text.length(), digest, NULL, EVP_md5(), NULL);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
@@ -17,13 +17,4 @@ string string_to_md5(const string &text) {
     }
 
     return string(mdString);
-}
-
-int main() {
-    string text;
-    cin >> text;
-    
-    cout << string_to_md5(text) << endl;
-
-    return 0;
 }
