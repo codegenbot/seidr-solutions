@@ -1,7 +1,2 @@
-def filter_strings():
-    strings = input("Enter a list of strings separated by spaces: ").split()
-    prefix = input("Enter the prefix to filter by: ")
+def filter_strings(strings, prefix):
     return [s for s in strings if s.startswith(prefix)]
-
-result = filter_strings()
-print(result)
