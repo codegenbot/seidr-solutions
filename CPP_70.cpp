@@ -20,4 +20,3 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 }
 
 assert(issame(strange_sort_list({111111}), {111111}));
-```
