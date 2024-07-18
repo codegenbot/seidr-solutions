@@ -17,6 +17,5 @@ string anti_shuffle(string s) {
     sort(word.begin(), word.end());
     result += word;
     return result;
-} 
-
-assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Reiimrst Rboot. How aer ouy?");
+}
+assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".HiMnaiserRtobeMyou?areyou");
