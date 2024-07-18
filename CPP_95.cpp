@@ -17,13 +17,7 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 }
 
 int main() {
-    std::unordered_map<std::string, int> dict = {{"Apple", 1}, {"banana", 2}, {"Cherry", 3}};
-    
-    if(check_dict_case(dict)) {
-        std::cout << "Dictionary keys are either all lowercase or all uppercase." << std::endl;
-    } else {
-        std::cout << "Dictionary keys are of mixed case." << std::endl;
-    }
-    
+    // Initialize dictionary (dict) as needed
+    // Call check_dict_case with the dictionary as input
     return 0;
 }
