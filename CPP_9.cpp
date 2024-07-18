@@ -1,4 +1,4 @@
-vector<int> rolling_max(vector<int> numbers){
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int max_num = numbers[0];
     for (int i = 0; i < numbers.size(); i++) {
