@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
     for(int i = 1; i < n; ++i){
