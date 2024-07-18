@@ -1,6 +1,4 @@
-import sys
-
-n = int(sys.stdin.readline().strip())
+n = int(input("Enter the number of prime Fibonacci numbers to find: ").strip())
 
 def is_prime(num):
     if num < 2:
