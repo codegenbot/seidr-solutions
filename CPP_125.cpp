@@ -8,7 +8,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
-
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -37,5 +36,5 @@ std::vector<std::string> split_words(std::string txt){
 int main(){
     assert(issame(split_words(""), {"0}));
     // Add more test cases here
-    return 0;
+    return 0;    
 }
