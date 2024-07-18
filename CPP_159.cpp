@@ -15,7 +15,7 @@ std::pair<int, int> eat(int number, int need) {
 }
 
 int main() {
-    assert (issame(eat(4, 5), {5, 0}));
-    
+    assert(issame(eat(4, 5), {5, 0}));
+
     return 0;
 }
