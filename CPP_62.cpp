@@ -9,7 +9,8 @@ std::vector<float> derivative(std::vector<float> xs) {
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+template<typename T>
+bool issame(std::vector<T> a, std::vector<T> b) {
     return a == b;
 }
 
