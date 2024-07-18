@@ -1,11 +1,12 @@
 vector<float> sort_even(vector<float> l) {
-    vector<float> even_indicesoverview;
+    vector<float> even_indices;
+    vector<float> sorted_even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_indicesoverview.push_back(l[i]);
+            even_indices.push_back(l[i]);
+            sorted_even_indices.push_back(l[i]);
         }
     }
-    vector<float> sorted_even_indices = even_indicesoverview;
     sort(sorted_even_indices.begin(), sorted_even_indices.end());
     int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
