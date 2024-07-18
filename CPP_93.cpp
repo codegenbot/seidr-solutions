@@ -17,10 +17,9 @@ int main() {
     std::string input;
     std::cout << "Enter a message: ";
     std::getline(std::cin, input);
-    
+
     std::string encodedMessage = encode(input);
-    
-    std::cout << "Encoded Message: " << encodedMessage << std::endl;
-    
+    std::cout << "Encoded message: " << encodedMessage << std::endl;
+
     return 0;
 }
