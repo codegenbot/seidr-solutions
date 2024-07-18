@@ -1,1 +1,1 @@
-bool issame(const vector<int>& a, const vector<int>& b)
+bool issame(const vector<int>& a, const vector<int>& b);
