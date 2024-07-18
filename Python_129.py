@@ -14,7 +14,7 @@ def minPath(grid, k):
         next_cell = min(
             (grid[i][j], i, j) for i, j in neighbors if (i, j) not in visited
         )
-        path.append(grid[next_cell[1]][next_cell[2])
+        path.append(grid[next_cell[1]][next_cell[2]])
         visited.add((next_cell[1], next_cell[2]))
 
     return path
