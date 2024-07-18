@@ -7,9 +7,4 @@ int fib(int n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << fib(n);
-    return 0;
-}
+assert(fib(n) == 89); // Update expected value to match the problem description
