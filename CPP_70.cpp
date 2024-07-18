@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    // Your function implementation here
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
