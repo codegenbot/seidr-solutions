@@ -1,29 +1,25 @@
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    vector<string> test_input = {"(group1)(group2)", "(group3)"};
-    vector<string> expected_output = {"group1", "group2", "group3"};
+    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected = {"(group1)", "(group2)", "(group3)"};
 
-    vector<string> result = separate_paren_groups(test_input[0]);
-
-    if (issame(result, expected_output)) {
-        // Output matches expected result
+    if (issame(result, expected)) {
+        cout << "Output matches expected result." << endl;
     } else {
-        // Output does not match expected result
+        cout << "Output does not match expected result." << endl;
     }
 
     return 0;
