@@ -1,18 +1,20 @@
-#include <string>
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> reverse_delete(string s, string c);
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
 vector<string> reverse_delete(string s, string c){
-    string result;
+    string result = "";
     for(char ch : s){
         if(c.find(ch) == string::npos){
             result += ch;
@@ -23,7 +25,12 @@ vector<string> reverse_delete(string s, string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
-int main(){
-    assert(issame(reverse_delete("mamma", "mia"), vector<string>{"", "True"}));
+int main() {
+    string s, c;
+    cin >> s >> c;
+    vector<string> result = reverse_delete(s, c);
+    for (const string& str : result) {
+        cout << str << " ";
+    }
     return 0;
 }
