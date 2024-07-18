@@ -1,12 +1,21 @@
 int main() {
-    int n, num1, num2, target;
+    int n;
     cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> num1 >> num2 >> target;
-        if (num1 + num2 == target) {
-            cout << num1 << endl << num2 << endl;
+        cin >> nums[i];
+    }
+    int target;
+    cin >> target;
+    
+    map<int, int> mp;
+    for (int i = 0; i < n; ++i) {
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << endl << target - nums[i] << endl;
             break;
         }
+        mp[nums[i]] = i;
     }
+    
     return 0;
 }
