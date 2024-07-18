@@ -1,10 +1,11 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
+    paren_string = "".join(char for char in paren_string if char in "()")
     depths = []
     current_depth = 0
-    filtered_string = "".join(char for char in paren_string if char in "()")
-    for char in filtered_string:
+    for char in paren_string:
         if char == "(":
             current_depth += 1
             depths.append(current_depth)
