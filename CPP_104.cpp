@@ -21,6 +21,4 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // implementation
-}
+bool issame(vector<int> a, vector<int> b);
