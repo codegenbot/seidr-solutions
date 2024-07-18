@@ -1,7 +1,6 @@
 string longest(vector<string> strings){
-    if(strings.empty()){
+    if(strings.empty())
         return "None";
-    }
     
     string longestStr = strings[0];
     for(const string& str : strings){
