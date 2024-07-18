@@ -1,27 +1,15 @@
-bool move_one_ball(vector<int>& arr) {
-    int n = arr.size();
+#include <iostream>
+#include <vector>
+
+bool move_one_ball(std::vector<int>& arr);
+
+int main() {
+    // Test cases
+    std::vector<int> testcase1 = {0, 1, 2, 3, 4};
+    std::cout << move_one_ball(testcase1) << std::endl; // Output: 1 (true)
     
-    if (n == 0) {
-        return true;
-    }
+    std::vector<int> testcase2 = {3, 1, 2, 4, 0};
+    std::cout << move_one_ball(testcase2) << std::endl; // Output: 0 (false)
     
-    int min_index = -1;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == 1) {
-            min_index = i;
-            break;
-        }
-    }
-    
-    if (min_index == -1) {
-        return false;
-    }
-    
-    for (int i = 0; i < n; i++) {
-        if (arr[(min_index + i) % n] != i + 1) {
-            return false;
-        }
-    }
-    
-    return true;
+    return 0;
 }
