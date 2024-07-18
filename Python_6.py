@@ -12,13 +12,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 current_depth -= 1
             else:
                 return []
-            if current_depth < 0:
-                return []
-    
+        
     if current_depth != 0:
         return []
 
     return depths
-
-paren_string = "(()(()))"
-print(parse_nested_parens(paren_string))
