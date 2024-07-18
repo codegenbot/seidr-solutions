@@ -33,7 +33,4 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-int main() {
-    // Your main function logic here
-    return 0;
-}
+```
