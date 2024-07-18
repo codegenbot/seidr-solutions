@@ -1,20 +1,13 @@
-bool move_one_ball(vector<int> arr){
-    if (arr.empty()) {
+bool move_one_ball(const vector<int>& arr) {
+    int n = arr.size();
+    if (n == 0) {
         return true;
     }
-    
-    // Find the minimum element in the vector
-    int minElement = *min_element(arr.begin(), arr.end());
-
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] == minElement) {
-            if (is_sorted(arr.begin(), arr.end())) {
-                return true;
-            } else {
-                return false;
-            }
+    int minIndex = 0;
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i;
         }
     }
-
-    return false;
+    return is_sorted(arr.begin(), arr.end()) || (minIndex == n - 1);
 }
