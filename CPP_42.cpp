@@ -1,16 +1,15 @@
 #include <vector>
 #include <cassert>
 
-namespace std;
-
-std::vector<int> incr_list(std::vector<int> l) {
-    for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+std::vector<int> incr_list(const std::vector<int>& l) {
+    std::vector<int> updatedList = l;
+    for (int i = 0; i < updatedList.size(); i++) {
+        updatedList[i]++;
     }
-    return l;
+    return updatedList;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
