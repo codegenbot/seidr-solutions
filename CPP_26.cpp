@@ -2,16 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    return a == b;
 }
 
-bool issame(vector<int>& a, vector<int>& b) {
-    return a == b;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+    return numbers;
 }
 
 int main() {
