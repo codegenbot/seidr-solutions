@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
@@ -11,6 +11,8 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    assert(is_simple_power(1, 12) == true);
+    int x, n;
+    std::cin >> x >> n;
+    std::cout << (is_simple_power(x, n) ? "true" : "false") << std::endl;
     return 0;
 }
