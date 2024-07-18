@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
 vector<int> sort_array(vector<int>& arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
