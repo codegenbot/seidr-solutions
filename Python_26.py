@@ -10,7 +10,6 @@ def remove_duplicates(numbers):
                 unique_nums.add(num)
     return [num for num in numbers if num in unique_nums]
 
-
 numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
 output = remove_duplicates(numbers)
 print(output)
