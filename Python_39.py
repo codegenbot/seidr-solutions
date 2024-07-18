@@ -5,12 +5,10 @@ def prime_fib(n: int):
         return 3
 
     fib_sequence = [1, 1]
-    while len(fib_sequence) < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-
-    for num in fib_sequence:
-        if is_prime(num):
+    while True:
+        new_num = fib_sequence[-1] + fib_sequence[-2]
+        if is_prime(new_num):
             n -= 1
             if n == 0:
-                return num
-    return fib_sequence[-1]  # Return the last element if n is still not reached
+                return new_num
+        fib_sequence.append(new_num)
