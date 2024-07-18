@@ -4,13 +4,11 @@
 
 using namespace std;
 
-using pair = std::pair<int, int>;
-
-bool issame(pair a, pair b) {
+bool issame(pair<int, int> a, pair<int, int> b) {
     return a.first == b.first && a.second == b.second;
 }
 
-pair sum_product(vector<int> numbers) {
+pair<int, int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
