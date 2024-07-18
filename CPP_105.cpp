@@ -1,8 +1,11 @@
+#include <vector>
 #include <string>
-
-vector<string> by_length(vector<int> arr);
+#include <map>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b){}
+
+vector<string> by_length(vector<int> arr);
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
