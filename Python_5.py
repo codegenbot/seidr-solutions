@@ -1,7 +1,16 @@
-def format_numbers(numbers, delimeter):
+import sys
+
+def process_numbers(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimeter])
-    if numbers:
-        result.append(numbers[-1])
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop() if result else None
     return result
+
+# Read input from the user
+numbers = sys.stdin.readline().strip().split()
+delimiter = sys.stdin.readline().strip()
+
+# Call the function
+output = process_numbers(numbers, delimiter)
+print(output)
