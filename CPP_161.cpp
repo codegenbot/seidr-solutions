@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cctype>
+#include <cassert>
 
 std::string solve(std::string s) {
     for(char &c : s){
