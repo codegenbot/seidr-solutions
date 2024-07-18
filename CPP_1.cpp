@@ -9,5 +9,6 @@ int main() {
     for (string group : groups) {
         cout << group << endl;
     }
+
     return 0;
 }
