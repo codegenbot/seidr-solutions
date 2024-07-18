@@ -1,4 +1,4 @@
-string result;
+string result = "";
     bool consecutive = false;
     for (char c : text) {
         if (c == ' ') {
