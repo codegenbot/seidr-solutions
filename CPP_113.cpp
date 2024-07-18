@@ -23,23 +23,6 @@ namespace solution_name {
     bool issame(vector<string> a, vector<string> b) {
         return a == b;
     }
-
-    int main() {
-        int n;
-        cin >> n; // Reading the number of strings
-        vector<string> input(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> input[i]; // Reading the strings
-        }
-
-        vector<string> output = solution_name::odd_count(input);
-
-        for (string res : output) {
-            cout << res << endl; // Output the result
-        }
-
-        return 0;
-    }
 }
 
 int main() {
