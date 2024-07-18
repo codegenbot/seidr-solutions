@@ -2,13 +2,7 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-vector<string> odd_count(vector<string> lst);
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
@@ -19,7 +13,7 @@ vector<string> odd_count(vector<string> lst){
                 count++;
             }
         }
-        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + " of the input.\n";
+        string res = "The number of odd elements " + to_string(count) + "\nIn the string " + str + " of the input.";
         result.push_back(res);
     }
     return result;
