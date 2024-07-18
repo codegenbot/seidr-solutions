@@ -2,7 +2,7 @@
 
 bool issame(int a, int b);
 
-vector<int> parse_nested_parens(string paren_string){
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
     int curr_depth = 0;
