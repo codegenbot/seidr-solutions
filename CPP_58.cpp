@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <iterator>
-#include <cassert> 
 
 bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
