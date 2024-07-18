@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 int main() {
     int n;
@@ -36,6 +37,6 @@ int main() {
     for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    
+
     return 0;
 }
