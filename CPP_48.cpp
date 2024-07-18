@@ -1,6 +1,6 @@
 #include <string>
 
-bool is_palindrome(string text) {
+bool is_palindrome(std::string text) {
     int left = 0;
     int right = text.length() - 1;
     while (left < right) {
@@ -14,12 +14,13 @@ bool is_palindrome(string text) {
 }
 
 int main() {
-    string input;
-    cin >> input;
+    std::string input;
+    std::cin >> input;
+    
     if (is_palindrome(input)) {
-        cout << "Yes, it is a palindrome." << endl;
+        std::cout << "Yes, it's a palindrome.";
     } else {
-        cout << "No, it is not a palindrome." << endl;
+        std::cout << "No, it's not a palindrome.";
     }
     
     return 0;
