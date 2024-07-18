@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +17,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, std::vector<std::string>{}));
+    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));
     
     return 0;
 }
