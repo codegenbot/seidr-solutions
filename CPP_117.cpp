@@ -1,3 +1,11 @@
+#include <vector>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+vector<string> select_words(string s, int n);
+
 vector<string> select_words(string s, int n){
     vector<string> result;
     string word = "";
