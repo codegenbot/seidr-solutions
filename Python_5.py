@@ -1,2 +1,2 @@
-def check(arr, delimiter):
-    return process_numbers(arr, delimiter)
+def check_numbers(numbers, delimiter):
+    return process_numbers(numbers, delimiter)
