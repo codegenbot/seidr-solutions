@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame (int num1, int num2) {
+    return num1 == num2;
 }
 
 bool unique_digits(const vector<int>& x) {
