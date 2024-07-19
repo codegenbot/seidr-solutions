@@ -1,17 +1,14 @@
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-void sort_even(vector<float>& l) {
+void sort_even(vector<float>& even_elements) {
+    sort(even_elements.begin(), even_elements.end());
+}
+
+vector<float> rearrange_elements(vector<float> l) {
     vector<float> even_elements;
+    vector<float> result;
     
     for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
@@ -19,21 +16,16 @@ void sort_even(vector<float>& l) {
         }
     }
     
-    sort(even_elements.begin(), even_elements.end());
+    sort_even(even_elements);
     
     int even_index = 0;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            l[i] = even_elements[even_index++];
+            result.push_back(even_elements[even_index++]);
+        } else {
+            result.push_back(l[i]);
         }
     }
-}
-
-vector<float> arrange(vector<float> l) {
-    vector<float> even_elements;
-    vector<float> result;
-
-    sort_even(l);
-
-    return l;
+    
+    return result;
 }
