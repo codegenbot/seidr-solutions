@@ -17,5 +17,5 @@ def separate_paren_groups(paren_string):
 
     return result
 
-paren_string = sys.stdin.read().strip()
+paren_string = input()
 print(separate_paren_groups(paren_string))
