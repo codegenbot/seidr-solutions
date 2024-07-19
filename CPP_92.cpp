@@ -1,18 +1,28 @@
-```cpp
 #include <iostream>
 #include <sstream>
-#include <string>
 
 using namespace std;
+
+assert(main() == 0);
 
 int main() {
     int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
     
-    string s1 = to_string(a);
-    string s2 = to_string(b);
-    string s3 = to_string(c);
+    stringstream sstream;
+    sstream << a;
+    string s1 = sstream.str();
+
+    sstream.clear();
+    stringstream sstream2;
+    sstream2 << b;
+    string s2 = sstream2.str();
+
+    sstream.clear();
+    stringstream sstream3;
+    sstream3 << c;
+    string s3 = sstream3.str();
     
     if (s1.empty() || s2.empty() || s3.empty())
         cout << "Error: Please enter valid integer values.\n";
