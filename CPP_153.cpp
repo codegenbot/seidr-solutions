@@ -1,24 +1,32 @@
-class Solution {
-public:
-    string Strongest_Extension(string class_name, vector<string> extensions) {
-        int max_strength = -1;
-        string strongest_extension;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
 
-        for (const auto& extension : extensions) {
-            int cap = 0, sm = 0;
-            for (char c : extension) {
-                if (isupper(c)) cap++;
-                else if (islower(c)) sm++;
-            }
-            int strength = cap - sm;
-            if (strength > max_strength) {
-                max_strength = strength;
-                strongest_extension = extension;
-            } else if (strength == max_strength) {
-                strongest_extension = extension;
-            }
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    int max_strength = -1;
+    std::string strongest_extension;
+
+    for (const auto& extension : extensions) {
+        int cap = 0, sm = 0;
+        for (char c : extension) {
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
         }
-
-        return class_name + "." + strongest_extension;
+        int strength = cap - sm;
+        if (strength > max_strength) {
+            max_strength = strength;
+            strongest_extension = extension;
+        } else if (strength == max_strength) {
+            strongest_extension = extension;
+        }
     }
-};
+
+    return class_name + "." + strongest_extension;
+}
+
+int main() {
+    std::vector<std::string> extensions = {"java", "cpp", "python", "swift"};
+    std::cout << Strongest_Extension("Class", extensions) << std::endl;
+    return 0;
+}
