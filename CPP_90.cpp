@@ -1,9 +1,8 @@
+```c++
 #include <cassert>
 #include <vector>
-#include <initializer_list>
-#include <limits.h>
 
-int nextSmallest(vector<int> arr) {
+int next_smallest(std::vector<int> arr) {
     int smallest = INT_MAX;
     for (int i : arr) {
         if (i > smallest) {
@@ -17,6 +16,6 @@ int nextSmallest(vector<int> arr) {
 }
 
 int runTest() {
-    assert(nextSmallest({-35, 34, 12, -45}) == -35);
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
