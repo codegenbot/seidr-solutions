@@ -1,26 +1,17 @@
-#include <map>
-#include <string>
-#include <algorithm>
+bool check_dict_case(map<string,string> dict){
+    bool all_upper = true;
+    bool all_lower = true;
 
-using namespace std;
+    for(auto it = dict.begin(); it != dict.end(); ++it) {
+        if(!all_lower && !all_upper)
+            return false; // map contains both upper and lower case keys
 
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-
-    bool allLower = true;
-    bool allUpper = true;
-
-    for (auto& pair : dict) {
-        string key = pair.first;
-        if (!allLower && !allUpper) break;
-        if (!allLower) allLower = std::all_of(key.begin(), key.end(), ::islower);
-        if (!allUpper) allUpper = std::all_of(key.begin(), key.end(), ::isupper);
+        string key = it->first;
+        if(all_lower && !islower(key[0]))
+            all_lower = false;
+        if(all_upper && !isupper(key[0]))
+            all_upper = false;
     }
 
-    return allLower || allUpper;
-}
-
-int main() {
-    assert(check_dict_case({}) == false);
-    return 0;
+    return all_lower || all_upper;
 }
