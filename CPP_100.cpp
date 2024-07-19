@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -20,6 +21,6 @@ bool vectorComparison(const std::vector<int>& a, const std::vector<int> b) {
 }
 
 int main() {
-    assert(vectorComparison(make_a_pile(8), std::vector<int>{1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    assert(vectorComparison(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
     return 0;
 }
