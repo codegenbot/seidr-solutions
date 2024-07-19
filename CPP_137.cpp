@@ -1,10 +1,10 @@
-#include <string>
 #include <any>
+#include <cassert>
+#include <string>
+#include <iostream>
 
 std::any compare_one(std::any a, std::any b) {
-    if (a.type() != b.type()) {
-        return "Error: Invalid types";
-    }
+    assert(a.type() == b.type());
 
     if (a.type() == typeid(int)) {
         return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
@@ -13,13 +13,13 @@ std::any compare_one(std::any a, std::any b) {
     } else if (a.type() == typeid(std::string)) {
         float valA = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
         float valB = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? a : (valA < valB ? b : std::any(std::string("None")));
+        return valA > valB ? a : valA < valB ? b : "None";
     } else if ((a.type() == typeid(int) && b.type() == typeid(std::string))
                || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
         float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
         float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? a : (valA < valB ? b : std::any(std::string("None")));
+        return valA > valB ? a : valA < valB ? b : "None";
     }
 
-    return std::any(std::string("Error: Invalid types"));
+    return "Error: Invalid types";
 }
