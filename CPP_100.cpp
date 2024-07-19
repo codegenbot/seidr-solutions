@@ -1,8 +1,9 @@
-```cpp
 #include <initializer_list>
 
 #include <vector>
 #include <algorithm>
+
+bool isSame(vector<int> a, vector<int> b);
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -12,11 +13,11 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool checkSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const vector<int>& a, const vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(checkSame(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    assert(isSame(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
     return 0;
 }
