@@ -15,12 +15,9 @@ std::string rounded_avg(int n, int m) {
     
     std::string binary_avg = "";
     while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
+        binary_avg = to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
     
     return binary_avg;
-}
-int main() {
-    rounded_avg(5, 5);
 }
