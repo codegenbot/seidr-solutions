@@ -25,18 +25,17 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    int lastI = i;
-    while(lastI < n) { 
-        int temp = lastI;
-        sum2 -= v[temp];
-        sum1 += v[temp];
+    int i = lastI;
+    while(i < n) { 
+        sum2 -= v[i];
+        sum1 += v[i];
         if (abs(sum1 - sum2) <= diff) {
-            res[0].push_back(v[temp]);
+            res[0].push_back(v[i]);
         } else {
-            res[1] = vector<int>(v.begin() + temp, v.end());
+            res[1] = vector<int>(v.begin() + i, v.end());
             break;
         }
-        lastI++;
+        i++;
     }
     
     return res;
