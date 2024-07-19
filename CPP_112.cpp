@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -38,12 +37,39 @@ int main() {
     std::cout << "Enter the second string: ";
     std::cin >> t;
     if(compareVectors({s}, {t})) {
-        std::vector<std::string> res = reverse_delete(s, t);
-        for(auto str : res) {
-            std::cout << str << " ";
+        int j = 0;
+        for(int i = s.size() - 1; i >= 0; i--) {
+            bool found = false;
+            for(int k = 0; k < t.size(); k++) {
+                if(s[i] == t[k]) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                while(j <= i) {
+                    std::cout << s[j];
+                    j++;
+                }
+                std::cout << " ";
+                return 0;
+            }
         }
-        std::cout << std::endl;
+        for(int i = 0; i < s.size(); i++) {
+            bool found = false;
+            for(int k = 0; k < t.size(); k++) {
+                if(s[i] == t[k]) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                std::cout << s.substr(i);
+                return 0;
+            }
+        }
     } else {
         std::cout << "Strings are not the same." << std::endl;
     }
     return 0;
+}
