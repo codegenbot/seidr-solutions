@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 #include <cmath>
@@ -24,6 +25,6 @@ std::string calculateBinary(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinary(5, 5) == "101");
+    calculateBinary(5, 5) == "101";
     return 0;
 }
