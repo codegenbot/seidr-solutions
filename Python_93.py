@@ -1,8 +1,7 @@
-```
 def encode(message):
     result = ""
     for char in message:
-        if char.isalpha():
+        if char.isalnum():  
             if char.lower() in 'aeiou':
                 base = ord('a' if char.islower() else 'A')
             else:
