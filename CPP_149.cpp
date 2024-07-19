@@ -6,9 +6,6 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -31,15 +28,14 @@ int main() {
         cin >> s; 
     }
     
-    vector<vector<string>> result = sorted_list_sum(lst);
-
-    if(result.size() == 0){
+    if(sorted_list_sum(lst).size() == 0){
         cout << "Sorted List Sum: ";
         for(auto &s : lst){
             cout << s << ", ";
         }
         cout << endl;
     }else{
+        vector<vector<string>> result = sorted_list_sum(lst);
         for (auto &v : result) { 
             cout << v[0] << ": " << v[1] << endl;
         }
