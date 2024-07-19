@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-std::string match_parens(const std::vector<std::string>& lst) {
+std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
-    for (const auto& s : lst) {
-        for (auto c : s) {
+    for (const std::string& s : lst) {
+        for (char c : s) {
             if (c == '(') open++;
             else close++;
         }
@@ -14,7 +14,6 @@ std::string match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"hello((world)}", "another"};
-    std::cout << match_parens(lst) << std::endl;
+    assert(match_parens({ "", "(" }) == "Yes");
     return 0;
 }
