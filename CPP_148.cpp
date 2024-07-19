@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -35,9 +34,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); // Additional test case
-    return 0;
 }
