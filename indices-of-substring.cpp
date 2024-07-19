@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -10,9 +9,9 @@ std::vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(std::string::size_type i=0; i<=n-m; i++){
+    for(int i=0; i<n-m+1; i++){
         if(text.substr(i,m) == target){
-            result.push_back(static_cast<int>(i));
+            result.push_back(i);
         }
     }
 
