@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
@@ -24,4 +23,9 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(mdString);
+}
+
+int main() {
+    std::cout << (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99") << std::endl;
+    return 0;
 }
