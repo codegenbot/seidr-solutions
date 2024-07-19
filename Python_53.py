@@ -3,8 +3,7 @@ def add(x: int, y: int) -> int:
 
 try:
     a, b = map(int, input().split())
-except:
-    print("Please provide two integer inputs separated by a space.")
-else:
     result = add(a, b)
     print(result)
+except ValueError:
+    print("Input must be two integers separated by a space")
