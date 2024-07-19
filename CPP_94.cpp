@@ -1,9 +1,5 @@
-int main(){
-    vector<int> lst = {127, 97, 8192};
-    int output = skjkasdkd(lst);
-    cout << "Output: " << output;
-    return 0;
-}
+#include <iostream>
+#include <vector>
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
@@ -30,4 +26,11 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
+}
+
+int main(){
+    vector<int> lst = {127, 97, 8192};
+    int output = skjkasdkd(lst);
+    std::cout << "Output: " << output;
+    return 0;
 }
