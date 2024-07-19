@@ -1,27 +1,24 @@
+#include <vector>
 #include <algorithm>
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> numDigits;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        int sumOfDigits = 0;
-        int n = abs(nums[i]);
-        
-        while (n > 0) {
-            sumOfDigits += n % 10;
-            n /= 10;
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); ++i) {
+        int sum_of_digits = 0;
+        int num = nums[i];
+        while (num > 0) {
+            sum_of_digits += num % 10;
+            num /= 10;
         }
-        
-        numDigits.emplace_back(sumOfDigits, nums[i]);
+        pairs.emplace_back(sum_of_digits, i);
     }
-    
-    sort(numDigits.begin(), numDigits.end());
-    
+
+    sort(pairs.begin(), pairs.end());
+
     vector<int> result;
-    
-    for (const auto& pair : numDigits) {
-        result.push_back(pair.second);
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
     }
-    
+
     return result;
 }
