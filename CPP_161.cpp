@@ -3,9 +3,7 @@
 
 std::string solve(const std::string &s) {
     for(char &c : s) {
-        if(isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-        }
+        c = isalpha(c) ? (islower(c) ? toupper(c) : tolower(c)) : c;
     }
 
     if(all_of(s.begin(), s.end(), [](char c) { return !isalpha(c); })) {
