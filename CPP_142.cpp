@@ -1,5 +1,23 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+int data[] = {1, 2, 3, 4, 5};
+
+int sum_squares(std::vector<int> input) {
+    int total = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (i % 3 == 0 && i % 4 != 0) {
+            total += input[i] * input[i];
+        } else if (i % 4 == 0 && i % 3 != 0) {
+            total += input[i] * input[i] * input[i];
+        }
+    }
+    return total;
+}
+
 int main() {
-    std::vector<int> input(std::begin(data), std::end(data));
-    std::cout << sum_squares(input) << std::endl;
+    std::vector<int> vec(data, data + sizeof(data) / sizeof(data[0]), std::allocator<int>());
+    std::cout << sum_squares(vec) << std::endl;
     return 0;
 }
