@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 long long double_the_difference(const vector<float>& lst){
     long long sum = 0;
