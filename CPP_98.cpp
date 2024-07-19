@@ -1,8 +1,10 @@
-int count_upper(string s){
+#include <string>
+
+int count_upper(std::string s){
     int count = 0;
-    string vowels = "AEIOU";
+    std::string vowels = "AEIOU";
     for (int i = 0; i < s.length(); i += 2) {
-        if (isupper(s[i]) && vowels.find(s[i]) != string::npos) {
+        if (isupper(s[i]) && vowels.find(s[i]) != std::string::npos) {
             count++;
         }
     }
