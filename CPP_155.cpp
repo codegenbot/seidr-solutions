@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> issame(vector<int> a, vector<int> b){
+vector<int> issame(vector<int> a, vector<int> b) {
     string num_str = to_string(abs(num));
     vector<int> counts(2, 0);
     
