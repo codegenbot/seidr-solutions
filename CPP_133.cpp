@@ -8,6 +8,7 @@ int sum_squares(std::vector<float> lst){
     return sum;
 }
 
-int main(){
+int main() {
     assert(sum_squares({-1,1,0}) == 2);
+    return 0;
 }
