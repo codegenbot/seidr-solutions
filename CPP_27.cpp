@@ -22,7 +22,8 @@ int main() {
 
     std::cout << output << std::endl;
 
-    assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
     return 0;
 }
+
+// Assert statement outside main function
+assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
