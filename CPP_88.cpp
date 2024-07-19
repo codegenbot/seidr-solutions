@@ -19,4 +19,5 @@ std::vector<int> sort_array(std::vector<int> array){
 
 int main() {
     ASSERT_VECTOR_EQ(sort_array({21, 14, 23, 11}), {23, 21, 14, 11});
+    return 0;
 }
