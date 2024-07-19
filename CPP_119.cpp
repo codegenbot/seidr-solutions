@@ -16,7 +16,7 @@ int main() {
 
     if(countOpen != countClose) result = false;
 
-    std::cout << (result ? "Yes\n" : "No\n");
-
+    if(result) std::cout << "Yes"\n;
+    else std::cout << "No"\n;
     return 0;
 }
