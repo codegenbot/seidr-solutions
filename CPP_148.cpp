@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Add this include for using assert
 
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return a == b; // Corrected function signature and definition
 }
 
 vector<string> bf(string planet1, string planet2){
@@ -38,6 +38,6 @@ vector<string> bf(string planet1, string planet2){
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame(bf("Jupiter", "Makemake"), {})); // Ensure bf and issame functions are used correctly
     return 0;
 }
