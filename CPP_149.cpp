@@ -5,8 +5,11 @@
 
 using namespace std;
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
 }
 
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
@@ -30,7 +33,7 @@ int main() {
     
     vector<vector<string>> result = sorted_list_sum(lst);
 
-    if(sorted_list_sum(lst).size() == 0){
+    if(!issame(sorted_list_sum({}), result)){
         cout << "Sorted List Sum: ";
         for(auto &s : lst){
             cout << s << ", ";
