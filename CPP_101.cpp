@@ -1,3 +1,6 @@
+#include<vector>
+#include<string>
+
 bool issame(vector<string> a,vector<string>b){
     if (a.size() != b.size()) {
         return false;
@@ -8,19 +11,35 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
+vector<string> words_string(string s) {
+    vector<string> result;
+    string word = "";
+    for (char c : s) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+    return result;
+}
+
 int main() {
     string s;
-    cin >> s;
-    vector<string> words = words_string(s);
-    vector<string> more_words;
-    cout << "Enter more words (space-separated): ";
-    getline(cin, s);
-    more_words = words_string(s);
-
-    if (issame(words, more_words)) {
-        cout << "The lists are the same." << endl;
-    } else {
-        cout << "The lists are different." << endl;
-    }
+    cout<<"Enter the string: ";
+    cin>>s;
+    vector<string> v = words_string(s);
+    for(auto x:v)cout<<x<<" ";
+    bool res=issame(words_string(s),v);
+    if(res)
+        cout<<"\nThe strings are same.\n";
+    else
+        cout<<"\nThe strings are not same.\n";
     return 0;
 }
