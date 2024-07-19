@@ -1,4 +1,6 @@
 #include <vector>
+#include <any>
+#include <cassert>
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
@@ -11,5 +13,5 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
