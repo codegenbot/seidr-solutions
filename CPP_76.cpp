@@ -1,8 +1,15 @@
-if (x == 1)
-        return true;
-    for (int i = 2; i <= sqrt(x); i++) {
-        if (pow(i, n) == x)
-            return true;
+#include <iostream>
+#include <cmath>
+
+bool is_simple_power(int x, int n) {
+    if (x <= 0 || n <= 0) {
+        return false;
     }
-    return false;
+    
+    double result = log(x) / log(n);
+    return (result - (int)result == 0);
+}
+
+int main() {
+    assert (is_simple_power(1, 12)==true);
 }
