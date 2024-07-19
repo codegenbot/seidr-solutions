@@ -27,7 +27,7 @@ int main() {
     any a = 10;
     any b = 20;
     
-    cout << any_cast<int>(compare_any<int>(a, b)) << endl;
+    std::cout << any_cast<int>(compare_any<int>(a, b)) << std::endl;
 
     return 0;
 }
