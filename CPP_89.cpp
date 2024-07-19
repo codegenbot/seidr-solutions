@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+```cpp
+#include <iostream>
+#include <string>
 
-using namespace std;
-
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'm'){
@@ -18,8 +18,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    string s = "";
-    cout << "Enter a string: ";
-    getline(cin, s); 
-    cout << "Encrypted string: " << encrypt(s) << endl;
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s); 
+    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
+}
