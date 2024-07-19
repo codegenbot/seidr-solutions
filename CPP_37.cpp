@@ -36,10 +36,11 @@ void sort_even(vector<float>& l) {
 }
 
 int main() {
-    vector<float> l = {3.5, 2.2, 1.1, 4.4, 5.5};
+    vector<float> l = {4.5, 2.7, 1.2, 3.6, 5.1};
     sort_even(l);
-    for (int i = 0; i < l.size(); ++i) {
-        cout << l[i] << " ";
+    
+    for (float num : l) {
+        cout << num << " ";
     }
     
     return 0;
