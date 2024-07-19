@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,9 +11,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(const std::vector<int>& a, int k) {
-    std::vector<int> result(n);
-    for (int i = 0; i < n; ++i) {
-        if (a[i] > k) result[i] = a[i];
+    std::vector<int> result;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] > k) result.push_back(a[i]);
     }
     return result;
 }
@@ -25,6 +24,10 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
+    std::vector<int> result(std::max_element(a.begin(), a.end()) - k + 1); 
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] > k) result.push_back(a[i]);
+    }
     if (!issame(maximum(a, k), a)) return 1;
     return 0;
 }
