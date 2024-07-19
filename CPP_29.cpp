@@ -25,10 +25,10 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-std::vector<std::string> b;
-
-b = filter_by_prefix(a, "xxx");
-
-assert (issame(b , b));
-return 0;
+int main() {
+    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    std::vector<std::string> b;
+    b = filter_by_prefix(a, "xxx");
+    
+    assert (issame(b , b));
+    return 0;
