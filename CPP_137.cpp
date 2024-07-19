@@ -1,4 +1,10 @@
 ```cpp
+#include <boost/config.hpp>
+#include <boost/any.hpp>
+#include <string>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
