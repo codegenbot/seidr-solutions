@@ -1,13 +1,12 @@
-bool is_sorted(vector<int> lst){
-    if (lst.size() <= 1)
-        return true;
+Here is the completed code:
 
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            if(count(lst.begin(), lst.end(), lst[i]) > 1)
-                return false;
-        } else
-            return false;
+bool is_sorted(vector<int> lst){
+    bool sorted = true;
+    for(int i=1; i<lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            sorted = false;
+            break;
+        }
     }
-    return true;
+    return !any_of(lst.begin(), lst.end(), [i](int x){ return count(lst.begin(), lst.end(), x) > 1; }) && sorted;
 }
