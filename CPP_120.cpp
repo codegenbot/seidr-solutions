@@ -11,8 +11,12 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
     
     return 0;
 }
