@@ -13,5 +13,6 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(isSame(eat(4, 5, 1), std::vector<int>{5, 0}));
+
     return 0;
 }
