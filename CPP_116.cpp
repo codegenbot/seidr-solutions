@@ -1,11 +1,12 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
+vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-        if (ones_a == ones_b) return a < b;
-        return ones_a < ones_b;
+        if (count((long long)a, 1) == count((long long)b, 1)) {
+            return a < b;
+        }
+        return count((long long)a, 1) < count((long long)b, 1);
     });
     return arr;
 }
