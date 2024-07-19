@@ -12,7 +12,6 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(equal(maximum({1, 2, 3, -23, 243, -400, 0}, 0).begin(), maximum({1, 2, 3, -23, 243, -400, 0}, 0).end(), {}.begin()));
-    
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 3) == vector<int>{243, 3, 2});
     return 0;
 }
