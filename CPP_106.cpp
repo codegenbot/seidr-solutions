@@ -1,44 +1,45 @@
 #include <vector>
 #include <cassert>
 
-bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<int> f(int n){
+std::vector<int> f(int n) {
     std::vector<int> result(n);
-    for(int i = 1; i <= n; ++i){
-        if(i % 2 == 0){
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
             int factorial = 1;
-            for(int j = 1; j <= i; ++j){
+            for (int j = 1; j <= i; ++j) {
                 factorial *= j;
             }
-            result[i-1] = factorial;
+            result[i - 1] = factorial;
         } else {
             int sum = 0;
-            for(int j = 1; j <= i; ++j){
+            for (int j = 1; j <= i; ++j) {
                 sum += j;
             }
-            result[i-1] = sum;
+            result[i - 1] = sum;
         }
     }
     return result;
 }
 
 int main() {
-    // Add test cases
-    // Example:
+    // Add test cases here
     std::vector<int> vec1 = {1, 2, 3};
     std::vector<int> vec2 = {1, 2, 3};
-    assert(std::vector<int>::issame(vec1, vec2));
+    assert(issame(vec1, vec2));
+
+    // Additional test cases can be added here to further verify the functions
 
     return 0;
 }
