@@ -1,20 +1,19 @@
-#include <boost/any.hpp>
-#include <cassert>
+#include <any>
 #include <string>
 
-boost::any compare_one(boost::any a, boost::any b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        float valA = stof(boost::any_cast<std::string>(a));
-        float valB = stof(boost::any_cast<std::string>(b));
+        float valA = stof(std::any_cast<std::string>(a));
+        float valB = stof(std::any_cast<std::string>(b));
         return valA > valB ? a : (valA < valB ? b : "None");
     } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        float valA = a.type() == typeid(int) ? boost::any_cast<int>(a) : stof(boost::any_cast<std::string>(a));
-        float valB = b.type() == typeid(int) ? boost::any_cast<int>(b) : stof(boost::any_cast<std::string>(b));
-        return valA > valB ? a : (valA < valB ? b : "None");
+        float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : stof(std::any_cast<std::string>(a));
+        float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : stof(std::any_cast<std::string>(b));
+        return valA > valB ? a : valA < valB ? b : "None";
     }
-    throw std::invalid_argument("Invalid input types.");
+    return "None"; // Return default value
 }
