@@ -1,7 +1,26 @@
-bool is_palindrome(const vector<int>& vec) {
-    return equal(vec.begin(), vec.begin() + vec.size() / 2, vec.rbegin());
+int accumulate(const vector<int> &q) {
+    int sum = 0;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
+    }
+    return sum;
 }
 
-int accumulate(const vector<int>& vec, int initial) {
-    return accumulate(vec.begin(), vec.end(), initial);
+bool is_palindrome(const vector<int> &q) {
+    vector<int> temp = q;
+    reverse(temp.begin(), temp.end());
+    if (temp == q) {
+        return true;
+    }
+    return false;
+}
+
+bool will_it_fly(const vector<int> &q, int w) {
+    int sum = accumulate(q);
+
+    if (sum <= w && is_palindrome(q)) {
+        return true;
+    }
+
+    return false;
 }
