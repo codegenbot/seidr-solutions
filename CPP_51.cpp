@@ -1,16 +1,5 @@
-#include <iostream>
-#include <algorithm>
-#include <string>
-
-using namespace std;
-
-string remove_vowels(string text) {
-    text.erase(remove_if(text.begin(), text.end(), [](char c) { return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'; }), text.end());
+std::string remove_vowels(std::string text) {
+    text.erase(std::remove_if(text.begin(), text.end(), 
+                              [](char c) { return std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u'; }), text.end());
     return text;
-}
-
-int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
-    
-    return 0;
 }
