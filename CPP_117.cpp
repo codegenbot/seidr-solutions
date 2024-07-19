@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +7,7 @@
 using namespace std;
 
 vector<string> select_words(string s, int n) {
-    vector<string> result(0);
+    vector<string> result;
     string word = "";
     for (char c : s) {
         if (c == ' ') {
@@ -16,7 +17,7 @@ vector<string> select_words(string s, int n) {
                     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                         vowel_count++;
                 }
-                if (vowel_count <= n) {
+                if (!word.empty() && vowel_count <= n) { 
                     result.push_back(word);
                 }
                 word = "";
@@ -31,7 +32,7 @@ vector<string> select_words(string s, int n) {
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                 vowel_count++;
         }
-        if (vowel_count <= n) {
+        if (!word.empty() && vowel_count <= n) { 
             result.push_back(word);
         }
     }
@@ -50,3 +51,4 @@ int main() {
         cout << w << endl;
     }
     return 0;
+}
