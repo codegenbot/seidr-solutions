@@ -18,8 +18,7 @@ vector<string> select_words(string s, int n) {
                         vowel_count++;
                 }
                 if (!word.empty() && vowel_count <= n) {
-                    result.reserve(result.size() + 1);
-                    result.emplace_back(word);
+                    result.push_back(word);
                     word = "";
                 }
             }
@@ -35,8 +34,7 @@ vector<string> select_words(string s, int n) {
                 vowel_count++;
         }
         if (!word.empty() && vowel_count <= n) {
-            result.reserve(result.size() + 1);
-            result.emplace_back(word);
+            result.push_back(word);
             word = "";
         }
     }
