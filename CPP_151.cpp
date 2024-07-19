@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 double double_the_difference(double a, double b) {
     return 2 * std::fabs(a - b);
@@ -16,7 +17,7 @@ int main() {
         }
     }
 
-    double result = double_the_difference(odd_sum, 100.0);
+    assert(double_the_difference(odd_sum, 100.0) == 123.0);
 
     return 0;
 }
