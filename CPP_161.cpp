@@ -1,14 +1,18 @@
-#include<string>
+#include <string>
+
 using namespace std;
 
 string solve(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) { 
-            result += (isupper(s[i])) ? tolower(s[i]) : toupper(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
+    }
+    if (result.empty()) {
+        reverse(s.begin(), s.end());
     }
     return result;
 }
