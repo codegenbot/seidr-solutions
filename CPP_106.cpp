@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> solveProblem(int n) {
+vector<int> solve(int n) {
     vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
@@ -18,17 +18,4 @@ vector<int> solveProblem(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-
-    vector<int> res = solveProblem(n);
-    
-    for (int i = 0; i < n; ++i) {
-        cout << res[i] << " ";
-    }
-    
-    return 0;
 }
