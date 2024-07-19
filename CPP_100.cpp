@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool same_vectors(const std::vector<int>& a, const std::vector<int>& b);
 
@@ -16,7 +16,7 @@ bool same_vectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-bool vectorComparison(const std::vector<int>& a, const std::vector<int>& b) {
+bool vectorComparison(const std::vector<int>& a, const std::vector<int> b) {
     return same_vectors(a, b);
 }
 
