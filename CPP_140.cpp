@@ -1,20 +1,27 @@
-int num_consecutive_spaces = 0;
-    string result;
-
-    for (char& c : text) {
-        if (c == ' ') {
-            num_consecutive_spaces++;
-            if (num_consecutive_spaces > 2) {
-                if (result.back() != '-') {
+// Initialize the output string
+    string result = "";
+    
+    // Initialize a variable to store the consecutive spaces count
+    int spacesCount = 0;
+    
+    // Loop through each character in the input text
+    for(char c : text){
+        if(c == ' '){
+            spacesCount++;
+            if(spacesCount > 2){
+                if(result.back() != '-'){ // Avoid adding multiple consecutive dashes
                     result.push_back('-');
                 }
             }
-        } else {
-            num_consecutive_spaces = 0;
-            if (result.empty() || result.back() != '_') {
+            else{
                 result.push_back('_');
             }
         }
+        else{
+            result.push_back(c);
+            spacesCount = 0;
+        }
     }
+    
     return result;
 }
