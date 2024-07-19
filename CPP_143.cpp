@@ -1,11 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-
-bool isascii(char c) {
-    return static_cast<unsigned char>(c) <= 0x7F;
-}
 
 std::vector<std::string> split(const std::string& str) {
     std::vector<std::string> tokens;
@@ -39,20 +34,26 @@ bool is_prime(int n) {
 
 std::string longest_prime_word;
 
-for (const auto &word : split("here is")) {
-    bool all_ascii = true;
-    for (char c : word) {
-        if (!isascii(c)) {
-            all_ascii = false;
-            break;
+int main() {
+    for (const auto &word : split("here is")) {
+        bool all_ascii = true;
+        for (char c : word) {
+            if (!isascii(c)) {
+                all_ascii = false;
+                break;
+            }
+        }
+        
+        if (!all_ascii || !is_prime(word.length())) continue;
+        
+        if (word.length() > longest_prime_word.length()) {
+            longest_prime_word = word;
         }
     }
-    
-    if (!all_ascii || !is_prime(word.length())) continue;
-    
-    if (word.length() > longest_prime_word.length()) {
-        longest_prime_word = word;
+
+    std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
+
+    bool isascii(char c) {
+        return static_cast<unsigned char>(c) <= 0x7F;
     }
 }
-
-std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
