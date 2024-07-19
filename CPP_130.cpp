@@ -31,6 +31,5 @@ std::vector<int> tri(int n) {
 
 int main() {
     assert(issame(tri(1), {1, 3}));
-    // Additional test cases can be added here
     return 0;
 }
