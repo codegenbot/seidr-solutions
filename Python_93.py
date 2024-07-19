@@ -3,8 +3,12 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalnum():
-            base = ord('a' if char.islower() else 'A')
-            shift = 13
+            if char.islower():
+                base = ord('a')
+                shift = 3
+            else:
+                base = ord('A')
+                shift = 3 + 26
             result += chr((ord(char) - base + shift) % 26 + base)
         else:
             result += char
