@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,17 +12,12 @@ bool is_sorted(std::vector<int> lst){
     return true;
 }
 
-int main() {
-    std::vector<int> lst;
+int main(){
     int n;
-    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+    std::vector<int> lst(n);
+    for(int i = 0; i < n; i++){
+        std::cin >> lst[i];
     }
     
     if(is_sorted(lst))
