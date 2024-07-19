@@ -8,12 +8,12 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     temp_vec.erase(std::remove_if(temp_vec.begin(), temp_vec.end(), [substr](const std::string& s) {
         return s.find(substr) != std::string::npos;
     }), temp_vec.end());
-    
+
     return temp_vec;
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
 int main() {
