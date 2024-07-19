@@ -1,6 +1,1 @@
-```
-def solution(input_list):
-    return max(input_list)
-
-input_list = [3, 13, 2, 9]
-print(solution(input_list))
+```'def solution(input_list):    if not input_list:        return "The list is empty."    elif all(isinstance(x, int) for x in input_list):        return sum(input_list)    else:        return "The list contains non-integer values."''
