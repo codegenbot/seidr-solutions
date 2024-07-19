@@ -5,12 +5,12 @@
 
 std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> words;
-    std::string word = "";
+    std::string word;
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
                 words.push_back(word);
-                word = "";
+                word.clear();
             }
         } else {
             word += c;
@@ -21,14 +21,14 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     
     if (n >= 0 && n < words.size()) {
-        std::vector<std::string> result;
+        std::vector<std::string> selected_words;
         for (int i = n; i < words.size(); ++i) {
-            result.push_back(words[i]);
+            selected_words.push_back(words[i]);
         }
-        return result;
-    } else {
-        return {};
+        return selected_words;
     }
+    
+    return {};
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
