@@ -1,19 +1,18 @@
-string make_palindrome(string str){
-    int n = str.length();
-    if(n == 0) return "";
-    
-    int l = 0;
-    for(int i = n-1; i >= 0; i--){
-        if(is_palindrome(str.substr(0,i+1))){
-            l = i;
-            break;
+#include <string>
+
+std::string make_palindrome(std::string str);
+
+std::string make_palindrome(std::string str){
+    std::string rev_str(str.rbegin(), str.rend());
+    for (int i = 0; i < str.length(); ++i) {
+        if (str.substr(0, str.length() - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
-    
-    string prefix = str.substr(0,l);
-    string postfix = str.substr(l);
-    
-    string reverse_prefix(prefix.rbegin(), prefix.rend());
-    
-    return str + reverse_prefix;
+    return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    return 0;
 }
