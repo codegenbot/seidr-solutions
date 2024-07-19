@@ -1,9 +1,8 @@
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> v1, vector<string> v2) {
+bool issame(vector<string> v1, vector<string> v2){
     sort(v1.begin(), v1.end());
     sort(v2.begin(), v2.end());
-    
     return v1 == v2;
 }
 
