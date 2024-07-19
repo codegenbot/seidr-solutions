@@ -1,8 +1,9 @@
-```cpp
+```
 #include <stack>
 #include <vector>
 #include <string>
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -27,13 +28,4 @@ vector<int> parse_nested_parens(string paren_string) {
     }
 
     return result;
-}
-
-int main()
-{
-  string input = "(()(())((()))";
-  vector<int> result = parse_nested_parens(input);
-  for (int i : result) {
-    cout << i << endl;
-  }
 }
