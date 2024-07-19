@@ -1,17 +1,5 @@
-```cpp
-#include <iostream>
-#include <string>
-
-int compare_strings(std::string a, std::string b) {
-    if (a > b)
-        return 1;
-    else if (b > a)
-        return -1;
-    else
-        return 0;
-}
-
-int main() {
+int main
+{
     std::string str1, str2;
     std::cout << "Enter first string: ";
     std::getline(std::cin, str1);
