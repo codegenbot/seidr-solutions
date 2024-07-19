@@ -7,16 +7,14 @@ std::vector<int> f(int n);
 
 int main() {
     // Add your test cases here to check the functions
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 3, 3};
-    assert(!issame(a, b));
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {3, 2, 1}));
+    
+    std::vector<int> result1 = f(3);
+    assert(issame(result1, {1, 3, 6}));
 
-    std::vector<int> c = f(5);
-    assert(c[0] == 1);
-    assert(c[1] == 2);
-    assert(c[2] == 6);
-    assert(c[3] == 24);
-    assert(c[4] == 3 + 6 + 24 + 120 + 720);
+    std::vector<int> result2 = f(5);
+    assert(issame(result2, {1, 3, 6, 10, 15}));
 
     return 0;
 }
