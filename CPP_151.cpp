@@ -28,4 +28,3 @@ int main() {
     long long result = doubleTheDifference(lst);
     cout << "Double the difference: " << result << endl;
     return 0;
-}
