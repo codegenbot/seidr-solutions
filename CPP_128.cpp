@@ -1,11 +1,11 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 
-int prod_signs(int numbers[], int n) {
+int prod_signs(std::vector<int> numbers) {
     int sign = 1;
-    for (int i = 0; i < n; i++) {
-        if (numbers[i] != 0) {
-            sign *= (numbers[i] > 0 ? 1 : -1);
+    for (int number : numbers) {
+        if (number != 0) {
+            sign *= (number > 0 ? 1 : -1);
         }
     }
     return sign;
