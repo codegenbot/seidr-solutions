@@ -26,4 +26,7 @@ std::vector<int> by_length(std::vector<int> arr) {
     return result;
 }
 
-assert(are_same(by_length({9, 4, 8}), by_length({9, 8, 4})));
+int main() {
+    assert(are_same(by_length({9, 4, 8}), {9, 8, 4}));
+    return 0;
+}
