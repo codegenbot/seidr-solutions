@@ -1,2 +1,2 @@
-result = int(input("Enter a number: ").strip()) 
+result = int(input())
 print(result)
