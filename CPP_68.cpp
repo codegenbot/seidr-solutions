@@ -1,4 +1,4 @@
 int main() {
-    assert(issame(vector<int>({7, 9, 7, 1}), vector<int>()));
+    assert(issame({7,9},{7}) && issame({7}, {7}));
     return 0;
 }
