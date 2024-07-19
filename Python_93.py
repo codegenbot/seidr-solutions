@@ -1,4 +1,4 @@
-```
+```Python
 def encode(message):
     result = ""
     for char in message:
@@ -10,7 +10,5 @@ def encode(message):
             result += char
     return result
 
-print("Enter a message to encode:")
-message = input()
-encoded_message = encode(message)
-print("Encoded message: ", encoded_message)
+message = input("Enter your message: ")
+print(encode(message))
