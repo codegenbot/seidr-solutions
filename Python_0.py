@@ -1,5 +1,5 @@
-# Read input from user
-result = input()
+# Read integer input from user
+result = int(input())
 
-# Print the result from input
-print(int(result))
+# Double the result and print
+print(result * 2)
