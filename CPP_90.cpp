@@ -1,13 +1,12 @@
-sort(lst.begin(), lst.end());
-int count = 0;
-int prev = lst[0];
-for (int num : lst) {
-    if (num != prev) {
-        count++;
-        if (count == 2) {
-            return num;
-        }
-        prev = num;
+int next_smallest(vector<int> lst){
+    if (lst.size() < 2) {
+        return -1;
     }
+    sort(lst.begin(), lst.end());
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] > lst[0]) {
+            return lst[i];
+        }
+    }
+    return -1;
 }
-return -1;
