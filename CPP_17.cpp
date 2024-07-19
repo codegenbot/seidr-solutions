@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
 using namespace std;
 
 vector<int> parse_music(string music_string);
@@ -22,30 +20,28 @@ vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
+        if (music_string[i] == 'o' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(4);
-            i++;
-        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
-            beats.push_back(2);
             i += 2;
-        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
+        } else if (music_string[i] == 'o') {
+            beats.push_back(2);
+            i++;
+        } else if (music_string[i] == '.' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
-        } else {
-            i++;
         }
     }
     return beats;
 }
 
 int main() {
-    vector<int> music1 = parse_music("o|o|o|");
-    vector<int> music2 = parse_music("o.o.o.");
+    vector<int> test_beats = parse_music("o|o|o|o|");
+    vector<int> expected_beats = {4, 1, 4, 1};
     
-    if (areEqual(music1, music2)) {
-        cout << "Music sequences are equal." << endl;
+    if (areEqual(test_beats, expected_beats)) {
+        cout << "Test Passed!" << endl;
     } else {
-        cout << "Music sequences are not equal." << endl;
+        cout << "Test Failed!" << endl;
     }
 
     return 0;
