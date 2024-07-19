@@ -15,7 +15,7 @@ vector<string> select_words(string s, int n) {
     while (ss >> word) {
         words.push_back(word);
         if (words.size() == n) {
-            break;
+          break;
         }
     }
     return words;
