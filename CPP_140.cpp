@@ -1,20 +1,20 @@
-string result;
-    bool hasConsecutiveSpaces = false;
-    
+string result = "";
+    int count = 0;
+  
     for(char c : text) {
         if(c == ' ') {
-            if(hasConsecutiveSpaces) {
+            count++;
+            if(count > 2) {
                 result.pop_back();
-                result.push_back('-');
+                result += '-';
             } else {
-                result.push_back('_');
+                result += '_';
             }
-            hasConsecutiveSpaces = true;
         } else {
-            result.push_back(c);
-            hasConsecutiveSpaces = false;
+            result += c;
+            count = 0;
         }
     }
-    
+
     return result;
 }
