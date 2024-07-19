@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <string>
+
 using namespace std;
 
 int main() {
@@ -12,5 +13,6 @@ int main() {
                 });
             return max;
         }
-        cout << find_max({"play", "play", "play"}) << endl;
+        
+        assert ((find_max({"play", "play", "play"}) == "play"));
     }
