@@ -16,7 +16,9 @@ std::string solve(std::string s) {
 
 int main() {
     assert (solve("#ccc") == "#CCC");
-    assert (solve("AbC123") == "aBc123");
-
+    assert (solve("Test123") == "tEST");
+    assert (solve("Coding!") == "cODING");
+    assert (solve("123") == "321");
+    
     return 0;
 }
