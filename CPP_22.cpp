@@ -2,17 +2,15 @@
 #include <list>
 #include <any>
 #include <algorithm>
-#include <assert>
-#include <type_traits>
+#include <cassert>
 
 using namespace std;
-using namespace boost;
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same_v<decay_t<decltype(any_cast(value))>, int>::value) {
-            result.push_back(any_cast<int>(value));
+        if (std::holds_alternative<int>(value)) {
+            result.push_back(std::get<int>(value));
         }
     }
     return result;
