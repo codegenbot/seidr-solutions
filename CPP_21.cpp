@@ -1,11 +1,12 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
+bool rescale_to_unit(vector<float> numbers) {
+    float min_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
     
-    vector<float> rescaled_numbers;
+    vector<float> transformed;
     for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        rescaled_numbers.push_back(rescaled_num);
+        float new_num = (num - min_val) / (max_val - min_val);
+        transformed.push_back(new_num);
     }
     
-    return rescaled_numbers;
+    return issame(transformed, {0.25, 0.0, 1.0, 0.5, 0.75});
 }
