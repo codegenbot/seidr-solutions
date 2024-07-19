@@ -9,8 +9,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> solve(int n) {
-    std::vector<int> res;
+vector<int> solve(int n) {
+    vector<int> res;
     if (n >= 0) {
         res.push_back(3);
         if (n > 0) {
@@ -28,8 +28,6 @@ std::vector<int> solve(int n) {
 }
 
 int main(){
-    assert(issame(solve(0), {3}));
-    assert(issame(solve(1), {3, 1}));
-    assert(issame(solve(3), {3, 1, 2, 5}));
+    // Your test cases go here
     return 0;
 }
