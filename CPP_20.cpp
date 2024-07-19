@@ -1,31 +1,21 @@
-#include <iostream>
 #include <vector>
+#include <numeric>
 #include <cmath>
 #include <limits>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 1e-9) return false;
-    }
-    return true;
-}
-
-vector<pair<float, float>> findClosestPair(vector<float> numbers) {
-    vector<pair<float, float>> pairs = {};
+std::pair<float, float> findClosestPair(std::vector<float> numbers) {
+    std::vector<std::pair<float, float>> pairs = {};
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j <= numbers.size() - 1; j++) {
             pairs.push_back({numbers[i], numbers[j]});
         }
     }
 
-    float min_diff = numeric_limits<float>::max();
-    pair<float, float> closest_pair;
+    float min_diff = std::numeric_limits<float>::max();
+    std::pair<float, float> closest_pair;
     for (auto &p : pairs) {
         float diff = p.second - p.first;
-        if (abs(diff) < abs(min_diff)) {
+        if (std::abs(diff) < std::abs(min_diff)) {
             min_diff = diff;
             closest_pair = p;
         }
@@ -33,10 +23,15 @@ vector<pair<float, float>> findClosestPair(vector<float> numbers) {
     return {closest_pair.first, closest_pair.second};
 }
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9) return false;
+    }
+    return true;
+}
+
 int main() {
-    vector<float> numbers = {};
-    // input your numbers here
-    pair<float, float> closestPair = findClosestPair(numbers);
-    cout << "The closest pair is: (" << closestPair.first << ", " << closestPair.second << ")" << endl;
+    // your code here
     return 0;
 }
