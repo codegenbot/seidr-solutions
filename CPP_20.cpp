@@ -1,6 +1,7 @@
 #include <vector>
 #include <numeric>
 #include <limits>
+#include <algorithm>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     std::vector<std::pair<float, float>> pairs = {};
