@@ -1,29 +1,27 @@
 vector<string> split_words(string txt){
     vector<string> result;
-    string current = "";
-    for (char c : txt){
-        if (c == ' ' || c == ','){
-            if (!current.empty()){
-                result.push_back(current);
-                current = "";
+    string word;
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                result.push_back(word);
+                word = "";
             }
         } else {
-            current += c;
+            word += c;
         }
     }
-    if (!current.empty()){
-        result.push_back(current);
+    if(!word.empty()){
+        result.push_back(word);
     }
-
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos){
-        int count_odd = 0;
-        for (char c : result[0]){
-            if (c >= 'a' && c <= 'z' && (c - 'a') % 2 == 1){
-                count_odd++;
+    if(result.empty()){
+        int odd_lowercase_count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                odd_lowercase_count++;
             }
         }
-        result[0] = to_string(count_odd);
+        return {to_string(odd_lowercase_count)};
     }
-    
     return result;
 }
