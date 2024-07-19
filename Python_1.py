@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -17,5 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             open_brackets -= 1
     return result
 
-paren_string = input().strip()
+paren_string = str(input().strip())
 print(separate_paren_groups(paren_string))
