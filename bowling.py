@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def bowling_score(game):
     score = 0
     frame = 1
@@ -24,6 +23,6 @@ def bowling_score(game):
                     score += 10
                     score += int(game[:i])
                 elif game[i] == '/':
-                    score += 10 - int(game[i-1:i])
+                    score += 10 - int(game[i-1])
                     score += int(game[:i-2])
     return score
