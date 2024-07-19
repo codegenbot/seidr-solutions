@@ -1,5 +1,4 @@
 #include <vector>
-#include <climits>
 #include <cassert>
 
 std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
@@ -18,7 +17,7 @@ std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
     return std::make_pair(largest_negative, smallest_positive);
 }
 
-int main(){
-    assert(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}) == std::make_pair(-3, 1));
+int main() {
+    assert (largestSmallestIntegers({-6, -4, -4, -3, -100, 1}) == std::make_pair(-3, 1));
     return 0;
 }
