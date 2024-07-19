@@ -1,14 +1,17 @@
-string result = "";
+#include <iostream>
+#include <string>
+using namespace std;
+
+string encrypt(const string &s) {
+    string encrypted = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encrypted = c + 2 * ('z' - c) + 1;
-            if (encrypted > 'z') {
-                encrypted = 'a' + (encrypted - 'z' - 1);
-            }
-            result += encrypted;
+            char base = isupper(c) ? 'A' : 'a';
+            char encrypted_char = (c - base + 2 * 2) % 26 + base;
+            encrypted += encrypted_char;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
