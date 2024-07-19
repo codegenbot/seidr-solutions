@@ -1,10 +1,10 @@
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int count_nums(vector<int> nums) {
+int count_nums(const std::vector<int>& nums) {
     int result = 0;
-    for(int i = 0; i < nums.size(); i++) {
-        if(nums[i] % 2 == 1)
+    for (int num : nums) {
+        if (num % 2 == 1)
             result++;
     }
     return result;
@@ -12,14 +12,14 @@ int count_nums(vector<int> nums) {
 
 int main() {
     int n;
-    cout << "Enter the number of integers: ";
-    cin >> n;
-    vector<int> nums(n);
+    std::cout << "Enter the number of integers: ";
+    std::cin >> n;
+    std::vector<int> nums(n);
     for(int i = 0; i < n; i++) {
-        cout << "Enter integer #" << i+1 << ": ";
-        cin >> nums[i];
+        std::cout << "Enter integer #"<<i+1<<": ";
+        std::cin >> nums[i];
     }
     int result = count_nums(nums);
-    cout << "Result: " << result << endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
