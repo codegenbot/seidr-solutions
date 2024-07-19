@@ -1,6 +1,13 @@
+#include <string>
+#include <vector>
+#include <cctype>
+#include <climits>
+
+using namespace std;
+
 string Strongest_Extension(string class_name, vector<string> extensions){
-    int max_strength = INT_MIN;
     string strongest_extension;
+    int max_strength = INT_MIN;
     
     for (const auto& ext : extensions) {
         int cap_count = 0, sm_count = 0;
