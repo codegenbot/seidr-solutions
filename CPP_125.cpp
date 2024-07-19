@@ -1,14 +1,12 @@
-#include <iostream>
-#include <vector>
 #include <string>
 
-bool issame(std::string a, std::string b) {
+bool issame(const string& a, const string& b) {
     return a == b;
 }
 
-std::vector<std::string> process_string(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> solve(string txt) {
+    vector<string> result;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -29,7 +27,7 @@ std::vector<std::string> process_string(std::string txt) {
                 oddCount++;
             }
         }
-        result.push_back(std::to_string(oddCount));
+        result.push_back(to_string(oddCount));
     }
     return result;
 }
