@@ -1,5 +1,14 @@
+```
 #include <iostream>
 #include <string>
+
+int main(){
+    std::cout << "Enter a string: ";
+    std::string text;
+    std::cin >> text;
+    std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
+    return 0;
+}
 
 std::string fix_spaces(std::string text){
     std::string result = "";
@@ -16,10 +25,3 @@ std::string fix_spaces(std::string text){
     }
     return result;
 }
-
-int main(){
-    std::cout << "Enter a string: ";
-    std::string text;
-    std::cin >> text;
-    std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
-    return 0;
