@@ -10,7 +10,7 @@ bool issame(vector<int>& a, vector<int>& b){
         temp_b /= 10;
     }
     if (sum_a == sum_b) {
-        return find(a.begin(), a.end(), a) < find(b.begin(), b.end(), b);
+        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
     }
     return sum_a < sum_b;
 }
