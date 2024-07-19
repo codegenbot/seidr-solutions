@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -61,9 +60,6 @@ int main() {
     }
 
     vector<string> letter_grades = numerical_letter_grade(grades);
-
-    cout << "Grades: " << endl;
-
     for (int i = 0; i < letter_grades.size(); ++i) {
         cout << "Grade: " << letter_grades[i] << endl;
     }
