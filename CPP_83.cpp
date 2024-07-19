@@ -8,10 +8,10 @@ int starts_one_ends(int n) {
         if (i == 1 || i == n) {
             count++;
         }
-        for (int j = i; j <= ((j > n) ? n : i - 1); j++) {
+        for (int j = i; j <= (j > n ? n : i - 1); j++) {
             // Do nothing
         }
-        count += (n != i);
+        count += (n - 1);
     }
     return count;
 }
