@@ -12,7 +12,7 @@ std::vector<std::string> split(const std::string& str) {
     std::stringstream ss(str);
     std::string token;
 
-    while (getline(ss, token, ' ')) {
+    while (getline(ss, token, '\n')) {
         tokens.push_back(token);
     }
 
