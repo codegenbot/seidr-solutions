@@ -1,4 +1,4 @@
-```cpp
+```
 #include <initializer_list>
 
 #include <vector>
@@ -13,11 +13,6 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main_test() {
-    assert(make_a_pile(15) == (std::vector<int>{1, 3, 5, 7, 9, 11, 13, 15}));
-    return 0;
 }
