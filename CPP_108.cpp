@@ -12,10 +12,8 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
-}
-}
+} 
 
 int main() {
-    std::cout << count_nums({1});
-    return 0;
+    count_nums({1});
 }
