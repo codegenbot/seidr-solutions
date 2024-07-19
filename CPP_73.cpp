@@ -1,3 +1,5 @@
+#include <vector>
+
 int smallest_change(const vector<int>& arr) {
     int n = arr.size();
     int changes = 0;
