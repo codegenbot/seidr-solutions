@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> numToString = {
@@ -26,14 +22,14 @@ vector<string> by_length(vector<int> arr) {
 
     sort(filtered.begin(), filtered.end(), greater<int>());
 
-    for (int num : filtered) {
-        result.push_back(numToString[num]);
-    }
+    transform(filtered.begin(), filtered.end(), back_inserter(result), 
+        [&numToString](int num) { return numToString[num]; });
 
     return result;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
+    
     return 0;
 }
