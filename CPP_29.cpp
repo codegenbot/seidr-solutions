@@ -1,10 +1,17 @@
+```c
 #include <vector>
 #include <string>
 
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<vector<string>> filter_by_prefix(vector<vector<string>> strings) {
@@ -14,3 +21,10 @@ vector<vector<string>> filter_by_prefix(vector<vector<string>> strings) {
             result.push_back(s);
     }
     return result;
+}
+
+int main() {
+    assert (filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}) == {{"xxx", "xxxAAA", "xxx"}});
+
+    return 0;
+}
