@@ -1,8 +1,7 @@
-```
+#include <initializer_list>
 #include <algorithm>
-#include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
@@ -18,4 +17,9 @@ std::vector<float> sort_even(std::vector<float> l){
         }
     }
     return l_prime;
+}
+
+int main() {
+    assert (sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == {8, -12, 4, 2, 5, 12, 3, 11, 23, -10});
+    return 0;
 }
