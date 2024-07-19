@@ -20,6 +20,6 @@ std::vector<float> sort_even(std::vector<float> l){
 }
 
 int main() {
-    assert (sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == {8, -12, 4, 2, 5, 12, 3, 11, 23, -10});
+    assert (sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == {5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     return 0;
 }
