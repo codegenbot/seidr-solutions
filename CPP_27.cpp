@@ -23,4 +23,6 @@ int main() {
     std::cout << output << std::endl;
     
     assert(output == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+
+    return 0;
 }
