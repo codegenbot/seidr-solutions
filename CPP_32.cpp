@@ -1,18 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
 #include <iomanip>
 
 using namespace std;
 
-double find_zero(vector<double> coeffs) {
-    double poly_value = 0;
+double find_zero(vector<double> coeffs, double x) {
+    double poly = 0;
     double power = 1;
     for (double coeff : coeffs) {
-        poly_value += coeff * pow(0, power);
+        poly += coeff * pow(x, power);
         power++;
     }
-    return -pow(0, 2) + poly_value;
+    return -pow(x,2) + poly;
 }
 
 int main() {
@@ -25,9 +26,9 @@ int main() {
         cin >> coeffs[i];
     }
 
-    double solution; 
+    double solution;
     cin >> solution;
 
-    double result = find_zero(coeffs);
-    cout << fixed << setprecision(6) << result << endl;
+    assert(abs(find_zero(coeffs, solution)) < 1e-3);
+    cout << fixed << setprecision(6) << find_zero(coeffs, solution) << endl;
 }
