@@ -1,9 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -19,13 +17,13 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     int max_val = *max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
-        auto it_min = find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; });
+        auto it_min = std::find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; });
         if (it_min != lst.end()) {
             result.push_back(*it_min);
             lst.erase(it_min);
         }
 
-        auto it_max = find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; });
+        auto it_max = std::find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; });
         if (it_max != lst.end()) {
             result.push_back(*it_max);
             lst.erase(it_max);
@@ -36,6 +34,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
+    using namespace std;
     vector<int> a = {1, 2, 3};
     vector<int> b = strange_sort_list(a);
     if (!issame(a, b)) {
