@@ -48,5 +48,5 @@ int main() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), "xxx") == true);
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), std::vector<std::string>({"xxx", "xxxAAA", "xxx"})) == true);
 }
