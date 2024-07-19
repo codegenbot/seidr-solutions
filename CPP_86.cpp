@@ -1,4 +1,8 @@
-string result = "";
+#include <algorithm>
+#include <iostream>
+
+string anti_shuffle(const string& s) {
+    string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
