@@ -13,20 +13,10 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; 
-    int odd_sum = 0; 
-
-    int n;
-    cin >> n;
+    vector<float> lst; // declare and initialize lst
+    int odd_sum = 0; // declare and initialize odd_sum
     
-    for(int i=0;i<n;i++){
-        float x;
-        cin >> x;
-        if(x > 0 && modf(x, &x) == 0){
-            odd_sum += x * x;
-        }
-        lst.push_back(x);
-    }
+    // your code to fill lst and calculate odd_sum
 
     assert (double_the_difference(lst) == odd_sum );
 
