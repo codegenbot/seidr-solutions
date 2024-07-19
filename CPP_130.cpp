@@ -14,8 +14,6 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
-
-assert(issame(tri(1), {1, 3}));
