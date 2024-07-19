@@ -1,5 +1,7 @@
+import sys
+
 def decode_string():
-    string_to_decode = input().strip()
+    string_to_decode = input()
 
     decoded_string = ""
     for char in string_to_decode:
