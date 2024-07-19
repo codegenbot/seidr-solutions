@@ -3,6 +3,6 @@
 #include <map>
 #include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1 == v2;
 }
