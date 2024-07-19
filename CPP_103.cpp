@@ -25,8 +25,8 @@ std::string yourFunctionName(int n, int m) {
 }
 
 int main() {
-    int n = 3; // Define appropriate value for n
-    int m = 7; // Define appropriate value for m
+    int n = 1;
+    int m = 5;
     std::cout << yourFunctionName(n, m) << std::endl;
 
     return 0;
