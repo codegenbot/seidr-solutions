@@ -1,7 +1,16 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-bool issame(const vector<int> a, const vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> parse_nested_parens(string paren_string); 
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
+}
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> depths;
@@ -16,14 +25,3 @@ vector<int> parse_nested_parens(string paren_string){
     }
     return depths;
 }
-
-bool issame(const vector<int> a, const vector<int> b){
-    return a == b;
-}
-
-int main(){
-    vector<int> a = parse_nested_parens("((()))");
-    vector<int> b = {1, 2, 3, 2, 1};
-    assert(issame(a, b));
-    return 0;
-}  
