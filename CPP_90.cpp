@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
 int next_smallest(vector<int> lst) {
     if (lst.empty()) return -1; // or any other value that represents None
