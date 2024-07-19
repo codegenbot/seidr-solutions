@@ -1,19 +1,21 @@
-string solve(string s){
-    bool hasLetter = false;
-    for(char &c : s){
-        if(isalpha(c)){
-            hasLetter = true;
-            if(islower(c)){
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+
+std::string solve(std::string s) {
+    for (char &c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
     
-    if(!hasLetter){
-        reverse(s.begin(), s.end());
-    }
+    std::reverse(s.begin(), s.end());
     
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    
+    return 0;
 }
