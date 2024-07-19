@@ -1,39 +1,15 @@
-```cpp
-#include <iostream>
-#include <vector>
+Here is the solution:
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
+    if (lst.empty()) return result;
+
+    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        std::sort(lst.begin(), lst.end());
-        if (lst[0] < lst.back()) {
-            result.push_back(lst[0]);
-            lst.erase(lst.begin());
-        } else {
-            result.push_back(lst.back());
-            lst.pop_back();
-        }
+        result.push_back(*lst.begin());
+        lst.erase(lst.begin());
+        if (!lst.empty())
+            sort(lst.begin(), lst.end());
     }
     return result;
-}
-
-int main() {
-    std::vector<int> expected = {1, 4, 3, 2};
-    std::vector<int> actual = strange_sort_list({1, 4, 3, 2});
-    std::cout << "Expected: ";
-    for (int i : expected) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    std::cout << "Actual: ";
-    for (int i : actual) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    if (actual == expected) {
-        std::cout << "Test passed.\n";
-    } else {
-        std::cout << "Test failed.\n";
-    }
-    return 0;
 }
