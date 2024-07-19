@@ -37,10 +37,14 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    if (issame({ "", "True" }, reverseDelete("mamma", "mia"))) {
-        std::cout << "Test passed." << std::endl;
-    } else {
-        std::cout << "Test failed." << std::endl;
+    std::string s, c;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Enter a character to delete: ";
+    std::cin >> c;
+    std::vector<std::string> output = reverseDelete(s, c);
+    for (const auto& str : output) {
+        std::cout << str << std::endl;
     }
     return 0;
 }

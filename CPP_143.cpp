@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -40,6 +41,8 @@ std::string longest_prime_word;
 
 int main() {
     std::vector<std::string> words = split("here is");
+    longest_prime_word = "";
+
     for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
