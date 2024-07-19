@@ -13,7 +13,7 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> test = {11, 22, 33};
-    cout << add_elements(test, 3) << endl; 
+    vector<int> test = {12, 34, 56, 78};
+    cout << add_elements(test, 4) << endl; 
     return 0;
 }
