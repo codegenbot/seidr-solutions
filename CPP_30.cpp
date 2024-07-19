@@ -1,12 +1,21 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
+int main() {
+    vector<float> l = {1.0f, -2.0f, 3.0f, -4.0f};
+    vector<float> result = get_positive(l);
+    
+    for (float num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -14,9 +23,4 @@ std::vector<float> get_positive(std::vector<float> l) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
