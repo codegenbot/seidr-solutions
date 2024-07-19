@@ -1,8 +1,7 @@
-```
-def bowling_score(frames):
+`def bowling_score(frames): 
     score = 0
     roll = 0
-
+    
     while roll < len(frames) - 1:
         if frames[roll] == "X":
             score += 10
@@ -49,4 +48,4 @@ def bowling_score(frames):
 
     return score
 
-print(bowling_score("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10"))
+print(bowling_score('9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10'))
