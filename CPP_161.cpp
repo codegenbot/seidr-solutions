@@ -1,12 +1,31 @@
-string solve(string s){
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    bool hasLetter = false;
+    
+    for (char c : s) {
+        if (!isalpha(c)) {
+            result += c;
+            hasLetter = false;
         } else {
-            result += s[i];
+            if (hasLetter) {
+                if (islower(c))
+                    result += toupper(c);
+                else
+                    result += tolower(c);
+            } else {
+                result += c;
+                hasLetter = true;
+            }
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? 
-           string(result.rbegin(), result.rend()) : result;
+    
+    if (!hasLetter)
+        reverse(result.begin(), result.end());
+    
+    return result;
 }
