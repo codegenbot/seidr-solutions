@@ -44,7 +44,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
+bool issame(std::vector<std::string> a) {
+    std::vector<std::string> b = {"Nine", "Four", "Eight"};
+    return a == b;
+}
+
 int main() {
-    std::vector<int> arr = {9, 4, 8};
-    assert(by_length(arr) == {"Nine", "Four", "Eight"});
+    if (!issame(by_length({9, 4, 8}))) {
+        assert(false);
+    }
 }
