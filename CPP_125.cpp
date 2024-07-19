@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <cctype> 
+#include <cctype>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
@@ -23,7 +23,7 @@ std::vector<std::string> split_words(std::string txt){
     if(result.empty()){
         int count = 0;
         for(char c : txt){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
