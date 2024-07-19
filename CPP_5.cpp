@@ -5,8 +5,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
-    std::vector<int> result;
+vector<int> intersperse(vector<int> numbers, int delimeter){
+    vector<int> result;
     if(numbers.empty()) {
         return result;
     }
