@@ -19,7 +19,13 @@ def bowling_score(frames):
             i += 2
         else:
             rolls = list(map(int, frames[i].replace("/","").split()))
-            score += sum(rolls)
+            if len(rolls) == 1:
+                score += rolls[0]
+            elif len(rolls) == 2:
+                if sum(rolls) == 10:
+                    score += 10
+                else:
+                    score += sum(rolls)
             i += 1
 
     return score
