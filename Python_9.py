@@ -1,8 +1,9 @@
-# Read input in a single line separated by spaces
+from typing import List
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    max_num = float("-inf")
+    return [max_num := max(max_num, num) for num in numbers]
+
 numbers = list(map(int, input().split()))
-
-# Call the function with the input
 result = rolling_max(numbers)
-
-# Print the output
 print(result)
