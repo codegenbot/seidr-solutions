@@ -1,12 +1,12 @@
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
+    int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     
     for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
+        if (num < 0 && num > largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
+        } else if (num > 0 && num < smallest_positive) {
             smallest_positive = num;
         }
     }
