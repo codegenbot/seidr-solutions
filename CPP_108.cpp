@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +12,7 @@ int count_nums(const std::vector<int>& nums) {
 
 }
 
-int main() {
+main() {
     int n;
     std::cout << "Enter the number of integers: ";
     std::cin >> n;
