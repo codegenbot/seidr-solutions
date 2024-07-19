@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // Include the library for using std::sort
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -14,8 +14,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-void sort_third(std::vector<int>& vec) {
-    std::sort(vec.begin(), vec.end());
+void sort_third(std::vector<int>& v) {
+    std::sort(v.begin(), v.end());
 }
 
 int main() {
@@ -32,6 +32,7 @@ int main() {
         std::cin >> v2[i];
     }
 
+    // Sort the vectors
     sort_third(v1);
     sort_third(v2);
 
