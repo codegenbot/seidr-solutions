@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -14,15 +14,7 @@ namespace Solution {
     }
 }
 
-int main() {
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-
-    auto result = Solution::sum_product(input);
-    cout << result[0] << " " << result[1] << endl;
-
+int main(){
+    assert(Solution::sum_product({10}) == vector<int>{10, 10});
     return 0;
 }
