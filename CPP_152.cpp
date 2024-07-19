@@ -1,7 +1,5 @@
-```cpp
-#include <initializer_list>
 #include <vector>
-#include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -13,6 +11,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    return gameCompare(game, guess);
 }
 
 std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
@@ -27,10 +29,6 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
         }
     }
     return result;
-}
-
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    return gameCompare(game, guess);
 }
 
 int main_test() {
