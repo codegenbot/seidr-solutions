@@ -21,9 +21,9 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 }
 
 int main() {
-    std::vector<float> numbers = {4.5, 2.1, 7.8, 3.2, 9.6};
-    auto closest_pair = find_closest_elements(numbers);
-    std::cout << "Closest pair: " << closest_pair.first << ", " << closest_pair.second << std::endl;
+    std::vector<float> numbers = {3.5, 1.2, 4.8, 2.7, 5.3};
+    std::pair<float, float> result = find_closest_elements(numbers);
+    std::cout << "Closest pair: " << result.first << ", " << result.second << std::endl;
 
     return 0;
 }
