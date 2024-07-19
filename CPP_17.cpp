@@ -16,10 +16,8 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
-        } else if (music_string[i] == 'o') {
-            beats.push_back(4);
-            i++;
         } else {
+            beats.push_back(4);
             i++;
         }
     }
