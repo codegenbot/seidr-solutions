@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cassert>
 
 int specialFilter(std::vector<int> nums) {
@@ -14,6 +14,6 @@ int specialFilter(std::vector<int> nums) {
 int main() {
     assert(specialFilter({}) == 0);
     int testResult = specialFilter({1, 11, 21});
-    std::cout << "The result is: " << testResult << std::endl;
+    // do something with the result
     return 0;
 }
