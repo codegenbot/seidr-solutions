@@ -1,3 +1,4 @@
-```cpp
-int integerPart = number;
-return number - integerPart;
+float truncate_number(float number) {
+    int integerPart = (int)number;
+    return number - integerPart;
+}
