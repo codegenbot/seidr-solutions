@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -24,5 +24,5 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    assert(prime_length(str));
+    assert(prime_length(str) == true);
 }
