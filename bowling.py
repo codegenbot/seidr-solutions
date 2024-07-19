@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -10,30 +9,30 @@ def bowling_score(frames):
                 score += 30
                 i += 1
             elif i < len(frames):
-                score += int(frames[i])
+                score += int(frames[i].replace(" ", ""))
                 i += 1
         elif frames[i] == '/':
             score += 10
             i += 1
-            if i < len(frames) and frames[i].isdigit():
-                score += int(frames[i])
+            if i < len(frames) and frames[i].replace(" ", "").isdigit():
+                score += int(frames[i].replace(" ", ""))
                 i += 1
         else:
-            first_roll = int(frames[i])
+            first_roll = int(frames[i].replace(" ", ""))
             if i < len(frames) - 1 and frames[i+1] == 'X':
                 second_roll = 10
                 score += first_roll + second_roll
                 i += 2
-            elif i < len(frames) - 1 and frames[i+2].isdigit():
-                second_roll = int(frames[i+1]) + int(frames[i+2])
+            elif i < len(frames) - 1 and frames[i+2].replace(" ", "").isdigit():
+                second_roll = int(frames[i+1].replace(" ", "")) + int(frames[i+2].replace(" ", ""))
                 if second_roll == 10:
                     score += first_roll + 10
                 else:
                     score += first_roll + second_roll
                 i += 3
             else:
-                if i < len(frames) - 1 and frames[i+1].isdigit():
-                    second_roll = int(frames[i+1])
+                if i < len(frames) - 1 and frames[i+1].replace(" ", "").isdigit():
+                    second_roll = int(frames[i+1].replace(" ", ""))
                     if first_roll + second_roll == 10:
                         score += 10
                     else:
