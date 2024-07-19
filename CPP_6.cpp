@@ -10,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> parse_nested_parens(std::string s){
     int depth = 0;
     std::vector<int> depths;
-    
+
     for(char c : s){
         if(c == '('){
             depth++;
@@ -19,7 +19,7 @@ std::vector<int> parse_nested_parens(std::string s){
             depth--;
         }
     }
-    
+
     return depths;
 }
 
