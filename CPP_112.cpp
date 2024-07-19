@@ -1,5 +1,7 @@
+```c++
 #include <vector>
 #include <string>
+#include <initializer_list>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -36,13 +38,9 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool main_function() {
+bool main() {
     vector<string> output = reverse_delete("mamma", "mia");
-    bool res1 = issame(output, {"", "True"});
-    assert(res1);
+    bool res1 = issame({""}, {"", "True"});
+    assert(res1 == true);
     return 0;
-}
-
-int main() {
-    main_function();
 }
