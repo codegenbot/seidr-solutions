@@ -1,1 +1,1 @@
-n = int(input())
+n = int(input("Enter a number: ").strip())
