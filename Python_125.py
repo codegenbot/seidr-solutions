@@ -1,6 +1,13 @@
+```
 def split_words(txt):
     words = txt.split()
-    if not any(char in string.whitespace for char in txt) and "," not in txt:
-        return sum(1 for i, c in enumerate(txt.lower()) if ord(c) - ord("a") % 2 == 0)
-    else:
+    if len(words) > 0:
         return words
+    else:
+        txt = txt.replace(',', ' ')
+        words = txt.split()
+        if len(words) > 0:
+            return words
+        else:
+            result = sum(1 for char in txt.lower() if ord(char) % 2 == 1)
+            return result
