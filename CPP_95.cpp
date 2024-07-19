@@ -6,14 +6,16 @@ bool check_dict_case(map<string,string> dict){
     
     for(auto const& pair : dict){
         string key = pair.first;
+        bool is_lower = true;
+        bool is_upper = true;
         
-        if(!key.empty() && key == string(key.size(), tolower(key[0]))){
-            all_upper = false;
-        } else if(!key.empty() && key == string(key.size(), toupper(key[0]))){
-            all_lower = false;
-        } else {
-            return false;
+        for(char c : key){
+            if(islower(c)) is_upper = false;
+            if(isupper(c)) is_lower = false;
         }
+        
+        all_lower = all_lower && is_lower;
+        all_upper = all_upper && is_upper;
     }
     
     return all_lower || all_upper;
