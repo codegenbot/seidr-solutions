@@ -9,5 +9,5 @@ string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return to_string(open == close);
+    return open == close ? "Yes" : "No";
 }
