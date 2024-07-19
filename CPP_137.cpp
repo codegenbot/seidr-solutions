@@ -1,26 +1,17 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 class Main {
 public:
     void run() {
-        std::cout << "Enter first string: ";
         std::string str1;
-        getline(std::cin, str1);
+        std::cout << "Enter first string: ";
+        std::getline(std::cin, str1);
 
-        if (str1.empty()) {
-            std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
-            return;
-        }
-
-        std::cout << "Enter second string: ";
         std::string str2;
-        getline(std::cin, str2);
-
-        if (str2.empty()) {
-            std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
-            return;
-        }
+        std::cout << "Enter second string: ";
+        std::getline(std::cin, str2);
 
         int result = compare_strings(str1, str2);
 
