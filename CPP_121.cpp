@@ -1,5 +1,5 @@
 #include <iostream>
-#include "solution.h"
+#include <vector>
 
 int solution(std::vector<long long> numbers) {
     int sum = 0;
