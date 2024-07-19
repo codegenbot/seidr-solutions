@@ -16,9 +16,11 @@ vector<vector<int>> cutVector(vector<int> v) {
         if(i > 0 && (sum1 - prev_sum) != 0) {
             long long diff = llabs((long long)sum1 - (long long)prev_sum);
             
-            if (diff <= min_diff && diff != 0 || prev_sum == sum1) {
-                min_diff = diff;
-                index = i; // update the cutting point
+            if ((sum1 - prev_sum) == 0 || (diff <= min_diff)) {
+                if ((sum1 - prev_sum) != 0) { 
+                    min_diff = diff;
+                    index = i; 
+                }
             }
         }
         
