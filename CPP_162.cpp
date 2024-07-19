@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
 #include <sstream>
 #include <iomanip>
 
@@ -16,7 +16,7 @@ string string_to_md5(string text) {
     while (*ptr) {
         MD5_Update(&md5ctx, ptr++, 1);
     }
-    md5_final(&md5ctx, buffer);
+    MD5_Final(buffer, &(md5ctx));
 
     ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
