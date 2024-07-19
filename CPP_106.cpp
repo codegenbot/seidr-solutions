@@ -1,4 +1,7 @@
-vector<int> result;
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
     int factorial = 1;
     int sum = 0;
     for (int i = 1; i <= n; ++i) {
