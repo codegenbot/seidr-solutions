@@ -13,8 +13,7 @@ std::vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    int a = 1;
-    int b = 10;
+    int a = 1, b = 10;
     std::vector<int> result = generate_integers(a, b);
     for (int num : result) {
         std::cout << num << " ";
