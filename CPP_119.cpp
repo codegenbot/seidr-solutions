@@ -14,8 +14,8 @@ bool match_parens(const std::string& s) {
 int main() { 
     std::string line, lst; 
     std::cout << "Enter the strings: ";
+    std::string lst = "";  // Initialize lst as an empty string
     while((std::getline(std::cin, line)) && !line.empty()) {
-        lst = ""; // Initialize string
         for(char c : line) {
             lst += c; 
         }
