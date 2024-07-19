@@ -1,15 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <assert.h>
 #include <initializer_list>
-
-bool issame(vector<int>, vector<int>);
-vector<int> sort_array(vector<int>);
-
-int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    return 0;
-}
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
