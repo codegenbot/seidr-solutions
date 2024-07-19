@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -23,5 +24,6 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     std::vector<int> result = maximum(a);
     if (!same(result, a)) return 1;
+    assert(same({0}, {0}));
     return 0;
 }
