@@ -16,7 +16,15 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.0f, 2.0f, 3.0f};
-    long long odd_sum = double_the_difference(lst);
-    cout << "The difference is: " << odd_sum << endl;
+    vector<float> lst;
+    float num;
+    long long odd_sum = 0;
+    cout << "Enter numbers (enter 'stop' to finish): ";
+    while (true) {
+        cin >> num;
+        if (num == 'stop') break;
+        lst.push_back(num);
+    }
+    long long sum = double_the_difference(lst);
+    cout << "Sum of squares: " << sum << endl;
 }
