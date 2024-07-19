@@ -20,15 +20,3 @@ vector<string> select_words(string s, int n) {
     }
     return words;
 }
-
-int main() {
-    vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
-    
-    assert(issame(result, {"world", "contest"}));
-    
-    for (const string& word : result) {
-        cout << word << endl;
-    }
-    
-    return 0;
-}
