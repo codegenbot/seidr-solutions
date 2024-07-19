@@ -1,12 +1,8 @@
 int vowels_count(string s){
     int count = 0;
-    string vowels = "aeiou";
-    for(int i = 0; i < s.length(); ++i){
-        if(vowels.find(tolower(s[i])) != string::npos){
-            if(i == s.length()-1 || tolower(s[i]) == 'y'){
-                count++;
-            }
-        }
+    for(char c : s){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && &c == &s.back()))
+            count++;
     }
     return count;
 }
