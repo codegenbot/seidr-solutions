@@ -21,7 +21,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst(5, 0); // Initialize an empty vector of size 5
+    vector<int> lst(5, 0); // Initialize an empty vector of size 5 with all elements set to 0
     for (int i = 0; i < 5; ++i) { 
         cin >> lst[i]; // Read input from user and store it in the vector
     }
