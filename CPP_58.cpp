@@ -2,13 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <iterator>
 
 using namespace std;
-
-bool is_same_vectors(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
@@ -20,6 +15,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert(is_same_vectors(common({4, 3, 2, 8}, {}), {}));
+    vector<int> emptyVec;
+    assert(common({4, 3, 2, 8}, emptyVec) == emptyVec);
     return 0;
 }
