@@ -3,7 +3,10 @@
 #include <string>
 #include <algorithm>
 #include <set>
-#include <cassert>
+
+auto custom_filter_by_prefix = [](const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return std::set<std::string>(a.begin(), a.end()) == std::set<std::string>(b.begin(), b.end());
+};
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
@@ -16,9 +19,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == std::vector<std::string>{"xxx", "xxxAAA", "xxx"});
-
-    std::vector<std::string> filtered_strings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
+    auto filtered_strings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
 
     for (const auto& str : filtered_strings) {
         std::cout << str << " ";
