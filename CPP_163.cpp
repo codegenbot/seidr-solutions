@@ -1,6 +1,5 @@
-#include <vector> // Add this line to include the vector header
-
-std::vector<int> issame(int a, int b){ // Correct the function signature
+#include <vector>
+std::vector<int> issame(int a, int b){
     std::vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
