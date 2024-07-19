@@ -1,9 +1,7 @@
-#include <map>
-#include <string>
-#include <algorithm>
+using namespace std;
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
+std::map<char, int> histogram(string test) {
+    std::map<char, int> result;
     if (test.empty()) return result;
 
     string letters = test;
