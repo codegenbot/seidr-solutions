@@ -1,8 +1,12 @@
-int count_nums(vector<int> n){
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+int count_nums(std::vector<int> n){
     int count = 0;
     for (int num : n) {
         int sumDigits = 0;
-        int numAbs = abs(num);
+        int numAbs = std::abs(num);
         while (numAbs > 0) {
             sumDigits += numAbs % 10;
             numAbs /= 10;
@@ -12,4 +16,9 @@ int count_nums(vector<int> n){
         }
     }
     return count;
+}
+
+int main2() {
+    assert(count_nums({1}) == 1);
+    return 0;
 }
