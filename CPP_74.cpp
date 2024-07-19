@@ -9,7 +9,7 @@ int totalChars(const vector<string>& lst) {
     for (const string& str : lst) {
         total += str.size();
     }
-    return total;  // Added return statement
+    return total;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
