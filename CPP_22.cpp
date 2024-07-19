@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
-    std::vector<int> result;   
+    std::vector<int> result;
     for (const auto &val : values) {
         if (val.type() == typeid(int)) {
             result.push_back(std::any_cast<int>(val));
