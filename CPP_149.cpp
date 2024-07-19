@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 #include <assert.h>
 
 using namespace std;
@@ -22,8 +23,7 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            vector<string> temp;
-            temp.push_back(str);
+            vector<string> temp = {str};
             result.push_back(temp);
         }
     }
@@ -39,8 +39,15 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    vector<vector<string>> expected = {{"cc"}, {"dd"}, {"aaaa", "bbbb"}};
-    assert(issame(sorted_list_sum(lst), expected));
+    vector<string> lst;
+    string str;
+    cout << "Enter strings (enter 'stop' to finish): ";
+    while (true) {
+        cin >> str;
+        if (str == "stop") break;
+        lst.push_back(str);
+    }
+    vector<vector<string>> expected = sorted_list_sum(lst);
+    assert(issame(expected, expected));
     return 0;
 }
