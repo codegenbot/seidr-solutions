@@ -2,17 +2,26 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <sstream>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
-    string word;
-    istringstream iss(s);
-    while (iss >> word) {
-        if (--n > 0) {
-            words.push_back(word);
+    size_t start = 0, end;
+    for (int i = 0; i < n; ++i) {
+        start = s.find_first_not_of(' ', start);
+        end = s.find_first_of(' ', start);
+        if (end == string::npos) 
+            break;
+        start = end + 1;
+    }
+    if (start != string::npos) {
+        while (start < s.size()) {
+            end = s.find_first_of(' ', start);
+            if (end == string::npos) 
+                end = s.size();
+            words.push_back(s.substr(start, end - start));
+            start = s.find_first_not_of(' ', end);
         }
     }
     return words;
