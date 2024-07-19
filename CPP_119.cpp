@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,16 +12,19 @@ bool match_parens(const std::vector<std::string>& lst) {
             if (c == '(') countOpen++;
             else if (c == ')') countClose++;
         }
+        if(countOpen != countClose) return false;
     }
 
-    return result == (countOpen == countClose);
+    return result && (countOpen == countClose);
 }
 
 int main() {
     std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
     bool result = match_parens(lst);
-
-    std::cout << (result ? 1 : 0) << std::endl;
-
+    if (result) {
+        std::cout << "Yes\n";
+    } else {
+        std::cout << "No\n";
+    }
     return 0;
 }
