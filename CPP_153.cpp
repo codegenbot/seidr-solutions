@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 std::string Strongest_Extension(const string& class_name, const vector<string>& extensions) {
@@ -10,8 +11,4 @@ std::string Strongest_Extension(const string& class_name, const vector<string>& 
         }
     }
     return class_name;
-}
-
-int main() {
-    return 0;
 }

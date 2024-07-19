@@ -29,23 +29,29 @@ int mainFunction() {
     int n;
     std::cout << "Enter the number of elements in the game: ";
     std::cin >> n;
+    
+    std::vector<int> gameInput;
+    std::cout << "Enter elements for the game: ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int temp;
         std::cin >> temp;
-        game.push_back(temp);
+        gameInput.push_back(temp);
     }
+    game = gameInput;
     
     std::vector<int> guess;
     int m;
     std::cout << "Enter the number of elements in the guess: ";
     std::cin >> m;
+    
+    std::vector<int> guessInput;
+    std::cout << "Enter elements for the guess: ";
     for (int i = 0; i < m; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int temp;
         std::cin >> temp;
-        guess.push_back(temp);
+        guessInput.push_back(temp);
     }
+    guess = guessInput;
     
     if (!issame(game, guess)) {
         std::cout << "The game and the guess are not the same. Please try again." << std::endl;
