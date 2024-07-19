@@ -9,11 +9,6 @@ std::string anti_shuffle(const std::string& s) {
         if (c == ' ') {
             result += '.';
         } else {
-            int i = 0;
-            while (s[i] != ' ' && i < s.length()) {
-                result += s[i];
-                i++;
-            }
             result += c;
         }
     }
@@ -21,6 +16,6 @@ std::string anti_shuffle(const std::string& s) {
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == "Hi. My name is Mister Robot. How are you?");
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
