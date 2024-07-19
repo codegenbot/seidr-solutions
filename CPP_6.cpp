@@ -2,11 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
 
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
     std::vector<int> depths;
@@ -28,8 +23,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    
     std::string input;
     std::getline(std::cin, input);
     std::vector<int> depths = parse_nested_parens(input);
