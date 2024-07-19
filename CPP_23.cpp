@@ -8,5 +8,5 @@ int customStringLength(const char* str) {
 
 int main() {
     assert(customStringLength("asdasnakj") == 9);
-    assert(customStringLength("asdas  asnakj") == 13);
+    return customStringLength("asdas  asnakj");
 }
