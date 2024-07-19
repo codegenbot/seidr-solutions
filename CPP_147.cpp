@@ -1,5 +1,8 @@
+#include <vector>
+#include <iostream>
+
 int get_matrix_triples(int n){
-    vector<int> a(n);
+    std::vector<int> a(n);
     int count = 0;
     
     for(int i = 0; i < n; i++){
