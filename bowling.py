@@ -1,16 +1,15 @@
-```
 def bowling_score(frames):
     score = 0
     frame = 1
-    i = 0
-    while i < len(frames):
+    for i in range(len(frames)):
         if frames[i].isdigit():
+            score += int(frames[i])
             if frame == 10:
                 break
-            score += int(frames[i])
             frame += 1
         elif frames[i] == '/':
-            score += 10 - (int(frames[i-1]) + int(frames[i+1]))
+            first_roll = int(frames[:i-1].rstrip('/').split('/')[-1])
+            second_roll = int(frames[i+1:])
+            score += 10 - (first_roll + second_roll)
             frame += 1
-        i += 1
     return score
