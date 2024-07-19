@@ -1,9 +1,13 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
-    std::vector<std::string> words;
-    std::string word = "";
+bool issame(vector<string> a, vector<string> b) {
+    // Function implementation here
+}
+
+vector<string> processText(string txt) {
+    vector<string> words;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -17,6 +21,7 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
     if (!word.empty()) {
         words.push_back(word);
     }
+
     if (words.empty()) {
         int count = 0;
         for (char c : txt) {
@@ -24,8 +29,8 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
+
     return words;
 }
-```  
