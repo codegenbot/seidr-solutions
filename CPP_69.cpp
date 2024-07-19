@@ -1,14 +1,15 @@
-```
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-int count(int num) {
-    int res = 0;
-    for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9}) {
-        if (i == num) res++;
+int count(int i) {
+    int cnt = 0;
+    for (int j : {1,2,3,4,5}) {
+        if (j == i)
+            cnt++;
     }
-    return res;
+    return cnt;
 }
 
 int search(vector<int> lst) {
@@ -22,8 +23,8 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {3, 10, 10, 9, 2, 1};
+    vector<int> lst = {3, 10, 10, 9, 2};
     int result = search(lst);
-    cout << "The largest number in the list is: " << result << endl;
+    cout << result;
     return 0;
 }
