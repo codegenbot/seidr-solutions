@@ -1,15 +1,9 @@
-```cpp
-#include <iostream>
-#include <string>
-
 std::string anti_shuffle(const std::string& str) {
-    int len = str.length();
-    for(int i=len-1; i>=0; --i)
-        std::cout << str[i];
-    return str;
-}
-
-int main() {
-    std::cout << anti_shuffle("Hi. My name is Mister Robot. How are you?") << std::endl;
-    return 0;
+    int n = str.length();
+    char temp[n+1];
+    strcpy(temp, str.c_str());
+    for(int i=0; i<n/2; i++) {
+        swap(temp[i], temp[n-i-1]);
+    }
+    return std::string(temp);
 }
