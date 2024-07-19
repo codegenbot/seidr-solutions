@@ -2,7 +2,9 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+using namespace std;
+
+bool issame(const vector<string>& vec1, const vector<string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -10,8 +12,8 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
-    std::vector<std::string> result;
+vector<string> numerical_letter_grade(const vector<float>& grades) {
+    vector<string> result;
     for (float grade : grades) {
         float gradeCopy = grade; 
         if (gradeCopy >= 4.0)
@@ -43,11 +45,11 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
 }
 
 int main() {
-    std::vector<float> grades = {3.8, 2.9, 4.1, 3.5};
-    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
+    vector<float> grades = {3.8, 2.9, 4.1, 3.5};
+    vector<string> letterGrades = numerical_letter_grade(grades);
     
     for (const auto& grade : letterGrades) {
-        std::cout << grade << " ";
+        cout << grade << " ";
     }
     return 0;
 }
