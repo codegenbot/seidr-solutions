@@ -1,7 +1,6 @@
 #include <any>
 #include <string>
 #include <cassert>
-#include <boost/any.hpp>
 
 template <typename T>
 T compare_one(std::any a, std::any b) {
