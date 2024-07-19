@@ -9,7 +9,7 @@ def encode(message: str, shift: int) -> str:
             encoded_message += char
     return encoded_message
 
-message = input()
-shift = int(input())
+message = input().strip()
+shift = int(input().strip())
 result = encode(message, shift)
 print(result)
