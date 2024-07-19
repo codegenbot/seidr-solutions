@@ -1,10 +1,10 @@
-int openCount = 0;
-    for (char c : str) {
-        if (c == '[') {
-            openCount++;
-        } else if (c == ']' && openCount > 0) {
-            openCount--;
+int balance = 0;
+    for (char bracket : str) {
+        if (bracket == '[') {
+            balance++;
+        } else if (bracket == ']' && balance > 0) {
+            balance--;
         }
     }
-    return openCount < 0 || openCount > 0 ? true : false;
+    return balance < str.length() / 2 && balance > 0;
 }
