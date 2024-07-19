@@ -1,27 +1,20 @@
-#include <string>
-#include <iostream>
-
+#include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
+    int numerator1 = stoi(substring(x, 1, find('/', x)-1));
+    int denominator1 = stoi(substring(x, find('/')+1));
+    int numerator2 = stoi(substring(n, 1, find('/', n)-1));
+    int denominator2 = stoi(substring(n, find('/')+1));
 
-    if (a % c == 0 && b % d == 0) return true;
-    else return false;
-
+    return (double)numerator1 / denominator1 == (double)numerator2 / denominator2;
 }
 
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    string result = s.substr(0, pos);
-    return result;
-}
+int main() {
+    //test cases
+    cout << simplify("1/5", "5/1") << endl;  //true
+    cout << simplify("1/6", "2/1") << endl;  //false
+    cout << simplify("7/10", "10/2") << endl; //false
 
-string getDenominator(string s) {
-    size_t pos = s.find('/');
-    string result = s.substr(pos + 1);
-    return result;
+    return 0;
 }
