@@ -2,17 +2,15 @@
 #include <unordered_map>
 
 int search(std::vector<int> lst) {
+    int res = -1;
     std::unordered_map<int, int> freq;
     for (int num : lst) {
         freq[num]++;
     }
-    
-    int res = -1;
-    for (auto it : freq) {
-        if (it.first > it.second && it.first >= 2) {
-            res = std::max(res, it.first);
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        if (it->first > it->second && it->first > res) {
+            res = it->first;
         }
     }
-    
     return res;
 }

@@ -1,5 +1,3 @@
-#include <cmath>
-
 int starts_one_ends(int n){
-    return 2 * 9 * pow(10, n-2);
+    return 2 * 9 * (n - 1) + 10;
 }
