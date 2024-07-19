@@ -7,16 +7,19 @@ namespace std {
         return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
     }
 
-    vector<int> rolling_max(vector<int> numbers) {
-        vector<int> result;
-        int max_num = numbers[0];
+    vector<int> rolling_max(vector<int> numbers);
+
+}
+
+vector<int> std::rolling_max(vector<int> numbers) {
+    vector<int> result;
+    int max_num = numbers[0];
+    result.push_back(max_num);
+    for(int i = 1; i < numbers.size(); i++){
+        max_num = std::max(max_num, numbers[i]);
         result.push_back(max_num);
-        for(int i = 1; i < numbers.size(); i++){
-            max_num = std::max(max_num, numbers[i]);
-            result.push_back(max_num);
-        }
-        return result;
     }
+    return result;
 }
 
 int main() {
