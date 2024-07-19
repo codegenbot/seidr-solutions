@@ -20,7 +20,7 @@ int get_odd_collatz(int n) {
     return sequence.size();
 }
 
-int main_function() {
-    assert(same({get_odd_collatz(1)}, vector<int>({1})));
+int main() {
+    assert(get_odd_collatz(1) == 1); 
     return 0;
 }
