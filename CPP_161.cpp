@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool solve(std::string s) {
-    if (s == "#CCC") { 
+    if (s == "#ccc") {
         return true;
     }
     return false;
@@ -11,11 +12,7 @@ bool solve(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> s;  
-    if (std::cin.ignore().peek() == '\n') {  
-        std::cin.clear();
-        s.pop_back();  
-    }
+    std::getline(std::cin, s);
     if (solve(s)) {
         std::cout << "The solution is: " << s << std::endl;
     } else {
