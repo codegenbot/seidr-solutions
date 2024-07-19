@@ -12,6 +12,14 @@ bool issame(const vector<string>& vec1, const vector<string>& vec2) {
     return true;
 }
 
+vector<string> checkSame(const vector<string>& vec1, const vector<string>& vec2) {
+    if (vec1.size() != vec2.size()) return {};
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) return {};
+    }
+    return {"same"};
+}
+
 vector<string> numerical_letter_grade(const vector<float>& grades) {
     vector<string> result;
     for (float grade : grades) {
