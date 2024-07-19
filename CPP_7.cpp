@@ -1,15 +1,14 @@
 ```cpp
 #include <initializer_list>
+
 #include <vector>
 #include <string>
 
-using namespace std;
-
-vector<string> filter_by_substring(const vector<vector<string>>& words, const string& sub) {
-    vector<string> result;
+std::vector<std::string> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& sub) {
+    std::vector<std::string> result;
     for (const auto& vec : words) {
         for (const auto& word : vec) {
-            if (word.find(sub) != string::npos) {
+            if (word.find(sub) != std::string::npos) {
                 result.push_back(word);
             }
         }
@@ -17,11 +16,11 @@ vector<string> filter_by_substring(const vector<vector<string>>& words, const st
     return result;
 }
 
-bool issame(const string& a, const string& b) {
+bool issame(const std::string& a, const std::string& b) {
     bool same = true;
-    size_t len = min(a.size(), b.size());
+    size_t len = std::min(a.size(), b.size());
     for (size_t i = 0; i < len; ++i) {
-        if (tolower(a[i]) != tolower(b[i])) {
+        if (std::tolower(a[i]) != std::tolower(b[i])) {
             same = false;
             break;
         }
@@ -29,7 +28,7 @@ bool issame(const string& a, const string& b) {
     return same;
 }
 
-bool same(const vector<string>& a, const vector<string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -44,6 +43,6 @@ bool same(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(same(filter_by_substring({{{"grunt"}}, {{"trumpet", "prune", "gruesome"}}}, "run"), {{{"grunt"}, {"prune"}}}));
+    assert(same(std::vector<std::vector<std::string>>({{"grunt"}}, {{"trumpet", "prune", "gruesome"}}), "run"), std::vector<std::vector<std::string>>({{"grunt"}}, {{"prune"}})));
     return 0;
 }
