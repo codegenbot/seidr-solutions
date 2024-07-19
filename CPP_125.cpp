@@ -1,10 +1,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> split_words(string txt);
-
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
@@ -16,6 +12,8 @@ bool issame(vector<string> a, vector<string> b){
     }
     return true;
 }
+
+vector<string> split_words(string txt);
 
 vector<string> split_words(string txt){
     vector<string> result;
