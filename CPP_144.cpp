@@ -1,17 +1,41 @@
 #include <string>
-#include <sstream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator1 = 0, denominator1 = 0;
-    int numerator2 = 0, denominator2 = 0;
+    int a = stoi(split(x)[0]);
+    int b = stoi(split(x)[2]);
+    int c = stoi(split(n)[0]);
+    int d = stoi(split(n)[2]);
 
-    stringstream ss(x);
-    ss >> numerator1 >> denominator1;
+    long long lcm = (long long)a * d;
+    long long commonDivisor = gcd(lcm, b);
 
-    stringstream sn(n);
-    sn >> numerator2 >> denominator2;
+    return a * d / commonDivisor == c * b / commonDivisor;
+}
 
-    return (double)numerator1 / denominator1 == (double)numerator2 / denominator2;
+string split(string s) {
+    vector<string> result;
+    size_t index = 0;
+
+    while ((size_t)index < s.length()) {
+        size_t nextIndex = s.find('/', index);
+        if (nextIndex != string::npos) {
+            result.push_back(s.substr(index, nextIndex - index));
+            index = nextIndex + 1;
+        } else {
+            result.push_back(s.substr(index));
+            break;
+        }
+    }
+
+    return result[0] + "/" + result[2];
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
 }
