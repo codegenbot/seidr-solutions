@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+bool match_parens = true;
+int open = 0, close = 0;
+
 int main() {
     std::vector<char> lst;
     std::cout << "Enter the strings: ";
@@ -8,10 +11,9 @@ int main() {
     while((c = getchar()) != '\n') {
         lst.push_back(c);
     }
-    int open = 0, close = 0;
-    for (char x : lst) {
-        if (x == '(') open++;
-        else if (x == ')') close++;
+    for (char c : lst) {
+        if (c == '(') open++;
+        else if (c == ')') close++;
     }
     return (open == close) ? 0 : -1;
 }
