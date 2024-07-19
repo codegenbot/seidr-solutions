@@ -1,6 +1,5 @@
-#include <vector>
-
-int luhn(vector<int> digits) {
+```c++
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool alternate = false;
 
