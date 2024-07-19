@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert> // Include assert header
+#include <cassert>
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
