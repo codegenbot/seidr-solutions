@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +10,7 @@ bool match_parens(const std::vector<char>& lst) {
     return open == close;
 }
 
-void main() { 
+int main() {
     std::vector<char> lst;
     std::cout << "Enter the strings: ";
     char c;
@@ -23,4 +22,5 @@ void main() {
     } else {
         std::cout << "The parentheses are not matched." << std::endl;
     }
+    return 0;
 }
