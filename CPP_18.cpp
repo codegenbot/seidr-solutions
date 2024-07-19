@@ -1,19 +1,19 @@
 #include <string>
 #include <iostream>
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string sub) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    while ((pos = str.find(sub)) != std::string::npos) {
         count++;
-        pos += substring.length();
+        str.erase(pos, sub.length());
     }
     return count;
 }
 
 int main() {
-    string s, sub;
-    cin >> s >> sub;
+    string sub = "Hello"; 
+    string s = "Hello World Hello"; 
     cout << how_many_times(s, sub);
     return 0;
 }
