@@ -1,14 +1,12 @@
 ```cpp
-#include <array>
-#include <cstddef> // For std::size_t
 #include <vector>
 #include <string>
 
 bool equal_vectors(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
     if (v1.size() != v2.size()) return false;
-    for (std::size_t i = 0; i < v1.size(); ++i) {
+    for (size_t i = 0; i < v1.size(); ++i) {
         if (v1[i].size() != v2[i].size()) return false;
-        for (std::size_t j = 0; j < v1[i].size(); ++j) {
+        for (size_t j = 0; j < v1[i].size(); ++j) {
             if (v1[i][j] != v2[i][j]) return false;
         }
     }
@@ -33,8 +31,10 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 
 int main() {
     // Test case for equal_vectors function
-    std::vector<std::vector<std::string>> v1 = {{"apple", "banana"}, {"hello", "world"}};
-    std::vector<std::vector<std::string>> v2 = {{"apple", "banana"}, {"goodbye", "world"}};
+    std::vector<std::vector<std::string>> v1(std::vector<std::string>({"apple", "banana"}), std::vector<std::string>({"hello", "world"}));
+
+    std::vector<std::vector<std::string>> v2(std::vector<std::string>({"apple", "banana"}), std::vector<std::string>({"goodbye", "world"}));
+
     if (!equal_vectors(v1, v2)) {
         std::cout << "Vectors are not equal" << std::endl;
     } else {
