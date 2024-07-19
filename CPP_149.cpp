@@ -22,8 +22,6 @@ vector<string> sorted_list_sum(vector<string> lst){
 
 int main(){
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-
-    // Add more test cases here
     assert(issame(sorted_list_sum({"hello", "world", "abc"}), {"abc", "world", "hello"}));
     assert(issame(sorted_list_sum({"programming", "is", "fun"}), {"is", "fun", "programming"}));
 
