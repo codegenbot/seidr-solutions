@@ -1,5 +1,5 @@
-```
-#include <digest.h>
+#include <openssl/md5.h>
+#include <string> 
 #include <string.h>
 
 std::string string_to_md5(const std::string& input) {
