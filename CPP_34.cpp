@@ -1,16 +1,12 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
+using namespace std;
 
-auto unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
-    return std::vector<int>(std::unique_copy(first, last));
+vector<int> unique(vector<int> l){
+    auto result = unique_copy(l.begin(), l.end());
+    return vector<int>(result, result);
 }
 
-bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(isEqual(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-    return 0;
+auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
+    sort(first, last);
+    return unique_copy; // Corrected: return the function name
 }
