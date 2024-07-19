@@ -14,12 +14,11 @@ vector<string> separate_paren_groups(const vector<string>& a, vector<string> b) 
             if (balance > 0) {
                 current_group += c;
             } else if (balance == 0) {
-                result.push_back(current_group);
+                b.push_back(current_group);
                 current_group = "";
             }
         }
     }
 
-    b = result;
-    return b;
+    return result;
 }
