@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
@@ -22,8 +23,5 @@ int prod_signs(std::vector<int> arr) {
 }
 
 int main() {
-    if (prod_signs({-1, 1, 1, 0}) != 0) {
-        std::cout << "Test failed.\n";
-    }
-    return 0;
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
 }
