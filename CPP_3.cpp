@@ -16,9 +16,5 @@ int main() {
     bool result = below_zero(input);
     std::cout << std::boolalpha << result << std::endl;
     
-    std::vector<int> input2 = {1, 2, 3, 4, 5};
-    bool result2 = below_zero(input2);
-    std::cout << std::boolalpha << result2 << std::endl;
-
     return 0;
 }
