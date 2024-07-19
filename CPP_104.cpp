@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> unique_digits(std::vector<int> x){
     std::vector<int> result;
@@ -25,7 +23,6 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-int main() {
-    // Test cases if needed
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
