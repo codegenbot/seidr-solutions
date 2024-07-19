@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,14 +19,12 @@ double find_zero(vector<double> coeffs, double x) {
 int main() {
     int n;
     cin >> n;
-    
-    vector<double> coeffs;
-    coeffs.resize(n); 
-   
+
+    vector<double> coeffs(n);
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
-    
+
     double solution;
     cin >> solution;
 
