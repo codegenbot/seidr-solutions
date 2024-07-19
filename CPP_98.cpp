@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <string>
+#include <strings.h>
 
 int count_upper(char *s) {
     int count = 0;
@@ -13,15 +12,11 @@ int count_upper(char *s) {
 }
 
 int main() {
-    std::string input;
+    char input[100];
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int result = 0; 
-    for (int i = 0; i < input.length(); i++) {
-        if ((i % 2 == 0 && isupper(input[i])) && (input[i] == 'A' || input[i] == 'E' || input[i] == 'I' || input[i] == 'O' || input[i] == 'U')) {
-            result++;
-        }
-    }
+    fgets(input, sizeof(input), stdin);
+    char *input = strpbrk(input, "\0");  // Remove newline character
+    int result = count_upper(input);
     std::cout << "Number of uppercase vowels at even positions: " << result << std::endl;
     return 0;
 }
