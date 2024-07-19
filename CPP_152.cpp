@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+Here is the completed code:
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
