@@ -1,19 +1,15 @@
+#include <vector>
+#include <cmath>
+
 double find_zero(int n) {
     double solution;
     cin >> solution;
 
-    vector<double> coeffs;
+    std::vector<double> coeffs(n+1) = {};
+
     for (int i = 0; i <= n; i++) {
-        int temp;
-        cin >> temp;
-        coeffs.push_back(temp);
+        cin >> coeffs[i];
     }
 
-    double poly(vector<double>, double);
-
-    double sum = 0.0, temp = 0.0;
-    for (int i = 2; i < n+1; i += 2) {
-        sum -= coeffs[i/2] * pow(solution, i) / (pow(solution, i+1));
-    }
-    return -sum / pow(solution, 2);
+    return -pow(solution, 2);
 }
