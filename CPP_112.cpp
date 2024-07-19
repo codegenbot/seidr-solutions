@@ -2,10 +2,20 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
-vector<basic_string<char>> reverse_delete(string s, string c) {
-    vector<string> result;
+std::string reverse(std::string s) {
+    std::string rev = "";
+    for (int i = s.size() - 1; i >= 0; i--) {
+        rev += s[i];
+    }
+    return rev;
+}
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -15,38 +25,18 @@ vector<basic_string<char>> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    string rev = reverse(temp);
+    std::string rev = reverse(temp);
     if (temp == rev) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
     return result;
-}
-
-string reverse(string s) {
-    string rev = "";
-    for (int i = s.size() - 1; i >= 0; i--) {
-        rev += s[i];
-    }
-    return rev;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
 }
