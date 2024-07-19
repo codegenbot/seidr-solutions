@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int i = word.size() - 1;
     while (i > 0 && !isVowel(word[i])) {
         i--;
@@ -28,9 +29,11 @@ bool isConsonant(char c) {
 }
 
 int main() {
-    string word;
+    std::string word;
     std::cout << "Enter a word: ";
-    std::cin >> word;
-    cout << "The closest vowel is: " << get_closest_vowel(word) << endl;
+    std::getline(std::cin, word);
+    
+    std::cout << "The closest vowel to the end of the word is: " << get_closest_vowel(word) << std::endl;
+
     return 0;
 }
