@@ -3,18 +3,14 @@
 #include <algorithm>
 #include <cassert>
 #include <string>
-#include <cstdlib>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
-    int i = 0;
+    size_t i = 0;
 
     while (i < music_string.size()) {
         if (music_string[i] == 'o' && music_string[i + 2] == '|') {
@@ -32,6 +28,6 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    assert(std::issame(parse_music("o|.|o|.|oo|oo|"), std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2})));
+    assert(issame(parse_music("o|.|o|.|oo|oo|"), std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2})));
     return 0;
 }
