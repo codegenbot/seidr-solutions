@@ -1,8 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 bool same_vectors(const vector<int>& a, const vector<int>& b);
@@ -19,11 +16,11 @@ bool same_vectors(const vector<int>& a, const vector<int>& b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-bool issame(const vector<int>& a, const initializer_list<int> b) {
+bool vectorComparison(const vector<int>& a, const initializer_list<int> b) {
     return same_vectors(a, vector<int>(b));
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    assert(vectorComparison(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
     return 0;
 }
