@@ -6,28 +6,34 @@ std::any compare_one(const std::any& a, const std::any& b) {
     assert(a.type() == b.type());
 
     if(a.type() == typeid(int)) {
-        if(std::any_cast<int>(a) > std::any_cast<int>(b))
+        const int& intA = std::any_cast<const int&>(a);
+        const int& intB = std::any_cast<const int&>(b);
+        if(intA > intB)
             return a;
-        else if(std::any_cast<int>(a) < std::any_cast<int>(b))
+        else if(intA < intB)
             return b;
         else
             return 0;
     }
     else if(a.type() == typeid(float)) {
-        if(std::any_cast<float>(a) > std::any_cast<float>(b))
+        const float& floatA = std::any_cast<const float&>(a);
+        const float& floatB = std::any_cast<const float&>(b);
+        if(floatA > floatB)
             return a;
-        else if(std::any_cast<float>(a) < std::any_cast<float>(b))
+        else if(floatA < floatB)
             return b;
         else
             return 0.0f;
     }
     else if(a.type() == typeid(std::string)) {
-        if(std::any_cast<std::string &>(a) > std::any_cast<std::string &>(b))
+        const std::string& strA = std::any_cast<const std::string&>(a);
+        const std::string& strB = std::any_cast<const std::string&>(b);
+        if(strA > strB)
             return a;
-        else if(std::any_cast<std::string &>(a) < std::any_cast<std::string &>(b))
+        else if(strA < strB)
             return b;
         else
-            return std::string("");  // Changed from return "";
+            return "";
     }
 
     return std::any(); // None
