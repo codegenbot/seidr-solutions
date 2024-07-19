@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -14,6 +15,7 @@ int how_many_times(string str, string substring) {
 int main() {
     string s, sub;
     cin >> s >> sub;
+    assert(how_many_times(s, sub) == how_many_times("john doe", "john"));
     cout << how_many_times(s, sub);
     return 0;
 }
