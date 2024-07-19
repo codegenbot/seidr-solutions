@@ -28,7 +28,7 @@ int main() {
         std::cout << i << " ";
     }
 
-    assert(issame(result, {2, 3}));
+    assert(issame(result, {2, 3})); // Testing the result
 
     return 0;
 }
