@@ -23,5 +23,7 @@ def minPath(grid, k):
         if next_cell is not None:
             path.append(grid[next_cell[0]][next_cell[1]])
             visited.append(next_cell)
+        else:
+            break
 
     return path[:k]

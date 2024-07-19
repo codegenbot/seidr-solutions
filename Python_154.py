@@ -1,2 +1,2 @@
-def cycpattern_check(a, b):
-    return len(a) == len(b) and b in a + a[:-1] and a != b
+def cycpattern_check(a: str, b: str) -> bool:
+    return len(a) == len(b) and (a in b * 2 or b in a * 2)
