@@ -1,8 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
-bool checksame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+bool vectorCompare(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -41,7 +41,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-int main() {
-    assert(checksame(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-" }));
-    return 0;
-}
+assert(vectorCompare(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-" }));
