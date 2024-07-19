@@ -10,7 +10,7 @@ bool same(float a, float b) {
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
+        if (i % static_cast<int>(2) == 0) {
             float maxEven = -INFINITY;
             for (float val : l) {
                 if (same(val, static_cast<int>(val))) {
