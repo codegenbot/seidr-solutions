@@ -1,6 +1,6 @@
-def join_with_delimiter(numbers, delimiter):
+def complete_code(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([str(num), delimiter])
+        result.extend([num, delimeter])
     result.pop() if result else None
     return result
