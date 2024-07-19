@@ -1,9 +1,11 @@
-```
-#include <iostream>
+#include <initializer_list>
 #include <vector>
+#include <algorithm> 
+#include <ostream>
+
 using namespace std;
 
-int calculateMedian(vector<float> v) {
+float calculateMedian(vector<float> v) {
     sort(v.begin(), v.end());
     int n = v.size();
     if (n % 2 == 0)
@@ -15,21 +17,12 @@ int calculateMedian(vector<float> v) {
 int main() {
     vector<float> numbers;
     float num;
-
-    cout << "Enter some floating point numbers. Enter a negative number to stop.\n";
-    while (true) {
-        cin >> num;
-        if (num < 0)
-            break;
+    
+    while (cin >> num) {
         numbers.push_back(num);
     }
-
-    if (!numbers.empty()) {
-        int median = calculateMedian(numbers);
-        cout << "The median is: " << median << endl;
-    } else {
-        cout << "No numbers entered.\n";
-    }
     
+    cout << calculateMedian(numbers) << std::endl;
+
     return 0;
 }
