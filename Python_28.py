@@ -1,3 +1,3 @@
-```python
-def concatenate(strings: list) -> str:
+```
+def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
