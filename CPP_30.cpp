@@ -2,7 +2,7 @@
 #include <vector>
 #include <assert.h>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> getPositive(std::vector<float> l) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
         if (i > 0) {
@@ -24,7 +24,7 @@ std::vector<float> getPositive(std::vector<float> l) {
     return result;
 }
 
-int main_func() {
-    assert(isSame(getPositive({}), {}));
+int main() {
+    assert(issame(get_positive({}), {}));
     return 0;
 }
