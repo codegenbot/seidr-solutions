@@ -7,9 +7,10 @@ while True:
     try:
         n = int(input("Enter a number: "))
         if n <= 0:
-            raise ValueError("Invalid input. Please enter a valid positive integer greater than zero.")
+            raise ValueError
         result = digits(n)
         print(result)
         break
-    except ValueError as e:
-        print(e)
+    except ValueError:
+        print("Invalid input. Please enter a valid positive integer greater than zero.")
+        continue
