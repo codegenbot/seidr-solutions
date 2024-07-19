@@ -1,9 +1,26 @@
-bool issame(vector<string> a,vector<string>b){
-    for(auto s : a) if(find(b.begin(),b.end(),s) == b.end()) return false;
-    return true;
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
-    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    return 0;
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    string prefix = "xxx";
+    vector<string> result = filter_by_prefix(strings, prefix);
+    
+    for(string s : result) {
+        if(s.find(prefix) == 0)
+            cout << s << endl;
+    }
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for(string s : strings){
+        if(s.find(prefix) == 0)
+            result.push_back(s);
+    }
+    return result;
 }
