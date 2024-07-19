@@ -13,7 +13,7 @@ int main() {
 
     std::vector<std::string> a = {planet1}, b({planet2});
 
-    if (issame(a, b)) {
+    if (issame({a}, {b})) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
