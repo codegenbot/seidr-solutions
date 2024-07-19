@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-#include <cmath>
-
 std::string calculateBinaryString(int n, int m) {
     if (n > m) {
         return "-1";
@@ -23,5 +18,3 @@ std::string calculateBinaryString(int n, int m) {
     
     return binary;
 }
-
-assert(calculateBinaryString(5, 5) == "101");
