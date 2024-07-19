@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 
 bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
@@ -26,8 +27,8 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
     return result;
 }
 
+std::vector<std::vector<std::string>> strings = {{{"xxx"}}, {{"asd"}}, {{"xxy"}}, {{{"john doe"}}}, {{"xxxxAAA"}}, {{"xxx"}}};
 int main() {
-    std::vector<std::vector<std::string>> strings = {{{"xxx"}}, {{"asd"}}, {{"xxy"}}, {{"john doe"}}, {{"xxxxAAA"}}, {{"xxx"}}};
     assert(issame(filter_by_prefix(strings, "xxx"), {{{"xxx"}}, {{"xxxAAA"}}, {{"xxx"}}}));
     return 0;
 }
