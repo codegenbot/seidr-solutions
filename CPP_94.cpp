@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 int bitCount(int* a, int size) {
@@ -13,7 +12,7 @@ int bitCount(int* a, int size) {
     return count;
 }
 
-int testMain() {
+void original_main() {
     assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
-    return 0;
+    return;
 }
