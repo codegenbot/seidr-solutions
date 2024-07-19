@@ -10,6 +10,7 @@ std::vector<int> tri(int n){
     if(n == 0){
         result.push_back(0);
     } else if(n == 1){
+        result.push_back(1);
         result.push_back(3);
     } else {
         result.push_back(1);
