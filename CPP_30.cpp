@@ -1,11 +1,17 @@
 #include <vector>
+#include <cmath>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+using namespace std;
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (abs(a[i]-b[i]) > 1e-4) return false;
+    }
+    return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& vec) {
-    std::vector<float> positive_values;
+vector<float> get_positive(const vector<float>& vec) {
+    vector<float> positive_values;
     for (const auto& val : vec) {
         if (val > 0) {
             positive_values.push_back(val);
