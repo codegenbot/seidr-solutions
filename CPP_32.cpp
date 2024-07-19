@@ -1,4 +1,6 @@
+#include <cmath>
 #include <vector>
+#include <memory>
 
 double find_zero(int n) {
     double solution;
@@ -11,5 +13,6 @@ double find_zero(int n) {
         std::cin >> coeffs[i];
     }
 
+    double poly(double, double); 
     return -pow(solution, 2);
 }
