@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool issame_vectors(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
@@ -20,6 +20,6 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
 }
 
 int main() {
-    assert(issame_vectors(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(issame(intersperse(vector<int>{2, 2, 2}, 2), vector<int>{2, 2, 2, 2, 2}));
     return 0;
 }
