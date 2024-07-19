@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
     return a == b;
 }
 
@@ -22,7 +22,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     return result;
 }
 
-int main(){
+int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
     return 0;
 }
