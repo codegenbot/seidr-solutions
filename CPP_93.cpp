@@ -1,16 +1,29 @@
+#include <cctype>
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c >= base && c <= base + 25) ? 
-                (char)(base + ((c - base + 1) % 26)) :
-                (char)(base + ((c - base + 2) % 26));
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = (char)((c - base + 2) % 26 + base);
+            char newC = c;
+            if (islower(newC))
+                newC = static_cast<char>(newC + ('Z' - 'a'));
+            else
+                newC = static_cast<char>(newC - ('A' - 'a'));
+            switch (c) {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    result += static_cast<char>(static_cast<int>('a') + 2);
+                    break;
+                default:
+                    result += newC;
             }
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
