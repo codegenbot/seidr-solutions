@@ -19,4 +19,3 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-return 0;
