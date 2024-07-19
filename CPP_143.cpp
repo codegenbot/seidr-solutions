@@ -8,12 +8,9 @@ std::vector<std::string> split(const std::string& str, char ch) {
 
     for (char c : str) {
         if (!isascii(c)) {
-            // Convert non-ASCII characters to UTF-8 encoded surrogate pairs
-            token += "\\u";
-            token += std::hex;
-            token += static_cast<int>(c);
-            token += " ";
-        } else if (c == ch) {
+            continue;  // Skip non-ASCII characters
+        }
+        if (c == ch) {
             tokens.push_back(token);
             token = "";
         } else {
