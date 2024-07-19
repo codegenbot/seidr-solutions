@@ -3,7 +3,7 @@
 #include <numeric>
 #include <vector>
 #include <utility>
-#include <array>
+#include <initializer_list>
 
 bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
     return (a.first == b.first && a.second == b.second);
