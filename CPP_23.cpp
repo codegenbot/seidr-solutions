@@ -1,8 +1,5 @@
-#include <cstring>
+#include <string>
 
-// Task: Return the length of a given null-terminated string
-
-int main(){
-    assert (strlen("asdasnakj") == 9);
-    return strlen("asdasnakj");
+int getLength(const std::string& str) {
+    return str.length();
 }
