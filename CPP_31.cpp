@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 bool is_prime(int n) {
@@ -12,15 +14,13 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
+    string input;
+    getline(cin, input);
+    int n = stoi(input); 
     if (!is_prime(n)) {
         cout << "The number is not prime." << endl;
     } else {
-        ostringstream oss; 
-        oss << "The number is prime. It's the " << (n > 1 ? "first" : "") << " prime number.";
-        string output = oss.str(); 
-        cout << output << endl;
+        cout << "The number is prime." << endl;
     }
     return 0;
 }
