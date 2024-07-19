@@ -1,10 +1,20 @@
-int wells = grid.size();
-        int total = 0;
-        for (int i = 0; i < wells; ++i) {
-            for (int j = 0; j < grid[i].size(); ++j) {
-                total += grid[i][j];
+int rows = grid.size();
+        int cols = grid[0].size();
+        int count = 0;
+        
+        for (int col = 0; col < cols; col++) {
+            int curCapacity = 0;
+            for (int row = 0; row < rows; row++) {
+                if (grid[row][col] == 1) {
+                    curCapacity++;
+                    if (curCapacity >= capacity) {
+                        count++;
+                        curCapacity = 0;
+                    }
+                }
             }
+            count += curCapacity;
         }
-        int buckets = (total + capacity - 1) / capacity;
-        return buckets;
+        
+        return count;
     }
