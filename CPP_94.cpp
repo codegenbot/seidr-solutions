@@ -11,7 +11,6 @@ int getSetSize(int i, int j, int k) {
 }
 
 int main() {
-    int result = getSetSize(127, 97, 8192);
-    assert(setSize({result}) == 1);
+    assert(setSize({getSetSize(127, 97, 8192)}) == 1);
     return 0;
 }
