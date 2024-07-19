@@ -1,4 +1,5 @@
-from typing import List
-
-def prefixes(string: str) -> List[str]:
-    return [string[:i + 1] for i in range(len(string))]
+input_string = input("Enter a string: ")
+print(prefixes(input_string))
+print(suffixes(input_string))
+print(substrings(input_string))
+print(is_palindrome(input_string))
