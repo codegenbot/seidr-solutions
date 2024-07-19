@@ -1,8 +1,8 @@
-```cpp
 #include <cassert>
 #include <map>
 #include <string>
 #include <cctype>
+#include <initializer_list>
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;

@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cassert>
 
 int bitCount(int* a, int size) {
@@ -9,4 +9,10 @@ int bitCount(int* a, int size) {
         sum += a[i] & 1;
     }
     return sum;
+}
+
+int main() {
+    assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
+    delete[] new int[3]{127, 97, 8192};
+    return 0;
 }
