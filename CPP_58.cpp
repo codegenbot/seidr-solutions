@@ -15,7 +15,7 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int main() { 
     int n;
     cin >> n;
     vector<int> user_input;
