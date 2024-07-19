@@ -6,8 +6,8 @@ string int_to_mini_romank(int number){
         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
     };
     
-    for (const auto& pair : romanMap) {
-        while (number >= pair.first) {
+    for(const auto &pair : romanMap){
+        while(number >= pair.first){
             roman += pair.second;
             number -= pair.first;
         }
