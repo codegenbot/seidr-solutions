@@ -1,6 +1,5 @@
-#include <string>
-#include <cassert>  // Include for assert
 #include <iostream>
+#include <cassert>
 
 std::string change_base(int x, int base) {
     std::string result = "";
@@ -13,6 +12,6 @@ std::string change_base(int x, int base) {
 
 int main() {
     int x = 42;
-    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x))); // Cast x to long long
+    assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
