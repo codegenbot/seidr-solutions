@@ -10,6 +10,6 @@ def filter_by_substring() -> None:
         return
 
     strings = [s.strip() for s in strings.split()]
-    filtered_strings = [s for s in strings if substring in s]
+    filtered_strings = [s for s in strings if substring.lower() in s.lower()]
 
     print("Filtered strings:", filtered_strings)
