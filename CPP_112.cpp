@@ -12,10 +12,12 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
         }
     }
+    
     string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
+    
     if (temp == reverse(temp)) {
         result.push_back("True");
     } else {
@@ -31,13 +33,15 @@ string reverse(string s) {
     }
     return rev;
 
-bool issame(vector<string> v) {
-    if(v.size() == 0)
-        return true;
-    string str=v[0];
-    for(int i=1;i<v.size();i++){
-        if(str!=v[i])
-            return false;
+string issame(string str1, string str2) {
+    if (str1.length() != str2.length()) {
+        return "False";
+    } else {
+        for (int i = 0; i < str1.length(); i++) {
+            if (str1[i] != str2[i]) {
+                return "False";
+            }
+        }
+        return "True";
     }
-    return true;
 }
