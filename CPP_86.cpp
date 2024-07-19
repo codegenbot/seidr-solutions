@@ -1,21 +1,26 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cassert>
 
 std::string anti_shuffle(const std::string& s) {
-    std::string result = ""; // Initialize the string
+    std::string result = ""; 
     for (char c : s) {
-        if (std::isalpha(c)) { 
-            c = std::tolower(c); 
-            result += c; 
+        if (c == ' ') {
+            result += '.';
         } else {
-            result += c; 
+            int i = 0;
+            while (s[i] != ' ' && i < s.length()) {
+                result += s[i];
+                i++;
+            }
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == "hi my name is mister robot how are you?");
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == "Hi. My name is Mister Robot. How are you?");
     return 0;
 }
