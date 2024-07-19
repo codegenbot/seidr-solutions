@@ -1,8 +1,8 @@
+vector<string> select_words(string s, int n);
+
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
-
-vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
@@ -28,4 +28,7 @@ vector<string> select_words(string s, int n) {
     return words;
 }
 
-assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
+}
