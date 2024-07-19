@@ -1,17 +1,13 @@
 #include <vector>
 #include <string>
-#include <sstream>
+#include <initializer_list>
 
-std::string words_in_sentence(const std::string& sentence) {
-    return split(sentence);
-}
-
-std::vector<std::string> split(const std::string& str) {
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
     std::vector<std::string> tokens;
-    std::stringstream ss(str);
+    std::stringstream ss(sentence);
     std::string token;
 
-    while (getline(ss, token, ' ')) {
+    while (getline(ss, token)) {
         tokens.push_back(token);
     }
 
