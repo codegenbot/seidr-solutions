@@ -1,25 +1,10 @@
-```cpp
-#include<vector>
-#include<string>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+#include <vector>
+#include <string>
+using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9)
-            nums.push_back(num);
-    }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
     vector<string> result;
-    for (int num : nums) {
+    for (int num : arr) {
         switch (num) {
             case 1:
                 result.push_back("One");
@@ -51,4 +36,13 @@ vector<string> by_length(vector<int> arr) {
         }
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](string s){return count(b.begin(), b.end(), s) > 0;});
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    return 0;
 }
