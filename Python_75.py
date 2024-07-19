@@ -8,12 +8,14 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    factors = [i for i in range(2, a+1) if a % i == 0]
-    factors.sort()
-    count = 0
-    for factor in factors:
-        if is_prime(factor):
-            count += 1
-        if count >= 3:
-            break
-    return count >= 3
+    factors = []
+    for i in range(2, a+1):
+        while a % i == 0:
+            factors.append(i)
+            a //= i
+    if len(factors) != 3:
+        return False
+    for prime in factors:
+        if not is_prime(prime):
+            return False
+    return True
