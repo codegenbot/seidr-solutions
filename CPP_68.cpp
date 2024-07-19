@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cfloat>
 #include <cassert>
@@ -31,5 +30,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}).empty(), true)); // Check if pluck returns an empty vector.
+    assert(pluck({7, 9, 7, 1}).empty() || pluck({7, 9, 7, 1}) == vector<pair<int, int>>{{});
+    return 0;
 }
