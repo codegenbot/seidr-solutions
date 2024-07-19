@@ -1,11 +1,8 @@
-double double_the_difference(vector<float> lst) {
-    double sum = 0;
-
+long long total = 0;
     for (float num : lst) {
-        if (num > 0 && fmod(num, 1) == 0 && ((int)num) % 2 != 0) {
-            sum += num * num;
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            total += pow(num, 2);
         }
     }
-
-    return sum;
+    return total;
 }
