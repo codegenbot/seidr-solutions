@@ -11,7 +11,9 @@ int main() {
     std::cout << "Enter the two planets (separated by space): ";
     std::cin >> planet1 >> planet2;
 
-    if (issame({planet1}, {planet2})) {
+    std::vector<std::string> a = {planet1}, b({planet2});
+
+    if (issame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
