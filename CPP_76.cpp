@@ -1,12 +1,13 @@
-if (x == 1)
-        return true;
-    for (int i = 2; i <= sqrt(x); i++) {
-        int temp = x;
-        while (temp % i == 0) {
-            temp /= i;
-        }
-        if (temp == 1 && i >= 2 && i % n == 0) {
-            return true;
-        }
-    }
-    return false;
+#include <iostream>
+#include <cmath>
+
+bool is_simple_power(int x, int n) {
+    if (x <= 0 || n <= 0) return false;
+    double result = std::log(x) / std::log(n);
+    return (result == static_cast<int>(result));
+}
+
+int main() {
+    assert(is_simple_power(1, 12) == true);
+    return 0;
+}
