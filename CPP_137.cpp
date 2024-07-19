@@ -1,35 +1,34 @@
 #include <iostream>
 #include <string>
 
-int compare_strings(const std::string& a, const std::string& b) {
+using namespace std;
+
+int compare_strings(const string& a, const string& b) {
     for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
         if (a[i] > b[i])
-            return 1;
-        else if (a[i] < b[i])
             return -1;
+        else if (a[i] < b[i])
+            return 1;
     }
     if (a.size() > b.size())
-        return 1;
-    else if (a.size() < b.size())
         return -1;
+    else if (a.size() < b.size())
+        return 1;
     return 0;
 }
 
 int main() {
-    std::string str1, str2;
-    std::cout << "Enter the first string: ";
-    std::cin >> str1;
-    std::cout << "Enter the second string: ";
-    std::cin >> str2;
-    
-    int result = compare_strings(str1, str2);
-    
-    if (result > 0)
-        std::cout << "The first string is greater." << std::endl;
-    else if (result < 0)
-        std::cout << "The second string is greater." << std::endl;
+    string a, b;
+    cout << "Enter the first string: ";
+    cin >> a;
+    cout << "Enter the second string: ";
+    cin >> b;
+    int result = compare_strings(a, b);
+    if (result < 0)
+        cout << "The first string is smaller." << endl;
+    else if (result > 0)
+        cout << "The second string is smaller." << endl;
     else
-        std::cout << "Both strings are equal." << std::endl;
-    
+        cout << "Both strings are equal." << endl;
     return 0;
 }
