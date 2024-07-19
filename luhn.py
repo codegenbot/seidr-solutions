@@ -1,4 +1,4 @@
-```python
+```
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
     checksum = 0
@@ -8,4 +8,6 @@ def luhn(card_number):
             if digit > 9:
                 digit -= 9
         checksum += digit
-    return (checksum) % 10
+    return (10 - checksum % 10) % 10
+
+print(luhn(555250505-1117-4438-8d07-4ee34be5e51f))
