@@ -1,24 +1,7 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> std::compare(std::vector<int> game, std::vector<int> guess) {
-    return std::gameCompare(game, guess);
-}
-
-std::vector<int> std::gameCompare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -32,10 +15,10 @@ std::vector<int> std::gameCompare(std::vector<int> game, std::vector<int> guess)
     return result;
 }
 
-int main_test() {
+int main() {
     std::vector<int> game = {1,2,3,5};
     std::vector<int> guess = {-1,2,3,4};
-    std::vector<int> output = compare(game, guess);
+    std::vector<int> output = gameCompare(game, guess);
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
