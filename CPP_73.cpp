@@ -7,18 +7,26 @@ int smallest_change(vector<int> arr) {
     for (int i : arr) {
         s += to_string(i);
     }
+    int left = 0, right = n - 1;
     int count = 0;
-    sort(s.begin(), s.end());
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
+    while (left < right) {
+        if (s[left] != s[right]) {
             count++;
-            i++;
+            if (s[left] == s[right-1]) {
+                right--;
+            } else {
+                left++;
+            }
+        } else {
+            left++;
+            right--;
         }
     }
     return count;
 }
 
 int main() {
-    assert (smallest_change({0, 1}) == 1);
+    assert(smallest_change({0, 1}) == 1);
+    // Add more test cases if needed
     return 0;
 }
