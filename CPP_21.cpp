@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
@@ -12,5 +16,5 @@ bool rescale_to_unit(vector<float> numbers) {
         transformed.push_back(new_num);
     }
     
-    return transformed == vector<float>{0.25, 0.0, 1.0, 0.5, 0.75};
+    return areEqual(transformed, {0.25, 0.0, 1.0, 0.5, 0.75});
 }
