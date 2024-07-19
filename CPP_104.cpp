@@ -4,6 +4,8 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
@@ -29,5 +31,5 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}) , {31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
 }
