@@ -1,41 +1,18 @@
-Here's your corrected code:
-
-```cpp
-#include <algorithm>
-#include <assert.h>
-#include <vector>
-#include <initializer_list>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
-std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> result;
+vector<int> sort_third(vector<int> l) {
+    vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            auto temp = l.begin() + i;
-            while(temp != l.end() && *temp % 3 == 0) {
-                temp++;
-            }
-            std::sort(std::make_reverse_iterator(temp), l.end());
-            for (; temp != l.end(); temp++) {
-                if (*temp % 3 == 0) {
-                    result.push_back(*temp);
-                } else {
-                    break;
+            vector<int> temp;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 3 == 0 && j <= i) {
+                    temp.push_back(l[j]);
                 }
             }
+            sort(temp.begin(), temp.end());
+            result.insert(result.end(), temp.begin(), temp.end());
         } else {
             result.push_back(l[i]);
         }
     }
+    return result;
 }
-
-int main() { return 0; }
