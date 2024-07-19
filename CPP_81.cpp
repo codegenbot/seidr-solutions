@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(float a, float b) {
-    return std::abs(a - b) < 0.01;
+    return fabs(a - b) < 1e-6; // Tolerance for floating-point comparison
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
