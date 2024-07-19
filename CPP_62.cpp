@@ -6,6 +6,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
 }
 
 std::vector<float> derivative(const std::vector<float>& input){
+    // Implement derivative function logic here
     return {};
 }
 
