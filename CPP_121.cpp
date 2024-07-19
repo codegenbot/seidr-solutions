@@ -13,11 +13,10 @@ int solution(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int> numbers(std::vector<int>(100)); // Reserve enough memory
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    numbers.reserve(n);
     for (int i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
