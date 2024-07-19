@@ -1,9 +1,13 @@
-#include <string>
-#include <cassert>
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     std::vector<int> filtered_arr;
     for (int num : arr) {
@@ -18,4 +22,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(names[num - 1]);
     }
     return result;
+}
+
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    std::cout << "All test cases passed successfully." << std::endl;
+    return 0;
 }
