@@ -17,17 +17,16 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     int diff = abs(sum1 - sum2);
     res[0].push_back(v[0]);
-    for (int i = 1; i < n; i++) {
-        if (abs(sum1 - sum2) == abs(v[i] - sum2)) {
-            res[0].push_back(v[i]);
+    for (int j = 1; j < n; j++) {
+        if (abs(sum1 - sum2) == abs(v[j] - sum2)) {
+            res[0].push_back(v[j]);
         } else {
             break;
         }
     }
     
-    int i = 0;
-    while(i < n) { 
-        int temp = i;
+    int temp = j;
+    while(temp < n) { 
         sum2 -= v[temp];
         sum1 += v[temp];
         if (abs(sum1 - sum2) <= diff) {
@@ -36,7 +35,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             res[1] = vector<int>(v.begin() + temp, v.end());
             break;
         }
-        i++;
+        temp++;
     }
     
     return res;
