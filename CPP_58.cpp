@@ -5,11 +5,8 @@
 using namespace std;
 
 bool common(vector<int> a, vector<int> b) {
-    set<int> result;
-    for (int i = 0; i < min(a.size(), b.size()); i++) {
-        result.insert(b[i]);
-    }
-    return result == vector<int>(result.begin(), result.end());
+    set<int> a_set(a.begin(), a.end());
+    return a_set == set<int>(b.begin(), b.end());
 }
 
 int main_test() {
