@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
@@ -51,4 +52,15 @@ int main() {
         std::cout << grade << " ";
     }
     return 0;
+}
+
+int main() {
+    float grades[] = {0.0f, 0.7f};
+    size_t n = sizeof(grades) / sizeof(grades[0]);
+    std::vector<std::string> letterGrades = numerical_letter_grade((float[]){{0, 0.7f}}, 2);
+
+    for (const auto& grade : letterGrades) {
+        std::cout << grade << " ";
+    }
+    assert(same(numerical_letter_grade({0, 0.7f}), {"E", "D-"}));
 }
