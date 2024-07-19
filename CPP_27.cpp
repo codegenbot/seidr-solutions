@@ -12,8 +12,3 @@ std::string flip_case(std::string str){
     }
     return str;
 }
-
-int main(){
-    assert(flip_case("Hello, World!") == "hELLO, wORLD!");
-    return 0;
-}
