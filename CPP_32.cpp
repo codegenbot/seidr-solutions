@@ -8,19 +8,19 @@ double poly(const std::vector<double>& x, const std::vector<double>& coefficient
 std::vector<double> find_zero(const std::vector<double>& coefficients);
 
 int main() {
-    std::vector<double> coeffs;
+    std::vector<double> coeff;
     double c;
 
     // Read coefficients
     while (std::cin >> c) {
-        coeffs.push_back(c);
+        coeff.push_back(c);
     }
 
     // Find the zero of the polynomial equation
-    std::vector<double> solution = find_zero(coeffs);
+    std::vector<double> solution = find_zero(coeff);
 
     // Check the result
-    assert(std::abs(poly(solution, coeffs)) < 1e-3);
+    assert(std::abs(poly(solution, coeff)) < 1e-3);
 
     return 0;
 }
