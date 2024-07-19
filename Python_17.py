@@ -1,24 +1,15 @@
 ```
-from typing import List
-
-
 def parse_music(music_string: str) -> List[int]:
-    beats_per_note = {'o': 4, 'o|': 2, '.|': 1}
-    parsed_music = []
-    note = ''
-    for char in music_string:
-        if char in ['o', 'o|']:
-            note += char
-        elif char == '|':
-            if note:
-                parsed_music.append(beats_per_note[note])
-                note = ''
-        else:
-            note = '.|'
-            if char == '.':
-                parsed_music.append(1)
-            else:
-                parsed_music.append(beats_per_note['.|']]
-    if note:
-        parsed_music.append(beats_per_note[note])
-    return parsed_music
+    result = []
+    i = 0
+    while i < len(music_string):
+        if music_string[i] == 'o':
+            result.append(4)
+            i += 1
+        elif music_string[i:i+2] == 'o|':
+            result.append(2)
+            i += 2
+        elif music_string[i:i+3] == '.|':
+            result.append(1)
+            i += 3
+    return result
