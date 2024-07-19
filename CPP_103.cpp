@@ -9,13 +9,12 @@ string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round(sum / (m - n + 1));
-    string res = "";
+    string res;
     while (avg > 0) {
-        if (avg & 1) res.push_back('1');
-        else res.push_back('0');
+        if (avg & 1) res += "1";
+        else res += "0";
         avg /= 2;
     }
-    reverse(res.begin(), res.end());
     return res;
 }
 
