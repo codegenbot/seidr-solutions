@@ -3,14 +3,16 @@
 
 using namespace std;
 
-int compare_one(int a, int b) {
+string compare_one(int a, int b) {
     if (a > b)
-        return a;
+        return "First number is greater";
     else
-        return b;
+        return "Second number is greater";
+
 }
 
 int main() {
+    string str;
     int num1, num2;
     cout << "Enter first number: ";
     cin >> num1;
@@ -18,9 +20,10 @@ int main() {
     cin >> num2;
 
     if (num1 > num2)
-        cout << "Greater number is: " << num1 << endl;
+        str = "Greater number is: " + to_string(num1) + endl;
     else
-        cout << "Greater number is: " << num2 << endl;
+        str = "Greater number is: " + to_string(num2) + endl;
 
+    cout << str;
     return 0;
 }
