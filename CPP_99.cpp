@@ -1,3 +1,10 @@
 double num = stod(value);
-    return (num > 0) ? floor(num + 0.5) : ceil(num - 0.5);
+    double ceil_val = ceil(num);
+    double floor_val = floor(num);
+    
+    if (num - floor_val < ceil_val - num) {
+        return static_cast<int>(floor_val);
+    } else {
+        return static_cast<int>(ceil_val);
+    }
 }
