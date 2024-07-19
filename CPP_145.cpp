@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cassert>
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
@@ -5,6 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
+    // Existing code for sorting the numbers by the sum of their digits
     return nums;
 }
 
