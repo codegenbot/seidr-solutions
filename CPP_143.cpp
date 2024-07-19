@@ -39,7 +39,8 @@ bool is_prime(int n) {
 std::string longest_prime_word;
 
 int main() {
-    for (const auto &word : split("here is")) {
+    std::vector<std::string> words = split("here is");
+    for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
             if (!isascii(c)) {
