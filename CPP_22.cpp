@@ -15,6 +15,6 @@ vector<int> filter_integers(const list<boost::any>& values){
     return result;
 }
 
-int issame(vector<int> a, vector<int> b){
+int issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
