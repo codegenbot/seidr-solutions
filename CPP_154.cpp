@@ -12,12 +12,8 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
     return (temp.find(a) != std::string::npos);
 }
 
-void solveProblem() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-}
-
 int main() {
-    solveProblem();
+    assert(cycpattern_check("winemtt", "tinem") == true);
 
     return 0;
 }
