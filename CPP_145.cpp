@@ -3,7 +3,11 @@
 #include <iostream>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+namespace std {
+using namespace std;
+}
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -38,10 +42,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    std::vector<int> result = order_by_points(nums);
+    using namespace std;
+    vector<int> nums = {0,6,6,-76,-21,23,4};
+    vector<int> result = order_by_points(nums);
     for (int num : result) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
     return 0;
 }
