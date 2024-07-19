@@ -2,16 +2,6 @@
 
 using namespace std;
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-int total_chars(vector<string> lst) {
-    int total = 0;
-    for (string s : lst) {
-        total += s.length();
-    }
-    return total;
-}
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
@@ -22,6 +12,14 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
+}
+
+int total_chars(vector<string> lst) {
+    int total = 0;
+    for (string s : lst) {
+        total += s.length();
+    }
+    return total;
 }
 
 int main() {
