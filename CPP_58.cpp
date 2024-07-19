@@ -1,11 +1,19 @@
-int main 
-{
-    vector<int> v1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> v2 = {5, 7, 1, 5, 9, 653, 121};
+```cpp
+#include <vector>
+using namespace std;
 
-    vector<int> result = common(v1, v2);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
+bool issame(vector<int> a, vector<int> b)
+{
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
+    return true;
+}
+
+int main()
+{
+    vector<int> common({4, 3, 2, 8}, {}); 
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
 }
