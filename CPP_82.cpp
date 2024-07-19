@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -19,7 +19,7 @@ bool prime_length(std::string str){
     return isPrime;
 }
 
-int solutionMain() {
+int originalMain() {
     std::string str;
     std::cout << "Enter a string: ";
     std::cin.ignore();
@@ -34,5 +34,5 @@ int solutionMain() {
 }
 
 int main() {
-    return 0;
+    originalMain();
 }
