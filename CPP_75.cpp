@@ -1,19 +1,28 @@
 #include <iostream>
-#include <cassert>
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
 
 bool is_multiply_prime(int a) {
-    if(a < 30) return false;
-    for(int i = 2; i <= a / 3; i++){
-        for(int j = i; j <= a / 2; j++){
-            int k = a / (i * j);
-            if(i * j * k == a && i != j && j != k && i != k){
-                return true;
-            }
+    int count = 0;
+    for (int i = 2; i <= a / 2 && count < 3; i++) {
+        if (is_prime(i) && a % i == 0) {
+            count++;
+            a /= i;
         }
     }
-    return false;
+    return count == 3 && is_prime(a);
 }
 
 int main() {
-    assert(is_multiply_prime(11 * 13 * 7) == true);
+    int num;
+    cin >> num;
+    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
+    return 0;
 }
