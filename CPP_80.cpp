@@ -18,6 +18,8 @@ bool is_happy(const std::string s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    
+
+    std::cout << "Test passed." << std::endl;
+
     return 0;
 }
