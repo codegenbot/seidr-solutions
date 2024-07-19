@@ -10,8 +10,8 @@ std::vector<int> filter_integers(const std::vector<int>& v) {
     std::vector<int> result;
     
     for (int num : v) {
-        if (num >= 0 && num <= 9) {
-            result.push_back(num);
+        if (num >= '0' && num <= '9') {
+            result.push_back(num - '0');
         }
     }
     
