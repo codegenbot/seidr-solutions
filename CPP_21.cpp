@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -8,9 +7,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> rescale_to_unit(const std::vector<float>& input) {
-    std::vector<float> result;
+    std::vector<float> output;
     // Implement rescale_to_unit function here...
-    return result;
+    return output;
 }
 
 int main() {
