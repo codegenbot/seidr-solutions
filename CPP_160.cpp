@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <cmath>
-#include <cassert>
+#include <cassert> // Include for assert
 
 int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& operand) {
     int result = operand[0];
