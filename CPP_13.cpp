@@ -13,7 +13,3 @@ int main() {
     std::cout << greatest_common_divisor(a, b);
     return 0;
 }
-
-// int main(){
-
-// }
