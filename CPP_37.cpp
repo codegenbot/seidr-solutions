@@ -1,6 +1,10 @@
 #include <initializer_list>
 #include <algorithm>
 
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
+}
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
