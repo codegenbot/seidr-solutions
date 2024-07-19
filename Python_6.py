@@ -1,9 +1,7 @@
-import sys
-
-paren_string = input().strip()
+paren_string = str(input()).strip()
 if not all(ch in '()' for ch in paren_string):
     print("Invalid input. Please enter a string containing only '(' and ')' characters.")
-    sys.exit()
+    exit()
 
 valid = True
 count = 0
