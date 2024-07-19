@@ -1,15 +1,21 @@
 #include <vector>
-bool issame(int n) {
-    return n == 0 || n == 1;
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
-    int sum = array.front() + array.back();
-    if(issame(sum)){
-        sort(array.begin(), array.end(), std::greater<int>());
+std::vector<int> sort_array(const std::vector<int>& array) {
+    auto sortedArray = array;
+    if ((sortedArray.front() + sortedArray.back()) % 2 == 0) {
+        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(sortedArray.begin(), sortedArray.end());
     }
-    return array;
+    return sortedArray;
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
 }
