@@ -5,13 +5,15 @@ string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            int shift = (int)(c - 'a');
-            int newShift = (shift + 2 * 26) % 26;
-            result += (char)((newShift + 'a'));
+            char base = 'a';
+            int shift = (int)(c - base);
+            int newShift = (shift + 3) % 26;
+            result += (char)(base + newShift);
         } else if (c >= 'A' && c <= 'Z') {
-            int shift = (int)(c - 'A');
-            int newShift = (shift + 2 * 26) % 26;
-            result += (char)((newShift + 'A'));
+            char base = 'A';
+            int shift = (int)(c - base);
+            int newShift = (shift + 3) % 26;
+            result += (char)(base + newShift);
         } else {
             result += c;
         }
@@ -20,6 +22,6 @@ string encrypt(string s) {
 }
 
 int main() {
-    assert(encrypt("a")=="e");
+    assert(encrypt("a")=="d");
     return 0;
 }
