@@ -4,7 +4,6 @@
 #include <iterator>
 #include <cassert>
 #include <set>
-#include <initializer_list>
 
 using namespace std;
 
@@ -22,6 +21,6 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 }
 
 int main() {
-    assert(solve({4, 3, 2, 8}, {}) == vector<int>{});
+    assert(issame(solve(vector<int>{4, 3, 2, 8}, vector<int>{}), {}));
     return 0;
 }
