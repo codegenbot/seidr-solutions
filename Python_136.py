@@ -1,5 +1,8 @@
 def largest_smallest_integers(lst):
-    negative = [i for i in lst if i < 0]
-    positive = [i for i in lst if i > 0]
+    negatives = [x for x in lst if x < 0]
+    positives = [x for x in lst if x > 0]
 
-    return (max(negative) if negative else None, min(positive) if positive else None)
+    return (
+        max(negatives) if negatives else None,
+        min(positives) if positives else None,
+    )
