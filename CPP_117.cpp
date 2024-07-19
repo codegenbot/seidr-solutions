@@ -32,6 +32,8 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
+vector<string> select_words(string s, int n); // Declaration of the select_words function
+
 int main() {
     // Your test cases
 }
