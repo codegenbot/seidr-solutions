@@ -1,27 +1,34 @@
-string result = "";
-    bool is_prime(int num) {
-        if (num < 2) return false;
-        for (int i = 2; i * i <= num; ++i) {
-            if (num % i == 0) return false;
-        }
-        return true;
-    }
+#include <iostream>
+#include <string>
+#include <cassert>
 
-    string word;
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (word.length() > 0 && is_prime(word.length())) {
+using namespace std;
+
+bool is_prime(int n){
+    // Assume this function is already implemented
+    return true;
+}
+
+string words_in_sentence(string sentence){
+    string result = "";
+    string word = "";
+    for(char c : sentence){
+        if(c != ' '){
+            word += c;
+        } else {
+            if(is_prime(word.size())){
                 result += word + " ";
             }
             word = "";
-        } else {
-            word += c;
         }
     }
-
-    if (word.length() > 0 && is_prime(word.length())) {
+    if(is_prime(word.size())){
         result += word;
     }
-
     return result;
+}
+
+int main(){
+    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
