@@ -1,9 +1,3 @@
-#include <vector>
-#include <cassert>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int max_num = numbers[0];
