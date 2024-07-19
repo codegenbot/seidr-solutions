@@ -2,7 +2,6 @@
 #include <string>
 #include <cctype>
 #include <vector>
-#include <assert.h>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const auto& x){return x == b[0];});
@@ -18,4 +17,5 @@ int main() {
     } else {
         std::cout << "The two planets are different." << std::endl;
     }
+    return 0;
 }
