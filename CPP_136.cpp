@@ -1,3 +1,7 @@
+bool issame(vector<int> a, vector<int> b){
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
