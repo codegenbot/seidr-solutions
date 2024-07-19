@@ -1,9 +1,9 @@
-#include <vector> // include necessary header
-#include <cassert> // for using assert
+#include <vector> 
+#include <cassert> 
 
-bool issame(std::vector<float> a, std::vector<float> b); // function signature
+bool issame(std::vector<float> a, std::vector<float> b); 
 
-std::vector<float> get_positive(std::vector<float> l) { // define get_positive function
+std::vector<float> get_positive(std::vector<float> l) { 
     std::vector<float> positive_numbers;
     for (float num : l) {
         if (num > 0) {
@@ -13,11 +13,11 @@ std::vector<float> get_positive(std::vector<float> l) { // define get_positive f
     return positive_numbers;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) { // definition of issame function
+bool issame(std::vector<float> a, std::vector<float> b) { 
     return a == b;
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); // corrected assert call
+    assert(issame(get_positive({}), {}));
     return 0;
 }
