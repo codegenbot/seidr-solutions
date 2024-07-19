@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -50,4 +49,3 @@ int main() {
     vector<vector<string>> expected = sorted_list_sum(lst);
     assert(issame(expected, expected));
     return 0;
-}
