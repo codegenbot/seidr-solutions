@@ -1,13 +1,16 @@
+```
 #include <iostream>
 #include <string>
 
 std::string fix_spaces(const std::string& text) {
-    for (auto it = text.begin(); it != text.end(); ++it) {
-        if (*it == ' ') {
-            if (it != text.begin() && *(it - 1) == ' ')
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (i > 0 && text[i - 1] == ' ')
                 continue;
             else {
-                *it = "20%";
+                text.erase(i, 1);
+                text.insert(text.begin() + i, std::string("20%"));
+                i++;
             }
         }
     }
@@ -22,5 +25,4 @@ int main() {
         c = tolower((unsigned char)c);
     }
     std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
-    return 0;
 }
