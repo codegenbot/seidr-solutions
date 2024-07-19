@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,11 +17,13 @@ bool isSame(vector<int> a, vector<int> b) {
 int main_test() {
     int n;
     std::cin >> n;
-    std::vector<int> user_input(n, 0); 
+    std::vector<int> user_input;
+    user_input.resize(n);  // Resize the vector to 'n' elements
+
     for (int i = 0; i < n; i++) {
         int x;
         std::cin >> x;
-        user_input[i] = x; 
+        user_input.push_back(x);
     }
     if (isSame(user_input, user_input)) {
         std::cout << "Yes" << std::endl;
