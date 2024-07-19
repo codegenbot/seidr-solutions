@@ -1,24 +1,25 @@
-#include <any>
-#include <boost/lexical_cast.hpp>
-#include <cassert>
 #include <string>
-#include <iostream>
+#include <any>
 
-using namespace std;
-
-template <typename T>
-T compare_any(const std::any& a, const std::any& b) {
-    assert(a.type() == b.type());
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() != b.type()) {
+        return "Error: Invalid types";
+    }
 
     if (a.type() == typeid(int)) {
-        return std::any_cast<int>(a) > std::any_cast<int>(b) ? std::any_cast<int>(a) : std::any_cast<int>(b);
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
     } else if (a.type() == typeid(float)) {
-        return std::any_cast<float>(a) > std::any_cast<float>(b) ? std::any_cast<float>(a) : std::any_cast<float>(b);
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
     } else if (a.type() == typeid(std::string)) {
-        float valA = boost::lexical_cast<float>(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float valB = boost::lexical_cast<float>(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? std::any_cast<std::string>(a) : std::any_cast<std::string>(b);
-    } else {
-        return T();
+        float valA = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float valB = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        return valA > valB ? a : (valA < valB ? b : std::any(std::string("None")));
+    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string))
+               || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
+        float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        return valA > valB ? a : (valA < valB ? b : std::any(std::string("None")));
     }
+
+    return std::any(std::string("Error: Invalid types"));
 }
