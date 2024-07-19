@@ -1,15 +1,23 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <openssl/md5.h>
+#include <cstring>
+
+#define MD5_DIGEST_LENGTH 16
+
+typedef unsigned int uint32_t;
+
+void MD5(const unsigned char* input, size_t len, unsigned char* output) {
+    // Implement the MD5 algorithm here
+}
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
-
+  
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
