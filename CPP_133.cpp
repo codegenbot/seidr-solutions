@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -11,16 +12,21 @@ int sum_squares(std::vector<double> lst){
     return total;
 }
 
-std::vector<double> lst; // Create a vector of size 'n'
+int main() {
+    int n; // Number of elements
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-for (int i = 0; i < n; i++) { 
-    double num;
-    std::cout << "Enter element " << i+1 << ": ";
-    std::cin >> num;
-    lst[i] = num;
-}
+    std::vector<double> lst(n); // Create a vector of size 'n'
 
-int result = sum_squares(lst);
-std::cout << "Sum of squares: " << result << std::endl;
+    for (int i = 0; i < n; i++) { 
+        double num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        lst[i] = num;
+    }
 
-return 0;
+    int result = sum_squares(lst);
+    std::cout << "Sum of squares: " << result << std::endl;
+
+    return 0;
