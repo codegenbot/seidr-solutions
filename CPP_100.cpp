@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 bool same_vectors(const vector<int>& a, const vector<int>& b);
