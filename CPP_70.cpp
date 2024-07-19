@@ -4,9 +4,7 @@
 
 vector<int> strange_sort_list(vector<int> lst);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
@@ -23,7 +21,11 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 int main() {
-    // Main function implementation if required
+    // Add your main function logic here
     return 0;
 }
