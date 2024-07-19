@@ -14,19 +14,9 @@ def prime_fib(n: int):
             return fibonacci(num - 1) + fibonacci(num - 2)
 
     count = 0
-    i = Norris if
- :
- level if
-
-
-
- level if
-
-
-
- level if
- level if
- level if
- level 
-ultural und,
-
+    i = 0
+    while count < n:
+        if is_prime(fibonacci(i)):
+            count += 1
+        i += 1
+    return fibonacci(i - 1)
