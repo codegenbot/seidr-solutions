@@ -1,7 +1,7 @@
 from functools import reduce
 
 def digits(n):
-    return reduce(lambda x, y: x + int(y), str(n), 0)
+    return reduce(lambda x, y: x*y, (int(d) for d in str(n)), 1)
 
 while True:
     try:
