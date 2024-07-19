@@ -29,5 +29,10 @@ bool issame(const map<char,int>& a, const map<char,int>& b){
 }
 
 int main() {
-    cout << issame(histogram("a"), histogram("b")) << endl;
+    if (issame(histogram("a"), histogram("b"))) {
+        cout << "Histograms are same" << endl;
+    } else {
+        cout << "Histograms are different" << endl;
+    }
     return 0;
+}
