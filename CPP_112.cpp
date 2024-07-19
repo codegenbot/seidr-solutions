@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& vecB) {
-    if(a.size() != vecB.size())
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if(v1.size() != v2.size())
         return false;
-    for(int i = 0; i<a.size(); i++)
-        if(a[i] != vecB[i])
+    for(int i = 0; i<v1.size(); i++)
+        if(v1[i] != v2[i])
             return false;
     return true;
 }
@@ -42,21 +41,9 @@ int main() {
     std::cout << "Enter the second string: ";
     for(std::string str;std::getline(std::cin, str);t.push_back(str));
     if(issame(s,t)) {
-        int i = 0;
-        while(i < s[0].size()) {
-            bool found = false;
-            for(int j = 0; j < t[0].size(); j++) {
-                if(s[0][i] == t[0][j]) {
-                    found = true;
-                    i++;
-                    break;
-                }
-            }
-            if(!found) {
-                std::cout << s[0].substr(i) << " ";
-                break;
-            }
-        }
+        std::vector<std::string> result = reverse_delete(s[0], t[0]);
+        for(auto str : result)
+            std::cout << str << " ";
     } else {
         std::cout << "Strings are not the same." << std::endl;
     }
