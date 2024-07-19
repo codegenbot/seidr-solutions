@@ -7,7 +7,3 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     }
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
