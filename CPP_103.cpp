@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cmath> 
-#include <string>
+#include <cassert> 
+
 using namespace std;
+
+double rounded_avg(int n, int m);
 
 double rounded_avg(int n, int m) {
     if (n > m) return -1.0;
@@ -14,6 +17,6 @@ double rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(stod(to_string(rounded_avg(5, 5))) == 5);
+    assert (round(rounded_avg(5, 5) * 1000) == 101.0);
     return 0;
 }
