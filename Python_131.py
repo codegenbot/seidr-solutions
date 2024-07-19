@@ -5,12 +5,11 @@ def digits(n):
 
 while True:
     try:
-        n = int(input())
+        n = int(input("Enter a number: "))
         if n <= 0:
-            raise ValueError
+            raise ValueError("Invalid input. Please enter a valid positive integer greater than zero.")
+        result = digits(n)
+        print(result)
         break
-    except ValueError:
-        print("Invalid input. Please enter a valid positive integer greater than zero.")
-
-result = digits(n)
-print(result)
+    except ValueError as e:
+        print(e)
