@@ -1,19 +1,17 @@
-#include <vector>
-
-bool move_one_ball(std::vector<int> arr) {
+#include<vector>
+using namespace std;
+bool move_one_ball(vector<int> arr){
     if (arr.empty()) {
         return true;
     }
-
+    
     int n = arr.size();
-    int min_val = *min_element(arr.begin(), arr.end());
-    int min_idx = find(arr.begin(), arr.end(), min_val) - arr.begin();
-
-    for (int i = 0; i < n; ++i) {
-        if (arr[(min_idx + i) % n] != min_val + i) {
-            return false;
+    int min_idx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[min_idx]) {
+            min_idx = i;
         }
     }
-
-    return true;
+    
+    return (min_idx >= n - 1 || arr[min_idx] < arr[n - 1] || arr[0] < arr[n - 1]);
 }
