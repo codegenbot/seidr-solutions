@@ -5,7 +5,6 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b);
-
 vector<string> split_words(string txt);
 
 bool issame(vector<string> a, vector<string> b){
@@ -41,5 +40,7 @@ vector<string> split_words(string txt){
 }
 
 int main() {
-    // Main function logic here
+    // Your code logic goes here
+
+    return 0;
 }
