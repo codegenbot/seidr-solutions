@@ -1,9 +1,5 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <cmath>
-
 using namespace std;
+using size_type = size_t;
 
 long long doubleTheDifference(vector<float> lst) {
     long long pos_sum = 0, neg_sum = 0;
@@ -20,6 +16,7 @@ long long doubleTheDifference(vector<float> lst) {
 int main() {
     vector<float> lst;
     float num; 
+    long long odd_sum = 0; 
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> num; 
