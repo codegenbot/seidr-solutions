@@ -1,3 +1,6 @@
+Here is the modified code with the necessary headers and no extra comments:
+
+```cpp
 #include <vector>
 #include <string>
 
