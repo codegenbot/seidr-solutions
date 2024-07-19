@@ -9,17 +9,17 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-bool issame(std::vector<int> a) {
+std::vector<int> issame(std::vector<int> a) {
+    std::vector<int> result;
     for (int i : a) {
         if (i % 2 == 0) {
-            return true;
+            result.push_back(i);
         }
     }
-    return false;
+    return result;
 }
 
 int main() {
-    if (issame(generate_integers(17, 89))) {
-        return 0;
-    }
+    assert(!issame(generate_integers(17, 89)).empty());
+    return 0;
 }
