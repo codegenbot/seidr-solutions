@@ -1,8 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    return -xs[n - 1] / xs[n]
-
-
-# Example usage
-print(round(find_zero([1, 2]), 2))  # -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # 1.0
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients should be even")
+    if max(xs) == 0:
+        raise ValueError("Largest non-zero coefficient should be non-zero")
+    return -xs[0] / xs[1]
