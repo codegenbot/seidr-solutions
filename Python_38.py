@@ -1,3 +1,4 @@
+```
 def encode_cyclic(s: str):
     if len(s) <= 2:
         return s
