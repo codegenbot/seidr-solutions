@@ -1,19 +1,8 @@
-#include <algorithm>
-#include <string>
-#include <vector>
-#include <iostream>
+Here is the completed code:
 
-using namespace std;
-
-bool is_palindrome(string s) {
-    string temp = s;
-    reverse(temp.begin(), temp.end());
-    return (temp == s);
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -27,8 +16,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
-    result.push_back((is_palindrome(temp)) ? "True" : "False");
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
 }
