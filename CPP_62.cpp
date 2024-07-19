@@ -25,7 +25,7 @@ int main() {
     
     bool isSame = issame(input, sameInput);
     bool isDifferent = issame(input, differentInput);
-
+    
     assert(derivative({1}).empty());
     
     return 0;
