@@ -1,17 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> unique_digits(std::vector<int> x){
     std::vector<int> result;
@@ -33,9 +23,6 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-int main() {
-    // Test the unique_digits function
-    std::vector<int> input = {123, 456, 789, 135};
-    std::vector<int> output = unique_digits(input); // Modify this for testing purposes
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
