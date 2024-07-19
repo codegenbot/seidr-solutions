@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <string>
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
@@ -17,7 +18,7 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-bool std::vector<int> issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
