@@ -11,10 +11,3 @@ int search(const std::vector<int>& lst) {
     }
     return result;
 }
-
-int main() {
-    std::vector<int> numbers = {2, 3, 2, 2, 4, 4, 4, 4};
-    std::cout << search(numbers) << std::endl;
-    
-    return 0;
-}
