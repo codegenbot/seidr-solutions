@@ -1,12 +1,12 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-using namespace std;
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -27,17 +27,17 @@ vector<string> split_words(string txt){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(std::to_string(count));
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
 int main(){
-    assert(issame(split_words(""), {"0"}));
+    assert (issame(split_words("") ,{"0"}));
     
     return 0;
 }
