@@ -1,15 +1,19 @@
-int balance = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
-            if (c == '(') {
-                balance++;
+int open = 0;
+for (string s : lst) {
+    for (char c : s) {
+        if (c == '(') {
+            open++;
+        } else {
+            if (open > 0) {
+                open--;
             } else {
-                if (balance == 0) {
-                    return "No";
-                }
-                balance--;
+                return "No";
             }
         }
     }
-    return (balance == 0) ? "Yes" : "No";
+}
+if (open == 0) {
+    return "Yes";
+} else {
+    return "No";
 }
