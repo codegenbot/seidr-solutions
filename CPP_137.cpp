@@ -1,7 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <boost/type_index.hpp>
+#include <boost/typeindex.hpp>
+#include <boost/any.hpp>
 
 int max(int a, float b) {
     if (a > b)
