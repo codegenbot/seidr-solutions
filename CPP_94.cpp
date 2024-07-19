@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-int skjkasdkd(vector<int> lst) {
+int sum_of_digits_of_largest_prime(vector<int> lst) {
     int max_prime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -31,7 +31,6 @@ bool isPrime(int n) {
 
 }
 int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
-    vector<int> lst = {1, 2, 3};
-    cout << skjkasdkd(lst) << endl;
+    assert(sum_of_digits_of_largest_prime({127, 97, 8192}) == 10);
+    cout << sum_of_digits_of_largest_prime({1, 2, 3});
 }
