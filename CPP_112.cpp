@@ -1,9 +1,8 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
         if (v1[i] != v2[i]) return false;
@@ -38,7 +37,8 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    if (same({ "", "True" }, reverseDelete("mamma", "mia"))) {
+    bool result = issame({ "", "True" }, reverseDelete("mamma", "mia"));
+    if (result) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
