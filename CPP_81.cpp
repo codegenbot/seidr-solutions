@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<double> a, std::vector<double> b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::string numerical_letter_grade(std::vector<double> grades) {
