@@ -1,9 +1,8 @@
-#include <string>
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& input) {
-    unsigned char* ptr = (unsigned char*)malloc(16);
     MD5_CTX md5ctx;
+    unsigned char* ptr = (unsigned char*)malloc(16);
     MD5_Init(&md5ctx);
     MD5_Update(&md5ctx, input.c_str(), input.size());
     MD5_Final(ptr, &md5ctx);
