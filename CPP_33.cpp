@@ -19,7 +19,7 @@ std::vector<int> sort_third(std::vector<int> vec) {
     if (vec.size() < 3) return vec;
 
     std::sort(vec.begin(), vec.end(), [](int a, int b) {
-        return a > b;
+        return a < b;
     });
 
     return vec;
