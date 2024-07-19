@@ -1,1 +1,7 @@
-return x > 0 && n != 0 && n != 1 && pow((double)x, 1.0/(double)n) == round(pow((double)x, 1.0/(double)n));
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+    
+    double power = log(x) / log(n);
+    return (pow(n, int(power)) == x);
+}
