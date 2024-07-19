@@ -30,3 +30,4 @@ int main() {
     std::cout << "Sum of squares: " << result << std::endl;
 
     return 0;
+}
