@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x);
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
