@@ -1,19 +1,15 @@
-Here's the solution:
-
-```cpp
-int count_open = 0, count_close = 0;
-
-for (char c : str) {
-    if (c == '[') {
-        count_open++;
-    } else if (c == ']') {
-        if (count_open > 0) {
-            count_open--;
-            count_close++;
-        } else {
-            return false;
+bool is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
+            }
         }
     }
+    return count > 0;
 }
-
-return count_open != 0;
