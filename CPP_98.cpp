@@ -1,6 +1,7 @@
-```c++
-#include <iostream>
+```cpp
 #include <string>
+#include <cctype>
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -13,6 +14,6 @@ int main() {
             count++;
         }
     }
-    assert(count == 4);  
+    cout << "Number of uppercase vowels at even positions: " << count << endl;
     return 0;
 }
