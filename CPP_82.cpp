@@ -22,7 +22,7 @@ bool prime_length(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    getline(std::cin, str); 
+    std::cin >> str; // Read and store in str directly
     bool isPrime = prime_length(str);
 
     if(isPrime) {
