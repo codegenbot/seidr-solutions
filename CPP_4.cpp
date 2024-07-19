@@ -1,14 +1,29 @@
-float sum = 0.0;
-    for(float num : numbers) {
-        sum += num;
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+float mean_absolute_deviation(std::vector<float> numbers) {
+    float sum = 0;
+    float mean = 0;
+
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        sum += numbers[i];
     }
-    
-    float mean = sum / numbers.size();
-    
-    float absolute_deviation_sum = 0.0;
-    for(float num : numbers) {
-        absolute_deviation_sum += abs(num - mean);
+
+    mean = sum / numbers.size();
+
+    float deviation_sum = 0;
+
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        deviation_sum += std::abs(numbers[i] - mean);
     }
-    
-    return absolute_deviation_sum / numbers.size();
+
+    return deviation_sum / numbers.size();
+}
+
+int main() {
+    assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
+
+    return 0;
 }
