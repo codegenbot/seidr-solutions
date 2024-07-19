@@ -1,10 +1,7 @@
 ```
 def split_words(txt):
     words = txt.split()
-    if len(words) > 0:
+    if len(words) > 0 and any(char.isalnum() for char in words[0]):
         return words
     else:
-        for i in range(26):
-            if chr(i+ord('a')) in txt.lower():
-                return i + 1
-        return 0
+        return sum(1 for i in range(ord('a'), ord('z')+1) if (txt.lower().count(chr(i)) % 2 != 0))
