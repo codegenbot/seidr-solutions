@@ -1,4 +1,4 @@
-map<string, int> number_map = {
+map<string, int> numeral_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,25 +11,24 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
+string sort_numbers(string numbers){
     map<int, string> reverse_map;
     string result = "";
     
-    string temp = "";
+    string curr_num = "";
     for (char c : numbers) {
         if (c == ' ') {
-            reverse_map[number_map[temp]] = temp;
-            temp = "";
+            reverse_map[numeral_map[curr_num]] = curr_num;
+            curr_num = "";
         } else {
-            temp += c;
+            curr_num += c;
         }
     }
-    reverse_map[number_map[temp]] = temp;
+    reverse_map[numeral_map[curr_num]] = curr_num;
     
     for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
         result += it->second + " ";
     }
     
-    result.pop_back(); // Remove the extra space at the end
     return result;
 }
