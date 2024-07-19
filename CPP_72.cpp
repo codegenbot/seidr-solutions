@@ -1,11 +1,11 @@
-bool is_palindrome(const vector<int> &q) {
-    vector<int> temp = q;
+bool is_palindrome(const vector<int> &v) {
+    vector<int> temp = v;
     reverse(temp.begin(), temp.end());
-    return temp == q;
+    return temp == v;
 }
 
-int accumulate(const vector<int> &q) {
-    return accumulate(q.begin(), q.end(), 0);
+int accumulate(const vector<int> &v) {
+    return accumulate(v.begin(), v.end(), 0);
 }
 
 bool will_it_fly(const vector<int> &q, int w) {
