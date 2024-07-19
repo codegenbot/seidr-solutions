@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```c++
 #include <iostream>
 #include <string>
@@ -26,6 +24,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
     if (!prime_length(str)) {
-        std::cout << "The prime length for the entered string is not found." << std::endl;
+        std::cerr << "Expected prime length but got " << str.length() << ".";
+        return 1;
     }
 }
