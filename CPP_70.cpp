@@ -17,20 +17,24 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
     
-    // Read input from user
-    while (std::cin >> num) {
-        input.push_back(num);
+    std::vector<int> lst(n);
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Element " << i + 1 << ": ";
+        std::cin >> lst[i];
     }
-
-    // Call the function to process the input list
-    std::vector<int> output = strange_sort_list(input);
-
-    // Print the output
-    for (int val : output) {
-        std::cout << val << " ";
+    
+    std::vector<int> result = strange_sort_list(lst);
+    
+    std::cout << "The sorted list is: ";
+    
+    for (int i : result) {
+        std::cout << i << " ";
     }
+    
     return 0;
 }
