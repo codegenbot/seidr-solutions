@@ -1,21 +1,18 @@
 #include <vector>
-#include <algorithm>
 #include <string>
 #include <map>
-
-bool issame(const vector<string>& a, const vector<string>& b);
-
-vector<string> by_length(vector<int>& arr);
-
-int main() {
-    assert(issame(by_length(vector<int>{9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
-}
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int>& arr){
+vector<string> by_length(vector<int> arr);
+
+int main() {
+    assert(issame(by_length(vector<int>{9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
+}
+
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
     vector<int> filtered_arr;
 
