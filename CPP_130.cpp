@@ -1,14 +1,12 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation of the function
-    // (You can add your comparison logic here)
     return false;
 }
 
 vector<int> tri(int n) {
-    // Your existing code for calculating the result
     vector<int> result;
+    
     if (n == 0) {
         result.push_back(0);
     } else if (n == 1) {
@@ -20,7 +18,7 @@ vector<int> tri(int n) {
             if (i % 2 == 0) {
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
             }
         }
     }
@@ -28,7 +26,6 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    // Example usage and assertion
     assert(issame(tri(1), {1, 3}));
 
     return 0;
