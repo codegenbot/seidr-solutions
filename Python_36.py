@@ -1,4 +1,9 @@
-def fizz_buzz(n: int):
-    digit_sequences = ['3', '5']
-    count = sum(1 for i in range(1, n + 1) if any(seq in str(i) or (i % int(seq) == 0 and int(seq) != 0) for seq in digit_sequences))
-    return count
+def fizz_buzz(n: int) -> str:
+    if n % 3 == 0 and n % 5 == 0:
+        return 'FizzBuzz'
+    elif n % 3 == 0:
+        return 'Fizz'
+    elif n % 5 == 0:
+        return 'Buzz'
+    else:
+        return str(n)
