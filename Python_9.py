@@ -9,12 +9,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 if __name__ == "__main__":
-    numbers = []
-    while True:
-        try:
-            num = int(input("Enter a number or press Enter to finish: "))
-            numbers.append(num)
-        except ValueError:
-            break
+    numbers = [int(x) for x in input().split()]
     result = rolling_max(numbers)
     print(result)
