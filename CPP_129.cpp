@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+void dfs(vector<vector<int>> grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path);
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -11,7 +13,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (!visited[i][j]) {
                 vector<int> path;
                 dfs(grid, visited, i, j, k, path);
-                res = minPath(res, path);
+                res = min(res, path);
             }
         }
     }
