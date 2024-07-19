@@ -1,4 +1,4 @@
-string checkIfPrimeLength(int interval1[], int interval2[]) {
+string checkIntervalIntersection(const vector<int>& interval1, const vector<int>& interval2) {
     int start1 = interval1[0], end1 = interval1[1];
     int start2 = interval2[0], end2 = interval2[1];
     
