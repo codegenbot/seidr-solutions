@@ -1,30 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
 #include <cassert>
+#include <vector>
+#include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a[0] == b[0] && a[1] == b[1];
-}
-
-std::vector<float> find_closest_elements(std::vector<float> nums) {
-    std::sort(nums.begin(), nums.end());
-    float min_diff = std::abs(nums[1] - nums[0]);
-    std::vector<float> closest_elements = {nums[0], nums[1]};
-
-    for (size_t i = 1; i < nums.size() - 1; ++i) {
-        float diff = std::abs(nums[i + 1] - nums[i]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {nums[i], nums[i + 1]};
+std::vector<double> find_closest_elements(const std::vector<double>& nums) {
+    double first_element = nums[0];
+    std::vector<double> closest_elements(nums.begin() + 1, nums.begin() + 3);
+    
+    for(const auto& num : nums) {
+        if(num != first_element && (std::abs(num - first_element) < std::abs(closest_elements[0] - first_element))) {
+            closest_elements[0] = num;
         }
     }
-
+    
     return closest_elements;
 }
 
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+bool issame(const std::vector<double>& v1, const std::vector<double>& v2) {
+    return v1 == v2;
+}
+
+int main {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {4.1, 3.1});
+    
     return 0;
 }
