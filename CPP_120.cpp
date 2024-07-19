@@ -1,33 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
+    vector<int> result(arr.begin(), arr.begin() + k);
+    return result;
 }
 
 int main() {
-    vector<int> arr;
-    int k;
-
-    // Read the array
-    int num;
-    while(cin >> num) {
-        arr.push_back(num);
-    }
-
-    cin >> k;
-
-    vector<int> result = maximum(arr, k);
-
-    // Print the result
-    for(int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
 
     return 0;
 }
