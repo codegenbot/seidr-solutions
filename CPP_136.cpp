@@ -5,24 +5,30 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
+std::vector<int> largest_smallest_integers(std::vector<int> lst);
+
+int main() {
+    if (issame(std::vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1}))) {
+        std::cout << "Test passed!";
+    } else {
+        std::cout << "Test failed!";
+    }
+
+    return 0;
+}
+
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = INT_MIN;
-    int smallest_positive = INT_MAX;
+    int largest_negative = 0;
+    int smallest_positive = 0;
     
     for(int num : lst){
-        if(num < 0 && num > largest_negative){
+        if(num < 0 && num < largest_negative){
             largest_negative = num;
         }
-        if(num > 0 && num < smallest_positive){
+        if(num > 0 && (num < smallest_positive || smallest_positive == 0)){
             smallest_positive = num;
         }
     }
     
     return {largest_negative, smallest_positive};
-}
-
-int main(){
-    std::cout << std::boolalpha << issame(std::vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1})) << std::endl;
-    
-    return 0;
 }
