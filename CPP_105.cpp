@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
