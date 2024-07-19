@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -7,48 +6,38 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
-    for(int num : arr){
-        if(num >= 1 && num <= 9){
-            result.push_back({num, 0});
-        }
-    }
-
-    std::sort(result.begin(), result.end());
-    std::reverse(result.begin(), result.end());
-
-    std::vector<std::string> numbers;
-    for(const auto &p : result){
-        switch(p.first){
+    std::vector<std::string> result;
+    for (int num : arr) {
+        switch (num) {
             case 1:
-                numbers.push_back("One" + to_string(p.second));
+                result.push_back("One");
                 break;
             case 2:
-                numbers.push_back("Two" + to_string(p.second));
+                result.push_back("Two");
                 break;
             case 3:
-                numbers.push_back("Three" + to_string(p.second));
+                result.push_back("Three");
                 break;
             case 4:
-                numbers.push_back("Four" + to_string(p.second));
+                result.push_back("Four");
                 break;
             case 5:
-                numbers.push_back("Five" + to_string(p.second));
+                result.push_back("Five");
                 break;
             case 6:
-                numbers.push_back("Six" + to_string(p.second));
+                result.push_back("Six");
                 break;
             case 7:
-                numbers.push_back("Seven" + to_string(p.second));
+                result.push_back("Seven");
                 break;
             case 8:
-                numbers.push_back("Eight" + to_string(p.second));
+                result.push_back("Eight");
                 break;
             case 9:
-                numbers.push_back("Nine" + to_string(p.second));
+                result.push_back("Nine");
                 break;
         }
     }
 
-    return numbers;
+    return result;
 }
