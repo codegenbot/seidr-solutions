@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int main() {
     std::cout << "Enter a string: ";
-    std::string input;
-    std::getline(std::cin, input);
+    std::string output;
+    std::getline(std::cin, output);
 
-    std::string output = remove_vowels(input);  
+    output = remove_vowels(output);  
 
     std::cout << "String after removing vowels: " << output << std::endl;
     return 0;
@@ -15,14 +16,9 @@ int main() {
 std::string remove_vowels(std::string input) {
     std::string result;
     for(char c : input){
-        if(!isVowel(c)) {
-            result += tolower(c); 
+        if(std::string{"aeiou"}.find(std::tolower(c)) == std::string::npos){
+            result += std::tolower(c);
         }
     }
     return result;
-}
-
-bool isVowel(char c) {
-    std::string vowels = "aeiouAEIOU";
-    return vowels.find(std::tolower(c)) != std::string::npos;
 }
