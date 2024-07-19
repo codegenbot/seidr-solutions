@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <any>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<std::any>& a, const std::vector<std::any>& b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(const std::vector<std::any>& data) {
+std::vector<int> filter_integers(const std::vector<std::any>& v) {
     std::vector<int> result;
-    for (const auto& elem : data) {
+    for (const auto& elem : v) {
         if (elem.type() == typeid(int)) {
             result.push_back(std::any_cast<int>(elem));
         }
