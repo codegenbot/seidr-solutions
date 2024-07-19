@@ -1,59 +1,29 @@
-#include <vector>
-#include <algorithm>
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<int> path;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+int n = grid.size();
+    vector<int> result;
+    int row = 0, col = 0;
     
-    auto cmp = [&](const pair<int, int>& a, const pair<int, int>& b) {
-        return grid[a.first][a.second] < grid[b.first][b.second];
-    };
-    
-    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    
-    auto isValid = [&](int x, int y) {
-        return x >= 0 && x < n && y >= 0 && y < n;
-    };
-    
-    auto dfs = [&](int x, int y, int len) {
-        visited[x][y] = true;
-        path.push_back(grid[x][y]);
-        
-        if (len == k) {
-            return;
-        }
-        
-        vector<pair<int, int>> neighbors;
-        for (auto& dir : directions) {
-            int nx = x + dir.first;
-            int ny = y + dir.second;
-            if (isValid(nx, ny) && !visited[nx][ny]) {
-                neighbors.push_back({nx, ny});
+    for (int i = 0; i < k; ++i) {
+        result.push_back(grid[row][col]);
+        if ((row + col) % 2 == 0) {
+            if (col == n - 1) {
+                row++;
+            } else if (row == 0) {
+                col++;
+            } else {
+                row--;
+                col++;
             }
-        }
-        
-        sort(neighbors.begin(), neighbors.end(), cmp);
-        
-        for (auto& neighbor : neighbors) {
-            dfs(neighbor.first, neighbor.second, len + 1);
-            if (path.size() == k) {
-                return;
-            }
-        }
-        
-        visited[x][y] = false;
-        path.pop_back();
-    };
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            dfs(i, j, 1);
-            if (path.size() == k) {
-                return path;
+        } else {
+            if (row == n - 1) {
+                col++;
+            } else if (col == 0) {
+                row++;
+            } else {
+                row++;
+                col--;
             }
         }
     }
     
-    return path;
+    return result;
 }
