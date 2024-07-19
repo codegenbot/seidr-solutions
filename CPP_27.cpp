@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <cassert>
 
 std::string flip_case(const std::string& str) {
     std::string result;
@@ -9,9 +10,9 @@ std::string flip_case(const std::string& str) {
         char c = str[i];
         if(std::isprint(c))
             if(c >= 'a' && c <= 'z')
-                result += std::toupper(c);
+                result += toupper(c);
             else if(c >= 'A' && c <= 'Z')
-                result += std::tolower(c);
+                result += tolower(c);
             else
                 result += c;
     }
