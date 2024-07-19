@@ -1,10 +1,22 @@
-int specialFilter(vector<int> nums){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for (int num : nums) {
-        string numStr = to_string(abs(num));
-        if (numStr.front() % 2 == 1 && numStr.back() % 2 == 1 && abs(num) > 10) {
-            count++;
+        if (num > 10) {
+            std::string str_num = std::to_string(std::abs(num));
+            if ((str_num.front() - '0') % 2 != 0 && (str_num.back() - '0') % 2 != 0) {
+                count++;
+            }
         }
     }
     return count;
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    return 0;
 }
