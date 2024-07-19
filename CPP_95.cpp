@@ -5,7 +5,7 @@ bool check_dict_case(map<string,string> dict){
     bool all_lower = true;
 
     for(auto it = dict.begin(); it != dict.end(); ++it) {
-        if(!all_lower && !allUpper)
+        if(!all_lower && !all_upper)
             return false; // map contains both upper and lower case keys
 
         string key = it->first;
@@ -15,5 +15,5 @@ bool check_dict_case(map<string,string> dict){
             all_upper = false;
     }
 
-    return all_lower || allUpper;
+    return all_lower || all_upper;
 }
