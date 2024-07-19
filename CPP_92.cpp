@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -7,16 +8,15 @@ int main() {
     int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-
+    
     string s1 = to_string(a);
     string s2 = to_string(b);
     string s3 = to_string(c);
-
-    if (!(cin >> s1) || !(cin >> s2) || !(cin >> s3)) {
-        cout << "Error: Please enter valid integer values.\n";
-    } else {
+    
+    if (!(s1.empty() || s2.empty() || s3.empty()))
         cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
-    }
-
+    else
+        cout << "Error: Please enter valid integer values.\n";
+    
     return 0;
 }
