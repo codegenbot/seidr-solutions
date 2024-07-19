@@ -1,6 +1,6 @@
-vector<int> result;
+vector<int> primes;
     if (n < 2) {
-        return result;
+        return primes;
     }
     vector<bool> is_prime(n, true);
     is_prime[0] = is_prime[1] = false;
@@ -13,7 +13,7 @@ vector<int> result;
     }
     for (int i = 2; i < n; ++i) {
         if (is_prime[i]) {
-            result.push_back(i);
+            primes.push_back(i);
         }
     }
-    return result;
+    return primes;
