@@ -1,15 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 int count(int i) {
-    int cnt = 0;
-    for (int j : {1,2,3,4,5}) {
+    int c = 0;
+    for (int j : lst) {
         if (j == i)
-            cnt++;
+            c++;
     }
-    return cnt;
+    return c;
 }
 
 int search(vector<int> lst) {
