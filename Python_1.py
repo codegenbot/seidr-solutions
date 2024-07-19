@@ -1,21 +1,26 @@
 ```
-def separate_paren_groups(paren_string: str) -> List[str]:
-    def balance_paren(s: str) -> int:
-        stack = []
-        for c in s:
-            if c == '(':
-                stack.append(c)
-            elif c == ')':
-                if not stack:
-                    return 0
-                stack.pop()
-        return len(stack)
+from typing import List
 
-    result = []
-    i, j = 0, 0
-    while j < len(paren_string):
-        if balance_paren(paren_string[i:j+1]) > 0:
-            result.append(paren_string[i:j+1])
-            i = j + 1
-        j += 1
-    return [x.replace(' ', '') for x in result]
+def separate_paren_groups(paren_string: str) -> List[str]:
+    stack = []
+    groups = []
+    group = ''
+    
+    for paren in paren_string:
+        if paren == ' ':
+            continue
+        if paren in '()' and not stack:
+            stack.append(paren)
+            group += paren
+        elif paren in '()' and stack:
+            if stack[-1] == '(' and paren == ')':
+                groups.append(group + paren)
+                stack = []
+                group = ''
+            else:
+                stack.pop()
+                group += paren
+        else:
+            group += paren
+    
+    return groups
