@@ -10,6 +10,3 @@ while True:
 
     except (ValueError, KeyboardInterrupt):
         print("Please enter valid integers.")
-
-    except EOFError:
-        print("Program did not receive expected input.")
