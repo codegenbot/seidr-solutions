@@ -1,17 +1,18 @@
 #include <string>
 #include <cctype>
-#include <vector>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const auto& x){return x == *(b.begin()+a.begin()-b.begin());});
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 int main() {
-    std::string planet1, planet2;
-    std::cout << "Enter the two planets (separated by space): ";
-    std::cin >> planet1 >> planet2;
+    std::string a, b;
+    std::cout << "Enter the first planet name: ";
+    std::cin >> a;
+    std::cout << "Enter the second planet name: ";
+    std::cin >> b;
 
-    if (issame({planet1}, {planet2})) {
+    if (issame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
