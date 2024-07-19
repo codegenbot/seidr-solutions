@@ -15,15 +15,14 @@ vector<string> reverse_delete(string s, string c) {
     reverse(temp.begin(), temp.end());
     vector<string> ans;
     ans.push_back(result);
-    ans.push_back(result == temp ? "True" : "False");
+    ans.push_back(issame(result, temp) ? "True" : "False");
     return ans;
 }
 
 int main() {
-    vector<string> result = reverse_delete("hello", "eo");
-    vector<string> expected = {"hll", "True"};
-    cout << "Output: " << result[0] << ", " << result[1] << endl;
-    cout << "Expected: " << expected[0] << ", " << expected[1] << endl;
-    cout << "Match: " << (issame(result, expected) ? "Yes" : "No") << endl;
+    vector<string> result = reverse_delete("programming", "g");
+    for (string str : result) {
+        cout << str << " ";
+    }
     return 0;
 }
