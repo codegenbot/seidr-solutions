@@ -1,4 +1,8 @@
-string result = "";
+#include <string>
+#include <cassert>
+
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
