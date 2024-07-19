@@ -1,12 +1,15 @@
 import math
 
-try:
-    n = int(input("Enter a positive integer: ").strip())
-    if n <= 0:
-        raise ValueError("Please enter a positive integer greater than zero.")
+while True:
+    try:
+        n = int(input("Enter a positive integer (0 < n <= 10^18): ").strip())
+        if n <= 0 or n > 10**18:
+            print("Please enter a positive integer in the specified range.")
+            continue
+        
+        result = math.prod(map(int, str(n)))
+        print(result)
+        break
     
-    result = math.prod(map(int, str(n)))
-    print(result)
-    
-except ValueError as e:
-    print(e)
+    except ValueError:
+        print("Invalid input. Please enter a positive integer in the specified range.")
