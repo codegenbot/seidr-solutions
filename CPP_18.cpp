@@ -15,6 +15,7 @@ int how_many_times(string str, string substring) {
 }
 
 int main() {
+    {   
     string s, sub;
     cin >> s >> sub; 
     cout << how_many_times(s, sub);
