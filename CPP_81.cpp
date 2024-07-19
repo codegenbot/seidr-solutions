@@ -48,13 +48,15 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> grades;
     cout << "Enter the grades (Press 'q' to quit):" << endl;
-    string s;
+    
     while (true) {
-        cin >> s; // read a line
+        string s;
+        getline(cin, s);
         if (s == "q") break;
         float grade;
-        cin >> grade; // now read a float
+        cin >> grade;
         grades.push_back(grade);
+        cin.ignore();
     }
     
     vector<string> letter_grades = numerical_letter_grade(grades);
