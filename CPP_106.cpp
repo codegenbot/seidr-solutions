@@ -1,16 +1,11 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b){
-    for(int i=0; i<a.size(); ++i){
-        if(a[i] != b[i]){
-            return {0};
-        }
-    }
-    return {1};
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-int main(){
-    assert(issame({1, 2, 3}, {1, 2, 6}) == 0);
+int main() {
+    assert(issame({1, 2, 3}, {1, 2, 6}) == true);
     return 0;
 }
