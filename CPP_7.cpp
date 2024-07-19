@@ -46,7 +46,7 @@ int main() {
     std::vector<std::string> vec1 = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> vec2 = {"grunt", "prune"};
 
-    assert(same({{"grunt", "prune"}}, {{"grunt", "prune"}}));
+    assert(same(filter_by_substring({{vec1}}, "run"), {{vec2[0]}, {vec2[1]}}));
 
     return 0;
 }
