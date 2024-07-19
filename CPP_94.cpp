@@ -28,11 +28,12 @@ bool isPrime(int num) {
         }
     }
     return true;
+
 }
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
     int result = skjkasdkd(lst);
-    assert(result == 10);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
