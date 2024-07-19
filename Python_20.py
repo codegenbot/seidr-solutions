@@ -1,22 +1,25 @@
-try:
-    numbers = list(map(int, input().split()))
-except ValueError:
-    print("Error: Invalid input format. Please provide integers separated by spaces")
-    exit()
-
 def find_closest_elements(numbers):
     if len(numbers) < 2:
         return "Error: At least 2 numbers are required"
     
     sorted_numbers = sorted(numbers)
-    closest_pair = (sorted_numbers[0], sorted_numbers[1])
+    min_diff = float('inf')
+    closest_pair = None
+    
+    for i in range(len(sorted_numbers) - 1):
+        diff = sorted_numbers[i+ 1] - sorted_numbers[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (sorted_numbers[i], sorted_numbers[i + 1])
+    
     return closest_pair
 
 if __name__ == "__main__":
-    if not numbers:
-        print("Error: Please provide at least 2 numbers")
-    elif len(numbers) < 2:
-        print("Error: At least 2 numbers are required")
+    numbers = list(map(int, input().split()))
+
+    closest_pair = find_closest_elements(numbers)
+    
+    if isinstance(closest_pair, str):
+        print(closest_pair)
     else:
-        closest_pair = find_closest_elements(numbers)
         print(*closest_pair)

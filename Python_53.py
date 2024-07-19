@@ -1,12 +1,12 @@
-import sys
-
 def add(a, b):
     return a + b
 
-# Read input line by line from standard input
-for line in sys.stdin:
-    if not line:
-        break
-    x, y = map(int, line.strip().split())
-    result = add(x, y)
-    print(result)
+try:
+    while True:
+        x, y = map(int, input().strip().split())
+        result = add(x, y)
+        print(result)
+except EOFError:
+    pass
+except ValueError:
+    print("Invalid input. Please provide two integers separated by space.")
