@@ -2,14 +2,14 @@ import math
 
 while True:
     try:
-        n = int(input("Enter a positive integer greater than zero: "))        
-        if n < 0:
+        n = int(input("Enter a positive integer greater than zero: ").strip())
+        if n <= 0:
             print("Please enter a positive integer greater than zero.")
             continue
-        elif n == 0:
-            print(0)
-            break
-
+        if n > 10**9:
+            print("Please enter a positive integer less than or equal to 10^9.")
+            continue
+        
         result = math.prod(map(int, str(n)))
         print(result)
         break
