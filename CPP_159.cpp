@@ -6,8 +6,3 @@ std::vector<int> eat(int number, int need, int remaining) {
     int left = remaining - eaten;
     return {eaten, left};
 }
-
-int main() {
-    std::vector<int> result = eat(5, 3, 10);
-    return 0;
-}
