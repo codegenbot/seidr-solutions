@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
@@ -10,10 +5,10 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main() {
-    vector<string> strings = {"apple", "banana", "grape", "orange"};
+    vector<string> strings = {"apple", "banana", "cherry", "date"};
     string substring = "an";
     vector<string> filtered_strings = filter_by_substring(strings, substring);
-    assert(issame(filtered_strings, {"banana", "orange"}));
+    assert(issame(filtered_strings, vector<string>{"banana", "cherry"}));
     return 0;
 }
 
