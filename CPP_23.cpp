@@ -1,7 +1,7 @@
 #include <cstring>
 
-// Task Description: Implement a function to return the length of a C-style string.
-// Function Signature: int strlen(const char* str)
+// Task: Implement a function that returns the length of a null-terminated character string.
+// Function signature: int strlen(const char* str)
 
 int main(){
     assert(strlen("asdasnakj") == 9);
