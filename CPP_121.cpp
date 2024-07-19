@@ -17,6 +17,7 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    numbers.reserve(n);
     for (int i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
