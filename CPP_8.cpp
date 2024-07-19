@@ -1,12 +1,19 @@
 #include <cassert>
 #include <vector>
+#include <utility>
+
+std::vector<int> sum_product(std::vector<int> nums) {
+    int sum = 0;
+    int product = 1;
+    for (int num : nums) {
+        sum += num;
+        product *= num;
+    }
+    return {sum, product};
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-std::vector<int> sum_product(std::vector<int> input) {
-    // Implementation of sum_product function
 }
 
 int main() {
