@@ -1,31 +1,31 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> input) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
-    for(float num : input) {
-        if(num > 0) {
-            result.push_back(num);
+    for (float i : l) {
+        if (i > 0) {
+            result.push_back(i);
         }
     }
     return result;
 }
 
 int main_func() {
-    std::vector<float> input;
-    assert(issame(get_positive(input), {}));
+    std::vector<float> input = {};
+    assert(issame({}, get_positive(input)));
     return 0;
 }
