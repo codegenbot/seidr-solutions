@@ -15,6 +15,16 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
+vector<float> get_positive(vector<float> v) {
+    vector<float> positive_numbers;
+    for (float num : v) {
+        if (num > 0) {
+            positive_numbers.push_back(num);
+        }
+    }
+    return positive_numbers;
+}
+
 int main() {
     vector<float> a;
     float num;
@@ -31,6 +41,15 @@ int main() {
         cout << "The vectors are same." << endl;
     } else {
         cout << "The vectors are not same." << endl;
+    }
+
+    vector<float> positive_a = get_positive(a);
+    vector<float> positive_b = get_positive(b);
+
+    if (issame(positive_a, positive_b)) {
+        cout << "The positive numbers in the vectors are same." << endl;
+    } else {
+        cout << "The positive numbers in the vectors are not same." << endl;
     }
 
     return 0;
