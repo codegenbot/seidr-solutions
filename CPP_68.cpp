@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 #include <initializer_list>
@@ -37,4 +36,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     return result;
-}
