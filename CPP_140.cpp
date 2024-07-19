@@ -1,18 +1,9 @@
-string result;
-    bool prev_space = false;
-    for(char c : text){
-        if(c == ' '){
-            if(prev_space){
-                result.pop_back();
-                result.push_back('-');
-            } else {
-                result.push_back('_');
-            }
-            prev_space = true;
-        } else {
-            result.push_back(c);
-            prev_space = false;
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ' && i + 1 < text.length() && text[i + 1] == ' ') {
+            text.replace(i, text.find_first_not_of(' ', i + 1) - i, "-");
+        } else if (text[i] == ' ') {
+            text.replace(i, 1, "_");
         }
     }
-    return result;
+    return text;
 }
