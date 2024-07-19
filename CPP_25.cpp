@@ -2,8 +2,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 std::vector<int> factorize(int n){
     std::vector<int> factors;
     for(int i=2; i*i<=n; i++){
@@ -20,9 +18,4 @@ std::vector<int> factorize(int n){
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
-}
-
-int main(){
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    return 0;
 }
