@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
     std::vector<std::vector<std::string>> result;
@@ -36,7 +36,6 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
 }
 
 int main() {
-    #include <initializer_list>
     std::vector<std::vector<std::string>> words = {{ "grunt" }}, {{"trumpet", "prune", "gruesome"}};
     std::string substring = "run";
     std::vector<std::vector<std::string>> expected_result = {{{"grunt"}}, {{{"prune"}}}};
@@ -46,3 +45,4 @@ int main() {
     assert(issame(result, expected_result));
     
     return 0;
+}
