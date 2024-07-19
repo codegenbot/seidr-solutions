@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(string text, string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
-    for(int i=0; i<=n-m; i++){
+    for(int i=0; i<n-m+1; i++){
         if(text.substr(i,m) == target){
             result.push_back(i);
         }
@@ -18,10 +20,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    getline(cin,text);
-    getline(cin,target);
-    vector<int> res = indicesOfSubstring(text, target);
-    for(int i:res)
+    cin >> text >> target;
+    std::vector<int> res = indicesOfSubstring(text, target);
+    for (int i : res)
         cout << i << " ";
     return 0;
 }
