@@ -2,11 +2,13 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
+template <typename T>
+std::vector<T> sort_array(std::vector<T> array) {
+    if (array.empty()) 
+        return array;
     
     int sum = array.front() + array.back();
-    if(sum % 2 == 0)
+    if (sum % 2 == 0)
         std::sort(array.rbegin(), array.rend());
     else
         std::sort(array.begin(), array.end());
@@ -14,6 +16,6 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(std::vector<int> v1, std::vector<int> v2) {
+    return v1 == v2;
 }
