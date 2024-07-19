@@ -24,5 +24,10 @@ int main() {
         numbers.push_back(std::to_string(num));
     }
     
-    std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
+    numbers.clear(); 
+    if(numbers.empty()) { 
+        std::cout << "Sum of odd elements: 0" << std::endl;
+    } else {
+        std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
+    }
 }
