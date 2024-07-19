@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 
@@ -13,16 +14,15 @@ int bowlingScore(std::string s) {
         }
         
         if (c >= '1' && c <= '9') {
-            int strike = false;
             while (c != '/' && c >= '0' && c <= '9') {
-                frames[currentFrame] *= 10 + (c - '0');
+                frames[currentFrame] = frames[currentFrame] * 10 + (c - '0');
                 c = next(c, s);
             }
             
-            if (!strike) {
-                score += frames[currentFrame];
-            } else {
+            if (frames[currentFrame] == 10) {
                 score += 10;
+            } else {
+                score += frames[currentFrame];
             }
         }
     }
