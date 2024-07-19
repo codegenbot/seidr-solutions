@@ -7,13 +7,7 @@ void sort_array(std::vector<int>& arr) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> sorted_a = a;
-    std::vector<int> sorted_b = b;
-    
-    sort_array(sorted_a);
-    sort_array(sorted_b);
-
-    return sorted_a == sorted_b;
+    return a == b;
 }
 
 int main() {
