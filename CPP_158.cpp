@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
 #include <string>
 
 std::string find_max(const std::vector<std::string>& words) {
-    string max_word = *min_element(words.begin(), words.end(),
+    string max_word = *min_element(words.begin(), words.end(), 
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
                 return a < b;
@@ -16,10 +15,8 @@ std::string find_max(const std::vector<std::string>& words) {
         set<char> char_set(word.begin(), word.end());
         if (char_set.size() > max_word.length()) {
             max_word = word;
-        } else if (char_set.size() == max_word.length()) {
-            if (word > max_word) {
-                max_word = word;
-            }
+        } else if (char_set.size() == max_word.length() && word < max_word) {
+            max_word = word;
         }
     }
     return max_word;
