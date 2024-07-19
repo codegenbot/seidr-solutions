@@ -8,12 +8,12 @@ string encrypt(string s) {
             char base = 'a';
             int shift = (int)(c - base);
             int newShift = (shift + 3) % 26;
-            result += (char)(base + newShift);
+            result += (base + newShift);
         } else if (c >= 'A' && c <= 'Z') {
             char base = 'A';
             int shift = (int)(c - base);
             int newShift = (shift + 3) % 26;
-            result += (char)(base + newShift);
+            result += (base + newShift);
         } else {
             result += c;
         }
