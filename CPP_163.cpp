@@ -22,6 +22,6 @@ std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(!issame(generate_integers(17, 89), {}).empty());
+    assert(!issame(generate_integers(17, 89), std::vector<int>{}).empty());
     return 0;
 }
