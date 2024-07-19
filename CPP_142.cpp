@@ -1,22 +1,27 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
-std::vector<int> lst;
+using namespace std;
 
-int sum_squares(std::vector<int> input) {
+int sum_squares(vector<int> lst) {
     int total = 0;
-    for (int i = 0; i < input.size(); i++) {
+    for (int i = 0; i < lst.size(); i++) {
         if (i % 3 == 0 && i % 4 != 0) {
-            total += input[i] * input[i];
+            total += lst[i] * lst[i];
         } else if (i % 4 == 0 && i % 3 != 0) {
-            total += input[i] * input[i] * input[i];
+            total += lst[i] * lst[i] * lst[i];
         }
     }
     return total;
 }
 
 int main() {
-    lst = {1,2,3,4,5};
-    std::cout << sum_squares(lst) << std::endl;
+    vector<int> lst;
+    lst.push_back(1);
+    lst.push_back(2);
+    lst.push_back(3);
+    lst.push_back(4);
+    lst.push_back(5);
+    cout << sum_squares(lst) << endl;
 }
