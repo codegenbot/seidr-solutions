@@ -3,7 +3,7 @@ vector<string> split_words(string txt){
     string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
-            if(!word.empty()){
+            if(word != ""){
                 result.push_back(word);
                 word = "";
             }
@@ -11,7 +11,7 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if(word != ""){
         result.push_back(word);
     }
     if(result.size() == 0){
