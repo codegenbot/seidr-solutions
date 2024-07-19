@@ -6,13 +6,9 @@ string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(isalpha(c)){
-            if(islower(c))
-                result += toupper(c);
-            else
-                result += tolower(c);
+            c = (islower(c)) ? toupper(c) : tolower(c);
         }
-        else
-            result += c;
+        result += c;
     }
     return result;
 }
