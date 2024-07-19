@@ -1,12 +1,9 @@
-string solve(string s){
-    bool hasLetter = false;
-    for(char& c : s){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
-            hasLetter = true;
+for (int i = 0; i < s.size(); i++) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
-    if(!hasLetter){
+    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
         reverse(s.begin(), s.end());
     }
     return s;
