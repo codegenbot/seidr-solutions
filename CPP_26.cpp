@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <stdexcept>
 #include <initializer_list>
-#include <iostream>
 
 using namespace std;
 
@@ -37,4 +36,3 @@ int main_test() {
         cout << "Error: " << e.what() << endl;
     }
     return 0;
-}
