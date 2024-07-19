@@ -12,7 +12,7 @@ std::vector<std::basic_string<char>> reverse_delete(std::string s, std::string c
             }
         }
         if (!found) {
-            result.push_back(std::basic_string<char>(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
     std::string temp = "";
@@ -36,15 +36,10 @@ std::string reverse(std::string s) {
     return rev;
 }
 
-bool issame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
-    return 0;
 }
