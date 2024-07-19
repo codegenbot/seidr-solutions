@@ -12,7 +12,6 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
-    n = int(input("Enter the number of elements in the list: "))
     numbers = list(map(int, input("Enter the elements of the list separated by space: ").strip().split()))
     closest_pair = find_closest_elements(numbers)
     print(*closest_pair)
