@@ -12,6 +12,23 @@ double poly(const std::vector<double>& x, const std::vector<double>& coefficient
 
 std::vector<double> find_zero(const std::vector<double>& coefficients) {
     std::vector<double> zeros;
+    double x0 = 0.0;
+    double epsilon = 1e-6;
+    double dx = 1e-6;
+    
+    while (true) {
+        double fx = poly({x0}, coefficients);
+        double fx_prime = (poly({x0 + dx}, coefficients) - fx) / dx;
+        double x1 = x0 - fx / fx_prime;
+        
+        if (std::abs(x1 - x0) < epsilon) {
+            zeros.push_back(x1);
+            break;
+        }
+        
+        x0 = x1;
+    }
+    
     return zeros;
 }
 
@@ -22,7 +39,7 @@ int main() {
         coefficients.push_back(coeff);
     }
     
-    std::vector<double> solution = find_zero(coefficients);
+    auto solution = find_zero(coefficients);
     
     assert(std::abs(poly(coefficients, solution)) < 1e-3);
     
