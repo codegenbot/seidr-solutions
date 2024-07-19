@@ -13,3 +13,8 @@ rounded_avg(int n, int m) {
     double avg = round((sum / (m - n + 1)) * 2) / 2.0;
     return avg;
 }
+
+int main() {
+    assert (round(rounded_avg(5, 5) * 1000) == 101);
+    return 0;
+}

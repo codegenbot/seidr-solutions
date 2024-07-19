@@ -1,10 +1,10 @@
-```cpp
+```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
-int sum_squares(int input){
-    std::vector<double> lst(input, 0);
+int sum_squares(std::vector<double> lst){
     int total = 0;
     for(double num : lst){
         int ceil_num = std::ceil(num);
@@ -13,10 +13,10 @@ int sum_squares(int input){
     return total;
 }
 
-int main(){
+int main {
+    assert(sum_squares({-1,1,0})==2); 
     int input;
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
-    int result = sum_squares(input);
-    return 0;
+    int result = sum_squares({(double)input});
 }
