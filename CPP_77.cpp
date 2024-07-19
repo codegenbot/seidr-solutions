@@ -1,3 +1,5 @@
-int cube_root = round(cbrt(a));
-    return (cube_root * cube_root * cube_root == a);
+#include <cmath>
+bool iscuber(int a) {
+    int cubeRoot = round(cbrt(abs(a)));
+    return a == cubeRoot * cubeRoot * cubeRoot;
 }
