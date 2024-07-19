@@ -4,7 +4,6 @@
 #include <any>
 #include <list>
 #include <vector>
-#include <initializer_list>
 #include <typeindex>
 #include <algorithm>
 

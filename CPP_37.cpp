@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -18,7 +17,14 @@ std::vector<float> sort_even(std::vector<float> l) {
             }
             result.push_back(maxEven);
         } else {
-            result.push_back(l[i]);
+            bool isInt = issame(l[i], static_cast<int>(l[i]));
+            for (float val : l) {
+                if (issame(val, static_cast<int>(val)) && !isInt) {
+                    maxEven = std::max(maxEven, val);
+                    isInt = true;
+                }
+            }
+            result.push_back(isInt ? l[i] : maxEven);
         }
     }
     return result;
