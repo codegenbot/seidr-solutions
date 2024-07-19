@@ -4,10 +4,7 @@ string result = "";
             result += ch;
         }
     }
-    string temp = result;
-    reverse(temp.begin(), temp.end());
-    vector<string> ans;
-    ans.push_back(result);
-    ans.push_back(result == temp ? "True" : "False");
-    return ans;
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    return {result, (result == reversed) ? "True" : "False"};
 }
