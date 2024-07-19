@@ -27,6 +27,6 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    // Empty main function
+    
     return 0;
 }
