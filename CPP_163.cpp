@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> generate_integers(int start, int end) {
     std::vector<int> result;
@@ -10,16 +11,17 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> result;
     for (int i : a) {
         if (std::find(b.begin(), b.end(), i) != b.end()) {
-            return true;
+            result.push_back(i);
         }
     }
-    return false;
+    return result;
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    assert(!issame(generate_integers(17, 89), std::vector<int>{}).empty());
     return 0;
 }
