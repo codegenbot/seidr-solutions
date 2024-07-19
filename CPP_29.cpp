@@ -28,6 +28,6 @@ int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
     
-    assert (issame(filter_by_prefix(a, "xxx") , filter_by_prefix(std::vector<std::string>(b.begin(), b.end()), "xxx") ) );
+    assert (issame(filter_by_prefix(a, "xxx") , filter_by_prefix(std::vector<std::string>(b.begin(), b.end()), "xxx") ));
     return 0;
 }
