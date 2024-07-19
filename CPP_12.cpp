@@ -1,7 +1,5 @@
 #include <string>
 
-string longest(vector<string> strings);
-
 string longest(vector<string> strings){
     if(strings.empty()){
         return "None";
@@ -15,4 +13,12 @@ string longest(vector<string> strings){
     }
     
     return longestStr;
+}
+
+int main() {
+    vector<string> testStrings = {"apple", "banana", "orange", "kiwi"};
+    string longestString = longest(testStrings);
+    cout << "Longest string: " << longestString << endl;
+    
+    return 0;
 }
