@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <cctype>
 #include <functional>
-#include <initializer_list>
+#include <string>
 
 std::string bf(const std::string& s1, const std::string& s2) {
     return s1 + " " + s2;
