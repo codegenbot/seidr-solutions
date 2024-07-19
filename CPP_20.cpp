@@ -9,10 +9,10 @@ bool issame(std::pair<float, float> a, std::pair<float, float> b) {
     return (a.first == b.first && a.second == b.second);
 }
 
-std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers);
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<std::pair<float, float>> numbers);
 
-std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers) {
-    std::pair<std::pair<float, float>, float> closest;
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<std::pair<float, float>> numbers) {
+    std::vector<std::pair<float, float>> closest;
     float min_diff = std::numeric_limits<float>::max();
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
@@ -20,7 +20,7 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
             float diff = std::abs(numbers[j].first - numbers[i].second);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest = std::pair<std::pair<float, float>, float>(std::make_pair(numbers[i], numbers[j]), diff);
+                closest = {numbers[i], numbers[j]};
             }
         }
     }
@@ -29,10 +29,10 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
 }
 
 int main_check() {
-    std::vector<std::pair<float, float>> numbers = {{1.1, 2.2}, {3.1, 4.1}, {5.1, 6.1}};
-    std::pair<std::pair<float, float>, float> result = find_closest_elements(numbers);
+    std::vector<std::pair<float, float>> numbers = {{1.1f, 2.2f}, {3.1f, 4.1f}, {5.1f, 6.1f}};
+    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
     
-    if (result.first.first == 2.2 && result.first.second == 3.1) {
+    if (issame(result[0], std::make_pair(2.2f, 3.1f)) && std::abs(result[0].first - result[0].second) < 1e-5) {
         return 0;
     } else {
         return 1;
