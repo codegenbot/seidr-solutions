@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <sstream>
-#include <initializer_list>
 
 std::string bf(const std::string& s1, const std::string& s2) {
     return s1 + " " + s2;
@@ -35,7 +35,7 @@ int mainProblem() {
     a.push_back(line);
 
     line.clear();
-    first = 0, last = 0;
+    first = 0;
     while ((last = line.find(' ')) != std::string::npos) {
         b.push_back(line.substr(0, last));
         line = line.substr(last + 1);
@@ -47,5 +47,4 @@ int mainProblem() {
     } else {
         std::cout << "The two planets are different." << std::endl;
     }
-    return 0;
 }
