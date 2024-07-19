@@ -1,12 +1,25 @@
 #include <iostream>
+#include <boost/any.hpp>
 #include <string>
 #include <cassert>
 
-std::string compare_one(const std::string& s, int i) {
-    return "None";
+template <typename T>
+std::string compare_one(const T& t1, const T& t2) {
+    return (t1 == t2) ? "Equal" : "Not Equal";
+}
+
+std::string compare_one(const boost::any& t1, const boost::any& t2) {
+    if (t1.type() == t2.type()) {
+        if (t1.type() == typeid(std::string)) {
+            return (boost::any_cast<std::string>(t1) == boost::any_cast<std::string>(t2)) ? "Equal" : "Not Equal";
+        }
+    }
+    return "Not Equal";
 }
 
 int main() {
-    assert(compare_one("1", 1) == "None");
+    assert(compare_one(1, 1) == "Equal");
+    assert(compare_one(std::string("abc"), std::string("def")) == "Not Equal");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "Equal");
     return 0;
 }
