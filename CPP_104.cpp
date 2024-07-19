@@ -25,5 +25,4 @@ auto unique_digits = [] (std::vector<int> numbers) {
 
 int main() {
     assert(issame(unique_digits({135, 103, 31}), {1, 3, 5}));
-    return 0;
 }
