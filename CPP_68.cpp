@@ -26,8 +26,8 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input = {1, 3, 6, 2, 8, 4};
+    vector<int> input = {1, 3, 5, 2, 4, 6};
     vector<int> output = pluck(input);
-    assert(issame(output, {2, 3}));
+    assert(issame(output, vector<int>{2, 3}));
     return 0;
 }
