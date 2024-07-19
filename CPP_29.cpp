@@ -3,13 +3,11 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size())
         return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
@@ -24,7 +22,6 @@ vector<vector<string>> filter_by_prefix(vector<vector<string>> strings) {
 }
 
 int main() {
-    assert (filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}) == {{"xxx", "xxxAAA", "xxx"}});
-
+    assert (filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, {{"xxx", "xxxAAA", "xxx"}}) == vector<vector<string>>({ {"xxx" }, {"xxx" } }), "Test failed");
     return 0;
 }
