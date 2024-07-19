@@ -1,13 +1,14 @@
-def is_prime(num):
-    if num < 2:
-        return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
+def prime_fib():
+    n = int(input("Enter the value of n: "))
+
+    def is_prime(num):
+        if num < 2:
             return False
-    return True
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
 
-
-def prime_fib(n: int):
     def fibonacci(num):
         if num <= 1:
             return num
@@ -16,13 +17,11 @@ def prime_fib(n: int):
 
     count = 0
     i = 0
-    n = int(input("Enter the value of n: "))  # Read input for n
     while count < n:
         if is_prime(fibonacci(i)):
             count += 1
         i += 1
     return fibonacci(i - 1)
 
-
-res = prime_fib(n)
-print(res)
+result = prime_fib()
+print(result)
