@@ -1,7 +1,5 @@
-#include <iostream>
-#include <string>
 #include <cassert>
-#include <cstdio>
+#include <string>
 
 bool valid_date(std::string date) {
     if(date.empty()) return false;
@@ -19,6 +17,6 @@ bool valid_date(std::string date) {
 }
 
 int main() {
-    assert(valid_date("04-2003") == false);
+    assert(valid_date("04-01-2003") == false);
     return 0;
 }
