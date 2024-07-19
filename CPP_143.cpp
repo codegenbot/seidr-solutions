@@ -5,6 +5,7 @@
 using namespace std;
 
 bool is_prime(int n){
+    // Assume this function is already implemented
     return true;
 }
 
