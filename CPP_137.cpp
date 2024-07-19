@@ -1,39 +1,36 @@
+#include <iostream>
 #include <boost/any.hpp>
-#include <cassert>
-#include <algorithm>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
-std::any compare_one(std::any a, std::any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
             return a;
-        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
+        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
             return b;
         } else {
             return "None";
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
             return a;
-        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
+        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
             return b;
         } else {
             return "None";
         }
     } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        float num1, num2;
-        if(std::any_cast<std::string>(a).find_first_of(",") != std::string::npos){
-            std::replace(std::any_cast<std::string>(a).begin(), std::any_cast<std::string>(a).end(), ',', '.');
+        std::string str_a = boost::any_cast<std::string>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+        if(str_a.find_first_of(".,") != std::string::npos || str_b.find_first_of(".,") != std::string::npos){
+            std::replace(str_a.begin(), str_a.end(), ',', '.');
+            std::replace(str_b.begin(), str_b.end(), ',', '.');
         }
-        if(std::any_cast<std::string>(b).find_first_of(",") != std::string::npos){
-            std::replace(std::any_cast<std::string>(b).begin(), std::any_cast<std::string>(b).end(), ',', '.');
-        }
-        num1 = std::stof(std::any_cast<std::string>(a));
-        num2 = std::stof(std::any_cast<std::string>(b));
-
-        if(num1 > num2){
+        if(std::stod(str_a) > std::stod(str_b)){
             return a;
-        } else if(num1 < num2){
+        } else if(std::stod(str_a) < std::stod(str_b)){
             return b;
         } else {
             return "None";
