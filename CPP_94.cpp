@@ -1,6 +1,7 @@
 #include <vector>
+using namespace std;
 
-int skjkasdkd(std::vector<int> lst){
+int findLargestPrime(vector<int> lst){
     int maxPrime = 0;
     for(int num : lst){
         if(isPrime(num) && num > maxPrime)
@@ -29,7 +30,6 @@ int sumOfDigits(int num){
 }
 
 int main() {
-    std::vector<int> numbers = {127, 97, 8192};
-    std::cout << skjkasdkd(numbers) << std::endl;
+    assert(findLargestPrime({127, 97, 8192}) == 7);
     return 0;
 }
