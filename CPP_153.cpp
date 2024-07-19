@@ -1,8 +1,9 @@
-```
 #include <initializer_list>
 #include <vector>
 #include <string>
 #include <cctype>
+
+int Strongest_Extension(string class_name, vector<string> extensions);
 
 int Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = 0;
@@ -24,9 +25,7 @@ int Strongest_Extension(string class_name, vector<string> extensions){
     return class_name + "." + strongest_extension;
 }
 
-int main(){
-    string class_name = "My";
-    vector<string> extensions = {"Java", "Python", "C++"};
-    cout << Strongest_Extension(class_name, extensions) << endl;
+int main() {
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
