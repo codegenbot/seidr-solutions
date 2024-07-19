@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
+#include <string>
+#include <vector>
 
 int sum_squares(std::initializer_list<double> lst) {
     int total = 0;
@@ -14,10 +15,14 @@ int sum_squares(std::initializer_list<double> lst) {
 
 int main() {
     std::cout << "Enter numbers separated by space: ";
-    double num;
-    while (std::cin >> std::ws >> num) {
-        int total = sum_squares({num});
-        std::cout << "Sum of squares for number: " << num << " is: " << total << "\n";
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        std::vector<std::string> nums;
+        for (const auto& s : boost::split(input, ' ')) {
+            double num = std::stod(s);
+            int total = sum_squares({num});
+            std::cout << "Sum of squares for number: " << num << " is: " << total << "\n";
+        }
     }
     return 0;
 }
