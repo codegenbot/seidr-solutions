@@ -1,15 +1,11 @@
+```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -44,9 +40,6 @@ vector<string> select_words(string s, int n) {
 
 int main() {
     vector<string> output = select_words("a b c d e f", 1);
-    if (!issame(output, vector<string>{"b", "c", "d", "f"})) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame(output, {"b", "c", "d", "f"})); 
+    cout << (output == {"b", "c", "d", "f"}) ? "Test passed" : "Test failed";
 }
