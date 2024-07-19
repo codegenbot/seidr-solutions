@@ -1,16 +1,16 @@
-int count = 0;
-    string result = "";
-    for (char& c : text) {
-        if (c == ' ') {
-            count++;
-            if (count <= 2) {
-                result += '_';
+string result = "";
+    bool consecutiveSpaces = false;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (consecutiveSpaces) {
+                result += "-";
             } else {
-                result += '-';
+                result += "_";
+                consecutiveSpaces = true;
             }
         } else {
-            count = 0;
-            result += c;
+            result += text[i];
+            consecutiveSpaces = false;
         }
     }
     return result;
