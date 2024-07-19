@@ -1,3 +1,14 @@
+#include <iostream>
+#include <string>
+
+int main(){
+    std::cout << "Enter a string: ";
+    std::string text;
+    std::cin >> text;
+    std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
+    return 0;
+}
+
 string fix_spaces(string text){
     string result = "";
     for(int i=0; i<text.length(); i++){
