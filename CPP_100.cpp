@@ -1,12 +1,14 @@
 vector<int> stones;
-    stones.push_back(n);
-    for (int i = 2; i <= n; ++i) {
-        if (n % 2 == 0) {
-            n += 1;
+    int level_stones = n;
+
+    for(int i=0; i<n; i++){
+        stones.push_back(level_stones);
+        if(level_stones % 2 == 0){
+            level_stones += 1;
         } else {
-            n += 2;
+            level_stones += 2;
         }
-        stones.push_back(n);
     }
+
     return stones;
 }
