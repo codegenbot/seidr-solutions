@@ -5,10 +5,7 @@
 using namespace std;
 
 bool issame(int a, int b) {
-    if (a % 2 == 0 && b % 2 == 0)
-        return true;
-    else
-        return false;
+    return (a % 2 == 0 && b % 2 == 0);
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -30,9 +27,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     if (result.empty()) {
-        for (int num : arr) {
-            if (num % 2 != 0) return {{num, -1}};
-        }
+        result.push_back({0, -1});
     }
 
     return result;
