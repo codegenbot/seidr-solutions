@@ -1,8 +1,7 @@
 def get_integer_input(prompt):
     while True:
         try:
-            print(prompt + " (1, 2, or 3): ")
-            num = int(input())
+            num = int(input(prompt + " (1, 2, or 3): "))
             if num in [1, 2, 3]:
                 return num
             else:
