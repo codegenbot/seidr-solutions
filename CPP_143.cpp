@@ -15,6 +15,9 @@ std::vector<std::string> split(const std::string& str) {
 }
 
 int main() {
-    assert(words_in_sentence("here is") == "is");
+    auto result = words_in_sentence("here is");
+    for(auto word : result) {
+        std::cout << word << " ";
+    }
     return 0;
 }
