@@ -1,6 +1,7 @@
 #include <any>
-#include <string_view>
+#include <string>
 #include <cassert>
+#include <boost/any.hpp>
 
 template <typename T>
 T compare_one(std::any a, std::any b) {
@@ -21,9 +22,9 @@ int main() {
     auto d = std::any(3.2f);
     assert(compare_one<float>(c, d) == 7.5f);
 
-    auto e = std::any(std::string_view("20.3"));
-    auto f = std::any(std::string_view("12.8"));
-    assert(compare_one<std::string_view>(e, f) == "20.3");
+    auto e = std::any(std::string("20.3"));
+    auto f = std::any(std::string("12.8"));
+    assert(compare_one<std::string>(e, f) == "20.3");
 
     return 0;
 }
