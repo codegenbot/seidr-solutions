@@ -4,4 +4,4 @@ def add(x: int, y: int):
 x = int(input("Enter first number: "))
 y = int(input("Enter second number: "))
 result = add(x, y)
-print("The result is:", result)
+print(result)
