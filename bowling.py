@@ -1,40 +1,20 @@
 ```
 def bowling_score(frames):
-    score = 0
-    i = 0
-    while i < len(frames):
+    frame_scores = [0, 1, 2]
+    for i in range(0, len(frames), 2):
         if frames[i] == 'X':
-            score += 10
-            if i < len(frames) - 1:
-                if frames[i+1].isdigit():
-                    score += int(frames[i+1])
-                elif frames[i+1] == 'X':
-                    score += 10
-                else:
-                    rolls = list(map(int, frames[i+1].replace("/","").split()))
-                    if len(rolls) > 0 and sum(rolls) <= 10:
-                        score += sum(rolls)
-            i += (2 if i+1 >= len(frames) else 1)
+            frame_scores.append(10)
+            if i+1 < len(frames) and frames[i+1] == 'X':
+                frame_scores.append(10)
+            elif i+3 < len(frames) and frames[i+1].isdigit() and int(frames[i+1]) <= 9:
+                frame_scores.extend(list(map(int, frames[i+1:i+2])))
         elif frames[i] == '/':
-            score += 5
-            if i < len(frames) - 1 and frames[i+1].isdigit():
-                if int(frames[i+1]) <= 5:
-                    score += int(frames[i+1])
-                else:
-                    rolls = list(map(int, frames[i+1].replace("/","").split()))
-                    if len(rolls) > 0 and sum(rolls) <= 10:
-                        score += sum(rolls)
-            i += (2 if i+1 >= len(frames) else 1)
+            frame_scores.extend([5, int(frames[i+1])])
+            i += 1
         else:
-            rolls = list(map(int, frames[i].replace("/","").split()))
-            if len(rolls) > 0:
-                if len(rolls) == 1:
-                    score += rolls[0]
-                elif len(rolls) == 2:
-                    if sum(rolls) <= 10:
-                        score += sum(rolls)
-                    else:
-                        score += 10
-            i += (1 if i+1 < len(frames) and frames[i+1] != 'X' else 2)
-
-    return score
+            rolls = list(map(int, frames[i:i+2].replace("/","").split()))
+            if sum(rolls) == 10 and len(rolls) > 1:
+                frame_scores.append(10)
+            else:
+                frame_scores.extend(rolls)
+    return sum(frame_scores)
