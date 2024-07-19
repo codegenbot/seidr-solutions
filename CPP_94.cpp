@@ -1,5 +1,6 @@
+```cpp
+#include <limits>
 #include <vector>
-#include <initializer_list>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -24,8 +25,5 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
-    int result = skjkasdkd({127, 97, 8192});
-    std::cout << "The sum of the digits is: " << result << std::endl;
-    return 0;
-}
+int result = skjkasdkd({127, 97, 8192});
+std::cout << "The sum of the digits is: " << result << std::endl;
