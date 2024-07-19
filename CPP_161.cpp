@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -18,9 +18,6 @@ int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
-    if (solve(s)) {
-        std::cout << solve(s) << std::endl;
-    } else {
-        std::cout << "No solution exists" << std::endl;
-    }
+    std::cout << solve(s) << std::endl;
+    return 0;
 }
