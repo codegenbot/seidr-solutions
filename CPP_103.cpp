@@ -1,14 +1,35 @@
-if (n > m)
-        return "-1";
+#include <string>
 
+std::string averageBinaryRepresentation(int n, int m) {
+    if (n > m) {
+        return "-1";
+    }
+    
     int sum = 0;
-    for (int i = n; i <= m; ++i) {
+    for (int i = n; i <= m; i++) {
         sum += i;
     }
-
-    int avg = round(sum / (m - n + 1));
-    string binary_avg = bitset<sizeof(int) * 8>(avg).to_string();
-    binary_avg.erase(0, binary_avg.find_first_of('1'));
-
+    
+    int avg = round((double)sum / (m - n + 1));
+    
+    std::string binary_avg = "";
+    while (avg > 0) {
+        binary_avg = std::to_string(avg % 2) + binary_avg;
+        avg /= 2;
+    }
+    
     return binary_avg;
+}
+
+int main() {
+    // Input n, m
+    int n, m;
+    std::cin >> n >> m;
+    
+    std::string result = averageBinaryRepresentation(n, m);
+    
+    // Output result
+    std::cout << result;
+    
+    return 0;
 }
