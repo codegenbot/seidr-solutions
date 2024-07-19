@@ -1,6 +1,8 @@
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <sstream>
 
 std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
     return {s1, s2};
@@ -18,7 +20,7 @@ bool checkIfSame(const std::vector<std::string>& v1, const std::vector<std::stri
     return true;
 }
 
-int mainProblem() {
+int main() {
     std::vector<std::string> a, b;
     std::cout << "Enter the two planets (separated by space): ";
     std::string line;
@@ -47,3 +49,4 @@ int mainProblem() {
         std::cout << "The two planets are different." << std::endl;
     }
     return 0;
+}
