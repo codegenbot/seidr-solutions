@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -15,16 +14,14 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum2 += v[i];
         long long diff = abs(sum1 - sum2);
         
-        if (diff < min_diff) {
+        if (i == n - 1 || diff < min_diff) {
             min_diff = diff;
-            index = i + 1;
+            res[0].assign(v.begin(), v.begin() + index);
+            res[1].assign(v.begin() + index, v.end());
         }
-        
+        index++;
         sum1 += v[i];
     }
-    
-    res[0].assign(v.begin(), v.begin() + index);
-    res[1].assign(v.begin() + index, v.end());
     
     return res;
 }
