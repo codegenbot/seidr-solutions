@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,9 +12,9 @@ int solve(int N) {
 }
 
 int main() {
-    char str[256];
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin.getline(str, 256);
+    std::getline(std::cin, str);
     int N = std::stoi(str);
     if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
