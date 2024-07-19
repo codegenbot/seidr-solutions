@@ -1,4 +1,7 @@
-if (s.length() < 3) {
+#include <string>
+
+bool is_happy(const std::string& s) {
+    if (s.length() < 3) {
         return false;
     }
     
