@@ -9,7 +9,7 @@ bool checkSame(float a, float b) {
     return std::abs(a - b) < 1e-9;
 }
 
-bool issame(std::vector<float>& a, std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
