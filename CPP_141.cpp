@@ -1,27 +1,37 @@
-int dotIndex = file_name.find('.');
-    if (dotIndex == string::npos) {
-        return "No";
-    }
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
+#include <iostream>
+#include <string>
+#include <cctype>
 
-    if (beforeDot.empty() || !isalpha(beforeDot[0])) {
-        return "No";
-    }
-
-    int digitCount = 0;
-    for (char c : beforeDot) {
+std::string file_name_check(const std::string& file_name) {
+    int digits = 0;
+    for (char c : file_name) {
         if (isdigit(c)) {
-            digitCount++;
+            digits++;
         }
     }
-    if (digitCount > 3) {
+    if (digits > 3) {
         return "No";
     }
-
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == std::string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
         return "No";
     }
-
+    
+    std::string before_dot = file_name.substr(0, dot_pos);
+    std::string after_dot = file_name.substr(dot_pos + 1);
+    
+    if (!isalpha(before_dot[0])) {
+        return "No";
+    }
+    
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+        return "No";
+    }
+    
     return "Yes";
+}
+
+int main() {
+    // Add test cases here to check the functionality of file_name_check function
 }
