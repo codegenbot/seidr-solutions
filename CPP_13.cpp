@@ -10,10 +10,6 @@ int greatest_common_divisor(int a, int b) {
 int main() {
     int a, b;
     std::cin >> a >> b;
-    if (a < 0 || b < 0) {
-        std::cerr << "Please enter non-negative numbers." << std::endl;
-        return 1;
-    }
     std::cout << greatest_common_divisor(a, b);
     return 0;
 }
