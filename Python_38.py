@@ -1,4 +1,3 @@
-```
 def encode_cyclic(s: str):
     s += ' ' * (len(s) % 3)
     groups = [s[i : i + 3] for i in range(0, len(s), 3)]
