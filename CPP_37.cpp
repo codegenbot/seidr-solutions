@@ -1,10 +1,9 @@
-```cpp
-#include <array>
 #include <vector>
+#include <algorithm>
 
 std::array<float, 10> sort_even(std::array<float, 10> l) {
     std::array<float, 10> result;
-    for (int i = 0; i < l.size(); i++) {
+    for (int i = 0; i < 10; i++) {
         if (i % 2 == 0) {
             std::vector<float> evenVals;
             for (float val : l) {
