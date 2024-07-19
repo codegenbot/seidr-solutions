@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-int nextSmallest(std::vector<int> lst) {
+int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
     std::vector<int> sorted = lst;
     std::sort(sorted.begin(), sorted.end());
@@ -14,6 +14,6 @@ int nextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int main_function() {
-    assert(nextSmallest({-35, 34, 12, -45}) == -35);
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
 }
