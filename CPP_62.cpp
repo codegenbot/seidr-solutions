@@ -7,3 +7,5 @@ std::vector<float> derivative(std::vector<float> xs) {
     }
     return result;
 }
+
+bool issame(std::vector<float> a, std::vector<float> b)
