@@ -1,22 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+using namespace std;
 
-vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(),l.end());
-    sort(result.begin(),result.end());
-    result.erase(unique(result.begin(),result.end()),result.end());
+vector<int> unique(vector<int> l) {
+    vector<int> result(unique_copy(l.begin(), l.end()), l.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5, 9, 123}));
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> output = unique(input);
+    for (int i : output) {
+        cout << i << " ";
+    }
     return 0;
 }
