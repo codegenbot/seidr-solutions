@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 int sum_squares(vector<int> lst) {
     int total = 0;
     for (int i = 0; i < lst.size(); i++) {
@@ -8,4 +12,3 @@ int sum_squares(vector<int> lst) {
         }
     }
     return total;
-}
