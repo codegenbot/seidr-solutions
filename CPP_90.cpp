@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,3 +27,4 @@ int main() {
         std::cout << -1 << std::endl;
     }
     return 0;
+}
