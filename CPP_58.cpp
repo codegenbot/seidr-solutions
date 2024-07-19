@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -14,15 +13,15 @@ vector<int> solve(vector<int>& l1, vector<int>& l2) {
     return result;
 }
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool issame(vector<int>& l1, vector<int>& l2) {
+    return l1 == l2;
 }
 
-vector<int> common(const vector<int>& l1, const vector<int>& l2) {
+vector<int> common(vector<int> l1, vector<int> l2) {
     return solve(l1, l2);
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert (issame(common({4, 3, 2, 8}, {}) , {}));
     return 0;
 }
