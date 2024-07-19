@@ -13,9 +13,10 @@ string string_to_md5(string text) {
     size_t output_len;
 
     EVP_MD_CTX_init(&md_ctx);
-    const unsigned char* ptr = reinterpret_cast<const unsigned char*>(text.c_str());
+
+    const unsigned char* ptr = (const unsigned char*)text.c_str();
     size_t len = text.size();
-    
+
     EVP_Update(&md_ctx, ptr, len);
     
     EVP_Finalize(&md_ctx, output, &output_len);
