@@ -1,5 +1,7 @@
+```cpp
+#include <algorithm>
 #include <string>
-#include <cctype>
+using namespace std;
 
 string solve(string s) {
     string result = "";
@@ -10,4 +12,14 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(rbegin(s), rend(s)) : result;
+    reverse(result.begin(), result.end());
+    return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Output: " << solve(input) << endl;
+    return 0;
+}
