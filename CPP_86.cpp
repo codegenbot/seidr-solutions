@@ -1,12 +1,15 @@
-for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == ' ') {
-            continue;
+string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
+            sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
-        int start = i;
-        while (i < s.size() && s[i] != ' ') {
-            ++i;
-        }
-        sort(s.begin() + start, s.begin() + i);
     }
-    return s;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
