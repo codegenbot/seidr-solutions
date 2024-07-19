@@ -1,14 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(const std::string& s) {
-    std::string result = "";
+    std::string result = ""; // Initialize the string
     for (char c : s) {
         if (c == ' ') {
             result += '.';
         } else {
-            result += char(c);
+            result += c;
         }
     }
     return result;
