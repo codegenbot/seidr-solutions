@@ -2,20 +2,18 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool cycpattern_check(const string& a, const string& b) {
+bool cycpattern_check(const std::string& a, const std::string& b) {
     if (a.length() != b.length()) {
         return false;
     }
     
-    string temp = b + b;
+    std::string combined = a + a;
     
-    return (temp.find(a) != string::npos);
+    return combined.find(b) != std::string::npos;
 }
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-
+    
     return 0;
 }
