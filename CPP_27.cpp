@@ -6,7 +6,7 @@
 int main_function() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input; 
     bool correct = (flip_case(input) == "these violent delights have violent ends");
     std::cout << flip_case(input) << std::endl;
     return correct ? 0 : 1;
