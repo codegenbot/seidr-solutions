@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <cmath> // Include cmath for the round function
+#include <cmath>
 
 std::string calculateBinary(int n, int m) {
     if (n > m) {
@@ -13,8 +13,8 @@ std::string calculateBinary(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1)); // Use std::round
-    
+    int avg = std::round((double)sum / (m - n + 1));
+
     std::string binary;
     while (avg > 0) {
         binary = std::to_string(avg % 2) + binary;
@@ -25,6 +25,6 @@ std::string calculateBinary(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinary(5, 5) == "101"); // Change 'rounded_avg' to 'calculateBinary'
+    assert(calculateBinary(5, 5) == "101");
     return 0;
 }
