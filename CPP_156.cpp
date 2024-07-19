@@ -1,6 +1,6 @@
 #include <cassert>
 #include <string>
-#include <iostream>
+#include <ostream>
 
 std::string intToMiniRoman(int num) {
     std::string roman;
@@ -18,8 +18,7 @@ std::string intToMiniRoman(int num) {
     return roman; 
 }
 
-int main() { 
+void main_test() { 
     assert(intToMiniRoman(1000) == "M");
     std::cout << intToMiniRoman(4) << std::endl;
-    return 0;
 }
