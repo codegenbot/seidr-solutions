@@ -10,7 +10,7 @@ int getSetSize(int a, int b, int c) {
     return setSize(s);
 }
 
-int mainTest() {
+int main() {
     assert(getSetSize(127, 97, 8192) == 3); 
     return 0;
 }
