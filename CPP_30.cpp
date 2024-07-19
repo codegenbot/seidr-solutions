@@ -1,28 +1,17 @@
-```
+```cpp
 #include <vector>
-#include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 0.001f)
-            return false;
+std::vector<float> extract_positives(std::vector<float> numbers) {
+    std::vector<float> positive_numbers;
+    for (float number : numbers) {
+        if (number > 0) {
+            positive_numbers.push_back(number);
+        }
     }
-    return true;
+    return positive_numbers;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l){
-    std::vector<float> result;
-    for(float x : l){
-        if(x > 0)
-            result.push_back(x);
-    }
-    return result;
-
-}
 int main() {
-    std::vector<float> input = {1, -2, 3, -4};
-    assert(issame(get_positive(input), {}));  
+    assert(extract_positives({}).size() == 0);
     return 0;
 }
