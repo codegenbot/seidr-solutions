@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -18,7 +19,5 @@ string circular_shift(int x, int shift) {
     return num.substr(n - shift) + num.substr(0, n - shift);
 }
 
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
-}
+cout << circular_shift(11, 101) << endl;
+return 0;
