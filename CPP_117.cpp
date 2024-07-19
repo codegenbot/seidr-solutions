@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -42,6 +43,10 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> words = select_words("a b c d e f", 1);
-    assert(issame(words, {"b", "c", "d", "f"}));
+    vector<string> output = select_words("a b c d e f", 1);
+    if (!issame(output, vector<string>{"b", "c", "d", "f"})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
 }
