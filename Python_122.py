@@ -1,2 +1,3 @@
 def add_elements(arr, k):
-    return sorted([num for num in arr if 10 <= num <= 99])[:k]
+    filtered_nums = [num for num in arr if 10 <= num <= 99]
+    return sum(sorted(filtered_nums)[:k]) if filtered_nums else 0
