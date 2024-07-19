@@ -18,5 +18,3 @@ int count_nums(std::vector<int> n){
     }
     return count;
 }
-
-assert(count_nums({1}) == 1);
