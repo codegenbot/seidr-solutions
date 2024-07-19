@@ -32,7 +32,7 @@ bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-int main() {
+int temp_main() {
     assert(issame(histogram("a"), {{'a', 1}}));
 
     return 0;
