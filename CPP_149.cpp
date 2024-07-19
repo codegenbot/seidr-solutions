@@ -21,11 +21,9 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main(){
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
-
-    // Add more test cases here
-    assert(issame(sorted_list_sum({"hello", "world", "abc"}), vector<string>{"abc", "world", "hello"}));
-    assert(issame(sorted_list_sum({"programming", "is", "fun"}), vector<string>{"is", "fun", "programming"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"hello", "world", "abc"}), {"abc", "world", "hello"}));
+    assert(issame(sorted_list_sum({"programming", "is", "fun"}), {"is", "fun", "programming"}));
 
     return 0;
 }
