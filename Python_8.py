@@ -1,1 +1,1 @@
-numbers = list(map(int, input("Please enter 7 numbers separated by spaces: ").split()))
+numbers = [int(input(f"Please enter number {i + 1}: ")) for i in range(7)]
