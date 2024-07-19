@@ -2,9 +2,10 @@
 #include <vector>
 #include <cassert>
 #include <sstream>
+
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
@@ -12,11 +13,8 @@ vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
     stringstream ss(s);
-    while (ss >> word) {
+    for (int i = 0; i < n && ss >> word; ++i) {
         words.push_back(word);
-        if (words.size() == n) {
-            break;
-        }
     }
     return words;
 }
@@ -26,7 +24,7 @@ int main() {
 
     assert(issame(result, {"world", "contest"}));
 
-    for (const string& word : result) {
+    for (const string &word : result) {
         cout << word << endl;
     }
 
