@@ -1,15 +1,17 @@
+#include <algorithm>
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = tolower(c);
-            if (c >= 'a' && c <= 'z') {
-                c -= ('a' - 'A');
-            }
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i'
+                || tolower(c) == 'o' || tolower(c) == 'u' ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    reverse(result.begin(), result.end());
-    return s;
+    if (result.empty()) {
+        reverse(result.begin(), result.end());
+    }
+    return result;
 }
