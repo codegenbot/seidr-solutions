@@ -18,15 +18,15 @@ std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (* (a[i].c_str()) != * (b[i].c_str())) {
-            return false;
-        }
+        if (!issame_helper(a[i], b[i])) return false;
     }
     return true;
+}
+
+bool issame_helper(const std::string& s1, const std::string& s2) {
+    return s1.empty() && s2.empty() || s1 == s2;
 }
 
 int main() {
