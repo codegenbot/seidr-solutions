@@ -1,6 +1,5 @@
-#include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 bool is_happy(const std::string& s) {
     if(s.length() < 3) return false;
