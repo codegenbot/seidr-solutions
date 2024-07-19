@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
@@ -31,6 +30,11 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
+#ifdef __cpp_lib_initializer_list
+#define _SILENT
+#include <initializer_list>
+#endif
+
     std::string s, t;
     std::cout << "Enter the first string: ";
     std::cin >> s;
