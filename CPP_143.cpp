@@ -1,10 +1,8 @@
 ```cpp
 int findFirstWord(const std::string& str, const std::string& word) {
-    int count = 0;
-    std::string::size_type pos = 0;
+    size_t pos = 0;
     while ((pos = str.find(word, pos)) != std::string::npos) {
-        ++count;
-        pos += word.length();
+        return 1;
     }
-    return count > 0 ? 1 : -1;
+    return -1;
 }
