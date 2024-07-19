@@ -1,18 +1,17 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+using namespace std;
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int current = 1;
-    if (n % 2 == 0) {
-        current = 2;
-    }
-    for (int i = 0; i < n; i++) {
-        pile.push_back(current);
-        if (current % 2 == 1) {
-            current += 2;
+    int stones = n;
+    while (stones > 0) {
+        if (stones % 2 == 1) {
+            pile.push_back(stones);
         } else {
-            current += 1;
+            pile.push_back(stones + 1);
         }
+        stones = (stones + 1) / 2;
     }
     return pile;
 }
