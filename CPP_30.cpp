@@ -1,22 +1,4 @@
-```cpp
-#include <vector>
-#include <cmath>
-#include <iostream>
-#include <algorithm>
-
-using namespace std;
-
-vector<float> get_positive(const vector<float>& v) {
-    vector<float> result;
-    for (float num : v) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
-int main() {
+int main(){
     vector<float> a;
     float num;
 
@@ -37,5 +19,5 @@ int main() {
         cout << "The vectors are not same." << endl;
     }
 
-    return 0; 
+    return 0;
 }
