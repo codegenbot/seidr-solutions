@@ -1,4 +1,4 @@
-number = int(input("Enter a number: "))
+number = int(input())
 def factorize(number):
     factors = []
     for i in range(1, int(number ** 0.5) + 1):
