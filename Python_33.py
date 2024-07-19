@@ -1,5 +1,5 @@
 def sort_third(l: list):
-    multiples = [i for i in l if i % 3 == 0]
+    multiples = [x for x in l if x % 3 == 0]
     sorted_multiples = sorted(multiples)
     middle_index = len(sorted_multiples) // 2
     return [
