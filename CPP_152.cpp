@@ -1,8 +1,10 @@
+#include <vector>
+
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +16,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> std::compare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return gameCompare(game, guess);
 }
 
@@ -32,7 +34,12 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
-    assert(std::issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+int main_test() {
+    std::vector<int> game = {1,2,3,5};
+    std::vector<int> guess = {-1,2,3,4};
+    std::vector<int> output = compare(game, guess);
+    for (int i = 0; i < output.size(); i++) {
+        std::cout << output[i] << " ";
+    }
     return 0;
 }
