@@ -1,6 +1,12 @@
 ```cpp
+#include <iostream>
+#include <cmath>
+
 bool any_int(float a, float b, float c) {
-    return (a == (int)a) && (b == (int)b) && (c == (int)c);
+    if (std::floor(a) == a || std::floor(b) == b || std::floor(c) == c)
+        return true;
+    else
+        return false;
 }
 
 int main() {
