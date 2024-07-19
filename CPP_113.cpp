@@ -7,15 +7,16 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string res = "the number of odd elements " + to_string(count) + "\n the string " + s + " of the input.";
+        string res = "the number of odd elements " + to_string(count) + "\n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "\nput.";
         result.push_back(res);
     }
     return result;
 }
+
 int main() {
-    vector<string> input = {"1234", "56789", "2468"};
-    vector<string> output = odd_count(input);
-    for (string s : output) {
+    vector<string> lst = {"123", "4567", "890"};
+    vector<string> result = odd_count(lst);
+    for (string s : result) {
         cout << s << endl;
     }
     return 0;
