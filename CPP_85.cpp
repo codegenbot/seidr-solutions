@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int add(std::vector<int> lst){
@@ -11,14 +12,21 @@ int add(std::vector<int> lst){
 
 int main() {
     std::vector<int> lst;
-    int num;
-    while(true) {
-        std::cout << "Enter a number (-1 to stop): ";
+    int n;
+    
+    // input number of elements
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // input all the elements
+    for(int i = 0; i < n; ++i) {
+        int num;
+        std::cout << "Enter element " << (i + 1) << ": ";
         std::cin >> num;
-        if(num == -1)
-            break;
         lst.push_back(num);
     }
-    std::cout << "Sum of even numbers: " << add(lst) << std::endl;
+    
+    std::cout << "The sum of even elements: " << add(lst) << std::endl;
+
     return 0;
 }
