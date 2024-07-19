@@ -42,6 +42,7 @@ std::string longest_prime_word;
 
 int main_func() {
     std::vector<std::string> words = split("here is");
+    longest_prime_word = ""; // Initialize with an empty string
     for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {

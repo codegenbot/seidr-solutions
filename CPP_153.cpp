@@ -1,9 +1,9 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
 #include <cctype>
 #include <iostream>
+#include <cassert>
 
 int Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = 0;
