@@ -4,9 +4,12 @@
 
 using namespace std;
 
-int total_chars(vector<string> lst);
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
-bool issame(vector<string> a, vector<string> b);
+int total_chars(vector<string> lst);
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 int total_chars(vector<string> lst) {
     int total = 0;
@@ -22,10 +25,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
 
 int main() {
