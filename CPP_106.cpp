@@ -6,12 +6,12 @@ std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     int factorial = 1;
     int sum = 0;
     int n = a.size();
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            factorial *= i;
+    for (int i = 0; i < n; ++i) {
+        if (a[i] % 2 == 0) {
+            factorial *= a[i];
             result.push_back(factorial);
         } else {
-            sum += i;
+            sum += a[i];
             result.push_back(sum);
         }
     }
