@@ -10,13 +10,8 @@ using namespace std;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            try {
-                int i = std::any_cast<int>(value);
-                result.push_back(i);
-            } catch (const bad_any_cast&) {
-                // ignore non-int values
-            }
+        if constexpr (is_same_v<std::any_cast(any).type(), int>) { 
+            result.push_back(*std::any_cast<optional<int>>(value));
         }
     }
     return result;
