@@ -1,11 +1,33 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)){
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : "None";
+#include <boost/any.hpp>
+#include <cassert>
+
+boost::any compare_one(const boost::any& a, const boost::any& b) {
+    assert(a.type() == b.type());
+
+    if(a.type() == typeid(int)) {
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
+            return a;
+        else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
+            return b;
+        else
+            return 0;
     }
-    if (a.type() == typeid(float) && b.type() == typeid(float)){
-        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : "None";
+    else if(a.type() == typeid(float)) {
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b))
+            return a;
+        else if(boost::any_cast<float>(a) < boost::any_cast<float>(b))
+            return b;
+        else
+            return 0.0f;
     }
-    if (a.type() == typeid(string) && b.type() == typeid(string)){
-        return stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b)) ? a : "None";
+    else if(a.type() == typeid(std::string)) {
+        if(boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b))
+            return a;
+        else if(boost::any_cast<std::string>(a) < boost::any_cast<std::string>(b))
+            return b;
+        else
+            return "";
     }
-    return "None";
+
+    return boost::any(); // None
 }
