@@ -1,7 +1,7 @@
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = -1
-    for i in range(1, len(vector)+1):  
+    for i in range(1, len(vector)):
         if sum(vector[:i]) == sum(vector[i:]):
             return vector[:i], vector[i:]
         diff = abs(sum(vector[:i]) - sum(vector[i:]))
