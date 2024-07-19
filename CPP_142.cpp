@@ -1,5 +1,6 @@
-#include <vector>
+```c++
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -16,22 +17,6 @@ int sum_squares(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    int num;
-    
-    cout << "Enter the number of elements in the list: ";
-    cin >> num;
-    
-    lst.resize(num);
-    
-    for (int i = 0; i < num; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> lst[i];
-    }
-    
-    int result = sum_squares(lst);
-    
-    cout << "The sum of squares is: " << result << endl;
-    
-    return 0;
+    vector<int> lst = {1, 2, 3, 4, 5};
+    cout << sum_squares(lst) << endl;
 }
