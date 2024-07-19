@@ -1,45 +1,19 @@
 string find_max(vector<string> words){
-    string maxWord = *max_element(words.begin(), words.end(),
+    string result = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
+            int countA = 0;
+            for (char c : a) {
+                if (count(c) == 1) {
+                    countA++;
+                }
             }
-            return a.length() > b.length();
+            int countB = 0;
+            for (char c : b) {
+                if (count(c) == 1) {
+                    countB++;
+                }
+            }
+            return make_pair(countA, a) < make_pair(countB, b);
         });
-    
-    map<char, int> charCount;
-    for (char c : maxWord) {
-        charCount[c]++;
-    }
-    
-    int maxUnique = 0;
-    string result = "";
-    for (const auto& pair : charCount) {
-        if (pair.second == 1) {
-            maxUnique++;
-        }
-    }
-    
-    for (string word : words) {
-        map<char, int> charCountWord;
-        for (char c : word) {
-            charCountWord[c]++;
-        }
-        
-        int unique = 0;
-        for (const auto& pair : charCountWord) {
-            if (pair.second == 1) {
-                unique++;
-            }
-        }
-        
-        if (unique > maxUnique) {
-            maxUnique = unique;
-            result = word;
-        } else if (unique == maxUnique && word < result) {
-            result = word;
-        }
-    }
-    
     return result;
 }
