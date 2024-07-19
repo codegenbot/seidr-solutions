@@ -1,2 +1,2 @@
 n = int(input("Enter a number: "))
-print(n)
+arr = list(map(int, input().split()))
