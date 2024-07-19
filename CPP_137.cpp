@@ -19,7 +19,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
         else if(std::any_cast<float>(a) < std::any_cast<float>(b))
             return b;
         else
-            return 0.0f;
+            return std::any(0.0f);
     }
     else if(a.type() == typeid(std::string)) {
         if(std::any_cast<std::string>(a) > std::any_cast<std::string>(b))
@@ -27,7 +27,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
         else if(std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
             return b;
         else
-            return std::string("");
+            return std::any(std::string(""));
     }
 
     return std::any();
