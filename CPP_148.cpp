@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
 using namespace std;
 
 vector<string> bf(string planet1, string planet2) {
