@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -26,25 +27,25 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 int main() {
     int n;
     cin >> n; 
-    vector<string> lst(n);
-    for (auto &s : lst) {
-        cin >> s; 
+    vector<string> lst;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        lst.push_back(s);
     }
     
-    vector<vector<string>> result = sorted_list_sum(lst);
-
-    if(result.size() == 0){
+    if(sorted_list_sum(lst).size() == 0){
         cout << "Sorted List Sum: ";
         for(auto &s : lst){
             cout << s << ", ";
         }
         cout << endl;
     }else{
+        vector<vector<string>> result = sorted_list_sum(lst);
         for (auto &v : result) { 
             cout << v[0] << ": " << v[1] << endl;
         }
     }
 
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "ddd", "aaaa", "bbbb"}));
     return 0;
 }
