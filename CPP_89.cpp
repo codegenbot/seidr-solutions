@@ -7,13 +7,15 @@ string encrypt(string s){
                 if(encrypted_char > 'z'){
                     encrypted_char = 'a' + (encrypted_char - 'z' - 1);
                 }
-            } else {
+            }
+            else{
                 if(encrypted_char > 'Z'){
                     encrypted_char = 'A' + (encrypted_char - 'Z' - 1);
                 }
             }
             encrypted += encrypted_char;
-        } else {
+        }
+        else{
             encrypted += c;
         }
     }
