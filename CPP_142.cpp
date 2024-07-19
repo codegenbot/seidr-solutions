@@ -1,6 +1,8 @@
-using namespace std;
+```cpp
+#include <iostream>
+#include <vector>
 
-std::vector<int, allocator<int>> lst = {1,2,3,4,5};
+int data[] = {1, 2, 3, 4, 5};
 
 int sum_squares(std::vector<int> input) {
     int total = 0;
@@ -15,6 +17,7 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    std::cout << sum_squares(lst) << std::endl;
+    int len = sizeof(data) / sizeof(data[0]);
+    std::cout << sum_squares(std::vector<int>(data, data + len)) << std::endl;
     return 0;
 }
