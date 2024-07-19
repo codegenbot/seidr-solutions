@@ -21,5 +21,9 @@ string rounded_avg(int n, int m) {
     return res;
 }
 
-cin >> n >> m;
-cout << rounded_avg(n, m);
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << rounded_avg(n, m);
+    return 0;
+}
