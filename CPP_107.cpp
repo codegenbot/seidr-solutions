@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,8 +25,8 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
-vector<int> to_vector(int num) {
-    vector<int> v;
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
     while (num != 0) {
         int remainder = num % 10;
         v.push_back(remainder);
