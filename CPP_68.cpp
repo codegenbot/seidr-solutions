@@ -1,12 +1,12 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -14,8 +14,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
