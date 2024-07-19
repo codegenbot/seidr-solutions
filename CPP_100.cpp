@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
@@ -12,4 +17,9 @@ vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
