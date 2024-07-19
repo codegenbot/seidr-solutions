@@ -14,9 +14,12 @@ int compare_strings(std::string a, std::string b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter first string: ";
-    std::getline(std::cin, str1);
+    getline(std::cin, str1);
+    str1.erase(str1.find_first_of("\r\n"), 1);
+
     std::cout << "Enter second string: ";
-    std::getline(std::cin, str2);
+    getline(std::cin, str2);
+    str2.erase(str2.find_first_of("\r\n"), 1);
 
     int result = compare_strings(str1, str2);
 
