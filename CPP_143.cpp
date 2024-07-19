@@ -1,37 +1,33 @@
-```
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
-#include <initializer_list>
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-std::vector<std::string> split(std::string& str, char c) {
+std::vector<std::string> split(const std::string& str, char ch) {
     std::vector<std::string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(c)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+    std::string token = "";
+
+    for (char c : str) {
+        if (c == ch) {
+            tokens.push_back(token);
+            token = "";
+        } else {
+            token += c;
+        }
     }
-    tokens.push_back(str);
+
+    // Don't forget to add the last token
+    tokens.push_back(token);
+
     return tokens;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<std::string> words = split(sentence, ' ');
-    std::string result;
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
     
-    for (const auto& word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0)
+            return false;
     }
-    
-    return result.substr(0, result.size() - 1);
+    return true;
 }
