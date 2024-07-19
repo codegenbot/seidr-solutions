@@ -13,33 +13,7 @@ bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
-        std::string letterGrade = "";
-        if (grade >= 4.0) {
-            letterGrade = "A+";
-        } else if (grade > 3.7) {
-            letterGrade = "A";
-        } else if (grade > 3.3) {
-            letterGrade = "A-";
-        } else if (grade > 3.0) {
-            letterGrade = "B+";
-        } else if (grade > 2.7) {
-            letterGrade = "B";
-        } else if (grade > 2.3) {
-            letterGrade = "B-";
-        } else if (grade > 2.0) {
-            letterGrade = "C+";
-        } else if (grade > 1.7) {
-            letterGrade = "C";
-        } else if (grade > 1.3) {
-            letterGrade = "C-";
-        } else if (grade > 1.0) {
-            letterGrade = "D+";
-        } else if (grade > 0.7) {
-            letterGrade = "D";
-        } else {
-            letterGrade = "F";
-        }
-        result.push_back(letterGrade);
+        result.push_back((grade >= 4.0) ? "A+" : (grade > 3.7) ? "A" : (grade > 3.3) ? "A-" : (grade > 3.0) ? "B+" : (grade > 2.7) ? "B" : (grade > 2.3) ? "B-" : (grade > 2.0) ? "C+" : (grade > 1.7) ? "C" : (grade > 1.3) ? "C-" : (grade > 1.0) ? "D+" : (grade > 0.7) ? "D" : "F");
     }
     return result;
 }
