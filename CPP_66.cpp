@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 
 int digitSum(std::string s) {
@@ -10,9 +8,3 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 10);
-    return 0;
-}
