@@ -1,7 +1,5 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
@@ -34,4 +32,8 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         }
     }
     return letter_grades;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // code to compare vector a and b, return true/false accordingly
 }
