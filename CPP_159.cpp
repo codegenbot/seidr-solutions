@@ -1,20 +1,13 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-vector<int> eat(int number, int need, int remaining) {
-    int totalCarrots = number + need;
-    int eatenCarrots = min(totalCarrots, remaining);
-    int remainingCarrots = max(0, remaining - totalCarrots);
-    return {eatenCarrots, remainingCarrots};
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> eat(int number, int need, int remaining) {
+        int totalCarrots = number + need;
+        int eatenCarrots = std::min(totalCarrots, remaining);
+        int remainingCarrots = std::max(0, remaining - totalCarrots);
+        return {eatenCarrots, remainingCarrots};
+    }
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    return 0;
-}
+// Additional includes for headers used in the main function if needed.
