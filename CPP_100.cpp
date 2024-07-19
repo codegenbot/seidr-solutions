@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <initializer_list>
-
+```cpp
 bool same_vectors(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> make_a_pile(int n) {
