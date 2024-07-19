@@ -1,3 +1,5 @@
+```cpp
+#include <cassert>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -12,6 +14,7 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 }
 
 int main() {
+    assert(Strongest_Extension("Sp", {"671235"}) == "Sp.671235");
     std::cout << Strongest_Extension("My", {"Java", "Python", "C++"}) << std::endl;
     return 0;
 }
