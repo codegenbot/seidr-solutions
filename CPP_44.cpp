@@ -11,6 +11,6 @@ std::string change_base(int x, int base) {
 
 int main() {
     int x = 42;
-    std::string result_str = std::to_string(x);
+    std::cout << change_base(x, x + 1);
     return 0;
 }
