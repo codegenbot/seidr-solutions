@@ -1,4 +1,4 @@
-def find_min_difference(numbers):
+def find_min_diff_pair(numbers):
     numbers.sort()
     min_diff = float("inf")
     result = ()
@@ -8,3 +8,7 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+# Test the function with a sample list of numbers
+numbers = [5, 9, 2, 15, 8]
+print(find_min_diff_pair(numbers))
