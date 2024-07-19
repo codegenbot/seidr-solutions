@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,24 +11,30 @@ vector<string> select_words(string s, int n) {
     string word = "";
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-                result.push_back(word);
+            if (!word.empty()) {
+                unsigned vowel_count = static_cast<unsigned>(count(word.begin(), word.end(), 'a')) + 
+                                        static_cast<unsigned>(count(word.begin(), word.end(), 'e')) + 
+                                        static_cast<unsigned>(count(word.begin(), word.end(), 'i')) + 
+                                        static_cast<unsigned>(count(word.begin(), word.end(), 'o')) + 
+                                        static_cast<unsigned>(count(word.begin(), word.end(), 'u'));
+                if (vowel_count <= n) {
+                    result.push_back(word);
+                }
+                word = "";
             }
-            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-        string trimmedWord;
-        for (char c : word) {
-            if (count(&c, 1, 'a') + count(&c, 1, 'e') + count(&c, 1, 'i') + count(&c, 1, 'o') + count(&c, 1, 'u') <= n) {
-                trimmedWord += c;
-            }
+    if (!word.empty()) {
+        unsigned vowel_count = static_cast<unsigned>(count(word.begin(), word.end(), 'a')) + 
+                                static_cast<unsigned>(count(word.begin(), word.end(), 'e')) + 
+                                static_cast<unsigned>(count(word.begin(), word.end(), 'i')) + 
+                                static_cast<unsigned>(count(word.begin(), word.end(), 'o')) + 
+                                static_cast<unsigned>(count(word.begin(), word.end(), 'u'));
+        if (vowel_count <= n) {
+            result.push_back(word);
         }
-        result.push_back(trimmedWord);
-    } else {
-        result.push_back(word);
     }
     return result;
 }
