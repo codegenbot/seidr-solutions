@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -5,7 +6,7 @@ int solve(int N) {
     std::string str;
     while (N > 0) {
         int remainder = N % 2;
-        str.push_back(remainder + '0'); 
+        str += (remainder == 0) ? "0" : "1";
         N /= 2;
     }
     int sum = 0;

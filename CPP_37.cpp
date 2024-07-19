@@ -29,8 +29,7 @@ int main() {
         try {
             input.push_back(val);
         } catch (...) {
-            // handle the error here
-            std::cout << "Invalid input. Exiting." << std::endl;
+            std::cout << "Invalid input. Please enter a valid floating-point number." << std::endl;
             return 1; 
         }
     }
