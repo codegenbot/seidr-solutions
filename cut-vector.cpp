@@ -15,26 +15,22 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long diff = std::abs(v[i] - ((sum1 - prev_sum) / (i + 1)));
+            long long left_sum = sum1;
+            long long right_sum = accumulate(v.begin() + i, v.end(), 0);
+            
+            long long diff = std::abs(left_sum - right_sum);
             
             if (diff < min_diff) {
                 min_diff = diff;
                 index = i; // update the cutting point
             } else if (diff == 0) {
-                int sum1_end = 0;
-                for(int j = 0; j <= i; j++) {
-                    sum1_end += v[j];
-                }
-                if(sum1 - prev_sum == sum1_end) {
-                    res[0].assign(v.begin(), v.begin() + i+1);
-                    res[1].assign(v.begin() + i, v.end());
-                    return res;
-                }
+                res[0].assign(v.begin(), v.begin() + i+1);
+                res[1].assign(v.begin() + i, v.end());
+                return res;
             }
         }
         
         sum1 += v[i];
-        prev_sum = sum1; 
     }
     
     if (min_diff == 0) {
