@@ -1,22 +1,20 @@
 #include <vector>
 #include <cassert>
 
+vector<int> f(int n);
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    
+    for(size_t i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
-}
-
-vector<int> f(int n);
-
-int main() {
-    // Main function code here
 }
 
 vector<int> f(int n){
