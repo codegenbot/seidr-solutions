@@ -1,10 +1,7 @@
-#include <iostream>
-#include <assert.h>
-
-int skjkasdkd(int arr[], int size) {
+int bitCount(int* a, int size) {
     int sum = 0;
-    for (int i : arr) {
-        if (i >= 128)
+    for (int i = 0; i < size; i++) {
+        if ((a[i] & 0x80) != 0)
             sum += 2;
         else
             sum++;
@@ -13,6 +10,7 @@ int skjkasdkd(int arr[], int size) {
 }
 
 int main() {
-    assert(skJkasdkd({127, 97, 8192}, 3) == 10);
+    assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
+    delete[] new int[3]{127, 97, 8192};
     return 0;
 }
