@@ -4,8 +4,8 @@ bool issame(const map<char,int>& a, const map<char,int>& b){
     if (a.size() != b.size()) {
         return false;
     }
-    for (const auto& entry : a) {
-        if (b.find(entry.first) == b.end() || b.at(entry.first) != entry.second) {
+    for (auto it = a.begin(); it != a.end(); ++it) {
+        if (b.find(it->first) == b.end() || b.at(it->first) != it->second) {
             return false;
         }
     }
