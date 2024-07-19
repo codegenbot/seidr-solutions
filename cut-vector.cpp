@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     
     long long sum1 = 0, sum2 = 0;
-    long long min_diff = LLONG_MAX;
+    long long min_diff = numeric_limits<long long>::max();
     int index = 0;
     
     for (int i = 0; i < n; i++) { 
