@@ -1,26 +1,27 @@
-vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
+vector<string> split_words(string txt){
+    vector<string> words;
+    string temp = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!temp.empty()){
+                words.push_back(temp);
+                temp = "";
             }
         } else {
-            word += c;
+            temp += c;
         }
     }
-    if (!word.empty()) {
-        result.push_back(word);
+    if(!temp.empty()){
+        words.push_back(temp);
     }
-    if (result.size() == 1 && islower(result[0][0])) {
+    if(words.size() == 0){
         int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        result[0] = to_string(count);
+        words.push_back(to_string(count));
     }
-    return result;
+    return words;
 }
