@@ -44,21 +44,8 @@ int main() {
     cout << "Enter the second string: ";
     while(getline(cin, str))t.push_back(str);
     if(issame(s,t)) {
-        int i = 0;
-        bool found = false;
-        while(i < s[0].size()) {
-            for(int j = 0; j < t[0].size(); j++) {
-                if(s[0][i] == t[0][j]) {
-                    found = true;
-                    i++;
-                    break;
-                }
-            }
-            if(!found) {
-                cout << s[0].substr(i) << " ";
-                break;
-            }
-        }
+        vector<string> result = reverse_delete(s[0], t[0]);
+        for(auto str : result)cout << str << " ";
     } else {
         cout << "Strings are not the same." << endl;
     }
