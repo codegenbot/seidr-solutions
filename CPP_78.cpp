@@ -1,8 +1,9 @@
-int hex_key(string num){
+#include <string>
+
+int hex_key(std::string str) {
     int count = 0;
-    string primes = "2357BD";
-    for(char c : num){
-        if(primes.find(c) != string::npos){
+    for(char c : str) {
+        if((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
             count++;
         }
     }
