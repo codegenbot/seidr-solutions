@@ -3,14 +3,16 @@
 #include <string>
 #include <sstream>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+using namespace std;
+
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::istringstream iss(test);
-    std::string word;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
@@ -18,9 +20,9 @@ std::map<char, int> histogram(std::string test) {
     }
     int maxCount = 0;
     for (const auto& entry : result) {
-        maxCount = std::max(maxCount, entry.second);
+        maxCount = max(maxCount, entry.second);
     }
-    std::map<char, int> maxCountLetters;
+    map<char, int> maxCountLetters;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
             maxCountLetters[entry.first] = entry.second;
@@ -30,14 +32,17 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::map<char, int> result = histogram(input);
-
+    string test = "hello world";
+    map<char, int> result = histogram(test);
+    
     for (const auto& entry : result) {
-        std::cout << entry.first << ": " << entry.second << std::endl;
+        cout << entry.first << ": " << entry.second << endl;
     }
-
+    
+    map<char, int> a = {{'a', 1}, {'b', 2}, {'c', 3}};
+    map<char, int> b = {{'a', 1}, {'b', 2}, {'c', 3}};
+    
+    cout << "Is a same as b: " << issame(a, b) << endl;
+    
     return 0;
 }
