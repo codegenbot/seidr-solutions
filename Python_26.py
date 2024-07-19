@@ -1,2 +1,2 @@
-def find_unique_numbers(numbers):
-    return sorted(list(set(numbers)))
+def remove_duplicates(numbers):
+    return list(dict.fromkeys(numbers))
