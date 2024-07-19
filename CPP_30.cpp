@@ -1,8 +1,7 @@
-```c++
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool checkVectorsEqual(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,6 +24,6 @@ std::vector<float> get_positive(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}) );
+    assert(checkVectorsEqual(get_positive({}), std::vector<float>{}));
     return 0;
 }
