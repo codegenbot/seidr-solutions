@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -6,7 +7,7 @@ std::string spinWords(std::string sentence) {
     int wordLength;
     std::string word;
 
-    for (int i = 0; i < sentence.length(); i++) {
+    for (int i = 0; i <= sentence.length(); i++) {
         if (i == sentence.length() || sentence[i] == ' ') {
             wordLength = i - word.length();
             if (wordLength >= 5) {
@@ -29,8 +30,16 @@ std::string spinWords(std::string sentence) {
 
 int main() {
     std::string input;
-    while (std::cout << "Enter a string: ", std::getline(std::cin, input)) {
-        std::cout << spinWords(input) << std::endl;
+    while (true) {
+        std::cout << "Enter a string: ";
+        if (!(std::cin >> input)) {
+            std::cout << "Invalid input. Please try again." << std::endl;
+            std::cin.clear();  
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+        } else {
+            break; 
+        }
     }
+    std::cout << spinWords(input) << std::endl;
     return 0;
 }
