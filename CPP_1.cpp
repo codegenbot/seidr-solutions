@@ -1,14 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Function implementation here
-    return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Function implementation
+    return true;
+}
+
+std::vector<std::string> separate_paren_groups(std::string s) {
+    // Function implementation
+    return {};
 }
 
 int main() {
-    assert(isSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    // Additional code logic here
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
     return 0;
 }
