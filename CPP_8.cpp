@@ -1,21 +1,7 @@
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-namespace Solution {
-    vector<int> sum_product(vector<int> nums) {
-        int sum = 0, product = 1;
-        for (int num : nums) {
-            sum += num;
-            product *= num;
-        }
-        return {sum, product};
-    }
+int sum = 0;
+int product = 1;
+for (int num : numbers) {
+    sum += num;
+    product *= num;
 }
-
-int main() {
-    assert(Solution::sum_product({10, 10}) == vector<int>{20, 100});
-    assert(Solution::sum_product({10}) == vector<int>{10, 10}.size());
-    return 0;
-}
+return {sum, product};
