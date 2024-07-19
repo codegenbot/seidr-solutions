@@ -20,9 +20,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs; 
-    coeffs.resize(n); 
-
+    vector<double> coeffs(n, 0.0); // initializes all elements with 0.0
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
