@@ -3,8 +3,9 @@ from typing import List, Tuple
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    max_num = float("-inf")
+    max_num = None
     for num in numbers:
-        max_num = max(max_num, num)
+        if max_num is None or num > max_num:
+            max_num = num
         result.append(max_num)
     return result
