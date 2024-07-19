@@ -10,7 +10,4 @@ int can_arrange(std::vector<int> arr){
     return idx;
 }
 
-int main() {
-    assert(can_arrange(std::vector<int>{}) == -1);
-    return 0;
-}
+assert(can_arrange({}) == -1);
