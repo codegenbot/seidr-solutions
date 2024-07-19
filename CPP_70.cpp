@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> strange_sort_list(std::vector<int> lst);
 
-int main() {
+int main {
     std::vector<int> input = {4, 2, 7, 1, 8};
     std::vector<int> expected = {1, 8, 2, 7, 4};
     
