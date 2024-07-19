@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int compareArrays() {
     int n;
     cin >> n;
     vector<int> user_input;
@@ -23,7 +23,7 @@ int main() {
         cin >> x;
         user_input.push_back(x);
     }
-    if (issame(user_input, user_input)) {
+    if (isSame(user_input, user_input)) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;
