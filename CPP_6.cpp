@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <vector>
 #include <string>
@@ -13,10 +14,10 @@ vector<int> parse_nested_parens(string paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
-            max_nesting = max(max_nesting, (int)nesting_levels.size());
+            max_nesting = std::max(max_nesting, (int)nesting_levels.size());
         } else if (c == ')') {
             nesting_levels.pop();
-            max_nesting = max(max_nesting, (int)nesting_levels.size());
+            max_nesting = std::max(max_nesting, (int)nesting_levels.size());
         }
     }
 
