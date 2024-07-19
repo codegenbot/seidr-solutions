@@ -1,2 +1,2 @@
 def remove_duplicates(numbers):
-    return list(dict.fromkeys(numbers))
+    return list(set(numbers))
