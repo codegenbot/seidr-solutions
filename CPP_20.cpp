@@ -7,5 +7,5 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> find_closest_elements(std::vector<float> arr) {
     std::sort(arr.begin(), arr.end());
-    return {arr[0], arr[1]};
+    return {arr[arr.size() - 2], arr[arr.size() - 1]};
 }
