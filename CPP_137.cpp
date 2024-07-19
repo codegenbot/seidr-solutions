@@ -1,42 +1,40 @@
-#include <cassert>
 #include <boost/any.hpp>
+#include <cassert>
 #include <algorithm>
 #include <string>
 
-using namespace std;
-
-string compare_one(boost::any a, boost::any b) {
+std::any compare_one(std::any a, std::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return boost::any_cast<int>(a);
-        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return boost::any_cast<int>(b);
+        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
+            return a;
+        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
+            return b;
         } else {
             return "None";
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return boost::any_cast<float>(a);
-        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return boost::any_cast<float>(b);
+        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
+            return a;
+        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
+            return b;
         } else {
             return "None";
         }
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
         float num1, num2;
-        if(boost::any_cast<string>(a).find_first_of(",") != string::npos){
-            std::replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
+        if(std::any_cast<std::string>(a).find_first_of(",") != std::string::npos){
+            std::replace(std::any_cast<std::string>(a).begin(), std::any_cast<std::string>(a).end(), ',', '.');
         }
-        if(boost::any_cast<string>(b).find_first_of(",") != string::npos){
-            std::replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
+        if(std::any_cast<std::string>(b).find_first_of(",") != std::string::npos){
+            std::replace(std::any_cast<std::string>(b).begin(), std::any_cast<std::string>(b).end(), ',', '.');
         }
-        num1 = stof(boost::any_cast<string>(a));
-        num2 = stof(boost::any_cast<string>(b));
+        num1 = std::stof(std::any_cast<std::string>(a));
+        num2 = std::stof(std::any_cast<std::string>(b));
 
         if(num1 > num2){
-            return boost::any_cast<string>(a);
+            return a;
         } else if(num1 < num2){
-            return boost::any_cast<string>(b);
+            return b;
         } else {
             return "None";
         }
