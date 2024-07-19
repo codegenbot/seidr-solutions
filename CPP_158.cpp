@@ -1,11 +1,11 @@
-```cpp
 #include <algorithm>
 #include <string>
 using namespace std;
 
 int main() {
-    int result = find_max({"play", "play", "play"});
-    cout << result;
+    int main() {
+        assert ((find_max({"play", "play", "play"}) == "play"));
+    }
 }
 
 string find_max(vector<string> words){
