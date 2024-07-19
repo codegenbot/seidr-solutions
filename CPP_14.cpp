@@ -1,31 +1,28 @@
-#include <string>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> all_prefixes(string str);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> all_prefixes(string str){
-    vector<string> result;
+std::vector<std::string> all_prefixes(std::string str){
+    std::vector<std::string> result;
     for (int i = 1; i <= str.size(); ++i) {
         result.push_back(str.substr(0, i));
     }
     return result;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
-    // Your main function code here
+    std::vector<std::string> prefixes1 = all_prefixes("hello");
+    std::vector<std::string> prefixes2 = all_prefixes("world");
+
+    if (issame(prefixes1, prefixes2)) {
+        std::cout << "Prefixes are the same" << std::endl;
+    } else {
+        std::cout << "Prefixes are different" << std::endl;
+    }
+
     return 0;
 }
