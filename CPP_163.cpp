@@ -20,6 +20,6 @@ std::vector<int> issame(const std::vector<int>& a) {
 }
 
 int main() {
-    assert(!issame(std::vector<int>()).empty());
+    assert(!issame(std::vector<int>{}).empty());
     return 0;
 }
