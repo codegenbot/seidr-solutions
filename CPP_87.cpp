@@ -7,7 +7,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 int main() {
-    // Main function code here
+    // main function code here
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
