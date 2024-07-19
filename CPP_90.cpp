@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1; // or any other value that represents "None"
     for (int i = 0; i < sorted.size() - 1; i++) {
@@ -15,8 +16,9 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst(std::vector<int>::size_type(0)); 
+    std::vector<int> lst;
     int num;
+    lst.reserve(1024); 
     while(std::cin >> num) {
         lst.push_back(num);
     }
