@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def sum_product():
     numbers = list(map(int, input("Enter space-separated integers (1-10): ").split()))
     
