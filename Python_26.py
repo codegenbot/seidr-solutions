@@ -1,2 +1,2 @@
 def remove_duplicates(numbers):
-    return list(set(numbers))
+    return sorted(list(set(numbers))
