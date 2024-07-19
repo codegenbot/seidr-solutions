@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 string encrypt(string s){
     string encrypted = "";
     for (char c : s) {
@@ -10,4 +16,9 @@ string encrypt(string s){
         }
     }
     return encrypted;
+}
+
+int main(){
+    assert (encrypt("a") == "e");
+    return 0;
 }

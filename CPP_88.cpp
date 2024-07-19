@@ -1,9 +1,22 @@
-if(array.empty()) return array;
-    int sum = array.front() + array.back();
-    if(sum % 2 == 0){
-        sort(array.begin(), array.end(), greater<int>());
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+std::vector<int> sort_array(const std::vector<int>& array) {
+    auto sortedArray = array;
+    if ((sortedArray.front() + sortedArray.back()) % 2 == 0) {
+        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(sortedArray.begin(), sortedArray.end());
     }
-    return array;
+    return sortedArray;
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    return 0;
 }
