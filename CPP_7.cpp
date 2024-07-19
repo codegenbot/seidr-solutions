@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>  // Add this line for string
+#include <string>
 #include <cassert>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
@@ -12,6 +12,4 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
