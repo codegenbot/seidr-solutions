@@ -14,12 +14,7 @@ std::string match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst;
-    std::cout << "Enter the list of strings: ";
-    std::string str;
-    while(std::cin >> str) {
-        lst.push_back(str);
-    }
-    std::cout << "Do the parentheses match? " << match_parens(lst) << std::endl;
+    std::vector<std::string> lst = {"(123)", "(456)", ")789("};
+    std::cout << match_parens(lst) << std::endl;
     return 0;
 }
