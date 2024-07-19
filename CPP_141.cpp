@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 string file_name_check(string file_name) {
     int digit_count = 0;
@@ -29,6 +27,9 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    // Test the function file_name_check here
+    string input;
+    cin >> input;
+    cout << file_name_check(input);
+
     return 0;
 }
