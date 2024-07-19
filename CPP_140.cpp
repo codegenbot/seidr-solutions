@@ -2,31 +2,15 @@
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
-    std::string result;
-    bool lastSpace = false;
-    int consecutiveSpaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            if (lastSpace) {
-                consecutiveSpaces++;
-            } else {
-                lastSpace = true;
-                consecutiveSpaces = 1;
-            }
-            if (consecutiveSpaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += '_';
-            }
-        } else {
-            result += c;
-            lastSpace = false;
-            consecutiveSpaces = 0;
+    std::string modified_text = text;
+    for (int i = 0; i < modified_text.length(); ++i) {
+        if (modified_text[i] == ' ' && i + 2 < modified_text.length() && modified_text[i + 1] == ' ' && modified_text[i + 2] == ' ') {
+            modified_text.replace(i, 3, "-");
+        } else if (modified_text[i] == ' ') {
+            modified_text[i] = '_';
         }
     }
-    return result;
+    return modified_text;
 }
 
 int main() {
