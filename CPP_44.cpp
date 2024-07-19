@@ -9,3 +9,11 @@ string change_base(int x, int base) {
     }
     return result;
 }
+
+int main() {
+    assert(change_base(10, 2) == "1010");
+    assert(change_base(15, 16) == "F");
+    assert(change_base(255, 2) == "11111111");
+    
+    return 0;
+}
