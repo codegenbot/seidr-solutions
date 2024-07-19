@@ -1,5 +1,2 @@
-def complete_code(string, i):
+def complete_code(string: str, i: int) -> str:
     return string + string[: i + 1][::-1] if i >= 0 else string[:-1][::-1] + string[:]
-
-output = complete_code(input("Enter a string: "), int(input("Enter an integer: ")))
-print(output)
