@@ -6,14 +6,14 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 vector<string> filter_by_prefix(vector<string> words, string prefix) {
     vector<string> result;
-    for (const auto& word : words) {
-        if (word.find(prefix) == 0) {
+    for (const auto &word : words) {
+        if (word.substr(0, prefix.size()) == prefix) {
             result.push_back(word);
         }
     }
@@ -21,6 +21,6 @@ vector<string> filter_by_prefix(vector<string> words, string prefix) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
