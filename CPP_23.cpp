@@ -7,9 +7,6 @@ int customStringLength(const char* str) {
 }
 
 int main() {
-    const char* userInput;
-    std::cin >> userInput;
-    int length = customStringLength(userInput);
-    std::cout << length << std::endl;
-    return 0;
+    assert(customStringLength("asdasnakj") == 9);
+    assert(customStringLength("asdas  asnakj") == 13);
 }
