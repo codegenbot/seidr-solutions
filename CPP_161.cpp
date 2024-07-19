@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
@@ -12,4 +13,9 @@ string strToChar(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(strToChar("#ccc") == "#CCC");
+    // ... rest of your code ...
 }
