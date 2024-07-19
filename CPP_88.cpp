@@ -10,7 +10,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> sort_array(vector<int> array){
+vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
     
     int sum = array.front() + array.back();
