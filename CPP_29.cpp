@@ -2,9 +2,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <set>
 
-auto issame = [](std::vector<std::string> a, const std::vector<std::string>& b) -> bool {
-    return a == b;
+auto filter_by_prefix = [](const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return std::set<std::string>(a.begin(), a.end()) == std::set<std::string>(b.begin(), b.end());
 };
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
