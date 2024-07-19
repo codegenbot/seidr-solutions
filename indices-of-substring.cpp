@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <string>
 using std::cout;
 using std::cin;
 using std::string;
-using std::getline;
-using std::istringstream;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
     std::vector<int> result;
@@ -13,7 +10,7 @@ std::vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for(int i=0; i<n-m+1; i++){
-        if(text.substr(i,m) == target){
+        if(text.substr(i,m).find(target) != std::string::npos){
             result.push_back(i);
         }
     }
@@ -22,11 +19,9 @@ std::vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string input, text, target;
-    getline(cin, input);
-    istringstream iss(input);
-    iss >> text >> target;
-    
+    string text, target;
+    cin >> text >> target;
+    cin.ignore(); 
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
