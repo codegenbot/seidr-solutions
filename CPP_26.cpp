@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
@@ -27,8 +27,7 @@ vector<int> uniqueNumbers(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> test(7);
-    test[0] = 1; test[1] = 2; test[2] = 3; test[3] = 2; test[4] = 4; test[5] = 3; test[6] = 5;
+    vector<int> test = {1, 2, 3, 2, 4, 3, 5};
     assert (issame(uniqueNumbers(test), uniqueNumbers(test)) );
     return 0;
 }
