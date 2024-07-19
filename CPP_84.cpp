@@ -1,7 +1,3 @@
-#include <iostream>
-#include <bitset>
-#include <cassert>
-
 string solve(int N) {
     int sum = 0;
     while (N > 0) {
