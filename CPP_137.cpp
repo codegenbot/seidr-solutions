@@ -1,45 +1,32 @@
 #include <any>
 #include <cassert>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
-std::string compare_one(const std::any &a, const std::any &b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
-            return std::any_cast<int>(a);
-        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
-            return std::any_cast<int>(b);
-        } else {
-            return "";
-        }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
-            return std::any_cast<float>(a);
-        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
-            return std::any_cast<float>(b);
-        } else {
-            return "";
-        }
-    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        double valA = stod(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        double valB = stod(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        if(valA > valB){
-            return std::any_cast<std::string>(a);
-        } else if(valA < valB){
-            return std::any_cast<std::string>(b);
-        } else {
-            return "";
-        }
-    } else if((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))){
-        double valA = a.type() == typeid(int) ? std::any_cast<int>(a) : stod(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        double valB = b.type() == typeid(int) ? std::any_cast<int>(b) : stod(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        if(valA > valB){
-            return std::any_cast<std::string>(a);
-        } else if(valA < valB){
-            return std::any_cast<std::string>(b);
-        } else {
-            return "";
-        }
+template <typename T>
+T compare_any(const std::any& a, const std::any& b) {
+    assert(a.type() == b.type());
+
+    if (a.type() == typeid(int)) {
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? std::any_cast<int>(a) : std::any_cast<int>(b);
+    } else if (a.type() == typeid(float)) {
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? std::any_cast<float>(a) : std::any_cast<float>(b);
+    } else if (a.type() == typeid(std::string)) {
+        float valA = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float valB = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        return valA > valB ? std::any_cast<std::string>(a) : std::any_cast<std::string>(b);
+    } else {
+        return T();
     }
-    assert(false); // Unknown types encountered
-    return ""; // Default return value
+}
+
+int main() {
+    std::any a = 10;
+    std::any b = 20;
+    
+    std::cout << std::any_cast<int>(compare_any<int>(a, b)) << std::endl;
+
+    return 0;
 }
