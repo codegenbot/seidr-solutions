@@ -1,3 +1,12 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
