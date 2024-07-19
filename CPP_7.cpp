@@ -15,29 +15,24 @@ bool equal_vectors(const std::vector<std::vector<std::string>>& v1, const std::v
 
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
     std::vector<std::vector<std::string>> result;
-    for (const auto& word : words) {
+    for (size_t i = 0; i < words.size(); ++i) {
         bool found = false;
-        for (const auto& w : word) {
-            if (w.find(substring) != std::string::npos) {
+        for (size_t j = 0; j < words[i].size(); ++j) {
+            if (words[i][j].find(substring) != std::string::npos) {
                 found = true;
                 break;
             }
         }
         if (found) {
-            result.push_back(word);
+            result.push_back(words[i]);
         }
     }
     return result;
 
 int main() {
-    // Test case for equal_vectors function
-    std::vector<std::vector<std::string>> v1;
-    v1.push_back({{"apple", "banana"}});
-    v1.push_back({{"hello", "world"}});
-
-    std::vector<std::vector<std::string>> v2;
-    v2.push_back({{"apple", "banana"}});
-    v2.push_back({{"goodbye", "world"}});
+    std::vector<std::vector<std::string>> v1({{{"apple", "banana"}, {"hello", "world"}}});
+    
+    std::vector<std::vector<std::string>> v2({{{"apple", "banana"}, {"goodbye", "world"}}});
 
     if (!equal_vectors(v1, v2)) {
         std::cout << "Vectors are not equal" << std::endl;
@@ -45,8 +40,7 @@ int main() {
         std::cout << "Vectors are equal" << std::endl;
     }
 
-    // Test case for filter_by_substring function
-    std::vector<std::vector<std::string>> words = {{{"apple", "banana", "hello"}, {"world", "goodbye"}}};
+    std::vector<std::vector<std::string>> words = {{"apple", "banana", "hello"}, {"world", "goodbye"}};
     std::string substring = "o";
     std::vector<std::vector<std::string>> result = filter_by_substring(words, substring);
     for (const auto& word : result) {
