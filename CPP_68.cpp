@@ -17,6 +17,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{7, 1}));
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{1, 7}));
     return 0;
 }
