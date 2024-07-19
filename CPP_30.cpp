@@ -8,15 +8,16 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l) {
-    std::vector<float> result;
-    for (float num : l) {
+std::vector<float> get_positive(const std::vector<int>& l) {
+    std::vector<float> result(std::allocator<float>());
+    for (int num : l) {
         if (num > 0) {
-            result.push_back(num); 
+            result.push_back((float)num); 
         }
     }
     return result;
