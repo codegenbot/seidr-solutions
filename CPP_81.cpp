@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(float a, float b) {
-    return abs(a - b) < 0.0001;
+    return a == b;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
