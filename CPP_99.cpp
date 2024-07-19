@@ -1,10 +1,10 @@
 #include <string>
 
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
     int integerPart = (int)num;
     if (abs(num - integerPart) >= 0.5) {
-        return integerPart + (num > integerPart ? 1 : -1);
+        return num > 0 ? integerPart + 1 : integerPart - 1;
     } else {
         return integerPart;
     }
