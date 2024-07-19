@@ -1,3 +1,5 @@
+```cpp
+#include <algorithm>
 #include <vector>
 #include <string>
 
@@ -26,7 +28,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     result.push_back(temp);
     string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
+    std::reverse(revTemp.begin(), revTemp.end());
     if (temp == revTemp) {
         result.push_back("True");
     } else {
@@ -36,7 +38,6 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    assert(issame({output}, {{"", "True"}}));
+    assert(issame({reverse_delete("mamma", "mia")}, {{"", "True"}}));
     return 0;
 }
