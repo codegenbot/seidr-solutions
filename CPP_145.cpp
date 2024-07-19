@@ -13,7 +13,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             return std::accumulate(std::to_string(std::abs(num)).begin(), std::to_string(std::abs(num)).end(),
                                     0, [](int acc, char c) { return acc + c - '0'; });
         };
-        return calc_sum(a) == calc_sum(b) ? a < b : calc_sum(a) < calc_sum(b);
+        return a < b;
     });
     return nums;
 }
@@ -23,7 +23,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
-    
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}),
+                   std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+
     return 0;
 }
