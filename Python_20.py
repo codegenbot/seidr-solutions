@@ -1,6 +1,6 @@
 def find_closest_elements(numbers):
     numbers.sort()
-    min_diff = float('inf')
+    min_diff = float('inf)
     closest_pair = []
     
     for i in range(len(numbers) - 1):
@@ -12,6 +12,7 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
+    print("Enter the number of elements in the list:")
     n = int(input().strip())
     numbers = list(map(int, input().strip().split()))
     closest_pair = find_closest_elements(numbers)
