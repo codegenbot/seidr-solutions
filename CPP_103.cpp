@@ -1,8 +1,11 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <algorithm>
 #include <cmath> 
 using namespace std;
+
+string res = "";
 
 string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -11,7 +14,6 @@ string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round((double)sum / (m - n + 1)); 
-    string res = "";
     while (avg > 0) {
         if ((int)avg & 1) res += '1';
         else res += '0';
