@@ -7,4 +7,5 @@ def factorize(number):
                 factors.append(number // i)
     return sorted(factors)
 
-print(factorize(int(input("Enter a number to factorize: ")))
+input_number = int(input("Enter a number to factorize: "))
+print(factorize(input_number))
