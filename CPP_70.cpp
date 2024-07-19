@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <numeric>
-#include <initializer_list>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -25,4 +24,15 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = strange_sort_vector(a);
+    if (a != b) {
+        for (size_t i = 0; i < a.size(); ++i) {
+            assert(a[i] == b[i]);
+        }
+    }
+    return 0;
 }
