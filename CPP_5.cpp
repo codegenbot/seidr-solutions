@@ -1,15 +1,13 @@
-#include <vector> 
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> intersperse(vector<int> numbers, int delimeter); 
-
-vector<int> intersperse(vector<int> numbers, int delimeter){ 
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
+    std::vector<int> result;
     for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
         if(i != numbers.size() - 1){
-            result.push_back(delimeter);
+            result.push_back(delimiter);
         }
     }
     return result;
