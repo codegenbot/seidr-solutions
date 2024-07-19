@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -6,7 +5,8 @@
 int sum_squares(std::vector<double> lst){
     int total = 0;
     for(double num : lst){
-        total += std::pow(std::ceil(num),2);
+        int ceil_num = std::ceil(num);
+        total += std::pow(ceil_num,2);
     }
     return total;
 }
