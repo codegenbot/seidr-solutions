@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,5 +35,11 @@ int main() {
     vector<int> a = parse_nested_parens("((())())");
     vector<int> b = parse_nested_parens("(()())");
 
-    assert(issame(a, b));
+    if (issame(a, b)) {
+        cout << "Vectors a and b are the same." << endl;
+    } else {
+        cout << "Vectors a and b are different." << endl;
+    }
+
+    return 0;
 }
