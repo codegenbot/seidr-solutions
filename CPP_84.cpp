@@ -1,8 +1,7 @@
-string binarySum = "";
+int sum = 0;
     while (N > 0) {
-        int digit = N % 2;
-        binarySum = to_string(digit) + binarySum;
+        sum += N % 2;
         N /= 2;
     }
-    return binarySum;
+    return to_string(sum);
 }
