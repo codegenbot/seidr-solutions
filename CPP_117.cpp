@@ -1,19 +1,31 @@
 #include <iostream>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<string> a, std::vector<string> b) {
     return a == b;
 }
 
+std::vector<string> select_words(std::string s, int n);
+
 vector<string> select_words(string s, int n);
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
+int main() {
+    std::vector<std::string> result = select_words("Hello, world! Welcome to the code contest.", 2);
+    
+    for (const std::string& word : result) {
+        cout << word << endl;
+    }
+
+    return 0;
+}
+
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
     if (s.empty()) {
         return result;
     }
 
-    string word;
+    std::string word;
     int consonant_count = 0;
     for (char c : s) {
         if (c == ' ') {
@@ -35,14 +47,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
-    
-    for (const string& word : result) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
