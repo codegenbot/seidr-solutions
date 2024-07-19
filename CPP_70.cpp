@@ -1,18 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
-bool issame(int x) {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {3, 2, 1};
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
@@ -38,11 +27,9 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 int main() {
     std::vector<int> a = {1, 2, 3};
-    if (!issame(a)) {
-        a = strange_sort_list(a);
-    }
+    std::vector<int> b = strange_sort_vector(a); // Rename here
     for (size_t i = 0; i < a.size(); ++i) {
-        std::cout << a[i] << " ";
+        assert(a[i] == b[i]);
     }
     return 0;
 }
