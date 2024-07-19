@@ -1,4 +1,3 @@
-#include <cmath>
 #include <string>
 
 string rounded_avg(int n, int m) {
@@ -16,4 +15,3 @@ string rounded_avg(int n, int m) {
     }
     reverse(res.begin(), res.end());
     return res;
-}
