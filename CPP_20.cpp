@@ -1,15 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
-std::vector<float> find_closest_elements(const std::vector<float>& arr) {
-    std::vector<float> closest_elements = {arr[1], arr[2]};
-    return closest_elements;
+std::vector<float> find_closest_elements(const std::vector<float>& nums) {
+    float min_diff = std::abs(nums[0] - nums[1]);
+    std::vector<float> result = {nums[0], nums[1]};
+
+    for (size_t i = 0; i < nums.size() - 1; ++i) {
+        if (std::abs(nums[i] - nums[i + 1]) < min_diff) {
+            min_diff = std::abs(nums[i] - nums[i + 1]);
+            result = {nums[i], nums[i + 1]};
+        }
+    }
+
+    return result;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b; // Check if vectors are equal
 }
 
 int main() {
