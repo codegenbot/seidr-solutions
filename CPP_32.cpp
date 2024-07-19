@@ -17,7 +17,7 @@ int main() {
     }
 
     // Find the zero of the polynomial equation
-    auto solution = find_zero(coeffs);
+    std::vector<double> solution = find_zero(coeffs);
 
     // Check the result
     assert(std::abs(poly(solution, coeffs)) < 1e-3);
