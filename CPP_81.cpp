@@ -2,6 +2,10 @@
 #include <string>
 #include <cassert>
 
+bool issame(std::vector<double> a, std::vector<double> b) {
+    return a == b;
+}
+
 bool issame(std::vector<double> a,std::vector<double> b){
     return a == b;
 }
