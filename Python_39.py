@@ -18,7 +18,7 @@ def prime_fib(n):
             return a
         a, b = b, a + b
 
-n = int(input("Enter a number: "))
+n = int(input("Enter a number: ")) if n.isdigit() else 0
 try:
     if n <= 0:
         raise ValueError("Please enter a positive integer.")
