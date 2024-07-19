@@ -47,3 +47,4 @@ int main() {
         std::cout << "Strings are not the same." << std::endl;
     }
     return 0;
+}
