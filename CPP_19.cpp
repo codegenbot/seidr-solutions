@@ -5,6 +5,10 @@
 #include <map>
 #include <string>
 
+using namespace std;
+
+string sort_numbers(string numbers);
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -18,15 +22,10 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers);
-
 int main() {
-    string input_numbers;
-    cout << "Enter numbers separated by spaces: ";
-    getline(cin, input_numbers);
-
-    cout << sort_numbers(input_numbers) << endl;
-
+    string numbers;
+    getline(cin, numbers);
+    cout << sort_numbers(numbers);
     return 0;
 }
 
