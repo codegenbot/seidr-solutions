@@ -9,7 +9,7 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> issame(std::vector<int> a) {
     std::vector<int> result;
     for (int i : a) {
         if (i % 2 == 0) {
@@ -20,6 +20,6 @@ std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}).empty());
+    assert(!issame(generate_integers(17, 89)).empty());
     return 0;
 }
