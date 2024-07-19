@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <iostream>
 
 std::string change_base(int x, int base) {
     std::string result = "";
