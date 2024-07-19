@@ -1,9 +1,7 @@
-bool issame(vector<string> a,vector<string>b) {
-    return a==b;
-}
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result = lst;
-
+    
     // Remove strings with odd lengths from the list
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
@@ -24,4 +22,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
 
     return result;
+}
+
+bool issame(vector<string> a,vector<string>b) {
+    return a==b;
 }
