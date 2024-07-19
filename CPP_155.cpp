@@ -1,4 +1,4 @@
-vector<int> result = {0, 0};
+vector<int> result(2, 0);
     string numStr = to_string(abs(num));
     for (char digit : numStr) {
         if ((digit - '0') % 2 == 0) {
