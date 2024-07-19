@@ -7,9 +7,9 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::string output = remove_vowels(input);  
+    input = remove_vowels(input);  
 
-    std::cout << "String after removing vowels: " << output << std::endl;
+    std::cout << "String after removing vowels: " << result.c_str() << std::endl;
     return 0;
 }
 
