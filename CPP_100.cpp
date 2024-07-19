@@ -1,32 +1,18 @@
-#include <iostream>
+```
 #include <vector>
-#include <algorithm>
 
-using namespace std;
-
-bool isSame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int stones = n;
+    while (stones > 0) {
+        pile.push_back(stones);
+        if (n % 2 == 1) {
+            n++;
+            stones = n;
+        } else {
+            n++;
+            stones = n;
+        }
     }
-    return a == b;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n+1, 0); 
-    sort(a.begin(), a.end());
-    cout << "Enter the number of cards in your hand: ";
-    int m;
-    cin >> m;
-    vector<int> b(m, 0);
-    sort(b.begin(), b.end());
-    
-    if (isSame(a, b)) {
-        cout << "You have the same pile as me." << endl;
-    } else {
-        cout << "You don't have the same pile as me." << endl;
-    }
-    
-    return 0;
+    return pile;
 }
