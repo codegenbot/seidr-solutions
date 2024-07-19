@@ -5,7 +5,7 @@ bool isPrime(int num) {
     if (num <= 1) {
         return false;
     }
-    for (int i = 2; i <= sqrt(num); ++i) {
+    for (int i = 2; i <= sqrt(num); i++) {
         if (num % i == 0) {
             return false;
         }
@@ -17,18 +17,19 @@ int prime_fib(int n) {
     if (n == 1) {
         return 2;
     }
-    int prev = 1, curr = 1, next;
-    for (int i = 3; i <= n; ++i) {
-        next = prev + curr;
-        while (!isPrime(next)) {
-            next = prev + curr;
-            prev = curr;
-            curr = next;
-        }
-        prev = curr;
-        curr = next;
+    if (n == 2) {
+        return 3;
     }
-    return next;
+    int a = 2, b = 3, c;
+    for (int i = 3; i <= n; i++) {
+        c = a + b;
+        while (!isPrime(c)) {
+            c++;
+        }
+        a = b;
+        b = c;
+    }
+    return c;
 }
 
 int main() {
