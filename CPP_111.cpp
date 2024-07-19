@@ -3,11 +3,9 @@
 #include <map>
 #include <algorithm>
 
-map<char, int> histogram(string test);
+bool issame(const map<char, int>& a, const map<char, int>& b);
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    // Your implementation here
-}
+map<char, int> histogram(string test);
 
 map<char, int> histogram(string test) {
     map<char, int> counts;
