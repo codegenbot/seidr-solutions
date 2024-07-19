@@ -1,6 +1,6 @@
+```
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -15,9 +15,8 @@ std::string anti_shuffle(std::string s) {
                 word += s[i];
                 i++;
             }
-            sort(word.begin(), word.end());
             for (char c : word) {
-                result += c;
+                result += (int)c;
             }
             i--;
         }
