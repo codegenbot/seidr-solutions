@@ -6,11 +6,13 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> rescale_to_unit(std::vector<float> values) {
-    float max_val = *std::max_element(values.begin(), values.end());
-    
+    float min_val = *min_element(values.begin(), values.end());
+    float max_val = *max_element(values.begin(), values.end());
+    float scale = 1 / (max_val - min_val);
+
     for (float &val : values) {
-        val /= max_val;
+        val = (val - min_val) * scale;
     }
-    
+
     return values;
 }
