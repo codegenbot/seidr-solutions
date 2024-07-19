@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::vector<std::string>>& a,const std::vector<std::vector<std::string>>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -55,14 +54,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame({{ "One" }},{ { "One" } }));
-    
-    std::vector<int> numbers = {9, 4, 8};
-    std::vector<std::string> output = by_length(numbers);
+    std::vector<int> input = {1, 2, 3};
+    std::vector<std::string> output = by_length(input);
     for (const auto& str : output) {
         std::cout << str << " ";
     }
-    std::cout << std::endl;
-
     return 0;
-}
