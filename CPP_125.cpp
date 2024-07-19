@@ -40,7 +40,5 @@ vector<string> split_words(string txt){
 }
 
 int main() {
-    // Your code logic goes here
-
-    return 0;
+    // Your code here
 }
