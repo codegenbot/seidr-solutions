@@ -6,7 +6,7 @@ void sort_array(const std::vector<int>& arr) {
     std::sort(arr.begin(), arr.end());
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     sort_array(a);
     sort_array(b);
 
