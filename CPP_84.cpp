@@ -2,14 +2,17 @@
 #include <iostream>
 #include <string>
 
-int solve(int N) {
-    int sum = 0;
+std::string solve(int N) {
+    std::string result = "";
     while (N > 0) {
         int remainder = N % 2;
-        sum += remainder;
+        if (remainder == 1)
+            result += "1";
+        else
+            result += "0";
         N /= 2;
     }
-    return sum;
+    return result;
 }
 
 int main() {

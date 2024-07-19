@@ -28,13 +28,7 @@ int main() {
         a.push_back(num);
     }
 
-    vector<float> b;
-    for(float x : a) {
-        if(x > 0) {
-            b.push_back(x);
-        }
-    }
-
+    vector<float> b = get_positive(a);
     reverse(b.begin(), b.end());
 
     if (a == b) {
