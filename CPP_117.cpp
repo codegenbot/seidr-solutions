@@ -1,8 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
+```cpp
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -16,7 +23,7 @@ vector<string> select_words(string s, int n) {
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (static_cast<unsigned>(vowel_count) <= n) {
+                if (vowel_count <= n) {
                     result.push_back(word);
                     word = "";
                 }
@@ -25,21 +32,17 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && (word.find_first_of("aeiouAEIOU") == string::npos || word.length() - 1 - word.find_first_of("aeiouAEIOU")) <= n) {
+    if (!word.empty() && word.find_first_of("aeiouAEIOU") != string::npos &&
+        (word.length() - 1 - word.find_first_of("aeiouAEIOU")) <= n) {
         result.push_back(word);
     }
     return result;
 }
 
 int main() {
-    string s;
-    int n;
-    cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << "Enter the maximum number of vowels allowed in each word: ";
-    cin >> n;
-    vector<string> words = select_words(s, n);
-    for (string w : words) {
-        cout << w << endl;
+    vector<string> result = select_words("a b c d e f", 1);
+    for (string word : result) {
+        // Use the words in the 'result' vector as needed
     }
+    return 0;
 }
