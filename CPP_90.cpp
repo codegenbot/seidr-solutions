@@ -1,14 +1,11 @@
-int next_smallest(vector<int> lst) {
-    vector<int> lstCopy(lst);
-    sort(lstCopy.begin(), lstCopy.end());
-    
-    if (lstCopy.size() < 2) return -1;
-    
-    for (int i = 0; i < lstCopy.size(); i++) {
-        if (i > 0 && lstCopy[i] != lstCopy[i-1]) {
-            return lstCopy[i];
-        }
+Here is the completed code:
+
+int next_smallest(vector<int> lst){
+    if(lst.empty()) return -1;  // Return None equivalent in C++ (i.e., -1)
+    vector<int> v = lst;
+    sort(v.begin(),v.end());
+    for(int i=0;i<v.size()-1;i++){
+        if(v[i] != v[i+1]) return v[i+1];
     }
-    
-    return -1;
+    return -1;  // Return None equivalent in C++ (i.e., -1)
 }
