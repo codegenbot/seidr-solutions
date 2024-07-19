@@ -1,6 +1,7 @@
 #include <vector>
-bool issame(vector<int> a, vector<int> b) {
-    vector<int> factors;
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
             factors.push_back(i);
