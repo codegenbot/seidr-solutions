@@ -15,8 +15,6 @@ long long double_the_difference(std::vector<int> nums){
 }
 
 int main(){
-    long long odd_sum = 0;
-    long long result = double_the_difference(lst);
-    assert(result == 70);
+    assert(double_the_difference(lst) == 70);
     return 0;
 }
