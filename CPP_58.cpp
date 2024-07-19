@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,7 +17,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> common(std::vector<int>({4, 3, 2, 8})); 
+    std::vector<int> common;
+    for (int i : {4, 3, 2, 8}) {
+        common.push_back(i);
+    }
     std::vector<int> user_input;
     for (int i = 0; i < n; i++) {
         int x;
