@@ -1,6 +1,6 @@
-```c
 #include <vector>
 #include <assert.h>
+#include <initializer_list>
 
 using namespace std;
 
