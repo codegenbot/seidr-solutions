@@ -24,6 +24,6 @@ std::string rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101");
+    assert(rounded_avg(5, 5) == "101"); 
     return 0;
 }
