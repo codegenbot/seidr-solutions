@@ -3,20 +3,18 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
-    vector<string> result;
+    vector<string> filtered_strings;
     for (const auto& str : strings) {
-        if (str.compare(0, prefix.size(), prefix) == 0) {
-            result.push_back(str);
+        if (str.substr(0, prefix.size()) == prefix) {
+            filtered_strings.push_back(str);
         }
     }
-    return result;
+    return filtered_strings;
 }
 
 int main() {
