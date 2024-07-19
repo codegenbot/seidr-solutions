@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <algorithm>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
