@@ -5,9 +5,12 @@
 
 using namespace std;
 
-double find_zero(vector<double> coeffs) {
-    double solution;
-    cin >> solution;
+double find_zero(double solution, int n) {
+    vector<double> coeffs(n+1, 0.0);
+
+    for (int i = 0; i <= n; i++) {
+        cin >> coeffs[i];
+    }
 
     double poly_value = 0;
     double power = 1;
@@ -21,11 +24,7 @@ double find_zero(vector<double> coeffs) {
 int main() {
     int n;
     cin >> n;
-    vector<double> coeffs(n+1, 0.0);
-
-    for (int i = 0; i <= n; i++) {
-        cin >> coeffs[i];
-    }
-
-    cout << fixed << setprecision(6) << find_zero(coeffs) << endl;
+    double solution;
+    cin >> solution;
+    cout << fixed << setprecision(6) << find_zero(solution, n) << endl;
 }
