@@ -1,9 +1,14 @@
 ```
-string issame(string s1, string s2) {
-    if (s1 == s2)
-        return "True";
-    else
-        return "False";
+bool issame(char ch1, char ch2) {
+    if(ch1 >= 'a' && ch1 <= 'z') 
+        ch1 = (ch1 - 'a' + 26)%26 + 'a';
+    else if(ch1 >= 'A' && ch1 <= 'Z')
+        ch1 = (ch1 - 'A' + 26)%26 + 'A';
+    if(ch2 >= 'a' && ch2 <= 'z') 
+        ch2 = (ch2 - 'a' + 26)%26 + 'a';
+    else if(ch2 >= 'A' && ch2 <= 'Z')
+        ch2 = (ch2 - 'A' + 26)%26 + 'A';
+    return ch1 == ch2;
 }
 
 vector<string> reverse_delete(string s, string c) {
@@ -24,13 +29,12 @@ vector<string> reverse_delete(string s, string c) {
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    vector<string> output;
-    if (temp == reverse(temp)) {
-        output.push_back("True");
+    if (issame(temp[0],temp[temp.size()-1])) {
+        result.push_back("True");
     } else {
-        output.push_back("False");
+        result.push_back("False");
     }
-    return output;
+    return result;
 }
 
 string reverse(string s) {
