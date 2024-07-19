@@ -1,7 +1,7 @@
 #include <initializer_list>
 #include <vector>
 #include <algorithm> 
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -22,7 +22,6 @@ int main() {
         numbers.push_back(num);
     }
     
-    cout << calculateMedian(numbers) << std::endl;
+    cout << calculateMedian(numbers) << endl;
 
     return 0;
-}
