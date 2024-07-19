@@ -1,33 +1,20 @@
 ```cpp
-#include <iostream>
+#include <string>
 #include <vector>
 #include <map>
-#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
+bool areEqual(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
-    map<string,int> mp;
-    for(auto &s:lst)
+    std::map<std::string, int> mp;
+    for (auto &s : lst)
         ++mp[s];
     vector<vector<string>> res;
-    for(auto p:mp)
-        if(p.second > 1)
-            res.push_back({{p.first, string(p.second-1,'c')}});
-    return res;
-}
-
-int main() {
-    vector<string> lst = {"a", "b", "c", "a", "c"};
-    vector<vector<string>> result = sorted_list_sum(lst);
-    
-    for(auto &v : result) {
-        cout << v[0] << ": " << v[1] << endl;
+    for (auto p : mp) {
+        if (p.second > 1)
+            res.push_back({p.first, string(p.second - 1, 'c')});
     }
-    
-    return 0;
+    return res;
 }
