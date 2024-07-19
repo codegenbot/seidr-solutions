@@ -1,3 +1,4 @@
 def add_elements(arr, k):
     filtered_nums = [num for num in arr if 10 <= num <= 99]
-    return sum(sorted(filtered_nums)[:k]) if filtered_nums else 0
+    sorted_nums = sorted(filtered_nums, reverse=True)
+    return sum(sorted_nums[:k]) if sorted_nums else 0
