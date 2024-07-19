@@ -1,9 +1,20 @@
 int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
-        }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+    if (n == 0) {
+        return true;
     }
-    return false;
+    
+    int min_idx = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < arr[min_idx]) {
+            min_idx = i;
+        }
+    }
+    
+    for (int i = 0; i < n; i++) {
+        if (arr[(min_idx + i) % n] != i + 1) {
+            return false;
+        }
+    }
+    
+    return true;
 }
