@@ -1,7 +1,12 @@
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
+
+int total_chars(vector<string> lst);
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
+bool issame(vector<string> a, vector<string> b);
 
 int total_chars(vector<string> lst) {
     int total = 0;
@@ -11,16 +16,16 @@ int total_chars(vector<string> lst) {
     return total;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (total_chars(lst1) < total_chars(lst2)) {
+        return lst1;
+    } else {
+        return lst2;
+    }
 }
 
-int total_match(vector<string> lst1, vector<string> lst2) {
-    if (total_chars(lst1) < total_chars(lst2)) {
-        return total_chars(lst1);
-    } else {
-        return total_chars(lst2);
-    }
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
