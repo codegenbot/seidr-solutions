@@ -11,7 +11,7 @@ std::vector<int> sort_array(const std::vector<int>& array) {
     if ((sortedArray.front() + sortedArray.back()) % 2 == 0) {
         std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
     } else {
-        std::sort(sortedArray.begin(), sortedArray.end());
+        std::sort(sortedArray.begin(), sortedArray.end(), std::less<int>());
     }
     return sortedArray;
 }
