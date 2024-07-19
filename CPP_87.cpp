@@ -1,18 +1,8 @@
 #include <vector>
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -30,4 +20,11 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
+}
+
+int main(){
+    vector<vector<int>> input = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int target = 5;
+    vector<vector<int>> result = get_row(input, target);
+    return 0;
 }
