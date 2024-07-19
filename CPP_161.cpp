@@ -4,11 +4,11 @@
 
 std::string solve(const std::string& s) {
     for(char &c : s) {
-        if(isalpha(c)) {
-            if(islower(c)) {
-                c = toupper(c);
+        if(std::isalpha(c)) {
+            if(std::islower(c)) {
+                c = std::toupper(c);
             } else {
-                c = tolower(c);
+                c = std::tolower(c);
             }
         }
     }
@@ -18,10 +18,10 @@ std::string solve(const std::string& s) {
     return s;
 }
 
+// In the main function
 int main() {
-    assert(solve("abc123") == "321CBA");
-    assert(solve("Hello123") == "321OLLEH");
-    assert(solve("123!@#$") == "123!@#$");
+    assert(solve("a2b$c") == "C2B$A");
+    assert(solve("Hello, World!") == "!DLR,O LLEH");
     
     return 0;
 }
