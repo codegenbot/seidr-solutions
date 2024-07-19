@@ -6,13 +6,12 @@ using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
     std::vector<int>();
-
+    
     int n = text.length();
     int m = target.length();
 
     for(int i=0; i<=n-m; i++){
-        size_t pos = text.find(target);
-        if(pos != string::npos){
+        if(text.find(target) != -1 && text.substr(i,m) == target){
             result.push_back(i);
         }
     }
