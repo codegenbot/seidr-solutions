@@ -6,7 +6,7 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-vector<int> find_largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int max_neg = 0, min_pos = 0;
     for (int num : lst) {
         if (num < 0 && num < max_neg) {
