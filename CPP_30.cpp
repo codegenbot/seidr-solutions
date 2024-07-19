@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <cmath>
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for(float i : l) {
         if(i > 0) {
