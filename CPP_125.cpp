@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(char c) {
+bool issame(char c){
     return c >= 'a' && c <= 'z' && (c - 'a') % 2 == 1;
 }
 
