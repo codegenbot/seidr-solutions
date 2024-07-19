@@ -23,11 +23,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits1 = {3,4,5,8,6,7,1,2};
-    cout << "Credit card number: " << luhn(digits1) << endl;
-
-    vector<int> digits2 = {3,4,5,9,6,7,1,2};
-    cout << "Credit card number: " << luhn(digits2) << endl;
-
+    vector<int> digits = {3,4,5,8,6,7,1,2};
+    cout << luhn(digits) << endl;
     return 0;
 }
