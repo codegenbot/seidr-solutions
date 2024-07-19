@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 #include <iostream>
 #include <vector>
@@ -48,11 +46,10 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-int 
-main() {
+int main() {
     vector<float> grades;
     cout << "Enter the grades (Press 'q' to quit):" << endl;
-    
+
     while (true) {
         string s;
         getline(cin, s);
@@ -67,4 +64,3 @@ main() {
     for (int i = 0; i < letter_grades.size(); ++i) {
         cout << "Grade: " << letter_grades[i] << endl;
     }
-}
