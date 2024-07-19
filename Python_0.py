@@ -1,7 +1,7 @@
 while True:
     try:
         result = input()
-        if result == '':
+        if not result:
             break
         if result.isdigit():
             print(int(result))
