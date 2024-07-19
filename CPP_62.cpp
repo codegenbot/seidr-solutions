@@ -5,12 +5,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
 
-// Declaration of the derivative function - if needed
-std::vector<float> derivative(const std::vector<float>& vec){
+std::vector<float> derivative(const std::vector<float>& coeffs){
     std::vector<float> result;
-    for (size_t i = 1; i < vec.size(); ++i){
-        result.push_back(vec[i] - vec[i-1]);
-    }
+    // Calculate derivative here
     return result;
 }
 
