@@ -8,6 +8,6 @@ string solve(int N) {
 }
 
 int main() {
-    cout << solve(963) << endl;
+    cout << solve(963);
     return 0;
 }
