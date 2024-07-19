@@ -1,23 +1,32 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-string decipher(const string& key1, const string& key2, const string& message) {
-    string result = "";
-    for (char c : message) {
-        for (int i = 0; i < key1.size(); i++) {
-            if (c == key1[i]) {
-                result += key2[i];
-                break;
+string substitutionCipher(string &cipherKey1, string &cipherKey2, string &input) {
+    string output;
+    for (int i = 0; i < input.length(); i++) {
+        if (i >= cipherKey1.length()) {
+            output += input[i];
+        } else {
+            int index = -1;
+            for (int j = 0; j < cipherKey2.length(); j++) {
+                if (cipherKey1[j] == input[i]) {
+                    index = j;
+                    break;
+                }
+            }
+            if (index != -1) {
+                output += cipherKey2[index];
+            } else {
+                output += input[i];
             }
         }
     }
-    return result;
+    return output;
 }
 
 int main() {
-    string key1, key2, message;
-    cin >> key1 >> key2 >> message;
-    cout << decipher(key1, key2, message) << endl;
+    string cipherKey1, cipherKey2, input;
+    cin >> cipherKey1 >> cipherKey2 >> input;
+    cout << substitutionCipher(cipherKey1, cipherKey2, input) << endl;
     return 0;
 }
