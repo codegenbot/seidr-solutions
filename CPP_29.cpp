@@ -1,3 +1,9 @@
+```cpp
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion-null"
+#include <initializer_list>
+#pragma GCC diagnostic pop
+
 #include <vector>
 #include <string>
 
@@ -15,7 +21,7 @@ bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>&
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
-    for (auto& str : strings) {
+    for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
         }
@@ -23,7 +29,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 
 }
-
 int main_function() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
