@@ -14,7 +14,4 @@ def bowling_score(s):
         else:
             num = int(s[i])
             i += 1
-            if s[i].isdigit() :  
-                num += int(s[i])
-                i += 1
-            score += num
+            if s[i].isdigit()
