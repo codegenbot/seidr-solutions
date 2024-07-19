@@ -21,4 +21,3 @@ int main() {
     std::cout << compare_one(str1, num2) << std::endl;
 
     return 0;
-}
