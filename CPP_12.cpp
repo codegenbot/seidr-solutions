@@ -1,11 +1,14 @@
-if (strings.empty()) {
-    return "None";
-}
-
-string longestStr = strings.front();
-for (const string& str : strings) {
-    if (str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)) {
-        longestStr = str;
+string longest(vector<string> strings) {
+    if(strings.empty()) {
+        return "None";
     }
+
+    string longestStr = strings[0];
+    for(int i = 1; i < strings.size(); i++) {
+        if(strings[i].length() >= longestStr.length()) {
+            longestStr = strings[i];
+        }
+    }
+
+    return longestStr;
 }
-return longestStr;
