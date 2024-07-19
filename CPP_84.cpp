@@ -1,15 +1,15 @@
-int sum = 0;
-  
+int sumOfDigitsInBinary(int N) {
+    int sum = 0;
     while (N > 0) {
         sum += N % 2;
         N /= 2;
     }
-    
-    string result = "";
+
+    string binarySum = "";
     while (sum > 0) {
-        result = to_string(sum % 2) + result;
+        binarySum = to_string(sum % 2) + binarySum;
         sum /= 2;
     }
 
-    return result.empty() ? "0" : result;
+    return binarySum;
 }
