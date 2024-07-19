@@ -2,8 +2,6 @@
 #include <list>
 #include <cassert>
 
-using namespace std;
-
 vector<int> filter_integers(list<int> values) {
     vector<int> result;
     for (const auto &val : values) {
