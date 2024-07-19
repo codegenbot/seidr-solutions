@@ -1,16 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
-#include <cassert>
 #include <limits>
+
+#define INFINITY std::numeric_limits<double>::max()
 
 bool checkSame(float a, float b) {
     return std::abs(a - b) < 1e-9;
 }
 
-bool issame(const std::vector<float>& a){
+bool issame(std::vector<float>& a, std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (!checkSame(a[i],a[(i+1)%a.size()])){
+        if (!checkSame(a[i],b[i])){
             return false;
         }
     }
@@ -21,7 +25,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            float maxEven = -std::numeric_limits<double>::max();
+            float maxEven = -INFINITY;
             for (float val : l) {
                 if (checkSame(val, static_cast<int>(val))) {
                     maxEven = std::max(maxEven, val);
@@ -35,21 +39,16 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-#include <limits>
-using namespace std;
-const double INFINITY = numeric_limits<double>::max();
-
-int main1() {
+int main() {
     std::vector<float> input = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
     std::vector<float> output = sort_even(input);
     for (float val : output) {
-        cout << val << " ";
+        std::cout << val << " ";
     }
-    assert(issame(output));
-    if (!issame({output})) {
-        cout << "\nTest case failed";
+    if (!issame(output, input)) {
+        std::cout << "\nTest case failed";
     } else{
-        cout << "\nTest case passed";
+        std::cout << "\nTest case passed";
     }
     return 0;
 }
