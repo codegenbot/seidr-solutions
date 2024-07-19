@@ -3,14 +3,11 @@ def add(a, b):
 
 try:
     while True:
-        try:
-            line = input().strip()
-            if line == '':
-                break
-            x, y = map(int, line.split())
-            result = add(x, y)
-            print(result)
-        except ValueError:
-            print("Invalid input. Please provide two integers separated by space.")
-except EOFError:
+        line = input().strip()
+        if line == '':
+            break
+        x, y = map(int, line.split())
+        result = add(x, y)
+        print(result)
+except (ValueError, EOFError, KeyboardInterrupt):
     pass
