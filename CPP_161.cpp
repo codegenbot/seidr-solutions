@@ -1,7 +1,12 @@
+```cpp
+#include <algorithm>
 #include <string>
-#include <cctype>
+using namespace std;
 
-string solve(string s) {
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -10,4 +15,6 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(rbegin(s), rend(s)) : result;
+    reverse(result.begin(), result.end());
+    cout << "The result is: " << result << endl;
+}
