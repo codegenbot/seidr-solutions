@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
-int compare_strings(const std::string& a, const std::string& b) {
+int compare_strings(std::string a, std::string b) {
     if (a > b)
         return 1;
     else if (b > a)

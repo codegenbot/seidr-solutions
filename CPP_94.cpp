@@ -11,7 +11,7 @@ int getSetSize(int i, int j, int k) {
     return setSize(s);
 }
 
-int testMain() {
+int main() {
     int result = getSetSize(127, 97, 8192);
     assert(setSize({result}) == 1);
     return 0;
