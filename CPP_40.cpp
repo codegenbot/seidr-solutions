@@ -1,4 +1,4 @@
-bool triples_sum_to_zero(const vector<int>& l) {
+bool triples_sum_to_zero(vector<int> l) {
     for (int i = 0; i < l.size() - 2; ++i) {
         for (int j = i + 1; j < l.size() - 1; ++j) {
             for (int k = j + 1; k < l.size(); ++k) {
@@ -10,4 +10,3 @@ bool triples_sum_to_zero(const vector<int>& l) {
     }
     return false;
 }
-// In the main function, call the 'triples_sum_to_zero' function with appropriate input.
