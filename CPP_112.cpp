@@ -24,8 +24,19 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
             }
         }
         if(!found) {
-            result.push_back(s.substr(i));
-            break;
+            std::vector<std::string> temp;
+            while(i < s.size() && !found) {
+                temp.push_back(std::string(1, s[i]));
+                i++;
+                for(int j = 0; j < t.size(); j++) {
+                    if(s[i-1] == t[j]) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if(!found)
+                result.push_back(temp.empty() ? s.substr(i) : std::string(temp.begin(), temp.end()));
         }
     }
     return result;
@@ -34,9 +45,9 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 int main() {
     std::vector<std::string> s, t;
     std::cout << "Enter the first string: ";
-    for(std::string str;std::getline(std::cin, str);s.push_back(str));
+    for(std::string str;std::cin >> str;s.push_back(str));
     std::cout << "Enter the second string: ";
-    for(std::string str;std::getline(std::cin, str);t.push_back(str));
+    for(std::string str;std::cin >> str;t.push_back(str));
     if(compareVectors({s},{t})) {
         std::vector<std::string> res = reverse_delete(s[0], t[0]);
         for(auto str : res) {
