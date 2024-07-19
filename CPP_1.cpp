@@ -1,8 +1,18 @@
-bool issame(char a, char b) {
-    return (a == '(' && b == ')');
+bool issame(const string& s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+        }
+    }
+    return count == 0;
 }
 
 vector<string> separate_paren_groups(string paren_string);
+
+#include <vector>
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -20,7 +30,9 @@ vector<string> separate_paren_groups(string paren_string) {
             if (balance > 0) {
                 current_group += c;
             } else if (balance == 0) {
-                result.push_back(current_group);
+                if (issame(current_group)) {
+                    result.push_back(current_group);
+                }
                 current_group = "";
             }
         }
