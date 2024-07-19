@@ -1,4 +1,5 @@
 #include <boost/any.hpp>
+#include <typeinfo>
 #include <string>
 
 template <typename T>
