@@ -1,3 +1,5 @@
+Here is the solution:
+
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
@@ -5,4 +7,3 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
-}
