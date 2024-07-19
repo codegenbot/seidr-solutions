@@ -6,11 +6,8 @@ while True:
         if n <= 0:
             print("Please enter a positive integer greater than zero.")
             continue
-        if n > 10**9:
-            print("Please enter a positive integer less than or equal to 10^9.")
-            continue
         
-        result = math.prod(map(int, str(n)))
+        result = math.prod(map(int, str(abs(n))))
         print(result)
         break
     
