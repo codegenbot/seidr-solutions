@@ -1,11 +1,11 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int total = 0;
-    for (const auto &row : grid) {
-        int row_sum = 0;
-        for (int val : row) {
-            row_sum += val;
+int max_fill(vector<vector<int>>& grid, int capacity) {
+    int total_water = 0;
+    for (auto row : grid) {
+        for (int cell : row) {
+            total_water += cell;
         }
-        total += row_sum;
     }
-    return (total + capacity - 1) / capacity;
+
+    int buckets_needed = total_water / capacity + (total_water % capacity != 0);
+    return buckets_needed;
 }
