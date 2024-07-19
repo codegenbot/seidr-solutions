@@ -1,1 +1,1 @@
-operations = list(map(int, input("Enter space-separated integers: ").split()))
+operations = [int(input("Enter operation {}:".format(i+1))) for i in range(3)]
