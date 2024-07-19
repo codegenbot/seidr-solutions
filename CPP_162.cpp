@@ -1,5 +1,5 @@
-#include <string>
 #include <openssl/evp.h>
+#include <string>
 
 using namespace std;
 
@@ -14,19 +14,18 @@ string string_to_md5(string text) {
 
     EVP_MD_CTX_init(&md_ctx);
 
-    const uint8_t* ptr = reinterpret_cast<const uint8_t*>(text.c_str());
-    size_t len = text.size();
+    const unsigned char* ptr = (const unsigned char*)text.c_str();
+    size_t len = text.length();
 
-    EVP_Update(&md_ctx, &ptr, len);
+    int64_t result = EVP_UPDATE(&md_ctx, &ptr, len);
 
-    output = EVP_Final(&md_ctx, &output_len);
-
-    string result;
+    unsigned char* final_result = EVP_Final(&md_ctx, &output_len);
+    string md5;
     for (int i = 0; i < output_len; i++) {
         char buff[3];
-        sprintf(buff, "%02x", output[i]);
-        result += buff;
+        sprintf(buff, "%02x", final_result[i]);
+        md5 += buff;
     }
 
-    return result;
+    return md5;
 }
