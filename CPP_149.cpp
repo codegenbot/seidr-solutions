@@ -15,11 +15,9 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     for(auto &s:lst)
         ++mp[s];
     vector<vector<string>> res;
-    for(auto p:mp)
-        if(p.second > 1) {
-            vector<string> temp = {{p.first, string(p.second-1,'c')}};
-            res.push_back(temp);
-        }
+    for(const auto& pair:mp)
+        if(pair.second > 1)
+            res.push_back({{pair.first, string(pair.second-1,'c')}});
     return res;
 }
 
