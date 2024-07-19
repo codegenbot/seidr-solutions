@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
-#include <fstream>
+#include <ostream>
 
 using namespace std;
 
@@ -51,4 +50,3 @@ int main() {
         cout << grade << endl;
     }
     return 0;
-}
