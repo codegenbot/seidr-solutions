@@ -1,7 +1,6 @@
 ```c++
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -15,7 +14,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
         if (i > 0) {
