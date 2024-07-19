@@ -8,7 +8,7 @@ try:
         print(result)
 except ValueError:
     print("Invalid input. Please provide two integers separated by space.")
-except EOFError:
-    pass
 except Exception as e:
     print("An error occurred:", e)
+except EOFError:
+    pass
