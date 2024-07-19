@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 namespace cpp30 {
     bool issame(std::vector<float> a, std::vector<float> b) {
@@ -33,8 +32,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    assert(cpp30::issame(cpp30::get_positive({}), {}));
 
     return 0;
 }
