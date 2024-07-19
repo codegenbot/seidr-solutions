@@ -6,11 +6,10 @@ def fix_spaces(text):
             [
                 (
                     "_"
-                    if i > 0 and text[i - 1:i + 1] == "  " else text[i]
+                    if i > 0 and text[i - 1:i + 1] == "  " else "_" if text[i:i+1] == " " else text[i]
                 )
                 for i in range(len(text))
             ]
         )
         .replace("  ", "_")
-        .replace("--", "-")
     )
