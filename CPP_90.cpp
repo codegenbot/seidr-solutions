@@ -17,9 +17,9 @@ int next_smallest(const vector<int>& lst) {
 }
 
 int main() {
-    assert(next_smallest({1, 3, 2, 4}) == 2);
-    assert(next_smallest({5, 5, 5, 5}) == -1);
-    assert(next_smallest({1, 1, 2, 3, 4}) == 2);
+    assert(next_smallest({3, 1, 4, 1, 5, 9, 2, 6}) == 2);
+    assert(next_smallest({9, 8, 7, 6, 5, 4, 3, 2, 1}) == 2);
+    assert(next_smallest({1, 3, 3, 2, 1}) == 2);
 
     return 0;
 }
