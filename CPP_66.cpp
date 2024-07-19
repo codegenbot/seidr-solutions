@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -12,7 +11,7 @@ int digitSum(const std::string& s) {
     return sum;
 }
 
-int main() {
+int calculateDigitSum() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
