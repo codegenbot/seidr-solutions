@@ -1,29 +1,31 @@
+#include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a.convert_to<int>() > (double)b.convert_to<double>() ?
-            b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a.convert_to<double>() > (int)b.convert_to<int>() ?
-            a : boost::any("None");
+    if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double bDouble = boost::any_cast<double>(b);
-        return bDouble > (double)stod(a.convert_to<string>().c_str()) ?
-            b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = boost::any_cast<string>(b);
+        return a > boost::stof(s) ? a : "None";
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double aDouble = (double)a.convert_to<double>();
-        return aDouble > stod(b.convert_to<string>()) ?
-            a : boost::any("None");
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        int i = boost::any_cast<int>(a);
+        return i > boost::any_cast<int>(b) ? a : "None";
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return stod(a.convert_to<string>().c_str()) > stod(b.convert_to<string>()) ?
-            a : boost::any("None");
+    if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string s = boost::any_cast<string>(a);
+        return boost::stof(s) > b ? a : "None";
     }
-    else {
-        return boost::any("None");
+    if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string s = boost::any_cast<string>(a);
+        return boost::stof(s) > b ? a : "None";
     }
+    return "None";
 }
