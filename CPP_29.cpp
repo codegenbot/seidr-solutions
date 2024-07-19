@@ -3,12 +3,7 @@
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    for (const auto& str : a) {
-        if (str != b) {
-            return false;
-        }
-    }
-    return true;
+    return a.size() == 1 && a[0] == b;
 }
 
 std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
@@ -25,7 +20,7 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
             temp.push_back(str.substr(start, end - start));
             start = end + 1;
         }
-        if (!issame({temp}, prefix)) {
+        if (!(temp.size() == 1 && temp[0] == prefix)) {
             result.emplace_back(temp); 
         }
     }
