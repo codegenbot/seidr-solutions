@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 std::vector<int> generate_integers(int start, int end) {
@@ -9,10 +10,10 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-std::vector<int> issame(const std::vector<int>& a) {
+std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> result;
     for (int i : a) {
-        if (i % 2 == 0) {
+        if (std::find(b.begin(), b.end(), i) != b.end()) {
             result.push_back(i);
         }
     }
@@ -20,6 +21,6 @@ std::vector<int> issame(const std::vector<int>& a) {
 }
 
 int main() {
-    assert(!issame(generate_integers(17, 89)).empty());
+    assert(!issame(generate_integers(17, 89), {}).empty());
     return 0;
 }
