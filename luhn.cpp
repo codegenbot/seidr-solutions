@@ -1,6 +1,5 @@
-#include <vector>
-using namespace std;
-
+```c++
+#ifndef MAIN
 int luhn(vector<int> digits) {
     int sum = 0;
     bool alternate = false;
@@ -21,9 +20,4 @@ int luhn(vector<int> digits) {
     
     return sum;
 }
-
-int main() {
-    vector<int> digits = {3,4,5,8,6,7,1,2};
-    cout << luhn(digits) << endl;
-    return 0;
-}
+#endif // MAIN
