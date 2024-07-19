@@ -1,26 +1,25 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> generate_integers(int start, int end) {
-    vector<int> result;
+std::vector<int> generate_integers(int start, int end) {
+    std::vector<int> result;
     for (int i = start; i <= end; ++i) {
         result.push_back(i);
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+std::vector<int> issame(std::vector<int> a) {
+    std::vector<int> result;
     for (int i : a) {
         if (i % 2 == 0) {
-            return true;
+            result.push_back(i);
         }
     }
-    return false;
+    return result;
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    assert(!issame(generate_integers(17, 89)).empty());
     return 0;
 }

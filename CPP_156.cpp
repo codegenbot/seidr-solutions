@@ -2,8 +2,12 @@
 #include <string>
 
 std::string int_to_mini_roman(int num) {
-    // complete the function
-    return "";
+    std::string roman;
+    if (num >= 1000) {
+        roman += "m";
+        num -= 1000;
+    }
+    return roman;
 }
 
 int main() {
