@@ -13,6 +13,4 @@ int main() {
     assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
     // Add more test cases if needed
     return 0;
-
-    // Ensure that you include necessary headers and use `std::` namespace for standard library functions
 }
