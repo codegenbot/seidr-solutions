@@ -1,22 +1,21 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> pluck(vector<pair<vector<int>, int>> v) {
-    vector<int> result;
-    for (const auto& pair : v) {
-        if (pair.second == 7) {
-            result = pair.first;
-            break;
+std::vector<int> pluck(const std::vector<int>& v) {
+    std::vector<int> result;
+    for (int x : v) {
+        if (x == 7 || x == 1) {
+            result.push_back(x);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a,vector<int>b){
-    return a.size() == b.size() && a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-int main() {
-    assert(pluck({{7,9},7},{7}) == vector<int>({7}) && pluck({{7},7}) == vector<int>({}));
+int main(int argc, char *argv[]) {
+    assert(issame(pluck({7, 9, 7, 1}), {7, 1}));
     return 0;
 }
