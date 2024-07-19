@@ -1,18 +1,19 @@
-bool check_map_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+#include <string>
 
-    bool allLower = true;
-    bool allUpper = true;
+bool check_dict_case(map<string,string> dict){
+    bool all_upper = true;
+    bool all_lower = true;
 
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if (!allLower && !allUpper) continue;
-        allLower &= islower(pair.first[0]);
-        allUpper &= isupper(pair.first[0]);
+    for(auto it = dict.begin(); it != dict.end(); ++it) {
+        if(!all_lower && !all_upper)
+            return false; // map contains both upper and lower case keys
+
+        string key = it->first;
+        if(all_lower && !islower(key[0]))
+            all_lower = false;
+        if(all_upper && !isupper(key[0]))
+            all_upper = false;
     }
 
-    return allLower || allUpper;
+    return all_lower || all_upper;
 }
