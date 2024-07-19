@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> pluck(std::vector<int>& v) {
+std::vector<int> pluck(const std::vector<int>& v) {
     std::vector<int> result;
     for (int x : v) {
         if (x == 7 || x == 1) {
