@@ -7,6 +7,15 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> f(int n);
 
+int main() {
+    // Example usage (not part of the code solution)
+    vector<int> result = f(5);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
 vector<int> f(int n){
     vector<int> result;
     int sum = 0;
