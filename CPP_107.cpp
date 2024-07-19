@@ -1,9 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
+
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
+    while (num != 0) {
+        int remainder = num % 10;
+        v.push_back(remainder);
+        num /= 10;
+    }
+    return v;
+}
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -22,16 +31,6 @@ bool isPalindrome(int n) {
         temp /= 10;
     }
     return n == rev;
-}
-
-std::vector<int> to_vector(int num) {
-    std::vector<int> v;
-    while (num != 0) {
-        int remainder = num % 10;
-        v.push_back(remainder);
-        num /= 10;
-    }
-    return v;
 }
 
 int checkNumber() {
