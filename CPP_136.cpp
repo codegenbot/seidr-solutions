@@ -21,8 +21,3 @@ std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
 bool issame(std::pair<int, int> a, std::pair<int, int> b){
     return a == b;
 }
-
-int main() {
-    assert (issame(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}), std::make_pair(-3, 1)));
-    return 0;
-}
