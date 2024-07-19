@@ -1,12 +1,12 @@
 #include <string>
 #include <vector>
 
-bool issame(const std::vector<std::string>& a) {
-    if (a.empty()) return false;
-    size_t prefix_size = a[0].size();
+bool issame(const std::vector<std::string>& strings) {
+    if (strings.empty()) return false;
+    size_t prefix_size = strings[0].size();
     for (size_t i = 0; i < prefix_size; ++i) {
-        for (const auto& str : a) {
-            if (str[i] != a[0][i]) return false;
+        for (const auto& str : strings) {
+            if (str[i] != strings[0][i]) return false;
         }
     }
     return true;
@@ -19,12 +19,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         while (start < str.size()) {
             size_t end = str.find(' ', start);
             if (end == std::string::npos) {
-                if (!issame(std::vector<std::string>{{str.substr(start)}})) {
+                if (!issame({{str.substr(start)}})) {
                     result.push_back(str.substr(start));
                 }
                 break;
             }
-            if (!issame(std::vector<std::string>{{str.substr(start, end - start)}})) {
+            if (!issame(std::vector<std::string>({str.substr(start, end - start)}))) {
                 result.push_back(str.substr(start, end - start));
             }
             start = end + 1;
