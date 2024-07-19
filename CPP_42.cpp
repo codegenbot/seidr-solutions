@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> incr_list(const std::vector<int>& input) {
     std::vector<int> result;
     for (int num : input) {
@@ -10,13 +12,11 @@ std::vector<int> incr_list(const std::vector<int>& input) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    const std::vector<int> tempList2 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> tempList2_modified = incr_list(tempList2);
-    assert(issame(tempList2_modified, std::vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
