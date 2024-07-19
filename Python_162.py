@@ -14,5 +14,7 @@ try:
                 print("Input text is empty.")
         except EOFError:
             break
+        except KeyboardInterrupt:
+            print("Program interrupted by user.")
 except KeyboardInterrupt:
     pass
