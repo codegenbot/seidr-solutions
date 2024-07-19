@@ -13,22 +13,11 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; 
-    int odd_sum = 0;
-
-    int n; cout << "Enter the number of elements: "; cin >> n;
-
-    for(int i=0; i<n; i++){
-        float x; cout << "Enter element " << i+1 << ": "; cin >> x;
-        if(x > 0) lst.push_back(x);
-    }
-
-    for (float num : lst) {
-        if (num % 2 != 0) {
-            odd_sum += num;
-        }
-    }
+    vector<float> lst; // declare and initialize lst
+    int odd_sum = 0; // declare and initialize odd_sum
     
+    // your code to fill lst and calculate odd_sum
+
     assert (double_the_difference(lst) == odd_sum );
 
     return 0;
