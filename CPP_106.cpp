@@ -1,15 +1,18 @@
-#include <vector>  // Add this line to include the vector library
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){  // Fix the function signature
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
+std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
+    int factorial = 1;
+    int sum = 0;
+    int n = a.size();
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
+            factorial *= i;
+            result.push_back(factorial);
+        } else {
+            sum += i;
+            result.push_back(sum);
         }
     }
-
-    return true;
+    return result;
 }
