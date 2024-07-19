@@ -1,10 +1,15 @@
-bool issame(vector<float> a, vector<float> b) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_vals;
-    vector<float> sorted_even_vals;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> even_vals;
+    std::vector<float> sorted_even_vals;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_vals.push_back(l[i]);
