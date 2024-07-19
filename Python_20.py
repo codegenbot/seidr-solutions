@@ -1,4 +1,5 @@
 if __name__ == "__main__":
-    numbers = list(map(int, input().strip().split()))
+    num1, num2 = map(int, input().split())
+    numbers = [num1, num2]
     closest_pair = find_closest_elements(numbers)
-    print(*closest_pair)
+    print(min(closest_pair), max(closest_pair))
