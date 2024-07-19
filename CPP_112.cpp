@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool checkSame(vector<string> a, vector<string> b) {
+bool checksame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -39,7 +39,7 @@ vector<string> reverse_delete(string s, string c) {
 int main() {
     vector<string> v1 = reverse_delete("mamma", "mia");
     vector<string> v2 = {"", "True"};
-    if (checkSame(v1, v2)) {
+    if (checksame(v1, v2)) {
         cout << "Test passed." << endl;
     } else {
         cout << "Test failed." << endl;

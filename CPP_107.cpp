@@ -32,7 +32,7 @@ int checkNumber() {
     for (char c : str) {  
         rev = c + rev;  
     }
-    if (str == rev && n % 2 == 0) 
+    if (same(vector<int>(stol(str)), vector<int>(stol(rev))) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";

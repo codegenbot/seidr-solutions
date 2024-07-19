@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -9,7 +10,7 @@ bool areEqual(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+std::vector<std::string> between(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -35,6 +36,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(areEqual(bf("Jupiter", "Makemake"), {}));
+    assert(areEqual(between("Jupiter", "Makemake"), {}));
     return 0;
 }

@@ -8,7 +8,7 @@ bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-int get_odd_collatz(int n) {
+vector<int> get_odd_collatz(int n) {
     vector<int> sequence = {n};
     while (n != 1) {
         if (n % 2 == 0)
@@ -17,10 +17,11 @@ int get_odd_collatz(int n) {
             n = 3 * n + 1;
         sequence.push_back(n);
     }
-    return sequence.size();
+    return sequence;
 }
 
 int main_function() {
-    assert(get_odd_collatz(1) == 1);
+    vector<int> collatz = get_odd_collatz(1);
+    assert(collatz.size() == 1);
     return 0;
 }
