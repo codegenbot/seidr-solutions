@@ -1,15 +1,21 @@
 ```
-s = input("Enter a string: ")
-s = "".join(filter(str.isdigit, s))
-if not s:
-    print("Invalid input. Please enter at least one digit.")
-else:
-    try:
-        n = int(s)
-        if all(c.isalpha() or c.isdigit() for c in str(n)):
-            print(is_happy(n))
+def sum_of_squares(n):
+    return sum(int(i) ** 2 for i in str(n))
+
+def is_happy(n):
+    seen = set()
+    while n != 1 and n not in seen:
+        seen.add(n)
+        n = sum_of_squares(n)
+    return n == 1
+
+while True:
+    s = input("Enter a string: ")
+    if all(c.isalpha() or c.isdigit() for c in s):
+        try:
+            print(is_happy(int(s)))
             break
-        else:
-            print("Invalid input. Please enter only alphabets and digits.")
-    except ValueError:
+        except ValueError:
+            print("Invalid integer. Please enter only alphabets and digits.")
+    else:
         print("Invalid input. Please enter only alphabets and digits.")
