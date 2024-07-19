@@ -1,9 +1,2 @@
-def fizz_buzz(n: int) -> str:
-    if n % 3 == 0 and n % 5 == 0:
-        return 'FizzBuzz'
-    elif n % 3 == 0:
-        return 'Fizz'
-    elif n % 5 == 0:
-        return 'Buzz'
-    else:
-        return str(n)
+def fizz_buzz(n: int):
+    return sum(1 for i in range(1, n + 1) if (i % 3 == 0 or i % 5 == 0))
