@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -6,34 +5,34 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int main() {
-    std::vector<std::string> lst = {"hello", "world", "abc", "abcd"};
-    std::vector<std::string> result = sorted_list_sum(lst);
-
-    assert(issame(result, {"abcd", "abc"}));
-
-    for (const auto& str : result) {
-        std::cout << str << " ";
-    }
-    return 0;
-}
-
-std::vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+vector<vector<string>> sorted_list_sum(vector<string> lst) {
+    vector<vector<string>> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            result.push_back(str);
+            vector<string> temp = {str};
+            result.push_back(temp);
         }
     }
 
+    for (auto &vec : result) {
+        sort(vec.begin(), vec.end());
+    }
+
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
+         [](const vector<string>& a, const vector<string>& b) {
+             if (a.size() != b.size()) {
+                 return a.size() < b.size();
              } else {
-                 return a < b;
-             }
+                 for (size_t i = 0; i < a.size(); ++i) {
+                     if (a[i] > b[i]) {
+                         return true;
+                     }
+                     else if (a[i] < b[i]) {
+                         return false;
+                     }
+                 }
+                 return false;
          });
 
     return result;
