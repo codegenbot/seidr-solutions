@@ -13,7 +13,7 @@ bool move_one_ball(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> balls{};
+    std::vector<int> balls = std::vector<int>{};
     bool result = move_one_ball(balls);
 
     assert(result == true);
