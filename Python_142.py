@@ -1,8 +1,9 @@
+```
 def sum_squares(lst):
     total = 0
     for i in lst:
         if isinstance(i, int):
-            total += i**2
+            total += i ** 2
         elif isinstance(i, str):
-            total += len(i) ** 3
+            total += len(i) ** 2
     return total
