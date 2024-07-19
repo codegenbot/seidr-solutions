@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -10,7 +11,7 @@ string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = round((double)sum / (m - n + 1));
+    double avg = round((double)sum / (m - n + 1)); 
     string res = "";
     while (avg > 0) {
         if ((int)avg & 1) res += '1';
