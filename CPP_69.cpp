@@ -22,10 +22,9 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst; 
+    vector<int> lst = vector<int>(5, 0); 
     for (int i = 0; i < 5; ++i) { 
-        cin >> int(temp); 
-        lst.push_back(temp);
+        cin >> lst[i]; 
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
