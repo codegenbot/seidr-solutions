@@ -1,10 +1,11 @@
-bool issame(vector<int> a, vector<int> b) {
-   return a == b;
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> largest_smallest_integers(vector<int> a, vector<int> b);
-
-vector<int> largest_smallest_integers(vector<int> a, vector<int> b) {
+std::vector<int> largest_smallest_integers(std::vector<int> a) {
     int largest_negative = 0, smallest_positive = 0;
     for (int num : a) {
         if (num < 0 && num < largest_negative) {
