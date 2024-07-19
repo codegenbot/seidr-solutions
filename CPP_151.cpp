@@ -1,23 +1,9 @@
-using namespace std;
-using size_type = size_t;
-
-long long doubleTheDifference(vector<float> lst) {
-    long long pos_sum = 0, neg_sum = 0;
-    for (float n : lst) {
-        if (n > 0 && modf(n, &n) == 0) {
-            pos_sum += pow(n, 2);
-        } else if (n < 0 && modf(-n, &n) == 0) {
-            neg_sum -= pow(-n, 2);
-        }
-    }
-    return abs(pos_sum - neg_sum);
-}
-
-int main() {
+```cpp
+int main_cpp151() {
     vector<float> lst;
-    float num; 
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
+        float num; 
         cin >> num; 
         if (!cin) break;
         lst.push_back(num);
