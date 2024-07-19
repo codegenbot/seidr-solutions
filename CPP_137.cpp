@@ -1,43 +1,23 @@
-if (a.type() == boost::any::typeless_type || b.type() == boost::any::typeless_type) {
-    if (a.type() != b.type()) {
-        return a > b ? a : b;
-    } else {
-        string a_str = a.convert<string>();
-        string b_str = b.convert<string>();
+#include <boost/any.hpp>
 
-        double a_num = stod(a_str);
-        double b_num = stod(b_str);
-
-        if (a_num > b_num) {
-            return a;
-        } else if (a_num < b_num) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
-    }
-} else if (a.type() == boost::any::typeless_type) {
-    double a_num = stod(a.convert<string>());
-    double b_num = stod(b.convert<string>());
-
-    if (a_num > b_num) {
-        return a;
-    } else if (a_num < b_num) {
-        return b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return (boost::any_cast<double>(a) > boost::any_cast<double>(b)) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        return (strA > strB) ? a : b;
+    } else if ((a.type() == typeid(int) || a.type() == typeid(double)) && (b.type() == typeid(string))) {
+        double numA = boost::any_cast<double>(a);
+        string strB = boost::any_cast<string>(b);
+        return (numA > stod(strB)) ? a : b;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(double)) && (b.type() == typeid(int))) {
+        double numB = boost::any_cast<double>(b);
+        string strA = boost::any_cast<string>(a);
+        return (stod(strA) > numB) ? a : b;
     } else {
         return boost::any("None");
     }
-} else if (b.type() == boost::any::typeless_type) {
-    double a_num = stod(a.convert<string>());
-    double b_num = stod(b.convert<string>());
-
-    if (a_num > b_num) {
-        return a;
-    } else if (a_num < b_num) {
-        return b;
-    } else {
-        return boost::any("None");
-    }
-} else {
-    return a > b ? a : b;
 }
