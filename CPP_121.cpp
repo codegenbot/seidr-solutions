@@ -1,3 +1,6 @@
+#include <iostream>
+#include "solution.h"
+
 int solution(std::vector<long long> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
