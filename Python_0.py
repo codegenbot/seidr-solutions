@@ -1,9 +1,9 @@
-while True:
-    try:
+try:
+    while True:
         result = input()
         if not result:
             break
         if result.isdigit():
             print(int(result))
-    except EOFError:
-        break
+except EOFError:
+    pass
