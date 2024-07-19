@@ -1,8 +1,11 @@
-string match_parens(vector<string> lst) {
-    int open = 0, close = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
-            if (c == '(') open++;
+Here is the completed code:
+
+string match_parens(vector<string> lst){
+    int open = 0;
+    int close = 0;
+    for(auto str : lst){
+        for(auto c : str){
+            if(c == '(') open++;
             else close++;
         }
     }
