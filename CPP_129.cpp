@@ -6,14 +6,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    if (grid.empty()) return {};
+    
     std::vector<int> result;
+    int rows = grid.size();
+    int cols = grid[0].size();
+    int count = 0;
+    
     for (int i = 0; i < k; ++i) {
-        for (const auto& row : grid) {
-            for (int col : row) {
-                result.push_back(col);
-            }
-        }
+        result.push_back(grid[i % rows][i % cols]);
     }
+    
     return result;
 }
 
