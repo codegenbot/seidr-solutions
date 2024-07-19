@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
+bool operator==(const std::pair<float, float>& a, const std::pair<float, float>& b) {
     return (a.first == b.first && a.second == b.second);
 }
 
@@ -29,6 +29,5 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
 
 int main() {
     std::vector<std::pair<float, float>> nums = {{1.1f, 2.2f}, {3.1f, 4.1f}};
-    std::pair<std::pair<float, float>, float> result = find_closest_elements(nums);
-    assert(issame(result.first, std::make_pair(std::pair<float, float>(2.2f, 3.1f), 0.0f)));
+    assert(find_closest_elements(nums) == std::make_pair(std::pair<float, float>(2.2f, 3.1f), 0.0f));
 }
