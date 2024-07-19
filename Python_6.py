@@ -1,4 +1,4 @@
-paren_string = input("Enter a string of parentheses (only '(' and ')'): ").strip()
+paren_string = input().strip()
 valid = True
 count = 0
 for char in paren_string:
