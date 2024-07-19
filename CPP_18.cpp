@@ -8,11 +8,3 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
-}
-
-int main() {
-    string s = "Hello World Hello";
-    string sub = "Hello";
-    cout << how_many_times(s, sub);
-    return 0;
-}
