@@ -52,7 +52,8 @@ int main() {
         cout << grade << endl;
     }
     vector<float> gradesToCompare = {1.0f, 2.9f, 3.5f};
-    if(isSame(vector<string>(grades.begin(), grades.end()), vector<string>(vector<float>(gradesToCompare.begin(), gradesToCompare.end()).begin(), (vector<float>(gradesToCompare.begin(), gradesToCompare.end())).end()))) cout << "Vectors are the same";
+    if(isSame(vector<string>(grades.begin(), grades.end()), vector<string>(vector<float>(gradesToCompare.begin(), gradesToCompare.end()).begin()))) 
+        cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
 }
