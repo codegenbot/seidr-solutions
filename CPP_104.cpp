@@ -3,6 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>&, const std::vector<int>&);
+bool unique_digits(const std::vector<int>&);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> sorted_a = a;
