@@ -1,15 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <set>
+#include <algorithm>
 
 using namespace std;
 
-bool common(vector<int> a, vector<int> b) {
-    set<int> result;
-    for (int i = 0; i < min(a.size(), b.size()); i++) {
-        result.insert(b[i]);
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return a == result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool common(vector<int> a, vector<int> b) {
+    vector<int> result;
+    for (int i = 0; i < min(a.size(), b.size()); i++) {
+        if (find(a.begin(), a.end(), b[i]) != a.end()) {
+            result.push_back(b[i]);
+        }
+    }
+    return isSame(a, result);
 }
 
 int main_test() {
@@ -22,6 +36,6 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    cout << (common(user_input, user_input) ? "Yes" : "No") << endl;
+    cout << (isSame(user_input, user_input) ? "Yes" : "No") << endl;
     return 0;
 }
