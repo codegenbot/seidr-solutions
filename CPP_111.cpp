@@ -1,9 +1,3 @@
-#include <iostream>
-#include <sstream>
-#include <map>
-
-using namespace std;
-
 map<char, int> histogram(string test);
 
 bool issame(map<char, int> a, map<char, int> b) {
@@ -30,14 +24,4 @@ map<char, int> histogram(string test) {
         }
     }
     return maxChars;
-}
-
-int main() {
-    string test;
-    getline(cin, test);
-    map<char, int> result = histogram(test);
-    for (const auto& pair : result) {
-        cout << pair.first << ": " << pair.second << endl;
-    }
-    return 0;
 }
