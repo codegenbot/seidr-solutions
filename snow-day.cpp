@@ -1,1 +1,1 @@
-cout << fixed << setprecision(std::numeric_limits<float>::max_digits10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+```cout << fixed << setprecision(std::numeric_limits<float>::max_digits10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;```
