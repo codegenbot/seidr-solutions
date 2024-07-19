@@ -1,21 +1,14 @@
-if (arr.empty()) {
-        return -32768;
+int main() {
+    vector<int> arr;
+    int n, num;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> num;
+        arr.push_back(num);
     }
     
-    int product = 1;
-    int sum = 0;
+    int result = prod_signs(arr);
+    cout << result;
     
-    for (int num : arr) {
-        if (num > 0) {
-            product *= 1;
-        } else if (num < 0) {
-            product *= -1;
-        } else {
-            product *= 0;
-        }
-        
-        sum += abs(num);
-    }
-    
-    return product * sum;
+    return 0;
 }
