@@ -1,31 +1,27 @@
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-    bool validInput = false;
-    
-    int startIdx = -1, endIdx = -1;
+
+    int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            startIdx = i;
-            validInput = true;
-        }
-        if (planets[i] == planet2) {
-            endIdx = i;
-            validInput = true;
+            start = i;
+        } else if (planets[i] == planet2) {
+            end = i;
         }
     }
-    
-    if (!validInput) {
+
+    if (start == -1 || end == -1) {
         return result;
     }
-    
-    if (startIdx > endIdx) {
-        swap(startIdx, endIdx);
+
+    if (start > end) {
+        swap(start, end);
     }
-    
-    for (int i = startIdx + 1; i < endIdx; ++i) {
+
+    for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
-    
+
     return result;
 }
