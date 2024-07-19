@@ -1,40 +1,41 @@
-```
-string issame(string s1, string s2) {
-    if (s1 == s2)
-        return "True";
-    else
-        return "False";
+#include <vector>
+#include <string>
+
+bool issame(char ch1, char ch2) {
+    if (ch1 == tolower(ch1) && ch2 == tolower(ch2)) {
+        return true;
+    }
+    return false;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
-            if (ch == cc) {
+            if (issame(ch, cc)) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    vector<string> output;
     if (temp == reverse(temp)) {
-        output.push_back("True");
+        result.push_back("True");
     } else {
-        output.push_back("False");
+        result.push_back("False");
     }
-    return output;
+    return result;
 }
 
-string reverse(string s) {
-    string rev = "";
+std::string reverse(std::string s) {
+    std::string rev = "";
     for (int i = s.size() - 1; i >= 0; i--) {
         rev += s[i];
     }
