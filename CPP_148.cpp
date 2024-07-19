@@ -1,9 +1,22 @@
 ```cpp
 #include <vector>
-#include <string>
+#include <cctype>
+#include <functional>
+
+std::string bf(const std::string& s1, const std::string& s2) {
+    return s1 + " " + s2;
+}
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin(), [](const auto& x, const auto& y){return x == y;});
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
