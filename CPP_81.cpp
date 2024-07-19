@@ -24,9 +24,9 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
-    assert (issame(numerical_letter_grade({4.0, 3.8, 2.5, 1.0}) , {"A+", "A", "C", "D+"}));
-    assert (issame(numerical_letter_grade({2.9, 3.2, 4.0, 1.5}) , {"B-", "B", "A+", "D"});
+    assert (issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert (issame(numerical_letter_grade({4.0, 3.8, 2.5, 1.0}), {"A+", "A", "C", "D+"}));
+    assert (issame(numerical_letter_grade({2.9, 3.2, 4.0, 1.5}), {"B-", "B", "A+", "D"}));
     // Add more test cases here
     return 0;
 }
