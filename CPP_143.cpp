@@ -1,10 +1,11 @@
 #include <string>
+#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i * i <= n; ++i) {
         if (n % i == 0) {
             return false;
         }
@@ -12,9 +13,11 @@ bool is_prime(int n) {
     return true;
 }
 
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence);
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for (char c : sentence) {
         if (c == ' ') {
             if (is_prime(word.size())) {
@@ -32,7 +35,9 @@ string words_in_sentence(string sentence){
 }
 
 int main() {
-    assert (words_in_sentence("here is") == "is");
-
+    std::string sentence;
+    std::getline(std::cin, sentence);
+    std::string result = words_in_sentence(sentence);
+    std::cout << result << std::endl;
     return 0;
 }
