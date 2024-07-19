@@ -1,7 +1,7 @@
-while True:
-    input_string = input("Enter the string to decode: ").strip()
-    if all(char.islower() or char.isspace() or char.isdigit() for char in input_string):
-        break
+input_string = input("Enter the string to decode: ").strip()
+if not all(char.islower() or char.isspace() or char.isdigit() for char in input_string):
     print("Input string must contain only lowercase alphabets, spaces, and digits.")
-
-# Continue with the rest of your code here
+    exit()
+else:
+    # Complete the decoding logic here
+    pass
