@@ -45,5 +45,6 @@ int main() {
         }
     }
 
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "ddd", "aaaa", "bbbb"}));
     return 0;
 }
