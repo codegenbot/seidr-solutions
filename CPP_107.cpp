@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) { // Change function signature
     return a == b;
 }
 
@@ -24,8 +24,4 @@ std::vector<int> even_odd_palindrome(int n) {
     return counts;
 }
 
-int main() {
-    assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1}));
-
-    return 0;
-}
+assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1})); // Modify the assert statement
