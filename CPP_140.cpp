@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -9,7 +8,8 @@ std::string fix_spaces(const std::string& text) {
                 continue;
             else {
                 text.erase(i, 1);
-                text.insert(i, "20%");
+                text.insert(text.begin() + i, '2');
+                text.insert(text.begin() + i + 1, '%');
                 i++;
             }
         }
@@ -17,26 +17,12 @@ std::string fix_spaces(const std::string& text) {
     return text;
 }
 
-std::string fix_spaces(const std::string& text) {
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i > 0 && text[i - 1] == ' ')
-                continue;
-            else {
-                text.erase(i, 1);
-                text.insert(i, "20%");
-                i++;
-            }
-        }
+int main() {
+    std::cout << "Enter a string: ";
+    std::string text;
+    getline(std::cin, text);
+    for (char &c : text) {
+        c = tolower((unsigned char)c);
     }
-    return text;
+    std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
 }
-
-std::cout << "Enter a string: ";
-std::string text;
-getline(std::cin, text);
-for (char &c : text) {
-    c = tolower((unsigned char)c);
-}
-std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
-return 0;
