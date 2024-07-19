@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -11,6 +10,10 @@ def filter_by_substring() -> None:
         return
 
     strings = [s.strip() for s in strings.split()]
-    filtered_strings = [s for s in strings if substring in s]
+    filtered_strings = filter_by_substring(strings, substring)
 
     print("Filtered strings:", filtered_strings)
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    return [s for s in strings if substring in s]
