@@ -11,22 +11,24 @@ def bowling_score(frames):
                     score += 10
                 else:
                     rolls = list(map(int, frames[i+1].replace("/","").split()))
-                    score += sum(rolls)
+                    if len(rolls) > 0:
+                        score += sum(rolls)
             i += 1
         elif frames[i] == '/':
             score += 5
             if i < len(frames) - 1 and frames[i+1].isdigit():
                 score += int(frames[i+1])
-            i += 2
+            i += (2 if i+1 >= len(frames) else 1)
         else:
             rolls = list(map(int, frames[i].replace("/","").split()))
-            if len(rolls) == 1:
-                score += rolls[0]
-            elif len(rolls) == 2:
-                if sum(rolls) == 10:
-                    score += 10
-                else:
-                    score += sum(rolls)
-            i += 1
+            if len(rolls) > 0:
+                if len(rolls) == 1:
+                    score += rolls[0]
+                elif len(rolls) == 2:
+                    if sum(rolls) == 10:
+                        score += 10
+                    else:
+                        score += sum(rolls)
+            i += (1 if i+1 < len(frames) and frames[i+1] != 'X' else 2)
 
     return score
