@@ -1,4 +1,12 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
     
     vector<float> rescaled_numbers;
