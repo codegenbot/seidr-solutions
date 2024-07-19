@@ -1,21 +1,11 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-std::string remove_vowels() {
-    std::string text;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, text);
-    std::string result = "";
-    for (char c : text) {
-        if (!std::string(1, "aeiouAEIOU").c_str()->find(std::tolower(c)))
+string remove_vowels(string text){
+    string result = "";
+    for(char c : text){
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
+           tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
+           tolower(c) != 'o' && tolower(c) != 'u'){
             result += c;
+        }
     }
     return result;
-}
-
-int main() {
-    std::string result = remove_vowels();
-    assert(result == "ybcd");
-    return 0;
 }
