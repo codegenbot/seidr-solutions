@@ -17,6 +17,6 @@ std::string make_palindrome(const std::string& str) {
 }
 
 int main() {
-    assert (make_palindrome("jerry") == "jerryrrej");
+    assert(make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
