@@ -1,16 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 
-std::string::size_type isVowel(char c) {
+bool isVowel(char c) {
     std::string vowels = "aeiouAEIOU";
-    return vowels.find(std::tolower(c)) != std::string::npos;
+    return std::string(1, c).find(c) == 0;
 }
 
 std::string remove_vowels(std::string input) {
     std::string result;
     for (char c : input) {
         if (!isVowel(c)) {
-            result += c;
+            result += c;  
         }
     }
     return result;
