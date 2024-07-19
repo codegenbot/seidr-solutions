@@ -2,7 +2,17 @@
 #include <cstring>
 
 extern "C" {
-    #include <openssl/ssl.h>
+    #include <openssl/md5.h>
+}
+
+int main() {
+    char input[1024]; 
+    printf("Enter a string: ");
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = 0; // remove newline character
+    printf("MD5 hash: %s\n", string_to_md5(input));
+    delete[] string_to_md5(input); // free the dynamically allocated memory
+    return 0;
 }
 
 char* string_to_md5(const char* input) {
@@ -17,14 +27,4 @@ char* string_to_md5(const char* input) {
         sprintf(output + i*2, "%02x", result[i]);
     }
     return output;
-}
-
-int main() {
-    char input[1024]; 
-    printf("Enter a string: ");
-    fgets(input, sizeof(input), stdin);
-    input[strcspn(input, "\n")] = 0; // remove newline character
-    printf("MD5 hash: %s\n", string_to_md5(input));
-    delete[] string_to_md5(input); // free the dynamically allocated memory
-    return 0;
 }
