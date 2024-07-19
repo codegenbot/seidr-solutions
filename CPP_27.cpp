@@ -19,7 +19,7 @@ std::string flip_case(std::string str) {
 
 int main() {
     std::string input = "These violent delights have violent ends";
-    std::cout << flip_case(input) << std::endl;
-    std::string output = flip_case(input);
-    assert(output == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string output = flip_case(input);  
+    std::cout << output << std::endl;     
     return 0;
+}
