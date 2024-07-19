@@ -9,3 +9,7 @@ int solution(std::vector<int> lst){
     }
     return sum;
 }
+
+int main() {
+    assert(solution({3, 13, 2, 9}) == 3);
+}
