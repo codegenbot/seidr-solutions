@@ -1,11 +1,7 @@
 #include <string>
 #include <vector>
 
-vector<string> split_words(string txt);
-
-bool issame(vector<string> a, vector<string> b){
-    // Comparison logic here
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> result;
