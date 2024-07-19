@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string intToMiniRoman(int n) {
     std::string roman;
