@@ -21,21 +21,19 @@ int main() {
     return 0; 
 }
 
-int compare_one(std::string str, int num) {
-    return 0;
-}
+using namespace std;
 
-void printOutput(std::string str, int num) { 
+void printOutput(string str, int num) {
     if (num == 1) {
         for (char c : str) {
             if (isupper(c)) {
-                std::cout << tolower(c);
+                cout << tolower(c);
             } else {
-                std::cout << c;
+                cout << c;
             }
         }
         std::cout.flush(); // consume the output manually
     } else {
-        std::cout << str << std::endl; 
+        cout << str << endl; 
     }
 }
