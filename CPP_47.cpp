@@ -1,7 +1,6 @@
 #include <algorithm>
-using namespace std;
 
-float median(std::vector<float> l) {
+float median(vector<float> l) {
     sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0)
