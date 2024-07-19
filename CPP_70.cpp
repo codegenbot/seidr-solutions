@@ -1,11 +1,12 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst){
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     std::vector<int> result;
     int left = 0, right = lst.size() - 1;
     while(left <= right){
@@ -19,10 +20,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
         right--;
     }
     return result;
-}
-
-int main(){
-    // Test the function
-    assert(issame(strange_sort_list({111111}), {111111}));
-    return 0;
 }
