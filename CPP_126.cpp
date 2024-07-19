@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <cassert> // Add this line
+#include <cassert>
 
 bool is_sorted(const std::vector<int>& lst) {
     for (size_t i = 0; i < lst.size() - 1; i++) {
@@ -13,6 +13,6 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(is_sorted(std::vector<int>{1, 2, 3, 4}) == true); // Include <cassert> for assert
+    assert(is_sorted(std::vector<int>{1, 2, 3, 4}) == true);
     return 0;
 }
