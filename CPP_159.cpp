@@ -10,3 +10,7 @@ std::vector<int> eat(int number, int need, int remaining){
     int remainingCarrots = std::max(0, remaining - totalCarrots);
     return {eatenCarrots, remainingCarrots};
 }
+
+int main(){
+    assert(issame(eat(4, 5, 1), {5, 0}));
+}
