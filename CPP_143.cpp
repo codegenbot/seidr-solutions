@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -40,7 +39,7 @@ bool is_prime(int n) {
 std::string longest_prime_word;
 
 int main_func() {
-    std::vector<std::string> words = words_in_sentence("here is");
+    std::vector<std::string> words = split("here is");
     for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
@@ -60,8 +59,4 @@ int main_func() {
     std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
-}
-
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
-    return split(sentence);
 }
