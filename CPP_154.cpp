@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool cycpattern_check(const std::string& a-MTT, const std::string& tinem) {
+bool cycpattern_check(const std::string& a, const std::string& b) {
     if (a.length() != b.length()) return false;
 
     std::string combined = a + a;
