@@ -11,10 +11,10 @@ long long double_the_difference(std::vector<int> nums){
             odd_sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return odd_sum * 2;
+    return 2 * odd_sum; // double the sum directly here
 }
 
 int main(){
-    assert(double_the_difference(lst) == 70);
+    assert(double_the_difference(lst) == 70); // expected doubled value
     return 0;
 }
