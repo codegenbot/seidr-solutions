@@ -16,11 +16,19 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
+        if (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) {
             return a;
-        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
+        } else if (std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))) {
             return b;
         }
     }
-    return a;
+    return a;  // Example return value, can be adjusted based on requirements
+}
+
+int main() {
+    assert(compare_one(5, 10).type() == typeid(int));
+    assert(compare_one(3.14f, 2.71f).type() == typeid(float));
+    assert(compare_one("7.89", "4.56").type() == typeid(std::string));
+
+    return 0;
 }
