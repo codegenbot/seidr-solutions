@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 #include <cctype>
@@ -20,4 +19,3 @@ int main() {
     cin >> s >> sub; 
     cout << how_many_times(s, sub);
     return 0;
-}
