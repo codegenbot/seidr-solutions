@@ -14,17 +14,14 @@ std::vector<float> sortEven(std::vector<float> l){
                 ++even_elements;
             }
             std::sort(even_elements, l.end());
-            for(; even_elements < l.end(); ++even_elements){
-                l_prime.push_back(*even_elements);
-            }
+            l_prime.push_back(*std::min_element(even_elements, l.end()));
         } else {
             l_prime.push_back(l[i]);
         }
     }
-    return l_prime;
 }
 
 int test() {
-    assert (areSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), sortEven({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})));
+    assert(areSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), sortEven({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})));
     return 0;
 }
