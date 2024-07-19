@@ -39,7 +39,7 @@ string sort_numbers(const string& nums_str) {
     for (const string& n : numbers) {
         sorted_nums += n + ' ';
     }
-    sorted_nums.pop_back(); // Remove extra space at the end
+    sorted_nums.pop_back();
 
     return sorted_nums;
 }
