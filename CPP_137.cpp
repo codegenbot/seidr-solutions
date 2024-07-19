@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 
 const std::string compare_one(const std::string& a, const int b) {
     if (a.size() > b)
