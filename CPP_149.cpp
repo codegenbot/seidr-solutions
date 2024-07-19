@@ -1,9 +1,13 @@
-```cpp
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
+bool issame(string s1, string s2) {
+    if (s1.length() != s2.length()) {
         return false;
+    }
+    for (int i = 0; i < s1.length(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -28,11 +32,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "cherry"};
-    vector<string> output = sorted_list_sum(lst);
-    for (const auto& str : output) {
-        if (issame(3, str.length())) {
-            cout << str << endl;
+    vector<string> lst = {"abc", "abcd", "bcd", "def", "gh"};
+    vector<string> sumList = sorted_list_sum(lst);
+    for (const auto& str : sumList) {
+        if (issame("bcd", str)) {
+            cout << "Found: " << str << endl;
         }
     }
     return 0;
