@@ -1,19 +1,13 @@
-```cpp
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> even, odd;
-
-    for (float i : l) {
-        if (i % 2 == 0) 
-            even.push_back(i);
-        else
-            odd.push_back(i);
+vector<float> sort_even(vector<float> l){
+    vector<float> l_prime;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 2 == 0){
+            vector<float> even_elements(l.begin() + i, l.begin() + i+1);
+            sort(even_elements.begin(), even_elements.end());
+            l_prime.push_back(even_elements[0]);
+        } else {
+            l_prime.push_back(l[i]);
+        }
     }
-
-    // Sort the two vectors separately based on their parity.
-    if (!even.empty())
-        std::sort(even.begin(), even.end());
-    if (!odd.empty())
-        std::sort(odd.begin(), odd.end());
-
-    return {begin(even), begin(even) + size(even)}, {begin(odd), begin(odd) + size(odd)}));
+    return l_prime;
 }
