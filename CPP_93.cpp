@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cctype>
+#include <cassert>
 #include <string>
 
 std::string encode(const std::string& message) {
