@@ -2,6 +2,9 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
+
 int total_chars(const vector<string>& lst) {
     int total = 0;
     for (const string& s : lst) {
