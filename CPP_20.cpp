@@ -1,9 +1,12 @@
-```cpp
 #include <algorithm>
 #include <numeric>
 #include <vector>
 #include <utility>
 #include <initializer_list>
+#include <limits>
+#include <cassert>
+
+pair<float, float> find_closest_elements(vector<float> numbers);
 
 bool issame(vector<float> a, vector<float> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
@@ -26,7 +29,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return closest;
 }
 
-int main() {
+int main_check() {
     vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
     pair<float, float> result = find_closest_elements(numbers);
     
