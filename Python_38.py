@@ -1,11 +1,9 @@
 try:
-    input_list = []
-    while True:
-        num = int(input())
-        if num % 2 == 0:
-            input_list.append(num)
-except ValueError:
-    even_sum = sum(input_list)
+    print("Enter space-separated integers:")
+    input_list = list(map(int, input().strip().split()))
+    even_sum = sum(num for num in input_list if num % 2 == 0)
     print(even_sum)
-except:
+except ValueError:
     print("Invalid input. Please enter space-separated integers.")
+except EOFError:
+    pass
