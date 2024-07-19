@@ -2,6 +2,10 @@
 #include <vector>
 #include <numeric>
 
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
@@ -26,7 +30,10 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int main() {
     assert(issame({1, 2, 3}, strange_sort_vector({3, 2, 1})));
     return 0;
-}
