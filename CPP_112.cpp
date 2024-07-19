@@ -1,12 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool isSameVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if(v1.size() != v2.size())
+bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size())
         return false;
-    for(int i = 0; i<v1.size(); i++)
-        if(v1[i] != v2[i])
+    for(int i = 0; i<a.size(); i++)
+        if(a[i] != b[i])
             return false;
     return true;
 }
