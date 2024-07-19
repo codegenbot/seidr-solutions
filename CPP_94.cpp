@@ -7,6 +7,7 @@ int getSetSize(int s, int k, int n) {
         return (n + k - 1) / k;
 }
 
-int main() {
-    assert(getSetSize(127, 97, 8192) == 3);
+int mainTest() {
+    assert(getSetSize(127, 97, 8192) == 3); 
     return 0;
+}
