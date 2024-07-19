@@ -1,1 +1,2 @@
-return len(a) == len(b) and b in a * 2 and a != b
+def cycpattern_check(a: str, b: str) -> bool:
+    return len(a) == len(b) and b in a + a and a != b and (a * 2).find(b) != -1
