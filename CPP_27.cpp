@@ -5,10 +5,10 @@
 
 std::string flip_case(std::string str) {
     for (char &c : str) {
-        if (std::islower(c)) {
-            c = std::toupper(c);
-        } else if (std::isupper(c)) {
-            c = std::tolower(c);
+        if (islower(c)) {
+            c = toupper(c);
+        } else if (isupper(c)) {
+            c = tolower(c);
         }
     }
     return str;
