@@ -1,3 +1,4 @@
+```cpp
 class Solution {
 public:
     string Strongest_Extension(string class_name, vector<string> extensions) {
