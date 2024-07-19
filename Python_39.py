@@ -1,2 +1,4 @@
-n = int(input("Enter a number: ")) # Get input from the user
-print(n) # Print the input
+# Get input from user
+n = int(input())
+# Print the input
+print(n)
