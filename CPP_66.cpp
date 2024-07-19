@@ -1,6 +1,15 @@
-```cpp
+```c++
 #include <string>
-#include <iostream>
+
+int main() {
+    std::string s;
+    int num;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    num = digitSum(s);
+    std::cout << "Sum of digits: " << num << std::endl;
+    return 0;
+}
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -10,12 +19,4 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Sum of digits is: " << result << std::endl;
-    return 0;
 }
