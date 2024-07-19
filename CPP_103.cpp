@@ -5,8 +5,7 @@
 #include <cmath> 
 using namespace std;
 
-string res = string(); 
-
+string res;
 string rounded_avg(int n, int m) {
     if (n > m) return "-" + rounded_avg(n, m);
     double sum = 0;
