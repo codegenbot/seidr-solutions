@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 #include <cmath>
+
 using namespace std;
 using size_type = size_t;
 
@@ -15,7 +17,7 @@ long long doubleTheDifference(vector<float> lst) {
     return abs(pos_sum - neg_sum);
 }
 
-int mainProblem() {
+int main() {
     vector<float> numbers;
     float inputNumber; 
     long long sum = 0; 
