@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
+#include <cassert>
 
 std::string string_to_md5(std::string input) {
     MD5_CTX ctx;
