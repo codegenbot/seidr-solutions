@@ -1,9 +1,9 @@
-```cpp
+#include <initializer_list>
 #include <cassert>
 #include <vector>
 #include <iostream>
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(std::initializer_list<int> nums) {
     int c = 0;
     for (int num : nums) {
         if (std::abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
@@ -14,11 +14,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    for (int i : {1, 11, 21}) {
-        nums.push_back(i);
-    }
-    int testResult = specialFilter(nums);
+    int testResult = specialFilter({1, 11, 21});
     std::cout << "The result is: " << testResult << std::endl;
     return 0;
 }
