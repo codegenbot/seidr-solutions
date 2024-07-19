@@ -1,8 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,18 +17,18 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main_test() {
     int n;
-    std::cin >> n;
-    std::vector<int> user_input(n);  
+    cin >> n;
+    vector<int> user_input(n, 0);  
 
     for (int i = 0; i < n; i++) {
         int x;
-        std::cin >> x;
+        cin >> x;
         user_input[i] = x;  
     }
-    if (issame(user_input, user_input)) { 
-        std::cout << "Yes" << std::endl;
+    if (issame(user_input, user_input)) {
+        cout << "Yes" << endl;
     } else {
-        std::cout << "No" << std::endl;
+        cout << "No" << endl;
     }
     return 0;
 }
