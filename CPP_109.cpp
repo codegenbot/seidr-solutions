@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+
 bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
@@ -11,7 +13,7 @@ bool move_one_ball(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> balls = std::vector<int>{};
+    std::vector<int> balls = {5, 2, 8, 1, 4}; // Initialize vector with starting values
     bool result = move_one_ball(balls);
     return 0;
 }
