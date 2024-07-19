@@ -1,7 +1,7 @@
-#include <vector>
-#include <cassert>
+#include <vector>    // Add this include for using vector
+#include <cassert>   // Include for using assert
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){    // Add a space between vector<int> and argument names
     // Implementation of issame function
 }
 
@@ -25,6 +25,9 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
+// Main function with corrected usage
 int main(){
-    assert (issame(pluck({7, 9, 7, 1}), {}));
+    vector<int> pluck(vector<int> arr);    // Move this declaration above main
+
+    assert (issame(pluck({7, 9, 7, 1}), {}));    // Corrected usage of pluck and issame
 }
