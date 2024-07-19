@@ -20,7 +20,7 @@ bool prime_length(std::string str) {
     return isPrime;
 }
 
-int main_ {
+int other_main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
