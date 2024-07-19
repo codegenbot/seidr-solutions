@@ -1,12 +1,10 @@
-#include <iostream>
-#include <string>
-
+```cpp
 int start_here(std::string& input) {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     int count = 0;
     for (int i = 0; i < input.length(); i++) {
-        if ((i % 2 == 0 && static_cast<char>(input[i]) >= 'A' && static_cast<char>(input[i]) <= 'U')) {
+        if ((i % 2 == 0 && isupper(input[i])) && (input[i] == 'A' || input[i] == 'E' || input[i] == 'I' || input[i] == 'O' || input[i] == 'U')) {
             count++;
         }
     }
