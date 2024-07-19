@@ -1,17 +1,13 @@
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
-}
+#include <iostream>
+#include <map>
+#include <sstream>
+
+using namespace std;
 
 map<char, int> histogram(string test);
 
-int main() {
-    string test;
-    getline(cin, test);
-    map<char, int> result = histogram(test);
-    for (const auto& pair : result) {
-        cout << pair.first << " : " << pair.second << "\n";
-    }
-    return 0;
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
 }
 
 map<char, int> histogram(string test) {
@@ -34,4 +30,8 @@ map<char, int> histogram(string test) {
         }
     }
     return maxChars;
+}
+
+int main() {
+    return 0;
 }
