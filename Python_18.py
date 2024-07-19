@@ -1,2 +1,6 @@
 def how_many_times(string: str, substring: str) -> int:
-    return len([i for i in range(len(string)) if string.startswith(substring, i)])
+    count = 0
+    for i in range(len(string)):
+        if string[i : i + len(substring)] == substring:
+            count += 1
+    return count
