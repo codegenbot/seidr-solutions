@@ -14,14 +14,17 @@ vector<string> split_words(string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    if(result.empty()){
-        int count = 0;
+    if(result.size() == 0){
+        int oddCount = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+            if(islower(c)){
+                int order = c - 'a';
+                if(order % 2 == 1){
+                    oddCount++;
+                }
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(to_string(oddCount));
     }
     return result;
 }
