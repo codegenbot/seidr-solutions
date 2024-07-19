@@ -18,10 +18,5 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Test the function
-    std::vector<int> result = get_odd_collatz(10);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+    // Main function implementation can be added here if needed
 }
