@@ -13,20 +13,19 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> numbers;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
+    std::vector<float> lst(n);
     for (int i = 0; i < n; ++i) {
-        float num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+        std::cin >> lst[i];
     }
-    
-    long long result = double_the_difference(numbers);
-    std::cout << "The sum of squares of even integers is: " << result << std::endl;
-    
+
+    long long result = double_the_difference(lst);
+
+    std::cout << "The difference is: " << result << std::endl;
+
     return 0;
 }
