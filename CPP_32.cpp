@@ -1,3 +1,5 @@
+#include <string>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -6,7 +8,7 @@ double find_zero(int n) {
     cin >> solution;
 
     // Initialize the vector coeffs with n+1 elements set to 0.0
-    vector<double> coeffs(n+1, 0.0);
+    std::vector<double> coeffs(n+1, 0.0);
 
     for (int i = 0; i <= n; i++) {
         cin >> coeffs[i];
