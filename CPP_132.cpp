@@ -1,4 +1,9 @@
-int count = 0;
+#include <iostream>
+#include <string>
+#include <cassert>
+
+bool is_nested(const std::string& str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
             count++;
@@ -8,5 +13,5 @@ int count = 0;
             }
         }
     }
-    return count < 0 ? true : false;
+    return count == 0;
 }
