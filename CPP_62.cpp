@@ -1,20 +1,32 @@
-#include <vector> // Include the vector library
+#include <vector>
+#include <cassert>
 
-std::vector<float> derivative(std::vector<float> xs) {
-    std::vector<float> result;
-    for (int i = 1; i < xs.size(); ++i) {
+vector<float> derivative(vector<float> xs);
+bool issame(vector<float> a, vector<float> b);
+
+vector<float> derivative(vector<float> xs){
+    vector<float> result;
+    for(int i=1; i<xs.size(); i++){
         result.push_back(xs[i] * i);
     }
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
 int main() {
-    // Add your test cases here
-    assert(issame(derivative({1}), {})); 
+    vector<float> input = {1.0, 2.0, 3.0, 4.0};
+    vector<float> derived = derivative(input);
+    
+    vector<float> sameInput = {1.0, 2.0, 3.0, 4.0};
+    vector<float> differentInput = {4.0, 3.0, 2.0, 1.0};
+    
+    bool isSame = issame(input, sameInput);
+    bool isDifferent = issame(input, differentInput);
+    
+    assert(derivative({1}).empty());
     
     return 0;
 }
