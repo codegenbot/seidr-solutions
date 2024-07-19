@@ -5,14 +5,11 @@ def string_to_md5(text):
 
 try:
     while True:
-        try:
-            input_text = input()
-            if input_text:
-                result = string_to_md5(input_text)
-                print(result)
-            else:
-                print("Input text is empty.")
-        except (EOFError, KeyboardInterrupt):
-            break
+        input_text = input()
+        if input_text:
+            result = string_to_md5(input_text)
+            print(result)
+        else:
+            print("Input text is empty.")
 except KeyboardInterrupt:
     pass
