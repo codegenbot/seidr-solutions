@@ -1,27 +1,54 @@
+```
 def bowling_score(frames):
-    frames = frames.replace("\n", ",").split(",")
+    frames = frames.replace("\n", "").replace(" ", "")
+
     score = 0
     roll = 0
 
-    while roll < len(frames):
+    while roll < len(frames) - 1:
         if frames[roll] == "X":
             score += 10
-            roll += 1
-        elif "/" in frames[roll]:
-            parts = frames[roll].split("/")
-            total = int(parts[0]) + int(parts[1].strip())
+            roll += 2
+        elif "/" in frames[roll:roll+3]:
+            parts = frames[roll:roll+3].split("/")
+            total = sum(map(int, filter(str.isdigit, parts)))
+            if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
+                score += total + int(parts[-2].split("/")[0])
+            else:
+                score += total
+            roll += 3
+
+        else:
+            total = 0
+            for i in range(2):
+                value = frames[roll+i].strip("/")
+                if value.isdigit():
+                    total += int(value)
+                elif value.startswith("-"):
+                    total -= 10
+                else:
+                    total -= 10
             score += total
             roll += 2
+
+    if roll < len(frames) and (frames[roll] == "X" or "/" in frames[roll:roll+3]):
+        if frames[roll] == "X":
+            score += 10
         else:
-            value = frames[roll]
-            if value.isdigit():
-                score += int(value)
-            elif value.startswith("-"):
-                score -= 10
+            parts = frames[roll:].split("/")
+            total = sum(map(int, filter(str.isdigit, parts)))
+            if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
+                score += total + int(parts[-2].split("/")[0])
             else:
-                score += 5
-            roll += 1
+                score += total
+        roll += 2
+    elif roll < len(frames) and frames[roll] != "/":
+        value = frames[roll].strip("/")
+        if value.isdigit():
+            score += int(value)
+        elif value.startswith("-"):
+            score -= 10
 
     return score
 
-print(bowling_score("3/X8--525X27X2161"))
+print(bowling_score("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10".replace("\n", ",")))
