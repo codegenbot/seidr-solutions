@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+std::string concatenate(std::vector<std::string> strings);
+
 std::string concatenate(std::vector<std::string> strings){
     std::string result;
     for(const std::string& s : strings){
