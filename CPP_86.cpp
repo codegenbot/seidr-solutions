@@ -1,13 +1,16 @@
-string result = "";
+string anti_shuffle(string s){
+    string res = "";
     string word = "";
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == ' ' || i == s.length() - 1) {
+    for(char c : s){
+        if(c == ' '){
             sort(word.begin(), word.end());
-            result += word + (i == s.length() - 1 ? "" : " ");
+            res += word + " ";
             word = "";
         } else {
-            word += s[i];
+            word += c;
         }
     }
-    return result;
+    sort(word.begin(), word.end());
+    res += word;
+    return res;
 }
