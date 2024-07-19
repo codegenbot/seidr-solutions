@@ -2,6 +2,6 @@
 #include <string>
 #include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
