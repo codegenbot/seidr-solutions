@@ -26,7 +26,7 @@ int main() {
 
     assert(issame(result, {"world", "contest"}));
 
-    for (const string& word : result) {
+    for (const string &word : result) {
         cout << word << endl;
     }
 
