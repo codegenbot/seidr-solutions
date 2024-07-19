@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -18,9 +19,9 @@ int compare_strings(const std::string& a, const std::string& b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter the first string: ";
-    std::cin >> str1;
+    std::getline(std::cin, str1);
     std::cout << "Enter the second string: ";
-    std::cin >> str2;
+    std::getline(std::cin, str2);
     
     int result = compare_strings(str1, str2);
     
