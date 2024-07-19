@@ -1,16 +1,14 @@
-for(auto &c : s){
-        if(isalpha(c)){
-            if(isupper(c)){
-                c = tolower(c);
-            } else {
+for (char &c : s) {
+        if (isalpha(c)) {
+            if (islower(c)) {
                 c = toupper(c);
+            } else {
+                c = tolower(c);
             }
         }
     }
-    
-    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
