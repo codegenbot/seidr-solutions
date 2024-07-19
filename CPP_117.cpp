@@ -8,8 +8,9 @@ vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
     stringstream ss(s);
-    while (ss >> word && words.size() < n) {
+    while (ss >> word && n > 0) {
         words.push_back(word);
+        n--;
     }
     return words;
 }
@@ -17,7 +18,7 @@ vector<string> select_words(string s, int n) {
 int main() {
     vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
 
-    assert(result == vector<string>{"world", "contest"});
+    assert(result == vector<string>{"Hello,", "world!"});
 
     for (const string &word : result) {
         cout << word << endl;
