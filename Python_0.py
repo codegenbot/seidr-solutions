@@ -1,9 +1,11 @@
 try:
     while True:
-        try:
-            result = int(input())
-            print(result)
-        except (ValueError, EOFError):
+        result = input()
+        if not result:
+            break
+        if result.isnumeric():
+            print(int(result))
+        else:
             break
 except:
     pass
