@@ -5,7 +5,10 @@
 
 using namespace std;
 
-boost::any compare(boost::any a, boost::any b){
+boost::replace(strA.begin(), strA.end(), ',', '.');
+boost::replace(strB.begin(), strB.end(), ',', '.');
+
+boost::any compareValues(const boost::any& a, const boost::any& b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
             return a;
