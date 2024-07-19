@@ -12,10 +12,7 @@ std::string fix_spaces(const std::string& text) {
             result += c;
         }
     }
-    return result;
+    return result; // Return by value
 }
 
-int main() {
-    std::cout << fix_spaces("   Exa 1 2 2 mple");
-    return 0;
-}
+std::cout << fix_spaces("   Exa 1 2 2 mple");
