@@ -1,4 +1,4 @@
-vector<float> rescale_to_unit(const vector<float>& numbers) {
+vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
     
@@ -11,6 +11,6 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
     return transformed;
 }
 
-vector<float> issame(const vector<float>& a, vector<float>& b) {
+vector<float> issame(vector<float> a, vector<float> b) {
     return rescale_to_unit(a) == rescale_to_unit(b);
 }
