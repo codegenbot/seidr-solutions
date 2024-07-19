@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 from typing import List
 
@@ -11,6 +13,6 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(temp_beats)
             temp_beats = 0
         else:
-            temp_beats += beats_per_note.get(note, 0)
+            temp_beats += beats_per_note.get(note, 4)  # default to 4 if note not found
     music_list.append(temp_beats)
     return music_list
