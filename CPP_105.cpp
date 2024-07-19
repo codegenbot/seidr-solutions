@@ -4,19 +4,20 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
-    for (int num : arr) {
+std::vector<std::string> by_length(std::initializer_list<int> numbers) {
+    std::vector<int> vec(numbers.begin(), numbers.end());
+    
+    for (int num : vec) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers = {num};
         }
     }
 
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
+    std::sort(vec.begin(), vec.end());
+    std::reverse(vec.begin(), vec.end());
 
     std::vector<std::string> result;
-    for (int num : numbers) {
+    for (int num : vec) {
         switch (num) {
             case 1:
                 result.push_back("One");
@@ -49,4 +50,3 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
