@@ -7,10 +7,6 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> f(int n);
 
-int main() {
-    // Your main function code here
-}
-
 vector<int> f(int n){
     vector<int> result;
     int sum = 0;
