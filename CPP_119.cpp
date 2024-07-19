@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int main() {
+int balance_parens() {
     std::vector<char> lst;
     std::cout << "Enter the strings: ";
     char c;
