@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> filter_integers(const std::vector<int>& input) {
     std::vector<int> result;
     for (int num : input) {
-        if (std::isdigit(static_cast<unsigned char>(num))) {
+        if (std::isdigit(num)) {
             result.push_back(num);
         }
     }
