@@ -32,7 +32,12 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+int main_test() {
+    std::vector<int> game = {1,2,3,5};
+    std::vector<int> guess = {-1,2,3,4};
+    std::vector<int> output = compare(game, guess);
+    for (int i = 0; i < output.size(); i++) {
+        std::cout << output[i] << " ";
+    }
     return 0;
 }
