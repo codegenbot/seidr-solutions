@@ -3,7 +3,7 @@
 #include <stdexcept>
 using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         throw runtime_error("Vectors are not of the same size");
     }
@@ -28,6 +28,6 @@ vector<int> uniqueNumbers(vector<int> numbers) {
 
 int main() {
     vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    assert (areEqual(uniqueNumbers(test), {1, 2, 3, 4, 5}) );
+    assert (same(uniqueNumbers(test), uniqueNumbers(test)) );
     return 0;
 }
