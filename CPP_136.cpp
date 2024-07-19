@@ -5,7 +5,7 @@
 std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
-
+    
     for(int num : lst){
         if(num < 0 && num > largest_negative){
             largest_negative = num;
@@ -14,7 +14,7 @@ std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
             smallest_positive = num;
         }
     }
-
+    
     return std::make_pair(largest_negative, smallest_positive);
 }
 
