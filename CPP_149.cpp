@@ -1,4 +1,4 @@
-bool issame(vector<string>& a, vector<string>& b){
+bool issame(vector<string>& a, vector<string>& b){ // Use reference for efficiency
     return a == b;
 }
 
