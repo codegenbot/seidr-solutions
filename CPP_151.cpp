@@ -1,5 +1,9 @@
+```cpp
+#include <vector>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
-using size_type = size_t;
 
 long long doubleTheDifference(vector<float> lst) {
     long long pos_sum = 0, neg_sum = 0;
