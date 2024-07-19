@@ -8,9 +8,11 @@ int smallest_change(vector<int> arr) {
         s += to_string(i);
     }
     int count = 0;
-    for(int i = 0; i < n/2; i++) {
-        if(s[i] != s[n-i-1]) {
+    sort(s.begin(), s.end());
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s[i] == s[i + 1]) {
             count++;
+            i++;
         }
     }
     return count;
