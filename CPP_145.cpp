@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool areVectorSame(std::vector<int> a, std::vector<int> b) {
+bool areVectorsSame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
 }
 
