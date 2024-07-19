@@ -1,31 +1,36 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-std::vector<int> tri(int n){
-    std::vector<int> tribonacci(n+1);
-    tribonacci[0] = 3;
-    if(n > 0) tribonacci[1] = 1;
-    if(n > 1) tribonacci[2] = 3;
-    
-    for(int i = 3; i <= n; ++i){
-        if(i % 2 == 0){
-            tribonacci[i] = 1 + i / 2;
-        } else {
-            tribonacci[i] = tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3];
+vector<int> tri(int n){
+    vector<int> res;
+    if (n >= 0) {
+        res.push_back(3);
+        if (n > 0) {
+            res.push_back(1);
+            for (int i = 2; i <= n; ++i) {
+                if (i % 2 == 0) {
+                    res.push_back(1 + i / 2);
+                } else {
+                    res.push_back(res[i - 1] + res[i - 2] + res[i - 1]);
+                }
+            }
         }
     }
-    
-    return tribonacci;
+    return res;
 }
 
 int main(){
-    assert(issame(tri(1), {3, 1}));
-    return 0;
+    assert(issame(tri(1), {1, 3}));
+    ...
 }
