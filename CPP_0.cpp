@@ -13,11 +13,11 @@ bool has_close_elements(const std::vector<float>& a) {
 std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
 
 int main() {
+    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     if (has_close_elements(a)) {
-        // Do something if close elements found
+        std::cout << "Close elements exist." << std::endl;
     } else {
-        // Do something else if close elements not found
+        std::cout << "No close elements found." << std::endl;
     }
-
     return 0;
 }
