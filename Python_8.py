@@ -12,6 +12,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
     return (total_sum, product)
 
+
 numbers = [1, 2, 3]
 result = sum_product(numbers)
 print(result)
