@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cassert>
+#include <string>
 
 bool prime_length(std::string str){
     int len = str.length();
