@@ -1,11 +1,9 @@
-#include <iostream>
 #include <cstring>
 
-int countCharacters(const std::string& str) {
-    return str.size();
-}
+// Task Description: Implement a function to return the length of a C-style string.
+// Function Signature: int strlen(const char* str)
 
 int main(){
-    assert (countCharacters("asdasnakj") == 9);
-    return 0;
+    assert(strlen("asdasnakj") == 9);
+    return strlen("asdasnakj");
 }
