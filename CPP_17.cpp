@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<int> parse_music(string music_string);
 
 bool areEqual(vector<int> a, vector<int> b) {
@@ -25,20 +31,22 @@ vector<int> parse_music(string music_string) {
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
+        } else {
+            i++;
         }
     }
     return beats;
 }
 
 int main() {
-    vector<int> music1 = parse_music("o|o");
-    vector<int> music2 = parse_music("o.o|o");
+    vector<int> music1 = parse_music("o|o|o|");
+    vector<int> music2 = parse_music("o.o.o.");
     
     if (areEqual(music1, music2)) {
         cout << "Music sequences are equal." << endl;
     } else {
         cout << "Music sequences are not equal." << endl;
     }
-    
+
     return 0;
 }
