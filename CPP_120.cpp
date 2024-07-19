@@ -25,8 +25,9 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    std::vector<int> result(std::max_element(a.begin(), a.end()) - k + 1, 0); 
-    std::fill_n(result.begin(), std::max_element(a.begin(), a.end()) - k + 1, 0);
+    int max_element = *std::max_element(a.begin(), a.end());
+    int n = (max_element > k ? max_element : k) + 1;
+    std::vector<int> result(n);
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] > k) result.push_back(a[i]);
     }
