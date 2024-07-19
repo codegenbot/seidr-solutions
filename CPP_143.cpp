@@ -1,27 +1,22 @@
+#include<string>
+using namespace std;
+
 string words_in_sentence(string sentence){
     string result = "";
-    int i=0;
-    while(i<sentence.length()){
-        int length = 0;
-        for(int j=i; j<sentence.length() && sentence[j] != ' '; j++){
-            length++;
+    int i = 0;
+    while(i < sentence.length()){
+        int j = i+1;
+        bool is_prime = true;
+        while(j > 1 && is_prime){
+            if(j % 2 == 0 || j % 3 == 0 || j % 5 == 0) is_prime = false;
+            else j--;
+        }
+        if(is_prime){
+            result += sentence.substr(i, j-i);
+            i = j;
+        }else{
             i++;
         }
-        if(isPrime(length)){
-            result += sentence.substr(0, length) + " ";
-        }
-        else{
-            i--;
-            while(i < sentence.length() && sentence[i] == ' ') i++;
-        }
     }
-    return result.substr(0, result.length()-1);
-}
-
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0) return false;
-    }
-    return true;
+    return result;
 }
