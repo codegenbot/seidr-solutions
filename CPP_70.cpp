@@ -28,3 +28,14 @@ std::vector<int> main(std::vector<int> lst) {
 
     return result;
 }
+
+int main() {
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = main(a);
+    if (a != b) {
+        for (size_t i = 0; i < a.size(); ++i) {
+            assert(a[i] == b[i]);
+        }
+    }
+    return 0;
+}
