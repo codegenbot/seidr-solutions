@@ -25,8 +25,8 @@ int main() {
         cin >> coeffs[i];
     }
 
-    double solution;
-    cin >> solution;
+    double x;
+    cin >> x;
 
-    cout << fixed << setprecision(6) << find_zero(coeffs, solution) << endl;
+    cout << fixed << setprecision(6) << find_zero(coeffs, x) << endl;
 }
