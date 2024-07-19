@@ -7,12 +7,15 @@ std::vector<std::string> split(const std::string& str, char ch) {
     std::vector<std::string> tokens;
     std::string token = "";
 
-    for (int i = 0; i <= str.length(); ++i) {
-        if (str[i] == ch || i == str.length()) {
+    for (char c : str) {
+        if (!std::isascii(c)) {
+            c = '?'; // replace with any character you want for non-ASCII characters
+        }
+        if (c == ch) {
             tokens.push_back(token);
             token = "";
         } else {
-            token += str[i];
+            token += c;
         }
     }
 
@@ -31,6 +34,10 @@ bool is_prime(int n) {
             return false;
     }
     return true;
+}
+
+bool isascii(char c) {
+    return static_cast<unsigned char>(c) <= 0x7F;
 }
 
 int main() {
