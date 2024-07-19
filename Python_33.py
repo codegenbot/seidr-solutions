@@ -1,4 +1,4 @@
-def sort_third(l: list) -> list:
+def sort_third(l: list):
     return sorted(
         [
             sorted(sublist, key=lambda x: x, reverse=True)
