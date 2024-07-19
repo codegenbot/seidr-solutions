@@ -1,23 +1,17 @@
 string solve(string s){
     string result = "";
-    bool flag = false;
-
-    for (char& c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
-            flag = true;
-        } else {
+    bool hasLetter = false;
+    for(char c : s){
+        if(isalpha(c)){
+            hasLetter = true;
+            result += islower(c) ? toupper(c) : tolower(c);
+        }
+        else{
             result += c;
         }
     }
-
-    if (!flag) {
+    if(!hasLetter){
         reverse(result.begin(), result.end());
     }
-
     return result;
 }
