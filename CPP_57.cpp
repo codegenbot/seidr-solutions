@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool monotonic(std::vector<float> l){
+bool monotonic(vector<float> l){
     bool increasing = true, decreasing = true;
     for(int i = 1; i < l.size(); i++){
         if(l[i] < l[i-1])
