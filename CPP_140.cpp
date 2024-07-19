@@ -1,18 +1,28 @@
-string result = "";
-    bool consecutive = false;
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
+    int consecutive_spaces = 0;
     for (char c : text) {
         if (c == ' ') {
-            if (consecutive) {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
                 result.pop_back();
-                result.push_back('-');
+                result.pop_back();
+                result += '-';
             } else {
-                result.push_back('_');
-                consecutive = true;
+                result += '_';
             }
         } else {
-            result.push_back(c);
-            consecutive = false;
+            consecutive_spaces = 0;
+            result += c;
         }
     }
     return result;
+}
+
+int main() {
+    std::string text = "Hello   world";
+    std::string fixed_text = fix_spaces(text);
+    return 0;
 }
