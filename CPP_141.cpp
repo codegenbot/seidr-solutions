@@ -1,30 +1,14 @@
-int digits = 0;
-    int dotIndex = -1;
+int dotPosition = file_name.find('.');
+    if(dotPosition == string::npos || dotPosition == 0 || dotPosition == file_name.length()-1) return "No";
     
-    for (int i = 0; i < file_name.size(); ++i) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
-            digits++;
-            if (digits > 3) {
-                return "No";
-            }
-        } else if (file_name[i] == '.') {
-            if (dotIndex != -1) {
-                return "No";
-            }
-            dotIndex = i;
-        } else if (i == 0 && !(file_name[i] >= 'a' && file_name[i] <= 'z') && !(file_name[i] >= 'A' && file_name[i] <= 'Z')) {
-            return "No";
-        }
-    }
+    string beforeDot = file_name.substr(0, dotPosition);
+    string afterDot = file_name.substr(dotPosition+1);
+
+    if(beforeDot.empty() || !isalpha(beforeDot[0])) return "No";
+    if(count_if(afterDot.begin(), afterDot.end(), ::isdigit) > 3) return "No";
     
-    if (digits > 3 || dotIndex == -1 || dotIndex == 0 || dotIndex == file_name.size() - 1) {
-        return "No";
-    }
+    if(afterDot == "txt" || afterDot == "exe" || afterDot == "dll")
+        return "Yes";
     
-    string extension = file_name.substr(dotIndex + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
-    }
-    
-    return "Yes";
+    return "No";
 }
