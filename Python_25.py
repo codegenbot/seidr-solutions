@@ -17,7 +17,9 @@ while True:
         if number <= 1:
             raise ValueError("Number should be greater than 1")
         print(factorize(number))
-    except ValueError:
-        print("Invalid input. Please enter a valid integer greater than 1.")
-    else:
         break
+    except ValueError as e:
+        if "Number should be greater than 1" in str(e):
+            print("Invalid input. Please enter a valid integer greater than 1.")
+        else:
+            print("Invalid input. Please enter a valid integer.")
