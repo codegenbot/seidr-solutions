@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& vecB) {
+    if (v1.size() != vecB.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+        if (v1[i] != vecB[i]) return false;
     }
     return true;
 }
@@ -37,8 +37,8 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    bool result = issame({ "", "True" }, reverseDelete("mamma", "mia"));
-    if (result) {
+    assert(issame({ "", "True" }, reverseDelete("mamma", "mia")));
+    if (issame({ "", "True" }, reverseDelete("mamma", "mia"))) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
