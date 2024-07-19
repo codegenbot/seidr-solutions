@@ -1,13 +1,20 @@
-int main
-{
-    std::cout << "Enter a number: ";
-    int N;
-    std::cin >> N;
-    if (N == 0)
-    {
-        std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
-        return 1;
+```cpp
+#include <iostream>
+#include <string>
+
+std::string solve(int num) {
+    std::string result = "";
+    while (num > 0) {
+        if (num % 2 == 0)
+            result += "0";
+        else
+            result += "1";
+        num /= 2;
     }
-    printResult(N);
+    return std::string(result);
+}
+
+int main() {
+    assert(solve(963) == "10010");
     return 0;
 }
