@@ -8,7 +8,7 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 }
 
 vector<string> reverse_delete(string s, string c){
