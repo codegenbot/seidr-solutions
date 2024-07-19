@@ -8,8 +8,9 @@ int how_many_times(string str1, string str2) {
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != string::npos) {
         ++count;
-        str1.erase(pos, str2.size());
-        ++pos; // <--- Increment pos here
+        if (pos == string::npos) break;
+        str1.erase(0, str2.size());
+        pos = str2.size();
     }
     return count;
 
@@ -19,5 +20,9 @@ int main() {
     getline(cin, str1);
     cout << "Enter the second string: ";
     getline(cin, str2);
-    cout << "The second string appears " << how_many_times(str1, str2) << " times in the first string." << endl;
+    if(str2.empty()) {
+        cout << "Error: The second string is empty." << endl;
+    } else {
+        cout << "The second string appears " << how_many_times(str1, str2) << " times in the first string." << endl;
+    }
     return 0;
