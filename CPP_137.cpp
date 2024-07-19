@@ -1,22 +1,22 @@
-#include <any>
-#include <string> // Add this header for std::string
-#include <cassert> // Add this header for assert
-#include <boost/any.hpp> // Add this header for boost::any_cast
-#include <boost/lexical_cast.hpp> // Add this header for boost::lexical_cast
+#include <cassert>
+#include <boost/any.hpp>
+#include <string>
+#include <stdexcept>
 
-std::any compare_one(std::any a, std::any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
+        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
+        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        float valA = boost::lexical_cast<float>(std::any_cast<std::string>(a));
-        float valB = boost::lexical_cast<float>(std::any_cast<std::string>(b));
+        float valA = std::stof(boost::any_cast<std::string>(a));
+        float valB = std::stof(boost::any_cast<std::string>(b));
         return valA > valB ? a : (valA < valB ? b : "None");
     } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : boost::lexical_cast<float>(std::any_cast<std::string>(a));
-        float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : boost::lexical_cast<float>(std::any_cast<std::string>(b));
+        float valA = a.type() == typeid(int) ? boost::any_cast<int>(a) : std::stof(boost::any_cast<std::string>(a));
+        float valB = b.type() == typeid(int) ? boost::any_cast<int>(b) : std::stof(boost::any_cast<std::string>(b));
         return valA > valB ? a : (valA < valB ? b : "None");
+    } else {
+        throw std::invalid_argument("Unsupported types");
     }
-    assert(false);
 }
