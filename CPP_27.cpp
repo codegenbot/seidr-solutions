@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -17,20 +18,13 @@ std::string flip_case(const std::string& str) {
     return result;
 }
 
-int main() {
+int main_function() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    if (!input.empty()) { 
-        std::string expectedOutput = "tHeSe ViOlEnT dElIgHtS hAvE vIoLeNt EnDs";
-        std::cout << "Computed output: " << flip_case(input) << std::endl;
-        if(flip_case(input).compare(expectedOutput) == 0)
-            return 0;
-        else
-            return 1;
-    } else {
-        std::cout << "Error: Input string is empty." << std::endl;
-        return 2; 
-    }
+    std::getline(std::cin, input) >> std::ws; 
+    std::cout << flip_case(input).c_str() << '\n';
+    if(flip_case(input).compare("these violent delights have violent ends") == 0)
+        return 0;
+    else
+        return 1;
 }
