@@ -1,3 +1,8 @@
+#include <vector>
+#include <string>
+#include <cassert>
+using namespace std;
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {

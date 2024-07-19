@@ -1,3 +1,15 @@
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
+vector<string> by_length(vector<int> arr);
+
+bool is_same(vector<string> a, vector<string> b);
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
@@ -12,12 +24,15 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(filtered.begin(), filtered.end());
-    reverse(filtered.begin(), filtered.end());
+    sort(filtered.begin(), filtered.end(), greater<int>());
 
     for (int num : filtered) {
         result.push_back(num_to_name[num]);
     }
 
     return result;
+}
+
+bool is_same(vector<string> a, vector<string> b){
+    return a == b;
 }
