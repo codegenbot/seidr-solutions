@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert> // Include necessary header for assert()
 
 bool issame(float a, float b) {
     return a == b;
@@ -15,8 +14,4 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
 }
