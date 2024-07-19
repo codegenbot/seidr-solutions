@@ -1,15 +1,15 @@
-vector<string> by_length(vector<int> arr){
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <string>
+
+using namespace std;
+
+vector<string> by_length(const vector<int>& arr) {
     vector<string> result;
     map<int, string> numToString = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
+        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, 
+        {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
 
     vector<int> sortedArr;
@@ -19,9 +19,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(sortedArr.begin(), sortedArr.end());
-
-    reverse(sortedArr.begin(), sortedArr.end());
+    sort(sortedArr.begin(), sortedArr.end(), greater<int>());
 
     for (int num : sortedArr) {
         result.push_back(numToString[num]);
