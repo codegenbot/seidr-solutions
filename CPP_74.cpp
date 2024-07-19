@@ -2,12 +2,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
-}
-
 int total_chars(const vector<string>& lst) {
     int total = 0;
     for (const string& s : lst) {
@@ -21,6 +15,10 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
         return lst1;
     }
     return lst2;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b){
+    return a == b;
 }
 
 int main() {
