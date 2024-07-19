@@ -12,17 +12,16 @@ bool match_parens(const std::string& s) {
 }
 
 int main() { 
-    std::string line, lst; 
+    std::string line; 
     std::cout << "Enter the strings: ";
-    while((std::getline(std::cin, line)) && !line.empty()) {
-        for(auto ch: line) {
-            lst += ch; 
+    while(std::getline(std::cin, line)) {
+        if(line.empty()) break;
+        std::string lst = line; // Initialize string
+        bool parenthesisMatched = match_parens(lst);
+        if (parenthesisMatched) {
+            std::cout << "The parentheses are matched." << std::endl;
+        } else {
+            std::cout << "The parentheses are not matched." << std::endl;
         }
-        std::cin.ignore(); 
-    }
-    if (match_parens(lst)) {
-        std::cout << "The parentheses are matched." << std::endl;
-    } else {
-        std::cout << "The parentheses are not matched." << std::endl;
     }
 }
