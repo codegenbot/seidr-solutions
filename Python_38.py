@@ -1,4 +1,3 @@
-even_sum = 0
 try:
     input_list = list(map(int, input("Enter space-separated integers: ").strip().split()))
     even_sum = sum(num for num in input_list if num % 2 == 0)
