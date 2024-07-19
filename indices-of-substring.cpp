@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -7,6 +6,7 @@ using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
     std::vector<int> result(target.length());
+    
     int n = text.length();
     int m = target.length();
 
@@ -23,7 +23,7 @@ int main() {
     string text, target;
     cin >> text >> target;
     cin.ignore(); 
-    cin.ignore(); 
+    cin.ignore(); // Consume second newline
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
