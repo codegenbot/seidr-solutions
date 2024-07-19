@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -32,7 +31,6 @@ void printOutput(string str, int num) {
                 cout << c;
             }
         }
-        std::cout.flush(); // consume the output manually
     } else {
         cout << str << endl; 
     }
