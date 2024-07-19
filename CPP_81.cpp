@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -55,4 +54,3 @@ int main() {
     if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
-}
