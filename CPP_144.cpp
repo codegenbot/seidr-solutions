@@ -1,13 +1,11 @@
 #include <string>
-#include <vector>
-
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = stoi(strtok((x.substr(1)).c_str(), "/"));
-    int b = stoi(x.substr(0));
+    int b = stoi(strtok(NULL, "/"));
     int c = stoi(strtok((n.substr(1)).c_str(), "/"));
-    int d = stoi(n.substr(0));
+    int d = stoi(strtok(NULL, "/"));
 
-    return (a * d == b * c);
+    return (a*d) == (b*c);
 }
