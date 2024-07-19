@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <sstream>
 
@@ -19,13 +20,12 @@ int main() {
     if (!is_prime(n)) {
         cout << "The number is not prime." << endl;
     } else {
-        for(int i=2; i<=n; i++){
+        for(int i=2; i<=n;i++){
             if(is_prime(i)){
-                cout << i << " ";
+                cout<<i<<" ";
                 count++;
             }
         }
-        cout << endl << "Count of primes: " << count << endl;
+        cout<<endl<<"Count: "<<count<<endl;
     }
-    return 0;
 }
