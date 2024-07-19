@@ -1,33 +1,28 @@
-#include <iostream>
 #include <boost/any.hpp>
 #include <string>
-using namespace std;
-using boost::any;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-       if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) > boost::any_cast<string>(b)) {
-            return a;
-        } else if (boost::any_cast<string>(a) < boost::any_cast<string>(b)) {
-            return b;
+template <typename T>
+T compare_one(const boost::any& a, const boost::any& b) {
+    if (a.type() == typeid(T) && b.type() == typeid(T)) {
+        if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
+            return boost::any_cast<T>(a);
+        } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
+            return boost::any_cast<T>(b);
         }
     }
-    return boost::any();
+    throw std::invalid_argument("Invalid types or values");
 }
 
 int main() {
-    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    // Example usage
+    boost::any a = 5;
+    boost::any b = 10;
+    try {
+        int result = compare_one<int>(a, b);
+        // Do something with the result
+    } catch (const std::invalid_argument& e) {
+        // Handle the exception
+    }
+
     return 0;
 }
