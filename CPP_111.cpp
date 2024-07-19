@@ -1,7 +1,6 @@
+```cpp
 #include <map>
 #include <string>
-#include <algorithm>
-#include <initializer_list>
 using namespace std;
 
 std::map<char, int> histogram(string test) {
@@ -32,3 +31,4 @@ int main()
 {
     cout << issame(histogram("a"), histogram("b")) << endl;
     return 0;
+}
