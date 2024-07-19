@@ -22,8 +22,7 @@ vector<int> sort_array(vector<int> array) {
     }
 }
 
-int main 
-{
+int main(){ 
     assert(same(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
