@@ -1,3 +1,4 @@
+```Python
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
     total = 0
@@ -7,4 +8,4 @@ def luhn(card_number):
             if num > 9:
                 num -= 9
         total += num
-    return total
+    return (total // 10) + ((total % 10) + 9) // 10
