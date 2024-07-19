@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 
 #include <vector>
@@ -43,6 +42,11 @@ bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) 
 }
 
 int main() {
-    assert(same(filter_by_substring({{{"grunt"}, {"trumpet", "prune", "gruesome"}}}, "run"), {{{"grunt"}, {"prune"}}}));
-    return 0;
-}
+    std::vector<std::string> vec1 = {"grunt", "trumpet", "prune", "gruesome"};
+    std::vector<std::string> vec2 = {"grunt", "prune"};
+
+    int main() {
+        std::vector<std::vector<std::string>> input = {{vec1}};
+        assert(same(filter_by_substring(input, "run"), {vec2[0], vec2[1]}));
+        return 0;
+    }
