@@ -3,12 +3,12 @@
 #include <cassert>
 
 bool issame(std::vector<double> a, std::vector<double> b) {
-    return a == b;
+    return a != b;
 }
 
-std::string numerical_letter_grade(std::vector<double> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<double> grades) {
     if (grades.empty()) {
-        return "No grades available";
+        return {"No grades available"};
     }
 
     double sum = 0;
@@ -19,20 +19,20 @@ std::string numerical_letter_grade(std::vector<double> grades) {
     double avg = sum / grades.size();
 
     if (avg >= 90) {
-        return "A";
+        return {"A"};
     } else if (avg >= 80) {
-        return "B";
+        return {"B"};
     } else if (avg >= 70) {
-        return "C";
+        return {"C"};
     } else if (avg >= 60) {
-        return "D";
+        return {"D"};
     } else {
-        return "F";
+        return {"F"};
     }
 }
 
 int main() {
     assert(issame(std::vector<double>{0, 0.7}, std::vector<double>{0.1, 0.7}));
-    assert(numerical_letter_grade({90, 85}) == "B");
-    assert(numerical_letter_grade({45, 55, 67}) == "D");
+    assert(numerical_letter_grade({90, 85}) == std::vector<std::string>{"B"});
+    assert(numerical_letter_grade({45, 55, 67}) == std::vector<std::string>{"D"});
 }
