@@ -1,4 +1,5 @@
 ```c++
+#define _CPP_SUPPORT_INITIALIZER_LIST
 #include <vector>
 #include <cmath>
 #include <iostream>
