@@ -33,10 +33,10 @@ std::vector<double> find_zero(const std::vector<double>& coefficients) {
 }
 
 int main() {
-    std::vector<double> coefficients;
+    std::vector<double> coefficients = {1.0, -3.0, -2.0, 4.0};
   
-    for (double coeff : {1.0, -3.0, -2.0, 4.0}) {
-        coefficients.push_back(coeff);
+    for (double coefficients : coefficients) {
+        coefficients.push_back(coefficients);
     }
     
     auto solution = find_zero(coefficients);
