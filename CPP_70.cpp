@@ -1,9 +1,8 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
-#include <numeric>
 
-bool (*issame)(const vector<int>&, const vector<int>&);
+bool (*issame)(const vector<int>&, const vector<int>&) = [](const vector<int>& a, const vector<int>& b) { return a == b; };
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
