@@ -14,6 +14,6 @@ int vowels_count(string s){
 }
 
 int main() {
-    // Your code here
+    // Your main function code here
     return 0;
 }
