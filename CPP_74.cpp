@@ -1,13 +1,10 @@
-int totalChars1 = 0;
-    int totalChars2 = 0;
-    for (const auto& str : lst1) {
-        totalChars1 += str.size();
-    }
-    for (const auto& str : lst2) {
-        totalChars2 += str.size();
-    }
-    if (totalChars1 < totalChars2) {
+bool issame(const vector<string>& lst1, const vector<string>& lst2) {
+    return lst1 == lst2;
+}
+
+vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+    if (totalChars(lst1) < totalChars(lst2)) {
         return lst1;
     }
-    return lst2;
+    return vector<string>();
 }
