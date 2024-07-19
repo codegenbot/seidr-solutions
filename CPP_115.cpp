@@ -1,20 +1,23 @@
-int max_fill(vector<vector<int>>& grid, int capacity) {
+#include <iostream>
+#include <vector>
+
+int max_fill(const std::vector<std::vector<int>>& grid, int capacity) {
     int total = 0;
-    
     for (int i = 0; i < grid.size(); i++) {
         int current = 0;
-        
         for (int j = 0; j < grid[i].size(); j++) {
             current += grid[i][j];
-            
             if (current >= capacity) {
                 total += current / capacity;
                 current %= capacity;
             }
         }
-        
         total += (current > 0) ? 1 : 0;
     }
-
     return total;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
