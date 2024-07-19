@@ -9,9 +9,8 @@ int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     string prefix = "xxx";
     vector<string> result = filter_by_prefix(strings, prefix);
-    
     assert (issame(result , {"xxx", "xxxAAA", "xxx"}));
-    // ...
+    return 0;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
