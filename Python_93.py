@@ -1,25 +1,12 @@
+```
 def encode(message):
-    result = ""
+    result = ''
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if char == "X":
-                    result += "A"
-                elif char == "Y":
-                    result += "B"
-                elif char == "Z":
-                    result += "C"
-                else:
-                    result += chr(ord(char) + 1)
+                result += chr((ord(char) - 65 + 2) % 26 + 65)
             else:
-                if char == "x":
-                    result += "T"
-                elif char == "y":
-                    result += "U"
-                elif char == "z":
-                    result += "a"
-                else:
-                    result += chr(ord(char) + 1)
+                result += chr((ord(char) - 97 + 2) % 26 + 97)
         else:
             result += char
     return result
