@@ -1,4 +1,4 @@
-#include <vector>
+Here is the completed code:
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
