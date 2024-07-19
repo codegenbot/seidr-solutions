@@ -7,6 +7,9 @@ void sort_array(std::vector<int>& arr) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    sort_array(const_cast<std::vector<int>&>(a));
+    sort_array(const_cast<std::vector<int>&>(b));
+
     return a == b;
 }
 
