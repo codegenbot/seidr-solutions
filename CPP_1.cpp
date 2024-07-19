@@ -17,9 +17,10 @@ vector<string> separate_paren_groups(const string& paren_string) {
             count++;
         } else if (c == ')') {
             count--;
-            if (count > 0) {
+            if (count >= 0) {
                 current_group += c;
-            } else if (count == 0) {
+            }
+            if (count == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -35,7 +36,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     vector<string> expected_result = {"()", "(())", "(()())"};
-    assert(issame(separate_paren_groups("()(()())(()(()))"), expected_result));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_result));
 
     return 0;
 }
