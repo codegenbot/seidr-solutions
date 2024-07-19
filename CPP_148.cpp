@@ -42,7 +42,7 @@ int main() {
     std::vector<std::string> result = bf(planet1, planet2);
 
     if (result.empty()) {
-        std::cout << "Invalid input." << std::endl;
+        std::cout << "Invalid planets entered" << std::endl;
     } else {
         for (const auto& planet : result) {
             std::cout << planet << " ";
