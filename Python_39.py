@@ -17,14 +17,13 @@ def prime_fib(n):
         n = int(n)
         if n < 1:
             return "Invalid input"
-
+        
         fib_sequence = generate_fibonacci(n)
         prime_fibonacci = [num for num in fib_sequence if is_prime(num)]
-
+        
         return prime_fibonacci
     except ValueError:
         return "Invalid input"
-
 
 try:
     n = input()
