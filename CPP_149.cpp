@@ -1,21 +1,12 @@
-```cpp
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    
-    for (const string& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+bool issame(vector<string> a,vector<string>b){
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    
-    return result;
+    return true;
+}
+
+int main() {
+    //rest of your code here
 }
