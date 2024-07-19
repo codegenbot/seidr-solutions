@@ -1,42 +1,10 @@
-bool issame(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
-        }
-    }
-    return count == 0;
+// Add missing 'bool' return type to the function signature
+bool issame(vector<string> a, vector<string> b) {
+    return a == b; // Compare vectors a and b using ==
 }
 
-vector<string> separate_paren_groups(string paren_string);
+// Declare 'bool issame' before main() or use a function prototype
+bool issame(vector<string> a, vector<string> b);
 
-#include <vector>
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int balance = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (balance > 0) {
-                current_group += c;
-            }
-            balance++;
-        } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else if (balance == 0) {
-                if (issame(current_group)) {
-                    result.push_back(current_group);
-                }
-                current_group = "";
-            }
-        }
-    }
-
-    return result;
-}
+// Correct the function call to 'issame' in main function
+assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
