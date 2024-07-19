@@ -1,5 +1,11 @@
 bool issame(vector<int> a, vector<int> b);
 
+vector<int> parse_music(string music_string);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> parse_music(string music_string){
     vector<int> beats;
     int length = music_string.length();
@@ -15,10 +21,6 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
 }
 
 int main(){
