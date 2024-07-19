@@ -6,9 +6,10 @@ template <typename T>
 T compare_one(std::any a, std::any b) {
     if (std::any_cast<T>(a) > std::any_cast<T>(b)) {
         return std::any_cast<T>(a);
-    } else {
+    } else if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
         return std::any_cast<T>(b);
     }
+    return std::any_cast<T>(a);
 }
 
 int main() {
