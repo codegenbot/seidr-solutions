@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <initializer_list>
@@ -34,7 +35,6 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
     return true;
 }
 
-int main() {
-    cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
-    return 0;
-}
+using namespace std;
+
+cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
