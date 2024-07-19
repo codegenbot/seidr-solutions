@@ -4,5 +4,5 @@ while True:
         even_sum = sum(num for num in input_list if num % 2 == 0)
         print(even_sum)
         break
-    except (ValueError, EOFError):
+    except ValueError:
         print("Invalid input. Please enter space-separated integers.")
