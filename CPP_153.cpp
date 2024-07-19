@@ -13,9 +13,12 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
     return class_name;
 }
 
-std::string class_name = "My";
-std::vector<std::string> extensions({"Java", "Python", "C++"}); 
-std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+int main() {
+    std::string class_name = "My";
+    std::vector<std::string> extensions({"Java", "Python", "C++"}); 
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
 
-assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-return 0;
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == std::string("Sp.671235"));
+
+    return 0;
+}
