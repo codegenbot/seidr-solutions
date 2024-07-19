@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list> 
+#include <initializer_list>
 
 using namespace std;
 
@@ -37,4 +36,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     return result;
-}
