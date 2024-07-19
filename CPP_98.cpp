@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```c++
 #include <iostream>
 #include <string>
 using namespace std;
