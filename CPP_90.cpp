@@ -1,8 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
-#include <cassert>
-
+#include <cassert>  
 using namespace std;
 
 int nextSmallest(vector<int> lst) {
