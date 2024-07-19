@@ -1,4 +1,3 @@
 def fizz_buzz(n: int):
-    digit_sequences = ['3', '5', '33', '55', '153', '335', '515', '35']
-    count = sum(1 for i in range(1, n + 1) if any(i % int(seq) == 0 for seq in digit_sequences))
+    count = len([i for i in range(1, n + 1) if '3' in str(i) or '5' in str(i) or i % 15 == 0])
     return count

@@ -1,2 +1,2 @@
-print("Please enter a string of parentheses only.")
-input_paren_string = input().strip()
+input_paren_string = input("Enter a string of parentheses: ").strip()
+print(input_paren_string)
