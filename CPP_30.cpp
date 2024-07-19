@@ -3,9 +3,8 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 
-using namespace std::initializer_list;
+using namespace std;
 
 vector<float> get_positive(const vector<float>& v) {
     vector<float> result;
