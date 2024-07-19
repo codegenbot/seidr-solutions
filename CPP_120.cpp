@@ -1,21 +1,31 @@
+```c
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> maximum(std::vector<int> a) {
-    std::vector<int> result;
-    int max = *max_element(a.begin(), a.end());
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > max) result.push_back(a[i]);
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> maximum(std::vector<int> a, int k) {
+    std::vector<int> result;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] > k) result.push_back(a[i]);
     }
     return result;
 }
 
 int main() {
-    int n, k = 0;
+    int n, k;
     cin >> n;
-    vector<int> a(n);
+    vector<int> a(n, 0); // initialize with default value
     for (int i = 0; i < n; ++i) cin >> a[i];
-    std::vector<int> result = maximum(a);
-    if (!isSame(result, maximum(a))) return 1;
+    cin >> k;
+    vector<int> result = maximum(a, k);
+    if (!isSame(result, maximum(a, k))) return 1;
     return 0;
 }
