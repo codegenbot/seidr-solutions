@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 std::vector<int> make_a_pile(int n) {
@@ -17,7 +16,7 @@ std::vector<int> make_a_pile(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
