@@ -1,4 +1,4 @@
-```cpp
+#include <climits>
 #include <vector>
 
 using namespace std;
@@ -20,7 +20,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if (minEven != INT_MAX) {
         result.push_back({minEven, minIndex});
     } else {
-        result.push_back({0, -1});
+        result.push_back({0, -1}); 
     }
 
     return result;
