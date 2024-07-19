@@ -1,28 +1,17 @@
-#include <string>
+#include <iostream>
 #include <cassert>
+#include <cctype>
+#include <string>
 
-bool check_if_last_char_is_a_letter(const std::string& text) {
-    if (text.empty()) {
-        return false;
-    }
-    
-    char lastChar = text.back();
-    
-    if (isalpha(lastChar)) {
-        int i = text.size() - 2;
-        while (i >= 0 && text[i] != ' ') {
-            i--;
-        }
-        if (i >= 0 && text[i] == ' ') {
-            return true;
-        }
-    }
-    
+bool check_if_last_char_is_a_letter(const std::string &txt) {
+    if(txt.empty()) return false;
+    char lastChar = txt.back();
+    if(std::isalpha(lastChar) && txt.find_last_of(" ") == txt.length() - 1)
+        return true;
     return false;
 }
 
 int main() {
-    std::string inputText = "Sample input text";
-    bool result = check_if_last_char_is_a_letter(inputText);
+    assert (check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
