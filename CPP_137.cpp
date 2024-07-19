@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::any compare_one(std::any a, std::any b) {
+std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
             return a;
@@ -22,5 +22,10 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         }
     }
-    return a;
+    return std::any();
+}
+
+int main() {
+    assert(std::any_cast<int>(compare_one(5, 10)) == 10);
+    return 0;
 }
