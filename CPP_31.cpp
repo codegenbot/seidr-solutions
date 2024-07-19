@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <sstream>
 
@@ -27,4 +26,3 @@ int main() {
     }
     cout << "Number of primes less than or equal to " << n << ": " << count << endl;
     return 0;
-}
