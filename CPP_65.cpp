@@ -20,4 +20,3 @@ string circular_shift(int x, int shift) {
 }
 
 cout << circular_shift(11, 101) << endl;
-return 0;
