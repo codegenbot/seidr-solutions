@@ -1,4 +1,4 @@
-int countPositiveDigits(const std::vector<int>& n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -12,4 +12,8 @@ int countPositiveDigits(const std::vector<int>& n) {
         }
     }
     return count;
+}
+}
+int main() {
+    count_nums({1});
 }
