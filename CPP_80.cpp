@@ -1,7 +1,6 @@
-#include <iostream>
-#include <string>
+using namespace std;
 
-bool is_happy(std::string s) {
+bool is_happy(string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
@@ -22,16 +21,4 @@ bool is_happy(std::string s) {
             return false;
     }
     return true;
-}
-
-int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    if (is_happy(s)) {
-        std::cout << "The string is happy." << std::endl;
-    } else {
-        std::cout << "The string is not happy." << std::endl;
-    }
-    return 0;
 }
