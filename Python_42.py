@@ -1,1 +1,1 @@
-return [num + 1 for num in l]
+return [x + 1 for x in l]
