@@ -10,23 +10,18 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-    
-    // Input the number of elements in the list
+    std::vector<int> input;
+    int num;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    // Input the elements of the list
-    for(int i=0; i<n; i++) {
-        int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+    std::cin >> num;
+    
+    for(int i=1; i<=num; i++) {
+        std::cout << "Element " << i << ": ";
+        std::cin >> lst.push_back(i);
     }
-
-    // Calculate and print the sum of even elements at odd positions
-    std::cout << "Sum of even elements at odd positions: " << add(lst) << std::endl;
-
+    
+    int result = add(input);
+    std::cout << "The sum of the even elements is: " << result << std::endl;
+    
     return 0;
 }
