@@ -5,19 +5,12 @@
 
 using namespace std;
 
-bool issame(vector<float> v1, vector<float> v2) {
-    return v1 == v2;
-}
-
 int main() {
     vector<float> a;
     float num;
 
     cout << "Enter the numbers: ";
     while (cin >> num) {
-        if(num < 0) {
-            break; 
-        }
         a.push_back(num);
     }
 
