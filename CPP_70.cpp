@@ -1,11 +1,16 @@
+```
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
+std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
@@ -31,10 +36,10 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 
 int main() {
     std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = strange_sort_vector(a);
-    if (a != b) {
+    std::vector<int> b = strange_sort_list(a);
+    if (!issame(a, b)) {
         for (size_t i = 0; i < a.size(); ++i) {
-            assert(a[i] == b[i]);
+            assert(b[i] == a[i]);
         }
     }
     return 0;
