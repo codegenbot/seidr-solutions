@@ -25,7 +25,7 @@ int main() {
     }
 
     if(result) std::cout << "Yes;" << std::endl;  
-    else std::cout << "No;" << std::endl;  
+    else std::cout << "No;" << std::endl;         
 
     return 0;
 }
