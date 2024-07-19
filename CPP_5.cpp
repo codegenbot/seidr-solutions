@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
-    for (int i = 0; i < numbers.size(); ++i) {
+    for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
             result.push_back(delimiter);
@@ -15,11 +15,10 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    vector<int> nums = {2, 2, 2};
+    vector<int> expected = {2, 2, 2, 2, 2};
+    assert(intersperse(nums, 2) == expected);
+    cout << "Test passed!" << endl;
     return 0;
 }
