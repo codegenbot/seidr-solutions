@@ -1,20 +1,20 @@
-bool is_lowercase = true;
-    bool is_uppercase = true;
-    
-    if (dict.empty()) {
+bool check_dict_case(map<string,string> dict) {
+    if(dict.empty()) {
         return false;
     }
-
-    for (auto const &entry : dict) {
-        for (char c : entry.first) {
-            if (!islower(c)) {
-                is_lowercase = false;
-            }
-            if (!isupper(c)) {
-                is_uppercase = false;
+    
+    bool allLower = true;
+    bool allUpper = true;
+    
+    for(const auto& entry : dict) {
+        for(const auto& c : entry.first) {
+            if(islower(c)) {
+                allUpper = false;
+            } else if(isupper(c)) {
+                allLower = false;
             }
         }
     }
     
-    return is_lowercase || is_uppercase;
+    return allLower || allUpper;
 }
