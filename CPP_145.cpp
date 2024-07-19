@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,11 +25,14 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int> &a, const vector<int> &b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    vector<int> input = {0,6,6,-76,-21,23,4};
+    vector<int> expected_output = {-76, -21, 0, 4, 23, 6, 6};
+    vector<int> result = order_by_points(input);    
+    assert(issame(result, expected_output));
     return 0;
 }
