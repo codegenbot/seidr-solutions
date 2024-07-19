@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -37,8 +38,7 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    bool result = same({ "", "True" }, reverseDelete("mamma", "mia"));
-    if (result) {
+    if (same({ "", "True" }, reverseDelete("mamma", "mia"))) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
