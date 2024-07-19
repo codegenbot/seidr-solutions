@@ -22,14 +22,6 @@ std::string averageBinaryRepresentation(int n, int m) {
 }
 
 int main() {
-    // Input n, m
-    int n, m;
-    std::cin >> n >> m;
-    
-    std::string result = averageBinaryRepresentation(n, m);
-    
-    // Output result
-    std::cout << result;
-    
+    // Your code here
     return 0;
 }
