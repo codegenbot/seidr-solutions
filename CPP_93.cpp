@@ -1,10 +1,16 @@
-for(auto &c : message){
+string encode(string message){
+    string encoded_message = "";
+    for(char c : message){
         if(isalpha(c)){
-            c = isupper(c) ? tolower(c) : toupper(c);
+            if(isupper(c)){
+                c = tolower(c);
+            }
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
                 c = c + 2;
             }
+            c = toupper(c);
         }
+        encoded_message += c;
     }
-    return message;
+    return encoded_message;
 }
