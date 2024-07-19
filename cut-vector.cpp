@@ -18,10 +18,11 @@ vector<vector<int>> cutVector(vector<int> v) {
             
             if (diff < min_diff) {
                 min_diff = diff;
-                index = i; // update the cutting point
+                index = i; 
             } else if (diff == 0) {
-                res[0].assign(v.begin(), v.begin() + i+1);
-                res[1].assign(v.begin() + i, v.end());
+                // Both sums are equal, so update the result and return
+                res[0].assign(v.begin(), v.begin() + index+1);
+                res[1].assign(v.begin() + index, v.end());
                 return res;
             }
         }
