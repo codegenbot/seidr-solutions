@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -22,9 +23,9 @@ def bowling_score(frames):
                 if value.isdigit():
                     total += int(value)
                 elif value.startswith("-"):
-                    total -= int(value[1:]) or 0
+                    total -= 10
                 else:
-                    score -= int(value) or 0
+                    total -= 10
             score += total
             roll += 2
 
@@ -44,9 +45,7 @@ def bowling_score(frames):
         if value.isdigit():
             score += int(value)
         elif value.startswith("-"):
-            score -= int(value[1:]) or 0
-        else:
-            score -= int(value) or 0
+            score -= 10
 
     return score
 
