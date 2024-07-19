@@ -22,4 +22,4 @@ def minPath(grid, k):
         path.append(grid[next_cell[0]][next_cell[1]])
         visited.append(next_cell)
 
-    return path[:k+1]
+    return path[:k]
