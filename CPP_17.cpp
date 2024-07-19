@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<int> parse_music(string music_string);
+
 vector<int> parse_music(string music_string){
     vector<int> beats;
     int length = music_string.length();
@@ -22,7 +24,7 @@ vector<int> parse_music(string music_string){
 }
 
 int main(){
-    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>{2, 1, 2, 1, 4, 2, 4, 2});
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     
     return 0;
 }
