@@ -1,21 +1,18 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> collatz;
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n = n / 2;
         } else {
             n = 3 * n + 1;
         }
-        collatz.push_back(n);
-    }
-    sort(collatz.begin(), collatz.end());
-    vector<int> odd_collatz;
-    for (int num : collatz) {
-        if (num % 2 != 0) {
-            odd_collatz.push_back(num);
+        if (n % 2 != 0) {
+            result.push_back(n);
         }
     }
-    return odd_collatz;
+    sort(result.begin(), result.end());
+    return result;
 }
