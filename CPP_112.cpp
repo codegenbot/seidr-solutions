@@ -1,24 +1,11 @@
-#include <string>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    std::string s = a[0]; std::string c = b[0];
+std::vector<std::string> reverse_delete(std::string s, std::string c){
     std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
-            result += ch;
-        }
-    }
-    std::string reversed = result;
-    std::reverse(reversed.begin(), reversed.end());
-    return (result == reversed ? true : false);
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
+    for(char ch : s){
+        if(c.find(ch) == std::string::npos){
             result += ch;
         }
     }
@@ -27,4 +14,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == reversed ? "True" : "False"};
 }
 
-assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
+}
