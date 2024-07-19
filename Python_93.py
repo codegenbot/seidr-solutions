@@ -1,20 +1,21 @@
-def encode(message):
+```
+def decode(encoded_message):
     result = ""
-    for char in message:
+    for char in encoded_message:
         if char.isalnum():
             base = ord("a" if char.islower() else "A")
             shift = 3
-            result += chr((ord(char) - base + shift) % 26 + base)
+            result += chr((ord(char) - base - shift) % 26 + base)
         else:
             result += char
     return result
 
 while True:
     try:
-        message = input("Enter a message to encode: ")
+        encoded_message = input("Enter a message to decode: ")
         break
-    except Exception as e:
-        print(f"Invalid input. Please enter a valid string. {e}")
+    except:
+        print("Invalid input. Please enter a valid string.")
 
-encoded_message = encode(message)
-print("Encoded message: ", encoded_message)
+decoded_message = decode(encoded_message)
+print("Decoded message: ", decoded_message)
