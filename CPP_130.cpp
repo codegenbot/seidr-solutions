@@ -1,15 +1,20 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
 vector<int> tri(int n) {
     vector<int> result(1, 3);
-    if (n > 0) {
-        for (int i = 2; i <= n; ++i) {
-            int temp;
-            if (i % 2 == 0) {
-                temp = 1 + i / 2;
-            } else {
-                temp = result[i - 1] + result[i - 2] + result[i];
-            }
-            result.push_back(temp);
+    
+    for (int i = 2; i <= n; i++) {
+        if (i % 2 == 0) {
+            result.push_back(1 + i / 2);
+        } else {
+            int last = result[i - 1];
+            int prevLast = result[i - 2];
+            int next = result[0] + 1;
+            result.push_back(last + prevLast + next);
         }
     }
+    
     return result;
 }
