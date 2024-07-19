@@ -1,3 +1,4 @@
+```c
 #include <cassert>
 
 int countOnes(int n) {
@@ -18,7 +19,7 @@ int customBitCount(void* p, size_t n) {
     return count;
 }
 
-int mainUnique() {
+int main() {
     int arr[] = {127, 97, 8192};
     assert(customBitCount(&arr[0], sizeof(arr)/sizeof(int)) == 10);
     return 0;
