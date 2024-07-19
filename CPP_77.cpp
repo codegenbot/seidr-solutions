@@ -1,3 +1,4 @@
+#include <cmath>
 bool iscuber(int a){
     int i = 0;
     while (pow(i+1, 3) <= a) {
