@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::string match_parens(std::vector<std::string> lst) {
+bool match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
         for (char c : s) {
@@ -10,14 +10,15 @@ std::string match_parens(std::vector<std::string> lst) {
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return (open == close);
 }
 
 int main() {
-    std::vector<std::string> lst;
-    // Add your code to read input and store it in 'lst'
-    for (const auto& s : lst) {
-        std::cout << match_parens(lst) << std::endl;
+    std::vector<std::string> lst = {"(hello", "world)", "(foo", "bar)"};
+    if (match_parens(lst)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
     }
     return 0;
 }
