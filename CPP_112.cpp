@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -24,7 +24,6 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
         }
         if(!found) {
             result.push_back(s.substr(i));
-            break;
         }
     }
     return result;
@@ -36,22 +35,12 @@ int main() {
     for(std::string str;std::getline(std::cin, str);s.push_back(str));
     std::cout << "Enter the second string: ";
     for(std::string str;std::getline(std::cin, str);t.push_back(str));
-    if(compareVectors({s},{t})) {
-        int i = 0;
-        while(i < s[0].size()) {
-            bool found = false;
-            for(int j = 0; j < t[0].size(); j++) {
-                if(s[0][i] == t[0][j]) {
-                    found = true;
-                    i++;
-                    break;
-                }
-            }
-            if(!found) {
-                std::cout << s[0].substr(i) << " ";
-                break;
-            }
+    if(issame({s},{t})) {
+        std::vector<std::string> res = reverse_delete(s[0], t[0]);
+        for(auto str : res) {
+            std::cout << str << " ";
         }
+        std::cout << std::endl;
     } else {
         std::cout << "Strings are not the same." << std::endl;
     }
