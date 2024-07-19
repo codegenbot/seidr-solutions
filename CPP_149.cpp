@@ -1,13 +1,22 @@
-bool issame(string a, string b) {
-    if (a.length() == b.length()) {
-        return true;
-    } else {
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::string& a, const std::string& b) {
+    if (a.length() != b.length()) {
         return false;
     }
+    for (int i = 0; i < a.length(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
@@ -28,11 +37,18 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"abc", "def", "ghi", "jkl", "mno", "pqr", "stu", "vwx"};
-    vector<string> output = sorted_list_sum(lst);
-    for (const auto& str : output) {
-        if (issame(str, "abc")) {
-            cout << str;
+    std::vector<std::string> lst = {"abc", "def", "ghi", "jkl", "mno"};
+    std::vector<std::string> res = sorted_list_sum(lst);
+    for (const auto& str : res) {
+        if (issame("abc", str)) {
+            std::cout << "Found 'abc' at index: ";
+            for (int i = 0; i < res.size(); ++i) {
+                if (res[i] == str) {
+                    std::cout << i;
+                    break;
+                }
+            }
+            std::cout << std::endl;
         }
     }
     return 0;
