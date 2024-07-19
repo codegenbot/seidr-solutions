@@ -7,8 +7,7 @@ int main() {
     int n;
     std::cin >> n;
     assert(n >= 0);
-
-    std::cout << fibfib(n) << std::endl;
+    std::cout << fibfib(n);
     return 0;
 }
 
