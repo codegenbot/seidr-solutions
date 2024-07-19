@@ -1,15 +1,49 @@
-vector<int> parse_music(string music_string){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool areEqual(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<int> parse_music(string music_string) {
     vector<int> beats;
-    for (size_t i = 0; i < music_string.size(); ++i) {
+    int i = 0;
+    while (i < music_string.size()) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (music_string[i] == '|') {
-            if (music_string[i - 1] == 'o') {
-                beats.back() = 2;
-            } else {
-                beats.back() = 1;
-            }
+            i++;
+        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
+            beats.push_back(2);
+            i += 2;
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
+            beats.push_back(1);
+            i += 2;
+        } else {
+            i++;
         }
     }
     return beats;
+}
+
+int main() {
+    vector<int> a = {1, 2, 3, 4};
+    vector<int> b = parse_music("o|o");
+    if (areEqual(a, b)) {
+        cout << "Equal" << endl;
+    } else {
+        cout << "Not Equal" << endl;
+    }
+
+    return 0;
 }
