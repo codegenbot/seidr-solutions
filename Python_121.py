@@ -5,6 +5,4 @@ def sum_odd_digits(lst):
 def check(lst):
     return sum_odd_digits(lst) == 9
 
-expected_result = [1,3,5]
-result = check(expected_result)
-print(result)
+print(check([1,3,5]))
