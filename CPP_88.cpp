@@ -1,25 +1,19 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 bool same(vector<int> a, vector<int> b) {
-    return a == b;
+    if(a.size()!=b.size()) return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    for(int i=0;i<a.size();i++) if(a[i]!=b[i]) return false;
+    return true;
 }
 
-vector<int> sort_array(vector<int> array) {
-    int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 0) {
-        vector<int> result(array);
-        sort(result.begin(), result.end(), greater<int>());
-        return result;
-    } else {
-        vector<int> result(array);
-        sort(result.begin(), result.end());
-        return result;
-    }
+vector<int> sort_array(vector<int> arr) {
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(),sorted_arr.end());
+    return sorted_arr;
 }
 
 int main() {
