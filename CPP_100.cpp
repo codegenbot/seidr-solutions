@@ -19,7 +19,7 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     int n;
-    cin >> n; // Read input
+    cin >> n;
     vector<int> result = make_a_pile(n);
     for (int stone : result) {
         cout << stone << " ";
