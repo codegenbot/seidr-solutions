@@ -1,4 +1,6 @@
+// Add function signature
 bool triples_sum_to_zero(vector<int> l) {
+    // Add correct return type for the function
     for (int i = 0; i < l.size() - 2; ++i) {
         for (int j = i + 1; j < l.size() - 1; ++j) {
             for (int k = j + 1; k < l.size(); ++k) {
