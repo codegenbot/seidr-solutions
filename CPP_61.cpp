@@ -13,5 +13,5 @@ bool correct_bracketing(string brackets) {
             return false;
         }
     }
-    return count == 0;
+    return count == 0 && count >= 0;
 }
