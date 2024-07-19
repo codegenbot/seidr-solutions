@@ -16,9 +16,8 @@ std::string remove_vowels(std::string input) {
 
 int main(){
     std::cout << "Enter a string: ";
-    std::string input;  // Create a variable to store the user's input
-    std::getline(std::cin, input);  // Read the input from the user
-    
+    std::string input;  
+    std::getline(std::cin, input);  
     std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
     return 0;
 }
