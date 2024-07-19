@@ -7,15 +7,18 @@ int main() {
 
     cin >> startHeight >> firstBounceHeight >> numBounces;
 
+    // Calculate bounciness index
     double bouncinessIndex = firstBounceHeight / startHeight;
 
+    // Calculate total distance
     double totalDistance = 0.0;
-
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (startHeight * pow(bouncinessIndex, i));
+    for (int i = 1; i <= numBounces; ++i) {
+        totalDistance += pow(2, -bouncinessIndex) * startHeight;
+        startHeight /= bouncinessIndex;
     }
 
-    cout << fixed << setprecision(6) << totalDistance << endl;
+    cout << fixed << setprecision(5);
+    cout << totalDistance << endl;
 
     return 0;
 }
