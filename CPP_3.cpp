@@ -1,15 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool below_zero(const std::vector<int>& operations) {
-    int balance = 0;
-    for (int op : operations) {
-        balance += op;
-        if (balance < 0) {
+bool below_zero(const std::vector<int>& arr) {
+    for (int num : arr) {
+        if (num < 0) {
             return true;
         }
     }
     return false;
 }
 
-assert (below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+int main() {
+    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    
+    std::cout << "Test Passed!" << std::endl;
+    
+    return 0;
+}
