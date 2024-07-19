@@ -5,14 +5,6 @@
 #include <map>
 #include <string>
 
-string sort_numbers(string numbers);
-
-int main() {
-    // Your main function code here
-
-    return 0;
-}
-
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -25,6 +17,8 @@ map<string, int> num_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
 
 string sort_numbers(string numbers) {
     map<int, string> rev_map;
@@ -50,4 +44,11 @@ string sort_numbers(string numbers) {
 
     result.pop_back(); // Remove extra space at the end
     return result;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+    cout << sort_numbers(input) << endl;
+    return 0;
 }
