@@ -15,9 +15,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int n;
-    string text;
     cin >> n;
-    getline(cin, text);
+    getline(cin, string(text));
     cout << "[";
     for (int i = 0; i < n; i++) {
         if (i > 0) {
