@@ -42,5 +42,10 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    vector<string> output = select_words("a b c d e f", 1);
+    if (!issame(output, vector<string>{"b", "c", "d", "f"})) {
+        cout << "Test failed" << endl;
+    } else {
+        cout << "Test passed" << endl;
+    }
 }
