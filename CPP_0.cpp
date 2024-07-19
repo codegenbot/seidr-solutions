@@ -3,9 +3,9 @@
 #include <cassert>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     for (int i = 0; i < numbers.size() - 1; ++i) {
-        if (abs(numbers[i] - numbers[i + 1]) < threshold) {
+        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
             return true;
         }
     }
@@ -13,7 +13,7 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> numbers{1.2, 3.4, 5.6, 7.8};
-    assert(has_close_elements(numbers, 2.0) == true);
+    std::vector<float> numbers{1.5, 2.3, 4.7, 5.1, 6.9};
+    assert(has_close_elements(numbers, 1.0) == true);
     return 0;
 }
