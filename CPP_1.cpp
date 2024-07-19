@@ -30,7 +30,7 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -38,4 +38,5 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+// In the main function, use the following assert statement:
 assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
