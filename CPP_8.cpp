@@ -1,20 +1,20 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> sum_product(const std::vector<int>& a) {
-    int sum = 0, product = 1;
-    for (int num : a) {
-        sum += num;
-        product *= num;
-    }
-    return {sum, product};
-}
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace Solution {
+    vector<int> sum_product(vector<int> nums) {
+        int sum = 0, product = 1;
+        for (int num : nums) {
+            sum += num;
+            product *= num;
+        }
+        return {sum, product};
+    }
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
+    assert(Solution::sum_product({10}) == vector<int>({10, 10}));
     return 0;
 }
