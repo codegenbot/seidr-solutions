@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <iostream>
@@ -20,6 +19,7 @@ std::string intToMiniRoman(int num) {
         }
     }
     string result = roman.str();
+    roman >> result; 
     return result; 
 }
 
