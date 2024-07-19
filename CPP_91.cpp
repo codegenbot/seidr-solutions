@@ -14,6 +14,6 @@ int is_bored(std::string S){
 }
 
 int main() {
-    int result = is_bored("You and I are going for a walk");
+    cout << is_bored("You and I are going for a walk");
     return 0;
 }
