@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -22,11 +23,11 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    
+
     if(str.empty()) {
-        std::cout << "Input string cannot be empty. Please enter a valid input." << std::endl;
+        std::cout << "Input string cannot be empty." << std::endl;
     } else {
-        assert (prime_length(str) == true);
+        assert(prime_length(str));
     }
     return 0;
 }
