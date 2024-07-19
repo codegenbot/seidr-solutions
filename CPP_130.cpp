@@ -1,19 +1,14 @@
-vector<int> result;
-    if (n >= 0) {
-        result.push_back(3);
-        if (n >= 1) {
-            result.push_back(1);
-            if (n >= 2) {
-                result.push_back(2);
-                int tri_n_minus_1 = 1, tri_n_minus_2 = 3, tri_n_minus_3 = 2;
-                for (int i = 3; i <= n; ++i) {
-                    int current = tri_n_minus_1 + tri_n_minus_2 + tri_n_minus_3;
-                    result.push_back(current);
-                    tri_n_minus_1 = tri_n_minus_2;
-                    tri_n_minus_2 = tri_n_minus_3;
-                    tri_n_minus_3 = current;
-                }
-            }
-        }
+#include<vector>
+using namespace std;
+vector<int> tri(int n){
+    vector<int> result(n + 1);
+    if (n >= 1) result[1] = 3;
+    if (n >= 2) result[2] = 1 + n / 2;
+    for (int i = 3; i <= n; ++i) {
+        if (i % 2 == 0)
+            result[i] = 1 + i / 2;
+        else
+            result[i] = result[i - 1] + result[i - 2] + result[i + 1];
     }
     return result;
+}
