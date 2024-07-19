@@ -1,28 +1,21 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
 #include <string>
 
 std::string find_max(const std::vector<std::string>& words) {
-    string max_word = *max_element(words.begin(), words.end(), 
+    std::string max_word = *min_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
-                return a > b;
+                return a < b;
             }
-            return a.length() < b.length();
+            return a.length() > b.length();
         });
     for (string word : words) {
         set<char> char_set(word.begin(), word.end());
-        if (char_set.size() > max_word.length()) {
+        if (char_set.size() > (max_word).find('a').distance(word.begin())) {
             max_word = word;
-        } else if (char_set.size() == max_word.length()) {
-            max_word = *max_element(words.begin(), words.end(),
-                [&max_word](const string& a, const string& b) {
-                    if (a.length() == b.length()) {
-                        return a > max_word;
-                    }
-                    return a.length() < max_word.length();
-                });
         }
     }
     return max_word;
