@@ -1,14 +1,13 @@
+```c++
 int is_bored(std::string S){
     int count = 0;
     std::string boredom = "I";
-    size_t pos = 0; 
+    size_t pos = S.find(" ");
     while (pos != std::string::npos) {
-        pos = S.find(boredom, pos); 
-        if (pos == std::string::npos) { 
-            break;
+        if (S.substr(0, pos).compare(boredom) == 0) {
+            count++;
         }
-        count++;
-        pos++; 
+        pos = S.find(" ", pos); 
     }
     return count;
 
