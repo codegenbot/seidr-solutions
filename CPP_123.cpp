@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> fixedFunction(int n) {
+std::vector<int> collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         result.push_back(n);
