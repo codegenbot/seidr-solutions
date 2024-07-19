@@ -1,9 +1,13 @@
 def factorize(n):
     factors = []
-    for i in range(2, n+1):
-        while n % i == 0:
-            factors.append(i)
-            n //= i
+    divisor = 2
+
+    while n > 1:
+        while n % divisor == 0:
+            factors.append(divisor)
+            n = n / divisor
+        divisor += 1
+
     return factors
 
-print(factorize(int(input("Enter a number to factorize: ")))
+print(factorize(int(input("Enter a number to factorize: "))) )
