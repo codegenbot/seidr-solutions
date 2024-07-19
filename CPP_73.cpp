@@ -1,11 +1,7 @@
-Here is the modified code:
-
-```cpp
-#include <vector>
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
+    #include <vector>
     for (int i = 0; i < n; i++) {
         dp[i][i] = 0;
     }
