@@ -9,13 +9,11 @@ void next_smallest(vector<int> lst) {
         return; // or any other value that represents "None"
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] < sorted[i + 1])
-            cout << sorted[i + 1] << endl;
             return;
     }
-    cout << -1 << endl;
 }
 
-int main() {
+int main_ {
     std::vector<int> lst(std::vector<int>::size_type(0)); 
     int num;
     while(std::cin >> num) {
@@ -23,8 +21,9 @@ int main() {
     }
     if(lst.size()>0) {
         next_smallest(lst);
+        std::cout << "smallest to the right: " << *std::next(std::min_element(lst.begin(), lst.end())) << std::endl;
     } else {
-        cout << -1 << endl;
+        std::cout << -1 << std::endl;
     }
     return 0;
 }
