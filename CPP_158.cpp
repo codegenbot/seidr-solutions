@@ -21,5 +21,6 @@ int main() {
     while (cin >> input) {
         words.push_back(input);
     }
+    
     cout << find_max(words) << endl;
 }
