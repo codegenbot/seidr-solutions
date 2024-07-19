@@ -28,12 +28,3 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     
     return class_name + "." + strongest_extension;
 }
-
-int main() {
-    // Test the Strongest_Extension function
-    std::vector<std::string> extensions = {"cpp", "h", "TXT", "png"};
-    std::string result = Strongest_Extension("File", extensions);
-    std::cout << "Strongest extension: " << result << std::endl;
-    
-    return 0;
-}
