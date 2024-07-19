@@ -4,19 +4,21 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
-    current_group = ''
-    
-    for paren in paren_string:
-        if paren.isspace():
+    group = ''
+
+    for char in paren_string:
+        if char == ' ':
             continue
-        if paren == '(':
-            stack.append(paren)
-            current_group += paren
-        elif paren == ')':
+        if char == '(':
+            stack.append(char)
+            group += char
+        elif char == ')':
             stack.pop()
-            current_group += paren
+            group += char
             if not stack:
-                groups.append(current_group)
-                current_group = ''
-    
+                groups.append(group)
+                group = ''
+        else:
+            raise ValueError("Invalid input string. Only spaces, ( and ) allowed.")
+
     return groups
