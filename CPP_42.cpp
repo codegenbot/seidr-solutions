@@ -1,6 +1,6 @@
-#include <vector>
-#include <cassert>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // your code implementation here
+vector<int> result;
+    for (int num : l) {
+        result.push_back(num + 1);
+    }
+    return result;
 }
