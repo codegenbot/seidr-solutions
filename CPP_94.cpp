@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int customBitCount(void* ptr, int size) {
@@ -21,6 +22,6 @@ int bitCount(int a) {
 
 int main() {
     int arr[] = {127, 97, 8192};
-    assert(bitCount(*((int*)arr)) == customBitCount(arr, sizeof(int) * sizeof(arr[0])));
+    assert(bitCount(*((int*)arr)) == customBitCount(&arr[0], sizeof(int)));
     return 0;
 }
