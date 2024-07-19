@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int compare_strings(std::string a, std::string b) {
+int compare_strings(const std::string& a, const std::string& b) {
     if (a > b)
         return 1;
     else if (b > a)
@@ -14,10 +14,10 @@ int compare_strings(std::string a, std::string b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter first string: ";
-    std::getline(std::cin, str1);
+    getline(std::cin, str1);
 
     std::cout << "Enter second string: ";
-    std::getline(std::cin, str2);
+    getline(std::cin, str2);
 
     int result = compare_strings(str1, str2);
 

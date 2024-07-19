@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <set>
 
@@ -10,7 +11,7 @@ int getSetSize(int i, int j, int k) {
     return setSize(s);
 }
 
-int main() {
+int testMain() {
     int result = getSetSize(127, 97, 8192);
     assert(setSize({result}) == 1);
     return 0;
