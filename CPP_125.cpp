@@ -1,11 +1,13 @@
 #include <string>
 #include <vector>
 
-bool issame(const string &str1, const string &str2);
+bool issame(int a, int b) {
+    return a == b;
+}
 
-vector<string> solve(const string & txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> process_text(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -26,7 +28,7 @@ vector<string> solve(const string & txt) {
                 oddCount++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(std::to_string(oddCount));
     }
     return result;
 }
