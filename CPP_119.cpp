@@ -16,13 +16,11 @@ bool match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst;
-    std::string str;
-
-    while(std::cin >> str) {
-        lst.push_back(str);
-    }
-
+    std::vector<std::string> lst;  
+    std::string temp;    
+    while(std::cin >> temp){
+        lst.push_back(temp);
+    }  
     if(match_parens(lst)) std::cout << "Yes" << std::endl;
     else std::cout << "No" << std::endl;
     return 0;
