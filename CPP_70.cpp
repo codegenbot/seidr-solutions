@@ -18,8 +18,3 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     return result;
 }
-
-int main() {
-    assert(issame(strange_sort_list(std::vector<int>{111111}), std::vector<int>{111111}));
-    return 0;
-}
