@@ -21,4 +21,4 @@ std::vector<int> sort_array(std::vector<int> array){
 
 #define ASSERT_VECTOR_EQ(a, b) assert(std::equal(a.begin(), a.end(), b.begin(), b.end()))
 
-int main();
+int main()
