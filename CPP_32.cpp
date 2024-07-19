@@ -1,8 +1,7 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cstdlib>
 #include <iomanip>
 
 using namespace std;
@@ -29,6 +28,5 @@ int main() {
         cin >> coeffs[i];
     }
 
-    double result = find_zero(coeffs);
-    cout << fixed << setprecision(6) << result << endl;
+    cout << fixed << setprecision(6) << find_zero(coeffs) << endl;
 }
