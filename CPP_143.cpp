@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,10 +7,13 @@ std::vector<std::string> split(const std::string& str, char ch) {
     std::string token = "";
 
     for (char c : str) {
-        if (!std::isascii(c)) {
-            c = '?'; // replace with any character you want for non-ASCII characters
-        }
-        if (c == ch) {
+        if (!isascii(c)) {
+            // Convert non-ASCII characters to UTF-8 encoded surrogate pairs
+            token += "\\u";
+            token += std::hex;
+            token += static_cast<int>(c);
+            token += " ";
+        } else if (c == ch) {
             tokens.push_back(token);
             token = "";
         } else {
