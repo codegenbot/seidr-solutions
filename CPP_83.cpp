@@ -1,5 +1,5 @@
+```
 #include <iostream>
-
 using namespace std;
 
 int starts_one_ends(int n) {
@@ -8,6 +8,10 @@ int starts_one_ends(int n) {
         if (i == 1 || i == n) {
             count++;
         }
+        for (int j = 1; j < i || j > n; j++) {
+            // Do nothing
+        }
+        count += (n - 1);
     }
     return count;
 }
