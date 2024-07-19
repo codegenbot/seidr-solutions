@@ -1,14 +1,7 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    // Remove characters from s that are equal to any character in c
-    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -18,20 +11,25 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            temp += ch;
+            result.push_back(string(1, ch));
         }
     }
-    
-    // Check if the result string is palindrome
-    string str = temp;
-    reverse(str.begin(), str.end());
-    if (str == temp) {
-        result.push_back(temp);
+    string temp = "";
+    for (int i = 0; i < result.size(); i++) {
+        temp += result[i];
+    }
+    if (temp == reverse(temp)) {
         result.push_back("True");
     } else {
-        result.push_back(temp);
         result.push_back("False");
     }
-    
     return result;
+}
+
+string reverse(string s) {
+    string rev = "";
+    for (int i = s.size() - 1; i >= 0; i--) {
+        rev += s[i];
+    }
+    return rev;
 }
