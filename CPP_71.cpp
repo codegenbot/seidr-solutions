@@ -2,7 +2,6 @@
 #include <cmath>
 #include <cassert>
 #include <iostream>
-#include <string>
 
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
@@ -17,11 +16,7 @@ int main() {
     assert(abs(triangle_area(2, 2, 10) - 2.23607) < 0.01);
     float a, b, c;
     std::cout << "Enter side lengths a, b, and c of the triangle: ";
-    std::string a_str, b_str, c_str;
-    std::cin >> a_str >> b_str >> c_str;
-    a = stof(a_str);
-    b = stof(b_str);
-    c = stof(c_str);
+    std::cin >> a >> b;
     if(a+b>c && a+c>b && b+c>a)
         std::cout << "The area of the triangle is " << triangle_area(a,b,c);
     else
