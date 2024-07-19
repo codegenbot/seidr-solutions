@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -17,24 +18,11 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-int contest_main(){
-    vector<string> input;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        input.push_back(s);
-    }
-    
-    vector<string> result = odd_count(input);
-    for (string res : result) {
-        cout << res << endl;
-    }
-    return 0;
-}
-
-int main() {
-    contest_main();
+int main(){
+    assert(odd_count({"271", "137", "314"}) == vector<string>{
+        "the number of odd elements 2 in the string 271 of the input.",
+        "the number of odd elements 2 in the string 137 of the input.",
+        "the number of odd elements 2 in the string 314 of the input."
+    });
     return 0;
 }
