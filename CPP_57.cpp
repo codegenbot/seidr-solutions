@@ -1,4 +1,8 @@
-bool increasing = true;
+#include <vector>
+#include <iostream>
+
+bool monotonic(const std::vector<int>& l) {
+    bool increasing = true;
     bool decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
         if (l[i] < l[i - 1]) {
