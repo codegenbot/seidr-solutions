@@ -1,23 +1,9 @@
-#include <vector>
-#include <string>
-#include <sstream>
-
-std::vector<std::string> split(const std::string& str) {
-    std::vector<std::string> tokens;
-    std::stringstream ss(str);
-    std::string token;
-
-    while (getline(ss, token, ' ')) {
-        tokens.push_back(token);
+int findFirstWord(const std::string& str, const char* word) {
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = str.find(word, pos)) != std::string::npos) {
+        ++count;
+        pos += word->length();
     }
-
-    return tokens;
-}
-
-int main() {
-    auto result = words_in_sentence("here is");
-    for(auto word : result) {
-        std::cout << word << " ";
-    }
-    return 0;
+    return count > 0 ? 1 : -1;
 }
