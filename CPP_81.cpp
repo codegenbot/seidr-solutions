@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letterGrades;
     for (const auto& grade : grades) {
@@ -26,4 +28,16 @@ int main() {
         std::cout << grade << " ";
     }
     return 0;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a.size() != b.size())
+        return false;
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
