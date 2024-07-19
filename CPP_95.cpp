@@ -1,6 +1,8 @@
+#include <iostream>
 #include <map>
-#include <string>
 #include <cctype>
+
+using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -21,4 +23,10 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allLower || allUpper;
+}
+
+int main() {
+    assert(check_dict_case({}) == false);
+    cout << "Code runs successfully." << endl;
+    return 0;
 }
