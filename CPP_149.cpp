@@ -1,8 +1,24 @@
-bool issame(const string& a, const string& b) {
-    return (a.length() % 2 == 0 && b.length() % 2 == 0);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
+int main() {
+    std::vector<std::string> lst = {"hello", "world", "abc", "abcd"};
+    std::vector<std::string> result = sorted_list_sum(lst);
+
+    assert(issame(result, {"abcd", "abc"}));
+
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    return 0;
+}
+
+std::vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
     for (const auto& str : lst) {
@@ -21,15 +37,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
 
     return result;
-}
-
-int main() {
-    vector<string> lst = {"hello", "world", "abc", "def", "ghi"};
-    vector<string> res = sorted_list_sum(lst);
-    for (const auto& str : res) {
-        if (issame(str, "world")) {
-            cout << str << endl;
-        }
-    }
-    return 0;
 }
