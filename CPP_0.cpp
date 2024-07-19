@@ -14,11 +14,11 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.0};
-    bool result = has_close_elements(a, 0.5);
-    if (result) {
-        std::cout << "The elements in the vector are close." << std::endl;
+    std::vector<float> a = {1.0, 2.0, 3.0, 4.5};
+    if (has_close_elements(a, 0.5)) {
+        std::cout << "The numbers have close elements." << std::endl;
     } else {
-        std::cout << "The elements in the vector are not close." << std::endl;
+        std::cout << "The numbers do not have close elements." << std::endl;
     }
+    return 0;
 }
