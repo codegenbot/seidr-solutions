@@ -16,16 +16,13 @@ int main() {
     vector<float> lst; 
     int odd_sum = 0; 
 
-    int n;
-    cin >> n;
-    
-    for(int i=0;i<n;i++){
-        float x;
-        cin >> x;
-        if(x > 0 && modf(x, &x) == 0){
-            odd_sum += x * x;
+    float num;
+    cout << "Enter numbers (enter -1 to stop): ";
+    while (cin >> num && num != -1) {
+        if (num > 0.5) {
+            odd_sum += 1;
         }
-        lst.push_back(x);
+        lst.push_back(num);
     }
 
     assert (double_the_difference(lst) == odd_sum );
