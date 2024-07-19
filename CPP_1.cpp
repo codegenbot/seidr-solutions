@@ -1,16 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(char a, char b){
-    return a == b;
-}
-
 vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    // Your test cases here
-    return 0;
+bool issame(string s1, string s2){
+    return s1 == s2;
 }
 
 vector<string> separate_paren_groups(string paren_string){
