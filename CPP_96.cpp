@@ -1,4 +1,4 @@
-vector<int> result;
+vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -8,7 +8,7 @@ vector<int> result;
             }
         }
         if (is_prime) {
-            result.push_back(i);
+            primes.push_back(i);
         }
     }
-    return result;
+    return primes;
