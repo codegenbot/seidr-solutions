@@ -29,5 +29,3 @@ std::string string_to_md5(const std::string& text) {
 
     return std::string(mdString);
 }
-
-// The original main function has been removed as it was duplicate.
