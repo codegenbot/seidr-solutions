@@ -13,12 +13,13 @@ bool match_parens(const std::vector<char>& lst) {
 
 int main() { 
     std::string line;
-    std::vector<char> lst;
+    std::vector<char> lst; 
     std::cout << "Enter the strings: ";
-    while(std::getline(std::cin, line)) {
+    while((std::getline(std::cin, line)) && !line.empty()) {
         for(char c : line) {
             lst.push_back(c);
         }
+        std::cin.ignore(); // consume newline characters
     }
     if (match_parens(lst)) {
         std::cout << "The parentheses are matched." << std::endl;
