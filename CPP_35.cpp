@@ -14,8 +14,14 @@ float max_element(const std::vector<float>& l) {
 }
 
 int main() {
-    std::vector<float> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    float result = max_element(numbers);
-    std::cout << result << std::endl;
+    int n;
+    std::cin >> n;
+    std::vector<float> values(n);
+    for(int i = 0; i < n; i++) {
+        std::cin >> values[i];
+    }
+    
+    std::cout << max_element(values) << std::endl;
+    
     return 0;
 }
