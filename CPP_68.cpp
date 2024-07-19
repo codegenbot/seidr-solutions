@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
     for (int i = 0; i < arr.size(); i++) {
         bool found = false;
         for (int j = 0; j < arr.size(); j++) {
@@ -32,10 +35,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 
     if (result.empty()) {
         for (int num : arr) {
-            if (num % 2 != 0) {
-                vector<pair<int, int>> temp = {{num, -1}};
-                return temp;
-            }
+            if (num % 2 != 0) return {{num, -1}};
         }
     }
 
@@ -43,6 +43,25 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), vector<int>{}));
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i+1<< ": ";
+        cin >> x;
+        arr.push_back(x);
+    }
+
+    vector<pair<int, int>> result = pluck(arr);
+
+    if (!result.empty()) {
+        cout << "The first even number that appears more than once is: " << result[0].first << endl;
+    } else {
+        cout << "No such number exists." << endl;
+    }
+
     return 0;
 }
