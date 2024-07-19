@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +7,5 @@ int max_value(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert(std::abs(max_value(v) - 124) < 1e-4);
-    return 0;
+    assert(std::abs(max_value({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
 }
