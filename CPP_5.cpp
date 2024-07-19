@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
 
 std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
