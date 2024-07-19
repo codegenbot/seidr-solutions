@@ -1,22 +1,13 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
-
-void filter_by_substring(std::vector<std::string> vec, const std::string& substr) {
-    vec.erase(std::remove_if(vec.begin(), vec.end(), [substr](const std::string& s) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
+    std::vector<std::string> temp_vec = vec;
+    temp_vec.erase(std::remove_if(temp_vec.begin(), temp_vec.end(), [substr](const std::string& s) {
         return s.find(substr) != std::string::npos;
-    }), vec.end());
+    }), temp_vec.end());
+    
+    return temp_vec;
 }
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "orange", "grape"};
-    filter_by_substring(words, "an");
-    for (const auto& word : words) {
-        std::cout << word << " ";
-    }
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == std::vector<std::string>{"grunt", "prune"});
     return 0;
 }
