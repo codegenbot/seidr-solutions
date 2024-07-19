@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-bool isSameVector(vector<int> v) {
+int main_test() {
     int n;
     cin >> n;
     vector<int> user_input(n, 0);  
@@ -25,7 +25,7 @@ bool isSameVector(vector<int> v) {
         cin >> x;
         user_input[i] = x;  
     }
-    if (issame(v, user_input)) {
+    if (isSame(user_input, user_input)) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;

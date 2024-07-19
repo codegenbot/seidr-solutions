@@ -1,25 +1,22 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int solve(int N) {
-    std::string str;
+    int sum = 0;
     while (N > 0) {
         int remainder = N % 2;
-        str.push_back(remainder + '0'); 
+        sum += remainder;
         N /= 2;
-    }
-    int sum = 0;
-    for (char c : str) { 
-        if (c == '1')
-            sum++;
     }
     return sum;
 }
 
 int main() {
+    std::string num;
     std::cout << "Enter a number: ";
-    int N;
-    std::cin >> N;
+    std::getline(std::cin, num);
+    int N = stoi(num);
     if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
