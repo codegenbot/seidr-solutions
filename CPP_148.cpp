@@ -1,10 +1,10 @@
-#include <string>
-#include <cctype>
+```cpp
 #include <vector>
+#include <cctype>
 #include <functional>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), [](const auto& x, const auto& y){return x == y;});
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin(), [](const auto& x, const auto& y){return x == y;});
 }
 
 int main() {
