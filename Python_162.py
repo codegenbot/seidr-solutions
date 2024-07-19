@@ -1,8 +1,11 @@
 import hashlib
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode()).hexdigest()
+    return hashlib.md5(text.strip().encode()).hexdigest()
 
-input_text = input("Enter the text to hash: ").strip()
-result = string_to_md5(input_text)
-print(result)
+try:
+    input_text = input("Enter the text to hash: ").strip()
+    result = string_to_md5(input_text)
+    print(result)
+except EOFError:
+    pass
