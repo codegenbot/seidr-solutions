@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool sameStrings(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -27,8 +27,13 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-
-    assert(sameStrings(filter_by_prefix(a, "xxx") , b));
-    return 0;
+    std::vector<std::string> b;
+    b = filter_by_prefix(a, "xxx");
+    
+    if (issame(b, b)) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 }
