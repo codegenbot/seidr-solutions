@@ -31,16 +31,16 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+    int input;
+    std::cin >> input;
 
-    std::vector<int> result = get_odd_collatz(n);
-    std::vector<int> expected_result = {1, 3, 5, 9};
+    std::vector<int> result = get_odd_collatz(input);
+    std::vector<int> expected = {1, 3, 5, 9, 17, 25, 27, 51, 73, 97};
 
-    if (issame(result, expected_result)) {
-        std::cout << "Correct Answer" << std::endl;
+    if (issame(result, expected)) {
+        std::cout << "Test Passed" << std::endl;
     } else {
-        std::cout << "Wrong Answer" << std::endl;
+        std::cout << "Test Failed" << std::endl;
     }
 
     return 0;
