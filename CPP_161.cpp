@@ -18,10 +18,10 @@ std::string solve(const std::string& s) {
     return s;
 }
 
-// In the main function or test cases
-// Test inputs
-std::string input1 = "Hello123";
-std::string input2 = "AbCdEfG";
-// Comparing outputs using assertions
-assert(solve(input1) == "321OLLEH");
-assert(solve(input2) == "gFeDcBa");
+int main() {
+    assert(solve("aBcDeFg123") == "321GFEDCBA");
+    assert(solve("HelloWorld") == "DLROwOLLEh");
+    assert(solve("12345") == "54321");
+    
+    return 0;
+}
