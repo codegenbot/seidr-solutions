@@ -4,7 +4,7 @@
 #include <iterator>
 #include <cassert>
 #include <set>
-#include <numeric> 
+#include <numeric>
 
 using namespace std;
 
