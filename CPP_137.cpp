@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
-#include <boost/type_id.hpp>
+#include "boost/any.hpp"
+#include "boost/type_id.hpp"
 
 int max(int a, float b) {
     if (a > b)
@@ -80,7 +80,7 @@ int main() {
     boost::any a = "123";
     boost::any b = "456";
 
-    std::cout << boost::any_cast<int>(compare_one(a, b)) << std::endl;
+    std::cout << compare_one(a, b) << std::endl;
 
     return 0;
 }
