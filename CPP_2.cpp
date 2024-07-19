@@ -12,5 +12,7 @@ int main() {
     assert(std::abs(truncate_number(0.123) - 0.123) < 1e-4);
     assert(std::abs(truncate_number(9.876) - 0.876) < 1e-4);
     
+    // Add more test cases here, if needed
+    
     return 0;
 }
