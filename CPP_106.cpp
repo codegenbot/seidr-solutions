@@ -1,19 +1,34 @@
-vector<int> f(int n){
-    vector<int> result(n);
-    int sum = 0;
-    int factorial = 1;
-    for (int i = 0; i < n; ++i) {
+#include <vector>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+std::vector<int> f(int n){
+    std::vector<int> result(n);
+    for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
-            if (i == 0) {
-                result[i] = 1;
-            } else {
-                factorial *= i;
-                result[i] = factorial;
+            int factorial = 1;
+            for (int j = 1; j <= i; ++j) {
+                factorial *= j;
             }
+            result[i - 1] = factorial;
         } else {
-            sum += i;
-            result[i] = sum;
+            int sum = 0;
+            for (int j = 1; j <= i; ++j) {
+                sum += j;
+            }
+            result[i - 1] = sum;
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(f(3), {1, 2, 6}));
+    return 0;
 }
