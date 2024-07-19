@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::vector<std::string>>& a,const std::vector<std::vector<std::string>>& b) {
     return a == b;
 }
 
@@ -52,4 +52,17 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert (issame({{ "One" }},{ { "One" } }));
+    
+    std::vector<int> numbers = {9, 4, 8};
+    std::vector<std::string> output = by_length(numbers);
+    for (const auto& str : output) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
