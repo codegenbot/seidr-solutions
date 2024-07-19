@@ -9,3 +9,7 @@ std::vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
