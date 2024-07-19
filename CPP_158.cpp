@@ -1,7 +1,7 @@
 using namespace std;
 
 string find_max(vector<string> words){
-    string max_word = *min_element(words.begin(), words.end(),
+    string max_word = *min_element(words.begin(), words.end(), 
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
                 return a < b;
@@ -15,3 +15,4 @@ string find_max(vector<string> words){
         }
     }
     return max_word;
+}
