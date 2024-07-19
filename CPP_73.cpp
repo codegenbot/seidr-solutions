@@ -1,9 +1,13 @@
-int find_smallest_change(vector<int> arr) {
+#include <vector>
+
+int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
+    
     for (int i = 0; i < n; i++) {
         dp[i][i] = 0;
     }
+    
     for (int len = 2; len <= n; len++) {
         for (int i = 0; i < n - len + 1; i++) {
             int j = i + len - 1;
@@ -14,5 +18,6 @@ int find_smallest_change(vector<int> arr) {
             }
         }
     }
+    
     return dp[0][n - 1];
 }
