@@ -1,10 +1,6 @@
-sum_coefficients = 0
-for coefficient_name in ["first", "second", "third"]:
-    while True:
-        try:
-            coefficient = float(input(f"Enter {coefficient_name} coefficient: "))
-            sum_coefficients += coefficient
-            break
-        except ValueError:
-            print("Invalid input. Please enter numeric values.")
-print(f"Sum of the coefficients is: {sum_coefficients}")
+try:
+    a, b, c = map(float, input("Enter three coefficients (numeric values separated by space): ").split())
+    sum_coefficients = a + b + c
+    print(f"Sum of the coefficients is: {sum_coefficients}")
+except ValueError:
+    print("Invalid input. Please enter numeric values separated by space.")
