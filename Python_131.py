@@ -1,6 +1,8 @@
+import sys
 from functools import reduce
 
-n = int(input().strip())
+input_data = sys.stdin.readline().strip()
+n = int(input_data)
 if n <= 0:
     print("Invalid input. Please enter a valid positive integer greater than zero.")
 else:
