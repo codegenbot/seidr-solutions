@@ -1,3 +1,4 @@
+```
 import math
 
 def snow_day(hours, initial_snow, rate, melt_rate):
