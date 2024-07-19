@@ -1,7 +1,5 @@
-```cpp
-#include <vector>
-#include <cmath>
 #include <iostream>
+#include <cmath>
 #include <initializer_list>
 
 int sum_squares(std::initializer_list<double> lst){
@@ -18,5 +16,5 @@ int main() {
     double input;
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
-    int result = sum_squares({(double)input});
+    int result = sum_squares({input});
 }
