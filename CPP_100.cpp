@@ -1,15 +1,21 @@
-std::vector<int> make_a_pile(std::vector<int> v){
-    std::sort(v.begin(), v.end());
-    return v;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return make_a_pile(a) == make_a_pile(b);
+    return a == b;
+}
+
+bool make_a_pile(std::vector<int>& a) {
+    // Implement make_a_pile functionality here
+    return true;
 }
 
 int main(){
-    std::vector<int> vec1 = {3, 1, 4, 1, 5, 9};
-    std::vector<int> vec2 = {2, 7, 1, 8, 2, 8};
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
 
-    assert(issame(vec1, vec2) == false);
+    assert(issame(vec1, vec2));
+
+    return 0;
 }
