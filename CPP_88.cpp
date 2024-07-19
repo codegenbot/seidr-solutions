@@ -2,13 +2,19 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> sort_array(const std::vector<int>& array) {
     auto sortedArray = array;
-    std::sort(sortedArray.begin(), sortedArray.end(), [](int a, int b) { return a > b; });
+    if ((sortedArray.front() + sortedArray.back()) % 2 == 0) {
+        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
+    } else {
+        std::sort(sortedArray.begin(), sortedArray.end());
+    }
     return sortedArray;
 }
 
