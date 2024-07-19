@@ -53,13 +53,9 @@ int main() {
         grades.push_back(grade);
     }
     
-    if (!isSame({},{}) && !grades.empty()) {
-        vector<string> result = numerical_letter_grade(grades);
-        for (int i = 0; i < result.size(); ++i) {
-            cout << "Grade " << i+1 << ": " << result[i] << endl;
-        }
-    } else {
-        cout << "No grades entered." << endl;
+    vector<string> result = numerical_letter_grade(grades);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << "Grade " << i+1 << ": " << result[i] << endl;
     }
     return 0;
 }
