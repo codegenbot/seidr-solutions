@@ -15,8 +15,6 @@ bool issame(const vector<int>& a, const vector<int>& b){
     return true;
 }
 
-vector<int> parse_music(string music_string);
-
 vector<int> parse_music(string music_string){
     vector<int> beats;
     int length = music_string.length();
