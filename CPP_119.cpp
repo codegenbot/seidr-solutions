@@ -1,14 +1,17 @@
-int cnt = 0;
-for (string s : lst) {
-    for (char c : s) {
-        if (c == '(') {
-            cnt++;
-        } else {
-            if (cnt == 0) {
-                return "No";
+int open = 0;
+    int close = 0;
+    for (string s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                open++;
+            } else {
+                if (open > 0) {
+                    open--;
+                } else {
+                    close++;
+                }
             }
-            cnt--;
         }
     }
+    return (open == 0 && close <= 1) ? "Yes" : "No";
 }
-return cnt == 0 ? "Yes" : "No";
