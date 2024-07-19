@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <cassert>
 
@@ -13,7 +12,7 @@ std::vector<int> generate_integers(int start, int end) {
 std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     for (int i : a) {
-        if (std::count(b.begin(), b.end(), i) > 0) {
+        if (std::find(b.begin(), b.end(), i) != b.end()) {
             result.push_back(i);
         }
     }
