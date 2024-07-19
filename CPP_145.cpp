@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
@@ -34,6 +33,7 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+
 }
 
 int main() {
