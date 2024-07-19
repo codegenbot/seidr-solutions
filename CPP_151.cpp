@@ -20,14 +20,14 @@ long long doubleTheDifference(vector<float> lst) {
 int main() {
     vector<float> numbers;
     float inputNumber; 
-    long long pos_sum = 0, neg_sum = 0;
+    long long result = 0; 
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> inputNumber; 
         if (!cin) break;
         numbers.push_back(inputNumber);
     }
-    long long result = doubleTheDifference(numbers);
+    result = doubleTheDifference(numbers);
     cout << "Double the difference: " << result << endl;
     return 0;
 }
