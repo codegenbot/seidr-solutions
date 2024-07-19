@@ -2,24 +2,13 @@
 #include <cctype>
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 
-std::string flip_case(std::string str);
-
-std::string flip_case(std::string str){
-    for(char &c : str){
-        if(std::islower(c)){
-            c = std::toupper(c);
-        } else if(std::isupper(c)){
-            c = std::tolower(c);
-        }
-    }
+std::string flip_case(std::string str) {
+    std::transform(str.begin(), str.end(), str.begin(), [](char c) {
+        return islower(c) ? toupper(c) : (isupper(c) ? tolower(c) : c);
+    });
     return str;
 }
 
-int main(){
-    std::cout << flip_case("Hello, World!") << std::endl;
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
-
-    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
