@@ -14,8 +14,8 @@ std::vector<int> generate_integers(int a, int b) {
 
 int main() {
     int a = 1, b = 10;
-    std::vector<int> even_integers = generate_integers(a, b);
-    for (int num : even_integers) {
+    std::vector<int> result = generate_integers(a, b);
+    for (int num : result) {
         std::cout << num << " ";
     }
     return 0;
