@@ -1,7 +1,9 @@
 while (a != b) {
-    if (a > b)
-        a = a - b;
-    else
-        b = b - a;
+        if (a > b) {
+            a -= b;
+        } else {
+            b -= a;
+        }
+    }
+    return a;
 }
-return a;
