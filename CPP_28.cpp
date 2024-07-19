@@ -1,6 +1,6 @@
 string result;
-    for (const string& s : strings) {
-        result += s;
+    for(const string& str : strings){
+        result += str;
     }
     return result;
 }
