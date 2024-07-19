@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -9,13 +8,9 @@ std::string spinWords(std::string sentence) {
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
             if (word.length() >= 5) {
-                std::string reversedWord = word;
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-                result += " ";
+                result += (word.length() >= 5) ? word.substr(word.length() - 1) + word.substr(0, word.length() - 1) : word;
             } else {
-                if(result.length()==0)result=word;else result += word + " ";
+                result += word + " ";
             }
             word = "";
         } else {
@@ -24,13 +19,9 @@ std::string spinWords(std::string sentence) {
     }
 
     if (word.length() >= 5) {
-        std::string reversedWord = word;
-        for (int j = word.length() - 1; j >= 0; j--) {
-            result += word[j];
-        }
-        result += " ";
+        result += (word.length() >= 5) ? word.substr(word.length() - 1) + word.substr(0, word.length() - 1) : word;
     } else {
-        if(result.length()==0)result=word;else result += word + " ";
+        result += word;
     }
 
     return result;
