@@ -3,7 +3,7 @@
 #include <string>
 
 bool solve(std::string s) {
-    if (s == "#ccc") {
+    if (s == "#CCC") { 
         return true;
     }
     return false;
@@ -12,7 +12,11 @@ bool solve(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s;  
+    if (std::cin.ignore().peek() == '\n') {  
+        std::cin.clear();
+        s.pop_back();  
+    }
     if (solve(s)) {
         std::cout << "The solution is: " << s << std::endl;
     } else {
