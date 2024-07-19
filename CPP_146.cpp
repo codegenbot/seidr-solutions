@@ -14,7 +14,11 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    int testResult = specialFilter({1, 11, 21});
+    std::vector<int> nums;
+    for (int i : {1, 11, 21}) {
+        nums.push_back(i);
+    }
+    int testResult = specialFilter(nums);
     std::cout << "The result is: " << testResult << std::endl;
     return 0;
 }
