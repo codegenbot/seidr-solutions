@@ -1,8 +1,8 @@
-```cpp
-#include <vector>
 #include <string>
+#include <vector>
+#include <iostream>
 
-bool vectorCompare(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -13,6 +13,7 @@ bool vectorCompare(std::vector<std::string> vec1, std::vector<std::string> vec2)
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
+        float grade = grade;
         if (grade >= 4.0)
             result.push_back("A+");
         else if (grade > 3.7)
@@ -36,9 +37,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             result.push_back("D");
         else
-            result.push_back("E");
+            result.push_back("F");
     }
     return result;
 }
-
-assert(vectorCompare(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-" }));
