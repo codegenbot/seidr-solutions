@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 long long double_the_difference(const vector<float>& lst){
     long long sum = 0;
@@ -12,7 +13,7 @@ long long double_the_difference(const vector<float>& lst){
 
 int main() {
     vector<float> lst = {1.0, 2.5, 3.0, 4.0};
-    long long odd_sum = 123;
+    long long odd_sum = 123; // Define odd_sum value here
     assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
