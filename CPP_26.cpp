@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -20,23 +19,4 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     }
 
     return result;
-}
-
-int main() {
-    int num;
-    std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
-
-    std::vector<int> input;
-    while ((std::cin >> num) && (num != -1)) {
-        input.push_back(num);
-    }
-
-    std::vector<int> output = remove_duplicates(input);
-
-    std::cout << "Duplicated removed: ";
-    for (int i : output) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
 }
