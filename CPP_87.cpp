@@ -3,14 +3,14 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+using matrix = std::vector<std::vector<int>>;
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b){
+bool issame(matrix a, matrix b){
     return a == b;
 }
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x){
-    vector<vector<int>> result;
+matrix get_row(matrix lst, int x){
+    matrix result;
     for(int i = 0; i < lst.size(); i++){
         for(int j = 0; j < lst[i].size(); j++){
             if(lst[i][j] == x){
@@ -19,7 +19,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         }
     }
     
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
+    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
         if(a[0] == b[0]){
             return a[1] > b[1];
         }
@@ -29,7 +29,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     return result;
 }
 
-int main(){
+int main() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
     return 0;
 }
