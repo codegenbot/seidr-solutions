@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
@@ -10,7 +11,7 @@ using namespace std;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if constexpr (is_same_v<remove_pointer_t<decay_t<decltype(value)>>, int>) { 
+        if (is_same_v<remove_pointer_t<decay_t<decltype(value)>>, int>) { 
             result.push_back(std::any_cast<int>(value));
         }
     }
@@ -23,5 +24,4 @@ bool equals(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(equals(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
 }
