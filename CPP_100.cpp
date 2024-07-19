@@ -1,7 +1,8 @@
-vector<int> result;
-    while (n > 0) {
-        result.push_back(n);
-        n = (n % 2 == 0) ? n + 2 : n + 1;
+vector<int> make_a_pile(int n){
+    vector<int> stones;
+    for(int i = 0; i < n; ++i){
+        stones.push_back(n + i*2);
+        n = n % 2 == 0 ? n + 1 : n + 2;
     }
-    return result;
+    return stones;
 }
