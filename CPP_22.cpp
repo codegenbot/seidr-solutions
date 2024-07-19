@@ -1,20 +1,19 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> filter_integers(const std::vector<char>& input) {
-    std::vector<int> output;
-    for (char c : input) {
-        if (std::isdigit(c)) {
-            output.push_back(c - '0');
-        }
-    }
-    return output;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+std::vector<int> filter_integers(std::vector<int> input){
+    std::vector<int> result;
+    for (int num : input) {
+        if (num >= 0 && num <= 9) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
 
 int main() {
