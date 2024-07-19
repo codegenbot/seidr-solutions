@@ -36,4 +36,5 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
+// Corrected comparison in main function
 assert(issame(pluck({7, 9, 7, 1}), vector<int>{}));
