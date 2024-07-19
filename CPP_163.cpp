@@ -1,6 +1,12 @@
 #include <vector>
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b); 
+
+int main() {
+    assert(issame(generate_integers(17,89), {}));
+}
+
 bool issame(vector<int> a, vector<int> b) {
     vector<int> result;
     for (int i = a; i <= b; ++i) {
@@ -9,8 +15,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(generate_integers(17,89), {}));
 }
