@@ -1,4 +1,4 @@
-```Python
+```
 def bowling_score(frames):
     score = 0
     frame = 1
@@ -9,6 +9,7 @@ def bowling_score(frames):
                 break
             frame += 1
         elif char == '/':
-            score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            strike_roll = int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1])
+            score += 10 - strike_roll
             frame += 1
     return score
