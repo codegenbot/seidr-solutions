@@ -51,4 +51,4 @@ def bowling_score(frames):
 
     return score
 
-print("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10".replace("\n", ","))
+print(bowling_score("3/X8--525X27X2161"))
