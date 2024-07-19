@@ -1,9 +1,8 @@
-```cpp
 #include <string>
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    if (a.size() != 1 || b != a[0]) {
+    if (a.size() != 1 || !a[0].compare(0, a[0].size(), b)) {
         return false;
     }
     return true;
@@ -32,11 +31,25 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    std::vector<std::vector<std::string>> result = filter_by_prefix(strings, "xxx");
-    for (const auto& temp : result) {
-        for (const auto& str : temp) {
-            std::cout << str << " ";
+    
+    for (const auto& str : strings) {
+        std::vector<std::string> temp;
+        size_t start = 0;
+        while (start < str.size()) {
+            size_t end = str.find(' ', start);
+            if (end == std::string::npos) {
+                temp.push_back(str.substr(start));
+                break;
+            }
+            temp.push_back(str.substr(start, end - start));
+            start = end + 1;
+        }
+        
+        for (const auto& t : temp) {
+            std::cout << t << " ";
         }
         std::cout << std::endl;
     }
+
+    return 0;
 }
