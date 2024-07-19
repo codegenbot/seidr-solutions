@@ -1,6 +1,8 @@
-```cpp
+#pragma GCC diagnostic push
 #include <vector>
 #include <string>
+
+#pragma GCC diagnostic pop
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letterGrades;
