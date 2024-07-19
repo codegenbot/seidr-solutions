@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
@@ -25,7 +26,7 @@ std::string string_to_md5(const std::string& text) {
     return std::string(mdString);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     std::string input_text;
     std::cout << "Enter a text to calculate its MD5 hash: ";
     std::cin >> input_text;
