@@ -1,10 +1,21 @@
-Here is the completed code:
+#include <vector>
+#include <cassert>
+#include <cmath>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float x : l){
-        if(x > 0)
-            result.push_back(x);
+using namespace std;
+
+bool isSameVector(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i]) - abs(b[i]) > 1e-9) return false;
     }
-    return result;
+    return true;
+}
+
+vector<float> get_positive(vector<float> input) {
+    vector<float> output;
+    for (float x : input) {
+        if (x >= 0) output.push_back(x);
+    }
+    return output;
 }
