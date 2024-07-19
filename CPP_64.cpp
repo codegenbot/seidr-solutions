@@ -1,13 +1,18 @@
 int vowels_count(string s){
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
-    for(char c : s){
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+    string vowels = "aeiouyAEIOUY";
+
+    if (!s.empty()) {
+        if (vowels.find(s.back()) != string::npos) {
             count++;
         }
+
+        for (int i = 0; i < s.size() - 1; i++) {
+            if (vowels.find(s[i]) != string::npos) {
+                count++;
+            }
+        }
     }
-    if(!s.empty() && (s.back() == 'y' || s.back() == 'Y')){
-        count--;
-    }
+
     return count;
 }
