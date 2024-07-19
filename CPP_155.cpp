@@ -1,14 +1,11 @@
 #include <vector>
+#include <cassert>
 
-std::vector<int> countDigitParity(int num) {
-    std::vector<int> count(2, 0);
-    std::string numStr = std::to_string(abs(num));
-    for (char c : numStr) {
-        if ((c - '0') % 2 == 0) {
-            count[0]++;
-        } else {
-            count[1]++;
-        }
-    }
-    return count;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(std::vector<int>{1, 0}, std::vector<int>{1, 0}));
+    return 0;
 }
