@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
@@ -19,3 +22,4 @@ int main() {
     std::getline(std::cin, s); 
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
+}
