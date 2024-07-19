@@ -1,21 +1,8 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-using namespace std;
-
-double poly(vector<double> xs, double x){
-    double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        sum+=xs[i]*pow(x,i);
+```cpp
+double find_zero(vector<double> coeffs){
+    double x = -coeffs[1] / (2*abs(coeffs[1]));
+    double poly(double v, double x) {
+        return coeffs[0] + coeffs[1]*x + coeffs[2]*pow(x, 2);
     }
-    return sum;
-}
-
-double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
-    double x = -xs[1]/(2*xs[0]);
-    if(abs(poly(xs, x)) < 1e-9) return round(x, 10);
-    else return -1;
+    return poly(0, x);
 }
