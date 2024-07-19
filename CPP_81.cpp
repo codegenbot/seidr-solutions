@@ -12,8 +12,8 @@ bool isSame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+vector<string> numericalLetterGrade(vector<float> grades) {
+    vector<string> letterGrades;
     for (float grade : grades) {
         string strGrade;
         if (grade >= 4.0)
@@ -40,18 +40,16 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             strGrade = "D";
         else
             strGrade = "F";
-        letter_grades.push_back(strGrade);
+        letterGrades.push_back(strGrade);
     }
-    return letter_grades;
+    return letterGrades;
 }
 
 int main() {
     vector<float> grades = {3.8, 2.9, 4.1};
-    vector<string> result = numerical_letter_grade(grades);
+    vector<string> result = numericalLetterGrade(grades);
     for (string grade : result) {
         cout << grade << endl;
     }
-    if(isSame(grades,{1.0, 2.9, 3.5})) cout << "Vectors are the same";
-    else cout << "Vectors are not the same";
     return 0;
 }
