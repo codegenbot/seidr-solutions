@@ -59,6 +59,6 @@ int main_func() {
     return 0;
 }
 
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
+std::vector<std::string> get_words(const std::string& sentence) {
     return split(sentence);
 }
