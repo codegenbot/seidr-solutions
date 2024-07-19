@@ -1,4 +1,5 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -13,12 +14,20 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
-    const std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    const std::vector<std::string> expected = {"grunt", "prune"};
-    assert(issame(filter_by_substring(words, "run"), expected));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
