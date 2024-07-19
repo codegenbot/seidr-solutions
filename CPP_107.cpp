@@ -1,24 +1,15 @@
-int count_palindrome(int num) {
-        string s = to_string(num);
-        int n = s.size();
-        for (int i = 0; i < n / 2; ++i) {
-            if (s[i] != s[n - 1 - i]) {
-                return 0;
+vector<int> result = {0, 0};
+    for (int i = 1; i <= n; ++i) {
+        string str = to_string(i);
+        string rev_str = str;
+        reverse(rev_str.begin(), rev_str.end());
+        if (str == rev_str) {
+            if (i % 2 == 0) {
+                result[0]++;
+            } else {
+                result[1]++;
             }
         }
-        return 1;
     }
-
-    vector<int> even_odd_palindrome(int n) {
-        vector<int> result(2, 0);
-        for (int i = 1; i <= n; ++i) {
-            if (count_palindrome(i)) {
-                if (i % 2 == 0) {
-                    result[0]++;
-                } else {
-                    result[1]++;
-                }
-            }
-        }
-        return result;
-    }
+    return result;
+}
