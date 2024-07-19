@@ -1,8 +1,5 @@
-#include <typeindex>
-
-bool issame(const type_index& lhs, const type_index& rhs) {
-    return lhs == rhs;
-}
+```cpp
+#include <type_traits>
 
 vector<int> filter_integers(list_any values){
     vector<int> result;
@@ -12,4 +9,9 @@ vector<int> filter_integers(list_any values){
         }
     }
     return result;
+
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
