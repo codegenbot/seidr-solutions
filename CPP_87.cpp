@@ -25,6 +25,8 @@ int main() {
     std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int x = 5;
     std::vector<std::vector<int>> result = get_row(lst, x);
-
+    for (const auto& pair : result) {
+        std::cout << pair[0] << " " << pair[1] << std::endl;
+    }
     return 0;
 }
