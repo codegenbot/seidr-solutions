@@ -1,7 +1,7 @@
 def encode(message: str, shift: int) -> str:
     encoded_message = ""
     for char in message:
-        if char.isalnum():
+        if char.isalpha():
             base_ord = ord("a") if char.islower() else ord("A")
             encoded_char_ord = ((ord(char) - base_ord + shift) % 26) + base_ord
             encoded_message += chr(encoded_char_ord)
@@ -9,12 +9,12 @@ def encode(message: str, shift: int) -> str:
             encoded_message += char
     return encoded_message
 
-message = input("Enter message to encode (letters and spaces only): ")
-while not message.isalnum():
-    message = input("Please enter alphabetic characters and spaces only: ")
+message = input("Enter message to encode: ")
+while not message.isalpha():
+    message = input("Please enter alphabetic characters only: ")
 
 shift = input("Enter shift value: ")
-while not shift.isdigit():
+while not shift.isnumeric():
     shift = input("Please enter an integer value for shift: ")
 shift = int(shift)
 
