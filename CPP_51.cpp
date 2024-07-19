@@ -2,9 +2,14 @@
 #include <iostream>
 #include <string>
 
-std::string remove_vowels(std::string input) {
+std::string remove_vowels(){
+    std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
+    
+    if(input.empty()) {
+        return "";  
+    }
     
     std::string result = "";
     for(char c : input){
