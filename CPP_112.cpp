@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::string s = a[0]; 
+    std::string s = a[0];
     std::string c = b[0];
     std::string result = "";
     for (char ch : s) {
