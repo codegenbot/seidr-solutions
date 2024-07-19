@@ -1,22 +1,18 @@
-```cpp
 #include <iostream>
-#include <string>
 
-std::string solve(std::string str);
-
-int main() {
-    std::string N;
-    std::cout << "Enter a string: ";
-    std::cin >> N;
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
-}
-
-int solve(std::string str) {
+int solve(int N) {
     int sum = 0;
-    for (char c : str) {
-        if (c == '1') {
-            sum++;
-        }
+    while (N > 0) {
+        int remainder = N % 2;
+        sum += remainder;
+        N /= 2;
     }
     return sum;
+}
+
+int main() {
+    int N;
+    std::cout << "Enter a number: ";
+    std::cin >> N;
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
 }
