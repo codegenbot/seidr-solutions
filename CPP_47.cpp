@@ -1,11 +1,13 @@
-#include <iostream>
+```cpp
 #include <vector>
 using namespace std;
 
 int calculateMedian(vector<float> v) {
-    sort(v.begin(), v.end());
-    int n = v.size();
+    vector<float> vec = v;  
+    sort(vec.begin(), vec.end());
+    int n = vec.size();
     if (n % 2 == 0)
-        return (v[n/2 - 1] + v[n/2]) / 2;
+        return (vec[n/2 - 1] + vec[n/2]) / 2;
     else
-        return v[n/2];
+        return vec[n/2];
+}
