@@ -22,15 +22,9 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 int main() {
-    // Example usage of get_row function
     std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int x = 5;
     std::vector<std::vector<int>> result = get_row(lst, x);
-
-    // Example usage of issame function
-    std::vector<std::vector<int>> a = {{1, 2}, {3, 4}};
-    std::vector<std::vector<int>> b = {{1, 2}, {3, 4}};
-    bool areSame = issame(a, b);
-
+    
     return 0;
 }
