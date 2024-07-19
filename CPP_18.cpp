@@ -1,5 +1,4 @@
 #include <string>
-using namespace std;
 
 int how_many_times(string str, string substring) {
     int count = 0;
@@ -9,9 +8,3 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
-}
-
-int main() {
-    assert(how_many_times("john doe", "john") == 1);
-    return 0;
-}
