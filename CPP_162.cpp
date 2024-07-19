@@ -1,5 +1,6 @@
-#include <string>
+extern "C" {
 #include <openssl/md5.h>
+}
 
 std::string string_to_md5(const std::string& input) {
     unsigned char result[16];
