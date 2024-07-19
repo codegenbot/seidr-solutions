@@ -33,16 +33,9 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    map<char, int> test1 = histogram("test case");
-    map<char, int> test2 = histogram("another test");
+    // Test cases
+    map<char, int> test1 = histogram("hello world");
+    map<char, int> test2 = histogram("cpp contest problem");
     
-    for (const auto& pair : test1) {
-        cout << pair.first << ": " << pair.second << endl;
-    }
-    
-    for (const auto& pair : test2) {
-        cout << pair.first << ": " << pair.second << endl;
-    }
-
     return 0;
 }
