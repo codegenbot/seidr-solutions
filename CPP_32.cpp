@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 double find_zero(int n) {
     double solution;
