@@ -1,10 +1,14 @@
-double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
-    
-    if (num - floor_num < ceil_num - num) {
-        return floor_num;
-    } else {
-        return ceil_num;
-    }
+#include <iostream>
+#include <cmath>
+
+int closest_integer(std::string value) {
+    float num = stof(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return abs(num - lower) < abs(num - upper) ? lower : upper;
+}
+
+int main() {
+    assert (closest_integer("0") == 0);
+    return 0;
 }
