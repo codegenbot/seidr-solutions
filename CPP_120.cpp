@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,3 +24,4 @@ int main() {
     std::vector<int> result = maximum(a);
     if (!same(result, a)) return 1;
     return 0;
+}
