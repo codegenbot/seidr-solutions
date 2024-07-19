@@ -27,9 +27,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-
-    bool same = issame(filter_by_prefix(a, "xxx"), b);
-    assert(same);
-
+    
+    assert (issame(filter_by_prefix(a, "xxx") , filter_by_prefix(std::vector<std::string>(b.begin(), b.end()), "xxx") ) );
     return 0;
 }
