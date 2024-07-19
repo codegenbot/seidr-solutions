@@ -1,3 +1,4 @@
+```
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
