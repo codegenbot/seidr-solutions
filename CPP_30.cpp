@@ -1,33 +1,26 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <cmath>
 
-using namespace std; 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
 
-vector<float> get_positive(vector<float> v) {
+int main() {
+    vector<float> l = {1.0f, -2.0f, 3.0f, -4.0f};
+    vector<float> result = get_positive(l);
+    
+    for (float num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for (float x : v) {
-        if (x > 0)
-            result.push_back(x);
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
-int test() {
-    vector<float> v1 = {1.0, 2.0};
-    vector<float> v2 = {1.0, 2.0};
-    assert(issame(get_positive(v1), get_positive(v2)) == true);
-    return 0;
 }
