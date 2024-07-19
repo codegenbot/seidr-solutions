@@ -18,10 +18,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0};
-    auto rescaled_numbers = rescale_to_unit(numbers);
-    
-    assert(issame(rescaled_numbers, rescale_to_unit(numbers)));
-    
-    return 0;
+    std::vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
+    std::vector<float> output = rescale_to_unit(input);
+
+    assert(issame(output, rescale_to_unit(input)));
 }
