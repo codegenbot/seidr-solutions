@@ -1,25 +1,31 @@
-Here is the completed code:
-
 def decode_cyclic(s: str):
     result = []
     temp = ""
     for char in s:
-        if len(temp) < 3:
-            temp += char
-        else:
-            if temp[0] == char:
-                while len(result) % 3 != 0 and result:
-                    end_index = result.index(temp[0])
-                    first_three_chars = result[:end_index+1]
-                    result.pop(end_index)
-                    result.insert(0, first_three_chars)
-                if temp:
-                    temp = ""
+        temp += char
+        if len(temp) == 3:
+            if len(result) == 0 or result[-1][2] != temp[0]:
+                result.append(temp)
             else:
-                result.append(char)
-    while len(result) % 3 != 0 and result:
-        end_index = result.index(temp[0])
-        first_three_chars = result[:end_index+1]
-        result.pop(end_index)
-        result.insert(0, first_three_chars)
-    return "".join(result + temp)
+                last_group = result.pop()
+                while last_group and last_group[0] != temp[0]:
+                    temp += last_group[-1]
+                    last_group = last_group[:-1]
+                if last_group:
+                    result.append(last_group + temp)
+                else:
+                    result.append(temp)
+            temp = ""
+    if temp:
+        if len(result) == 0 or result[-1][2] != temp[0]:
+            result.append(temp)
+        else:
+            last_group = result.pop()
+            while last_group and last_group[0] != temp[0]:
+                temp += last_group[-1]
+                last_group = last_group[:-1]
+            if last_group:
+                result.append(last_group + temp)
+            else:
+                result.append(temp)
+    return "".join([group[2:] + group[:2] for group in result])
