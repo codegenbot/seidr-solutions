@@ -15,11 +15,11 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+int main(){
+    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
+    vector<string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
 
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(result == expected);
+    
     return 0;
 }
