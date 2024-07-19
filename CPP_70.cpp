@@ -20,4 +20,3 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     }
     return result;
 }
-```
