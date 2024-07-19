@@ -1,17 +1,17 @@
-int count_open = 0, count_close = 0;
-
-for (const string& s : lst) {
+bool check(string s) {
+    int count = 0;
     for (char c : s) {
         if (c == '(') {
-            count_open++;
+            count++;
         } else if (c == ')') {
-            if (count_open > 0) {
-                count_open--;
-            } else {
-                count_close++;
-            }
+            if (count <= 0) return false;
+            count--;
         }
     }
+    return count == 0;
 }
 
-return count_open == count_close ? "Yes" : "No";
+string match_parens(vector<string> lst) {
+    string s1 = lst[0], s2 = lst[1];
+    return check(s1 + s2) ? "Yes" : "No";
+}

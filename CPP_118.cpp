@@ -1,14 +1,16 @@
-#include <string>
-#include <algorithm>
-
-using namespace std;
+Here is the completed code:
 
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if ("aeiouAEIOU".find(word[i]) != string::npos && 
-            isalpha(word[i-1]) && !("aeiouAEIOU".find(word[i-1]) != string::npos)) {
-            return string(1, word[i]);
+    string vowels = "aeiouAEIOU";
+    for (int i = word.size() - 1; i > 0; --i) {
+        if (vowels.find(word[i]) != std::string::npos) {
+            int j;
+            for (j = i - 1; j >= 0 && vowels.find(word[j]) == std::string::npos; --j) {
+                if (vowels.find(word[j]) != std::string::npos) {
+                    break;
+                }
+            }
+            return word.substr(j + 1, i - j - 1);
         }
     }
     return "";
