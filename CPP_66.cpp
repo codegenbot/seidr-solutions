@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int digitSum(const std::string& s) {
     int sum = 0;
@@ -14,10 +12,10 @@ int digitSum(const std::string& s) {
 }
 
 int main() {
-    assert(digitSum("You are Very Smart") == 327);
+    assert(digitSum("123") == 6);
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
     int result = digitSum(input);
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;

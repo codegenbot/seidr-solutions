@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -13,14 +12,14 @@ double find_zero(const std::vector<double>& coeffs, double x) {
 }
 
 int main() {
-    int n;
+    double n;
     cin >> n;
 
     std::vector<double> coeffs;
-    for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        coeffs.push_back(temp);
+    for(double i = 0; i < n; i++) {
+        double val;
+        cin >> val;
+        coeffs.push_back(val);
     }
 
     double x;

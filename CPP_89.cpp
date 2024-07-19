@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-
-std::string encrypt(std(std::string s) {
+std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
@@ -16,7 +13,7 @@ std::string encrypt(std(std::string s) {
 }
 
 int main() {
-    std::string& s;
+    std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s; 
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
