@@ -1,0 +1,1 @@
+return all(num < t for num in l)
