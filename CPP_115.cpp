@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 int max_fill(vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
