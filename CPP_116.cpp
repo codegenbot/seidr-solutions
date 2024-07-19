@@ -1,15 +1,17 @@
-#include <vector>
-#include <algorithm>
-
 vector<int> sort_vector(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(), 
-         [](int a, int b) { 
-             if (bitset<32>(a).count() != bitset<32>(b).count()) {
-                 return bitset<32>(a).count() < bitset<32>(b).count();
-             } else {
-                 return a < b;
-             }
-         });
+    vector<pair<int, int>> pairArr;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        pairArr.push_back({__builtin_popcount(arr[i]), arr[i]});
+    }
+    
+    sort(pairArr.begin(), pairArr.end());
+    
+    vector<int> result;
+    
+    for(auto p : pairArr) {
+        result.push_back(p.second);
+    }
+    
     return result;
 }
