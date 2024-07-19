@@ -5,7 +5,7 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; // Check if vectors a and b are the same
+    return a == b;
 }
 
 vector<int> filter_integers(list<boost::any> values) {
