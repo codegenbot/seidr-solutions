@@ -1,6 +1,5 @@
-```
-#include <iostream>
-#include <cmath>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,25 +9,15 @@ string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = round(sum / (m - n + 1));
-    string binary = "";
-    while (avg > 0) {
-        if (avg >= 2) {
-            avg -= 2;
-            binary += '1';
-        } else {
-            avg = floor(avg);
-            binary += '0';
-        }
+    long double average = lround(sum / (long double)(m - n + 1)); 
+    string result = "";
+    while (average > 0) {
+        if (average & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        average >>= 1;
     }
-    return binary;
+    reverse(result.begin(), result.end()); 
+    return result;
 }
-
-int main() {
-    int n, m;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "Enter the value of m: ";
-    cin >> m;
-    cout << rounded_avg(n, m) << endl;
-    return 0;
