@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -61,8 +62,4 @@ int main_func() {
     std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
-}
-
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
-    return split(sentence);
 }
