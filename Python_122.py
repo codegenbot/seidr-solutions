@@ -1,5 +1,5 @@
 def add_elements(arr, k):
-    if not arr or k <= 0:
+    if not arr:
         return 0
     
     filtered_nums = [num for num in arr if 10 <= num <= 99]
