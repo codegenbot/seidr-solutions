@@ -24,6 +24,6 @@ std::vector<int> get_positive(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}) == true);
+    assert(issame(get_positive({}), std::vector<int>{}));
     return 0;
 }
