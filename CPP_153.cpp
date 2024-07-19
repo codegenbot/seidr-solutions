@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
     for (const auto& extension : extensions) {
@@ -13,7 +13,6 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 }
 
 int main() {
-    { 
     std::cout << Strongest_Extension("My", {"Java", "Python", "C++"}) << std::endl; 
     return 0; 
 }

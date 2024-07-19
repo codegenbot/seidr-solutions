@@ -7,7 +7,7 @@ using namespace std;
 string intToMiniRoman(int num) {
     string result;
     int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    const char* sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    char* sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     int i = 0;
     while (num > 0) {
         if (num >= val[i]) {
