@@ -1,12 +1,13 @@
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 using namespace std;
 
 vector<string> split_words(string txt);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool are_equal(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -44,4 +45,9 @@ vector<string> split_words(string txt) {
         result.push_back(to_string(count));
     }
     return result;
+}
+
+int main() {
+    assert(are_equal(split_words(""), {"0"}));
+    return 0;
 }
