@@ -1,3 +1,9 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
@@ -15,6 +21,7 @@ vector<int> parse_nested_parens(string paren_string) {
             current_depth = 0;
         }
     }
+
     depths.push_back(max_depth);
 
     return depths;
