@@ -1,12 +1,10 @@
-#include <iostream>
-#include <string>
-using namespace std;
+std::string words_in_sentence(std::string sentence);
 
 bool is_prime(int n){
     if(n <= 1){
         return false;
     }
-    for(int i = 2; i * i <= n; i++){
+    for(int i = 2; i*i <= n; i++){
         if(n % i == 0){
             return false;
         }
@@ -14,18 +12,9 @@ bool is_prime(int n){
     return true;
 }
 
-string words_in_sentence(string sentence);
-
-int main(){
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
-    return 0;
-}
-
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for(char c : sentence){
         if(c == ' '){
             if(is_prime(word.length())){
