@@ -1,8 +1,10 @@
-string_input = input("Enter a string: ")
-integer_input = int(input("Enter an integer: "))
+import sys
 
-def complete_code(string, integer):
-    return string[:integer]
+def complete_code(string_input, integer_input):
+    # Add your code logic here
+    pass
 
+string_input = sys.stdin.readline().strip()
+integer_input = int(sys.stdin.readline().strip())
 output = complete_code(string_input, integer_input)
 print(output)
