@@ -19,7 +19,7 @@ string intToRoman(int number) {
 }
 
 int main() {
-    int number = 3549;
-    string roman = intToRoman(number);
+    int testNumber = 3549;
+    string romanNumber = intToRoman(testNumber);
     return 0;
 }
