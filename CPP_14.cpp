@@ -15,3 +15,8 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     }
     return result;
 }
+
+int main() {
+    assert(is_same(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"}));
+    return 0;
+}
