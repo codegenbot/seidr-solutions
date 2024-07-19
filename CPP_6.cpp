@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -29,7 +29,9 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    vector<int> result = parse_nested_parens("(( ) ) ");
-    vector<int> expected = {2, 0};
-    assert(issame(result, expected));
+    vector<int> expected = {2, 3, 1, 2};
+    vector<int> result = parse_nested_parens("( ( ) ) ( )");
+    assert(issame(expected, result));
+
+    return 0;
 }
