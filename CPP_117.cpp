@@ -7,24 +7,26 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
-    size_t start = 0, end;
-    for (int i = 0; i < n; ++i) {
-        start = s.find_first_not_of(' ', start);
-        end = s.find_first_of(' ', start);
-        if (end == string::npos) 
-            break;
-        start = end + 1;
-    }
-    if (start != string::npos) {
-        while (start < s.size()) {
-            end = s.find_first_of(' ', start);
-            if (end == string::npos) 
-                end = s.size();
-            words.push_back(s.substr(start, end - start));
-            start = s.find_first_not_of(' ', end);
+    string word;
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
         }
     }
-    return words;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    
+    if (n >= words.size()) {
+        return {};
+    }
+    
+    return vector<string>(words.begin() + n, words.end());
 }
 
 bool issame(vector<string> a, vector<string> b) {
