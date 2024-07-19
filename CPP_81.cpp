@@ -41,7 +41,7 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
         } else {
             letterGrade = "F";
         }
-        result.push_back(letterGrade);
+        result.push_back(string(grade)); // Initialize with default constructor
     }
     return result;
 }
