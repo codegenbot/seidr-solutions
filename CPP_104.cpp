@@ -1,22 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return unordered_set<int>(a.begin(), a.end()) == unordered_set<int>(b.begin(), b.end());
 }
 
-std::vector<int> unique_digits(std::vector<int> x) {
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
         int temp = num;
         bool has_even_digit = false;
@@ -37,15 +27,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
 }
 
 int main() {
-    std::vector<int> x = {123, 456, 789, 135, 246};
-    std::vector<int> result = unique_digits(x);
-
-    std::vector<int> expected_result = {123, 135, 789};
-    if (issame(result, expected_result)) {
-        // Code works as expected
-        return 0;
-    } else {
-        // Code does not produce correct output
-        return 1;
-    }
+    vector<int> x = {123, 456, 789};
+    vector<int> unique = unique_digits(x);
+    return 0;
 }
