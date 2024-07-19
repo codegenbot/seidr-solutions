@@ -2,29 +2,22 @@
 #include <iostream>
 #include <string>
 
-std::string applyCipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string decipheredMessage;
-    
+std::string decipher(std::string cipherMap1, std::string cipherMap2, std::string message) {
+    string result = "";
     for (int i = 0; i < message.length(); i++) {
-        if (i < cipher1.length()) {
-            int index = cipher1.find(message[i]);
-            decipheredMessage += cipher2[index];
-        } else {
-            decipheredMessage += message[i];
+        for (int j = 0; j < cipherMap1.length(); j++) {
+            if (message[i] == cipherMap1[j]) {
+                result += cipherMap2[j];
+                break;
+            }
         }
     }
-    
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-
-    // Read input from user
-    std::cin >> cipher1 >> cipher2 >> message;
-
-    // Apply the cipher to the message and print the result
-    std::cout << applyCipher(cipher1, cipher2, message) << std::endl;
-
+    std::string cipherMap1, cipherMap2, message;
+    std::cin >> cipherMap1 >> cipherMap2 >> message;
+    std::cout << decipher(cipherMap1, cipherMap2, message) << std::endl;
     return 0;
 }
