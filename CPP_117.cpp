@@ -5,19 +5,20 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
-    string word;
+    string word = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            word += c;
-        } else {
+        if (c == ' ' || c == ',' || c == '!') {
             if (!word.empty()) {
                 words.push_back(word);
-                word.clear();
-                if (words.size() == n) {
-                    break;
-                }
+                word = "";
+                if (words.size() == n) break;
             }
+        } else {
+            word += c;
         }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
     }
     return words;
 }
@@ -31,7 +32,7 @@ int main() {
 
     assert(issame(result, {"world", "contest"}));
 
-    for (const string &word : result) {
+    for (const string& word : result) {
         cout << word << endl;
     }
 
