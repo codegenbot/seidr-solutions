@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 bool issame(const std::vector<int> a, const std::vector<int> b);
 
@@ -11,8 +11,8 @@ bool issame(const std::vector<int> a, const std::vector<int> b){
 }
 
 int main(){
-    vector<int> a = parse_nested_parens("((()))");
-    vector<int> b = {1, 2, 3, 2, 1};
+    std::vector<int> a = parse_nested_parens("((()))");
+    std::vector<int> b = {1, 2, 3, 2, 1};
     assert(issame(a, b));
     return 0;
 }
