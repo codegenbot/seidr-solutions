@@ -1,9 +1,10 @@
-int total_fill = 0;
+int count = 0;
         for (int j = 0; j < grid[0].size(); j++) {
-            int well_fill = 0;
+            int sum = 0;
             for (int i = 0; i < grid.size(); i++) {
-                well_fill += grid[i][j];
+                sum += grid[i][j];
             }
-            total_fill += well_fill;
+            count += sum / capacity + (sum % capacity != 0);
         }
-        return (total_fill + capacity - 1) / capacity;
+        return count;
+    }
