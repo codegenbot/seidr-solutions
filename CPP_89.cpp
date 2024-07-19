@@ -1,9 +1,8 @@
 string encrypted = "";
-    for(char c: s){
-        if(isalpha(c)){
-            int shift = 2 * (c - 'a');
-            char encrypted_char = 'a' + (c - 'a' + shift) % 26;
-            encrypted += encrypted_char;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            encrypted += ((c - base + 2 * 2) % 26) + base;
         } else {
             encrypted += c;
         }
