@@ -1,5 +1,6 @@
-if(x <= 0 || n <= 0)
-        return false;
-    double result = log(x) / log(n);
-    return (result == (int)result);
+if (n == 1) {
+        return x == 1;
+    }
+    int power = log(x) / log(n);
+    return pow(n, power) == x;
 }
