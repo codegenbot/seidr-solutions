@@ -5,5 +5,4 @@ def normalize_numbers(numbers):
 
 # Call the function with appropriate input
 numbers = [1, 2, 3, 4, 5]
-result = normalize_numbers(numbers)
-print(result)
+print(normalize_numbers(numbers))
