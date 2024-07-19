@@ -1,34 +1,43 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string& input) {
-    std::string output = "";
-    size_t wordStart = 0;
-    for (size_t i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || input[i] == ' ') {
-            std::string word = input.substr(wordStart, i - wordStart);
-            if (word.size() >= 5) {
-                output += std::string(word.rbegin(), word.rend());
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string word = "";
+
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (word.length() >= 5) {
+                std::string reversedWord = word;
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
             } else {
-                output += word;
+                result += word + " ";
             }
-            if (i < input.size()) {
-                output += ' ';
-            }
-            wordStart = i + 1;
+            word = "";
+        } else {
+            word += sentence[i];
         }
     }
-    return output;
+
+    if (word.length() >= 5) {
+        std::string reversedWord = word;
+        for (int j = word.length() - 1; j >= 0; j--) {
+            result += word[j];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        std::getline(std::cin, input);
-        if (input == "q")
-            break;
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
