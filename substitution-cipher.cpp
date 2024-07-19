@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -10,9 +11,32 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
             result += cipherMap.at(pos);
             pos += 1;
         }
-        if (std::string::npos == pos) {
-            result += c; // not found in the map, append as is
-        }
+        if (std::isalpha(c)) {
+            if (c >= 'a' && c <= 'z') {
+                if (c > 'x') {
+                    for (char i = 'a'; i <= c; ++i) {
+                        result += i;
+                    }
+                } else {
+                    for (char i = 'a'; i <= 'x'; ++i) {
+                        result += i;
+                    }
+                }
+            } 
+            else if (c >= 'A' && c <= 'Z') {
+                if (c > 'X') {
+                    for (char i = 'A'; i <= c; ++i) {
+                        result += i;
+                    }
+                } else {
+                    for (char i = 'A'; i <= 'X'; ++i) {
+                        result += i;
+                    }
+                }
+            }
+        } 
+        else 
+            result += c;
     }
     return result;
 }
