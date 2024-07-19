@@ -1,26 +1,33 @@
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    int min_diff = INT_MAX;
+    int split_index = -1;
+    
     for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] != v[0]) {
-            res[0].push_back(v[i]);
-        } else {
-            res[0].clear();
-            res[0].push_back(v[0]);
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += v[j];
+        }
+        int diff = abs(sum1 - sum2);
+        if (diff < min_diff) {
+            min_diff = diff;
+            split_index = i;
         }
     }
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || v[i] != v[n - 1]) {
-            res[1].push_back(v[i]);
-        } else {
-            res[1].clear();
-            res[1].push_back(v[n - 1]);
-        }
+    
+    for (int i = 0; i <= split_index; i++) {
+        res[0].push_back(v[i]);
+    }
+    for (int i = split_index + 1; i < n; i++) {
+        res[1].push_back(v[i]);
     }
     return res;
 }
@@ -35,9 +42,9 @@ int main() {
     vector<vector<int>> res = cutVector(v);
     for (auto &v : res) {
         for (int x : v) {
-            std::cout << x << " ";
+            cout << x << " ";
         }
-        std::cout << endl;
+        cout << endl;
     }
     return 0;
 }
