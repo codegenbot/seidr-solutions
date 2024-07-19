@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
-std::string solve(std::string s);
+using namespace std;
+
+string solve(string s);
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << solve(input);
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
 
-std::string solve(std::string s){
+string solve(string s){
     int n = s.size();
     bool hasLetter = false;
     for(int i=0; i<n; i++){
@@ -21,7 +22,7 @@ std::string solve(std::string s){
         }
     }
     if(!hasLetter){
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
     return s;
 }
