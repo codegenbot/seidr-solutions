@@ -16,3 +16,4 @@ vector<int> result;
     }
     sort(odd_result.begin(), odd_result.end());
     return odd_result;
+}
