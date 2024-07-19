@@ -1,4 +1,6 @@
-string flip_case(string str){
+#include <string>
+
+std::string flip_case(std::string str){
     for(char &c : str){
         if(islower(c)){
             c = toupper(c);
@@ -7,4 +9,9 @@ string flip_case(string str){
         }
     }
     return str;
+}
+
+int main(){
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
