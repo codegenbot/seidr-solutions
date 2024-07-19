@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -7,7 +6,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return gameCompare(game, guess);
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool areSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,6 +33,6 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    assert(isSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(areSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
