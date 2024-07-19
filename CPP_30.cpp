@@ -1,14 +1,14 @@
-using namespace std;
-
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
