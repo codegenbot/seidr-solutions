@@ -3,11 +3,11 @@ def find_unique_numbers(numbers):
 
 numbers = []
 while True:
+    num = input("Enter a number or press Enter to finish: ")
+    if num == "":
+        break
     try:
-        num = int(input("Enter a number or press Enter to finish: "))
-        if num == "":
-            break
-        numbers.append(num)
+        numbers.append(int(num))
     except ValueError as e:
         print("Invalid input:", e)
 
