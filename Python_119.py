@@ -7,8 +7,4 @@ def match_parens(lst):
             if count == 0:
                 return 'No'
             count -= 1
-        if count < 0:
-            return 'No'
-    if count != 0:
-        return 'No'
-    return 'Yes'
+    return 'Yes' if count == 0 else 'No'
