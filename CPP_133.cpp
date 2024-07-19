@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
+#include <string>
 
 int sum_squares(std::initializer_list<double> lst){
     int total = 0;
@@ -16,5 +18,5 @@ int main() {
     double input;
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
-    int result = sum_squares({input});
+    int result = sum_squares({(double)std::stod(std::to_string(input))});
 }
