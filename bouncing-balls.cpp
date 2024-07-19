@@ -12,7 +12,7 @@ int main() {
 
     double totalDistance = 0.0;
     for(int i = 1; i <= numBounces; i++) {
-        totalDistance += std::pow(2, -bounciness) * (startHeight * (1 + std::pow(2, bounciness)));
+        totalDistance += pow(2, -bounciness) * (startHeight * (1 + pow(2, bounciness)));
     }
 
     cout.precision(6);
