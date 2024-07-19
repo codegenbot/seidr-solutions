@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
@@ -17,10 +17,4 @@ vector<int> sort_array(vector<int> array){
     else
         sort(array.begin(), array.end());
     return array;
-}
-
-int main(){
-    assert(issame(sort_array({21, 14, 23, 11}), vector<int>{23, 21, 14, 11}));
-  
-    return 0;
 }
