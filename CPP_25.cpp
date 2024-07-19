@@ -13,12 +13,10 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
-    std::vector<int> sortedA = a;
-    std::vector<int> sortedB = b;
-    std::sort(sortedA.begin(), sortedA.end());
-    std::sort(sortedB.begin(), sortedB.end());
-    return sortedA == sortedB;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
