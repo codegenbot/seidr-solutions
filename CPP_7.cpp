@@ -40,11 +40,4 @@ bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) 
     return true;
 }
 
-int main() {
-    std::vector<std::string> vec1 = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> vec2 = {"grunt", "prune"};
-
-    assert(same(filter_by_substring({{"grunt"}, {"run"}}, "run"), vec2));
-
-    return 0;
-}
+assert(same(filter_by_substring(std::vector<std::string>{"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
