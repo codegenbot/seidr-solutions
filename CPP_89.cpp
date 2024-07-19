@@ -1,11 +1,12 @@
-for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = 'a' + ((s[i] - 'a' + 2 * 2) % 26);
-            } else {
-                s[i] = 'A' + ((s[i] - 'A' + 2 * 2) % 26);
-            }
+string encrypt(string s){
+    string result = "";
+    for(char c : s){
+        if(isalpha(c)){
+            char base = islower(c) ? 'a' : 'A';
+            result += (char)(((c - base + 2 * 2) % 26) + base);
+        } else {
+            result += c;
         }
     }
-    return s;
+    return result;
 }
