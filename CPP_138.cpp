@@ -1,12 +1,12 @@
-#include <vector>
+Here is the solution:
 
-bool is_equal_to_sum_even(int n) {
-    for (int a = 2; a <= n / 2; a += 2) {
+bool is_equal_to_sum_even(int n){
+    for(int i = 2; i <= n; i += 2){
         int sum = 0;
-        for (int b = 2; b <= n / 2; b += 2) {
-            if (sum + b > n) break;
-            if (sum + b == n) return true;
-            sum += b;
+        for(int j = 2; j <= n; j += 2){
+            if(sum + j > n) break;
+            sum += j;
+            if(sum == n) return true;
         }
     }
     return false;
