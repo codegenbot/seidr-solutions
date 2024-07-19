@@ -1,4 +1,8 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+
 bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && a == b;
 }
