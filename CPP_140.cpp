@@ -1,9 +1,10 @@
 string result = "";
-    int consecutiveSpaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
+    int consecutive_spaces = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            consecutive_spaces++;
+            if(consecutive_spaces > 2){
                 result.pop_back();
                 result.pop_back();
                 result += "-";
@@ -12,8 +13,9 @@ string result = "";
             }
         } else {
             result += c;
-            consecutiveSpaces = 0;
+            consecutive_spaces = 0;
         }
     }
+    
     return result;
 }
