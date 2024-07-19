@@ -13,7 +13,7 @@ bool is_prime(int n) {
     return true;
 }
 
-int main() {
+int main_func() {
     int n, count = 0;
     cin >> n;
 
