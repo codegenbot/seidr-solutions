@@ -1,11 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> b) {
-    // code for issame function
-}
+bool issame(vector<string> b);
 
-vector<string> bf(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
