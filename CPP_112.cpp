@@ -35,6 +35,7 @@ string reverse(string s) {
         rev += s[i];
     }
     return rev;
+}
 
 string issame(string str1, string str2) {
     if (str1.length() != str2.length()) {
