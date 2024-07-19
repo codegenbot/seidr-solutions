@@ -16,6 +16,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
     for (int i = 0; i < arr.size(); i++) {
         bool found = false;
         for (int j = 0; j < arr.size(); j++) {
@@ -32,10 +34,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 
     if (result.empty()) {
         for (int num : arr) {
-            if (num % 2 != 0) {
-                vector<pair<int, int>> temp = {{num, -1}};
-                return temp;
-            }
+            if (num % 2 != 0) return {{num, -1}};
         }
     }
 
