@@ -8,11 +8,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-# Input format validation
-try:
-    numbers = list(map(int, input().split()))
-except ValueError:
-    print("Invalid input format. Please provide a list of integers separated by spaces.")
-else:
-    output = rolling_max(numbers)
-    print(output)
+input_numbers = list(map(int, input().split()))
+output = rolling_max(input_numbers)
+print(output)
