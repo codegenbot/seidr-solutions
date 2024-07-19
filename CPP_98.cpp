@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-int count_upper(const std::string &s) {
+int count_upper(char *s) {
     int count = 0;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; s[i]; i++) {
         if ((i % 2 == 0 && isupper(s[i])) && (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
             count++;
         }
@@ -13,11 +13,11 @@ int count_upper(const std::string &s) {
 }
 
 int main() {
-    std::string input;
+    char* input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input; 
     int result = 0; 
-    for (int i = 0; i < input.length(); i++) {
+    for (int i = 0; input[i]; i++) { 
         if ((i % 2 == 0 && isupper(input[i])) && (input[i] == 'A' || input[i] == 'E' || input[i] == 'I' || input[i] == 'O' || input[i] == 'U')) {
             result++;
         }
