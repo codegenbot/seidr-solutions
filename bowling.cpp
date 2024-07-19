@@ -1,14 +1,36 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int bowlingScore(string input) {
+int bowling(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '/') {
-            score += min(stoi(input.substr(i-1,1)),10);
-            currentFrame++;
-            if (currentFrame > 10) return score;
+    int frame = 1;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '/') {
+            if (s[i + 1] - '0' <= 1) {
+                score += 10 - (s[i + 1] - '0');
+                frame++;
+            } else {
+                int first = s[i + 1] - '0';
+                int second = s[i + 2] - '0';
+                if (first + second == 10) {
+                    score += 10;
+                    frame++;
+                } else {
+                    score += first + 10;
+                    frame++;
+                }
+            }
+        } else if (s[i] != 'X') {
+            int points = s[i] - '0';
+            if (points < 2) {
+                score += 10;
+                frame++;
+            } else {
+                score += points;
+                frame++;
+            }
+        } else {
+            score += 10;
+            frame++;
         }
     }
     return score;
