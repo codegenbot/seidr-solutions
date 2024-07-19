@@ -1,12 +1,22 @@
+#include <boost/any.hpp>
 #include <iostream>
 #include <string>
-#include <cctype>
+
+int compare_one(const std::string& str, int val) {
+    for (size_t i = 0; i < str.size(); ++i) {
+        if (str[i] > val)
+            return 1;
+        else if (str[i] < val)
+            return -1;
+    }
+    return 0;
+}
 
 int compare_strings(const std::string& a, const std::string& b) {
     for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-        if (std::tolower(a[i]) > std::tolower(b[i]))
+        if (a[i] > b[i])
             return 1;
-        else if (std::tolower(a[i]) < std::tolower(b[i]))
+        else if (a[i] < b[i])
             return -1;
     }
     if (a.size() > b.size())
@@ -18,19 +28,20 @@ int compare_strings(const std::string& a, const std::string& b) {
 
 int main() {
     std::string str1, str2;
+    int val;
     std::cout << "Enter the first string: ";
     std::cin >> str1;
-    std::cout << "Enter the second string: ";
-    std::cin >> str2;
+    std::cout << "Enter the value to compare with: ";
+    std::cin >> val;
     
-    int result = compare_strings(str1, str2);
+    int result = compare_one(str1, val);
     
     if (result > 0)
-        std::cout << "The first string is greater." << std::endl;
+        std::cout << "The string is greater." << std::endl;
     else if (result < 0)
-        std::cout << "The second string is greater." << std::endl;
+        std::cout << "The string is smaller." << std::endl;
     else
-        std::cout << "Both strings are equal." << std::endl;
+        std::cout << "The string is equal." << std::endl;
     
     return 0;
 }
