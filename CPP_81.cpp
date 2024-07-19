@@ -2,8 +2,8 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> other) {
+    return a == other;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
