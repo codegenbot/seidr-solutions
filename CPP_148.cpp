@@ -4,10 +4,18 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2){
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
 
@@ -36,5 +44,5 @@ std::vector<std::string> bf(std::string planet1, std::string planet2){
 }
 
 int main() {
-    // Main function implementation goes here
+    // Main function code goes here
 }
