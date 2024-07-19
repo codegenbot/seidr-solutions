@@ -9,7 +9,7 @@ int main() {
 
     vector<int> coins = {25, 10, 5, 1}; 
 
-    vector<int> result(4, 0); 
+    vector<int> result(4, 0);  
 
     for (int i = 0; i < coins.size(); i++) {
         while (cents >= coins[i]) {
