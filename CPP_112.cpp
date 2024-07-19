@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c){
     string result = "";
     for(char ch : s){
@@ -14,5 +18,3 @@ vector<string> reverse_delete(string s, string c){
     reverse(reversed.begin(), reversed.end());
     return {result, result == reversed ? "True" : "False"};
 }
-
-bool issame(vector<string> a, vector<string> b){
