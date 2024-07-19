@@ -14,6 +14,7 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main(){
+    // Example of how to call the function
     assert(specialFilter({}) == 0);
     
     return 0;
