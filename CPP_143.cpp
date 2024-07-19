@@ -13,20 +13,19 @@ std::vector<std::string> split(const std::string& str) {
 
     for (char c : str) {
         if (!isascii(c)) {
-            // If non-ASCII character found, process the current token and reset
             if (!token.empty()) {
                 tokens.push_back(token);
                 token = "";
             }
         } else {
-            // Add ASCII character to the current token
             token += c;
         }
     }
 
     // Don't forget to add the last token
-    if (!token.empty())
+    if (!token.empty()) { 
         tokens.push_back(token);
+    }
 
     return tokens;
 }
@@ -53,7 +52,7 @@ int main_func() {
                 all_ascii = false;
                 break;
             }
-        }
+       }
         
         if (!all_ascii || !is_prime(word.length())) continue;
         
