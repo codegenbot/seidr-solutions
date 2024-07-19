@@ -1,6 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <cmath>
+#include <initializer_list>
 
 using namespace std;
 
