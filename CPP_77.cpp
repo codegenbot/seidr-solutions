@@ -11,11 +11,14 @@ bool iscuber(int a){
     return false;
 }
 
-int main() {
+int main(){
     int n;
-    std::cout << "Enter an integer: ";
+    std::cout << "Enter the number: ";
     std::cin >> n;
-    if(iscuber(n)) std::cout << n << " is a perfect cube." << std::endl;
-    else std::cout << n << " is not a perfect cube." << std::endl;
-    return 0;
+
+    if(iscuber(n)){
+        std::cout << "The number is a perfect cube.\n";
+    } else {
+        std::cout << "The number is not a perfect cube.\n";
+    }
 }
