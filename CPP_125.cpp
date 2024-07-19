@@ -2,21 +2,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -37,7 +27,7 @@ vector<string> split_words(string txt){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(std::to_string(count));
     }
     return result;
 }
