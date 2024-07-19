@@ -9,19 +9,21 @@ void sort_array(std::vector<int>& array) {
     
     int sum = array.front() + array.back();
     if(sum % 2 == 0)
-        sort(array.rbegin(), array.rend());
+        std::sort(array.rbegin(), array.rend());
     else
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
 }
 
 int main() {
-    std::vector<int> input = {4, 2, 3, 1};
-    std::vector<int> expected_output = {4, 2, 3, 1};
+    std::vector<int> array = {5, 2, 8, 1, 3};
+    std::vector<int> expected = {8, 5, 3, 2, 1};
     
-    sort_array(input);
+    sort_array(array);
     
-    if(issame(input, expected_output))
-        return 0;
+    if(issame(array, expected))
+        std::cout << "Output is correct!\n";
     else
-        return 1;
+        std::cout << "Output is incorrect!\n";
+    
+    return 0;
 }
