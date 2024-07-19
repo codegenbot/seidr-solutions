@@ -1,4 +1,5 @@
-```cpp
+Here is the corrected code:
+
 #include <iostream>
 #include <vector>
 using namespace std;
