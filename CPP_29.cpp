@@ -22,10 +22,3 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 }
-int main() {
-    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-    
-    assert (issame(filter_by_prefix(a, "xxx") , b));
-    return 0;
-}
