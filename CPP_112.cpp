@@ -13,7 +13,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& t) {
     std::vector<std::string> result;
     for(int i = 0; i < s.size(); i++) {
-        if(std::find(t.begin(), t.end(), s.substr(i, 1)) == t.end()) {
+        if(std::find(t.begin(), t.end(), s[i]) == t.end()) {
             result.push_back(s.substr(i));
             break;
         }
@@ -22,3 +22,10 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> a = reverse_delete("mamma", "mia");
+    bool b = issame(a, {"", "True"});
+    assert(b);
+}
