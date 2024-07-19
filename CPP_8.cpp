@@ -1,20 +1,26 @@
 #include <vector>
 #include <cassert>
+#include <utility>
 
-namespace std {
+namespace mystd {
     using ::vector;
 }
 
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+bool issame(const mystd::vector<int>& a, const mystd::vector<int>& b) {
+    return a[0] == b[0] && a[1] == b[1];
+}
+
+std::pair<int, int> sum_product(const mystd::vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
+    return std::make_pair(sum, product);
 }
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return a == b;
+int main() {
+    assert(issame(sum_product({10, 10}), {20, 100}));
+    return 0;
 }
