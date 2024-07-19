@@ -1,6 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <cassert>
+
+int main() {
+    std::vector<std::string> lst;
+    std::cout << "Enter strings separated by spaces: ";
+    for(std::string s; std::getline(std::cin, s), !s.empty();)
+        lst.push_back(s);
+    bool result = match_parens(lst);
+
+    std::cout << (result ? "Yes\n" : "No\n");
+    assert(result == match_parens({")", "("}) );
+
+    return 0;
+}
 
 bool match_parens(const std::vector<std::string>& lst) {
     bool result = true;
@@ -14,16 +25,4 @@ bool match_parens(const std::vector<std::string>& lst) {
     }
 
     return countOpen == countClose;
-}
-
-int main() {
-    std::vector<std::string> lst;
-    std::cout << "Enter strings separated by spaces: ";
-    for(std::string s; std::getline(std::cin, s), !s.empty();)
-        lst.push_back(s);
-    bool result = match_parens(lst);
-
-    std::cout << (result ? "Yes\n" : "No\n");
-
-    return 0;
 }
