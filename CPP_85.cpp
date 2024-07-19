@@ -10,6 +10,7 @@ int add(std::vector<int> lst){
     return sum;
 }
 
-int main(){
+int main() {
     assert(add(std::vector<int>{4, 4, 6, 8}) == 12);
+    return 0;
 }
