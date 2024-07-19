@@ -1,7 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> b);
+bool issame(vector<string> b, string str1){
+    return find(b.begin(), b.end(), str1) != b.end();
+}
 
 vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
