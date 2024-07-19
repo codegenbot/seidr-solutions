@@ -4,7 +4,7 @@
 
 string get_closest_vowel(string word);
 
-string get_closest_vowel(string word){
+string get_closest_vowel(string word) {
     string vowels = "aeiouAEIOU";
     int closest_distance = word.size();
     char closest_vowel = ' ';
