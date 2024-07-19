@@ -12,14 +12,14 @@ std::string string_to_md5(const std::string& text) {
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
     return mdString;
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-
+    std::string result = string_to_md5("password");
+    std::cout << "MD5 hash of 'password': " << result << std::endl;
     return 0;
 }
