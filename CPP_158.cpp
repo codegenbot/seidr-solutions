@@ -7,7 +7,7 @@ using namespace std;
 string find_max(const vector<string>& words){
     string maxWord = "";
     int maxUniqueChars = 0;
-    
+
     for (const string& word : words) {
         int uniqueChars = set<char>(word.begin(), word.end()).size();
         if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
@@ -15,7 +15,7 @@ string find_max(const vector<string>& words){
             maxWord = word;
         }
     }
-    
+
     return maxWord;
 }
 
