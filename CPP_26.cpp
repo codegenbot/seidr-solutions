@@ -1,4 +1,5 @@
-bool isEqual(vector<int> a, vector<int> b) {
+```
+bool checkEqual(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -10,7 +11,7 @@ bool isEqual(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
+vector<int> uniqueNumbers(vector<int> numbers) {
     vector<int> result;
     for(int num : numbers){
         if(find(result.begin(), result.end(), num) == result.end()){
