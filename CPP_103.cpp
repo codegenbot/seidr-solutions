@@ -1,11 +1,10 @@
 ```cpp
-#include <string>
-#include <iostream>
-#include <algorithm>
-#include <cmath> 
+#include <sstream>
+
 using namespace std;
 
-string res;
+string res = string(); 
+
 string rounded_avg(int n, int m) {
     if (n > m) return "-" + rounded_avg(n, m);
     double sum = 0;
@@ -13,12 +12,12 @@ string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round((double)sum / (m - n + 1)); 
-    string result = "";
+    std::ostringstream oss;
     while(avg > 0.5) {
-        result = (int)avg & 1 ? result + "1" : result + "0";
+        oss << (avg & 1 ? '1' : '0');
         avg /= 2;
     }
-    return result;
+    return oss.str();
 }
 
 int main() {
