@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(int a, int b){
+bool issame(int a, int b) {
     int sum_a = 0, sum_b = 0;
     if (a < 0) a *= -1;
     if (b < 0) b *= -1;
