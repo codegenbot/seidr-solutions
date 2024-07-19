@@ -1,13 +1,13 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+
 using namespace std;
-vector<int> make_a_pile(){
-    int n;
-    cin >> n;
+
+vector<int> make_a_pile(int n) {
     vector<int> stones;
     stones.push_back(n);
-    for(int i = 1; i < n; i++){
-        if(n % 2 == 0){
+    for (int i = 1; i < n; i++) {
+        if (n % 2 == 0) {
             n += 2;
         } else {
             n += 1;
@@ -15,4 +15,14 @@ vector<int> make_a_pile(){
         stones.push_back(n);
     }
     return stones;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int stone : result) {
+        cout << stone << " ";
+    }
+    return 0;
 }
