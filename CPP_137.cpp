@@ -12,27 +12,18 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_any_of<a>(std::string())) {
         std::string sa = any_cast<std::string>(a);
         double da = std::stod(sa);
-        if (is_any_of<b>(double())) {
-            double db = any_cast<double>(b);
-            return (da > db) ? a : ((da < db) ? b : boost::any("None"));
-        } else if (is_any_of<b>(std::string())) {
-            std::string sb = any_cast<std::string>(b);
-            double db = std::stod(sb);
-            return (da > db) ? a : ((da < db) ? b : boost::any("None"));
-        } else {
-            throw std::runtime_error("Invalid type");
-        }
+        double db = any_cast<double>(b);
+        return (da > db) ? a : ((da < db) ? b : boost::any("None"));
+    } else if (is_any_of<b>(double())) {
+        double db = any_cast<double>(b);
+        double da = any_cast<double>(a);
+        return (da > db) ? a : ((da < db) ? b : boost::any("None"));
+    } else if (is_any_of<b>(std::string())) {
+        std::string sb = any_cast<std::string>(b);
+        double db = std::stod(sb);
+        double da = any_cast<double>(a);
+        return (da > db) ? a : ((da < db) ? b : boost::any("None"));
     } else {
         throw std::runtime_error("Invalid type");
     }
-}
-
-int main() {
-    boost::any a, b;
-    // Input from user
-    // Convert inputs to any type (double or string)
-    // Call compare_one function and store the result in 'result'
-    // Output the result
-
-    return 0;
 }
