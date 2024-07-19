@@ -1,4 +1,8 @@
 ```cpp
+#include <boost/any.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
@@ -61,6 +65,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return a.convert_to<boost::any>() > boost::any(num) ? a : b;
     }
     else {
-        return boost::any((boost::any("None")).type());
+        return boost::any(typeid(int));
     }
 }
