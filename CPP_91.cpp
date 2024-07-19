@@ -1,3 +1,5 @@
+#include <string>
+
 int is_bored(string S){
     int count = 0;
     string boredom = "I";
@@ -10,4 +12,3 @@ int is_bored(string S){
         pos++;
     }
     return count;
-}
