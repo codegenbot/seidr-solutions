@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <assert.h>
 
@@ -9,6 +8,7 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
+
 }
 
 int main(){
