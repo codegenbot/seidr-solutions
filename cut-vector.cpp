@@ -1,12 +1,12 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    long long sum1 = 0, sum2 = 0;
     
+    long long sum1 = 0, sum2 = 0;
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
             sum1 += v[i];
@@ -15,19 +15,27 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    if (abs(sum1 - sum2) <= abs((long long)v[0] - sum2)) {
-        res[0].push_back(v[0]);
-        for (int i = 1; i < n; i++) {
-            if (abs(sum1 - sum2) == abs(v[i] - sum2)) {
-                res[0].push_back(v[i]);
-            } else {
-                break;
-            }
+    int diff = abs(sum1 - sum2);
+    res[0].push_back(v[0]);
+    for (int i = 1; i < n; i++) {
+        if (abs(sum1 - sum2) == abs(v[i] - sum2)) {
+            res[0].push_back(v[i]);
+        } else {
+            break;
         }
-        res[1] = v;
-    } else {
-        res[0] = v;
-        res[1].clear();
+    }
+    
+    int j = i;
+    while(j < n) {
+        sum2 -= v[j];
+        sum1 += v[j];
+        if (abs(sum1 - sum2) <= diff) {
+            res[0].push_back(v[j]);
+        } else {
+            res[1] = vector<int>(v.begin() + j, v.end());
+            break;
+        }
+        j++;
     }
     
     return res;
@@ -43,9 +51,9 @@ int main() {
     vector<vector<int>> res = cutVector(v);
     for (auto &v : res) {
         for (int x : v) {
-            std::cout << x << " ";
+            cout << x << " ";
         }
-        std::cout << endl;
+        cout << endl;
     }
     return 0;
 }
