@@ -29,10 +29,8 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {111111};
-    vector<int> sorted_list = strange_sort_list(input);
-    
-    assert(sorted_list == vector<int>({111111}));
-    
+    vector<int> test_lst = {111111};
+    vector<int> sorted_lst = strange_sort_list(test_lst);
+    assert(sorted_lst == test_lst);
     return 0;
 }
