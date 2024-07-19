@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
