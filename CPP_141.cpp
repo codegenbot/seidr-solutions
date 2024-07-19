@@ -29,6 +29,12 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
-    assert (file_name_check("s.") == "No");
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("file.exe") == "Yes");
+    assert(file_name_check("file.dll") == "Yes");
+    assert(file_name_check("1234.txt") == "No");
+    assert(file_name_check(".txt") == "No");
+    assert(file_name_check("file.pdf") == "No");
+    
     return 0;
 }
