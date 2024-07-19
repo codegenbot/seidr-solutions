@@ -13,15 +13,14 @@ int solve(int N) {
 }
 
 int main() {
-    int N;
-    std::cout << "Enter a number: ";
-    if (!(std::cin >> N)) {
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
+    char str[256];
+    std::cout << "Enter a string: ";
+    std::cin.getline(str, 256);
+    int N = std::stoi(str);
+    if (N == 0) {
+        std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
     }
-    std::string str = std::to_string(N); 
-    int sum = solve(std::stoi(str)); 
-    std::cout << "Sum of bits is: ";
-    std::cout << sum;
-    std::cout << std::endl;
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    return 0;
 }
