@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-#include <cassert>
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
