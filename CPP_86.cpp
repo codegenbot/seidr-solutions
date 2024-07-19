@@ -1,21 +1,14 @@
-// Sort each word in the string individually
-    string result = "";
-    string word = "";
-    
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+string ordered_word = s;
+    for (size_t i = 0; i < s.size(); ++i) {
+        if (s[i] == ' ') {
+            continue;
         }
+        size_t j = i;
+        while (j < s.size() && s[j] != ' ') {
+            ++j;
+        }
+        sort(ordered_word.begin() + i, ordered_word.begin() + j);
+        i = j;
     }
-    
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
-    }
-    
-    return result;
+    return ordered_word;
 }
