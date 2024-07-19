@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ bool isSame(vector<string> a, vector<string> b) {
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+    vector<string> letter_grades(allocator<string>());
     for (float grade : grades) {
         string strGrade;
         if (grade >= 4.0)
@@ -43,7 +43,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             strGrade = "F";
         letter_grades.push_back(strGrade);
     }
-    return letter_grades;
+    return move(letter_grades);
 }
 
 int main() {
@@ -52,7 +52,7 @@ int main() {
     for (string grade : result) {
         cout << grade << endl;
     }
-    if(isSame(vector<string>({""}), {result[0], result[1], result[2]})) cout << "Vectors are the same";
+    if(isSame(vector<string>({""}), result)) cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
 }
