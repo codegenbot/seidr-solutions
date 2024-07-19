@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -23,7 +24,7 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     if (start == -1 || end == -1) {
-        return {};
+        return result;
     }
 
     if (start > end) {
