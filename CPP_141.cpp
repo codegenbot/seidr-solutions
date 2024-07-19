@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-std::string file_name_check(std::string file_name);
-
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     int dot_count = 0;
