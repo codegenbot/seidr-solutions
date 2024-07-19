@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 #include <assert.h>
 
 using namespace std;
@@ -22,8 +22,7 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            vector<string> temp;
-            temp.push_back(str);
+            vector<string> temp = {str};
             result.push_back(temp);
         }
     }
