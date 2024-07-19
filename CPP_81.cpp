@@ -6,13 +6,25 @@ using namespace std;
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
-        // Your existing logic for calculating letter grades
+        if (gpa == 4.0) letter_grades.push_back("A+");
+        else if (gpa > 3.7) letter_grades.push_back("A");
+        else if (gpa > 3.3) letter_grades.push_back("A-");
+        else if (gpa > 3.0) letter_grades.push_back("B+");
+        else if (gpa > 2.7) letter_grades.push_back("B");
+        else if (gpa > 2.3) letter_grades.push_back("B-");
+        else if (gpa > 2.0) letter_grades.push_back("C+");
+        else if (gpa > 1.7) letter_grades.push_back("C");
+        else if (gpa > 1.3) letter_grades.push_back("C-");
+        else if (gpa > 1.0) letter_grades.push_back("D+");
+        else if (gpa > 0.7) letter_grades.push_back("D");
+        else if (gpa > 0.0) letter_grades.push_back("D-");
+        else letter_grades.push_back("E");
     }
     return letter_grades;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
@@ -20,6 +32,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    assert(issame(numerical_letter_grade({4.0, 3.2, 2.5, 1.8}) , {"A+", "B", "C", "D"}));
+    assert(issame(numerical_letter_grade({3.7, 2.0, 1.5}) , {"A", "C+", "D+"}));
     return 0;
 }
