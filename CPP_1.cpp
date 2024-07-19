@@ -1,32 +1,41 @@
-bool issame(vector<string>& a, vector<string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+#include <vector>
+#include <string>
+#include <iostream>
+#include <cassert>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
-    int count = 0;
-
+    string group;
+    int balance = 0;
+    
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
-                current_group += c;
+            if (balance > 0) {
+                group += c;
             }
-            count++;
+            balance++;
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                current_group += c;
-            } else if (count == 0) {
-                result.push_back(current_group);
-                current_group = "";
+            balance--;
+            if (balance > 0) {
+                group += c;
+            } else if (balance == 0) {
+                result.push_back(group);
+                group = "";
             }
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    string input = "(abc(def)(ghi))";
+    vector<string> groups = separate_paren_groups(input);
+    assert(issame(groups, vector<string>{"abc", "def", "ghi"}));
+    
+    return 0;
 }
