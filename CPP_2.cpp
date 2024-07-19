@@ -8,7 +8,6 @@ double truncate_number(double number) {
 
 int main() {
     assert(abs(truncate_number(123.456) - 0.456) < 1e-4);
-    // Add more test cases here if needed
     std::cout << "All test cases pass!" << std::endl;
 
     return 0;
