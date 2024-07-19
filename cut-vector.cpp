@@ -13,12 +13,14 @@ vector<vector<int>> cutVector(vector<int> v) {
     int index = -1;
     
     for (int i = 0; i < n; i++) { 
-        if(i > 0 && (static_cast<long long>(sum1) - prev_sum) != 0) {
-            long long diff = abs(static_cast<long long>(sum1 - prev_sum));
+        if(i > 0 && (sum1 - prev_sum) != 0) {
+            long long diff = llabs((long long)sum1 - (long long)prev_sum);
             
-            if (diff <= min_diff) {
-                min_diff = diff;
-                index = i; // update the cutting point
+            if ((sum1 - prev_sum) == 0 || (diff <= min_diff)) {
+                if ((sum1 - prev_sum) < min_diff) {
+                    min_diff = diff;
+                    index = i; // update the cutting point
+                }
             }
         }
         
