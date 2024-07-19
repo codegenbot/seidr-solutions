@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -23,7 +22,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 2, 3, 4, 5})));
 
     std::vector<int> input;
     int num;
