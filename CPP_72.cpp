@@ -1,17 +1,17 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <numeric>
-#include <cassert>
+#include <initializer_list>
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+using namespace std;
+
+bool will_it_fly(initializer_list<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
-    bool balanced = str == std::stoi(str);
-    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
+    bool balanced = str == stoi(str);
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
 
 int main() {
