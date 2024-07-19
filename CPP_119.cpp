@@ -3,6 +3,7 @@
 #include <string>
 
 bool match_parens(const std::vector<std::string>& lst) {
+    bool result = true;
     int countOpen = 0, countClose = 0;
 
     for (const auto& s : lst) {
@@ -12,12 +13,16 @@ bool match_parens(const std::vector<std::string>& lst) {
         }
     }
 
-    return countOpen == countClose;
+    if(countOpen != countClose) result = false;
+
+    return result;
 }
 
 int main() {
     std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
-    if(match_parens(lst)) std::cout << "Yes" << std::endl;
-    else std::cout << "No" << std::endl;
+    bool result = match_parens(lst);
+
+    std::cout << (result ? "Yes\n" : "No\n");
+
     return 0;
 }
