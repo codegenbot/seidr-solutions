@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> solve(int n) {
+std::vector<int> contestProblem(int n) {
     std::vector<int> result;
     int factorial = 1;
     int sum = 0;
