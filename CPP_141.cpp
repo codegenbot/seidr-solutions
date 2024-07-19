@@ -6,6 +6,17 @@ using namespace std;
 
 string file_name_check(string file_name);
 
+int main() {
+    // Test the function with some inputs
+    assert(file_name_check("file123.txt") == "Yes");
+    assert(file_name_check("file.exe") == "Yes");
+    assert(file_name_check("file.dll") == "Yes");
+    assert(file_name_check("file1.2.txt") == "No");
+    assert(file_name_check(".txt") == "No");
+    
+    return 0;
+}
+
 string file_name_check(string file_name) {
     int digit_count = 0;
     int dot_count = 0;
@@ -30,15 +41,4 @@ string file_name_check(string file_name) {
     }
     
     return "Yes";
-}
-
-int main() {
-    // Test the function with some inputs
-    assert(file_name_check("file123.txt") == "Yes");
-    assert(file_name_check("file.exe") == "Yes");
-    assert(file_name_check("file.dll") == "Yes");
-    assert(file_name_check("file1.2.txt") == "No");
-    assert(file_name_check(".txt") == "No");
-    
-    return 0;
 }
