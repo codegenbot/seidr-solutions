@@ -1,1 +1,2 @@
 return number - floor(number);
+}
