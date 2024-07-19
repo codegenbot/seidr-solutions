@@ -1,11 +1,10 @@
-```c++
 #include <string>
 
 int main() {
     char s[100];
     int num;
     std::cout << "Enter a string: ";
-    std::cin.getline(s, 99);
+    std::getline(std::cin, s);
     num = digitSum(s);
     std::cout << "Sum of digits: " << num << std::endl;
     return 0;
