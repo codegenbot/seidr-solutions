@@ -14,13 +14,10 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 
 int main() {
     std::vector<int> game = {1, 2, 3};
-    std::vector<int> guess = {3, 2, 1};
-
+    std::vector<int> guess = {2, 3, 4};
     std::vector<int> result = compare(game, guess);
-
-    for (int i = 0; i < result.size(); ++i) {
-        std::cout << result[i] << " ";
+    for (int val : result) {
+        std::cout << val << " ";
     }
-
     return 0;
 }
