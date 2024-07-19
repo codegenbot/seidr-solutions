@@ -1,21 +1,21 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <cmath>
 
-float double_the_difference(double num1, double num2) {
-    return 2 * (num1 - num2);
-}
+long long double_the_difference(const std::vector<float>& lst);
 
-float func_A(std::vector<float> lst, int index) {
-    // Implement func_A logic here
-}
-
-float func_B(std::vector<float> lst, int index) {
-    // Implement func_B logic here
+long long double_the_difference(const std::vector<float>& lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
+            sum += static_cast<long long>(std::pow(num, 2));
+        }
+    }
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {3.0, 2.0, 4.5, 1.0, 5.0};
-    float odd_sum = double_the_difference(func_A(lst, 2), func_B(lst, 3));
-    assert(double_the_difference(func_A(lst, 2), func_B(lst, 3)) == odd_sum);
-    return odd_sum;
+    std::vector<float> lst = {2.5, 3.0, 4.2, 5.0, 6.2};
+    long long odd_sum = double_the_difference(lst);
+    return 0;
 }
