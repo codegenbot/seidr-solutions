@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -33,4 +34,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
-std::vector<int> b = strange_sort_vector({1, 2, 3});
+std::vector<int> a = {1, 2, 3};
+std::vector<int> b = strange_sort_vector(a);
+if (a != b) {
+    assert(issame(a,b));
+}
+return 0;
