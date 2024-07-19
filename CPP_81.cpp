@@ -52,7 +52,7 @@ int main() {
     for (string grade : result) {
         cout << grade << endl;
     }
-    if(isSame(vector<string>(), {to_string(grades[0]), to_string(grades[1]), to_string(grades[2])})) cout << "Vectors are the same";
+    if(isSame(vector<string>({""}), {result[0], result[1], result[2]})) cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
 }
