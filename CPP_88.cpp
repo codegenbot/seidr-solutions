@@ -2,8 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace std {
+    using ::std::vector;
+}
+
+bool issame(const vector<int>& a){
+    return a;
 }
 
 std::vector<int> sort_array(std::vector<int> array){
@@ -18,5 +22,5 @@ std::vector<int> sort_array(std::vector<int> array){
 #define ASSERT_VECTOR_EQ(a, b) assert(std::equal(a.begin(), a.end(), b.begin(), b.end()))
 
 int main() {
-    ASSERT_VECTOR_EQ(sort_array({21, 14, 23, 11}), {23, 21, 14, 11});
+    assert(issame(sort_array({21, 14, 23, 11})) == vector<int>{23, 21, 14, 11});
 }
