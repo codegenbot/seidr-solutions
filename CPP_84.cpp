@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -11,12 +10,12 @@ int main() {
     std::cout << "Sum of bits is: " << solve(N) << std::endl;
 }
 
-int solve(int N) {
+std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
         int remainder = N % 2;
         sum += remainder;
         N /= 2;
     }
-    return sum;
+    return std::to_string(sum);
 }
