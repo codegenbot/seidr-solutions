@@ -12,14 +12,16 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            result.push_back(std::to_string(ch));
+            result.push_back(std::string(1, ch));
         }
     }
+    
     std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    if (temp == std::string(temp).reverse()) {
+    
+    if (temp == reverse(temp)) {
         result.push_back("True");
     } else {
         result.push_back("False");
