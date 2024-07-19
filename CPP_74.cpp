@@ -5,8 +5,6 @@
 
 using namespace std;
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
 int totalChars(const vector<string>& lst) {
     int total = 0;
     for(const string& str : lst) {
