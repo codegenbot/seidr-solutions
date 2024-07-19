@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +7,7 @@
 using namespace std;
 
 vector<string> select_words(string s, int n) {
-    vector<string> result;
+    vector<string> result(std::allocator<string>());
     string word = "";
     for (char c : s) {
         if (c == ' ') {
