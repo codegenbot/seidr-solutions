@@ -1,15 +1,11 @@
 def find_unique_numbers(numbers):
     return list(set(numbers))
 
-
 numbers = []
-try:
-    while True:
-        num = input()
-        if num == "":
-            break
-        numbers.append(int(num))
-except ValueError:
-    pass
+while True:
+    num = input()
+    if num == "":
+        break
+    numbers.append(int(num))
 
 print(find_unique_numbers(numbers))
