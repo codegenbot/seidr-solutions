@@ -43,9 +43,9 @@ int main() {
             for(int j = 0; j < t[0].size(); j++) {
                 if(s[0][i] == t[0][j]) {
                     found = true;
-                    i++;
                     break;
                 }
+                i++;
             }
             if(!found) {
                 std::cout << s[0].substr(i) << " ";
