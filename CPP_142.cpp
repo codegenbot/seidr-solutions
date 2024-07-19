@@ -17,6 +17,6 @@ int sum_squares(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1, 2, 3, 4, 5};
+    vector<int> lst = {1,2,3,4,5};
     cout << sum_squares(lst) << endl;
 }
