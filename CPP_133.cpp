@@ -1,7 +1,7 @@
-```cpp
+#include <vector>
+#include <cmath>
 #include <iostream>
 #include <initializer_list>
-#include <cassert>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
@@ -18,4 +18,3 @@ int main() {
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
     int result = sum_squares({(double)input});
-}

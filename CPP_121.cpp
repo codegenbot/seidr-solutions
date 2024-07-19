@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,8 +11,7 @@ int solution(std::vector<std::string> numbers) {
     return sum;
 }
 
-int main 
-{
+int main() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -25,7 +23,6 @@ int main
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         numbers[i] = std::to_string(num);
-   
     
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
 }
