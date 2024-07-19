@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,20 +21,12 @@ std::vector<int> maximum(const std::vector<int>& a, int k) {
 int main() {
     int n, k;
     cin >> n;
-    std::vector<int> a(n);
-    for (int i = 0; i < n; ++i) cin >> a[i];
+    std::vector<int> a;
+    for (int i = 0; i < n; ++i) cin >> a.push_back(i);
     cin >> k;
-    int count = 0;
+    std::vector<int> result;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > k) count++;
-    }
-    std::vector<int> result(count);
-    int j = 0;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > k) {
-            result[j++] = a[i];
-        }
+        if (a[i] > k) result.push_back(a[i]);
     }
     if (!issame(maximum(a, k), result)) return 1;
     return 0;
-}
