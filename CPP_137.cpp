@@ -10,19 +10,16 @@ T compare_one(const boost::any& a, const boost::any& b) {
             return boost::any_cast<T>(b);
         }
     }
-    throw std::invalid_argument("Invalid type comparison");
+    throw std::invalid_argument("Types do not match");
 }
 
 int main() {
     boost::any a = 10;
     boost::any b = 20;
-    
     try {
         int result = compare_one<int>(a, b);
-        // Handle result if needed
     } catch (const std::invalid_argument& e) {
-        // Handle exception
+        std::cout << e.what() << std::endl;
     }
-    
     return 0;
 }
