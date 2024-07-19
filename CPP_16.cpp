@@ -1,18 +1,15 @@
-vector<char> distinct_chars;
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-for (char c : str) {
-    int idx = tolower(c) - 'a';
-    if (idx >= 0 && idx <= 25) {
-        bool found = false;
-        for (char d : distinct_chars) {
-            if (d == tolower(c)) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            distinct_chars.push_back(tolower(c));
+int count_distinct_characters(string str) { 
+    string s = "";
+    for (char c : str) {
+        if (tolower(c) != tolower(s.empty() ? '0' : s.back())) {
+            s += tolower(c);
         }
     }
+    return s.size();
 }
-return distinct_chars.size();
