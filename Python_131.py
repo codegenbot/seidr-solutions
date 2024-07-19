@@ -1,6 +1,6 @@
 from functools import reduce
 
-n = int(input())
+n = int(raw_input("Enter a number: "))
 if n <= 0:
     print("Invalid input. Please enter a valid positive integer greater than zero.")
 else:
