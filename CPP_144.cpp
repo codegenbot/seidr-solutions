@@ -1,20 +1,23 @@
-#include<string>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator1 = stoi(substring(x, 1, find('/', x)-1));
-    int denominator1 = stoi(substring(x, find('/')+1));
-    int numerator2 = stoi(substring(n, 1, find('/', n)-1));
-    int denominator2 = stoi(substring(n, find('/')+1));
+    int a = stoi(strtok((x).c_str(), "/"));
+    int b = stoi(strtok(NULL, "/"));
+    int c = stoi(strtok((n).c_str(), "/"));
+    int d = stoi(strtok(NULL, "/"));
 
-    return (double)numerator1 / denominator1 == (double)numerator2 / denominator2;
+    long long result = (long long)a*d + (long long)b*c;
+    long long commonDivisor = gcd(abs(result), abs(a*d));
+
+    return a*d / commonDivisor == b*c / commonDivisor;
 }
 
-int main() {
-    //test cases
-    cout << simplify("1/5", "5/1") << endl;  //true
-    cout << simplify("1/6", "2/1") << endl;  //false
-    cout << simplify("7/10", "10/2") << endl; //false
-
-    return 0;
+long long gcd(long long a, long long b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a%b);
 }
