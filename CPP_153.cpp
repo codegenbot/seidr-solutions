@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
@@ -27,7 +25,8 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::vector<std::string> extensions = {"A", "aB", "AbC"};
-    std::cout << Strongest_Extension("Class1", extensions) << std::endl;
+    std::string class_name = "Class";
+    std::vector<std::string> extensions = {"Java", "C++", "Python"};
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
