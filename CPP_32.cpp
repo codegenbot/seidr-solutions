@@ -18,6 +18,11 @@ double find_zero(const vector<double>& coeffs){
     return -b/a;
 }
 
-vector<double> coeffs = {1.0, 2.0, 1.0};
-double solution = find_zero(coeffs);
-assert(abs(poly(solution, coeffs)) < 1e-3);
+int main() {
+    vector<double> coeffs = {1.0, 2.0, 1.0};
+    double solution = find_zero(coeffs);
+
+    assert(abs(poly(solution, coeffs)) < 1e-3);
+
+    return 0;
+}
