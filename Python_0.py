@@ -1,2 +1,6 @@
-result = int(input())
-print(result)
+try:
+    while True:
+        result = int(input())
+        print(result)
+except:
+    pass
