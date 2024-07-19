@@ -1,4 +1,7 @@
-std::vector<int> collatz(int n) {
+#include <vector>
+#include <algorithm>
+
+std::vector<int> solve(int n) {
     std::vector<int> result;
     while (n != 1) {
         result.push_back(n);
