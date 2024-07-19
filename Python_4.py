@@ -1,3 +1,4 @@
+numbers = []
 while True:
     try:
         print("Enter numbers separated by spaces:")
