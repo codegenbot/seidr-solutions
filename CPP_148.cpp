@@ -4,7 +4,6 @@
 bool issame(std::vector<std::string> a);
 
 bool issame(std::vector<std::string> a) {
-    // Fix redefinition error by removing extra definition of int main()
     return a == a;
 }
 
