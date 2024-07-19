@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <map>
 #include <vector>
@@ -27,7 +28,5 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!issame({make_pair('a', 1)}, vector<map<char,int>::pair>(hist.begin(), hist.end()))) {
-        return 0;
-    }
+    assert(hist.size() == 1 && hist.begin()->first == 'a' && hist.begin()->second == 1);
 }
