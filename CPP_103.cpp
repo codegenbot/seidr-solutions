@@ -22,6 +22,11 @@ std::string averageBinaryRepresentation(int n, int m) {
 }
 
 int main() {
-    // Add necessary input reading and call to averageBinaryRepresentation function here
+    // Input n, m
+    int n, m;
+    std::cin >> n >> m;
+    
+    std::cout << averageBinaryRepresentation(n, m);
+    
     return 0;
 }
