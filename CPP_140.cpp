@@ -2,15 +2,18 @@
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
-    std::string modified_text = text;
-    for (int i = 0; i < modified_text.length(); ++i) {
-        if (modified_text[i] == ' ' && i + 2 < modified_text.length() && modified_text[i + 1] == ' ' && modified_text[i + 2] == ' ') {
-            modified_text.replace(i, 3, "-");
-        } else if (modified_text[i] == ' ') {
-            modified_text[i] = '_';
+    std::string result;
+    for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ' && i + 2 < text.length() && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            result += '-';
+            i += 2;
+        } else if (text[i] == ' ') {
+            result += '_';
+        } else {
+            result += text[i];
         }
     }
-    return modified_text;
+    return result;
 }
 
 int main() {
