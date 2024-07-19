@@ -1,2 +1,2 @@
-return cbrt(a) == round(cbrt(a));
-}
+int n = round(cbrt(abs(a)));
+    return n * n * n == a;
