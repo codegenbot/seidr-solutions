@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -32,11 +31,7 @@ int checkNumber() {
     for (char c : str) {  
         rev = c + rev;  
     }
-    string s = to_string(n);
-    vector<int> v1(stoi(s));
-    s = to_string(n);
-    std::vector<int> v2(stoi(s));
-    if (same(v1, v2) && isPalindrome(n) && n % 2 == 0) 
+    if (same(vector<int>(str), vector<int>(rev)) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
