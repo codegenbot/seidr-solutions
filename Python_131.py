@@ -1,14 +1,10 @@
-import math
-import sys
+def calculate_factorial(n):
+    if n <= 0:
+        raise ValueError("Invalid input. Please enter a positive integer greater than zero.")
+    return reduce(lambda x, y: x * y, range(1, n+1), 1)
 
-while True:
-    try:
-        n = int(sys.stdin.readline().strip())
-        if n <= 0:
-            print("Invalid input. Please enter a valid positive integer greater than zero.")
-        else:
-            result = math.prod(map(int, str(n)))
-            print(result)
-            break
-    except ValueError:
-        print("Invalid input. Please enter a valid positive integer greater than zero.")
+try:
+    n = int(input("Enter a positive integer greater than zero: "))
+    print(calculate_factorial(n))
+except ValueError as e:
+    print(e)
