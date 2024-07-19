@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -12,3 +13,5 @@ int specialFilter(std::vector<int> nums){
     }
     return count;
 }
+
+assert(specialFilter({13, 27, 8, 234, 56}) == 2);
