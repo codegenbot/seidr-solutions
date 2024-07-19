@@ -1,30 +1,24 @@
-```
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::vector<std::string>> v1, std::vector<std::vector<std::string>> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i].size() != v2[i].size()) return false;
-        for(int j = 0; j < v1[i].size(); j++) {
-            if(v1[i][j] != v2[i][j]) return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<std::string>> strings, std::string prefix) {
-    std::vector<std::vector<std::string>> result;
-    for(auto &s : strings) {
-        if(s[0].find(prefix) == 0) {
-            result.push_back(s);
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        if (str.find(prefix) != std::string::npos) {
+            result.push_back(str);
         }
     }
     return result;
 }
 
-int init() {
-    std::vector<std::vector<std::string>> strings = {{ "xxx" }, { "asd" }, { "xxy" }, { "john doe" }, { "xxxxAAA" }, { "xxx" }};
+int main() {
+    std::vector<std::vector<std::string>> strings = {{"xxx"},{"asd"},{"xxy"}, {"john doe" }, {"xxxxAAA"}, {"xxx"}};
     assert(issame(filter_by_prefix(strings, "xxx"), {{"xxx"},{"xxxAAA"},{"xxx"}}));
     return 0;
 }
