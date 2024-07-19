@@ -4,7 +4,7 @@
 #include <cassert>
 #include <string>
 
-bool are_same(std::vector<std::string> a, std::vector<std::string> b) {
+bool are_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
