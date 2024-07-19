@@ -1,28 +1,17 @@
-#include <iostream>
-#include <assert.h>
+#include <cassert>
 
-int skjkasdkd(int* a, int size) {
+int bitCount(int* a, int size) {
     int sum = 0;
     for (int i = 0; i < size; i++) {
-        if (a[i] >= 128)
-            sum += 2;
-        else
-            sum++;
+        while ((a[i] & 1) == 0)
+            a[i] >>= 1;
+        sum += a[i] & 1;
     }
     return sum;
 }
 
-int oldMain() {
-    int* a = new int[3];
-    a[0] = 127;
-    a[1] = 97;
-    a[2] = 8192;
-    int result = skjkasdkd(a, 3);
-    delete[] a;
-    return result;
-}
-
 int main() {
-    assert(oldMain() == 10);
+    assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
+    delete[] new int[3]{127, 97, 8192};
     return 0;
 }
