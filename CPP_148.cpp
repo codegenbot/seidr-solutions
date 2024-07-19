@@ -4,7 +4,7 @@
 bool issame(std::vector<std::string> a);
 
 bool issame(std::vector<std::string> a) {
-    return a == a;
+    return a == b;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2){
@@ -33,4 +33,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2){
     }
 
     return result;
+}
+
+int main() {
+    // Main function
 }
