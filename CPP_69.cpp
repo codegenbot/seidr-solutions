@@ -1,14 +1,30 @@
-int num = -1;
-    for (int i = 1; i <= lst.size(); ++i) {
-        int count = 0;
-        for (int j = 0; j < lst.size(); ++j) {
-            if (lst[j] == i) {
-                count++;
-            }
-        }
-        if (count >= i) {
-            num = i;
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+int search(vector<int> lst) {
+    std::unordered_map<int, int> freq;
+    int ans = -1;
+
+    for (int num : lst) {
+        freq[num]++;
+        if (freq[num] >= num && num > ans) {
+            ans = num;
         }
     }
-    return num;
+
+    return ans;
+}
+
+int main() {
+    vector<int> input;
+    int num;
+    while (cin >> num) {
+        input.push_back(num);
+    }
+
+    int result = search(input);
+    cout << result << endl;
+
+    return 0;
 }
