@@ -27,6 +27,5 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // Main function implementation
     return 0;
 }
