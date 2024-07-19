@@ -1,20 +1,12 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        int total_fill = 0;
-        
-        for(int j=0; j<cols; j++){
+int total_fill = 0;
+        for (auto &row : grid) {
             int well_fill = 0;
-            for(int i=0; i<rows; i++){
-                well_fill += grid[i][j];
+            for (int cell : row) {
+                well_fill += cell;
             }
             total_fill += well_fill;
         }
-        
-        int moves = 0;
-        while(total_fill > 0){
-            total_fill -= min(total_fill, capacity);
-            moves++;
-        }
-        
-        return moves;
+
+        int num_buckets = (total_fill + capacity - 1) / capacity;
+        return num_buckets * grid.size();
     }
