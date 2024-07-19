@@ -1,18 +1,28 @@
 ```
 def separate_paren_groups(paren_string: str) -> List[str]:
+    stack = []
     groups = []
-    group = ''
-    nesting_level = 0
+    current_group = ''
+    
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
-            nesting_level += 1
-            group += char
+            stack.append(char)
+            current_group += char
         elif char == ')':
-            nesting_level -= 1
-            group += char
-            if nesting_level == 0:
-                groups.append(group)
-                group = ''
-    return groups
+            while len(stack) and stack[-1] != '(':
+                current_group += stack.pop()
+            if not len(stack):
+                groups.append(current_group[:-1])
+                current_group = ''
+            else:
+                stack.pop()
+                current_group = ''
+    
+    if stack:
+        for _ in range(len(stack)):
+            current_group += stack.pop()
+        groups.append(current_group)
+    
+    return [group.strip() for group in current_group.split(')(')]
