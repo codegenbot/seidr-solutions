@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::string fix_spaces(std::string text) {
+std::string fix_spaces(const std::string& text) {
     int count = 0;
     std::string result;
     for (char c : text) {
