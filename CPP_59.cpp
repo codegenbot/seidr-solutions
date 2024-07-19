@@ -15,5 +15,9 @@ int largest_prime_factor(int n) {
 
 int main() {
     assert(largest_prime_factor(13195) == 29);
+    assert(largest_prime_factor(10) == 5);
+    assert(largest_prime_factor(56) == 7);
+    assert(largest_prime_factor(100) == 5);
+    
     return 0;
 }
