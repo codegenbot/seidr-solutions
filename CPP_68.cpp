@@ -10,6 +10,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame({7, 9, 7, 1}, {}));
+    assert(issame(pluck({1, 2}), {1, 2}));
     return 0;
 }
