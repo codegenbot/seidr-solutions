@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
 bool iscuber(int a) {
@@ -7,6 +8,14 @@ bool iscuber(int a) {
 }
 
 int main() {
-    assert(iscuber(1729) == false);
+    int num;
+    std::cin >> num;
+    
+    if (iscuber(num)) {
+        std::cout << "True\n";
+    } else {
+        std::cout << "False\n";
+    }
+    
     return 0;
 }
