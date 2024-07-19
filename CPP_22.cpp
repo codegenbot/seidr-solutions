@@ -2,6 +2,8 @@
 
 #include <initializer_list>
 
+#include <assert>
+
 #include <any>
 #include <list>
 #include <vector>
