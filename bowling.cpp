@@ -1,36 +1,24 @@
+#include <iostream>
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int currentFrame = 0;
-    vector<int> frames(10);
-
+    int roll = 0;
     for (char c : s) {
         if (c == '/') {
-            currentFrame++;
-            continue;
-        }
-
-        if (c >= '1' && c <= '9') {
-            int strike = false;
-
-            while (c != '/' && c >= '0' && c <= '9') {
-                frames[currentFrame] *= 10 + (c - '0');
-                c = next(c, s);
+            if (roll < 2) {
+                score += 10 - (10 - roll);
             }
-
-            if (!strike) {
-                score += frames[currentFrame];
-            } else {
-                score += 10;
+            roll = 0;
+        } else if (isdigit(c)) {
+            roll++;
+            if (c != 'X') {
+                score += c - '0';
             }
+        } else {
+            score += 10;
+            roll = 2;
         }
     }
-
     return score;
-}
-
-char next(char c, std::string s) {
-    int i = s.find(c);
-    return s[i + 1];
 }
