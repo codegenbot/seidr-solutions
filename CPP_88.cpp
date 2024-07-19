@@ -1,17 +1,14 @@
 #include <vector>
-
 bool issame(const vector<int>& a, const vector<int>& b) {
-    vector<int> array = a;
-
-    if (array.empty()) {
-        return array;
+    if (a.empty()) {
+        return a;
     }
     
-    if ((array.front() + array.back()) % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+    if ((a.front() + a.back()) % 2 == 0) {
+        sort(a.begin(), a.end(), greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        sort(a.begin(), a.end());
     }
     
-    return array;
+    return a;
 }
