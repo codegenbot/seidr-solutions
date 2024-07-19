@@ -11,14 +11,22 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) {
         int sum1 = 0, sum2 = 0;
+        int max1 = v[i], min1 = v[i];
+        int max2 = 0, min2 = 0;
+        
         for (int j = 0; j <= i; j++) {
             sum1 += v[j];
+            max1 = max(max1, v[j]);
+            min1 = min(min1, v[j]);
         }
+        
         for (int j = i + 1; j < n; j++) {
             sum2 += v[j];
+            max2 = max(max2, v[j]);
+            min2 = min(min2, v[j]);
         }
+        
         if ((sum1 == sum2) || (abs(sum1 - sum2) < min_diff)) {
-            res[0].push_back(v[i]); 
             min_diff = abs(sum1 - sum2);
             split_index = i;
         }
