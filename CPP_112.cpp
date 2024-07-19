@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& b) {
+    if (v1.size() != b.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+        if (v1[i] != b[i]) return false;
     }
     return true;
 }
@@ -19,7 +19,6 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
             if (ch == cc) {
                 found = true;
                 break;
-            }
         }
         if (!found) {
             temp += ch;
@@ -36,8 +35,18 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
     return result;
 }
 
+std::vector<std::string> input() {
+    std::string s, c;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Enter a character to delete: ";
+    std::cin >> c;
+    return {s, c};
+}
+
 int main() {
-    if (same({ "", "True" }, reverseDelete("mamma", "mia"))) {
+    auto [s, c] = input();
+    if (issame({ "", "True" }, reverseDelete(s, c))) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
