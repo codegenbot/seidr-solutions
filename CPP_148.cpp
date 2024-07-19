@@ -39,11 +39,16 @@ int main() {
     std::cout << "Enter two planet names: ";
     std::cin >> planet1 >> planet2;
 
-    std::vector<std::string> output = bf(planet1, planet2);
+    std::vector<std::string> result = bf(planet1, planet2);
 
-    std::cout << "Output planets between " << planet1 << " and " << planet2 << " are: ";
-    for (const auto &planet : output) {
-        std::cout << planet << " ";
+    if (result.empty()) {
+        std::cout << "Invalid planets entered." << std::endl;
+    } else {
+        std::cout << "Planets between " << planet1 << " and " << planet2 << ": ";
+        for (const auto &planet : result) {
+            std::cout << planet << " ";
+        }
+        std::cout << std::endl;
     }
 
     return 0;
