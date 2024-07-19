@@ -1,18 +1,18 @@
 bool issame(const string& s) {
-    int count = 0;
+    stack<char> st;
     for (char c : s) {
         if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
+            st.push(c);
+        } else if (c == ')' && !st.empty()) {
+            st.pop();
+        } else {
+            return false;
         }
     }
-    return count == 0;
+    return st.empty();
 }
 
 vector<string> separate_paren_groups(string paren_string);
-
-#include <vector>
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
