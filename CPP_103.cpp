@@ -9,7 +9,7 @@ string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    long double average = lround(sum / (long double)(m - n + 1));
+    long double average = lround(sum / (long double)(m - n + 1)); 
     string result = "";
     while (average > 0) {
         if (average & 1)
@@ -18,5 +18,6 @@ string rounded_avg(int n, int m) {
             result.push_back('0');
         average >>= 1;
     }
-    reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end()); 
     return result;
+}
