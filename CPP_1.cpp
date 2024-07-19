@@ -1,5 +1,5 @@
 bool issame(char a, char b) {
-    return a == b;
+    return (a == '(' && b == ')') || (a == '[' && b == ']') || (a == '{' && b == '}');
 }
 
 vector<string> separate_paren_groups(string paren_string);
@@ -10,12 +10,12 @@ vector<string> separate_paren_groups(string paren_string) {
     int balance = 0;
 
     for (char c : paren_string) {
-        if (c == '(') {
+        if (c == '(' || c == '[' || c == '{') {
             if (balance > 0) {
                 current_group += c;
             }
             balance++;
-        } else if (c == ')') {
+        } else if (c == ')' || c == ']' || c == '}') {
             balance--;
             if (balance > 0) {
                 current_group += c;
