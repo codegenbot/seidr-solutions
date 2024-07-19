@@ -1,6 +1,6 @@
-```cpp
-#include <string>
+```
 #include <iostream>
+#include <string>
 
 std::string encrypt(std::string s) {
     std::string result = "";
@@ -16,7 +16,7 @@ std::string encrypt(std::string s) {
     return result;
 }
 
-int main(), {
+int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s; 

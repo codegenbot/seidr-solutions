@@ -19,12 +19,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         while (start < str.size()) {
             size_t end = str.find(' ', start);
             if (end == std::string::npos) {
-                if (!issame({{str.substr(start)}})) {
+                if (!issame(std::vector<std::string>{{str.substr(start)}})) {
                     result.push_back(str.substr(start));
                 }
                 break;
             }
-            if (!issame({{str.substr(start, end - start)}})) {
+            if (!issame(std::vector<std::string>{{str.substr(start, end - start)}})) {
                 result.push_back(str.substr(start, end - start));
             }
             start = end + 1;
@@ -40,4 +40,5 @@ int main() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx")) == true);
 }
