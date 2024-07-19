@@ -7,9 +7,7 @@ using namespace std;
 
 map<char, int> histogram(string test);
 
-bool issameMaps(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
-}
+bool issame(const map<char, int>& a, const map<char, int>& b);
 
 map<char, int> histogram(string test) {
     map<char, int> freq;
@@ -35,7 +33,7 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    assert(histogram("a") == map<char, int>{{'a', 1}});
+    assert(issame(histogram("a"), {{'a', 1}}));
     
     return 0;
 }
