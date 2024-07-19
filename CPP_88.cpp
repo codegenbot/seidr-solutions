@@ -1,9 +1,12 @@
-if(array.empty()) return array;
-    int sum = array.front() + array.back();
-    if(sum % 2 == 0){
-        sort(array.begin(), array.end(), greater<int>());
+#include <vector>
+#include <algorithm>
+
+std::vector<int> sort_array(const std::vector<int>& array) {
+    auto sortedArray = array;
+    if((sortedArray.front() + sortedArray.back()) % 2 == 0){
+        std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(sortedArray.begin(), sortedArray.end());
     }
-    return array;
+    return sortedArray;
 }
