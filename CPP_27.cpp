@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
 
-std::string flip_case(const std::string& str) {
+std::string swap_case(const std::string& str) {
     std::string result;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
@@ -24,8 +23,8 @@ int main() {
     std::getline(std::cin, input);
 
     if (!input.empty()) { 
-        std::cout << "Computed output: " << flip_case(input) << std::endl;
-        if(flip_case(input).compare("these violent delights have violent ends") == 0)
+        std::cout << "Computed output: " << swap_case(input) << std::endl;
+        if(swap_case(input).compare("these violent delights have violent ends") == 0)
             return 0;
         else
             return 1;
