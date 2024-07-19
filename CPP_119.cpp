@@ -22,3 +22,4 @@ int main() {
     bool result = match_parens({"(", ")"});
     std::cout << (result ? "Yes\n" : "No\n");
     return 0;
+}
