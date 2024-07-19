@@ -17,7 +17,7 @@ string rounded_avg(int n, int m) {
     }
 
     int avg = std::round((double)sum / (m - n + 1));
-    string binary_avg = bitset<32>(avg).to_string();
+    string binary_avg = std::bitset<32>(avg).to_string();
     return binary_avg.substr(binary_avg.find('1'));
 }
 
