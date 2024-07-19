@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
+#include <boost/convert.hpp> 
 #include <string>
 #include <algorithm>
-#include <type_traits>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         return (stof(a.convert_to<string>().c_str()) > (float)b.convert_to<float>()) ? a : boost::any("None");
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return ((int)a.convert_to<int>()) > stof(b.convert_to<string>().c_str()) ? a : boost::any("None");
+        return (int)a.convert_to<int>() > stof(b.convert_to<string>().c_str()) ? a : boost::any("None");
     }
     return boost::any("None");
 }
