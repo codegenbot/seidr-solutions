@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<int> strange_sort_list(const vector<int>& lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int left = 0, right = lst.size() - 1;
@@ -14,4 +12,8 @@ vector<int> strange_sort_list(const vector<int>& lst) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(strange_sort_list({111111}), {111111}));
 }
