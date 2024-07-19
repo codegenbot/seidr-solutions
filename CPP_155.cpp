@@ -1,10 +1,12 @@
-vector<int> result = {0, 0}; 
-    string number = to_string(abs(num));
-    for(char digit : number){
-        if((digit - '0') % 2 == 0)
-            result[0]++;
-        else
-            result[1]++;
+vector<int> counts = {0, 0};
+    while (num != 0) {
+        int digit = abs(num % 10);
+        if (digit % 2 == 0) {
+            counts[0]++;
+        } else {
+            counts[1]++;
+        }
+        num /= 10;
     }
-    return result;
+    return counts;
 }
