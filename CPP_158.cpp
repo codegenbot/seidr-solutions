@@ -24,3 +24,4 @@ int main() {
     }
     cout << find_max(words) << endl;
     return 0;
+}
