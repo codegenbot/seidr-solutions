@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+#include <string>
+
 bool prime_length(std::string str){
     int len = static_cast<int>(str.length());
     bool isPrime = false;
@@ -14,6 +17,7 @@ bool prime_length(std::string str){
     }
 
     return isPrime;
+
 }
 
 int main() {
