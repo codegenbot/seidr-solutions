@@ -1,7 +1,7 @@
 ```cpp
-#include <algorithm>
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -13,8 +13,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector< pair<string, string> > reverse_delete(string s, string c) {
-    vector<string> result;
+vector<string> reverse_delete(string s, string c) {
+    string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -24,12 +24,10 @@ vector< pair<string, string> > reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result += ch;
         }
     }
-    string revResult = "";
-    for (int i = result.size() - 1; i >= 0; --i) {
-        revResult += result[i];
-    }
-    return {{revResult, (result.size() == s.size() ? "True" : "False")}};
+    string revResult = result;
+    reverse(revResult.begin(), revResult.end());
+    return {{"", result}, (result == revResult ? "True" : "False")};
 }
