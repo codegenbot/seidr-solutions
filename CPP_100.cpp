@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -24,6 +25,6 @@ bool vectorComparison(const vector<int>& a, const initializer_list<int> b) {
 
 int main() {
     assert(vectorComparison(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
-    cout << "Hello from main!" << endl;
+    cout << "Hello, World!" << endl;
     return 0;
 }
