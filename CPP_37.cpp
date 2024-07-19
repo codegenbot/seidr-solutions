@@ -24,25 +24,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            float maxEven = -INFINITY;
-            for (float val : l) {
-                if (std::abs(val - static_cast<int>(val)) < 1e-9) {
-                    maxEven = std::max(maxEven, val);
-                }
-            }
-            result.push_back(maxEven);
-        } else {
-            result.push_back(l[i]);
-        }
-    }
-    return result;
-}
-
 int main() {
-    assert(std::equal(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}).begin(), sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}).end(), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(std::equal(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}).begin(), sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}).end(), {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f}));
     return 0;
 }
