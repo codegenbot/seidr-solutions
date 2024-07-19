@@ -2,23 +2,21 @@ def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
     path = [start]
-    visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
+    visited = [(i, j) for i in range(n) for j in range(n) if grid[i][j] == start]
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-    while len(path) < k + 1:
-        found_next = False
+    while len(path) < k:
+        min_value = float('inf')
+        next_cell = None
         for i, j in visited:
             for di, dj in directions:
                 ni, nj = (i + di) % n, (j + dj) % n
-                if (ni, nj) in visited:
-                    path.append(grid[ni][nj])
-                    visited.remove((ni, nj))
-                    found_next = True
-                    break
-            if found_next:
-                break
-        if not found_next:
-            repeat_index = len(path) % (len(visited) + 1)
-            path += [path[repeat_index % len(path)]] * ((k + 1 - len(path)) // (len(path) - repeat_index % len(path))
+                if grid[ni][nj] < min_value:
+                    min_value = grid[ni][nj]
+                    next_cell = (ni, nj)
+
+        path.append(grid[next_cell[0]][next_cell[1]])
+        if next_cell in visited:
+            visited.remove(next_cell)
 
     return path
