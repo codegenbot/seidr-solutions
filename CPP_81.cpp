@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <cstddef>
 
 bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
