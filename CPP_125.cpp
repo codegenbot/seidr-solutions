@@ -6,12 +6,10 @@
 
 using namespace std;
 
-// Fix the function signature to include the return type
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-// Update the main function and add the split_words function definition
 vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
