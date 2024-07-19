@@ -1,8 +1,8 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
