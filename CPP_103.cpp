@@ -1,7 +1,6 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 std::string calculateBinary(int n, int m) {
     if (n > m) {

@@ -1,23 +1,40 @@
-vector<string> odd_count(vector<string> lst) {
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    for (string s : lst) {
+    for(string s : lst){
         int count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
+        for(char c : s){
+            if((c - '0') % 2 != 0){
                 count++;
             }
         }
-        string res = "the number of odd elements " + to_string(count) + "\n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "\nput.";
-        result.push_back(res);
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + s + " of the input.");
     }
     return result;
 }
 
-int main() {
-    vector<string> lst = {"123", "4567", "890"};
-    vector<string> result = odd_count(lst);
-    for (string s : result) {
-        cout << s << endl;
+int contest_main(){
+    vector<string> input;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        input.push_back(s);
     }
+    
+    vector<string> result = odd_count(input);
+    for (string res : result) {
+        cout << res << endl;
+    }
+    return 0;
+}
+
+int main() {
+    contest_main();
     return 0;
 }
