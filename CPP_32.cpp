@@ -20,15 +20,15 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs(n);
+    vector<double> coeffs; 
+    coeffs.resize(n); 
+
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
 
-    double solution, result;
+    double solution;
     cin >> solution;
 
-    double poly = find_zero(coeffs, solution);
-
-    cout << fixed << setprecision(6) << poly << endl;
+    cout << fixed << setprecision(6) << find_zero(coeffs, solution) << endl;
 }
