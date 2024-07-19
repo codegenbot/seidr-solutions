@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+bool same(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -40,4 +39,9 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             result.push_back("F");
     }
     return result;
+}
+
+int main() {
+    assert(same(numerical_letter_grade({0, 0.7}), {"E", "D-" }));
+    return 0;
 }
