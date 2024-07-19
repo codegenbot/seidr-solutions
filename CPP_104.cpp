@@ -37,7 +37,7 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 246};
+    vector<int> input = {123, 456, 789, 135};
     vector<int> output = unique_digits(input);
     return 0;
 }
