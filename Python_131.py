@@ -4,13 +4,10 @@ def digits(n):
     return reduce(lambda x, y: x*y, (int(d) for d in str(n)), 1)
 
 while True:
-    try:
-        n = int(input("Enter a number: "))
-        if n <= 0:
-            raise ValueError
+    n = input("Enter a number: ")
+    if n.isdigit() and int(n) > 0:  # Check if input is a positive integer
         break
-    except ValueError:
-        print("Invalid input. Please enter a valid positive integer greater than zero.")
+    print("Invalid input. Please enter a valid positive integer greater than zero.")
 
-result = digits(n)
+result = digits(int(n))
 print(result)
