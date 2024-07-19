@@ -1,8 +1,9 @@
 #include <utility>
+#include <vector>
 #include <cassert>
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
-    return a == b;
+    return (a.first == b.first) && (a.second == b.second);
 }
 
 std::pair<int, int> eat(int x, int y, int z) {
