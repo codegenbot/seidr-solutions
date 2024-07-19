@@ -1,6 +1,6 @@
-#include <string> // Include necessary header file
+#include <string>
 
-int is_bored(std::string S){ // Use 'std::string' instead of 'string'
+int is_bored(std::string S){
     int count = 0;
     std::string word = "";
     for(char c : S){
@@ -20,6 +20,6 @@ int is_bored(std::string S){ // Use 'std::string' instead of 'string'
 }
 
 int main(){
-    assert (is_bored("You and I are going for a walk") == 0);
+    assert(is_bored("You and I are going for a walk") == 0);
     return 0;
 }
