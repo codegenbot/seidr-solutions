@@ -2,9 +2,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,18 +16,18 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main_test() {
     int n;
-    cin >> n;
-    vector<int> user_input(n);  
+    std::cin >> n;
+    std::vector<int> user_input(n);  
 
     for (int i = 0; i < n; i++) {
         int x;
-        cin >> x;
+        std::cin >> x;
         user_input[i] = x;  
     }
-    if (issame(user_input, user_input)) {
-        cout << "Yes" << endl;
+    if (issame(user_input, user_input)) { 
+        std::cout << "Yes" << std::endl;
     } else {
-        cout << "No" << endl;
+        std::cout << "No" << std::endl;
     }
     return 0;
 }
