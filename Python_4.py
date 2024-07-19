@@ -1,5 +1,6 @@
-numbers = []
 try:
-    numbers = list(map(float, input("Enter numbers separated by spaces: ").split()))
+    numbers = list(map(float, input().split()))
+    result = sum(numbers)
+    print(result)
 except ValueError:
-    print("Invalid input. Please enter numbers separated by spaces.")
+    print("Invalid input")
