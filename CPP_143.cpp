@@ -1,20 +1,10 @@
 ```cpp
-#include <vector>
-#include <string>
-#include <sstream>
-
-std::vector<std::string> split(const std::string& str) {
-    std::vector<std::string> tokens;
-    std::stringstream ss(str);
-    std::string token;
-
-    while (getline(ss, token, ' ')) {
-        tokens.push_back(token);
+int findFirstWord(const std::string& str, const std::string& word) {
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = str.find(word, pos)) != std::string::npos) {
+        ++count;
+        pos = str.find(word, pos);
     }
-
-    return tokens;
-}
-
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
-    return split(sentence);
+    return count > 0 ? 1 : -1;
 }
