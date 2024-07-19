@@ -1,19 +1,13 @@
 def separate_paren_groups(paren_string):
-    stack = []
-    result = []
-    
-    for char in paren_string:
+    groups = []
+    count = 0
+    start = 0
+    for i, char in enumerate(paren_string):
         if char == '(':
-            stack.append('(')
-        elif char == ')':
-            group = ''
-            while stack and stack[-1] != '(':
-                group = stack.pop() + group
-            if stack:
-                stack.pop()
-            result.append(group)
-    
-    return result
-
-paren_string = input().replace(' ', '')
-print(separate_paren_groups(paren_string))
+            count += 1
+        else:
+            count -= 1
+        if count == 0:
+            groups.append(paren_string[start:i+1])
+            start = i + 1
+    return groups
