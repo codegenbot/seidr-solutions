@@ -42,3 +42,4 @@ int main() {
     bool res1 = issame(output, {"", "True"});
     assert(res1);
     return 0;
+}
