@@ -1,9 +1,13 @@
-if(array.empty()) return array;
-    int sum = array.front() + array.back();
-    if(sum % 2 == 0){
-        sort(array.begin(), array.end(), greater<int>());
+#include <vector>
+bool issame(std::vector<int> a, std::vector<int> b){
+    if((a.front() + a.back()) % 2 == 0){
+        std::sort(a.begin(), a.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(a.begin(), a.end());
     }
-    return array;
+    if(a == b){
+        return true;
+    } else {
+        return false;
+    }
 }
