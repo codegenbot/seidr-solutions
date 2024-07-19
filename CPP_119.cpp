@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-bool match_parens(const std::string& s) {
+bool match_parens(const std::string& lst) {
     int open = 0, close = 0;
-    for (char x : s) {
+    for (char x : lst) {
         if (x == '(') open++;
         else if (x == ')') close++;
     }
@@ -16,9 +16,9 @@ int main() {
     std::cout << "Enter the strings: ";
     while((std::getline(std::cin, line)) && !line.empty()) {
         for(char c : line) {
-            lst += c; 
+            lst = lst + std::string(1, c);
         }
-        std::cin.ignore(); 
+        std::cin.ignore(); // consume newline characters
     }
     if (match_parens(lst)) {
         std::cout << "The parentheses are matched." << std::endl;
