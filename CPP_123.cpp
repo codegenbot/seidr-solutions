@@ -2,11 +2,11 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(const std::std::vector<std::int> &a, const std::std::vector<std::int> &b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (std::size_t i = 0; i < a.size(); ++i) {
         if (a[i] % 2 == 0) {
             return false;
         }
@@ -17,8 +17,8 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b) {
     return true;
 }
 
-std::vector<int> get_odd_collatz(int num) {
-    std::vector<int> result;
+std::std::vector<std::int> get_odd_collatz(std::int num) {
+    std::std::vector<std::int> result;
     while (num != 1) {
         if (num % 2 == 0) {
             num = num / 2;
