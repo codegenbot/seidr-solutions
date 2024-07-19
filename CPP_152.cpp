@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <initializer_list>
 
@@ -17,12 +16,32 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    std::vector<int> game = {1,2,3,5};
-    std::vector<int> guess = {-1,2,3,4};
+    std::vector<int> game;
+    int n;
+    std::cout << "Enter the number of elements in the game: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        game.push_back(num);
+    }
+    
+    std::vector<int> guess;
+    std::cout << "Enter the number of elements in the guess: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        guess.push_back(num);
+    }
+    
     std::vector<int> output = gameCompare(game, guess);
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
-    std::vector<int>(game, game) == gameCompare(game, guess);
     return 0;
 }
