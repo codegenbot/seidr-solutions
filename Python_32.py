@@ -1,8 +1,7 @@
 while True:
     try:
-        input_values = input("Enter space-separated coefficients: ").split()
-        if len(input_values) == 3:
-            input_list = [float(value) for value in input_values]
+        input_list = list(map(float, input("Enter space-separated coefficients: ").split()))
+        if all(isinstance(val, (int, float)) for val in input_list) and len(input_list) == 3:
             print(f"Sum of the coefficients is: {sum(input_list)}")
             break
         else:
