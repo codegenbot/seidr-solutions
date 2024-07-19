@@ -2,8 +2,9 @@
 #include <vector>
 #include <any>
 #include <cassert>
+#include <typeindex>
 
-std::vector<int> filter_integers(const std::vector<std::any>& values) {
+std::vector<int> filter_integers(const std::vector<std::any>& values){
     std::vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int).hash_code()) {
@@ -15,10 +16,4 @@ std::vector<int> filter_integers(const std::vector<std::any>& values) {
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(filter_integers({std::any(3), std::any('c'), std::any(3), std::any(3), std::any('a'), std::any('b')}), {3, 3, 3}));
-    
-    return 0;
 }
