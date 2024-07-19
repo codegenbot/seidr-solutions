@@ -1,6 +1,9 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    int i = cbrt(a);
-    return (i*i*i == a);
+    int root = cbrt(a);
+    if(root*root*root == a)
+        return true;
+    else
+        return false;
 }
