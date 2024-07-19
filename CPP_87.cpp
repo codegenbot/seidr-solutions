@@ -1,7 +1,7 @@
 #include <vector>
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
@@ -20,4 +20,20 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
         return a[0] < b[0];
     });
     return result;
+}
+
+int main() {
+    vector<vector<int>> test = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    vector<vector<int>> result = get_row(test, 5);
+
+    for (const auto& elem : result) {
+        cout << elem[0] << " " << elem[1] << endl;
+    }
+
+    return 0;
 }
