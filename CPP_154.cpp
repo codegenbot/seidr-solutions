@@ -7,10 +7,11 @@ bool cycpattern_check(string a, string b) {
         if (temp.length() >= b.length()) {
             int j = 0;
             while (j < b.length()) {
-                if (temp[j] != b[j]) break;
+                if (temp.find(b.substr(j)) != string::npos) {
+                    return true;
+                }
                 j++;
             }
-            if (j == b.length()) return true;
         }
     }
     return false;
