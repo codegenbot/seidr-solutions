@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
-#include <cctype>
-#include <functional>
 #include <string>
+#include <sstream>
 #include <initializer_list>
 
 std::string bf(const std::string& s1, const std::string& s2) {
@@ -28,23 +26,26 @@ int mainProblem() {
     std::getline(std::cin, line);
 
     size_t first = 0, last;
-    while ((last = line.find(' ')) != std::string::npos) {
-        a.push_back(line.substr(first, last - first));
-        first = last + 1;
+    std::stringstream ss(line);
+    while ((first = line.find(' ')) != std::string::npos) {
+        a.push_back(ss.str().substr(0, first));
+        ss.str(line.substr(first + 1));
+        line = ss.str();
     }
-    a.push_back(line.substr(first));
+    a.push_back(line);
 
     line.clear();
     first = 0, last = 0;
     while ((last = line.find(' ')) != std::string::npos) {
-        b.push_back(line.substr(first, last - first));
-        first = last + 1;
+        b.push_back(line.substr(0, last));
+        line = line.substr(last + 1);
     }
-    b.push_back(line.substr(first));
+    b.push_back(line);
 
     if (issame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
     }
+    return 0;
 }
