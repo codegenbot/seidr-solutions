@@ -1,5 +1,9 @@
 bool iscuber(int a){
-    double c = cbrt(a);
-    if(c == (int)c) return true;
-    else return false;
+    int i = 1;
+    while (pow(i, 3) <= a) {
+        if (pow(i, 3) == a)
+            return true;
+        i++;
+    }
+    return false;
 }
