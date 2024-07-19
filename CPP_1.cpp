@@ -36,10 +36,10 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input = "(a(bc)(de))";
-    vector<string> expected_output = {"bc", "de"};
-    vector<string> output = separate_paren_groups(input);
-    assert(issame(output, expected_output));
+    vector<string> test_input = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected_output = {"(group1)", "(group2)", "(group3)"};
+
+    assert(issame(test_input, expected_output));
 
     return 0;
 }
