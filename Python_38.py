@@ -1,1 +1,1 @@
-input_string = input().strip()
+input_list = list(map(int, input().split()))
