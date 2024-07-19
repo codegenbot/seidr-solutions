@@ -1,3 +1,4 @@
+```cpp
 long long minSubArraySum(vector<long long> nums) {
     int n = nums.size();
     long long sum = 0;
@@ -11,7 +12,6 @@ long long minSubArraySum(vector<long long> nums) {
             min_sum = min(min_sum, sum);
     }
     return min_sum;
-
 }
 
 int main() {
