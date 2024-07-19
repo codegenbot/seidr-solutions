@@ -1,2 +1,3 @@
 #include <vector>
+
 std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
