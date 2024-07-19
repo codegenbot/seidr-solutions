@@ -15,7 +15,7 @@ vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group;
     int balance = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -32,7 +32,7 @@ vector<string> separate_paren_groups(string paren_string) {
             }
         }
     }
-    
+
     return result;
 }
 
@@ -40,8 +40,8 @@ int main() {
     string input = "(abc(def)(ghi))";
     vector<string> groups = separate_paren_groups(input);
     assert(issame(groups, vector<string>{"abc", "def", "ghi"}));
-    
+
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
-    
+
     return 0;
 }
