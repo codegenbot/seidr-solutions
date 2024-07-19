@@ -1,11 +1,11 @@
 #include <vector>
-
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
     vector<int> result;
     
-    int max_negative = 0, min_positive = INT_MAX;
+    int max_negative = 0;
+    int min_positive = INT_MAX;
     
     for (int i : lst) {
         if (i < 0 && i > max_negative) {
