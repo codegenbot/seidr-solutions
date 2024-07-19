@@ -1,10 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> sorted_a = a;
-    std::vector<int> sorted_b = b;
-    std::sort(sorted_a.begin(), sorted_a.end());
-    std::sort(sorted_b.begin(), sorted_b.end());
-    return sorted_a == sorted_b;
+std::vector<int> sort_third(const std::vector<int>& l) {
+    std::sort(l.begin(), l.end(), [](int a, int b) {
+        return a % 3 == 0 ? b % 3 == 0 ? a < b : true : b % 3 == 0 ? false : a < b;
+    });
+    return l;
 }
