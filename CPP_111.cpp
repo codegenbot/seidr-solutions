@@ -5,12 +5,12 @@ using namespace std;
 
 map<char, int> histogram(string test);
 
-bool compareMaps(map<char,int> a, map<char,int> b){
+bool checkSame(map<char,int> a, map<char,int> b){
     return a == b;
 }
 
 int main() {
-    assert(compareMaps(histogram("a"), {{'a', 1}}));
+    assert(checkSame(histogram("a"), {{'a', 1}}));
 }
 
 map<char, int> histogram(string test){
