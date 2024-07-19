@@ -1,5 +1,5 @@
-bool issame(char a, char b) {
-    return (a == '(' && b == ')');
+bool issame(const string& str) {
+    return count(str.begin(), str.end(), '(') == count(str.begin(), str.end(), ')');
 }
 
 vector<string> separate_paren_groups(string paren_string);
@@ -9,11 +9,12 @@ vector<string> separate_paren_groups(string paren_string) {
     string current_group;
 
     for (char c : paren_string) {
-        if (current_group.empty() || !issame(current_group.back(), c)) {
+        if (c == '(' || c == ')') {
             current_group += c;
-        } else {
-            result.push_back(current_group);
-            current_group = "";
+            if (issame(current_group)) {
+                result.push_back(current_group);
+                current_group = "";
+            }
         }
     }
 
