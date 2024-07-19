@@ -24,7 +24,11 @@ int main() {
 
     std::string output = remove_vowels(input);
 
-    std::cout << "String after removing vowels: " << output.c_str() << std::endl;
+    std::cout << "String after removing vowels: ";
+    for (char c : output) {
+        std::cout << c;
+    }
+    std::cout << std::endl;
 
     return 0;
 }
