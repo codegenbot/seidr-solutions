@@ -11,7 +11,7 @@ using namespace std;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same_v<remove_pointer_t<decay_t<decltype(value)>>, int>) { 
+        if (is_same_v<remove_cvref_t<decltype(value)>, int>) { 
             result.push_back(std::any_cast<int>(value));
         }
     }
