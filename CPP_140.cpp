@@ -1,18 +1,18 @@
-string result = "";
-    int consecutive_spaces = 0;
+string result;
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
+            count++;
+            if (count > 2) {
                 result.pop_back();
                 result.pop_back();
-                result.push_back('-');
+                result += "-";
             } else {
-                result.push_back('_');
+                result += '_';
             }
         } else {
-            consecutive_spaces = 0;
-            result.push_back(c);
+            result += c;
+            count = 0;
         }
     }
     return result;
