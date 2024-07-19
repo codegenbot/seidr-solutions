@@ -1,9 +1,12 @@
 try:
     while True:
-        result = input()
-        if not result:
+        try:
+            result = input("Enter a number: ")
+            if result == "":
+                break
+            if result.isdigit():
+                print(int(result))
+        except EOFError:
             break
-        if result.isdigit():
-            print(int(result))
-except EOFError:
+except KeyboardInterrupt:
     pass
