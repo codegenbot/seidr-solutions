@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     is_vowel = False
@@ -9,20 +8,15 @@ def encode(message):
             else:
                 is_vowel = False
 
-            if char.isupper():
-                base = 65
-            else:
-                base = 97
+            base = ord('A') if char.isupper() else ord('a')
 
             if is_vowel:
                 result += chr((ord(char) - base + 3) % 26 + base)
-            elif char.lower() in 'aeiou':
-                result += chr((ord(char.lower()) - 97 + 3) % 26 + 65) if char.isupper() else chr((ord(char) - 97 + 3) % 26 + 97)
             else:
                 if char.isupper():
-                    result += chr((ord(char.lower()) - 97 + 3) % 26 + 65)
+                    result += chr((ord(char.lower()) - base + 3) % 26 + base).upper()
                 else:
-                    result += chr((ord(char) - 97 + 3) % 26 + 97)
+                    result += chr((ord(char) - base + 3) % 26 + base)
         else:
             result += char
     return result
