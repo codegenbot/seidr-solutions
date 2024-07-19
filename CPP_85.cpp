@@ -2,7 +2,7 @@
 
 int add(vector<int> lst){
     if(lst.size() == 0) {
-        cout << "Error: The list is empty." << endl;
+        cout << "Error: The input list is empty." << endl;
         return -1;
     }
     int sum = 0;
