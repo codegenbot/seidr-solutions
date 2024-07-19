@@ -16,8 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             open_brackets -= 1
     return result
 
-try:
-    paren_string = input().strip()
-    print(separate_paren_groups(paren_string))
-except EOFError:
-    print("Please provide valid input.")
+paren_string = input().strip()
+print(separate_paren_groups(paren_string))
