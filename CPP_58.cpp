@@ -3,11 +3,11 @@
 #include <set>
 #include <cassert>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> std::common(const std::vector<int>& l1, const std::vector<int>& l2) {
+std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
     std::vector<int> result;
     std::vector<int> sorted_l1 = l1;
     std::vector<int> sorted_l2 = l2;
