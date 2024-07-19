@@ -27,11 +27,9 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-    
-    string result = file_name_check(file_name);
-    cout << result;
-    
+    string input;
+    cin >> input;
+    cout << file_name_check(input);
+
     return 0;
 }
