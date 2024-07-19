@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+bool checksame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -10,7 +10,7 @@ bool isSame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     return true;
 }
 
-std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -42,6 +42,6 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
 }
 
 int main() {
-    assert(isSame(numericalLetterGrade({0, 0.7}), {"E", "D-"}));
+    assert(checksame(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-" }));
     return 0;
 }
