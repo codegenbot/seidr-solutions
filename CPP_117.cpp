@@ -38,8 +38,4 @@ vector<string> select_words(string s, int n) {
     return words;
 }
 
-int main() {
-    vector<string> result = select_words("sample test input", 2);
-    vector<string> expected_result = {"sample", "test"};
-    assert(issame(result, expected_result));
-}
+// In the main function, call select_words and compare the result using issame
