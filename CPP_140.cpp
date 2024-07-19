@@ -1,22 +1,17 @@
-// Complete the code below
-    string result = "";
-    bool isSpace = false;
-    int spaceCount = 0;
+string result = "";
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            spaceCount++;
-            if (spaceCount > 2) {
-                if (!isSpace) {
-                    result += '-';
-                    isSpace = true;
-                }
+            count++;
+            if (count > 2) {
+                result += "-";
+                count = 1;
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
             result += c;
-            isSpace = false;
-            spaceCount = 0;
+            count = 0;
         }
     }
     return result;
