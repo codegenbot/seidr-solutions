@@ -1,5 +1,9 @@
 #include <string>
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
@@ -15,13 +19,11 @@ vector<string> reverse_delete(string s, string c) {
     return ans;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    vector<string> a = {"abc", "def"};
-    vector<string> b = {"abc", "def"};
-    reverse_delete(a, b);
+    vector<string> result = reverse_delete("hello", "eo");
+    vector<string> expected = {"hll", "True"};
+    cout << "Output: " << result[0] << ", " << result[1] << endl;
+    cout << "Expected: " << expected[0] << ", " << expected[1] << endl;
+    cout << "Match: " << (issame(result, expected) ? "Yes" : "No") << endl;
     return 0;
 }
