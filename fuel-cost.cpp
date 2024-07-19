@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
@@ -20,6 +22,6 @@ int main() {
         cin >> num;
         numbers.push_back(num);
     }
-    cout << calculateFuelCost(numbers) << endl;
+    cout << calculateFuelCost(numbers) << std::endl;
     return 0;
 }
