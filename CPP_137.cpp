@@ -5,10 +5,6 @@
 #include <cassert>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    // Your existing code implementation here
-}
-
-boost::any compare_one(boost::any a, boost::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
             return a;
