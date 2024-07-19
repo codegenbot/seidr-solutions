@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,7 +18,7 @@ std::string encrypt(std::string s) {
 
 int main() {
     std::string s;
-    std::cout << "Enter a string: "; 
+    std::cout << "Enter a string: ";
     std::getline(std::cin, s); 
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
