@@ -19,8 +19,9 @@ int main() {
     int n;
     cin >> n;
     
-    vector<double> coeffs(n);
-    coeffs.resize(n); // Initialize the vector with n default elements
+    vector<double> coeffs;
+    coeffs.resize(n); 
+   
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
