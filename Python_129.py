@@ -3,10 +3,10 @@ def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
 
-    for i in range(k):
+    for i in range(min(k, n * m)):
         row = i // m
         col = i % m
-        value = grid[row % n][col % m]
+        value = grid[row][col]
         path.append(value)
 
     return path
