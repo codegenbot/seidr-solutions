@@ -1,3 +1,12 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -32,4 +41,9 @@ string sort_numbers(string numbers){
     }
     
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
