@@ -1,19 +1,22 @@
-for (int i = 2; i < a; i++) {
-    if (a % i == 0) {
-        int factor1 = i;
-        int factor2 = a / i;
-        for (int j = 2; j < factor1; j++) {
-            if (factor1 % j == 0) {
-                return false;
-            }
-        }
-        for (int k = 2; k < factor2; k++) {
-            if (factor2 % k == 0) {
-                return false;
-            }
-        }
-        return true;
+int is_prime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
+    return true;
 }
-return false;
+
+bool is_multiply_prime(int a) {
+    if (a < 2) return false;
+    for (int i = 2; i <= a / 3; i++) {
+        if (is_prime(i) && a % i == 0) {
+            int b = a / i;
+            for (int j = i + 1; j <= b / 2; j++) {
+                if (is_prime(j) && b % j == 0 && is_prime(b / j)) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
