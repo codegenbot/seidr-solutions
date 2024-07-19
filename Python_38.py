@@ -1,6 +1,6 @@
 while True:
     try:
-        print("Enter space-separated integers (or press Enter to exit):")
+        print("Enter space-separated integers:")
         user_input = input().strip()
         if not user_input:
             break
@@ -10,5 +10,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter space-separated integers.")
     except EOFError:
-        print("Exiting program.")
+        break
+    except KeyboardInterrupt:
+        print("\nProgram stopped by user.")
         break
