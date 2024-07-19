@@ -15,7 +15,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::vector<std::string>>& strings, const std::string& prefix) {
-    std::vector<std::vector<std::string>> result;
+    std::vector<std::vector<std::string>> result(strings.size());
     for (const auto& str : strings) {
         bool found = false;
         for (const auto& s : str) {
