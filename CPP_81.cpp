@@ -1,8 +1,9 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
-using namespace std;
+namespace std { using namespace std; }
 
 bool same(const vector<string>& vec1, const vector<string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
@@ -41,7 +42,7 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
         } else {
             letterGrade = "F";
         }
-        result.push_back(string(grade)); // Initialize with default constructor
+        result.push_back(letterGrade);
     }
     return result;
 }
