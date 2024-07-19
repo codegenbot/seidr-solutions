@@ -28,6 +28,12 @@ std::vector<int> tri(int n) {
     return result;
 }
 
+// Updated function signature
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    issame(tri(1), {1, 3});
+    return 0;
 }
