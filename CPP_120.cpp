@@ -18,7 +18,7 @@ void maximum(std::vector<int>& a) {
     std::sort(a.begin(), a.end());
 }
 
-int main() {
+int run() {
     int n;
     cin >> n;
     std::vector<int> a(n);
