@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Add this line
+#include <cassert>
 
 using namespace std;
 
@@ -34,8 +34,4 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
-    
-    return 0;
-}
+assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
