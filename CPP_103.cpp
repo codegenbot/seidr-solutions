@@ -15,6 +15,6 @@ double rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(rounded_avg(5, 5) * 1000 == 101);
+    assert(std::abs(rounded_avg(5, 5) - 101.0) < 0.0001);
     return 0;
 }
