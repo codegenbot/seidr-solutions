@@ -1,13 +1,17 @@
-```cpp
 #include <iostream>
 #include <cassert>
+#include <string>
 
 using namespace std;
 
 int mainFunction() {
-    string str1, str2, str3;
+    int a, b, c;
     cout << "Enter three numbers: ";
-    cin >> str1 >> str2 >> str3;  
-    cout << "The numbers are strings: " << str1 << ", " << str2 << ", " << str3 << "\n";
+    if (!(cin >> a >> b >> c)) {
+        cout << "Error: Please enter valid integer values.\n";
+    } else {
+        cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
+    }
+
     return 0;
 }
