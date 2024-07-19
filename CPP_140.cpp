@@ -1,19 +1,21 @@
 string fix_spaces(string text){
     string result = "";
-    bool prev_space = false;
+    bool prevSpace = false;
 
     for (char c : text) {
         if (c == ' ') {
-            if (!prev_space) {
+            if (!prevSpace) {
                 result += '_';
-                prev_space = true;
-            } else if (result.size() > 1 && result.back() == '-') {
+                prevSpace = true;
+            } else if (result.size() > 1 && result.back() == '_') {
                 result.pop_back();
+                result += '-';
+                prevSpace = false;
             }
         } else {
-            prev_space = false;
+            result += c;
+            prevSpace = false;
         }
-        result += c;
     }
 
     return result;
