@@ -1,8 +1,10 @@
-```cpp
 #include <initializer_list>
 #include <vector>
+#include <any>
 
-std::vector<int> filter_integers(std::list<std::any> values) {
+namespace std {
+template <typename T>
+std::vector<T> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (std::is_same_v<std::remove_pointer_t<std::decay_t<decltype(value)>>, int>) { 
@@ -12,13 +14,14 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+template <typename T>
+bool compareVectors(const std::vector<T>& a, const std::vector<T>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     std::list<std::any> values = {{1}, {2}, {3}, {"hello"}, {4.5}};
     auto result = filter_integers(values);
-    bool same = issame(result, {1, 2, 3});
+    assert(compareVectors(result, {1, 2, 3}));
     return 0;
 }
