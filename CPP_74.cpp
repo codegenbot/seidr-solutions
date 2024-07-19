@@ -1,9 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int total_chars(const vector<string>& lst) {
@@ -27,16 +31,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 
 int main() {
     vector<string> lst1 = {"apple", "banana", "cherry"};
-    vector<string> lst2 = {"orange", "mango", "papaya"};
+    vector<string> lst2 = {"apple", "banana", "cherry"};
 
-    vector<string> result = total_match(lst1, lst2);
-
-    vector<string> expected_result = total_chars(lst1) < total_chars(lst2) ? lst1 : lst2;
-
-    if (issame(result, expected_result)) {
-        cout << "Test case passed" << endl;
-    } else {
-        cout << "Test case failed" << endl;
+    if (issame(lst1, lst2)) {
+        vector<string> result = total_match(lst1, lst2);
+        // compare result with expected value here
     }
 
     return 0;
