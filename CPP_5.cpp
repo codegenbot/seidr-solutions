@@ -1,20 +1,8 @@
 #include <vector>
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> intersperse(vector<int> numbers, int delimiter);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
 
 vector<int> intersperse(vector<int> numbers, int delimiter){
     vector<int> result;
@@ -25,9 +13,4 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
         result.push_back(numbers[i]);
     }
     return result;
-}
-
-int main() {
-    // Additional code if needed
-    return 0;
 }
