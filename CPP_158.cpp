@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -24,4 +25,3 @@ int main() {
     }
     cout << find_max(words) << endl;
     return 0;
-}
