@@ -1,21 +1,12 @@
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+#include<string>
+using namespace std;
 
 bool simplify(string x,string n){
-    int numerator1 = stoi(x.substr(0,x.find('/')));
-    int denominator1 = stoi(x.substr(x.find('/')+1));
-    int numerator2 = stoi(n.substr(0,n.find('/')));
-    int denominator2 = stoi(n.substr(n.find('/')+1));
+    int a = stoi(strtok((x.substr(1)).c_str(), "/"));
+    int b = stoi(strtok(NULL, "/"));
+    int c = stoi(strtok((n.substr(1)).c_str(), "/"));
+    int d = stoi(strtok(NULL, "/"));
 
-    int newNumerator = numerator1 * denominator2;
-    int newDenominator = denominator1 * numerator2;
-
-    if(gcd(newNumerator, newDenominator) != 1)
-        return false;
-
-    return true;
+    if (a*d == b*c) return true;
+    else return false;
 }
