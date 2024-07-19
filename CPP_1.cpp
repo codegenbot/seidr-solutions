@@ -37,6 +37,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 int main() {
     vector<string> expected_result = {"()", "(())", "(()())"};
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_result));
-
+    
     return 0;
 }
