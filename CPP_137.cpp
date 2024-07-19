@@ -11,9 +11,9 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
             return b;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
+        if (boost::any_cast<string>(a) > boost::any_cast<string>(b)) {
             return a;
-        } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
+        } else if (boost::any_cast<string>(a) < boost::any_cast<string>(b)) {
             return b;
         }
     }
