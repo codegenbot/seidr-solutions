@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <numeric>
 #include <cmath>
-#include <limits>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
@@ -11,7 +11,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> findClosestPair(std::vector<float> numbers) {
+std::pair<float, float> closestPair(std::vector<float> numbers) {
     std::vector<std::pair<float, float>> pairs = {};
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j <= numbers.size() - 1; j++) {
@@ -29,4 +29,9 @@ std::vector<float> findClosestPair(std::vector<float> numbers) {
         }
     }
     return {closest_pair.first, closest_pair.second};
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
