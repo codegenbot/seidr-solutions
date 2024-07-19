@@ -14,19 +14,11 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your implementation here
 }
 
 int main() {
-    // Test cases here
+    // Main function implementation
     return 0;
 }
