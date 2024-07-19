@@ -1,13 +1,14 @@
-sort(lst.begin(), lst.end());
-vector<int> sorted;
-int left = 0, right = lst.size() - 1;
+#include <vector>
+#include <cassert>
 
-while (left <= right) {
-    sorted.push_back(lst[left++]);
-    if (left <= right) {
-        sorted.push_back(lst[right--]);
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
     }
-}
-
-return sorted;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
