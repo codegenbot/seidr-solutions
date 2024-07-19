@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <vector>
 #include <cmath>
 
@@ -6,18 +5,7 @@ bool checkSame(float a, float b) {
     return std::abs(a - b) < 1e-9;
 }
 
-struct Hasher {
-};
-
-template <typename T>
-class vector : public std::pmr_vector<T> {
-public:
-    using iterator = typename std::pmr_vector<T>::iterator;
-    using const_iterator = typename std::pmr_vector<T>::const_iterator;
-    using size_type = std::pmr_vector<T>::size_type;
-};
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     if (a.size() != b.size()) {
         return false;
     }
