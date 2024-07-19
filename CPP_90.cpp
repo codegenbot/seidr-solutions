@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +17,7 @@ int next_smallest(std::vector<int> lst) {
 int main() {
     std::vector<int> lst;
     int num;
-    lst.reserve(1024); 
+    lst.reserve(1024); // reserve some space
     while(std::cin >> num) {
         lst.push_back(num);
     }
