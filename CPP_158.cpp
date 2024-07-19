@@ -20,6 +20,6 @@ string find_max(const vector<string>& words){
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == "play"));
+    assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
