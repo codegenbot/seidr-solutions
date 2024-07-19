@@ -2,32 +2,30 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-int compare_strings(string a, string b) {
+int compare_strings(std::string a, std::string b) {
     if (a > b)
-        return 1; 
+        return 1;
     else if (b > a)
-        return -1; 
+        return -1;
     else
-        return 0; 
+        return 0;
 }
 
 int main() {
-    string str1, str2;
-    cout << "Enter first string: ";
-    getline(cin, str1);
-    cout << "Enter second string: ";
-    getline(cin, str2);
+    std::string str1, str2;
+    std::cout << "Enter first string: ";
+    std::getline(std::cin, str1);
+    std::cout << "Enter second string: ";
+    std::getline(std::cin, str2);
 
     int result = compare_strings(str1, str2);
 
     if (result > 0)
-        cout << "Greater string is: " << str1 << endl;
+        std::cout << "Greater string is: " << str1 << std::endl;
     else if (result < 0)
-        cout << "Greater string is: " << str2 << endl;
+        std::cout << "Greater string is: " << str2 << std::endl;
     else
-        cout << "Both strings are equal" << endl;
+        std::cout << "Both strings are equal" << std::endl;
 
     return 0;
 }
