@@ -7,20 +7,20 @@
 using namespace std;
 
 double find_zero(vector<double> coeffs, double x) {
-    double poly = 0;
+    double result = 0;
     double power = 1;
     for (double coeff : coeffs) {
-        poly += coeff * pow(x, power);
+        result += coeff * pow(x, power);
         power++;
     }
-    return -pow(x,2) + poly;
+    return -pow(x,2) + result;
 }
 
 int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs(n);
+    vector<double> coeffs(n, 0); // Initialize with zeros
 
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
@@ -29,5 +29,9 @@ int main() {
     double x;
     cin >> x;
 
-    cout << fixed << setprecision(6) << find_zero(coeffs, x) << endl;
+    double solution = find_zero(coeffs, x); 
+
+    cout << fixed << setprecision(6) << solution << endl;
+
+    assert (abs(find_zero(coeffs, solution)) < 1e-3);
 }
