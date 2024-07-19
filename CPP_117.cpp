@@ -1,16 +1,18 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
-std::vector<std::string> select_words(std::string s, int n);
+using namespace std;
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n);
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonant_count = 0;
-    
+
     for (char c : s) {
         if (c == ' ') {
             if (consonant_count == n) {
@@ -19,7 +21,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word = "";
             consonant_count = 0;
         } else {
-            if (isalpha(c) && !std::strchr("aeiouAEIOU", c)) {
+            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
                 consonant_count++;
             }
             word += c;
@@ -33,7 +35,7 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
