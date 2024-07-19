@@ -1,6 +1,12 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -8,15 +14,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         result.push_back(abs(game[i] - guess[i]));
     }
     return result;
-}
-
-#include <iostream>
-#include <cassert>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
