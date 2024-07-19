@@ -1,16 +1,11 @@
-bool issame(int a, int b) {
+bool issame(string a, string b) {
     return a == b;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
-    
-    for (const string& word : result) {
-        cout << word << endl;
-    }
-
+    // Code logic
     return 0;
 }
 
