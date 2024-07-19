@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
+using namespace std;
 string res = "";
 
 string rounded_avg(int n, int m) {
