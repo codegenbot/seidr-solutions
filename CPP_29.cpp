@@ -1,9 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
-    for(string s : strings) {
-        if(s.find(prefix) == 0) {
+    for(auto s : strings){
+        if(s.find(prefix) == 0)
             result.push_back(s);
-        }
     }
     return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    vector<string> strings(n);
+    for(int i = 0; i < n; i++) {
+        cin >> strings[i];
+    }
+
+    string prefix;
+    cin >> prefix;
+
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+
+    if(issame({}, filtered_strings)) {
+        cout << "No strings match the given prefix." << endl;
+    } else {
+        for(auto s : filtered_strings) {
+            cout << s << endl;
+        }
+    }
+
+    return 0;
 }
