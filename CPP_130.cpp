@@ -32,4 +32,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-issame(tri(1), {1, 3});
+bool main() {
+    issame(tri(1), {1, 3});
+    return 0;
+}
