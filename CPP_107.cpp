@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,7 +23,7 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
-int main() {
+int checkNumber() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
