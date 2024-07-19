@@ -12,7 +12,7 @@ int solution(std::vector<long long> numbers) {
 
 }
 
-int myMain() {
+int main() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
