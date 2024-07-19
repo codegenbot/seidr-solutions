@@ -13,10 +13,17 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; // declare and initialize lst
-    int odd_sum = 0; // declare and initialize odd_sum
+    vector<float> lst; 
+    int odd_sum = 0; 
     
-    // your code to fill lst and calculate odd_sum
+    float num;
+    cout << "Enter numbers (enter -1 to stop):" << endl;
+    while ((cin >> num) && (num != -1)) {
+        if (num > 0) {
+            odd_sum += num;
+        }
+        lst.push_back(num);
+    }
 
     assert (double_the_difference(lst) == odd_sum );
 
