@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 using namespace std;
 
@@ -14,7 +13,7 @@ bool same(const vector<string>& vec1, const vector<string>& vec2) {
 }
 
 vector<string> numerical_letter_grade(const vector<float>& grades) {
-    vector<string> result;
+    vector<string> result(std::allocator<std::string>());
     for (float grade : grades) {
         string letterGrade;
         if (grade >= 4.0)
