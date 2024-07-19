@@ -5,10 +5,10 @@
 #include <cmath> 
 using namespace std;
 
-string res = "";
+string res = string(""); 
 
 string rounded_avg(int n, int m) {
-    if (n > m) return "-" + rounded_avg(n, m);
+    if (n > m) return "-1";
     double sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
