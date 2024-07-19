@@ -13,6 +13,5 @@ def is_multiply_prime(a):
         while a % i == 0:
             factors.append(i)
             a //= i
-    if len(factors) != 3:
-        return False
-    return all(is_prime(factor) for factor in set(factors))
+    primes = [f for f in set(factors) if is_prime(f)]
+    return len(primes) == 3
