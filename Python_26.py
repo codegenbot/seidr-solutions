@@ -1,14 +1,3 @@
-def find_unique_numbers(numbers):
-    return list(set(numbers))
-
-numbers = []
-while True:
-    num = input("Enter a number or press Enter to finish: ")
-    if num == "":
-        break
-    try:
-        numbers.append(int(num))
-    except ValueError as e:
-        print("Invalid input:", e)
-
-print(find_unique_numbers(numbers))
+def remove_duplicates(numbers):
+    seen = set()
+    return [x for x in numbers if not (x in seen or seen.add(x))]

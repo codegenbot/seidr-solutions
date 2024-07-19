@@ -3,7 +3,7 @@ try:
         try:
             result = int(input())
             print(result)
-        except ValueError:
+        except (ValueError, EOFError):
             break
 except:
     pass
