@@ -1,8 +1,9 @@
 ```
 def is_happy(s):
-    s = s.lower()
-    while len(s) > 1:
-        if set(s[0]) == set(s):
+    if len(s) < 3:
+        return False
+    for i in range(0, len(s), 3):
+        chunk = s[i:i+3]
+        if set(chunk).count(set(chunk)[0]) == len(set(chunk)):
             return True
-        s = ''.join(sorted(s))
     return False
