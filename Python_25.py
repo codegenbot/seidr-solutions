@@ -8,5 +8,4 @@ def factorize():
                 factors.append(number // i)
     return sorted(factors)
 
-
 print(factorize())

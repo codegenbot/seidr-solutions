@@ -16,7 +16,7 @@ def minPath(grid, k):
                     next_cell = (ni, nj)
 
         path.append(grid[next_cell[0]][next_cell[1]])
-        if next_cell in visited:
-            visited.remove(next_cell)
+        visited.remove(next_cell)  # Remove next_cell from visited
+        visited = [cell for cell in visited if cell != next_cell]  # Ensure unique cells
 
-    return path
+    return path[:k]

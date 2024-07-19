@@ -1,2 +1,2 @@
 def solve(s):
-    return ''.join([char.upper() if char.islower() else char.lower() if char.isupper() else char if char.isalpha() else char for char in s])[::-1]
+    return ''.join([char.upper() if char.islower() else char.lower() if char.isupper() else char for char in s[::-1]])
