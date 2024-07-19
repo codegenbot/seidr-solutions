@@ -2,13 +2,11 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
@@ -38,9 +36,9 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> test_input = separate_paren_groups("((group1)(group2))");
-    vector<string> expected_output = {"(group1)", "(group2)"};
-    assert(issame(test_input, expected_output));
-
+    string input = "(a)(b(c))(d)";
+    vector<string> expected_output = {"a", "bc", "d"};
+    vector<string> output = separate_paren_groups(input);
+    assert(issame(expected_output, output));
     return 0;
 }
