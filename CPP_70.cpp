@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     std::vector<int> result;
     int i = 0, j = lst.size() - 1;
     while (i <= j) {
