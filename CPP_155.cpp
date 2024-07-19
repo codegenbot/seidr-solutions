@@ -1,6 +1,5 @@
 #include <vector>
-
-vector<int> countEvenAndOddDigits(int num) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     vector<int> result(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
