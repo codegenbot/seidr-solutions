@@ -2,9 +2,7 @@
 #include <cassert>
 
 string longest(vector<string> strings){
-    if(strings.empty()){
-        return "None";
-    }
+    assert(!strings.empty());
     
     string longestStr = strings[0];
     for(const string& str : strings){
