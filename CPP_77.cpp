@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 bool iscuber(int a) {
     int cube_root = round(cbrt(a));
@@ -8,14 +8,6 @@ bool iscuber(int a) {
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    
-    if (iscuber(num)) {
-        std::cout << "True\n";
-    } else {
-        std::cout << "False\n";
-    }
-    
+    assert(iscuber(1729) == false);
     return 0;
 }
