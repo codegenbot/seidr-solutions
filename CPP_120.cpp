@@ -14,7 +14,7 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
     return same(v1, v2);
 }
 
-void maximum(const std::vector<int>& a) {
+void maximum(std::vector<int>& a) {
     std::sort(a.begin(), a.end());
 }
 
