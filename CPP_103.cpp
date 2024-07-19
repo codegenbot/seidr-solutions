@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -11,7 +12,7 @@ string rounded_avg(int n, int m) {
     double avg = round(sum / (m - n + 1));
     string res = "";
     while (avg > 0) {
-        if (avg & 1) res += '1';
+        if ((int)avg & 1) res += '1';
         else res += '0';
         avg /= 2;
     }
