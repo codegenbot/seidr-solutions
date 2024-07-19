@@ -3,19 +3,7 @@
 
 std::vector<int> f(int n);
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> f(int n){
     std::vector<int> result;
@@ -35,11 +23,27 @@ std::vector<int> f(int n){
     return result;
 }
 
-int main(){
-    std::vector<int> a = f(5);
-    std::vector<int> b = {1, 3, 2, 8, 5};
+bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    assert(issame(a, b));
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
     
-    return 0;
+    return true;
+}
+
+int main() {
+    std::vector<int> x = f(5);
+    std::vector<int> y = f(5);
+    
+    if (issame(x, y)) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
