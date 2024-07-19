@@ -1,16 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <map>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
 
+bool are_equal(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
-    map<int, string> numToString = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
+    map<string, string> numToString = {
+        {"1", "One"}, {"2", "Two"}, {"3", "Three"}, {"4", "Four"},
+        {"5", "Five"}, {"6", "Six"}, {"7", "Seven"}, {"8", "Eight"}, {"9", "Nine"}
     };
 
     vector<int> filtered;
@@ -22,14 +27,15 @@ vector<string> by_length(vector<int> arr) {
 
     sort(filtered.begin(), filtered.end(), greater<int>());
 
-    transform(filtered.begin(), filtered.end(), back_inserter(result), 
-        [&numToString](int num) { return numToString[num]; });
+    for (int num : filtered) {
+        result.push_back(numToString[to_string(num)]);
+    }
 
     return result;
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
-    
+    assert(are_equal(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+
     return 0;
 }
