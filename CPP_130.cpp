@@ -1,36 +1,15 @@
-#include <vector>
-
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> tri(int n){
-    vector<int> res;
-    if (n >= 0) {
-        res.push_back(3);
-        if (n > 0) {
-            res.push_back(1);
-            for (int i = 2; i <= n; ++i) {
-                if (i % 2 == 0) {
-                    res.push_back(1 + i / 2);
-                } else {
-                    res.push_back(res[i - 1] + res[i - 2] + res[i - 1]);
-                }
+vector<int> res;
+if (n >= 0) {
+    res.push_back(3);
+    if (n > 0) {
+        res.push_back(1);
+        for (int i = 2; i <= n; ++i) {
+            if (i % 2 == 0) {
+                res.push_back(1 + i / 2);
+            } else {
+                res.push_back(res[i - 1] + res[i - 2] + res[i - 3]); // Modified this line to access correct indices
             }
         }
     }
-    return res;
 }
-
-int main(){
-    assert(issame(tri(1), {1, 3}));
-    ...
-}
+return res;
