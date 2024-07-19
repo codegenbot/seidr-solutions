@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool vector_comparison(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
+}
+
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     vector<int> result(arr.begin(), arr.begin() + k);
@@ -12,7 +16,7 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == {});
+    assert(vector_comparison(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
 
     return 0;
 }
