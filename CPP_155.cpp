@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 #include <cassert>
 
 vector<int> even_odd_count(int num) {
@@ -13,4 +12,8 @@ vector<int> even_odd_count(int num) {
         }
     }
     return counts;
+}
+
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
