@@ -7,10 +7,8 @@ std::string fix_spaces(const std::string& text) {
             if (i > 0 && text[i - 1] == ' ')
                 continue;
             else {
-                text.erase(i, 1);
-                text.insert(text.begin() + i, '2');
-                text.insert(text.begin() + i + 1, '%');
-                i++;
+                i++; 
+                text.insert(i, "2%");
             }
         }
     }
