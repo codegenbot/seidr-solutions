@@ -5,13 +5,15 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     return vector<int>(arr.begin(), arr.begin() + k);
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
