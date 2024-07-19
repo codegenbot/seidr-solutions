@@ -1,7 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
     std::vector<std::string> result;
