@@ -28,4 +28,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main() {
     assert(issame(total_match({"this"}, vector<string> {}), vector<string> {}));
     return 0;
-}  
+}
