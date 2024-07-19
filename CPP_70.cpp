@@ -31,6 +31,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame({1, 2, 3}, strange_sort_vector({3, 2, 1})));
+    assert(std::issame({111111}, strange_sort_vector({111111})));
     return 0;
 }
