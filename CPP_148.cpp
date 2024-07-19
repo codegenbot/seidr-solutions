@@ -1,54 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
-
-    int index1 = -1, index2 = -1;
-    for (int i = 0; i < planets.size(); ++i) {
-        if (planet1 == planets[i]) {
-            index1 = i;
-        }
-        if (planet2 == planets[i]) {
-            index2 = i;
-        }
-    }
-
-    if (index1 == -1 || index2 == -1) {
+    if (find(planets.begin(), planets.end(), planet1) == planets.end() || find(planets.begin(), planets.end(), planet2) == planets.end()) {
         return result;
     }
 
-    int start = std::min(index1, index2);
-    int end = std::max(index1, index2);
+    int start = min(find(planets.begin(), planets.end(), planet1) - planets.begin(), find(planets.begin(), planets.end(), planet2) - planets.begin());
+    int end = max(find(planets.begin(), planets.end(), planet1) - planets.begin(), find(planets.begin(), planets.end(), planet2) - planets.begin());
 
     for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
 
     return result;
-}
-
-int main() {
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-
-    std::vector<std::string> result = bf(planet1, planet2);
-
-    if (result.empty()) {
-        std::cout << "Invalid planets entered" << std::endl;
-    } else {
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
 }
