@@ -1,2 +1,3 @@
-return (a == b + c || b == a + c || c == a + b) && (a == int(a) && b == int(b) && c == int(c));
+bool any_int(double a, double b, double c) {
+    return (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c));
 }
