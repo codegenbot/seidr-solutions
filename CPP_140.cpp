@@ -22,7 +22,7 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    std::string input_text = "Hello   world";
-    std::string fixed_text = fix_spaces(input_text);
+    std::string input_text = "your_input_here";
+    std::string result = fix_spaces(input_text);
     return 0;
 }
