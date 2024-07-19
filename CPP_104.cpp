@@ -33,5 +33,5 @@ int main() {
     std::vector<int> expected = {31, 135};
     bool isEqual = issame(unique_digits(input), expected);
     
-    std::cout << "Result: " << (isEqual ? "Passed" : "Failed") <<std::endl;
+    std::cout << "Result: " << (isEqual ? "Passed" : "Failed") << std::endl;
 }
