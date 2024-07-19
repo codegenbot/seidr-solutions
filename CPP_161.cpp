@@ -1,4 +1,6 @@
-string solve(std::string s) {
+using namespace std;
+
+string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -7,4 +9,4 @@ string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    return result.empty() ? string(s).reverse() : result;
