@@ -1,18 +1,21 @@
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            vector<float> evenVals;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    evenVals.push_back(l[j]);
-                }
-            }
-            sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
+```cpp
+#include <vector>
+#include <algorithm>
+
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
+}
+
+std::vector<float> sort_even(std::vector<float> l){
+    std::vector<float> l_prime;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 2 == 0){
+            std::vector<float> even_elements(l.begin() + i, l.begin() + i+1);
+            std::sort(even_elements.begin(), even_elements.end());
+            l_prime.push_back(*std::min_element(even_elements.begin(), even_elements.end()));
         } else {
-            result[i] = l[i];
+            l_prime.push_back(l[i]);
         }
     }
-    return result;
+    return l_prime;
 }
