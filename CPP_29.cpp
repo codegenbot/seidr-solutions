@@ -2,9 +2,21 @@
 #include <string>
 #include <vector>
 
+bool startsWith(const std::string& str, const std::string& prefix) {
+    if (prefix.size() > str.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < prefix.size(); ++i) {
+        if (str[i] != prefix[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool issame(const std::vector<std::string>& a, const std::string& prefix) {
     for (const auto& str : a) {
-        if (str.find(prefix) != 0) return false;
+        if (!startsWith(str, prefix)) return false;
     }
     return true;
 }
@@ -16,12 +28,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         while (start < str.size()) {
             size_t end = str.find(' ', start);
             if (end == std::string::npos) {
-                if (!issame(std::vector<std::string>{{str.substr(start)}} , prefix)) {
+                if (!startsWith(str.substr(start), prefix)) {
                     result.push_back(str.substr(start));
                 }
                 break;
             }
-            if (!issame(std::vector<std::string>{{str.substr(start, end - start)}} , prefix)) {
+            if (!startsWith(str.substr(start, end - start), prefix)) {
                 result.push_back(str.substr(start, end - start));
             }
             start = end + 1;

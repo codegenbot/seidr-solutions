@@ -1,7 +1,7 @@
-```c++
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <initializer_list>
 
 int nextSmallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
