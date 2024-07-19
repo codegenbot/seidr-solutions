@@ -1,11 +1,5 @@
 #include <vector>
-
-std::vector<int> f(int n);
-
-int main() {
-    std::vector<int> result = f(5);
-    return 0;
-}
+#include <cassert>
 
 std::vector<int> f(int n){
     std::vector<int> result;
