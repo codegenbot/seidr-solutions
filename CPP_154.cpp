@@ -12,7 +12,7 @@ bool cycpattern_check(string a, string b) {
 int main() {
     string a, b;
     cin >> a >> b;
-    
+
     cout << cycpattern_check(a, b) << endl;
     
     assert(cycpattern_check("winemtt", "tinem") == true);
