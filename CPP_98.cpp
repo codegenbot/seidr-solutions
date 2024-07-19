@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int start_here(std::string& input) {
+int main(std::string& input) {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     int count = 0;
