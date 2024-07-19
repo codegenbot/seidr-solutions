@@ -16,7 +16,7 @@ int main() {
     remaining %= 10;
 
     int pennies = remaining;
-    
+
     cout << quarters << endl;
     cout << nickles << endl;
     cout << dimes << endl;
