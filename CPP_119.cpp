@@ -4,12 +4,9 @@
 
 bool match_parens(const std::string& s) {
     size_t open = 0, close = 0;
-    size_t count = 0;
-    while(count < s.length()) {
-        char ch = s[count];
+    for (char ch : s) {
         if (ch == '(') open++;
         else if (ch == ')') close++;
-        count++;
     }
     return open == close;
 }

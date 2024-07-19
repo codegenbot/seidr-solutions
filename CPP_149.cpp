@@ -28,7 +28,7 @@ std::vector<std::vector<std::string>> sorted_list_sum(const std::vector<std::str
         }
         if (!wordList.empty()) {
             std::sort(wordList.begin(), wordList.end());
-            result.push_back({std::to_string(sum), wordList.size() > 1 ? &wordList[0] : &wordList});
+            result.push_back({std::to_string(sum), &wordList[0]});
         }
     }
     return result;
@@ -44,6 +44,6 @@ int main() {
         lst.push_back(str);
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
-    assert(issame(expected, expected));
+    assert(issame(expected, {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
