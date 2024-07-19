@@ -34,7 +34,7 @@ std::vector<double> find_zero(const std::vector<double>& coefficients) {
 }
 
 int main() {
-    std::vector<double> coeffs;
+    std::vector<double> coeffs = {};
     double coeff;
     while (std::cin >> coeff) {
         coeffs.push_back(coeff);
