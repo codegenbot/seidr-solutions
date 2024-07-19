@@ -1,6 +1,4 @@
-#include <vector>
-
-using namespace std;
+Here is the solution:
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
