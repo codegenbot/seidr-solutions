@@ -29,9 +29,9 @@ bool isConsonant(char c) {
 }
 
 int main() {
-    std::cout << "Enter a word: ";
     std::string word;
-    std::cin >> word;
-    std::cout << "Closest vowel is: " << get_closest_vowel(word) << std::endl;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, word);
+    std::cout << "The closest vowel to the end is: " << get_closest_vowel(word) << std::endl;
     return 0;
 }
