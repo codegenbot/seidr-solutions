@@ -22,10 +22,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst(5); // Initialize an empty vector of size 5
-    for (int i = 0; i < 5; ++i) { 
-        cin >> lst[i]; // Read input from user and store it in the vector
-    }
+    vector<int> lst = {3, 10, 10, 9, 2, 1};
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
     return 0;
