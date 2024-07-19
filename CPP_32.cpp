@@ -35,7 +35,7 @@ std::vector<double> find_zero(const std::vector<double>& coefficients) {
 int main() {
     std::vector<double> coefficients = {1.0, -3.0, -2.0, 4.0};
     std::vector<double> coeffs;
-    
+  
     for (double coeff : coefficients) {
         coeffs.push_back(coeff);
     }
