@@ -1,18 +1,28 @@
-for (int i = 0; i < s.size(); ++i) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) 
+#include <string>
+#include <algorithm>
+
+std::string solve(std::string s);
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
+}
+
+std::string solve(std::string s){
+    int n = s.size();
+    bool hasLetter = false;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            if(islower(s[i])){
                 s[i] = toupper(s[i]);
-            else 
+            } else {
                 s[i] = tolower(s[i]);
+            }
         }
     }
-
-    int left = 0, right = s.size() - 1;
-    while (left < right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
+    if(!hasLetter){
+        std::reverse(s.begin(), s.end());
     }
-
     return s;
 }
