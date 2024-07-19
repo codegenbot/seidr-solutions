@@ -1,10 +1,13 @@
-std::string anti_shuffle(std::string s) {
+#include <iostream>
+#include <string>
+
+std::string anti_shuffle(const std::string& s) {
     std::string result = "";
-    int i = 0;
-    for (char c : s) {
+    for (int i = 0; i < s.length(); i++) {
+        char c = s[i];
         if (c == ' ') {
-            while (i < s.length() && s[i] != ' ') {
-                result += s[i];
+            while (i + 1 < s.length() && s[i + 1] != ' ') {
+                result += s[i + 1];
                 i++;
             }
             result += '.';
