@@ -1,9 +1,10 @@
+#include <iostream>
 #include <string>
 
-std::string check_file_validity(std::string file_name) {
+std::string validate_file_name(const std::string& file_name) {
     int digit_count = 0;
     for (char c : file_name) {
-        if (isdigit(c)) {
+        if (std::isdigit(c)) {
             digit_count++;
         }
     }
@@ -16,7 +17,7 @@ std::string check_file_validity(std::string file_name) {
     std::string prefix = file_name.substr(0, dot_pos);
     std::string suffix = file_name.substr(dot_pos + 1);
 
-    if (!isalpha(prefix[0]) || suffix != "txt" && suffix != "exe" && suffix != "dll") {
+    if (!std::isalpha(prefix[0]) || (suffix != "txt" && suffix != "exe" && suffix != "dll")) {
         return "No";
     }
 
