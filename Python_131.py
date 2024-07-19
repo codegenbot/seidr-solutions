@@ -1,15 +1,13 @@
-import math
-
 while True:
     try:
-        n = int(input("Enter a positive integer greater than zero: "))
+        n = int(input("Enter a positive integer: "))
         if n <= 0:
-            print("Please enter a positive integer greater than zero.")
+            print("Please enter a positive integer.")
             continue
-        
-        result = math.prod(map(int, str(n)))
+
+        result = math.prod(int(digit) for digit in str(n) if digit.isdigit())
         print(result)
         break
-    
+
     except ValueError:
-        print("Invalid input. Please enter a positive integer greater than zero.")
+        print("Invalid input. Please enter a positive integer.")
