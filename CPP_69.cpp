@@ -1,3 +1,5 @@
+#include <vector>
+
 int search(vector<int> lst) {
     map<int, int> freqMap;
     for (int num : lst) {
