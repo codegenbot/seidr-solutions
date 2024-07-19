@@ -1,24 +1,12 @@
-#include <string>
-using namespace std;
-
-string substitutionCipher(string cipher1, string cipher2, string message) {
+string decipher(string a, string b, string c) {
     string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        int j = 0;
-        while (j < cipher1.length()) {
-            if (message[i] == cipher1[j]) {
-                result += cipher2[j];
+    for(int i=0; i<c.length(); i++) {
+        for(int j=0; j<a.length(); j++) {
+            if(a[j] == c[i]) {
+                result += b[j];
                 break;
             }
-            j++;
         }
     }
     return result;
-}
-
-int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
-    return 0;
 }
