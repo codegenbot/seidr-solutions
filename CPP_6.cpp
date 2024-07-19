@@ -23,17 +23,7 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
     return depths;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::vector<int> depths = parse_nested_parens(input);
-    for (int depth : depths) {
-        std::cout << depth << " ";
-    }
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    assert(parse_nested_parens("(()(())((())))") == std::vector<int>{4});
     return 0;
 }
