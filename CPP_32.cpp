@@ -10,7 +10,10 @@ double poly(const std::vector<double>& x, const std::vector<double>& coefficient
     return result;
 }
 
-std::vector<double> find_zero(const std::vector<double>& coefficients);
+std::vector<double> find_zero(const std::vector<double>& coefficients) {
+    std::vector<double> zeros;
+    return zeros;
+}
 
 int main() {
     std::vector<double> coefficients;
@@ -19,14 +22,9 @@ int main() {
         coefficients.push_back(coeff);
     }
     
-    auto solution = find_zero(coefficients);
+    std::vector<double> solution = find_zero(coefficients);
     
     assert(std::abs(poly(coefficients, solution)) < 1e-3);
     
     return 0;
-}
-
-std::vector<double> find_zero(const std::vector<double>& coefficients) {
-    std::vector<double> zeros;
-    return zeros;
 }
