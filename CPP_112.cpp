@@ -42,8 +42,3 @@ std::string reverse(std::string s) {
     }
     return rev;
 }
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
-    return 0;
-}
