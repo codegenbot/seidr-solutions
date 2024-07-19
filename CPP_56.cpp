@@ -1,11 +1,11 @@
 int count = 0;
-    for(char bracket : brackets){
-        if(bracket == '<'){
+    for (char bracket : brackets) {
+        if (bracket == '<') {
             count++;
-        } else if(bracket == '>'){
+        } else if (bracket == '>') {
             count--;
         }
-        if(count < 0){
+        if (count < 0) {
             return false;
         }
     }
