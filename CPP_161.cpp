@@ -1,10 +1,17 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+#include <string>
+#include <cassert> // Include the <cassert> header for assert
+
+std::string solve(std::string s) {
+    for (char &c : s) {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if (std::count_if(s.begin(), s.end(), [](char c) { return std::isalpha(c); }) == 0) {
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
