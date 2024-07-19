@@ -4,12 +4,12 @@ def get_integer_input(prompt):
             num = int(input(prompt + " (1, 2, or 3): "))
             if num in [1, 2, 3]:
                 return num
-            print("Invalid input. Please enter a valid integer (1, 2, or 3).")
+            print("Please enter a valid integer (1, 2, or 3).")
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print("Please enter a valid integer.")
 
 operations = [
-    get_integer_input("Enter operation number 1"),
-    get_integer_input("Enter operation number 2"),
-    get_integer_input("Enter operation number 3"),
+    get_integer_input("Enter the first operation number"),
+    get_integer_input("Enter the second operation number"),
+    get_integer_input("Enter the third operation number"),
 ]
