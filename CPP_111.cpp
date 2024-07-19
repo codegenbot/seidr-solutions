@@ -1,4 +1,4 @@
-map<char, int> histogram(string test){
+map<char, int> histogram(string test) {
     map<char, int> result;
     map<char, int> count;
 
