@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -13,18 +12,18 @@ double find_zero(const std::vector<double>& coeffs, double x) {
 }
 
 int main() {
-    int n;
-    cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> n;
+    double n;
+    cin >> n;
 
     std::vector<double> coeffs;
-    for(int i = 0; i < n; i++) {
+    for(double i = 0; i < n; i++) {
         double val;
-        cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> val;
+        cin >> val;
         coeffs.push_back(val);
     }
 
     double x;
-    cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> x;
+    cin >> x;
 
     double result = find_zero(coeffs, x); 
 
