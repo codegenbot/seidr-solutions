@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0;
     int smallest_positive = 0;
@@ -17,10 +21,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
     }
     
     return {largest_negative, smallest_positive};
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main(){
