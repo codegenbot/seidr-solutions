@@ -7,9 +7,10 @@ double truncate_number(double number) {
 }
 
 int main() {
-    double num;
-    std::cin >> num;
-    std::cout << truncate_number(num) << std::endl;
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+    assert(std::abs(truncate_number(7.89) - 0.89) < 1e-4);
+    assert(std::abs(truncate_number(0.123) - 0.123) < 1e-4);
+    assert(std::abs(truncate_number(9.876) - 0.876) < 1e-4);
     
     return 0;
 }
