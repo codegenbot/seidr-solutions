@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -7,8 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    unordered_map<int, bool> seen;
-    vector<int> result;
+    std::unordered_map<int, bool> seen;
+    std::vector<int> result;
 
     for (int num : numbers) {
         if (!seen.count(num) || !seen[num]) {
