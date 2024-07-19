@@ -1,11 +1,13 @@
 #include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+using namespace std;
+
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> get_positive(const std::vector<float>& vec) {
-    std::vector<float> positive_values;
+vector<float> get_positive(const vector<float>& vec) {
+    vector<float> positive_values;
     for (const auto& val : vec) {
         if (val > 0) {
             positive_values.push_back(val);
