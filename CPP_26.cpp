@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <initializer_list>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
