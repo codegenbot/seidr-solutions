@@ -30,9 +30,9 @@ bool isPrime(int n) {
     return true;
 
 }
+
 int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
-    vector<int> numbers = {1, 2, 3};
-    cout << "The sum of the last digits of all prime numbers is: " << skjkasdkd(numbers) << endl;
-    return 0;
+    assert(skkasdkd({127, 97, 8192}) == 10);
+    vector<int> input = {1, 2, 3};
+    cout << skkasdkd(input) << endl;
 }
