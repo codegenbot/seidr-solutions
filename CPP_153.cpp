@@ -27,7 +27,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::vector<std::string> extensions = {"Java", "Python", "C++", "Kotlin", "Swift"};
+    std::vector<std::string> extensions = {"Java", "Python", "C++", "Kotlin"};
     std::cout << Strongest_Extension("MyClass", extensions) << std::endl;
     return 0;
 }
