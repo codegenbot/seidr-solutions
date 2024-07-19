@@ -1,20 +1,22 @@
-#include <vector>
-#include <climits>
-
 bool is_same(vector<int> a, vector<int> b){
     return a == b;
 }
 
 vector<int> largest_smallest_integer(vector<int> lst){
-    vector<int> result = {INT_MIN, INT_MAX};
+    vector<int> result = {0, 0};
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
 
     for (int num : lst) {
-        if (num < 0 && num > result[0]) {
-            result[0] = num;
-        } else if (num > 0 && num < result[1]) {
-            result[1] = num;
+        if (num < 0 && num > largest_negative) {
+            largest_negative = num;
+        } else if (num > 0 && num < smallest_positive) {
+            smallest_positive = num;
         }
     }
+
+    result[0] = largest_negative;
+    result[1] = smallest_positive;
 
     return result;
 }
