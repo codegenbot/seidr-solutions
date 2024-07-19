@@ -1,5 +1,18 @@
 #include <vector>
+using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-} 
+bool issame(vector<int> a, vector<int> b); 
+
+int main() {
+    assert(issame(generate_integers(17,89), {}));
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    vector<int> result;
+    for (int i = a; i <= b; ++i) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
