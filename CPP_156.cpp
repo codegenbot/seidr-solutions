@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <utility>
 #include <assert.h>
 
 string int_to_mini_romank(int number);
