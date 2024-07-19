@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
@@ -11,14 +10,4 @@ int sum_squares(std::initializer_list<double> lst) {
     }
     return total;
 
-}
-
-int main() {
-    std::cout << "Enter numbers separated by space: ";
-    double num;
-    while (std::cin >> num) {
-        int total = sum_squares({num});
-        std::cout << "Sum of squares for number: " << num << " is: " << total << "\n";
-    }
-    return 0;
 }
