@@ -24,7 +24,4 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
 }
 
 int main() {
-    { 
-    assert(issame(filter_by_prefix({{"xxx"}, {"asd"}, {"xxy"}, {"john doe"}, {"xxxxAAA"}, {"xxx"}}, "xxx") , {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
-    return 0;
-}
+    {{assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , std::vector<std::string>({{"xxx"}, {"xxxAAA"}, {"xxx"}})));}}
