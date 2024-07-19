@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-int solve(std::string s) {
+std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -11,15 +11,15 @@ int solve(std::string s) {
             result += c;
         }
     }
-    return result.empty();
+    return result.empty() ? std::move(s) : result;
 }
 
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
-    if (solve(s)) {
-        std::cout << s << std::endl;
+    if (!s.empty()) {
+        std::cout << solve(s) << std::endl;
     } else {
         std::cout << "No solution exists" << std::endl;
     }
