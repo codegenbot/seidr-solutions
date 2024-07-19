@@ -1,18 +1,8 @@
-```
-bool issame(char ch1, char ch2) {
-    if(ch1 >= 'a' && ch1 <= 'z') 
-        ch1 = (ch1 - 'a' + 26)%26 + 'a';
-    else if(ch1 >= 'A' && ch1 <= 'Z')
-        ch1 = (ch1 - 'A' + 26)%26 + 'A';
-    if(ch2 >= 'a' && ch2 <= 'z') 
-        ch2 = (ch2 - 'a' + 26)%26 + 'a';
-    else if(ch2 >= 'A' && ch2 <= 'Z')
-        ch2 = (ch2 - 'A' + 26)%26 + 'A';
-    return ch1 == ch2;
-}
+#include <vector>
+#include <string>
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -22,14 +12,14 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::string(1, ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    if (issame(temp[0],temp[temp.size()-1])) {
+    if (temp == std::string(reverse(temp))) {
         result.push_back("True");
     } else {
         result.push_back("False");
@@ -37,10 +27,20 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-string reverse(string s) {
-    string rev = "";
+std::string reverse(std::string s) {
+    std::string rev = "";
     for (int i = s.size() - 1; i >= 0; i--) {
         rev += s[i];
     }
     return rev;
+
+bool isSame(const std::vector<std::string>& v) {
+    if(v.size() < 2) {
+        return false;
+    }
+    std::string temp = "";
+    for (int i = 0; i < v.size(); i++) {
+        temp += v[i];
+    }
+    return temp == std::string(reverse(temp));
 }
