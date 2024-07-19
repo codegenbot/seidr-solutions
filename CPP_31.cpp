@@ -1,27 +1,20 @@
-```cpp
 #include <iostream>
-#include <cassert>
-#include <string>
-
+// Function to check if a number is prime or not
 bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    bool is_divisor = false;
-    for (int i = 2; i * i <= n && !is_divisor; ++i) {
+    // Check all numbers from 2 to sqrt(n)
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            is_divisor = true;
+            return false;
         }
     }
-    return !is_divisor;
+    return true;
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    int n = std::stoi(input);
+    int n;
+    std::cin >> n;
     if (!is_prime(n)) {
-        std::cout << "The number is not prime. Please enter a valid integer." << std::endl;
+        std::cout << "The number is not prime." << std::endl;
     } else {
         std::cout << "The number is prime." << std::endl;
     }
