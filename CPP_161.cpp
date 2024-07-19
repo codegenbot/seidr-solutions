@@ -1,9 +1,5 @@
-```cpp
-#include <algorithm>
-using namespace std;
-
-string strToChar(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
@@ -11,11 +7,5 @@ string strToChar(string s) {
             result += c;
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
-}
-
-int main() {
-    assert(strToChar("#ccc") == "#CCC");
-    // ... rest of your code ...
+    return result.empty() ? std::string(rbegin(s), rend(s)) : result;
 }
