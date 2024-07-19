@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
 bool issame(std::string a, std::string b) {
@@ -10,9 +9,8 @@ bool issame(std::string a, std::string b) {
 std::string numerical_letter_grade(std::vector<double> grades);
 
 int main() {
-    std::vector<double> grades = {85, 92, 78, 65, 44};
-    std::cout << "Average grade: " << numerical_letter_grade(grades) << std::endl;
-
+    std::vector<double> grades = {85, 92, 78, 65, 43};
+    std::string grade = numerical_letter_grade(grades);
     return 0;
 }
 
