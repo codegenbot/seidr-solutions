@@ -2,17 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int solution(std::vector<std::string> numbers) {
-    int sum = 0;
-    for (int i = 1; i < numbers.size(); i++) {
-        if (stoi(numbers[i]) % 2 != 0) {
-            sum += stoi(numbers[i]);
-        }
-    }
-    return sum;
-}
-
-int main() {
+int originalMain() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -30,4 +20,20 @@ int main() {
     } else {
         std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
     }
+}
+
+int solution(std::vector<std::string> numbers) {
+    int sum = 0;
+    for (int i = 1; i < numbers.size(); i++) {
+        if (stoi(numbers[i]) % 2 != 0) {
+            sum += stoi(numbers[i]);
+        }
+    }
+    return sum;
+
+}
+
+int main() {
+    originalMain();
+    return 0;
 }
