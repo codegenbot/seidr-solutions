@@ -1,5 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     // Your logic here
@@ -21,4 +24,10 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    // Your test cases here
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    return 0;
 }
