@@ -1,30 +1,18 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int how_many_times(std::string str, std::string sub);
-
-std::string s; 
-std::string sub;
-
-int main() {
-    std::cin >> s >> sub;
-    
-    for(char c : sub) { 
-        s += c; 
-    }
-    
-    int result = how_many_times(s, sub);
-    
-    assert(result == s.find(sub) != std::string::npos);
-}
-
-int how_many_times(std::string str, std::string sub) {
+int how_many_times(std::string str1, std::string str2) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(sub)) != std::string::npos) {
+    while ((pos = str1.find(str2, pos)) != std::string::npos) {
         ++count;
-        str.erase(pos, sub.length());
+        pos += str2.size();
     }
     return count;
+}
+
+int main() {
+    assert(how_many_times("john doe", "john") == 1);
+    // Add more test cases here
+    return 0;
 }
