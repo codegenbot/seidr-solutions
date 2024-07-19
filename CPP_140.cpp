@@ -1,17 +1,28 @@
-int count = 0;
-    string result = "";
-    for (char& c : text) {
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
+    int consecutive_spaces = 0;
+    for (char c : text) {
         if (c == ' ') {
-            count++;
-            if (count <= 2) {
-                result += '_';
-            } else {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
+                result.pop_back();
+                result.pop_back();
                 result += '-';
+            } else {
+                result += '_';
             }
         } else {
-            count = 0;
+            consecutive_spaces = 0;
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    std::string text = "Hello   world";
+    std::string fixed_text = fix_spaces(text);
+    return 0;
 }
