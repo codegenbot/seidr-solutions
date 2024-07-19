@@ -1,5 +1,4 @@
-def concatenate_strings():
-    strings = input("Enter multiple strings (comma separated): ")
-    strings = [s.strip() for s in strings.split(",")]
-    result = concatenate(strings)
-    print(result)
+from typing import List
+
+def concatenate(strings: List[str]) -> str:
+    return ''.join(strings)
