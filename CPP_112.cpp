@@ -4,7 +4,9 @@ string result = "";
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, (result == reversed) ? "True" : "False"};
+    string resultStr = result;
+    string revResult = result;
+    reverse(revResult.begin(), revResult.end());
+    bool isPalindrome = (resultStr == revResult);
+    return {result, isPalindrome ? "True" : "False"};
 }
