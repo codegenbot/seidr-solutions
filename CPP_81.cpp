@@ -1,6 +1,7 @@
-```cpp
+```
 #include <vector>
 #include <string>
+#include <ostream>
 
 using namespace std;
 
