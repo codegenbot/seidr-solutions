@@ -1,7 +1,8 @@
+```
 #include <iostream>
-#include <vector>
+#include <string>
 
-bool match_parens(const std::vector<char>& lst) {
+bool match_parens(const std::string& lst) {
     int open = 0, close = 0;
     for (char x : lst) {
         if (x == '(') open++;
@@ -11,12 +12,11 @@ bool match_parens(const std::vector<char>& lst) {
 }
 
 int main() { 
-    std::string line;
-    std::vector<char> lst(std::vector<char>::size_type(0)); 
+    std::string line, lst; 
     std::cout << "Enter the strings: ";
     while((std::getline(std::cin, line)) && !line.empty()) {
         for(char c : line) {
-            lst.push_back(c);
+            lst += c;
         }
         std::cin.ignore(); // consume newline characters
     }
