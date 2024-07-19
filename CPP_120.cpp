@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -21,6 +21,6 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     std::vector<int> result = maximum(a);
-    if (!isSame(result, a)) return 1;
+    if (!same(result, a)) return 1;
     return 0;
 }
