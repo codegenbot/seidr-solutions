@@ -2,7 +2,7 @@ if (a.length() != b.length()) {
         return false;
     }
     
-    string temp = b + b;
+    string combined = a + a;
     
-    return (temp.find(a) != string::npos);
+    return combined.find(b) != string::npos;
 }
