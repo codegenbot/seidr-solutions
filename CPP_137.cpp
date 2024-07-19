@@ -24,8 +24,3 @@ std::any compare_one(const std::any& a, const std::any& b) {
     }
     return std::any();
 }
-
-int main() {
-    assert(std::any_cast<int>(compare_one(5, 10)) == 10);
-    return 0;
-}
