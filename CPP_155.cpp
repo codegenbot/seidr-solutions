@@ -1,17 +1,13 @@
 #include <vector>
-#include <string>
-
-vector<int> even_odd_count(int num){
-    string num_str = to_string(abs(num));
-    vector<int> counts(2, 0);
-    
-    for (char c : num_str) {
+std::vector<int> countEvenOddDigits(int num) {
+    std::vector<int> count(2, 0);
+    std::string numStr = std::to_string(std::abs(num));
+    for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
-            counts[0]++;
+            count[0]++;
         } else {
-            counts[1]++;
+            count[1]++;
         }
     }
-    
-    return counts;
+    return count;
 }
