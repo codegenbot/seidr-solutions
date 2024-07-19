@@ -1,7 +1,11 @@
 ```cpp
 #include <algorithm>
 #include <string>
+#include <initializer_list>
+
 using namespace std;
+
+class std::initializer_list<char>;
 
 string solve(string s) {
     string result = "";
@@ -14,12 +18,4 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "Output: " << solve(input) << endl;
-    return 0;
 }
