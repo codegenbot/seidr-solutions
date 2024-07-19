@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -37,5 +37,13 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-vector<string> output = reverse_delete("mamma", "mia");
-assert(issame({output}, {{"", "True"}}));
+int driver() {
+    vector<string> output = reverse_delete("mamma", "mia");
+    assert(same({output}, {{"", "True"}}));
+    return 0;
+}
+
+int main() {
+    driver();
+    return 0;
+}
