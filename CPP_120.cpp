@@ -25,14 +25,12 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    int n = 0;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > k) n++;
-    }
+    int max_element = *std::max_element(a.begin(), a.end());
+    int n = (max_element > k ? max_element : k) + 1;
     std::vector<int> result(n);
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] > k) result.push_back(a[i]);
     }
-    if (!issame(maximum(a, k), result)) return 1;
+    if (!issame(maximum(a, k), a)) return 1;
     return 0;
 }
