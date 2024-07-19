@@ -1,6 +1,6 @@
 def prefixes(s):
-    return [s[:i+1] for i in range(len(s))]
+    return [s[:i+1] for i in range(len(s)]
 
-string_input = input()
-result = prefixes(string_input)
+input_string = str(input("Enter a string: "))
+result = prefixes(input_string)
 print(result)
