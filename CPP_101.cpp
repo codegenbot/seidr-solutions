@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-using namespace std;
+Here is the completed code:
 
 vector<string> words_string(string s) {
     vector<string> result;
@@ -9,7 +7,7 @@ vector<string> words_string(string s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
-                word = "";
+                word.clear();
             }
         } else {
             word += c;
