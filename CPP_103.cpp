@@ -1,15 +1,13 @@
-#include <string>
+Here is the completed code:
 
-using namespace std;
-
-string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    long sum = 0;
-    for (int i = n; i <= m; ++i) {
+```cpp
+string rounded_avg(int n,int m){
+    if(n > m) return "-1";
+    int sum = 0;
+    for(int i=n; i<=m; i++) {
         sum += i;
     }
-    double avg = round((double)sum / (m - n + 1));
-    string binary = to_string(avg);
-    while(binary.size() < (m - n + 1)) binary = "0" + binary;
-    return binary;
+    double avg = (double)sum / (m-n+1);
+    avg = floor(avg + 0.5); // round down to the nearest integer
+    return to_string(abs((int)avg)) ; // convert to binary and remove leading zeros
 }
