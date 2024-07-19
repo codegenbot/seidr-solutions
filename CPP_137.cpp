@@ -22,9 +22,9 @@ boost::any compare_one(boost::any a, boost::any b) {
                 str_a.erase(std::remove(str_a.begin(), str_a.end(), ','), str_a.end());
                 str_b.erase(std::remove(str_b.begin(), str_b.end(), ','), str_b.end());
             }
-            if (std::stof(str_a) > std::stof(str_b)) {
+            if (stof(str_a) > stof(str_b)) {
                 return a;
-            } else if (std::stof(str_a) < std::stof(str_b)) {
+            } else if (stof(str_a) < stof(str_b)) {
                 return b;
             }
         }
