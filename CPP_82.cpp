@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -23,5 +23,10 @@ int main(){
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "The length of the entered string is prime: " << prime_length(str) << std::endl;
+    if (str.length() > 0) {
+        std::cout << "The length of the entered string is prime: " << prime_length(str) << std::endl;
+    } else {
+        std::cout << "Error! No input given." << std::endl;
+    }
     return 0;
+}
