@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cassert>
 
 bool is_prime(int n) {
     if (n <= 1) {
@@ -24,4 +23,3 @@ int main() {
         std::cout << "The number is prime." << std::endl;
     }
     return 0;
-}
