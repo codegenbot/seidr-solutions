@@ -1,10 +1,7 @@
+#include <iostream>
 #include <vector>
 
 std::vector<int> f(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
 
 int main() {
     int n;
@@ -12,8 +9,8 @@ int main() {
 
     std::vector<int> result = f(n);
 
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    for(int num : result){
+        std::cout << num << " ";
     }
 
     return 0;
@@ -23,7 +20,7 @@ std::vector<int> f(int n){
     std::vector<int> result;
     int sum = 0;
     int fact = 1;
-    
+
     for(int i = 1; i <= n; i++){
         if(i % 2 == 0){
             fact *= i;
@@ -33,6 +30,6 @@ std::vector<int> f(int n){
             result.push_back(sum);
         }
     }
-    
+
     return result;
 }
