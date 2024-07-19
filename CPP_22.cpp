@@ -6,11 +6,17 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation of the issame function
+    return a == b;
 }
 
 vector<int> filter_integers(list<boost::any> values) {
-    // Implementation of the filter_integers function
+    vector<int> result;
+    for (const auto& val : values) {
+        if (val.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(val));
+        }
+    }
+    return result;
 }
 
 int main() {
