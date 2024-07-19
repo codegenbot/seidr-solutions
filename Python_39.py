@@ -13,11 +13,10 @@ def prime_fib(n: int):
         else:
             return fibonacci(num - 1) + fibonacci(num - 2)
 
+    i = 2
     count = 0
-    num = 1
     while count < n:
-        num += 1
-        fib_num = fibonacci(num)
-        if is_prime(fib_num):
+        if is_prime(fibonacci(i)):
             count += 1
-    return fib_num
+        i += 1
+    return fibonacci(i - 1)
