@@ -32,8 +32,3 @@ vector<string> bf(string planet1, string planet2) {
 
     return result;
 }
-
-int main() {
-    // Add test cases if needed
-    return 0;
-}
