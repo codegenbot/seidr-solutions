@@ -1,10 +1,15 @@
-long long result = 1;
-    for (int i = 1; i <= n; ++i) {
-        long long factorial = 1;
-        for (int j = 1; j <= i; ++j) {
-            factorial *= j;
-        }
-        result *= factorial;
+int special_factorial(int n) {
+    if (n == 1) {
+        return 1;
+    } else {
+        return n * special_factorial(n-1) * special_factorial(n-2);
     }
-    return result;
+}
+
+int main() {
+    assert(special_factorial(1) == 1);
+    assert(special_factorial(2) == 2);
+    assert(special_factorial(3) == 12);
+    assert(special_factorial(4) == 144);
+    return 0;
 }
