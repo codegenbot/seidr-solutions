@@ -1,9 +1,12 @@
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 bool iscuber(int a) {
     int cube_root = round(cbrt(a));
     return (cube_root * cube_root * cube_root == a);
 }
 // Example test case
-assert(iscuber(1729) == false);
+int main() {
+    assert(iscuber(1729) == false);
+    return 0;
+}
