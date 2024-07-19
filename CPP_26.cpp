@@ -22,9 +22,9 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(issame({1, 2, 3, 2, 4, 3, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})) == true);
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
 
-    std::vector<int> input;
+    std::vector<int> input();
     int num;
 
     std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
@@ -35,15 +35,10 @@ int main() {
 
     std::vector<int> output = remove_duplicates(input);
 
-    if(issame(output, {1, 2, 3, 4, 5})) {
-        std::cout << "Duplicated removed: ";
-        for (int i : output) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Failed to remove all duplicates." << std::endl;
+    std::cout << "Duplicated removed: ";
+    for (int i : output) {
+        std::cout << i << " ";
     }
-
+    std::cout << std::endl;
     return 0;
 }
