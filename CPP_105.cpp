@@ -1,8 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <initializer_list>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> temp;
@@ -47,13 +45,14 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
+bool issame(std::vector<std::string> a, std::vector<std::string> result) {
+    if (a.size() != result.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != result[i]) {
             return false;
+        }
     }
     return true;
 }
@@ -61,7 +60,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 int main() {
     std::vector<int> arr = {9, 4, 8};
     std::vector<std::string> result = by_length(arr);
-    //std::vector<std::string> expected = {"Nine", "Four", "Eight"};
-    assert(issame(result, {"Nine", "Four", "Eight"}));
+    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
+    assert(issame(result, expected));
     return 0;
 }
