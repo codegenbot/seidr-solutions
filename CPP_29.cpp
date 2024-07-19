@@ -26,6 +26,6 @@ int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
     
-    assert (isSame(filter_by_prefix(a, "xxx") , std::vector<std::string>(b.begin(), b.end())) );
+    assert(isSame(filter_by_prefix(a, "xxx"), b));
     return 0;
 }
