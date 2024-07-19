@@ -1,12 +1,11 @@
-bool issame(vector<int> a, vector<int> b); // Declare the issame function
+bool issame(vector<int> a, vector<int> b); 
+vector<int> filter_integers(list<any> values); 
 
-vector<int> filter_integers(list<any> values); // Declare the filter_integers function
-
-bool issame(vector<int> a, vector<int> b){ // Correct function signature for issame
+bool issame(vector<int> a, vector<int> b){ 
     return a == b;
 }
 
-vector<int> filter_integers(list<any> values){ // Correct the function signature
+vector<int> filter_integers(list<any> values){ 
     vector<int> result;
     for (const auto& val : values) {
         if (val.type() == typeid(int)) {
