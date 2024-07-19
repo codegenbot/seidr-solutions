@@ -1,22 +1,17 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <vector>
 
-bool match_parens(std::vector<std::string> lst) {
-    int open = 0, close = 0;
-    for (const std::string& s : lst) {
-        for (char c : s) {
-            if (c == '(') open++;
-            else close++;
-        }
-    }
-    return open == close;
-}
-
 int main() {
-    std::vector<std::string> lst = {"(a)", "(b)", "((c))", "d"};
-    bool result = match_parens(lst);
-    std::cout << (result ? "Yes" : "No") << std::endl;
-    return 0;
+    std::vector<char> lst;
+    std::cout << "Enter the strings: ";
+    char c;
+    while((c = getchar()) != '\n') {
+        lst.push_back(c);
+    }
+    int open = 0, close = 0;
+    for (char x : lst) {
+        if (x == '(') open++;
+        else if (x == ')') close++;
+    }
+    return (open == close) ? 0 : -1;
 }
