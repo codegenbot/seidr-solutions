@@ -1,24 +1,25 @@
+#include <iostream>
 #include <map>
-#include <vector>
 #include <string>
 
-using namespace std;
-
-// Define the histogramTest function
-map<char,int> histogramTest(string s) {
-    map<char,int> hist;
-    for (char c : s) {
-        if (hist.find(c) == hist.end())
-            hist[c] = 1;
-        else
+std::map<char, int> histogramTest(const std::string& str) {
+    std::map<char, int> hist;
+    for (char c : str) {
+        if (hist.count(c)) {
             hist[c]++;
+        } else {
+            hist[c] = 1;
+        }
     }
     return hist;
 }
 
-// Define the issame function
-bool issame(map<char,int> a, map<char,int> b) {
-    return a==b;
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    if (a.size() != b.size()) return false;
+    for (const auto& p : a) {
+        if (!b.count(p.first) || b.at(p.first) != p.second) return false;
+    }
+    return true;
 }
 
 int main() {
