@@ -7,7 +7,7 @@ int setSize(std::set<int> s) {
 }
 
 int newMain() {
-    int len = setSize({127, 97, 8192});
+    int len = setSize({1, 2, 3});
     assert(len == 3);
     return 0;
 }
