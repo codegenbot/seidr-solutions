@@ -1,5 +1,7 @@
-#include <cmath>
-#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+bool iscuber(int a);
 
 bool iscuber(int a){
     int i = 1;
@@ -11,15 +13,5 @@ bool iscuber(int a){
 }
 
 int main() {
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-
-    if(iscuber(n)) {
-        std::cout << "The number is a perfect cube.";
-    } else {
-        std::cout << "The number is not a perfect cube.";
-    }
-
-    return 0;
+   assert (iscuber(1729) == false);
 }
