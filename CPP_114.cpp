@@ -1,36 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <algorithm>
 
-long long minSubArraySum(std::vector<long long> nums) {
-    long long sum = 0, min_sum = std::numeric_limits<long long>::max();
+int minSubArraySum(std::vector<long long> nums) {
+    long long sum = 0, min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < min_sum)
             min_sum = sum;
-        if (sum > 0)
-            sum = 0;
     }
     return min_sum;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-    std::vector<long long> nums(n);
-    
-    for (long long &num : nums) {
-        std::cout << "Enter element " << nums.size() + 1 - nums.begin() - &num << ": ";
-        std::cin >> num;
-    }
-    
-    long long result = minSubArraySum(nums);
-    if (result == std::numeric_limits<long long>::max())
-        std::cout << "Minimum sum of all subarrays is not possible.\n";
-    else
-        std::cout << "The minimum sum of all subarrays is " << result << ".\n";
-    
+    assert(minSubArraySum({1, -1}) == -1);
+    std::cout << "Test passed!" << std::endl;
     return 0;
 }
