@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <sstream> // Added include for istringstream
+#include <sstream>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "e", "f"})); // Adjusted expected output
+int main_task() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
