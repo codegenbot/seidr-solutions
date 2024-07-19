@@ -16,10 +16,6 @@ bool monotonic(const std::vector<int>& l) {
 }
 
 int main() {
-    if (monotonic(std::vector<int>{9, 9, 9, 9, 9})) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
+    std::cout << std::boolalpha << monotonic(std::vector<int>{9, 9, 9, 9}) << std::endl;
     return 0;
 }
