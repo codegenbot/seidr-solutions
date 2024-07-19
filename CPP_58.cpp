@@ -1,18 +1,4 @@
 #include <vector>
-using namespace std;
-
-bool isSame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int compareArrays() {
     int n;
     cin >> n;
@@ -28,4 +14,12 @@ int compareArrays() {
         cout << "No" << endl;
     }
     return 0;
+}
+
+bool isSame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
