@@ -1,8 +1,9 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool isSameVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -35,7 +36,7 @@ int main() {
     std::cin >> s;
     std::cout << "Enter the second string: ";
     std::cin >> t;
-    if(isSameVectors(std::vector<std::string>(1, s), std::vector<std::string>(1, t))) {
+    if(isSameVectors({s}, {t})) {
         std::vector<std::string> res = reverse_delete(s, t);
         for(auto str : res) {
             std::cout << str << " ";
