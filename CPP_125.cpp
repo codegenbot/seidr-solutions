@@ -2,10 +2,15 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <sstream>
 
 std::vector<std::string> split_words(std::string str) {
     std::vector<std::string> words;
-    // Implementation for splitting the string into words
+    std::istringstream iss(str);
+    std::string word;
+    while (iss >> word) {
+        words.push_back(word);
+    }
     return words;
 }
 
