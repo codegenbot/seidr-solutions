@@ -10,7 +10,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
             result.push_back(std::any_cast<int>(value));
         }
     }
-    return result.empty() ? std::vector<int>() : result;
+    return result;
 }
 
 bool same_vector(const std::vector<int>& a, const std::vector<int>& b) {
