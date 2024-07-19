@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-auto unique_digits = [] (std::vector<int> numbers) -> std::vector<int> {
+auto unique_digits = [](std::vector<int> numbers) {
     std::vector<int> unique;
     for (int num : numbers) {
         while (num > 0) {
