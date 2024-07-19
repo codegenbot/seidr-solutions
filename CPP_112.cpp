@@ -1,4 +1,5 @@
 ```cpp
+// -std=c++11
 #include <vector>
 #include <string>
 
@@ -37,7 +38,7 @@ int main() {
     for(std::string str;std::cin >> str;s.push_back(str));
     std::cout << "Enter the second string: ";
     for(std::string str;std::cin >> str;t.push_back(str));
-    if(compareVectors({s},{t})) {
+    if(compareVectors({s}, {t})) {
         std::vector<std::string> res = reverse_delete(s[0], t[0]);
         for(auto str : res) {
             std::cout << str << " ";
