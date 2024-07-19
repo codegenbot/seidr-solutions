@@ -22,8 +22,8 @@ bool prime_length(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin.ignore(); // Ignore whitespace
-    std::cin >> std::ws; // Read and discard whitespace
+    std::cin.ignore(); 
+    std::cin >> std::ws; 
     std::getline(std::cin, str);
     bool isPrime = prime_length(str);
 
