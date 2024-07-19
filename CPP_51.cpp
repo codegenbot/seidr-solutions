@@ -2,6 +2,17 @@
 #include <iostream>
 #include <string>
 
+int main() {
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string output = remove_vowels(input);  
+
+    std::cout << "String after removing vowels: " << output << std::endl;
+    return 0;
+}
+
 std::string remove_vowels(std::string input) {
     std::string result;
     for(char c : input){
@@ -10,18 +21,4 @@ std::string remove_vowels(std::string input) {
         }
     }
     return result;
-
-}
-
-int main() {
-    std::cout << "Enter a string: ";
-    try {
-        std::string input;
-        std::getline(std::cin, input);
-
-        std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-    return 0;
 }
