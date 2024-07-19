@@ -12,3 +12,11 @@ vector<int> even_odd_count(int num) {
     }
     return counts;
 }
+
+int main() {
+    int num;
+    cin >> num;
+    vector<int> result = even_odd_count(num);
+    cout << result[0] << " " << result[1] << endl;
+    return 0;
+}
