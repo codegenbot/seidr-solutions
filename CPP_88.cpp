@@ -4,19 +4,21 @@
 #include <functional>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+vector<int> sort_array(vector<int> array){
     if(array.empty()) return array;
     if((array.front() + array.back()) % 2 == 0)
-        std::sort(array.begin(), array.end(), std::greater<int>());
+        sort(array.begin(), array.end(), greater<int>());
     else
-        std::sort(array.begin(), array.end());
+        sort(array.begin(), array.end());
     return array;
 }
 
-#define ASSERT_VECTOR_EQ(a, b) assert(std::equal(a.begin(), a.end(), b.begin(), b.end()))
+#define ASSERT_VECTOR_EQ(a, b) assert(equal(a.begin(), a.end(), b.begin(), b.end()))
 
-ASSERT_VECTOR_EQ(sort_array(std::vector<int>{21, 14, 23, 11}), {23, 21, 14, 11});
+ASSERT_VECTOR_EQ(sort_array(vector<int>{21, 14, 23, 11}), {23, 21, 14, 11});
