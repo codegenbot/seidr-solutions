@@ -1,3 +1,8 @@
+print("Enter the message:")
+message = input().strip()
+print("Enter the shift value:")
+shift = int(input().strip())
+
 def encode(message: str, shift: int) -> str:
     encoded_message = ""
     for char in message:
@@ -9,7 +14,5 @@ def encode(message: str, shift: int) -> str:
             encoded_message += char
     return encoded_message
 
-message = input()
-shift = int(input())
 result = encode(message, shift)
 print(result)
