@@ -24,7 +24,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     deque<int> res = get_odd_collatz(n);
-    for (auto i : res) {
+    for (int i : res) {
         cout << i << " ";
     }
     cout << endl;
