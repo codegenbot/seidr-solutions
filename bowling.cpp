@@ -1,35 +1,29 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int roll1, roll2, frameScore;
+    vector<int> frames;
 
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') { // strike
-            score += 10 + nextTwoRolls(s, i);
-        } else if (isdigit(s[i])) { // non-strike
-            roll1 = s[i] - '0';
-            frameScore = roll1;
-            if (i < 8 && s[i+1] == '/') {
-                frameScore += s[i+2] - '0';
-                i++;
-            } else if (i == 8 && s[i+1] != '/') {
-                frameScore += s[i+1] - '0';
-            } else if (i < 8 && s[i+1] != '/') {
-                frameScore += s[i+1] - '0' + s[i+2] - '0';
-                i++;
+    for (char c : input) {
+        if (c == 'X') {
+            frames.push_back(10);
+        } else if (c == '/') {
+            frames.push_back(10 - stoi(input.substr(input.find('/'), 2)));
+        } else {
+            int strikes = 0;
+            while (input[input.find(c)] != '/' && input.find(c) < input.size() - 1) {
+                c++;
+                strikes++;
             }
-            score += frameScore;
+            frames.push_back(strikes);
+        }
+    }
+
+    for (int i = 0; i < frames.size(); i++) {
+        if (frames[i] == 10) {
+            score += 10 + (i < 8 ? frames[i+1] : 0);
+        } else {
+            score += frames[i];
         }
     }
 
     return score;
-}
-
-int nextTwoRolls(string s, int i) {
-    if (i < 8 && s[i+1] == '/') {
-        return s[i+2] - '0' + s[i+3] - '0';
-    } else if (i < 9) {
-        return s[i+1] - '0' + s[i+2] - '0';
-    } else {
-        return 10;
-    }
 }
