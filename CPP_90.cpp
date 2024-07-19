@@ -22,6 +22,6 @@ int main() {
         if (!cin || num == -1)
             break;
     }
-    cout << next_smallest(lst); // pass the variable 'lst' here
+    cout << next_smallest(lst); // Corrected the function call
     return 0;
 }
