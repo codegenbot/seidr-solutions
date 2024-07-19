@@ -7,9 +7,9 @@ while True:
         y = int(input("Enter second integer: "))
         result = add(x, y)
         print(result)
-        
-    except ValueError:
+
+    except (ValueError, KeyboardInterrupt):
         print("Please enter valid integers.")
-    except KeyboardInterrupt:
-        print("\nProgram terminated by user.")
-        break
+
+    except EOFError:
+        print("Program did not receive expected input.")
