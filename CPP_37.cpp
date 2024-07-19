@@ -10,7 +10,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-void sort_even(vector<float>& l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> even_vals;
     vector<float> sorted_even_vals;
     for (int i = 0; i < l.size(); i++) {
@@ -27,6 +27,7 @@ void sort_even(vector<float>& l) {
             j++;
         }
     }
+    return l;
 }
 
 int main() {
