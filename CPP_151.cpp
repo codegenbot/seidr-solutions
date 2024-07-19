@@ -1,3 +1,4 @@
+
 #include <vector>  // Include the vector header
 
 long long double_the_difference(std::vector<float> lst){ // Change vector<float> to std::vector<float>
