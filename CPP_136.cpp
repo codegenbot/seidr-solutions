@@ -1,24 +1,28 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <climits>
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
+std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
-
+    
     for(int num : lst){
         if(num < 0 && num > largest_negative){
             largest_negative = num;
-        } else if(num > 0 && num < smallest_positive){
+        }
+        if(num > 0 && num < smallest_positive){
             smallest_positive = num;
         }
     }
+    
+    return std::make_pair(largest_negative, smallest_positive);
+}
 
-    return {largest_negative, smallest_positive};
+bool issame(std::pair<int, int> a, std::pair<int, int> b){
+    return a == b;
 }
 
 int main() {
-    assert((largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == std::vector<int>{-3, 1}));
-    
+    assert (issame(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}), std::make_pair(-3, 1)));
     return 0;
 }
