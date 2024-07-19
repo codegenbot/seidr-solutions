@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -14,5 +16,6 @@ int main() {
     int N;
     std::cout << "Enter a number: ";
     std::cin >> N;
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    std::string output = "Sum of bits is: " + std::to_string(solve(N));
+    std::cout << output << std::endl;
 }
