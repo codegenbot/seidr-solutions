@@ -1,14 +1,11 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.replace(" ", "")
     result = []
     temp = ""
-
     for char in paren_string:
         if char == "(":
             temp += char
-        elif char == ")":
+        elif char == ")" and temp and temp[0] == "(":
             temp += char
             result.append(temp)
             temp = ""
-
     return result
