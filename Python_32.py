@@ -1,15 +1,16 @@
 def find_zero(xs: list):
-    def poly(coeffs, x):
-        return sum(coeff * x**i for i, coeff in enumerate(coeffs))
+    if len(xs) % 2 != 0:
+        raise ValueError("Number of coefficients must be even.")
 
     n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients should be even")
+    a = xs[-1]
+    b = xs[-2]
 
-    max_coeff = max(abs(coeff) for coeff in xs)
-    if max_coeff == 0:
+    if a == 0:
         return 0
 
-    for x in range(-1000, 1001):
-        if poly(xs, x) == 0:
-            return x
+    return -b / a
+
+coefficients = list(map(float, input().split()))
+result = find_zero(coefficients)
+print(result)
