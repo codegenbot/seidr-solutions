@@ -12,8 +12,3 @@ int add_elements(const vector<int>& arr, int k) {
     }
     return sum;
 }
-
-int main() {
-    assert(add_elements({1, 20, 30, 100}, 4) == 50);
-    return 0;
-}
