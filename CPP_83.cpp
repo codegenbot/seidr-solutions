@@ -1,6 +1,3 @@
-int count = 0;
-    count += 9; // numbers starting with 1
-    count += 9; // numbers ending with 1
-    count -= 1; // remove the duplicate case of 1
-    return count * (n - 1);
+int starts_one_ends(int n){
+    return 2 * 9 * (n - 1) + 10;
 }
