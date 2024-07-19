@@ -10,8 +10,19 @@ vector<int> unique(vector<int> l) {
     return vector<int>(s.begin(), s.end());
 }
 
-int main() { 
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+int main() {
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
+        input.push_back(num);
+    }
+    
     vector<int> output = unique(input);
     for (int i : output) {
         cout << i << " ";
