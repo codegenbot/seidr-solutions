@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
-#include <cassert>
 
 int sum_squares(std::initializer_list<double> lst){
     int total = 0;
@@ -15,8 +13,8 @@ int sum_squares(std::initializer_list<double> lst){
 
 int main() {
     assert(sum_squares({-1,1,0})==2); 
-    double numInput;
-    std::cout << "Enter a number to pass to the sum_squares function: ";
-    std::cin >> numInput; // read directly into double variable
-    int result = sum_squares({numInput});
+    std::string strInput;
+    std::cout << "Enter a number: ";
+    std::getline(std::cin, strInput);
+    int result = sum_squares({std::stod(strInput)});  
 }
