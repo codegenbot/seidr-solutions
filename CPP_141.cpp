@@ -1,6 +1,7 @@
+#include <iostream>
 #include <string>
 
-string file_name_check(string file_name) {
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool has_dot = false;
     bool starts_with_letter = true;
@@ -20,7 +21,7 @@ string file_name_check(string file_name) {
         return "No";
     }
 
-    string extension = file_name.substr(file_name.find('.') + 1);
+    std::string extension = file_name.substr(file_name.find('.') + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
