@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int vowels_count(std::string s) {
@@ -8,7 +7,6 @@ int vowels_count(std::string s) {
             count++;
         }
     }
-    // Check if the last character is 'y'
     if (!s.empty() && s.back() == 'y') {
         count++;
     }
