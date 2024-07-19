@@ -1,7 +1,13 @@
+```cpp
 #include <vector>
 #include <cctype>
 #include <functional>
 #include <string>
+#include <initializer_list>
+
+std::string bf(const std::string& s1, const std::string& s2) {
+    return s1 + " " + s2;
+}
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
@@ -15,7 +21,7 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-int main() {
+int mainProblem() {
     std::vector<std::string> a, b;
     std::cout << "Enter the two planets (separated by space): ";
     std::string line;
