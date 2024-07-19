@@ -1,7 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
+// Original Main
 int originalMain() {
     size_t n;
     std::cout << "Enter the number of elements: ";
@@ -33,7 +34,4 @@ int solution(std::vector<std::string> numbers) {
 
 }
 
-int main() {
-    originalMain();
-    return 0;
-}
+originalMain();
