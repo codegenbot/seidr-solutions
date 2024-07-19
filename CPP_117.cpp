@@ -3,33 +3,25 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> select_words(string s, int n) {
-    vector<string> words;
-    size_t pos = 0, found;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> words;
+    std::string word;
+    std::istringstream iss(s);
     
-    for (int i = 0; i < n; i++) {
-        found = s.find(" ", pos);
-        if (found == string::npos) {
-            words.clear();
-            break;
-        }
-        pos = found + 1;
+    while (iss >> word) {
+        words.push_back(word);
     }
     
-    if (found != string::npos) {
-        while ((found = s.find(" ", pos)) != string::npos) {
-            words.push_back(s.substr(pos, found - pos));
-            pos = found + 1;
-        }
-        words.push_back(s.substr(pos));
+    std::vector<std::string> selected_words;
+    
+    for (size_t i = n; i < words.size(); ++i) {
+        selected_words.push_back(words[i]);
     }
     
-    return words;
+    return selected_words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
