@@ -1,7 +1,5 @@
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
-
 using namespace std;
 
 if(a.type() == typeid(int) && b.type() == typeid(int)){
