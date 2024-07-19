@@ -1,9 +1,10 @@
 #include <vector>
-#include <cassert>
 #include <string>
+#include <cassert>
+
+std::vector<int> parse_nested_parens(std::string paren_string); // Prototype
 
 bool issame(const std::vector<int> a, const std::vector<int> b);
-std::vector<int> parse_nested_parens(std::string paren_string);
 
 std::vector<int> parse_nested_parens(std::string paren_string){
     std::vector<int> depths;
@@ -28,4 +29,4 @@ int main(){
     std::vector<int> b = {1, 2, 3, 2, 1};
     assert(issame(a, b));
     return 0;
-}  
+}
