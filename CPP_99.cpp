@@ -1,3 +1,8 @@
-double num = stod(value);
-    return num < 0 ? floor(num + 0.5) : ceil(num - 0.5);
+int closest_integer(string value){
+    double number = stod(value);
+    if (number >= 0) {
+        return static_cast<int>(round(number));
+    } else {
+        return static_cast<int>(ceil(number));
+    }
 }
