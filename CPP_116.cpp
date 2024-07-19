@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    // Your comparison logic here
+    return a == b;
 }
 
 std::vector<int> sort(std::vector<int> arr){
