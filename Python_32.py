@@ -1,9 +1,14 @@
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("The number of coefficients must be even.")
-
     n = len(xs) - 1
-    a = xs[0]
-    b = xs[n]
+    if n % 2 != 0:
+        return None
+    a = max(xs, key=abs)
+    b = -a
+    return b
 
-    return -b / a
+# Read input from the user
+xs = list(map(int, input().split()))
+
+# Call the function with the input
+result = find_zero(xs)
+print(result)
