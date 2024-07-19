@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(std::vector<float> lst) {
+long long doubleTheDifference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
@@ -15,8 +11,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> numbers = {1.5f, 2.0f, 3.5f, 4.0f};
-    long long result = double_the_difference(numbers);
-    std::cout << "The sum of squares of odd positive integers in the list is: " << result << std::endl;
+    vector<float> numbers = {1.5f, 3.4f, 7.9f, -2.8f};
+    cout << doubleTheDifference(numbers) << endl;
     return 0;
 }
