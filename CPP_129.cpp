@@ -1,37 +1,36 @@
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                int min_val = INT_MAX;
-                for (int x = -1; x <= 1; ++x) {
-                    for (int y = -1; y <= 1; ++y) {
-                        if (i + x >= 0 && i + x < n && j + y >= 0 && j + y < n) {
-                            min_val = min(min_val, dp[i + x][j + y] + grid[i][j]);
-                        }
-                    }
-                }
-                dp[i][j] = min_val;
-            }
-        }
-    }
-    
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     vector<int> res;
-    int val = INT_MAX;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (dp[i][j] == dp[0][0] + grid[i][j]) {
-                res.push_back(grid[i][j]);
-                k--;
-                if (k == 0) break;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            if (!visited[i][j]) {
+                vector<int> path;
+                dfs(grid, visited, i, j, k, &path);
+                if (res.empty() || res.size() > path.size())
+                    res = path;
             }
-        }
-        if (k == 0) break;
-    }
-    
     return res;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* path) {
+    int n = grid.size();
+    (*path).push_back(grid[x][y]);
+    visited[x][y] = true;
+    if (k == 0)
+        return;
+    for (int dx : {-1, 0, 1}) {
+        for (int dy : {-1, 0, 1})
+            if (dx != 0 || dy != 0) { // skip diagonal
+                int nx = x + dx, ny = y + dy;
+                if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    dfs(grid, visited, nx, ny, k - 1, path);
+                    return;
+                }
+            }
+    }
+    visited[x][y] = false;
 }
