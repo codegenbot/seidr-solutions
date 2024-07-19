@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 #include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
@@ -27,6 +26,6 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    assert(is_same(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 4, 2, 4, 2}));
+    assert(is_same(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
