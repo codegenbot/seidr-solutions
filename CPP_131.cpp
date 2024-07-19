@@ -1,10 +1,10 @@
-int product = 1;
-    while (n > 0) {
-        int digit = n % 10;
+string s = to_string(n);
+    int product = 1;
+    for (char c : s) {
+        int digit = c - '0';
         if (digit % 2 != 0) {
             product *= digit;
         }
-        n /= 10;
     }
     return product;
 }
