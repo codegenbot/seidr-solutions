@@ -1,7 +1,19 @@
+#include <algorithm>
+#include <cassert>
 #include <vector>
 
-vector<int> eat(int number, int need, int remaining){
+std::pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int eaten = min(total, remaining);
-    return {eaten, max(0, remaining - eaten)};
+    int eaten = std::min(total, remaining);
+    return {eaten, std::max(0, remaining - eaten)};
+}
+
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), {5, 0}));
+    
+    return 0;
 }
