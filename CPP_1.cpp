@@ -5,10 +5,10 @@ vector<string> separate_paren_groups(string paren_string) {
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_braces > 0) {
+            open_braces++;
+            if (open_braces > 1) {
                 current_group += c;
             }
-            open_braces++;
         } else if (c == ')') {
             open_braces--;
             if (open_braces > 0) {
