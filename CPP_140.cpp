@@ -1,18 +1,22 @@
-string result = "";
-    int consecutiveSpaces = 0;
+// Complete the code below
+    string result = "";
+    bool isSpace = false;
+    int spaceCount = 0;
     for (char c : text) {
         if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+            spaceCount++;
+            if (spaceCount > 2) {
+                if (!isSpace) {
+                    result += '-';
+                    isSpace = true;
+                }
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
-            consecutiveSpaces = 0;
+            isSpace = false;
+            spaceCount = 0;
         }
     }
     return result;
