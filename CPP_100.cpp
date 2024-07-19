@@ -2,14 +2,16 @@ Here is the completed code:
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int count = 1;
+    int current = 1;
+    if (n % 2 == 0) {
+        current = 2;
+    }
     for (int i = 0; i < n; i++) {
-        if ((n & 1)) { // Check if n is odd
-            pile.push_back(count);
-            count += 2; // Increment by 2 to get the next even number
+        pile.push_back(current);
+        if (current % 2 == 1) {
+            current += 2;
         } else {
-            pile.push_back(count);
-            count += 1; // Increment by 1 to get the next odd number
+            current += 1;
         }
     }
     return pile;
