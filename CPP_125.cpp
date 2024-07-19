@@ -6,7 +6,7 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> split_words(string txt);
 
 int main() {
-    // Main function code here
+    // Function calls and other code
 }
 
 vector<string> split_words(string txt){
