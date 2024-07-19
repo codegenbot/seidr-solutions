@@ -8,6 +8,4 @@ int customStringLength(const char* str) {
 
 int main() {
     assert(customStringLength("asdasnakj") == 9);
-    std::string str = "Hello, World!";
-    return str.length();
 }
