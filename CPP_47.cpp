@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <initializer_list>
 using namespace std;
 
 int calculateMedian(vector<float> v) {
