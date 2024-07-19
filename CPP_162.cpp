@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <string>
+#include "md5.h"
+
 std::string string_to_md5(std::string input) {
     MD5_CTX ctx;
     unsigned char result[16];
@@ -11,4 +14,9 @@ std::string string_to_md5(std::string input) {
         sprintf(output + i*2, "%02x", result[i]);
     }
     return std::string(output);
+}
+
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
