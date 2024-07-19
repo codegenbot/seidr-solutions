@@ -11,7 +11,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> 
     for (int num : b) {
         if (num < 0 && num < largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && num < smallest_positive) {
+        } else if (num > 0 && (num < smallest_positive || smallest_positive < 0)) {
             smallest_positive = num;
         }
     }
