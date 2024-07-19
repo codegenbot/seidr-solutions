@@ -11,11 +11,13 @@ bool same_chars(const std::string& s0, const std::string& s1) {
     return temp0 == temp1;
 }
 
-int main() {
+void solveProblem() {
     std::string s0, s1;
     std::cin >> s0 >> s1;
-    
-    std::cout << (same_chars(s0, s1) ? "True" : "False") << std::endl;
+    std::cout << same_chars(s0, s1) << std::endl;
+}
 
+int main() {
+    solveProblem();
     return 0;
 }
