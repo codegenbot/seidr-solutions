@@ -1,17 +1,17 @@
 #include <vector>
+#include <string>
 #include <algorithm>
-#include <cassert>
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) {
+        if (planets[i] == a[0]) {
             index1 = i;
         }
-        if (planets[i] == planet2) {
+        if (planets[i] == a[1]) {
             index2 = i;
         }
     }
@@ -27,13 +27,9 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
         result.push_back(planets[i]);
     }
     
-    return result;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return result == b;
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame({"Jupiter", "Makemake"}, {}));
 }
