@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 double median(vector<int>& l) {
     sort(l.begin(), l.end());
