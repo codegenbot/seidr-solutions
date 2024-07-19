@@ -3,7 +3,7 @@
 
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
-    return sqrt((s*(s-a)*(s-b)*(s-c)));
+    return sqrt(s * (s-a) * (s-b) * (s-c));
 }
 
 int main() {
