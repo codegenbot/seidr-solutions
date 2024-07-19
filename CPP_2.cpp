@@ -1,6 +1,4 @@
-Here is the solution:
-
 float truncate_number(float number) {
-    int integer_part = (int)number;
-    return number - integer_part;
+    int integerPart = (int)number;
+    return number - float(integerPart);
 }
