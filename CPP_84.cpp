@@ -1,26 +1,18 @@
-#include <cassert>
-#include <cstdlib>
-#include <iostream>
-
-int solve(int N) {
-    int sum = 0;
-    for (int i = 1; i <= N; i++) {
-        if (i % 2 == 0)
-            sum += i;
-    }
-    return sum;
-}
+#include <string>
 
 int main() {
     int N;
+    std::cout << "Enter a number: ";
     std::cin >> N;
-    if(N < 1) {
-        std::cout << "Error: Input should be a positive integer." << std::endl;
-    } else {
-        int expected = 15150; 
-        if(solve(963) != expected) {
-            std::cerr << "Assertion failed: Expected " << expected << ", got " << solve(963) << std::endl;
-            exit(1); 
-        }
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+}
+
+string solve(int N) {
+    int sum = 0;
+    while (N > 0) {
+        int remainder = N % 2;
+        sum += remainder;
+        N /= 2;
     }
-    return 0;
+    return std::to_string(sum);
+}
