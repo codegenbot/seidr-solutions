@@ -1,22 +1,16 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-std::string fix_spaces(std::string text) {
-    std::string result = "";
-    bool previousSpace = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (!previousSpace) {
-                result += '_';
-                previousSpace = true;
-            } else if (result.size() > 1 && result.back() == ' ') {
-                result.pop_back();
-                result += '-';
+string fix_spaces(string text) {
+    string result = "";
+    for(int i=0; i<text.length(); i++) {
+        if(text[i] == ' ') {
+            if(i < text.length() - 1 && text[i+1] == ' ' && text.find(' ', i+2) != string::npos) {
+                while(i+1 < text.length() && text[i+1] == ' ')
+                    i++;
+                result += "-";
+            } else {
+                result += "_";
             }
         } else {
-            result += c;
-            previousSpace = false;
+            result += text[i];
         }
     }
     return result;
