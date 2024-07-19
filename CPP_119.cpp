@@ -17,7 +17,7 @@ int main() {
     while(getline(cin, line)) {
         auto pos = line.find('(');
         if(pos != std::string::npos) {
-            line.erase(0, pos); // Corrected code
+            line.erase(0, pos+1); // Erase all characters from the start of the string up to the first parenthesis.
         } else {
             break;
         }
