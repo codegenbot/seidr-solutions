@@ -7,9 +7,9 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(NULL)); // include <cstdlib> for srand
-    int x = rand() % 1000; // use rand() with srand
-    int y = rand() % 1000; // use rand() with srand
-    assert(add(x, y) == x + y); // include <cassert> for assert
+    srand(time(NULL));
+    int x = rand() % 1000;
+    int y = rand() % 1000;
+    assert(add(x, y) == x + y);
     return 0;
 }
