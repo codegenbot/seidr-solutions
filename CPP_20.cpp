@@ -1,16 +1,17 @@
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    pair<float, float> closest_elements = {numbers[0], numbers[1]};
+    int min_idx = 0;
     for (int i = 1; i < numbers.size() - 1; ++i) {
-        if (numbers[i + 1] - numbers[i] < min_diff) {
-            min_diff = numbers[i + 1] - numbers[i];
-            closest_elements = {numbers[i], numbers[i + 1]};
+        float diff = numbers[i + 1] - numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            min_idx = i;
         }
     }
-    return {closest_elements.first, closest_elements.second};
+    return {numbers[min_idx], numbers[min_idx + 1]};
 }
