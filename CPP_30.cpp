@@ -12,11 +12,7 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-int main(){
-    vector<float> numbers = {1.5, -0.5, 2.0, -3.7, 4.2};
-    vector<float> positive_numbers = get_positive(numbers);
-    for (float num : positive_numbers) {
-        cout << num << " ";
-    }
+int main() {
+    // Test your get_positive function here
     return 0;
 }
