@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,11 +14,14 @@ int solve(int N) {
 int main() {
     std::cout << "Enter a number: ";
     int N;
-    std::cin >> N;
-    if (N == 0) {
+    if (!(std::cin >> N)) { 
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
     }
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    if (N == 0) {
+        std::cout << "Sum of bits is: 0" << std::endl; 
+    } else {
+        std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    }
     return 0;
 }
