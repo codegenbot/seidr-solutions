@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> count_even_odd(int num) {
+vector<int> even_odd_count(int num) {
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
     for (char& c : numStr) {
