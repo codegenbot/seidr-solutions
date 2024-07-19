@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
 
-bool checkSame(std::vector<int> a, std::vector<int>b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,14 +24,14 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({sumOfDigits, i});
+        pairs.push_back({nums[i], i});
     }
 
     std::sort(pairs.begin(), pairs.end());
 
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(pair.second);
     }
 
     return result;

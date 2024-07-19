@@ -14,9 +14,8 @@ int sum_squares(std::initializer_list<double> lst) {
 
 int main() {
     std::cout << "Enter numbers separated by space: ";
-    while (std::cin >> std::ws) {
-        double num;
-        if (!(std::cin >> num)) break;
+    double num;
+    while (std::cin >> std::ws >> num) {
         int total = sum_squares({num});
         std::cout << "Sum of squares for number: " << num << " is: " << total << "\n";
     }
