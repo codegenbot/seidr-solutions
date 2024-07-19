@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> parse_nested_parens(const string& paren_string) {
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     stack<int> nesting_levels;
     int max_nesting = 0;
@@ -12,10 +12,10 @@ vector<int> parse_nested_parens(const string& paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
+            max_nesting = std::max(max_nesting, (int)nesting_levels.size());
         } else if (c == ')') {
             nesting_levels.pop();
-            max_nesting = max(max_nesting, nesting_levels.size());
+            max_nesting = std::max(max_nesting, (int)nesting_levels.size());
         }
     }
 
@@ -25,4 +25,10 @@ vector<int> parse_nested_parens(const string& paren_string) {
     }
 
     return result;
+}
+
+int main() {
+  string input = "(()(())((()))";
+  vector<int> result = parse_nested_parens(input);
+  return 0;
 }
