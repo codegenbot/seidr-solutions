@@ -11,18 +11,18 @@ std::vector<int> tri(int value) {
 
 std::vector<int> completeCode(int n) {
     std::vector<int> result;
-    if (n == 0) {
+    if(n == 0){
         result.push_back(0);
-    } else if (n == 1) {
+    } else if(n == 1){
         result.push_back(3);
     } else {
         result.push_back(1);
         result.push_back(3);
-        for (int i = 2; i <= n; ++i) {
-            if (i % 2 == 0) {
+        for(int i = 2; i <= n; ++i){
+            if(i % 2 == 0){
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
             }
         }
     }
