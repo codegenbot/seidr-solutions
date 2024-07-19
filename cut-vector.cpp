@@ -4,24 +4,39 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    long long total_sum = 0;
-    for (int x : v) {
-        total_sum += x;
-    }
-    
-    int index = -1;
-    long long left_sum = 0;
-    for (int i = 0; i < v.size(); i++) { 
-        if(left_sum + v[i] * 2 > total_sum){
-            index = i;
-            break;
-        } 
-        left_sum += v[i]; 
-    }
-    
+    int n = v.size();
     vector<vector<int>> res(2);
-    res[0].assign(v.begin(), v.begin() + index+1);
-    res[1].assign(v.begin() + index, v.end());
+    
+    long long sum1 = 0;
+    long long prev_sum = 0; 
+    long long min_diff = LLONG_MAX;
+    int index = -1;
+    
+    for (int i = 0; i < n; i++) { 
+        if(i > 0) {
+            long long diff = llabs((long long)(sum1 - prev_sum) % (i + 1));
+            
+            if (diff < min_diff) {
+                min_diff = diff;
+                index = i; // update the cutting point
+            } else if (diff == 0) {
+                res[0].assign(v.begin(), v.begin() + i+1);
+                res[1].assign(v.begin() + i, v.end());
+                return res;
+            }
+        }
+        
+        sum1 += v[i];
+        prev_sum = sum1; 
+    }
+    
+    if (min_diff == 0) {
+        res[0].assign(v.begin(), v.begin() + index+1);
+        res[1].assign(v.begin() + index, v.end());
+    } else {
+        res[0].assign(v.begin(), v.begin() + index+1);
+        res[1].assign(v.begin() + index, v.end());
+    }
     
     return res;
 }
