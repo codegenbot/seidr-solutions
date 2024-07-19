@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {}
@@ -5,11 +8,9 @@ bool issame(vector<int> a, vector<int> b) {}
 vector<int> minPath(vector<vector<int>> grid, int k);
 
 int main() {
-    vector<vector<int>> grid = {{1, 3, 7},
-                                 {4, 2, 5},
-                                 {6, 8, 0}};
-    int k = 5;
-    
+    vector<vector<int>> grid = {{1, 3, 5}, {2, 4, 10}, {6, 8, 9}};
+    int k = 4;
+
     vector<int> result = minPath(grid, k);
 
     for (int val : result) {
@@ -17,50 +18,4 @@ int main() {
     }
 
     return 0;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<int> path;
-
-    for (int i = 0; i < k; ++i) {
-        int min_val = n * n + 1;
-        pair<int, int> min_pos;
-
-        for (int r = 0; r < n; ++r) {
-            for (int c = 0; c < n; ++c) {
-                if (grid[r][c] != -1) {
-                    if (grid[r][c] < min_val) {
-                        min_val = grid[r][c];
-                        min_pos = {r, c};
-                    }
-                }
-            }
-        }
-
-        path.push_back(min_val);
-        grid[min_pos.first][min_pos.second] = -1;
-
-        if (i == k - 1) {
-            break;
-        }
-
-        int r = min_pos.first;
-        int c = min_pos.second;
-
-        if (r > 0 && grid[r - 1][c] != -1) {
-            grid[r - 1][c] = -1;
-        }
-        if (r < n - 1 && grid[r + 1][c] != -1) {
-            grid[r + 1][c] = -1;
-        }
-        if (c > 0 && grid[r][c - 1] != -1) {
-            grid[r][c - 1] = -1;
-        }
-        if (c < n - 1 && grid[r][c + 1] != -1) {
-            grid[r][c + 1] = -1;
-        }
-    }
-
-    return path;
 }
