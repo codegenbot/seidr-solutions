@@ -2,8 +2,8 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
     stack = []
+    groups = []
     current_group = ''
     
     for char in paren_string:
@@ -16,7 +16,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 current_group += stack.pop()
             if not stack:
-                result.append(current_group)
+                groups.append(current_group)
+                current_group = ''
+            else:
+                stack.pop()
                 current_group = ''
     
-    return [group for group in (result + [current_group]) if group]
+    return [group.strip() for group in groups]
