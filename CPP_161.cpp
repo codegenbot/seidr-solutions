@@ -13,13 +13,15 @@ std::string solve(const std::string& s) {
         }
     }
     
-    reverse(s.begin(), s.end());
+    std::reverse(s.begin(), s.end());
     
     return s;
 }
 
 int main() {
-    assert(solve("a1b$c3") == "3C1B$A");
+    assert(solve("abc123") == "321CBA");
+    assert(solve("Hello123") == "321OLLEH");
+    assert(solve("123!@#$") == "123!@#$");
     
     return 0;
 }
