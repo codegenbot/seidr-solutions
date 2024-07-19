@@ -1,17 +1,14 @@
-```
 #include <iostream>
 #include <vector>
-using std::cout;
-using std::cin;
-using std::string;
+using namespace std;
 
-std::vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
 
     for(int i=0; i<=n-m; i++){
-        if((int)text.find(target.c_str(), i) != string::npos){
+        if(text.substr(i,m) == target){
             result.push_back(i);
         }
     }
@@ -22,7 +19,7 @@ std::vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text, target;
     cin >> text >> target;
-    std::vector<int> res = indicesOfSubstring(text, target);
+    vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
     return 0;
