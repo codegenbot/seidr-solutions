@@ -1,8 +1,4 @@
-from typing import List
-import statistics as stats
-
-
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    min_val = min(numbers)
-    max_val = max(numbers)
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+    min_value = min(numbers)
+    max_value = max(numbers)
+    return [(value - min_value) / (max_value - min_value) for value in numbers]
