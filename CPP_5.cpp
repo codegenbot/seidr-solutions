@@ -21,7 +21,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool std::vector<int> issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
