@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,11 +25,9 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty()) {
-        if ((unsigned)word.find_first_of("aeiouAEIOU") <= n) {
-            result.push_back(word);
-            word = "";
-        }
+    if (!word.empty() && word.find_first_of("aeiouAEIOU") != std::string::npos &&
+        (unsigned)(word.length() - 1 - word.find_first_of("aeiouAEIOU")) <= n) {
+        result.push_back(word);
     }
     return result;
 }
