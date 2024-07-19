@@ -11,3 +11,10 @@ def get_integer_input(prompt):
             print("Invalid input. Please enter a valid integer (1, 2, or 3).")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+def below_zero(lst):
+    return [x for x in lst if x < 0]
+
+# Example usage:
+# num = get_integer_input("Enter a number")
+# print(below_zero(num))
