@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <cctype>
+#include <string>
+#include <cassert> // Include the <cassert> header for assert
 
 std::string solve(std::string s) {
     for (char &c : s) {
@@ -16,5 +18,6 @@ std::string solve(std::string s) {
 
 int main() {
     assert(solve("#ccc") == "#CCC");
+    // Add more test cases here
     return 0;
 }
