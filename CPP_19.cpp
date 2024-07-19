@@ -1,22 +1,53 @@
-string sort_numbers(const string& numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    
+#include <map>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
+unordered_map<int, string> num_map = {
+    {0, "zero"},
+    {1, "one"},
+    {2, "two"},
+    {3, "three"},
+    {4, "four"},
+    {5, "five"},
+    {6, "six"},
+    {7, "seven"},
+    {8, "eight"},
+    {9, "nine"}
+};
+
+string sort_numbers(string numbers);
+
+int main() {
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
+}
+
+string sort_numbers(string numbers) {
+    unordered_map<int, string> rev_map;
+    for (const auto& pair : num_map) {
+        rev_map[pair.second] = pair.first;
+    }
+
+    vector<string> num_strings;
     stringstream ss(numbers);
-    vector<string> numVec;
     string token;
-    
     while (ss >> token) {
-        numVec.push_back(token);
+        num_strings.push_back(token);
     }
-    
-    sort(numVec.begin(), numVec.end(), [&](const string& a, const string& b) {
-        return numMap[a] < numMap[b];
+
+    sort(num_strings.begin(), num_strings.end(), [&](const string& a, const string& b) {
+        return num_map[a] < num_map[b];
     });
-    
-    stringstream result;
-    for (const string& num : numVec) {
-        result << num << " ";
+
+    string result;
+    for (const auto& num : num_strings) {
+        result += num + " ";
     }
-    
-    return result.str();
+
+    result.pop_back(); // Remove extra space at the end
+    return result;
 }
