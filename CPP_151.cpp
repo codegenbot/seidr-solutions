@@ -6,13 +6,13 @@ double double_the_difference(double a, double b) {
     return 2 * std::fabs(a - b);
 }
 
-int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.0, 4.5, 5.0};
-    long long odd_sum = 0;
+std::vector<float> lst = {1.5f, 2.0f, 3.0f, 4.5f, 5.0f};
+long long odd_sum = 0;
 
+int main() {
     for (float num : lst) {
         if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
-            odd_sum += static_cast<long long>(num * num);
+            odd_sum += static_cast<long long>(std::pow(num, 2));
         }
     }
 
