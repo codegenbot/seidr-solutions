@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cassert>
 #include <string>
+#include <cstdlib>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
