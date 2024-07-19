@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,15 +7,14 @@ std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
     std::vector<std::string> result;
     if (s1.size() > s2.size()) {
         for (int i = 0; i <= s2.size(); i++) {
-            result.push_back(s1.substr(0, i+1));
+            result.push_back(s1.substr(0, i > s2.size() ? s2.size() : i));
         }
-        return result;
     } else {
         for (int i = 0; i <= s1.size(); i++) {
-            result.push_back(s2.substr(0, i+1));
+            result.push_back(s2.substr(0, i > s1.size() ? s1.size() : i));
         }
-        return result;
     }
+    return result;
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -30,6 +30,5 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> result = bf("Jupiter", "Makemake");
-    assert(issame(result, {}));  
+    assert(issame(bf("Jupiter", "Makemake"), {}));  
 }
