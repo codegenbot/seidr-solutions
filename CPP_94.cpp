@@ -1,6 +1,7 @@
 ```cpp
 #include <cassert>
 #include <set>
+#include <initializer_list>
 
 int setSize(std::set<int> s) {
     return s.size();
