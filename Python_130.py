@@ -4,10 +4,9 @@ def tri(n):
     elif n == 1:
         return [3]
     else:
-        seq = [3, 1]
-        for i in range(2, n + 1):
-            if i % 2 == 0:
-                seq.append(1 + i // 2)
-            else:
-                seq.append(seq[i - 1] + seq[i - 2] + seq[i - 3])
-        return seq
+        res = [3]
+        a, b, c = 0, 0, 3
+        for _ in range(n):
+            res.append(c)
+            a, b, c = b, c, a + b + c
+        return res
