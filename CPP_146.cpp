@@ -1,4 +1,3 @@
-```cpp
 int specialFilter(std::vector<int> nums) {
     int c = 0;
     for (int num : nums) {
@@ -6,5 +5,5 @@ int specialFilter(std::vector<int> nums) {
             c++;
         }
     }
-    return c; 
+    return c;
 }
