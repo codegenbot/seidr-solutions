@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
 
-std::string flip_case(const std::string& str) {
+std::string flip_case(std::string str) {
     std::string result;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
@@ -20,7 +21,7 @@ std::string flip_case(const std::string& str) {
 int main() {
     std::string input = "These violent delights have violent ends";
     std::string output = flip_case(input);
-    std::cout << "Computed output: " << output << std::endl;
+    std::cout << "Computed output: " << std::move(output) << std::endl;
     assert(flip_case(input) == "these violent delights have violent ends");
     return 0;
 }
