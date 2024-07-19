@@ -1,12 +1,7 @@
-def decode_string():
-    string_to_decode = input("Enter the string to decode: ")
+# Get the input string from the user
+input_string = input()
 
-    decoded_string = ""
-    for char in string_to_decode:
-        decoded_string += chr(ord(char) - 1)
+# Add your decoding logic here
 
-    return decoded_string
-
-
-result = decode_string()
-print(result)
+# Print the decoded string
+print("Decoded string:", decoded_string)
