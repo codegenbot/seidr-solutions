@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,9 +21,10 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst(5); 
+    vector<int> lst; 
     for (int i = 0; i < 5; ++i) { 
-        cin >> lst[i]; 
+        int temp; cin >> temp; 
+        lst.push_back(temp); 
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
