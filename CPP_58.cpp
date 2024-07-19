@@ -1,10 +1,9 @@
 #include <vector>
 #include <algorithm>
-#include <iterator>
-#include <set>
 
-bool issame(vector<int> a, vector<int> b){
-    // Function body
+bool issame(vector<int> a, vector<int> b) {
+    // Add logic to check if vectors a and b are the same
+    return a == b;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
