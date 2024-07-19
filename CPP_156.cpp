@@ -1,19 +1,19 @@
-#include <unordered_map>
+Here is the solution:
 
+```cpp
 string int_to_mini_roman(int number) {
-    unordered_map<int, string> roman_numerals = {{1, "i"}, {4, "iv"}, {5, "v"}, 
-                                                    {9, "ix"}, {10, "x"}, {40, "xl"},
-                                                    {50, "l"}, {90, "xc"}, {100, "c"},
-                                                    {400, "cd"}, {500, "d"}, {900, "cm"}, {1000, "m"}};
+    vector<pair<int, string>> romanNumerals = {{1000, "m"}, {900, "cm"}, {500, "d"}, 
+                                                {400, "cd"}, {100, "c"}, {90, "xc"}, 
+                                                {50, "l"}, {40, "xl"}, {10, "x"}, 
+                                                {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+
     string roman = "";
-    while (number > 0) {
-        for (auto it = roman_numerals.rbegin(); it != roman_numerals.rend(); ++it) {
-            if (number >= it->first) {
-                number -= it->first;
-                roman += it->second;
-                break;
-            }
+    for (const auto& numeral : romanNumerals) {
+        while (number >= numeral.first) {
+            roman += numeral.second;
+            number -= numeral.first;
         }
     }
+
     return roman;
 }
