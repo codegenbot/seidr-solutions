@@ -13,7 +13,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 
     for (int num : numbers) {
         if (seen.find(num) == seen.end()) {
-            seen[num] = 0;
+            seen[num] = 1; // just store any value
             result.push_back(num);
         }
     }
@@ -22,6 +22,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    {assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));}
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
     return 0;
 }
