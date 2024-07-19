@@ -1,24 +1,30 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(const vector<string>& vec1, const vector<string>& vec2){
-    if(vec1.size() != vec2.size()){
+bool issame(const vector<string>& vec1, const vector<string>& vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
     }
-    for(size_t i = 0; i < vec1.size(); ++i){
-        if(vec1[i] != vec2[i]){
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(const auto& str : strings){
-        if(str.find(substring) != string::npos){
-            result.push_back(str);
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> filteredStrings;
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
+            filteredStrings.push_back(str);
         }
     }
-    return result;
+    return filteredStrings;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), vector<string>{"grunt", "prune"}));
+    return 0;
 }
