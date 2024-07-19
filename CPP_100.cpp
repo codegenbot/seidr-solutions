@@ -1,13 +1,8 @@
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = 1;
-    for (int i = 0; i < n; ++i) {
-        if ((stones % 2) == 1) {
-            pile.push_back(stones);
-        } else {
-            pile.push_back(stones + 1);
-        }
-        stones += 2;
-    }
-    return pile;
+#include <vector>
+bool issame(vector<int> a,vector<int> b){
+    return a == b;
+}
+int main() {
+    assert (issame(make_a_pile(15), {1,3,5,7,9,11,13,15})); 
+    return 0;
 }
