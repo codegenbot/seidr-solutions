@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -64,4 +63,3 @@ int main() {
         cout << "Strings are not the same." << endl;
     }
     return 0;
-}
