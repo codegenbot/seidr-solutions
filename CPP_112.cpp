@@ -1,4 +1,7 @@
-using namespace std;
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -14,18 +17,15 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
         }
     }
-    
     string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
-    
     return result;
 }
 
