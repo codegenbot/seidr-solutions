@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> parse_nested_parens(const std::string& paren_string) {
@@ -21,7 +20,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
         } else if (c == ' ') {
             depths.push_back(max_depth);
             max_depth = 0;
-            current_depth = 0;
         }
     }
     depths.push_back(max_depth);
