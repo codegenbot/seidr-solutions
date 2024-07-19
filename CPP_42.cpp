@@ -1,7 +1,8 @@
 #include <vector>
-#include <cassert>
 
-using namespace std;
+vector<int> incr_list(vector<int> l);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> incr_list(vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
@@ -10,7 +11,7 @@ vector<int> incr_list(vector<int> l) {
     return l;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
