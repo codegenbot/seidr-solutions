@@ -11,7 +11,7 @@ def bowling_score(frames):
             parts = frames[roll:roll+3].split("/")
             total = sum(map(int, filter(str.isdigit, parts)))
             if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                score += total + int(parts[-2].strip("-").split("/")[0])
+                score += total + int(parts[-2].split("/")[0])
             else:
                 score += total
             roll += 3
@@ -19,20 +19,13 @@ def bowling_score(frames):
         else:
             total = 0
             for i in range(2):
-                if frames[roll+i] == "X":
-                    total += 10
-                    break
-                elif "/" in frames[roll:roll+3]:
-                    parts = frames[roll:roll+3].split("/")
-                    total += sum(map(int, filter(str.isdigit, parts)))
-                    roll += 3
-                    break
+                value = frames[roll+i].strip("/")
+                if value.isdigit():
+                    total += int(value)
+                elif value.startswith("-"):
+                    total -= 10
                 else:
-                    if frames[roll+i].strip("-").isdigit():
-                        total += int(frames[roll+i].strip("-"))
-                    else:
-                        total += 10
-                        break
+                    total -= 10
             score += total
             roll += 2
 
@@ -43,15 +36,16 @@ def bowling_score(frames):
             parts = frames[roll:].split("/")
             total = sum(map(int, filter(str.isdigit, parts)))
             if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                score += total + int(parts[-2].strip("-").split("/")[0])
+                score += total + int(parts[-2].split("/")[0])
             else:
                 score += total
         roll += 2
     elif len(frames) > roll and frames[roll] != "/":
-        if frames[roll].strip("-").isdigit():
-            score += int(frames[roll].strip("-"))
-        else:
-            score += 10
+        value = frames[roll].strip("/")
+        if value.isdigit():
+            score += int(value)
+        elif value.startswith("-"):
+            score -= 10
 
     return score
 
