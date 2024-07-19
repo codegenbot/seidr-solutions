@@ -23,4 +23,4 @@ int main() {
     } else {
         std::cout << "The parentheses are not matched." << std::endl;
     }
-}
+    return 0;
