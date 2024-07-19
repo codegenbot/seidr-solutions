@@ -1,16 +1,13 @@
-def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("Number of coefficients must be even.")
+xs = list(map(int, input().split()))
 
-    n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
+if len(xs) % 2 != 0:
+    raise ValueError("Number of coefficients must be even.")
 
-    if a == 0:
-        return 0
+n = len(xs) - 1
+a = xs[-1]
+b = xs[-2]
 
-    return -b / a
-
-coefficients = list(map(float, input().split()))
-result = find_zero(coefficients)
-print(result)
+if a == 0:
+    print(0)
+else:
+    print(-b / a)
