@@ -19,4 +19,4 @@ string averageBinaryRepresentation(int n, int m) {
     }
     
     return binary_avg;
-}
+} 
