@@ -20,7 +20,7 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    assert(circular_shift(11, 101) == "11");
+    assert (circular_shift(11, 101) == "11");
     // Add more test cases here
     return 0;
 }
