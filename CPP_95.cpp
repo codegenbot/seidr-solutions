@@ -1,4 +1,7 @@
-bool check_dict_case(map<string,string> dict) {
+#include <map>
+#include <string>
+
+bool check_dict_case(const std::map<std::string, std::string>& dict) {
     if(dict.empty()) {
         return false;
     }
@@ -7,7 +10,7 @@ bool check_dict_case(map<string,string> dict) {
     bool all_uppercase = true;
     
     for(auto const& entry : dict) {
-        string key = entry.first;
+        std::string key = entry.first;
         
         for(char c : key) {
             if(islower(c)) {
