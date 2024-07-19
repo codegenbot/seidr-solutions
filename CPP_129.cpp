@@ -1,27 +1,23 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     vector<int> res;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (res.size() == k) break;
-            res.push_back(grid[i][j]);
-            int x, y;
-            if (i > 0) {x = i - 1; y = j;}
-            else if (i < n - 1) {x = i + 1; y = j;}
-            else if (j > 0) {x = i; y = j - 1;}
-            else if (j < n - 1) {x = i; y = j + 1;}
-            while (x >= 0 && x < n && y >= 0 && y < n) {
-                res.push_back(grid[x][y]);
-                k--;
-                if (k == 0) break;
-                if (res.size() > 1 && res.back() > grid[x][y]) {
-                    x++;
-                    while (x < n && res.back() > grid[x][y]) x++;
-                } else {
-                    y++;
-                    while (y < n && res.back() > grid[x][y]) y++;
+    int n = grid.size();
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (k == 1) {
+                res.push_back(grid[i][j]);
+                return res;
+            }
+            int minVal = INT_MAX;
+            vector<int> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+            for (int d = 0; d < 4; ++d) {
+                int ni = i + dir[d][0];
+                int nj = j + dir[d][1];
+                if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                    minVal = min(minVal, grid[ni][nj]);
                 }
             }
+            res.push_back(minVal);
+            k -= 1;
         }
     }
     return res;
