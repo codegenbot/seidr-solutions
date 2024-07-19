@@ -1,9 +1,6 @@
-```cpp
-#include <algorithm>
-#include <vector>
-
 auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
-    std::vector<int> result(std::unique_copy(first, last));
+    #include <algorithm>
+    auto result = std::vector<int>(std::unique_copy(first, last), first, last);
     return result;
 }
 
