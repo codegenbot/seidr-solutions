@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -19,4 +20,16 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     ans.push_back(result);
     ans.push_back(result == temp ? "True" : "False");
     return ans;
+}
+
+int main() {
+    std::string s, c;
+    std::cin >> s >> c;
+    
+    std::vector<std::string> output = reverse_delete(s, c);
+    for (const auto& str : output) {
+        std::cout << str << " ";
+    }
+    
+    return 0;
 }
