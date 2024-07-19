@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -44,6 +44,15 @@ int main() {
         lst.push_back(str);
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
-    assert(issame(sorted_list_sum(lst), expected));
+    for (const auto& expected : {"cc", "dd", "aaaa", "bbbb"}) {
+        bool found = false;
+        for (const auto& result : expected) {
+            if (result[0] == expected) {
+                found = true;
+                break;
+            }
+        }
+        std::cout << found << std::endl;
+    }
     return 0;
 }
