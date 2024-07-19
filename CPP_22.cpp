@@ -1,8 +1,13 @@
+Here is the modified code:
+
+```cpp
+#include <initializer_list>
+
 #include <cassert>
+
 #include <any>
 #include <list>
 #include <vector>
-#include <initializer_list>
 #include <typeindex>
 #include <algorithm>
 
