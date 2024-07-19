@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -9,7 +8,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     int count = 0;
     string current_group;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             if (count > 0) {
@@ -26,7 +25,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
             }
         }
     }
-    
+
     return result;
 }
 
@@ -36,7 +35,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     vector<string> expected_result = {"()", "(())", "(()())"};
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_result));
-    
+    assert(issame(separate_paren_groups("()(()())(()(()))"), expected_result));
+
     return 0;
 }
