@@ -1,6 +1,6 @@
 #include <string>
 
-std::string fix_spaces(const std::string& text) {
+std::string& fix_spaces(const std::string& text) {
     std::string result = "";
     for (char c : text) { 
         if (c == ' ') {
