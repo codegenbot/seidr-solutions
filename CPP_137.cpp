@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
-#include <memory>
+#include <algorithm>
 
 class Main {
 public:
     void run() {
         std::cout << "Enter first string: ";
         std::string str1;
-        getline(std::cin, str1);
+        std::getline(std::cin, str1);
 
         if (str1.empty()) {
             std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
@@ -16,7 +16,7 @@ public:
 
         std::cout << "Enter second string: ";
         std::string str2;
-        getline(std::cin, str2);
+        std::getline(std::cin, str2);
 
         if (str2.empty()) {
             std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
