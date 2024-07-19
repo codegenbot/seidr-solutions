@@ -1,14 +1,20 @@
 #include <vector>
-#include <algorithm>
-#include <cmath>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>(a) == std::vector<int>(b);
-}
+#include <iostream>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
-    std::transform(game.begin(), game.end(), guess.begin(), std::back_inserter(result),
-                   [](int a, int b) { return std::abs(a - b); });
+    for (int i = 0; i < game.size(); ++i) {
+        result.push_back(abs(game[i] - guess[i]));
+    }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
+    // Add any additional test cases here
+    return 0;
 }
