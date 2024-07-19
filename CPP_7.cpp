@@ -1,4 +1,7 @@
 #include <cassert>
+#include <algorithm>
+#include <vector>
+#include <string>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
     std::vector<std::string> temp_vec = vec;
@@ -9,11 +12,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     return temp_vec;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
-
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == std::vector<std::string>{"grunt", "prune"});
     return 0;
 }
