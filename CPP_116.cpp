@@ -1,17 +1,11 @@
+Here is the completed code:
+
 vector<int> sort_vector(vector<int> arr) {
-    vector<pair<int, int>> pairArr;
-    
-    for(int i = 0; i < arr.size(); i++) {
-        pairArr.push_back({__builtin_popcount(arr[i]), arr[i]});
-    }
-    
-    sort(pairArr.begin(), pairArr.end());
-    
-    vector<int> result;
-    
-    for(auto p : pairArr) {
-        result.push_back(p.second);
-    }
-    
-    return result;
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        int ones_a = __builtin_popcount(a);
+        int ones_b = __builtin_popcount(b);
+        if (ones_a == ones_b) return a < b;
+        return ones_a < ones_b;
+    });
+    return arr;
 }
