@@ -1,18 +1,18 @@
 #include <iostream>
+#include <cassert>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
 int mainFunction() {
-    string str1, str2, str3;
+    double x = 3.01;
+    int y, z;
     cout << "Enter three numbers: ";
-    cin >> ws >> str1 >> ws >> str2 >> ws >> str3;
-    
-    if (str1.empty() || str2.empty() || str3.empty()) {
+    if (!(cin >> fixed >> setprecision(0) << x >> skipws >> y && cin >> skipws >> z)) {
         cout << "Error: Please enter valid integer values.\n";
     } else {
-        int a = stoi(str1), b = stoi(str2), c = stoi(str3);
-        cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
+        cout << "The numbers are integers: " << y << ", " << z << "\n";
     }
 
     return 0;

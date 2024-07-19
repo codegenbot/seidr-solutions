@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
@@ -30,4 +30,3 @@ int main() {
     std::cout << "Sum of squares: " << result << std::endl;
 
     return 0;
-}

@@ -1,8 +1,18 @@
-#include <cmath>
+#include <vector>
 
-int specialFilter(int num) {
-    if (abs(num) > 10 && abs(num) % 10 % 2 != 0 && abs(num) / 10 % 10 % 2 != 0) {
-        return 1;
+int specialFilter(std::vector<int> nums) {
+    int count = 0;
+    for (int num : nums) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+            count++;
+        }
     }
+    return count;
+
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    // Add more test cases or actual functionality here
     return 0;
 }
