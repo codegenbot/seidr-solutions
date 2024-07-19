@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -12,7 +12,7 @@ int solve(int N) {
     return sum;
 }
 
-int main{
+int main() {
     int N;
     std::cout << "Enter a number: ";
     if (!(std::cin >> N)) {
