@@ -1,6 +1,16 @@
-if (x < 1) return false;
-    if (n < 2) return false;
+if (n == 1) {
+        return x == 1;
+    }
     
-    double power = log(x) / log(n);
-    return ((int)power == power);
+    for (int i = 2; i <= sqrt(x); i++) {
+        int p = i;
+        while (p <= x) {
+            if (p == x) {
+                return true;
+            }
+            p *= i;
+        }
+    }
+    
+    return false;
 }
