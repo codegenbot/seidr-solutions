@@ -1,11 +1,12 @@
 while True:
     try:
-        num1, num2, num3, num4 = map(float, input("Enter exactly four numbers separated by space: ").split())
-        if len([num1, num2, num3, num4]) != 4:
+        num_list = list(map(float, input("Enter exactly four numbers separated by space: ").split()))
+        if len(num_list) != 4:
             raise ValueError
-        result = num1 + num2 + num3 + num4
-    except ValueError:
-        print("Invalid input. Please enter exactly four numbers separated by space.")
-    else:
+        result = 1
+        for num in num_list:
+            result *= num
         print(result)
         break
+    except ValueError:
+        print("Invalid input. Please enter exactly four numbers separated by space.")
