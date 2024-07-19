@@ -20,11 +20,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
 }
 
-void solveProblem() {
-    assert(issame(solve({4, 3, 2, 8}, {}), {}));
-}
-
 int main() {
-    solveProblem();
+    assert(issame(solve({4, 3, 2, 8}, {}), {}));
     return 0;
 }
