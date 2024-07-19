@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
@@ -22,7 +23,8 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    std::string input_text = "your_input_here";
-    std::string result = fix_spaces(input_text);
+    std::string text = "Hello   world!";
+    std::string fixed_text = fix_spaces(text);
+    std::cout << fixed_text << std::endl;
     return 0;
 }
