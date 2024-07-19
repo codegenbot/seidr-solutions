@@ -1,9 +1,13 @@
-int n = arr.size();
-    int changes = 0;
-    for (int i = 0; i < n / 2; ++i) {
-        if (arr[i] != arr[n - 1 - i]) {
-            ++changes;
+#include <iostream>
+#include <vector>
+
+int smallest_change(std::vector<int> arr) {
+    int min_change = 0;
+    for (int i = 1; i < arr.size(); ++i) {
+        if (arr[i] <= arr[i - 1]) {
+            min_change += arr[i - 1] - arr[i] + 1;
+            arr[i] = arr[i - 1] + 1;
         }
     }
-    return changes;
+    return min_change;
 }
