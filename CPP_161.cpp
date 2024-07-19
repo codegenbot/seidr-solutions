@@ -12,8 +12,8 @@ bool solve(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> s;  
-    if (solve(s)) {
+    getline(std::cin, s);  
+    if (solve(s + "")) {
         std::cout << "The solution is: " << s << std::endl;
     } else {
         std::cout << "No solution exists. Please try again." << std::endl;
