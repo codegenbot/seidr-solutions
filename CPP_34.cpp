@@ -2,16 +2,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result;
-    for(int i : l){
-        if(std::count(l.begin(),l.end(),i)==1)
-            result.push_back(i);
-    }
-    return result;
+    set<int> s(l.begin(), l.end());
+    return vector<int>(s.begin(), s.end());
 }
 
 int driver() {
@@ -23,7 +20,4 @@ int driver() {
     return 0;
 }
 
-int main() {
-    driver();
-    return 0;
-}
+driver();
