@@ -13,6 +13,10 @@ std::vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    // Main function code here
+    int a = 1, b = 10;
+    std::vector<int> even_numbers = generate_integers(a, b);
+    for (int num : even_numbers) {
+        std::cout << num << " ";
+    }
     return 0;
 }
