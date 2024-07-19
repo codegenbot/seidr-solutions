@@ -1,16 +1,13 @@
-#include <vector>
-#include <algorithm>
-#include <limits>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+```cpp
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> get_positive(const std::vector<int>& l) {
-    std::vector<int> result;
+std::vector<float> get_positive(const std::vector<int>& l) {
+    std::vector<float> result;
     for (int num : l) {
         if (num > 0) {
-            result.push_back(num);
+            result.push_back((float)num); 
         }
     }
     return result;
