@@ -1,7 +1,7 @@
 def bowling_score(frames):
     score = 0
     roll = 0
-
+    
     while roll < len(frames) - 1:
         if frames[roll] == "X":
             score += 10
