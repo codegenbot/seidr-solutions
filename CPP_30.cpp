@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
+bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (std::abs(a[i]) != std::abs(b[i])) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> getPositive(const std::vector<float>& l) {
+std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result; // Initialize the vector
     for (float num : l) {
         if (num > 0) {
@@ -23,7 +23,7 @@ std::vector<float> getPositive(const std::vector<float>& l) {
     return result;
 }
 
-int mainFunc() {
+int main() {
     std::vector<float> input;
     float num;
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -31,14 +31,10 @@ int mainFunc() {
         if (num == -1) break;
         input.push_back(num);
     }
-    std::vector<float> positive = getPositive(input);
-    if (isSame(input, positive)) {
+    std::vector<float> positive = get_positive(input);
+    if (std::vector<float>::issame(input, positive)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
         std::cout << "Not all numbers are positive." << std::endl;
     }
-}
-
-int main() {
-    return 0; 
 }
