@@ -7,7 +7,7 @@ while True:
             print("Please enter a positive integer greater than zero.")
             continue
         
-        result = math.prod(map(int, str(n)))
+        result = math.prod(map(int, str(abs(n))))
         print(result)
         break
     
