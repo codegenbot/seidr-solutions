@@ -1,8 +1,8 @@
 try:
-    input_list = list(map(int, input("Enter space-separated integers: ").strip().split()))
-    result = sum(input_list)
-    print(result)
+    input_list = list(map(int, input().split()))
+    if input_list:
+        print(sum(input_list))
+    else:
+        print("Invalid input. Please enter at least one integer.")
 except ValueError:
     print("Invalid input. Please enter space-separated integers.")
-except KeyboardInterrupt:
-    print("No input received. Please provide space-separated integers.")
