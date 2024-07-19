@@ -9,12 +9,10 @@ def encode(message):
             result += char
     return result
 
+message = input("Enter a message to encode: ")
 while True:
     try:
-        message = input("Enter a message to encode: ")
         break
     except:
         print("Invalid input. Please enter a valid string.")
-
-encoded_message = encode(message)
-print("Encoded message: ", encoded_message)
+print("Encoded message: ", encode(message))
