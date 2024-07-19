@@ -1,5 +1,6 @@
-#include <vector>
 #include <initializer_list>
+#include <vector>
+#include <cmath>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 1e-9;
@@ -17,14 +18,7 @@ std::vector<float> sort_even(std::vector<float> l) {
             }
             result.push_back(maxEven);
         } else {
-            bool isInt = issame(l[i], static_cast<int>(l[i]));
-            for (float val : l) {
-                if (issame(val, static_cast<int>(val)) && !isInt) {
-                    maxEven = std::max(maxEven, val);
-                    isInt = true;
-                }
-            }
-            result.push_back(isInt ? l[i] : maxEven);
+            result.push_back(l[i]);
         }
     }
     return result;
