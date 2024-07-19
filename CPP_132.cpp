@@ -1,10 +1,13 @@
-int balance = 0;
-    for (char bracket : str) {
-        if (bracket == '[') {
-            balance++;
-        } else if (bracket == ']' && balance > 0) {
-            balance--;
+int n = str.length();
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (str[i] == '[') {
+            count++;
+        } else if (str[i] == ']' && count > 0) {
+            count--;
         }
     }
-    return balance < str.length() / 2 && balance > 0;
+
+    return count < n && count > 0;
 }
