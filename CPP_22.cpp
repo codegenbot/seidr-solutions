@@ -1,6 +1,9 @@
+```c++
+#include <cassert>
+#include <any>
+#include <list>
 #include <vector>
 #include <initializer_list>
-#include <cassert>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
