@@ -11,7 +11,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
+vector<string> processString(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
@@ -28,7 +28,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     result.push_back(temp);
     string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
+    std::reverse(revTemp.begin(), revTemp.end());
     if (temp == revTemp) {
         result.push_back("True");
     } else {
@@ -38,7 +38,7 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
+    vector<string> output = processString("mamma", "mia");
     bool res1 = issame(output, {"", "True"});
     assert(res1);
     return 0;
