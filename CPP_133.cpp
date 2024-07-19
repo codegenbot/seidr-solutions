@@ -15,21 +15,24 @@ int sum_squares(std::initializer_list<double> lst){
 
 int main() {
     assert(sum_squares({-1,1,0})==2); 
-    std::string strInput;  
-    std::cout << "Enter numbers separated by space: ";
-    getline(std::cin, strInput); 
-    size_t pos = 0;
-    std::string token;
+    while (true) {
+        std::cout << "Enter numbers separated by space: ";
+        std::string strInput;  
+        getline(std::cin, strInput); 
+        size_t pos = 0;
+        std::string token;
+        int total = 0;
 
-    while ((pos = strInput.find(" ")) != std::string::npos) {
-        token = strInput.substr(0, pos);
-        total += sum_squares({std::stod(token)}); 
-        strInput.erase(0, pos + 1);
-    }
-    
-    if (!strInput.empty()) {
-        total += sum_squares({std::stod(strInput)});
-    }
+        while ((pos = strInput.find(" ")) != std::string::npos) {
+            token = strInput.substr(0, pos);
+            total += sum_squares({std::stod(token)}); 
+            strInput.erase(0, pos + 1);
+        }
+        
+        if (!strInput.empty()) {
+            total += sum_squares({std::stod(strInput)});
+        }
 
-    std::cout << "Sum of squares: " << total;
+        std::cout << "Sum of squares: " << total;
+    }
 }
