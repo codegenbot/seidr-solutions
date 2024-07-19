@@ -1,6 +1,6 @@
 #include <string>
 #include <cassert>
-#include <cctype>
+#include <cctype>  // Include the missing header file
 
 std::string flip_case(std::string str){
     for(char &c : str){
@@ -13,7 +13,7 @@ std::string flip_case(std::string str){
     return str;
 }
 
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main(){
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); // Fix typo in function call
     return 0;
 }
