@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert> // Add this line
+#include <cassert>
 #include <cmath>
 
 std::string calculateBinaryString(int n, int m) {
@@ -25,6 +25,6 @@ std::string calculateBinaryString(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryString(5, 5) == "101"); // Change 'rounded_avg' to 'calculateBinaryString'
+    assert(calculateBinaryString(5, 5) == "101");
     return 0;
 }
