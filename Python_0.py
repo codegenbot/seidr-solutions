@@ -1,9 +1,9 @@
-try:
-    while True:
-        result = input("Enter a number: ")
+while True:
+    try:
+        result = input()
         if not result:
             break
-        if result.isnumeric():
+        if result.isdigit():
             print(int(result))
-except:
-    pass
+    except EOFError:
+        break
