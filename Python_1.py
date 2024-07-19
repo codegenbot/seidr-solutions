@@ -8,12 +8,9 @@ def separate_paren_groups(paren_string):
         elif char == ")":
             group = ""
             while stack and stack[-1] != "(":
-                group = stack.pop() + group
+                group = stack.pop() + group + group
             if stack:
                 stack.pop()
             result.append(group)
 
     return result
-
-paren_string = input().strip()
-print(separate_paren_groups(paren_string))
