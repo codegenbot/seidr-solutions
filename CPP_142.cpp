@@ -1,8 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-
-int data[] = {1, 2, 3, 4, 5};
 
 int sum_squares(std::vector<int> input) {
     int total = 0;
@@ -17,6 +14,7 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    std::cout << sum_squares({data[0], data[1], data[2], data[3], data[4]}) << std::endl;
+    std::vector<int> input({1, 2, 3, 4, 5});
+    std::cout << sum_squares(input) << std::endl;
     return 0;
 }
