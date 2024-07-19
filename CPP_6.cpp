@@ -23,6 +23,8 @@ std::vector<int> parse_nested_parens(std::string s){
     return depths;
 }
 
-void main(){
+int main(){
     assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>({4})));
+    
+    return 0;
 }
