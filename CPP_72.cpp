@@ -5,20 +5,12 @@
 #include <numeric>
 
 bool will_it_fly(std::vector<int> q, int w) {
-    bool balanced = true;
-    int sum = 0, depth = 0;
+    std::string str = "";
     for (int i : q) {
-        if (i > w - sum)
-            return false;
-        sum += i;
-        if (depth < 0) {
-            if (depth++ < 0) {
-                return false;
-            }
-        } else if (--depth == 0)
-            balanced = true;
+        str += std::to_string(i);
     }
-    return sum <= w && balanced;
+    bool balanced = str == std::stoi(str);
+    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
 }
 
 assert(will_it_fly({5}, 5));
