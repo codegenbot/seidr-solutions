@@ -1,10 +1,29 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+double find_zero(vector<double> coeffs, double x) {
+    double result = 0;
+    double power = 1;
+    for (double coeff : coeffs) {
+        result += coeff * pow(x, power);
+        power++;
+    }
+    return -pow(x,2) + result;
+}
+
 int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs;
+    vector<double> coeffs(n); // Initialize the vector with 'n' elements
+
     for(int i = 0; i < n; i++) {
-        cin >> coeffs.push_back(i);
+        cin >> coeffs[i];
     }
 
     double x;
