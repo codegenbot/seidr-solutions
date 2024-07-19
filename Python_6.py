@@ -17,6 +17,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return [max_count]
 
-input_paren_string = input().strip()
+input_paren_string = input("Enter the nested parentheses string: ")
 result = parse_nested_parens(input_paren_string)
 print(result[0])
