@@ -35,11 +35,6 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
 }
 
 int main() {
-    string test1, test2;
-    cout << "Enter the first test: ";
-    cin >> test1;
-    cout << "Enter the second test: ";
-    cin >> test2;
-    cout << (isSame(histogram(test1), histogram(test2)) ? "True" : "False") << endl;
+    cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
     return 0;
 }
