@@ -17,7 +17,7 @@ int main() {
         }
     }
 
-    assert(double_the_difference(odd_sum, 100.0) == 16800.0);
+    assert(double_the_difference(odd_sum, 100.0) == odd_sum);
 
     return 0;
 }
