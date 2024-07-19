@@ -2,9 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<int> generate_integers(int start, int end) {
     std::vector<int> result;
