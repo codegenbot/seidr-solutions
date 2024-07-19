@@ -1,27 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-
-namespace std {
-    template<>
-        struct hash<int> {
-            size_t operator()(int i) const {
-                return static_cast<size_t>(i);
-            }
-        };
-
-    template<>
-        bool operator==(const int& a, const int& b) {
-            return a == b;
-        }
-
-    template<>
-        bool operator!=(const int& a, const int& b) {
-            return !(a == b);
-        }
-};
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && a == b;
