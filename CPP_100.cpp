@@ -1,13 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool same_vectors(const vector<int>& a, const vector<int>& b);
+
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int stones = 1;
-    for (int i = 0; i < n; ++i) {
-        if ((stones % 2) == 1) {
-            pile.push_back(stones);
-        } else {
-            pile.push_back(stones + 1);
-        }
-        stones += 2;
+    for (int i = 1; i <= n; ++i) {
+        pile.push_back(i * 2 - 1);
     }
     return pile;
+}
+
+bool same_vectors(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+bool vectorComparison(const vector<int>& a, initializer_list<int> b) {
+    return same_vectors(a, vector<int>(b));
+}
+
+int main_test() {
+    assert(vectorComparison(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    cout << "Hello from main!" << endl;
+    return 0;
 }
