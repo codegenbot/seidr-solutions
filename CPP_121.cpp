@@ -25,7 +25,7 @@ int main() {
         numbers.push_back(std::to_string(num));
     }
     
-    numbers.erase(numbers.begin(), numbers.end());
+    int sum_of_odd_elements = solution(numbers);
     
-    std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
+    std::cout << "Sum of odd elements: " << sum_of_odd_elements << std::endl;
 }
