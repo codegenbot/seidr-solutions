@@ -1,46 +1,29 @@
 #include <iostream>
+using namespace std;
 
-bool issame(int a, int b);
-
-int even_odd_palindrome(int n);
-
-int main() {
-    int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    
-    if (issame(num1, num2)) {
-        std::cout << "The numbers are the same.\n";
-    } else {
-        if (even_odd_palindrome(num1) && even_odd_palindrome(num2)) {
-            std::cout << "Both numbers are even palindromes.\n";
-        } else if ((num1 % 2 == 0 && num2 % 2 != 0) || (num1 % 2 != 0 && num2 % 2 == 0)) {
-            std::cout << "One number is even and the other is odd.\n";
-        } else {
-            std::cout << "Both numbers are either both even or both odd.\n";
-        }
+bool isPalindrome(int n) {
+    int rev = 0;
+    int temp = n;
+    while (temp != 0) {
+        int remainder = temp % 10;
+        rev = rev * 10 + remainder;
+        temp /= 10;
     }
-
-}
-
-bool issame(int a, int b) {
-    return (a == b);
+    return n == rev;
 }
 
 int even_odd_palindrome(int n) {
-    if (n < 0) {
+    if (n < 0)
         n = -n;
-    }
-    
-    int rev = 0;
-    while (n > 0) {
-        int digit = n % 10;
-        if (digit != rev) {
-            return 0;
-        }
-        rev = digit;
-        n /= 10;
-    }
-    
-    return 1;
+    string str = to_string(n); 
+    bool is_palindrome = isPalindrome(stoi(str)); 
+    return is_palindrome && (n % 2 == 0);
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "Is the number even and palindrome? " << even_odd_palindrome(n) << endl;
+    return 0;
 }
