@@ -15,3 +15,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
     }
     return filtered_strings;
 }
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+}
