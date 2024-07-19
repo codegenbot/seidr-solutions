@@ -1,21 +1,8 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-void checkNumber(int n) {
-    if(n % 2 == 0) {
-        cout << "Even" << endl;
-    } else {
-        cout << "Odd" << endl;
+int sum_squares(vector<float> lst){
+    int total = 0;
+    for(float num : lst){
+        int ceil_num = ceil(num);
+        total += pow(ceil_num,2);
     }
-}
-
-int main() {
-    int n;
-    cin >> n; 
-    if (!(cin)) {
-        cerr << "Invalid input. Please enter an integer." << endl;
-    } else {
-        checkNumber(n); 
-    }
+    return total;
 }
