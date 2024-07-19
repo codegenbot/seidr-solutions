@@ -1,26 +1,16 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result;
-    int factorial = 1;
-    int sum = 0;
-    int n = a.size();
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            factorial *= i;
-            result.push_back(factorial);
-        } else {
-            sum += i;
-            result.push_back(sum);
+std::vector<int> issame(std::vector<int> a, std::vector<int> b){
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]){
+            return {0};
         }
     }
-    return result;
+    return {1};
 }
 
-int main() {
-    assert(issame({1, 2, 3}, {1, 2, 6}) == true);
+int main(){
+    assert(issame({1, 2, 3}, {1, 2, 6}) == 0);
     return 0;
 }
