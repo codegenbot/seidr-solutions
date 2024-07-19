@@ -1,8 +1,14 @@
-int answer = -1;
+unordered_map<int, int> freq;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            answer = max(answer, num);
+        freq[num]++;
+    }
+    
+    int result = -1;
+    for (auto it : freq) {
+        if (it.first > it.second && it.first > 0) {
+            result = max(result, it.first);
         }
     }
-    return answer;
+    
+    return result;
 }
