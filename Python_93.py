@@ -4,7 +4,7 @@ def encode(message):
     for char in message:
         if char.isalnum():
             base = ord('a' if char.islower() else 'A')
-            shift = 13
+            shift = 3
             result += chr((ord(char) - base + shift) % 26 + base)
         else:
             result += char
