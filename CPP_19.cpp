@@ -20,6 +20,6 @@ string sort_numbers(const string& numbers) {
         result += revNumMap[num] + " ";
     }
 
-    result.pop_back();
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
