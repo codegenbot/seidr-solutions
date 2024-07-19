@@ -23,5 +23,5 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return b;
         }
     }
-    return boost::any(nullptr);
+    return boost::any();
 }
