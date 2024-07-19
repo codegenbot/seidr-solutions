@@ -1,24 +1,32 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
-    for (char c : message) {
-        if (c == '\0') break; // in case the input string is shorter than the others
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.length()) {
-            result += cipher2[index];
+string substitutionCipher(string &cipherKey1, string &cipherKey2, string &input) {
+    string output;
+    for (int i = 0; i < input.length(); i++) {
+        if (i >= cipherKey1.length()) {
+            output += input[i];
         } else {
-            result += c;
+            int index = -1;
+            for (int j = 0; j < cipherKey2.length(); j++) {
+                if (cipherKey1[j] == input[i]) {
+                    index = j;
+                    break;
+                }
+            }
+            if (index != -1) {
+                output += cipherKey2[index];
+            } else {
+                output += input[i];
+            }
         }
     }
-    return result;
+    return output;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
+    string cipherKey1, cipherKey2, input;
+    cin >> cipherKey1 >> cipherKey2 >> input;
+    cout << substitutionCipher(cipherKey1, cipherKey2, input) << endl;
     return 0;
 }
