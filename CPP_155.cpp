@@ -1,28 +1,36 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <string>
+#include <cstdlib>
 
-std::vector<int> even_odd_count(int n) {
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
+    std::string numStr = std::to_string(std::abs(num));
+    
+    for(char c : numStr){
+        if((c - '0') % 2 == 0){
             result[0]++;
         } else {
             result[1]++;
         }
     }
+    
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    std::vector<int> result = even_odd_count(0);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
+    std::vector<int> a = even_odd_count(24680);
+    std::vector<int> b = {4, 1}; // Expected result for 24680
+    assert(issame(a, b) == true);
+
+    std::vector<int> c = even_odd_count(-13579);
+    std::vector<int> d = {0, 5}; // Expected result for -13579
+    assert(issame(c, d) == true);
     
     return 0;
 }
