@@ -16,8 +16,17 @@ long long doubleTheDifference(vector<float> lst) {
     return abs(pos_sum - neg_sum);
 }
 
-int main() {
-    vector<float> numbers = {1, 2, -3, 4, -5};
+int mainFunc() {
+    vector<float> numbers;
+    int n; 
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        float num; 
+        cin >> num;
+        numbers.push_back(num);
+    }
+
     long long result = doubleTheDifference(numbers);
     cout << "Double the difference: " << to_string(result) << endl;
     return 0;
