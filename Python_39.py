@@ -1,6 +1,6 @@
-n = int(input("Enter a number: "))
+n = int(input())
 while not isinstance(n, int) or n <= 0:
-    n = int(input("Invalid input. Please enter an integer greater than 0:"))
+    n = int(input())
 
 def is_prime(num):
     if num < 2:
