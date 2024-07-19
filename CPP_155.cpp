@@ -1,9 +1,9 @@
 #include <vector>
 
-vector<int> issame(vector<int> a, vector<int> b) {
+vector<int> issame(vector<int> a, vector<int> b){
     string num_str = to_string(abs(num));
     vector<int> counts(2, 0);
-
+    
     for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -11,6 +11,6 @@ vector<int> issame(vector<int> a, vector<int> b) {
             counts[1]++;
         }
     }
-
+    
     return counts;
 }
