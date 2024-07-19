@@ -39,5 +39,4 @@ void main_entry() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-    return;
 }
