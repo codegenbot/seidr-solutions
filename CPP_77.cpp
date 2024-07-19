@@ -1,4 +1,3 @@
-bool iscuber(int a){
-    int cubeRoot = round(cbrt(abs(a)));
-    return cubeRoot * cubeRoot * cubeRoot == abs(a);
+int x = cbrt(abs(a));
+    return (x * x * x == a);
 }
