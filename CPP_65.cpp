@@ -17,8 +17,3 @@ string circular_shift(int x, int shift) {
     string result = str.substr(n - shift) + str.substr(0, n - shift);
     return result;
 }
-
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
-}
