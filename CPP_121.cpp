@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int solution(std::vector<long long> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
@@ -12,7 +9,7 @@ int solution(std::vector<long long> numbers) {
 
 }
 
-int main() {
+int myMain() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
