@@ -2,12 +2,15 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b);
+vector<int> get_odd_collatz(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
@@ -18,19 +21,19 @@ std::vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1);
 
-    std::vector<int> odd_numbers;
+    vector<int> odd_numbers;
     for (int num : result) {
         if (num % 2 != 0) {
             odd_numbers.push_back(num);
         }
     }
 
-    std::sort(odd_numbers.begin(), odd_numbers.end());
+    sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(std::equal(get_odd_collatz(1).begin(), get_odd_collatz(1).end(), std::vector<int>{1}.begin()));
     return 0;
 }
