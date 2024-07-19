@@ -14,19 +14,16 @@ bool match_parens(const std::vector<std::string>& lst) {
     }
 
     return countOpen == countClose;
-
-    std::vector<std::string> user_input;
-    std::cout << "Enter parentheses expressions (enter 'q' to quit): ";
-    while (true) {
-        std::string s;
-        std::cin >> s;
-        if (s == "q") break;
-        user_input.push_back(s);
-    }
-    bool result_user = match_parens(user_input);
-
-    std::cout << (result_user ? "Yes\n" : "No\n");
 }
 
 int main() {
+    std::vector<std::string> lst;
+    std::cout << "Enter strings separated by spaces: ";
+    for(std::string s; std::getline(std::cin, s), !s.empty();)
+        lst.push_back(s);
+    bool result = match_parens(lst);
+
+    std::cout << (result ? "Yes\n" : "No\n");
+
+    return 0;
 }
