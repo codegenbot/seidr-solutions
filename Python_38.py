@@ -7,7 +7,6 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-
 input_string = input().strip()
 result = decode_cyclic(input_string)
 print(result)
