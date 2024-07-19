@@ -3,9 +3,7 @@
 
 vector<int> count_up_to(int n);
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> count_up_to(int n) {
     vector<int> result;
@@ -26,6 +24,10 @@ vector<int> count_up_to(int n) {
     }
     
     return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
