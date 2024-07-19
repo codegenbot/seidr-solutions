@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::string match_parens(std::vector<std::string> lst) {
+std::string match_parens(const std::vector<std::string>& lst) {
     int open = 0;
     int close = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        for (int j = 0; j < lst[i].size(); j++) {
-            if (lst[i][j] == '(') {
+    for (const std::string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
                 open++;
             } else {
                 if (open > 0) {
@@ -22,9 +23,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {"(())", "(()))"};
-
-    std::cout << match_parens(input) << std::endl;
-
+    assert (match_parens({")", "("}) == "Yes" );
     return 0;
 }
