@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -14,9 +14,12 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     for (auto &s : lst)
         ++mp[s];
     vector<vector<string>> res;
-    for (const auto &pair : mp)
-        if (pair.second > 1)
-            res.push_back({{pair.first, string(pair.second - 1, 'c')}});
+    for (const auto &pair : mp) {
+        if (pair.second > 1) {
+            string str = to_string(pair.second - 1);
+            res.push_back({{pair.first, "c" + str}});
+        }
+    }
     return res;
 }
 
@@ -30,16 +33,8 @@ int main() {
     
     vector<vector<string>> result = sorted_list_sum(lst);
 
-    if(sorted_list_sum(lst).size() == 0){
-        cout << "Sorted List Sum: ";
-        for(auto &s : lst){
-            cout << s << ", ";
-        }
-        cout << endl;
-    }else{
-        for (auto &v : result) {
-            cout << v[0] << ": " << v[1] << endl;
-        }
+    for (auto &v : result) {
+        cout << v[0] << ": " << v[1] << endl;
     }
 
     return 0;
