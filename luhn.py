@@ -4,9 +4,11 @@ def luhn(card_number):
     alt = False
     for i, digit in enumerate(reversed(card_number)):
         if alt:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        checksum += digit
+            if digit * 2 > 9:
+                checksum += digit * 2 - 9
+            else:
+                checksum += digit * 2
+        else:
+            checksum += digit
         alt = not alt
     return (10 - (checksum % 10)) % 10
