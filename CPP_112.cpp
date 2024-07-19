@@ -1,14 +1,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<std::string> a, vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     for (char ch : s) {
@@ -27,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back("True");
     } else {
         result.push_back("False");
