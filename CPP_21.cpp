@@ -1,8 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-6) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
@@ -15,13 +23,4 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     }
     
     return rescaled_numbers;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    // Implementation here
-}
-
-int main() {
-    // Main function
-    return 0;
 }
