@@ -2,7 +2,7 @@
 #include <cassert>
 
 namespace contest {
-    bool issame(std::vector<int> a, std::vector<int> b) {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         return a == b;
     }
 
@@ -15,7 +15,7 @@ namespace contest {
     }
 
     int contest_main() {
-        assert(issame(contest::make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+        assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
         return 0;
     }
 }
