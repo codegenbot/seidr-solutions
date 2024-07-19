@@ -13,7 +13,7 @@ int solution(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers(100); // reserve space
+    std::vector<int> numbers; 
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -21,7 +21,7 @@ int main() {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers[i] = num; // assign values
+        numbers.push_back(num);
     }
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
     return 0;

@@ -1,14 +1,13 @@
-```
-#include <cassert>
-
-int customBitCount(int* arr, int size) {
+int customBitCount(void* ptr, int size) {
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        while (*arr) {
-            *arr &= *arr - 1;
-            count++;
+    unsigned char* p = (unsigned char*)ptr;
+    for (int i = 0; i < size; ++i) {
+        if (*((unsigned char*)&p[i])) {
+            ++count;
         }
-        arr++;
+        if ((*(unsigned char*)&p[i]) & 0x80) {
+            ++count;
+        }
     }
     return count;
 }

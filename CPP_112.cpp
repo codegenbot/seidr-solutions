@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -37,8 +36,13 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-int main() {
+bool main_function() {
     vector<string> output = reverse_delete("mamma", "mia");
     bool res1 = issame(output, {"", "True"});
     assert(res1);
     return 0;
+}
+
+int main() {
+    main_function();
+}
