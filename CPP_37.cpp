@@ -9,9 +9,11 @@ std::vector<float> sortEven(std::vector<float> l){
     std::vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            auto even_elements = std::partition(l.begin() + i, l.end(), [](float x) { return x % 2.0f == 0.0f });
+            auto even_elements = std::stable_partition(l.begin(), l.end(), [](float x){return (int)x % 2 == 0});
             std::sort(even_elements, l.end());
-            l_prime.push_back(*std::min_element(even_elements, l.end()));
+            for(; even_elements != l.end(); ++even_elements){
+                l_prime.push_back(*even_elements);
+            }
         } else {
             l_prime.push_back(l[i]);
         }
@@ -19,7 +21,8 @@ std::vector<float> sortEven(std::vector<float> l){
     return l_prime;
 }
 
-int test_main(){
-    assert (areSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), sortEven({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})));
+int main() {
+    assert (areSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-
+12, 8, 4, 2, 5, 11, 23, -10}));
     return 0;
 }
