@@ -10,17 +10,16 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long sum1 = 0;
     long long prev_sum = 0; 
     long long min_diff = LLONG_MAX;
-    int index = 1, left_index = 0, right_index = 0;
+    int index = 1;
     
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long diff = abs(prev_sum - sum1);
+            long long diff = abs(sum1 - prev_sum);
             
-            if (diff <= min_diff) {
+            if ((sum1 - prev_sum) == 0 || diff <= min_diff) {
                 min_diff = diff;
                 res[0].assign(v.begin(), v.begin() + i+1);
                 res[1].assign(v.begin() + i, v.end());
-                left_index = 0; right_index = i;
             }
         }
         
