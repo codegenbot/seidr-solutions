@@ -10,10 +10,7 @@ std::map<char, int> histogram(string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
 
-    set<char> uniqueChars;
-    for (char c : test) { 
-        uniqueChars.insert(c);
-    }
+    set<char> uniqueChars(test.begin(), test.end());
 
     for (char c : uniqueChars) { 
         int count = 0;
