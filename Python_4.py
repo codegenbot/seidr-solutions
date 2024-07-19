@@ -5,5 +5,5 @@ try:
     else:
         result = num_list[0] * num_list[1] * num_list[2] * num_list[3]
         print(result)
-except (ValueError, IndexError):
-    print("Invalid input. Please enter four numeric values separated by space.")
+except ValueError:
+    print("Invalid input. Please enter numeric values separated by space.")
