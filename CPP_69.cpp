@@ -1,30 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
-int search(vector<int> lst) {
-    std::unordered_map<int, int> freq;
-    int ans = -1;
-
-    for (int num : lst) {
-        freq[num]++;
-        if (freq[num] >= num && num > ans) {
-            ans = num;
+sort(lst.begin(), lst.end());
+    int n = lst.size();
+    for (int i = n - 1; i >= 0; --i) {
+        if (lst[i] > 0 && n - i >= lst[i] && lst[i] == lst[i - lst[i] + 1]) {
+            return lst[i];
         }
     }
-
-    return ans;
-}
-
-int main() {
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-
-    int result = search(input);
-    cout << result << endl;
-
-    return 0;
+    return -1;
 }
