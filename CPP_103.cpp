@@ -1,22 +1,34 @@
-#include <stdio.h>
-#include <math.h>
-#include <string>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 string rounded_avg(int n, int m) {
-    if (n > m)
-        return "-1";
+    if (n > m) return "-1";
     double sum = 0;
-    for (int i = n; i <= m; i++)
+    for (int i = n; i <= m; i++) {
         sum += i;
-    double avg = round(sum / (m - n + 1));
-    string bin = "";
-    while (avg > 0) {
-        if (avg >= 2)
-            bin = "1" + bin, avg -= 2;
-        else
-            bin = "0" + bin;
-        avg /= 2;
     }
-    return bin;
+    double avg = round(sum / (m - n + 1));
+    string binary = "";
+    while (avg > 0) {
+        if (avg >= 2) {
+            avg -= 2;
+            binary += '1';
+        } else {
+            avg = floor(avg);
+            binary += '0';
+        }
+    }
+    return binary;
+}
+
+int main() {
+    int n, m;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    cout << "Enter the value of m: ";
+    cin >> m;
+    cout << rounded_avg(n, m) << endl;
+    return 0;
 }
