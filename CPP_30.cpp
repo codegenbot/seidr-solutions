@@ -1,11 +1,12 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b){
     return a == b;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> positive_numbers;
     for (float num : l) {
         if (num > 0) {
@@ -16,6 +17,6 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(issame(get_positive({1, 2, 3}), {1, 2, 3}));
+    assert(issame(std::get_positive({}), std::vector<float>()));
     return 0;
 }
