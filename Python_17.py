@@ -4,7 +4,10 @@ def parse_music():
     
     print("Enter the notes in the format 'note value', one per line:")
     num_notes = int(input())
-    notes = dict(input().split() for _ in range(num_notes))
+    notes = {}
+    for _ in range(num_notes):
+        note, value = input().split()
+        notes[note] = value
     
     return get_notes(music_strings, notes)
 
