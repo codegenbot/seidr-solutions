@@ -1,39 +1,27 @@
-#include <iostream>
-#include <string>
 #include <boost/any.hpp>
+#include <string>
 #include <cassert>
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+using namespace std;
+
+template<typename T>
+boost::any compare_one(const T& a, const T& b) {
+    if (a.type() == typeid(T) && b.type() == typeid(T)) {
+        if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+        } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
             return b;
         } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) {
-            return a;
-        } else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) {
-            return b;
-        } else {
-            return "None";
+            return boost::any("None");
         }
     } else {
-        return "None";
+        return boost::any("None");
     }
 }
 
 int main() {
-    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert (boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(string("2")))) == "None");
+    // Add more test cases here
+
     return 0;
 }
