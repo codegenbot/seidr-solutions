@@ -5,7 +5,7 @@ def minPath(grid, k):
     visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-    while len(path) < k and len(visited) > 0:
+    while len(path) < k:
         found_next = False
         for i, j in visited:
             for di, dj in directions:
