@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 #include <cassert>
 
-int skjkasdkd(std::vector<int> lst){
+int skjkasdkd(std::initializer_list<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -25,8 +25,6 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
-    int result = skjkasdkd({127, 97, 8192});
-    assert(result == 10);
-    return 0;
-}
+int result = skjkasdkd({127, 97, 8192});
+assert(result == 10);
+return 0;
