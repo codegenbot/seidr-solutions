@@ -1,5 +1,5 @@
+import sys
 from typing import List
-
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -16,7 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             open_brackets -= 1
     return result
-
 
 paren_string = input().strip()
 print(separate_paren_groups(paren_string))
