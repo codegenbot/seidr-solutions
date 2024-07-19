@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> incr_list(const vector<int>& l) {
+vector<int> incr_list(const std::vector<int>& l) {
     vector<int> result;
     for (int num : l) {
         result.push_back(num + 1);
