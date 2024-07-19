@@ -1,32 +1,26 @@
 #include <iostream>
-#include <vector>
+#include <set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
+using namespace std;
+
+bool issame(set<int> s1, set<int> s2) {
+    if (s1.size() != s2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i : s1) {
+        if (!s2.count(i)) {
             return false;
         }
     }
     return true;
 }
 
-bool pluck(const std::vector<int>& v, int n, const std::vector<int>& a) {
-    for (int i = 0; i < v.size(); ++i) {
-        if (v[i] == n && issame(v.subvec(i), a)) {
-            return true;
-        }
-    }
-    return false;
-}
-
 int main() {
-    if (pluck({7,9},{7}, {7}) || pluck({1,2},{3})) {
-        std::cout << "true" << std::endl;
-    } else {
-        std::cout << "false" << std::endl;
-    }
+    set<int> s1 = {7, 9};
+    set<int> s2 = {7};
+    cout << boolalpha << issame(s1, s2) << endl;  
+    set<int> s3 = {7};
+    set<int> s4 = {7};
+    cout << boolalpha << issame(s3, s4) << endl;  
     return 0;
 }
