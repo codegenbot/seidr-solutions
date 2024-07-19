@@ -52,12 +52,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int main() {
+int unique_main() {
     std::vector<int> arr = {9, 4, 8};
     std::vector<std::string> result = by_length(arr);
     std::vector<std::string> expected = {"Nine", "Four", "Eight"};
-    if (!issame(result, expected)) {
-        return 1;
-    }
+    assert(issame(result, expected));
     return 0;
 }
