@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+using namespace std;
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
@@ -13,20 +13,22 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> numbers;
+    vector<float> lst; 
+    int odd_sum = 0; 
+
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cin >> n;
     
-    for (int i = 0; i < n; ++i) {
-        float num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+    for(int i=0;i<n;i++){
+        float x;
+        cin >> x;
+        if(x > 0 && modf(x, &x) == 0){
+            odd_sum += x * x;
+        }
+        lst.push_back(x);
     }
-    
-    long long result = double_the_difference(numbers);
-    std::cout << "The sum of squares of even integers is: " << result << std::endl;
-    
+
+    assert (double_the_difference(lst) == odd_sum );
+
     return 0;
 }
