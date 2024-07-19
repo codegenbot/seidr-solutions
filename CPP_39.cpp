@@ -1,36 +1,32 @@
 #include <iostream>
+#include <cmath>
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; ++i) {
-        if (num % i == 0) {
-            return false;
-        }
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 == 0 || num % 3 == 0) return false;
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) return false;
     }
     return true;
 }
 
 int prime_fib(int n) {
-    if (n <= 0) {
-        return -1;
-    }
-
-    int a = 1, b = 1;
+    if (n <= 0) return -1;
+    if (n == 1) return 2;
+    
+    int a = 1, b = 1, c;
     for (int i = 3; i <= n; ++i) {
-        int c = a + b;
+        c = a + b;
+        while (!is_prime(c)) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
         a = b;
         b = c;
     }
-
-    while (true) {
-        if (isPrime(b)) {
-            return b;
-        }
-        b = a + b;
-        a = b - a;
-    }
+    return c;
 }
 
 int main() {
