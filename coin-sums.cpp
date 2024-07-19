@@ -10,7 +10,8 @@ int main() {
     int dimes = remaining / 10;
     int remaining2 = remaining % 10;
     int nickles = remaining2 / 5;
-    int pennies = remaining2 % 5;
+    int remaining2_ = remaining2 % 5;
+    int pennies = remaining2_;
     
     cout << quarters << endl;
     cout << nickles << endl;
