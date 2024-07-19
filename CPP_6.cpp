@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(char a, char b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
@@ -26,8 +26,4 @@ vector<int> parse_nested_parens(string paren_string) {
     depths.push_back(max_depth);
 
     return depths;
-}
-
-int main() {
-    return 0;
 }
