@@ -26,9 +26,8 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 int main_function() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> b(std::vector<std::string>({"xxx", "xxxAAA", "xxx"}));  // C++11 feature used here
-    std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};  // Same thing but without assigning it to a variable
+    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
 
-    assert (areSame(filter_by_prefix(a, "xxx") , b));
+    assert (areSame(filter_by_prefix(a, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
