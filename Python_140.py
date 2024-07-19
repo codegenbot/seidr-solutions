@@ -8,4 +8,4 @@ def fix_spaces(text):
             result += '-'
         else:
             result += char
-    return result
+    return result```
