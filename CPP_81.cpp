@@ -1,9 +1,13 @@
 #include <string>
 
+bool issame(float a, float b) {
+    return a == b;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
-        if (gpa == 4.0) {
+        if (issame(gpa, 4.0)) {
             letter_grades.push_back("A+");
         } else if (gpa > 3.7) {
             letter_grades.push_back("A");
