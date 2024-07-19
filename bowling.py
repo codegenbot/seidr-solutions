@@ -23,10 +23,12 @@ def bowling_score(frames):
         score += int(frames[0].strip("/"))
     elif len(frames) > 1:
         if frames[-2] != "X" and "/" not in frames[-2:]:
-            score += int(frames[-1].strip("/")) + int(frames[-2].strip("/"))
-        elif frames[-2] == "X":
-            score += 10 + int(frames[-1].strip("/"))
-        else:
+            if frames[-1] == "X":
+                score += 10
+            else:
+                total = int(frames[-1].strip("/")) + int(frames[-2].strip("/"))
+                score += total
+        elif frames[-1] == "X":
             score += 10
 
     return score
