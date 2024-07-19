@@ -1,1 +1,1 @@
-n = int(input("Enter a number:")) if input("Enter a number:").isdigit() else 0
+n = int(user_input) if user_input.isnumeric() else 0
