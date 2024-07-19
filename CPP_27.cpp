@@ -9,5 +9,3 @@ std::string flip_case(std::string str){
     }
     return str;
 }
-
-flip_case("These violent delights have violent ends");
