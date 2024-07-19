@@ -2,39 +2,29 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::string a, std::string b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::string numerical_letter_grade(std::vector<double> grades);
+std::string numerical_letter_grade(std::vector<double> grades) {
+    if (grades.empty()) return "";
+    
+    double avg_grade = 0;
+    for (double grade : grades) {
+        avg_grade += grade;
+    }
+    avg_grade /= grades.size();
 
-int main() {
-    std::vector<double> grades = {85, 92, 78, 65, 43};
-    std::string grade = numerical_letter_grade(grades);
-    return 0;
+    if (avg_grade >= 0 && avg_grade < 1) return "E";
+    else if (avg_grade >= 1 && avg_grade < 1.7) return "D-";
+    // Add more grade evaluations according to your logic
+
+    return ""; // Default case
 }
 
-std::string numerical_letter_grade(std::vector<double> grades) {
-    if (grades.empty()) {
-        return "No grades available";
-    }
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    // Add more test cases here
 
-    double sum = 0;
-    for (const auto& grade : grades) {
-        sum += grade;
-    }
-
-    double avg = sum / grades.size();
-
-    if (avg >= 90) {
-        return "A";
-    } else if (avg >= 80) {
-        return "B";
-    } else if (avg >= 70) {
-        return "C";
-    } else if (avg >= 60) {
-        return "D";
-    } else {
-        return "F";
-    }
+    return 0;
 }
