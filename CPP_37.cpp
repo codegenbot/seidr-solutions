@@ -30,6 +30,6 @@ void sort_even(vector<float>& l) {
 }
 
 int main() {
-    // Your main function code here
+    // Your code logic here
     return 0;
 }
