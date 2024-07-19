@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cassert>
 #include <string>
-#include <cmath>
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
