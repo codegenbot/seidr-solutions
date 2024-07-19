@@ -1,6 +1,5 @@
-# Read input from the user using input() function
-# Perform necessary computations
-# Example code: result = int(input()) + 5
+# Read integer input from user
+result = int(input())
 
-# Print the result
+# Print the result from input
 print(result)
