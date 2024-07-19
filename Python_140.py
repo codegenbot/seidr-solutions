@@ -1,2 +1,12 @@
 def fix_spaces(text):
-    return '_'.join(word.replace(' ', '-') if len(word) > 2 else word for word in text.split())
+    result = ''
+    consecutive_spaces = 0
+    for char in text:
+        if char == ' ':
+            consecutive_spaces += 1
+            if consecutive_spaces > 2:
+                result = result[:-2] + '-'
+        else:
+            result += '_' if consecutive_spaces > 1 else char
+            consecutive_spaces = 0
+    return result
