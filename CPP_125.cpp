@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cctype>
+#include <cctype> // Include this for islower function
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     // Add your comparison logic here
