@@ -27,11 +27,10 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 int main() {
     int n;
     cin >> n; 
-    vector<string> lst;
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        lst.push_back(s);
+    vector<string> lst(n, "");
+    
+    for (auto &s : lst) {
+        cin >> s; 
     }
     
     if(sorted_list_sum(lst).size() == 0){
