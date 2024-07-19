@@ -18,7 +18,5 @@ int main() {
 
     double result = double_the_difference(odd_sum, 100.0);
 
-    std::cout << "Result: " << result << std::endl;
-
     return 0;
 }
