@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,12 +6,16 @@ int solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            if (c >= 'a' && c <= 'z') {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
         } else {
             result += c;
         }
     }
-    return result.empty();
+    return 0;
 }
 
 int main() {
