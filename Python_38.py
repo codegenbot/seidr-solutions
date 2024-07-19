@@ -12,5 +12,5 @@ def decode_cyclic(s: str):
         if len(temp) > 0:
             group = list(temp)
             group.insert(0, group.pop())
-            result.append("".join(group)) 
+            result.append("".join(group"))
     return "".join(result)
