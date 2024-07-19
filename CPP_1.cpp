@@ -22,5 +22,3 @@ vector<string> separate_paren_groups(const string& paren_string) {
 
     return result;
 }
-
-issame(separate_paren_groups(paren_string), b);
