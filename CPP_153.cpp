@@ -1,4 +1,3 @@
-```cpp
 #include <assert>
 #include <vector>
 #include <string>
@@ -18,4 +17,7 @@ std::vector<std::string> extensions({"Java", "Python", "C++"});
 std::cout << Strongest_Extension(class_name, extensions) << std::endl;
 
 assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-return 0;
+
+int main() {
+    return 0;
+}

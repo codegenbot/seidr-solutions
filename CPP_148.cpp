@@ -1,12 +1,7 @@
-```cpp
 #include <vector>
 #include <cctype>
 #include <functional>
 #include <string>
-
-std::string bf(const std::string& s1, const std::string& s2) {
-    return s1 + " " + s2;
-}
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
