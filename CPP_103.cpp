@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cmath>
 
-std::string calculateBinary(int n, int m) {
+std::string calculateBinaryString(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -25,6 +25,6 @@ std::string calculateBinary(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinary(5, 5) == "101");
+    assert(calculateBinaryString(5, 5) == "101");
     return 0;
 }
