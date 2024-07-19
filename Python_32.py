@@ -6,5 +6,8 @@ def find_zero(xs: list):
         if xs[i] != 0:
             return -xs[0] / xs[i]
 
-coefficients = list(map(int, input("Enter coefficients (separated by spaces): ").split()))
+
+coefficients = list(
+    map(int, input("Enter coefficients (separated by spaces): ").split())
+)
 print(find_zero(coefficients))
