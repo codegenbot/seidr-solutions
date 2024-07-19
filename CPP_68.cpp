@@ -1,9 +1,10 @@
 #include <vector>
 #include <climits>
+#include <cassert>
 
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
+std::vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
@@ -22,3 +23,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     return result;
+}
+
+assert(pluck({7, 9, 7, 1}).size() == 0);
