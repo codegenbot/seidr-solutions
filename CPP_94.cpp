@@ -1,3 +1,7 @@
+#include <vector>
+#include <set>
+#include <cassert>
+
 int setSize(std::set<int> s) {
     return s.size();
 }
@@ -9,6 +13,6 @@ int getSetSize(int i, int j, int k) {
 
 int main() {
     int result = getSetSize(127, 97, 8192);
-    assert(setSize({result}) == 1);
+    assert(result == 3);
     return 0;
 }
