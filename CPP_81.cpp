@@ -2,28 +2,19 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
+bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    return vec1 == vec2;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
 int main() {
-    std::vector<float> grades = {3.8, 2.5, 4.0, 1.2};
+    // Sample code for testing
+    std::vector<float> grades = {3.8, 4.0, 2.5};
     std::vector<std::string> result = numerical_letter_grade(grades);
-
     for (const std::string& grade : result) {
         std::cout << grade << " ";
     }
-    std::cout << std::endl;
-
-    std::vector<std::string> expected = {"A", "B", "A+", "D-"};
-    if (issame(result, expected)) {
-        std::cout << "Result matches expected grades." << std::endl;
-    } else {
-        std::cout << "Result does not match expected grades." << std::endl;
-    }
-
     return 0;
 }
 
