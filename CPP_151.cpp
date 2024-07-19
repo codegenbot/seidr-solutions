@@ -16,6 +16,7 @@ long long doubleTheDifference(vector<float> lst) {
 int main() {
     vector<float> lst;
     float num; 
+    long long odd_sum = 0; 
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> num; 
