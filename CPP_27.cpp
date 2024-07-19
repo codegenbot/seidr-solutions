@@ -8,22 +8,16 @@ int main_function() {
     std::cout << "Enter a string: ";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, input);
+    bool correct = (flip_case(input) == "these violent delights have violent ends");
     std::cout << flip_case(input) << '\n';
-    if(flip_case(input).compare("these violent delights have violent ends") == 0)
-        return 0;
-    else
-        return 1;
+    return correct ? 0 : 1;
 }
 
 std::string flip_case(const std::string& str) {
-    std::string result = "";
     for (char c : str) {
-        if (isupper(c))
-            result += tolower(c);
-        else if (islower(c))
-            result += toupper(c);
-        else
-            result += c;
+        if (std::isupper(c)) result += std::tolower(c);
+        else if (std::islower(c)) result += std::toupper(c);
+        else result += c;
     }
     return result;
 }
