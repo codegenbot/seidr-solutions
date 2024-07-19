@@ -2,20 +2,31 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <sstream>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
-    istringstream iss(s);
-    while (iss >> word) {
-        if (--n > 0) {
-            words.push_back(word);
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
         }
     }
-    return words;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    
+    if (n >= words.size()) {
+        return {};
+    }
+    
+    return vector<string>(words.begin() + n, words.end());
 }
 
 bool issame(vector<string> a, vector<string> b) {
