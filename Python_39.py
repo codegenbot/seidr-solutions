@@ -7,9 +7,9 @@ def is_prime(num):
     return True
 
 def prime_fib():
-    n = int(input("Enter a number greater than 0: "))
+    n = int(input("Enter a positive integer: "))
     while n <= 0:
-        n = int(input("Please enter a number greater than 0: "))
+        n = int(input("Please enter a positive integer: "))
     
     def fibonacci(num):
         if num <= 0:
@@ -27,4 +27,4 @@ def prime_fib():
         i += 1
     return fibonacci(i - 1)
 
-print(prime_fib())
+prime_fib()
