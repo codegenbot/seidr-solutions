@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<float> get_positive(std::vector<float> l) {
+std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
     for(float i : l) {
         if(i > 0) {
@@ -12,6 +12,17 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    // Your code here
+    std::vector<float> input;
+    float num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+
+    std::cout << "Positive numbers: ";
+    for(float i : get_positive(input)) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
