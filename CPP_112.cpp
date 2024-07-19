@@ -1,3 +1,9 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
