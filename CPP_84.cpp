@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string solve(int num) {
     std::string result = "";
@@ -14,8 +14,8 @@ std::string solve(int num) {
     return result;
 }
 
-int main() {
+int testMain() {
     assert(solve(963) == "10010");
-    std::cout << solve(16) << std::endl; 
+    std::cout << solve(15) << std::endl;
     return 0;
 }
