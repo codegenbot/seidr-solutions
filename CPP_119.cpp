@@ -1,23 +1,24 @@
 #include <string>
 #include <vector>
 
-int main() {
-    std::vector<std::string> lst;
-    std::cout << "Enter strings (enter 'stop' to finish):" << std::endl;
-    while (true) {
-        std::string s;
-        std::cin >> s;
-        if (s == "stop") break;
-        lst.push_back(s);
-    }
-    
+bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
-    for (const auto& str : lst) {
-        for (char c : str) {
+    for (const auto& s : lst) {
+        for (char c : s) {
             if (c == '(') open++;
-            else if (c == ')') close++;
+            else close++;
         }
     }
-    
-    std::cout << (open == close ? "Yes" : "No") << std::endl;
+    return open == close;
+}
+
+int main() {
+    std::vector<std::string> lst = {"(a)", "(b(c))"};
+    bool result = match_parens(lst);
+    if (result)
+        std::cout << "Yes" << std::endl;
+    else
+        std::cout << "No" << std::endl;
+
+    return 0;
 }
