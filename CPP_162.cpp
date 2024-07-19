@@ -1,4 +1,11 @@
 ```cpp
+#include <iostream>
+#include <string>
+
+extern "C" {
+    #include <openssl/md5.h>
+}
+
 std::string string_to_md5(const std::string& input) {
     unsigned char result[16];
     MD5_CTX md5ctx;
@@ -11,4 +18,12 @@ std::string string_to_md5(const std::string& input) {
         sprintf(output + i*2, "%02x", result[i]);
     }
     return std::string(output);
+}
+
+int main() {
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
+    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
+    return 0;
 }
