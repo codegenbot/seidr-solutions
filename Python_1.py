@@ -1,5 +1,3 @@
-import sys
-
 def separate_paren_groups(paren_string):
     stack = []
     result = []
@@ -16,6 +14,7 @@ def separate_paren_groups(paren_string):
             result.append(group)
 
     return result
+
 
 paren_string = input().strip()
 print(separate_paren_groups(paren_string))
