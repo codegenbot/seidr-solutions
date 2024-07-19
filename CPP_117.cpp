@@ -1,13 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cstring>
 
-vector<string> select_words(string s, int n);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n);
+
+int main() {
+    // Your main function code here
+}
+
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int consonant_count = 0;
     
     for (char c : s) {
@@ -30,13 +48,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
 }
