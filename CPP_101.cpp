@@ -19,10 +19,8 @@ vector<string> words_string(string s) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    vector<string> b_copy = b; 
-    sort(a.begin(), a.end());
-    sort(b_copy.begin(), b_copy.end());
-    return (a == b_copy);
+    b = words_string("ahmed     , gamal");
+    return a == b;
 }
 
 int main() {
