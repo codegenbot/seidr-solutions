@@ -1,3 +1,8 @@
 def remove_duplicates(numbers):
+    unique_numbers = []
     seen = set()
-    return [x for x in numbers if not (x in seen or seen.add(x))]
+    for x in numbers:
+        if x not in seen:
+            unique_numbers.append(x)
+            seen.add(x)
+    return unique_numbers
