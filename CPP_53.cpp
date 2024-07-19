@@ -7,10 +7,9 @@ int add(int x, int y) {
 }
 
 int main() {
-    int x = std::rand() % 1000;
-    int y = std::rand() % 1000;
-
+    srand(time(nullptr)); // Add this line
+    int x = rand() % 1000; // Change rand() to rand
+    int y = rand() % 1000; // Change rand() to rand
     assert(add(x, y) == x + y);
-
     return 0;
 }
