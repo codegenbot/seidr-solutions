@@ -1,7 +1,5 @@
+import math
+
 def max_fill(grid, capacity):
-    required_buckets = 0
-    for row in grid:
-        for well in row:
-            if well > 0:
-                required_buckets += math.ceil(well / capacity)
-    return required_buckets
+    total_water = sum(sum(row) for row in grid)
+    return math.ceil(total_water / capacity) * capacity - total_water
