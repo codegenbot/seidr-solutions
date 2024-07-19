@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -25,17 +25,17 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    int lastI = i;
-    while(lastI < n) { 
-        sum2 -= v[lastI];
-        sum1 += v[lastI];
+    int j = i-1; // declare `i` before using it
+    while(j < n) {
+        sum2 -= v[j];
+        sum1 += v[j];
         if (abs(sum1 - sum2) <= diff) {
-            res[0].push_back(v[lastI]);
+            res[0].push_back(v[j]);
         } else {
-            res[1] = vector<int>(v.begin() + lastI, v.end());
+            res[1] = vector<int>(v.begin() + j, v.end());
             break;
         }
-        lastI++;
+        j++;
     }
     
     return res;
