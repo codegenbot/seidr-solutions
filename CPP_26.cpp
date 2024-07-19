@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -13,7 +12,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::vector<int> result;
 
     for (int num : numbers) {
-        if (std::find(seen.begin(), seen.end(), num) == seen.end()) {
+        if (!seen.count(num) || seen.count(num) == 1) {
             seen[num] = true;
             result.push_back(num);
         }
