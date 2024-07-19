@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -24,7 +23,7 @@ int luhn(const vector<int>& card) {
 }
 
 int main() {
-    vector<int> card = {4, 3, 2, 1, 8, 7, 6, 5, 4, 3, 2, 1};
+    vector<int> card = {4, 3, 2, 1, 0, 0, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9}; 
     cout << luhn(card) << endl; 
     return 0;
 }
