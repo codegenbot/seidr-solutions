@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 std::string solve(int num) {
     std::string result = "";
@@ -14,9 +15,7 @@ std::string solve(int num) {
 }
 
 int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << solve(num) << std::endl;
+    assert(solve(963) == "10010");
+    std::cout << solve(16) << std::endl; 
     return 0;
 }
