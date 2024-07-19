@@ -1,13 +1,1 @@
-#include <algorithm>
-#include <vector>
-#include <initializer_list>
-
-float calculateMedian(std::initializer_list<float> l) {
-    std::vector<float> v(l);
-    std::sort(v.begin(), v.end());
-    int n = v.size();
-    if (n % 2 == 0)
-        return (v[n/2 - 1] + v[n/2]) / 2.0;
-    else
-        return v[n/2];
-}
+```assert (std::abs(calculateMedian({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);```
