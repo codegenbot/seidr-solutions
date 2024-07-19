@@ -3,20 +3,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> f(int n);
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> result = f(n);
-    // Print the result vector
-    return 0;
-}
-
 std::vector<int> f(int n){
     std::vector<int> result(n);
     for (int i = 1; i <= n; ++i) {
@@ -35,4 +21,8 @@ std::vector<int> f(int n){
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
