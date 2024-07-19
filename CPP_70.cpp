@@ -1,6 +1,8 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <functional>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -31,6 +33,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    // Your code here
-    return 0;
+    assert(issame(strange_sort_vector({111111}), vector<int>({111111})));
+    // ...
 }
