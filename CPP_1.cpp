@@ -1,11 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <string>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> groupParentheses(const string& paren_string) {
+vector<string> splitParenthesesGroups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
@@ -34,13 +37,13 @@ int main() {
     string input;
     cout << "Enter a string with parentheses: ";
     cin >> input;
-    
-    vector<string> groups = groupParentheses(input);
-    
-    cout << "Groups of parentheses: ";
-    for (const string& group : groups) {
-        cout << group << ' ';
+
+    vector<string> output = splitParenthesesGroups(input);
+
+    cout << "Groups within parentheses are: ";
+    for (const auto& group : output) {
+        cout << group << " ";
     }
-    
+
     return 0;
 }
