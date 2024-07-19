@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,7 +40,10 @@ bool is_prime(int n) {
 std::string longest_prime_word;
 
 int main() {
-    for (const auto &word : split("here is")) {
+    std::vector<std::string> words = split("here is");
+    longest_prime_word = "";
+
+    for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
             if (!isascii(c)) {
