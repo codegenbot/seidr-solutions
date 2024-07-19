@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -18,4 +18,5 @@ int main() {
         std::cout << "Invalid input. Please enter an integer." << std::endl;
         return 1;
     }
-    std::cout << "Sum of bits is: " << std::to_string(solve(N)) << std::endl;
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+}
