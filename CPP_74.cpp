@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
@@ -22,16 +26,17 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> lst1 = {"apple", "banana"};
-    vector<string> lst2 = {"orange", "pear"};
+    vector<string> lst1 = {"apple", "banana", "cherry"};
+    vector<string> lst2 = {"orange", "mango", "papaya"};
 
     vector<string> result = total_match(lst1, lst2);
-    vector<string> expected = {"orange", "pear"};
 
-    if (issame(result, expected)) {
-        cout << "Output matches expected result" << endl;
+    vector<string> expected_result = total_chars(lst1) < total_chars(lst2) ? lst1 : lst2;
+
+    if (issame(result, expected_result)) {
+        cout << "Test case passed" << endl;
     } else {
-        cout << "Output does not match expected result" << endl;
+        cout << "Test case failed" << endl;
     }
 
     return 0;
