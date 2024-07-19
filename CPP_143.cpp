@@ -5,9 +5,9 @@
 size_t wordsInSentence(const std::string& str) {
     size_t count = 0;
     size_t pos = 0;
-    while (pos < str.length() && (pos = str.find(" ", pos)) != std::string::npos) {
+    while ((pos = str.find(" ")) != std::string::npos) {
         ++count;
-        pos = str.find(" ", pos);
+        pos = str.find(" ", pos + 1);
     }
     return count + 1; // Add 1 for the last word
 }
@@ -15,7 +15,7 @@ size_t wordsInSentence(const std::string& str) {
 int main() {
     std::cout << "Enter a sentence: ";
     std::string str;
-    std::cin >> str;
+    getline(std::cin, str);
 
     if(str.empty()) {
         std::cerr << "Error: Input string is empty." << std::endl;
