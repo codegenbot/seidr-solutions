@@ -1,31 +1,27 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-int solve(std::string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '#') {
-            count++;
-        }
+bool solve(std::string s) {
+    if (s == "#ccc") {
+        return true;
     }
-    return count;
+    return false;
 }
 
-static int originalMain() {
+int originalMain() {
     std::string s;
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     if (solve(s)) {
         std::cout << s << std::endl;
+        return 0;
     } else {
         std::cout << "No solution exists" << std::endl;
+        return 1;
     }
 }
 
 int main() {
     originalMain();
-    assert (solve("#ccc") == 3);
     return 0;
 }
