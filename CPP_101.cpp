@@ -8,9 +8,11 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-int main(){
-    vector<string> v1 = words_string("Hello world, this is a test");
-    vector<string> v2 = words_string("This is a test, hello world");
-    cout << issame(v1,v2)<<endl;
+int main() {
+    vector<string> words = words_string("Hello World, this is C++");
+    bool same = issame(words, words);
+    
+    cout << "Are the two strings same? : " << same << endl;
+    
     return 0;
 }
