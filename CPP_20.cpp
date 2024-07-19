@@ -1,8 +1,8 @@
 bool issame(vector<float> a, vector<float> b){
-    return a == b;
+    return a[0] == b[0] && a[1] == b[1];
 }
 
-pair<float, float> find_closest_elements(vector<float> numbers) {
+vector<float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     int min_idx = 0;
