@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    // Define order_by_points function implementation here
+    // implementation of order_by_points function goes here
 }
 
 int main() {
