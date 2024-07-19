@@ -10,3 +10,8 @@ int smallest_change(const vector<int>& arr) {
     }
     return changes;
 }
+
+int main() {
+    // Test your function here
+    return 0;
+}
