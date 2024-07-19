@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -5,11 +6,16 @@
 
 using namespace std;
 
-bool issame(vector<float> v1, vector<float> v2) {
-    return v1 == v2;
+bool areVectorsSame(vector<float> a, vector<float> b) {
+    for (int i = 0; i < a.size() && i < b.size(); ++i) {
+        if (a[i] != b[b.size()-i-1]) {
+            return false;
+        }
+    }
+    return a.size() == b.size();
 }
 
-int main() {
+void mainFunction() {
     vector<float> a;
     float num;
 
@@ -24,11 +30,11 @@ int main() {
     vector<float> b(a);
     reverse(b.begin(), b.end());
 
-    if (a == b) {
+    if (areVectorsSame(a, b)) {
         cout << "The vectors are same." << endl;
     } else {
         cout << "The vectors are not same." << endl;
     }
 
-    return 0;
+    return;
 }
