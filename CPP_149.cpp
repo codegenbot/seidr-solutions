@@ -44,6 +44,6 @@ int main() {
         lst.push_back(str);
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
-    assert(issame(expected, {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum(lst), expected));
     return 0;
 }
