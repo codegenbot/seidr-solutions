@@ -11,3 +11,8 @@ std::vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
+
+int main() {
+    // Main function code here
+    return 0;
+}
