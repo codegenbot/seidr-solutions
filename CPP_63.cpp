@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cassert>
-
 int fibfib(int n) {
     if (n == 0 || n == 1) {
         return 0;
@@ -17,10 +14,4 @@ int fibfib(int n) {
     }
 
     return result;
-}
-
-int main() {
-    assert(fibfib(14) == 927);
-
-    return 0;
 }
