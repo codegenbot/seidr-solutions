@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -28,5 +27,9 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     cout << "Is the number even and palindrome? " << even_odd_palindrome(n) << endl;
+    if(even_odd_palindrome(n)) 
+        cout << "The number is even and palindrome.\n";
+    else
+        cout << "The number is not even and palindrome.\n";
     return 0;
 }
