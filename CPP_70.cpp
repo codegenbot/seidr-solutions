@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end(), [](int a, int b) {
@@ -22,6 +20,10 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         right--;
     }
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
