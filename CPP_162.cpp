@@ -1,4 +1,3 @@
-```cpp
 #include <openssl/evp.h>
 #include <openssl/md5.h>
 #include <string>
@@ -10,7 +9,7 @@ string string_to_md5(string text) {
 
     unsigned char md5[MD5_DIGEST_LENGTH];
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(ctx, EVP_md_md5(), NULL);
+    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     const char* ptr = text.c_str();
     while (*ptr) {
         EVP_DigestUpdate(ctx, &(*ptr), 1);
@@ -29,8 +28,4 @@ string string_to_md5(string text) {
 
     free(md5_ptr);
     return result;
-}
-
-int main() {
-    return 0;
 }
