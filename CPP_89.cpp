@@ -1,15 +1,13 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-std::string encrypt(std::string s) {
+std::string encrypt(std::string s){
     std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char encrypted = c + 2 * ('z' - c) + 1;
-            if (encrypted > 'z') {
-                encrypted = 'a' + (encrypted - 'z' - 1);
-            }
-            result += encrypted;
+    for(char c : s){
+        if(std::isalpha(c)){
+            char base = std::islower(c) ? 'a' : 'A';
+            result += (c - base + 2 * 2) % 26 + base;
         } else {
             result += c;
         }
