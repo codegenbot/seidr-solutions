@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cstring>
-#include <openssl/err.h>
-#include <openssl/md5.h>
-#include <openssl/evp.h>
+#include <openssl/ssl.h>
+#include <openssl/engine.h>
+
+extern "C" {
+    #include <openssl/evp.h>
+}
 
 char* string_to_md5(const char* input) {
     unsigned char result[16];
