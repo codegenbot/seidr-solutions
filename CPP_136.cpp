@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
@@ -14,10 +14,5 @@ std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
         }
     }
     
-    return std::make_pair(largest_negative, smallest_positive);
-}
-
-int main() {
-    assert(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}) == std::make_pair(-3, 1));
-    return 0;
+    return {largest_negative, smallest_positive};
 }
