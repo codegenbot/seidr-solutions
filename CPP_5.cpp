@@ -1,4 +1,3 @@
-
 #include <vector>
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
