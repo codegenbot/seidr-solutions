@@ -11,12 +11,11 @@ string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round((double)sum / (m - n + 1)); 
-    res = "";
     while(avg > 0.5) {
-        res = (int)avg & 1 ? res + "1" : res + "0";
+        string res = (int)avg & 1 ? "1" : "0";
         avg /= 2;
     }
-    return res;
+    return to_string(avg);
 }
 
 int main() {
