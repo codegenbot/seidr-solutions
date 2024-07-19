@@ -1,5 +1,20 @@
-```cpp
-vector<int> filter_integers(list_any values) {
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).good()) {
@@ -7,13 +22,4 @@ vector<int> filter_integers(list_any values) {
         }
     }
     return result;
-}
-
-bool operator==(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>({3, 3, 3}));
-    return 0;
 }
