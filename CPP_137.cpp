@@ -1,27 +1,34 @@
 #include <any>
 #include <cassert>
 #include <string>
-#include <typeinfo>
 
-template <typename T, typename U>
-auto compare_one(T a, U b) {
+std::any compare_one(const std::any& a, const std::any& b) {
     assert(a.type() == b.type());
 
-    if (a.empty() || a.type() != typeid(std::string)) {
-        if (std::any_cast<T>(a) > std::any_cast<U>(b))
+    if(a.type() == typeid(int)) {
+        if(std::any_cast<int>(a) > std::any_cast<int>(b))
             return a;
-        else if (std::any_cast<T>(a) < std::any_cast<U>(b))
+        else if(std::any_cast<int>(a) < std::any_cast<int>(b))
             return b;
         else
-            return T{};
-    } else {
-        float a_float = std::stof(std::any_cast<std::string>(a));
-        float b_float = std::stof(std::any_cast<std::string>(b));
-        if (a_float > b_float)
-            return a;
-        else if (a_float < b_float)
-            return b;
-        else
-            return std::string{};
+            return 0;
     }
+    else if(a.type() == typeid(float)) {
+        if(std::any_cast<float>(a) > std::any_cast<float>(b))
+            return a;
+        else if(std::any_cast<float>(a) < std::any_cast<float>(b))
+            return b;
+        else
+            return 0.0f;
+    }
+    else if(a.type() == typeid(std::string)) {
+        if(std::any_cast<std::string &>(a) > std::any_cast<std::string &>(b))
+            return a;
+        else if(std::any_cast<std::string &>(a) < std::any_cast<std::string &>(b))
+            return b;
+        else
+            return std::string("");  // Changed from return "";
+    }
+
+    return std::any(); // None
 }
