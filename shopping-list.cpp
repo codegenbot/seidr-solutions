@@ -12,8 +12,8 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices = {10.99f, 5.99f, 7.99f};
-    vector<float> discounts = {10.0f, 20.0f, 15.0f};
+    vector<float> prices = {10.00, 20.00, 30.00};
+    vector<float> discounts = {5.00, 8.00, 12.00};
     float result = shoppingList(prices, discounts);
     return 0;
 }
