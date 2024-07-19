@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int calculateMedian(std::vector<float> numbers) {
     int n = numbers.size();
     std::sort(numbers.begin(), numbers.end());
@@ -8,7 +13,7 @@ int calculateMedian(std::vector<float> numbers) {
         return numbers[n/2];
 }
 
-int mainFunction() {
+int main() {
     std::vector<float> numbers;
     float num;
 
@@ -18,6 +23,8 @@ int mainFunction() {
 
     if (!numbers.empty())
         std::cout << calculateMedian(numbers) << std::endl;
+
+    // assert(std::abs(calculateMedian({8, 1, 3, 9, 9, 2, 7}) - 7.0)<1e-4 );
 
     return 0;
 }
