@@ -1,15 +1,14 @@
-vector<int> result;
+vector<int> collatz{ n };
     while (n != 1) {
-        if (n % 2 == 1) {
-            result.push_back(n);
-        }
         if (n % 2 == 0) {
-            n = n / 2;
+            n /= 2;
         } else {
             n = 3 * n + 1;
+            if (n % 2 != 0) {
+                collatz.push_back(n);
+            }
         }
     }
-    result.push_back(1);
-    sort(result.begin(), result.end());
-    return result;
+    sort(collatz.begin(), collatz.end());
+    return collatz;
 }
