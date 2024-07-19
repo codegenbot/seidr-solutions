@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,19 +15,16 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
+    std::vector<std::string> lst;
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    std::vector<std::string> lst;
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         std::string s;
-        std::cout << "Enter string " << (i+1) << ": ";
+        std::cout << "Enter string " << i + 1 << ": ";
         std::getline(std::cin, s);
         lst.push_back(s);
     }
-
-    std::cout << match_parens(lst);
-
+    std::cout << match_parens(lst) << std::endl;
     return 0;
 }
