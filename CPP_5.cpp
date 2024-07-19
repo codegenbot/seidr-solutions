@@ -1,9 +1,8 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
-vector<int> intersperse(vector<int> numbers, int delimiter);
-
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
