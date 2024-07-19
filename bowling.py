@@ -15,8 +15,9 @@ def bowling_score(frames):
         elif frames[i] == '/':
             score += 10
             i += 1
-            if i < len(frames) and ''.join(c for c in frames[i].replace(" ", "") if c.isdigit()):
-                score += int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
+            if i < len(frames) and frames[i].replace(" ", ""):
+                if ''.join(c for c in frames[i].replace(" ", "") if c.isdigit()):
+                    score += int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
                 i += 1
         else:
             first_roll = int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
@@ -24,17 +25,19 @@ def bowling_score(frames):
                 second_roll = 10
                 score += first_roll + second_roll
                 i += 2
-            elif i < len(frames) - 1:
+            elif i < len(frames) - 1 and frames[i+1].replace(" ", ""):
                 if ''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()):
                     second_roll = int(''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()))
-                    if first_roll + second_roll == 10:
-                        score += 10
-                    else:
-                        score += first_roll + second_roll
-                    i += 2
-                elif ''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()):
-                    second_roll = int(''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()))
+                    if i < len(frames) - 2 and frames[i+2].replace(" ", ""):
+                        if ''.join(c for c in frames[i+2].replace(" ", "") if c.isdigit()):
+                            second_roll += int(''.join(c for c in frames[i+2].replace(" ", "") if c.isdigit()))
                     score += first_roll + second_roll
+                    i += 2
+            else:
+                if i < len(frames) - 1 and frames[i+1].replace(" ", ""):
+                    if ''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()):
+                        second_roll = int(''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()))
+                        score += first_roll + second_roll
                     i += 2
                 else:
                     score += first_roll
