@@ -1,3 +1,4 @@
+```
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -11,7 +12,6 @@ int skjkasdkd(vector<int> lst){
         maxPrime /= 10;
     }
     return sumOfDigits;
-
 }
 
 bool isPrime(int n) {
