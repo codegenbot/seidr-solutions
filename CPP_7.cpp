@@ -1,19 +1,16 @@
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    vector<string> strings = {"apple", "banana", "cat", "dog", "elephant"};
-    string substring = "a";
-    
-    vector<string> filtered = filter_by_substring(strings, substring);
-
-    assert(issame(filtered, vector<string>{"apple", "cat"}));
-
-    return 0;
-}
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
@@ -23,4 +20,12 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
         }
     }
     return result;
+}
+
+int main() {
+    vector<string> strings = {"apple", "banana", "cherry", "date", "kiwi"};
+    string substring = "a";
+    vector<string> filtered = filter_by_substring(strings, substring);
+    assert(issame(filtered, {"apple", "banana", "date"}));
+    return 0;
 }
