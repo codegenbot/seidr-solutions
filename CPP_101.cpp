@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> words_string(string s){
     vector<string> words;
     string word;
@@ -20,10 +22,5 @@ vector<string> words_string(string s){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main() {
-    bool result = issame({"apple", "banana", "cherry"}, {"apple", "banana", "cherry"});
-    return 0;
+    // Implementation of issame function goes here
 }
