@@ -1,4 +1,3 @@
-```cpp
 bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
@@ -28,4 +27,3 @@ int main() {
 
     assert (same(filter_by_prefix(a, "xxx") , b));
     return 0;
-}
