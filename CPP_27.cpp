@@ -3,8 +3,6 @@
 #include <iostream>
 #include <cassert>
 
-std::string flip_case(std::string str);
-
 std::string flip_case(std::string str) {
     for (char &c : str) {
         if (std::islower(c)) {
