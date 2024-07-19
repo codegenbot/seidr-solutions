@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
+#include <cassert>
 
 string solve(int N) {
     int sum = 0;
