@@ -1,7 +1,6 @@
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     result = []
     for num in numbers:
-        result.append(num)
-        result.append(delimeter)
-    result.pop()
+        result.extend([num, delimeter])
+    result.pop()  # Remove the last added delimiter
     return result
