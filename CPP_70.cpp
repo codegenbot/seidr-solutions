@@ -1,22 +1,23 @@
-Here is the solution:
+#include <algorithm>
+using namespace std;
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) return result;
-
-    std::sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
-
+    
     while (!lst.empty()) {
-        if (result.back() == min) {
-            min = *min_element(++(lst.begin()));
-        } else if (result.back() == max) {
-            max = *max_element(--(lst.end()));
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+        
+        auto it_min = find(lst.begin(), lst.end(), min_val);
+        auto it_max = find(lst.begin(), lst.end(), max_val);
+        
+        result.push_back(*it_min);
+        lst.erase(it_min);
+        if (!lst.empty()) {
+            result.push_back(*it_max);
+            lst.erase(it_max);
         }
-        result.push_back(min);
-        lst.erase(std::remove(lst.begin(), lst.end(), min), lst.end());
     }
-
+    
     return result;
 }
