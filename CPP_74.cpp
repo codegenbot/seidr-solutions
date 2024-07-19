@@ -1,14 +1,13 @@
-int charCount(vector<string> lst) {
-        int total = 0;
-        for (string str : lst) {
-            total += str.size();
-        }
-        return total;
+int totalChars1 = 0;
+    int totalChars2 = 0;
+    for (const auto& str : lst1) {
+        totalChars1 += str.size();
     }
-    
-    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-        if (charCount(lst1) < charCount(lst2)) {
-            return lst1;
-        }
-        return charCount(lst1) == charCount(lst2) ? lst1 : lst2;
+    for (const auto& str : lst2) {
+        totalChars2 += str.size();
     }
+    if (totalChars1 < totalChars2) {
+        return lst1;
+    }
+    return lst2;
+}
