@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -9,8 +10,8 @@ bool areEqual(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> between(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -24,7 +25,7 @@ std::vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return {};
     
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
         if (i > index1 && i < index2) {
             result.push_back(planets[i]);
@@ -35,6 +36,6 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(areEqual(bf("Jupiter", "Makemake"), {}));  
+    assert(areEqual(between("Jupiter", "Makemake"), {}));
     return 0;
 }
