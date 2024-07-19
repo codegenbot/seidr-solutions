@@ -25,10 +25,10 @@ string compare_one(boost::any a, boost::any b) {
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
         float num1, num2;
         if(boost::any_cast<string>(a).find_first_of(",") != string::npos){
-            replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
+            std::replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
         }
         if(boost::any_cast<string>(b).find_first_of(",") != string::npos){
-            replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
+            std::replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
         }
         num1 = stof(boost::any_cast<string>(a));
         num2 = stof(boost::any_cast<string>(b));
