@@ -2,35 +2,44 @@
 #include <vector>
 #include <cctype>
 #include <functional>
+#include <string>
 
 std::string bf(const std::string& s1, const std::string& s2) {
     return s1 + " " + s2;
 }
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin(), [](const auto& x, const auto& y){return x == y;});
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    std::vector<std::string>(std::initializer_list<std::string>) a, b;
+    std::vector<std::string> a, b;
     std::cout << "Enter the two planets (separated by space): ";
     std::string line;
     std::getline(std::cin, line);
 
     size_t first = 0, last;
     while ((last = line.find(' ')) != std::string::npos) {
-        a.emplace_back(line.substr(first, last - first));
+        a.push_back(line.substr(first, last - first));
         first = last + 1;
     }
-    a.emplace_back(line.substr(first));
+    a.push_back(line.substr(first));
 
     line.clear();
     first = 0, last = 0;
     while ((last = line.find(' ')) != std::string::npos) {
-        b.emplace_back(line.substr(first, last - first));
+        b.push_back(line.substr(first, last - first));
         first = last + 1;
     }
-    b.emplace_back(line.substr(first));
+    b.push_back(line.substr(first));
 
     if (issame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
