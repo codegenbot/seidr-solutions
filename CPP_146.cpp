@@ -1,7 +1,4 @@
 #include <vector>
-#include <cassert>
-#include <string>
-
 int specialFilter(std::vector<int> nums){
     int count = 0;
     for (int num : nums) {
@@ -15,7 +12,6 @@ int specialFilter(std::vector<int> nums){
     return count;
 }
 
-int main(){
-    assert(specialFilter({}) == 0);
-    return 0;
+int main() {
+    assert(specialFilter(std::vector<int>{}) == 0);
 }
