@@ -8,6 +8,5 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
-    // Implement path finding logic here
-    return path; // Add a return statement
+    return path;
 }
