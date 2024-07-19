@@ -36,8 +36,8 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    std::vector<int> result = order_by_points(nums);
-    for (int num : result) {
+    assert(isSame(order_by_points(nums), { -76, -21, 0, 4, 6, 6, 23 }));
+    for (int num : order_by_points(nums)) {
         std::cout << num << " ";
     }
     return 0;
