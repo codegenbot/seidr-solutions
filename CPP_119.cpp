@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -20,16 +19,13 @@ int main() {
     vector<string> input;
     string temp;
     
-    while(true){
-        cout << "Enter a string. Enter 'quit' to stop.\n";
+    while (true) {
         cin >> temp;
-        
-        if(temp=="quit") break;
+        if (temp == "quit") break;
         input.push_back(temp);
     }
     
-    for (const string& s : input) {
-        cout << matchParens({s}) << endl; 
-    }
+    cout << matchParens(input) << endl;
+    
     return 0;
 }
