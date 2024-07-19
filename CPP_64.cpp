@@ -1,11 +1,7 @@
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    const string vowels = "aeiouy";
-    for (char c : s) {
-        if (vowels.find(tolower(c)) != string::npos) {
-            if (c == 'y' && &c != &s.back()) {
-                continue;
-            }
+    for(char c : s){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && &c == &s.back())){
             count++;
         }
     }
