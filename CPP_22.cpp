@@ -18,8 +18,6 @@ bool same_vector(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::list<std::any> values = {{1}, {2}, {3}, {"hello"}, {4.5}};
-    auto result = filter_integers(values);
-    assert(same_vector(result, {1, 2, 3}));
+    assert(same_vector(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {1, 2, 3}));
     return 0;
 }
