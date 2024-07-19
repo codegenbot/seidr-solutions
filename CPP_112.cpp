@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -14,7 +14,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    string resStr = "";
+    string revResult = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -24,15 +24,23 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            resStr += ch;
+            result.push_back(string(1, ch));
+            revResult += ch;
         }
     }
-    string revResStr = resStr;
-    reverse(revResStr.begin(), revResStr.end());
-    result.push_back(resStr);
-    if (resStr == revResStr)
-        result.push_back("True");
-    else
-        result.push_back("False");
-    return result;
+    reverse(revResult.begin(), revResult.end());
+    return {{"True" , result}, (result.size() == revResult.size() ? "True" : "False")};
+}
+
+int main() {
+    string s, c;
+    cout << "Enter the input string: ";
+    cin >> s;
+    cout << "Enter the character to delete: ";
+    cin >> c;
+    vector<string> output = reverse_delete(s,c);
+    for (const auto& str : output) {
+        cout << str << endl;
+    }
+    return 0;
 }
