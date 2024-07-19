@@ -2,6 +2,7 @@
 #include <string>
 #include <cassert>
 #include <cmath>
+#include <sstream> // Include the sstream header for std::to_string function
 
 std::string calculateBinaryString(int n, int m) {
     if (n > m) {
