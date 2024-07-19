@@ -4,3 +4,6 @@ def factorize(number):
         if number % i == 0:
             factors.append(i)
     return factors
+
+number = int(input())
+print(factorize(number))
