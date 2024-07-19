@@ -10,8 +10,8 @@ int add(std::vector<int> lst){
     return sum;
 }
 
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7};
+int main(){
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
     int result = add(numbers);
     return 0;
 }
