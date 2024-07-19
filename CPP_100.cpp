@@ -1,13 +1,14 @@
 #include <vector>
 
-bool issame(const vector<int> &a, const vector<int> &b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> make_a_pile(int n) {
     vector<int> stones;
     stones.push_back(n);
-    for(int i = 2; i <= n; ++i){
+    for(int i = 1; i <= n; ++i){
         if(n % 2 == 0){
             n += 2;
         } else {
