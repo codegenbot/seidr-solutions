@@ -1,4 +1,8 @@
-long long doubleTheDifference(vector<float> lst) {
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
@@ -11,6 +15,8 @@ long long doubleTheDifference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> numbers = {1.5, 4.7, -3.8, 10.2};
-    cout << doubleTheDifference(numbers);
+    std::vector<float> numbers = {1.5, 3.0, 4.25};
+    long long result = double_the_difference(numbers);
+    std::cout << "The difference is: " << result << std::endl;
+    return 0;
 }
