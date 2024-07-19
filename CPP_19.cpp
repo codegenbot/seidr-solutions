@@ -5,44 +5,45 @@
 #include <map>
 #include <string>
 
-map<string, int> num_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
-
-string sort_numbers(string numbers);
+std::string sort_numbers(std::string numbers);
 
 int main() {
-    // Test your code here
-    return 0;
+    // Sample usage
+    std::string numbers = "one six four two three";
+    std::cout << sort_numbers(numbers) << std::endl;
 }
 
-string sort_numbers(string numbers) {
-    map<int, string> rev_map;
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> num_map = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
+
+    std::map<int, std::string> rev_map;
     for (const auto& pair : num_map) {
         rev_map[pair.second] = pair.first;
     }
 
-    vector<string> num_strings;
-    stringstream ss(numbers);
-    string token;
+    std::vector<std::string> num_strings;
+    std::stringstream ss(numbers);
+    std::string token;
     while (ss >> token) {
         num_strings.push_back(token);
     }
 
-    sort(num_strings.begin(), num_strings.end(), [&](const string& a, const string& b) {
+    std::sort(num_strings.begin(), num_strings.end(), [&](const std::string& a, const std::string& b) {
         return num_map[a] < num_map[b];
     });
 
-    string result;
+    std::string result;
     for (const auto& num : num_strings) {
         result += num + " ";
     }
