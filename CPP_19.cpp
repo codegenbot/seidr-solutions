@@ -16,10 +16,6 @@ map<string, int> number_map = {
 
 string sort_numbers(string numbers);
 
-int main() {
-    // Main function code goes here
-}
-
 string sort_numbers(string numbers){
     string result = "";
     map<int, string> sorted_numbers;
