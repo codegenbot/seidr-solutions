@@ -46,11 +46,22 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.9, 4.1};
-    vector<string> result = numerical_letter_grade(grades);
-    for (string grade : result) {
-        cout << grade << endl;
+    vector<float> grades;
+    cout << "Enter the grades (Press 'q' to quit):" << endl;
+    
+    while (true) {
+        string s;
+        getline(cin, s);
+        if (s == "q") break;
+        float grade;
+        cin >> grade;
+        grades.push_back(grade);
+        cin.ignore();
     }
-    if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
-    else cout << "Vectors are not the same";
+    
+    vector<string> letter_grades = numerical_letter_grade(grades);
+    for (int i = 0; i < letter_grades.size(); ++i) {
+        cout << "Grade: " << letter_grades[i] << endl;
+    }
     return 0;
+}
