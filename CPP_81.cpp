@@ -1,19 +1,20 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-bool isSame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+//bool issame(vector<string> a, vector<string> b) {
+//    if (a.size() != b.size()) return false;
+//    for (int i = 0; i < a.size(); ++i) {
+//        if (a[i] != b[i]) return false;
+//    }
+//    return true;
+//}
 
-vector<string> numericalLetterGrade(vector<float> grades) {
-    vector<string> letterGrades;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
         string strGrade;
         if (grade >= 4.0)
@@ -40,14 +41,14 @@ vector<string> numericalLetterGrade(vector<float> grades) {
             strGrade = "D";
         else
             strGrade = "F";
-        letterGrades.push_back(strGrade);
+        letter_grades.push_back(strGrade);
     }
-    return letterGrades;
+    return letter_grades;
 }
 
 int main() {
     vector<float> grades = {3.8, 2.9, 4.1};
-    vector<string> result = numericalLetterGrade(grades);
+    vector<string> result = numerical_letter_grade(grades);
     for (string grade : result) {
         cout << grade << endl;
     }
