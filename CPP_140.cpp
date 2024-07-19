@@ -13,7 +13,4 @@ std::string fix_spaces(const std::string& text) {
     return modified_text;
 }
 
-int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    return 0;
-}
+assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
