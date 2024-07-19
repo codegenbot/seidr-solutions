@@ -1,20 +1,24 @@
 #include <iostream>
-#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
-int main() {
+bool any_int(int a, int b, int c) {
+    return (a == static_cast<int>(a)) && (b == static_cast<int>(b)) && (c == static_cast<int>(c));
+}
+
+int originalMain() {
     int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-    
-    ostringstream ss;
-    ss << a << ", " << b << ", " << c;
-    
-    if(ss.str().size() == 0)
-        cout << "Error: Please enter valid integer values.\n";
+    if(any_int(a, b, c))
+        cout << "The numbers are: " << to_string(a) << ", " << to_string(b) << ", " << to_string(c) << "\n";
     else
-        cout << "The numbers are integers: " << ss.str() << "\n";
-    
+        cout << "Error: Please enter valid integer values.\n";
+    return 0;
+}
+
+int main() {
+    originalMain();
     return 0;
 }
