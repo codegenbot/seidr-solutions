@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,8 +16,10 @@ vector<string> select_words(string s, int n) {
                     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                         vowel_count++;
                 }
-                if (!word.empty() && vowel_count <= n) { 
+                if (vowel_count <= n && !word.empty()) { 
                     result.push_back(word);
+                } else {
+                    return vector<string>();
                 }
                 word = "";
             }
@@ -32,8 +33,10 @@ vector<string> select_words(string s, int n) {
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                 vowel_count++;
         }
-        if (!word.empty() && vowel_count <= n) { 
+        if (vowel_count <= n && !word.empty()) { 
             result.push_back(word);
+        } else {
+            return vector<string>();
         }
     }
     return result;
