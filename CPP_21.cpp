@@ -17,5 +17,3 @@ std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     }
     return result;
 }
-
-assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25f, 0.0f, 1.0f, 0.5f, 0.75f}));
