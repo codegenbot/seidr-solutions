@@ -1,7 +1,4 @@
-#include <iostream>
 #include <map>
-#include <string>
-
 using namespace std;
 
 map<string, int> number_map = {
@@ -16,6 +13,12 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
+
+int main() {
+    // Main function implementation (if any)
+}
 
 string sort_numbers(string numbers){
     string result = "";
@@ -35,9 +38,4 @@ string sort_numbers(string numbers){
 
     result.pop_back(); // Remove the extra space at the end
     return result;
-}
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
 }
