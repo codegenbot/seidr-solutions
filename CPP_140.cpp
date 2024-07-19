@@ -1,5 +1,10 @@
-string result = "";
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
     int consecutive_spaces = 0;
+    
     for (char c : text) {
         if (c == ' ') {
             consecutive_spaces++;
@@ -8,12 +13,19 @@ string result = "";
                 result.pop_back();
                 result += "-";
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
-            result += c;
             consecutive_spaces = 0;
+            result += c;
         }
     }
+    
     return result;
+}
+
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    
+    return 0;
 }
