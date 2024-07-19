@@ -1,13 +1,17 @@
 def find_zero(xs: list):
     n = len(xs) - 1
     if n % 2 != 0:
-        return None
-    a = max(xs, key=abs)
-    b = -a
-    return b
+        raise ValueError("Number of coefficients should be even.")
+    for i in range(n, -1, -1):
+        if xs[i] != 0:
+            return -xs[0] / xs[i]
 
-# Receive input from user
-input_list = list(map(int, input().split()))
 
-# Call the function with the input list and print the result
-print(find_zero(input_list))
+coefficients = list(
+    map(
+        float,
+        input("Enter the coefficients of the polynomial separated by spaces: ").split(),
+    )
+)
+result = find_zero(coefficients)
+print("The zero of the polynomial is:", result)
