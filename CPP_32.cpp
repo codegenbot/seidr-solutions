@@ -1,14 +1,14 @@
-#include <string>
-#include <iostream>
 #include <vector>
+#include <cmath>
+#include <cstdlib>
+
 using namespace std;
 
-double find_zero(int n) {
+int find_zero(int n) {
     double solution;
     cin >> solution;
 
-    // Initialize the vector coeffs with n+1 elements set to 0.0
-    std::vector<double> coeffs(n+1, 0.0);
+    vector<double> coeffs(n+1, 0.0);
 
     for (int i = 0; i <= n; i++) {
         cin >> coeffs[i];
@@ -20,5 +20,5 @@ double find_zero(int n) {
         poly_value += coeff * pow(solution, power);
         power++;
     }
-    return -pow(solution, 2) + poly_value;
+    return -pow(solution, 2) + int(poly_value);
 }
