@@ -1,29 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <list>
 #include <any>
 
-using namespace std;
-
-vector<int> filter_integers(list<any> values);
-
-int main() {
-    list<any> values = {10, "hello", 20, 30, "world", 40};
-    vector<int> result = filter_integers(values);
-    
-    for(auto val : result){
-        cout << val << " ";
-    }
-
-    return 0;
-}
-
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for(auto val : values){
-        if(val.type() == typeid(int)){
-            result.push_back(any_cast<int>(val));
+    for(auto val : values) {
+        if(auto ptr = any_cast<int>(&val)) {
+            result.push_back(*ptr);
         }
     }
     return result;
 }
+
+assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
