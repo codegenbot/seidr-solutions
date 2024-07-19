@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int calculateMedian(std::vector<float> numbers) {
     int n = numbers.size();
@@ -19,7 +20,11 @@ int main() {
         numbers.push_back(num);
     }
 
-    std::cout << calculateMedian(numbers) << std::endl;
-
+    if (!numbers.empty()) {
+        std::cout << calculateMedian(numbers) << std::endl;
+    } else {
+        std::cout << "No median to display." << std::endl;
+    }
+    
     return 0;
 }
