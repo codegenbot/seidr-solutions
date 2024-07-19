@@ -1,8 +1,5 @@
-```cpp
 #include <cassert>
-
 #include <initializer_list>
-
 #include <any>
 #include <list>
 #include <vector>
