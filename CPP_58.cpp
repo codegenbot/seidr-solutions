@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     // Your implementation here
@@ -13,4 +14,10 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     auto last = std::unique(result.begin(), result.end());
     result.erase(last, result.end());
     return result;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    // Additional test cases can be added here
+    return 0;
 }
