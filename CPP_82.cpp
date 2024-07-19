@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool prime_length(std::string str){
     int len = str.length();
@@ -9,7 +10,7 @@ bool prime_length(std::string str){
     if(len <= 1)
         return false;
 
-    for(int i = 2; i*i <= len; i++){
+    for(int i = 2, counter = 2; counter*counter <= len; i++, counter++){
         if(len % i == 0){
             isPrime = false;
             break;
@@ -21,16 +22,7 @@ bool prime_length(std::string str){
 
 int main() {
     std::string str;
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-
-    // Check if the entered number is prime
-    if(prime_length(std::to_string(num))){
-        std::cout << num << " is a prime number." << std::endl;
-    } else {
-        std::cout << num << " is not a prime number." << std::endl;
-    }
-
-    return 0;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    assert(prime_length(str) == true);
 }
