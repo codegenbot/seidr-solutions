@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,6 +18,7 @@ bool isPalindrome(int n) {
     while (temp != 0) {
         int remainder = temp % 10;
         rev = rev * 10 + remainder;
+        if (temp == 0) break; 
         temp /= 10;
     }
     return n == rev;
@@ -27,15 +27,15 @@ bool isPalindrome(int n) {
 std::vector<int> to_vector(int num) {
     std::vector<int> v;
     while (num != 0) {
-        if (num % 2 != 0) v.push_back(0); 
         int remainder = num % 10;
         v.push_back(remainder);
+        if (num == 0) break; 
         num /= 10;
     }
     return v;
 }
 
-int checkNumber() {
+int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -48,10 +48,5 @@ int checkNumber() {
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
-    return 0;
-}
-
-int main() {
-    checkNumber();
     return 0;
 }
