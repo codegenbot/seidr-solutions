@@ -3,7 +3,7 @@
 #include <utility>
 
 namespace mystd {
-    using ::vector;
+    using std::vector;
 }
 
 bool issame(int a, int b) {
