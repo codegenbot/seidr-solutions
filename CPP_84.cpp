@@ -1,6 +1,8 @@
-int sum = 0;
-while (N > 0) {
-    sum += N % 2;
-    N /= 2;
+string binarySum = "";
+    while (N > 0) {
+        int digit = N % 2;
+        binarySum = to_string(digit) + binarySum;
+        N /= 2;
+    }
+    return binarySum;
 }
-return bitset<8>(sum).to_string().substr(bitset<8>(sum).to_string().find('1'));
