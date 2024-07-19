@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -10,10 +8,6 @@ bool issame(int a, int b) {
         return true;
     else
         return false;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return (a.size() == b.size()) && all_of(a.begin(), a.end(), [&](int x) { return count(b.begin(), b.end(), x) > 0; });
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -40,10 +34,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
+    assert((pluck({7, 9, 7, 1}).empty() == true));
     return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), vector<int>{}));
-    return 0;
 }
