@@ -1,11 +1,15 @@
 #include <vector>
+#include <cassert>
+#include <algorithm> // include algorithm library for sorting
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> order_by_points(const vector<int>& input) {
-    // Implement the logic of ordering input vector here
+std::vector<int> order_by_points(const std::vector<int>& vec) {
+    std::vector<int> result = vec; // create a copy of the input vector
+    std::sort(result.begin(), result.end()); // sort the copy in ascending order
+    return result;
 }
 
 int main() {
