@@ -1,8 +1,6 @@
 #include <vector>
-#include <iostream>
-#include <algorithm>
 
-std::vector<int> tri(int n) {  
+std::vector<int> tri(int n) {
     std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
@@ -31,15 +29,20 @@ std::vector<int> tri(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    if (issame(tri(1), {1, 3})) {
-        std::cout << "Result is correct." << std::endl;
-    } else {
-        std::cout << "Result is incorrect." << std::endl;
-    }
-
+    bool result = issame(tri(1), {1, 3});
     return 0;
 }
