@@ -2,18 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
     for (const string& str : strings) {
@@ -22,4 +10,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
         }
     }
     return filtered_strings;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
