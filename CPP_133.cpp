@@ -1,23 +1,36 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
+#include <cassert>
 
-int sum_squares(std::initializer_list<double> lst) {
+int sum_squares(std::initializer_list<double> lst){
     int total = 0;
-    for (double num : lst) {
+    for(double num : lst){
         int ceil_num = std::ceil(num);
-        total += std::pow(ceil_num, 2);
+        total += std::pow(ceil_num,2);
     }
     return total;
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-
-    double num;
+    assert(sum_squares({-1,1,0})==2); 
+    std::string strInput;  
     std::cout << "Enter numbers separated by space: ";
-    while (std::cin >> num) {
-        int total = sum_squares({num});
-        std::cout << "Sum of squares for number: " << num << " is: " << total << "\n";
+    getline(std::cin, strInput); 
+    size_t pos = 0;
+    int total = 0; // Declare and initialize the total variable as an integer
+    std::string token;
+
+    while ((pos = strInput.find(" ")) != std::string::npos) {
+        token = strInput.substr(0, pos);
+        total += sum_squares({std::stod(token)}); 
+        strInput = strInput.substr(pos + 1);
     }
+    
+    if (!strInput.empty()) {
+        total += sum_squares({std::stod(strInput)});
+    }
+
+    std::cout << "Sum of squares: " << total;
 }
