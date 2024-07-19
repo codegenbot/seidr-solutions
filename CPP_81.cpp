@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-bool same(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -51,5 +52,7 @@ int main() {
     for (string grade : result) {
         cout << grade << endl;
     }
+    if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
+    else cout << "Vectors are not the same";
     return 0;
 }
