@@ -1,4 +1,4 @@
-if(text.empty()) {
+if (text.empty()) {
     return "None";
 }
 
