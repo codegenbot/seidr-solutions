@@ -1,8 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <assert.h>
-#include <initializer_list>
+#include <iostream>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
