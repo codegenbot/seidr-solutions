@@ -15,5 +15,5 @@ std::any compare_one(std::any a, std::any b) {
         float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : stof(std::any_cast<std::string>(b));
         return valA > valB ? a : (valA < valB ? b : "None");
     }
-    assert(false); // Error case if types are not handled correctly
+    assert(false);
 }
