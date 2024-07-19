@@ -1,11 +1,10 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <list>
 #include <any>
 #include <algorithm>
 #include <cassert>
 #include <type_traits>
-#include <initializer_list>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
