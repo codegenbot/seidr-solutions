@@ -1,28 +1,26 @@
-#include <vector>
-#include <cmath>
+#include <iostream>
 #include <cassert>
+#include <cmath>
+#include <vector>
 
-using namespace std;
-
-double poly(double x, const vector<double>& coeff){
-    double result = 0.0;
-    for(int i = 0; i < coeff.size(); i++){
-        result += coeff[i] * pow(x, i);
-    }
-    return result;
-}
-
-double find_zero(const vector<double>& coeffs){
-    double a = poly(1.0, coeffs);
-    double b = poly(2.0, coeffs);
-    return -b/a;
-}
+// Function declaration
+double poly(const std::vector<double>& x, const std::vector<double>& coefficients);
+std::vector<double> find_zero(const std::vector<double>& coefficients);
 
 int main() {
-    vector<double> coefficients = {1.0, 2.0, 1.0};
-    double solution = find_zero(coefficients);
+    std::vector<double> coeff;
+    double c;
 
-    assert(abs(poly(solution, coefficients)) < 1e-3);
+    // Read coefficients
+    while (std::cin >> c) {
+        coeff.push_back(c);
+    }
+
+    // Find the zero of the polynomial equation
+    auto solution = find_zero(coeff);
+
+    // Check the result
+    assert(std::abs(poly(solution, coeff)) < 1e-3);
 
     return 0;
 }
