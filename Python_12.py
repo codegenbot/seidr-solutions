@@ -1,6 +1,5 @@
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    max_len = max(len(s) for s in strings)
-    longest_strings = [s for s in strings if len(s) == max_len]
-    return longest_strings[0]
+    longest_str = max(strings, key=len)
+    return min(filter(lambda x: len(x) == len(longest_str), strings))
