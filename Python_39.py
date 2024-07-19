@@ -1,8 +1,2 @@
-n = []
-while True:
-    try:
-        num = int(input())
-        n.append(num)
-    except:
-        break
-print(sum(n))
+n = list(map(int, input("Enter the number of elements followed by numbers separated by space: ").split()))
+print(sum(n[1:]))
