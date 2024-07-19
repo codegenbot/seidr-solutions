@@ -1,7 +1,25 @@
+```cpp
+#include <algorithm>
+#include <string>
+using namespace std;
+
+string solve(string s) {
+    string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        } else {
+            result += c;
+        }
+    }
+    reverse(result.begin(), result.end());
+    return result;
+}
+
 int main() {
-    string s;
+    string input;
     cout << "Enter a string: ";
-    getline(cin, s);
-    cout << "Output: " << solve(s) << endl;
+    getline(cin, input);
+    cout << "Output: " << solve(input) << endl;
     return 0;
 }
