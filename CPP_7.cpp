@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 vector<string> filter_by_substring(const vector<string>& words, const string& substr) {
     vector<string> filtered_words;
     for (const string& word : words) {
