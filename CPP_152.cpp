@@ -1,8 +1,7 @@
 #include <vector>
 #include <initializer_list>
-#include <algorithm>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,7 +31,7 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
+int main_test() {
     std::vector<int> game = {1,2,3,5};
     std::vector<int> guess = {-1,2,3,4};
     std::vector<int> output = compare(game, guess);
