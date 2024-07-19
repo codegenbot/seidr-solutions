@@ -1,15 +1,15 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
+    stack = []
     result = []
-    count = 0
-    current = ""
-    for char in paren_string.replace(" ", ""):
+    current_group = ""
+    for char in paren_string:
         if char == "(":
-            count += 1
-            current += char
-        else:
-            count -= 1
-            current += char
-            if count == 0:
-                result.append(current)
-                current = ""
+            stack.append("(")
+            current_group += "("
+        elif char == ")":
+            stack.pop()
+            current_group += ")"
+            if not stack:
+                result.append(current_group)
+                current_group = ""
     return result
