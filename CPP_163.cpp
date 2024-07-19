@@ -1,20 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    return a == b;
-}
-
-std::vector<int> generate_integers(int start, int end) {
-    std::vector<int> result;
-    for (int i = start; i <= end; ++i) {
-        result.push_back(i);
+bool issame(vector<int> a, vector<int> b) {
+    vector<int> result;
+    for (int i = a; i <= b; ++i) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
     }
     return result;
-}
-
-int main() {
-    assert(issame(generate_integers(17, 89), std::vector<int>{}));
-    return 0;
 }
