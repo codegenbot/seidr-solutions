@@ -3,7 +3,7 @@ int digitCount = 0;
     int dotIndex = -1;
     
     for (int i = 0; i < file_name.length(); i++) {
-        if (isdigit(file_name[i])) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
             digitCount++;
         } else if (file_name[i] == '.') {
             dotCount++;
