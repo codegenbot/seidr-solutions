@@ -15,16 +15,16 @@ bool equal_vectors(const std::vector<std::vector<std::string>>& v1, const std::v
 
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
     std::vector<std::vector<std::string>> result;
-    for (const auto& word : words) {
+    for (size_t i = 0; i < words.size(); ++i) {
         bool found = false;
-        for (const auto& w : word) {
-            if (w.find(substring) != std::string::npos) {
+        for (size_t j = 0; j < words[i].size(); ++j) {
+            if (words[i][j].find(substring) != std::string::npos) {
                 found = true;
                 break;
             }
         }
         if (found) {
-            result.push_back(word);
+            result.push_back(words[i]);
         }
     }
     return result;

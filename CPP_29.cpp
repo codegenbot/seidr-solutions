@@ -12,10 +12,11 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
     std::vector<std::vector<std::string>> result;
     for (const auto& s : strings) {
         if (s[0].find(prefix) == 0) {
-            result.push_back({prefix});
+            std::vector<std::string> temp = {prefix};
             for(int i = prefix.size(); i < s[0].size(); i++) {
-                result.back().push_back(std::string(1, s[0][i]));
+                temp.push_back(std::string(1, s[0][i]));
             }
+            result.push_back(temp); 
         }
     }
     return result;
