@@ -1,16 +1,17 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 std::string solve(int num) {
     std::string result = "";
     while (num > 0) {
         if (num % 2 == 0)
-            result += '0';
+            result += "0";
         else
-            result += '1';
+            result += "1";
         num /= 2;
     }
-    return std::string(result);
+    return result;
 }
 
 int main() {
