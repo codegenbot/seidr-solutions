@@ -1,6 +1,3 @@
-#include <string>
-#include <cstring>
-
-int strlenFunc(std::string str){
+int strlen(string str){
     return str.length();
 }
