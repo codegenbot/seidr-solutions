@@ -27,8 +27,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
         else if(std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
             return b;
         else
-            return std::string("");
+            return std::string("");  
     }
 
-    return std::any();
+    return std::any(); 
 }
