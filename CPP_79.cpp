@@ -1,11 +1,8 @@
 string decimal_to_binary(int decimal){
-    string res = "db";
-    if(decimal == 0){
-        res += "0";
-    }
+    string binary = "";
     while(decimal > 0){
-        res = ((decimal % 2) ? '1' : '0') + res;
+        binary = to_string(decimal % 2) + binary;
         decimal /= 2;
     }
-    return res + "db";
+    return "db" + binary + "db";
 }
