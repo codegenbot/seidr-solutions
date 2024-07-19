@@ -1,12 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-
-int main() {
-    int N;
-    std::cout << "Enter a number: ";
-    std::cin >> N;
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
-}
 
 std::string solve(int N) {
     int sum = 0;
@@ -16,4 +10,11 @@ std::string solve(int N) {
         N /= 2;
     }
     return std::to_string(sum);
+}
+
+int main() {
+    int N;
+    std::cout << "Enter a number: ";
+    std::cin >> N;
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
 }
