@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
@@ -7,8 +6,7 @@ bool move_one_ball(const std::vector<int>& arr) {
         if (std::is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        std::vector<int> temp = arr;
-        std::rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
