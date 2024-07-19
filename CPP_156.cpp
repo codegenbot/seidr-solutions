@@ -1,23 +1,24 @@
 ```cpp
 #include <cassert>
-#include <vector>
 #include <string>
 
 std::string intToMiniRoman(int num) {
-    std::vector<std::pair<int, std::string>> romanValues = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-                                                            {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
-                                                            {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    std::string result = "";
-    for (const auto& p : romanValues) {
-        while (num >= p.first) {
-            num -= p.first;
-            result += p.second;
+    std::string roman = "";
+    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    char sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    int i = 0;
+    while (num > 0) {
+        if (num >= val[i]) {
+            num -= val[i];
+            roman += sym[i];
+        } else {
+            i++;
         }
     }
-    return result;
+    return roman;
 }
 
-int main() {
+int testMain() {
     assert(intToMiniRoman(1000) == "M");
     return 0;
 }

@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <sstream>
 
 bool issame(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -40,13 +39,9 @@ int newMain() {
     std::string str;
     std::cout << "Enter strings (enter 'stop' to finish): ";
     while (true) {
-        std::getline(std::cin, str);
+        std::cin >> str;
         if (str == "stop") break;
-        std::istringstream iss(str);
-        std::string word;
-        while (std::getline(iss, word, ' ')) {
-            lst.push_back(word);
-        }
+        if (!str.empty()) lst.push_back(str);
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
     assert(issame(expected, {{{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}}));
