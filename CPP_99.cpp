@@ -1,15 +1,15 @@
-#include <iostream>
-#include <cmath>
-#include <cassert>
-
-int closest_integer(std::string value) {
-    double num = std::stod(value);
-    int lower = std::floor(num);
-    int upper = std::ceil(num);
-    return ((num - lower) < (upper - num)) ? lower : upper;
-}
-
-int main() {
-    assert(closest_integer("0") == 0);
-    return 0;
+int closest_integer(const std::string& value) {
+    double num = stod(value);
+    int intNum = round(num);
+    if (num - intNum > 0.5) {
+        return ceil(num);
+    } else if (num - intNum < -0.5) {
+        return floor(num);
+    } else {
+        if (num >= 0) {
+            return ceil(num);
+        } else {
+            return floor(num);
+        }
+    }
 }
