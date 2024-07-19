@@ -1,13 +1,7 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    set<int> s1(a.begin(), a.end());
+    set<int> s2(b.begin(), b.end());
+    return s1 == s2;
 }
 
 vector<int> sort_third(vector<int> l) {
@@ -19,8 +13,22 @@ vector<int> sort_third(vector<int> l) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
+            bool flag = true;
+            for (int k = 1; k < temp.size(); k++) {
+                if (!issame(vector<int>(temp.begin(), temp.begin() + 1), vector<int>(temp.begin() + k, temp.begin() + k + 1))) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                for (int k = 0; k < temp.size(); k++) {
+                    result.push_back(temp[k]);
+                }
+            } else {
+                sort(temp.begin(), temp.end());
+                for (int k = 0; k < temp.size(); k++) {
+                    result.push_back(temp[k]);
+                }
             }
         } else {
             result.push_back(l[i]);
