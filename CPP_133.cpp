@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -18,3 +19,4 @@ int main() {
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
     int result = sum_squares({(double)input});
+}
