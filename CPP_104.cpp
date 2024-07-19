@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    // Your implementation for vector comparison
+    return a == b;
 }
 
 std::vector<int> unique_digits(std::vector<int> x) {
