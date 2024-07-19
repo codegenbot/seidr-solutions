@@ -14,10 +14,10 @@ int compare_strings(std::string a, std::string b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter first string: ";
-    getline(std::cin, str1);
+    std::getline(std::cin, str1);
 
     std::cout << "Enter second string: ";
-    getline(std::cin, str2);
+    std::getline(std::cin, str2);
 
     int result = compare_strings(str1, str2);
 
