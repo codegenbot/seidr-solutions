@@ -6,7 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    vector<string> result;
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -16,26 +16,18 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    string rev = reverse(temp);
+    std::string rev = std::string(temp.rbegin(), temp.rend());
     if (temp == rev) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
     return result;
-}
-
-string reverse(string s) {
-    string rev = "";
-    for (int i = s.size() - 1; i >= 0; i--) {
-        rev += s[i];
-    }
-    return rev;
 }
