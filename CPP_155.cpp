@@ -4,14 +4,16 @@
 
 std::vector<int> even_odd_count(int n) {
     int even = 0, odd = 0;
-    while(n != 0) {
-        if(n % 2 == 0) {
+    
+    while (n > 0) {
+        if (n % 2 == 0) {
             even++;
         } else {
             odd++;
         }
         n /= 10;
     }
+    
     return {even, odd};
 }
 
@@ -25,7 +27,7 @@ int main() {
         std::cout << i << " ";
     }
     
-    assert(issame(result, {2, 3})); // Testing the result
+    assert(issame(result, {2, 3}));
 
     return 0;
 }
