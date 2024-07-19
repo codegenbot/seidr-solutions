@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -24,3 +23,4 @@ int main() {
     }
     cout << find_max(words) << endl;
     return 0;
+}
