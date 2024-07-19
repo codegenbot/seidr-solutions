@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 string find_max(vector<string> words){
@@ -10,7 +11,7 @@ string find_max(vector<string> words){
         });
     for (string word : words) {
         set<char> char_set(word.begin(), word.end());
-        if (char_set.size() > max_word.length()) {
+        if (char_set.size() > max_word.size()) {
             max_word = word;
         }
     }
