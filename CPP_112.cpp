@@ -1,13 +1,17 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size())
+    if(std::distance(a.begin(), a.end()) != std::distance(b.begin(), b.end()))
         return false;
-    for(int i = 0; i<a.size(); i++)
-        if(a[i] != b[i])
+    auto it = a.begin();
+    for(int i = 0; i<a.size(); i++) {
+        if(*it++ != *b.begin())
             return false;
+        ++b.begin();
+    }
     return true;
 }
 
