@@ -1,6 +1,6 @@
-```cpp
-#include <vector>
 #include <initializer_list>
+
+#include <vector>
 #include <algorithm>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
@@ -31,4 +31,3 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
         }
     }
     return result;
-}
