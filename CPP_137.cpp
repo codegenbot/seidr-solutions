@@ -1,11 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <boost/any.hpp>
 
-const std::string compare_one(const std::string& a, const std::string& b) {
-    if (a.size() > b.size())
+const std::string compare_one(const std::string& a, const int b) {
+    if (a.size() > b)
         return "Longer";
-    else if (a.size() < b.size())
+    else if (a.size() < b)
         return "Shorter";
     return "Equal";
 }
@@ -15,15 +15,11 @@ int main() {
     std::string str1;
     std::cin >> str1;
 
-    std::cout << "Enter the second string: ";
-    std::string str2;
-    std::cin >> str2;
+    std::cout << "Enter the second integer: ";
+    int num2;
+    std::cin >> num2;
 
-    std::cout << "Enter the length for comparison: ";
-    int length;
-    std::cin >> length;
-
-    std::cout << compare_one(str1, str2) << std::endl;
+    std::cout << compare_one(str1, num2) << std::endl;
 
     return 0;
 }
