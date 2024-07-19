@@ -1,25 +1,5 @@
 #include <vector>
 
-int main() {
-    std::vector<int> lst;
-    int num;
-    
-    cout << "Enter numbers (enter -1 to stop input): ";
-    
-    while((cin >> num) && num != -1) {
-        lst.push_back(num);
-    }
-    
-    if (!lst.empty()) {
-        int result = add(lst);
-        cout << "Sum of even numbers: " << result << endl;
-    } else {
-        cout << "No input received." << endl;
-    }
-    
-    return 0;
-}
-
 int add(std::vector<int> lst){
     int sum = 0;
     for(int i=1; i<lst.size(); i=i+2){
@@ -27,4 +7,18 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> lst;
+    int num;
+    while(true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if(num == -1)
+            break;
+        lst.push_back(num);
+    }
+    std::cout << "Sum of even numbers: " << add(lst) << std::endl;
+    return 0;
 }
