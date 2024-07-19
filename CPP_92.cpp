@@ -15,7 +15,7 @@ int originalMain() {
     if(any_int(a, b, c))
         cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     else
-        cout << "The numbers are not integers: " << (double)a << ", " << (double)b << ", " << (double)c << "\n";
+        cout << "The numbers are not integers: " << a << ".0, " << b << ".0, " << c << ".0\n";
     return 0;
 }
 
