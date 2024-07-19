@@ -1,19 +1,20 @@
-```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
-    std::vector<std::string> result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> filter_by_substring(vector<string> words, string sub) {
+    // Implement your filtering logic here
+    // For example:
+    vector<string> result;
     for (const auto& word : words) {
         if (word.find(sub) != std::string::npos) {
             result.push_back(word);
         }
     }
     return result;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
 }
 
 int main() {
