@@ -1,17 +1,7 @@
 ```
 def simplify(x, n):
-    x_num, x_denom = map(int, x.split('/'))
-    n_num, n_denom = map(int, n.split('/'))
-    
-    if x_denom * n_denom == 0:
-        return False
-    
-    common_divisor = min(x_denom, n_denom)
-    
-    while common_divisor > 1 and (x_num % common_divisor != 0 or n_num % common_divisor != 0):
-        common_divisor -= 1
-    
-    if x_denom // common_divisor == n_denom // common_divisor:
-        return True
-    else:
-        return False
+    a, b = map(int, x.split('/'))
+    c, d = map(int, n.split('/'))
+    gcd = lambda a, b: b if a == 0 else gcd(b % a, a)
+    common_divisor = gcd(a, b) * gcd(c, d)
+    return (a // common_divisor, b // common_divisor) == (c // common_divisor, d // common_divisor)
