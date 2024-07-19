@@ -2,31 +2,27 @@
 def bowling_score(game):
     score = 0
     frame = 1
-    i = 0
-    while i < len(game):
-        if game[i].isdigit():
-            pins = int(game[i])
-            i += 1
-            if i < len(game) and game[i].isdigit():
-                pins += int(game[i])
-                i += 1
-            if pins == 10:
+    for i in range(0, len(game), 2):
+        if game[i].isdigit() and game[i+1].isdigit():
+            if int(game[i]) + int(game[i+1]) == 10:
+                if frame < 9:
+                    score += 10
+                    if frame < 8:
+                        score += int(game[i-2:i])
+                else:
+                    score += 10
+                    score += int(game[i-2:i])
+            elif int(game[i]) + int(game[i+1]) > 10:
                 score += 10
-            elif frame < 9 or (frame == 9 and (pins == 8 or pins == 9)):
-                score += pins
-                frame += 1
-            else:
-                if game[i-1] == 'X':
-                    score += 10 + int(game[:i-1])
-                elif game[i-1].isdigit():
-                    score += 10 - pins + int(game[:i-1])
-                i -= 1
+                score += int(game[i-2:i])
+        elif game[i].isdigit():
+            score += int(game[i])
         else:
-            if game[i] == 'X':
-                score += 10
-                frame += 1
-            elif game[i] == '/':
-                score += 10 - 1 + int(game[:i-2])
-                frame += 1
-            i += 1
+            if frame < 9:
+                if game[i] == 'X':
+                    score += 10
+                    score += int(game[:i-1])
+                elif game[i] == '/':
+                    score += 10 - int(game[i-1:i])
+                    score += int(game[:i-2])
     return score
