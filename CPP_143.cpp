@@ -1,42 +1,29 @@
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    string word = "";
-    for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if (word_length <= 1) {
-                is_prime = false;
-            } else {
-                for (int i = 2; i * i <= word_length; ++i) {
-                    if (word_length % i == 0) {
-                        is_prime = false;
-                        break;
-                    }
+    int n = sentence.length();
+    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}; // Prime numbers up to 31
+
+    int start = 0;
+    for (int i = 0; i <= n; i++) {
+        if (i == n || sentence[i] == ' ') {
+            int word_length = i - start;
+            bool is_prime = false;
+            for (int prime : primes) {
+                if (word_length == prime) {
+                    is_prime = true;
+                    break;
                 }
             }
             if (is_prime) {
-                result += word + " ";
+                result += sentence.substr(start, word_length) + " ";
             }
-            word = "";
+            start = i + 1;
         }
     }
-    int word_length = word.length();
-    bool is_prime = true;
-    if (word_length <= 1) {
-        is_prime = false;
-    } else {
-        for (int i = 2; i * i <= word_length; ++i) {
-            if (word_length % i == 0) {
-                is_prime = false;
-                break;
-            }
-        }
+
+    if (!result.empty()) {
+        result.pop_back(); // Remove the extra space at the end
     }
-    if (is_prime) {
-        result += word;
-    }
+
     return result;
 }
