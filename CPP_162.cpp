@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
-#include <cassert>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -28,7 +27,5 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    // Add your test cases here if needed
-
     return 0;
 }
