@@ -11,11 +11,11 @@ std::vector<int> sort_array(const std::vector<int>& array) {
     if ((sortedArray.front() + sortedArray.back()) % 2 == 0) {
         std::sort(sortedArray.begin(), sortedArray.end(), std::greater<int>());
     } else {
-        std::sort(sortedArray.begin(), sortedArray.end(), std::less<int>());
+        std::sort(sortedArray.begin(), sortedArray.end());
     }
     return sortedArray;
 }
 
-int main() {
+void main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
 }
