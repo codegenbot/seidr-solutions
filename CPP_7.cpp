@@ -30,39 +30,34 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     return result;
 
 int main() {
-    int n;
-    std::vector<std::vector<std::string>> words;
-    std::cout << "Enter the number of words: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; ++i) {
-        std::vector<std::string> word;
-        std::cout << "Enter the word (" << (i+1) << "/" << n << "): ";
-        std::string w;
-        while(std::cin >> w) {
-            word.push_back(w);
-            if(w.back() == '.') {
-                break;
-            }
-        }
-        words.push_back(word);
+    // Test case for equal_vectors function
+    std::vector<std::vector<std::string>> v1;
+    v1.push_back({"apple", "banana"});
+    v1.push_back({"hello", "world"});
+
+    std::vector<std::vector<std::string>> v2;
+    v2.push_back({"apple", "banana"});
+    v2.push_back({"goodbye", "world"});
+
+    if (!equal_vectors(v1, v2)) {
+        std::cout << "Vectors are not equal" << std::endl;
+    } else {
+        std::cout << "Vectors are equal" << std::endl;
     }
 
-    std::cout << "Enter the substring: ";
-    std::string substring;
-    std::cin >> substring;
-
-    std::vector<std::vector<std::string>> filtered_words = filter_by_substring(words, substring);
-
-    if(filtered_words.empty()) {
-        std::cout << "No words found with the given substring." << std::endl;
-    } else {
-        std::cout << "Words found with the given substring:" << std::endl;
-        for(const auto& word : filtered_words) {
-            for(const auto& w : word) {
-                std::cout << w << " ";
+    // Test case for filter_by_substring function
+    std::vector<std::vector<std::string>> words = {{"apple", "banana", "hello"}, {"world", "goodbye"}};
+    std::string substring = "o";
+    std::vector<std::vector<std::string>> result = filter_by_substring(words, substring);
+    for (const auto& word : result) {
+        for (const auto& w : word) {
+            if (w.find(substring) != std::string::npos) {
+                std::cout << "Found substring in: ";
+                for (const auto& x : word) {
+                    std::cout << x << " ";
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
         }
     }
 
