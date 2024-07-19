@@ -1,18 +1,13 @@
-#include <iostream>
-#include <string>
-
-std::string encrypt(const std::string& s) {
-    std::string result = s; 
-    for (char c : s) {
-        if (c == 'a') c = 'e';
-        else if (c == 'A') c = 'E';
+string encrypt(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'm'){
+            c = (c - 'a' + 2*2) % 26 + 'a';
+        } else if(c >= 'n' && c <= 'z'){
+            c = (c - 'n' + 2*2) % 26 + 'n';
+        }
+        result += c;
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input; 
-    std::cout << encrypt(input) << std::endl;
 }
