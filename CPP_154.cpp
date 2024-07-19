@@ -1,6 +1,6 @@
-int n = a.size();
-    int m = b.size();
-    if(n != m) return false;
-    string temp = a + a;
-    return (temp.find(b) != string::npos);
+string concatenated_string = a + a;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    return concatenated_string.find(b) != string::npos;
 }
