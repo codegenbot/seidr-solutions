@@ -1,4 +1,3 @@
-```python
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
     for i in range(len(card_number)-1, -1, -1):
