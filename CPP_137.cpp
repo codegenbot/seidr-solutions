@@ -2,28 +2,25 @@
 #include <string>
 #include <cassert>
 
-template <typename T>
-T compare_one(std::any a, std::any b) {
-    if (std::any_cast<T>(a) > std::any_cast<T>(b)) {
-        return std::any_cast<T>(a);
-    } else if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
-        return std::any_cast<T>(b);
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+            return a;
+        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+            return a;
+        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
+            return a;
+        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
+            return b;
+        }
     }
-    return std::any_cast<T>(a);
-}
-
-int main() {
-    auto a = std::any(10);
-    auto b = std::any(5);
-    assert(compare_one<int>(a, b) == 10);
-
-    auto c = std::any(7.5f);
-    auto d = std::any(3.2f);
-    assert(compare_one<float>(c, d) == 7.5f);
-
-    auto e = std::any(std::string("20.3"));
-    auto f = std::any(std::string("12.8"));
-    assert(compare_one<std::string>(e, f) == std::any_cast<std::string>(e));
-
-    return 0;
+    return a;
 }
