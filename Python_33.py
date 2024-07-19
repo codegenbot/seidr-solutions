@@ -1,13 +1,16 @@
 def sort_third(l: list):
-    multiples = [x for x in l if x % 3 == 0]
+    multiples = [i for i in l if i % 3 == 0]
     sorted_multiples = sorted(multiples)
-    n = len(sorted_multiples)
+    length = len(sorted_multiples)
+    middle_index = length // 2
     return [
         (
             i
             if i % 3 != 0
             else (
-                sorted_multiples[n // 2] if n % 2 != 0 else sorted_multiples[n // 2 - 1]
+                sorted_multiples[middle_index]
+                if length % 2 != 0
+                else sorted_multiples[1]
             )
         )
         for i in l
