@@ -1,3 +1,5 @@
+#include <cmath>
+
 int largest_prime_factor(int n) {
     int maxPrime = -1;
     while (n % 2 == 0) {
