@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -13,10 +14,8 @@ std::string solve(int num) {
     return result;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << solve(num) << std::endl;
+int testMain() {
+    assert(solve(963) == "10010");
+    std::cout << solve(15) << std::endl;
     return 0;
 }
