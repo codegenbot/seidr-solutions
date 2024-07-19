@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <numeric> 
+#include <numeric>
 #include <cassert>
 
 bool will_it_fly(std::vector<int> q, int w) {
@@ -13,4 +13,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
 }
 
-assert(will_it_fly({5}, 5) == true);
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
+}
