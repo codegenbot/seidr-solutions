@@ -1,15 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isEqual(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
-}
-
-bool isSame(vector<int> v1, vector<int> v2) { 
+bool areEqual(vector<int> v1, vector<int> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -36,7 +28,7 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     int k;
     cin >> k;
-    if (!isSame(maximum(a, k), {})) { 
+    if (!areEqual(maximum(a, k), {})) {
         return 1;
     }
     return 0;
