@@ -6,22 +6,18 @@ int solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            if (c >= 'a' && c <= 'z') {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return 0;
+    return result.empty();
 }
 
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
     if (solve(s)) {
         std::cout << s << std::endl;
     } else {
