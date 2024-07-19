@@ -12,9 +12,3 @@ int specialFilter(std::initializer_list<int> nums) {
     }
     return c; 
 }
-
-int main() {
-    int testResult = specialFilter({1, 11, 21});
-    std::cout << "The result is: " << testResult << std::endl;
-    return 0;
-}
