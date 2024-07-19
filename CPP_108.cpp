@@ -1,49 +1,25 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-int count_nums(std::vector<int> nums) {
-    int count = 0;
-    for (int num : nums) {
-        if (num >= 0) {
-            int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0) {
-                count++;
-            }
-        } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            bool is_negative = true;
-            while (num > 0) {
-                if (is_negative) {
-                    sum -= num % 10;
-                } else {
-                    sum += num % 10;
-                }
-                num /= 10;
-                is_negative = !is_negative; // toggle sign
-            }
-            if (sum > 0) {
-                count++;
-            }
-        }
+int count_nums(vector<int> nums) {
+    int result = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        if(nums[i] % 2 == 1)
+            result++;
     }
-    return count;
-
+    return result;
 }
 
-std::cout << "Enter the number of integers: ";
-int n;
-std::cin >> n;
-std::vector<int> nums(n);
-for(int i = 0; i < n; i++) {
-    std::cout << "Enter integer #"<<i+1<<": ";
-    int num;
-    std::cin >> num;
-    nums[i] = num;
+int main() {
+    int n;
+    cout << "Enter the number of integers: ";
+    cin >> n;
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        cout << "Enter integer #" << i+1 << ": ";
+        cin >> nums[i];
+    }
+    int result = count_nums(nums);
+    cout << "Result: " << result << endl;
+    return 0;
 }
-int result = count_nums(nums);
-std::cout << "Result: " << result << std::endl;

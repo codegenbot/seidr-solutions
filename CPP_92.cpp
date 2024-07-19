@@ -13,3 +13,4 @@ int main() {
     else
         std::cout << "The numbers are not integers: " << a << ", " << b << ", " << c << "\n";
     return 0;
+}
