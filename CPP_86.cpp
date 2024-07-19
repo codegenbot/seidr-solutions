@@ -1,9 +1,11 @@
 #include <algorithm>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -14,9 +16,15 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                result += min_element(word.begin(), word.end())->first;
+                result += (int)c;
             }
             i--;
         }
     }
     return result;
+}
+
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
+}
