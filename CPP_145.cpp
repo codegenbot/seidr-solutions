@@ -10,9 +10,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        auto sum = [](int a) {
-            return std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(),
-                                    0, [](int acc, char digit) { return acc + (digit - '0'); });
+        auto sum = [](int num) {
+            return std::accumulate(std::to_string(std::abs(num)).begin(), std::to_string(std::abs(num)).end(),
+                                    0, [](int a, char b) { return a + (b - '0'); });
         };
         return sum(a) == sum(b) ? a < b : sum(a) < sum(b);
     });
