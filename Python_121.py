@@ -1,1 +1,9 @@
-```'def solution(input_list):    if not input_list:        return "The list is empty."    elif all(isinstance(x, int) for x in input_list):        return sum(input_list)    else:        return "The list contains non-integer values."''
+def solution():
+    n = int(input("Enter number of elements: "))
+    input_list = []
+
+    for i in range(n):
+        element = input(f"Enter element {i+1}: ")
+        input_list.append(element)
+
+    return input_list
