@@ -1,26 +1,8 @@
-```
-#include <cmath>
-#include <cassert>
-#include <iostream>
-#include <sstream>
-
-float triangle_area(float a, float b, float c) {
-    if (a + b > c && a + c > b && b + c > a) {
-        float s = (a + b + c) / 2;
-        return sqrt(s * (s - a) * (s - b) * (s - c));
-    } else {
-        return -1.0f;
-    }
-}
-
-int main() { 
-    std::cout << "Enter side lengths a, b, and c of the triangle: ";
-    std::string a_str, b_str, c_str;
-    std::cin >> a_str >> b_str >> c_str;
-    float a = stof(a_str), b = stof(b_str), c = stof(c_str);
-    if(a+b>c && a+c>b && b+c>a)
-        std::cout << "The area of the triangle is " << triangle_area(a,b,c);
-    else
-        std::cout << "The sides do not form a valid triangle";
-    return 0;
-}
+float a, b, c;
+std::cout << "Enter side lengths a, b, and c of the triangle: ";
+std::cin >> a >> b >> c; 
+if(a+b>c && a+c>b && b+c>a)
+    std::cout << "The area of the triangle is " << triangle_area(a,b,c);
+else
+    std::cout << "The sides do not form a valid triangle";
+return 0;
