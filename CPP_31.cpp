@@ -13,15 +13,21 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int n;
+    int n, count = 1;
     cin >> n;
+    cout << "The number is ";
     if (!is_prime(n)) {
-        cout << "The number is not prime." << endl;
+        cout << "not prime." << endl;
     } else {
-        ostringstream oss; 
-        oss << "The number is prime. It's the " << (n > 1 ? "first" : "") << " prime number.";
-        string output = oss.str(); 
-        cout << output << endl;
+        for (int i = 2; ; i++) {
+            if (!is_prime(i))
+                break;
+            cout << i << " ";
+            count++;
+            if (i == n)
+                break;
+        }
+        cout << "It's the " << count << " prime number." << endl;
     }
     return 0;
 }
