@@ -1,3 +1,4 @@
+```
 from decimal import Decimal, getcontext
 
 def snow_day(hours, initial_snow, rate, melt_rate):
