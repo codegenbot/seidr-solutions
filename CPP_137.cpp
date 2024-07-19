@@ -1,4 +1,5 @@
 #include <any>
+#include <cassert>
 
 template <typename T, typename U>
 auto compare_one(T a, U b) {
