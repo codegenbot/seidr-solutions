@@ -1,30 +1,21 @@
-#include <stdio.h>
-using namespace std;
-
 int prime_fib(int n) {
-    int a = 0, b = 1;
-    for (int i = 2; ; i++) {
-        int fib = a + b;
-        if (fib > n)
-            return i;
-        a = b;
-        b = fib;
-        bool isPrime = true;
-        for (int j = 2; j * j <= fib; j++)
-            if (fib % j == 0) {
-                isPrime = false;
-                break;
-            }
-        if (!isPrime)
-            continue;
-        return fib;
+    int a = 0, b = 1, fib = 1, count = 0;
+    while (true) {
+        if (fib > n) break;
+        if (is_prime(fib)) {
+            count++;
+            if (count == n) return fib;
+        }
+        fib = a + b;
+        int temp = a; a = b; b = temp + b;
     }
+    return 0;
 }
 
-int main() {
-    int n;
-    printf("Enter the number: ");
-    scanf("%d", &n);
-    printf("The %d-th prime Fibonacci number is: %d\n", n, prime_fib(n));
-    return 0;
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
 }
