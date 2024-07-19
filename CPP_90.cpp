@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 int next_smallest(std::vector<int> lst) {
     std::vector<int> sorted = lst;
@@ -17,12 +17,13 @@ int next_smallest(std::vector<int> lst) {
 int main() {
     std::vector<int> lst;
     int num;
-    while (true) {
-        std::cin >> num;
+    while(std::cin >> num) {
         lst.push_back(num);
-        if (!std::cin || num == -1)
-            break;
     }
-    std::cout << next_smallest(lst);
+    if(lst.size()>0) {
+        std::cout << next_smallest(lst) << std::endl;
+    } else {
+        std::cout << -1 << std::endl;
+    }
     return 0;
 }
