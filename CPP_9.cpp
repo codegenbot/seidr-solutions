@@ -1,10 +1,12 @@
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> result;
-    int max_num = numbers[0];
-    result.push_back(max_num);
-    for(int i = 1; i < numbers.size(); i++){
-        max_num = max(max_num, numbers[i]);
-        result.push_back(max_num);
-    }
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cassert>
+
+using std::vector;
+
+vector<int> rolling_max(const vector<int>& v) {
+    vector<int> result(v.size());
+    std::partial_sum(v.begin(), v.end(), result.begin(), [](int a, int b) { return std::max(a, b); });
     return result;
 }
