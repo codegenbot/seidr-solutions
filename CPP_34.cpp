@@ -1,7 +1,7 @@
 #include <algorithm>
-
 bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    a.erase(vector<int>(unique(a.begin(), a.end()), a.end()));
-    return a;
+    vector<int> l = a;
+    sort(l.begin(), l.end());
+    l = vector<int>(l.begin(), unique(l.begin(), l.end()));
+    return l;
 }
