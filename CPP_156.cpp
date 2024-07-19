@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cassert>
 #include <string>
 #include <iostream>
@@ -22,5 +22,17 @@ std::string intToMiniRoman(int num) {
 int main() { 
     assert(intToMiniRoman(1000) == "M");
     std::cout << intToMiniRoman(4) << std::endl;
-    return 0;
+    if (intToMiniRoman(1) != "I") assert(false);
+    if (intToMiniRoman(5) != "V") assert(false);
+    if (intToMiniRoman(9) != "IX") assert(false);
+    if (intToMiniRoman(10) != "X") assert(false);
+    if (intToMiniRoman(40) != "XL") assert(false);
+    if (intToMiniRoman(50) != "L") assert(false);
+    if (intToMiniRoman(90) != "XC") assert(false);
+    if (intToMiniRoman(100) != "C") assert(false);
+    if (intToMiniRoman(400) != "CD") assert(false);
+    if (intToMiniRoman(500) != "D") assert(false);
+    if (intToMiniRoman(900) != "CM") assert(false);
+    if (intToMiniRoman(1000) != "M") assert(false);
+    std::cout << intToMiniRoman(4) << std::endl;
 }
