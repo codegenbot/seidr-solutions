@@ -1,14 +1,15 @@
 int is_bored(string S){
-    int boredom_count = 0;
-    bool is_boredom = false;
-    for(int i = 0; i < S.length(); i++){
-        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
-            is_boredom = true;
-        }
-        if(is_boredom && (S[i] == '.' || S[i] == '?' || S[i] == '!')){
-            boredom_count++;
-            is_boredom = false;
+    int count = 0;
+    string word = "";
+    for (int i = 0; i < S.size(); ++i) {
+        if (S[i] == ' ' || S[i] == '.' || S[i] == '?' || S[i] == '!') {
+            if (word == "I") {
+                count++;
+            }
+            word = "";
+        } else {
+            word += S[i];
         }
     }
-    return boredom_count;
+    return count;
 }
