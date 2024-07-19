@@ -16,15 +16,15 @@ std::vector<int> f(int n){
             result.push_back(factorial);
         } else {
             sum += i;
-            result.push_back(sum);
-        }
-    }
-    
-    return result;
-}
+               result.push_back(sum);
+           }
+       }
+       
+       return result;
+   }
 
-int main(){
-    assert(issame(f(3), {1, 2, 6}));
-    
-    return 0;
-}
+   int main(){
+       assert(issame(f(3), {1, 2, 6}));
+       
+       return 0;
+   }
