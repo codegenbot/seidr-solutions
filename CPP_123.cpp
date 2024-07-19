@@ -5,23 +5,21 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> get_odd_collatz(int num) {
-    std::vector<int> collatz_seq;
-    collatz_seq.push_back(num);
-    while (num != 1) {
-        if (num % 2 == 0) {
-            num /= 2;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
+    while (n != 1) {
+        result.push_back(n);
+        if (n % 2 == 0) {
+            n = n / 2;
         } else {
-            num = 3 * num + 1;
-        }
-        if (num % 2 != 0) {
-            collatz_seq.push_back(num);
+            n = 3 * n + 1;
         }
     }
-    return collatz_seq;
+    result.push_back(1);
+    return result;
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), std::vector<int>{1}));
     return 0;
 }
