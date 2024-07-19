@@ -1,5 +1,16 @@
-#include <vector>
-#include <iostream>
+```cpp
+#include<vector>
+#include<iostream>
+
+int skjkasdkd(vector<int> lst){
+    int maxPrime = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime){
+            maxPrime = i;
+        }
+    }
+    return sumOfDigits(maxPrime);
+}
 
 bool isPrime(int n){
     if(n <= 1) return false;
@@ -18,12 +29,9 @@ int sumOfDigits(int n){
     return sum;
 }
 
-int skjkasdkd(vector<int> lst){
-    int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime){
-            maxPrime = i;
-        }
-    }
-    return sumOfDigits(maxPrime);
+int main(){
+    vector<int> lst = {127, 97, 8192};
+    int output = skjkasdkd(lst);
+    cout << "Output: " << output;
+    return 0;
 }
