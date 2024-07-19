@@ -11,7 +11,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
+    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
         if (a[0] != b[0]) {
             return a[0] < b[0];
         } else {
@@ -22,8 +22,17 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int x = 5;
-    std::vector<std::vector<int>> result = get_row(lst, x);
+    std::vector<std::vector<int>> input = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int target = 5;
+    
+    std::vector<std::vector<int>> result = get_row(input, target);
+    
+    for (const auto& res : result) {
+        for (int val : res) {
+            std::cout << val << " ";
+        }
+        std::cout << std::endl;
+    }
+    
     return 0;
 }
