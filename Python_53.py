@@ -1,12 +1,14 @@
 def add(a, b):
     return a + b
 
-
-# Read input until EOF is encountered
-while True:
-    try:
-        x, y = map(int, input().split())
+try:
+    while True:
+        x, y = map(int, input().strip().split())
         result = add(x, y)
         print(result)
-    except ValueError:
-        break
+except EOFError:
+    pass
+except ValueError:
+    print("Invalid input. Please provide two integers separated by space.")
+except Exception as e:
+    print("An error occurred:", e)
