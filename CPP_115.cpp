@@ -1,12 +1,12 @@
-int total_fill = 0;
-        for (auto &row : grid) {
-            int well_fill = 0;
-            for (int cell : row) {
-                well_fill += cell;
+int rows = grid.size();
+        int cols = grid[0].size();
+        int totalWater = 0;
+        
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                totalWater += grid[i][j];
             }
-            total_fill += well_fill;
         }
-
-        int num_buckets = (total_fill + capacity - 1) / capacity;
-        return num_buckets * grid.size();
+        
+        return (totalWater + capacity - 1) / capacity;
     }
