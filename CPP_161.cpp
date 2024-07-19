@@ -1,15 +1,20 @@
-for(char &c : s) {
-    if(isalpha(c)) {
-        if(islower(c)) {
-            c = toupper(c);
-        } else {
-            c = tolower(c);
+for (char &c : s) {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-}
 
-if(count_if(s.begin(), s.end(), ::isalpha) == 0) {
-    reverse(s.begin(), s.end());
-}
+    int left = 0, right = s.size() - 1;
 
-return s;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
+    }
+
+    return s;
+}
