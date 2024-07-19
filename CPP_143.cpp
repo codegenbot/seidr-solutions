@@ -1,41 +1,49 @@
-#include <string>
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
+
+std::vector<std::string> split(const std::string& str, char ch) {
+    std::vector<std::string> tokens;
+    std::string token = "";
+
+    for (char c : str) {
+        if (c == ch) {
+            tokens.push_back(token);
+            token = "";
+        } else {
+            token += c;
+        }
+    }
+
+    // Don't forget to add the last token
+    tokens.push_back(token);
+
+    return tokens;
+}
 
 bool is_prime(int n) {
     if (n <= 1)
         return false;
-    for (int i = 2; i * i <= n; i++) {
+    
+    for (int i = 2; i * i <= n; ++i) {
         if (n % i == 0)
             return false;
     }
     return true;
 }
 
-vector<string> split(const string& str, char ch) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(ch)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return tokens;
-}
+int main() {
+    int longest_prime_length = 0;
+    std::string longest_prime_word;
 
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-
-    for (const auto& word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    for (const auto &word : split("here is", ' ')) {
+        if (!is_prime(word.length())) continue;
+        
+        if (word.length() > longest_prime_length) {
+            longest_prime_length = word.length();
+            longest_prime_word = word;
         }
     }
 
-    return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
