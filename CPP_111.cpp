@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool issame(map<char,int> a, map<char,int> b) {
+    return a == b;
+}
+
 map<char,int> histogramTest(string s) {
     map<char,int> hist;
     for (char c : s) {
@@ -27,7 +31,7 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!issame({make_pair('a', 1)}, vector<map<char,int>::pair>(hist.begin(), hist.end()))) {
+    if (!issame(hist, {{'a', 1}})) {
         return 0;
     }
 }
