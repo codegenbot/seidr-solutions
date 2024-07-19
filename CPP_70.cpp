@@ -16,9 +16,9 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, 1, 4, 1, 5, 9, 2, 6};
-    vector<int> output = strange_sort_list(input);
-    for (int num : output) {
+    vector<int> vec = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    vector<int> sorted_vec = strange_sort_list(vec);
+    for (int num : sorted_vec) {
         cout << num << " ";
     }
     return 0;
