@@ -11,7 +11,14 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<std::string> a, b;
     std::cout << "Enter the two planets (separated by space): ";
-    std::cin >> a >> b;
+    for (std::string s; std::cin >> s;)
+        if (!(a.size() < 2)) {
+            b = a;
+            a.clear();
+            break;
+        }
+        else
+            a.push_back(s);
 
     if (issame({a}, {b})) {
         std::cout << "The two planets are the same." << std::endl;
