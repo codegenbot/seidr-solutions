@@ -1,39 +1,42 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    int n = grid.size();
-    if (n == 0) return {};
+    int rows = grid.size();
+    int cols = grid[0].size();
     
-    int m = grid[0].size();
-    if (m == 0) return {};
-    
-    std::vector<std::vector<int>> dp(n, std::vector<int>(m, INT_MAX));
+    std::vector<std::vector<int>> dp(rows, std::vector<int>(cols, INT_MAX));
     dp[0][0] = grid[0][0];
-    
-    for (int x = 0; x < n; ++x) {
-        for (int y = 0; y < m; ++y) {
-            if (x + 1 < n) dp[x + 1][y] = std::min(dp[x + 1][y], dp[x][y] + grid[x + 1][y]);
-            if (y + 1 < m) dp[x][y + 1] = std::min(dp[x][y + 1], dp[x][y] + grid[x][y + 1]);
+
+    for (int move = 0; move <= k; ++move) {
+        std::vector<std::vector<int>> dp_temp(rows, std::vector<int>(cols, INT_MAX));
+        
+        for (int r = 0; r < rows; ++r) {
+            for (int c = 0; c < cols; ++c) {
+                if (r > 0) {
+                    dp_temp[r][c] = std::min(dp_temp[r][c], dp[r - 1][c] + grid[r][c]);
+                }
+                if (c > 0) {
+                    dp_temp[r][c] = std::min(dp_temp[r][c], dp[r][c - 1] + grid[r][c]);
+                }
+                if (r < rows - 1) {
+                    dp_temp[r][c] = std::min(dp_temp[r][c], dp[r + 1][c] + grid[r][c]);
+                }
+                if (c < cols - 1) {
+                    dp_temp[r][c] = std::min(dp_temp[r][c], dp[r][c + 1] + grid[r][c]);
+                }
+            }
         }
+
+        dp = dp_temp;
     }
-    
-    std::vector<int> path;
-    int x = n - 1, y = m - 1;
-    while (x >= 0 && y >= 0) {
-        path.push_back(grid[x][y]);
-        if (x == 0 && y == 0) break;
-        if (x > 0 && dp[x][y] == dp[x - 1][y] + grid[x][y]) --x;
-        else --y;
-    }
-    
-    std::reverse(path.begin(), path.end());
-    
-    return path;
+
+    return std::vector<int>(dp.back().begin(), dp.back().end());
 }
 
 int main() {
