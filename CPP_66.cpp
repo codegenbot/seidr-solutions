@@ -1,5 +1,5 @@
-```cpp
-int digitSum(string s);
+#include <string>
+
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
@@ -8,9 +8,3 @@ int digitSum(string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    cout << digitSum("You arE Very Smart");
-}
