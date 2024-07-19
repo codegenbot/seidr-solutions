@@ -1,11 +1,11 @@
-```c
+```cpp
 #include <cassert>
 #include <string>
 
 std::string intToMiniRoman(int num) {
-    std::string roman = "";
+    std::string roman;
     int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    char sym[] = {'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'};
+    const char* sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     int i = 0;
     while (num > 0) {
         if (num >= val[i]) {
@@ -15,10 +15,10 @@ std::string intToMiniRoman(int num) {
             i++;
         }
     }
-    return roman;
+    return roman; 
 }
 
-int testMain() {
+int main() { 
     assert(intToMiniRoman(1000) == "M");
     return 0;
 }
