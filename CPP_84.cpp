@@ -1,9 +1,10 @@
 #include <iostream>
+#include <string>
 #include <bitset>
 
 std::string solve(int N) {
     int sum = 0;
-    while(N > 0) {
+    while(N > 0){
         sum += N % 2;
         N /= 2;
     }
@@ -11,6 +12,10 @@ std::string solve(int N) {
 }
 
 int main() {
-    assert(solve(963) == "10010");
+    int N;
+    std::cin >> N;
+
+    std::cout << solve(N) << std::endl;
+
     return 0;
 }
