@@ -1,10 +1,23 @@
-for(char &c : message){
-    if(isalpha(c)){
-        c = islower(c) ? toupper(c) : tolower(c);
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-            c = c + 2;
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message);
+
+std::string encode(std::string message){
+    std::string encodedMessage = "";
+    for(char c : message){
+        if(isalpha(c)){
+            if(isupper(c)){
+                encodedMessage += tolower(c);
+            } else {
+                encodedMessage += toupper(c);
+            }
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                encodedMessage += c + 2;
+            }
+        } else {
+            encodedMessage += c;
         }
     }
-}
-return message;
+    return encodedMessage;
 }
