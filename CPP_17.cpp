@@ -2,17 +2,13 @@
 #include <string>
 #include <cassert>
 #include <iostream>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> parse_music(std::string music_string){
