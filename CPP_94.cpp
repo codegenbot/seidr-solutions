@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
