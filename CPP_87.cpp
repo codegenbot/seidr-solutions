@@ -4,17 +4,6 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
-int main() {
-    // Sample test case
-    vector<vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int x = 5;
-    vector<vector<int>> result = get_row(lst, x);
-    for (const auto& row : result) {
-        cout << row[0] << " " << row[1] << endl;
-    }
-    return 0;
-}
-
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
@@ -31,4 +20,9 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
+}
+
+int main() {
+    // Add your main function code here
+    return 0;
 }
