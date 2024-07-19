@@ -1,8 +1,8 @@
 #include <iostream>
 
-int modp(int n, int p) {
+long long int modp(long long int n, long long int p) {
     if (p == 1) return 0;
-    int result = 1;
+    long long int result = 1;
     n = n % p;
     while (n > 0) {
         if (n % 2 == 1) {
@@ -14,7 +14,7 @@ int modp(int n, int p) {
 }
 
 int main() {
-    int n, p;
+    long long int n, p;
     std::cin >> n >> p;
     std::cout << modp(n, p);
     return 0;
