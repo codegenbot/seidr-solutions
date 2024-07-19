@@ -2,7 +2,7 @@ int max_fill(vector<vector<int>>& grid) {
         int rows = grid.size();
         int cols = grid[0].size();
         int total_water = 0;
-        int capacity = 5;
+        int capacity = 5; // Define capacity variable
         
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
