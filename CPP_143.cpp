@@ -5,9 +5,9 @@
 size_t wordsInSentence(const std::string& str) {
     size_t count = 0;
     size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
+    while (pos < str.length() && (pos = str.find(" ", pos)) != std::string::npos) {
         ++count;
-        pos = str.find(" ");
+        pos = str.find(" ", pos);
     }
     return count + 1; // Add 1 for the last word
 }
