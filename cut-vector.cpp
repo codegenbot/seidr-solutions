@@ -14,12 +14,15 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long sum = prev_sum;
-            long long diff = llabs((long long)sum - (long long)prev_sum);
+            long long diff = llabs((long long)(sum1 - prev_sum) % (i + 1));
             
-            if (diff <= min_diff) {
+            if (diff < min_diff) {
                 min_diff = diff;
                 index = i; // update the cutting point
+            } else if (diff == 0) {
+                res[0].assign(v.begin(), v.begin() + index+1);
+                res[1].assign(v.begin() + index, v.end());
+                return res;
             }
         }
         
@@ -27,8 +30,13 @@ vector<vector<int>> cutVector(vector<int> v) {
         prev_sum = sum1; 
     }
     
-    res[0].assign(v.begin(), v.begin() + index+1);
-    res[1].assign(v.begin() + index, v.end());
+    if (min_diff == 0) {
+        res[0].assign(v.begin(), v.begin() + index+1);
+        res[1].assign(v.begin() + index, v.end());
+    } else {
+        res[0].assign(v.begin(), v.begin() + index+1);
+        res[1].assign(v.begin() + index, v.end());
+    }
     
     return res;
 }
