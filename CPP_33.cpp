@@ -1,12 +1,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> a_sorted = a;
-    std::vector<int> b_sorted = b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
+
+int main() {
+    assert(issame({5, 6, 3, 4, 8, 9, 2, 1}, {1, 2, 3, 4, 5, 6, 8, 9}));
     
-    std::sort(a_sorted.begin(), a_sorted.end());
-    std::sort(b_sorted.begin(), b_sorted.end());
-    
-    return a_sorted == b_sorted;
+    return 0;
 }
