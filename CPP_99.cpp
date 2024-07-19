@@ -1,14 +1,10 @@
-#include <iostream>
 #include <cmath>
 
-int closest_integer(std::string value) {
-    float num = stof(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    return abs(num - lower) < abs(num - upper) ? lower : upper;
-}
-
-int main() {
-    assert (closest_integer("0") == 0);
-    return 0;
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    int closestInt = static_cast<int>(std::round(num));
+    if (std::abs(num - closestInt) == 0.5) {
+        closestInt = (num > 0) ? std::ceil(num) : std::floor(num);
+    }
+    return closestInt;
 }
