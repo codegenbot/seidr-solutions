@@ -1,10 +1,10 @@
 vector<string> words;
-    string word = "";
+    string word;
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
-                word = "";
+                word.clear();
             }
         } else {
             word += c;
