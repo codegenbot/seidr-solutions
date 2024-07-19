@@ -4,11 +4,13 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
+std::vector<std::string> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& sub) {
     std::vector<std::string> result;
     for (const auto& word : words) {
-        if (word.find(sub) != std::string::npos) {
-            result.push_back(word);
+        for (const auto& w : word) {
+            if (w.find(sub) != std::string::npos) {
+                result.push_back(w);
+            }
         }
     }
     return result;
@@ -44,7 +46,7 @@ int main() {
     std::vector<std::string> vec1 = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> vec2 = {"grunt", "prune"};
 
-    assert(same(filter_by_substring(vec1, "run"), vec2));
+    assert(same(filter_by_substring({{vec1[0], vec1[1]}, {vec1[2], vec1[3]}} , "run"), {{vec2[0], vec2[0]}, {vec2[1], vec2[1]}}));
 
     return 0;
 }
