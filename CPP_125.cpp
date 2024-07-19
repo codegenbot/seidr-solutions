@@ -1,10 +1,9 @@
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+#include <string>
+#include <vector>
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -25,11 +24,7 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        result[0] = to_string(count);
+        result[0] = std::to_string(count);
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
