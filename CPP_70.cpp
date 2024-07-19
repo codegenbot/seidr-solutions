@@ -1,19 +1,17 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(int a, int b);
 
 vector<int> strange_sort_list(vector<int> lst);
 
-int main() {
-    strange_sort_list({111111});
+bool issame(int a, int b){
+    return a == b;
 }
 
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end(), [](int a, int b){
-        return issame({a%10}, {b%10}) ? a < b : a%10 < b%10;
+        return issame(a%10, b%10) ? a < b : a%10 < b%10;
     });
     vector<int> result;
     int left = 0, right = lst.size() - 1;
@@ -28,4 +26,13 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+int main() {
+    vector<int> input = {111111};
+    vector<int> sorted_list = strange_sort_list(input);
+    
+    assert(sorted_list == vector<int>({111111}));
+    
+    return 0;
 }
