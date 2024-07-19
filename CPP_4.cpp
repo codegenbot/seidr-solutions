@@ -1,10 +1,8 @@
+#include <cassert>
 #include <vector>
 #include <cmath>
-#include <cassert>
-using namespace std;
 
-float mean_absolute_deviation(std::vector<float> numbers) {
-    assert(numbers.size() > 0);
+float mean_absolute_deviation(std::vector<float> numbers){
     float sum = 0;
     float mean = 0;
     for (float num : numbers) {
