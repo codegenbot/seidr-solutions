@@ -1,46 +1,19 @@
-#include <iostream>
-#include <vector>
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-bool is_multiply_prime(int a) {
-    if (a < 6) return false;
+if (a <= 1 || a > 99)
+        return false;
     
-    std::vector<int> primes;
-    for (int i = 2; i < 100; ++i) {
-        if (is_prime(i)) {
-            primes.push_back(i);
-        }
-    }
-    
-    for (int i = 0; i < primes.size(); ++i) {
-        for (int j = i + 1; j < primes.size(); ++j) {
-            for (int k = j + 1; k < primes.size(); ++k) {
-                if (primes[i] * primes[j] * primes[k] == a) {
-                    return true;
-                }
+    int prime_factors = 0;
+    for (int i = 2; i <= a; ++i) {
+        if (a % i == 0) {
+            int count = 0;
+            while (a % i == 0) {
+                a /= i;
+                count++;
             }
+            if (count == 1) // Check if the factor is prime
+                prime_factors++;
+            else
+                return false; // If factor appears more than once, return false
         }
     }
     
-    return false;
-}
-
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    
-    if (is_multiply_prime(num)) {
-        std::cout << "true\n";
-    } else {
-        std::cout << "false\n";
-   
-    return 0;
-}
+    return prime_factors == 3;
