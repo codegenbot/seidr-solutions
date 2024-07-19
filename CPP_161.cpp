@@ -4,24 +4,23 @@
 
 std::string solve(const std::string& s) {
     for(char &c : s) {
-        if(std::isalpha(c)) {
-            if(std::islower(c)) {
-                c = std::toupper(c);
+        if(isalpha(c)) {
+            if(islower(c)) {
+                c = toupper(c);
             } else {
-                c = std::tolower(c);
+                c = tolower(c);
             }
         }
     }
     
-    std::reverse(s.begin(), s.end());
+    reverse(s.begin(), s.end());
     
     return s;
 }
 
-// In the main function
 int main() {
-    assert(solve("a2b$c") == "C2B$A");
-    assert(solve("Hello, World!") == "!DLR,O LLEH");
+    assert(solve("Hello, World!") == "!DLRO ,OLLEH");
+    assert(solve("abcdefg") == "GFEDCBA");
     
     return 0;
 }
