@@ -2,10 +2,10 @@
 
 bool correct_bracketing(const string& brackets) {
     int count = 0;
-    for (size_t i = 0; i < brackets.size(); ++i) {
-        if (brackets[i] == '(') {
+    for (char c : brackets) {
+        if (c == '(') {
             count++;
-        } else if (brackets[i] == ')') {
+        } else if (c == ')') {
             count--;
             if (count < 0) {
                 return false;
