@@ -5,7 +5,7 @@ int vowels_count(string s) {
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
-        } else if (c == 'y' && s.back() == 'y') {
+        } else if (c == 'y' && std::next(s.rbegin(), 1) == 'y') {
             count++;
         }
     }
