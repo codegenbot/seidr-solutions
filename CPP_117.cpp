@@ -13,7 +13,7 @@ std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
     std::string word = "";
     int consonant_count = 0;
-    
+
     for (char c : s) {
         if (c == ' ') {
             if (consonant_count == n) {
@@ -22,7 +22,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word = "";
             consonant_count = 0;
         } else {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+            if (std::isalpha(c) && !std::strchr("aeiouAEIOU", c)) {
                 consonant_count++;
             }
             word += c;
