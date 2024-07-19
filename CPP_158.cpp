@@ -3,9 +3,8 @@
 using namespace std;
 
 int main() {
-    int main() {
-        assert ((find_max({"play", "play", "play"}) == "play"));
-    }
+    string result = find_max({"play", "play", "play"});
+    cout << result;
 }
 
 string find_max(vector<string> words){
