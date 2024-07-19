@@ -1,50 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-using namespace std;
-
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    int min_diff = INT_MAX;
-    int split_index = -1;
     
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         int sum1 = 0, sum2 = 0;
-        for (int j = 0; j <= i; j++) {
+        for (int j = 0; j < i; j++) {
             sum1 += v[j];
         }
-        for (int j = i + 1; j < n; j++) {
+        for (int j = i; j < n; j++) {
             sum2 += v[j];
         }
-        if ((sum1 == sum2) || (abs(sum1 - sum2) < min_diff)) {
-            min_diff = abs(sum1 - sum2);
-            split_index = i;
+        
+        if (abs(sum1 - sum2) <= abs((sum1 + sum2) / 2 - sum1)) {
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+            break;
         }
     }
     
-    for (int i = 0; i <= split_index; i++) {
-        res[0].push_back(v[i]);
-    }
-    for (int i = split_index + 1; i < n; i++) {
-        res[1].push_back(v[i]);
-    }
     return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    for (auto &v : res) {
-        for (int x : v) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-    return 0;
 }
