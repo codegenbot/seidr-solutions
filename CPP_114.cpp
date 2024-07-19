@@ -11,4 +11,3 @@ long long minSubArraySum(vector<long long> nums) {
             min_sum = min(min_sum, sum);
     }
     return min_sum;
-}
