@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <string>
 #include <cctype>
@@ -6,6 +7,8 @@
 using namespace std;
 
 vector<string> split_words(string txt);
+
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> split_words(string txt) {
     vector<string> result;
