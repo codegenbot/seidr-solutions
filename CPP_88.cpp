@@ -14,6 +14,6 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-bool issame(int x, int y) {
-    return x == y;
+bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
+    return vec1 == vec2;
 }
