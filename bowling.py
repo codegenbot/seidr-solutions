@@ -3,13 +3,11 @@ def bowling_score(frames):
     frame = 1
     for char in frames:
         if char.isdigit():
-            if frame == 10:
-                score += int(char)
-                break
             score += int(char)
+            if frame == 10:
+                break
             frame += 1
         elif char == '/':
-            first_roll = int(frames[frames.index(char) - 1])
-            second_roll = int(frames[frames.index(char) + 1]) if frames[frames.index(char) + 1].isdigit() else 10
-            score += 10 - (first_roll + second_roll)
+            score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
             frame += 1
+    return score
