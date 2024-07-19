@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int skjkasdkd(int* arr, int size) {

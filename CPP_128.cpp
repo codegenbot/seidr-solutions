@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 
 int prod_signs(std::vector<int> numbers) {
     int sign = 1;
