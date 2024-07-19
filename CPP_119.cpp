@@ -3,12 +3,15 @@
 #include <string>
 
 bool match_parens(const std::string& s) {
-    size_t open = 0, close = 0;
+    int open = 0;
     for (char ch : s) {
         if (ch == '(') open++;
-        else if (ch == ')') close++;
+        else if (ch == ')') {
+            if (open > 0) open--;
+            else return false; // unmatched close parenthesis
+        }
     }
-    return open == close;
+    return open == 0;
 }
 
 int main() { 
