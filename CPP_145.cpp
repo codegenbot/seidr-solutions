@@ -1,10 +1,15 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
+bool same(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -29,7 +34,11 @@ vector<int> order_by_points(vector<int> nums) {
     return result;
 }
 
+void test() {
+    assert(same(order_by_points({0,6,6,-76,-21,23,4}),{-76, -21, 0, 4, 23, 6, 6}));
+}
+
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    test();
     return 0;
 }
