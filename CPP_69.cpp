@@ -1,14 +1,14 @@
-int maxElem = -1;
-    for (int i = 1; i <= lst.size(); i++) {
-        int freq = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == i) {
-                freq++;
-            }
-        }
-        if (freq >= i && i > maxElem) {
-            maxElem = i;
+unordered_map<int, int> freq;
+    for (int num : lst) {
+        freq[num]++;
+    }
+    
+    int result = -1;
+    for (auto it : freq) {
+        if (it.first > it.second && it.first > 0) {
+            result = max(result, it.first);
         }
     }
-    return maxElem;
+    
+    return result;
 }
