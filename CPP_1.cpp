@@ -23,23 +23,23 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group;
+    int balance = 0;
     
     for (char c : paren_string) {
         if (c == '(') {
-            if (!group.empty()) {
-                result.push_back(group);
+            if (balance > 0) {
+                group += c;
             }
-            group = "";
+            balance++;
         } else if (c == ')') {
-            result.push_back("(" + group + ")");
-            group = "";
-        } else {
-            group += c;
+            balance--;
+            if (balance > 0) {
+                group += c;
+            } else if (balance == 0) {
+                result.push_back(group);
+                group = "";
+            }
         }
-    }
-    
-    if (!group.empty()) {
-        result.push_back(group);
     }
     
     return result;
