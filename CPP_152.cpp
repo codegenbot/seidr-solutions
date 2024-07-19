@@ -13,5 +13,4 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-// In main function or test cases
 assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
