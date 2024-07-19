@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
 
-bool are_same(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+bool areVectorsEqual(std::vector<float> a, std::vector<float> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
