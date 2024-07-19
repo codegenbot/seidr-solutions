@@ -1,7 +1,7 @@
-```cpp
+```
+#include <boost/config.hpp>
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
