@@ -1,4 +1,4 @@
-#include <string>
+#include <using namespace std;>
 
 int digitSum(string s) {
     int sum = 0;
@@ -10,3 +10,4 @@ int digitSum(string s) {
         }
     }
     return sum;
+}
