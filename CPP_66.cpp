@@ -1,20 +1,9 @@
-```cpp
-#include <iostream>
-#include <string>
-
-int digitSum(const std::string& s) {
+int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
-        if (c >= '0' && c <= '9') {
-            sum += (c - '0');
+        if (isupper(c)) {
+            sum += c;
         }
     }
     return sum;
-
 }
-
-std::string input;
-std::cout << "Enter a string: ";
-std::getline(std::cin, input);
-int result = digitSum(input);
-std::cout << "The sum of digits is: " << result << std::endl;
