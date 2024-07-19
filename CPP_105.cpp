@@ -5,7 +5,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
