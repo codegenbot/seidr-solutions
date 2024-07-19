@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <initializer_list>
+using namespace std;
 
-int nextSmallest(std::vector<int> lst) {
+int nextSmallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
-    std::vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
+    vector<int> sorted(lst);
+    sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1]) {
             return sorted[i + 1];
