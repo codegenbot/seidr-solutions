@@ -1,25 +1,22 @@
 #include <iostream>
-using namespace std;
-
-bool is_prime(int n); // Declare the is_prime function
+// Function to check if a number is prime or not
+bool is_prime(int n) {
+    // Check all numbers from 2 to sqrt(n)
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     if (!is_prime(n)) {
-        cout << "The number is not prime." << endl;
+        std::cout << "The number is not prime." << std::endl;
     } else {
-        cout << "The number is prime." << endl;
+        std::cout << "The number is prime." << std::endl;
     }
     return 0;
-}
-
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
 }
