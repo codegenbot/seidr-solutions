@@ -1,10 +1,9 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
-    vector<float> result;
+float min_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
     
+    vector<float> result;
     for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
+        result.push_back((num - min_val) / (max_val - min_val));
     }
     
     return result;
