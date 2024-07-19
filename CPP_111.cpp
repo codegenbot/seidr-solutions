@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 #include <map>
 #include <string>
 
