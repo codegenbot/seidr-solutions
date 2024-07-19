@@ -1,10 +1,10 @@
+#include <iostream>
 #include <cassert>
 #include <string>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
-    if (text.empty()) {
-        return "None";
-    }
+    assert(!text.empty());
 
     MD5_CTX ctx;
     MD5_Init(&ctx);
@@ -21,6 +21,11 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    // Your main function code here
+    std::string text;
+    std::cin >> text;
+
+    std::string md5 = string_to_md5(text);
+    std::cout << md5;
+
     return 0;
 }
