@@ -15,8 +15,8 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     int count = 0;
     std::string current_group;
 
-    for(char c : s) {
-        if(c == '(') {
+    for (char c : s) {
+        if (c == '(') {
             count++;
             current_group += c;
         } else if (c == ')') {
@@ -32,7 +32,9 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     return groups;
 }
 
-void main() {
+int main() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
-    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), expected));
+    std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
+    assert(is_same(result, expected));
+    return 0;
 }
