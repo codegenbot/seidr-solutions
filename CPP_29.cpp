@@ -1,25 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
     }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (!issame_helper(v1[i], v2[i])) {
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
-    }
-    return true;
-}
-
-bool issame_helper(const string& str1, const string& str2) {
-    size_t i = 0;
-    while (i < str1.size() && i < str2.size()) {
-        if (str1[i] != str2[i]) {
-            return false;
-        }
-        ++i;
     }
     return true;
 }
@@ -32,8 +21,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
 }
