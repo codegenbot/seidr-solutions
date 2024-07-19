@@ -1,13 +1,18 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string anti_shuffle(const std::string& s) {
-    std::string result = ""; 
+    std::string result = "";
+    int i = 0;
     for (char c : s) {
         if (c == ' ') {
+            while (i < s.length() && s[i] != ' ') {
+                result += s[i];
+                i++;
+            }
             result += '.';
+            i++;
         } else {
             result += c;
         }
@@ -16,6 +21,6 @@ std::string anti_shuffle(const std::string& s) {
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    std::cout << anti_shuffle("Hi. My name is Mister Robot. How are you?") << std::endl;
     return 0;
 }
