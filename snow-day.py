@@ -1,5 +1,10 @@
 ```
 def snow_day(hours, rate_of_snow_fall, proportion_melting):
-    total_snowfall = (rate_of_snow_fall * hours)
-    remaining_snow = max(0, total_snowfall - (proportion_melting * hours))
-    return round(snow_ground + remaining_snow, 5)
+    snow_ground = 0
+    for _ in range(hours):
+        if snow_ground + rate_of_snow_fall <= 100:
+            snow_ground += rate_of_snow_fall
+        else:
+            snow_ground += rate_of_snow_fall - (rate_of_snow_fall * 100 / 100)
+        snow_ground -= proportion_melting
+    return round(snow_ground, 5)
