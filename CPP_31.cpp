@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -19,5 +19,6 @@ int main() {
     int n;
     std::cin >> n;
     assert(is_prime(n));
+    std::cout << "The number is prime." << std::endl;
     return 0;
 }
