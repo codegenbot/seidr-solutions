@@ -1,5 +1,4 @@
 import hashlib
-import sys
 
 def string_to_md5(text):
     if text is None:
@@ -8,9 +7,9 @@ def string_to_md5(text):
 
 result = None
 try:
-    input_text = sys.stdin.readline().strip()
+    input_text = input("Enter a string: ").strip()
     result = string_to_md5(input_text)
-except EOFError:
+except Exception:
     pass
 
 print(result)
