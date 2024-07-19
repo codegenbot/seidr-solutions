@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,6 +13,10 @@ bool same(const std::vector<std::vector<std::string>>& v1, const std::vector<std
     return true;
 }
 
+bool issame(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
+    return same(v1, v2);
+}
+
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
     std::vector<std::vector<std::string>> result;
     for (const auto& word : words) {
@@ -25,7 +28,7 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
             }
         }
         if (found) {
-            result.push_back(word);
+            result.push_back(std::vector<std::string>(word));
         } else if (!result.empty()) {
             return result; // If no more words are found, stop and return the current result
         }
@@ -34,10 +37,10 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    std::vector<std::vector<std::string>> words = {{"grunt"}, {"trumpet", "prune", "gruesome"}};
     std::string substring = "run";
     
-    assert(same(filter_by_substring({words}, substring), {{"grunt"}, {"prune"}}));
+    assert(same(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run"), {{"grunt"}, {"prune"}}));
     
     return 0;
 }
