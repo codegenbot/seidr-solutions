@@ -1,6 +1,15 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 int count_distinct_characters(string str) { 
-    string s = str; // Convert to lowercase for case-insensitive comparison
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
-    set<char> unique_chars(s.begin(), s.end());
-    return unique_chars.size();
+    string s = "";
+    for (char c : str) {
+        if (tolower(c) != tolower(s.empty() ? '0' : s.back())) {
+            s += tolower(c);
+        }
+    }
+    return s.size();
 }
