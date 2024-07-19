@@ -6,6 +6,11 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
+int main() {
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == {"xxx", "xxxAAA", "xxx"});
+    return 0;
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for(string s : strings){
@@ -13,9 +18,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
-}
-
-int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == {"xxx", "xxxAAA", "xxx"});
-    return 0;
 }
