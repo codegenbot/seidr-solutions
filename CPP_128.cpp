@@ -11,7 +11,7 @@ int prod_signs(const std::vector<int>& arr) {
     int sum = 0;
 
     for (int num : arr) {
-        product *= (num == 0) ? 1 : (num / abs(num));
+        product *= (num == 0) ? 1 : (num / std::abs(num));
         sum += std::abs(num);
     }
 
@@ -20,6 +20,5 @@ int prod_signs(const std::vector<int>& arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-
     return 0;
 }
