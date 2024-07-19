@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <memory>
 
 using namespace std;
 
@@ -13,14 +11,14 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                size_t vowel_count = 0;
+                unsigned vowel_count = 0;
                 for (char ch : word) {
                     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (vowel_count <= n) {
-                    result.emplace_back(word);
+                if (!word.empty() && vowel_count <= n) {
+                    result.push_back(word);
                     word = "";
                 }
             }
@@ -29,14 +27,14 @@ vector<string> select_words(string s, int n) {
         }
     }
     if (!word.empty()) {
-        size_t vowel_count = 0;
+        unsigned vowel_count = 0;
         for (char ch : word) {
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
                 ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                 vowel_count++;
         }
-        if (vowel_count <= n) {
-            result.emplace_back(word);
+        if (!word.empty() && vowel_count <= n) {
+            result.push_back(word);
             word = "";
         }
     }

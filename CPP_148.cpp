@@ -1,3 +1,5 @@
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -35,6 +37,5 @@ std::vector<std::string> between(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(areEqual(between("Jupiter", "Makemake"), {}));
+    assert(areEqual(between("Jupiter", "Makemake"), std::vector<std::string>{}));
     return 0;
-}
