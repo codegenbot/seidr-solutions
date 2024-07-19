@@ -2,8 +2,6 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> intersperse(vector<int> numbers, int delimiter);
-
 vector<int> intersperse(vector<int> numbers, int delimiter){
     vector<int> result;
     for (size_t i = 0; i < numbers.size(); ++i) {
