@@ -10,22 +10,23 @@ string string_to_md5(string text) {
 
     EVP_MD_CTX md_ctx;
     unsigned char output[EVP_MAX_MD_SIZE];
-    size_t output_len;
+    size_t output_len = 0;
 
     EVP_MD_CTX_init(&md_ctx);
+    
+    const uint8_t* ptr = reinterpret_cast<const uint8_t*>(text.c_str());
+    size_t len = text.size();
 
-    const unsigned char* ptr = (const unsigned char*)text.c_str();
-    size_t len = text.length();
+    EVP_UPDATE(&md_ctx, ptr, len);
 
-    int64_t result = EVP_UPDATE(&md_ctx, &ptr, len);
+    EVP_Finalize(&md_ctx, output, &output_len);
 
-    unsigned char* final_result = EVP_Final(&md_ctx, &output_len);
-    string md5;
+    string result;
     for (int i = 0; i < output_len; i++) {
         char buff[3];
-        sprintf(buff, "%02x", final_result[i]);
-        md5 += buff;
+        sprintf(buff, "%02x", output[i]);
+        result += buff;
     }
 
-    return md5;
+    return result;
 }
