@@ -1,19 +1,22 @@
 #include <stack>
+#include <vector>
+
 using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    stack<int> nesting_level;
-    int max_nesting = 0;
+    stack<int> nesting_levels;
+    int max_nesting_level = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            nesting_level.push(1);
-            max_nesting = max(max_nesting, 1);
+            nesting_levels.push(1);
+            max_nesting_level = max(max_nesting_level, 1);
         } else if (c == ')') {
-            nesting_level.pop();
-            result.push_back(max_nesting);
-            max_nesting = nesting_level.empty() ? 0 : max_nesting - 1;
+            int current_level = nesting_levels.top();
+            nesting_levels.pop();
+            result.push_back(current_level);
+            max_nesting_level = max(max_nesting_level, current_level);
         }
     }
 
