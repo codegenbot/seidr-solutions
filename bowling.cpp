@@ -3,7 +3,7 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 0;
-    vector<int> frames(10);
+    std::vector<int> frames(10);
     
     for (char c : s) {
         if (c == '/') {
@@ -16,7 +16,7 @@ int bowlingScore(std::string s) {
             while (c != '/' && c >= '0' && c <= '9') {
                 frames[currentFrame] *= 10 + (c - '0');
                 size_t i = s.find(c);
-                c = s[i + 1];
+                c = s[i+1];
             }
             
             if (!strike) {
@@ -30,7 +30,7 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-char next(char a, char b, std::string s) {
-    size_t i = s.find(a);
-    return s[i + (b != '0')];
+char next(char c, std::string s) {
+    size_t i = s.find(c);
+    return s[i+1];
 }
