@@ -1,5 +1,5 @@
 while True:
     input_string = input("Enter the string to decode: ").strip()
-    if all(char.isalnum() or char.isspace() or char == "." for char in input_string):
+    if all(char in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. " for char in input_string):
         break
-    print("Input string must contain only alphabets, spaces, digits, and '.'. Please try again.")
+    print("Input string must contain only lowercase alphabets, spaces, digits, uppercase alphabets, and '.'. Please try again.")
