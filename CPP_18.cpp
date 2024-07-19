@@ -8,7 +8,7 @@ int how_many_times(const std::string& s, const std::string& sub) {
 
     while ((pos = s.find(sub, pos)) != std::string::npos) {
         ++count;
-        pos = s.find(sub, pos);
+        pos += sub.size();
     }
 
     return count;
@@ -18,5 +18,6 @@ int main() {
     std::string s; 
     std::string sub;
     std::cin >> s >> sub;
+    
     std::cout << how_many_times(s, sub);
 }
