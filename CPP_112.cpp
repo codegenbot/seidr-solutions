@@ -33,4 +33,3 @@ string reverse(string s) {
         rev += s[i];
     }
     return rev;
-}
