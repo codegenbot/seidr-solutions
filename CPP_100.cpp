@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<int> a, std::vector<int> b);
+bool same_vectors(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
