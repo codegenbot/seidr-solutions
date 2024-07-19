@@ -1,7 +1,2 @@
 def cycpattern_check(a, b):
-    if len(b) > len(a):
-        return False
-    for i in range(len(a)):
-        if a[i : i + len(b)] == b:
-            return True
-    return False
+    return b in a + a or any(b == x for x in (a[i:] + a[:i] for i in range(len(a))))
