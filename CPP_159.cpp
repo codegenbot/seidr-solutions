@@ -1,19 +1,17 @@
-#include <iostream>
-#include <cassert>
 #include <vector>
-#include <utility>
+#include <algorithm>
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+std::pair<int, int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = std::min(total, remaining);
+    return {eaten, std::max(0, total - remaining)};
+}
+
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a == b;
 }
 
-std::pair<int, int> eat(int number) {
-    int eaten = number + 1;
-    int left = 0;
-    return {eaten, left};
-}
-
 int main() {
-    assert(issame(eat(4), {5, 0}));
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }

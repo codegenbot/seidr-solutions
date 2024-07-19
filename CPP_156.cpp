@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-std::string int_to_mini_romank(int number) {
+string int_to_mini_roman(int number){
     vector<pair<int, string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
@@ -12,9 +12,8 @@ std::string int_to_mini_romank(int number) {
     };
 
     string result = "";
-
-    for (const auto &pair : roman_map) {
-        while (number >= pair.first) {
+    for(const auto& pair : roman_map){
+        while(number >= pair.first){
             result += pair.second;
             number -= pair.first;
         }
@@ -23,7 +22,4 @@ std::string int_to_mini_romank(int number) {
     return result;
 }
 
-int main() {
-    assert (int_to_mini_romank(1000) == "m");
-    return 0;
-}
+assert(int_to_mini_roman(1000) == "m");
