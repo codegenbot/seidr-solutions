@@ -19,3 +19,8 @@ std::string string_to_md5(const std::string& text) {
 
     return std::string(md5String);
 }
+
+int main() {
+    // Your main function code here
+    return 0;
+}
