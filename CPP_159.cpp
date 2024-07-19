@@ -9,5 +9,3 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return {eatenCarrots, remainingCarrots};
     }
 }
-
-// Additional includes for headers used in the main function if needed.
