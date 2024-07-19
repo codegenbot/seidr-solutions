@@ -21,11 +21,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-        user_input.push_back(x);
+        if (!issame(user_input, vector<int>{x})) {
+            user_input.push_back(x);
+        }
     }
-    if (issame(user_input, user_input)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << (issame(user_input, vector<int>()) ? "Yes" : "No") << endl;
 }
