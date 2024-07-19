@@ -30,13 +30,13 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(vector<string>& a, vector<string>& b) {
     return a == b;
 }
 
 int main() {
     vector<string> expected_result = {"()", "(())", "(()())"};
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), expected_result));
+    assert(is_same(separate_paren_groups("( )(( ))(( )( ))"), expected_result));
 
     return 0;
 }
