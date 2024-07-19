@@ -1,7 +1,17 @@
-map<char, int> histogram(string test);
-
 bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
+}
+
+map<char, int> histogram(string test);
+
+int main() {
+    string test;
+    getline(cin, test);
+    map<char, int> result = histogram(test);
+    for (const auto& pair : result) {
+        cout << pair.first << " : " << pair.second << "\n";
+    }
+    return 0;
 }
 
 map<char, int> histogram(string test) {
