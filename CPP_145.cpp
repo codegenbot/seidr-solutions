@@ -1,18 +1,23 @@
-// Declare the issame function before main
 bool issame(const vector<int>& a, const vector<int>& b);
 
-// Update the sort function call to use issame
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    // Existing code remains unchanged
+    int sum_a = 0, sum_b = 0;
+    int tmp_a = abs(a), tmp_b = abs(b);
+    while (tmp_a > 0) {
+        sum_a += tmp_a % 10;
+        tmp_a /= 10;
+    }
+    while (tmp_b > 0) {
+        sum_b += tmp_b % 10;
+        tmp_b /= 10;
+    }
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+    return sum_a < sum_b;
 });
 
-// Define the issame function
 bool issame(const vector<int>& a, const vector<int>& b) {
     // Implement comparison logic
     // Return true if a and b are the same, false otherwise
-}
-
-// Call issame in the main function
-int main() {
-    // Existing code remains unchanged
 }
