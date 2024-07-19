@@ -11,13 +11,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (da > db) ? a : ((da < db) ? b : boost::any("None"));
     } else if (is_any_of<a>(std::string())) {
         std::string sa = any_cast<std::string>(a);
-        double da = std::stod(sa);
-        
         if (is_any_of<b>(double())) {
             double db = any_cast<double>(b);
+            double da = std::stod(sa);
             return (da > db) ? a : ((da < db) ? b : boost::any("None"));
         } else if (is_any_of<b>(std::string())) {
             std::string sb = any_cast<std::string>(b);
+            double da = std::stod(sa);
             double db = std::stod(sb);
             return (da > db) ? a : ((da < db) ? b : boost::any("None"));
         } else {
