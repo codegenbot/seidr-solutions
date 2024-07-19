@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> temp;
@@ -58,6 +59,8 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     std::vector<int> arr = {9, 4, 8};
-    vector<string> result = by_length(arr);
-    assert(issame(result, {"Nine", "Four", "Eight"}));
+    std::vector<std::string> result = by_length(arr);
+    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
+    assert(issame(result, expected));
     return 0;
+}
