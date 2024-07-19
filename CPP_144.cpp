@@ -4,24 +4,20 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
+    int a = stoi(strtok((x).c_str(), "/"));
+    int b = stoi(strtok(NULL, "/"));
+    int c = stoi(strtok((n).c_str(), "/"));
+    int d = stoi(strtok(NULL, "/"));
 
-    if (a % c == 0 && b % d == 0) return true;
-    else return false;
+    long long result = (long long)a*d + (long long)b*c;
+    long long commonDivisor = gcd(abs(result), abs(a*d));
 
+    return a*d / commonDivisor == b*c / commonDivisor;
 }
 
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    string result = s.substr(0, pos);
-    return result;
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find('/');
-    string result = s.substr(pos + 1);
-    return result;
+long long gcd(long long a, long long b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a%b);
 }
