@@ -8,6 +8,15 @@ def bowling_score(frames):
                 break
             frame += 1
         elif char == '/':
-            score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            first_roll = int(frames[frames.index(char) - 1])
+            second_roll = int(frames[frames.index(char) + 1])
+            score += 10 - first_roll - second_roll
             frame += 1
+    for i in range(frame, len(frames)):
+        if frames[i].isdigit():
+            score += int(frames[i])
+        elif frames[i] == '/':
+            first_roll = int(frames[i-1])
+            second_roll = int(frames[i+1])
+            score += 10 - first_roll - second_roll
     return score
