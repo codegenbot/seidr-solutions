@@ -5,23 +5,12 @@ extern "C" {
     #include <openssl/evp.h>
 }
 
-int main() {
-    char input[1024]; 
-    printf("Enter a string: ");
-    fgets(input, sizeof(input), stdin);
-    input[strcspn(input, "\n")] = 0; // remove newline character
-    char* hash = string_to_md5(input);
-    printf("MD5 hash: %s\n", hash);
-    delete[] hash; 
-    return 0;
-}
+typedef struct EVP_MD_CTX_st EVP_MD_CTX;
 
 char* string_to_md5(const char* input) {
     unsigned char result[16];
     EVP_MD_CTX md5ctx;
-    EVP_MD *md = EVP_sha1();
     EVP_MD_CTX_init(&md5ctx);
-    EVP_DigestInit_ex(&md5ctx, md, nullptr);
     EVP_DigestUpdate(&md5ctx, input, strlen(input));
     unsigned char* output = new unsigned char[16];
     EVP_Digest(&md5ctx, 16, output, nullptr, 0);
@@ -33,4 +22,14 @@ char* string_to_md5(const char* input) {
     }
     delete[] output;
     return hash;
+}
+
+int main() {
+    char input[1024]; 
+    printf("Enter a string: ");
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = 0; // remove newline character
+    printf("MD5 hash: %s\n", string_to_md5(input));
+    delete[] string_to_md5(input); // free the dynamically allocated memory
+    return 0;
 }
