@@ -20,7 +20,7 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
     map<int, string> reverse_map;
     for (const auto& pair : number_map) {
         reverse_map[pair.second] = pair.first;
