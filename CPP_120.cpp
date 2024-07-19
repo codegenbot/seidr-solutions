@@ -1,4 +1,21 @@
-int main {
+#include <vector>
+#include <algorithm>
+
+std::vector<int> maximum(std::vector<int> a) {
+    std::vector<int> result = a;
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
+bool same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main() {
     int n;
     cin >> n;
     std::vector<int> a(n);
