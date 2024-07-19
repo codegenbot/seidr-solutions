@@ -15,6 +15,6 @@ std::string string_xor(std::string a, std::string b){
 
 int main(){
     assert(string_xor("0101", "0000") == "0101");
-
+    
     return 0;
 }
