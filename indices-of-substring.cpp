@@ -7,7 +7,7 @@ using std::cin;
 using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result(target.length());
+    std::vector<int> result;
     
     int n = text.length();
     int m = target.length();
@@ -29,4 +29,3 @@ int main() {
     for (int i : res)
         cout << i << " ";
     return 0;
-}
