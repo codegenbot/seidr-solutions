@@ -1,10 +1,6 @@
-```cpp
-#include <string>
-#include <iostream>
-
 std::string encrypt(std::string s) {
     std::string result = "";
-    for(size_t i = 0; i < s.size(); i++){
+    for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'm'){
             c = (c - 'a' + 2) % 26 + 'a';
@@ -19,7 +15,7 @@ std::string encrypt(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s; 
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
 }
