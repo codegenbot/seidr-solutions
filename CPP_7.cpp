@@ -14,15 +14,3 @@ vector<string> filter_by_substring(vector<string> strings, const string& substri
     }
     return filteredStrings;
 }
-
-int main() {
-    vector<string> strings = {"grunt", "prune", "sample", "string"};
-    string substring = "ru";
-    vector<string> result = filter_by_substring(strings, substring);
-    
-    for (const auto& str : result) {
-        cout << str << " ";
-    }
-    
-    return 0;
-}
