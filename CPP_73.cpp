@@ -1,4 +1,3 @@
-```
 int find_smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
