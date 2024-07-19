@@ -1,12 +1,15 @@
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            if (c >= 'a' && c <= 'z') {
+                c -= ('a' - 'A');
+            }
         } else {
-            result += s[i];
+            result += c;
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? 
-           string(result.rbegin(), result.rend()) : result;
+    reverse(result.begin(), result.end());
+    return s;
 }
