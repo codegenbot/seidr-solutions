@@ -1,8 +1,1 @@
-if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    double result = log(x) / log(n);
-    
-    return (result - (int)result == 0);
-}
+return x > 0 && n != 0 && n != 1 && pow((double)x, 1.0/(double)n) == round(pow((double)x, 1.0/(double)n));
