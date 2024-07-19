@@ -13,7 +13,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return issame(vector<int>(a), vector<int>(b));
+    return issame(a, vector<int>(b));
 }
 
 bool has_val(const vector<int>& lst, int val) {
@@ -40,7 +40,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-std::vector<int> main() {
+int main() {
     vector<int> a = {1, 2, 3};
     vector<int> b = strange_sort_list(a);
     if (!issame(a, b)) {
@@ -48,5 +48,4 @@ std::vector<int> main() {
             assert(b[i] == a[i]);
         }
     }
-    return b;
 }
