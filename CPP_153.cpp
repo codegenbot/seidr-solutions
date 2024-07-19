@@ -5,7 +5,7 @@
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions){
-    int max_strength = INT_MIN;
+    int max_strength = INT_MIN; // Initialize max_strength to smallest possible value
     string strongest_extension = "";
     
     for (const string& ext : extensions) {
@@ -21,7 +21,7 @@ string Strongest_Extension(string class_name, vector<string> extensions){
         
         int strength = cap_count - sm_count;
         
-        if (strength > max_strength) {
+        if (strength > max_strength) { // Check for strength greater than max_strength
             max_strength = strength;
             strongest_extension = ext;
         }
