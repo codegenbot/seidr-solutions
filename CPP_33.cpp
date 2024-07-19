@@ -1,3 +1,12 @@
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+bool operator==(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
