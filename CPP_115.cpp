@@ -3,7 +3,6 @@
 using namespace std;
 
 int max_fill(vector<vector<int>>& grid, int capacity) {
-    assert(!grid.empty());
     int total_moves = 0;
     for (int j = 0; j < grid[0].size(); ++j) {
         int curr_water = 0;
