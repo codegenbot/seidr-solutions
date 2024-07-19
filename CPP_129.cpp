@@ -4,9 +4,11 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
+
+vector<int> minPath(vector<vector<int>> grid, int k);
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
