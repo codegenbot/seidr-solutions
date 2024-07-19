@@ -18,16 +18,9 @@ vector<vector<int>> cutVector(vector<int> v) {
             sum2 += v[j];
         }
         if ((sum1 == sum2) || (abs(sum1 - sum2) < min_diff)) {
-            int diff = abs(sum1 - sum2);
-            if (diff == 0) continue;
-            for(int k = i-1; k >= 0 && v[k] > diff; k--) {
-                sum1 -= v[k];
-                sum2 += v[k];
-                if ((sum1 == sum2) || (abs(sum1 - sum2) < min_diff)) {
-                    min_diff = abs(sum1 - sum2);
-                    split_index = i;
-                }
-            }
+            res[0].push_back(v[i]); 
+            min_diff = abs(sum1 - sum2);
+            split_index = i;
         }
     }
     
