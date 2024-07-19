@@ -1,6 +1,8 @@
 #include <map>
 using namespace std;
 
+string sort_numbers(string numbers);
+
 map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
@@ -13,12 +15,6 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
-
-string sort_numbers(string numbers);
-
-int main() {
-    // Your main function code here
-}
 
 string sort_numbers(string numbers){
     string result = "";
