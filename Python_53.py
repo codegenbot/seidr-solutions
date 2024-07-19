@@ -1,2 +1,2 @@
-def addo(x: int, y: int):
+def add(x: int, y: int):
     return x + y
