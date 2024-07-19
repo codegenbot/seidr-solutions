@@ -1,6 +1,7 @@
 #include <string>
+using namespace std;
 
-string longest(vector<string> strings) {
+string longest(const vector<string>& strings){
     if(strings.empty()) return "None";
     string longestStr = strings[0];
     for(const string& str : strings){
