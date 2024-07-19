@@ -1,12 +1,12 @@
 def parse_music():
     print("Enter the music strings separated by ';':")
-    music_strings = raw_input().split(";")
+    music_strings = input().split(";")
 
-    num_notes = int(raw_input("Enter the number of notes: "))
+    num_notes = int(input("Enter the number of notes: "))
     notes = {
         note: value
         for note, value in (
-            raw_input("Enter notes separated by space 'note value': ").split()
+            input("Enter notes separated by space 'note value': ").split()
             for _ in range(num_notes)
         )
     }
