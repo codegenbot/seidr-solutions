@@ -16,6 +16,6 @@ def separate_paren_groups(paren_string):
     return result
 
 
-paren_string = input("Enter a string of parentheses: ").strip()
+paren_string = input()
 if all(char in "()" for char in paren_string):
-    print(separate_paren_groups(paren_string.replace(" ", "")))
+    print(separate_paren_groups(paren_string.replace(" ", "").strip()))

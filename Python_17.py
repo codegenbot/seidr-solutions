@@ -14,10 +14,9 @@ def parse_music():
     return get_notes(music_strings, notes)
 
 
-def get_notes(music_strings, notes):
+def get_notes(music_string, notes):
     return [
         notes.get(note, "Note not found")
-        for music_string in music_strings
         for note in music_string.split()
     ]
 
