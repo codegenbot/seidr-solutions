@@ -1,5 +1,4 @@
 #include <vector>
-#include <assert.h>
 
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
