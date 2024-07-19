@@ -1,39 +1,24 @@
-#include <any>
-#include <string>
 #include <iostream>
+#include <string>
+#include <stdexcept>
 
 using namespace std;
 
 any compare_one(any a, any b) {
-    if (any_of<DOUBLE>(a)) {
-        if (any_of<DOUBLE>(b)) {
-            double da = a.convert<DOUBLE>();
-            double db = b.convert<DOUBLE>();
-            return (da > db) ? a : ((da < db) ? b : "None");
-        } else if (any_of<string>(b)) {
-            string sa = any_cast<string>(a);
-            double db = any_cast<double>(b);
-            double da = stod(sa);
-            return (da > db) ? a : ((da < db) ? b : "None");
-        } else {
-            throw runtime_error("Invalid type");
-        }
-    } else if (any_of<string>(a)) {
-        if (any_of<DOUBLE>(b)) {
-            string sa = any_cast<string>(a);
-            double db = any_cast<double>(b);
-            double da = stod(sa);
-            return (da > db) ? a : ((da < db) ? b : "None");
-        } else if (any_of<string>(b)) {
-            string sa = any_cast<string>(a);
-            string sb = any_cast<string>(b);
-            double da = stod(sa);
-            double db = stod(sb);
-            return (da > db) ? a : ((da < db) ? b : "None");
-        } else {
-            throw runtime_error("Invalid type");
-        }
+    if (any_cast<double>(a) > any_cast<double>(b)) {
+        return a;
+    } else if (any_cast<double>(a) < any_cast<double>(b)) {
+        return b;
     } else {
-        throw runtime_error("Invalid type");
+        return "None";
     }
+}
+
+int main() {
+    any a = any_cast<double>(10.5);
+    any b = any_cast<double>(20.8);
+
+    cout << compare_one(a, b).type().name() << endl;  // Outputs: std::any::value_type
+
+    return 0;
 }
