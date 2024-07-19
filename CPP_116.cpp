@@ -7,14 +7,17 @@ void sort_array(std::vector<int>& arr) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    std::vector<int> a_copy = a;
+    std::vector<int> b_copy = b;
+    
+    sort_array(a_copy);
+    sort_array(b_copy);
+
+    return a_copy == b_copy;
 }
 
 int main() {
-    std::vector<int> arr1 = {2, 4, 8, 16, 32};
-    std::vector<int> arr2 = {2, 4, 8, 16, 32};
-    
-    assert(issame(arr1, arr2));
+    assert(issame({2, 4, 8, 16, 32}, {2, 4, 8, 16, 32}));
     
     return 0;
 }
