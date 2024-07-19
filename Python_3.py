@@ -1,1 +1,1 @@
-operations = [int(input(f"Enter operation {i+1}: ")) for i in range(3)]
+operations = list(map(int, input("Enter 3 operations separated by spaces: ").split()))
