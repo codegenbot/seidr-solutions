@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,7 +25,7 @@ int main_test() {
         std::cin >> x;
         user_input.push_back(x);
     }
-    if (isSame(user_input, user_input)) {
+    if (issame(user_input, user_input)) {
         std::cout << "Yes" << std::endl;
     } else {
         std::cout << "No" << std::endl;
