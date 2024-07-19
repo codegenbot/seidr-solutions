@@ -21,14 +21,6 @@ vector<int> maximum(vector<int> arr, int k) {
     }
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -36,6 +28,8 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     int k;
     cin >> k;
-    assert(isEqual(maximum(a, k), {}));
+    if (!isEqual(maximum(a, k), {})) {
+        return 1;
+    }
     return 0;
 }
