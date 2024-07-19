@@ -32,3 +32,4 @@ int main() {
     cin >> m;
     cout << rounded_avg(n, m) << endl;
     return 0;
+}
