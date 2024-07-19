@@ -4,6 +4,8 @@
 
 int compare_one(std::string str, int num); 
 
+void printOutput(string str, int num);
+
 int main() { 
     std::cout << "Enter the first string: "; 
     std::string str1; 
@@ -32,7 +34,12 @@ void printOutput(string str, int num) {
                 cout << c;
             }
         }
+        cout.flush(); // call flush here
     } else {
         cout << str << endl; 
     }
+}
+
+int compare_one(std::string str, int num) { 
+    return 0; 
 }
