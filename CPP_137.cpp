@@ -1,3 +1,4 @@
+
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
@@ -20,7 +21,8 @@ boost::any compare_one(const T& a, const T& b) {
 }
 
 int main() {
-    assert(boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(string("2")))) == "None");
+    assert(boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(string("2"))) == "None");
+
     // Add more test cases here
 
     return 0;
