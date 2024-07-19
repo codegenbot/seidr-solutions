@@ -1,11 +1,17 @@
 #include <iostream>
 #include <string>
-#include <limits>
 
 using namespace std;
 
+int compare_one(int a, int b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
 int main() {
-    float num1, num2;
+    int num1, num2;
     cout << "Enter first number: ";
     cin >> num1;
     cout << "Enter second number: ";
