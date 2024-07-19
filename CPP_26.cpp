@@ -1,7 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <cassert>
 
 using namespace std;
 
@@ -26,4 +26,10 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
     return result;
 
+}
+
+int main() {
+    vector<int> test = {1, 2, 3, 2, 4, 3, 5};
+    assert(areEqual(remove_duplicates(test), vector<int>{1, 2, 3, 4, 5}) );
+    return 0;
 }
