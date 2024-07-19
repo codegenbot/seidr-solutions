@@ -1,9 +1,7 @@
-```c
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool sameVector(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,6 +24,6 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
     vector<int> result = maximum(a, k);
-    if (!isSame(result, maximum(a, k))) return 1;
+    if (!sameVector(maximum(a, k), result)) return 1;
     return 0;
 }
