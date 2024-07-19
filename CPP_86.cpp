@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-
-std::string anti_shuffle(const std::string& s) {
+std::string anti_shuffle(std::string s) {
     std::string result = "";
     int i = 0;
     for (char c : s) {
@@ -18,9 +14,4 @@ std::string anti_shuffle(const std::string& s) {
         }
     }
     return result;
-}
-
-int main() {
-    std::cout << anti_shuffle(std::string("Hi. My name is Mister Robot. How are you?")) << std::endl;
-    return 0;
 }
