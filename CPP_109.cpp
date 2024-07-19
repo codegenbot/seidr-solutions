@@ -1,9 +1,14 @@
 int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
+    int maxIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (maxIndex == -1 || arr[i] > arr[maxIndex]) {
+            maxIndex = i;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return false;
+    for (int i = 1; i < n; i++) {
+        if (arr[(maxIndex + i) % n] < arr[(maxIndex + i - 1) % n]) {
+            return false;
+        }
+    }
+    return true;
 }
