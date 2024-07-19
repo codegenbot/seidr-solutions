@@ -11,8 +11,12 @@ def factorize(n):
         factors.append(n)
     return factors
 
-try:
-    num = int(input("Enter a number to factorize: "))
-    print(factorize(num))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+while True:
+    try:
+        num = int(input("Enter a number to factorize: "))
+        print(factorize(num))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+    except Exception as e:
+        print("An error occurred:", e)
