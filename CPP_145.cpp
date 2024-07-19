@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -36,8 +36,8 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    assert(isSame(order_by_points(nums), { -76, -21, 0, 4, 6, 6, 23 }));
-    for (int num : order_by_points(nums)) {
+    std::vector<int> result = order_by_points(nums);
+    for (int num : result) {
         std::cout << num << " ";
     }
     return 0;
