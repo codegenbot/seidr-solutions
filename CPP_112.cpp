@@ -2,7 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+bool issame(const std::string& a, const std::string& b){
+    return a == b;
+}
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -13,10 +17,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::reverse(temp.begin(), temp.end());
     std::vector<std::string> ans;
     ans.push_back(result);
-    ans.push_back(result == temp ? "True" : "False");
+    ans.push_back(issame(result, temp) ? "True" : "False");
     return ans;
-}
-
-bool std::issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a == b;
 }
