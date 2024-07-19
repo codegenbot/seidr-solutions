@@ -1,25 +1,29 @@
+```cpp
 #include <string>
 #include <algorithm>
 
 int compare_strings(const std::string& a, const std::string& b) {
-    for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-        if (compare_one(a[i], b[i]) > 0)
-            return 1;
-        else if (compare_one(a[i], b[i]) < 0)
-            return -1;
-    }
-    if (a.size() > b.size())
-        return 1;
-    else if (a.size() < b.size())
-        return -1;
-    return 0;
-}
-
-int compare_one(char a, char b) {
     if (a > b)
         return 1;
     else if (b > a)
         return -1;
     else
         return 0;
+}
+
+std::string compare_one(const std::string& str, int num) {
+    if(num == 1) {
+        for(int i = 0; i < str.length(); i++) {
+            if(str[i] >= 'a' && str[i] <= 'z') {
+                str[i] = (str[i] - 'a' + 'A');
+            }
+        }
+    } else if(num == -1) {
+        for(int i = 0; i < str.length(); i++) {
+            if(str[i] >= 'A' && str[i] <= 'Z') {
+                str[i] = (str[i] - 'A' + 'a');
+            }
+        }
+    }
+    return str;
 }
