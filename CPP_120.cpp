@@ -1,11 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isEqual(vector<int> v1, vector<int> v2);
-vector<int> maximum(vector<int> arr, int k);
-bool issame(vector<int> a, vector<int> b);
-
-bool isEqual(vector<int> v1, vector<int> v2) {
+bool isSame(vector<int> v1, vector<int> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -25,14 +21,6 @@ vector<int> maximum(vector<int> arr, int k) {
     }
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -40,6 +28,8 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     int k;
     cin >> k;
-    assert(isEqual(maximum(a, k), {}));
+    if (!isSame(maximum(a, k), {})) {
+        return 1;
+    }
     return 0;
 }

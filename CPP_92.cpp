@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -9,8 +10,12 @@ int main() {
     cin >> a >> b >> c;
     
     ostringstream ss;
-    ss << a << ", " << b << ", " << c;
+    ss << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c);
     
-    cout << "The numbers are integers: " << ss.str() << "\n";
+    if (ss.str().empty())
+        cout << "Error: Please enter valid integer values.\n";
+    else
+        cout << "The numbers are integers: " << ss.str() << "\n";
     
     return 0;
+}
