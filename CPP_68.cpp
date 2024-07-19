@@ -1,11 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> pluck(const std::vector<int>& v) {
-    return v;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +13,20 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+bool pluck(const std::vector<int>& v, int n, const std::vector<int>& a) {
+    for (int i = 0; i < v.size(); ++i) {
+        if (v[i] == n && issame(v.subvec(i), a)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), pluck({7, 9, 7, 1})));
+    if (pluck({7,9},{7}, {7}) || pluck({1,2},{3})) {
+        std::cout << "true" << std::endl;
+    } else {
+        std::cout << "false" << std::endl;
+    }
     return 0;
 }
