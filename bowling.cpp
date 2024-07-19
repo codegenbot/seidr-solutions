@@ -1,34 +1,40 @@
-int bowlingScore(string s) {
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> frames;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            if (roll > 1) {
-                int prevRolls = roll - 1;
-                int frameScore = 10 + frames[frames.size() - 2];
-                score += frameScore;
+    int currentFrame = 0;
+    std::vector<int> frames(10);
+    
+    for (char c : s) {
+        if (c == '/') {
+            currentFrame++;
+            continue;
+        }
+        
+        if (c >= '1' && c <= '9') {
+            int strike = false;
+            while (c != '/' && c >= '0' && c <= '9') {
+                frames[currentFrame] *= 10 + (c - '0');
+                std::string str(s.substr(s.find(c), s.size()));
+                if(str.find('/') != std::string::npos) {
+                    c = '/';
+                    break;
+                }
+                c = next(c, s);
             }
-            roll = 0;
-        } else if (isdigit(s[i])) {
-            int digit = s[i] - '0';
-            roll += digit;
-        }
-
-        if (i == s.length() - 1 || (i + 1 < s.length() && s[i + 1] == '/')) {
-            frames.push_back(roll);
-            roll = 0;
+            
+            if (!strike) {
+                score += frames[currentFrame];
+            } else {
+                score += 10;
+            }
         }
     }
-
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] >= 10) {
-            score += 10 + (i != 9 ? 10 : 0);
-        } else {
-            score += frames[i];
-        }
-    }
-
+    
     return score;
+}
+
+char next(char c, std::string s) {
+    int i = s.find(c);
+    return s[i + 1];
 }
