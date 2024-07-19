@@ -1,7 +1,7 @@
 #include <vector>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -13,19 +13,16 @@ std::vector<int> get_odd_collatz(int n) {
         n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
-    std::sort(result.begin(), result.end(), issame);
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> result = get_odd_collatz(n);
-    
-    for (int num : result) {
-        std::cout << num << " ";
+    std::vector<int> result = get_odd_collatz(10);
+    std::vector<int> expected = {1, 3, 5, 7, 9, 10};
+    if (issame(result, expected)) {
+        return 0;
+    } else {
+        return 1;
     }
-    
-    return 0;
 }
