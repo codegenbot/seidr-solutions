@@ -1,9 +1,14 @@
 ```
 def is_equal_to_sum_even(n):
-    for a in range(2, n+1, 2):
-        for b in range(a+1, n+1, 2):
-            for c in range(b+1, n+1, 2):
-                for d in range(c+1, n+1, 2):
-                    if a + b + c + d == n:
-                        return True
+    for i in range(2, n+1, 2):
+        remaining = n - i
+        if remaining % 2 == 0 and can_be_written_as_sum_of_four_even_numbers(remaining):
+            return True
+    return False
+
+def can_be_written_as_sum_of_four_even_numbers(n):
+    for i in range(2, n+1, 2):
+        remaining = n - i
+        if remaining // 2 <= i:
+            return True
     return False
