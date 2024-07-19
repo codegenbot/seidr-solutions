@@ -1,14 +1,18 @@
-vector<pair<int, string>> roman_map = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                         {400, "CD"}, {100, "C"}, {90, "XC"},
-                                         {50, "L"}, {40, "XL"}, {10, "X"},
-                                         {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+#include <unordered_map>
 
 string int_to_mini_roman(int number) {
+    unordered_map<int, string> roman_numerals = {{1, "i"}, {4, "iv"}, {5, "v"}, 
+                                                    {9, "ix"}, {10, "x"}, {40, "xl"},
+                                                    {50, "l"}, {90, "xc"}, {100, "c"},
+                                                    {400, "cd"}, {500, "d"}, {900, "cm"}, {1000, "m"}};
     string roman = "";
-    for (const auto& pair : roman_map) {
-        while (number >= pair.first) {
-            roman += pair.second;
-            number -= pair.first;
+    while (number > 0) {
+        for (auto it = roman_numerals.rbegin(); it != roman_numerals.rend(); ++it) {
+            if (number >= it->first) {
+                number -= it->first;
+                roman += it->second;
+                break;
+            }
         }
     }
     return roman;
