@@ -3,16 +3,11 @@ if (n > m) {
 }
 
 int sum = 0;
-for (int i = n; i <= m; i++) {
+for (int i = n; i <= m; ++i) {
     sum += i;
 }
 
 int avg = round((double)sum / (m - n + 1));
-string binary = "";
-while (avg > 0) {
-    binary = to_string(avg % 2) + binary;
-    avg /= 2;
-}
-
-return binary;
+string binary_avg = bitset<32>(avg).to_string();
+return binary_avg.substr(binary_avg.find('1'));
 }
