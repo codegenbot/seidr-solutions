@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <cmath>
-
 using namespace std;
 using size_type = size_t;
 
