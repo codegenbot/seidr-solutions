@@ -1,1 +1,2 @@
-return number - int(number)
+def truncate_number(number: float) -> float:
+    return number - int(number)
