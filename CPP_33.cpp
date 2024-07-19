@@ -1,7 +1,9 @@
-vector<int> res = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
-            sort(res.begin() + i - 2, res.begin() + i + 1);
+for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            int start = i;
+            int end = min(i + 3, (int)l.size());
+            sort(l.begin() + start, l.begin() + end);
         }
     }
-    return res;
+    return l;
+}
