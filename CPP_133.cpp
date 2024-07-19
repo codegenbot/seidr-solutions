@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
+#include <cassert>
 
 int sum_squares(std::initializer_list<double> lst) {
     int total = 0;
@@ -10,6 +11,7 @@ int sum_squares(std::initializer_list<double> lst) {
         total += std::pow(ceil_num, 2);
     }
     return total;
+
 }
 
 int main() {
