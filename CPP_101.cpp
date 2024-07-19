@@ -9,10 +9,18 @@ bool issame(vector<string> a,vector<string>b){
 }
 
 int main() {
-    vector<string> words = words_string("Hello World, this is C++");
-    bool same = issame(words, words);
-    
-    cout << "Are the two strings same? : " << same << endl;
-    
+    string s;
+    cin >> s;
+    vector<string> words = words_string(s);
+    vector<string> more_words;
+    cout << "Enter more words (space-separated): ";
+    getline(cin, s);
+    more_words = words_string(s);
+
+    if (issame(words, more_words)) {
+        cout << "The lists are the same." << endl;
+    } else {
+        cout << "The lists are different." << endl;
+    }
     return 0;
 }
