@@ -1,6 +1,6 @@
 #include <vector>
-
-using namespace std;
+#include <string>
+#include <cassert>
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
