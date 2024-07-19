@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,10 +15,10 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int main_test() {
     int n;
     cin >> n;
-    vector<int> user_input(n); 
+    vector<int> user_input(n, 0); 
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
