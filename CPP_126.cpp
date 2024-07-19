@@ -1,4 +1,5 @@
-#include <iostream>
+```
+#include <vector>
 #include <algorithm>
 
 bool is_sorted(vector<int> lst) {
@@ -15,18 +16,20 @@ bool is_sorted(vector<int> lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    vector<int> input;
+    vector<int> numbers;
     int num;
-    
+
+    // Read input from the user
+    std::cout << "Enter some integers (separated by spaces): ";
     while(std::cin >> num) {
-        input.push_back(num);
+        numbers.push_back(num);
     }
-    
-    if (is_sorted(input)) {
-        std::cout << "The list is sorted." << std::endl;
+
+    if (is_sorted(numbers)) {
+        std::cout << "The list is sorted.\n";
     } else {
-        std::cout << "The list is not sorted." << std::endl;
+        std::cout << "The list is not sorted.\n";
     }
-    
+
     return 0;
 }
