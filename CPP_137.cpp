@@ -14,14 +14,9 @@ T compare_one(const boost::any& a, const boost::any& b) {
 }
 
 int main() {
+    // Example usage
     boost::any a = 10;
     boost::any b = 20;
-
-    try {
-        int result = compare_one<int>(a, b);
-    } catch (const std::invalid_argument& e) {
-        // Handle error
-    }
-
+    int result = compare_one<int>(a, b);
     return 0;
 }
