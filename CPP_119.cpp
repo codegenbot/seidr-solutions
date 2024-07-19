@@ -19,4 +19,11 @@ bool match_parens(const std::vector<std::string>& lst) {
     return result;
 }
 
-std::cout << (match_parens({"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"}) ? "Yes\n" : "No\n");
+int main() {
+    std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
+    bool result = match_parens(lst);
+
+    std::cout << (result ? "Yes\n" : "No\n");
+
+    return 0;
+}
