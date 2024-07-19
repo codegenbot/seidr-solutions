@@ -2,7 +2,6 @@
 #include <vector>
 #include <any>
 #include <cassert>
-#include <typeindex>
 
 std::vector<int> filter_integers(const std::vector<std::any>& values){
     std::vector<int> result;
@@ -16,4 +15,10 @@ std::vector<int> filter_integers(const std::vector<std::any>& values){
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    
+    return 0;
 }
