@@ -1,20 +1,13 @@
-#include <vector>
-#include <string>
-
+#include<string>
+#include<vector>
 using namespace std;
 
-bool compare_vectors(const vector<int>& a, const vector<int>& b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
 vector<int> even_odd_count(int num) {
-    vector<int> result(2);
-    if (num == 0) {
-        return {1, 0};
-    }
+    vector<int> result(2, 0);
     string str = to_string(abs(num));
     for (char c : str) {
-        if ((c - '0') % 2 == 0)
+        int digit = c - '0'; 
+        if (digit % 2 == 0)
             result[0]++;
         else
             result[1]++;
