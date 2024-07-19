@@ -26,11 +26,22 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    return {temp, (temp == std::string(temp).reverse()) ? "True" : "False"};
+    std::string revTemp = temp;
+    std::reverse(revTemp.begin(), revTemp.end());
+    if (temp == revTemp) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
 
 int main() {
     assert(issame({ "", "True" }, reverseDelete("mamma", "mia")));
-    std::cout << (issame({ "", "True" }, reverseDelete("mamma", "mia")) ? "Test passed." : "Test failed.") << std::endl;
+    if (issame({ "", "True" }, reverseDelete("mamma", "mia"))) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
     return 0;
 }
