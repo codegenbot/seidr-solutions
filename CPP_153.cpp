@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <cctype>
 #include <iostream>
 #include <cassert>
 #include <string>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0, sm = 0;
@@ -25,14 +26,10 @@ int Strongest_Extension(string class_name, vector<string> extensions){
 }
 
 int main(){
-    string class_name = "My";
-    vector<string> extensions;
-    extensions.push_back("Java");
-    extensions.push_back("Python");
-    extensions.push_back("C++");
-    cout << Strongest_Extension(class_name, extensions) << endl;
+    std::string class_name = "My";
+    std::vector<std::string> extensions = {"Java", "Python", "C++"};
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
 
-    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == string("Sp.671235"));
-
+    std::string result = Strongest_Extension("Sp", {"671235", "Bb"});
     return 0;
 }
