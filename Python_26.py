@@ -5,9 +5,11 @@ def find_unique_numbers(numbers):
 numbers = []
 try:
     while True:
-        num = int(input())
-        numbers.append(num)
-except EOFError:
+        num = input()
+        if num == "":
+            break
+        numbers.append(int(num))
+except ValueError:
     pass
 
 print(find_unique_numbers(numbers))
