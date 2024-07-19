@@ -5,5 +5,4 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return [max_num := max(max_num, num) for num in numbers]
 
 numbers = [1, 3, 5, 2, 7, 4, 8]
-result = rolling_max(numbers)
-result
+print(rolling_max(numbers))
