@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <assert.h>
 
-bool compare_vectors(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,7 +24,7 @@ std::vector<float> get_positive(std::vector<float> l) {
     return result;
 }
 
-int main_func() {
-    assert(compare_vectors(get_positive({}), {}));
+int main() {
+    assert(issame(get_positive({}), {}));
     return 0;
 }
