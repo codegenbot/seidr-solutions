@@ -1,3 +1,4 @@
+cpp
 int smallest_change(const vector<int>& arr) {
     int n = arr.size();
     int count = 0;
