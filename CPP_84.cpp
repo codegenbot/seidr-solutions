@@ -1,3 +1,7 @@
+#include <iostream>
+#include <bitset>
+using namespace std;
+
 string solve(int N) {
     int sum = 0;
     while (N > 0) {
@@ -8,6 +12,7 @@ string solve(int N) {
 }
 
 int main() {
-    cout << solve(963) << endl;
+    int input = 963;
+    cout << solve(input) << endl;
     return 0;
 }
