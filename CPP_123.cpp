@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
-#include <algorithm> // for std::vector comparison
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -16,7 +17,6 @@ std::vector<int> get_odd_collatz(int num) {
     return result;
 }
 
-int main() {
+void main() {
     assert(issame(get_odd_collatz(1), {1}));
-    return 0;
 }
