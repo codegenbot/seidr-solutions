@@ -1,6 +1,6 @@
-```
-#include <initializer_list>
 #include <cassert>
+
+#include <initializer_list>
 
 #include <any>
 #include <list>
