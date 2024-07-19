@@ -17,7 +17,7 @@ long long odd_sum(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1, 2, 3, 4, 5};
+    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
     long long result = odd_sum(lst);
     std::cout << result << std::endl;
     return 0;
