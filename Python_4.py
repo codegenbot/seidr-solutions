@@ -1,7 +1,5 @@
-try:
-    user_input = input("Enter four numbers separated by space: ").strip().split()
-    numbers = map(float, user_input)
-    result = sum(numbers)
-    print(result)
-except ValueError:
+numbers = list(map(float, input("Enter four numbers separated by space: ").split()))
+if len(numbers) != 4:
     print("Invalid input. Please enter exactly four numbers separated by space.")
+else:
+    print(sum(numbers))
