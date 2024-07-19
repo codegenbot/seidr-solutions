@@ -1,11 +1,11 @@
 #include <string>
 #include <cassert>
-#include <cstring>  // Include required header
+#include <cstring>
 
-int strLength(const std::string& str) {  // Define function signature
+int strLength(const std::string& str) {
     return str.length();
 }
 
 int main() {
-    assert(strlen("asdasnakj") == 9);  // Use appropriate function calls
+    assert(strlen("asdasnakj") == 9);
 }
