@@ -1,6 +1,11 @@
-// Define the order_by_points function
-vector<int> order_by_points(vector<int>& nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
+// Define the issame function correctly
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+// Declare order_by_points function as constexpr
+constexpr auto order_by_points = [](vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int& a, int& b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a *= -1;
         if (b < 0) b *= -1;
@@ -18,14 +23,7 @@ vector<int> order_by_points(vector<int>& nums) {
         return sum_a < sum_b;
     });
     return nums;
-}
+};
 
-// Correct the issame function signature
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
-}
+// Call the function and assert the result
+assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
