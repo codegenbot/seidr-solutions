@@ -15,5 +15,6 @@ def separate_paren_groups(paren_string):
     
     return result
 
-paren_string = input("Enter a string containing parenthesis with optional spaces: ").strip()
-print(separate_paren_groups(paren_string.replace(' ', '')))
+paren_string = input().strip()
+if all(char in ['(', ')', ' '] for char in paren_string):
+    print(separate_paren_groups(paren_string.replace(' ', '')))
