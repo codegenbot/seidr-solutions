@@ -1,18 +1,15 @@
-#include <string>
-using namespace std;
-
-int is_bored(string S) {
-    int boredoms = 0;
-    string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.length() > 2 && sentence.substr(0, 2) == "I ") {
-                boredoms++;
+int is_bored(string S){
+    int count = 0;
+    string word;
+    for(size_t i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.size() > 1 && tolower(word[0]) == 'i'){
+                count++;
             }
-            sentence = "";
-        } else {
-            sentence += c;
+            word = "";
+        }else{
+            word += S[i];
         }
     }
-    return boredoms;
+    return count;
 }
