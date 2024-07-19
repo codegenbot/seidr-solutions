@@ -3,20 +3,10 @@
 vector<int> make_a_pile(int n);
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    // code for issame function
 }
 
-vector<int> make_a_pile(int n){
+vector<int> make_a_pile(int n) {
     vector<int> result;
     result.push_back(n);
 
