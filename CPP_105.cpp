@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <functional>
 #include <cassert>
 
 bool are_same(std::vector<int> a, std::vector<int> b) {
