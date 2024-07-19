@@ -3,7 +3,7 @@ import sys
 def add(a, b):
     return a + b
 
-# read input
-x, y = map(int, input().split())
+# read input from standard input
+x, y = map(int, sys.stdin.readline().strip().split())
 result = add(x, y)
 print(result)
