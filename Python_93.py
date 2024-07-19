@@ -1,10 +1,6 @@
-message = input("Enter message to encode (letters and spaces only): ")
-assert message.replace(
-    " ", ""
-).isalpha(), "Please enter alphabetic characters and spaces only. Try again."
+message = input("Enter message to encode (letters and spaces only): ").strip()
+assert message.replace(" ","").isalpha(), "Please enter alphabetic characters and spaces only"
 
-shift = input("Enter shift value: ")
-assert (
-    shift.isdigit() and int(shift) >= 0
-), "Please enter a non-negative integer value for shift. Try again"
+shift = input("Enter shift value: ").strip()
+assert shift.isdigit() and int(shift) >= 0, "Please enter a non-negative integer value for shift"
 shift = int(shift)
