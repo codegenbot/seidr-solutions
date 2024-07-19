@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -9,9 +10,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -25,8 +26,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
+    std::string revTemp = temp;
+    std::reverse(revTemp.begin(), revTemp.end());
     if (temp == revTemp) {
         result.push_back("True");
     } else {
@@ -35,8 +36,8 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-int driver() {
-    vector<string> output = reverse_delete("mamma", "mia");
+int main() {
+    std::vector<std::string> output = reverse_delete("mamma", "mia");
     assert(issame({output}, {{"", "True"}}));
     return 0;
 }
