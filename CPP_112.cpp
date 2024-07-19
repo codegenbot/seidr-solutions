@@ -1,12 +1,11 @@
 vector<string> reverse_delete(string s, string c){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(c.find(s[i]) == string::npos){
-            result += s[i];
+    string result;
+    for(char ch : s){
+        if(find(c.begin(), c.end(), ch) == c.end()){
+            result += ch;
         }
     }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
-    
-    return {result, result == result_reverse ? "True" : "False"};
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    return {result, result == reversed ? "True" : "False"};
 }
