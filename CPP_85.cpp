@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <assert.h>
 
 int add(std::vector<int> lst){
     int sum = 0;
