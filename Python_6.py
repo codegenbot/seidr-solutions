@@ -17,7 +17,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return [max_count]
 
-input_paren_string = input().strip()
+input_paren_string = ''.join(char for char in input().strip() if char in ['(', ')'])
 if all(char in ['(', ')'] for char in input_paren_string):
     result = parse_nested_parens(input_paren_string)
     print(result[0])
