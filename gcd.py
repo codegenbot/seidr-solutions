@@ -1,22 +1,10 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+def gcd(m, n):
+    while n != 0:
+        m, n = n, m % n
+    return abs(m)
 
-def indices_of_substring(text, target):
-    result = []
-    index = 0
-    while True:
-        try:
-            index = text.index(target)
-            result.append(index)
-            text = text[index + len(target):]
-        except ValueError:
-            break
-    return result
-
-# Testing the functions
-print(gcd(int(input()), int(input())))
-print(indices_of_substring(input(), input()))
+n = int(input())
+m = int(input())
+print(gcd(n,m))
