@@ -1,5 +1,3 @@
-```cpp
-#include <initializer_list>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -17,6 +15,9 @@ string find_max(vector<string> words) {
 }
 
 int main() {
-    vector<string> words = {"play", "play", "play"};
+    vector<string> words;
+    words.push_back("play");
+    words.push_back("play");
+    words.push_back("play");
     cout << find_max(words) << endl;
 }
