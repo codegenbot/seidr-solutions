@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -20,5 +20,4 @@ int main() {
     getline(cin, s);
     int num = digitSum(s);
     cout << "Sum of digits: " << num << endl;
-    return 0;
 }
