@@ -1,11 +1,5 @@
 #include <vector>
 
-std::vector<int> count_up_to(int n);
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
     if (n < 2) {
@@ -25,6 +19,10 @@ std::vector<int> count_up_to(int n) {
     }
     
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
