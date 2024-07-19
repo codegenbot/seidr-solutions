@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <set>
+#include <string>
+#include <vector>
 
 std::string find_max(const std::vector<std::string>& words) {
     std::string result;
@@ -12,4 +14,10 @@ std::string find_max(const std::vector<std::string>& words) {
         }
     }
     return result;
+}
+
+int main() {
+    assert((find_max({"play", "play", "play"}) == "play"));
+    // Add more test cases if needed
+    return 0;
 }
