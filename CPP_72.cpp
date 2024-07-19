@@ -1,16 +1,17 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+#include <algorithm>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != reverse(str).s) {
-        return false;
-    }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    bool balanced = str == std::stoi(str);
+    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
