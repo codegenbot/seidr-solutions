@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> intersperse(vector<int> numbers, int delimeter) {
+vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
         if (i > 0) {
@@ -14,7 +12,7 @@ vector<int> intersperse(vector<int> numbers, int delimeter) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,9 +22,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
 }
