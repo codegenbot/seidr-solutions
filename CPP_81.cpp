@@ -1,5 +1,21 @@
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
+
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    return v1 == v2;
+}
+
+vector<string> numerical_letter_grade(vector<float> grades);
+
+int main() {
+    vector<float> grades = {3.5, 2.0, 4.0, 1.8, 3.3};
+    vector<string> result = numerical_letter_grade(grades);
+    for (const string& grade : result) {
+        cout << grade << endl;
+    }
+    return 0;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
