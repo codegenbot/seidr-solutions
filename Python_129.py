@@ -2,7 +2,7 @@ def minPath(grid, k):
     path = []
     n = len(grid)
     m = len(grid[0])
-    for i in range(k):
+    for i in range(n * m):
         row = i // m
         col = i % m
         if row < n and col < m:
