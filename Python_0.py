@@ -1,8 +1,10 @@
 try:
     while True:
         try:
-            result = int(input())
-            print(result)
+            result = input()
+            if not result:
+                break
+            print(int(result))
         except ValueError:
             break
 except:
