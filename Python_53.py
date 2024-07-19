@@ -1,8 +1,6 @@
 def add(x: int, y: int) -> int:
     return x + y
 
-import sys
-lines = sys.stdin.readlines()
-a, b = map(int, lines[0].split())
+a, b = map(int, input().split())
 result = add(a, b)
 print(result)
