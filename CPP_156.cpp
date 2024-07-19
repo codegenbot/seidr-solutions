@@ -2,25 +2,28 @@
 #include <cassert>
 #include <string>
 #include <iostream>
+#include <sstream>
+
+using namespace std;
 
 std::string intToMiniRoman(int num) {
-    std::string roman;
+    stringstream roman;
     int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     const char* sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     int i = 0;
     while (num > 0) {
         if (num >= val[i]) {
             num -= val[i];
-            roman += sym[i];
+            roman << sym[i];
         } else {
             i++;
         }
     }
-    return roman; 
+    return roman.str(); 
 }
 
 int main() { 
     assert(intToMiniRoman(1000) == "M");
-    std::cout << intToMiniRoman(4) << std::endl;
+    cout << intToMiniRoman(4) << endl;
     return 0;
 }
