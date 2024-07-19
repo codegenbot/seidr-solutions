@@ -1,22 +1,42 @@
-```
+```cpp
 #include <vector>
+#include <string>
 #include <cmath>
-#include <iostream>
 
-int do_algebra(std::vector<int> operators, std::vector<int> operands) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == 1) {
-            result += operands[i];
-        } else if (operators[i] == 2) {
-            result -= operands[i];
-        } else if (operators[i] == 3) {
-            result *= operands[i];
-        } else if (operators[i] == 4) {
-            if(operands[i] != 0)
-                result = result / static_cast<int>(operands[i]);
-            else
-                return -1; // Division by zero is not allowed
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
+            result += operand[i];
+        } else if (operator_[i] == "-") {
+            result -= operand[i];
+        } else if (operator_[i] == "*") {
+            int temp = 0;
+            for (int j = i; j < operand.size(); j++) {
+                temp += operand[j];
+                if (j < operand.size() - 1) {
+                    if (operator_[j + 1] == "*") {
+                        temp *= operand[j + 1];
+                    } else if (operator_[j + 1] == "//") {
+                        temp = temp / operand[j + 1];
+                    } else if (operator_[j + 1] == "**") {
+                        temp = pow(temp, operand[j + 1]);
+                    }
+                }
+            }
+            result = temp;
+        } else if (operator_[i] == "//") {
+            int temp = operand[i - 1];
+            for (int j = i; j < operand.size(); j++) {
+                temp /= operand[j];
+            }
+            result = temp;
+        } else if (operator_[i] == "**") {
+            int temp = pow(operand[i - 1], 1);
+            for (int j = i; j < operand.size(); j++) {
+                temp = pow(temp, operand[j]);
+            }
+            result = temp;
         }
     }
     return result;
