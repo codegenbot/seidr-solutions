@@ -22,10 +22,14 @@ bool check_if_last_char_is_a_letter(const std::string& text) {
 }
 
 int main() {
-    std::string input_text;
-    std::getline(std::cin, input_text);
+    std::string input;
+    std::getline(std::cin, input);
     
-    assert(check_if_last_char_is_a_letter(input_text));
+    if (check_if_last_char_is_a_letter(input)) {
+        std::cout << "Last character is a letter preceded by a space." << std::endl;
+    } else {
+        std::cout << "Last character is not a letter or not preceded by a space." << std::endl;
+    }
     
     return 0;
 }
