@@ -7,10 +7,9 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b) {
 }
 
 std::pair<int, int> eat(int x, int y, int z) {
-    return {x + y, x - z};
+    return {x+y, x-z};
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 3}));
-    return 0;
+    assert(issame(eat(4, 5, 1), {5, 0}));
 }
