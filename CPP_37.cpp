@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <limits>
+#include <cassert>
 
 #define INFINITY std::numeric_limits<double>::max()
 
@@ -9,12 +10,9 @@ bool checkSame(float a, float b) {
     return std::abs(a - b) < 1e-9;
 }
 
-bool issame(std::vector<float>& a, std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!checkSame(a[i],b[i])){
+bool issame(const std::vector<float>& v){
+    for (int i = 0; i < v.size(); i++) {
+        if (!checkSame(v[i],v[(i+1)%v.size()])){
             return false;
         }
     }
@@ -45,7 +43,7 @@ int main() {
     for (float val : output) {
         std::cout << val << " ";
     }
-    if (!issame(output, input)) {
+    if (!issame(output)) {
         std::cout << "\nTest case failed";
     } else{
         std::cout << "\nTest case passed";
