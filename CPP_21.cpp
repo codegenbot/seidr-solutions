@@ -11,6 +11,6 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
     return transformed;
 }
 
-vector<float> issame(vector<float> a, vector<float> b) {
-    return rescale_to_unit(a);
+vector<float> issame(const vector<float>& a, vector<float>& b) {
+    return rescale_to_unit(a) == rescale_to_unit(b);
 }
