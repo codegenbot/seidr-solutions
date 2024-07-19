@@ -1,9 +1,10 @@
-string encode(string message){
-    for (char& c : message) {
-        if (isalpha(c)) {
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
+for(char& c : message){
+        if(isalpha(c)){
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                c = toupper((char)(c + 2));
+            }
+            else{
+                c = isupper(c) ? tolower(c) : toupper(c);
             }
         }
     }
