@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 #include <cassert>
 
 bool is_happy(string s) {
@@ -13,6 +13,5 @@ bool is_happy(string s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    // Add more test cases here
     return 0;
 }
