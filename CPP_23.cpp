@@ -1,4 +1,6 @@
-#include <string>
+#include <cstring>
+#include <assert.h>
+
 int my_strlen(const std::string& str){
     return str.length();
 }
