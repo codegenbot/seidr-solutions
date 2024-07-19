@@ -1,21 +1,22 @@
-#include <iostream>
-#include <vector>
+#include <cassert>
+#include <set>
 
-int getSetSize(int s, int k, int n) {
-    std::vector<int> set;
-    for (int i = 0; i < s; i++) {
-        if ((i & k) == 0) {
-            set.push_back(i);
-        }
+int setSize(set<int> s) {
+    return s.size();
+}
+
+int getSetSize(int a, int b, int c) {
+    set<int> s = {a, b, c};
+    int size = 0;
+    for (auto x : s) {
+        if (x > a && x < b)
+            size++;
     }
-    return set.size();
+    return size;
 }
 
 int main() {
     int result = getSetSize(127, 97, 8192);
-    if(setSize({result}) == 1) {
-        return 0;
-    } else {
-        // error or unexpected output handling
-    }
+    assert(result == 10); 
+    return 0;
 }
