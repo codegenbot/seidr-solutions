@@ -2,13 +2,12 @@
 #include <algorithm>
 using namespace std;
 
-bool isPalindrome(string s) {
-    int start = 0, end = s.length() - 1;
-    while (start < end) {
-        if (s[start] != s[end])
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
-        start++;
-        end--;
     }
     return true;
 }
@@ -41,17 +40,13 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
+bool isPalindrome(string s) {
+    int start = 0, end = s.length() - 1;
+    while (start < end) {
+        if (s[start] != s[end])
             return false;
+        start++;
+        end--;
     }
     return true;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
 }
