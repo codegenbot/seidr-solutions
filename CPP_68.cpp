@@ -1,49 +1,16 @@
-```c++
+```cpp
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(int a, int b) {
-    if (a % 2 == 0 && b % 2 == 0)
-        return true;
-    else
-        return false;
+std::vector<int> pluck(const std::vector<int>& v) {
+    return v;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a.size() == b.size()) && all_of(a.begin(), a.end(), [&](int x) { return count(b.begin(), b.end(), x) > 0; });
-}
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    for (int i = 0; i < arr.size(); i++) {
-        bool found = false;
-        for (int j = 0; j < arr.size(); j++) {
-            if (issame(arr[i], arr[j])) {
-                found = true;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back({arr[i], i});
-            break;
-        }
-    }
-
-    if (result.empty()) {
-        for (int num : arr) {
-            if (num % 2 != 0) {
-                vector<pair<int, int>> temp = {{num, -1}};
-                return temp;
-            }
-        }
-    }
-
-    return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<pair<int, int>>());
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
     return 0;
 }
