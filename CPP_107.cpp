@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -22,7 +23,7 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
-int checkNumber() {
+int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -30,9 +31,5 @@ int checkNumber() {
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
-}
-
-int main() {
-    checkNumber();
     return 0;
 }
