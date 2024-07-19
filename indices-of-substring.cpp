@@ -1,18 +1,18 @@
-```c
+```
 #include <iostream>
 #include <vector>
 using std::cout;
 using std::cin;
 using std::string;
 
-std::vector<std::size_t> indicesOfSubstring(string text, string target) {
-    std::vector<std::size_t> result;
-    std::size_t n = text.length();
-    std::size_t m = target.length();
+std::vector<int> indicesOfSubstring(string text, string target) {
+    std::vector<int> result;
+    int n = text.length();
+    int m = target.length();
 
-    for(std::size_t i=0; i<=n-m; ++i){
+    for(std::string::size_type i=0; i<=n-m; i++){
         if(text.substr(i,m) == target){
-            result.push_back(i);
+            result.push_back(static_cast<int>(i));
         }
     }
 
@@ -24,8 +24,8 @@ int main() {
     cin >> text >> target;
     cin.ignore(); 
     cin.ignore(); 
-    std::vector<std::size_t> res = indicesOfSubstring(text, target);
-    for (std::size_t i : res)
+    std::vector<int> res = indicesOfSubstring(text, target);
+    for (int i : res)
         cout << i << " ";
     return 0;
 }
