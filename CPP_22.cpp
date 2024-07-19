@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <any>
 #include <list>
