@@ -25,16 +25,9 @@ bool isPrime(int n){
     }
     return true;
 
-int main(){
-    std::vector<int> inputVector;
-    int num;
-    while(true){
-        std::cout << "Enter a number (or -1 to stop): ";
-        std::cin >> num;
-        if(num == -1) break;
-        inputVector.push_back(num);
-    }
-    int result = skjkasdkd(inputVector);
+int main() {
+    std::initializer_list<int> lst = {2,3,5,7};
+    int result = skjkasdkd(lst);
     assert(result == 10);
     return 0;
 }
