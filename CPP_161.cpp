@@ -1,15 +1,22 @@
-string solve(string s){
-    int n = s.size();
-    int count = 0;
-    for(int i=0;i<n;i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-        } else {
-            count++;
+for(char &c : s){
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    if(count == n){
-        reverse(s.begin(), s.end());
+
+    int n = s.length();
+    if(n > 0){
+        int i = 0, j = n - 1;
+        while(i < j){
+            swap(s[i], s[j]);
+            i++;
+            j--;
+        }
     }
+
     return s;
 }
