@@ -1,17 +1,15 @@
-string result = "";
-    bool consecutiveSpaces = false;
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (consecutiveSpaces) {
-                result += "-";
-            } else {
-                result += "_";
-                consecutiveSpaces = true;
+for (int i = 0; i < text.length(); ++i) {
+    if (text[i] == ' ') {
+        if (i < text.length() - 2 && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text[i] = '_';
+            for (int j = i + 1; j < text.length(); ++j) {
+                if (text[j] != ' ') break;
+                text[j] = '-';
             }
         } else {
-            result += text[i];
-            consecutiveSpaces = false;
+            text[i] = '_';
         }
     }
-    return result;
+}
+return text;
 }
