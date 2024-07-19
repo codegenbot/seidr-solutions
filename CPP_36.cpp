@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 
 using namespace std;
 
@@ -9,12 +9,4 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "The answer is: " << fizz_buzz(n) << endl;
-    return 0;
 }
