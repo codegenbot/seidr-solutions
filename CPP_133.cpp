@@ -1,6 +1,7 @@
 ```cpp
-#include <iostream>
+#include <vector>
 #include <cmath>
+#include <iostream>
 #include <initializer_list>
 
 int sum_squares(std::initializer_list<double> lst){
