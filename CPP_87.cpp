@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <cassert>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b);
 
