@@ -8,8 +8,9 @@ def decode_cyclic(s: str):
             group.insert(0, group.pop())
             result.append("".join(group))
             temp = ""
-    if temp and len(temp) > 0:
-        group = list(temp)
-        group.insert(0, group.pop())
-        result.append("".join(group))
+    if temp:
+        if len(temp) > 0:
+            group = list(temp)
+            group.insert(0, group.pop())
+            result.append("".join(group)) 
     return "".join(result)
