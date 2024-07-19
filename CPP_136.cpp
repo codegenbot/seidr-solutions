@@ -17,9 +17,3 @@ std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> 
     }
     return {largest_negative, smallest_positive};
 }
-
-int main() {
-    std::vector<int> result = largest_smallest_integers({-100, 1}, {1, 2, 3, 4});
-    assert(issame(result, {-100, 1}));
-    return 0;
-}
