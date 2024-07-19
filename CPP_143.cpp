@@ -1,5 +1,9 @@
-#include <cassert>
 #include <string>
+#include <cassert>
+
+bool is_prime(int n);
+
+string words_in_sentence(string sentence);
 
 bool is_prime(int n) {
     if (n <= 1) {
@@ -11,14 +15,6 @@ bool is_prime(int n) {
         }
     }
     return true;
-}
-
-string words_in_sentence(string sentence);
-
-int main() {
-    assert (words_in_sentence("here is") == "is");
-
-    return 0;
 }
 
 string words_in_sentence(string sentence){
@@ -38,4 +34,10 @@ string words_in_sentence(string sentence){
         result += word;
     }
     return result;
+}
+
+int main() {
+    assert (words_in_sentence("here is") == "is");
+
+    return 0;
 }
