@@ -15,8 +15,7 @@ int main() {
         std::cout << "Enter a string: ";
         std::getline(std::cin, s);  
         if (solve(s)) {
-            std::cout << "The solution is: " << s << std::endl;
-            break; 
+            std::cout << "The solution exists: " << s << std::endl;
         } else {
             std::cout << "No solution exists. Please try again." << std::endl;
         }
