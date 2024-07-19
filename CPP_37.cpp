@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
@@ -9,11 +7,11 @@ std::vector<float> sort_even(std::vector<float> l) {
         if (i % 2 == 0) {
             std::vector<float> evenVals;
             for (float val : l) {
-                if (val % 2.0 == 0.0) {
+                if (std::abs(val - static_cast<int>(val)) < 1e-5) {
                     evenVals.push_back(val);
                 }
             }
-            sort(evenVals.begin(), evenVals.end());
+            std::sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
