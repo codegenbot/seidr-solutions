@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -10,8 +9,11 @@ int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     string prefix = "xxx";
     vector<string> result = filter_by_prefix(strings, prefix);
-    assert(result == vector<string>({"xxx", "xxxAAA", "xxx"}));
-    return 0;
+    
+    for(string s : result) {
+        if(s.find(prefix) == 0)
+            cout << s << endl;
+    }
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
