@@ -1,43 +1,43 @@
-#include <any>
-#include <string>
+#include <cassert>
+#include <boost/any.hpp>
 #include <algorithm>
+#include <string>
 
-template <typename T>
-T compare_one(T a, T b){
-    if(typeid(a) == typeid(int)){
-        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
+using namespace std;
+using namespace boost;
+
+any compare_one(any a, any b);
+
+any compare_one(any a, any b){
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        if(any_cast<int>(a) > any_cast<int>(b)){
             return a;
-        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
+        } else if(any_cast<int>(a) < any_cast<int>(b)){
             return b;
         } else {
-            return T();
+            return any("None");
         }
-    } else if(typeid(a) == typeid(float)){
-        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        if(any_cast<float>(a) > any_cast<float>(b)){
             return a;
-        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
+        } else if(any_cast<float>(a) < any_cast<float>(b)){
             return b;
         } else {
-            return T();
+            return any("None");
         }
-    } else if(typeid(a) == typeid(std::string)){
-        std::string strA = std::any_cast<std::string>(a);
-        std::string strB = std::any_cast<std::string>(b);
-        std::replace(strA.begin(), strA.end(), ',', '.');
-        std::replace(strB.begin(), strB.end(), ',', '.');
-        if(std::stof(strA) > std::stof(strB)){
+    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
+        replace(strA.begin(), strA.end(), ',', '.');
+        replace(strB.begin(), strB.end(), ',', '.');
+        if(stof(strA) > stof(strB)){
             return a;
-        } else if(std::stof(strA) < std::stof(strB)){
+        } else if(stof(strA) < stof(strB)){
             return b;
         } else {
-            return T();
+            return any("None");
         }
     } else {
-        return T();
+        return any("None");
     }
-}
-
-int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
-    return 0;
 }
