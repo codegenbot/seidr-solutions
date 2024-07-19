@@ -5,7 +5,7 @@
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
-            if (abs(numbers[i] - numbers[j]) <= threshold) {
+            if (std::abs(numbers[i] - numbers[j]) <= threshold) {
                 return true;
             }
         }
@@ -14,11 +14,11 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a = {0.5, 0.6, 0.7, 0.8, 1.2};
-    if (has_close_elements(a, 0.1)) {
-        std::cout << "The elements are close." << std::endl;
+    std::vector<float> a = {1.0, 2.0, 3.0, 4.5};
+    if (has_close_elements(a, 0.5)) {
+        std::cout << "There are close elements." << std::endl;
     } else {
-        std::cout << "The elements are not close." << std::endl;
+        std::cout << "There are no close elements." << std::endl;
     }
     return 0;
 }
