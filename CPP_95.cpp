@@ -23,7 +23,6 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // Add your code here
-    cout << check_dict_case(dict) << endl;
+    // Your code here
     return 0;
 }
