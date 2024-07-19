@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
-std::string get_closest_vowel(std::string word) {
+string get_closest_vowel(string word) {
     int i = word.size() - 1;
     while (i > 0 && !isVowel(word[i])) {
         i--;
@@ -18,31 +17,11 @@ std::string get_closest_vowel(std::string word) {
 }
 
 bool isVowel(char c) {
-    c = tolower(c);
+    c = std::tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 bool isConsonant(char c) {
-    c = tolower(c);
+    c = std::tolower(c);
     return !isVowel(c) && (c >= 'b' && c <= 'z');
-}
-
-int main() {
-    std::string word;
-    std::cout << "Enter a string: ";
-    std::cin >> word;
-    
-    if(word.empty()) {
-        std::cout << "Please enter a non-empty string." << std::endl;
-        return 1; // failure
-    }
-    
-    std::string closest_vowel = get_closest_vowel(word);
-    if(closest_vowel.empty()) {
-        std::cout << "No vowel found in the string." << std::endl;
-    } else {
-        std::cout << "The closest vowel to the end of the word is: " << closest_vowel << "." << std::endl;
-    }
-    
-    return 0; // success
 }

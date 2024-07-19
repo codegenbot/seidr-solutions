@@ -1,21 +1,23 @@
-string fix_spaces(string text) {
-    string result = "";
-    int i = 0;
-    while (i < text.length()) {
-        if (text[i] == ' ') {
-            if (i + 1 >= text.length() || text[i + 1] != ' ' || (i + 2 < text.length() && text[i + 2] != ' ')) {
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    std::string result = "";
+    bool prev_space = false;
+
+    for (char c : text) {
+        if (c == ' ') {
+            if (!prev_space) {
                 result += '_';
-            } else {
-                result += '-';
-                i += 2;
-                while (i + 1 < text.length() && text[i + 1] == ' ') {
-                    i++;
-                }
+                prev_space = true;
             }
         } else {
-            result += text[i];
+            if (prev_space) {
+                result += '-';
+                prev_space = false;
+            }
+            result += c;
         }
-        i++;
     }
+
     return result;
 }
