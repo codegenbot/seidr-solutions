@@ -1,33 +1,33 @@
 #include <string>
 #include <vector>
 
-bool issame(const std::vector<std::string>& a) {
-    if (a.empty()) return false;
-    size_t prefix_size = a[0].size();
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.empty() || b.empty()) return false;
+    size_t prefix_size = std::min(a[0].size(), b[0].size());
     for (size_t i = 0; i < prefix_size; ++i) {
-        for (const auto& str : a) {
-            if (str[i] != a[0][i]) return false;
-        }
+        if (a[0][i] != b[0][i]) return false;
     }
-    return true;
+    return a[0].size() == b[0].size();
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
+std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
+    std::vector<std::vector<std::string>> result;
     for (const auto& str : strings) {
+        std::vector<std::string> temp;
         size_t start = 0;
         while (start < str.size()) {
             size_t end = str.find(' ', start);
             if (end == std::string::npos) {
-                if (!issame({{str.substr(start)}})) {
-                    result.push_back(str.substr(start));
-                }
+                temp.push_back(str.substr(start));
                 break;
             }
-            if (!issame({{str.substr(start, end - start)}})) {
-                result.push_back(str.substr(start, end - start));
-            }
+            temp.push_back(str.substr(start, end - start));
             start = end + 1;
+        }
+        if (!issame({temp}, {prefix})) {
+            result.push_back(temp);
+        } else if (temp.size() == 1 && temp[0] == prefix) {
+            result.push_back(temp);
         }
     }
     return result;
@@ -35,9 +35,11 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    std::vector<std::string> result = filter_by_prefix(strings, "xxx");
-    for (const auto& str : result) {
-        std::cout << str << " ";
+    std::vector<std::vector<std::string>> filtered_strings = filter_by_prefix(strings, "xxx");
+    for (const auto& temp : filtered_strings) {
+        for (const auto& str : temp) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 }
