@@ -1,6 +1,6 @@
-```cpp
 #include <map>
 #include <string>
+#include <algorithm>
 #include <initializer_list>
 using namespace std;
 
@@ -32,4 +32,3 @@ int main()
 {
     cout << issame(histogram("a"), histogram("b")) << endl;
     return 0;
-}
