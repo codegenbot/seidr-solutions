@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
+bool unique_digits(const std::vector<int>& a, const std::vector<int>& b);
+
 bool unique_digits(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> sorted_a = a;
     std::vector<int> sorted_b = b;
