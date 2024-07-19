@@ -5,3 +5,5 @@ try:
     print(even_sum)
 except ValueError:
     print("Invalid input. Please enter space-separated integers.")
+except EOFError:
+    pass
