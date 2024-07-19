@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 bool sameStrings(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
