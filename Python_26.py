@@ -5,10 +5,9 @@ numbers = []
 while True:
     try:
         num = input("Enter a number or press Enter to finish: ")
-        if num != '':  # Check if input is not empty
-            numbers.append(int(num))
-        else:
+        if num == "":
             break
+        numbers.append(num)
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
