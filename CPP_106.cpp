@@ -1,10 +1,10 @@
 #include <vector>
-#include <cassert>
 
-vector<int> f(int n) {
-    vector<int> result;
+std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
     int factorial = 1;
     int sum = 0;
+    int n = a.size();
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
             factorial *= i;
@@ -15,14 +15,4 @@ vector<int> f(int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // Your implementation here
-}
-
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    
-    return 0;
 }
