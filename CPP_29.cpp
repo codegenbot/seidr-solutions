@@ -16,9 +16,9 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
     std::vector<std::vector<std::string>> result;
     for (const auto& s : strings) {
         if (s[0].find(prefix) == 0) {
-            std::vector<std::string> vec = {s[0].substr(0, prefix.size())};
+            std::vector<std::string> vec;
             for(int i = prefix.size(); i < s[0].size(); i++) {
-                vec.push_back(std::string(1, s[0][i]));
+                push_back(vec, std::string(1, s[0][i]));
             }
             result.push_back(vec);
         }
