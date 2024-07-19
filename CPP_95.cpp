@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <cassert>
 #include <map>
 #include <string>
@@ -10,12 +10,12 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (!std::islower(it->first[0]) && !std::isupper(it->first[0])) {
+    for (auto& pair : dict) {
+        if (!std::islower(pair.first[0]) && !std::isupper(pair.first[0])) {
             allLower = false;
             allUpper = false;
             break;
-        } else if ((allLower && std::isupper(it->first[0])) || (allUpper && std::islower(it->first[0]))) {
+        } else if ((allLower && std::isupper(pair.first[0])) || (allUpper && std::islower(pair.first[0]))) {
             allLower = false;
             allUpper = false;
             break;
