@@ -1,8 +1,8 @@
-#include <iostream>
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,7 +10,7 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> compare(std::vector<int>& game, std::vector<int>& guess) {
+std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -29,23 +29,25 @@ int main() {
     int n;
     std::cout << "Enter the number of elements in the game: ";
     std::cin >> n;
-    game.resize(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> game[i];
+        int temp;
+        std::cin >> temp;
+        game.push_back(temp);
     }
     
     std::vector<int> guess;
     int m;
     std::cout << "Enter the number of elements in the guess: ";
     std::cin >> m;
-    guess.resize(m);
     for (int i = 0; i < m; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> guess[i];
+        int temp;
+        std::cin >> temp;
+        guess.push_back(temp);
     }
     
-    std::vector<int> output = compare(game, guess);
+    std::vector<int> output = gameCompare(game, guess);
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
