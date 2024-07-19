@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <map>
@@ -9,9 +10,11 @@ std::map<char, int> histogram(string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
 
-    set<char> uniqueChars(test.begin(), test.end());
+    string letters = test;
+    auto endUnique = unique(letters.begin(), letters.end());
+    letters = string(endUnique, letters.end());
 
-    for (char c : uniqueChars) { 
+    for (char c : letters) { 
         int count = 0;
         for (char letter : test) {
             if (letter == c) count++;
