@@ -1,7 +1,11 @@
-#include <algorithm>
-#include <string>
+```cpp
+int main() {
+    std::string result = string_to_md5("password");
+    assert(result == "5d41402abc4e666f1db980f71b7aca3");
+    return 0;
+}
 
-std::string string_to_md5(const std::string& input) {
+std::string string_to_md5(std::string input) {
     MD5_CTX ctx;
     unsigned char result[16];
     MD5_Init(&ctx);
