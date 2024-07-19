@@ -1,9 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
@@ -25,4 +21,13 @@ vector<int> parse_nested_parens(string paren_string) {
     depths.push_back(max_depth);
 
     return depths;
+}
+
+bool issame(vector<int> a, vector<int> b) { }
+
+int main() {
+    vector<int> a = parse_nested_parens("((())())");
+    vector<int> b = parse_nested_parens("(()())");
+    
+    issame(a, b);
 }
