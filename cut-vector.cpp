@@ -1,41 +1,29 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    long long sum1 = 0;
     
-    long long sum1 = 0, sum2 = 0;
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
             sum1 += v[i];
         } else {
-            sum2 += v[i];
+            long long leftSum = 0;
+            for (int j = 0; j <= i; j++) {
+                leftSum += v[j];
+            }
+            long long rightSum = sum1 - leftSum;
+            if (abs(leftSum - rightSum) <= abs(v[0] - rightSum)) {
+                res[0].insert(res[0].end(), v.begin(), v.begin() + i + 1);
+                for (int j = i; j < n; j++) {
+                    res[1].push_back(v[j]);
+                }
+                break;
+            }
         }
-    }
-    
-    int diff = abs(sum1 - sum2);
-    res[0].push_back(v[0]);
-    for (int i = 1; i < n; i++) {
-        if (abs(sum1 - sum2) == abs(v[i] - sum2)) {
-            res[0].push_back(v[i]);
-        } else {
-            break;
-        }
-    }
-    
-    int j = i;
-    while(j < n) {
-        sum2 -= v[j];
-        sum1 += v[j];
-        if (abs(sum1 - sum2) <= diff) {
-            res[0].push_back(v[j]);
-        } else {
-            res[1] = vector<int>(v.begin() + j, v.end());
-            break;
-        }
-        j++;
     }
     
     return res;
