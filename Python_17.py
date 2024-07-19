@@ -12,13 +12,14 @@ def parse_music(music_string: str) -> List[int]:
                 beats.append(notes.get('.|', 1))
                 i += 1
         elif music_string[i] == 'o':
-            if i + 2 <= len(music_string) and music_string[i:i+2] in notes:
-                beats.append(notes[music_string[i:i+2]])
-                i += 2
+            if i + 2 <= len(music_string) and music_string[i:i+3] in notes:
+                beats.append(notes[music_string[i:i+3]])
+                i += 3
             else:
                 beats.append(notes.get('o', 4))
                 i += 1
         elif music_string[i] == '|':
-            beats.append(notes['o|'])
-            i += 1
+            if i + 1 < len(music_string):
+                beats.append(notes['o|'])
+                i += 2
     return beats
