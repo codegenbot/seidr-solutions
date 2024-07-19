@@ -1,4 +1,11 @@
-if(txt.empty())
-    return false;
-char last_char = txt.back();
-return isalpha(last_char) && (txt.find_last_of(" ") == txt.size() - 1);
+int n = txt.size();
+if (n == 0) return false;
+
+char lastChar = txt[n - 1];
+if (isalpha(lastChar)) {
+    if (n >= 2 && txt[n - 2] == ' ') {
+        return true;
+    }
+}
+return false;
+}
