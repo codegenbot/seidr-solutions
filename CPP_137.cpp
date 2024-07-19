@@ -5,6 +5,8 @@
 std::any compare_one(const std::any& a, const std::any& b) {
     assert(a.type() == b.type());
 
+    using namespace std;
+
     if(a.type() == typeid(int)) {
         if(std::any_cast<int>(a) > std::any_cast<int>(b))
             return a;
@@ -21,20 +23,14 @@ std::any compare_one(const std::any& a, const std::any& b) {
         else
             return 0.0f;
     }
-    else if(a.type() == typeid(std::string)) {
-        if(std::any_cast<std::string>(a) > std::any_cast<std::string>(b))
+    else if(a.type() == typeid(string)) {
+        if(std::any_cast<string>(a) > std::any_cast<string>(b))
             return a;
-        else if(std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
+        else if(std::any_cast<string>(a) < std::any_cast<string>(b))
             return b;
         else
-            return std::string("");
+            return string("");
     }
 
     return std::any();
-}
-
-int main() {
-    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "");
-    
-    return 0;
 }
