@@ -1,23 +1,18 @@
-int count(int i, vector<int> lst) {
-    int occurrences = 0;
-    for (int j : lst) {
-        if (j == i) {
-            occurrences++;
+int maxStart(vector<int>& arr) {
+    int n = arr.size();
+    map<int, int> freq;
+    for (int x : arr) {
+        if (freq.find(x) == freq.end()) {
+            freq[x] = 1;
+        } else {
+            freq[x]++;
         }
     }
-    return occurrences;
-}
-
-int search(vector<int> lst) {
-    int max = 0;
-    for (int i : lst) {
-        if (i > 0 && i >= count(i, lst)) {
-            max = i;
+    int res = -1;
+    for (auto p : freq) {
+        if (p.second >= p.first && p.first > 0) {
+            res = p.first;
+            break;
         }
     }
-    return max == 0 ? -1 : max;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-}
+    return res;
