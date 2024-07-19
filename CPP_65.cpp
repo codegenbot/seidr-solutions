@@ -1,11 +1,17 @@
-string s = to_string(x);
-    int n = s.size();
-    shift = shift % n;
-    if (shift == 0) return s;
-    if (shift == n) {
-        reverse(s.begin(), s.end());
-        return s;
+#include <string>
+#include <cassert>
+
+std::string circular_shift(int x, int shift) {
+    std::string numStr = std::to_string(x);
+    int n = numStr.size();
+    shift %= n;
+    if (shift == 0) {
+        return numStr;
     }
-    rotate(s.rbegin(), s.rbegin() + shift, s.rend());
-    return s;
+    std::string result = numStr.substr(n - shift) + numStr.substr(0, n - shift);
+    return result;
+}
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
 }
