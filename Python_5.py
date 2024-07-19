@@ -1,6 +1,6 @@
-def complete_code(numbers, delimeter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    result.pop() if result else None
-    return result
+result = []
+for num in numbers[:-1]:
+    result.extend([num, delimiter])
+if numbers:
+    result.append(numbers[-1])
+return result
