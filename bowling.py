@@ -15,7 +15,7 @@ def bowling_score(frames):
             else:
                 total = sum(map(int, filter(str.isdigit, parts)))
                 if len(parts) > 2 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                    score += total + int(frames[roll+3].split("/")[0])
+                    score += total + int(parts[-1].split("/")[0])
                 else:
                     score += total
                 roll += 3
@@ -43,7 +43,7 @@ def bowling_score(frames):
             parts = frames[roll:].split("/")
             total = sum(map(int, filter(str.isdigit, parts)))
             if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                score += total + int(frames[roll+2].split("/")[0])
+                score += total + int(parts[-2].split("/")[0])
             else:
                 score += total
         roll += 2
