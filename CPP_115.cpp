@@ -1,11 +1,9 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_fill = 0;
-    for (int j = 0; j < grid[0].size(); ++j) {
-        int well_fill = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            well_fill += grid[i][j];
-        }
-        total_fill += well_fill / capacity + (well_fill % capacity != 0);
-    }
-    return total_fill;
+int max_fill(vector<vector<int>>& grid, int capacity) {
+    int total_water = accumulate(grid.begin(), grid.end(), 0, [](int sum, const vector<int>& row) {
+        return sum + accumulate(row.begin(), row.end(), 0);
+    });
+
+    int buckets_needed = total_water / capacity + (total_water % capacity != 0);
+
+    return buckets_needed;
 }
