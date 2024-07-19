@@ -1,40 +1,37 @@
-namespace std {
-bool issame(std::map<char, int> a, std::map<char, int> b) {
-    if (a.size() != b.size()) return false;
-    for (auto p : a) {
-        if (b.find(p.first) == b.end() || p.second != b[p.first]) {
-            return false;
-        }
+```
+#include <map>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// Define the histogramTest function
+map<char,int> histogramTest(string s) {
+    map<char,int> hist;
+    for (char c : s) {
+        if (hist.find(c) == hist.end())
+            hist[c] = 1;
+        else
+            hist[c]++;
     }
-    return true;
+    return hist;
 }
 
-std::map<char, int> histogramTest(std::string str) {
-    std::map<char, int> result = {};
-    for (char c : str) {
-        if (result.find(c) == result.end()) {
-            result[c] = 1;
-        } else {
-            result[c]++;
-        }
-    }
-    return result;
+// Define the issame function
+bool issame(map<char,int> a, map<char,int> b) {
+    return a==b;
 }
 
-int main() {
-    std::string test;
-    std::cout << "Enter a string: ";
-    std::cin >> test;
+string test;
+cout << "Enter a string: ";
+cin >> test;
 
-    auto hist = histogramTest(test); 
+auto hist = histogramTest(test); 
 
-    for (auto p : hist) {
-        std::cout << p.first << ": " << p.second << std::endl;
-    }
+for (auto p : hist) {
+    cout << p.first << ": " << p.second << endl;
+}
 
-    if (!issame(hist, {{'a', 1}})) {
-        return 0; 
-    }
-    
-    return 0;
+if (!issame(hist, {{'a', 1}})) { 
+    return 0; 
 }

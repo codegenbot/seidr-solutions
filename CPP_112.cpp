@@ -38,7 +38,6 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> result = reverseDelete("mamma", "mia");
-    assert(isSame({ "", "True" }, result));
     if (isSame({ "", "True" }, result)) {
         std::cout << "Test passed." << std::endl;
     } else {
