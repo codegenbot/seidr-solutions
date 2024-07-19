@@ -18,3 +18,8 @@ std::vector<int> sort_array(std::vector<int> array) {
     
     return array;
 }
+
+std::vector<int> sorted_array = sort_array({21, 14, 23, 11});
+std::vector<int> expected_sorted_array = {23, 21, 14, 11};
+
+assert(issame(sorted_array, expected_sorted_array));
