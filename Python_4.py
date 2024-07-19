@@ -1,11 +1,13 @@
-try:
-    num_list = list(map(float, input("Enter exactly four positive numbers separated by space: ").split()))
-    if len(num_list) != 4 or any(num <= 0 for num in num_list):
-        raise ValueError
-    result = 1
-    for num in num_list:
-        result *= num
-except ValueError:
-    print("Invalid input. Please enter exactly four positive numbers separated by space.")
-else:
-    print(result)
+while True:
+    try:
+        num_list = list(
+            map(float, input("Enter exactly four numbers separated by space: ").split())
+        )
+        if len(num_list) != 4:
+            raise ValueError(
+                "Invalid input. Please enter exactly four numbers separated by space."
+            )
+        print(num_list[0] * num_list[1] * num_list[2] * num_list[3])
+        break
+    except ValueError as e:
+        print(e)

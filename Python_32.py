@@ -10,7 +10,7 @@ while True:
             raise ValueError
         print("Input accepted successfully.")
         break
-    except (ValueError, TypeError):
+    except ValueError:
         print(
             "Invalid input. Please enter exactly three floating-point numbers separated by space."
        )
