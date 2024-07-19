@@ -15,8 +15,12 @@ int main() {
     std::string line; 
     std::cout << "Enter the strings: ";
     while(getline(cin, line)) {
-        line.erase(0, line.find_first_of("()") != std::string::npos ? line.find_first_of("()") : 100000);
-        if(line.empty()) break;
+        auto pos = line.find('(');
+        if(pos != std::string::npos) {
+            line = line.substr(pos);
+        } else {
+            break;
+        }
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
