@@ -1,8 +1,9 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 using namespace std;
 
-double poly(double x, vector<double> coeff){
+double poly(double x, const vector<double>& coeff){
     double result = 0.0;
     for(int i = 0; i < coeff.size(); i++){
         result += coeff[i] * pow(x, i);
@@ -10,7 +11,7 @@ double poly(double x, vector<double> coeff){
     return result;
 }
 
-double find_zero(vector<double> xs, vector<double> coeff){
+double find_zero(const vector<double>& xs, const vector<double>& coeff){
     double a = poly(xs[0], coeff);
     double b = poly(xs[1], coeff);
     return -b/a;
@@ -18,8 +19,8 @@ double find_zero(vector<double> xs, vector<double> coeff){
 
 int main() {
     vector<double> xs = {1.0, 2.0};
-    vector<double> coeff = {1.0, -3.0, 2.0};
-    double solution = find_zero(xs, coeff);
-    double result = poly(solution, coeff);
+    vector<double> coeffs = {1.0, 2.0, 1.0};
+    double solution = find_zero(xs, coeffs);
+    assert(abs(poly(solution, coeffs)) < 1e-3);
     return 0;
 }
