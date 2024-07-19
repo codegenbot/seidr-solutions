@@ -1,26 +1,6 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n){
-    std::vector<int> result(n);
-    for(int i = 1; i <= n; ++i){
-        if(i % 2 == 0){
-            int factorial = 1;
-            for(int j = 1; j <= i; ++j){
-                factorial *= j;
-            }
-            result[i-1] = factorial;
-        } else {
-            int sum = 0;
-            for(int j = 1; j <= i; ++j){
-                sum += j;
-            }
-            result[i-1] = sum;
-        }
-    }
-    return result;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b){
     assert(a.size() == b.size());
 
@@ -32,7 +12,32 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
+int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
+std::vector<int> f(int n){
+    std::vector<int> result(n);
+    for(int i = 1; i <= n; ++i){
+        result[i-1] = (i % 2 == 0) ? factorial(i) : i * (i + 1) / 2;
+    }
+    return result;
+}
+
 int main() {
-    // Add your testing logic here
+    std::vector<int> expected{1, 2, 6, 4, 15};
+
+    std::vector<int> result = f(5);
+
+    if (issame(result, expected)) {
+        std::cout << "Test Passed!\n";
+    } else {
+        std::cout << "Test Failed!\n";
+    }
+
     return 0;
 }
