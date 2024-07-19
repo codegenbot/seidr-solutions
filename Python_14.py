@@ -1,5 +1,2 @@
-input_string = input("Enter a string: ")
-print(prefixes(input_string))
-print(suffixes(input_string))
-print(substrings(input_string))
-print(is_palindrome(input_string))
+def prefixes(s):
+    return [s[:i+1] for i in range(len(s))]

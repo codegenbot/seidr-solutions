@@ -1,9 +1,5 @@
 from typing import List
 
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_strings: List[str]) -> List[int]:
     notes = {"o": 4, "o|": 2, ".|": 1}
-    return [notes[note] for note in music_string.split()]
-
-input_music_string = "o o| o .| o|"
-result = parse_music(input_music_string)
-print(result)
+    return [notes[note] for music_string in music_strings for note in music_string.split()]

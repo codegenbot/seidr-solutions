@@ -12,8 +12,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 # Read input from user
-paren_string = input("Enter a string with parentheses: ")
-if set(paren_string) == {'(', ')'}:
+paren_string = input()
+if set(paren_string) == {'(', ')'} and paren_string[0] == '(' and paren_string[-1] == ')':
     print(separate_paren_groups(paren_string))
 else:
-    print("Please enter a string with only parentheses.")
+    print("Please enter a string with properly enclosed parentheses.")
