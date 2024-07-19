@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt);
 
 bool issame(vector<string> a, vector<string> b){
     // Comparison logic here
 }
-
-vector<string> split_words(string txt);
 
 vector<string> split_words(string txt){
     vector<string> result;
