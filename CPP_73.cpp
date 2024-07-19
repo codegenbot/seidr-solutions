@@ -1,3 +1,4 @@
+#include <vector>
 #include <initializer_list>
 
 int smallest_change(vector<int> arr) {
