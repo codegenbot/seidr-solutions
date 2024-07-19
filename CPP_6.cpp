@@ -25,13 +25,3 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
     depths.push_back(max_depth);
     return depths;
 }
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::vector<int> depths = parse_nested_parens(input);
-    for (int depth : depths) {
-        std::cout << depth << " ";
-    }
-    return 0;
-}
