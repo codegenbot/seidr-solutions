@@ -31,13 +31,11 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     return result;
 
 int main() {
-    #pragma GCC diagnostic push
-    #pragma GCC diagnostic ignored "-Wignored-messages"
     std::vector<std::vector<std::string>> v1;
-    v1.push_back({{"apple", "banana"}, {"hello", "world"}});
+    v1.push_back(std::vector<std::string>({{"apple", "banana"}, {"hello", "world"}}));
 
     std::vector<std::vector<std::string>> v2;
-    v2.push_back({{"apple", "banana"}, {"goodbye", "world"}});
+    v2.push_back(std::vector<std::string>({{"apple", "banana"}, {"goodbye", "world"}}));
 
     if (!equal_vectors(v1, v2)) {
         std::cout << "Vectors are not equal" << std::endl;
@@ -60,6 +58,5 @@ int main() {
         }
     }
 
-    #pragma GCC diagnostic pop
     return 0;
 }
