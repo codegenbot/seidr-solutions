@@ -1,8 +1,12 @@
-```
+```cpp
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+using namespace std;
+
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
@@ -10,7 +14,7 @@ std::vector<int> make_a_pile(int n) {
             n++;
             stones = n;
         } else {
-            n++;
+            n += 2;
             stones = n;
         }
     }
