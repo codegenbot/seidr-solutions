@@ -1,15 +1,15 @@
 ```cpp
-#include <iostream>
 #include <string>
+#include <algorithm>
 
-std::string anti_shuffle(const std::string& s) {
+std::string anti_shuffle(const std::string& input) {
     std::string result = "";
-    for (char c : s) {
+    for (char c : input) {
         if (c == ' ') {
-            result += '.';
-        } else {
+            while (!result.empty() && result.back() == ' ')
+                result.pop_back();
+        } else
             result += c;
-        }
     }
     return result;
 }
