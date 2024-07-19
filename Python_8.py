@@ -1,3 +1,1 @@
-numbers = []
-for i in range(7):
-    numbers.append(int(input(f"Please enter number {i + 1}: "))
+numbers = [int(input(f"Please enter number {i + 1}: ")) for i in range(7)]
