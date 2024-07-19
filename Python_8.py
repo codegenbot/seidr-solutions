@@ -1,1 +1,1 @@
-n, *numbers = map(int, input("Enter space-separated numbers: ").split())
+n, *numbers = map(int, input().split())
