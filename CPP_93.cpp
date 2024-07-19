@@ -1,16 +1,13 @@
 string encode(string message){
-    for(char &c : message){
-        if(isalpha(c)){
-            if(c >= 'A' && c <= 'Z'){
-                c = tolower(c);
+    for(int i = 0; i < message.length(); i++){
+        if(isalpha(message[i])){
+            if(isupper(message[i])){
+                message[i] = tolower(message[i]);
             }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
-                if(c > 'z'){
-                    c = c - 26;
-                }
+            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
+                message[i] = char(((message[i] - 'a' + 2) % 26) + 'a');
             }
-            c ^= 32;
+            message[i] = isupper(message[i]) ? tolower(message[i]) : toupper(message[i]);
         }
     }
     return message;
