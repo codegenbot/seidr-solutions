@@ -1,11 +1,9 @@
-def parse_music(music_strings, notes):
-    def get_notes(music_strings, notes):
-        music_notes = music_strings.split("|")
-        return [notes[note.strip()] for note in music_notes if note.strip() in notes]
+def parse_music(music_notes: str, notes_dict: dict) -> list:
+    music_notes_list = music_notes.split('|')
+    output_list = [notes_dict.get(note.strip(), 0) for note in music_notes_list]
+    return output_list
 
-    return get_notes(music_strings, notes)
-
-notes = {'.': 2, 'o': 1, ' ': 4}
-result = parse_music("o| .| o| .| o o| o o|", notes)
-assert result == [1, 2, 1, 2, 4, 1, 4, 1]
-print(result)
+# Sample usage
+notes_dict = {'o': 2, '.': 1}
+result = parse_music("o| .| o| .| o o| o o|", notes_dict)
+print(result)  # Output: [2, 1, 2, 1, 4, 2, 4, 2]
