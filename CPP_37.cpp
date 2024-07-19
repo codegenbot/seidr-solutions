@@ -12,7 +12,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-void sort_even(vector<float>& l) {
+bool sort_even(vector<float> l) {
     vector<float> even_elements;
     
     for (int i = 0; i < l.size(); ++i) {
@@ -29,4 +29,6 @@ void sort_even(vector<float>& l) {
             l[i] = even_elements[even_index++];
         }
     }
+    
+    return issame(l, even_elements);
 }
