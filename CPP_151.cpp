@@ -15,20 +15,21 @@ long long double_the_difference(vector<float> lst){
 int main() {
     vector<float> lst; 
     int odd_sum = 0; 
-    
-    int n; 
-    cin >> n; 
-    for (int i = 0; i < n; i++) { 
-        float temp; 
-        cin >> temp; 
-        if (temp > 0) {
-            modf(temp, &lst[i]);
-            if (modf(temp, &temp) == 0.0) {
-                odd_sum += temp * temp;
-            }
+
+    float n;
+    cin >> n;
+    while(n--) {
+        float a;
+        cin >> a;
+        lst.push_back(a);
+    }
+
+    for (float num : lst) {
+        if (num % 2 != 0) {
+            odd_sum += num;
         }
     }
-    
+
     assert (double_the_difference(lst) == odd_sum );
 
     return 0;
