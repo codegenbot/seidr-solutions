@@ -1,15 +1,18 @@
-vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(),l.end());
+#include<vector>
+#include<algorithm>
+
+std::vector<int> unique(std::vector<int> l){
+    std::vector<int> result(l.begin(),l.end());
     sort(result.begin(),result.end());
-    for(int i = 0; i < (result.size() - 1); i++) {
-        if(issame(vector<int>(result.begin()+i, result.begin()+(i+1)), unique(vector<int>(result.begin(), result.begin() + (i+1))))){
-            result.erase(result.begin()+i);
-            i--;
+    int i = 0;
+    for(int j = 1; j < result.size(); j++){
+        if(result[j] != result[i]){
+            i++;
+            result[i] = result[j];
         }
     }
-    return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && a == b;
+    while(i > 0 && (i == result.size()-1 || result[i] == result[i+1])){
+        i--;
+    }
+    return stdspace<int>(result.begin()+i+1, result.end());
 }
