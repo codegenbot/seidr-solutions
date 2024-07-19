@@ -1,5 +1,5 @@
-```
 #include <iostream>
+#include <string>
 #include <cmath> 
 using namespace std;
 
@@ -18,9 +18,6 @@ rounded_avg(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << "Error: Invalid input. Please enter numbers in ascending order." << endl;
-    if (n <= m) {
-        cout << rounded_avg(n, m) << endl;
-    }
+    cout << rounded_avg(n, m) << endl;
     return 0;
 }
