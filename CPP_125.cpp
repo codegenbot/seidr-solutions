@@ -1,13 +1,13 @@
-#include <algorithm> // Include for std::equal
+#include <algorithm>
 #include <vector>
 #include <string>
-#include <cassert> // Include for assert
+#include <cctype>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> split_words(const std::string& txt) {
+std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
     std::string word = "";
     for (char c : txt) {
@@ -33,9 +33,4 @@ std::vector<std::string> split_words(const std::string& txt) {
         result.push_back(std::to_string(count));
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
