@@ -1,10 +1,10 @@
-#include <vector>
-#include <string>
 #include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b);
-
 vector<int> parse_music(string music_string);
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
