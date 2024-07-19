@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,12 +5,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-auto unique(std::vector<int>::iterator first, std::vector<int>::iterator last) {
-    auto result = std::unique(first, last);
-    return std::vector<int>(result, last);
+auto unique(vector<int>::iterator first, vector<int>::iterator last) {
+    std::vector<int> result(std::unique(first, last), last);
+    return result;
 }
 
 int main() {
-    assert(std::issame(unique({std::vector<int>({5, 3, 5, 2, 3, 3, 9, 0, 123})}.begin(), {std::vector<int>({5, 3, 5, 2, 3, 3, 9, 0, 123})}.end()), {0, 2, 3, 5, 9, 123}));
+    assert(std::issame(unique(std::vector<int>( {5, 3, 5, 2, 3, 3, 9, 0, 123} ) ).begin(), 
+                       unique(std::vector<int>( {5, 3, 5, 2, 3, 3, 9, 0, 123} ) ).end(), 
+                       unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).begin(), 
+                       unique({5, 3, 5, 2, 3, 3, 9, 0, 123}).end()) ;
     return 0;
 }
