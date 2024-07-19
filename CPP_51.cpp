@@ -11,7 +11,7 @@ std::string remove_vowels(std::string input) {
     std::string result;
     for (char c : input) {
         if (!isVowel(c)) {
-            result += tolower(c);
+            result += c;
         }
     }
     return result;
