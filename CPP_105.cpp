@@ -1,6 +1,21 @@
 #include <string>
 
+bool are_same(int a, int b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr);
+
+int main() {
+    vector<int> numbers = {3, 9, 2, 5, 1, 7, 4, 9, 6, 8};
+    vector<string> result = by_length(numbers);
+
+    for (const string& str : result) {
+        cout << str << " ";
+    }
+
+    return 0;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
