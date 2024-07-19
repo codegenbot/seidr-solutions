@@ -16,8 +16,8 @@ int bowlingScore(std::string s) {
             while (c != '/' && c >= '0' && c <= '9') {
                 frames[currentFrame] *= 10 + (c - '0');
                 size_t i = s.find(std::string(1, c));
-                if(i == string::npos) break;
-                c = s[i+1];
+                if (i == string::npos) break;
+                c = s[i + 1];
             }
             
             if (!strike) {
