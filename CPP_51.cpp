@@ -2,9 +2,12 @@
 #include <iostream>
 #include <string>
 
-std::string remove_vowels(std::string text){
+std::string remove_vowels(){
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
     std::string result = "";
-    for(char c : text){
+    for(char c : input){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'&& 
            tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
            tolower(c) != 'o' && tolower(c) != 'u'){
@@ -15,8 +18,5 @@ std::string remove_vowels(std::string text){
 }
 
 int main(){
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
+    std::cout << "String after removing vowels: " << remove_vowels() << std::endl;
 }
