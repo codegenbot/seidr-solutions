@@ -12,9 +12,10 @@ int main() {
 
 int how_many_times(string s, string sub) {
     int count = 0;
-    while (s.find(sub) != string::npos) {
+    size_t pos = 0;
+    while ((pos = s.find(sub)) != string::npos) {
         ++count;
-        s = s.substr(s.find(sub) + sub.length());
+        s.erase(pos, sub.length());
     }
     return count;
 }
