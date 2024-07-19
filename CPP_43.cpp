@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
@@ -9,4 +10,11 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
         }
     }
     return false;
+}
+
+int main() {
+    // Test cases
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    
+    return 0;
 }
