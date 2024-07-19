@@ -4,12 +4,12 @@
 
 int main() {
     std::cout << "Enter a string: ";
-    std::string input;
-    std::getline(std::cin, input);
+    std::string output;
+    std::getline(std::cin, output);
 
-    input = remove_vowels(input);  
+    output = remove_vowels(output);  
 
-    std::cout << "String after removing vowels: " << result.c_str() << std::endl;
+    std::cout << "String after removing vowels: " << output << std::endl;
     return 0;
 }
 

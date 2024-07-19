@@ -12,12 +12,12 @@ int solve(int N) {
     return sum;
 }
 
-int main{
+int main() {
     int N;
     std::cout << "Enter a number: ";
     if (!(std::cin >> N)) {
         std::cout << "Invalid input. Please enter an integer." << std::endl;
         return 1;
     }
-    std::cout << "Sum of bits is: " << std::to_string(solve(N)) << std::endl;
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
 }
