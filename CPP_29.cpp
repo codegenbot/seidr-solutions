@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -14,20 +15,15 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
         if (s[0].find(prefix) == 0) {
             std::vector<std::string> temp = {prefix};
             for(int i = prefix.size(); i < s[0].size(); i++) {
-                temp.push_back(s[0].substr(i, 1));
+                temp.push_back(std::string(1, s[0][i]));
             }
-            std::string finalString;
-            for(const auto& s : temp) {
-                finalString += s + " ";
-            }
-            result.push_back({finalString});
+            if(temp.size() > 1) result.push_back(temp); 
         }
     }
     return result;
 }
 
 int main() {
-    { 
     assert(issame(filter_by_prefix({{"xxx"}, {"asd"}, {"xxy"}, {"john doe"}, {"xxxxAAA"}, {"xxx"}}, "xxx") , {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
     return 0;
 }
