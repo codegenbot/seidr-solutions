@@ -9,7 +9,6 @@ void sort_array(std::vector<int>& arr) {
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> sorted_a = a;
     std::vector<int> sorted_b = b;
-    
     sort_array(sorted_a);
     sort_array(sorted_b);
 
@@ -18,6 +17,5 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     assert(issame({2, 4, 8, 16, 32}, {2, 4, 8, 16, 32}));
-    
     return 0;
 }
