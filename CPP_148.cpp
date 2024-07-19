@@ -1,15 +1,15 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> vecB) {
-    if(a.size()!=vecB.size())return false;
+bool areEqual(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size()!=b.size())return false;
     for(int i=0; i<a.size();i++){
-        if(a[i] != vecB[i]) return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<string> betweenPlanets(string planet1, string planet2) {
+std::vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -32,4 +32,9 @@ std::vector<string> betweenPlanets(string planet1, string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    assert(areEqual(bf("Jupiter", "Makemake"), {}));  
+    return 0;
 }
