@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,9 +10,9 @@ int count(int num) {
     return res;
 }
 
-int search(vector<int> lst) {
-    int max = 0;
-    for (int i : lst) {
+int search(vector<unsigned long long> lst) {
+    unsigned long long max = 0;
+    for (unsigned long long i : lst) {
         if (i > 0 && i >= count(i)) {
             max = i;
         }
@@ -22,12 +20,11 @@ int search(vector<int> lst) {
     return max == 0 ? -1 : max;
 }
 
-int problem69() {
-    vector<int> lst; 
+int main() {
+    vector<unsigned long long> lst; 
     for (int i = 0; i < 5; ++i) { 
-        int temp; cin >> temp; lst.push_back(temp); 
+        unsigned long long temp; cin >> temp; lst.push_back(temp); 
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
-    return 0;
 }
