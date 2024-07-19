@@ -1,4 +1,9 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <openssl/evp.h>
+#include <cassert>
+
 std::string string_to_md5(std::string input) {
     MD5_CTX ctx;
     unsigned char result[16];
@@ -6,9 +11,17 @@ std::string string_to_md5(std::string input) {
     MD5_Update(&ctx, input.c_str(), input.size());
     MD5_Final(result, &ctx);
 
-    char output[33];
+    std::string output;
     for (int i = 0; i < 16; i++) {
-        sprintf(output + i*2, "%02x", result[i]);
+        char temp[3];
+        sprintf(temp, "%02x", result[i]);
+        output.insert(0, temp);
     }
-    return std::string(output);
+
+    return output;
+}
+
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
