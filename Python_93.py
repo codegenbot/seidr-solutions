@@ -10,6 +10,6 @@ def encode(message, shift):
     return encoded_message
 
 message = input("Enter the message to encode:\n").strip()
-shift = int(input("Enter the shift value for encoding:\n").strip())
+shift = int(input("Enter the shift value for encoding:\n").strip()
 result = encode(message, shift)
 print(result)
