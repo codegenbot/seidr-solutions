@@ -6,8 +6,7 @@ def fix_spaces(text):
             [
                 (
                     "_"
-                    if i > 0 and text[i - 1:i + 1] == "  " and text[i] == " "
-                    else "_" if text[i] == " " else text[i]
+                    if i > 0 and text[i - 1:i + 1] == "  " else text[i]
                 )
                 for i in range(len(text))
             ]
