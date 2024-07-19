@@ -18,12 +18,10 @@ int calculate_buckets_needed(const vector<vector<int>>& grid, int capacity) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{3, 5, 2}, {1, 4, 7}, {6, 8, 9}};
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int capacity = 5;
-    
     int buckets_needed = calculate_buckets_needed(grid, capacity);
     
-    // Output the result
     cout << "Buckets needed: " << buckets_needed << endl;
     
     return 0;
