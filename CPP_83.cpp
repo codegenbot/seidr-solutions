@@ -1,13 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= n; i++) {
-        std::string s = std::to_string(i);
-        for (char c : s) { 
-            if (c == '1') { 
+    for (int i = 1; i <= 9; i++) {
+        if (i == 1 || i % 10 == 1) {
+            count++;
+        }
+        for (int j = 1; j < n - 1; j++) {
+            int num = i * pow(10, j - 1) + j % 10;
+            if (num >= 1 && num <= 9) {
                 count++;
-                break; 
             }
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    return 0;
 }
