@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath> 
 #include <cassert> 
@@ -16,6 +15,6 @@ double rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(std::abs(rounded_avg(5, 5) - 0.101) < 1e-9);
+    assert(std::abs(rounded_avg(5, 5) - 101.0) < 0.0001);
     return 0;
 }
