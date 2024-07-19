@@ -2,18 +2,16 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int countChars(const vector<string>& lst) {
-    int count = 0;
-    for (const string& str : lst) {
-        count += str.size();
+    int totalChars = 0;
+    for (const auto &str : lst) {
+        totalChars += str.size();
     }
-    return count;
+    return totalChars;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
