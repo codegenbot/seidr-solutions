@@ -3,7 +3,7 @@ vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
     string current_group = "";
     int balance = 0;
 
-    for (char c : a[0]) {
+    for (char c : a) {
         if (c == '(') {
             if (balance > 0) {
                 current_group += c;
