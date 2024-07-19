@@ -4,10 +4,12 @@ string s = to_string(x);
     if (shift == 0) {
         return s;
     }
-    if (shift > n / 2) {
+    if (shift > n) {
         reverse(s.begin(), s.end());
-    } else {
-        rotate(s.rbegin(), s.rbegin() + shift, s.rend());
+        return s;
     }
+    reverse(s.begin(), s.end());
+    reverse(s.begin(), s.begin() + shift);
+    reverse(s.begin() + shift, s.end());
     return s;
 }
