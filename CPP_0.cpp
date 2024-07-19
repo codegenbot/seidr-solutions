@@ -1,9 +1,13 @@
 #include <vector>
+#include <cassert>
+#include <cmath>
 
-bool std::has_close_elements(const std::vector<float> &a) {
-    for (size_t i = 0; i < a.size() - 1; i++) {
-        if (std::abs(a[i] - a[i + 1]) < 0.1) {
-            return true;
+bool has_close_elements(std::vector<float> a, float threshold) {
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = i + 1; j < a.size(); j++) {
+            if (std::abs(a[i] - a[j]) <= threshold) {
+                return true;
+            }
         }
     }
     return false;
@@ -11,4 +15,6 @@ bool std::has_close_elements(const std::vector<float> &a) {
 
 int main() {
     std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
+    return 0;
 }
