@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,7 +16,7 @@ vector<string> select_words(string s, int n) {
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (vowel_count <= n) {
+                if (static_cast<unsigned>(vowel_count) <= n) {
                     result.push_back(word);
                     word = "";
                 }
@@ -27,7 +26,7 @@ vector<string> select_words(string s, int n) {
         }
     }
     if (!word.empty() && word.find_first_of("aeiouAEIOU") != string::npos &&
-        (unsigned)(word.length() - 1 - word.find_first_of("aeiouAEIOU")) <= n) {
+        (static_cast<unsigned>(word.length() - 1 - word.find_first_of("aeiouAEIOU"))) <= n) {
         result.push_back(word);
     }
     return result;
