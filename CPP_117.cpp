@@ -8,25 +8,12 @@ using namespace std;
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
+    stringstream ss(s);
+    while (ss >> word) {
         words.push_back(word);
     }
-    
-    if (n >= words.size()) {
-        return {};
-    }
-    
-    return vector<string>(words.begin() + n, words.end());
+    words.erase(words.begin() + n);
+    return words;
 }
 
 bool issame(vector<string> a, vector<string> b) {
