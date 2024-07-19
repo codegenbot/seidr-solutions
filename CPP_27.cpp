@@ -21,6 +21,8 @@ std::string flip_case(const std::string& str) {
 int main() {
     std::string input = "These violent delights have violent ends";
     std::cout << "Computed output: " << flip_case(input) << std::endl;
-    assert(flip_case(input) == "these violent delights have violent ends");
-    return 0;
+    if(flip_case(input).compare(std::string("these violent delights have violent ends")) == 0)
+        return 0;
+    else
+        return 1;
 }
