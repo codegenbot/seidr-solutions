@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -28,4 +28,5 @@ int main() {
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
+    return 0;
 }

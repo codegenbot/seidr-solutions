@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,8 +19,4 @@ bool match_parens(const std::vector<std::string>& lst) {
     return result;
 }
 
-int main() {
-    bool result = match_parens({"(", ")"});
-    std::cout << (result ? "Yes\n" : "No\n");
-    return 0;
-}
+std::cout << (match_parens({"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"}) ? "Yes\n" : "No\n");
