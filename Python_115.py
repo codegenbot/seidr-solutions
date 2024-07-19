@@ -3,5 +3,5 @@ import math
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
     cells_needed = math.ceil(total_water / capacity)
-    additional_cells = max(0, cells_needed * len(grid[0]) - total_water)
+    additional_cells = max(0, cells_needed - total_water) * len(grid[0])
     return additional_cells
