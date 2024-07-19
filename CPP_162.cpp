@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 #include <openssl/evp.h>
+#include <sstream>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -8,24 +10,30 @@ std::string string_to_md5(const std::string& text) {
     }
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.size());
+    if (!mdctx) {
+        return "Error creating MD context";
+    }
+
+    if (!EVP_DigestInit_ex(mdctx, EVP_md5(), NULL)) {
+        return "Error initializing MD context";
+    }
+
+    if (!EVP_DigestUpdate(mdctx, text.c_str(), text.size())) {
+        return "Error updating MD context";
+    }
 
     unsigned char md_value[EVP_MAX_MD_SIZE];
     unsigned int md_len;
 
-    EVP_DigestFinal_ex(mdctx, md_value, &md_len);
+    if (!EVP_DigestFinal_ex(mdctx, md_value, &md_len)) {
+        return "Error finalizing MD context";
+    }
     EVP_MD_CTX_free(mdctx);
 
-    char mdString[33];
+    std::stringstream ss;
     for (unsigned int i = 0; i < md_len; i++) {
-        snprintf(&mdString[i*2], 3, "%02x", (unsigned int)md_value[i]);
+        ss << std::hex << static_cast<unsigned int>(md_value[i]);
     }
 
-    return std::string(mdString);
-}
-
-int main() {
-    std::cout << (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99") << std::endl;
-    return 0;
+    return ss.str();
 }
