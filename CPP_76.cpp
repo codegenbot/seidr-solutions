@@ -1,8 +1,11 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if(x == 0) return false;
+    if(x == 1) return true;
+    
+    int power = 0;
+    while(pow(n,power) <= x){
+        if(pow(n,power) == x)
+            return true;
+        power++;
     }
-    
-    double result = pow(x, 1.0/n);
-    
-    return (result == (int)result);
+    return false;
 }
