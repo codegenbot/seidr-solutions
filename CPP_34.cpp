@@ -1,7 +1,7 @@
 #include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    vector<int> l = a;
+    sort(l.begin(), l.end());
+    l = vector<int>(l.begin(), unique(l.begin(), l.end()));
+    return l;
 }
