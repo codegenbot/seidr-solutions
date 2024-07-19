@@ -20,7 +20,7 @@ map<char, int> histogram(string test) {
     }
     
     int maxFreq = 0;
-    for lconst auto& pair : freq) {
+    for (const auto& pair : freq) {
         maxFreq = max(maxFreq, pair.second);
     }
     
