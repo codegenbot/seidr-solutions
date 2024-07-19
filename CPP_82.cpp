@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-bool prime_length(std::string str){
+bool prime_length(const std::string& str){
     int len = static_cast<int>(str.length());
     bool isPrime = false;
 
@@ -21,7 +22,7 @@ bool prime_length(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str; 
+    std::getline(std::cin, str);
     bool isPrime = prime_length(str);
 
     if(isPrime) {
