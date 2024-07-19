@@ -18,6 +18,5 @@ string rounded_avg(int n, int m) {
             result.push_back('0');
         average >>= 1;
     }
-    reverse(result.begin(), result.end()); 
+    reverse(result.begin(), result.end());
     return result;
-}
