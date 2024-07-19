@@ -1,20 +1,16 @@
-```cpp
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 
 bool any_int(float a, float b, float c) {
-    if (std::floor(a) == a || std::floor(b) == b || std::floor(c) == c)
-        return true;
-    else
-        return false;
+    return (a == (int)a) && (b == (int)b) && (c == (int)c);
 }
 
 int main() {
     float a, b, c;
     std::cin >> a >> b >> c;
     if(any_int(a, b, c))
-        std::cout << "The numbers are integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << std::endl;
+        std::cout << "The numbers are integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
     else
-        std::cout << "The numbers are not integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << std::endl;
+        std::cout << "The numbers are not integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
     return 0;
 }
