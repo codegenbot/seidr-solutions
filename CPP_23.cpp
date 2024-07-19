@@ -1,7 +1,7 @@
 #include <cstring>
 
-// Function: int strLength(const std::string& str)
-// Task: Return the length of the input string.
-int strLength(const std::string& str) {
-    return str.length();
+int main(){
+    assert(strlen("asdasnakj") == 9);
+    // Add more code here if needed
+    return 0;
 }
