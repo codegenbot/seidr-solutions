@@ -10,19 +10,17 @@ T compare_one(const boost::any& a, const boost::any& b) {
             return boost::any_cast<T>(b);
         }
     }
-    throw std::invalid_argument("Invalid types or values");
+    throw std::invalid_argument("Invalid types");
 }
 
 int main() {
-    // Example usage
-    boost::any a = 5;
-    boost::any b = 10;
+    boost::any a = 10;
+    boost::any b = 20;
+    
     try {
         int result = compare_one<int>(a, b);
-        // Do something with the result
+        return result;
     } catch (const std::invalid_argument& e) {
-        // Handle the exception
+        return 0;
     }
-
-    return 0;
 }
