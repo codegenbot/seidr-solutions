@@ -1,18 +1,18 @@
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+vector<float> get_positive(vector<float> l);
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
 
 int main() {
-    std::vector<float> vec1 = {1.1, 2.3, 4.5, -3.2};
-    std::vector<float> vec2 = {1.1, 2.3};
-
-    if (issame(vec1, vec2)) {
-        std::cout << "Vectors are the same." << std::endl;
-    } else {
-        std::cout << "Vectors are different." << std::endl;
-    }
-
+    // Call get_positive function here
     return 0;
 }
