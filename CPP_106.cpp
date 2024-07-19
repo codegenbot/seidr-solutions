@@ -32,3 +32,8 @@ std::vector<int> f(int n){
     }
     return result;
 }
+
+int main() {
+    // Add your test cases here to check the functions
+    return 0;
+}
