@@ -1,22 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> 
 using namespace std;
-
-int count(int i) {
-    int c = 0;
-    for (int j : lst) {
-        if (j == i)
-            c++;
-    }
-    return c;
-}
 
 int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && i >= count(i)) {
+        if (i > 0 && i >= count(lst.begin(), lst.end(), i)) {
             max = i;
         }
     }
