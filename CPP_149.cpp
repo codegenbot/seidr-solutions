@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -34,7 +34,7 @@ std::vector<std::vector<std::string>> sorted_list_sum(const std::vector<std::str
     return result;
 }
 
-int main() {
+int newMain() { 
     std::vector<std::string> lst;
     std::string str;
     std::cout << "Enter strings (enter 'stop' to finish): ";
@@ -44,6 +44,9 @@ int main() {
         lst.push_back(str);
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
-    assert(issame(sorted_list_sum(lst), expected));
+    assert(issame(expected, {{std::string("cc"), {std::string{"cc"}}}, 
+                             {{std::string("dd"), {std::string{"dd"}}}, 
+                             {{std::string("aaaa"), {std::string{"aaaa"}}}, 
+                             {{std::string("bbbb"), {std::string{"bbbb"}}}}}));
     return 0;
 }
