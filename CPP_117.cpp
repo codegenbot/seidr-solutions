@@ -2,27 +2,28 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 int main() {
-    string s;
-    int n;
-    cin >> s >> n;
-
+    string s = "apple banana cherry";
+    int n = 2;
+    
+    vector<string> expected = {"cherry"};
     vector<string> result = select_words(s, n);
-    vector<string> expected = {"example", "code"};
-
+    
     if (issame(result, expected)) {
-        cout << "Result matches the expected output." << endl;
+        cout << "Output is correct" << endl;
     } else {
-        cout << "Result does not match the expected output." << endl;
+        cout << "Output is incorrect" << endl;
     }
-
+    
     return 0;
 }
