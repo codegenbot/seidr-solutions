@@ -1,3 +1,14 @@
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix) {
     vector<vector<string>> result;
     for (string s : strings) {
@@ -10,12 +21,4 @@ vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix) {
         }
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
 }
