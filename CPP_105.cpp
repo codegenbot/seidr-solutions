@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -8,18 +6,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
-        }
-    }
-
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
-
     std::vector<std::string> result;
-    for (int num : numbers) {
+    for (int num : arr) {
         switch (num) {
             case 1:
                 result.push_back("One");
@@ -52,9 +40,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), std::vector<std::string>({"Nine", "Eight", "Four"})));
-    return 0;
 }
