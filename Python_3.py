@@ -5,4 +5,4 @@ def get_integer_input(prompt):
         except ValueError:
             print("Please enter a valid integer.")
 
-operations = [get_integer_input(f"Enter operation {i+1}: \n") for i in range(3)]
+operations = [get_integer_input(f"Enter operation number {i+1} (1 for addition, 2 for subtraction, 3 for multiplication): ") for i in range(3)]
