@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -7,25 +5,23 @@ int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
-        return -1; // or any other value that represents "None"
+        return -1; 
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] < sorted[i + 1])
             return sorted[i + 1];
     }
-    return -1; // or any other value that represents "None"
+    return -1; 
 }
 
 int main() {
     vector<int> lst;
     int num;
-    std::string str;
-    while(std::cin >> str) {
-        lst.push_back(stoi(str));
+    while (true) {
+        cin >> num;
+        lst.push_back(num);
+        if (!cin || num == -1)
+            break;
     }
-    if(lst.size()>0) {
-        std::cout << next_smallest(lst) << std::endl;
-    } else {
-        std::cout << -1 << std::endl;
-    }
+    cout << next_smallest(lst); // pass the variable 'lst' here
     return 0;
 }
