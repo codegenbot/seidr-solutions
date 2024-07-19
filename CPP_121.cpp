@@ -6,12 +6,12 @@ int originalMain() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<long long> numbers;  
+    std::vector<std::string> numbers;  
     for (size_t i = 0; i < n; i++) {
         long long num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers.push_back(num);
+        numbers.push_back(std::to_string(static_cast<long long>(num)));
     }
     
     if(numbers.empty()) { 
@@ -21,11 +21,11 @@ int originalMain() {
     }
 }
 
-int solution(std::vector<long long> numbers) {
+int solution(std::vector<std::string> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
-        if (numbers[i] % 2 != 0) {
-            sum += numbers[i];
+        if (stoi(numbers[i]) % 2 != 0) {
+            sum += stoi(numbers[i]);
         }
     }
     return sum;
