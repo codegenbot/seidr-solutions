@@ -13,7 +13,13 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> numbers = {2, 3, 2, 2, 4, 4, 4, 4};
+    int n;
+    std::cin >> n;
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> numbers[i];
+    }
+    
     std::cout << search(numbers) << std::endl;
     
     return 0;
