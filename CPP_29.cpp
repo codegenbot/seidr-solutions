@@ -1,13 +1,10 @@
+```cpp
 #include <string>
 #include <vector>
 
-bool issame(const std::vector<std::string>& a) {
-    if (a.empty()) return false;
-    size_t prefix_size = a[0].size();
-    for (size_t i = 0; i < prefix_size; ++i) {
-        for (const auto& str : a) {
-            if (str[i] != a[0][i]) return false;
-        }
+bool issame(const std::vector<std::string>& a, const std::string& prefix) {
+    for (const auto& str : a) {
+        if (!str.startsWith(prefix)) return false;
     }
     return true;
 }
@@ -19,12 +16,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         while (start < str.size()) {
             size_t end = str.find(' ', start);
             if (end == std::string::npos) {
-                if (!issame(std::vector<std::string>{{str.substr(start)}})) {
+                if (!issame(std::vector<std::string>{{str.substr(start)}} , prefix)) {
                     result.push_back(str.substr(start));
                 }
                 break;
             }
-            if (!issame(std::vector<std::string>{{str.substr(start, end - start)}})) {
+            if (!issame(std::vector<std::string>{{str.substr(start, end - start)}} , prefix)) {
                 result.push_back(str.substr(start, end - start));
             }
             start = end + 1;
@@ -40,5 +37,5 @@ int main() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx")) == true);
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), "xxx") == true);
 }
