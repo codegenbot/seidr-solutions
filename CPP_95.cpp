@@ -3,7 +3,17 @@
 #include <cctype>
 #include <cassert>
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+bool check_dict_case() {
+    std::map<std::string, std::string> dict;
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        std::string key, value;
+        cin >> key >> value;
+        dict[key] = value;
+    }
+
     if (dict.empty()) return false;
 
     bool allLower = true;
@@ -25,6 +35,6 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    assert(check_dict_case());
     return 0;
 }
