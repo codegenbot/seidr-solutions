@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool isSameVectors(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -12,8 +12,8 @@ bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& t) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(const string& s, const string& t) {
+    vector<string> result;
     for(int i = 0; i < s.size(); i++) {
         bool found = false;
         for(int j = 0; j < t.size(); j++) {
@@ -31,19 +31,19 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
-    std::string s, t;
-    std::cout << "Enter the first string: ";
-    std::cin >> s;
-    std::cout << "Enter the second string: ";
-    std::cin >> t;
+    string s, t;
+    cout << "Enter the first string: ";
+    cin >> s;
+    cout << "Enter the second string: ";
+    cin >> t;
     if(isSameVectors({s}, {t})) {
-        std::vector<std::string> res = reverse_delete(s, t);
+        vector<string> res = reverse_delete(s, t);
         for(auto str : res) {
-            std::cout << str << " ";
+            cout << str << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     } else {
-        std::cout << "Strings are not the same." << std::endl;
+        cout << "Strings are not the same." << endl;
     }
     return 0;
 }
