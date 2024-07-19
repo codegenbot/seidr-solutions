@@ -1,0 +1,17 @@
+vector<float> even_values;
+    for (unsigned int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            even_values.push_back(l[i]);
+        }
+    }
+    sort(even_values.begin(), even_values.end());
+    
+    for (unsigned int i = 0, j = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            l[i] = even_values[j];
+            j++;
+        }
+    }
+
+    return l;
+}
