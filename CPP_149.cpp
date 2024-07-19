@@ -1,9 +1,5 @@
-```c++
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
