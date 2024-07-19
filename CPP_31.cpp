@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cassert>
-#include <string>
 
 bool is_prime(int n) {
     if (n <= 1) {
@@ -17,11 +16,10 @@ bool is_prime(int n) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    int n = std::stoi(input);
+    int n = 0;
+    std::cin >> n; 
     if (!is_prime(n)) {
-        std::cout << "The number is not prime. Please enter a valid integer." << std::endl;
+        std::cout << "The number is not prime." << std::endl;
     } else {
         std::cout << "The number is prime." << std::endl;
     }
