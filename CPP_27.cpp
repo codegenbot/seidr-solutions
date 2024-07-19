@@ -4,7 +4,7 @@
 #include <cctype>
 
 std::string flip_case(const std::string& str) {
-    std::string result = "";  
+    std::string result;  
     for (char c : str) {
         if (std::isupper(c)) {
             result += std::tolower(c);
