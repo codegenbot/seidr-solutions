@@ -1,18 +1,5 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
+```cpp
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
-bool my_is_same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -44,10 +31,10 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
-int main_secondary() {
+int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    assert(my_is_same(order_by_points(nums), {4, -21, 0, 6, 6, 23, -76}));
-    for (int num : order_by_points(nums)) {
+    std::vector<int> result = order_by_points(nums);
+    for (int num : result) {
         std::cout << num << " ";
     }
     return 0;
