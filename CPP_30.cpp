@@ -13,10 +13,10 @@ std::vector<float> extract_positives(std::vector<float> numbers) {
 
 int main() {
     std::vector<float> numbers = {-1.0, 0.0, 1.0};
-    std::cout << "[";
-    for(float number : extract_positives(numbers)) {
+    auto result = extract_positives(numbers);
+    for (float number : result) {
         std::cout << number << " ";
     }
-    std::cout << "]" << std::endl;
+    std::cout << std::endl;
     return 0;
 }
