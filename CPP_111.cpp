@@ -33,9 +33,3 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
         if(it == b.end() || it->second != p.second) return false;
     }
     return true;
-}
-
-int main() {
-    cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
-    return 0;
-}
