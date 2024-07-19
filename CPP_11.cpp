@@ -1,10 +1,13 @@
+Here is the solution:
+
 string string_xor(string a, string b) {
-    string result = "";
-    for(int i=0; i<a.length(); i++) {
-        if(a[i] == '1' && b[i] == '1' || a[i] == '0' && b[i] == '0')
-            result += '0';
-        else
-            result += '1';
+    int result = 0;
+    for (int i = 0; i < a.length(); i++) {
+        if ((a[i] - '0') ^ (b[i] - '0')) {
+            result ^= 1;
+        }
     }
-    return result;
+    ostringstream oss;
+    oss << hex << setfill('0') << setw(2) << result;
+    return oss.str();
 }
