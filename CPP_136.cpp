@@ -1,33 +1,22 @@
-#include <iostream>
-#include <vector>
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> largest_smallest_integers(std::vector<int> lst);
-
-int main() {
-    if (issame(std::vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1}))) {
-        std::cout << "The output is correct." << std::endl;
-    } else {
-        std::cout << "The output is incorrect." << std::endl;
-    }
-    return 0;
-}
-
-std::vector<int> largest_smallest_integers(std::vector<int> lst) {
-    int largest_negative = 0;
-    int smallest_positive = 0;
-
-    for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
+vector<int> largest_smallest_integers(vector<int> lst){
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
+    
+    for(int num : lst){
+        if(num < 0 && num > largest_negative){
             largest_negative = num;
         }
-        if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
+        if(num > 0 && num < smallest_positive){
             smallest_positive = num;
         }
     }
+    
+    return {largest_negative == INT_MIN ? 0 : largest_negative, smallest_positive == INT_MAX ? 0 : smallest_positive};
+}
 
-    return {largest_negative, smallest_positive};
+int main() {
+    bool same = issame(vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1}));
+    return 0;
 }
