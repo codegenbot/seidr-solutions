@@ -16,3 +16,10 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
 
     return std::vector<int>{sum, product};
 }
+
+int main() {
+    using namespace std;
+    
+    assert(issame(sum_product({10}), {10, 10}));
+    return 0;
+}
