@@ -7,7 +7,7 @@
 vector<int> filter_integers(list<any> values);
 
 bool issame(vector<int> a, vector<int> b) {
-    // Function implementation
+    return a == b;
 }
 
 vector<int> filter_integers(list<any> values){
