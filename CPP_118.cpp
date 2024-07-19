@@ -25,8 +25,3 @@ string get_closest_vowel(string word){
     
     return closest_vowel == ' ' ? "" : string(1, closest_vowel);
 }
-
-int main() {
-    cout << get_closest_vowel("Above") << endl;
-    return 0;
-}
