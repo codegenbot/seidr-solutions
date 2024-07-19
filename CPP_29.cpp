@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    if (a.size() != 1 || !a[0].compare(0, a[0].size(), b)) {
+    if (a.size() != 1 || b != a[0]) {
         return false;
     }
     return true;
