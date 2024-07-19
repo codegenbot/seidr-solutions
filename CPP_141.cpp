@@ -2,10 +2,11 @@
 #include <string>
 #include <cassert>
 
-// Function declaration
-std::string file_name_check(std::string file_name);
+using namespace std;
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name);
+
+string file_name_check(string file_name) {
     int digit_count = 0;
     int dot_count = 0;
     int dot_index = -1;
@@ -23,7 +24,7 @@ std::string file_name_check(std::string file_name) {
         return "No";
     }
     
-    std::string extension = file_name.substr(dot_index + 1);
+    string extension = file_name.substr(dot_index + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
