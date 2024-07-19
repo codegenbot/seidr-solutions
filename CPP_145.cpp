@@ -1,6 +1,10 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool issame(const vector<int> &a, const vector<int> &b);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
 
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
@@ -22,6 +26,7 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-bool issame(const vector<int> &a, const vector<int> &b) {
-    return a == b;
+int main() {
+    // Main function code here
+    return 0;
 }
