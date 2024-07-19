@@ -4,7 +4,7 @@ while True:
         user_input = input().strip()
         if not user_input:
             break
-        input_list = [int(num) for num in user_input.split()]
+        input_list = list(map(int, user_input.split()))
         even_sum = sum(num for num in input_list if num % 2 == 0)
         print(even_sum)
     except ValueError:
