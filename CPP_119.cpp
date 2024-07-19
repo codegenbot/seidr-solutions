@@ -21,7 +21,8 @@ int main() {
     std::vector<std::string> lst;
     std::cout << "Enter strings separated by spaces: ";
     for(std::string s; std::getline(std::cin, s);)
-        if (!s.empty()) lst.push_back(s);
+        if (s.empty()) break;
+        lst.push_back(s);
     bool result = match_parens(lst);
 
     if (result) {
