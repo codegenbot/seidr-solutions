@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
@@ -13,6 +13,6 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(std::issame(sort_array({2, 4, 8, 16, 32}), std::vector<int>({2, 4, 8, 16, 32})));
+    assert(issame(sort_array({2, 4, 8, 16, 32}), std::vector<int>({2, 4, 8, 16, 32})));
     return 0;
 }
