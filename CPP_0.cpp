@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 #include <cmath>
 
 bool has_close_elements(const std::vector<float>& a) {
@@ -13,11 +14,6 @@ bool has_close_elements(const std::vector<float>& a) {
 std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if (has_close_elements(a)) {
-        std::cout << "Close elements exist." << std::endl;
-    } else {
-        std::cout << "No close elements found." << std::endl;
-    }
+    assert(has_close_elements(a) == false);
     return 0;
 }
