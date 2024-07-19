@@ -1,2 +1,3 @@
-def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:]))).replace("0b", "")
+def binary_sum(N):
+    total = sum(int(i) for i in str(N))
+    return bin(total)[2:]
