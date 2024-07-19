@@ -3,40 +3,28 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> nextSmallest(std::vector<int>& nums) {
-    for (int i = 0; i < nums.size() - 1; i++) {
-        if (nums[i] != nums[i + 1]) return {nums[i]};
+int next_smallest(vector<int> lst) {
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    if (sorted.size() < 2)
+        return -1; // or any other value that represents "None"
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] < sorted[i + 1])
+            return sorted[i + 1];
     }
-    return {-1};
+    return -1; // or any other value that represents "None"
 }
 
 int main() {
     std::vector<int> lst;
-    int n;
-
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-
-    if (n > 0) {
-        for(int i = 0; i < n; i++){
-            int x;
-            std::cout << "Enter integer: ";
-            std::cin >> x;
-            lst.push_back(x);
-        }
-
-        if(lst.size() >= 2) {
-            std::sort(lst.begin(), lst.end());
-            bool same = true;
-            for(int i = 0; i < lst.size() - 1; i++){
-                if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest number is: " << lst[i];
-                    return 0;
-                }
-            }
-            if(same) std::cout << "All numbers are the same.";
-        } else std::cout << "Please enter more than one number.";
-    } else std::cout << "Please enter a positive number.";
-
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    if(lst.size()>0) {
+        std::cout << next_smallest(lst) << std::endl;
+    } else {
+        std::cout << -1 << std::endl;
+    }
     return 0;
 }
