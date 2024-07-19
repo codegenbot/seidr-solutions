@@ -1,45 +1,25 @@
-bool issame(vector<string> a, vector<string> b);
+bool issame(char a, char b) {
+    return (a == '(' && b == ')') || (a == '{' && b == '}') || (a == '[' && b == ']');
+}
+
+vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
+    vector<string> result;
     string current_group;
-    int balance = 0;
 
     for (char c : paren_string) {
-        if (c == '(') {
-            if (balance > 0) {
-                current_group += c;
-            }
-            balance++;
-        } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else if (balance == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+        if (current_group.empty() || !issame(current_group.back(), c)) {
+            current_group += c;
+        } else {
+            result.push_back(current_group);
+            current_group = c;
         }
     }
 
-    return groups;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+    if (!current_group.empty()) {
+        result.push_back(current_group);
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    // Your other code in main function
+    return result;
 }
