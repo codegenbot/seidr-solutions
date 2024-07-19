@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
@@ -14,7 +15,7 @@ std::string string_to_md5(std::string input) {
     for (int i = 0; i < 16; i++) {
         char temp[3];
         sprintf(temp, "%02x", result[i]);
-        output += temp;
+        output.insert(0, temp);
     }
 
     return output;
