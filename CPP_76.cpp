@@ -1,8 +1,8 @@
-```cpp
-bool is_simple_power(int x, int n) {
-    return pow(n, log(x) / log(n)) == x;
-}
+#include <cmath>
 
-int main() {
-    assert(is_simple_power(1, 12) == true);
+using namespace std;
+
+bool is_simple_power(int x, int n) {
+    double log_val = log(x) / log(n);
+    return round(log_val) == log_val;
 }
