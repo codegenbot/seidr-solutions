@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -54,13 +53,13 @@ int main() {
         grades.push_back(grade);
     }
     
-    if (grades.size() == 0) {
-        cout << "No grades entered." << endl;
-    } else {
+    if (!isSame({},{}) && !grades.empty()) {
         vector<string> result = numerical_letter_grade(grades);
         for (int i = 0; i < result.size(); ++i) {
             cout << "Grade " << i+1 << ": " << result[i] << endl;
         }
+    } else {
+        cout << "No grades entered." << endl;
     }
     return 0;
 }
