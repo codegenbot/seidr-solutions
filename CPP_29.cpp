@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -9,15 +8,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::vector<std::string>> strings, std::string prefix) {
-    std::vector<std::string> result;
+std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<std::string>> strings, std::string prefix) {
+    std::vector<std::vector<std::string>> result;
     for (const auto& s : strings) {
         if (s[0].find(prefix) == 0) {
-            std::string temp = prefix;
+            result.push_back({prefix});
             for(int i = prefix.size(); i < s[0].size(); i++) {
-                temp += s[0][i];
+                result.back().push_back(std::string(1, s[0][i]));
             }
-            result.push_back(temp);
         }
     }
     return result;
