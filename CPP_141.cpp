@@ -1,8 +1,5 @@
-#include <iostream>
 #include <string>
 #include <cassert>
-
-using namespace std;
 
 string file_name_check(string file_name) {
     int dotPos = file_name.find(".");
@@ -33,11 +30,4 @@ string file_name_check(string file_name) {
     }
 
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    // Add more assert statements as needed
-
-    return 0;
 }
