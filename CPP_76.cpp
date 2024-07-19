@@ -1,6 +1,7 @@
 if (x <= 0 || n <= 0) {
         return false;
     }
-    double power = log(x) / log(n);
-    return (power == (int)power);
+
+    double root = pow(x, 1.0 / n);
+    return (pow(round(root), n) == x);
 }
