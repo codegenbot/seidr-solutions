@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <sstream>
+#include <algorithm>
+
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool are_same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -24,7 +25,7 @@ vector<string> select_words(string s, int n) {
 int main() {
     vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
 
-    assert(issame(result, {"world", "contest"}));
+    assert(are_same(result, {"world", "contest"}));
 
     for (const string& word : result) {
         cout << word << endl;
