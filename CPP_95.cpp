@@ -1,7 +1,6 @@
+```cpp
 #include <string>
 #include <map>
-
-using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -25,6 +24,7 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // add your code here
+    // Add your code here to populate the dictionary
+    bool result = check_dict_case(dict);
     return 0;
 }
