@@ -1,6 +1,5 @@
 #include <cassert>
 #include <vector>
-#include <algorithm>
 
 std::vector<double> find_closest_elements(const std::vector<double>& nums) {
     std::vector<double> result(nums.begin() + 1, nums.begin() + 3);
