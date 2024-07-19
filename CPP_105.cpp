@@ -26,7 +26,6 @@ std::vector<std::string> by_length(std::vector<int> arr){
 
 int main(){
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    // Add more test cases if needed
     std::cout << "All test cases passed successfully." << std::endl;
     return 0;
 }
