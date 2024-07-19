@@ -12,7 +12,7 @@ bool move_one_ball(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> balls = std::vector<int>{};
-    bool result = move_one_ball(balls);
+    std::vector<int> test_vector = std::vector<int>{};
+    bool result = move_one_ball(test_vector);
     return 0;
 }
