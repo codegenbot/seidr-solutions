@@ -4,16 +4,10 @@ bool is_happy(const std::string s) {
     }
     
     for (int i = 0; i < static_cast<int>(s.length()) - 2; ++i) {
-        if (s[i] == s[i] || s[i] == s[i] || s[i] == s[i]) {
+        if (s[i] == s[i + 1] || s[i] == s[i + 2] || s[i + 1] == s[i + 2]) {
             return false;
         }
     }
     
     return true;
-}
-
-int main() {
-    assert(is_happy("iopaxioi") == false);
-    // Add more test cases here
-    return 0;
 }
