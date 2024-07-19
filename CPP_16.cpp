@@ -1,18 +1,16 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <string>
 
 int count_distinct_characters(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
     std::sort(str.begin(), str.end());
-    return std::distance(str.begin(), std::unique(str.begin(), str.end()));
+    str.erase(std::unique(str.begin(), str.end()), str.end());
+    return str.size();
 }
 
 int main() {
-    std::string input_str;
-    std::cin >> input_str;
-    
-    std::cout << count_distinct_characters(input_str);
-    
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    // Add more test cases if needed
     return 0;
 }
