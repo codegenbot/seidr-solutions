@@ -1,10 +1,11 @@
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' ' && (i == 0 || text[i-1] != ' ') && (i == text.length() - 1 || text[i+1] != ' ')){
-            result += '_';
-        } else if(i > 0 && text[i] == ' ' && text[i-1] == ' '){
-            result += '-';
+    for(int i = 0; i < text.length(); i++) {
+        if(text[i] == ' ') {
+            if(i+1 < text.length() && text[i+1] == ' ' && text.find(' ', i+2) - i <= 2)
+                continue;
+            else
+                result += (i > 0)? "_": "";
         } else {
             result += text[i];
         }
