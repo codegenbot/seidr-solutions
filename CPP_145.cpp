@@ -1,8 +1,7 @@
 #include <algorithm>
-#include <vector>
 #include <cassert>
 
-std::vector<int> order_by_points(std::vector<int> nums) {
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -23,6 +22,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
-    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == std::vector<int>{-76, -21, 0, 4, 23, 6, 6});
+    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
     return 0;
 }
