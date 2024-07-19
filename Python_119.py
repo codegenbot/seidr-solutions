@@ -1,11 +1,2 @@
 def match_parens(lst):
-    count = 0
-    for s in lst:
-        for char in s:
-            if char == '(':
-                count += 1
-            else:
-                if count == 0:
-                    return 'No'
-                count -= 1
-    return 'Yes'
+    return 'Yes' if abs(lst[0].count('(') - lst[0].count(')')) <= 1 and abs(lst[1].count('(') - lst[1].count(')')) <= 1 else 'No'
