@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -42,4 +41,5 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
-}
+
+#include <algorithm>
