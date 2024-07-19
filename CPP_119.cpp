@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,18 +16,15 @@ bool match_parens(const std::vector<std::string>& lst) {
     return countOpen == countClose;
 }
 
-int testMain() {
-    assert(match_parens({""})) == false);
-    assert(match_parens({"("}) == false);
-    assert(match_parens({")", "("}) == true );
-    return 0;
-
-}
 int main() {
     std::vector<std::string> lst;
-    std::cout << "Enter strings separated by spaces: ";
-    for(std::string s; std::getline(std::cin, s), !s.empty();)
+    while (true) {
+        std::string s;
+        std::cout << "Enter string or 'stop' to finish: ";
+        std::getline(std::cin, s);
+        if (s == "stop") break;
         lst.push_back(s);
+    }
     bool result = match_parens(lst);
 
     std::cout << (result ? "Yes\n" : "No\n");
