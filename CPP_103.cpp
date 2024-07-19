@@ -21,11 +21,6 @@ std::string calculateBinary(int n, int m) {
     return binary;
 }
 
-int main_original() {
-    assert(calculateBinary(5, 5) == "101");
-    return 0;
-}
-
 int main() {
     assert(calculateBinary(5, 5) == "101");
     return 0;
