@@ -1,14 +1,9 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0)
-        return false;
-    char lastChar = txt.back();
-    for(int i = 0; i < txt.length(); i++){
-        if(txt[i] != ' ' && txt[i] == lastChar){
-            return false;
-        }
-    }
-    if(isalpha(lastChar))
-        return true;
+Here is the completed code:
+
+bool check_if_last_char_is_a_letter(string txt) {
+    size_t last_space = txt.rfind(' ');
+    if (last_space == string::npos || last_space == txt.size() - 1)
+        return isalpha(txt.back());
     else
         return false;
 }
