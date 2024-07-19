@@ -5,6 +5,14 @@ vector<int> sort_third(vector<int> l) {
     return l;
 }
 
-bool operator==(const vector<int>& lhs, const vector<int>& rhs) {
-    return lhs == rhs;
+bool operator==(const vector<int>& l1, const vector<int>& l2) {
+    if (l1.size() != l2.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < l1.size(); ++i) {
+        if (l1[i] != l2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
