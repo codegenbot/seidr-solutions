@@ -1,9 +1,6 @@
+```c++
 #include <vector>
 #include <initializer_list>
-
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
-}
 
 std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
@@ -26,5 +23,6 @@ int main() {
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
+    std::vector<int>(game, game) == gameCompare(game, guess);
     return 0;
 }
