@@ -10,7 +10,7 @@ T compare_one(const boost::any& a, const boost::any& b) {
             return boost::any_cast<T>(b);
         }
     }
-    return T{};
+    return T();
 }
 
 boost::any compare(const boost::any& a, const boost::any& b) {
@@ -19,7 +19,7 @@ boost::any compare(const boost::any& a, const boost::any& b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return compare_one<float>(a, b);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return compare_one<float>(a, b);
+        return compare_one<std::string>(a, b);
     }
-    return boost::any{};
+    return "None";
 }
