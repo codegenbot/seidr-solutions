@@ -1,19 +1,19 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
-    int i = 0;
+    bool spaceFound = false;
     for (char c : s) {
         if (c == ' ') {
-            while (i < s.length() && s[i] != ' ') {
-                result += s[i];
-                i++;
-            }
+            spaceFound = true;
             result += '.';
-            i++;
         } else {
+            if (!spaceFound) {
+                while (s.find(' ') != std::string::npos) {
+                    s.erase(0, 1);
+                }
+            }
             result += c;
         }
     }
@@ -21,6 +21,6 @@ std::string anti_shuffle(const std::string& s) {
 }
 
 int main() {
-    std::cout << anti_shuffle("Hi. My name is Mister Robot. How are you?") << std::endl;
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == "Hi. My name is Mister Robot. How are you?");
     return 0;
 }
