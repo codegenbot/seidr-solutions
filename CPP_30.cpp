@@ -1,20 +1,9 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
-
-vector<float> get_positive(vector<float> v) {
-    vector<float> pos_v;
-    for (float num : v) {
-        if (num >= 0) {
-            pos_v.push_back(num);
-        }
-    }
-    return pos_v;
-}
 
 int main() {
     vector<float> a;
