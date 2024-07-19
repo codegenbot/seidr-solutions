@@ -52,4 +52,4 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
 using namespace std;
 using namespace boost;
 
-assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
