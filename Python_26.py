@@ -1,5 +1,5 @@
 def find_unique_numbers(numbers):
-    return sorted(list(set(numbers))
+    return list(set(numbers))
 
 numbers = []
 while True:
