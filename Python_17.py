@@ -20,6 +20,6 @@ def parse_music(music_string: str) -> List[int]:
                 i += 1
         elif music_string[i] == '|':
             if i + 1 < len(music_string):
-                beats.append(notes.get('o|', 2))
-                i += 1
+                beats.append(notes['o|'])
+                i += 2
     return beats
