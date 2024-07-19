@@ -1,4 +1,3 @@
-```c
 #include <string>
 #include <vector>
 
@@ -41,5 +40,4 @@ int main() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx")) == true);
 }
