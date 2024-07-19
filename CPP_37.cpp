@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -29,7 +28,8 @@ int main() {
         try {
             input.push_back(val);
         } catch (...) {
-            std::cout << "Invalid input. Please enter a valid floating-point number." << std::endl;
+            // handle the error here
+            std::cout << "Invalid input. Exiting." << std::endl;
             return 1; 
         }
     }
@@ -43,7 +43,7 @@ int main() {
     for (float v : output) {
         std::cout << v << " ";
     }
-    if (!issame(output, input)) {
+    if (!issame(input, output)) {
         std::cout << "\nTest case failed";
     } else{
         std::cout << "\nTest case passed";
