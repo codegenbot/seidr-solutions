@@ -1,3 +1,4 @@
+```c++
 #include <cassert>
 
 int main() {
@@ -8,21 +9,7 @@ int main() {
     bool result = match_parens(lst);
 
     std::cout << (result ? "Yes\n" : "No\n");
-    assert(result == match_parens({")", "("}) );
+    assert(result == match_parens({")", "("}) ); 
 
     return 0;
-}
-
-bool match_parens(const std::vector<std::string>& lst) {
-    bool result = true;
-    int countOpen = 0, countClose = 0;
-
-    for (const auto& s : lst) {
-        for (char c : s) {
-            if (c == '(') countOpen++;
-            else if (c == ')') countClose++;
-        }
-    }
-
-    return countOpen == countClose;
 }
