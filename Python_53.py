@@ -9,7 +9,7 @@ while True:
     except (ValueError, KeyboardInterrupt):
         print("Please enter valid integers.")
     except Exception:
-        print("Program did not receive expected input.")
+        print("An error occurred. Please check your input.")
         break
     else:
         print(result)
