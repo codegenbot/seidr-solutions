@@ -16,5 +16,5 @@ def separate_paren_groups(paren_string):
     return result
 
 
-paren_string = input().strip()
+paren_string = input("Enter a string with parentheses: ").strip()
 print(separate_paren_groups(paren_string))
