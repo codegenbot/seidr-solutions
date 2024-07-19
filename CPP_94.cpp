@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime){
@@ -30,7 +30,7 @@ int sumOfDigits(int n){
 }
 
 int main(){
-    vector<int> lst = {127, 97, 8192};
+    std::vector<int> lst = {127, 97, 8192};
     int output = skjkasdkd(lst);
     std::cout << "Output: " << output;
     return 0;
