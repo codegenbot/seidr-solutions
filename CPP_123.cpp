@@ -27,12 +27,12 @@ std::vector<int> get_odd_collatz(int n) {
 int main() {
     int n;
     std::cin >> n;
-    
+
     std::vector<int> result = get_odd_collatz(n);
-    
+
     for (int num : result) {
         std::cout << num << " ";
     }
-    
+
     return 0;
 }
