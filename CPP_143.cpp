@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,12 +6,18 @@ std::vector<std::string> split(const std::string& str, char ch) {
     std::vector<std::string> tokens;
     std::string token = "";
 
-    for (int i = 0; i <= str.length(); ++i) {
-        if (str[i] == ch || i == str.length()) {
+    for (char c : str) {
+        if (!isascii(c)) {
+            // Convert non-ASCII characters to UTF-8 encoded surrogate pairs
+            token += "\\u";
+            token += std::hex;
+            token += static_cast<int>(c);
+            token += " ";
+        } else if (c == ch) {
             tokens.push_back(token);
             token = "";
         } else {
-            token += str[i];
+            token += c;
         }
     }
 
@@ -31,6 +36,10 @@ bool is_prime(int n) {
             return false;
     }
     return true;
+}
+
+bool isascii(char c) {
+    return static_cast<unsigned char>(c) <= 0x7F;
 }
 
 int main() {

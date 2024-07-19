@@ -24,5 +24,9 @@ int main() {
         std::cin >> num;
         numbers[i] = std::to_string(num);
     }
+    
+    for (size_t i = 0; i < n; i++) {
+        numbers[i] = "";
+    }
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
 }
