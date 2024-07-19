@@ -1,5 +1,6 @@
-```
+```cpp
 #include <cassert>
+#include <ostream>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
