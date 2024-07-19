@@ -1,5 +1,9 @@
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    copy_if(arr.begin(), arr.end(), result.begin(), greater<int>());
-    return vector<int>(result.begin(), result.begin() + k);
+vector<int> maximum(vector<int> arr,int k){
+    vector<int> res;
+    for(int i=0; i<k; i++){
+        auto it = std::max_element(arr.begin(), arr.end());
+        res.push_back(*it);
+        arr.erase(it);
+    }
+    return res;
 }
