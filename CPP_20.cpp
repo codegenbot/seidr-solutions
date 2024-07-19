@@ -15,7 +15,7 @@ int main() {
     // Create a vector of pairs of floats
     std::vector<std::pair<float, float>> numbers = {{1.0f, 2.0f}, {3.0f, 4.0f}, {2.0f, 3.0f}};
     
-    if (find_closest_elements(numbers) != (std::make_pair(std::make_pair(2.0f, 3.0f), 0.0f))) {
+    if (find_closest_elements(numbers) != ({{2.0f, 3.0f}, 0.0f})) {
         return 1;
     }
     

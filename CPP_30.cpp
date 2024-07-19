@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -14,7 +15,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> get_positive(const std::vector<float>& l) {
-    std::vector<float> result; // Initialize the vector
+    std::vector<float> result; 
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
