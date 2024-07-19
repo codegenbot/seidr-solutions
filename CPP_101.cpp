@@ -1,16 +1,4 @@
-#include<vector>
-#include<string>
-
-bool issame(vector<string> a,vector<string>b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i])return false;
-    }
-    return true;
-}
-
+```cpp
 vector<string> words_string(string s) {
     vector<string> result;
     string word = "";
@@ -30,16 +18,13 @@ vector<string> words_string(string s) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    vector<string> b_copy = b; 
+    sort(a.begin(), a.end());
+    sort(b_copy.begin(), b_copy.end());
+    return (a == b_copy);
+}
+
 int main() {
-    string s;
-    cout<<"Enter the string: ";
-    cin>>s;
-    vector<string> v = words_string(s);
-    for(auto x:v)cout<<x<<" ";
-    bool res=issame(words_string(s),v);
-    if(res)
-        cout<<"\nThe strings are same.\n";
-    else
-        cout<<"\nThe strings are not same.\n";
-    return 0;
+    assert(issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
 }
