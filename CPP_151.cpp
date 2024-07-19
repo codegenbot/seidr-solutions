@@ -13,18 +13,20 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; // declare and initialize lst
-    int odd_sum = 0; // declare and initialize odd_sum
+    vector<float> lst; 
+    int odd_sum = 0;
     
-    for (int i = 1; i <= 10; ++i) {
-        float f = (float)i / 2.5;
-        if (f > 3) {
-            lst.push_back(f);
-            odd_sum += i;
-        }
+    float num;
+    cout << "Enter numbers. Type 'stop' to finish input.\n";
+    while (true) {
+        cin >> num;
+        if (!cin || !std::isfinite(num)) break;
+        if (num > 0) odd_sum += num * num;
+        else if (num < 0) break;
+        lst.push_back(num);
     }
 
-    assert (double_the_difference(lst) == odd_sum );
+    assert(double_the_difference(lst) == odd_sum);
 
     return 0;
 }
