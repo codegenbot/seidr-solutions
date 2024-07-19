@@ -2,10 +2,19 @@
 #include <string>
 #include <cassert>
 #include <iostream>
+
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
