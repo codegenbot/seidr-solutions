@@ -1,25 +1,40 @@
 #include <boost/any.hpp>
+#include <string>
 #include <cassert>
 
-template <typename T, typename U>
-auto compare_one(T a, U b) {
-    assert(a.type() == b.type());
+boost::any compare_one(const boost::any& a, const boost::any& b) {
 
-    if (a.empty() || a.type() != typeid(std::string)) {
-        if (boost::any_cast<T>(a) > boost::any_cast<U>(b))
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
             return a;
-        else if (boost::any_cast<T>(a) < boost::any_cast<U>(b))
+        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
             return b;
-        else
-            return T{};
-    } else {
-        float a_float = std::stof(boost::any_cast<std::string>(a));
-        float b_float = std::stof(boost::any_cast<std::string>(b));
-        if (a_float > b_float)
-            return a;
-        else if (a_float < b_float)
-            return b;
-        else
-            return std::string{};
     }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+            return a;
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
+            return b;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b)))
+            return a;
+        else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b)))
+            return b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (std::to_string(boost::any_cast<int>(a)) > boost::any_cast<std::string>(b))
+            return a;
+        else if (std::to_string(boost::any_cast<int>(a)) < boost::any_cast<std::string>(b))
+            return b;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        if (boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<int>(b)))
+            return a;
+        else if (boost::any_cast<std::string>(a) < std::to_string(boost::any_cast<int>(b)))
+            return b;
+    }
+    
+    return "None";
 }
+```
