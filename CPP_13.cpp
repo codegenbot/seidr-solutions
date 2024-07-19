@@ -7,9 +7,5 @@ int greatest_common_divisor(int a, int b) {
     return greatest_common_divisor(b, a % b);
 }
 
-int main() {
-    int a, b;
-    std::cin >> a >> b;
-    std::cout << greatest_common_divisor(a, b);
-    return 0;
-}
+assert(greatest_common_divisor(144, 60) == 12);
+// Add more test cases if needed
