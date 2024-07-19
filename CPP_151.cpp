@@ -22,7 +22,7 @@ int main() {
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> num; 
-        if (!cin) break;
+        if (cin >> num && !cin.fail()) break;
         lst.push_back(num);
     }
     long long result = doubleTheDifference(lst);
