@@ -1,6 +1,7 @@
 #include <string>
+#include <assert.h>
 
-using namespace std;
+string int_to_mini_romank(int number);
 
 string int_to_mini_romank(int number){
     vector<pair<int, string>> roman_numerals = {
