@@ -22,7 +22,7 @@ std::string averageBinaryRepresentation(int n, int m) {
 }
 
 int main() {
-    // Input values for n and m
+    // Input n, m
     int n, m;
     std::cin >> n >> m;
     
