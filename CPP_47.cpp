@@ -1,6 +1,5 @@
-using namespace std;
-
-int calculateMedian(vector<float> v) {
+int calculateMedian(std::initializer_list<float> l) {
+    vector<float> v(l);
     sort(v.begin(), v.end());
     int n = v.size();
     if (n % 2 == 0)
