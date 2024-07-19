@@ -1,10 +1,10 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <utility>
 
 using namespace std;
 
-string int_to_mini_roman(int number) {
+string int_to_mini_romank(int number) {
     vector<pair<int, string>> romanMap = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
@@ -23,9 +23,6 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int number;
-    cin >> number;
-    cout << int_to_mini_roman(number) << endl;
-
+    // Your main function logic here
     return 0;
 }
