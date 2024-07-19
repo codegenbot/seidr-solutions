@@ -20,8 +20,11 @@ int main() {
         numbers.push_back(num);
     }
 
-    if (!numbers.empty())
+    if (!numbers.empty()) {
         std::cout << calculateMedian(numbers) << std::endl;
-
+    } else {
+        std::cout << "No median to display." << std::endl;
+    }
+    
     return 0;
 }
