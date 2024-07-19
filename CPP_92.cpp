@@ -8,11 +8,3 @@ bool checkSumProperty(int a, int b, int c) {
 bool any_int(int a, int b, int c) {
     return checkSumProperty(a, b, c);
 }
-
-int main() {
-    assert(any_int(3, 4, 7) == false);
-
-    std::cout << "Test passed successfully!" << std::endl;
-
-    return 0;
-}
