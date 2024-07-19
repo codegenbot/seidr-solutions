@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 int how_many_times(std::string str, std::string substring) {
     if (substring.empty()) {
@@ -15,8 +13,4 @@ int how_many_times(std::string str, std::string substring) {
     }
     
     return count;
-}
-
-int main() {
-    assert(how_many_times("john doe", "john") == 1);
 }
