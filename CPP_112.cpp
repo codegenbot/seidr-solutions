@@ -1,14 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if(a.size() != b.size())
+bool issame(const vector<string>& a, const vector<string>& vecB) {
+    if(a.size() != vecB.size())
         return false;
     for(int i = 0; i<a.size(); i++)
-        if(a[i] != b[i])
+        if(a[i] != vecB[i])
             return false;
     return true;
 }
