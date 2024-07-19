@@ -1,4 +1,4 @@
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
     int balance = 0;
@@ -23,5 +23,4 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-// Corrected function call
 issame(separate_paren_groups(paren_string), b);
