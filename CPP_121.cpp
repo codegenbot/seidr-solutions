@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,10 +25,7 @@ int main() {
         numbers.push_back(std::to_string(num));
     }
     
-    numbers.clear(); 
-    if(numbers.empty()) { 
-        std::cout << "Sum of odd elements: 0" << std::endl;
-    } else {
-        std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
-    }
+    int sum_of_odd_elements = solution(numbers);
+    
+    std::cout << "Sum of odd elements: " << sum_of_odd_elements << std::endl;
 }
