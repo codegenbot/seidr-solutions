@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool compare_vectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -17,7 +16,7 @@ bool compare_vectors(std::vector<float> a, std::vector<float> b) {
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
-        if (i > 0) {
+        if (i > 0 && !l.empty()) { 
             result.push_back(i);
         }
     }
@@ -25,7 +24,6 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main_func() {
-    std::vector<float> input;
-    assert(compare_vectors(get_positive(input), {}));
+    assert(compare_vectors(get_positive({1}), {1}));
     return 0;
 }
