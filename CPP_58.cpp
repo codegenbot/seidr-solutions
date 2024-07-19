@@ -1,11 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iterator>
+#include <iterator> // Add this header
 #include <cassert>
-
+#include <set> // Add this header
 using namespace std;
 
-vector<int> common(vector<int>& l1, vector<int>& l2) {
+vector<int> solve(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
@@ -14,7 +15,11 @@ vector<int> common(vector<int>& l1, vector<int>& l2) {
     return result;
 }
 
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
+}
+
 int main() {
-    assert (common({4, 3, 2, 8}, {}).empty());
+    assert(issame(solve({4, 3, 2, 8}, {}), {}));
     return 0;
 }
