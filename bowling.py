@@ -1,21 +1,24 @@
 ```
 def bowling_score(frames):
     score = 0
-    current_frame = 0
-    for i in range(len(frames)):
-        if frames[i] == "X":
+    roll = 0
+    while roll < len(frames) - 1:
+        if frames[roll] == "X":
             score += 10
-            current_frame += 1
-        elif frames[i] == "/":
-            if current_frame < 9:
-                score += 10
-                current_frame += 1
-        else:
-            if int(frames[i].strip("/")) + int(frames[i+1]) == 10:
-                score += 10
-                i += 1
-                current_frame += 1
+            if roll < len(frames) - 2 and (frames[roll+1].strip("/") == "X" or "/" in frames[roll+1]):
+                score += int(frames[roll+2].split("/")[0])
             else:
-                score += int(frames[i].strip("/")) + int(frames[i+1])
-                current_frame += 2
+                score += int(frames[roll+1].split("/")[0]) + int(frames[roll+1].split("/")[1])
+            roll += 2
+        elif "/" in frames[roll:roll+3]:
+            total = int(frames[roll].strip("/")) + int(frames[roll+1].strip("/"))
+            if roll < len(frames) - 2 and (frames[roll+1].strip("/") == "X" or "/" in frames[roll+2]):
+                score += total + int(frames[roll+2].split("/")[0])
+            else:
+                score += total
+            roll += 2
+        else:
+            total = int(frames[roll].strip("/")) + int(frames[roll+1].strip("/"))
+            score += total
+            roll += 2
     return score
