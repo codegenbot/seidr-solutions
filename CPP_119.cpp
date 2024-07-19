@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,7 +21,7 @@ int main() {
     std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
     bool result = match_parens(lst);
 
-    std::cout << (result ? 1 : 0) << "\n";
+    std::cout << (result ? 1 : 0) << std::endl;
 
     return 0;
 }
