@@ -1,24 +1,19 @@
-```cpp
 #include <iostream>
-#include <vector>
 #include <string>
-using namespace std;
+#include <vector>
+#include <cctype>
 
-int calculateStrength(string extension) {
-    int cap = 0, sm = 0;
-    for (char c : extension) {
-        if (isupper(c)) cap++;
-        else if (islower(c)) sm++;
-    }
-    return cap - sm;
-}
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = -1;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int strength = calculateStrength(extension);
+        int cap = 0, sm = 0;
+        for (char c : extension) {
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
+        }
+        int strength = cap - sm;
         if (strength > max_strength) {
             max_strength = strength;
             strongest_extension = extension;
@@ -31,8 +26,18 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    vector<string> extensions = {"Java", "Python", "Kotlin", "Swift"};
-    string className = "Programming";
-    cout << Strongest_Extension(className, extensions);
+    std::string class_name;
+    int n;
+    std::cout << "Enter the number of extensions: ";
+    std::cin >> n;
+    
+    std::vector<std::string> extensions(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter extension " << i + 1 << ": ";
+        std::cin >> extensions[i];
+    }
+
+    std::cout << "The strongest extension is: " << Strongest_Extension(class_name, extensions) << std::endl;
+    
     return 0;
 }
