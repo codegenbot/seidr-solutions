@@ -1,6 +1,5 @@
 try:
     numbers = list(map(float, input().split()))
-    result = sum(numbers)
-    print(result)
+    print(numbers)
 except ValueError:
     print("Invalid input")
