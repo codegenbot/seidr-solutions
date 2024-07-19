@@ -2,25 +2,28 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
-    std::vector<int> result;
-    int i = 0, j = lst.size() - 1;
-    while (i <= j) {
-        result.push_back(lst[i++]);
-        if (i <= j) {
-            result.push_back(lst[j--]);
+    vector<int> result;
+    int left = 0, right = lst.size() - 1;
+    while (left <= right) {
+        result.push_back(lst[left]);
+        if (left != right) {
+            result.push_back(lst[right]);
         }
+        left++;
+        right--;
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
-    // additional test cases if needed
     return 0;
 }
