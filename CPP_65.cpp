@@ -1,15 +1,18 @@
 #include <string>
+
 using namespace std;
 
 string circular_shift(int x, int shift) {
     string str = to_string(x);
     int n = str.length();
-    if (shift >= n)
+    shift %= n;
+    
+    if (shift == 0)
         return str;
-    else {
-        string res = str.substr(shift);
-        for (int i = 0; i < n - shift; i++)
-            res += str[i];
-        return res;
-    }
+        
+    else if (shift >= n)
+        return str.substr(n-shift) + str.substr(0, n-shift);
+
+    else
+        return str.substr(shift) + str.substr(0, shift);
 }
