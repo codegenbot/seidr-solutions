@@ -1,5 +1,5 @@
 def find_unique_numbers(numbers):
     return [num for num in numbers if numbers.count(num) == 1]
 
-numbers = list(map(int, input("Enter numbers separated by space: ").strip().split()))
+numbers = list(map(int, input().split()))
 print(find_unique_numbers(numbers))
