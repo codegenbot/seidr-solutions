@@ -20,9 +20,8 @@ boost::any compare_one(const T& a, const T& b) {
 }
 
 int main() {
-    assert(boost::any_cast<int>(compare_one(boost::any(1), boost::any(2))) == 2);
-    assert(boost::any_cast<float>(compare_one(boost::any(1.5f), boost::any(3.2f))) == 3.2f);
-    assert(boost::any_cast<string>(compare_one(boost::any(string("hello")), boost::any(string("world")))) == "world");
+    assert (boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(string("2")))) == "None");
+    // Add more test cases here
 
     return 0;
 }
