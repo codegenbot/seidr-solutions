@@ -7,6 +7,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Add your main function implementation here
     return 0;
 }
