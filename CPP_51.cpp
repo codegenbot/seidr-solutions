@@ -10,8 +10,8 @@ std::string::size_type isVowel(char c) {
 std::string remove_vowels(std::string input) {
     std::string result;
     for (char c : input) {
-        if (!isVowel(c)) {
-            result.push_back(c); // append to the end of the string
+        if (!isVowel(c, true)) { // This should be changed to !isVowel(c, true)
+            result += c; 
         }
     }
     return result;
