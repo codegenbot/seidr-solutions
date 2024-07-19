@@ -4,9 +4,12 @@ Here is the completed code:
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char baseChar = isupper(c) ? 'A' : 'a';
-            result += ((c - baseChar + 2 * 26) % 26) + baseChar;
+        if (c >= 'a' && c <= 'z') {
+            char newChar = ((c - 'a' + 26) % 26) + 'a';
+            result += newChar;
+        } else if (c >= 'A' && c <= 'Z') {
+            char newChar = ((c - 'A' + 26) % 26) + 'A';
+            result += newChar;
         } else {
             result += c;
         }
