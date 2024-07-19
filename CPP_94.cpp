@@ -28,10 +28,10 @@ bool isPrime(int n) {
         }
     }
     return true;
-}
 
+}
 int main() {
     assert(skkkasdkd({127, 97, 8192}) == 10);
     vector<int> lst = {1, 2, 3};
-    cout << "Sum of digits in the largest prime number is: " << skjkasdkd(lst) << endl;
+    cout << skjkasdkd(lst) << endl;
 }
