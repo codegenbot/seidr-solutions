@@ -1,9 +1,17 @@
-string flip_case(string str){
-    for(int i=0; i<str.length(); i++){
-        if(islower(str[i]))
-            str[i] = toupper(str[i]);
-        else if(isupper(str[i]))
-            str[i] = tolower(str[i]);
+#include <string>
+
+std::string flip_case(std::string str) {
+    for (char& c : str) {
+        if (islower(c)) {
+            c = toupper(c);
+        } else if (isupper(c)) {
+            c = tolower(c);
+        }
     }
     return str;
+}
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
