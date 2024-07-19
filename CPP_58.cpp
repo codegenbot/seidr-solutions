@@ -1,8 +1,10 @@
 #include <algorithm>
+#include <vector>
 #include <iterator>
 #include <cassert>
 
 vector<int> solve(vector<int>& l1, vector<int>& l2) {
+    using namespace std;
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
