@@ -14,8 +14,8 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
             depth++;
             depths.push_back(depth);
         } else if (c == ')') {
-            depths.push_back(depth);
             depth--;
+            depths.push_back(depth);
         }
     }
     return depths;
