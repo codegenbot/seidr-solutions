@@ -1,14 +1,12 @@
 def factorize(n):
     factors = []
     i = 2
-    while i * i <= n:
+    while i*i <= n:
         if n % i:
             i += 1
         else:
             n //= i
-            factors.append(i)
+            factors.append(str(i))
     if n > 1:
-        factors.append(n)
+        factors.append(str(n))
     return factors
-
-print(factorize(int(input("Enter a number to factorize: ")))
