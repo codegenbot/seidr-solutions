@@ -26,9 +26,9 @@ int main() {
     std::getline(std::cin, input);
     
     if (check_if_last_char_is_a_letter(input)) {
-        std::cout << "Last character is a letter preceded by a space." << std::endl;
+        std::cout << "Last character is a letter and there is a space before it." << std::endl;
     } else {
-        std::cout << "Last character is not a letter or not preceded by a space." << std::endl;
+        std::cout << "Last character is not a letter or there is no space before it." << std::endl;
     }
     
     return 0;
