@@ -15,7 +15,7 @@ std::string spinWords(std::string sentence) {
                 }
                 result += " ";
             } else {
-                result += word + " ";
+                if(result.length()==0)result=word;else result += word + " ";
             }
             word = "";
         } else {
@@ -30,10 +30,10 @@ std::string spinWords(std::string sentence) {
         }
         result += " ";
     } else {
-        result += word + " ";
+        if(result.length()==0)result=word;else result += word + " ";
     }
 
-    return result.substr(0, result.length()-1);
+    return result;
 }
 
 int main() {
