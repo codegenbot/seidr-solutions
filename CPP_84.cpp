@@ -1,11 +1,4 @@
-#include <string>
-
-int main() {
-    int N;
-    std::cout << "Enter a number: ";
-    std::cin >> N;
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
-}
+using namespace std;
 
 string solve(int N) {
     int sum = 0;
@@ -14,5 +7,5 @@ string solve(int N) {
         sum += remainder;
         N /= 2;
     }
-    return std::to_string(sum);
+    return to_string(sum);
 }
