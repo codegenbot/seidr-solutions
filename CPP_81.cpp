@@ -7,27 +7,25 @@ bool issame(std::vector<double> a, std::vector<double> b) {
 }
 
 std::string numerical_letter_grade(std::vector<double> grades) {
-    double total_grade = 0;
-    for (const auto& grade : grades) {
-        total_grade += grade;
+    double avg = 0;
+    for (double grade : grades) {
+        avg += grade;
     }
-    double average_grade = total_grade / grades.size();
+    avg /= grades.size();
 
-    if (average_grade >= 0 && average_grade < 1) {
+    if (avg < 0.5) {
         return "F";
-    } else if (average_grade >= 1 && average_grade < 2) {
+    } else if (avg < 1.5) {
         return "D";
-    } else if (average_grade >= 2 && average_grade < 3) {
+    } else if (avg < 2.5) {
         return "C";
-    } else if (average_grade >= 3 && average_grade < 4) {
+    } else if (avg < 3.5) {
         return "B";
-    } else if (average_grade >= 4 && average_grade <= 5) {
-        return "A";
     } else {
-        return "Invalid";
+        return "A";
     }
 }
 
 int main() {
     assert(issame(numerical_letter_grade({0, 0.7}), {0, 0.7}));
-}
+}  
