@@ -11,22 +11,16 @@ int sum_squares(std::vector<double> lst){
     return total;
 }
 
-int main() {
-    int n; // Number of elements
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+std::vector<double> lst; // Create a vector of size 'n'
 
-    std::vector<double> lst(n); // Create a vector of size 'n'
-
-    for (int i = 0; i < n; i++) { 
-        double num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst[i] = num;
-    }
-
-    int result = sum_squares(lst);
-    std::cout << "Sum of squares: " << result << std::endl;
-
-    return 0;
+for (int i = 0; i < n; i++) { 
+    double num;
+    std::cout << "Enter element " << i+1 << ": ";
+    std::cin >> num;
+    lst[i] = num;
 }
+
+int result = sum_squares(lst);
+std::cout << "Sum of squares: " << result << std::endl;
+
+return 0;

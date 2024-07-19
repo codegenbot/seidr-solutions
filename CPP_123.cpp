@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <deque>
 #include <algorithm>
-#include <vector>
 
 using namespace std;
 
@@ -24,9 +24,10 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> res(get_odd_collatz(n));
+    deque<int> res = get_odd_collatz(n);
     for (auto i : res) {
         cout << i << " ";
     }
     cout << endl;
     return 0;
+}
