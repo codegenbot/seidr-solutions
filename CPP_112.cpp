@@ -32,13 +32,13 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
-    std::string s, t;
+    std::vector<std::string> s, t;
     std::cout << "Enter the first string: ";
-    std::cin >> s;
+    for(std::string str;std::cin >> str;s.push_back(str));
     std::cout << "Enter the second string: ";
-    std::cin >> t;
-    if(compareVectors({s}, {t})) {
-        std::vector<std::string> res = reverse_delete(s, t);
+    for(std::string str;std::cin >> str;t.push_back(str));
+    if(compareVectors({s},{t})) {
+        std::vector<std::string> res = reverse_delete(s[0], t[0]);
         for(auto str : res) {
             std::cout << str << " ";
         }
