@@ -20,3 +20,25 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 
     return result;
 }
+
+int main() {
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
+
+    std::vector<int> numbers;
+    int num;
+
+    std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
+
+    while ((std::cin >> num) && (num != -1)) {
+        numbers.push_back(num);
+    }
+
+    std::vector<int> output = remove_duplicates(numbers);
+
+    std::cout << "Duplicated removed: ";
+    for (int i : output) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
