@@ -4,7 +4,7 @@
 
 bool issame(const std::vector<std::string>& a, const std::string& prefix) {
     for (const auto& str : a) {
-        if (!str.startsWith(prefix)) return false;
+        if (str.find(prefix) != 0) return false;
     }
     return true;
 }
