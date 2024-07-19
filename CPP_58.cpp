@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,7 +15,7 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int compareArrays() {
+int main() {
     int n;
     cin >> n;
     vector<int> user_input;
@@ -30,7 +31,3 @@ int compareArrays() {
     }
     return 0;
 }
-
-int main() {
-    compareArrays();
-    return 0;
