@@ -19,8 +19,10 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> res;
     for (const auto &pair : mp) {
         if (pair.second > 1) {
-            string s = pair.first + ": " + string(pair.second - 1, 'c');
+            string s = pair.first + ": " + to_string(pair.second - 1) + "c";
             res.push_back({{s}});
+        } else {
+            res.push_back({{pair.first}});
         }
     }
     return res;
@@ -45,7 +47,9 @@ int main() {
     }else{
         vector<vector<string>> result = sorted_list_sum(lst);
         for (auto &v : result) { 
-            cout << v[0] << endl;
+            for (auto &s : v) {
+                cout << s << endl;
+            }
         }
     }
 
