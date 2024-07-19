@@ -10,10 +10,11 @@ bool check_dict_case(map<string,string> dict){
         bool is_upper = true;
         
         for(char c : key){
-            if(islower(c)){
-                is_upper = false;
-            } else if(isupper(c)){
+            if(!islower(c)){
                 is_lower = false;
+            }
+            if(!isupper(c)){
+                is_upper = false;
             }
         }
         
