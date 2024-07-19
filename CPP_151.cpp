@@ -1,14 +1,18 @@
-```cpp
-std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
-    int sum_even = 0, sum_odd = 0;
-    int sz = 0; // Correctly counting elements in initializer list
+#include <vector>
+#include <cmath>
 
-    for (const int& num : lst) {
-        if (num % 2 == 0)
-            sum_even += num;
-        else
-            sum_odd += num;
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) {
+            sum += pow(num, 2);
+        }
     }
+    return sum;
+}
 
-    return {(double)sum_even / sz, (double)sum_odd / sz};
+int main() {
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
+    long long odd_sum = double_the_difference(lst);
+    // use lst and odd_sum here
 }

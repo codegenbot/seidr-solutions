@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <iostream>
 
 std::string& fix_spaces(const std::string& text) {
     std::string result = "";
@@ -14,6 +16,6 @@ std::string& fix_spaces(const std::string& text) {
     return result;
 }
 
-int main() {
+int main2() {
     std::cout << fix_spaces("   Exa 1 2 2 mple");
 }
