@@ -1,37 +1,30 @@
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    bool firstRollOfTurn = true;
-
-    for (char c : bowls) {
-        if (c == 'X') { // strike
-            score += 10 + getBonus(roll);
-            roll = 0;
-        } else if (c == '/') { // spare
-            score += 10 + getBonus(1);
-            roll = 2 - firstRollOfTurn;
-            firstRollOfTurn = false;
-        } else {
-            int pinsKnockedDown = c - '0';
-            score += pinsKnockedDown;
-            roll++;
-            if (roll == 2) {
-                firstRollOfTurn = true;
+    for (char c : s) {
+        if (c >= 'X' && c <= '9') {
+            score += c - '0';
+        } else if (c == '/') {
+            score += 10 - (10 - (score / 10));
+        }
+        else if (c == 'X'){
+            score += 10;
+        }
+        else if (c >= '1' && c <= '9') {
+            int temp = c - '0';
+            while (s[s.find(c) + 1] != '/') {
+                c = s[s.find(c) + 1];
+                if (c >= 'X' && c <= '9') {
+                    score += c - '0';
+                } else if (c == '/') {
+                    score += temp;
+                    break;
+                }
+                else if (c == 'X'){
+                    score += 10;
+                    break;
+                }
             }
         }
     }
-
     return score;
-}
-
-int getBonus(int rollsRemainingThisTurn) {
-    if (rollsRemainingThisTurn < 1) {
-        return 0;
-    } else if (rollsRemainingThisTurn < 2) {
-        // one roll remaining
-        int pinsKnockedDown = 10 - (roll - firstRollOfTurn);
-        return pinsKnockedDown;
-    } else {
-        return 10;
-    }
 }
