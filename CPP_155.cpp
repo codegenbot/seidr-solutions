@@ -2,6 +2,11 @@
 #include <iostream>
 #include <cassert>
 #include <string>
+#include <cstdlib>
+
+std::vector<int> even_odd_count(int num);
+
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
