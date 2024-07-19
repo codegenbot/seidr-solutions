@@ -17,6 +17,8 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    // Add your test cases here to verify the circular_shift function
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
     return 0;
 }
