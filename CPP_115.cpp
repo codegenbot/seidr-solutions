@@ -1,9 +1,6 @@
-#include <iostream>
-#include <vector>
-
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
-    std::vector<int> wells(n, 0);
+    vector<int> wells(n, 0);
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < grid[i].size(); ++j) {
@@ -35,12 +32,8 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}};
-    int capacity = 3;
-    
-    int result = max_fill(grid, capacity);
-    
-    std::cout << "The maximum number of times to fill the wells is: " << result << std::endl;
-
+    vector<vector<int>> grid = {{1, 2}, {3, 4}};
+    int capacity = 5;
+    cout << "Maximum number of fills: " << max_fill(grid, capacity) << endl;
     return 0;
 }
