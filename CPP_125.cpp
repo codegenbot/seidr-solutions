@@ -1,8 +1,11 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
+// Function declaration
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
+// Function definition for split_words
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
@@ -29,4 +32,22 @@ std::vector<std::string> split_words(std::string txt) {
         result.push_back(std::to_string(count));
     }
     return result;
+}
+
+// Function definition for issame
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
