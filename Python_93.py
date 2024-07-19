@@ -1,4 +1,13 @@
 ```
+while True:
+    try:
+        message = input("Enter a message to encode: ")
+        encoded_message = encode(message)
+        print("Encoded message: ", encoded_message)
+        break
+    except:
+        print("Invalid input. Please enter a valid string.")
+
 def encode(message):
     result = ""
     for char in message:
@@ -9,14 +18,3 @@ def encode(message):
         else:
             result += char
     return result
-
-
-while True:
-    try:
-        message = input("Enter a message to encode: ")
-        break
-    except:
-        print("Invalid input. Please enter a valid string.")
-
-encoded_message = encode(message)
-print("Encoded message: ", encoded_message)
