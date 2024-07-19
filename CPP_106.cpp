@@ -1,17 +1,14 @@
-#include <vector>
-#include <cassert>
-
-std::vector<int> solve(int n) {
-    std::vector<int> result;
-    int factorial = 1;
+vector<int> f(int n){
+    vector<int> result(n);
     int sum = 0;
+    int factorial = 1;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             factorial *= i;
-            result.push_back(factorial);
+            result[i - 1] = factorial;
         } else {
             sum += i;
-            result.push_back(sum);
+            result[i - 1] = sum;
         }
     }
     return result;
