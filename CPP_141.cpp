@@ -1,9 +1,10 @@
 int digitCount = 0;
     for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
+        if (isdigit(c)) {
             digitCount++;
         }
     }
+
     if (digitCount > 3) {
         return "No";
     }
