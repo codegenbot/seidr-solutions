@@ -1,5 +1,5 @@
-Here is the completed Python code:
+Here is the Python solution:
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = [max(range(1, i+1)) for i in range(len(numbers))]
+    result = [max(i) for i in zip(*[[(n,) for n in numbers[i:] or [0]]for i in range(len(numbers))])]
     return result
