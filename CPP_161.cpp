@@ -1,23 +1,19 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
-bool solve(std::string s) {
-    if (s == "#CCC") { 
-        return true;
+std::string solve(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (c == '#') {
+            result += "1";
+        } else {
+            result += "0";
+        }
     }
-    return false;
+    return result;
 }
 
 int main() {
-    std::string s;
-    while(true){
-        std::cout << "Enter a string: ";
-        if(std::getline(std::cin, s)) break;  
-    }   
-    if (solve(s)) {
-        std::cout << "The solution is: " << s << std::endl;
-    } else {
-        std::cout << "No solution exists. Please try again." << std::endl;
-    }
+    std::cout << solve("#ccc") << std::endl;  
     return 0;
 }
