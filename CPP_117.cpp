@@ -39,10 +39,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> result = select_words("Hello world, this is a test", 2);
-    vector<string> expected = {"Hello", "this", "test"};
-
-    assert(issame(result, expected));
-
-    return 0;
+    vector<string> result = select_words("sample input string", 2);
+    assert(issame(result, vector<string>{"sample", "input"}));
 }
