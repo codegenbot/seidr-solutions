@@ -1,20 +1,7 @@
 #include <vector>
-#include <cassert>
-    
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-    
-std::vector<int> f(int n) {
-    std::vector<int> result(n);
+
+vector<int> solve(int n) {
+    vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
             int fact = 1;
@@ -34,7 +21,11 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    
+    int n;
+    cin >> n;
+    vector<int> res = solve(n);
+    for (int i = 0; i < n; ++i) {
+        cout << res[i] << " ";
+    }
     return 0;
 }
