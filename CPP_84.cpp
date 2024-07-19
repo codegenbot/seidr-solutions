@@ -1,15 +1,18 @@
-int sumOfDigitsInBinary(int N) {
+int sumDigitsInBinary(int num) {
     int sum = 0;
-    while (N > 0) {
-        sum += N % 2;
-        N /= 2;
+    while (num > 0) {
+        sum += num % 2;
+        num /= 2;
     }
+    return sum;
+}
 
-    string binarySum = "";
+string solve(int N) {
+    int sum = sumDigitsInBinary(N);
+    string result = "";
     while (sum > 0) {
-        binarySum = to_string(sum % 2) + binarySum;
+        result = to_string(sum % 2) + result;
         sum /= 2;
     }
-
-    return binarySum;
+    return result == "" ? "0" : result;
 }
