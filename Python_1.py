@@ -1,17 +1,16 @@
-Here is the solution:
+from typing import List
+
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
     result = []
+    temp = ""
     for char in paren_string:
-        if char == ' ':
+        if char == " ":
             continue
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            temp = ''
-            while stack and stack.pop() != '(':
-                temp += ')'
-            if stack:
-                result.append('(' + temp + ')')
-    return result
+        temp += char
+        if len(temp) > 1 and (
+            temp[0] == "(" and temp[-1] == ")" or temp[0] == "[" and temp[-1] == "]"
+        ):
+            result.append(temp)
+            temp = ""
+    return [x.strip() for x in result]
