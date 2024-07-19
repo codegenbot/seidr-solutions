@@ -1,9 +1,10 @@
-auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
-    #include <algorithm>
-    auto result = std::vector<int>(std::unique_copy(first, last), first, last);
-    return result;
+```cpp
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-bool issame(vector<int> a,vector<int>b){
-    return (a.size() == b.size()) && (a == b);
+std::vector<int> unique_copy(std::vector<int>::iterator first,
+                               std::vector<int>::iterator last) {
+    std::vector<int> result(std::unique_copy(first, last));
+    return result;
 }
