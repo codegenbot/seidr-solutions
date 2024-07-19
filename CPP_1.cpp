@@ -1,5 +1,5 @@
-bool issame(char c1, char c2) {
-    return (c1 == '(' && c2 == ')') || (c1 == ')' && c2 == '(');
+bool issame(char a, char b) {
+    return (a == '(' && b == ')') || (a == '[' && b == ']') || (a == '{' && b == '}');
 }
 
 vector<string> separate_paren_groups(string paren_string);
