@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9,4 +9,3 @@ int calculateMedian(vector<float> v) {
         return (v[n/2 - 1] + v[n/2]) / 2;
     else
         return v[n/2];
-}
