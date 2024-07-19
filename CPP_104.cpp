@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
