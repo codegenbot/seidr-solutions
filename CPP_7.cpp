@@ -1,49 +1,35 @@
 ```cpp
-#include <initializer_list>
+#include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
+bool same(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i].size() != v2[i].size()) return false;
+        for (int j = 0; j < v1[i].size(); ++j) {
+            if (v1[i][j] != v2[i][j]) return false;
+        }
+    }
+    return true;
+}
 
-vector<string> filter_by_substring(const vector<vector<string>>& words, const string& sub) {
-    vector<string> result;
-    for (const auto& vec : words) {
-        for (const auto& word : vec) {
-            if (word.find(sub) != string::npos) {
-                result.push_back(word);
+std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
+    std::vector<std::vector<std::string>> result;
+    for (const auto& word : words) {
+        bool found = false;
+        for (const auto& w : word) {
+            if (w.find(substring) != std::string::npos) {
+                found = true;
+                break;
             }
         }
+        if (found) result.push_back(word);
     }
     return result;
 }
 
-bool issame(const string& a, const string& b) {
-    bool same = true;
-    size_t len = min(a.size(), b.size());
-    for (size_t i = 0; i < len; ++i) {
-        if (tolower(a[i]) != tolower(b[i])) {
-            same = false;
-            break;
-        }
-    }
-    return same;
-}
-
-bool same(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (!issame(a[i], b[i])) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main() {
-    assert(same(vector<vector<string>>{{"grunt"}, {"trumpet", "prune", "gruesome"}} , filter_by_substring({{{"grunt"}}, {{"trumpet", "prune", "gruesome"}}}, "run")));
+    assert(same(filter_by_substring({{"grunt"}, {"trumpet", "prune", "gruesome"}}, "run"), {{"grunt"}, {"prune"}}));
     return 0;
 }
