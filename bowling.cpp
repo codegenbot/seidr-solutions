@@ -4,6 +4,7 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
+
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
@@ -20,5 +21,6 @@ int bowlingScore(std::string s) {
             roll = 2;
         }
     }
+
     return score;
 }
