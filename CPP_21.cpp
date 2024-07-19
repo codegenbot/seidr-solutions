@@ -12,5 +12,15 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 vector<float> issame(vector<float> a, vector<float> b) {
-    return rescale_to_unit(a) == rescale_to_unit(b);
+    if (a.size() != b.size()) {
+        return {0.0};
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return {0.0};
+        }
+    }
+
+    return {1.0};
 }
