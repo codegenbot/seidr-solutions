@@ -3,24 +3,26 @@
 #include <cctype>
 
 std::string solve(const std::string& s) {
-    for(char &c : s) {
-        if(isalpha(c)) {
-            if(islower(c)) {
-                c = toupper(c);
+    std::string modified = s;
+    
+    for(char &c : modified) {
+        if(std::isalpha(c)) {
+            if(std::islower(c)) {
+                c = std::toupper(c);
             } else {
-                c = tolower(c);
+                c = std::tolower(c);
             }
         }
     }
     
-    reverse(s.begin(), s.end());
+    std::reverse(modified.begin(), modified.end());
     
-    return s;
+    return modified;
 }
 
 int main() {
-    assert(solve("Hello, World!") == "!DLROW ,OLLEH");
-    assert(solve("abc123") == "321CBA");
+    assert(solve("Hello, World!") == "!DLROw ,OLLEh");
+    assert(solve("aBcDeFg") == "gFEdCbA");
     
     return 0;
 }
