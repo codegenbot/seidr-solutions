@@ -1,4 +1,6 @@
-int total = number + need;
-    int eaten = total > remaining ? remaining : total;
-    return {eaten, remaining - eaten};
+vector<int> eat(int number, int need, int remaining){
+    int totalCarrots = number + need;
+    int eatenCarrots = totalCarrots > remaining ? remaining : totalCarrots;
+    int leftCarrots = remaining - eatenCarrots;
+    return {eatenCarrots, leftCarrots};
 }
