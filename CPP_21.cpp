@@ -7,7 +7,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> rescale_to_unit(const std::vector<float>& v) {
-    if (v.empty()) return {};
+    if (v.empty()) return {}; // Handle empty vector case
     float min_val = *std::min_element(v.begin(), v.end());
     float max_val = *std::max_element(v.begin(), v.end());
     
