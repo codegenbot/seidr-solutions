@@ -1,13 +1,18 @@
+#include <iostream>
 #include <cassert>
-#include <cmath>
 
-bool any_int(double a, double b, double c) {
-    return std::abs(a - static_cast<int>(a)) < std::numeric_limits<double>::epsilon() ||
-           std::abs(b - static_cast<int>(b)) < std::numeric_limits<double>::epsilon() || 
-           std::abs(c - static_cast<int>(c)) < std::numeric_limits<double>::epsilon();
+bool checkSumProperty(int a, int b, int c) {
+    return (a == b + c || b == a + c || c == a + b);
+}
+
+bool any_int(int a, int b, int c) {
+    return checkSumProperty(a, b, c);
 }
 
 int main() {
-    assert (any_int(3.01, 4, 7) == false);
+    assert(any_int(3, 4, 7) == false);
+
+    std::cout << "Test passed successfully!" << std::endl;
+
     return 0;
 }
