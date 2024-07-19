@@ -1,11 +1,11 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return a == b;
 }
 
+vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+
 int main() {
-    // Place the existing main code here
+    // Given code can be here
     return 0;
 }
 
