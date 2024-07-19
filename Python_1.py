@@ -15,6 +15,6 @@ def separate_paren_groups(paren_string):
 
     return result
 
-
-paren_string = input().strip()
+# Add a sample test case input as a string with parentheses
+paren_string = "((a)(b((c)(d)))(e))"
 print(separate_paren_groups(paren_string))
