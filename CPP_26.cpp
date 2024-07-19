@@ -2,18 +2,19 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    unordered_map<int, int> seen;
+    unordered_map<int, bool, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, bool>>> seen;
     std::vector<int> result;
 
     for (int num : numbers) {
         if (seen.find(num) == seen.end()) {
-            seen[num] = 1; // just store any value
+            seen[num] = true;
             result.push_back(num);
         }
     }
