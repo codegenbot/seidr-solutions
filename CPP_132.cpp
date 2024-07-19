@@ -1,10 +1,9 @@
-bool is_nested(const string& str) {
-    int n = str.size();
+bool is_nested(const std::string& str) {
     int count = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i] == '[') {
+    for (char c : str) {
+        if (c == '[') {
             count++;
-        } else if (str[i] == ']' && count > 0) {
+        } else if (c == ']' && count > 0) {
             count--;
         }
     }
