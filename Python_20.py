@@ -1,3 +1,9 @@
+try:
+    numbers = list(map(int, input().split()))
+except ValueError:
+    print("Error: Invalid input format. Please provide integers separated by spaces")
+    exit()
+
 def find_closest_elements(numbers):
     if len(numbers) < 2:
         return "Error: At least 2 numbers are required"
@@ -7,8 +13,6 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().split()))
-
     if not numbers:
         print("Error: Please provide at least 2 numbers")
     elif len(numbers) < 2:
