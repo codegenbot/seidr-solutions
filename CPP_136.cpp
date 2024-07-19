@@ -1,6 +1,3 @@
-Here is the completed code:
-
-```cpp
 vector<int> largest_smallest_integers(vector<int> lst) {
     int max_negative = 0;
     int min_positive = INT_MAX;
@@ -13,5 +10,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {(max_negative >= 0 ? 0 : max_negative), (min_positive <= 0 ? 0 : min_positive)};
+    return {(max_negative == 0)? 0: max_negative, (min_positive == INT_MAX)? 0: min_positive};
 }
