@@ -1,10 +1,6 @@
-Here is the completed code:
+#include <vector>
+#include <numeric>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
-    }
-    bool balanced = str == reverse(str).str;
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+bool will_it_fly(std::vector<int> q, int w) {
+    return std::accumulate(q.begin(), q.end(), 0) <= w;
 }
