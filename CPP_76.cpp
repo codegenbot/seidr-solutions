@@ -6,6 +6,10 @@ bool is_simple_power(int x, int n) {
         return false;
     }
     
+    if (x == 1) {
+        return true;
+    }
+    
     double result = log(x) / log(n);
     return (result - (int)result == 0);
 }
