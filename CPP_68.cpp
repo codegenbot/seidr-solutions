@@ -1,4 +1,3 @@
-```
 namespace std {
     std::vector<int> pluck(const std::vector<int>& v) {
         std::vector<int> result;
