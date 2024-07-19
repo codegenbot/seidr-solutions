@@ -1,6 +1,10 @@
 #include <string>
+#include <vector>
+#include <cassert>
 
-string findLongestString(const vector<string>& strings) {
+using namespace std;
+
+string longest(const vector<string>& strings) {
     if(strings.empty()) {
         return "None";
     }
@@ -13,4 +17,10 @@ string findLongestString(const vector<string>& strings) {
     }
     
     return longestStr;
+}
+
+int main() {
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    
+    return 0;
 }
