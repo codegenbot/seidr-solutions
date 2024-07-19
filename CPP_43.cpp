@@ -1,3 +1,4 @@
+#include <vector>
 #include <unordered_set>
 
 bool pairs_sum_to_zero(const vector<int>& l) {
@@ -13,4 +14,5 @@ bool pairs_sum_to_zero(const vector<int>& l) {
 
 int main() {
     assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    return 0;
 }
