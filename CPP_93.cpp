@@ -1,12 +1,12 @@
-for (char &c : message) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
+for(int i=0; i<message.length(); i++){
+        if(isalpha(message[i])){
+            if(islower(message[i])){
+                message[i] = toupper(message[i]);
             } else {
-                c = tolower(c);
+                message[i] = tolower(message[i]);
             }
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
+            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
+                message[i] = message[i] + 2;
             }
         }
     }
