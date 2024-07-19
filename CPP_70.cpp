@@ -40,7 +40,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-int sort_list() {
+int strange_sort_list_main() {
     vector<int> a = {1, 2, 3};
     vector<int> b = strange_sort_list(a);
     if (!same(a, b)) {
