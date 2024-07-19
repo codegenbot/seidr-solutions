@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -29,5 +30,21 @@ int main() {
 
     long long result = doubleTheDifference(numbers);
     cout << "Double the difference: " << to_string(result) << endl;
+
+    vector<double> testList;
+    for(int i = 0; i < 4; i++) {
+        double num; 
+        cin >> num;
+        testList.push_back(num);
+    }
+
+    long long expectedResult = 0; // Replace with your expected result
+
+    if (expectedResult != doubleTheDifference(testList)) {
+        cout << "Test failed." << endl;
+    } else {
+        cout << "Test passed." << endl;
+    }
+
     return 0;
 }
