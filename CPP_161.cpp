@@ -1,17 +1,14 @@
-for (int i = 0; i < s.size(); ++i) {
-        if (isalpha(s[i])) {
-            if (isupper(s[i])) {
-                s[i] = tolower(s[i]);
-            } else {
-                s[i] = toupper(s[i]);
-            }
+string solve(string s){
+    int n = s.size();
+    bool hasLetter = false;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
-    int left = 0, right = s.size() - 1;
-    while (left < right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
+    if(!hasLetter){
+        reverse(s.begin(), s.end());
     }
     return s;
 }
