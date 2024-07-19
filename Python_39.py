@@ -1,5 +1,6 @@
 try:
     n = int(input("Enter a number: "))
-    print(n)
+    result = n * 2 + 5
+    print(result)
 except ValueError:
     print("Invalid input. Please enter a valid number.")
