@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -9,9 +8,9 @@ std::string flip_case(const std::string& str) {
         char c = str[i];
         if(std::isprint(c))
             if(c >= 'a' && c <= 'z')
-                result += (char)toupper((int)c);
+                result += std::toupper(c);
             else if(c >= 'A' && c <= 'Z')
-                result += (char)tolower((int)c);
+                result += std::tolower(c);
             else
                 result += c;
     }
@@ -19,9 +18,18 @@ std::string flip_case(const std::string& str) {
 }
 
 int main() {
-    std::string input = "These violent delights have violent ends";
-    std::cout << flip_case(input) << std::endl;
-    if(flip_case(input) != "these violent delights have violent ends")
-        return 1;
-    return 0;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    if (!input.empty()) { 
+        std::cout << "Computed output: " << flip_case(input) << std::endl;
+        if(flip_case(input).compare(std::string("these violent delights have violent ends")) == 0)
+            return 0;
+        else
+            return 1;
+    } else {
+        std::cout << "Error: Input string is empty." << std::endl;
+        return 2; 
+    }
 }
