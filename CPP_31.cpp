@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -13,17 +13,17 @@ bool is_prime(int n) {
     return true;
 }
 
-int main() {
+int main_func() {
     int n, count = 0;
     cin >> n;
 
-    cout << "Number of primes less than or equal to " << n << ": ";
+    ostringstream oss;
     for (int i = 2; i <= n; i++) {
         if (is_prime(i)) {
-            cout << to_string(i) << " ";
+            oss << to_string(i) << " ";
             count++;
         }
     }
-    cout << endl;
+    cout << "Number of primes less than or equal to " << n << ": " << count << endl;
     return 0;
 }
