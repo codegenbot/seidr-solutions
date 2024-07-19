@@ -1,8 +1,10 @@
-#include <iostream>
 #include <vector>
+#include <string>
+#include <fstream>
+
 using namespace std;
 
-bool checkGrades(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,46 +12,44 @@ bool checkGrades(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numericalLetterGrade(vector<float> grades) {
-    vector<string> letterGrades;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
+        string strGrade;
         if (grade >= 4.0)
-            letterGrades.push_back("A+");
+            strGrade = "A+";
         else if (grade > 3.7)
-            letterGrades.push_back("A");
+            strGrade = "A";
         else if (grade > 3.3)
-            letterGrades.push_back("A-");
+            strGrade = "A-";
         else if (grade > 3.0)
-            letterGrades.push_back("B+");
+            strGrade = "B+";
         else if (grade > 2.7)
-            letterGrades.push_back("B");
+            strGrade = "B";
         else if (grade > 2.3)
-            letterGrades.push_back("B-");
+            strGrade = "B-";
         else if (grade > 2.0)
-            letterGrades.push_back("C+");
+            strGrade = "C+";
         else if (grade > 1.7)
-            letterGrades.push_back("C");
+            strGrade = "C";
         else if (grade > 1.3)
-            letterGrades.push_back("C-");
+            strGrade = "C-";
         else if (grade > 1.0)
-            letterGrades.push_back("D+");
+            strGrade = "D+";
         else if (grade > 0.7)
-            letterGrades.push_back("D");
+            strGrade = "D";
         else
-            letterGrades.push_back("F");
+            strGrade = "F";
+        letter_grades.push_back(strGrade);
     }
-    return letterGrades;
+    return letter_grades;
 }
 
 int main() {
-    vector<float> grades = {3.5, 4.2, 1.8};
-    vector<string> result = numericalLetterGrade(grades);
-    
-    if (checkGrades(vector<string>({"A-","A+","F"}), result)) {
-        cout << "Grades match";
-    } else {
-        cout << "Grades do not match";
+    vector<float> grades = {3.8, 2.9, 4.1};
+    vector<string> result = numerical_letter_grade(grades);
+    for (string grade : result) {
+        cout << grade << endl;
     }
-    
     return 0;
 }
