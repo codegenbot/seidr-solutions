@@ -1,5 +1,13 @@
 bool issame(vector<string> a, const vector<string>& b) {
-    return a == b;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -13,15 +21,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
-int main() {
-    vector<string> vec1 = {"apple", "banana", "orange"};
-    vector<string> vec2 = {"apple", "banana", "orange"};
-
-    if (issame(vec1, vec2)) {
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-
+int main(){
+    // Call issame from main if needed
     return 0;
 }
