@@ -27,15 +27,12 @@ std::string numerical_letter_grade(std::vector<double> grades) {
     } else if (avg >= 60) {
         return "D";
     } else {
-        return "F";
+        return "E";
     }
 }
 
 int main() {
-    // Test cases for issame
     assert (issame(std::vector<std::string>{"0", "0.7"}, std::vector<std::string>{"0.1", "0.7"}));
-
-    // Test cases for numerical_letter_grade
     assert (numerical_letter_grade({90, 85}) == "B");
     assert (numerical_letter_grade({45, 55, 67}) == "D");
 }
