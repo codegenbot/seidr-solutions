@@ -1,11 +1,10 @@
-int result = 1;
-    n = n % p;
-    while (p > 0) {
-        if (p % 2 == 1) {
-            result = (result * n) % p;
-        }
-        n = (n * n) % p;
-        p /= 2;
+int modp(int n, int p) {
+    if (n == 0) {
+        return 1;
+    }
+    int result = 1;
+    for (int i = 0; i < n; ++i) {
+        result = (result * 2) % p;
     }
     return result;
 }
