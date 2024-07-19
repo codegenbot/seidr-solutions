@@ -1,19 +1,46 @@
-if (a <= 1 || a > 99)
-        return false;
-    
-    int prime_factors = 0;
-    for (int i = 2; i <= a; ++i) {
-        if (a % i == 0) {
-            int count = 0;
-            while (a % i == 0) {
-                a /= i;
-                count++;
-            }
-            if (count == 1) // Check if the factor is prime
-                prime_factors++;
-            else
-                return false; // If factor appears more than once, return false
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+bool is_multiply_prime(int a){
+    vector<int> primes;
+    for (int i = 2; i < 100; ++i) {
+        if (is_prime(i)) {
+            primes.push_back(i);
         }
     }
     
-    return prime_factors == 3;
+    for (int i = 0; i < primes.size(); ++i) {
+        for (int j = i; j < primes.size(); ++j) {
+            for (int k = j; k < primes.size(); ++k) {
+                if (primes[i] * primes[j] * primes[k] == a) {
+                    return true;
+                }
+            }
+        }
+    }
+    
+    return false;
+}
+
+int main() {
+    int num;
+    cin >> num;
+    
+    if (is_multiply_prime(num)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+    
+    return 0;
+}
