@@ -19,7 +19,7 @@ int is_bored(std::string S){
     return count;
 }
 
-int main(){
-    assert (is_bored("You and I are going for a walk") == 0);
+int main() {
+    assert(is_bored("You and I are going for a walk") == 0);
     return 0;
 }
