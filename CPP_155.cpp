@@ -5,21 +5,21 @@
 std::vector<int> even_odd_count(int n) {
     int even_count = 0;
     int odd_count = 0;
-    
+
     while (n != 0) {
         if (n % 2 == 0)
             even_count++;
         else
             odd_count++;
-        
+
         n /= 10;
     }
-    
+
     return {even_count, odd_count};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 int main() {
@@ -27,8 +27,8 @@ int main() {
     for (int i : result) {
         std::cout << i << " ";
     }
-    
-    assert(std::issame(result, {2, 3})); // Testing the result
+
+    assert(issame(result, {2, 3}));
 
     return 0;
 }
