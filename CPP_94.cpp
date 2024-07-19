@@ -1,19 +1,15 @@
-```
 #include <cassert>
-#include <set>
-#include <initializer_list>
 
-int setSize(std::set<int> s) {
-    return s.size();
+int setSize(set<int> s) {
+    // Your implementation here
 }
 
-int getSetSize(int i, int j, int k) {
-    std::set<int> s = {i, j, k};
-    return setSize(s);
+int getSetSize(int a, int b, int c) {
+    // Your implementation here
 }
 
 int main() {
     int result = getSetSize(127, 97, 8192);
-    assert(setSize({result}) == 1);
+    assert(result == 10); 
     return 0;
 }
