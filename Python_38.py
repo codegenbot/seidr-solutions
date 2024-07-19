@@ -8,4 +8,5 @@ while True:
     except ValueError:
         print("Invalid input. Please enter space-separated integers.")
     except EOFError:
+        print("No input provided. Exiting.")
         break
