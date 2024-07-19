@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
+#include <boost/config.hpp>
 
 int max(int a, float b) {
     if (a > b)
