@@ -22,4 +22,6 @@ std::vector<int> tri(int n){
     return tribonacci;
 }
 
-assert(issame(tri(1), {1, 3}));
+int main(){
+    assert(issame(tri(1), {3, 1}));
+}
