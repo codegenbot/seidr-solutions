@@ -25,7 +25,7 @@ std::string string_to_md5(const std::string& text) {
     return std::string(mdString);
 }
 
-int main() {
+int contest_code() {
     std::string input_text;
     std::cout << "Enter a text to calculate its MD5 hash: ";
     std::cin >> input_text;
@@ -33,4 +33,8 @@ int main() {
     std::cout << "MD5 Hash: " << string_to_md5(input_text) << std::endl;
 
     return 0;
+}
+
+int main() {
+    return contest_code();
 }
