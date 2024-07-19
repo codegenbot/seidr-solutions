@@ -7,7 +7,7 @@ bool issame(vector<int> a, vector<int> b){
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++){
+    for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
         }
@@ -40,4 +40,7 @@ vector<int> get_odd_collatz(int n){
     return odd_numbers;
 }
 
-int main(){}
+int main() {
+    // Implement test cases here if needed
+    return 0;
+}
