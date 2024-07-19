@@ -1,6 +1,14 @@
+```cpp
+#include <cstddef>
+#include <algorithm>
 #include <cctype>
 
-int checkText(const string& txt) {
-    size_t pos = txt.find_last_of(" ");
-    return pos == string::npos || !isalpha(txt.back());
+int check_if_last_char_is_a_letter(const std::string& txt) {
+    size_t pos = txt.rfind(' ');
+    return pos == std::string::npos || !std::isalpha(txt.back());
+}
+
+int main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == 0);
+    return 0;
 }
