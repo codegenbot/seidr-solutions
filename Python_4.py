@@ -1,5 +1,6 @@
 try:
-    print("Enter numbers separated by spaces:")
     numbers = list(map(float, input().split()))
-except EOFError:
+    numbers.sort()
+    print(numbers)
+except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
