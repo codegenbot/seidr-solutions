@@ -1,3 +1,5 @@
+bool issame(vector<int> a, vector<int> b);
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -10,4 +12,8 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
+}
+
+int main() {
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
 }
