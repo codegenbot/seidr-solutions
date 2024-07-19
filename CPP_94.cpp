@@ -25,8 +25,9 @@ bool isPrime(int n){
     }
     return true;
 
-{
-    int result = skjkasdkd({127, 97, 8192});
+int main() {
+    int input[] = {127, 97, 8192};
+    int result = skjkasdkd(std::vector<int>(input, input + sizeof(input)/sizeof(input[0])));
     assert(result == 10);
     return 0;
 }
