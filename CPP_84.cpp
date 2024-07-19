@@ -7,10 +7,13 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return std::bitset<8>(sum).to_string();
+    return std::bitset<32>(sum).to_string().substr(32 - sum);
 }
 
 int main() {
-    assert(solve(963) == "10010");
+    std::cout << "Enter a number: ";
+    int num;
+    std::cin >> num;
+    std::cout << solve(num) << std::endl;
     return 0;
 }
