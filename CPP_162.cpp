@@ -1,5 +1,6 @@
 #include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <string>
 
 using namespace std;
 
@@ -27,4 +28,3 @@ string string_to_md5(string text) {
 
     free(md5_ptr);
     return result;
-}
