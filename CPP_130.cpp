@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> tri(int n) {  
+std::vector<int> tri(int n) {
     std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
@@ -33,6 +33,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 bool main() {
-    issame(tri(1), {1, 3});
-    return 0;
+    return issame(tri(1), {1, 3});
 }
