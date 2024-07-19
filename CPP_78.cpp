@@ -1,7 +1,16 @@
-int main(){
-    assert(hex_key("") == 0);
-    assert(hex_key("123456789ABCDEF") == 8);
-    assert(hex_key("ABCXYZ") == 3);
+#include <string>
+#include <cassert>
+using namespace std;
 
-    return 0;
+int hex_key(string num){
+    int count = 0;
+    string primes = "2357BD";
+    for(char c : num){
+        if(primes.find(c) != string::npos){
+            count++;
+        }
+    }
+    return count;
 }
+
+assert (hex_key("") == 0);
