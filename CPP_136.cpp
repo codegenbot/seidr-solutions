@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <climits>
 
 std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
     int largest_negative = INT_MIN;
