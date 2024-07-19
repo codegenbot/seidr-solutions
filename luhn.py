@@ -10,4 +10,4 @@ def luhn(card_number):
         checksum += digit
     return (10 - checksum % 10) % 10
 
-print(luhn(555250505-1117-4438-8d07-4ee34be5e51f))
+print(luhn(55525055158840074))
