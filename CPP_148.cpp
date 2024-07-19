@@ -1,13 +1,10 @@
-```cpp
-#include <vector>
-#include <string>
-#include <sstream>
+#include <initializer_list>
 
 std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
     return {s1, s2};
 }
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool checkIfSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -42,10 +39,9 @@ int mainProblem() {
     }
     b.push_back(line);
 
-    if (issame(a, b)) {
+    if (checkIfSame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
     }
     return 0;
-}
