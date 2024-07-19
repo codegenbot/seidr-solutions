@@ -1,16 +1,15 @@
-#include <bits/stdc++.h>
+#include <vector>
 #include <cmath>
 
 double find_zero(int n) {
     double solution;
-    int i;
+    std::cin >> solution;
 
-    cin >> solution;
+    // Initialize the vector coeffs with n+1 elements set to 0.0
+    std::vector<double> coeffs(n+1);
 
-    std::vector<double> coeffs(n + 1, 0);
-
-    for (i = 0; i <= n; i++) {
-        cin >> coeffs[i];
+    for (int i = 0; i <= n; i++) {
+        std::cin >> coeffs[i];
     }
 
     return -pow(solution, 2);
