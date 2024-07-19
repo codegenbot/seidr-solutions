@@ -1,19 +1,26 @@
 #include <vector>
+#include <string>
 #include <cassert>
 
-vector<int> even_odd_count(int num) {
-    vector<int> counts(2, 0);
-    string num_str = to_string(abs(num));
-    for (char c : num_str) {
-        if ((c - '0') % 2 == 0) {
-            counts[0]++;
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result = {0, 0};
+    std::string numStr = std::to_string(abs(num));
+    for (char digit : numStr) {
+        if ((digit - '0') % 2 == 0) {
+            result[0]++;
         } else {
-            counts[1]++;
+            result[1]++;
         }
     }
-    return counts;
+    return result;
 }
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(is_same(even_odd_count(0), {1, 0}));
+    
+    return 0;
 }
