@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -20,7 +19,8 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs(n, 0.0); // initializes all elements with 0.0
+    vector<double> coeffs(n); 
+
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
