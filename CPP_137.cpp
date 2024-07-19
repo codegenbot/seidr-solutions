@@ -11,11 +11,9 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
     }
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    float a_float = stof(boost::any_cast<string>(a), nullptr);
-    float b_float = stof(boost::any_cast<string>(b), nullptr);
-    if (a_float > b_float) {
+    if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
         return a;
-    } else if (a_float < b_float) {
+    } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
         return b;
     }
 }
