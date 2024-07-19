@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool are_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -27,7 +27,7 @@ std::vector<int> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {9, 8, 4}));
+    assert(are_same(by_length({9, 4, 8}), {9, 8, 4}));
 
     return 0;
 }
