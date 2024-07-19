@@ -27,10 +27,10 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
+    string input_file_name;
+    cin >> input_file_name;
 
-    cout << file_name_check(file_name);
+    cout << file_name_check(input_file_name) << endl;
 
     return 0;
 }
