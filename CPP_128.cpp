@@ -1,5 +1,6 @@
+```cpp
 #include <cassert>
-#include <iostream>
+#include <ostream>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
@@ -23,7 +24,9 @@ int prod_signs(std::vector<int> arr) {
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
     int result = prod_signs({1, -2, 3, 0});
-    if (result == 0) {
+    if(result == 0) {
+        std::cout << "The product of signs and the sum is: Zero!" << std::endl;
+    } else {
         std::cout << "The product of signs and the sum is: " << result << std::endl;
     }
     return 0; 
