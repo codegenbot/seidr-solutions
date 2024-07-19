@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-int do_algebra(const vector<string>& operato, const vector<int>& operand) {
+int do_algebra(const vector<string>& operato, const vector<int>& operand){
     int result = operand[0];
     for (int i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
