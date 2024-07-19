@@ -1,13 +1,10 @@
 #include <iostream>
-#include <cassert>
 
 using namespace std;
 
 int mainFunction() {
     int a, b, c;
     cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
-
     if (!(cin >> a) || !(cin >> b) || !(cin >> c)) {
         cout << "Error: Please enter valid integer values.\n";
     } else {
