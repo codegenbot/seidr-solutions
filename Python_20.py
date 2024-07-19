@@ -7,10 +7,11 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
+    n = int(input("Enter number of elements: "))
     numbers = list(map(int, input().split()))
 
-    if not numbers:
-        print("Error: Please provide at least 2 numbers")
+    if n < 2:
+        print("Error: At least 2 numbers are required")
     elif len(numbers) < 2:
         print("Error: At least 2 numbers are required")
     else:
