@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,9 +18,12 @@ bool match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst;
-    std::cout << "Enter strings separated by spaces: ";
-    for(std::string s; std::getline(std::cin, s), !s.empty();)
-        lst.push_back(s);
+    std::string str;
+    
+    while(std::cin >> str) {
+        lst.push_back(str);
+    }
+    
     bool result = match_parens(lst);
 
     std::cout << (result ? "Yes\n" : "No\n");
