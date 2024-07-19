@@ -1,17 +1,19 @@
+Here is the completed code:
+
+```cpp
 #include <string>
-#include <sstream>
+#include <cmath>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator1 = 0, denominator1 = 0;
-    int numerator2 = 0, denominator2 = 0;
+    int a = stoi(strtok((x.substr(1,x.length()-2)).c_str(),"/"));
+    int b = stoi(strtok(NULL,"/") );
+    
+    int c = stoi(strtok((n.substr(1,n.length()-2)).c_str(),"/"));
+    int d = stoi(strtok(NULL,"/") );
 
-    stringstream ss(x);
-    ss >> numerator1 >> denominator1;
+    double res = (double)a*d/(double)b*c;
 
-    stringstream sn(n);
-    sn >> numerator2 >> denominator2;
-
-    return (double)numerator1 / denominator1 == (double)numerator2 / denominator2;
+    return floor(res) == res;
 }

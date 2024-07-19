@@ -3,8 +3,7 @@
 using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
-    if (a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a)
-        return true;
-    else
-        return false;
+    float maxSide = max(a, max(b, c));
+    return (maxSide * maxSide == (a * a + b * b)) || (maxSide * maxSide == (b * b + c * c)) ||
+           (maxSide * maxSide == (c * c + a * a));
 }

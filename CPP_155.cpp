@@ -1,15 +1,20 @@
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    string str = to_string(abs(num));
-    for (char c : str) {
-        if (stoi(c + "") % 2 == 0)
-            result[0]++;
+    int even = 0;
+    int odd = 0;
+
+    string strNum = to_string(abs(num)); // convert number to string and take absolute value
+
+    for (char c : strNum) {
+        if (stoi(string(1, c)) % 2 == 0)
+            even++;
         else
-            result[1]++;
+            odd++;
     }
-    return result;
+
+    return {even, odd};
 }
