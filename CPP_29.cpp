@@ -17,21 +17,16 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::vector<std::string>> result;
     for (const auto& str : strings) {
-        std::vector<std::string> temp;
-        size_t start = 0;
-        while (start < str.size()) {
-            size_t end = str.find(' ', start);
-            if (end == std::string::npos) {
-                temp.push_back(str.substr(start));
+        bool found = false;
+        for (const auto& s : str) {
+            if (s.find(prefix) == 0) {
+                result.push_back({s});
+                found = true;
                 break;
             }
-            temp.push_back(str.substr(start, end - start));
-            start = end + 1;
         }
-        if (!issame(temp, {prefix})) { 
-            result.push_back(temp);
-        } else {
-            result.push_back({str});
+        if (!found) {
+            result.push_back(std::vector<std::string>(str));
         }
     }
     return result;
@@ -39,6 +34,6 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    std::vector<std::vector<std::string>> result = filter_by_prefix(strings, "xxx");
+    std::vector<std::vector<std::string>> result = filter_by_prefix({{"xxx"}}, "xxx");
     return 0;
 }
