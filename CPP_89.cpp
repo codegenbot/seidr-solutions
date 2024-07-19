@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -24,7 +25,6 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e");
-    // Add more test cases as needed
+    assert (encrypt("a")=="e");
     return 0;
 }
