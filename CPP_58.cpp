@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool areEqual(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,7 +22,7 @@ bool common(vector<int> a, vector<int> b) {
             result.push_back(b[i]);
         }
     }
-    return issame(a, result);
+    return areEqual(a, result);
 }
 
 int main_test() {
@@ -35,6 +35,6 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    cout << (issame(user_input, user_input) ? "Yes" : "No") << endl;
+    cout << (areEqual(user_input, user_input) ? "Yes" : "No") << endl;
     return 0;
 }
