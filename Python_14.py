@@ -1,8 +1,6 @@
-import ast
-
 def prefixes(s):
     return [s[:i+1] for i in range(len(s))]
 
-input_string = ast.literal_eval(input("Enter a string: "))
+input_string = raw_input("Enter a string: ")
 result = prefixes(input_string)
 print(result)
