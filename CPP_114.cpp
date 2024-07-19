@@ -1,6 +1,4 @@
-Here is the completed code:
-
-long long minSubArraySum(vector<long long> nums) {
+int minSubArraySum(vector<int> nums) {
     long long min_sum = INT_MAX;
     long long current_sum = 0;
 

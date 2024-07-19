@@ -1,4 +1,4 @@
-```cpp
+````
 #include <cassert>
 
 int customBitCount(void* ptr, int size) {
@@ -31,3 +31,4 @@ int main() {
     testBitCount();
     return 0;
 }
+```
