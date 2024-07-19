@@ -1,17 +1,9 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 vector<int> make_a_pile(int n) {
