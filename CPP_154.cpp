@@ -9,13 +9,7 @@ bool cycpattern_check(string a, string b) {
     return (temp.find(a) != string::npos);
 }
 
-int main() {
-    string a, b;
-    cin >> a >> b;
-
-    cout << cycpattern_check(a, b) << endl;
-    
-    assert(cycpattern_check("winemtt", "tinem") == true);
-
-    return 0;
-}
+string a, b;
+cin >> a >> b;
+cout << cycpattern_check(a, b);
+assert(cycpattern_check("winemtt", "tinem") == true);
