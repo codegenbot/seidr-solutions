@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool same(vector<char> a, vector<char> b) {
+bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -28,12 +28,15 @@ int checkNumber() {
     cout << "Enter a number: ";
     cin >> n;
     string str = to_string(n);  
-    vector<char> vec(str.begin(), str.end()); 
-    string revStr;  
-    for (char c : vec) {  
-        revStr += c;  
+    string rev = "";  
+    for (char c : str) {  
+        rev = c + rev;  
     }
-    if (str == revStr && n % 2 == 0) 
+    string s = to_string(n);
+    vector<int> v1(stoi(s));
+    s = to_string(n);
+    std::vector<int> v2(stoi(s));
+    if (same(v1, v2) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
