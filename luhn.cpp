@@ -1,26 +1,30 @@
+```cpp
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> card) {
+int luhn(const vector<int>& card) {
     int sum = 0;
+    bool alternate = false;
+    
     for (int i = card.size() - 1; i >= 0; --i) {
-        if ((card[i] * 2) > 9) {
-            sum += (card[i] * 2) - 9;
-        } else {
-            sum += card[i] * 2;
+        int digit = card[i];
+        
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
-        sum += card[i-1];
+        
+        sum += digit;
+        alternate = !alternate;
     }
+    
     return sum;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> card(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> card[i];
-    }
+    vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 7, 2, 1, 3};
     cout << luhn(card) << endl;
     return 0;
 }
