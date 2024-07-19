@@ -1,12 +1,20 @@
-int rows = grid.size();
+int res = 0;
+        int rows = grid.size();
         int cols = grid[0].size();
-        int totalWater = 0;
         
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                totalWater += grid[i][j];
+        for (int col = 0; col < cols; ++col) {
+            int current_capacity = 0;
+            for (int row = 0; row < rows; ++row) {
+                if (grid[row][col] == 1) {
+                    if (current_capacity + 1 > capacity) {
+                        res++;
+                        current_capacity = 1;
+                    } else {
+                        current_capacity++;
+                    }
+                }
             }
+            res += current_capacity;
         }
         
-        return (totalWater + capacity - 1) / capacity;
-    }
+        return res;
