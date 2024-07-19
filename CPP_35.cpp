@@ -7,5 +7,5 @@ int max_value(std::vector<int> l) {
 }
 
 int main() {
-    assert(std::abs(max_value({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
+    assert (std::abs(*std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})- 124)<1e-4);
 }
