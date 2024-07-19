@@ -1,14 +1,31 @@
-bool issame(const vector<int>& a, const vector<int>& b){
-    sort_by_sum_of_digits(a.begin(), a.end(), [](int a, int b){
-        int sum_a = 0, sum_b = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
-        while (a > 0) { sum_a += a % 10; a /= 10; }
-        while (b > 0) { sum_b += b % 10; b /= 10; }
-        if (sum_a == sum_b) return a < b;
-        return sum_a < sum_b;
-    });
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-assert(issame(sort_by_sum_of_digits({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        auto sum_digits = [](int num) {
+            return num == 0 ? 0 : num % 9 == 0 ? 9 : num % 9;
+        };
+        
+        int sum_digits_a = sum_digits(std::abs(a));
+        int sum_digits_b = sum_digits(std::abs(b));
+        
+        if (sum_digits_a == sum_digits_b) {
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
+        }
+        
+        return sum_digits_a < sum_digits_b;
+    });
+
+    return nums;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
+}
