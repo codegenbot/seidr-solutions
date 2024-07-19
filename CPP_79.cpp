@@ -1,7 +1,7 @@
-string binary = "db";
+string result = "db";
     while (decimal > 0) {
-        binary = to_string(decimal % 2) + binary;
+        result = ((decimal % 2 == 0) ? '0' : '1') + result;
         decimal /= 2;
     }
-    return binary;
+    return result + "db";
 }
