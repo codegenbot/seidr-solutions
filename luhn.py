@@ -1,7 +1,8 @@
+```
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
     checksum = 0
-    alt = False
+    alt = True
     for i, digit in enumerate(reversed(card_number)):
         if alt:
             digit *= 2
@@ -9,4 +10,4 @@ def luhn(card_number):
                 digit -= 9
         checksum += digit
         alt = not alt
-    return checksum
+    return checksum % 10
