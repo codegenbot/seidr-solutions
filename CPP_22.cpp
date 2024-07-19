@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
