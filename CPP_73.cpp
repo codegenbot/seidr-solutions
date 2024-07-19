@@ -12,7 +12,7 @@ int smallest_change(vector<int> arr) {
     while (left < right) {
         if (s[left] != s[right]) {
             count++;
-            if (s[left] == '0' && s[right] == '1') {
+            if (s[left] == s[right-1]) {
                 right--;
             } else {
                 left++;
