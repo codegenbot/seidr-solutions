@@ -28,7 +28,7 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> a[i];
     int k;
     cin >> k;
-    if (!areEqual(maximum(a, k), {})) {
+    if (!areEqual(maximum(a, k), vector<int>())) {
         return 1;
     }
     return 0;

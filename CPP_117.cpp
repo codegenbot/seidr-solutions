@@ -38,7 +38,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
+int main {
     string s;
     int n;
     cout << "Enter a sentence: ";
@@ -49,3 +49,4 @@ int main() {
     for (string w : words) {
         cout << w << endl;
     }
+}
