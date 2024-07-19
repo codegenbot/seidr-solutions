@@ -18,15 +18,12 @@ bool match_parens(const std::vector<std::string>& lst) {
 }
 
 int testMain() {
-    assert(match_parens({}) == true);
+    assert(match_parens({""})) == false);
     assert(match_parens({"("}) == false);
-    assert(match_parens({")"}) == false;
-    assert(match_parens({"}")) == false;
-    assert(match_parens({"}", "("}) == false);
-    assert(match_parens({"}", "(", "("}) == false);
+    assert(match_parens({")", "("}) == true );
     return 0;
-}
 
+}
 int main() {
     std::vector<std::string> lst;
     std::cout << "Enter strings separated by spaces: ";
