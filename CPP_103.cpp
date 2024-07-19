@@ -1,17 +1,29 @@
-if(n > m) {
+#include <iostream>
+#include <bitset>
+#include <cmath>
+#include <cstddef>
+#include <cassert>
+
+using namespace std;
+
+string average_binary(int n, int m) {
+    if (n > m) {
         return "-1";
     }
-    
+
     int sum = 0;
-    int count = 0;
-    for(int i = n; i <= m; i++) {
+    for (int i = n; i <= m; i++) {
         sum += i;
-        count++;
     }
-    
-    int avg = round((double)sum / count);
-    string binary_avg = bitset<32>(avg).to_string();
-    size_t pos = binary_avg.find("1");
-    
-    return pos == string::npos ? "0" : binary_avg.substr(pos);
+
+    int avg = round((double)sum / (m - n + 1));
+    string binaryAvg = bitset<32>(avg).to_string();
+    size_t pos = binaryAvg.find('1');
+    return (pos != std::string::npos) ? binaryAvg.substr(pos) : "0";
+}
+
+int main() {
+    assert (average_binary(5, 5) == "101");
+
+    return 0;
 }
