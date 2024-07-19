@@ -20,7 +20,8 @@ string intToRoman(int number) {
 
 int main() {
     int number;
+    cout << "Enter a number: ";
     cin >> number;
-    cout << intToRoman(number) << endl;
+    cout << "Roman numeral: " << intToRoman(number) << endl;
     return 0;
 }
