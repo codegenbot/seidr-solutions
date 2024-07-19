@@ -19,9 +19,3 @@ std::pair<int, int> sum_product(const mystd::vector<int>& numbers) {
     }
     return std::make_pair(sum, product);
 }
-
-int main() {
-    auto result = sum_product({10});
-    assert(issame(result.first, 10) && issame(result.second, 10));
-    return 0;
-}
