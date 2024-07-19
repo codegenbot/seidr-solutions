@@ -3,22 +3,22 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst){
-    std::sort(lst.begin(), lst.end());
     std::vector<int> result;
+    std::sort(lst.begin(), lst.end());
     int left = 0, right = lst.size() - 1;
-    while (left <= right) {
-        if (left == right) {
-            result.push_back(lst[left]);
-            break;
+    while(left <= right){
+        result.push_back(lst[left++]);
+        if(left <= right){
+            result.push_back(lst[right--]);
         }
-        result.push_back(lst[left]);
-        result.push_back(lst[right]);
-        left++;
-        right--;
     }
     return result;
 }
