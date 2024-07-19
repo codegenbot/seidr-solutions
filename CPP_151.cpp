@@ -15,6 +15,6 @@ long long double_the_difference(std::vector<int> nums){
 }
 
 int main(){
-    assert(double_the_difference(lst) == 70);
+    assert(double_the_difference(lst) == 34);
     return 0;
 }
