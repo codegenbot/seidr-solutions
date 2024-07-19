@@ -1,6 +1,7 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+#include <boost/system/error_code.hpp>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
