@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cctype>
+#include <string>
 #include <cassert>
 
-string solve(string s) {
+std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
@@ -15,7 +15,7 @@ string solve(string s) {
 
     int left = 0, right = s.length() - 1;
     while (left < right) {
-        swap(s[left], s[right]);
+        std::swap(s[left], s[right]);
         left++;
         right--;
     }
@@ -25,6 +25,6 @@ string solve(string s) {
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-    
+
     return 0;
 }
