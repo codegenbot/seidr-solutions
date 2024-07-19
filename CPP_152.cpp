@@ -31,7 +31,7 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main_test() {
+int main() {
     std::vector<int> game = {1,2,3,5};
     std::vector<int> guess = {-1,2,3,4};
     std::vector<int> output = compare(game, guess);

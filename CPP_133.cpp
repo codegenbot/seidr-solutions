@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
@@ -15,8 +15,9 @@ int sum_squares(std::initializer_list<double> lst){
 
 int main() {
     assert(sum_squares({-1,1,0})==2); 
-    double strInput;
+    std::string strInput;  
     std::cout << "Enter a number: ";
-    std::cin >> strInput; 
-    int result = sum_squares({strInput});  
+    getline(std::cin, strInput); 
+    double num = std::stod(strInput);
+    int result = sum_squares({num});  
 }

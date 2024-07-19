@@ -1,7 +1,10 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
-std::string solve_task(std::vector<std::string> words) {
+using namespace std;
+
+std::string find_max(vector<string> words) {
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
@@ -21,6 +24,6 @@ std::string solve_task(std::vector<std::string> words) {
 }
 
 int main() {
-    assert((solve_task({"play", "play", "play"}) == "play"));
+    assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
