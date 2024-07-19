@@ -3,12 +3,10 @@ if (n > m) {
     }
     
     int sum = 0;
-    int count = m - n + 1;
-    for (int i = n; i <= m; i++) {
+    for (int i = n; i <= m; ++i) {
         sum += i;
     }
-    
-    int avg = round((double)sum / count);
+    int avg = round((double)sum / (m - n + 1));
     
     string binary_avg = "";
     while (avg > 0) {
