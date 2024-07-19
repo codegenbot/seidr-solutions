@@ -25,4 +25,9 @@ bool isPrime(int n){
     }
     return true;
 
-assert(result == 10);
+int main() {
+    std::initializer_list<int> lst = {2,3,5,7};
+    int result = skjkasdkd(lst);
+    assert(result == 10);
+    return 0;
+}
