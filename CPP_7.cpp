@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool same(const std::vector<stdstd::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
+bool same(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
     if (v1.size() != v2.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
         if (v1[i].size() != v2[i].size()) return false;
@@ -23,20 +24,12 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
                 break;
             }
         }
-        if (found) {
-            result.push_back(word);
-        } else if (!result.empty()) {
-            return result; // If no more words are found, stop and return the current result
-        }
+        if (found) result.push_back({word}); // removed the inner vector
     }
     return result;
 }
 
 int main() {
-    std::vector<std::vector<std::string>> words = {{"grunt"}, {"trumpet", "prune", "gruesome"}};
-    std::string substring = "run";
-    
-    assert(same(filter_by_substring(words, substring), {{"grunt"}, {"prune"}}));
-    
+    assert(same(filter_by_substring({{"grunt"}, {"trumpet", "prune", "gruesome"}}, "run"), {{"grunt"}, {"prune"}}));
     return 0;
 }
