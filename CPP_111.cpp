@@ -5,15 +5,11 @@
 
 using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b){
+int issame(const map<char, int>& a, const map<char, int>& b) {
     return a == b;
 }
 
 map<char, int> histogram(string test);
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -35,4 +31,8 @@ map<char, int> histogram(string test) {
         }
     }
     return maxCountLetters;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
 }
