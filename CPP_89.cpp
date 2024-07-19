@@ -1,7 +1,7 @@
 #include <string>
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+void encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             char base = 'a';
@@ -17,13 +17,12 @@ std::string encrypt(std::string s) {
             result += c;
         }
     }
-    return result;
+    return;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
+    string s;
+    cin >> s;
+    cout << encrypt(s) << endl;
     return 0;
 }
