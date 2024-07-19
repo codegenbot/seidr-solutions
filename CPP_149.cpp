@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool issame(const vector<string>& a, const vector<string>& b);
+
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> result = lst;
     result.erase(remove_if(result.begin(), result.end(), [](const string& s) { return s.length() % 2 != 0; }), result.end());
@@ -17,12 +19,11 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 int main() {
-    auto issame = [](const vector<string>& a, const vector<string>& b) {
-        return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
-    };
-
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
