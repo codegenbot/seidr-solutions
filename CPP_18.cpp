@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +15,8 @@ int how_many_times(const std::string& s, const std::string& sub) {
 }
 
 int main() {
-    std::string s, sub;
+    std::string s; 
+    std::string sub;
     std::cin >> s >> sub;
     std::cout << how_many_times(s, sub);
 }
