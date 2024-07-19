@@ -4,8 +4,8 @@
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    return v1 == v2;
+bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+    return vec1 == vec2;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -43,6 +43,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    // Your main function code here
+    // Your code here
     return 0;
 }
