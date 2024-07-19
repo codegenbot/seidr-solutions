@@ -1,9 +1,8 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
 
 double truncate_number(double number) {
-    return number - floor(number);
+    return number - std::floor(number);
 }
 
 int main() {
