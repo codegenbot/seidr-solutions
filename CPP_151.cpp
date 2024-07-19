@@ -18,12 +18,11 @@ long long doubleTheDifference(vector<float> lst) {
 
 int mainFunc() {
     vector<float> numbers;
-    int n; // number of elements in the vector
-
+    int n; 
     cin >> n;
 
     for(int i = 0; i < n; i++) {
-        float num;
+        float num; 
         cin >> num;
         numbers.push_back(num);
     }
