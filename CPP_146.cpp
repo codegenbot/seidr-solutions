@@ -1,6 +1,7 @@
 #include <vector>
+#include <string>
 
-int specialFilter(std::vector<int> nums){
+int specialFilter(const std::vector<int>& nums){
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
