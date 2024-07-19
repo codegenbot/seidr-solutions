@@ -8,5 +8,8 @@ while True:
         result = add(x, y)
         print(result)
 
-    except ValueError:
+    except (ValueError, KeyboardInterrupt):
         print("Please enter valid integers.")
+
+    except EOFError:
+        print("Program did not receive expected input.")
