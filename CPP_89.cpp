@@ -3,10 +3,9 @@ Here is the solution:
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 26) % 26 + 'a';
-        } else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 26) % 26 + 'A';
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c - base + 2 * 26) % 26 + base;
         }
         result += c;
     }

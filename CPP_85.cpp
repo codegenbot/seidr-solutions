@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <assert.h>
+#include <iostream>
 
 int add(std::vector<int> lst){
     int sum = 0;
@@ -8,9 +9,21 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
 }
 
-int main(){
-    assert (add({4, 4, 6, 8}) == 12);
+int main() {
+    std::vector<int> numbers;
+    int num;
+
+    // Read input from user
+    while(std::cin >> num) {
+        numbers.push_back(num);
+    }
+
+    // Call the add function and print the result
+    int total = add(numbers);
+
+    std::cout << "The sum of even numbers is: " << total << std::endl;
+    
+    return 0;
 }
