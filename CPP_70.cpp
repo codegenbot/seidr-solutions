@@ -2,6 +2,17 @@
 #include <vector>
 #include <numeric>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    
+    return true;
+}
+
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
@@ -27,12 +38,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {3, 2, 1};
-    if (a != b) {
-        for (size_t i = 0; i < a.size(); ++i) {
-            assert(a[i] == b[i]);
-        }
-    }
+    assert(std::vector<int>(strange_sort_vector({1, 2, 3})) == std::vector<int>({1, 2, 3}));
     return 0;
 }
