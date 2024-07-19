@@ -3,30 +3,27 @@
 
 using namespace std;
 
-int compare_strings(string a, string b) {
+int compare_one(int a, int b) {
     if (a > b)
-        return 1; 
-    else if (b > a)
-        return -1; 
+        return a;
     else
-        return 0; 
+        return b;
 }
 
 int main() {
     string str1, str2;
-    cout << "Enter first string: ";
+    cout << "Enter first number: ";
     cin >> str1;
-    cout << "Enter second string: ";
+    cout << "Enter second number: ";
     cin >> str2;
 
-    int result = compare_strings(str1, str2);
+    int num1 = stoi(str1);
+    int num2 = stoi(str2);
 
-    if (result > 0)
-        cout << "Greater string is: " << str1 << endl;
-    else if (result < 0)
-        cout << "Greater string is: " << str2 << endl;
+    if (num1 > num2)
+        cout << "Greater number is: " << num1 << endl;
     else
-        cout << "Both strings are equal" << endl;
+        cout << "Greater number is: " << num2 << endl;
 
     return 0;
 }
