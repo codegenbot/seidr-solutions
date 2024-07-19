@@ -1,4 +1,7 @@
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    return ''.join(input("Enter multiple strings separated by space: ").split())
+    result = ""
+    for string in strings:
+        result += string
+    return result
