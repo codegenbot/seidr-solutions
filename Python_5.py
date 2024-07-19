@@ -1,8 +1,6 @@
-from typing import List
-
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+def modify_list(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
-    result.pop()  # Remove the last delimiter
+    result.pop()
     return result
