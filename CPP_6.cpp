@@ -12,11 +12,9 @@ vector<int> parse_nested_parens(string paren_string) {
         if (c == '(') {
             current_depth++;
             max_depth = max(max_depth, current_depth);
-        }
-        else if (c == ')') {
+        } else if (c == ')') {
             current_depth--;
-        }
-        else if (c == ' ') {
+        } else if (c == ' ') {
             depths.push_back(max_depth);
             max_depth = 0;
             current_depth = 0;
