@@ -1,11 +1,13 @@
 map<char,int> histogram(string test);
 
 bool issame(const map<char,int>& a, const map<char,int>& b){
-    if (a.size() != b.size()) {
-        return false;
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
+            return false;
+        }
     }
-    for (auto it = a.begin(); it != a.end(); ++it) {
-        if (b.find(it->first) == b.end() || b.at(it->first) != it->second) {
+    for (const auto& pair : b) {
+        if (a.find(pair.first) == a.end() || a.at(pair.first) != pair.second) {
             return false;
         }
     }
