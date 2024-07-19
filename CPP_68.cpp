@@ -1,20 +1,14 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+vector<int> pluck(vector<int> nums) {
+    return nums.empty() ? nums : vector<int>(1, nums.front());
 }
 
-vector<int> pluck(vector<int> v){
-    return v;
-}
-
-int main(){
+int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
+    
     return 0;
 }
