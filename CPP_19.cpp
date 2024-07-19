@@ -20,14 +20,6 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers);
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
-    return 0;
-}
-
 string sort_numbers(string numbers) {
     string result = "";
     map<int, string> rev_num_map;
@@ -35,11 +27,11 @@ string sort_numbers(string numbers) {
     for (const auto& pair : num_map) {
         rev_num_map[pair.second] = pair.first;
     }
-
+    
     vector<int> sorted_nums;
     stringstream ss(numbers);
     string num_str;
-
+    
     while (ss >> num_str) {
         sorted_nums.push_back(num_map[num_str]);
     }
@@ -53,4 +45,10 @@ string sort_numbers(string numbers) {
     result.pop_back(); // Remove the extra space at the end
     
     return result;
+}
+
+int main() {
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
