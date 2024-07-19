@@ -1,20 +1,31 @@
-bool check_dict_case(map<string,string> dict) {
+#include <map>
+#include <string>
+
+bool check_dict_case(std::map<std::string, std::string> dict){
     if(dict.empty()) {
         return false;
     }
     
-    bool isLowerCase = true;
-    bool isUpperCase = true;
+    bool all_lower = true;
+    bool all_upper = true;
     
     for(auto const& pair : dict) {
-        for(char c : pair.first) {
-            if(islower(c)) {
-                isUpperCase = false;
-            } else if(isupper(c)) {
-                isLowerCase = false;
+        std::string key = pair.first;
+        bool is_lower = true;
+        bool is_upper = true;
+        
+        for(char c : key) {
+            if(std::islower(c)) {
+                is_upper = false;
+            }
+            if(std::isupper(c)) {
+                is_lower = false;
             }
         }
+        
+        all_lower = all_lower && is_lower;
+        all_upper = all_upper && is_upper;
     }
     
-    return isLowerCase || isUpperCase;
+    return all_lower || all_upper;
 }
