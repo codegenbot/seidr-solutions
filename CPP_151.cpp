@@ -1,22 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-double double_the_difference(double a, double b) {
-    return 2 * std::fabs(a - b);
-}
-
-std::vector<float> lst = {1.5f, 2.0f, 3.0f, 4.5f, 5.0f};
-long long odd_sum = 0;
-
-int main() {
+double double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
     for (float num : lst) {
         if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
-            odd_sum += static_cast<long long>(std::pow(num, 2));
+            sum += static_cast<long long>(pow(num, 2));
         }
     }
+    return sum;
+}
 
-    double result = double_the_difference(odd_sum, 100.0);
-
+int main() {
+    std::vector<float> lst = {1.5, 2.0, 3.0, 4.0, 5.5};
+    long long odd_sum = double_the_difference(lst);
+    
+    assert(double_the_difference(lst) == odd_sum);
+    
     return 0;
 }
