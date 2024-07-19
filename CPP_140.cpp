@@ -1,5 +1,5 @@
-#include <cassert>
 #include <iostream>
+#include <cassert>
 #include <string>
 
 std::string fix_spaces(const std::string& text) {
