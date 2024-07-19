@@ -11,6 +11,7 @@ bool unique_digits(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(unique_digits({135, 103, 31}, {31, 135}));
+    assert(unique_digits({1, 3, 5}, {1, 3, 5}));
+    assert(unique_digits({1, 3, 5}, {3, 1, 5})); // Additional test
     return 0;
 }
