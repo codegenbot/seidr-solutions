@@ -15,8 +15,8 @@ int sum_squares(std::initializer_list<double> lst){
 
 int main() {
     assert(sum_squares({-1,1,0})==2); 
-    std::string strInput;
+    std::string strInput;  
     std::cout << "Enter a number: ";
-    std::getline(std::cin, strInput);
+    getline(std::cin, strInput); 
     int result = sum_squares({std::stod(strInput)});  
 }
