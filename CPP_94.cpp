@@ -1,6 +1,13 @@
-int getSetSize(int a, int b, int c) {
-    if (a == 0 && b == 0)
+#include <cassert>
+
+int getSetSize(int s, int k, int n) {
+    if (s <= k)
         return 1;
     else
-        return 2;
+        return (n + k - 1) / k;
+}
+
+int mainTest() {
+    assert(getSetSize(127, 97, 8192) == 3); 
+    return 0;
 }
