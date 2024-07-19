@@ -1,3 +1,2 @@
-int x = cbrt(abs(a));
-    return (x * x * x == a);
+return cbrt(a) == round(cbrt(a));
 }
