@@ -1,28 +1,27 @@
 #include <string>
-#include <vector>
-#include <utility>
 
-using namespace std;
-
-string int_to_mini_romank(int number) {
-    vector<pair<int, string>> romanMap = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
-    };
-
+string int_to_mini_roman(int number){
+    vector<string> roman = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
+    vector<int> values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
     string result = "";
-    for (const auto& pair : romanMap) {
-        while (number >= pair.first) {
-            result += pair.second;
-            number -= pair.first;
+    int i = 12;
+
+    while (number > 0) {
+        int div = number / values[i];
+        number %= values[i];
+        while (div--) {
+            result += roman[i];
         }
+        i--;
     }
 
     return result;
 }
 
 int main() {
-    // Your main function code here
+    int number;
+    cin >> number;
+    string result = int_to_mini_roman(number);
+    cout << result;
     return 0;
 }
