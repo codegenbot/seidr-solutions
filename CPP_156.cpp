@@ -19,7 +19,10 @@ string intToRoman(int number) {
 }
 
 int main() {
-    int number = 3549;
-    string roman = intToRoman(number);
+    int number;
+    cout << "Enter a number to convert to Roman numeral: ";
+    cin >> number;
+    cout << intToRoman(number) << endl;
+
     return 0;
 }
