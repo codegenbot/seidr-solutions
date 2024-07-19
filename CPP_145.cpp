@@ -1,23 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <cassert>
-#include <cmath>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        auto calc_sum = [](int num) {
-            return std::accumulate(std::to_string(std::abs(num)).begin(), std::to_string(std::abs(num)).end(),
-                                    0, [](int acc, char c) { return acc + c - '0'; });
-        };
-        return calc_sum(a) == calc_sum(b) ? a < b : calc_sum(a) < calc_sum(b);
-    });
-    return nums;
+namespace std {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
+    }
 }
 
 int main() {
