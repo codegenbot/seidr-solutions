@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cctype>
 
-std::string encrypt(std::string s){
+std::string encrypt(std::string s) {
     std::string result = "";
-    for(char c : s){
-        if(std::isalpha(c)){
+    for(char c : s) {
+        if(std::isalpha(c)) {
             char base = std::islower(c) ? 'a' : 'A';
             result += (c - base + 2 * 2) % 26 + base;
         } else {
@@ -15,7 +15,7 @@ std::string encrypt(std::string s){
     return result;
 }
 
-int main(){
+int main() {
     assert (encrypt("a")=="e");
     return 0;
 }
