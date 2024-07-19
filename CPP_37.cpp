@@ -1,55 +1,36 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <limits>
+#include <algorithm>
 
-#define INFINITY std::numeric_limits<double>::max()
+std::vector<float> input;
+float val;
 
-bool checkSame(float a, float b) {
-    return std::abs(a - b) < 1e-9;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
-bool issame(std::vector<float>& a, std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!checkSame(a[i],b[i])){
-            return false;
-    }
-    return true;
-}
-
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            float maxEven = -INFINITY;
-            for (float val : l) {
-                if (checkSame(val, static_cast<int>(val))) {
-                    maxEven = std::max(maxEven, val);
-                }
-            }
-            result.push_back(maxEven);
-        } else {
-            result.push_back(l[i]);
+std::vector<float> sort_even(const std::vector<float>& input) {
+    std::vector<float> output;
+    for (float val : input) {
+        if (val % 2 == 0) { 
+            output.push_back(val);
         }
     }
-    return result;
+    return output;
 }
 
 int main() {
-    { // Add an opening brace here
-    std::vector<float> input = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
+    while(std::cin >> val) {
+        input.push_back(val);
+    }
     std::vector<float> output = sort_even(input);
-    for (float val : output) {
-        std::cout << val << " ";
+    for (float v : output) {
+        std::cout << v << " ";
     }
     if (!issame(output, input)) {
         std::cout << "\nTest case failed";
     } else{
         std::cout << "\nTest case passed";
     }
-    return 0; // Add a closing brace here
+    return 0;
 }
