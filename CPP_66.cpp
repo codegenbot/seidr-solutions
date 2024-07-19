@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,8 +6,7 @@ int digitSum(const std::string& s) {
     int sum = 0;
     for (auto c : s) {
         if (std::isdigit(c)) {
-            char cNum = (c - '0'); 
-            sum += cNum; 
+            sum += (c - '0');
         }
     }
     return sum;
@@ -20,4 +19,3 @@ int main() {
     int result = digitSum(input);
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
-}
