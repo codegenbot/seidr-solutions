@@ -6,11 +6,11 @@ def digits(n):
 while True:
     try:
         n = int(input("Enter a number: "))
-        if n < 0:
+        if n <= 0:
             raise ValueError
         break
     except ValueError:
-        print("Invalid input. Please enter a valid positive integer.")
+        print("Invalid input. Please enter a valid positive integer greater than zero.")
 
 result = digits(n)
 print(result)
