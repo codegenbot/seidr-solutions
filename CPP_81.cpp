@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <string_view>
 #include <cassert>
 
 using string = std::string;
