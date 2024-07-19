@@ -1,16 +1,9 @@
 int next_smallest(vector<int> lst){
-    vector<int> sortedList = lst;
-    sort(sortedList.begin(), sortedList.end());
-    
-    if (sortedList.size() < 2) {
-        return -1; // None if there is no such element.
+    if(lst.size() < 2) return -1; // Return None if there are less than 2 elements
+    vector<int> vec(lst);
+    sort(vec.begin(), vec.end());
+    for(int i = 0; i < vec.size()-1; i++) {
+        if(vec[i] != vec[i+1]) return vec[i+1]; 
     }
-    
-    for(int i = 0; i < sortedList.size(); i++) {
-        if(i > 0 && sortedList[i] != sortedList[i-1]) {
-            return sortedList[i];
-        }
-    }
-    
     return -1;
 }
