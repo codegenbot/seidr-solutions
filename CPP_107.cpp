@@ -1,13 +1,20 @@
 #include <vector>
+#include <string>
 #include <algorithm>
 
-bool is_same(int n) {
-    vector<int> counts(2, 0);
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
+}
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> counts(2, 0);
+
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
+        std::string num = std::to_string(i);
+        std::string rev_num = num;
+        std::reverse(rev_num.begin(), rev_num.end());
+
+        if (issame(num, rev_num)) {
             if (i % 2 == 0) {
                 counts[0]++;
             } else {
@@ -15,10 +22,6 @@ bool is_same(int n) {
             }
         }
     }
-    return counts;
-}
 
-int main() {
-    // Main function code here
-    return 0;
+    return counts;
 }
