@@ -1,9 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
-
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
+#include <numeric>
+#include <initializer_list>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -30,6 +29,10 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(std::equal({111111}, {111111}) == true);
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = strange_sort_vector(a);
+    for (size_t i = 0; i < a.size(); ++i) {
+        assert(b[i] == a[0]);
+    }
     return 0;
 }
