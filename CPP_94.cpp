@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int skjkasdkd(std::vector<int> lst); // declare function here
+int skjkasdkd(std::vector<int> lst); 
 
 int main() {
     assert(skjkasdkd({127, 97, 8192}) == 10);
