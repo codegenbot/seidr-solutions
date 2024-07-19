@@ -1,8 +1,7 @@
-```cpp
 #include <string>
 #include <iostream>
 
-std::string& fix_spaces(const std::string& text) {
+std::string fix_spaces(const std::string& text) {
     std::string result = "";
     for (char c : text) { 
         if (c == ' ') {
@@ -13,9 +12,10 @@ std::string& fix_spaces(const std::string& text) {
             result += c;
         }
     }
-    return result;
+    return result; // Return by value
 }
 
-int main2() {
-    std::cout << fix_spaces("   Exa 1 2 2 mple");
+int main() {
+    std::cout << fix_spaces("   Exa 1 2 2 mple"); 
+    return 0;
 }
