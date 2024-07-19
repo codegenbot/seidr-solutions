@@ -1,7 +1,10 @@
 double num = stod(value);
-    if (num > 0) {
-        return floor(num + 0.5);
+    double ceil_val = ceil(num);
+    double floor_val = floor(num);
+    
+    if (num - floor_val < ceil_val - num) {
+        return static_cast<int>(floor_val);
     } else {
-        return ceil(num - 0.5);
+        return static_cast<int>(ceil_val);
     }
 }
