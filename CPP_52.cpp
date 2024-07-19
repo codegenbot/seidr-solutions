@@ -10,7 +10,7 @@ bool below_threshold(const std::vector<int>& l, int t){
     return true;
 }
 
-int main(){
-    // Your main function code here
+int main() {
+    // Your main function logic here
     return 0;
 }
