@@ -6,13 +6,13 @@ string result = "";
             if (consecutive_spaces > 2) {
                 result.pop_back();
                 result.pop_back();
-                result += '-';
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
             }
         } else {
             consecutive_spaces = 0;
-            result += c;
+            result.push_back(c);
         }
     }
     return result;
