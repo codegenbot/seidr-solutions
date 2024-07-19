@@ -1,6 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
