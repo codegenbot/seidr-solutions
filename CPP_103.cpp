@@ -2,7 +2,7 @@
 #include <cassert>
 
 string solve(int n, int m) {
-    assert(n >= 0 && m >= 0 && n <= m);
+    assert(n >= 0 && m >= 0);
 
     if (n > m) {
         return "-1";
@@ -21,15 +21,13 @@ string solve(int n, int m) {
         avg /= 2;
     }
     
-    return binary;
+    return "The binary representation of average is: " + binary;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    
-    string result = solve(n, m);
-    cout << result;
-    
+    cout << solve(n, m) << endl;
+
     return 0;
 }
