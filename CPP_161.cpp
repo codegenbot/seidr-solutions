@@ -3,10 +3,7 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
+string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -16,5 +13,13 @@ int main() {
         }
     }
     reverse(result.begin(), result.end());
-    cout << "The result is: " << result << endl;
+    return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Output: " << solve(input) << endl;
+    return 0;
 }
