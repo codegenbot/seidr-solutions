@@ -1,12 +1,26 @@
-bool issame(const string& s1, const string& s2) {
-    return s1.size() == s2.size() && std::equal(s1.begin(), s1.end(), s2.begin());
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string);
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
-vector<string> separate_paren_groups(string paren_string){
-    vector<string> result;
-    string current_group;
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::vector<std::string> result = separate_paren_groups(input);
+    for(const auto& group : result) {
+        std::cout << group << " ";
+    }
+    return 0;
+}
+
+std::vector<std::string> separate_paren_groups(std::string paren_string){
+    std::vector<std::string> result;
+    std::string current_group;
     int open_count = 0;
 
     for(char c : paren_string){
