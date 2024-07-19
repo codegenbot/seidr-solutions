@@ -1,12 +1,13 @@
+```c
 #include <algorithm>
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
 }
 
-int main1() {
+int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
     std::vector<int> result = order_by_points(nums);
     for (int num : result) {
