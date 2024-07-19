@@ -1,16 +1,20 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i=0; i<a.size(); ++i){
-        if(a[i] != b[i]){
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -24,13 +28,10 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main(){
-    vector<string> test_input = {"apple", "banana", "apricot", "peach", "avocado"};
-    vector<string> expected_output = {"apple", "apricot", "avocado"};
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     
-    vector<string> filtered_result = filter_by_prefix(test_input, "a");
-    
-    assert(issame(filtered_result, expected_output));
-    
+    cout << "All tests passed successfully!" << endl;
+
     return 0;
 }
