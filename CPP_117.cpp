@@ -44,11 +44,15 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-cout << "Enter a sentence: ";
-getline(cin, s);
-cout << "Enter the maximum number of vowels allowed in each word: ";
-cin >> n;
-vector<string> words = select_words(s, n);
-for (string w : words) {
-    cout << w << endl;
+int main() {
+    string s;
+    int n;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+    cout << "Enter the maximum number of vowels allowed in each word: ";
+    cin >> n;
+    vector<string> words = select_words(s, n);
+    for (string w : words) {
+        cout << w << endl;
+    }
 }
