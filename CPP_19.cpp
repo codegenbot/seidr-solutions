@@ -1,10 +1,15 @@
 #include <map>
-#include <iostream>
-#include <sstream>
+#include <string>
 #include <vector>
 #include <algorithm>
+#include <sstream>
+#include <cassert>
 
-std::map<std::string, int> num_map = {
+std::string sort_numbers(std::string numbers);
+
+using namespace std;
+
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -18,31 +23,25 @@ std::map<std::string, int> num_map = {
 };
 
 std::string sort_numbers(std::string numbers){
-    std::map<int, std::string> rev_num_map;
+    map<int, string> rev_num_map;
     for(auto const& pair : num_map){
         rev_num_map[pair.second] = pair.first;
     }
 
-    std::vector<int> sorted_nums;
-    std::stringstream ss(numbers);
-    std::string num;
+    vector<int> sorted_nums;
+    stringstream ss(numbers);
+    string num;
     while(ss >> num){
         sorted_nums.push_back(num_map[num]);
     }
 
-    std::sort(sorted_nums.begin(), sorted_nums.end());
+    sort(sorted_nums.begin(), sorted_nums.end());
 
-    std::string result;
+    string result;
     for(int num : sorted_nums){
         result += rev_num_map[num] + " ";
     }
 
     result.pop_back(); // Remove extra space at the end
     return result;
-}
-
-int main(){
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
-    return 0;
 }
