@@ -19,15 +19,14 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs; 
-    coeffs.reserve(n); 
+    vector<double> coeffs(n); 
 
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
 
-    double solution;
-    cin >> solution;
+    double x;
+    cin >> x;
 
-    cout << fixed << setprecision(6) << find_zero(coeffs, solution) << endl;
+    cout << fixed << setprecision(6) << find_zero(coeffs, x) << endl;
 }
