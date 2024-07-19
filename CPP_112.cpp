@@ -1,14 +1,10 @@
-for (int i = 0; i < c.size(); i++) {
-        s.erase(remove(s.begin(), s.end(), c[i]), s.end());
+vector<string> result;
+    for (char ch : c) {
+        s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
-    
-    string result = s;
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    
-    if (result == rev) {
-        return {result, "True"};
-    } else {
-        return {result, "False"};
-    }
+    string reversed_s = s;
+    reverse(reversed_s.begin(), reversed_s.end());
+    result.push_back(s);
+    result.push_back(s == reversed_s ? "True" : "False");
+    return result;
 }
