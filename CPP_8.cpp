@@ -3,11 +3,13 @@
 #include <cassert>
 
 bool issame(const std::pair<int, int>& a, const std::vector<int>& b) {
-    return a == std::make_pair(b[0], b[1]);
+    return a.first == b[0] && a.second == b[1];
 }
 
 std::pair<int, int> sum_product(int num1, int num2) {
-    return {num1 + num2, num1 * num2};
+    int sum = num1 + num2;
+    int product = num1 * num2;
+    return std::make_pair(sum, product);
 }
 
 int main() {
