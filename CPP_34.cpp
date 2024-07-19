@@ -1,21 +1,14 @@
-#include <vector>
 #include <algorithm>
-#include <unordered_set>
-
 using namespace std;
 
-vector<int> unique(vector<int> l) {
-    vector<int> result;
-    unique_copy(l.begin(), l.end(), back_inserter(result));
+vector<int> unique(vector<int> l){
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
-vector<int>::iterator unique_copy(vector<int>::iterator first, vector<int>::iterator last, vector<int>::iterator& result) {
-    unordered_set<int> seen;
-    for (auto it = first; it != last; ++it) {
-        if (seen.insert(*it).second) {
-            *result++ = *it;
-        }
-    }
-    return --result;
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    sort(first, last);
+    auto it = unique_copy(first, last);
+    erase(it, last);
+    return it;
 }
