@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 bool match_parens(const std::string& s) {
     int open = 0, close = 0;
@@ -19,5 +21,6 @@ int main() {
         } else {
             std::cout << "Error: The parentheses are not matched. Please enter a valid input." << std::endl;
         }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
