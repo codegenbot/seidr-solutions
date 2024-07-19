@@ -17,11 +17,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    if(correct_bracketing("()()(()())()()")) {
-        std::cout << "Brackets are correctly matched." << std::endl;
-    } else {
-        std::cout << "Brackets are not correctly matched." << std::endl;
-    }
-    
+    std::cout << std::boolalpha << correct_bracketing("()()(()())()()") << std::endl;
     return 0;
 }
