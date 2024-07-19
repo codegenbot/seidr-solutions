@@ -1,8 +1,7 @@
 #include <string>
 #include <vector>
 
-int main() {
-    std::vector<std::string> lst;
+bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
         for (char c : s) {
@@ -10,5 +9,12 @@ int main() {
             else close++;
         }
     }
-    return (open == close) ? 1 : 0;
+    return open == close;
+}
+
+int main() {
+    std::vector<std::string> lst = {"(a", "b(", "(c)"};
+    bool result = match_parens(lst);
+    std::cout << (result ? "Yes" : "No") << std::endl;
+    return 0;
 }
