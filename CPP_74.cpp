@@ -1,4 +1,8 @@
-#include <vector>
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 int total_chars(const vector<string>& lst) {
     int total = 0;
@@ -8,8 +12,9 @@ int total_chars(const vector<string>& lst) {
     return total;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -18,9 +23,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
-}
-
-int main() {
-    assert (issame(total_match({"this"}, {}) , {}));
-    return 0;
 }
