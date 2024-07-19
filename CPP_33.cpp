@@ -3,11 +3,12 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 void sort_third(vector<int>& l) {
-    sort(l.begin(), l.end(), issame);
+    sort(l.begin(), l.end(), [](int a, int b) {
+        return issame(a, b);
+    });
 }
 
 int main() {
-    vector<int> l = {3, 6, 9, 1, 4, 7};
-    sort_third(l);
-    return l;
+    // Other code using the sort_third function
+    return 0;
 }
