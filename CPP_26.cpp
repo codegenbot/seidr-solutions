@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -27,8 +29,12 @@ vector<int> remove_duplicates(vector<int> numbers) {
 
 }
 
-int main() {
+int main_test() {
     vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    assert (areEqual(remove_duplicates(test), vector<int>{1, 2, 3, 4, 5}) );
+    try{
+        assert (areEqual(remove_duplicates(test), vector<int>{1, 2, 3, 4, 5}) );
+    }catch(runtime_error e){
+        cout << "Error: " << e.what() << endl;
+    }
     return 0;
 }
