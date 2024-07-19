@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame_vector(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame_vector({1, 2, 3}, {1, 2, 6}) == false);
+    assert(!issame({1, 2, 3}, {1, 2, 6}));
     return 0;
 }
