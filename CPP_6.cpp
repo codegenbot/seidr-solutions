@@ -1,5 +1,3 @@
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wignored-qualifiers"
 #include <stack>
 #include <vector>
 #include <string>
@@ -13,7 +11,9 @@ vector<int> parse_nested_parens(string paren_string) {
     int max_nesting = 0;
 
 #pragma GCC diagnostic push
+{
 #pragma GCC diagnostic ignored "-Wignored-qualifiers"
+}
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
