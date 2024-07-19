@@ -1,17 +1,17 @@
 #include <string>
 
-int total_chars(vector<string> lst) {
+int total_chars(std::vector<std::string> lst) {
     int total = 0;
-    for (string s : lst) {
+    for (std::string s : lst) {
         total += s.length();
     }
     return total;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
     } else {
         return lst2;
     }
-} 
+}
