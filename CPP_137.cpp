@@ -1,33 +1,22 @@
 #include <any>
-#include <boost/lexical_cast.hpp>
-#include <cassert>
+#include <boost/any.hpp>
 #include <string>
-#include <iostream>
+#include <cassert>
 
-using namespace std;
-
-template <typename T>
-T compare_any(const any& a, const any& b) {
-    assert(a.type() == b.type());
-
-    if (a.type() == typeid(int)) {
-        return any_cast<int>(a) > any_cast<int>(b) ? any_cast<int>(a) : any_cast<int>(b);
-    } else if (a.type() == typeid(float)) {
-        return any_cast<float>(a) > any_cast<float>(b) ? any_cast<float>(a) : any_cast<float>(b);
-    } else if (a.type() == typeid(std::string)) {
-        float valA = boost::lexical_cast<float>(any_cast<std::string>(a).replace(any_cast<std::string>(a).find(','), 1, "."));
-        float valB = boost::lexical_cast<float>(any_cast<std::string>(b).replace(any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? any_cast<std::string>(a) : any_cast<std::string>(b);
-    } else {
-        return T();
+boost::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        float valA = std::stof(std::any_cast<std::string>(a));
+        float valB = std::stof(std::any_cast<std::string>(b));
+        return valA > valB ? a : (valA < valB ? b : "None");
+    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
+        float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : std::stof(std::any_cast<std::string>(a));
+        float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : std::stof(std::any_cast<std::string>(b));
+        return valA > valB ? a : (valA < valB ? b : "None");
     }
-}
-
-int main() {
-    any a = 10;
-    any b = 20;
-    
-    std::cout << any_cast<int>(compare_any<int>(a, b)) << std::endl;
-
-    return 0;
+    assert(false); // Error case if types are not handled correctly
+    return {}; // Return default value as control should not reach here
 }
