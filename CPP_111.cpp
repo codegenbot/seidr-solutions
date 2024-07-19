@@ -1,3 +1,4 @@
+```
 #include <map>
 #include <vector>
 #include <string>
@@ -24,7 +25,7 @@ bool issame(map<char,int> a, map<char,int> b) {
 int main() {
     string test;
     cout << "Enter a string: ";
-    getline(cin, test);
+    cin >> test;
 
     auto hist = histogramTest(test); 
 
@@ -33,6 +34,6 @@ int main() {
     }
 
     if (!issame(hist, {{'a', 1}})) { 
-        exit(0); 
+        return 0; 
     }
 }
