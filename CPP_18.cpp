@@ -19,5 +19,5 @@ int main() {
     std::string sub;
     std::cin >> s >> sub;
     
-    std::cout << how_many_times(s, sub);
+    return how_many_times(s, sub);
 }
