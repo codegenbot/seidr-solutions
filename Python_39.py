@@ -6,20 +6,22 @@ def is_prime(num):
             return False
     return True
 
-def prime_fib(n: int):
-    def fib(n):
-        a, b = 0, 1
-        for _ in range(n):
-            a, b = b, a + b
-        return a
 
-    count = 0
-    num = 2
-    while count < n:
-        if is_prime(num) and num == fib(num):
-            count += 1
-        num += 1
-    return num - 1
+def is_fibonacci(num):
+    return ((5 * num * num + 4) ** 0.5).is_integer() or (
+        (5 * num * num - 4) ** 0.5
+    ).is_integer()
 
-n = int(input())
-print(prime_fib(n))
+
+def prime_fib(n):
+    primes_and_fibs = [
+        num for num in range(2, n) if is_prime(num) and is_fibonacci(num)
+    ]
+    return len(primes_and_fibs)
+
+
+try:
+    n = int(input())
+    print(prime_fib(n))
+except:
+    print("Invalid input")
