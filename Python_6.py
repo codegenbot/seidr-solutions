@@ -1,4 +1,8 @@
 paren_string = input().strip()
+if not all(ch in '()' for ch in paren_string):
+    print("Invalid input. Please enter a string containing only '(' and ')' characters.")
+    exit()
+
 valid = True
 count = 0
 for char in paren_string:
