@@ -1,4 +1,6 @@
-#include <cassert>
+```cpp
+#include <iostream>
+using namespace std;
 
 int fizz_buzz(int n) {
     int count = 0;
@@ -15,5 +17,7 @@ int fizz_buzz(int n) {
 }
 
 int main() {
-    assert(fizz_buzz(100000) == 8026);
+    int n; cin >> n;
+    cout << fizz_buzz(n) << endl;
+    return 0;
 }
