@@ -29,4 +29,3 @@ int main() {
 
     assert (isSame(filter_by_prefix(a, "xxx") , b));
     return 0;
-}
