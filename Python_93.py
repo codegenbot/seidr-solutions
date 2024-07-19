@@ -1,5 +1,14 @@
-"""
+```
 def encode(message):
+    """
+    This function encodes a message using Caesar Cipher algorithm.
+    
+    Parameters:
+    message (str): The input message
+    
+    Returns:
+    str: The encoded message
+    """
     result = ""
     for char in message:
         if char.isalpha():
