@@ -1,14 +1,10 @@
-#include <algorithm>
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result = lst;
-
+    
     // Remove strings with odd lengths from the list
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
