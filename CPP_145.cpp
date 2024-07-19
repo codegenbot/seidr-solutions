@@ -1,18 +1,23 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
+#include <numeric>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool order_is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    // Existing code for sorting the numbers by the sum of their digits
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
+        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
+
+        return sum_a == sum_b ? a < b : sum_a < sum_b;
+    });
     return nums;
 }
 
 int main() {
-    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == std::vector<int>{-76, -21, 0, 4, 23, 6, 6});
-
+    assert(order_is_same(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
