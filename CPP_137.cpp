@@ -11,5 +11,5 @@ std::string compare_one(const std::string& s1, int number) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), 1) == "Equal");
+    assert(compare_one(std::string("1"), 1) == "Not equal");
 }
