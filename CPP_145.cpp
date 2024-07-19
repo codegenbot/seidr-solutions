@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -23,14 +24,14 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({sumOfDigits, i});
+        pairs.push_back({nums[i], i});
     }
 
     std::sort(pairs.begin(), pairs.end());
 
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(pair.second);
     }
 
     return result;
