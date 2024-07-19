@@ -1,43 +1,48 @@
-#include <cctype>
+string file_name_check(string file_name){
+    bool isValid = true;
 
-string file_name_check(string file_name) {
-    int dot_count = 0;
-    int digit_count = 0;
-    bool has_dot = false;
+    int dotIndex = -1;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dotIndex = i;
+            break;
+        }
+    }
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-        } else if (isalpha(c) || c == '.') {
-            if (c == '.') {
-                has_dot = true;
-                dot_count++;
+    if(dotIndex < 0 || dotIndex == file_name.length() - 1){
+        isValid = false;
+    } else{
+        string beforeDot = file_name.substr(0, dotIndex);
+        string afterDot = file_name.substr(dotIndex + 1);
+
+        bool hasLetter = false;
+        for(int i=0; i(beforeDot.length()); i++){
+            if(isalpha(beforeDot[i])){
+                hasLetter = true;
+                break;
             }
         }
-    }
 
-    if (dot_count > 1 || digit_count > 3) {
-        return "No";
-    }
+        if(!hasLetter || beforeDot.length() > 31){
+            isValid = false;
+        }
 
-    size_t found = file_name.find('.');
-    string extension = file_name.substr(found + 1);
+        int digitCount = 0;
+        for(int i=0; i<beforeDot.length(); i++){
+            if(isdigit(beforeDot[i])){
+                digitCount++;
+                if(digitCount > 3){
+                    isValid = false;
+                    break;
+                }
+            }
+        }
 
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()) {
-        return "No";
-    }
-
-    size_t start = file_name.find('.');
-    if (start == string::npos) {
-        return "Yes";
-    }
-
-    for (char c : file_name.substr(0, start)) {
-        if (!isalpha(c) && c != '.') {
-            return "No";
+        set<string> allowedExtensions {"txt", "exe", "dll"};
+        if(allowedExtensions.count(afterDot) == 0){
+            isValid = false;
         }
     }
 
-    return "Yes";
+    return isValid ? "Yes" : "No";
 }
