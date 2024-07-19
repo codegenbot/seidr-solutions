@@ -1,7 +1,20 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 bool checksame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]) != std::abs(b[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,7 +45,7 @@ int programMain() {
         input.push_back(num);
     }
     std::vector<float> positive = get_positive(input);
-    if (checksame(input, positive)) {
+    if (issame(input, positive)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
         std::cout << "Not all numbers are positive." << std::endl;
