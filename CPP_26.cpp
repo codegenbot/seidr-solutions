@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```c
 vector<int> remove_duplicates(vector<int> numbers){
     unordered_map<int,int> mp;
     vector<int> result;
@@ -10,4 +13,7 @@ vector<int> remove_duplicates(vector<int> numbers){
     }
 
     return result;
+}
+bool issame(int a[], int b[]) {
+    return std::equal(a, a + 3, b);
 }
