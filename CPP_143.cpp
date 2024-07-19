@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -54,6 +55,8 @@ int main_func() {
         if (!all_ascii || !is_prime(word.length())) continue;
         
         if (word.length() > longest_prime_word.length()) {
+            longest_prime_word = word;
+        } else if (word.length() == longest_prime_word.length() && is_prime(word.length())) {
             longest_prime_word = word;
         }
     }
