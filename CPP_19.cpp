@@ -1,33 +1,34 @@
-#include <map>
-#include <string>
+#include <iostream>
+#include <sstream>
 #include <vector>
 #include <algorithm>
-#include <sstream>
+#include <map>
+#include <string>
 
-using namespace std;
-
-unordered_map<int, string> num_map = {
-    {0, "zero"},
-    {1, "one"},
-    {2, "two"},
-    {3, "three"},
-    {4, "four"},
-    {5, "five"},
-    {6, "six"},
-    {7, "seven"},
-    {8, "eight"},
-    {9, "nine"}
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
 };
 
 string sort_numbers(string numbers);
 
 int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    string input;
+    getline(cin, input);
+    cout << sort_numbers(input) << endl;
     return 0;
 }
 
 string sort_numbers(string numbers) {
-    unordered_map<int, string> rev_map;
+    map<int, string> rev_map;
     for (const auto& pair : num_map) {
         rev_map[pair.second] = pair.first;
     }
