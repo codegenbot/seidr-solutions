@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -10,8 +11,8 @@ bool issame(int a, int b) {
         return false;
 }
 
-bool issame(const pair<int, int>& p) {
-    return is_same(p.first % 2, p.second % 2);
+bool issame(const pair<int, int>& a) {
+    return issame(a.first, a.second);
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -21,7 +22,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     for (int i = 0; i < arr.size(); i++) {
         bool found = false;
         for (int j = 0; j < arr.size(); j++) {
-            if (issame({arr[i], i}, {arr[j], j})) {
+            if (issame(arr[i], arr[j])) {
                 found = true;
                 break;
             }
@@ -42,6 +43,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), vector<int>()));
+    assert(issame(pluck({7, 9, 7, 1}), vector<int>());
     return 0;
 }
