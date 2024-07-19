@@ -14,11 +14,12 @@ int main() {
     int n;
     std::cout << "Enter the number of integers: ";
     std::cin >> n;
-    std::vector<int> nums;
-    nums.reserve(n);  
+    std::vector<int> nums(n, int());  
     for(int i = 0; i < n; i++) {
         std::cout << "Enter integer #"<<i+1<<": ";
-        std::cin >> nums.push_back(nums[i]);
+        int num; 
+        std::cin >> num;
+        nums[i] = num; // Assign the value to the vector
     }
     int result = count_nums(nums);
     std::cout << "Result: " << result << std::endl;
