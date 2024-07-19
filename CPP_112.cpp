@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -13,15 +12,14 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    string rev = reverse(temp);
-    if (temp == rev) {
+    if (temp == std::string(temp.rbegin(), temp.rend())) {
         result.push_back("True");
     } else {
         result.push_back("False");
@@ -29,8 +27,8 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-string reverse(string s) {
-    string rev = "";
+std::string reverse(std::string s) {
+    std::string rev = "";
     for (int i = s.size() - 1; i >= 0; i--) {
         rev += s[i];
     }
