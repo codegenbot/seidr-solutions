@@ -1,9 +1,9 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -13,7 +13,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
+std::vector<int> sortByPoints(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -33,4 +33,13 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    std::vector<int> result = sortByPoints(nums);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    return 0;
 }

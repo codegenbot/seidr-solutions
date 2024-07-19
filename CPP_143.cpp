@@ -9,22 +9,19 @@ bool isascii(char c) {
 
 std::vector<std::string> split(const std::string& str) {
     std::vector<std::string> tokens;
-    std::string token = "";
+    char token = 0;
 
     for (char c : str) {
-        if (!isascii(c)) {
-            if (!token.empty()) {
-                tokens.push_back(token);
-                token = "";
-            }
+        if (!isascii(c)) continue; // skip non-ASCII characters
+        if (isascii(c)) { 
+            token = c; 
         } else {
-            token += c;
+            break;
         }
     }
 
-    // Don't forget to add the last token
-    if (!token.empty()) { 
-        tokens.push_back(token);
+    if (token != 0) { 
+        tokens.push_back(std::string(1, token));
     }
 
     return tokens;

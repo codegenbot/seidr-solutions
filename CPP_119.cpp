@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
 bool match_parens(const std::string& s) {
     int open = 0, close = 0;
@@ -13,8 +12,7 @@ bool match_parens(const std::string& s) {
 }
 
 int main() { 
-    std::string line; 
-    while(std::cin >> line) {
+    while(getline(std::cin, std::string line)) {
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
