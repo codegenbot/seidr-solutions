@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 
 int add(std::vector<int> lst){
     int sum = 0;
@@ -12,18 +10,8 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers;
-    int num;
-
-    // Read input from user
-    while(std::cin >> num) {
-        numbers.push_back(num);
-    }
-
-    // Call the add function and print the result
-    int total = add(numbers);
-
-    std::cout << "The sum of even numbers is: " << total << std::endl;
-    
+    std::vector<int> numbers = {1, 3, 4, 5, 6};
+    int result = add(numbers);
+    std::cout << "The sum is: " << result << std::endl;
     return 0;
 }
