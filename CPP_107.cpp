@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 using namespace std;
 
@@ -21,8 +20,7 @@ bool isPalindrome(int n) {
         rev = rev * 10 + remainder;
         temp /= 10;
     }
-    string str = to_string(n);
-    return str == to_string(rev);
+    return n == rev;
 }
 
 int checkNumber() {
