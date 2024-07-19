@@ -14,3 +14,11 @@ vector<int> even_odd_count(int num) {
     }
     return result;
 }
+
+int main() {
+    // Your main function code here
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    // Your implementation here
+}
