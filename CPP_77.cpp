@@ -1,5 +1,7 @@
 ```cpp
-#include <cmath>
+#include<cmath>
+#include<cctype>
+
 bool iscuber(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
@@ -8,13 +10,11 @@ bool iscuber(int a){
     }
     return false;
 }
-int main(){
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    if(iscuber(n))
-        std::cout << "The number is a perfect cube.\n";
-    else
-        std::cout << "The number is not a perfect cube.\n";
-    return 0;
+
+int main() {
+    int n; 
+    cin>>n;
+    if(iscuber(n)) cout << "True";
+    else cout<<"False";
+    
 }
