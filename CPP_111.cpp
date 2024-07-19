@@ -1,21 +1,36 @@
+#include <iostream>
+#include <map>
+
+map<char, int> histogram(string test);
+
+bool issame(const map<char, int>& a, const map<char, int>& b) {
+    return a == b;
+}
+
 map<char, int> histogram(string test) {
+    map<char, int> freq;
+    for (char c : test) {
+        if (c != ' ') {
+            freq[c]++;
+        }
+    }
+    
+    int maxFreq = 0;
+    for (const auto& pair : freq) {
+        maxFreq = max(maxFreq, pair.second);
+    }
+    
     map<char, int> result;
-    istringstream iss(test);
-    string word;
-    while (iss >> word) {
-        for (char& c : word) {
-            result[c]++;
+    for (const auto& pair : freq) {
+        if (pair.second == maxFreq) {
+            result[pair.first] = pair.second;
         }
     }
-    int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
-    }
-    map<char, int> maxChars;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            maxChars[pair.first] = pair.second;
-        }
-    }
-    return maxChars;
+    
+    return result;
+}
+
+int main() {
+    // Your test cases here
+    return 0;
 }
