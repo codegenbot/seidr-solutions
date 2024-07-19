@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-vector<int> common(vector<int>& l1, vector<int>& l2) {
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
@@ -11,6 +11,6 @@ vector<int> common(vector<int>& l1, vector<int>& l2) {
     return result;
 }
 
-bool issame(const vector<int>& l1, const vector<int>& l2) {
-    return l1 == l2;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return (v1 == v2);
 }
