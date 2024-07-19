@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -43,3 +44,4 @@ int main() {
             assert(b[i] == a[i]);
         }
     }
+}
