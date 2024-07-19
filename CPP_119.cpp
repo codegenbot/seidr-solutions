@@ -2,6 +2,15 @@
 #include <iostream>
 #include <string>
 
+bool match_parens(const std::string& lst) {
+    int open = 0, close = 0;
+    for (char x : lst) {
+        if (x == '(') open++;
+        else if (x == ')') close++;
+    }
+    return open == close;
+}
+
 int main() { 
     std::string line, lst; 
     std::cout << "Enter the strings: ";
@@ -16,13 +25,4 @@ int main() {
     } else {
         std::cout << "The parentheses are not matched." << std::endl;
     }
-}
-
-bool match_parens(const std::string& lst) {
-    int open = 0, close = 0;
-    for (char x : lst) {
-        if (x == '(') open++;
-        else if (x == ')') close++;
-    }
-    return open == close;
 }
