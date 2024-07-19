@@ -10,10 +10,10 @@ bool solve(std::string s) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
     std::string s;
-    std::getline(std::cin, s);  
-    if (solve(s)) {
+    std::cout << "Enter a string: ";
+    getline(std::cin, s);  
+    if (solve(s + "")) {
         std::cout << "The solution is: " << s << std::endl;
     } else {
         std::cout << "No solution exists. Please try again." << std::endl;
