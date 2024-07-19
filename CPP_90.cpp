@@ -1,13 +1,14 @@
+```cpp
+#include <vector>
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // or any other value that indicates "None"
-    vector<int> copy = lst;
-    sort(copy.begin(), copy.end());
-    int res = -1;
-    for(int i = 0; i < copy.size() - 1; i++) {
-        if (copy[i] != copy[i+1]) {
-            res = copy[i+1];
-            break;
+    if (lst.size() < 2) return -1; 
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for(int i=0; i<v.size()-1; i++){
+        if(v[i] != v[i+1]){
+            return v[i+1];
         }
     }
-    return res;
+    return -1; 
 }
