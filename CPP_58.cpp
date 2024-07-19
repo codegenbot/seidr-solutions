@@ -1,19 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
 int main_test() {
     int n;
@@ -31,4 +20,16 @@ int main_test() {
         cout << "No" << endl;
     }
     return 0;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
