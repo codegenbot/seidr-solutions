@@ -27,3 +27,4 @@ string string_to_md5(string text) {
 
     free(md5_ptr);
     return result;
+}
