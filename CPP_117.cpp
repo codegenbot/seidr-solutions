@@ -1,48 +1,51 @@
-// Define issame function
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-// Declare select_words function
 vector<string> select_words(string s, int n);
 
-#include <vector>
-#include <string>
-#include <cassert>
+int main() {
+    vector<string> result = select_words("Hello world, welcome to coding", 3);
+    vector<string> expected = {"world,", "coding"};
+    
+    assert(issame(result, expected));
+    
+    return 0;
+}
 
 vector<string> select_words(string s, int n) {
-    vector<string> words;
+    vector<string> result;
     string word = "";
-    int consonant_count = 0;
-
+    int count = 0;
+    
     for (char c : s) {
         if (c == ' ') {
-            if (consonant_count == n) {
-                words.push_back(word);
+            if (count == n) {
+                result.push_back(word);
             }
             word = "";
-            consonant_count = 0;
+            count = 0;
         } else if (isalpha(c)) {
-            char lowercase_c = tolower(c);
-            if (lowercase_c != 'a' && lowercase_c != 'e' && lowercase_c != 'i' && lowercase_c != 'o' && lowercase_c != 'u') {
-                consonant_count++;
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+                count++;
             }
             word += c;
         }
     }
-
-    if (consonant_count == n) {
-        words.push_back(word);
-    }
-
-    return words;
-}
-
-int main() {
-    vector<string> result = select_words("This is a sample test case", 2);
-    vector<string> expected = {"This", "sample"};
     
-    assert(issame(result, expected));
-
-    return 0;
+    if (count == n) {
+        result.push_back(word);
+    }
+    
+    return result;
 }
