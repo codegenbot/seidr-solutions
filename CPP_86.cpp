@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    std::string result = ""; // Initialize the string with an empty constructor
     int i = 0;
     for (char c : s) {
         if (c == ' ') {
@@ -10,7 +11,8 @@ std::string anti_shuffle(std::string s) {
                 result += s[i];
                 i++;
             }
-            i++; 
+            result += '.';
+            i++;
         } else {
             result += c;
         }
@@ -18,7 +20,7 @@ std::string anti_shuffle(std::string s) {
     return result;
 }
 
-int main() {
+int main() { // Declare and define the main function
     std::cout << anti_shuffle("Hi. My name is Mister Robot. How are you?") << std::endl;
     return 0;
 }
