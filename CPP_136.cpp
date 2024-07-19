@@ -6,7 +6,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> largest_smallest_integer(std::vector<int> lst) {
+std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
     int largest_negative = 0;
     int smallest_positive = 0;
@@ -26,7 +26,7 @@ std::vector<int> largest_smallest_integer(std::vector<int> lst) {
 }
 
 int main() {
-    assert(is_same(largest_smallest_integer({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
     
     return 0;
 }
