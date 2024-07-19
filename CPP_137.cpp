@@ -2,13 +2,11 @@
 #include <string>
 #include <cassert>
 
-template <typename T>
-std::string compare_one(const T& t1, const T& t2) {
-    return (t1 == t2) ? "Equal" : "Not Equal";
+std::string compare_one(const std::string& s, int i) {
+    return "None";
 }
 
 int main() {
-    assert(compare_one(1, 1) == "Equal");
-    assert(compare_one(std::string("abc"), std::string("def")) == "Not Equal");
+    assert(compare_one(std::string("1"), 1) == "None");
     return 0;
 }
