@@ -6,13 +6,12 @@ if (arr.empty()) {
     int sum = 0;
     
     for (int num : arr) {
-        if (num > 0) {
-            product *= 1;
-        } else if (num < 0) {
+        if (num < 0) {
             product *= -1;
-        } else {
-            product *= 0;
+        } else if (num == 0) {
+            product = 0;
         }
+        
         sum += abs(num);
     }
     
