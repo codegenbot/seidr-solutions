@@ -11,6 +11,7 @@ int skjkasdkd(vector<int> lst){
         maxPrime /= 10;
     }
     return sumOfDigits;
+
 }
 
 bool isPrime(int n) {
