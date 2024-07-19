@@ -3,7 +3,12 @@
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimeter);
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(std::vector<int> a, std::vector<int> b);
+
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    return 0;
+}
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     std::vector<int> result;
@@ -16,7 +21,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,5 +32,3 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     }
     return true;
 }
-
-assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
