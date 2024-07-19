@@ -6,8 +6,11 @@ std::string fix_spaces(const std::string& text) {
         if (text[i] == ' ') {
             if (i > 0 && text[i - 1] == ' ')
                 continue;
-            else
-                text.replace(i, 1, "%20");
+            else {
+                text.erase(i, 1);
+                text.insert(i, "20%");
+                i++;
+            }
         }
     }
     return text;
@@ -17,8 +20,9 @@ int main() {
     std::cout << "Enter a string: ";
     std::string text;
     getline(std::cin, text);
-    std::transform(text.begin(), text.end(), text.begin(),
-                    [](unsigned char c) { return std::tolower(c); });
+    for (char &c : text) {
+        c = tolower((unsigned char)c);
+    }
     std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
     return 0;
 }
