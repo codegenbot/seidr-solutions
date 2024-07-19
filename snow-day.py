@@ -1,7 +1,7 @@
+```
 def snow_day(hours, initial_snow, rate_of_snowfall, proportion_melting):
     snow = initial_snow
     for _ in range(hours):
-        snow += rate_of_snowfall  
-        rate_of_snowfall *= (1 - proportion_melting)
-        snow *= (1 - proportion_melting)
+        snow += rate_of_snowfall  # Add new snow once per hour
+        snow *= (1 - proportion_melting)  # Then melt the existing snow
     return round(snow, 2)
