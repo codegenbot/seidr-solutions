@@ -3,6 +3,7 @@
 #include <vector>
 #include <assert.h>
 #include <initializer_list>
+#include <numeric>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
