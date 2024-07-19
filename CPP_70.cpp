@@ -1,19 +1,11 @@
 sort(lst.begin(), lst.end());
-
     vector<int> result;
     int left = 0, right = lst.size() - 1;
-    bool pickLeft = true;
-
     while (left <= right) {
-        if (pickLeft) {
-            result.push_back(lst[left]);
-            left++;
-        } else {
-            result.push_back(lst[right]);
-            right--;
+        result.push_back(lst[left++]);
+        if (left <= right) {
+            result.push_back(lst[right--]);
         }
-        pickLeft = !pickLeft;
     }
-
     return result;
 }
