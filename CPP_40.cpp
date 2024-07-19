@@ -1,6 +1,5 @@
-#include <vector>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
