@@ -13,3 +13,5 @@ int specialFilter(vector<int> nums){
     }
     return count;
 }
+
+assert(specialFilter({}) == 0);
