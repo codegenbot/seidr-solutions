@@ -25,10 +25,8 @@ std::string yourFunctionName(int n, int m) {
 }
 
 int main() {
-    int n = 3; // Example value for n
-    int m = 7; // Example value for m
-    
-    // Call the existing function with required arguments
+    int n = 3; // Define appropriate value for n
+    int m = 7; // Define appropriate value for m
     std::cout << yourFunctionName(n, m) << std::endl;
 
     return 0;
