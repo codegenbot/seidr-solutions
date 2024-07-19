@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -31,11 +32,14 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    std::vector<int> test1 = {2,3,4,5};
-    std::cout << "Test 1: " << skjkasdkd(test1) << std::endl;
-
-    std::vector<int> test2 = {7,8,9,10};
-    std::cout << "Test 2: " << skjkasdkd(test2) << std::endl;
+    std::vector<int> test1 = {2, 3, 5, 7};
+    std::vector<int> test2 = {11, 13, 17};
     
+    int result1 = skjkasdkd(test1);
+    int result2 = skjkasdkd(test2);
+
+    std::cout << "Test 1: The sum of the digits in the largest prime number is " << result1 << std::endl;
+    std::cout << "Test 2: The sum of the digits in the largest prime number is " << result2 << std::endl;
+
     return 0;
 }
