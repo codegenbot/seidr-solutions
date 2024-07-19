@@ -1,6 +1,6 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-    if (lst[i] >= lst[i + 1]) {
-        return false;
-    }
+#include <algorithm>
+#include <vector>
+
+bool is_sorted_and_unique(const std::vector<int>& lst) {
+    return std::is_sorted(lst.begin(), lst.end()) && (std::unique(lst.begin(), lst.end()) == lst.end());
 }
-return true;
