@@ -13,10 +13,9 @@ int solve(int N) {
 }
 
 int main() {
-    char str[256];
+    int N;
     std::cout << "Enter a string: ";
-    std::cin.getline(str, 256);
-    int N = std::stoi(str);
+    std::cin >> N;
     if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
