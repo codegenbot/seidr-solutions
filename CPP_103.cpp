@@ -1,23 +1,25 @@
 #include <iostream>
-#include <string>
 #include <cmath> 
 using namespace std;
 
-int rounded_avg(int n, int m);
+double rounded_avg(int n, int m);
 
-rounded_avg(int n, int m) {
-    if (n > m) return -1;
+int main() {
+    int n, m;
+    cin >> n >> m;
+    if (n <= m) {
+        cout << static_cast<int>(rounded_avg(n, m)) << endl;
+    } else {
+        cout << "Error: Invalid input. Please enter numbers in ascending order." << endl;
+    }
+}
+
+double rounded_avg(int n, int m) {
+    if (n > m) return -1.0;
     double sum = 0.0;
     for (int i = n; i <= m; i++) {
         sum += i;
     }
     double avg = round((sum / (m - n + 1)) * 2) / 2.0;
-    return (int)avg;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << rounded_avg(n, m) << endl;
-    return 0;
+    return avg;
 }
