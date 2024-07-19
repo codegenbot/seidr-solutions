@@ -1,14 +1,12 @@
-```cpp
-# pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunknown-pragmas"
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
         return false;
 
-    for(int i = 0; i < (int)a.size(); i++) {
+    for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i])
             return false;
     }
