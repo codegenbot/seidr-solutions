@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath> 
@@ -14,12 +14,12 @@ int rounded_avg(int n, int m) {
     while(avg > 0.5) {
         avg /= 2;
     }
-    return (int)avg;
+    string output = to_string((int)round(avg));
+    return stoi(output);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    assert(rounded_avg(5, 5) == 101);
     cout << rounded_avg(n, m) << endl;
 }
