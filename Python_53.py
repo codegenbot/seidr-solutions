@@ -10,7 +10,7 @@ try:
             x, y = map(int, line.split())
             result = add(x, y)
             print(result)
-        except ValueError:
-            pass
+        except (ValueError, EOFError, KeyboardInterrupt):  # Handle exceptions accordingly
+            break
 except (EOFError, KeyboardInterrupt):
-    print("Exiting the program.")
+    pass
