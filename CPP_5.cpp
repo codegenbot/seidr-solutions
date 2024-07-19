@@ -4,12 +4,12 @@
 
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> intersperse(vector<int>& numbers, int delimiter) {
-    std::vector<int> result;
+vector<int> intersperse(const vector<int>& numbers, int delimiter) {
+    vector<int> result;
     for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
