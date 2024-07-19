@@ -1,24 +1,30 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string result = "";
+std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    std::string result = ""; 
     for (int i = 0; i < message.length(); i++) {
-        int j = 0;
-        while (j < cipher1.length()) {
-            if (message[i] == cipher1[j]) {
-                result += cipher2[j];
+        for (int j = 0; j < cipher_map1.length(); j++) {
+            if (message[i] == cipher_map1[j]) {
+                result += cipher_map2[j];
                 break;
             }
-            j++;
         }
     }
     return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
+    std::string cipher_map1, cipher_map2, message;
+    std::cout << "Enter the first string: ";
+    std::cin >> cipher_map1;
+    std::cout << "Enter the second string: ";
+    std::cin >> cipher_map2;
+    std::cout << "Enter the third string: ";
+    std::cin >> message;
+    
+    std::string result = decipher(cipher_map1, cipher_map2, message);
+    std::cout << "Decrypted message: " << result << std::endl;
+    
     return 0;
-}
