@@ -1,25 +1,19 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
-#include <cctype>
 
-std::string solve(const std::string &s) {
-    std::string result = s;
-    
-    for (char &c : result) {
+std::string solve(std::string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    if (count_if(result.begin(), result.end(), isalpha) == 0) {
-        reverse(result.begin(), result.end());
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+    return s;
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
