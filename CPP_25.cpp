@@ -10,7 +10,7 @@ vector<int> factorize(int n){
             factors.push_back(i);
             n /= i;
         }
-    }
+    } 
     return factors;
 }
 
