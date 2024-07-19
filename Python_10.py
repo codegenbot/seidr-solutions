@@ -1,5 +1,5 @@
-def make_palindrome(string: str) -> str:
-    i = len(string) - 1
-    while i >= 0 and string[: i + 1] != string[: i + 1][::-1]:
-        i -= 1
-    return string + string[i + 1:][::-1] if i >= 0 else string[:-1][::-1] + string[:]
+def complete_code(string, i):
+    return string + string[: i + 1][::-1] if i >= 0 else string[:-1][::-1] + string[:]
+
+output = complete_code(input("Enter a string: "), int(input("Enter an integer: ")))
+print(output)
