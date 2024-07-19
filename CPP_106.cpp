@@ -1,14 +1,18 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> f(int n);
+std::vector<int> f(int n);
 
-vector<int> f(int n){
-    vector<int> result;
+int main() {
+    // Your main function code here
+}
+
+std::vector<int> f(int n){
+    std::vector<int> result;
     int sum = 0;
     int factorial = 1;
     
