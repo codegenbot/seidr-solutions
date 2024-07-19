@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm> // for abs
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
