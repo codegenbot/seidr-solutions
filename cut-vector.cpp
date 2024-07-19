@@ -16,8 +16,8 @@ vector<vector<int>> cutVector(vector<int> v) {
 
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long left_sum = sum1;
-            long long right_sum = accumulate(v.begin() + i, v.end(), 0);
+            long long left_sum = std::accumulate(v.begin(), v.begin() + i, 0);
+            long long right_sum = std::accumulate(v.begin() + i + 1, v.end(), 0);
             
             long long diff = std::abs(left_sum - right_sum);
             
@@ -29,17 +29,24 @@ vector<vector<int>> cutVector(vector<int> v) {
             } else if (diff == min_diff) {
                 min_indices.push_back(i);
             }
+            
+            // Check if both sides have equal sum
+            if (left_sum == right_sum && i > 0) {
+                res[0].assign(v.begin(), v.begin() + i+1);
+                res[1].assign(v.begin() + i, v.end());
+                return res;
+            }
         }
         
         sum1 += v[i];
     }
     
-    if(min_diff > 0) {
+    if (sum1 == prev_sum) {
         res[0].assign(v.begin(), v.begin() + index+1);
-        res[1].assign(v.begin() + index + 1, v.end());
+        res[1].assign(v.begin() + index, v.end());
     } else {
-        res[0].assign(v.begin(), v.end()); 
-        res[1].assign({});
+        res[0].assign(v.begin(), v.begin() + index+1);
+        res[1].assign(v.begin() + index, v.end());
     }
     
     return res;
