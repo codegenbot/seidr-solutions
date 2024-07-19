@@ -1,24 +1,18 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+#include <cctype>
 
-int calculateStrength(string extension) {
-    int cap = 0, sm = 0;
-    for (char c : extension) {
-        if (isupper(c)) cap++;
-        else if (islower(c)) sm++;
-    }
-    return cap - sm;
-}
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
-    int max_strength = 0;
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    int max_strength = -1;
+    std::string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int strength = calculateStrength(extension);
+        int cap = 0, sm = 0;
+        for (char c : extension) {
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
+        }
+        int strength = cap - sm;
         if (strength > max_strength) {
             max_strength = strength;
             strongest_extension = extension;
@@ -28,42 +22,4 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    string class_name;
-    vector<string> extensions;
-
-    cout << "Enter the class name: ";
-    getline(cin, class_name);
-
-    cout << "Enter a list of extensions (separated by commas): ";
-    string str_extensions;
-    getline(cin, str_extensions);
-    vector<string> v_extensions;
-    for (string ext : split(str_extensions, ",")) {
-        v_extensions.push_back(ext);
-    }
-
-    cout << Strongest_Extension(class_name, v_extensions) << endl;
-
-    return 0;
-}
-
-vector<string> split(const string& s, char c) {
-    vector<string> v;
-    string t;
-
-    for (char ch : s) {
-        if (ch == c) {
-            v.push_back(t);
-            t = "";
-        } else {
-            t += ch;
-        }
-    }
-
-    v.push_back(t);
-
-    return v;
 }
