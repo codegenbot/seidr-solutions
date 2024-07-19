@@ -1,31 +1,33 @@
-Here is the completed code:
-
-```cpp
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    vector<vector<int>> rows(n, vector<int>(capacity + 1, 0));
+    int rows = grid.size();
+    int cols = grid[0].size();
+    int ans = 0;
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= capacity; j++) {
-            if (j >= grid[i].size()) 
-                rows[i][j] = rows[i][grid[i].size() - 1];
-            else
-                rows[i][j] = rows[i][j - 1];
-            for (int k = min(j, (int)grid[i].size()); k > 0; k--) {
-                if (grid[i].size() - k <= j - k) 
-                    break;
-                rows[i][k] += grid[i].size() - k;
-                rows[i][j] -= min(grid[i].size() - k, j - k);
+    vector<vector<bool>> visited(rows, vector<bool>(cols, false));
+    
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            if (!visited[i][j] && grid[i][j]) {
+                int fill = capacity;
+                for (int k = i - 1; k >= 0; --k) {
+                    if (grid[k][j]) {
+                        if (fill > 0) {
+                            fill--;
+                            visited[k][j] = true;
+                        } else break;
+                    }
+                }
+                for (int k = i + 1; k < rows; ++k) {
+                    if (grid[k][j]) {
+                        if (fill > 0) {
+                            fill--;
+                            visited[k][j] = true;
+                        } else break;
+                    }
+                }
+                ans += fill;
             }
         }
-    }
-    
-    int ans = 0;
-    for (int i = capacity; i >= 0; i--) {
-        if (rows[0][i] == 0) 
-            break;
-        else 
-            ans += rows[0][i];
     }
     
     return ans;
