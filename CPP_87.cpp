@@ -1,6 +1,6 @@
-#include <vector> // Add this line
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b){ // Update function signature
+bool issame(vector<int> a, vector<int> b){
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
