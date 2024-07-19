@@ -10,9 +10,9 @@ int count(int num) {
     return res;
 }
 
-long long search(vector<long long> lst) {
-    long long max = 0;
-    for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9}) {
+int search(vector<unsigned long long> lst) {
+    unsigned long long max = 0;
+    for (unsigned long long i : lst) {
         if (i > 0 && i >= count(i)) {
             max = i;
         }
@@ -21,9 +21,9 @@ long long search(vector<long long> lst) {
 }
 
 int main() {
-    vector<long long> lst; 
+    vector<unsigned long long> lst; 
     for (int i = 0; i < 5; ++i) { 
-        long long temp; cin >> temp; lst.push_back(temp); 
+        unsigned long long temp; cin >> temp; lst.push_back(temp); 
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
