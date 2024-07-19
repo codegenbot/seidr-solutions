@@ -4,7 +4,7 @@
 
 std::vector<int> rolling_max(std::vector<int> numbers){
     std::vector<int> result;
-    int max_num = numbers[0];
+    size_t max_num = numbers[0];
     for(size_t i = 0; i < numbers.size(); i++){
         max_num = std::max(max_num, numbers[i]);
         result.push_back(max_num);
