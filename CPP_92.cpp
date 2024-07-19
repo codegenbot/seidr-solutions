@@ -1,21 +1,19 @@
 #include <iostream>
 #include <sstream>
 
-using namespace std;
-
 int main() {
     int a, b, c;
-    cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
 
-    string s1 = to_string(a);
-    string s2 = to_string(b);
-    string s3 = to_string(c);
+    std::string s1 = std::to_string(a);
+    std::string s2 = std::to_string(b);
+    std::string s3 = std::to_string(c);
 
-    if (!(cin >> s1) || !(cin >> s2) || !(cin >> s3)) {
-        cout << "Error: Please enter valid integer values.\n";
+    if (!(std::cin >> s1) || !(std::cin >> s2) || !(std::cin >> s3)) {
+        std::cout << "Error: Please enter valid integer values.\n";
     } else {
-        cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
+        std::cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     }
 
     return 0;
