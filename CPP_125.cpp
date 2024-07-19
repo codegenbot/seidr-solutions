@@ -13,15 +13,14 @@ vector<string> result;
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.size() == 1 && islower(result[0][0])) {
+    if (result.size() == 1 && !isalpha(result[0][0])) {
         int count = 0;
         for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        result.clear();
-        result.push_back(to_string(count));
+        result[0] = to_string(count);
     }
     return result;
 }
