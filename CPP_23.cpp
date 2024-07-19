@@ -1,4 +1,3 @@
-
 #include <cstring>
 
 int calculateStringLength(const char* str) {
