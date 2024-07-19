@@ -1,11 +1,6 @@
-#include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool is_sorted(const vector<int>& lst) {
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || count(lst.begin(), lst.end(), lst[i]) > 1) {
-            return false;
-        }
-    }
-    return true;
+bool is_sorted(std::initializer_list<int> lst) {
+    return std::is_sorted(lst.begin(), lst.end()) && std::unique(lst.begin(), lst.end()) == lst.end();
 }
