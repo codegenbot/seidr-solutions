@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <memory>
 
 bool equal(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
