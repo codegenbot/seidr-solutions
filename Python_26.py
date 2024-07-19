@@ -1,9 +1,2 @@
-numbers = []
-try:
-    while True:
-        num = int(input())
-        numbers.append(num)
-except ValueError:
-    pass
-
+numbers = list(map(int, input().split()))
 print(find_unique_numbers(numbers))
