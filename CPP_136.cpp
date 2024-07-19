@@ -8,13 +8,13 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> largest_smallest_integer(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
-    int largest_negative = INT_MIN;
-    int smallest_positive = INT_MAX;
+    int largest_negative = 0;
+    int smallest_positive = 0;
     
     for (int num : lst) {
-        if (num < 0 && num > largest_negative) {
+        if (num < 0 && num < largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && num < smallest_positive) {
+        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
             smallest_positive = num;
         }
     }
