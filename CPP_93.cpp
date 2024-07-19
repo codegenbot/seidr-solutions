@@ -1,16 +1,16 @@
-for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            if(isupper(message[i])){
-                message[i] = tolower(message[i]);
-            } else {
-                message[i] = toupper(message[i]);
-            }
-
-            if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
-                message[i] = message[i] + 2;
-            }
-        }
-    }
-
-    return message;
+string encode(string message){
+    string encodedMessage = message;
+    transform(encodedMessage.begin(), encodedMessage.end(), encodedMessage.begin(), 
+              [](unsigned char c) {
+                  if(isalpha(c)) {
+                      if(islower(c)) {
+                          return islower((char)(c+2)) ? (char)(c+2) : (char)(c-24);
+                      }
+                      else {
+                          return isupper((char)(c+2)) ? (char)(c+2) : (char)(c-24);
+                      }
+                  }
+                  return c;
+              });
+    return encodedMessage;
 }
