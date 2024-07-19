@@ -11,7 +11,6 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    
     return bitset<sizeof(int)*8>(sum).to_string().substr(sizeof(int)*8-1);
 }
 
