@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
-#include <cassert>
+
 using namespace std;
 
 bool areEqual(vector<int> a, vector<int> b) {
@@ -16,7 +16,7 @@ bool areEqual(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> uniqueNumbers(vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for(int num : numbers){
         if(find(result.begin(), result.end(), num) == result.end()){
@@ -29,6 +29,6 @@ vector<int> uniqueNumbers(vector<int> numbers) {
 
 int main() {
     vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    assert (areEqual(uniqueNumbers(test), vector<int>{1, 2, 3, 4, 5}) );
+    assert (areEqual(remove_duplicates(test), {1, 2, 3, 4, 5}) );
     return 0;
 }
