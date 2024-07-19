@@ -1,11 +1,10 @@
 ```c++
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 int nextSmallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
-    std::vector<int> sorted = lst;
+    std::vector<int> sorted = std::vector<int>(lst);
     std::sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1]) {
