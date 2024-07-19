@@ -1,17 +1,28 @@
-bool issame(vector<int> a, vector<int> b);
+#include <any>
+#include <vector>
+#include <cassert>
 
-vector<int> filter_integers(list_any values);
+std::vector<int> filter_integers(std::vector<std::any> values);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> filter_integers(list_any values){
-    vector<int> result;
+std::vector<int> filter_integers(std::vector<std::any> values){
+    std::vector<int> result;
     for (const auto &val : values) {
         if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
+            result.push_back(std::any_cast<int>(val));
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<std::any> values = {1, 2, "hello", 3.14, 5};
+    std::vector<int> filtered_values = filter_integers(values);
+    assert(issame(filtered_values, std::vector<int>{1, 2, 5}));
+    return 0;
 }
