@@ -1,8 +1,13 @@
 ```cpp
+double poly(vector<double> coeffs, double x) {
+    double sum = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        sum += coeffs[i] * pow(x, i);
+    }
+    return sum;
+}
+
 double find_zero(vector<double> coeffs){
     double x = -coeffs[1] / (2*abs(coeffs[1]));
-    double poly(double v, double x) {
-        return coeffs[0] + coeffs[1]*x + coeffs[2]*pow(x, 2);
-    }
-    return poly(0, x);
+    return poly(coeffs,x);
 }
