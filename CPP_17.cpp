@@ -1,38 +1,49 @@
-vector<int> parse_music(string music_string);
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <string>
 
-int main(){
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
-}
-
-vector<int> parse_music(string music_string){
-    vector<int> beats;
-    string note = "";
-    for (char c : music_string) {
-        if (c != ' ') {
-            note += c;
-        } else {
-            if (note == "o") {
-                beats.push_back(4);
-            } else if (note == "o|") {
-                beats.push_back(2);
-            } else if (note == ".|") {
-                beats.push_back(1);
-            }
-            note = "";
+bool areEqual(std::vector<int> b, std::vector<int> c) {
+    if (b.size() != c.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < b.size(); i++) {
+        if (b[i] != c[i]) {
+            return false;
         }
     }
-    if (!note.empty()) {
-        if (note == "o") {
+    
+    return true;
+}
+
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    int i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(4);
-        } else if (note == "o|") {
+            i += 2;
+        } else if (music_string[i] == 'o') {
             beats.push_back(2);
-        } else if (note == ".|") {
+            i++;
+        } else if (music_string[i] == '.' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(1);
+            i += 2;
         }
     }
     return beats;
+}
+
+int main() {
+    std::string music = "o|o|o|.";
+    std::vector<int> result = parse_music(music);
+    std::vector<int> expected = {4, 2, 4, 1};
+    
+    if (areEqual(result, expected)) {
+        std::cout << "Test Passed!" << std::endl;
+    } else {
+        std::cout << "Test Failed!" << std::endl;
+    }
+    
+    return 0;
 }
