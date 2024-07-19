@@ -1,3 +1,6 @@
+#include<vector>
+#include<string>
+using namespace std;
 vector<string> words_string(string s){
     vector<string> words;
     string word = "";
