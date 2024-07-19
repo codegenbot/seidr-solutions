@@ -16,10 +16,12 @@ map<char,int> histogramTest(string s) {
     return hist;
 }
 
-bool issame(map<char,int> a, map<char,int> b) {
+// Define the compareHistograms function
+bool compareHistograms(map<char,int> a, map<char,int> b) {
     // You probably want to compare two histograms character by character here
     // For now, just check if they are equal
     return a==b;
+}
 
 int main() {
     string test;
@@ -32,7 +34,7 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!issame(hist, {{'a', 1}})) { 
+    if (!compareHistograms(hist, {{'a', 1}})) { 
         return 0; 
     }
 }
