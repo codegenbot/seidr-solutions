@@ -1,6 +1,6 @@
-#include<vector>
-#include<string>
-#include<cctype>
+#include <vector>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,14 +11,15 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            int consonants = 0;
+            bool has_n_consonants = false;
+            int consonant_count = 0;
             for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) continue;
-                if (!ispunct(ch) && !isspace(ch) && isupper(ch))
-                    consonants += tolower(ch) == 'q' || tolower(ch) == 'x' ||
-                                  tolower(ch) == 'z' ? 1 : 0;
+                if (!ispunct(ch) && !isspace(ch) && ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                    consonant_count++;
+                    has_n_consonants = consonant_count == n;
+                }
             }
-            if (consonants == n) {
+            if (has_n_consonants) {
                 result.push_back(word);
             }
             word = "";
