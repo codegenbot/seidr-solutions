@@ -34,15 +34,15 @@ std::vector<double> find_zero(const std::vector<double>& coefficients) {
 
 int main() {
     std::vector<double> coefficients = {1.0, -3.0, -2.0, 4.0};
-    std::vector<double> coeffs;
+    std::vector<double> coeff = {};
   
     for (double coeff : coefficients) {
-        coeffs.push_back(coeff);
+        coeff.push_back(coeff);
     }
     
-    auto solution = find_zero(coeffs);
+    std::vector<double> solution = find_zero(coeff);
     
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    assert(std::abs(poly(coeff, solution)) < 1e-3);
     
     return 0;
 }
