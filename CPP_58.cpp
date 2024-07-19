@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <set>
+
 using namespace std;
 
 vector<int> solve(vector<int>& l1, vector<int>& l2) {
@@ -17,7 +19,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
 }
 
-int main() {
+int main_specific_name() {
     assert(issame(solve({4, 3, 2, 8}, {}), {}));
     return 0;
 }
