@@ -1,4 +1,4 @@
-int skjkasdkd(vector<int> lst){
+int maxPrime(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime){
