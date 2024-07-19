@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cmath>
 #include <cassert>
 #include <iostream>
@@ -12,7 +12,7 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-int main {
+int main() {
     assert(abs(triangle_area(2, 2, 10) +1)<0.01);
     float a, b, c;
     std::cout << "Enter side lengths a, b, and c of the triangle: ";
