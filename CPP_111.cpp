@@ -1,11 +1,12 @@
-#include <cassert>
 #include <iostream>
 #include <map>
 
-std::map<char, int> histogram(std::string test);
+using namespace std;
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> freq;
+map<char, int> histogram(string test);
+
+map<char, int> histogram(string test) {
+    map<char, int> freq;
     for (char c : test) {
         if (c != ' ') {
             freq[c]++;
@@ -14,10 +15,10 @@ std::map<char, int> histogram(std::string test) {
     
     int maxFreq = 0;
     for (const auto& pair : freq) {
-        maxFreq = std::max(maxFreq, pair.second);
+        maxFreq = max(maxFreq, pair.second);
     }
     
-    std::map<char, int> result;
+    map<char, int> result;
     for (const auto& pair : freq) {
         if (pair.second == maxFreq) {
             result[pair.first] = pair.second;
@@ -32,6 +33,16 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    // Your test cases here
+    map<char, int> test1 = histogram("hello world");
+    map<char, int> test2 = histogram("cpp contest");
+    
+    for (const auto& pair : test1) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    
+    for (const auto& pair : test2) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    
     return 0;
 }
