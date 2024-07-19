@@ -1,6 +1,19 @@
-Here's the corrected code:
+```cpp
+#include <vector>
+#include <unordered_map>
 
-```c
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> remove_duplicates(vector<int> numbers){
     unordered_map<int,int> mp;
     vector<int> result;
@@ -14,6 +27,8 @@ vector<int> remove_duplicates(vector<int> numbers){
 
     return result;
 }
-bool issame(int a[], int b[]) {
-    return std::equal(a, a + 3, b);
+
+int main() {
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    return 0;
 }
