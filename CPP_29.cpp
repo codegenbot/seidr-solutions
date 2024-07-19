@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -16,16 +15,4 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-
-    std::vector<std::string> filtered_strings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
-
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
-    }
-
-    return 0;
 }
