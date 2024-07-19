@@ -6,10 +6,10 @@ string int_to_mini_roman(int number){
     };
 
     string result = "";
-    for(const auto &pair : roman_map){
-        while(number >= pair.first){
-            result += pair.second;
-            number -= pair.first;
+    for(const auto& mapping : roman_map){
+        while(number >= mapping.first){
+            result += mapping.second;
+            number -= mapping.first;
         }
     }
 
