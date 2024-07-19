@@ -1,4 +1,3 @@
-```c
 #include <initializer_list>
 #include <vector>
 #include <cmath>
@@ -23,6 +22,13 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
+}
+
+bool sameFloats(const std::vector<float>& a, const std::vector<float>& b) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (!same(a[i], b[i])) return false;
+    }
+    return true;
 }
 
 int main() {
