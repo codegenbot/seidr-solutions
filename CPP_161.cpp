@@ -1,16 +1,14 @@
-int n = s.size();
-    bool hasLetter = false;
-    for (int i = 0; i < n; ++i) {
-        if (isalpha(s[i])) {
-            hasLetter = true;
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+string solve(string s){
+    int n = s.size();
+    int count = 0;
+    for(int i=0;i<n;i++){
+        if(isalpha(s[i])){
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+        } else {
+            count++;
         }
     }
-    if (!hasLetter) {
+    if(count == n){
         reverse(s.begin(), s.end());
     }
     return s;
