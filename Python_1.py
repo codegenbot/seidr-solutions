@@ -13,4 +13,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 # Read input from user
 paren_string = input()
-print(separate_paren_groups(paren_string))
+if len(paren_string) % 2 == 0 and paren_string.count('(') == paren_string.count(')'):
+    print(separate_paren_groups(paren_string))
+else:
+    print("Please enter a string with properly enclosed parentheses.")
