@@ -11,8 +11,8 @@ def find_closest_elements(numbers):
 
     return closest_pair
 
+
 if __name__ == "__main__":
-    n = int(input("Enter the number of elements: "))
-    numbers = [int(input("Enter element: ")) for _ in range(n)]
+    numbers = list(map(int, input().strip().split()))
     closest_pair = find_closest_elements(numbers)
     print(min(closest_pair), max(closest_pair))
