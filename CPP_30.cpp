@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<float> get_positive(const std::vector<float>& vec) {
