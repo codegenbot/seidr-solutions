@@ -16,5 +16,8 @@ try:
 
         except ValueError:
             print("Please enter valid integers.")
+        except (EOFError, KeyboardInterrupt):
+            print("Exiting the program.")
+            break
 except (EOFError, KeyboardInterrupt):
     print("Exiting the program.")
