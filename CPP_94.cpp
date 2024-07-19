@@ -1,20 +1,19 @@
+```cpp
 #include <cassert>
 
-int bitCount(int* a, int size) {
+int bitCount(int a) {
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        while (*a) {
-            *a &= ~1;
-            count++;
-        }
-        a++;
+    while (a) {
+        a &= ~1;
+        count++;
     }
     return count;
 }
 
 int main() {
     int arr[3] = {127, 97, 8192};
-    int* ptr = &arr[0];
-    assert(bitCount(ptr, 3) == 10);
+    for (int i = 0; i < 3; i++) {
+        assert(bitCount(arr[i]) == customBitCount(&arr[i], 1));
+    }
     return 0;
 }
