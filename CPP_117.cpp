@@ -19,7 +19,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word = "";
             consonant_count = 0;
         } else {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+            if (isalpha(c) && !std::strchr("aeiouAEIOU", c)) {
                 consonant_count++;
             }
             word += c;
