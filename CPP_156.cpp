@@ -19,7 +19,9 @@ string intToRoman(int number) {
 }
 
 int main() {
-    int number = 3549;
-    string romanNumeral = intToRoman(number);
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+    cout << "Roman numeral: " << intToRoman(number) << endl;
     return 0;
 }
