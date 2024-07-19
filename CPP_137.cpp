@@ -23,7 +23,7 @@ int main() {
 
     auto e = std::any(std::string("20.3"));
     auto f = std::any(std::string("12.8"));
-    assert(compare_one<std::string>(e, f) == "20.3");
+    assert(compare_one<std::string>(e, f) == std::any_cast<std::string>(e));
 
     return 0;
 }
