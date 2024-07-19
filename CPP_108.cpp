@@ -14,6 +14,8 @@ int count_nums(std::vector<int> n) {
     return count;
 }
 }
+
 int main() {
-    count_nums({1});
+    std::cout << count_nums({1});
+    return 0;
 }
