@@ -31,6 +31,8 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     return result;
 
 int main() {
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wignored-messages"
     std::vector<std::vector<std::string>> v1;
     v1.push_back({{"apple", "banana"}, {"hello", "world"}});
 
@@ -58,5 +60,6 @@ int main() {
         }
     }
 
+    #pragma GCC diagnostic pop
     return 0;
 }
