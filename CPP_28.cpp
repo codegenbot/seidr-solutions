@@ -1,7 +1,7 @@
-string concatenate(vector<string> strings){
-    string result = "";
-    for (const auto& str : strings) {
-        result += str;
-    }
-    return result;
+#include <string>
+#include <vector>
+#include <numeric>
+
+std::string concatenate(const std::vector<std::string>& strings) {
+    return std::accumulate(strings.begin(), strings.end(), std::string{}, [](const std::string& a, const std::string& b){return a + b;});
 }
