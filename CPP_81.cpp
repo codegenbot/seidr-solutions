@@ -39,6 +39,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Your main function code here
+    // Your main function implementation here
     return 0;
 }
