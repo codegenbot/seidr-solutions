@@ -1,4 +1,3 @@
-```Python
 def luhn(card_number):
     card_number = list(map(int, str(card_number)))
     checksum = 0
