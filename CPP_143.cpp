@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,15 +13,18 @@ std::vector<std::string> split(const std::string& str) {
 
     for (char c : str) {
         if (!isascii(c)) {
-            tokens.push_back(token);
-            token = "";
+            if (!token.empty()) {
+                tokens.push_back(token);
+                token = "";
+            }
         } else {
             token += c;
         }
     }
 
     // Don't forget to add the last token
-    tokens.push_back(token);
+    if (!token.empty())
+        tokens.push_back(token);
 
     return tokens;
 }
@@ -59,4 +63,8 @@ int main_func() {
     std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
+}
+
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
+    return split(sentence);
 }
