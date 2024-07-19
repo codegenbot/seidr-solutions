@@ -1,9 +1,7 @@
-```cpp
-#include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> v1, vector<string> v2) {
+bool checkSame(vector<string> v1, vector<string> v2) {
     if (v1.size() != v2.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
         if (v1[i] != v2[i]) return false;
@@ -28,7 +26,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     result.push_back(temp);
     string revTemp = temp;
-    std::reverse(revTemp.begin(), revTemp.end());
+    reverse(revTemp.begin(), revTemp.end());
     if (temp == revTemp) {
         result.push_back("True");
     } else {
@@ -38,6 +36,10 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(issame({reverse_delete("mamma", "mia")}, {{"", "True"}}));
+    vector<string> output;
+    string s = "mamma";
+    string c = "mia";
+    output = reverse_delete(s, c);
+    assert(checkSame({output}, {{"", "True"}}));
     return 0;
 }
