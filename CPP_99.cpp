@@ -1,15 +1,19 @@
-int closest_integer(string value);
+#include <cmath>
+#include <cassert>
 
-int main() {
-    // Complete the "closest_integer" function implementation here
-    double num = stod(value);
-    int closestInt = round(num);
-    if (num - closestInt == 0.5 || num - closestInt == -0.5) {
-        closestInt = (num > 0) ? ceil(num) : floor(num);
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
+
+    if (num - floor_num < ceil_num - num) {
+        return floor_num;
+    } else {
+        return ceil_num;
     }
-    return closestInt;
 }
 
-int closest_integer(string value) {
-    // Function implementation goes here
+int main() {
+    assert(closest_integer("0") == 0);
+    return 0;
 }
