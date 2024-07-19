@@ -3,13 +3,15 @@ int sum = 0;
         sum += q[i];
     }
     
-    if (sum <= w) {
-        vector<int> temp = q;
-        reverse(temp.begin(), temp.end());
-        if (temp == q) {
-            return true;
+    if (sum > w) {
+        return false;
+    }
+    
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            return false;
         }
     }
     
-    return false;
+    return true;
 }
