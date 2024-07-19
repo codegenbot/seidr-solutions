@@ -1,9 +1,13 @@
+#include <iostream>
 #include <map>
-#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
 
-string sort_numbers(string numbers);
+using namespace std;
 
-map<string, int> numeral_map = {
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -16,24 +20,37 @@ map<string, int> numeral_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
+}
+
+string sort_numbers(string numbers) {
     string result = "";
+    map<int, string> rev_num_map;
     
-    string curr_num = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            reverse_map[numeral_map[curr_num]] = curr_num;
-            curr_num = "";
-        } else {
-            curr_num += c;
-        }
+    for (const auto& pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
     }
-    reverse_map[numeral_map[curr_num]] = curr_num;
+
+    vector<int> sorted_nums;
+    stringstream ss(numbers);
+    string num_str;
+
+    while (ss >> num_str) {
+        sorted_nums.push_back(num_map[num_str]);
+    }
     
-    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
-        result += it->second + " ";
+    sort(sorted_nums.begin(), sorted_nums.end());
+    
+    for (int num : sorted_nums) {
+        result += rev_num_map[num] + " ";
     }
+    
+    result.pop_back(); // Remove the extra space at the end
     
     return result;
 }
