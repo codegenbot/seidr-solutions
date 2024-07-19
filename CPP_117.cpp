@@ -1,30 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 vector<string> select_words(string s, int n) {
-    vector<string> words;
+    stringstream ss(s);
     string word;
-    s += " "; // add a space at the end to handle the last word
-    for (char c : s) {
-        if (c == ' ' || c == ',' || c == '.' || c == '!' || c == '?') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
+    vector<pair<string, int>> word_lengths; // Pair of word and its length
+
+    while (ss >> word) {
+        word_lengths.emplace_back(word, word.length());
     }
-    sort(words.begin(), words.end(), [](const string& a, const string& b) {
-        return a.size() > b.size() || (a.size() == b.size() && a < b);
+
+    sort(word_lengths.begin(), word_lengths.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+        return a.second > b.second || (a.second == b.second && a.first < b.first);
     });
-    words.resize(min(n, static_cast<int>(words.size())));
-    return words;
+
+    vector<string> result(n);
+
+    for (int i = 0; i < n && i < word_lengths.size(); ++i) {
+        result[i] = word_lengths[i].first;
+    }
+
+    return result;
 }
 
 int main() {
