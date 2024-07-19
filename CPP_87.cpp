@@ -21,6 +21,7 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     });
     
     return result;
+
 }
 
 bool check_vectors(const std::vector<std::vector<int>>& actual, const std::vector<std::vector<int>>& expected) {
