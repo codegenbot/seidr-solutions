@@ -2,21 +2,24 @@
 #include <cstring>
 
 extern "C" {
-    #include <openssl/ssl.h>
+    #include <openssl/evp.h>
 }
 
 char* string_to_md5(const char* input) {
     unsigned char result[16];
-    MD5_CTX md5ctx;
-    MD5_Init(&md5ctx);
-    MD5_Update(&md5ctx, input, strlen(input));
-    MD5_Final(result, &md5ctx);
+    EVP_MD_CTX md5ctx;
+    EVP_MD_CTX_init(&md5ctx);
+    EVP_DigestUpdate(&md5ctx, input, strlen(input));
+    unsigned char* output = new unsigned char[16];
+    EVP_Digest(&md5ctx, 16, output, nullptr, 0);
+    EVP_MD_CTX_destroy(&md5ctx);
 
-    char* output = new char[33];
+    char* hash = new char[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(output + i*2, "%02x", result[i]);
+        sprintf(hash + i*2, "%02x", output[i]);
     }
-    return output;
+    delete[] output;
+    return hash;
 }
 
 int main() {
