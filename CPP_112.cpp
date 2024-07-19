@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -12,13 +12,11 @@ bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& t) {
     std::vector<std::string> result;
-    int i = 0;
-    while(i < s.size()) {
+    for(int i = 0; i < s.size(); i++) {
         bool found = false;
         for(int j = 0; j < t.size(); j++) {
             if(s[i] == t[j]) {
                 found = true;
-                i++;
                 break;
             }
         }
@@ -36,7 +34,7 @@ int main() {
     std::cin >> s;
     std::cout << "Enter the second string: ";
     std::cin >> t;
-    if(compareVectors({s}, {t})) {
+    if(issame({s}, {t})) {
         std::vector<std::string> res = reverse_delete(s, t);
         for(auto str : res) {
             std::cout << str << " ";
