@@ -18,5 +18,5 @@ bool is_simple_power(int x){
 
 int main() {
     assert (is_simple_power(1)==true);
-    return 0;
+    return 0;   
 }
