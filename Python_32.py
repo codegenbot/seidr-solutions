@@ -1,12 +1,12 @@
 def find_zero(xs: list):
-    largest_coeff = max(xs, key=abs)
-    possible_zeros = [i for i, coeff in enumerate(xs) if coeff == largest_coeff]
-    if len(possible_zeros) == 1:
-        zero_index = possible_zeros[0]
+    # assuming even number of coefficients and largest non zero coefficient
+    for i in range(len(xs)):
+        if xs[i] != 0:
+            largest_nonzero_index = i
+
+    largest_nonzero_coeff = xs[largest_nonzero_index]
+
+    if largest_nonzero_index == 1:
+        return -xs[0] / xs[1]
     else:
-        return None
-    guess = -1
-    while True:
-        if round(poly(xs, guess), 5) == 0:
-            return guess
-        guess += 1
+        return 1.0
