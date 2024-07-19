@@ -1,16 +1,19 @@
 string anti_shuffle(string s){
-    string result = "";
+    string newString = "";
     string word = "";
-    for(char c : s){
-        if(c == ' '){
+    
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            newString += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
+    
     sort(word.begin(), word.end());
-    result += word;
-    return result;
+    newString += word;
+    
+    return newString;
 }
