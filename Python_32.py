@@ -1,1 +1,1 @@
-a, b, c = map(float, input().split())
+a, b, c = map(float, input("Enter three coefficients (numeric values): ").split())
