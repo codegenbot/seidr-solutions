@@ -1,52 +1,49 @@
 ```
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+bool issame(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i].size() != v2[i].size()) return false;
+        for (int j = 0; j < v1[i].size(); ++j) {
+            if (v1[i][j] != v2[i][j]) return false;
         }
     }
     return true;
 }
 
-vector<vector<string>> sorted_list_sum(vector<string> lst) {
-    vector<vector<string>> result;
+std::vector<std::vector<std::string>> sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<std::vector<std::string>> result;
     for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            vector<string> temp = {str};
-            result.push_back(temp);
+        int sum = 0;
+        std::vector<std::string> wordList;
+        for (const auto& word : str) {
+            if (isdigit(word[0])) {
+                sum += stoi(word);
+            } else {
+                wordList.push_back(word);
+            }
+        }
+        if (!wordList.empty()) {
+            std::sort(wordList.begin(), wordList.end());
+            result.push_back({std::to_string(sum), wordList.size() > 1 ? &wordList[0] : &wordList});
         }
     }
-    sort(result.begin(), result.end(),
-         [](const vector<string>& a, const vector<string>& b) {
-             if (a[0].length() != b[0].length()) {
-                 return a[0].length() < b[0].length();
-             } else {
-                 return a[0] < b[0];
-             }
-         });
     return result;
 }
 
 int main() {
-    vector<string> lst;
-    string str;
-    cout << "Enter strings (enter 'stop' to finish): ";
+    std::vector<std::string> lst;
+    std::string str;
+    std::cout << "Enter strings (enter 'stop' to finish): ";
     while (true) {
-        cin >> str;
+        std::cin >> str;
         if (str == "stop") break;
         lst.push_back(str);
     }
-    vector<vector<string>> expected = sorted_list_sum(lst);
+    std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
     assert(issame(expected, expected));
     return 0;
 }
