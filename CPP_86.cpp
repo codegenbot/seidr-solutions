@@ -1,13 +1,12 @@
 ```cpp
 #include <iostream>
-#include <algorithm>
+#include <string>
 
-std::string anti_shuffle(std::string str) {
-    std::vector<char> vec(str.begin(), str.end());
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(vec.begin(), vec.end(), g);
-    return std::string(vec.begin(), vec.end());
+std::string anti_shuffle(const std::string& str) {
+    int len = str.length();
+    for(int i=len-1; i>=0; --i)
+        std::cout << str[i];
+    return str;
 }
 
 int main() {
