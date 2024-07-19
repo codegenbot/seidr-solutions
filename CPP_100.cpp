@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,11 +15,11 @@ bool same_vectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-bool vectorComparison(const std::vector<int>& a, const std::vector<int>& b) {
+bool vectorComparison(const std::vector<int>& a, const std::vector<int> b) {
     return same_vectors(a, b);
 }
 
 int main() {
-    assert(vectorComparison(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    assert(vectorComparison(make_a_pile(8), std::vector<int>{1, 3, 5, 7, 9, 11, 13, 15}) == true);
     return 0;
 }
