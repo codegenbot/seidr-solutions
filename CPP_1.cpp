@@ -1,18 +1,14 @@
-bool issame(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
-        }
-    }
-    return count == 0;
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(const std::string& str) {
+    return std::count(str.begin(), str.end(), '(') == std::count(str.begin(), str.end(), ')');
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -35,4 +31,18 @@ vector<string> separate_paren_groups(const string& paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    std::string paren_string;
+    std::cout << "Enter a string with parentheses: ";
+    std::cin >> paren_string;
+
+    std::vector<std::string> result = separate_paren_groups(paren_string);
+
+    for (const auto& group : result) {
+        std::cout << group << std::endl;
+    }
+
+    return 0;
 }
