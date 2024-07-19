@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,6 +45,8 @@ int main() {
             longest_prime_word = word;
         }
     }
+
+    std::cout << "Longest prime length: " << longest_prime_length << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
 }
