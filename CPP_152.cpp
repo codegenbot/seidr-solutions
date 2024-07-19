@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +11,7 @@ bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>&
     return true;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) { 
+std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) { 
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -48,7 +48,7 @@ int mainFunction() {
         guess.push_back(temp);
     }
     
-    if (!std::vector<int>::issame(game, guess)) {
+    if (!issame(game, guess)) {
         std::cout << "The game and the guess are not the same. Please try again." << std::endl;
         return 0;
     }
