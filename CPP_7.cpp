@@ -12,7 +12,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     return temp_vec;
 }
 
-bool issame(const std::vector<std::string>& a,const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
