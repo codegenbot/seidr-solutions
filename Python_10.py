@@ -1,7 +1,7 @@
 def make_palindrome(string: str) -> str:
     i = len(string)
-    while i > len(string)//2:
-        if string[:i] == string[:i][::-1]:
+    while i > 0:
+        if string[:i] == string[:i][::-1] and string != string[:i]:
             break
         i -= 1
     return string + string[:i][::-1] if i < len(string) else string[1:][::-1] + string
