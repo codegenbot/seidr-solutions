@@ -4,7 +4,8 @@
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
-    for (char c : text.c_str()) { 
+    for(size_t i = 0; i < text.length(); ++i) {
+        char c = text[i];
         if (c == ' ') {
             if (!result.empty() && result.back() != ' ') {
                 result += "%20";
