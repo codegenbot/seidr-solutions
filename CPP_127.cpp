@@ -15,3 +15,8 @@ int intersection(std::vector<int> interval1, std::vector<int> interval2) {
 
     return 1;
 }
+
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == 1);
+    return 0;
+}
