@@ -1,6 +1,7 @@
 #include <climits>
 #include <iostream>
 #include <vector>
+#include <numeric>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -20,9 +21,11 @@ vector<vector<int>> cutVector(vector<int> v) {
                 min_diff = diff;
                 index = i; // update the cutting point
             } else if (diff == 0) {
-                long long sum2 = std::accumulate(v.begin(), v.end(), 0);
-                int part1_sum = prev_sum + v[i];
-                if ((sum1 - part1_sum) == (sum2 - part1_sum)) {
+                int sum1_end = 0;
+                for(int j = 0; j <= i; j++) {
+                    sum1_end += v[j];
+                }
+                if(sum1 - prev_sum == sum1_end) {
                     res[0].assign(v.begin(), v.begin() + i+1);
                     res[1].assign(v.begin() + i, v.end());
                     return res;
