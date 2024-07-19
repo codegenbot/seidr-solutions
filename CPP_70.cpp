@@ -1,7 +1,5 @@
 #include <vector>
 
-vector<int> strange_sort_list(vector<int> lst);
-
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
@@ -15,4 +13,14 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+int main() {
+    // Test the function strange_sort_list
+    vector<int> input = {3, 1, 4, 1, 5, 9, 2, 6};
+    vector<int> output = strange_sort_list(input);
+    for (int num : output) {
+        cout << num << " ";
+    }
+    return 0;
 }
