@@ -18,6 +18,7 @@ int main() {
     std::cin >> n;
 
     std::vector<std::string> numbers;  
+    numbers.reserve(n);
     for (size_t i = 0; i < n; i++) {
         long long num;
         std::cout << "Enter element " << i + 1 << ": ";
