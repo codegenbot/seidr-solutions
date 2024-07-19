@@ -12,7 +12,7 @@ try:
                 print(result)
             else:
                 print("Input text is empty.")
-        except (EOFError, KeyboardInterrupt):
+        except EOFError:
             break
 except KeyboardInterrupt:
     pass
