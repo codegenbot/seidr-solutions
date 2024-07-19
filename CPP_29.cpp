@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -16,5 +17,4 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 int main() {
     assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") == {"xxx", "xxxAAA", "xxx"});
-    return 0;
 }
