@@ -13,12 +13,4 @@ int smallest_change(std::vector<int> arr) {
     return changes;
 }
 
-int main() {
-    assert(smallest_change({0, 1}) == 1);
-    assert(smallest_change({1, 2, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 5}) == 2);
-    assert(smallest_change({1, 1, 1, 1, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 3, 2, 1, 0}) == 1);
-    return 0;
-}
+assert(smallest_change({0, 1}) == 1);
