@@ -1,12 +1,6 @@
 ```
 bool issame(const string& a, const string& b) {
-    if (a.length() == 0 && b.length() == 0)
-        return true;
-    else if ((a.length() != 0 && b.length() != 0) && 
-             (a.length() > 0 && a[0] == b[0]))
-        return issame(a.substr(1), b.substr(1));
-    else
-        return false;
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -31,12 +25,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "cat", "dog", "elephant"};
-    vector<string> result = sorted_list_sum(lst);
-    
-    for (const auto& str : result) {
-        if (!issame("", str)) {
-            cout << str << endl;
+    vector<string> lst = {"abc", "bca", "bcd", "cba", "xyz"};
+    vector<string> res = sorted_list_sum(lst);
+    for (const auto& str : res) {
+        if (issame(str, "xyz")) {
+            cout << "Found 'xyz'\n";
+            break;
         }
     }
 
