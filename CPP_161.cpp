@@ -1,19 +1,16 @@
+```cpp
 #include <string>
-#include <iostream>
 
-std::string solve(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (c == '#') {
-            result += "1";
-        } else {
-            result += "0";
+int solve(std::string str) {
+    for (char &c : str) {
+        if (c == 'c' || c == 'C') {
+            c = (c >= 'a' && c <= 'z') ? 'C' : 'c';
         }
     }
-    return result;
+    return 0;
 }
 
 int main() {
-    std::cout << solve("#ccc") << std::endl;  
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
