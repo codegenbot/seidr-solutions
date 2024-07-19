@@ -1,6 +1,5 @@
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 string string_sequence(int n){
