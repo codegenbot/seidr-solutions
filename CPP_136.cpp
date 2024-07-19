@@ -18,6 +18,6 @@ std::pair<int, int> largestSmallestIntegers(std::vector<int> lst){
 }
 
 int main() {
-    assert (largestSmallestIntegers({-6, -4, -4, -3, -100, 1}) == std::make_pair(-3, 1));
+    assert(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}) == std::make_pair(-3, 1));
     return 0;
 }
