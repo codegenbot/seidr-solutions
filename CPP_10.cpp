@@ -5,5 +5,5 @@ string make_palindrome(string str){
             return str + rev_str.substr(0, str.size() - i);
         }
     }
-    return "";
+    return str;
 }
