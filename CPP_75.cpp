@@ -11,7 +11,7 @@ bool is_prime(int n) {
     return true;
 }
 
-bool is_multiply_prime(int a){
+bool is_multiply_prime(int a) {
     vector<int> primes;
     for (int i = 2; i <= a; i++) {
         if (is_prime(i)) {
