@@ -1,26 +1,42 @@
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b, int len) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++)
-        if(a[i].length() != len || b[i].length() != len)
-            return false;
-    return true;
-}
-
-int by_length_helper(std::vector<std::pair<std::string, int>>& result) {
-    std::sort(result.begin(), result.end(), [](const auto& a, const auto& b){return a.first.length() < b.first.length();});
-    int max_length = 0;
-    for(const auto& pair : result)
-        max_length = std::max(max_length, pair.first.length());
-    return max_length;
-}
-
-int main() {
-    std::vector<std::pair<std::string, int>> result = {{"apple", 5}, {"banana", 6}, {"cherry", 6}};
-    int answer = by_length_helper(result);
-    // Don't forget to print out the answer!
-    return 0;
+vector<string> by_length(vector<int> arr) {
+    vector<int> nums;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9)
+            nums.push_back(num);
+    }
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+    vector<string> result;
+    for (int num : nums) {
+        switch (num) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
+    return result;
 }
