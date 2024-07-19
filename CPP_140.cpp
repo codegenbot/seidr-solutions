@@ -1,17 +1,26 @@
+#include <string>
+
+using namespace std;
+
 string fix_spaces(string text) {
     string result = "";
-    for(int i=0; i<text.length(); i++) {
-        if(text[i] == ' ') {
-            if(i < text.length() - 1 && text[i+1] == ' ' && text.find(' ', i+2) != string::npos) {
-                while(i+1 < text.length() && text[i+1] == ' ')
-                    i++;
-                result += "-";
-            } else {
-                result += "_";
+    bool spaceFound = false;
+    
+    for (char c : text) {
+        if (c == ' ') {
+            if (!spaceFound || !result.empty()) {
+                if (spaceFound && result.back() == ' ') {
+                    result += "-";
+                } else {
+                    result += '_';
+                }
             }
+            spaceFound = true;
         } else {
-            result += text[i];
+            spaceFound = false;
         }
+        result += c;
     }
+    
     return result;
 }
