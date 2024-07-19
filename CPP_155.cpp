@@ -6,16 +6,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_count(int n) {
-    if (n == 0) {
-        return {1, 0};
-    } else {
-        int evens = n / 2;
-        int odds = n - evens;
-        return {evens, odds};
-    }
+    return {n % 2 == 0 ? 1 : 0, n % 2 == 1 ? 1 : 0};
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(0) , {1, 0}));
     return 0;
 }
