@@ -12,6 +12,7 @@ int digitSum(string s) {
         }
     }
     return sum;
+
 }
 
 int main() {
