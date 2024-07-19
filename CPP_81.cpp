@@ -1,8 +1,9 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
-using namespace std;
+namespace std { using namespace std; }
 
 bool same(const vector<string>& vec1, const vector<string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
