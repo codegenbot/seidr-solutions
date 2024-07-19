@@ -1,22 +1,24 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-        [](const string& a, const string& b){return a.length() % 2 == 1 && a.length() != b.length();});
-    lst.erase(it, lst.end());
+    vector<string> result = lst;
     
-    sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b){
-            if(a.length() != b.length()) {
-                return a.length() < b.length();
-            } else {
-                return issame({a}, {b});
-            }
-        });
-    
-    return lst;
-}
+    // Remove strings with odd lengths from the list
+    for (auto it = result.begin(); it != result.end();) {
+        if (it->length() % 2 == 1) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
 
-bool issame(vector<string> a, vector<string>b){
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a==b;
+    // Sort the list by string length and then alphabetically
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
+             }
+         });
+
+    return result;
 }
