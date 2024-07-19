@@ -15,22 +15,21 @@ int main() {
     if (num2 < 0) 
         std::cout << "Error: Please enter a non-negative number." << std::endl; 
     else 
-        printOutput(str1, num2); 
+        std::cout << compare_one(str1, num2) << std::endl; 
 
     return 0; 
 }
 
-void printOutput(std::string str, int num) { 
+int compare_one(std::string str, int num) { 
     if (num == 1) {
         for (char c : str) {
             if (isupper(c)) {
-                std::cout << tolower(c);
+                std::cout << tolower(c) << std::flush;
             } else {
-                std::cout << c;
+                std::cout << c << std::flush;
             }
         }
-        std::cout.flush(); // consume the output manually
     } else {
-        std::cout << str << std::endl; 
+        std::cout << str << std::flush;
     }
 }
