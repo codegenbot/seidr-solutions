@@ -1,1 +1,1 @@
-input_numbers = list(map(float, input("Enter three floating-point numbers separated by space: ").split()))
+a, b, c = map(float, raw_input("Enter three floating-point numbers separated by space: ").split())
