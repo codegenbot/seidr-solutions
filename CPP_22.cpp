@@ -15,6 +15,6 @@ vector<int> filter_integers(list<int> values) {
 }
 
 int main() {
-    assert(filter_integers({3, 7, 3, 3, 4, 5}) == vector<int>{3, 3, 3});
+    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>{3, 3, 3});
     return 0;
 }
