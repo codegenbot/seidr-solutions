@@ -12,19 +12,15 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-bool are_same(const vector<string>& a, const vector<string>& b){
-    return a == b;
-}
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> prefixes = all_prefixes(input);
 
-int main(){
-    vector<string> prefixes = all_prefixes("WWW");
-    vector<string> expected = {"W", "WW", "WWW"};
-
-    if (are_same(prefixes, expected)) {
-        cout << "Test Passed\n";
-    } else {
-        cout << "Test Failed\n";
+    for (const auto& prefix : prefixes) {
+        cout << prefix << " ";
     }
+    cout << endl;
 
     return 0;
 }
