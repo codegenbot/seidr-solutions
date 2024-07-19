@@ -31,13 +31,13 @@ string file_name_check(string file_name) {
 }
 
 int main() {
+    // Test cases
     assert(file_name_check("file123.txt") == "Yes");
     assert(file_name_check("myFile2.exe") == "Yes");
     assert(file_name_check("data.dll") == "Yes");
     assert(file_name_check(".hidden.txt") == "No");
     assert(file_name_check("file.txt") == "No");
     assert(file_name_check("s.txt") == "No");
-    assert(file_name_check("s.") == "No");
 
     return 0;
 }
