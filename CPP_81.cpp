@@ -1,6 +1,11 @@
 #include <string>
+#include <vector>
 
 vector<string> numerical_letter_grade(vector<float> grades);
+
+int main() {
+    // Main function code
+}
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
