@@ -1,12 +1,39 @@
-bool issame(vector<string> a,vector<string>b){
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]){
-            return false;
+```cpp
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
+
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
-    return true;
+
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+
+    return result;
 }
 
 int main() {
-    //rest of your code here
+    vector<string> lst = {"apple", "banana", "cherry"};
+    vector<string> output = sorted_list_sum(lst);
+    for (const auto& str : output) {
+        if (issame(3, str.length())) {
+            cout << str << endl;
+        }
+    }
+    return 0;
 }
