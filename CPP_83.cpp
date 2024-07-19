@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 using namespace std;
@@ -20,9 +21,7 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    if(n < 0)
-        cout << "Invalid input. Please enter a non-negative integer." << endl;
-    else
-        cout << "Count of the numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    cout << "Count of the numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
+
 }
