@@ -1,23 +1,18 @@
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<float>& a, vector<float>& b){
+bool issame(std::vector<float> a, std::vector<float> b){
     return a == b;
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
+int main(){
+    std::vector<float> vec1 = {1.1, 2.2, 3.3};
+    std::vector<float> vec2 = {1.1, 2.2, 3.3};
 
-int main() {
-    assert(issame(get_positive({}), {}));
+    if (issame(vec1, vec2)) {
+        std::cout << "Vectors are same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
+
     return 0;
 }
