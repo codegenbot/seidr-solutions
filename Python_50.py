@@ -1,10 +1,12 @@
-def decode_string(input_string):
+def decode_string():
+    string_to_decode = input().upper()
+
     decoded_string = ""
-    for char in input_string:
+    for char in string_to_decode:
         decoded_string += chr(ord(char) - 1)
 
     return decoded_string
 
-input_string = input()
-result = decode_string(input_string)
+
+result = decode_string()
 print(result)
