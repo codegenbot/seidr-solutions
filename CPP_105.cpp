@@ -10,6 +10,14 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
+vector<string> by_length(vector<int> arr);
+
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    
+    return 0;
+}
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> numToString = {
@@ -24,17 +32,12 @@ vector<string> by_length(vector<int> arr){
         }
     }
     
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
     
     for (int num : filtered) {
         result.push_back(numToString[num]);
     }
     
     return result;
-}
-
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    
-    return 0;
 }
