@@ -1,13 +1,5 @@
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
