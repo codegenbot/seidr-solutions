@@ -1,29 +1,26 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-namespace std {
-    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-        if (a.size() != b.size()) {
+bool std::issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]) != std::abs(b[i])) {
             return false;
         }
-        for (int i = 0; i < a.size(); i++) {
-            if (std::abs(a[i]) != std::abs(b[i])) {
-                return false;
-            }
-        }
-        return true;
     }
+    return true;
+}
 
-    std::vector<float> get_positive(const std::vector<float>& l) {
-        std::vector<float> result; // Initialize the vector
-        for (float num : l) {
-            if (num > 0) {
-                result.push_back(num);
-            }
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result; // Initialize the vector
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
         }
-        return result;
     }
+    return result;
 }
 
 int main() {
