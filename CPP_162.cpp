@@ -4,7 +4,7 @@
 char* string_to_md5(const char* input) {
     unsigned char result[16];
     EVP_MD_CTX md5ctx;
-    const EVP_MD *md = EVP_sha1();
+    const EVP_MD *md = EVP_md5();
     EVP_MD_CTX_init(&md5ctx);
     EVP_DigestInit_ex(&md5ctx, md, nullptr);
     EVP_DigestUpdate(&md5ctx, input, strlen(input));
@@ -24,7 +24,7 @@ int main() {
     char input[1024]; 
     printf("Enter a string: ");
     fgets(input, sizeof(input), stdin);
-    input[strrchr(input, '\n')] = 0; // remove newline character
+    input[strcspn(input, "\n")] = 0; // remove newline character
     char* hash = string_to_md5(input);
     printf("MD5 hash: %s\n", hash);
     delete[] hash; 
