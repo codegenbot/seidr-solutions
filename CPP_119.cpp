@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::string match_parens(const std::vector<std::string>& lst) {
+bool matchParens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
         for (auto c : s) {
@@ -11,11 +10,15 @@ std::string match_parens(const std::vector<std::string>& lst) {
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return open == close;
 }
 
 int main() {
-    std::vector<std::string> lst = {"(hello)", "(world)", "((test))"};
-    std::cout << match_parens(lst) << std::endl;
+    std::vector<std::string> lst = {"(123)", "())("};
+    if (matchParens(lst)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
