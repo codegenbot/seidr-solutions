@@ -1,9 +1,6 @@
-```cpp
-#include <boost/config.hpp>
+```
 #include <boost/any.hpp>
 #include <string>
-
-using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -12,9 +9,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convert_to<string>();
-        string str2 = b.convert_to<string>();
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = a.convert_to<std::string>();
+        std::string str2 = b.convert_to<std::string>();
 
         int num1 = 0, num2 = 0;
         bool dot1 = false, dot2 = false;
@@ -34,8 +31,8 @@ boost::any compare_one(boost::any a, boost::any b) {
 
         return str1 > str2 ? a : b;
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
-        string str = a.convert_to<string>();
+    else if (a.type() == typeid(std::string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        std::string str = a.convert_to<std::string>();
 
         int num = 0;
         bool dot = false;
@@ -50,8 +47,8 @@ boost::any compare_one(boost::any a, boost::any b) {
 
         return b.convert_to<boost::any>() > boost::any(num) ? b : a;
     }
-    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
-        string str = b.convert_to<string>();
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(std::string)) {
+        std::string str = b.convert_to<std::string>();
 
         int num = 0;
         bool dot = false;

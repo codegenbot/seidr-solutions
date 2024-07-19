@@ -13,11 +13,13 @@ std::vector<std::string> split(const std::string& str) {
 
     for (char c : str) {
         if (!isascii(c)) {
+            // If non-ASCII character found, process the current token and reset
             if (!token.empty()) {
                 tokens.push_back(token);
                 token = "";
             }
         } else {
+            // Add ASCII character to the current token
             token += c;
         }
     }

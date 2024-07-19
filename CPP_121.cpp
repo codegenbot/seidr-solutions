@@ -1,8 +1,6 @@
-```
 #include <iostream>
 #include <vector>
 
-// Original Main
 int originalMain() {
     size_t n;
     std::cout << "Enter the number of elements: ";
@@ -13,7 +11,7 @@ int originalMain() {
         long long num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers.push_back(std::to_string(num));
+        numbers.push_back(std::to_string(static_cast<long long>(num)));
     }
     
     if(numbers.empty()) { 
@@ -34,4 +32,7 @@ int solution(std::vector<std::string> numbers) {
 
 }
 
-originalMain();
+int main() {
+    originalMain();
+    return 0;
+}
