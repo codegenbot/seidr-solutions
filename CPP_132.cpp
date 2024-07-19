@@ -1,11 +1,11 @@
-int n = str.length();
-    int open = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i] == '[') {
-            open++;
-        } else if (str[i] == ']' && open > 0) {
-            open--;
+bool is_nested(const std::string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return n > 2 && open > 0;
+    return count == 0;
 }
