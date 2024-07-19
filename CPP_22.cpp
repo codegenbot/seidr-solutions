@@ -7,7 +7,7 @@ vector<int> filter_integers(list<any> values);
 vector<int> filter_integers(list<any> values){
     vector<int> result;
     for(auto val : values){
-        if(auto ptr = any_cast<int>(&val)){
+        if(auto ptr = boost::any_cast<int>(&val)){
             result.push_back(*ptr);
         }
     }
