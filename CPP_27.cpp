@@ -22,7 +22,7 @@ int main() {
     
     std::cout << output << std::endl;
     
-    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+
     return 0;
 }
