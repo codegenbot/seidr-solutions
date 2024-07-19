@@ -18,11 +18,17 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    std::vector<int> result = get_odd_collatz(10);
-    std::vector<int> expected = {1, 3, 5, 7, 9, 10};
+    int n;
+    std::cin >> n;
+
+    std::vector<int> result = get_odd_collatz(n);
+    std::vector<int> expected = {1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 25, 27, 31};
+
     if (issame(result, expected)) {
-        return 0;
+        std::cout << "Correct";
     } else {
-        return 1;
+        std::cout << "Incorrect";
     }
+
+    return 0;
 }
