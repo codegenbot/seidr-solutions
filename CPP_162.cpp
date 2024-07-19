@@ -1,19 +1,26 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
 #include <cassert>
+#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.size());
+
+    unsigned char md_value[EVP_MAX_MD_SIZE];
+    unsigned int md_len;
+
+    EVP_DigestFinal_ex(mdctx, md_value, &md_len);
+    EVP_MD_CTX_free(mdctx);
 
     char mdString[33];
-    for(int i = 0; i < 16; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+    for (unsigned int i = 0; i < md_len; i++) {
+        snprintf(&mdString[i*2], 3, "%02x", (unsigned int)md_value[i]);
     }
 
     return std::string(mdString);
