@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-bool sameStrings(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -11,7 +10,7 @@ bool sameStrings(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
+vector<string> reverseDelete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
@@ -38,7 +37,7 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
+    vector<string> output = reverseDelete("mamma", "mia");
     bool res1 = sameStrings(output, {"", "True"});
     assert(res1);
     return 0;
