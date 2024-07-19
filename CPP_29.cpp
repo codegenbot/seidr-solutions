@@ -2,20 +2,20 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+    std::vector<std::string> result;
     for (const auto &str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
@@ -25,12 +25,11 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> test_input = {"apple", "banana", "orange", "melon"};
-    vector<string> expected_output = {"apple", "orange"};
+    std::vector<std::string> input = {"apple", "banana", "apricot", "orange"};
+    std::vector<std::string> expected_output = {"apple", "apricot"};
+    std::vector<std::string> output = filter_by_prefix(input, "ap");
 
-    vector<string> filtered = filter_by_prefix(test_input, "a");
-
-    assert(issame(filtered, expected_output));
+    assert(issame(expected_output, output));
 
     return 0;
 }
