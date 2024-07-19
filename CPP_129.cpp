@@ -1,37 +1,48 @@
 #include <vector>
-#include <deque>
-#include <limits>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    int m = grid.size();
-    int n = grid[0].size();
+    std::vector<int> result;
+    if(k <= 0 || grid.empty() || grid[0].empty())
+        return result;
     
-    std::vector<std::vector<int>> dp(m, std::vector<int>(n, std::numeric_limits<int>::max()));
-    dp[0][0] = 0;
+    for(int i = 1; i < grid.size(); ++i){
+        grid[i][0] += grid[i - 1][0];
+    }
     
-    std::deque<std::pair<int, int>> q;
-    q.push_back({0, 0});
+    for(int j = 1; j < grid[0].size(); ++j){
+        grid[0][j] += grid[0][j - 1];
+    }
     
-    std::vector<std::pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    for(int i = 1; i < grid.size(); ++i){
+        for(int j = 1; j < grid[i].size(); ++j){
+            grid[i][j] += std::min(grid[i - 1][j], grid[i][j - 1]);
+        }
+    }
     
-    while(!q.empty()){
-        auto [i, j] = q.front();
-        q.pop_front();
-        
-        for(const auto& dir : dirs){
-            int ni = i + dir.first;
-            int nj = j + dir.second;
-            
-            if(ni >= 0 && ni < m && nj >= 0 && nj < n){
-                int cost = dp[i][j] + (grid[ni][nj] == k ? 1 : 0);
-                
-                if(cost < dp[ni][nj]){
-                    dp[ni][nj] = cost;
-                    q.push_back({ni, nj});
-                }
+    int i = grid.size() - 1;
+    int j = grid[0].size() - 1;
+    while(i >= 0 && j >= 0){
+        result.insert(result.begin(), grid[i][j]);
+        if(i == 0){
+            j--;
+        }
+        else if(j == 0){
+            i--;
+        }
+        else{
+            if(grid[i - 1][j] < grid[i][j - 1]){
+                i--;
+            }
+            else{
+                j--;
             }
         }
     }
     
-    return dp[m - 1][n - 1] == std::numeric_limits<int>::max() ? std::vector<int>() : std::vector<int>{m + n - 2 * dp[m - 1][n - 1]};
+    return result.size() <= k ? result : std::vector<int>();
 }
