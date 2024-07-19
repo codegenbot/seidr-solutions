@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 #include <cctype>
+#include <numeric>
 
 std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
