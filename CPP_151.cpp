@@ -13,24 +13,22 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; // declare and initialize lst
-    int odd_sum = 0; // declare and initialize odd_sum
+    vector<float> lst; 
+    int odd_sum = 0; 
+
+    int n;
+    cin >> n;
     
-    for(int i = 1; i <= 10; ++i){
-        float num = (float)i / 2.5f;
-        if(num > 0 && modf(num, &num) == 0) {
-            lst.push_back(num);
+    for(int i=0;i<n;i++){
+        float x;
+        cin >> x;
+        if(x > 0 && modf(x, &x) == 0){
+            odd_sum += x * x;
         }
+        lst.push_back(x);
     }
-    
-    int sum = 0; 
-    for (float num : lst) {
-        if (num > 0) {
-            sum += num * num;
-        }
-    }
-    
-    assert (double_the_difference(lst) == sum );
+
+    assert (double_the_difference(lst) == odd_sum );
 
     return 0;
 }
