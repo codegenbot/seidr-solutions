@@ -13,7 +13,7 @@ int modp(int n, int p) {
     return result;
 }
 
-int main() {
+int solveProblem() {
     int n, p;
     std::cin >> n >> p;
     int result = modp(n, p);
