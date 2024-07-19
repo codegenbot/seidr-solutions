@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> tri(int n){
+std::vector <int> tri(int n){
     std::vector<int> tribonacci(n+1);
     tribonacci[0] = 3;
     if(n > 0) tribonacci[1] = 1;
@@ -23,5 +23,5 @@ std::vector<int> tri(int n){
 }
 
 int main(){
-    assert(std::issame(std::tri(1), {1, 3}));
+    assert(issame(tri(1), {1, 3}));
 }
