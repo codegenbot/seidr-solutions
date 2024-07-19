@@ -1,3 +1,4 @@
+```cpp
 #include <openssl/evp.h>
 #include <openssl/md5.h>
 #include <string>
@@ -31,5 +32,5 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    // No-op
+    return 0;
 }
