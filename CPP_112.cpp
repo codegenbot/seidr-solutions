@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> v1, vector<string> v2) {
     if (v1.size() != v2.size()) return false;
@@ -40,7 +39,7 @@ vector<string> reverse_delete(string s, string c) {
 int main() {
     vector<string> v1 = reverse_delete("mamma", "mia");
     vector<string> v2 = {"", "True"};
-    if (issame(v1, v2)) {
+    if (issame({to_string(v1[0])}, {to_string(v2[0]), to_string(v2[1])})) {
         cout << "Test passed." << endl;
     } else {
         cout << "Test failed." << endl;
