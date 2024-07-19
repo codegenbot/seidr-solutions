@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 #include <assert.h>
 
 using namespace std;

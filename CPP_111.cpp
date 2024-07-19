@@ -27,7 +27,7 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!histogramTest(test) == {{'a', 1}}) { 
+    if (!hist.equals({{'a', 1}})) { 
         return 0; 
     }
 }
