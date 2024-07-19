@@ -10,7 +10,6 @@ std::vector<int> tri(int n){
     if(n == 0){
         result.push_back(0);
     } else if(n == 1){
-        result.push_back(1);
         result.push_back(3);
     } else {
         result.push_back(1);
@@ -19,7 +18,7 @@ std::vector<int> tri(int n){
             if(i % 2 == 0){
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
             }
         }
     }
