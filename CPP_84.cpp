@@ -17,6 +17,11 @@ int solve(int N) {
     return sum;
 }
 
+void printResult(int N) {
+    int sum = solve(N);
+    std::cout << "Sum of bits is: " << sum << std::endl;
+}
+
 int main() {
     std::cout << "Enter a number: ";
     int N;
@@ -25,6 +30,6 @@ int main() {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
     }
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    printResult(N);
     return 0;
 }

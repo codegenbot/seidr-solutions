@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,13 +24,22 @@ std::vector<float> sort_even(const std::vector<float>& input) {
 int main() {
     std::vector<float> input;
     float val;
-    while(std::cin >> val && val != -1.0f) {
-        input.push_back(val);
+
+    while(std::cin >> val) {
+        try {
+            input.push_back(val);
+        } catch (...) {
+            // handle the error here
+            std::cout << "Invalid input. Exiting." << std::endl;
+            return 1; 
+        }
     }
-    if(input.size() > (std::numeric_limits<int>::max()) / sizeof(float)) {
-        std::cout << "Error: Vector size exceeds maximum capacity";
-        return 1;
+
+    if(input.empty()) {
+        std::cout << "No valid inputs were provided.";
+        return 0;
     }
+
     std::vector<float> output = sort_even(input);
     for (float v : output) {
         std::cout << v << " ";
