@@ -1,21 +1,19 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
+using namespace std;
 
-int find_max(std::vector<std::string> words) {
-    if (words.empty()) {
-        return 0;
-    }
-    std::string max_word = words[0];
-    for (const auto& word : words) {
-        if (word.size() > max_word.size()) {
-            max_word = word;
+string find_max(vector<string> words) {
+    string max_word = words[0];
+    for (int i = 1; i < words.size(); i++) {
+        if (words[i].size() > max_word.size()) {
+            max_word = words[i];
         }
     }
-    return max_word.size();
+    return max_word;
 }
 
 int main() {
-    std::vector<std::string> words = {"play", "play", "play"};
+    vector<string> words = {"play", "play", "play"};
     cout << find_max(words) << endl;
     return 0;
-}
