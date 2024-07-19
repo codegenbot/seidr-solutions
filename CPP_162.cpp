@@ -1,9 +1,11 @@
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <openssl/md5.h>
+#include <cassert>
+
 using namespace std;
 
-string string_to_md5(const string& text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "None";
     }
@@ -20,6 +22,7 @@ string string_to_md5(const string& text) {
 }
 
 int main() {
-    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+
     return 0;
 }
