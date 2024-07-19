@@ -16,10 +16,15 @@ bool is_prime(int n) {
 int main() {
     int n, count = 1;
     cin >> n;
-    if (!is_prime(n)) {
-        cout << "The number is not prime." << endl;
+    int n_str = n;
+    stringstream sstream;
+    sstream << n_str;
+    string str = sstream.str();
+    cout << "The number is " << str;
+    if (!is_prime(stoi(str))) {
+        cout << " not prime." << endl;
     } else {
-        cout << "The number is prime." << endl;
+        cout << " prime." << endl;
     }
     return 0;
 }
