@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -54,5 +53,3 @@ int mainFunction() {
     }
     return 0;
 }
-
-assert (issame(compareElements({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
