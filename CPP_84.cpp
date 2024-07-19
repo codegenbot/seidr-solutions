@@ -1,18 +1,18 @@
 #include <iostream>
 #include <bitset>
-using namespace std;
+#include <cassert>
 
-string solve(int N) {
+std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
         sum += N % 2;
         N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - sum);
+    return std::bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
 }
 
 int main() {
-    int input = 963;
-    cout << solve(input) << endl;
+    assert(solve(963) == "10010");
+    
     return 0;
 }
