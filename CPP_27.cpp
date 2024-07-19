@@ -31,7 +31,6 @@ int main() {
             return 1;
     } else {
         std::cout << "Error: Input string is empty." << std::endl;
-        assert(flip_case("These violent delights have violent ends") == "these violent delights have violent ends");
         return 2; 
     }
 }
