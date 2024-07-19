@@ -1,10 +1,10 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <assert.h>
 
-bool is_same(std::vector<std::string>& a, std::vector<std::string>& b) {
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
