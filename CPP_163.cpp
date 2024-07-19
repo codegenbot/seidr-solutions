@@ -1,7 +1,5 @@
 #include <vector>
 
-vector<int> generate_integers(int a, int b);
-
 vector<int> generate_integers(int a, int b){
     vector<int> result;
     for(int i = a; i <= b; i++){
@@ -10,4 +8,14 @@ vector<int> generate_integers(int a, int b){
         }
     }
     return result;
+}
+
+int main(){
+    int a, b;
+    cin >> a >> b;
+    vector<int> output = generate_integers(a, b);
+    for(int num : output){
+        cout << num << " ";
+    }
+    return 0;
 }
