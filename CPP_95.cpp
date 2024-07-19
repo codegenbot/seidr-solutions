@@ -1,12 +1,11 @@
 if(dict.empty()) return false;
-bool all_lower = true;
-bool all_upper = true;
-for(auto const& pair : dict) {
-    if(pair.first != tolower(pair.first[0])) {
-        all_lower = false;
-    }
-    if(pair.first != toupper(pair.first[0])) {
-        all_upper = false;
-    }
+bool is_lower = true;
+bool is_upper = true;
+for(auto const& entry : dict){
+    if(entry.first != tolower(entry.first[0]))
+        is_lower = false;
+    if(entry.first != toupper(entry.first[0]))
+        is_upper = false;
 }
-return all_lower || all_upper;
+return is_lower || is_upper;
+}
