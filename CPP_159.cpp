@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 std::vector<int> eat(int number, int remaining, int need) {
