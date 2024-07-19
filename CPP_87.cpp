@@ -5,7 +5,7 @@
 
 using vector = std::vector<int>;
 
-bool issame(vector a, vector b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -30,6 +30,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}); 
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2})); 
     return 0;
 }
