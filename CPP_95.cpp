@@ -2,7 +2,17 @@
 #include <string>
 #include <cctype>
 
-bool check_dict_case(map<string, string> dict) {
+bool check_dict_case() {
+    map<string, string> dict;
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        string key, value;
+        cin >> key >> value;
+        dict[key] = value;
+    }
+
     if (dict.empty()) return false;
 
     bool allLower = true;
