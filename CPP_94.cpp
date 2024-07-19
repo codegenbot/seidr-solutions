@@ -6,8 +6,8 @@ int setSize(const std::set<int>& s) {
 }
 
 int getSetSize(int a, int b, int c) {
-    std::set<int> set = {a, b, c}; 
-    return setSize(set);
+    std::set<int> s = {std::min(a, b), std::min(b, c), std::min(c, a)};
+    return setSize(s);
 }
 
 int main() {
