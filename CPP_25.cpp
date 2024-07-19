@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
