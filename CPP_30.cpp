@@ -18,4 +18,3 @@ vector<float> get_positive(vector<float> l) {
 int main() {
     assert(get_positive({}).size() == 0); 
     return 0;
-}
