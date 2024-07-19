@@ -1,3 +1,11 @@
-sort(arr.begin(), arr.end(), greater<int>());
+#include <algorithm>
+#include <vector>
+
+vector<int> maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
     return vector<int>(arr.begin(), arr.begin() + k);
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
