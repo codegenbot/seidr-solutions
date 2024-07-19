@@ -1,4 +1,3 @@
-```c++
 #ifndef MAIN
 int luhn(vector<int> digits) {
     int sum = 0;
