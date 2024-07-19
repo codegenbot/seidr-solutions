@@ -1,34 +1,31 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool issame(vector<string> b, string str1){
-    return find(b.begin(), b.end(), str1) != b.end();
+vector<string> bf(string planet1, string planet2);
+
+bool issame(vector<string> a, vector<string> b) {
+    // implementation
 }
 
-vector<string> bf(string planet1, string planet2){
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-
-    int index1 = -1, index2 = -1;
+    int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
-        if (planet1 == planets[i]) {
-            index1 = i;
-        }
-        if (planet2 == planets[i]) {
-            index2 = i;
+        if (planets[i] == planet1) {
+            start = i;
+        } else if (planets[i] == planet2) {
+            end = i;
         }
     }
-
-    if (index1 == -1 || index2 == -1) {
-        return result;
+    if (start == -1 || end == -1) {
+        return {};
     }
-
-    int start = min(index1, index2);
-    int end = max(index1, index2);
-
+    if (start > end) {
+        swap(start, end);
+    }
     for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
-
     return result;
 }
