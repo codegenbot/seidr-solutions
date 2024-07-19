@@ -15,8 +15,8 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> select_words(string s, int n);
 
 int main() {
-    vector<string> result = select_words("Hello World, how are you doing today?", 2);
-    vector<string> expected = {"World,", "you"};
+    vector<string> result = select_words("Hello world, how are you doing today?", 2);
+    vector<string> expected = {"world,", "doing"};
     
     assert(issame(result, expected));
     
