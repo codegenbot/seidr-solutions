@@ -2,7 +2,20 @@
 #include <cassert>
 
 std::vector<int> f(int n);
-bool issame(std::vector<int> a, std::vector<int> b);
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
 
 std::vector<int> f(int n){
     std::vector<int> result;
@@ -22,15 +35,11 @@ std::vector<int> f(int n){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 int main(){
-    std::vector<int> res1 = f(5);
-    std::vector<int> res2 = f(5);
+    std::vector<int> output = f(5);
+    std::vector<int> expected = {1, 3, 2, 10, 3};
     
-    assert(issame(res1, res2));
+    assert(issame(output, expected));
     
     return 0;
 }
