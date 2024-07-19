@@ -1,9 +1,6 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a,vector<string>b){
-    for(auto str : a){
-        if(std::find(b.begin(), b.end(), str) == b.end()){
+bool issame(vector<string> a, vector<string>b){
+    for(auto s : b){
+        if(find(a.begin(), a.end(), s) == a.end()){
             return false;
         }
     }
