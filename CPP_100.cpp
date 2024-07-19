@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <initializer_list>
-
+```cpp
 bool same_vectors(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> make_a_pile(int n) {
@@ -16,8 +13,8 @@ bool same_vectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-bool vectorComparison(const std::vector<int>& a, const std::vector<int> b) {
-    return same_vectors(a, b);
+bool vectorComparison(const std::vector<int>& a, const std::initializer_list<int> b) {
+    return same_vectors(a, std::vector<int>(b));
 }
 
 int main() {
