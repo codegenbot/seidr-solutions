@@ -1,9 +1,9 @@
 def minPath(grid, k):
     n = len(grid)
     flat_grid = [cell for row in grid for cell in row]
-    if k >= len(flat_grid):
+    if k > len(flat_grid):
         return flat_grid
-
+    
     start = min(flat_grid)
     path = [start]
     visited = [(i, j) for i in range(n) for j in range(n) if grid[i][j] == start]
@@ -11,7 +11,7 @@ def minPath(grid, k):
     next_cell = (0, 0)
 
     while len(path) < k and next_cell is not None:
-        min_value = float("inf")
+        min_value = float('inf')
         next_cell = None
         for i, j in visited:
             for di, dj in directions:
@@ -23,5 +23,7 @@ def minPath(grid, k):
         if next_cell is not None:
             path.append(grid[next_cell[0]][next_cell[1]])
             visited.append(next_cell)
+        else:
+            break
 
     return path[:k]
