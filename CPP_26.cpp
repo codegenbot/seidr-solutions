@@ -1,13 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <algorithm>
 
-bool isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && v1 == v2;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && a == b;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::unordered_map<int, bool> seen = {};
     std::vector<int> result;
 
@@ -22,25 +22,16 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
-
-    std::vector<int> nums;
+    std::vector<int> input;
     int num;
 
     std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
 
-    int numCount = 0;
-    while (numCount < 10) {
-        std::cout << "Enter a number (-1 to finish):" << std::endl;
-        std::cin >> num;
-        if (num == -1) {
-            break;
-        }
-        nums.push_back(num);
-        numCount++;
+    while ((std::cin >> num) && (num != -1)) {
+        input.push_back(num);
     }
 
-    std::vector<int> output = removeDuplicates(nums);
+    std::vector<int> output = remove_duplicates(input);
 
     std::cout << "Duplicated removed: ";
     for (int i : output) {
