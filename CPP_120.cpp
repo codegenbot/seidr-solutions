@@ -1,19 +1,18 @@
-```c++
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+std::vector<int> maximum(std::vector<int> a) {
+    std::vector<int> result = a;
+    std::sort(result.begin(), result.end());
+    return result;
 }
 
-std::vector<int> maximum(std::vector<int> a) {
-    std::vector<int> result;
-    int max = *std::max_element(a.begin(), a.end());
+bool same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] == max) result.push_back(a[i]);
+        if (a[i] != b[i]) return false;
     }
-    return result;
+    return true;
 }
 
 int main() {
