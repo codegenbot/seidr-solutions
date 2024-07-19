@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,7 +21,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = vector<int>(5, 0); 
+    vector<int> lst = vector<int>(5, 0);
     for (int i = 0; i < 5; ++i) { 
         cin >> lst[i]; 
     }
