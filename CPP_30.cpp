@@ -1,18 +1,30 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <initializer_list>
+#include <assert.h>
 
-std::vector<float> extract_positives(std::vector<float> numbers) {
-    std::vector<float> positive_numbers;
-    for (float number : numbers) {
-        if (number > 0) {
-            positive_numbers.push_back(number);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return positive_numbers;
+    return true;
+}
+
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float i : l) {
+        if (i > 0) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
 int main() {
-    assert(extract_positives({}).size() == 0);
+    assert(issame(get_positive({}), {}));
     return 0;
 }
