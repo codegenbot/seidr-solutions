@@ -5,13 +5,13 @@
 #include <initializer_list>
 #include <limits>
 
-bool issame(vector<float> a, vector<float> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return (a.first == b.first && a.second == b.second);
 }
 
-pair<float, float> find_closest_elements(vector<float> numbers);
+std::pair<float, float> find_closest_elements(std::vector<float> numbers);
 
-pair<float, float> find_closest_elements(vector<float> numbers) {
+std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     pair<float, float> closest;
     float min_diff = numeric_limits<float>::max();
 
