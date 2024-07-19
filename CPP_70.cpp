@@ -39,5 +39,9 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 int main() {
     vector<int> a = {1, 2, 3};
     vector<int> b = strange_sort_list(a);
-    assert(issame(a, b));
+    if (!issame(a, b)) {
+        for (size_t i = 0; i < a.size(); ++i) {
+            assert(b[i] == a[i]);
+        }
+    }
 }
