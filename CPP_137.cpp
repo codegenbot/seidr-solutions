@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 
-const std::string compare_one(const std::string& a, const int b) {
-    if (a.size() > b)
+const std::string compare_one(const std::string& a, const std::string& b) {
+    if (a.size() > b.size())
         return "Longer";
-    else if (a.size() < b)
+    else if (a.size() < b.size())
         return "Shorter";
     return "Equal";
 }
@@ -14,11 +15,15 @@ int main() {
     std::string str1;
     std::cin >> str1;
 
-    std::cout << "Enter the second integer: ";
-    int num2;
-    std::cin >> num2;
+    std::cout << "Enter the second string: ";
+    std::string str2;
+    std::cin >> str2;
 
-    std::cout << compare_one(str1, num2) << std::endl;
+    std::cout << "Enter the length for comparison: ";
+    int length;
+    std::cin >> length;
+
+    std::cout << compare_one(str1, str2) << std::endl;
 
     return 0;
 }
