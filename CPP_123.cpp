@@ -1,8 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> 
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
