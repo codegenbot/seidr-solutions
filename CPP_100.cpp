@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -12,16 +10,10 @@ vector<int> make_a_pile(int n) {
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
-            stones = n;
         } else {
-            n++;
-            stones = n;
+            n += 2;
         }
+        stones--;
     }
     return pile;
-}
-
-int main() {
-    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
 }

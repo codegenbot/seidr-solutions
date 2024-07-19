@@ -1,8 +1,9 @@
-```
+```cpp
 #include <iostream>
-#include <vector>
-
 using namespace std;
+
+#include <vector>
+#include <string>
 
 bool same(const vector<string>& vec1, const vector<string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
@@ -13,6 +14,7 @@ bool same(const vector<string>& vec1, const vector<string>& vec2) {
 }
 
 vector<string> numerical_letter_grade(const vector<float>& grades) {
+    #include <string>
     vector<string> result;
     for (float grade : grades) {
         string letterGrade;

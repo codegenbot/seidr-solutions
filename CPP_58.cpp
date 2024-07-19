@@ -25,6 +25,10 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    cout << (isSame(user_input, user_input) ? "Yes" : "No") << endl;
+    if (isSame(user_input, user_input)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
     return 0;
 }

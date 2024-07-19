@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -22,7 +21,7 @@ bool issame(const std::vector<std::string>& a, const std::string& prefix) {
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result(strings.size());
+    std::vector<std::string> result;
     for (const auto& str : strings) {
         size_t start = 0;
         while (start < str.size()) {
