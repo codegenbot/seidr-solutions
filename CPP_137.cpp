@@ -1,7 +1,7 @@
-#include <boost/config.hpp>
+```cpp
+#include <iostream>
+#include <string>
 #include <boost/type_index.hpp>
-#include <boost/any.hpp>
-#include <boost/any_cast.hpp>
 
 int max(int a, float b) {
     if (a > b)
