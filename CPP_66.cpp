@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,8 +7,7 @@ int digitSum(const string& s) {
     int sum = 0;
     for (char c : s) {
         if (isdigit(c)) {
-            int num = c - '0';
-            sum += num;
+            sum += static_cast<int>(c - '0');
         }
     }
     return sum;
