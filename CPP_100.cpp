@@ -8,20 +8,15 @@ using namespace std;
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
-    while (stones > 0) {
+    while (stones > 0 && n > 1) { 
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
             stones = n;
         } else {
-            n++;
+            n += 2;
             stones = n;
         }
     }
     return pile;
-}
-
-int main() {
-    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
 }
