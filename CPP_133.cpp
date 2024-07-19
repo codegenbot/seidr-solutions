@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
@@ -17,4 +18,5 @@ int main() {
     std::cout << "Enter a number: ";
     std::getline(std::cin, strInput);
     int result = sum_squares({std::stod(strInput)});  
+    std::cout << "Sum of squares is: " << result << std::endl;
 }
