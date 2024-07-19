@@ -3,9 +3,6 @@ import hashlib
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
-try:
-    input_text = input("Enter a text to convert to MD5: ")
-    result = string_to_md5(input_text)
-    print(result)
-except EOFError:
-    print("No input received. Please provide a text to convert to MD5.")
+input_text = input("Enter a text to convert to MD5: ")
+result = string_to_md5(input_text)
+print(result)
