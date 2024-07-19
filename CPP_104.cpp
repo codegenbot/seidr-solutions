@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -8,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> unique_digits(std::vector<int> numbers) {
+auto unique_digits = [] (std::vector<int> numbers) -> std::vector<int> {
     std::vector<int> unique;
     for (int num : numbers) {
         while (num > 0) {
