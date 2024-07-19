@@ -1,9 +1,10 @@
-vector<string> reverse_delete(string s, string c){
-    for(auto ch : c){
+for (char ch : c) {
         s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
+    
     string result = s;
-    string result_reverse = s;
-    reverse(result_reverse.begin(), result_reverse.end());
-    return {result, result == result_reverse ? "True" : "False"};
+    string reversed = s;
+    reverse(reversed.begin(), reversed.end());
+    
+    return {result, result == reversed ? "True" : "False"};
 }
