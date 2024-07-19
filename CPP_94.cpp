@@ -32,6 +32,6 @@ int sumOfDigits(int n){
 int main(){
     vector<int> lst = {127, 97, 8192};
     int output = skjkasdkd(lst);
-    std::cout << "Output: " << output;
+    cout << "Output: " << output;
     return 0;
 }
