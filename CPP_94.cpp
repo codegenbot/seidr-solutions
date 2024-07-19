@@ -1,4 +1,5 @@
-int maxPrime(vector<int> lst){
+```cpp
+int findMaximumSumOfDigitsOfPrimes(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime){
@@ -11,6 +12,7 @@ int maxPrime(vector<int> lst){
         maxPrime /= 10;
     }
     return sumOfDigits;
+
 }
 
 bool isPrime(int n) {
