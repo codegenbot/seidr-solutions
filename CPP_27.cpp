@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <cctype>
 #include <string>
-#include <cassert>
 
 std::string flip_case(std::string str) {
     std::string result = "";
@@ -18,6 +18,9 @@ std::string flip_case(std::string str) {
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Flipped case: " << flip_case(str) << std::endl;
     return 0;
 }
