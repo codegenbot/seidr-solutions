@@ -1,11 +1,10 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
-    std::vector<int>(std::make_unique(first, last));
-    return result;
+auto unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+    return std::vector<int>(std::unique_copy(first, last));
 }
