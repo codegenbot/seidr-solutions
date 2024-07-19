@@ -16,6 +16,6 @@ int modp(int n, int p) {
 int main() {
     int n, p;
     std::cin >> n >> p;
-    std::cout << modp(n, p) << std::endl;
+    std::cout << modp(n, p);
     return 0;
 }
