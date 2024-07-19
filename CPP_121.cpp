@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,7 @@ int solution(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers; 
-    size_t n;
+    long unsigned int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     numbers.resize(n);
