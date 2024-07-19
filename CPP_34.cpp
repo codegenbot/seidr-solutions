@@ -6,7 +6,11 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(std::remove_if(l.begin(), l.end(), [&l](int i){ return std::count(l.begin(), l.end(), i) > 1; }), l.end());
+    vector<int> result;
+    for(int i : l){
+        if(std::count(l.begin(),l.end(),i)==1)
+            result.push_back(i);
+    }
     return result;
 }
 
