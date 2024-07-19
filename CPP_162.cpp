@@ -19,7 +19,8 @@ string string_to_md5(string text) {
         EVP_UPDATE(&md_ctx, (const unsigned char*)ptr, 1);
         ptr++;
     }
-    output = EVP_Finalize(&md_ctx, &output_len);
+
+    output = EVP_FINAIlize(&md_ctx, &output_len);
 
     string result;
     for (int i = 0; i < output_len; i++) {
