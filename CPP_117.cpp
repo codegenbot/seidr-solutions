@@ -18,7 +18,7 @@ vector<string> select_words(string s, int n) {
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (vowel_count <= n) {
+                if (!word.empty() && vowel_count <= n) {
                     result.emplace_back(word);
                     word = "";
                 }
@@ -34,7 +34,7 @@ vector<string> select_words(string s, int n) {
                 ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                 vowel_count++;
         }
-        if (vowel_count <= n) {
+        if (!word.empty() && vowel_count <= n) {
             result.emplace_back(word);
             word = "";
         }
