@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,19 +11,15 @@ int count_nums(const std::vector<int>& nums) {
 
 }
 
-int main() {
-    using namespace std;
-    
-    cout << "Enter the number of integers: ";
+void mainEntry() {
+    std::cout << "Enter the number of integers: ";
     int n; 
-    cin >> n;
-    vector<int> nums(n);  
+    std::cin >> n;
+    std::vector<int> nums(n);  
     for(int i = 0; i < n; i++) {
-        cout << "Enter integer #" <<i+1<<": ";
-        cin >> nums[i]; 
+        std::cout << "Enter integer #" <<i+1<<": ";
+        std::cin >> nums[i]; 
     }
     int result = count_nums(nums);
-    cout << "Result: " << result << endl;
-    
-    return 0;
+    std::cout << "Result: " << result << std::endl;
 }
