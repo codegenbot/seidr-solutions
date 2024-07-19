@@ -1,13 +1,10 @@
 #include <cassert>
-#include <set>
 
-int setSize(const std::set<int>& s) {
-    return s.size();
-}
-
-int getSetSize(int a, int b, int c) {
-    std::set<int> s = {std::min(a, b), std::min(b, c), std::min(c, a)};
-    return setSize(s);
+int getSetSize(int s, int k, int n) {
+    if (s <= k)
+        return 1;
+    else
+        return (n + k - 1) / k;
 }
 
 int mainTest() {
