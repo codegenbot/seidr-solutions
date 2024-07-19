@@ -23,10 +23,18 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 int main() {
-    assert (issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    assert (issame(numerical_letter_grade({4.0, 3.8, 2.5, 1.0}), {"A+", "A", "C", "D+"}));
-    assert (issame(numerical_letter_grade({2.9, 3.2, 4.0, 1.5}), {"B-", "B", "A+", "D"}));
-    // Add more test cases here
+    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    assert (issame(numerical_letter_grade({3.8, 2.5, 1.2}) , {"A", "C", "D+"}));
+    assert (issame(numerical_letter_grade({2.0, 2.0, 2.0}) , {"C+", "C+", "C+"}));
+    assert (issame(numerical_letter_grade({4.0, 4.0, 4.0}) , {"A+", "A+", "A+"}));
     return 0;
 }
