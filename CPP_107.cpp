@@ -33,8 +33,3 @@ int checkNumber() {
         cout << "The number is not even and palindrome.\n";
     return 0;
 }
-
-int main() {
-    checkNumber();
-    return 0;
-}
