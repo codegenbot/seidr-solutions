@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 int compare_strings(std::string a, std::string b) {
     if (a > b)
@@ -14,10 +14,10 @@ int compare_strings(std::string a, std::string b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter first string: ";
-    std::getline(std::cin, str1);
+    getline(std::cin, str1);
 
     std::cout << "Enter second string: ";
-    std::getline(std::cin, str2);
+    getline(std::cin, str2);
 
     int result = compare_strings(str1, str2);
 
