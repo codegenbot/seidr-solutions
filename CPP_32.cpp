@@ -9,11 +9,11 @@ std::vector<double> find_zero(const std::vector<double>& coefficients);
 
 int main() {
     std::vector<double> coeffs;
-    double coeff;
+    double c;
 
     // Read coefficients
-    while (std::cin >> coeff) {
-        coeffs.push_back(coeff);
+    while (std::cin >> c) {
+        coeffs.push_back(c);
     }
 
     // Find the zero of the polynomial equation
