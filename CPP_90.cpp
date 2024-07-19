@@ -1,6 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <initializer_list>
+#include <limits.h>
 
 int nextSmallest(vector<int> arr) {
     int smallest = INT_MAX;
