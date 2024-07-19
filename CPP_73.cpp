@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
