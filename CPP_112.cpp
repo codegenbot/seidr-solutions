@@ -15,13 +15,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             result.push_back(std::string(1, ch));
         }
     }
-    
     std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    
-    if (temp == reverse(temp)) {
+    if (temp == std::string(reverse(temp))) {
         result.push_back("True");
     } else {
         result.push_back("False");
