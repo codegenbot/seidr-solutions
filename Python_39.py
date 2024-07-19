@@ -1,2 +1,2 @@
-n = [int(input()) for _ in range(3)]
+n = list(map(int, input().strip().split()))
 print(sum(n))
