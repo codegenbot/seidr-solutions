@@ -10,8 +10,3 @@ string longest(vector<string> strings) {
     }
     return longestStr;
 }
-
-int main() {
-    longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"});
-    return 0;
-}
