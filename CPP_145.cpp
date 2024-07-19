@@ -25,8 +25,7 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int> &a, const vector<int> &b) {
     return a == b;
 }
 
