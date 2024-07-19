@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 double find_zero(const std::vector<double>& coeffs, double x) {
     double result = 0;
@@ -18,16 +16,19 @@ int main() {
 
     std::vector<double> coeffs;
     for(int i = 0; i < n; i++) {
-        double coeffs[i];
-        cin >> coeffs[i];
+        double coeff;
+        cin >> coeff;
+        coeffs.push_back(coeff);
     }
 
     double x;
     cin >> x;
 
-    double result = find_zero(coeffs, x); 
+    coeffs.push_back(x);
 
-    cout << fixed << setprecision(6) << result << endl;
+    double solution = find_zero(coeffs, 1.0); 
 
-    assert (abs(result) < 1e-3);
+    cout << fixed << setprecision(6) << solution << endl;
+
+    assert (abs(solution) < 1e-3);
 }
