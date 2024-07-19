@@ -1,6 +1,7 @@
 #include <map>
 #include <string>
 #include <initializer_list>
+
 using namespace std;
 
 std::map<char, int> histogram(string test) {
@@ -8,7 +9,7 @@ std::map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    for (char c : set<char>(letters.begin(), letters.end())) { // Use set instead of unique
         int count = 0;
         for (char letter : letters) {
             if (letter == c) count++;
@@ -30,3 +31,4 @@ bool issame(const map<char,int>& a, const map<char,int>& b){
 int main(){
     cout << issame(histogram("a"), histogram("b")) << endl;
     return 0;
+}
