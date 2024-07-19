@@ -1,13 +1,7 @@
 #include <iostream>
 
-int main() {
-    int n, p;
-    std::cin >> n >> p;
-    
-    if (p == 1) {
-        std::cout << 0 << std::endl;
-        return 0;
-    }
+int modp(int n, int p) {
+    if (p == 1) return 0;
     
     int result = 1;
     n %= p;
@@ -19,7 +13,13 @@ int main() {
         n = (n * n) % p;
     }
     
+    return result;
+}
+
+int main() {
+    int n, p;
+    std::cin >> n >> p;
+    int result = modp(n, p);
     std::cout << result << std::endl;
-    
     return 0;
 }
