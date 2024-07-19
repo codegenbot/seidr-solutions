@@ -33,8 +33,6 @@ int main() {
     }
 
     if (!issame(hist, {{'a', 1}})) {
-        return 0; // add this to avoid undefined behavior
+        std::exit(1);
     }
-    
-    return 0;
 }
