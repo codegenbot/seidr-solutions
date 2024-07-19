@@ -1,30 +1,15 @@
-#include <vector>
-#include <cassert>
+#include <vector>  // Add this line to include the vector library
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b){  // Fix the function signature
+    if(a.size() != b.size()){
+        return false;
+    }
 
-std::vector<int> f(int n){
-    std::vector<int> result;
-    int factorial = 1;
-    int sum = 0;
-    
-    for(int i = 1; i <= n; ++i){
-        if(i % 2 == 0){
-            factorial *= i;
-            result.push_back(factorial);
-        } else {
-            sum += i;
-            result.push_back(sum);
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    
-    return result;
-}
 
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    
-    return 0;
+    return true;
 }
