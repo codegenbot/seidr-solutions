@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -38,7 +37,7 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool main() {
+int main() {
     vector<string> output = reverse_delete("mamma", "mia");
     bool res1 = issame({""}, {"", "True"});
     assert(res1 == true);

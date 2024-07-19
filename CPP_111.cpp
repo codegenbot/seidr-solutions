@@ -11,7 +11,10 @@ std::map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    auto lettersUnique = letters;
+    letters.erase(std::unique(letters.begin(), letters.end()), letters.end());
+
+    for (char c : lettersUnique) { 
         int count = 0;
         for (char letter : letters) {
             if (letter == c) count++;
