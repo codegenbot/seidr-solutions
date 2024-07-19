@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> incr_list(std::vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
@@ -12,6 +13,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    std::vector<int> input = {1, 2, 3, 4};
+    
+    std::vector<int> result = incr_list(input);
+    
+    assert(result == std::vector<int>{2, 3, 4, 5});
+    
     return 0;
 }
