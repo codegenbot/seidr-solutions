@@ -26,3 +26,12 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
 bool check_vectors(const std::vector<std::vector<int>>& actual, const std::vector<std::vector<int>>& expected) {
     return actual == expected;
 }
+
+std::vector<std::vector<int>> expected = { {2, 2} };
+
+auto result = get_row({ {}, {1}, {1, 2, 3} }, 3);
+if (issame(result, expected)) {
+    std::cout << "Test Passed!\n";
+} else {
+    std::cout << "Test Failed!\n";
+}
