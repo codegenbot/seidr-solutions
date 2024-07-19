@@ -2,18 +2,16 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> strange_sort_list(vector<int> lst);
 
+int main() {
+    // Your main function implementation here
+}
+
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // Your issame function implementation here
 }
 
 vector<int> strange_sort_list(vector<int> lst){
@@ -29,9 +27,4 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
-}
-
-int main() {
-    // Add your test cases here
-    return 0;
 }
