@@ -1,10 +1,7 @@
-```cpp
 #include <iostream>
 #include <sstream>
 
 using namespace std;
-
-assert(main() == 0);
 
 int main() {
     int a, b, c;
