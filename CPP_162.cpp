@@ -25,6 +25,5 @@ int main() {
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = 0; // remove newline character
     printf("MD5 hash: %s\n", string_to_md5(input));
-    delete[] string_to_md5(input); // free the dynamically allocated memory
     return 0;
 }
