@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
