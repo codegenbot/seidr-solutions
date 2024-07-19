@@ -1,11 +1,6 @@
-#include <vector>
 #include <algorithm>
 #include <iterator>
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+#include <cassert>
 
 vector<int> solve(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
