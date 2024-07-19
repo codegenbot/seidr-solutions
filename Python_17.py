@@ -1,16 +1,15 @@
-Here is the completed Python function:
-
 ```
 def parse_music(music_string: str) -> List[int]:
-    music_notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
-    i = 0
-    while i < len(music_string):
-        note_length = music_notes.get(music_string[i:i+2])
-        if note_length:
-            i += 2
+    notes = {'o': 4, 'o|': 2, '.|': 1}
+    temp = ''
+    for char in music_string:
+        if char in ['o', 'o|']:
+            temp += char
+        elif char == '.' and temp == '|':
+            temp = ''
         else:
-            note_length = music_notes.get(music_string[i])
-            i += 1
-        result.append(note_length)
+            result.append(notes[temp])
+            temp = ''
+    result.append(notes[temp])
     return result
