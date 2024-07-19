@@ -1,10 +1,10 @@
+```cpp
 #include <string>
-#include <vector>
 
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 0;
-    std::vector<int> frames(10);
+    vector<int> frames(10);
     
     for (char c : s) {
         if (c == '/') {
