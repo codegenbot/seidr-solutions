@@ -22,6 +22,6 @@ std::pair<int, int> sum_product(const mystd::vector<int>& numbers) {
 
 int main() {
     auto result = sum_product({10});
-    assert(issame(result, {10, 1}));
+    assert(issame(result, {10, 10}));
     return 0;
 }
