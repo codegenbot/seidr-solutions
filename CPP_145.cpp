@@ -10,13 +10,9 @@ bool issame(vector<int> a, vector<int> b) {
         temp_b /= 10;
     }
     if (sum_a == sum_b) {
-        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+        return find(a.begin(), a.end(), a) < find(b.begin(), b.end(), b);
     }
     return sum_a < sum_b;
 }
-
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    return issame(a, b);
-});
 
 return nums;
