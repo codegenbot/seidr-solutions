@@ -1,30 +1,24 @@
-#include <iostream>
-#include <map>
-#include <algorithm>
-#include <string>
-
-using namespace std;
-
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::map<char, int> count;
-
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+map<char, int> histogram(string test) {
+    map<char, int> counts;
+    stringstream ss(test);
+    string word;
+    while (ss >> word) {
+        for (char c : word) {
+            counts[c]++;
         }
     }
-
+    
     int maxCount = 0;
-    for (const std::pair<const char, int>& pair : count) {
-        maxCount = std::max(maxCount, pair.second);
+    for (const auto& pair : counts) {
+        maxCount = max(maxCount, pair.second);
     }
-
-    for (const std::pair<const char, int>& pair : count) {
+    
+    map<char, int> result;
+    for (const auto& pair : counts) {
         if (pair.second == maxCount) {
             result[pair.first] = pair.second;
         }
     }
-
+    
     return result;
 }
