@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <cassert> // Include assert library here
+#include <cassert>
 
 double triangle_area(double a, double h) {
     return 0.5 * a * h;
