@@ -6,4 +6,5 @@ def normalize_numbers(numbers):
 
 # Call the function with appropriate input
 numbers = [1, 2, 3, 4, 5]
-print(normalize_numbers(numbers))
+result = normalize_numbers(numbers)
+print(result)
