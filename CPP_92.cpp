@@ -1,3 +1,6 @@
+#include <iostream>
+#include <iomanip>
+
 int mainFunction() {
     double x = 3.01;
     int y, z;
@@ -5,13 +8,10 @@ int mainFunction() {
     if (!(std::cin >> x)) { 
         std::cout << "Error: Please enter valid number.\n";
     } else {
-        if (x != static_cast<int>(x)) { 
-            std::cout << "The numbers are not integers.\n";
+        if (!(std::cin >> y >> z)) { 
+            std::cout << "Error: Please enter three numbers.\n";
         } else {
-            std::cout << "The numbers are integers: " << static_cast<int>(x) << ", " << y << ", " << z << "\n";
-            if (!(std::cin >> y >> z)) { 
-                std::cout << "Error: Please enter three numbers.\n";
-            }
+            std::cout << "The numbers are integers: " << y << ", " << z << "\n";
         }
     }
 
