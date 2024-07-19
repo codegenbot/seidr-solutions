@@ -1,2 +1,10 @@
 def sort_third(l: list):
-    return [i if i % 3 != 0 else sorted([j for j in l if j % 3 == 0])[-1] for i in l]
+    result = []
+    i = 0
+    while i < len(l):
+        if i % 3 == 0:
+            result.append(min([x for x in l[i:] if x % 3 == 0]))
+        else:
+            result.append(l[i])
+        i += 1
+    return result
