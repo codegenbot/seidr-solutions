@@ -32,18 +32,18 @@ bool is_prime(int n) {
     return true;
 }
 
-int main() {
-    int longest_prime_length = 0;
-    std::string longest_prime_word;
-
-    for (const auto &word : split("here is", ' ')) {
-        if (!is_prime(word.length())) continue;
-        
-        if (word.length() > longest_prime_length) {
-            longest_prime_length = word.length();
-            longest_prime_word = word;
+int words_in_sentence(const std::string& sentence) {
+    std::vector<std::string> tokens = split(sentence, ' ');
+    int count = 0;
+    for (const auto& token : tokens) {
+        if (!token.empty()) {
+            ++count;
         }
     }
+    return count;
+}
 
-    return 0;
+int main() {
+    assert(words_in_sentence("here is") == 2);
+    // Rest of your code here...
 }

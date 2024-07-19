@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
 #include <initializer_list>
+#include <cassert>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
@@ -13,7 +15,6 @@ int sum_squares(std::vector<double> lst){
 }
 
 int main(){
-    assert(sum_squares({-1,1,0})==2);
-    // Add more code here as per your requirement
+    assert (sum_squares({-1,1,0})==2);
     return 0;
 }
