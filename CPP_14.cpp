@@ -1,8 +1,18 @@
 #include <vector>
 #include <string>
 
-bool issame(char a, char b) {
-    return a == b;
+bool issame(const vector<string>& first, const vector<string>& second) {
+    if (first.size() != second.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < first.size(); ++i) {
+        if (first[i] != second[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<string> all_prefixes(string str){
