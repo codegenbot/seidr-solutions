@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(float a, float b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
@@ -26,9 +26,9 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.5, 2.9, 4.0, 1.8};
+    vector<float> grades = {3.5, 2.8, 4.0, 1.9};
     vector<string> result = numerical_letter_grade(grades);
-    for (string grade : result) {
+    for (const string& grade : result) {
         cout << grade << " ";
     }
     return 0;
