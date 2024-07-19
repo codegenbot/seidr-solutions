@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 string make_palindrome(string str){
     string rev_str(str.rbegin(), str.rend());
     for (int i = 0; i < str.length(); ++i) {
