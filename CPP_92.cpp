@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 
@@ -9,7 +10,8 @@ int main() {
     float a, b, c;
     std::cin >> a >> b >> c;
     if(any_int(a, b, c))
-        std::cout << "The numbers are integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
+        std::cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     else
-        std::cout << "The numbers are not integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
+        std::cout << "The numbers are not integers: " << a << ", " << b << ", " << c << "\n";
     return 0;
+}
