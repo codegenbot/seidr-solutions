@@ -1,9 +1,17 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    a = xs[0]
-    b = xs[1]
-    if n == 2:
-        return -b / a
-    c = xs[2]
-    d = xs[3]
-    return (c + math.sqrt(c**2 - 4 * b * d)) / (2 * d)
+    def poly(xs: list, x: float):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+    def f(x):
+        return poly(xs, x)
+
+    lo, hi = -10**9, 10**9
+    while hi - lo > 1e-9:
+        mid = (lo + hi) / 2
+        if f(mid) == 0:
+            return mid
+        if f(lo) * f(mid) < 0:
+            hi = mid
+        else:
+            lo = mid
+    return lo
