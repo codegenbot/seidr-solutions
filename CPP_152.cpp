@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
     std::vector<int> result;
