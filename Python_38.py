@@ -1,5 +1,5 @@
 try:
-    input_list = list(map(int, input("Enter space-separated integers: ").strip().split()))
+    input_list = list(map(int, input().split()))
     if input_list:
         print(sum(input_list))
     else:
