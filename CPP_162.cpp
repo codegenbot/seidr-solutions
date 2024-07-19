@@ -9,6 +9,7 @@ typedef unsigned int uint32_t;
 
 void MD5(const unsigned char* input, size_t len, unsigned char* output) {
     // Implement the MD5 algorithm here
+    // Code implementation of MD5 hash algorithm goes here
 }
 
 std::string string_to_md5(const std::string& text) {
