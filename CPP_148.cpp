@@ -1,8 +1,11 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::vector<std::string> find_planets_between(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     int index1 = -1, index2 = -1;
@@ -30,10 +33,5 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-}
+// Main function test case
+assert(issame(find_planets_between("Jupiter", "Makemake"), {}));
