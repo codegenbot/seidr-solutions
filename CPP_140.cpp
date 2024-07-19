@@ -1,15 +1,14 @@
-string fix_spaces(string text){
-    string result = "";
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 0) result += '-';
-                else continue;
-            }
-            result += '_';
-        }else{
-            result += text[i];
-        }
+#include <iostream>
+#include <string>
+
+std::string fix_spaces(const std::string& str) {
+    size_t start = 0;
+    while (start < str.size() && isspace(str[start])) {
+        start++;
     }
-    return result;
+    size_t end = str.size();
+    while (end > start && isspace(str[end - 1])) {
+        end--;
+    }
+    return str.substr(start, end - start);
 }
