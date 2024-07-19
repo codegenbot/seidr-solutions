@@ -4,10 +4,10 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(prefix) == 0)
+vector<vector<string>> filter_by_prefix(vector<vector<string>> strings) {
+    vector<vector<string>> result;
+    for(auto &s : strings){
+        if(issame(s, {"a", "b"}))
             result.push_back(s);
     }
     return result;
