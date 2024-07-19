@@ -2,7 +2,6 @@
 #include <cassert>
 #include <iostream>
 #include <string>
-
 std::string change_base(int x, int base) {
     std::string result = "";
     while (x > 0) {
