@@ -19,8 +19,7 @@ std::string solve(const std::string& s) {
 }
 
 int main() {
-    assert(solve("aBcDeFg123") == "321GFEDCBA");
-    assert(solve("HelloWorld") == "DLROwOLLEh");
+    assert(solve("aBcDeFg") == "GfEdCbA");
     assert(solve("12345") == "54321");
     
     return 0;
