@@ -1,6 +1,6 @@
-```cpp
-#include <vector>
 #include <initializer_list>
+#include <vector>
+#include <cmath>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 1e-9;
