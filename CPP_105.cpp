@@ -1,12 +1,14 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <string>
 #include <map>
+#include <algorithm>
 #include <cassert>
 
-vector<string> by_length(vector<int> arr);
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -14,27 +16,25 @@ vector<string> by_length(vector<int> arr){
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
-
-    vector<int> sortedArr;
+    
+    vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+            filtered.push_back(num);
         }
     }
-
-    sort(sortedArr.begin(), sortedArr.end());
-
-    reverse(sortedArr.begin(), sortedArr.end());
-
-    for (int num : sortedArr) {
+    
+    sort(filtered.begin(), filtered.end(), greater<int>());
+    
+    for (int num : filtered) {
         result.push_back(numToString[num]);
     }
-
+    
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    
+    return 0;
 }
-
-assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"});
