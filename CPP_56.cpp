@@ -15,6 +15,7 @@ bool correct_bracketing(std::string brackets){
     return count == 0;
 }
 
-int main(){
+int main() {
     assert (not correct_bracketing("<><><<><>><>>><>"));
+    return 0;
 }
