@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,3 +26,4 @@ int main() {
     }
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
     return 0;
+}
