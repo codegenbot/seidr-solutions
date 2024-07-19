@@ -1,4 +1,5 @@
 #include <utility>
+#include <vector>
 #include <cassert>
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
