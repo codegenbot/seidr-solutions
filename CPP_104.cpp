@@ -10,7 +10,4 @@ bool unique_digits(const std::vector<int>& a, const std::vector<int>& b) {
     return sorted_a == sorted_b;
 }
 
-int main() {
-    assert(unique_digits({135, 103, 31}, {31, 135}));
-    return 0;
-}
+assert(unique_digits({135, 103, 31}, {31, 135}));
