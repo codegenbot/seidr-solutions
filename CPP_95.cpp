@@ -1,12 +1,23 @@
-if(dict.empty()) return false;
-
-bool all_lower = true;
-bool all_upper = true;
-
-for(const auto& entry : dict){
-    if(entry.first != tolower(entry.first[0])) all_lower = false;
-    if(entry.first != toupper(entry.first[0])) all_upper = false;
+if (dict.empty()) {
+    return false;
 }
 
-return all_lower || all_upper;
+bool is_lower = true;
+bool is_upper = true;
+
+for (const auto& entry : dict) {
+    for (char c : entry.first) {
+        if (!islower(c)) {
+            is_lower = false;
+            break;
+        }
+    }
+    for (char c : entry.first) {
+        if (!isupper(c)) {
+            is_upper = false;
+            break;
+        }
+    }
 }
+
+return is_lower || is_upper;
