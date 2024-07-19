@@ -30,4 +30,4 @@ std::string string_to_md5(const std::string& text) {
     return std::string(mdString);
 }
 
-```
+assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
