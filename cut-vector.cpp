@@ -12,7 +12,8 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long prev_sum = 0; 
     long long min_diff = LLONG_MAX;
     int index = -1;
-    
+    vector<int> min_indices;
+
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
             long long left_sum = sum1;
@@ -20,13 +21,13 @@ vector<vector<int>> cutVector(vector<int> v) {
             
             long long diff = std::abs(left_sum - right_sum);
             
-            if (diff <= min_diff) {
+            if (diff < min_diff) {
                 min_diff = diff;
-                index = i; // update the cutting point
-            } else if (diff == 0) {
-                res[0].assign(v.begin(), v.begin() + i+1);
-                res[1].assign(v.begin() + i, v.end());
-                return res;
+                index = i; 
+                min_indices.clear();
+                min_indices.push_back(i);
+            } else if (diff == min_diff) {
+                min_indices.push_back(i);
             }
         }
         
@@ -35,6 +36,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     res[0].assign(v.begin(), v.begin() + index+1);
     res[1].assign(v.begin() + index, v.end());
+    
     return res;
 }
 
