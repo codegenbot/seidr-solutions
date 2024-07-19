@@ -1,9 +1,23 @@
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int digitSum(const string& s) {
     int sum = 0;
-    for (auto c : s) {
+    for (char c : s) { 
         if (isdigit(c)) {
-            sum += stoi(string(1, c) - '0'); 
+            sum += static_cast<int>(c - '0'); 
         }
     }
     return sum;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    int num = digitSum(s);
+    cout << "Sum of digits: " << num << endl;
 }
