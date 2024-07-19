@@ -24,16 +24,15 @@ int prime_fib(int n) {
     int prev = 1, curr = 1, next;
     for (int i = 3; i <= n; i++) {
         next = prev + curr;
-        prev = curr;
-        curr = next;
-        
-        while (!isPrime(curr)) {
+        while (!isPrime(next)) {
             next = prev + curr;
             prev = curr;
             curr = next;
         }
+        prev = curr;
+        curr = next;
     }
-    return curr;
+    return next;
 }
 
 int main() {
