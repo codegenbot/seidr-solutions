@@ -1,14 +1,23 @@
-string encode(string message){
-    for(int i=0; i<message.size(); i++){
-        if(isalpha(message[i])){
-            message[i] = toupper(message[i]);
-            if(message[i] == 'A' || message[i] == 'E' || message[i] == 'I' || message[i] == 'O' || message[i] == 'U'){
-                message[i] = message[i] + 2;
-            }
-            if(message[i] > 'Z'){
-                message[i] = message[i] - 26;
+#include <iostream>
+#include <cctype>
+#include <string>
+
+std::string encode(const std::string& message) {
+    std::string encodedMessage = message;
+    
+    for(auto &c : encodedMessage){
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
             }
         }
     }
-    return message;
+    return encodedMessage;
+}
+
+int main() {
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    
+    return 0;
 }
