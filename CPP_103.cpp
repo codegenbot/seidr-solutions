@@ -23,7 +23,7 @@ std::string calculateBinary(int n, int m) {
     return binary;
 }
 
-int test_calculateBinary() {
+int main_calculation() {
     assert(calculateBinary(5, 5) == "101");
     return 0;
 }
