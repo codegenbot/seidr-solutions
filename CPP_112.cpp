@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     for (char ch : s) {
@@ -17,15 +15,20 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
         }
     }
+    
     string temp = "";
-    for (int i = 0; i < result.size(); i++) {
-        temp += result[i];
+    for (int i = 0; i < s.size(); i++) {
+        temp += s[i];
     }
-    if (temp == reverse(temp)) {
+    
+    bool isPalindrome = issame(temp, reverse(temp));
+    
+    if (isPalindrome) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
+    
     return result;
 }
 
