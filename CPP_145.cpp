@@ -1,5 +1,4 @@
 ```cpp
-#include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -16,16 +15,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> order_by_points(std::initializer_list<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
-    for (int num : nums) {
+    for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
-        int n = abs(num);
-        while (n > 0) {
-            sumOfDigits += n % 10;
-            n /= 10;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
         }
-        pairs.push_back(std::make_pair(num, sumOfDigits));
+        pairs.push_back(std::make_pair(nums[i], sumOfDigits));
     }
 
     std::sort(pairs.begin(), pairs.end());
