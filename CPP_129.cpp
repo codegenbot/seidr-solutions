@@ -1,16 +1,13 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     // Your code here
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code here
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code here
-    vector<int> result;
-    // Your algorithm to calculate minPath based on grid and k
-    return result;
 }
 
 int main() {
