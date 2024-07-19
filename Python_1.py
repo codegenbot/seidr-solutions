@@ -18,4 +18,4 @@ def separate_paren_groups(paren_string):
 
 paren_string = input().strip()
 if all(char in "()" for char in paren_string):
-    print(separate_paren_groups(paren_string.replace(" ", "")))
+    print(separate_paren_groups(paren_string.replace(" ", "").strip()))

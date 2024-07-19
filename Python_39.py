@@ -1,3 +1,4 @@
+import sys
 import math
 
 def is_prime(num):
@@ -9,10 +10,13 @@ def is_prime(num):
     return True
 
 def prime_fib(n):
+    count = 0
     a, b = 0, 1
-    for _ in range(n):
+    while count < n:
+        if is_prime(a):
+            count += 1
         a, b = b, a + b
     return a
 
-n = int(input("Enter a number: "))
+n = int(sys.argv[1])
 print(prime_fib(n))
