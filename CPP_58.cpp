@@ -17,11 +17,11 @@ bool isSame(vector<int> a, vector<int> b) {
 int main() {
     int n;
     cin >> n;
-    vector<int> user_input(n); 
+    vector<int> user_input;
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-        user_input[i] = x; 
+        user_input.push_back(x);
     }
     if (isSame(user_input, user_input)) {
         cout << "Yes" << endl;
