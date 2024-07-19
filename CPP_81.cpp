@@ -30,4 +30,3 @@ int main() {
     // Add more test cases here
     return 0;
 }
-```
