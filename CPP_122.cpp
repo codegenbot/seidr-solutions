@@ -4,17 +4,16 @@
 using namespace std;
 
 int add_elements(const vector<int>& arr, int k) {
-	int sum = 0;
-	for (int i = 0; i < k; ++i) {
-		if (arr[i] >= 10 && arr[i] <= 99) {
-			sum += arr[i];
-		}
-	}
-	return sum;
+    int sum = 0;
+    for (int i = 0; i < k; ++i) {
+        if (arr[i] >= 10 && arr[i] <= 99) {
+            sum += arr[i];
+        }
+    }
+    return sum;
 }
 
 int main() {
-	assert(add_elements({1}, 1) == 0);
-	
-	return 0;
+    assert(add_elements({1, 20, 30, 100}, 4) == 50);
+    return 0;
 }
