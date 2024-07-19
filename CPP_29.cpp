@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 
@@ -24,8 +25,8 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
         }
         for (int i = 0; i < temp.size(); i++) {
             if (temp[i] != prefix) {
-                result.push_back(temp);
-                break;
+                result.push_back({temp});
+                return result;
             }
         }
     }
