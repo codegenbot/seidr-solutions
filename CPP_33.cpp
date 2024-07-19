@@ -18,10 +18,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> sort_third(std::vector<int> vec) {
     if (vec.size() < 3) return vec;
 
-    std::sort(vec.begin(), vec.end(), [](int a, int b) {
-        return a < b;
-    });
-
+    std::sort(vec.begin(), vec.begin() + 3);
     return vec;
 }
 
