@@ -1,7 +1,9 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <assert.h>
+#include <initializer_list>
 
 using namespace std;
 
@@ -39,6 +41,7 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<vector<string>> expected = {{"cc"}, {"dd"}, {"aaaa", "bbbb"}};
+    assert(issame(sorted_list_sum(lst), expected));
     return 0;
 }

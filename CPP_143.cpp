@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,9 +8,6 @@ std::vector<std::string> split(const std::string& str, char ch) {
     std::string token = "";
 
     for (char c : str) {
-        if (!isascii(c)) {
-            continue;  // Skip non-ASCII characters
-        }
         if (c == ch) {
             tokens.push_back(token);
             token = "";
@@ -35,16 +33,21 @@ bool is_prime(int n) {
     return true;
 }
 
-bool isascii(char c) {
-    return static_cast<unsigned char>(c) <= 0x7F;
-}
-
 int main() {
     int longest_prime_length = 0;
     std::string longest_prime_word;
 
     for (const auto &word : split("here is", ' ')) {
-        if (!is_prime(word.length())) continue;
+        if(word.empty()) continue;
+        bool all_ascii = true;
+        for (char c : word) {
+            if (!isascii(c)) {
+                all_ascii = false;
+                break;
+            }
+        }
+        
+        if (!all_ascii || !is_prime(word.length())) continue;
         
         if (word.length() > longest_prime_length) {
             longest_prime_length = word.length();
@@ -55,4 +58,8 @@ int main() {
     std::cout << "Longest prime length: " << longest_prime_length << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
+}
+
+bool isascii(char c) {
+    return static_cast<unsigned char>(c) <= 0x7F;
 }
