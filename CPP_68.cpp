@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -34,6 +33,10 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    assert((pluck({7, 9, 7, 1}).empty() == true));
     return result;
+}
+
+int main() {
+    assert((pluck({7, 9, 7, 1}).empty() == true));
+    return 0;
 }
