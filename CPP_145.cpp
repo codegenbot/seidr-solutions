@@ -7,12 +7,12 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> points) {
-    // Implementation of order_by_points function goes here
+std::vector<int> order_by_points(std::vector<int> nums) {
+    // Implement the order_by_points function here
 }
 
 int main() {
-    vector<int> nums = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    std::vector<int> nums = order_by_points({0, 6, 6, -76, -21, 23, 4});
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a = -a;
