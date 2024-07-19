@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> completeCode(int n) {
+std::vector<int> solve(int n) {
     std::vector<int> result;
     if(n == 0) {
         result.push_back(0);
