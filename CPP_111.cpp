@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <map>
@@ -7,12 +6,12 @@
 using namespace std;
 
 std::map<char, int> histogram(string test) {
-    std::map<char, int> result;
+    map<char, int> result;
     if (test.empty()) return result;
 
     string letters = test;
     auto lettersUnique = letters;
-    letters.erase(std::unique(letters.begin(), letters.end()), letters.end());
+    letters.erase(unique(letters.begin(), letters.end()), letters.end());
 
     for (char c : lettersUnique) { 
         int count = 0;
@@ -23,6 +22,7 @@ std::map<char, int> histogram(string test) {
     }
 
     return result;
+
 }
 
 bool isSame(const map<char,int>& a, const map<char,int>& b){
@@ -32,9 +32,9 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
         if(it == b.end() || it->second != p.second) return false;
     }
     return true;
+
 }
 
 int main() {
     cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
-    return 0;
 }
