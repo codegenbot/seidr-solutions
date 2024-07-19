@@ -34,8 +34,8 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a,vector<string> b){
+  return a == b;
 }
 
 int main() {
