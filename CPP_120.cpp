@@ -18,13 +18,17 @@ std::vector<int> maximum(const std::vector<int>& a, int k) {
     return result;
 }
 
-int main() {
+void solve() {
     int n, k;
     cin >> n;
-    std::vector<int> a(n);
+    vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    std::vector<int> result = maximum(a, k);
-    if (!issame(maximum(a, k), result)) return 1;
+    vector<int> result = maximum(a, k);
+    if (!issame(maximum(a, k), result)) exit(1);
+}
+
+int main() {
+    solve();
     return 0;
 }
