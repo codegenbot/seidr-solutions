@@ -33,11 +33,10 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return result;
+
 }
 
 int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    bool res1 = issame(output, vector<string>{"" , "True"});
-    assert(res1);
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
