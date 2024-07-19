@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -25,8 +26,9 @@ int main() {
         cin >> coeffs[i];
     }
 
-    double x;
-    cin >> x;
+    double solution;
+    cin >> solution;
 
-    cout << fixed << setprecision(6) << find_zero(coeffs, x) << endl;
+    cout << fixed << setprecision(6) << find_zero(coeffs, solution) << endl;
+    return 0;
 }
