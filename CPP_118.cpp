@@ -1,12 +1,9 @@
-string vowels = "AEIOUaeiou";
-    int i = word.length() - 2;
-    while (i > 0) {
-        if (vowels.find(word[i]) != string::npos) {
+int n = word.size();
+    for (int i = n - 2; i > 0; --i) {
+        if (word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u'
+            && word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u'
+            && word[i + 1] != 'a' && word[i + 1] != 'e' && word[i + 1] != 'i' && word[i + 1] != 'o' && word[i + 1] != 'u') {
             return string(1, word[i]);
-        } else if (isalpha(word[i])) {
-            i--;
-        } else {
-            i = -1;
         }
     }
     return "";
