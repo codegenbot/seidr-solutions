@@ -1,12 +1,4 @@
-bool issame(vector<string> a,vector<string>b){
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     
