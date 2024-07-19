@@ -1,8 +1,8 @@
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(string s1, string s2){
-    return s1 == s2;
+bool issame(const string& s1, const string& s2) {
+    return s1.size() == s2.size() && std::equal(s1.begin(), s1.end(), s2.begin());
 }
+
+vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string){
     vector<string> result;
