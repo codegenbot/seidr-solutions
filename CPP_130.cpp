@@ -2,22 +2,14 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> tri(int value) {
     return std::vector<int>{value};
 }
 
-std::vector<int> completeCode(int n) {
+std::vector<int> codeContestProblem(int n) {
     std::vector<int> result;
     if (n == 0) {
         result.push_back(0);
@@ -35,4 +27,10 @@ std::vector<int> completeCode(int n) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(tri(1), std::vector<int>{1, 3}));
+    // Add more test cases here
+    return 0;
 }
