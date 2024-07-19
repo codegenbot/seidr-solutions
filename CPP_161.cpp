@@ -1,7 +1,6 @@
-#include <algorithm>
-using namespace std;
+#include <string>
 
-string strToChar(string s) {
+string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -10,6 +9,5 @@ string strToChar(string s) {
             result += c;
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return result.empty() ? string(rbegin(s), rend(s)) : result;
 }
