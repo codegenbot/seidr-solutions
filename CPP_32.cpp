@@ -11,10 +11,5 @@ double find_zero(int n) {
         cin >> coeffs[i];
     }
 
-    double poly = 0.0;
-    for (int i = 0; i <= n; i++) {
-        poly += coeffs[i] * pow(solution, i);
-    }
-    
-    return -poly;
+    return -pow(solution, 2);
 }
