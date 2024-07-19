@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,7 +13,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> get_odd_collatz(int n){
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         result.push_back(n);
