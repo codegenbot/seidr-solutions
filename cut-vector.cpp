@@ -1,33 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    long long sum = 0;
+    int min_diff = INT_MAX;
+    int split_index = -1;
+    
     for (int i = 0; i < n; i++) {
-        sum += v[i];
-        if (sum * 2 != v[i + 1] && sum <= v[i]) {
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i + 1);
-            res[1].insert(res[1].begin(), v.begin() + i + 1, v.end());
-            return res;
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += v[j];
+        }
+        int diff = abs(sum1 - sum2);
+        if (diff < min_diff) {
+            min_diff = diff;
+            split_index = i;
         }
     }
-    if (sum != 0) {
-        long long temp = sum;
-        sum = 0;
-        for (int i = n - 1; i >= 0; i--) {
-            sum += v[i];
-            if (temp + sum == v[n - 1]) {
-                res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-                res[1].insert(res[1].begin(), v.begin() + i, v.end());
-                return res;
-            }
-        }
-    } else {
-        res[0] = v;
-        res[1].clear();
+    
+    for (int i = 0; i <= split_index; i++) {
+        res[0].push_back(v[i]);
+    }
+    for (int i = split_index + 1; i < n; i++) {
+        res[1].push_back(v[i]);
     }
     return res;
 }
