@@ -1,29 +1,21 @@
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    vector<int> frames;
-
-    for (char c : input) {
-        if (c == 'X') {
-            frames.push_back(10);
-        } else if (c == '/') {
-            frames.push_back(10 - stoi(input.substr(input.find('/'), 2)));
-        } else {
-            int strikes = 0;
-            while (input[input.find(c)] != '/' && input.find(c) < input.size() - 1) {
-                c++;
-                strikes++;
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += min(10, roll);
             }
-            frames.push_back(strikes);
+            roll = 0;
+        } else if (isdigit(c)) {
+            roll *= 10 + (c - '0');
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
         }
     }
-
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 10) {
-            score += 10 + (i < 8 ? frames[i+1] : 0);
-        } else {
-            score += frames[i];
-        }
+    if (roll < 2) {
+        score += min(10, roll);
     }
-
     return score;
 }
