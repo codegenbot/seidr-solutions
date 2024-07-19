@@ -1,18 +1,7 @@
 #include <map>
+#include <cassert>
 
-bool issame(map<char, int> m1, map<char, int> m2) {
-    if (m1.size() != m2.size()) {
-        return false;
-    }
-
-    for (const auto& pair : m1) {
-        if (m2.find(pair.first) == m2.end() || m2[pair.first] != pair.second) {
-            return false;
-        }
-    }
-
-    return true;
-}
+using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -36,4 +25,14 @@ map<char, int> histogram(string test) {
     }
 
     return result;
+}
+
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+
+    return 0;
 }
