@@ -1,18 +1,32 @@
-string checkIfPrimeLength(int interval1[], int interval2[]) {
-    int start1 = interval1[0], end1 = interval1[1];
-    int start2 = interval2[0], end2 = interval2[1];
+#include <string>
+#include <array>
+
+std::string intersection(std::array<int, 2> interval1, std::array<int, 2> interval2) {
+    int start1 = interval1[0];
+    int end1 = interval1[1];
+    int start2 = interval2[0];
+    int end2 = interval2[1];
     
-    int intersectStart = max(start1, start2);
-    int intersectEnd = min(end1, end2);
+    int intersectionStart = std::max(start1, start2);
+    int intersectionEnd = std::min(end1, end2);
     
-    int length = max(0, intersectEnd - intersectStart + 1);
+    if (intersectionStart > intersectionEnd) {
+        return "NO";
+    }
     
-    if (length <= 1) return "NO";
+    int length = intersectionEnd - intersectionStart;
     
-    for (int i = 2; i * i <= length; i++) {
+    if (length <= 1) {
+        return "NO";
+    }
+    
+    int i = 2;
+    
+    while (i * i <= length) {
         if (length % i == 0) {
             return "NO";
         }
+        i++;
     }
     
     return "YES";
