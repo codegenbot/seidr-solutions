@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -22,8 +21,9 @@ string rounded_avg(int n, int m) {
     return res;
 }
 
-void main() {
+int main() {
     int n, m;
     cin >> n >> m;
     cout << rounded_avg(n, m);
+    return 0;
 }
