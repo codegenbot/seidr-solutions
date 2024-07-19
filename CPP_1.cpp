@@ -34,9 +34,12 @@ vector<string> separate_paren_groups(const string &paren_string) {
 }
 
 int main() {
-    string input = "((group1)(group2)(group3))";
+    string test_input = "(group1)(group2)(group3)";
     vector<string> expected_output = {"group1", "group2", "group3"};
-    vector<string> output = separate_paren_groups(input);
-    assert(issame(output, expected_output));
+
+    vector<string> result = separate_paren_groups(test_input);
+
+    assert(issame(result, expected_output));
+
     return 0;
 }
