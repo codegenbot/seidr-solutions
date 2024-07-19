@@ -36,20 +36,19 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    std::string input_planet1, input_planet2;
-    std::cout << "Enter the names of two planets (case-sensitive, separated by space): ";
-    std::cin >> input_planet1 >> input_planet2;
+    std::string planet1, planet2;
+    std::cout << "Enter two planet names: ";
+    std::cin >> planet1 >> planet2;
 
-    std::vector<std::string> result = bf(input_planet1, input_planet2);
+    std::vector<std::string> result = bf(planet1, planet2);
 
     if (result.empty()) {
-        std::cout << "One or both planets are not valid." << std::endl;
+        std::cout << "Please enter valid planet names from the list: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune." << std::endl;
     } else {
-        std::cout << "Planets between " << input_planet1 << " and " << input_planet2 << ": ";
-        for (const std::string &planet : result) {
-            std::cout << planet << " ";
+        std::cout << "Planets between " << planet1 << " and " << planet2 << " are:" << std::endl;
+        for (const auto& planet : result) {
+            std::cout << planet << std::endl;
         }
-        std::cout << std::endl;
     }
 
     return 0;
