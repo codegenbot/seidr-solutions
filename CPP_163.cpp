@@ -10,7 +10,6 @@ std::vector<int> generate_integers(int start, int end) {
 }
 
 std::vector<int> issame() {
-    std::vector<int> a = generate_integers(17, 89);
     std::vector<int> result;
     for (int i : a) {
         if (i % 2 == 0) {
@@ -21,6 +20,6 @@ std::vector<int> issame() {
 }
 
 int main() {
-    assert(!issame().empty());
+    assert(!issame(generate_integers(17, 89)).empty());
     return 0;
 }
