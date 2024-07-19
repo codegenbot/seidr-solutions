@@ -3,23 +3,26 @@
 #include <string>
 #include <cassert>
 
-int totalChars(const std::vector<std::string>& lst) {
+using namespace std;
+
+int total_chars(const vector<string>& lst) {
     int total = 0;
-    for (const std::string& str : lst) {
-        total += str.length();
+    for (const string& str : lst) {
+        total += str.size();
     }
     return total;
 }
 
-std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
-    if (totalChars(lst1) < totalChars(lst2)) {
-        return lst1;
-    }
-    return totalChars(lst1) == totalChars(lst2) ? lst1 : lst2;
+bool issame(const vector<string>& a, const vector<string>& b){
+    return a == b;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return total_match(a, b) == a;
+vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+    if (total_chars(lst1) < total_chars(lst2)) {
+        return lst1;
+    } else {
+        return total_chars(lst1) == total_chars(lst2) ? lst1 : lst2;
+    }
 }
 
 int main() {
