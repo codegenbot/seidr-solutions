@@ -12,6 +12,6 @@ std::string solve(int N) {
 
 int main() {
     std::cout << solve(963) << std::endl;
-
+    
     return 0;
 }
