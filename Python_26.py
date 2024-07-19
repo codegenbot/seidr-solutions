@@ -4,11 +4,10 @@ def find_unique_numbers(numbers):
 numbers = []
 try:
     while True:
-        num = input()
+        num = input().strip()
         if num == "":
             break
-        if num.strip():  # Check if input is not empty
-            numbers.append(int(num))
+        numbers.append(int(num))
 except EOFError:
     pass
 
