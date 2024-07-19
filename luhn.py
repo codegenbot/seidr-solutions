@@ -1,7 +1,8 @@
 ```
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[1:-1].split()]
+def luhn(card):
+    card = [int(x) for x in str(card)[::-1].replace(" ", "")]
     result = sum(
-        2 * int(digit) if i % 2 else int(digit) for i, digit in enumerate(card_number)
+        d if i % 2 == 0 else (d * 2 - 9) if (d * 2) > 9 else d * 2
+        for i, d in enumerate(card)
     )
-    return 1 if result % 10 == 0 else 0
+    return str(result)
