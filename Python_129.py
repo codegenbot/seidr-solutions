@@ -1,28 +1,23 @@
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
-
-        visited[i][j] = True
-        min_val = float("inf")
-        next_cell = None
-
-        for dx, dy in directions:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                if grid[ni][nj] < min_val:
-                    min_val = grid[ni][nj]
-                    next_cell = (ni, nj)
-
-        return [grid[i][j]] + dfs(next_cell[0], next_cell[1], path + [min_val])
-
+    n = len(grid)
     start_val = min(min(row) for row in grid)
-    start_pos = [
-        (i, row.index(start_val)) for i, row in enumerate(grid) if start_val in row
-    ][0]
+    start_pos = [(i, j) for i in range(n) for j in range(n) if grid[i][j] == start_val][
+        0
+    ]
+    path = [start_val]
 
-    return dfs(start_pos[0], start_pos[1], [start_val])
+    while len(path) < k:
+        i, j = start_pos
+        neighbors = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
+        next_val = float("inf")
+        next_pos = None
+
+        for ni, nj in neighbors:
+            if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] < next_val:
+                next_val = grid[ni][nj]
+                next_pos = (ni, nj)
+
+        path.append(next_val)
+        start_pos = next_pos
+
+    return path
