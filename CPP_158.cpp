@@ -2,14 +2,16 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
+
+string find_max(vector<string> words);
 
 int main() {
     vector<string> words;
     string input;
-    int result = 0; 
-
+    
     while (cin >> input) {
         words.push_back(input);
     }
