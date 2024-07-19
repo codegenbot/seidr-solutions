@@ -1,20 +1,22 @@
-string result = "";
-    int count = 0;
-  
-    for(char c : text) {
-        if(c == ' ') {
-            count++;
-            if(count > 2) {
-                result.pop_back();
-                result += '-';
-            } else {
+int consecutiveSpaces = 0;
+    string result = "";
+    
+    for(char& c : text){
+        if(c == ' '){
+            consecutiveSpaces++;
+            if(consecutiveSpaces <= 2){
                 result += '_';
+            } else {
+                if(consecutiveSpaces == 3){
+                    result.pop_back(); // Remove previous underscore
+                }
+                result += '-';
             }
         } else {
+            consecutiveSpaces = 0;
             result += c;
-            count = 0;
         }
     }
-
+    
     return result;
 }
