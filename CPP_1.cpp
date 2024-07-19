@@ -4,10 +4,6 @@ bool issame(const vector<string>& v1, const vector<string>& v2) {
 
 vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    // Main function implementation
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -31,4 +27,9 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    // Main function logic here
+    return 0;
 }
