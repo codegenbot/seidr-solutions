@@ -1,6 +1,7 @@
 #include <vector>
+#include <string>
 
-vector<int> issame(vector<int> a, vector<int> b) {
+vector<int> even_odd_count(int num){
     string num_str = to_string(abs(num));
     vector<int> counts(2, 0);
     
