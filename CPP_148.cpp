@@ -37,16 +37,12 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     std::string planet1, planet2;
-    
-    std::cout << "Enter two planet names: ";
     std::cin >> planet1 >> planet2;
 
     std::vector<std::string> result = bf(planet1, planet2);
-
-    std::cout << "Resulting planets: ";
-    for (const auto& planet : result) {
-        std::cout << planet << " ";
+    for (const auto& p : result) {
+        std::cout << p << " ";
     }
-    
+
     return 0;
 }
