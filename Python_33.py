@@ -1,2 +1,2 @@
 def sort_third(l: list):
-    return sorted([sorted(l[i:i+3], key=lambda x: x, reverse=True) for i in range(0, len(l), 3)], key=lambda x: x[-1], reverse=True)
+    return sorted([sorted(l[i:i+3], key=lambda x: x[2] if isinstance(x, tuple) else x, reverse=True) for i in range(0, len(l), 3)], key=lambda x: x[-1][2] if isinstance(x[-1], tuple) else x[-1], reverse=True)
