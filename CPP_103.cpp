@@ -1,9 +1,10 @@
 #include <string>
 #include <cassert>
 #include <cmath>
+
 using namespace std;
 
-std::string calculateBinaryAvg(int n, int m) {
+std::string calculateBinaryAverage(int n, int m) {
     assert(n >= 0 && m >= 0);
     
     if (n > m) {
