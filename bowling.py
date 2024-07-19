@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     frame_scores = [0, 1, 2]
     for i in range(0, len(frames), 2):
