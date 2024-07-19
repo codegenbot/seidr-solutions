@@ -1,37 +1,35 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b);
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        double da = stod(sa);
-        double db = stod(sb);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
-    }
-    return a;
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    if ((int)a > (int)b)
+        return a;
+    else if ((int)a < (int)b)
+        return b;
+    else
+        return "None";
+}
+else if ((a.type() == typeid(float) || a.type() == typeid(double)) && (b.type() == typeid(float) || b.type() == typeid(double))) {
+    if ((float)a > (float)b)
+        return a;
+    else if ((float)a < (float)b)
+        return b;
+    else
+        return "None";
+}
+else if ((a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float) || b.type() == typeid(double)))) {
+    if (stoi((string)a) > (int)b || stod((string)a) > (double)b)
+        return a;
+    else if ((int)b > stoi((string)a) || (double)b > stod((string)a))
+        return boost::any(b);
+    else
+        return "None";
+}
+else if ((b.type() == typeid(string) && (a.type() == typeid(int) || a.type() == typeid(float) || a.type() == typeid(double)))) {
+    if ((int)a > stoi((string)b) || (double)a > stod((string)b))
+        return a;
+    else if (stoi((string)a) < (int)b || stod((string)a) < (double)b)
+        return boost::any(b);
+    else
+        return "None";
+}
+else {
+    throw invalid_argument("Invalid types");
 }
