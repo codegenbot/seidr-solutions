@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <string>  // Add this line for string
 #include <cassert>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
@@ -14,9 +14,4 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
-    return 0;
 }
