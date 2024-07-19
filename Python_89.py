@@ -1,0 +1,2 @@
+def encrypt(s):
+    return ''.join([chr((ord(char) - ord('a') + 2 * 2) % 26 + ord('a')) if char.islower() else chr((ord(char) - ord('A') + 2 * 2) % 26 + ord('A')) if char.isupper() else char for char in s])
