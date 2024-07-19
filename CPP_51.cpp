@@ -3,13 +3,15 @@
 #include <string>
 
 std::string remove_vowels(std::string input) {
-    std::string result;
+    std::string result = "";
     for(char c : input){
-        if(std::string{"aeiou"}.find(std::tolower(c)) == std::string::npos){
-            result += std::tolower(c);
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'
+           && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' 
+           && tolower(c) != 'o' && tolower(c) != 'u'){
+            result += tolower(c); // Convert to lowercase and append
         }
     }
-    return result;
+    return result; // Return the modified string
 
 }
 
