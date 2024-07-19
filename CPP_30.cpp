@@ -1,20 +1,22 @@
-#include <algorithm>
+```cpp
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<int> get_positive(std::vector<float> l) {
-    std::vector<int> result;
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
-            result.push_back(static_cast<int>(num));
+            result.push_back(num);
         }
     }
     return result;
+}
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
+}
+
+int main() {
+    assert(get_positive({}) == std::vector<float>({}));
+    return 0;
 }
