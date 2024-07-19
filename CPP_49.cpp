@@ -1,18 +1,19 @@
 #include <iostream>
 #include <cassert>
 
-int modp(int n, int p) {
-    int result = 1;
-    n %= p;
-    
-    while (n > 0) {
-        if (n % 2 == 1) {
-            result = (result * n) % p;
-        }
-        n = (n * n) % p;
+int modp(int a, int b, int p) {
+    int res = 1;
+    a = a % p;
+
+    while (b > 0) {
+        if (b % 2 == 1)
+            res = (res * a) % p;
+
+        b = b / 2;
+        a = (a * a) % p;
     }
-    
-    return result;
+
+    return res;
 }
 
 int main() {
@@ -24,9 +25,11 @@ int main() {
         return 0;
     }
     
-    assert(modp(31, 5) == 3);
+    int result = modp(n, n, p);
     
-    std::cout << modp(n, p) << std::endl;
+    std::cout << result << std::endl;
     
+    assert(modp(31, 5, p) == 3);
+
     return 0;
 }
