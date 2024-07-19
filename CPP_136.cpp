@@ -7,11 +7,12 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> b) {
-    int largest_negative = 0, smallest_positive = 0;
+    int largest_negative = a[0], smallest_positive = a[0];
     for (int num : a) {
         if (num < 0 && num < largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
+        }
+        if (num > 0 && (num < smallest_positive || smallest_positive <= 0)) {
             smallest_positive = num;
         }
     }
