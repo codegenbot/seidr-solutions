@@ -11,21 +11,7 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    num_list = [num_dict[i] for i in numbers.split()]
-    sorted_num_list = sorted(num_list)
-    return (
-        " ".join(
-            [str(i) for i in num_dict.keys() if num_dict[i] == j]
-            for j in sorted_num_list
-        )[0]
-        .replace("0", "zero")
-        .replace("1", "one")
-        .replace("2", "two")
-        .replace("3", "three")
-        .replace("4", "four")
-        .replace("5", "five")
-        .replace("6", "six")
-        .replace("7", "seven")
-        .replace("8", "eight")
-        .replace("9", "nine")
+    sorted_nums = sorted([num_dict[i] for i in numbers.split()])
+    return " ".join(
+        [key for key, value in num_dict.items() if value == i] for i in sorted_nums
     )
