@@ -3,7 +3,7 @@
 #include <string>
 
 bool match_parens(const std::string& s) {
-    int open = 0, close = 0;
+    size_t open = 0, close = 0;
     for (char ch : s) {
         if (ch == '(') open++;
         else if (ch == ')') close++;
