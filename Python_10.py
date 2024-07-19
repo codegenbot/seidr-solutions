@@ -4,11 +4,10 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    else:
-        i = 0
-        for j in range(len(string), -1, -1):
-            if string[i:j] == string[i:j][::-1]:
-                break
-        return string + string[j:][::-1]
+    s = string.lower()
+    i = len(s) - 1
+    while i >= 0 and s[i] == s[0]:
+        i -= 1
+    palindromic_suffix = s[:i+1]
+    remaining_prefix = s[i+1:]
+    return palindromic_suffix + ''.join(reversed(remaining_prefix))
