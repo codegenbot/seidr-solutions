@@ -1,6 +1,3 @@
-```cpp
-#include <vector>
-#include <string>
 #include <initializer_list>
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
