@@ -17,7 +17,7 @@ int main() {
     while(getline(cin, line)) {
         auto pos = line.find('(');
         if(pos != std::string::npos) {
-            line = std::string(line.begin() + pos, line.end()); // Create a new string from the specified position to the end.
+            line.erase(0, pos); // Corrected code
         } else {
             break;
         }
