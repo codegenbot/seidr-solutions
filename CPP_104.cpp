@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
-
-using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
@@ -32,5 +29,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert (issame(unique_digits({135, 103, 31}), {31, 135}));
+    std::vector<int> input = {135, 103, 31};
+    std::vector<int> expected = {31, 135};
+    bool isEqual = issame(unique_digits(input), expected);
+
+    std::cout << "Result: " << (isEqual ? "Passed" : "Failed") <<std::endl;
 }
