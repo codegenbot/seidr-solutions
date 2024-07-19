@@ -1,6 +1,6 @@
-```cpp
+#include <iostream>
 #include <string>
-#include <cctype>
+#include <algorithm>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -12,3 +12,15 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s).reverse() : result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    if (solve(s)) {
+        std::cout << solve(s) << std::endl;
+    } else {
+        std::cout << "No solution exists" << std::endl;
+    }
+}
