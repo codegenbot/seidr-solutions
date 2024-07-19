@@ -1,14 +1,19 @@
-bool is_nested(string str) {
-    int open = 0;
-    for (char c : str) {
-        if (c == '[') {
-            open++;
-        } else if (c == ']') {
-            if (open > 1) {
-                return true;
-            }
-            open--;
+Here's the solution:
+
+```cpp
+int count_open = 0, count_close = 0;
+
+for (char c : str) {
+    if (c == '[') {
+        count_open++;
+    } else if (c == ']') {
+        if (count_open > 0) {
+            count_open--;
+            count_close++;
+        } else {
+            return false;
         }
     }
-    return false;
 }
+
+return count_open != 0;
