@@ -15,4 +15,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return result;
 }
 
-assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 1, 8, 9, 3, 4}));
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 1, 8, 9, 3, 4}));
+    return 0;
+}
