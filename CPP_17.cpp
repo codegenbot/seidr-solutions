@@ -1,19 +1,26 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <vector>
 #include <string>
-#include <cstdlib>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    return std::equal(a.begin(), a.end(), b.begin());
+    return equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
+vector<int> parse_music(string music_string);
+
+int main() {
+    assert(issame(parse_music("o|.|o|.|oo|oo|"), vector<int>({2, 1, 2, 1, 2, 2, 4, 2})));
+    return 0;
+}
+
+vector<int> parse_music(string music_string) {
+    vector<int> beats;
     int i = 0;
 
     while (i < music_string.size()) {
@@ -29,9 +36,4 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}
-
-int main() {
-    assert(issame(parse_music("o|.|o|.|oo|oo|"), std::vector<int>({2, 1, 2, 1, 2, 2, 4, 2})));
-    return 0;
 }
