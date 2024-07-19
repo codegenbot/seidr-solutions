@@ -1,6 +1,6 @@
-#include <boost/config.hpp>
 #include <boost/any.hpp>
-#include <iostream>
+#include <boost/type_traits.hpp>
+#include <string>
 
 int max(int a, float b) {
     if (a > b)
