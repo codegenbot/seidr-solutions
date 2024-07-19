@@ -17,7 +17,7 @@ int bowlingScore(std::string s) {
                 frames[currentFrame] *= 10 + (c - '0');
                 size_t i = s.find(std::string(1, c));
                 if (i == string::npos) break;
-                c = s[i+1];
+                c = s[i + 1];
             }
             
             if (!strike) {
@@ -29,10 +29,4 @@ int bowlingScore(std::string s) {
     }
     
     return score;
-}
-
-char next(char c, std::string s) {
-    size_t i = s.find(std::string(1, c));
-    if (i == string::npos) return '\0';
-    return s[i + 1];
 }
