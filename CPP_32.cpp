@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -7,27 +8,26 @@
 using namespace std;
 
 double find_zero(vector<double> coeffs) {
+    double solution;
+    cin >> solution;
+
     double poly_value = 0;
     double power = 1;
     for (double coeff : coeffs) {
-        poly_value += coeff * pow(0, power);
+        poly_value += coeff * pow(solution, power);
         power++;
     }
-    return -pow(0, 2) + poly_value;
+    return -pow(solution, 2) + poly_value;
 }
 
 int main() {
     int n;
     cin >> n;
-
-    vector<double> coeffs(n+1, 0.0);
+    vector<double> coeffs(n+1);
 
     for (int i = 0; i <= n; i++) {
         cin >> coeffs[i];
     }
-
-    double solution; 
-    cin >> solution;
 
     double result = find_zero(coeffs);
     cout << fixed << setprecision(6) << result << endl;
