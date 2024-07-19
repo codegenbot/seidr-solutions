@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -12,14 +12,14 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            result.push_back(std::to_string(ch));
+            result.push_back(string(1, ch));
         }
     }
-    std::string temp = "";
+    string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    if (temp == std::string(temp.rbegin(), temp.rend())) {
+    if (temp == reverse(temp)) {
         result.push_back("True");
     } else {
         result.push_back("False");
@@ -27,8 +27,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-std::string reverse(std::string s) {
-    std::string rev = "";
+string reverse(string s) {
+    string rev = "";
     for (int i = s.size() - 1; i >= 0; i--) {
         rev += s[i];
     }
