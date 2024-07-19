@@ -5,5 +5,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount > 0 ? "NO" : "YES";
+    return (oddCount == 0 || oddCount <= lst2.size()) ? "YES" : "NO";
 }
