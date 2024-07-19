@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-#include <sstream>
-
 using namespace std;
 
 bool is_prime(int n) {
@@ -13,7 +12,7 @@ bool is_prime(int n) {
     return true;
 }
 
-int main() {
+void prime_numbers() {
     int n, count = 1;
     cin >> n;
     cout << "The number is ";
@@ -30,5 +29,9 @@ int main() {
         }
         cout << "It's the " << count << " prime number." << endl;
     }
+}
+
+int main() {
+    prime_numbers();
     return 0;
 }
