@@ -1,7 +1,7 @@
 bool issame(vector<int> a, vector<int> b); // Function prototype
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result = {0, 0};
+    vector<int> result;
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         string num = to_string(i);
@@ -15,13 +15,9 @@ vector<int> even_odd_palindrome(int n) {
             }
         }
     }
-    result[0] = even;
-    result[1] = odd;
+    result.push_back(even);
+    result.push_back(odd);
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));  // Test the function
 }
 
 bool issame(vector<int> a, vector<int> b) {
