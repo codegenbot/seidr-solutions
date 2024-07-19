@@ -1,21 +1,26 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-6f) return false;
+    }
+    return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l){
-    std::vector<float> l_prime;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            std::vector<float> even_elements(l.begin() + i, l.begin() + i+1);
-            std::sort(even_elements.begin(), even_elements.end());
-            l_prime.push_back(*std::min_element(even_elements.begin(), even_elements.end()));
-        } else {
-            l_prime.push_back(l[i]);
-        }
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    vector<float> evenVals;
+    for (float x : l) {
+        if (abs(x) % 2 == 0) evenVals.push_back(x);
+        else result.push_back(x);
     }
-    return l_prime;
+    sort(evenVals.begin(), evenVals.end());
+    int idx = 0;
+    for (float x : l) {
+        if (abs(x) % 2 == 0) result[idx++] = evenVals[0];
+        else result[idx++] = x;
+    }
+    return result;
 }
