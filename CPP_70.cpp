@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -14,7 +15,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     if (lst.empty()) return result;
 
     int min_val = *min_element(lst.begin(), lst.end());
-    int max_val = *max_element(lst.begin(), lst.end());
+    int max_val = *max_element(lst.end(), lst.rbegin());
 
     while (!lst.empty()) {
         auto it_min = std::find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; });
