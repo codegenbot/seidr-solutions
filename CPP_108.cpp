@@ -12,8 +12,10 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
-} 
+}
+} // closing curly brace for the function
 
 int main() {
-    count_nums({1});
+    int result = count_nums({1});
+    return 0;
 }
