@@ -9,7 +9,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((const unsigned char*)text.c_str(), text.length(), digest);
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
