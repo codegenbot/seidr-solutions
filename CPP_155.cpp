@@ -4,8 +4,8 @@
 
 std::vector<int> even_odd_count(int n) {
     int even = 0, odd = 0;
-    while (n != 0) {
-        if (n % 2 == 0) {
+    while(n != 0) {
+        if(n % 2 == 0) {
             even++;
         } else {
             odd++;
@@ -15,7 +15,7 @@ std::vector<int> even_odd_count(int n) {
     return {even, odd};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int>) {
     return a == b;
 }
 
