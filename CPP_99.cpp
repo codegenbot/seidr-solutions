@@ -1,3 +1,4 @@
+
 int closest_integer(const std::string& value) {
     double num = std::stod(value);
     int closestInt = std::round(num);
