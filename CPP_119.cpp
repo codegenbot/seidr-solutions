@@ -12,10 +12,10 @@ bool match_parens(const std::vector<char>& lst) {
 }
 
 int main() { 
-    std::cout << "Enter parentheses: "; 
-    std::string line; 
+    std::string line;
     std::vector<char> lst; 
-    while (std::getline(std::cin, line) && !line.empty()) { 
+    std::cout << "Enter the strings: ";
+    while(std::getline(std::cin, line)) {
         for(char c : line) {
             lst.push_back(c);
         }
