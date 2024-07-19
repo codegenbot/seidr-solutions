@@ -1,5 +1,23 @@
 #include <vector>
-#include <cassert>
+
+std::vector<int> f(int n);
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> result = f(n);
+    
+    for(int i : result){
+        std::cout << i << " ";
+    }
+    
+    return 0;
+}
 
 std::vector<int> f(int n){
     std::vector<int> result;
