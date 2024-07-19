@@ -1,18 +1,23 @@
-string str;
+#include<string>
+#include<openssl/ssl.h>
+#include<openssl/sha.h>
 
-MD5_CTX md5;
-MD5_Init(&md5);
-unsigned char result[16];
+using namespace std;
 
-if (text.empty()) {
-    return "";
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+    
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(md5, &ctx);
+
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        printf("%02x", md5[i]);
+        ss << setfill('0') << setw(2) << hex << uppercase << (int)md5[i];
+    }
+    
+    return ss.str();
 }
-
-MD5_Update(&md5, text.c_str(), text.size());
-MD5_Final(result, &md5);
-
-ostring s = ostringstream();
-for(int i=0; i<16; i++) {
-    s << setfill('0') << setw(2) << hex << (int)result[i];
-}
-return s.str();
