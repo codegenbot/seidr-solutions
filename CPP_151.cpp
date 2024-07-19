@@ -2,20 +2,7 @@
 #include <vector>
 #include <cmath>
 
-int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.5f, -4.0f, 5.5f};
-    long long result = double_the_difference(lst);
-    
-    if(result == -1) {
-        std::cout << "Failed to read input";
-    } else {
-        std::cout << "The difference is: " << result;
-    }
-    
-    return 0;
-}
-
-long long double_the_difference(vector<float> lst){
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
@@ -23,4 +10,23 @@ long long double_the_difference(vector<float> lst){
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> numbers;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        numbers.push_back(num);
+    }
+    
+    long long result = double_the_difference(numbers);
+    std::cout << "The sum of squares of even integers is: " << result << std::endl;
+    
+    return 0;
 }
