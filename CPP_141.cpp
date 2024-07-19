@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-
-std::string file_name_check(std::string file_name){
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -12,11 +9,20 @@ std::string file_name_check(std::string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !file_name.substr(i).compare("txt") || !file_name.substr(i).compare("exe") || !file_name.substr(i).compare("dll"))){
+        else if(found_dot && (file_name[i] != 't' && file_name[i] != 'x' && file_name[i] != 'e' && file_name[i] != 'd' && file_name[i] != 'l')){
             return "No";
         }
     }
     if(!found_dot) return "No";
-    if(digit_count > 0) return "No";
+    string extension = "";
+    for(int i=file_name.length()-1; i>=0; i--){
+        if(file_name[i] == '.'){
+            break;
+        }
+        else{
+            extension += file_name[i];
+        }
+    }
+    if(extension.length() > 4 || (extension != "txt" && extension != "exe" && extension != "dll")) return "No";
     return "Yes";
 }
