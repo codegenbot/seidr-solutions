@@ -1,9 +1,13 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> result;
-    // Implement the logic to find the minimum path here
+    
+    for(auto row : grid){
+        for(auto col : row){
+            if(col <= k){
+                result.push_back(col);
+            }
+        }
+    }
+    
     return result;
 }
