@@ -27,6 +27,7 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
+    cout << "Is the number even and palindrome? " << even_odd_palindrome(n) << endl;
     if(even_odd_palindrome(n)) 
         cout << "The number is even and palindrome.\n";
     else
