@@ -28,8 +28,9 @@ int main(){
     string class_name = "My";
     vector<string> extensions = {"Java", "Python", "C++"};
     cout << Strongest_Extension(class_name, extensions) << endl;
-    if (Strongest_Extension("Sp", {"671235", "Bb"}) != "Sp.671235") {
-        assert(false);
-    }
+
+    int result = Strongest_Extension("Sp", vector<string>{"671235", "Bb"});
+    assert (result == string("Sp.671235"));
+
     return 0;
 }
