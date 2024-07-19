@@ -1,9 +1,7 @@
 #include <string>
-#include <cassert>
+#include <cmath>
 
-string contestProblem(int n, int m) {
-    assert(n >= 0 && m >= 0);
-
+std::string yourFunction(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -13,23 +11,13 @@ string contestProblem(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round((double)sum / (m - n + 1));
     
-    string binary = "";
+    std::string binary = "";
     while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
+        binary = std::to_string(avg % 2) + binary;
         avg /= 2;
     }
     
     return binary;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    
-    string result = contestProblem(n, m);
-    cout << result;
-    
-    return 0;
 }
