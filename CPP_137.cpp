@@ -1,29 +1,21 @@
-#include <boost/any.hpp>
+if (a.type() == typeid(int) && b.type() == typeid(int))
+    return a.convert_to<int>() > b.convert_to<int>() ? a : b == a ? boost::any("None") : b;
+else if (a.type() == typeid(double) && b.type() == typeid(double))
+    return a.convert_to<double>() > b.convert_to<double>() ? a : b == a ? boost::any("None") : b;
+else if (a.type() == typeid(string) && b.type() == typeid(string))
+{
+    string sa = a.convert_to<string>();
+    string sb = b.convert_to<string>();
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a.convert_to<int>() > (double)b.convert_to<double>() ?
-            b : a;
+    size_t pos1 = 0, pos2 = 0;
+    while ((pos1 = sa.find('.')) != std::string::npos || (pos2 = sb.find('.')) != std::string::npos)
+    {
+        if (pos1 < 0 && pos2 > 0) return b;
+        else if (pos2 < 0 && pos1 > 0) return a;
+        sa.erase(pos1, 1);
+        sb.erase(pos2, 1);
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a.convert_to<double>() > (int)b.convert_to<int>() ?
-            a : boost::any("None");
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double bDouble = boost::any_cast<double>(b);
-        return bDouble > (double)stod(a.convert_to<string>().c_str()) ?
-            b : a;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double aDouble = (double)a.convert_to<double>();
-        return aDouble > stod(b.convert_to<string>()) ?
-            a : boost::any("None");
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return stod(a.convert_to<string>().c_str()) > stod(b.convert_to<string>()) ?
-            a : boost::any("None");
-    }
-    else {
-        return boost::any("None");
-    }
+    return sa > sb ? a : b == a ? boost::any("None") : b;
 }
+else
+    return boost::any();
