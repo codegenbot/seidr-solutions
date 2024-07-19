@@ -1,21 +1,24 @@
-string solve(string s){
-    int n = s.size();
-    bool hasLetters = false;
-    
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            hasLetters = true;
-            if(islower(s[i])){
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+int n = s.size();
+    int start = 0, end = n - 1;
+    while(start < end){
+        if(isalpha(s[start]) && isalpha(s[end])){
+            s[start] = islower(s[start]) ? toupper(s[start]) : tolower(s[start]);
+            s[end] = islower(s[end]) ? toupper(s[end]) : tolower(s[end]);
         }
+        else if(isalpha(s[start])){
+            s[end] = islower(s[start]) ? toupper(s[start]) : tolower(s[start]);
+        }
+        else if(isalpha(s[end])){
+            s[start] = islower(s[end]) ? toupper(s[end]) : tolower(s[end]);
+        }
+        start++;
+        end--;
     }
-    
-    if(!hasLetters){
+    if(start == end && isalpha(s[start])){
+        s[start] = islower(s[start]) ? toupper(s[start]) : tolower(s[start]);
+    }
+    else if(start > end){
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
