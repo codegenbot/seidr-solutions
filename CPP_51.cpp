@@ -11,7 +11,7 @@ std::string remove_vowels(std::string input) {
     std::string result;
     for (char c : input) {
         if (!isVowel(c)) {
-            result.push_back(c); // append to the end of the string
+            result.push_back(static_cast<char>(c)); // append to the end of the string
         }
     }
     return result;
