@@ -8,11 +8,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-bool areSame(vector<int> a, vector<int> b) {
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool areSame(vector<int> arr1, vector<int> arr2) {
+    return arr1 == arr2;
 }
