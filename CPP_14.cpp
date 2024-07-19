@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<string> all_prefixes(string str);
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     string prefix = "";
