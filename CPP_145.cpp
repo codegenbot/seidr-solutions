@@ -19,7 +19,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         }
         return sum_a < sum_b;
     });
