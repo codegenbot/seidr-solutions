@@ -1,10 +1,10 @@
 string max_word = "";
-    int max_unique_chars = 0;
+    int max_unique = 0;
     for (const string& word : words) {
-        int unique_chars = set<int>(word.begin(), word.end()).size();
-        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)) {
+        int unique_chars = set<char>(word.begin(), word.end()).size();
+        if (unique_chars > max_unique || (unique_chars == max_unique && word < max_word)) {
+            max_unique = unique_chars;
             max_word = word;
-            max_unique_chars = unique_chars;
         }
     }
     return max_word;
