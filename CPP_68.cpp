@@ -1,32 +1,32 @@
-```cpp
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-bool issame(int a, int b) {
-    return (a % 2 == 0 && b % 2 == 0);
+bool issame(vector<int> v1, vector<int> v2) {
+    for(int i = 0; i < v1.size() && i < v2.size(); i++) {
+        if(v1[i] != v2[i])
+            return false;
+    }
+    return true;
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-
-    for (int i = 0; i < arr.size(); i++) {
+    for(int i = 0; i < arr.size(); i++) {
         bool found = false;
-        for (int j = 0; j < arr.size(); j++) {
-            if (issame(arr[i], arr[j])) {
+        for(int j = 0; j < arr.size(); j++) {
+            if(i != j && issame({arr[i], arr[j]}, {arr[j], arr[i]})) {
                 found = true;
                 break;
             }
         }
-        if (found) {
+        if(found) {
             result.push_back({arr[i], i});
             break;
         }
     }
 
-    if (result.empty()) {
+    if(result.empty()) {
         result.push_back({0, -1});
     }
 
