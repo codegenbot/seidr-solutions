@@ -1,24 +1,15 @@
-int main() {
-    string str;
-    cin >> str;
-
-    bool isNested = false;
-    int countOpen = 0, countClose = 0;
-
+bool is_nested(string str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
-            countOpen++;
+            count++;
         } else if (c == ']') {
-            countClose++;
-
-            if (countOpen > 0 && countClose >= countOpen) {
-                isNested = true;
-                break;
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
             }
         }
     }
-
-    cout << (isNested ? "true" : "false") << endl;
-
-    return 0;
+    return count > 0;
 }
