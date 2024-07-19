@@ -21,3 +21,5 @@ vector<float> derivative(vector<float> xs){
     }
     return result;
 }
+
+assert(issame(derivative({1}), vector<float>{}));
