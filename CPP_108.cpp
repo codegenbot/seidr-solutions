@@ -1,4 +1,7 @@
-int count_nums(vector<int> nums) {
+#include <iostream>
+#include <vector>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -29,4 +32,12 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+
+}
+
+int main() {
+    std::vector<int> test_nums = {1};
+    int result = count_nums(test_nums);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
