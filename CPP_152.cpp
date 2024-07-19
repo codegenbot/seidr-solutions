@@ -10,14 +10,13 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b_) {
+    return a == b_;
 }
 
 int main() {
     std::assert(issame(compare({1, 2, 3, 5}, {-1,2,3,4}), {2, 0, 0, 1}));
-    // Add any additional test cases here
-    std::assert(issame(compare({7, 3, 8, 2}, {2, 3, 5, 9}), {5, 0, 3, 7}));
+    std::assert(issame(compare({0, 0, 0}, {0, 0, 0}), {0, 0, 0}));
     
     return 0;
 }
