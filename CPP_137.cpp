@@ -1,40 +1,19 @@
-#include <any>
 #include <cassert>
 #include <string>
+#include <boost/any.hpp>
 
-std::any compare_one(const std::any& a, const std::any& b) {
-    assert(a.type() == b.type());
+using namespace std;
+using boost::any_cast;
 
-    if(a.type() == typeid(int)) {
-        if(std::any_cast<int>(a) > std::any_cast<int>(b))
-            return a;
-        else if(std::any_cast<int>(a) < std::any_cast<int>(b))
-            return b;
-        else
-            return 0;
+boost::any compare_one(const std::string& str1, const std::string& str2) {
+    if (str1 == str2) {
+        return std::string("");
+    } else {
+        return std::string("None");
     }
-    else if(a.type() == typeid(float)) {
-        if(std::any_cast<float>(a) > std::any_cast<float>(b))
-            return a;
-        else if(std::any_cast<float>(a) < std::any_cast<float>(b))
-            return b;
-        else
-            return 0.0f;
-    }
-    else if(a.type() == typeid(std::string)) {
-        if(std::any_cast<std::string>(a) > std::any_cast<std::string>(b))
-            return a;
-        else if(std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
-            return b;
-        else
-            return std::string("");
-    }
-
-    return std::any();
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "");
-
+    assert(any_cast<std::string>(compare_one(std::string("1"), std::string("1")))== "");
     return 0;
 }
