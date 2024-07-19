@@ -1,12 +1,13 @@
 int count = 0;
     for (int num : n) {
-        int sum = 0;
-        int num_copy = num;
-        while (num != 0) {
-            sum += abs(num % 10);
-            num /= 10;
+        int sum_digits = 0;
+        int num_temp = num;
+        if (num_temp < 0) num_temp *= -1;
+        while (num_temp > 0) {
+            sum_digits += num_temp % 10;
+            num_temp /= 10;
         }
-        if (sum > 0 || (num_copy < 0 && sum == 0)) {
+        if (sum_digits > 0) {
             count++;
         }
     }
