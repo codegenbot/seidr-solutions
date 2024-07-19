@@ -4,16 +4,6 @@
 
 using namespace std;
 
-std::vector<int> to_vector(int num) {
-    std::vector<int> v;
-    while (num != 0) {
-        int remainder = num % 10;
-        v.push_back(remainder);
-        num /= 10;
-    }
-    return v;
-}
-
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -28,9 +18,21 @@ bool isPalindrome(int n) {
     while (temp != 0) {
         int remainder = temp % 10;
         rev = rev * 10 + remainder;
+        if (temp == 0) break; // Add this line
         temp /= 10;
     }
     return n == rev;
+}
+
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
+    while (num != 0) {
+        int remainder = num % 10;
+        v.push_back(remainder);
+        if (num == 0) break; // Add this line
+        num /= 10;
+    }
+    return v;
 }
 
 int checkNumber() {
