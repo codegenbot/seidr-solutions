@@ -1,9 +1,8 @@
-```c
 #include <iostream>
 #include <cstring>
 
 extern "C" {
-    #include <openssl/md5.h>
+    #include <openssl/openssl.h>
 }
 
 char* string_to_md5(const char* input) {
@@ -14,7 +13,9 @@ char* string_to_md5(const char* input) {
     MD5_Final(result, &md5ctx);
 
     char* output = new char[33];
-    sprintf(output, "%032x", *(unsigned*)result);
+    for (int i = 0; i < 16; i++) {
+        sprintf(output + i*2, "%02x", result[i]);
+    }
     return output;
 }
 
@@ -24,6 +25,6 @@ int main() {
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = 0; // remove newline character
     printf("MD5 hash: %s\n", string_to_md5(input));
-    delete[] string_to_md5(input);
+    delete[] string_to_md5(input); // free the dynamically allocated memory
     return 0;
 }
