@@ -3,7 +3,6 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -29,7 +28,13 @@ int main() {
         a.push_back(num);
     }
 
-    vector<float> b = get_positive(a);
+    vector<float> b;
+    for(float x : a) {
+        if(x > 0) {
+            b.push_back(x);
+        }
+    }
+
     reverse(b.begin(), b.end());
 
     if (a == b) {
