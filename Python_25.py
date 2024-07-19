@@ -5,5 +5,14 @@ def factorize(number):
             factors.append(i)
     return factors
 
-number = int(input())
+while True:
+    try:
+        number = int(input("Enter a number: "))
+        if number > 0:
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
 print(factorize(number))
