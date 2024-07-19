@@ -1,20 +1,9 @@
-#include <vector>
 #include <cassert>
-
-bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> parse_music(string music_string);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> parse_music(string music_string){
