@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // Add your logic here
 }
 
 vector<int> common(vector<int>& l1, vector<int>& l2) {
