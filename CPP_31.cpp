@@ -16,6 +16,8 @@ bool is_prime(int n) {
 int main() {
     int n, count = 1;
     cin >> n;
+    cout << "Enter a number: ";
+    cin >> n;
     if (!is_prime(n)) {
         cout << "The number is not prime." << endl;
     } else {
