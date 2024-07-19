@@ -1,7 +1,4 @@
-if (pow(a, 2) + pow(b, 2) == pow(c, 2) ||
-        pow(a, 2) + pow(c, 2) == pow(b, 2) ||
-        pow(b, 2) + pow(c, 2) == pow(a, 2)) {
-        return true;
-    }
-    return false;
+float sides[3] = {a, b, c};
+    sort(sides, sides + 3);
+    return abs(sides[0] * sides[0] + sides[1] * sides[1] - sides[2] * sides[2]) < 0.0001;
 }
