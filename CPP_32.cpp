@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double find_zero(const std::vector<double>& xs) {
     double a = xs[0];
