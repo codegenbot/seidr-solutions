@@ -13,8 +13,8 @@ int main() {
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
     if(any_int(a, b, c))
-        cout << "The numbers are integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
+        cout << "The numbers are integers: " << int(a) << ", " << int(b) << ", " << int(c) << "\n";
     else
-        cout << "The numbers are not integers: " << std::to_string(a) << ", " << std::to_string(b) << ", " << std::to_string(c) << "\n";
+        cout << "The numbers are not integers: " << a << ", " << b << ", " << c << "\n";
     return 0;
 }
