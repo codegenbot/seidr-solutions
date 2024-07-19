@@ -15,7 +15,9 @@ int main() {
     std::string line, lst; 
     std::cout << "Enter the strings: ";
     while((std::getline(std::cin, line)) && !line.empty()) {
-        lst = line; 
+        for(auto ch: line) {
+            lst += ch; 
+        }
         std::cin.ignore(); 
     }
     if (match_parens(lst)) {
