@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,14 +18,15 @@ bool prime_length(std::string str){
     return isPrime;
 }
 
-int main(){
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    if (prime_length(str)) {
-        std::cout << "The length of the string is prime." << std::endl;
+    
+    if(str.empty()) {
+        std::cout << "Input string cannot be empty. Please enter a valid input." << std::endl;
     } else {
-        std::cout << "The length of the string is not prime." << std::endl;
+        assert (prime_length(str) == true);
     }
     return 0;
 }
