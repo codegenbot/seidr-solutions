@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -16,19 +17,12 @@ bool is_prime(int n) {
 int main() {
     int n, count = 1;
     cin >> n;
-    cout << "The number is ";
-    if (!is_prime(n)) {
-        cout << "not prime." << endl;
+    string str = to_string(n);
+    cout << "The number is " << str;
+    if (!is_prime(stoi(str))) {
+        cout << " not prime." << endl;
     } else {
-        for (int i = 2; ; i++) {
-            if (!is_prime(i))
-                break;
-            cout << i << " ";
-            count++;
-            if (i == n)
-                break;
-        }
-        cout << "It's the " << count << " prime number." << endl;
+        cout << " prime." << endl;
     }
     return 0;
 }
