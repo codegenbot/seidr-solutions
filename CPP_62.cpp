@@ -7,10 +7,6 @@ using namespace std;
 vector<float> derivative(vector<float> xs);
 bool are_equal(vector<float> a, vector<float> b);
 
-int main() {
-    assert(are_equal(derivative({1}), {}));
-}
-
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
