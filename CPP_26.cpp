@@ -1,5 +1,5 @@
-```cpp
-bool checkEqual(vector<int> a, vector<int> b) {
+```
+bool areSame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -19,10 +19,4 @@ vector<int> uniqueNumbers(vector<int> numbers) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    assert (checkEqual(uniqueNumbers(test) , vector<int>{1, 2, 3, 4, 5}) );
-    return 0;
 }
