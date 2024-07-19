@@ -1,20 +1,3 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool isSame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main_test() {
     int n;
     cin >> n;
@@ -25,10 +8,6 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    if (isSame(user_input, user_input)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << (isSame(user_input, user_input) ? "Yes" : "No") << endl;
     return 0;
 }
