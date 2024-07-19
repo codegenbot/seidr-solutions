@@ -1,1 +1,3 @@
-return !isalpha(txt.back()) && txt.size() > 0 && txt[txt.size() - 2] == ' ';
+if(txt.empty()) return false;
+char lastChar = txt.back();
+return isalpha(lastChar) && !isalnum(txt[txt.size()-2]);
