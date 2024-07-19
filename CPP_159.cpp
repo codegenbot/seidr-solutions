@@ -6,10 +6,10 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b) {
 }
 
 std::pair<int, int> eat(int x, int y, int z) {
-    return {x + y, x - z};
+    return {x + y, y - z};
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::make_pair(5, 3)));
+    assert(issame(eat(4, 5, 1), std::make_pair(5, 4)));
     return 0;
 }
