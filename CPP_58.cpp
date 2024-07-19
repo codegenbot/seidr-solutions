@@ -4,6 +4,7 @@
 #include <iterator>
 #include <cassert>
 #include <set>
+#include <initializer_list>
 
 using namespace std;
 
