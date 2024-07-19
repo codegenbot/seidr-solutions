@@ -1,8 +1,7 @@
+```cpp
 #include <cassert>
 
 #include <initializer_list>
-
-#include <assert>
 
 #include <any>
 #include <list>

@@ -12,7 +12,7 @@ int calculateMedian(std::vector<float> numbers) {
         return numbers[n/2];
 }
 
-int main() {
+int mainFunction() {
     std::vector<float> numbers;
     float num;
 
@@ -20,11 +20,8 @@ int main() {
         numbers.push_back(num);
     }
 
-    if (!numbers.empty()) {
+    if (!numbers.empty())
         std::cout << calculateMedian(numbers) << std::endl;
-    } else {
-        std::cout << "No median to display." << std::endl;
-    }
-    
+
     return 0;
 }
