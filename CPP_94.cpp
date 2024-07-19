@@ -1,9 +1,15 @@
 ```cpp
 #include <cassert>
 
-int skjkasdkd(int arr[], int size) {
-    // implement your logic here
-    return 0;
+int skjkasdkd(int* arr, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        if (*arr & (1 << 15)) {
+            sum++;
+        }
+        arr++;
+    }
+    return sum;
 }
 
 int testMain() {
