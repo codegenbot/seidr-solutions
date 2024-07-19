@@ -1,10 +1,11 @@
-int count = 0;
-    for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+int n = str.length();
+    int open = 0;
+    for (int i = 0; i < n; i++) {
+        if (str[i] == '[') {
+            open++;
+        } else if (str[i] == ']' && open > 0) {
+            open--;
         }
     }
-    return count != 0;
+    return n > 2 && open > 0;
 }
