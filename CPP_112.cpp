@@ -2,6 +2,6 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::string a, std::string b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
