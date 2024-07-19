@@ -1,14 +1,18 @@
-```
-#include <cassert>
-
-int customBitCount(int* arr, int size) {
+```c
+int countOnes(int n) {
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        while (*arr) {
-            *arr &= *arr - 1;
-            count++;
-        }
-        arr++;
+    while (n) {
+        count += n & 1;
+        n >>= 1;
+    }
+    return count;
+}
+
+int customBitCount(void* p, size_t n) {
+    unsigned char* data = static_cast<unsigned char*>(p);
+    int count = 0;
+    for (size_t i = 0; i < n; ++i) {
+        count += countOnes(*reinterpret_cast<int*>(&data[i]));
     }
     return count;
 }
