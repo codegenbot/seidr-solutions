@@ -1,17 +1,12 @@
 #include <string>
 #include <vector>
 
-vector<string> result;
-
-bool issame(const string& a, const string& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin(), b.end());
+bool issame(char a, char b) {
+    return a == b;
 }
 
-vector<string> split_text(const string& txt) {
-    if (txt.empty()) {
-        return result;
-    }
-
+vector<string> split_string(const string &txt) {
+    vector<string> result;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
@@ -23,11 +18,9 @@ vector<string> split_text(const string& txt) {
             word += c;
         }
     }
-
     if (!word.empty()) {
         result.push_back(word);
     }
-
     if (result.empty()) {
         int oddCount = 0;
         for (char c : txt) {
@@ -37,6 +30,5 @@ vector<string> split_text(const string& txt) {
         }
         result.push_back(to_string(oddCount));
     }
-
     return result;
 }
