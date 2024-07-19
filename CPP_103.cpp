@@ -1,7 +1,7 @@
 #include <string>
-#include <cmath>
+#include <cassert>
 
-std::string averageBinaryRepresentation(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -20,8 +20,4 @@ std::string averageBinaryRepresentation(int n, int m) {
     }
     
     return binary_avg;
-}
-
-int main() {
-    // Test cases and function call go here
 }
