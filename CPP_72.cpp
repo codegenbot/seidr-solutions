@@ -1,18 +1,10 @@
-```cpp
-#include <vector>
-#include <string>
-#include <algorithm>
+// Task: Write a function that checks if an array of weights can be balanced by planes with limited capacity.
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
-    bool balanced = str == std::stoi(str);
-    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
+    bool balanced = str == reverse(str).str;
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
