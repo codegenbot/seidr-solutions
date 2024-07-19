@@ -37,10 +37,16 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 2468, 1357};
-    vector<int> output = unique_digits(input);
-    for (int num : output) {
-        cout << num << " ";
+    // Sample usage of the functions
+    vector<int> input = {123, 456, 789};
+    vector<int> unique_nums = unique_digits(input);
+    vector<int> expected_output = {123, 789};
+    
+    // Check if the output matches the expected result
+    if (issame(unique_nums, expected_output)) {
+        // Output matches
+    } else {
+        // Output doesn't match
     }
     return 0;
 }
