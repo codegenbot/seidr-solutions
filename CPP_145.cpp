@@ -1,4 +1,3 @@
-
 // Declare the issame function before main
 bool issame(const vector<int>& a, const vector<int>& b);
 
