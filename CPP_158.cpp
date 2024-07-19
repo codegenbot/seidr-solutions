@@ -3,12 +3,12 @@
 using namespace std;
 
 std::string findMax(vector<string> words){
-    string max = *max_element(words.begin(), words.end(),
+    std::string maxValue = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b){
             if(a.size() == b.size()) return a < b;
             return a.size() > b.size();
         });
-    return max;
+    return maxValue;
 }
 
 int main(){
