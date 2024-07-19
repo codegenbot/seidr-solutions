@@ -10,8 +10,8 @@ using namespace std;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if constexpr (is_same_v<type_erase_t<decltype(std::any_cast(value))>, int>) { 
-            result.push_back(std::any_cast<int>(value).get());
+        if constexpr (is_same_v<remove_pointer_t<decay_t<decltype(value)>>, int>) { 
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
