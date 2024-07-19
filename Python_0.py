@@ -1,2 +1,2 @@
-result = list(map(int, input().split()))
+result = int(input("Enter a number: "))
 print(result)
