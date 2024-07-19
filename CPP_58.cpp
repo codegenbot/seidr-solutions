@@ -1,11 +1,32 @@
-int main 
-{
-    vector<int> v1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> v2 = {5, 7, 1, 5, 9, 653, 121};
+```c++
+#include <iostream>
+#include <vector>
 
-    vector<int> result = common(v1, v2);
-    for (int i : result) {
-        cout << i << " ";
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return 0;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> common = {4, 3, 2, 8};
+    std::vector<int> user_input;
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cin >> x;
+        user_input.push_back(x);
+    }
+    if (issame(common, user_input)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
 }
