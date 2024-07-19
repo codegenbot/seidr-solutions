@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,6 +15,8 @@ bool isSame(vector<float> a, vector<float> b) {
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
+    vector<string>().swap(letter_grades);
+    letter_grades.reserve(grades.size());
     for (float grade : grades) {
         string strGrade;
         if (grade >= 4.0)
@@ -46,23 +49,12 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades;
-    int n;
-    cout << "Enter the number of students: ";
-    cin >> n;
-    
-    for(int i=0; i<n; i++) {
-        float g;
-        cout << "Enter grade of student " << i+1 << ": ";
-        cin >> g;
-        grades.push_back(g);
-    }
-    
+    vector<float> grades = {3.8, 2.9, 4.1};
     vector<string> result = numerical_letter_grade(grades);
-
-    for (string strGrade : result) {
-        cout << strGrade << endl;
+    for (string grade : result) {
+        cout << grade << endl;
     }
-
+    if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
+    else cout << "Vectors are not the same";
     return 0;
 }
