@@ -1,11 +1,13 @@
 #include <vector>
-#include <cassert>
+#include <iostream> 
+
+using namespace std;
 
 vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
-            factors.push_back(i);
+           s.push_back(i);
             n /= i;
         }
     }
@@ -16,5 +18,8 @@ vector<int> factorize(int n) {
 }
 
 int main() {
-    assert(factorize(3 * 2 * 3) == vector<int>{2, 3, 3});
+    vector<int> result = factorize(3 * 2 * 3);
+    for (int num : result) {
+        cout << num << " ";
+    }
 }
