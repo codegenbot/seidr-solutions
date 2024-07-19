@@ -1,36 +1,33 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
-using namespace std;
-
-double find_zero(vector<double> coeffs, double x) {
-    double sum = 0;
-    for(int i = 0; i < coeffs.size(); i++) {
-        sum += coeffs[i] * pow(x, i);
+double find_zero(const std::vector<double>& coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
-    return sum;
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs;
+    std::vector<double> coeffs;
     for(int i = 0; i < n; i++) {
-        double coeff;
-        cin >> coeff;
-        coeffs.push_back(coeff);
+        double coeffs[i];
+        cin >> coeffs[i];
     }
 
     double x;
     cin >> x;
 
-    double solution = find_zero(coeffs, x); 
+    double result = find_zero(coeffs, x); 
 
-    cout << fixed << setprecision(6) << solution << endl;
+    cout << fixed << setprecision(6) << result << endl;
 
-    assert (abs(poly(coeffs, solution)) < 1e-3);
-
-    return 0;
+    assert (abs(result) < 1e-3);
 }
