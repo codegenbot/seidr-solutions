@@ -1,7 +1,6 @@
 def find_closest_elements(numbers):
-    sorted_numbers = sorted(numbers)
-    closest_pair = (sorted_numbers[-2], sorted_numbers[-1])
-    return closest_pair
+    numbers.sort()
+    return numbers[:2]
 
 if __name__ == "__main__":
     numbers = list(map(int, input().split()))
