@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_nested_parens() -> List[int]:
     paren_string = input().strip()
     count = 0
@@ -19,6 +18,5 @@ def parse_nested_parens() -> List[int]:
 
     return [max_count]
 
-
-# Call the function
-print(parse_nested_parens())
+result = parse_nested_parens()
+print(result[0])
