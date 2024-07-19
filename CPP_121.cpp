@@ -1,11 +1,12 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int solution(vector<int> numbers) {
+int solution(vector<string> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
-        if (numbers[i] % 2 != 0) {
-            sum += numbers[i];
+        if (stoi(numbers[i]) % 2 != 0) {
+            sum += stoi(numbers[i]);
         }
     }
     return sum;
@@ -17,9 +18,9 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    vector<int> numbers;  
+    vector<string> numbers;  
     for (size_t i = 0; i < n; i++) {
-        int num;
+        string num;
         cout << "Enter element " << i + 1 << ": ";
         cin >> num;
         numbers.push_back(num);
