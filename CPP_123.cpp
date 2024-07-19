@@ -28,6 +28,10 @@ vector<int> get_odd_collatz(int n) {
     return odd_result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
     
