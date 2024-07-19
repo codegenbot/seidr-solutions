@@ -1,22 +1,22 @@
-string words_in_sentence(string sentence) {
-    string result = "";
-    int len = 0;
+#include<string>
+using namespace std;
 
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            continue;
+string words_in_sentence(string sentence){
+    string result = "";
+    int i = 0;
+    while(i < sentence.length()){
+        int j = i+1;
+        bool is_prime = true;
+        while(j > 1 && is_prime){
+            if(j % 2 == 0 || j % 3 == 0 || j % 5 == 0) is_prime = false;
+            else j--;
         }
-        len++;
-        for (int j = 2; j * j <= len; j++) {
-            if (len % j == 0) {
-                break;
-            }
-        }
-        if (j * j > len) {
-            result += sentence.substr(i - len + 1, len) + " ";
-            len = 0;
+        if(is_prime){
+            result += sentence.substr(i, j-i);
+            i = j;
+        }else{
+            i++;
         }
     }
-
     return result;
 }
