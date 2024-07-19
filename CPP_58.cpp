@@ -3,7 +3,7 @@
 #include <iterator>
 #include <set>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     // Function body
 }
 
