@@ -21,7 +21,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst; 
+    vector<int> lst; // Initialize an empty vector
     for (int i = 0; i < 5; ++i) { 
         int temp; 
         cin >> temp; 
