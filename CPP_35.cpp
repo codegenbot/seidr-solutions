@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int max_value(vector<int> l) {
