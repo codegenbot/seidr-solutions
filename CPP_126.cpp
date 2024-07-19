@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool is_sorted(const std::vector<int>& lst) {
     for (size_t i = 0; i < lst.size() - 1; ++i) {
@@ -13,6 +12,5 @@ bool is_sorted(const std::vector<int>& lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    // Add more test cases here
     return 0;
 }
