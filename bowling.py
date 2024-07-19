@@ -43,3 +43,5 @@ def bowling_score(frames):
                     score += first_roll
                     i += 1
     return score
+
+print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10|-"))
