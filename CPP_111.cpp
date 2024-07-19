@@ -7,18 +7,15 @@ map<char, int> histogram(string test) {
             result[c]++;
         }
     }
-    
     int maxCount = 0;
     for (const auto& entry : result) {
         maxCount = max(maxCount, entry.second);
     }
-    
-    map<char, int> maxCountChars;
+    map<char, int> maxChars;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
-            maxCountChars[entry.first] = entry.second;
+            maxChars[entry.first] = entry.second;
         }
     }
-    
-    return maxCountChars;
+    return maxChars;
 }
