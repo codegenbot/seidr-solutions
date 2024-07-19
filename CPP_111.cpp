@@ -1,12 +1,13 @@
 #include <map>
 #include <string>
+#include <algorithm>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) return result;
 
-    std::string letters = test;
-    for (char c : std::unique(letters.begin(), letters.end())) {
+    string letters = test;
+    for (char c : unique(letters.begin(), letters.end())) {
         int count = 0;
         for (char letter : letters) {
             if (letter == c) count++;
@@ -17,7 +18,7 @@ std::map<char, int> histogram(std::string test) {
     return result;
 }
 
-bool issame(std::map<char,int> a,std::map<char,int> b){
+bool issame(map<char,int> a,map<char,int> b){
     if(a.size() != b.size()) return false;
     for(auto p : a) {
         if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
