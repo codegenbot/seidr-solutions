@@ -10,7 +10,25 @@ double poly(const std::vector<double>& x, const std::vector<double>& coefficient
     return result;
 }
 
-std::vector<double> find_zero(const std::vector<double>& coefficients);
+std::vector<double> find_zero(const std::vector<double>& coefficients) {
+    std::vector<double> zeros;
+    if (coefficients.size() == 3) {
+        double a = coefficients[0];
+        double b = coefficients[1];
+        double c = coefficients[2];
+        
+        double discriminant = b * b - 4 * a * c;
+        
+        if (discriminant >= 0) {
+            double root1 = (-b + std::sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - std::sqrt(discriminant)) / (2 * a);
+            
+            zeros.push_back(root1);
+            zeros.push_back(root2);
+        }
+    }
+    return zeros;
+}
 
 int main() {
     std::vector<double> coefficients;
@@ -21,12 +39,7 @@ int main() {
     
     std::vector<double> solution = find_zero(coefficients);
     
-    assert(std::abs(poly(coefficients, solution)) < 1e-3);
+    assert(std::abs(poly(solution, coefficients)) < 1e-3);
     
     return 0;
-}
-
-std::vector<double> find_zero(const std::vector<double>& coefficients) {
-    std::vector<double> zeros;
-    return zeros;
 }
