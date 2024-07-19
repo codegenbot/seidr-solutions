@@ -1,9 +1,8 @@
-sort(lst.begin(), lst.end());
-    int n = lst.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (lst[i] > 0 && n - i >= lst[i] && lst[i] == lst[i - lst[i] + 1]) {
-            return lst[i];
+int answer = -1;
+    for (int num : lst) {
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            answer = max(answer, num);
         }
     }
-    return -1;
+    return answer;
 }
