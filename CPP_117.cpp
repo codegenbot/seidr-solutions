@@ -12,11 +12,9 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                unsigned vowel_count = static_cast<unsigned>(count(word.begin(), word.end(), 'a')) + 
-                                        static_cast<unsigned>(count(word.begin(), word.end(), 'e')) + 
-                                        static_cast<unsigned>(count(word.begin(), word.end(), 'i')) + 
-                                        static_cast<unsigned>(count(word.begin(), word.end(), 'o')) + 
-                                        static_cast<unsigned>(count(word.begin(), word.end(), 'u'));
+                int vowel_count = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
+                                  count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
+                                  count(word.begin(), word.end(), 'u');
                 if (vowel_count <= n) {
                     result.push_back(word);
                 }
@@ -27,11 +25,9 @@ vector<string> select_words(string s, int n) {
         }
     }
     if (!word.empty()) {
-        unsigned vowel_count = static_cast<unsigned>(count(word.begin(), word.end(), 'a')) + 
-                                static_cast<unsigned>(count(word.begin(), word.end(), 'e')) + 
-                                static_cast<unsigned>(count(word.begin(), word.end(), 'i')) + 
-                                static_cast<unsigned>(count(word.begin(), word.end(), 'o')) + 
-                                static_cast<unsigned>(count(word.begin(), word.end(), 'u'));
+        int vowel_count = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
+                          count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
+                          count(word.begin(), word.end(), 'u');
         if (vowel_count <= n) {
             result.push_back(word);
         }
