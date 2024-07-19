@@ -1,23 +1,26 @@
+```cpp
+#include <vector>
+#include <algorithm>
+#include <string>
 #include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
 
-std::vector<std::string> by_length(std::initializer_list<int> numbers) {
-    std::vector<int> vec(numbers.begin(), numbers.end());
-    
-    for (int num : vec) {
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
+    for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers = {num};
+            numbers.push_back(num);
         }
     }
 
-    std::sort(vec.begin(), vec.end());
-    std::reverse(vec.begin(), vec.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
 
     std::vector<std::string> result;
-    for (int num : vec) {
+    for (int num : numbers) {
         switch (num) {
             case 1:
                 result.push_back("One");
@@ -50,3 +53,4 @@ std::vector<std::string> by_length(std::initializer_list<int> numbers) {
     }
 
     return result;
+}
