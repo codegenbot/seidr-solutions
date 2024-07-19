@@ -1,18 +1,10 @@
+#include <iostream>
+#include <map>
+#include <sstream>
+
 map<char,int> histogram(string test);
 
-bool issame(const map<char,int>& a, const map<char,int>& b){
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
-            return false;
-        }
-    }
-    for (const auto& pair : b) {
-        if (a.find(pair.first) == a.end() || a.at(pair.first) != pair.second) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(const map<char,int>& a, const map<char,int>& b);
 
 map<char,int> histogram(string test){
     map<char,int> result;
@@ -36,4 +28,17 @@ map<char,int> histogram(string test){
         }
     }
     return mostRepeated;
+}
+
+bool issame(const map<char,int>& a, const map<char,int>& b){
+    return a == b;
+}
+
+int main() {
+    string test = "apple banana orange apple";
+    map<char,int> result = histogram(test);
+    for (const auto& entry : result) {
+        std::cout << entry.first << ": " << entry.second << std::endl;
+    }
+    return 0;
 }
