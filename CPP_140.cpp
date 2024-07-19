@@ -1,18 +1,17 @@
-int count = 0;
-    string result = "";
-    for(char c : text){
-        if(c == ' '){
-            count++;
-            if(count > 2){
+string result;
+    bool consecutive = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (consecutive) {
                 result.pop_back();
-                result.pop_back();
-                result += "-";
+                result += '-';
             } else {
-                result += "_";
+                result += '_';
+                consecutive = true;
             }
         } else {
-            count = 0;
             result += c;
+            consecutive = false;
         }
     }
     return result;
