@@ -1,18 +1,10 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main(){
-    std::vector<int> output = f(3);
+    std::vector<int> result = f(3);
     return 0;
 }
