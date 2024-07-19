@@ -15,23 +15,13 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float num;
-    
-    std::cout << "Enter numbers (enter 'stop' to finish): ";
-    
-    while(std::cin >> num) {
-        if(num == 'stop') break;
-        lst.push_back(num);
-    }
-    
+    std::vector<float> lst = {1, 2, 3};
     int odd_sum = 0;
-    for (float n : lst) {
-        if (std::fmod(n, 2.0) != 0.0) {
-            odd_sum += n;
+    for (float num : lst) {
+        if (std::fmod(num, 2.0) != 0.0) {
+            odd_sum += num;
         }
     }
-    std::cout << "The sum of squares is: " << double_the_difference(lst) << std::endl;
-    
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
