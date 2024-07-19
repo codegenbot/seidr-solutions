@@ -8,5 +8,3 @@ try:
     print(result)
 except ValueError:
     print("Invalid input. Please enter a valid positive integer greater than zero.")
-except NameError:
-    print("Please import the 'reduce' function from 'functools'.")
