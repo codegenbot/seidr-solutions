@@ -1,15 +1,11 @@
-#include <string>
-#include <iostream>
-
-int hex_key(std::string num = "") {
-    std::cout << "Enter hexadecimal key: ";
-    
+int hex_key(string num) {
     int count = 0;
-    for (int i = 0; i < num.length(); i++) { 
-        if (((num[i] >= '0' && num[i] <= '9') || (num[i] >= 'A' && num[i] <= 'F')) || (num[i] >= 'a' && num[i] <= 'f')) {
+    for (char c : num) {
+        if (c >= '2' && c <= '7') {
+            count++;
+        } else if (c == 'B' || c == 'D' || c == 'F') {
             count++;
         }
     }
-    
     return count;
 }
