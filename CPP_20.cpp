@@ -1,31 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <climits>
-#include <cassert>
 
-using namespace std;
-
-pair<float, float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float min_diff = INT_MAX;
-    pair<float, float> closest_pair;
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        if (numbers[i + 1] - numbers[i] < min_diff) {
-            min_diff = numbers[i + 1] - numbers[i];
-            closest_pair.first = numbers[i];
-            closest_pair.second = numbers[i + 1];
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+    std::vector<float> sorted_numbers = numbers;
+    std::sort(sorted_numbers.begin(), sorted_numbers.end());
+    
+    float min_diff = sorted_numbers[1] - sorted_numbers[0];
+    std::pair<float, float> closest_pair = {sorted_numbers[0], sorted_numbers[1]};
+    
+    for (int i = 1; i < sorted_numbers.size() - 1; ++i) {
+        float diff = sorted_numbers[i + 1] - sorted_numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_pair = {sorted_numbers[i], sorted_numbers[i + 1]};
         }
     }
+    
     return closest_pair;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
+    std::vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
+    std::pair<float, float> result = find_closest_elements(numbers);
+    std::cout << "Closest pair: " << result.first << " and " << result.second << std::endl;
     
     return 0;
 }
