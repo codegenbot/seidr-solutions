@@ -34,9 +34,9 @@ vector<string> separate_paren_groups(const string &paren_string) {
 }
 
 int main() {
-    string paren_string = "((group1)(group2)(group3))";
-    vector<string> expected = {"group1", "group2", "group3"};
-    vector<string> actual = separate_paren_groups(paren_string);
-    assert(issame(expected, actual));
+    string input = "((group1)(group2)(group3))";
+    vector<string> expected_output = {"group1", "group2", "group3"};
+    vector<string> output = separate_paren_groups(input);
+    assert(issame(output, expected_output));
     return 0;
 }
