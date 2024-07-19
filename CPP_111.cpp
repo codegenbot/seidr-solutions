@@ -1,11 +1,10 @@
-```cpp
 #include <map>
 #include <string>
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) return false;
     for (auto p : a) {
-        if (b.find(p.first) == b.end() || p.second != b.at(p.first)) {
+        if (b.find(p.first) == b.end() || p.second != b[p.first]) {
             return false;
         }
     }
@@ -13,8 +12,7 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 std::map<char, int> histogramTest(std::string str) {
-    std::map<char, int> result;
-    result.clear();
+    std::map<char, int> result = {};
     for (char c : str) {
         if (result.find(c) == result.end()) {
             result[c] = 1;
@@ -36,5 +34,9 @@ int main() {
         std::cout << p.first << ": " << p.second << std::endl;
     }
 
+    if (!issame(histogram, {{'a', 1}})) {
+        assert(false);
+    }
+    
     return 0;
 }
