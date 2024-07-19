@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
-using namespace std;
+#include <initializer_list>
 
-std::string Strongest_Extension(const string& class_name, const vector<string>& extensions) {
+std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
     for (const auto& extension : extensions) {
         if (!extension.empty()) {
             return class_name + "." + extension;
@@ -13,6 +13,6 @@ std::string Strongest_Extension(const string& class_name, const vector<string>& 
 }
 
 int main() {
-    cout << Strongest_Extension("My", {"Java", "Python", "C++"}) << endl; 
+    std::cout << Strongest_Extension("My", {"Java", "Python", "C++"}) << std::endl; 
     return 0; 
 }
