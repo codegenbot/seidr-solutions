@@ -1,12 +1,9 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<string> split_words(string txt);
-
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt) {
