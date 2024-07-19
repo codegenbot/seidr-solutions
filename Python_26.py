@@ -4,11 +4,11 @@ def find_unique_numbers(numbers):
 numbers = []
 try:
     while True:
-        num = input().strip()
-        if num == "":
+        num = input("Enter a number or press Enter to finish: ")
+        if not num.strip():  # Check if input is empty
             break
         numbers.append(int(num))
-except EOFError:
+except KeyboardInterrupt:
     pass
 
 print(find_unique_numbers(numbers))
