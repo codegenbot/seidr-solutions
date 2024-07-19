@@ -36,7 +36,6 @@ std::vector<std::string> split_words(std::string txt) {
 
 // Function definition for issame
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    // Logic to check if two vectors of strings are the same
     return a == b;
 }
 
