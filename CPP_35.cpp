@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <cmath>
 #include <vector>
 
-int findMaxElement(int l) {
+int findMaxElement(const int& l) {
     std::vector<int> v;
     for (auto i : {l}) {
-        if(std::abs(i) > 0) v.push_back(std::abs(i));
+        v.push_back(i);
     }
     return *std::max_element(v.begin(), v.end());
 }
