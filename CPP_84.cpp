@@ -1,16 +1,13 @@
-#include <string>
-
-using namespace std;
-
 string solve(int N) {
-    string binary = "";
+    string result = "";
     while (N > 0) {
-        int remainder = N % 2;
-        if (remainder == 1)
-            binary.insert(0, "1");
+        int digit = N % 2;
+        if (digit == 1)
+            result.push_back('1');
         else
-            binary.insert(0, "0");
+            result.push_back('0');
         N /= 2;
     }
-    return binary;
+    reverse(result.begin(), result.end());
+    return result;
 }
