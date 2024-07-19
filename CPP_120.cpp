@@ -22,10 +22,11 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
+    int n;
     cin >> n;
     vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
+    int k;
     cin >> k;
     if (!issame(maximum(a, k), vector<int>())) {
         return 1;
