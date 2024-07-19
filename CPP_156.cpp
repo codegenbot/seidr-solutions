@@ -1,22 +1,19 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string intToMiniRoman(int num) {
-    std::string roman;
-    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    std::string symbols = "MDCXLV";
+    std::string roman = "";
+    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    char sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     int i = 0;
-    
     while (num > 0) {
-        if (num >= values[i]) {
-            num -= values[i];
-            roman += symbols.substr(i, 1);
+        if (num >= val[i]) {
+            num -= val[i];
+            roman += sym[i];
         } else {
             i++;
         }
     }
-    
     return roman;
 }
 
