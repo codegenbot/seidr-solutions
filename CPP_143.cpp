@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,19 +8,15 @@ bool isascii(char c) {
 
 std::vector<std::string> split(const std::string& str) {
     std::vector<std::string> tokens;
-    char token = 0;
+    std::string token = "";
 
     for (char c : str) {
         if (!isascii(c)) continue; // skip non-ASCII characters
-        if (isascii(c)) { 
-            token = c; 
-        } else {
-            break;
-        }
+        token += c; 
     }
 
-    if (token != 0) { 
-        tokens.push_back(std::string(1, token));
+    if (!token.empty()) { 
+        tokens.push_back(token);
     }
 
     return tokens;
@@ -62,4 +57,8 @@ int main_func() {
     std::cout << "Longest prime length: " << longest_prime_word.length() << ", Longest prime word: " << longest_prime_word << std::endl;
 
     return 0;
+}
+
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
+    return split(sentence);
 }
