@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 #include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -18,9 +18,12 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     for (auto &s : lst)
         ++mp[s];
     vector<vector<string>> res;
-    for (const auto &pair : mp)
-        if (pair.second > 1)
-            res.push_back({{pair.first, string(pair.second - 1, 'c')}});
+    for (const auto &pair : mp) {
+        if (pair.second > 1) {
+            string s = pair.first + ": " + string(pair.second - 1, 'c');
+            res.push_back({{s}});
+        }
+    }
     return res;
 }
 
@@ -43,7 +46,7 @@ int main() {
     }else{
         vector<vector<string>> result = sorted_list_sum(lst);
         for (auto &v : result) { 
-            cout << v[0] << ": " << v[1] << endl;
+            cout << v[0] << endl;
         }
     }
 
