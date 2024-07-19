@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string spinWords(std::string sentence) {
     std::string result = "";
     int wordLength;
@@ -25,12 +22,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    while (std::cout << "Enter a string: ", std::getline(std::cin, input)) {
-        std::cout << spinWords(input) << std::endl;
-    }
-    return 0;
 }
