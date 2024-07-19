@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm> // For std::count
 using namespace std;
 
 int search(vector<int> lst) {
