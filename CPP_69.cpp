@@ -1,14 +1,16 @@
-int result = -1;
+#include <vector>
+#include <unordered_map>
+
+int search(std::vector<int> lst) {
+    int res = -1;
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
-        int frequency = 0;
-        for (int n : lst) {
-            if (n == num) {
-                frequency++;
-            }
-        }
-        if (num > 0 && frequency >= num && num > result) {
-            result = num;
+        freq[num]++;
+    }
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        if (it->first > it->second && it->first > res) {
+            res = it->first;
         }
     }
-    return result;
+    return res;
 }
