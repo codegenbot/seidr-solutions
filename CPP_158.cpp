@@ -10,8 +10,13 @@ string find_max(vector<string> words){
         });
     for (string word : words) {
         set<char> char_set(word.begin(), word.end());
-        if (char_set.size() > max_word.length()) {
+        if (char_set.size() > max_word.size()) {
             max_word = word;
+        } else if (char_set.size() == max_word.size()) {
+            if (*max_word.rbegin() < *word.rbegin()) {
+                max_word = word;
+            }
         }
     }
     return max_word;
+}
