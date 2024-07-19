@@ -1,13 +1,19 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-            if (i + 1 < text.size() && text[i + 1] == ' ') {
-                text[i] = '-';
-                while (i + 1 < text.size() && text[i + 1] == ' ') {
-                    text.erase(i + 1, 1);
-                }
+int count = 0;
+    string result = "";
+    for(char c : text){
+        if(c == ' '){
+            count++;
+            if(count > 2){
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += "_";
             }
+        } else {
+            count = 0;
+            result += c;
         }
     }
-    return text;
+    return result;
 }
