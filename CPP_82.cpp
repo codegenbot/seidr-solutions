@@ -23,5 +23,5 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Is the length of the string prime? " << std::boolalpha << prime_length(str) << std::noboolalpha; 
+    std::cout << prime_length(str) << std::endl;
 }
