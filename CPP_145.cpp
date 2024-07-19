@@ -1,18 +1,36 @@
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
-    while (temp_a > 0) {
-        sum_a += temp_a % 10;
-        temp_a /= 10;
-    }
-    while (temp_b > 0) {
-        sum_b += temp_b % 10;
-        temp_b /= 10;
-    }
-    if (sum_a == sum_b) {
-        return a > b;
-    }
-    return sum_a < sum_b;
-});
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-return nums;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+std::vector<int> order_by_points(const std::vector<int>& nums) {
+    std::vector<int> sortedNums = nums;
+    sort(sortedNums.begin(), sortedNums.end(), [](int a, int b) {
+        int sumDigitsA = 0, sumDigitsB = 0;
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
+        while (a > 0) {
+            sumDigitsA += a % 10;
+            a /= 10;
+        }
+        while (b > 0) {
+            sumDigitsB += b % 10;
+            b /= 10;
+        }
+        if (sumDigitsA == sumDigitsB) {
+            return a < b;
+        }
+        return sumDigitsA < sumDigitsB;
+    });
+    return sortedNums;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    std::cout << "Test passed successfully." << std::endl;
+    return 0;
+}
