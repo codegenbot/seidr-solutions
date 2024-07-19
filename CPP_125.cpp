@@ -1,36 +1,52 @@
 #include <string>
 #include <vector>
+#include <cctype>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(string txt);
 
 bool issame(vector<string> a, vector<string> b) {
-    // Function implementation here
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> processText(string txt) {
-    vector<string> words;
+vector<string> split_words(string txt){
+    vector<string> result;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                result.push_back(word);
                 word = "";
             }
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
+    if(!word.empty()){
+        result.push_back(word);
     }
-
-    if (words.empty()) {
+    if(result.empty()){
         int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        words.push_back(to_string(count));
+        result.push_back(to_string(count));
     }
+    return result;
+}
 
-    return words;
+int main() {
+    assert(issame(split_words(""), {"0"}));
 }
