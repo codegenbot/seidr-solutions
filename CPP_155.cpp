@@ -21,6 +21,6 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(is_same(even_odd_count(0), {1, 0}));
-    
+
     return 0;
 }
