@@ -11,5 +11,8 @@ std::vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-// Replace the function call with corrected syntax
-assert(issame(eat(number, need, remaining), expected_result));
+int main() {
+    std::vector<int> result = eat(5, 3, 10);
+    assert(issame(result, std::vector<int>{8, 2}));
+    return 0;
+}
