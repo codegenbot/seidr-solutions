@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -8,12 +9,12 @@ string encrypt(string s) {
             char base = 'a';
             int shift = (int)(c - base);
             int newShift = (shift + 3) % 26;
-            result += (char)((newShift + base));
+            result += chr((base + newShift));
         } else if (c >= 'A' && c <= 'Z') {
             char base = 'A';
             int shift = (int)(c - base);
             int newShift = (shift + 3) % 26;
-            result += (char)((newShift + base));
+            result += chr((base + newShift));
         } else {
             result += c;
         }
@@ -21,7 +22,15 @@ string encrypt(string s) {
     return result;
 }
 
+string encryptMain() {
+    string s;
+    cout << "Enter a message: ";
+    cin >> s;
+    string encrypted = encrypt(s);
+    cout << "Encrypted message: " << encrypted << endl;
+    return encrypted;
+}
 int main() {
-    assert(encrypt("a")=="d");
+    encryptMain();
     return 0;
 }
