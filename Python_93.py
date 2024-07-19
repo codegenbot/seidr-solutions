@@ -1,13 +1,15 @@
 ```
 def encode(message):
-    result = ''
+    result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                new_char = chr((ord(char) - 65 + 2) % 26 + 65)
+            if char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u':
+                result += chr((ord(char) - 97 + 2) % 26 + 97)
             else:
-                new_char = chr((ord(char) - 97 + 2) % 26 + 97)
-            result += new_char
+                if char.isupper():
+                    result += chr((ord(char) - 65 + 2) % 26 + 65)
+                else:
+                    result += char.swapcase()
         else:
             result += char
     return result
