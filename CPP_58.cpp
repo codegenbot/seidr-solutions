@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <set>
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::sort(l1.begin(), l1.end());
@@ -16,6 +17,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
-}
+}  
