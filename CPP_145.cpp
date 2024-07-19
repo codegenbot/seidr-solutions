@@ -1,7 +1,11 @@
-```c++
 #include <algorithm>
 #include <vector>
 #include <iostream>
+
+struct Pair {
+    int sumOfDigits;
+    int index;
+};
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
@@ -15,7 +19,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+    vector<Pair> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = abs(nums[i]);
@@ -30,7 +34,7 @@ vector<int> order_by_points(vector<int> nums) {
 
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(nums[pair.index]);
     }
 
     return result;
