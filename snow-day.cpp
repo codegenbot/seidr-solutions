@@ -1,7 +1,3 @@
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
 long double snowDay(int hours, long double initialSnow, long double rateOfSnowFall, long double proportionOfSnowMeltingPerHour) {
     long double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
