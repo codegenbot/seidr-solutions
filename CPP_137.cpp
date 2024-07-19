@@ -1,12 +1,12 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int compare_strings(const std::string& a, const std::string& b) {
     for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-        if (a[i] > b[i])
+        if (std::tolower(a[i]) > std::tolower(b[i]))
             return 1;
-        else if (a[i] < b[i])
+        else if (std::tolower(a[i]) < std::tolower(b[i]))
             return -1;
     }
     if (a.size() > b.size())
@@ -19,9 +19,9 @@ int compare_strings(const std::string& a, const std::string& b) {
 int main() {
     std::string str1, str2;
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, str1);
+    std::cin >> str1;
     std::cout << "Enter the second string: ";
-    std::getline(std::cin, str2);
+    std::cin >> str2;
     
     int result = compare_strings(str1, str2);
     
