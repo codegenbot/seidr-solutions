@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <limits>
+
 using namespace std;
 
 int count(int num) {
@@ -10,9 +12,9 @@ int count(int num) {
     return res;
 }
 
-int search(vector<unsigned long long> lst) {
-    unsigned long long max = 0;
-    for (unsigned long long i : lst) {
+int search(vector<int> lst) {
+    int max = 0;
+    for (int i : lst) {
         if (i > 0 && i >= count(i)) {
             max = i;
         }
@@ -21,9 +23,9 @@ int search(vector<unsigned long long> lst) {
 }
 
 int main() {
-    vector<unsigned long long> lst; 
+    vector<int> lst; 
     for (int i = 0; i < 5; ++i) { 
-        unsigned long long temp; cin >> temp; lst.push_back(temp); 
+        int temp; cin >> temp; lst.push_back(temp); 
     }
     int result = search(lst);
     cout << "The largest number in the list is: " << result << endl;
