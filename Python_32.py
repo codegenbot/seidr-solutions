@@ -6,6 +6,12 @@ def find_zero(xs: list):
         if xs[i] != 0:
             return -xs[0] / xs[i]
 
-coefficients = list(map(float, input("Enter the coefficients of the polynomial separated by spaces: ").split())
+
+coefficients = list(
+    map(
+        float,
+        input("Enter the coefficients of the polynomial separated by spaces: ").split(),
+    )
+)
 result = find_zero(coefficients)
 print("The zero of the polynomial is:", result)
