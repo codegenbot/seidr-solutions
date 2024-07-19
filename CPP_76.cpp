@@ -3,5 +3,6 @@ if (x <= 0 || n <= 0) {
     }
     
     double result = log(x) / log(n);
-    return floor(result) == result;
+    
+    return (result == (int)result);
 }
