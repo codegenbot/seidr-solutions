@@ -1,23 +1,19 @@
-#include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
+#include <vector>
+#include <algorithm>
 
-bool issame(int x, int y) {
-    return x == y;
-}
-
-vector<string> by_length(vector<int> arr){
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    vector<int> filtered_arr;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    std::vector<int> filtered_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             filtered_arr.push_back(num);
         }
     }
-    sort(filtered_arr.begin(), filtered_arr.end());
-    reverse(filtered_arr.begin(), filtered_arr.end());
-    vector<string> result;
+    std::sort(filtered_arr.begin(), filtered_arr.end());
+    std::reverse(filtered_arr.begin(), filtered_arr.end());
+    std::vector<std::string> result;
     for (int num : filtered_arr) {
         result.push_back(names[num - 1]);
     }
