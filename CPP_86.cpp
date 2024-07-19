@@ -15,3 +15,8 @@ std::string anti_shuffle(std::string s) {
     }
     return result;
 }
+
+int main() {
+    std::cout << anti_shuffle(std::string("Hi. My name is Mister Robot. How are you?")) << std::endl;
+    return 0;
+}
