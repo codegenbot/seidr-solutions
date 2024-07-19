@@ -11,24 +11,16 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (da > db) ? a : ((da < db) ? b : boost::any("None"));
     } else if (is_any_of<a>(std::string())) {
         std::string sa = any_cast<std::string>(a);
-        double da = std::stod(sa);
         if (is_any_of<b>(double())) {
             double db = any_cast<double>(b);
-            return (da > db) ? a : ((da < db) ? b : boost::any("None"));
+            return (std::stod(sa) > db) ? a : ((std::stod(sa) < db) ? b : boost::any("None"));
         } else if (is_any_of<b>(std::string())) {
             std::string sb = any_cast<std::string>(b);
-            double db = std::stod(sb);
-            return (da > db) ? a : ((da < db) ? b : boost::any("None"));
+            return (std::stod(sa) > std::stod(sb)) ? a : ((std::stod(sa) < std::stod(sb)) ? b : boost::any("None"));
         } else {
             throw std::runtime_error("Invalid type");
         }
     } else {
         throw std::runtime_error("Invalid type");
     }
-}
-
-int main() {
-    boost::any a, b;
-    // Your code to read input from user and call compare_one function
-    return 0;
 }
