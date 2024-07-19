@@ -14,13 +14,3 @@ bool is_palindrome(const vector<int> &q) {
     }
     return false;
 }
-
-bool will_it_fly(const vector<int> &q, int w) {
-    int sum = accumulate(q);
-
-    if (sum <= w && is_palindrome(q)) {
-        return true;
-    }
-
-    return false;
-}
