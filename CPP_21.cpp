@@ -16,7 +16,7 @@ bool rescale_to_unit(std::vector<float> numbers) {
         transformed.push_back(new_num);
     }
 
-    return true; // Change this line to 'true'
+    return true;
 }
 
 int main() {
