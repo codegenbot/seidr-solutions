@@ -1,5 +1,5 @@
 try:
-    input_numbers = list(map(float, input().strip().split()))
+    input_numbers = list(map(float, input().split()))
     if len(input_numbers) != 3 or any(
         not isinstance(num, float) for num in input_numbers
     ):
@@ -8,4 +8,4 @@ try:
 except (ValueError, TypeError):
     print(
         "Invalid input. Please enter exactly three floating-point numbers separated by space."
-    )
+   )
