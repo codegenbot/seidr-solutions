@@ -1,7 +1,7 @@
 #include <string>
 #include <cctype>
 #include <iostream>
-#include <cassert> // Include cassert header for assert function
+#include <cassert>
 
 std::string flip_case(std::string str) {
     for (char &c : str) {
