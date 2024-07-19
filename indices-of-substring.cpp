@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -7,11 +7,15 @@ using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
     std::vector<int> result;
-    int pos = 0;
-    while ((pos = text.find(target)) != std::string::npos) {
-        result.push_back(pos);
-        pos += 1; // Move the starting position forward to search for next occurrence
+    int n = text.length();
+    int m = target.length();
+
+    for(std::string::size_type i=0; i<=n-m; i++){
+        if(text.substr(i,m) == target){
+            result.push_back(static_cast<int>(i));
+        }
     }
+
     return result;
 }
 
