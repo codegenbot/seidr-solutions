@@ -13,3 +13,4 @@ while True:
 
     except EOFError:
         print("Program did not receive expected input.")
+        break
