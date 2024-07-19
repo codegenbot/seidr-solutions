@@ -20,7 +20,10 @@ std::string encrypt(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> s; 
+    if (!(std::getline(std::cin, s))) {
+        std::cerr << "Failed to read input.\n";
+        return 1; 
+    } 
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
 }
