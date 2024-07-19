@@ -11,6 +11,6 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(temp_beats)
             temp_beats = 0
         else:
-            temp_beats += beats_per_note[note]
+            temp_beats += beats_per_note.get(note, 0)
     music_list.append(temp_beats)
     return music_list
