@@ -31,9 +31,9 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     return result;
 
 int main() {
-    std::vector<std::vector<std::string>> v1(std::vector<std::string>({"apple", "banana"}, {"hello", "world"}));
+    std::vector<std::vector<std::string>> v1({{{"apple", "banana"}, {"hello", "world"}}});
 
-    std::vector<std::vector<std::string>> v2(std::vector<std::string>({"apple", "banana"}, {"goodbye", "world"}));
+    std::vector<std::vector<std::string>> v2({{{"apple", "banana"}, {"goodbye", "world"}}});
 
     if (!equal_vectors(v1, v2)) {
         std::cout << "Vectors are not equal" << std::endl;
@@ -41,7 +41,7 @@ int main() {
         std::cout << "Vectors are equal" << std::endl;
     }
 
-    std::vector<std::vector<std::string>> words = {{"apple", "banana", "hello"}, {"world", "goodbye"}};
+    std::vector<std::vector<std::string>> words({{"apple", "banana", "hello"}, {"world", "goodbye"}});
     std::string substring = "o";
     std::vector<std::vector<std::string>> result = filter_by_substring(words, substring);
     for (const auto& word : result) {
