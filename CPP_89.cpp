@@ -1,12 +1,23 @@
-string encrypted = "";
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            char encrypted_char = (c - base + 2 * 2) % 26 + base;
-            encrypted += encrypted_char;
+            char encrypted = c + 2 * ('z' - c) + 1;
+            if (encrypted > 'z') {
+                encrypted = 'a' + (encrypted - 'z' - 1);
+            }
+            result += encrypted;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
