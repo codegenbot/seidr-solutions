@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -27,12 +28,7 @@ int checkNumber() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    string str = to_string(n);  
-    string rev = "";  
-    for (char c : str) {  
-        rev = c + rev;  
-    }
-    if (str == rev && n % 2 == 0) 
+    if(isPalindrome(to_string(n)) && (n % 2 == 0)) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
