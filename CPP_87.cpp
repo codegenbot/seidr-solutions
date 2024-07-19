@@ -1,7 +1,10 @@
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a[0] == b[0] && a[1] == b[1];
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
+    if (a[0] == b[0]) {
+        return a[1] > b[1];
+    }
+    return a[0] < b[0];
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
@@ -13,27 +16,11 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
             }
         }
     }
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
-        if (a[0] == b[0]) {
-            return a[1] > b[1];
-        }
-        return a[0] < b[0];
-    });
+    sort(result.begin(), result.end(), issame);
     return result;
 }
 
 int main() {
-    vector<vector<int>> test = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-
-    vector<vector<int>> result = get_row(test, 5);
-
-    for (const auto& elem : result) {
-        cout << elem[0] << " " << elem[1] << endl;
-    }
-
+    // Function call to get_row needs to be placed here
     return 0;
 }
