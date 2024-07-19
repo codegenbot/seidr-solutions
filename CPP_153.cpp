@@ -1,18 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
+using namespace std;
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+string Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = -1;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
-            if (std::isupper(c)) cap++;
-            else if (std::islower(c)) sm++;
+            if (isupper(c)) cap++;
+            else if (islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > max_strength) {
@@ -27,7 +26,8 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::vector<std::string> extensions = {"Java", "Python", "C++", "Kotlin", "Ruby"};
-    std::cout << Strongest_Extension("MyClass", extensions) << std::endl;
+    vector<string> extensions = {"Java", "Python", "Kotlin"};
+    string class_name = "MyClass";
+    cout << Strongest_Extension(class_name, extensions) << endl;
     return 0;
 }
