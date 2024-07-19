@@ -14,10 +14,8 @@ bool match_parens(const std::string& s) {
 int main() { 
     std::string line; 
     std::cout << "Enter the strings: ";
-    while(std::getline(std::cin, line)) {
-        while(line[0] == ' ' || !std::ispunct(line[0])) {
-            line.erase(0, 1);
-        }
+    while(getline(cin, line)) {
+        line.erase(0, line.find_first_of("()") != std::string::npos ? line.find_first_of("()") : 100000);
         if(line.empty()) break;
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
