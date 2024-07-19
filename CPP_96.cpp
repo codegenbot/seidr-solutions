@@ -1,4 +1,4 @@
-vector<int> count_up_to(int n){ 
+vector<int> count_up_to(int n){
     vector<int> result;
     if(n < 2) return result;
     vector<bool> isPrime(n, true);
