@@ -6,7 +6,7 @@ namespace mystd {
     using ::std::vector;
 }
 
-bool issame(int a, int b) {
+bool issame(mystd::vector<int> a, mystd::vector<int> b) {
     return a == b;
 }
 
@@ -18,4 +18,9 @@ std::pair<int, int> sum_product(const mystd::vector<int>& numbers) {
         product *= num;
     }
     return std::make_pair(sum, product);
+}
+
+int main() {
+    assert(issame(sum_product({10}), std::make_pair(10, 10)));
+    return 0;
 }
