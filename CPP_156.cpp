@@ -1,6 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <string>
 
 using namespace std;
 
@@ -23,6 +23,11 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    // Your main function logic can go here
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    cout << "Roman numeral representation: " << int_to_mini_roman(number) << endl;
+
     return 0;
 }
