@@ -1,21 +1,19 @@
-string fix_spaces(string text) {
+Here is the solution:
+
+string fix_spaces(string text){
     string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result += '-';
-                count = 1;
-            } else if (count == 1) {
+    for(int i = 0; i < text.length(); i++){
+        if(text[i] == ' '){
+            if(i+1 >= text.length() || text[i+1] != ' '){
                 result += '_';
+            } else {
+                int j = i;
+                while(j + 1 < text.length() && text[j+1] == ' ') j++;
+                for(int k = i; k <= j; k++) result += '-';
+                i = j;
             }
         } else {
-            while (count-- > 0) {
-                result += '_';
-            }
-            result += c;
-            count = 0;
+            result += text[i];
         }
     }
     return result;
