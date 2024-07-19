@@ -15,14 +15,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> vec1 = all_prefixes("hello");
-    std::vector<std::string> vec2 = all_prefixes("world");
-
-    if (issame(vec1, vec2)) {
-        std::cout << "Vectors are the same" << std::endl;
+    std::vector<std::string> prefixes1 = all_prefixes("hello");
+    std::vector<std::string> prefixes2 = all_prefixes("world");
+    
+    if (issame(prefixes1, prefixes2)) {
+        std::cout << "Prefixes are the same." << std::endl;
     } else {
-        std::cout << "Vectors are different" << std::endl;
+        std::cout << "Prefixes are different." << std::endl;
     }
-
+    
     return 0;
 }
