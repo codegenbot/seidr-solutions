@@ -2,7 +2,7 @@
 #include <set>
 #include <algorithm>
 
-bool areSetsEqual(std::vector<int> a, std::vector<int> b) {
+bool common(std::vector<int> a, std::vector<int> b) {
     std::set<int> s1(a.begin(), a.end());
     std::set<int> s2(b.begin(), b.end());
 
@@ -10,6 +10,6 @@ bool areSetsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(areSetsEqual({4, 3, 2, 8}, {}) == false);
+    assert(common({4, 3, 2, 8}, {}) == true); 
     return 0;
 }
