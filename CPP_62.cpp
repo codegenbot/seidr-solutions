@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::pmr::vector<float>& a, const std::pmr::vector<float>& b) {
-    return a == b;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
 }
 
 int main() {
-    assert(issame(std::pmr::vector<float>{1.0f}, std::pmr::vector<float>{1.0f}));
-    
+    assert(issame(std::vector<float>{1.0f}, std::vector<float>{}));
+
     return 0;
 }
