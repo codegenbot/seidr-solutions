@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-bool is_happy(string s){
+bool is_happy(string s) {
     if(s.length() < 3) return false;
     
     for(int i=0; i<s.length()-2; ++i){
@@ -13,8 +13,11 @@ bool is_happy(string s){
     return true;
 }
 
-int main(){
-    assert(is_happy("abc")); // Example input
-    assert(!is_happy("aab")); // Example input
+int main() {
+    string input;
+    cin >> input;
+
+    assert(is_happy(input));
+
     return 0;
 }
