@@ -5,45 +5,42 @@
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
+string compare_one(boost::any a, boost::any b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+            return boost::any_cast<int>(a);
+        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+            return boost::any_cast<int>(b);
         } else {
-            return boost::any("None");
+            return "None";
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+            return boost::any_cast<float>(a);
+        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+            return boost::any_cast<float>(b);
         } else {
-            return boost::any("None");
+            return "None";
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
         float num1, num2;
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        
-        if (str_a.find(',') != string::npos) {
-            replace(str_a.begin(), str_a.end(), ',', '.');
+        if(boost::any_cast<string>(a).find_first_of(",") != string::npos){
+            std::replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
         }
-        if (str_b.find(',') != string::npos) {
-            replace(str_b.begin(), str_b.end(), ',', '.');
+        if(boost::any_cast<string>(b).find_first_of(",") != string::npos){
+            std::replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
         }
-        num1 = stof(str_a);
-        num2 = stof(str_b);
+        num1 = stof(boost::any_cast<string>(a));
+        num2 = stof(boost::any_cast<string>(b));
         
-        if (num1 > num2) {
-            return a;
-        } else if (num1 < num2) {
-            return b;
+        if(num1 > num2){
+            return boost::any_cast<string>(a);
+        } else if(num1 < num2){
+            return boost::any_cast<string>(b);
         } else {
-            return boost::any("None");
+            return "None";
         }
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
