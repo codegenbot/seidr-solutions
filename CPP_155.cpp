@@ -14,8 +14,3 @@ vector<int> even_odd_count(int num) {
     }
     return result;
 }
-
-int main() {
-    // Your main function implementation here
-    return 0;
-}
