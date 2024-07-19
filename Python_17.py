@@ -8,3 +8,4 @@ def parse_music(music_notes, notes_dict):
 
 result = parse_music("o| .| o| .| o o| o o|", {'o': 1, '.': 2})
 print(result)
+assert parse_music("o| .| o| .| o o| o o|", {'o': 1, '.': 2}) == [1, 2, 1, 2, 1, 1]
