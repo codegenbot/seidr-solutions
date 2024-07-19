@@ -1,13 +1,10 @@
-#include <openssl/ssl.h>
-#include <iostream>
-#include <cstring>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
+#include <cstring>
 
 char* string_to_md5(const char* input) {
     unsigned char result[16];
     EVP_MD_CTX md5ctx;
-    const EVP_MD* md = EVP_sha1();
+    const EVP_MD *md = EVP_md5();
     EVP_MD_CTX_init(&md5ctx);
     EVP_DigestInit_ex(&md5ctx, md, nullptr);
     EVP_DigestUpdate(&md5ctx, input, strlen(input));
