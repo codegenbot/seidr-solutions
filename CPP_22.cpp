@@ -1,7 +1,7 @@
 #include <vector>
 #include <any>
-#include <typeinfo>
 #include <cassert>
+#include <typeinfo>
 
 std::vector<std::any> filter_integers(std::vector<std::any> values) {
     std::vector<std::any> result;
@@ -13,6 +13,6 @@ std::vector<std::any> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<std::any> a, std::vector<std::any> b) {
     return a == b;
 }
