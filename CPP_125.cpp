@@ -1,10 +1,8 @@
 #include <vector>
 #include <string>
-#include <cctype> // Include this for islower function
+#include <cctype>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Add your comparison logic here
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -25,7 +23,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
