@@ -1,14 +1,15 @@
-```cpp
-#include <iostream>
+````
 #include <string>
+#include <iostream>
 
 std::string fix_spaces(const std::string& text) {
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
             if (i > 0 && text[i - 1] == ' ')
                 continue;
-            else
-                text.insert(i, "%20");
+            if (i < text.length() - 1 && text[i + 1] == ' ')
+                continue;
+            text.insert(i, "_");
             i++;
         }
     }
@@ -22,3 +23,4 @@ int main() {
     std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
     return 0;
 }
+```
