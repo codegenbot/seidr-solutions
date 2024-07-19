@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <cmath>
 using namespace std;
 
 bool iscuber(int a);
