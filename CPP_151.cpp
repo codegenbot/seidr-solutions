@@ -13,16 +13,17 @@ long long doubleTheDifference(vector<float> lst) {
     return abs(pos_sum - neg_sum);
 }
 
-int main() {
-    vector<float> lst;
-    float num; 
+int mainProblem() {
+    vector<float> numbers;
+    float inputNumber; 
+    long long sum = 0; 
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
-        cin >> num; 
+        cin >> inputNumber; 
         if (!cin) break;
-        lst.push_back(num);
+        numbers.push_back(inputNumber);
     }
-    long long result = doubleTheDifference(lst);
+    long long result = doubleTheDifference(numbers);
     cout << "Double the difference: " << result << endl;
     return 0;
 }
