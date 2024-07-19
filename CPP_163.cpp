@@ -1,7 +1,5 @@
-#include <vector> // Add this line for vector declaration
-
-vector<int> generate_integers(int a, int b) { // Define generate_integers function
-
+#include <vector>
+vector<int> generate_integers(int a, int b) {
     vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
@@ -11,13 +9,11 @@ vector<int> generate_integers(int a, int b) { // Define generate_integers functi
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) { // Correct function declaration
-    
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    
-    assert(issame(generate_integers(17, 89), {})); // Example usage
+    assert(issame(generate_integers(17, 89), {}));
     return 0;
 }
