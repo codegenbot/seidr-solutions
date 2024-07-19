@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<assert.h>
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
@@ -34,6 +34,6 @@ std::vector<std::string> separate_paren_groups(std::string s) {
 
 int main() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
-    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), expected));
+    assert(isSame(separate_paren_groups("( ) (( )) (( )( ))"), expected));
     return 0;
 }
