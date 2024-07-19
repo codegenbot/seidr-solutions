@@ -1,6 +1,4 @@
 #include <cassert>
-#include <vector>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -12,6 +10,5 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         if(s.find(prefix) == 0)
             result.push_back(s);
     }
-    assert(issame(filter_by_prefix({"hello", "world", "hello", "java"}, "hello"), {"hello", "hello"}));
     return result;
 }
