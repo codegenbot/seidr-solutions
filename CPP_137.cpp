@@ -5,28 +5,15 @@
 std::any compare_one(const std::any& a, const std::any& b) {
     assert(a.type() == b.type());
 
-    if (a.type() == typeid(int) || a.type() == typeid(float)) {
-        if (std::any_cast<double>(a) > std::any_cast<double>(b))
-            return a;
-        else if (std::any_cast<double>(a) < std::any_cast<double>(b))
-            return b;
-        else
-            return std::any();
+    if(auto a_val = a.type() == typeid(int)) {
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : (std::any_cast<int>(a) < std::any_cast<int>(b) ? b : 0);
     }
-    else if (a.type() == typeid(std::string)) {
-        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b))
-            return a;
-        else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
-            return b;
-        else
-            return std::any(std::string(""));
+    else if(auto a_val = a.type() == typeid(float)) {
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : (std::any_cast<float>(a) < std::any_cast<float>(b) ? b : 0.0f);
+    }
+    else if(auto a_val = a.type() == typeid(std::string)) {
+        return std::any_cast<std::string>(a) > std::any_cast<std::string>(b) ? a : (std::any_cast<std::string>(a) < std::any_cast<std::string>(b) ? b : std::string(""));
     }
 
     return std::any();
-}
-
-int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "");
-
-    return 0;
 }
