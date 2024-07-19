@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 
 bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
@@ -14,12 +13,12 @@ void push_back(std::vector<std::string>& vec, const std::string& str) {
 }
 
 std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<std::string>> strings, std::string prefix) {
-    std::vector<std::vector<std::string>> result;
+    std::vector<std::vector<std::string>> result = {};
     for (const auto& s : strings) {
         if (s[0].find(prefix) == 0) {
             std::vector<std::string> vec = {prefix};
-            for(int i = prefix.size(); i < s[0].size(); i++) {
-                vec.push_back(std::string(1, s[0][i]));
+            for (int i = prefix.size(); i < s[0].size(); i++) {
+                push_back(vec, std::string(1, s[0][i]));
             }
             result.push_back(vec);
         }
@@ -27,8 +26,8 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
     return result;
 }
 
-std::vector<std::vector<std::string>> strings = {{{"xxx"}}, {{"asd"}}, {{"xxy"}}, {{{"john doe"}}}, {{"xxxxAAA"}}, {{"xxx"}}};
 int main() {
-    assert(issame(filter_by_prefix(strings, "xxx"), {{{"xxx"}}, {{"xxxAAA"}}, {{"xxx"}}}));
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    assert(issame(filter_by_prefix({strings}, "xxx"), {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
     return 0;
 }
