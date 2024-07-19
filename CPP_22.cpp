@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
-#include <cctype>
 #include <algorithm>
+#include <cctype>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> filter_integers(const std::vector<int>& input) {
     std::vector<int> result;
     for (int num : input) {
-        if (std::isalpha(num) == 0) {
+        if (std::isdigit(static_cast<unsigned char>(num))) {
             result.push_back(num);
         }
     }
@@ -18,7 +18,7 @@ std::vector<int> filter_integers(const std::vector<int>& input) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3});
 
     return 0;
 }
