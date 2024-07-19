@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -13,8 +13,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = abs(nums[i]);
@@ -25,9 +25,9 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end());
 
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -37,11 +37,11 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {0,6,6,-76,-21,23,4};
-    vector<int> result = order_by_points(nums);
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    assert(issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6}));
+    std::vector<int> result = order_by_points(nums);
     for (int num : result) {
         std::cout << num << " ";
     }
-    assert(issame(result, {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
