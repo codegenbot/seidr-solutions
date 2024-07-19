@@ -1,4 +1,3 @@
-int integer_part = (int)number;
-    float decimal_part = number - integer_part;
-    return decimal_part;
+float truncate_number(float number){
+    return number - floor(number);
 }
