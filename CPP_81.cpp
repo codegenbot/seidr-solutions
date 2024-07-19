@@ -1,9 +1,15 @@
+#include <iostream>
+#include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+    return v1 == v2;
+}
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) {
             letter_grades.push_back("A+");
@@ -34,4 +40,9 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         }
     }
     return letter_grades;
+}
+
+int main() {
+    // Add your test cases or main code here
+    return 0;
 }
