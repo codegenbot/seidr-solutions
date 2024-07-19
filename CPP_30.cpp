@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> getPositive(const std::vector<float>& l) {
     std::vector<float> result; // Initialize the vector
     for (float num : l) {
         if (num > 0) {
@@ -23,7 +23,7 @@ std::vector<float> get_positive(const std::vector<float>& l) {
     return result;
 }
 
-int main() {
+int mainFunc() {
     std::vector<float> input;
     float num;
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -31,10 +31,14 @@ int main() {
         if (num == -1) break;
         input.push_back(num);
     }
-    std::vector<float> positive = get_positive(input);
-    if (issame(input, positive)) {
+    std::vector<float> positive = getPositive(input);
+    if (isSame(input, positive)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
         std::cout << "Not all numbers are positive." << std::endl;
     }
+}
+
+int main() {
+    return 0; 
 }
