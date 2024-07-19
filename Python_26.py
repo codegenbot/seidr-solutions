@@ -1,2 +1,2 @@
-def find_unique_numbers(numbers):
+def remove_duplicates(numbers):
     return sorted(list(set(numbers)))
