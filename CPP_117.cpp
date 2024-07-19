@@ -1,9 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,8 +15,8 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 vector<string> select_words(string s, int n);
 
 int main() {
-    vector<string> result = select_words("Hello World, C++ Programming", 2);
-    vector<string> expected = {"World,", "Programming"};
+    vector<string> result = select_words("Hello world, how are you doing today?", 2);
+    vector<string> expected = {"world,", "doing"};
     
     assert(issame(result, expected));
     
