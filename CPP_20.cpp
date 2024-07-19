@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <climits>
 #include <utility>
-#include <cassert>
-
 using namespace std;
 
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
