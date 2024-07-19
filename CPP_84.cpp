@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <bitset>
 
 std::string solve(int N) {
@@ -11,9 +12,6 @@ std::string solve(int N) {
 }
 
 int main() {
-    std::cout << "Enter a number: ";
-    int num;
-    std::cin >> num;
-    std::cout << solve(num) << std::endl;
+    std::cout << solve(963) << std::endl;
     return 0;
 }
