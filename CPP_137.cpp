@@ -2,10 +2,8 @@
 #include <iostream>
 #include <cassert>
 
-using namespace std;
-
 std::string compare_one(const std::string& s1, int number) {
-    if (std::stoi(s1) == number) {
+    if (s1 == std::to_string(number)) {
         return "Equal";
     } else {
         return "Not equal";
