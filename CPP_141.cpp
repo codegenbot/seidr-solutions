@@ -7,6 +7,7 @@ using namespace std;
 string file_name_check(string file_name);
 
 int main() {
+    // Test the function with some inputs
     assert(file_name_check("file123.txt") == "Yes");
     assert(file_name_check("file.exe") == "Yes");
     assert(file_name_check("file.dll") == "Yes");
