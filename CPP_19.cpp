@@ -3,24 +3,26 @@
 #include <string>
 #include <cassert>
 
-std::string sort_numbers(std::string numbers) {
-    std::map<std::string, int> number_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+using namespace std;
 
-    std::map<int, std::string> reverse_map;
-    std::string result = "";
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
+    string result = "";
     
-    std::string temp = "";
+    string temp = "";
     for (char c : numbers) {
         if (c == ' ') {
             reverse_map[number_map[temp]] = temp;
