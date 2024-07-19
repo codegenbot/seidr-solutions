@@ -1,22 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
-
-std::vector<std::string> split_words(const std::string &txt);
-
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b);
-
-int main() {
-    std::string input;
-    getline(std::cin, input);
-    std::vector<std::string> result = split_words(input);
-    for (const std::string &word : result) {
-        std::cout << word << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
+#include <cassert>
+#include <cctype>
 
 std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
