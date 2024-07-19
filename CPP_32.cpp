@@ -13,14 +13,16 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    return -xs[1]/xs[0];  
+    double a = xs[0];
+    double b = xs[1];
+    return -a / b;
 }
 
 int main() {
-    vector<double> coeffs = {1, -3, 2}; // Example coefficients
+    vector<double> coeffs = {1, -3, 2}; 
     double solution;
     solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3);
+    assert (abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
 }
