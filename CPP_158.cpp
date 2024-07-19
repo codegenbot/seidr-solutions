@@ -1,22 +1,25 @@
-int maxUnique = -1;
-    string result = "";
+#include <string>
+#include <vector>
+#include <set>
+#include <cassert>
+using namespace std;
+
+string find_max(const vector<string>& words){
+    string maxWord = "";
+    int maxUniqueChars = 0;
     
-    for (const auto& word : words) {
-        vector<bool> appears(256, false);
-        int uniqueCount = 0;
-        
-        for (char c : word) {
-            if (!appears[c]) {
-                appears[c] = true;
-                uniqueCount++;
-            }
-        }
-        
-        if (uniqueCount > maxUnique || (uniqueCount == maxUnique && word < result)) {
-            maxUnique = uniqueCount;
-            result = word;
+    for (const string& word : words) {
+        int uniqueChars = set<char>(word.begin(), word.end()).size();
+        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
+            maxUniqueChars = uniqueChars;
+            maxWord = word;
         }
     }
     
-    return result;
+    return maxWord;
+}
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
