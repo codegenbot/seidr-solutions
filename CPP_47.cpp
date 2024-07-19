@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 double median(const vector<int>& l) {
     sort(l.begin(), l.end());
     int n = l.size();
