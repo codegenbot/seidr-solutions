@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -29,6 +28,20 @@ bool isConsonant(char c) {
 }
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::string word;
+    std::cout << "Enter a word: ";
+    std::cin >> word;
+
+    if (!word.empty()) {
+        std::string closestVowel = get_closest_vowel(word);
+        if (closestVowel.size() > 0) {
+            std::cout << "The closest vowel is " << closestVowel << std::endl;
+        } else {
+            std::cout << "No vowels found" << std::endl;
+        }
+    } else {
+        std::cout << "You did not enter a word." << std::endl;
+    }
+
     return 0;
 }
