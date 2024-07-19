@@ -4,7 +4,7 @@
 
 bool isVowel(char c) {
     std::string vowels = "aeiouAEIOU";
-    return std::string(1, std::tolower(c)).find(c) != std::string::npos;
+    return std::string(1, std::tolower(c)).find(c) == 0;
 }
 
 std::string remove_vowels(std::string input) {
