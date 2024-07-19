@@ -1,2 +1,9 @@
-result = int(input("Enter a number: "))
-print(result)
+try:
+    while True:
+        try:
+            result = int(input())
+            print(result)
+        except ValueError:
+            break
+except:
+    pass
