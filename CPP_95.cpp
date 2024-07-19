@@ -8,8 +8,8 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     bool allUpper = true;
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        std::string key = it->first;
-        if (!islower(it->first[0])) {
+        string key = it->first;
+        if (!islower(key[0])) {
             allLower = false;
             allUpper = false;
             break;
