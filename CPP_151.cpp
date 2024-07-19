@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -12,7 +13,7 @@ long long double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.0, 4.5, 5.0};
-    long long result = double_the_difference(lst);
+    std::vector<float> lst = {1.5, 2.0, 3.0, 4.5};
+    std::cout << double_the_difference(lst) << std::endl;
     return 0;
 }
