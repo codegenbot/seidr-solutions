@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +17,7 @@ vector<string> select_words(string s, int n) {
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (!word.empty() && vowel_count <= n) {
+                if (vowel_count <= n) {
                     result.push_back(word);
                     word = "";
                 }
@@ -27,17 +26,8 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty()) {
-        unsigned vowel_count = 0;
-        for (char ch : word) {
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
-                vowel_count++;
-        }
-        if (!word.empty() && vowel_count <= n) {
-            result.push_back(word);
-            word = "";
-        }
+    if (!word.empty() && (unsigned)word.find_first_of("aeiouAEIOU") <= n) {
+        result.push_back(word);
     }
     return result;
 }
