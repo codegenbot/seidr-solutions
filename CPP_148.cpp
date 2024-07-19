@@ -1,10 +1,10 @@
+#include <type_traits>
+#include <string>
+
+bool isSame(const std::string& a, const std::string& b) {
+    return a == b;
+}
+
 int main() {
-    int bf = 0;
-    string Jupiter = "Jupiter";
-    string Makemake = "Makemake";
-    if (issame(Jupiter, Makemake)) {
-        cout << "The two planets are the same." << endl;
-    } else {
-        cout << "The two planets are different." << endl;
-    }
+    assert(std::is_same(isSame("Jupiter", "Makemake"), bool())); 
 }
