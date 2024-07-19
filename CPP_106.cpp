@@ -13,17 +13,17 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+    std::vector<int> f(int n);
 
-    std::vector<int> expected = f(n);
-    std::vector<int> result = f(n);
+    std::vector<int> result1 = f(4);
+    std::vector<int> expected1 = {1, 3, 2, 10};
+    assert(issame(result1, expected1));
 
-    if(issame(expected, result)){
-        std::cout << "Test Passed" << std::endl;
-    } else {
-        std::cout << "Test Failed" << std::endl;
-    }
+    std::vector<int> result2 = f(5);
+    std::vector<int> expected2 = {1, 3, 2, 10, 3};
+    assert(issame(result2, expected2));
+
+    // Add more test cases as needed
 
     return 0;
 }
