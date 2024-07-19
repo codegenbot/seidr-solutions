@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iostream>
 #include <initializer_list>
+#include <utility>
 
 int sum_squares(std::initializer_list<double> lst){
     int total = 0;
