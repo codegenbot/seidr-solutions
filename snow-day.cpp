@@ -12,8 +12,9 @@ double snowDay(int hours, double initialSnow, double rateOfSnowFall, double prop
 
 int main() {
     int hours;
-    cin >> hours;
+    cin >> fixed << setprecision(17) >> hours;
     double initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     cin >> fixed << setprecision(17) >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(17) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
+}
