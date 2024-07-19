@@ -1,4 +1,9 @@
-int sum = 0;
+#include<stdio.h>
+#include<vector>
+using namespace std;
+
+pair<int, int> sum_product(const vector<int>& numbers){
+    int sum = 0;
     int product = 1;
     
     for (int num : numbers) {
@@ -6,5 +11,5 @@ int sum = 0;
         product *= num;
     }
     
-    return {sum, product};
+    return make_pair(sum, product);
 }
