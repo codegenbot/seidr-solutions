@@ -20,14 +20,7 @@ int bitCount(int a) {
     return count;
 }
 
-void testBitCount() {
-    int arr[3] = {127, 97, 8192};
-    for (int i = 0; i < 3; i++) {
-        assert(bitCount(arr[i]) == customBitCount(&arr[i], sizeof(int)));
-    }
-}
-
 int main() {
-    testBitCount();
+    assert(bitCount({127, 97, 8192}) == customBitCount(&{127, 97, 8192}[0], sizeof(int) * 3));
     return 0;
 }
