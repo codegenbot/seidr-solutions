@@ -1,4 +1,4 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a vector<int> b) {
     sort(a.begin(), a.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -11,7 +11,7 @@ bool issame(vector<int> a, vector<int> b) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return a < b;
+            return find(a.begin(), a.end(), a) < find(a.begin(), a.end(), b);
         }
         return sum_a < sum_b;
     });
