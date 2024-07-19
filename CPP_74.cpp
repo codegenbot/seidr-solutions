@@ -6,5 +6,5 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
     if (totalChars(lst1) < totalChars(lst2)) {
         return lst1;
     }
-    return vector<string>();
+    return lst1;
 }
