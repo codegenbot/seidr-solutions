@@ -12,7 +12,7 @@ bool is_prime(int n) {
     return true;
 }
 
-void prime_numbers() {
+int main() {
     int n, count = 1;
     cin >> n;
     cout << "The number is ";
@@ -29,9 +29,5 @@ void prime_numbers() {
         }
         cout << "It's the " << count << " prime number." << endl;
     }
-}
-
-int main() {
-    prime_numbers();
     return 0;
 }
