@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
     for (size_t i = 0; i < l.size(); ++i) {
