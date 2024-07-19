@@ -12,11 +12,11 @@ string rounded_avg(int n, int m) {
     double avg = round(sum / (m - n + 1));
     string res = "";
     while (avg > 0) {
-        if ((int)avg & 1) res += '1';
+        if (static_cast<int>(avg) % 2) res += '1';
         else res += '0';
         avg /= 2;
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
