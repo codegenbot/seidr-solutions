@@ -20,7 +20,7 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-int main() {
+int mainProblem() {
     std::vector<std::string> a, b;
     std::cout << "Enter the two planets (separated by space): ";
     std::string line;
