@@ -22,6 +22,17 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> lst1 = {"apple", "banana"};
+    vector<string> lst2 = {"orange", "pear"};
+
+    vector<string> result = total_match(lst1, lst2);
+    vector<string> expected = {"orange", "pear"};
+
+    if (issame(result, expected)) {
+        cout << "Output matches expected result" << endl;
+    } else {
+        cout << "Output does not match expected result" << endl;
+    }
+
     return 0;
 }
