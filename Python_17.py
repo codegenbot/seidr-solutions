@@ -1,10 +1,4 @@
-def parse_music(music_notes, notes_dict):
+def parse_music(music_notes: str, notes_dict: dict) -> list:
     music_notes_list = music_notes.split('|')
-    output_list = []
-    for note in music_notes_list:
-        if note.strip() in notes_dict:
-            output_list.append(notes_dict[note.strip()])
+    output_list = [notes_dict.get(note.strip(), 0) for note in music_notes_list]
     return output_list
-
-result = parse_music("o| .| o| .| o o| o o|", {'o': 1, '.': 2})
-print(result)
