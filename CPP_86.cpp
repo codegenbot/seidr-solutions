@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-
-string anti_shuffle(const string& s) {
+string anti_shuffle(string s) {
     string result = "";
     string word = "";
     for (char c : s) {
