@@ -1,7 +1,9 @@
-#include <map>
-#include <string>
+#include <iostream>
 #include <algorithm>
 #include <initializer_list>
+#include <map>
+#include <string>
+
 using namespace std;
 
 std::map<char, int> histogram(string test) {
@@ -30,4 +32,5 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
 
 int main() {
     cout << isSame(histogram("a"), histogram("b")) << endl;
+    return 0;
 }
