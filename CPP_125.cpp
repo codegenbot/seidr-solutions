@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <assert.h>
 
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
@@ -22,7 +21,7 @@ std::vector<std::string> split_words(const std::string& txt) {
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -31,22 +30,8 @@ std::vector<std::string> split_words(const std::string& txt) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    // Add necessary includes and function declarations
-
     assert(issame(split_words(""), {"0"}));
-
+    
     return 0;
 }
