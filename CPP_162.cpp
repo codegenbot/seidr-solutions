@@ -24,3 +24,15 @@ std::string string_to_md5(const std::string& text) {
 
     return std::string(mdString);
 }
+
+int main(int argc, char** argv) {
+    if (argc != 2) {
+        std::cout << "Usage: ./executable_name <text_to_hash>" << std::endl;
+        return 1;
+    }
+
+    std::string input_text = argv[1];
+    std::cout << "MD5 Hash: " << string_to_md5(input_text) << std::endl;
+
+    return 0;
+}
