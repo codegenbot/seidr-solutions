@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bitset>
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -12,6 +13,6 @@ std::string solve(int N) {
 
 int main() {
     std::cout << solve(963) << std::endl;
-
+    
     return 0;
 }
