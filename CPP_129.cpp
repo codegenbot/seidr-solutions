@@ -1,37 +1,44 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int N = grid.size();
-    vector<vector<int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    vector<int> result;
-    vector<vector<bool>> visited(N, vector<bool>(N, false));
+    vector<int> path;
+    int x = 0, y = 0;
     
-    function<void(int, int, int, vector<int>)> dfs = [&](int x, int y, int steps, vector<int> path) {
-        if (steps == k) {
-            if (result.empty() || path < result) {
-                result = path;
-            }
-            return;
-        }
-        
-        visited[x][y] = true;
+    for (int i = 0; i < k; ++i) {
         path.push_back(grid[x][y]);
         
-        for (const auto& dir : dirs) {
-            int nx = x + dir[0];
-            int ny = y + dir[1];
-            
-            if (nx >= 0 && nx < N && ny >= 0 && ny < N && !visited[nx][ny]) {
-                dfs(nx, ny, steps + 1, path);
+        if ((x + y) % 2 == 0) {
+            if (y == 0) {
+                if (x + 1 < N) {
+                    x++;
+                } else {
+                    y++;
+                }
+            } else if (x == N - 1) {
+                y++;
+            } else {
+                x++;
+                y--;
             }
-        }
-        
-        visited[x][y] = false;
-    };
-    
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            dfs(i, j, 1, {});
+        } else {
+            if (x == 0) {
+                if (y + 1 < N) {
+                    y++;
+                } else {
+                    x++;
+                }
+            } else if (y == N - 1) {
+                x++;
+            } else {
+                x--;
+                y++;
+            }
         }
     }
     
-    return result;
+    return path;
 }
