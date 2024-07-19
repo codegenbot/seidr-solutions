@@ -1,13 +1,13 @@
 string encode(string message){
-    for(auto &c : message){
+    for(char &c : message){
         if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
-            if(c == 'z' || c == 'Z'){
-                c -= 24;
-            } else if(strchr("aeiouAEIOU", c) != nullptr){
-                c += 2;
+            if(islower(c)){
+                c = toupper(c);
             } else {
-                c += 1;
+                c = tolower(c);
+            }
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                c = c + 2;
             }
         }
     }
