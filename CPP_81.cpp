@@ -1,10 +1,16 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <fstream>
-#include <iostream>
 
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -40,20 +46,19 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> grades;
     float grade;
-
+    
     cout << "Enter the number of grades: ";
     int n;
     cin >> n;
-
+    
     for(int i = 0; i < n; ++i) {
         cout << "Enter Grade " << (i+1) << ": ";
         cin >> grade;
         grades.push_back(grade);
     }
-
+    
     vector<string> result = numerical_letter_grade(grades);
     for (string grade : result) {
         cout << grade << endl;
     }
     return 0;
-}
