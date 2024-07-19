@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 
-int skjkasdkd(std::vector<int> lst) {
+int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -32,14 +31,14 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    std::vector<int> test1 = {2, 3, 5, 7};
-    std::vector<int> test2 = {11, 13, 17};
-    
-    int result1 = skjkasdkd(test1);
-    int result2 = skjkasdkd(test2);
+    vector<int> lst1 = {2, 3, 4, 5};
+    vector<int> lst2 = {11, 13, 17};
 
-    std::cout << "Test 1: The sum of the digits in the largest prime number is " << result1 << std::endl;
-    std::cout << "Test 2: The sum of the digits in the largest prime number is " << result2 << std::endl;
+    int result1 = skjkasdkd(lst1);
+    int result2 = skjkasdkd(lst2);
+
+    cout << "Result for lst1: " << result1 << endl;
+    cout << "Result for lst2: " << result2 << endl;
 
     return 0;
 }
