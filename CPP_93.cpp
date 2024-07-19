@@ -19,7 +19,5 @@ std::string encode(std::string message){
     return message;
 }
 
-int main(){
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
-    return 0;
-}
+assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+return 0;
