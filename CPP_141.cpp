@@ -1,27 +1,43 @@
-int count_digits(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
+#include <cctype>
 
 string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3) return "No";
-    
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) return "No";
+    int dot_count = 0;
+    int digit_count = 0;
+    bool has_dot = false;
 
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+        } else if (isalpha(c) || c == '.') {
+            if (c == '.') {
+                has_dot = true;
+                dot_count++;
+            }
+        }
+    }
 
-    if (!all_of(before_dot.begin(), before_dot.end(), ::isalpha)) return "No";
-    
+    if (dot_count > 1 || digit_count > 3) {
+        return "No";
+    }
+
+    size_t found = file_name.find('.');
+    string extension = file_name.substr(found + 1);
+
     vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) return "No";
+    if (find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()) {
+        return "No";
+    }
+
+    size_t start = file_name.find('.');
+    if (start == string::npos) {
+        return "Yes";
+    }
+
+    for (char c : file_name.substr(0, start)) {
+        if (!isalpha(c) && c != '.') {
+            return "No";
+        }
+    }
 
     return "Yes";
 }
