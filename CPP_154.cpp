@@ -1,3 +1,7 @@
-string combined = a + a;
+#include <string>
+using namespace std;
+
+bool cycpattern_check(const string &a, const string &b) {
+    string combined = a + a;
     return combined.find(b) != string::npos;
 }
