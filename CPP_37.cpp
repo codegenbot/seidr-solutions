@@ -1,7 +1,3 @@
-```cpp
-#include <algorithm>
-#include <vector>
-
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
@@ -18,4 +14,3 @@ std::vector<float> sort_even(std::vector<float> l){
         }
     }
     return l_prime;
-}
