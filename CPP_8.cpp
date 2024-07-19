@@ -19,6 +19,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-assert(issame(sum_product({10}), {10, 10}));
-
-```
+int main() {
+    assert(issame(sum_product({10}), {10, 10}));
+    return 0;
+}
