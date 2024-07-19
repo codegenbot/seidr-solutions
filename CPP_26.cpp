@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <algorithm>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && a == b;
 }
 
