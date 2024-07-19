@@ -1,7 +1,29 @@
-bool is_divisor = false;
-for (long long i = 2; i * i <= n && !is_divisor; ++i) {
-    if (n % i == 0) {
-        is_divisor = true;
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
     }
+    return true;
 }
-return !is_divisor;
+
+int main_func() {
+    int n, count = 0;
+    cin >> n;
+
+    ostringstream oss;
+    for (int i = 2; i <= n; i++) {
+        if (is_prime(i)) {
+            oss << to_string(i) << " ";
+            count++;
+        }
+    }
+    cout << "Number of primes less than or equal to " << n << ": " << count << endl;
+    return 0;
+}
