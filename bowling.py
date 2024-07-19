@@ -1,17 +1,26 @@
+```
 def bowling_score(s):
     score = 0
-    frame = 1
-    i = 0
-    while i < len(s):
-        if s[i] == 'X':  
-            score += 10
-            i += 4
-            frame += 1
-        elif s[i] == '/':  
-            score += 10 - (int(s[i-2]) if i >= 2 else 0)
-            i += 3
-            frame += 1
-        else:
+    frame = 0
+    for i in range(len(s)):
+        if s[i].isdigit():
             num = int(s[i])
-            i += 1
-            if s[i].isdigit()
+            if i + 1 < len(s) and s[i + 1].isdigit():
+                num += int(s[i + 1])
+            if i + 2 < len(s) and s[i + 2].isdigit():
+                num += int(s[i + 2])
+            if frame < 9:
+                if num == 10:  # strike
+                    score += num
+                    if i + 3 < len(s):
+                        score += int(s[i + 3])  # add next two rolls' value
+                    frame += 1
+                elif num < 10:  # normal roll
+                    score += min(num, 10)
+                    frame += (num == 10)  # increment frame if a spare
+                else:  # two rolls in one frame
+                    score += num
+                    frame += 1
+            else:
+                score += num
+    return score
