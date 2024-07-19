@@ -7,9 +7,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     int sum = a.front() + a.back();
     
     if(sum % 2 == 0){
-        sort(a.rbegin(), a.rend());
+        std::sort(a.rbegin(), a.rend());
     } else {
-        sort(a.begin(), a.end());
+        std::sort(a.begin(), a.end());
     }
     
     return a;
