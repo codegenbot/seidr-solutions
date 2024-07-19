@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bitset>
 #include <cassert>
-#include <string>
+#include <climits>
 
 std::string solve(int N) {
     int sum = 0;
@@ -9,11 +9,11 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return std::bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
+    return std::bitset<32>(sum).to_string().substr(32 - (CHAR_BIT * sizeof(sum) - __builtin_clz(sum)));
 }
 
 int main() {
     assert(solve(963) == "10010");
-
+    
     return 0;
 }
