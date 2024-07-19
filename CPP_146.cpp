@@ -1,5 +1,6 @@
-```
 #include <cassert>
+#include <vector>
+#include <ostream>
 
 int specialFilter(std::vector<int> nums) {
     int c = 0;
