@@ -6,9 +6,9 @@
 
 using namespace std;
 
-vector<float> get_positive(const vector<float>& a) {
+vector<float> get_positive(const vector<float>& v) {
     vector<float> result;
-    for (float num : a) {
+    for (float num : v) {
         if (num > 0) {
             result.push_back(num);
         }
