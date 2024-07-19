@@ -11,3 +11,4 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         }
     }
     return result;
+}
