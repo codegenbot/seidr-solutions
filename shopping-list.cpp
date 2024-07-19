@@ -1,31 +1,48 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-double shoppingList(vector<float> prices, vector<float> discounts) {
+double totalPriceAfterDiscount(const std::vector<double>& prices, const std::vector<double>& discounts) {
     double totalPrice = 0.0;
     for (int i = 0; i < prices.size(); ++i) {
-        float price = prices[i];
-        float discount = price * discounts[i] / 100.0f;
+        double price = prices[i];
+        double discount = price * discounts[i] / 100.0;
         totalPrice += price - discount;
     }
     return totalPrice;
 }
 
 int main() {
-    int numItems, numDiscounts;
-    cin >> numItems >> numDiscounts;
-
-    vector<float> prices(numItems);
-    for (float &price : prices) {
-        cin >> price;
+    int n;
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        double price;
+        std::cin >> price;
+        
+        if (i > 0) {
+            std::cout << " ";
+        }
+        std::cout << price;
     }
-
-    vector<float> discounts(numDiscounts);
-    for (float &discount : discounts) {
-        cin >> discount;
+    
+    std::cout << "\n";
+    
+    for (int i = 0; i < n; ++i) {
+        double discount;
+        std::cin >> discount;
+        
+        if (i > 0) {
+            std::cout << " ";
+        }
+        std::cout << discount;
     }
-
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    
+    std::cout << "\n";
+    
+    double totalPrice = totalPriceAfterDiscount(std::vector<double>(std::istream_iterator<double>(std::cin), std::istream_iterator<double>()),
+                                                     std::vector<double>(std::istream_iterator<double>(std::cin), std::istream_iterator<double>()));
+    
+    std::cout << totalPrice << "\n";
 
     return 0;
 }
