@@ -5,6 +5,6 @@ vector<int> sort_third(vector<int>& l) {
     return l;
 }
 
-bool issame(vector<int>& vec1, vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
