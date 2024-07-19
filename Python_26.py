@@ -1,2 +1,3 @@
 def remove_duplicates(numbers):
-    return [x for i, x in enumerate(numbers) if x not in numbers[:i]]
+    seen = set()
+    return [x for x in numbers if not (x in seen or seen.add(x))]
