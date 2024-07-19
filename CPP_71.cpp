@@ -15,7 +15,7 @@ float triangle_area(float a, float b, float c) {
 int main() { 
     assert(abs(triangle_area(2, 2, 10) - 2.23607) < 0.01);
     float a, b, c;
-    std::cout << "Enter side lengths a, b, and c of the triangle: ";
+    std::cout << "Enter side lengths a, b of the triangle: ";
     std::cin >> a >> b;
     if(a+b>c && a+c>b && b+c>a)
         std::cout << "The area of the triangle is " << triangle_area(a,b,c);
