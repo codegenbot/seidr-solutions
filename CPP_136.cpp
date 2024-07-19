@@ -1,22 +1,22 @@
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result(2);
-
-    if (any_of(lst.begin(), lst.end(), [](int x) { return x < 0; })) {
-        result[0] = *min_element(ifstream(lst.begin(), lst.end(), [](int x) { return x < 0; }));
-    } else {
-        result[0] = 0;
+    vector<int> result;
+    
+    int max_negative = 0, min_positive = INT_MAX;
+    
+    for (int i : lst) {
+        if (i < 0 && i > max_negative) {
+            max_negative = i;
+        } else if (i > 0 && i < min_positive) {
+            min_positive = i;
+        }
     }
-
-    if (any_of(lst.begin(), lst.end(), [](int x) { return x > 0; })) {
-        result[1] = *min_element(ifstream(lst.begin(), lst.end(), [](int x) { return x > 0; }));
-    } else {
-        result[1] = 0;
-    }
-
+    
+    result.push_back(max_negative);
+    result.push_back(min_positive);
+    
     return result;
 }
