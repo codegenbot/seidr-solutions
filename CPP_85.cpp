@@ -2,15 +2,12 @@
 
 int add(vector<int> lst){
     if(lst.size() == 0) {
-        cout << "Error: The list is empty." << endl;
+        cout << "Error: The input vector is empty." << endl;
         return -1;
     }
     int sum = 0;
     for(int i = 1; i < lst.size(); i += 2){
-        if(i >= lst.size()) {
-            cout << "Error: Index out of range." << endl;
-            return -1;
-        }
+        if(i >= lst.size()) break;
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
