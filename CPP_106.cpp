@@ -12,32 +12,21 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int factorial(int n) {
-    int result = 1;
-    for (int i = 1; i <= n; ++i) {
-        result *= i;
-    }
-    return result;
-}
-
 std::vector<int> f(int n){
     std::vector<int> result(n);
     for(int i = 1; i <= n; ++i){
-        result[i-1] = (i % 2 == 0) ? factorial(i) : i * (i + 1) / 2;
+        result[i-1] = (i % 2 == 0 ? i * (i - 1) : i * (i + 1));
     }
     return result;
 }
 
 int main() {
-    std::vector<int> expected{1, 2, 6, 4, 15};
+    std::vector<int> expected{0, 2, 6, 12};
+    std::vector<int> actual = f(4);
 
-    std::vector<int> result = f(5);
-
-    if (issame(result, expected)) {
-        std::cout << "Test Passed!\n";
+    if(issame(expected, actual)){
+        return 0;
     } else {
-        std::cout << "Test Failed!\n";
+        return 1;
     }
-
-    return 0;
 }
