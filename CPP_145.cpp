@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool is_same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
