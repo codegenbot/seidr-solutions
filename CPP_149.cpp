@@ -1,3 +1,4 @@
+```
 bool issame(string s1, string s2) {
     if (s1.length() != s2.length()) {
         return false;
@@ -32,11 +33,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"abc", "def", "ghi", "jkl", "mno"};
-    vector<string> output = sorted_list_sum(lst);
+    vector<string> input = {"abc", "def", "ghi", "jkl", "mno", "pqr"};
+    vector<string> output = sorted_list_sum(input);
     for (const auto& str : output) {
         if (issame("abc", str)) {
-            cout << str;
+            cout << "Found same string: " << str << endl;
         }
     }
     return 0;
