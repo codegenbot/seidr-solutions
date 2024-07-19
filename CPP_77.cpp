@@ -1,4 +1,4 @@
 bool iscuber(int a){
-    int n = cbrt(a);
-    return a == pow(n, 3);
+    int i = cbrt(a);
+    return (a == round(pow(i, 3)));
 }
