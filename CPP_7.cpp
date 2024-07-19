@@ -1,7 +1,22 @@
-void filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
-    std::vector<std::string> temp_vec = vec;
-    temp_vec.erase(std::remove_if(temp_vec.begin(), temp_vec.end(), [substr](const std::string& s) {
+#include <vector>
+#include <string>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+void filter_by_substring(std::vector<std::string> vec, const std::string& substr) {
+    vec.erase(std::remove_if(vec.begin(), vec.end(), [substr](const std::string& s) {
         return s.find(substr) != std::string::npos;
-    }), temp_vec.end());
-    vec = temp_vec;
+    }), vec.end());
+}
+
+int main() {
+    std::vector<std::string> words = {"apple", "banana", "orange", "grape"};
+    filter_by_substring(words, "an");
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
+    return 0;
 }
