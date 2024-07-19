@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt){
@@ -9,3 +10,4 @@ bool check_if_last_char_is_a_letter(string txt){
         }
     }
     return true;
+}
