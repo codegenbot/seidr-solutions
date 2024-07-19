@@ -20,7 +20,7 @@ bool match_parens(const std::vector<std::string>& lst) {
 int main() {
     std::vector<std::string> lst;
     std::string str;
-
+    
     while(std::cin >> str) {
         lst.push_back(str);
     }
@@ -28,6 +28,5 @@ int main() {
     bool result = match_parens(lst);
 
     std::cout << (result ? "Yes\n" : "No\n");
-
     return 0;
 }
