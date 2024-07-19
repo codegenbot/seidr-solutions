@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <openssl/md5.h>
+#include <cassert>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -13,7 +13,7 @@ std::string string_to_md5(const std::string& text) {
 
     char mdString[33];
     for(int i = 0; i < 16; i++) {
-        snprintf(&mdString[i*2], 3, "%02x", (unsigned int)digest[i]);
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
     return std::string(mdString);
