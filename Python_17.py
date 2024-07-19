@@ -1,15 +1,14 @@
 ```
 def parse_music(music_string: str) -> List[int]:
-    notes = {'o': 4, 'o|': 2, '.|': 1}
+    beats = [0, 0, 0]  # Initialize list for whole, half and quarter note
     result = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == '.':
-            i += 3
-        else:
-            note = ''
-            while i < len(music_string) and (music_string[i] == 'o' or music_string[i] == '|' or music_string[i] == '.'):
-                note += music_string[i]
-                i += 1
-            result.append(notes[note])
+    
+    for char in music_string:
+        if char == 'o':
+            result.append(4)
+        elif char == 'o|':
+            result.append(2)
+        elif char == '.|':
+            result.append(1)
+
     return result
