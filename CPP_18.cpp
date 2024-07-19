@@ -1,21 +1,21 @@
+```
 #include <iostream>
 #include <string>
 
-int how_many_times(string s, string sub);
+int how_many_times(const std::string& s, const std::string& sub) {
+    int count = 0;
+    size_t pos = 0;
 
-int main() {
-    string s, sub;
-    cin >> s >> sub; 
-    cout << how_many_times(s, sub);
+    while ((pos = s.find(sub, pos)) != std::string::npos) {
+        ++count;
+        pos += sub.size();
+    }
+
+    return count;
 }
 
-int how_many_times(string s, string sub) {
-    int count = 0;
-    while (s.find(sub) != string::npos) {
-        ++count;
-        size_t found = s.find(sub);
-        if (found != string::npos)
-            s = s.substr(found + sub.length());
-    }
-    return count;
+int main() {
+    std::string s, sub;
+    std::cin >> s >> sub;
+    std::cout << how_many_times(s, sub);
 }
