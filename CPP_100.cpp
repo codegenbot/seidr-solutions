@@ -16,5 +16,5 @@ std::vector<int> make_a_pile(int n) {
 }
 
 bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+    return (vec1 == vec2);
 }
