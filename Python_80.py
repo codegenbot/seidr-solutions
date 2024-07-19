@@ -1,5 +1,7 @@
+```
 def is_happy(n):
-    n = int(n)
+    if not isinstance(n, int) and n.isdigit():
+        n = int(n)
     if n < 1:
         return False
     seen = set()
