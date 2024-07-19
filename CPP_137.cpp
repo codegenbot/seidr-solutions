@@ -1,12 +1,14 @@
+```cpp
 #include <iostream>
 #include <string>
 
-const std::string compare_one(const std::string& a, const int b) {
-    if (a.size() > b)
-        return "Longer";
-    else if (a.size() < b)
-        return "Shorter";
-    return "Equal";
+const int compare_one(const std::string& a, const int b) {
+    if (a == "1")
+        return b;
+    else if (a == "-1")
+        return -b;
+    else
+        return 0;
 }
 
 int main() {
@@ -14,31 +16,31 @@ int main() {
     std::string str1;
     std::cin >> str1;
 
-    std::cout << "Enter the second string: ";
-    std::string str2;
-    std::cin >> str2;
+    std::cout << "Enter the second integer: ";
+    int b;
+    std::cin >> b;
 
-    int result = compare_strings(str1, str2);
+    int result = compare_one(str1, b);
     if (result > 0)
         std::cout << "The first string is greater." << std::endl;
     else if (result < 0)
-        std::cout << "The second string is greater." << std::endl;
+        std::cout << "The second integer is greater." << std::endl;
     else
-        std::cout << "Both strings are equal." << std::endl;
+        std::cout << "Both are equal." << std::endl;
 
     return 0;
 }
 
-int compare_strings(const std::string& a, const std::string& b) {
+int compare_strings(const std::string& a, const int b) {
     for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
         if (std::tolower(a[i]) > std::tolower(b[i]))
             return 1;
         else if (std::tolower(a[i]) < std::tolower(b[i]))
             return -1;
     }
-    if (a.size() > b.size())
+    if (a.size() > b)
         return 1;
-    else if (a.size() < b.size())
+    else if (a.size() < b)
         return -1;
     return 0;
 }
