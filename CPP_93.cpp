@@ -1,14 +1,13 @@
-for(char& c : message){
+transform(message.begin(), message.end(), message.begin(), [](char c){
         if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                return isupper(c) ? toupper((c + 2 - 'A') % 26 + 'A') : (c + 2 - 'a') % 26 + 'a';
             } else {
-                c = tolower(c);
+                return isupper(c) ? tolower(c) : toupper(c);
             }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c += 2;
-            }
+        } else {
+            return c;
         }
-    }
+    });
     return message;
 }
