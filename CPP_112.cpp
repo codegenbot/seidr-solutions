@@ -23,7 +23,11 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
             }
         }
         if(!found) {
-            result.push_back(s.substr(i));
+            int temp = i;
+            while(i < s.size()) {
+                result.push_back(s.substr(temp));
+                i++;
+            }
             break;
         }
     }
