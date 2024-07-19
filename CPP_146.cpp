@@ -1,4 +1,5 @@
-```cpp
+#include <cassert>
+
 int specialFilter(std::vector<int> nums) {
     int c = 0;
     for (int num : nums) {
@@ -7,4 +8,11 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return c; 
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    int testResult = specialFilter({1, 11, 21});
+    // do something with the result
+    return 0;
 }
