@@ -1,10 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -30,19 +27,14 @@ std::vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> result = get_odd_collatz(n);
-
-    std::vector<int> expected_result = {1, 3, 5, 9, 17, 25}; // Example expected result
-
-    if (issame(result, expected_result)) {
-        std::cout << "Output matches expected result." << std::endl;
-    } else {
-        std::cout << "Output does not match expected result." << std::endl;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-
-    return 0;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
