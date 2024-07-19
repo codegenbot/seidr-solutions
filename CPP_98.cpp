@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int count_upper(string s) {
@@ -9,4 +8,3 @@ int count_upper(string s) {
         }
     }
     return count;
-}
