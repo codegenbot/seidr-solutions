@@ -17,11 +17,11 @@ int main() {
     while(getline(cin, line)) {
         auto pos = line.find('(');
         if(pos != std::string::npos) {
-            line.erase(0, 1); line.erase(pos);
+            auto posIt = line.begin() + pos;
+            line = std::string(posIt, line.end()); // Create a new string from the specified position to the end.
         } else {
             break;
         }
-        if(line.empty()) break;
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
