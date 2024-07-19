@@ -1,43 +1,31 @@
-string words_in_sentence(string sentence){
+string words_in_sentence(string sentence) {
     string result;
+    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29}; // List of prime numbers up to 30
+
     string word;
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] != ' '){
-            word += sentence[i];
-        } 
-        else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if(word_length <= 1){
-                is_prime = false;
-            } else {
-                for(int j=2; j*j<=word_length; j++){
-                    if(word_length % j == 0){
-                        is_prime = false;
-                        break;
-                    }
-                }
-            }
-            if(is_prime){
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (is_prime(word.size(), primes)) {
                 result += word + " ";
             }
             word = "";
+        } else {
+            word += c;
         }
     }
-    int last_word_size = word.length();
-    bool is_prime = true;
-    if(last_word_size <= 1){
-        is_prime = false;
-    } else {
-        for(int j=2; j*j<=last_word_size; j++){
-            if(last_word_size % j == 0){
-                is_prime = false;
-                break;
-            }
-        }
-    }
-    if(is_prime){
+    
+    if (is_prime(word.size(), primes)) {
         result += word;
     }
+    
     return result;
+}
+
+bool is_prime(int n, int primes[]) {
+    for (int i : primes) {
+        if (n == i) {
+            return true;
+        }
+    }
+    return false;
 }
