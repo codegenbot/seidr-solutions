@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 std::string fix_spaces(const std::string& text) {
@@ -6,19 +6,11 @@ std::string fix_spaces(const std::string& text) {
         if (text[i] == ' ') {
             if (i > 0 && text[i - 1] == ' ')
                 continue;
-            else 
-                text.insert(i, "%");
+            else {
+                text.insert(i, "2%");
+                i += 3;
+            }
         }
     }
     return text;
-}
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string text;
-    getline(std::cin, text);
-    for (char &c : text) {
-        c = tolower((unsigned char)c);
-    }
-    std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
 }
