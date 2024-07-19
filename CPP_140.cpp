@@ -1,11 +1,20 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ' && i < text.size() - 2 && text[i+1] == ' ' && text[i+2] == ' ') {
-        text[i] = '_';
-        text[i+1] = '_';
-        text[i+2] = '-';
-        i += 2;
-    } else if (text[i] == ' ') {
-        text[i] = '_';
+string fix_spaces(string text){
+    string result = "";
+    int count = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            count++;
+            if(count > 2){
+                if(result.back() != '-'){
+                    result += "-";
+                }
+            }
+        } else{
+            count = 0;
+            result += (c == ' ') ? '_' : c;
+        }
     }
+    
+    return result;
 }
-return text;
