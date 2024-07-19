@@ -1,9 +1,13 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    // Implementation code here
+vector<int> minPath(vector<vector<int>> grid, int k){
+    vector<int> path;
+    // Implement path finding logic here
+    return path; // Add a return statement
 }
