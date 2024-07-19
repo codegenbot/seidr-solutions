@@ -1,7 +1,4 @@
-```cpp
-#include <iostream>
 #include <vector>
-
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -15,7 +12,7 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> test = {11, 22, 33, 44};
-    cout << add_elements(test, 4) << endl; // you should replace this with your actual usage
+    vector<int> test = {12, 23, 34};
+    cout << add_elements(test, 3) << endl; 
     return 0;
 }
