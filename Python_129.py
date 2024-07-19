@@ -18,6 +18,6 @@ def minPath(grid, k):
             if found_next:
                 break
         if not found_next:
-            break
+            path.append(path[-1])
 
     return path
