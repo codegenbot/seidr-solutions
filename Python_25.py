@@ -1,5 +1,4 @@
-def factorize():
-    number = int(input("Enter a number to factorize: "))
+def factorize(number):
     factors = []
     for i in range(1, int(number**0.5) + 1):
         if number % i == 0:
@@ -8,4 +7,5 @@ def factorize():
                 factors.append(number // i)
     return sorted(factors)
 
-print(factorize())
+input_number = int(input("Enter a number to factorize: "))
+print(factorize(input_number))
