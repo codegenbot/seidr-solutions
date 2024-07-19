@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <algorithm>
 #include <initializer_list>
@@ -25,12 +26,7 @@ std::map<char, int> histogram(string test) {
 bool isSame(const map<char,int>& a, const map<char,int>& b){
     if(a.size() != b.size()) return false;
     for(auto p : a) {
-        if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
+        if(b.find(p.first) != b.end() && b[p.first] != p.second) return false;
     }
     return true;
-}
-
-int main() {
-    cout << isSame(histogram("a"), histogram("b")) << endl;
-    return 0;
 }
