@@ -1,11 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-std::vector<std::string> separate_paren_groups(std::string paren_string){
-    std::vector<std::string> groups;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string){
+    vector<string> groups;
+    string current_group;
     int balance = 0;
 
     for (char c : paren_string) {
@@ -16,9 +11,9 @@ std::vector<std::string> separate_paren_groups(std::string paren_string){
             balance++;
         } else if (c == ')') {
             balance--;
-            if (balance > 0) {
+            if (balance >= 0) {
                 current_group += c;
-            } else if (balance == 0) {
+            } else if (balance == -1) {
                 groups.push_back(current_group);
                 current_group = "";
             }
@@ -26,12 +21,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string){
     }
 
     return groups;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
 }
