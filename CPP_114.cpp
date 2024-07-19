@@ -10,7 +10,7 @@ long long minSubArraySum(vector<long long> nums) {
         if (current_sum < min_sum) {
             min_sum = current_sum;
         }
-        if (current_sum > 0) {
+        else if (current_sum > 0) {
             current_sum = 0;
         }
     }
