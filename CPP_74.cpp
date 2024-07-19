@@ -1,22 +1,22 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if(lst1.empty()) return lst2;
-    if(lst2.empty()) return lst1;
-    
-    int sum1 = 0, sum2 = 0;
-    for(auto &s : lst1) {
-        sum1 += s.length();
-    }
-    for(auto &s : lst2) {
-        sum2 += s.length();
-    }
+    int sum1 = 0;
+    int sum2 = 0;
 
-    if(sum1 < sum2) return lst1;
-    if(sum2 < sum1) return lst2;
+    for (const string& s : lst1)
+        sum1 += s.size();
 
-    return lst1;
+    for (const string& s : lst2)
+        sum2 += s.size();
+
+    if (sum1 < sum2)
+        return lst1;
+    else if (sum1 > sum2)
+        return lst2;
+    else
+        return lst1;
 }
