@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> f(int n);
 
 int main() {
-    // Your main function code here
+    // Main function code here
 }
 
 std::vector<int> f(int n){
