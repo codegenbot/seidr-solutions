@@ -1,5 +1,5 @@
-#include <string>
 #include <openssl/md5.h>
+#include <string.h>
 
 std::string string_to_md5(const std::string& input) {
     MD5_CTX ctx;
