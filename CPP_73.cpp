@@ -1,3 +1,4 @@
+#include <vector>
 #include <initializer_list>
 
 int smallest_change(vector<int> arr) {
@@ -17,3 +18,4 @@ int smallest_change(vector<int> arr) {
         }
     }
     return dp[0][n - 1];
+}
