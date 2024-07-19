@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
+#include <cmath>
+
+using namespace std;
 
 double poly(const vector<double>& coeffs, double x){
     double result = 0;
@@ -18,13 +20,9 @@ double find_zero(const vector<double>& coeffs){
 }
 
 int main(){
-    vector<double> coeffs;
-    coeffs.push_back(1);
-    coeffs.push_back(-3);
-    coeffs.push_back(2);
-    
+    vector<double> coeffs = {1, -3, 2}; // example coefficients
     double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    assert(fabs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
 }
