@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -12,18 +11,10 @@ bool is_sorted(vector<int> lst) {
         if (temp[i] != lst[i]) return false;
     }
     return true;
+
 }
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-    if (!is_sorted(input)) {
-        cout << "The list is not sorted." << endl;
-    } else {
-        cout << "The list is sorted." << endl;
-    }
+    // Add your code here
 }
