@@ -1,16 +1,12 @@
-// Add necessary includes
 #include <vector>
 #include <cassert>
 
-// Define function signature
 vector<int> tri(int n);
 
-// Define function to check if two vectors are the same
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-// Implement the tri function
 vector<int> tri(int n) {
     vector<int> result;
     if (n == 0) {
@@ -36,9 +32,7 @@ vector<int> tri(int n) {
     return result;
 }
 
-// Add test cases in main function
 int main() {
     assert(issame(tri(1), {1, 3}));
-    // Add more test cases as needed
     return 0;
 }
