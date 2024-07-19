@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -24,7 +25,7 @@ int main() {
 
     if (!input.empty()) { 
         std::cout << "Computed output: " << flip_case(input) << std::endl;
-        if(flip_case(input).compare(std::string("these violent delights have violent ends")) == 0)
+        if(flip_case(input).compare("these violent delights have violent ends") == 0)
             return 0;
         else
             return 1;
