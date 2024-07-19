@@ -1,3 +1,4 @@
+```
 #include <cassert>
 
 int specialFilter(std::vector<int> nums) {
@@ -12,6 +13,7 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    int result = specialFilter({1, 11, 21}); // Example usage of the function
+    int testResult = specialFilter({1, 11, 21});
+    std::cout << "The result is: " << testResult << std::endl;
     return 0;
 }
