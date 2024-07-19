@@ -9,15 +9,15 @@ def bowling_score(frames):
                 score += 30
                 i += 1
             elif i < len(frames):
-                if ''.join(c for c in frames[i].replace(" ", "") if c.isdigit()):
-                    score += int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
-                i += 1
+                second_roll = int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
+                score += second_roll
+                i += 2
         elif frames[i] == '/':
             score += 10
             i += 1
-            if i < len(frames) and ''.join(c for c in frames[i].replace(" ", "") if c.isdigit()):
-                score += int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
-                i += 1
+            if i < len(frames) and ''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()):
+                score += int(''.join(c for c in frames[i+1].replace(" ", "") if c.isdigit()))
+                i += 2
         else:
             first_roll = int(''.join(c for c in frames[i].replace(" ", "") if c.isdigit()))
             if i < len(frames) - 1 and frames[i+1] == 'X':
@@ -42,6 +42,5 @@ def bowling_score(frames):
                 else:
                     score += first_roll
                     i += 1
-    return score
 
-print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10|-"))
+    return score
