@@ -38,12 +38,8 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> v1 = reverse_delete("mamma", "mia");
-    vector<string> v2 = {"", "True"};
-    if (issame(v1, v2)) {
-        cout << "Test passed." << endl;
-    } else {
-        cout << "Test failed." << endl;
-    }
+    vector<string> expected = {"", "True"};
+    vector<string> result = reverse_delete("mamma", "mia");
+    assert(issame(result, expected));
     return 0;
 }
