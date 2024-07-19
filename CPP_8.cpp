@@ -6,7 +6,7 @@ namespace mystd {
     using ::std::vector;
 }
 
-bool issame(const mystd::vector<int>& a, const mystd::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a[0] == b[0] && a[1] == b[1];  // Compare each element of the pair
 }
 
