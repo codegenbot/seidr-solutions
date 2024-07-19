@@ -19,11 +19,3 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     });
     return sorted_arr;
 }
-
-// int main() { // Comment out to resolve redefinition of main error
-int main() {
-    // Test the function
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-
-    return 0;
-}
