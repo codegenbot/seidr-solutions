@@ -14,22 +14,20 @@ bool match_parens(const std::vector<std::string>& lst) {
         }
     }
 
-    if(countOpen != countClose) result = false;
+    return countOpen == countClose;
 
-    return result;
+    std::vector<std::string> user_input;
+    std::cout << "Enter parentheses expressions (enter 'q' to quit): ";
+    while (true) {
+        std::string s;
+        std::cin >> s;
+        if (s == "q") break;
+        user_input.push_back(s);
+    }
+    bool result_user = match_parens(user_input);
+
+    std::cout << (result_user ? "Yes\n" : "No\n");
 }
 
 int main() {
-    std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
-    bool result = match_parens(lst);
-
-    std::cout << (result ? "Yes\n" : "No\n");
-
-    if (!match_parens({")", "("})) {
-        std::cout << "Match failed.\n";
-    } else {
-        std::cout << "Match passed.\n";
-    }
-
-    return 0;
 }
