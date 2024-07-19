@@ -1,40 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-std::vector<std::string> separate_paren_groups(std::string paren_string);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
-int main() {
-    std::string paren_string;
-    std::cout << "Enter a string with parentheses: ";
-    std::cin >> paren_string;
-    
-    std::vector<std::string> result = separate_paren_groups(paren_string);
-    
-    for (const std::string& group : result) {
-        std::cout << group << std::endl;
-    }
-    
-    return 0;
-}
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int count = 0;
     
     for (char c : paren_string) {
@@ -55,4 +35,9 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
     
     return result;
+}
+
+int main() {
+    // Main function can use the modified separate_paren_groups and issame functions
+    return 0;
 }
