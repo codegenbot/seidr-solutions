@@ -2,10 +2,14 @@
 #include <vector>
 
 bool areSame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l){
+std::vector<float> sortEvenElements(std::vector<float> l) {
     std::vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
@@ -21,6 +25,6 @@ std::vector<float> sortEven(std::vector<float> l){
 }
 
 int main(){
-    assert (areSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), sortEven({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})));
+    assert (areSame(sortEvenElements({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), sortEvenElements({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})));
     return 0;
 }
