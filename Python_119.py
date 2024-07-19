@@ -4,8 +4,8 @@ def match_parens(lst):
         if s == "(":
             count += 1
         elif s == ")":
-            if count <= 0:
-                return "No"
             count -= 1
-
+            if count < 0:
+                return "No"
+    
     return "Yes" if count == 0 else "No"
