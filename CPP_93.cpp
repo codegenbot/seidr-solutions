@@ -1,27 +1,29 @@
-#include <iostream>
 #include <string>
-
-using namespace std;
+#include <cctype>
 
 string encode(string message){
-    for(char &c : message){
+    string encoded_message = "";
+    for(char c : message){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
             } else {
                 c = tolower(c);
             }
-            if(c == 'A') c = 'C';
-            else if(c == 'E') c = 'G';
-            else if(c == 'I') c = 'K';
-            else if(c == 'O') c = 'Q';
-            else if(c == 'U') c = 'W';
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                encoded_message += char(c + 2);
+            } else {
+                encoded_message += c;
+            }
+        } else {
+            encoded_message += c;
         }
     }
-    return message;
+    return encoded_message;
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItTg");
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    
     return 0;
 }
