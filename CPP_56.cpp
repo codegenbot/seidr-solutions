@@ -3,7 +3,7 @@
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
-    for (char bracket : brackets) {
+    for (const char& bracket : brackets) {
         if (bracket == '<') {
             count++;
         } else if (bracket == '>') {
