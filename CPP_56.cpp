@@ -1,6 +1,6 @@
 #include <string>
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const std::string& brackets){
     int count = 0;
     for(char c : brackets){
         if(c == '<'){
