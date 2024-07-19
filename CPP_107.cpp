@@ -30,7 +30,7 @@ vector<int> to_vector(int num) {
     string str = to_string(num);  
     v.clear();
     for (char c : str) {  
-        v.push_back((c - '0')); // subtract '0' because '0'-'9' is the ASCII value for digits
+        v.push_back(c - '0'); // subtract '0' because '0'-'9' is the ASCII value for digits
     }
     return v;
 }
