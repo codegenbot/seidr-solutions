@@ -1,35 +1,42 @@
-bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int open_braces = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_braces > 0) {
-                current_group += c;
-            }
-            open_braces++;
-        } else if (c == ')') {
-            open_braces--;
-            if (open_braces > 0) {
-                current_group += c;
-            } else if (open_braces == 0) {
-                result.push_back(current_group);
-                current_group = "";
+bool issame(const vector<string>& a, const vector<string>& b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) {
+                return false;
             }
         }
+        return true;
     }
 
-    return result;
-}
+    vector<string> separate_paren_groups(const string& paren_string) {
+        vector<string> groups;
+        int count = 0;
+        string current_group;
+        for (char c : paren_string) {
+            if (c == '(') {
+                if (count > 0) {
+                    current_group += c;
+                }
+                count++;
+            } else if (c == ')') {
+                count--;
+                if (count > 0) {
+                    current_group += c;
+                } else if (count == 0) {
+                    groups.push_back(current_group);
+                    current_group = "";
+                }
+            }
+        }
+        return groups;
+    }
 
-int main() {
-    vector<string> groups = separate_paren_groups("(()()()())");
-    assert(issame(groups, {"()", "()", "()", "()"}));
-}
+    int main() {
+        string test_string = "(a)(b)(c)";
+        vector<string> expected_groups = {"a", "b", "c"};
+        vector<string> result = separate_paren_groups(test_string);
+        assert(issame(result, expected_groups));
+        return 0;
+    }
