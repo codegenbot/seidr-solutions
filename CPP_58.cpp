@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<int> solve(vector<int> l1, vector<int> l2) {
+vector<int> solve(const vector<int>& l1, const vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
@@ -21,6 +21,6 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 }
 
 int main() {
-    assert(issame(solve({4, 3, 2, 8}, {}), {}));
+    assert(issame(solve(vector<int>{4, 3, 2, 8}, vector<int>{}), {}));
     return 0;
 }
