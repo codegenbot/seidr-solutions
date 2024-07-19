@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
-int compare_strings(std::string a, std::string b) {
+int compare_strings(const std::string& a, const std::string& b) {
     if (a > b)
         return 1;
     else if (b > a)
@@ -17,8 +17,9 @@ int main() {
     getline(std::cin, str1);
 
     std::cout << "Enter second string: ";
-    getline(std::cin, str2);
-
+    char c;
+    while ((c = std::getline(std::cin, str2).ignore()).is_space());
+    
     int result = compare_strings(str1, str2);
 
     if (result > 0)
