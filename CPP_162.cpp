@@ -31,6 +31,6 @@ int main() {
     std::cin >> input_text;
 
     std::cout << "MD5 Hash: " << string_to_md5(input_text) << std::endl;
-    
+
     return 0;
 }
