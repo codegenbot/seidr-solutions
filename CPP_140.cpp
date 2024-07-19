@@ -3,19 +3,35 @@
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
-    std::string updated_text = text;
-    for (int i = 0; i < updated_text.length(); ++i) {
-        if (updated_text[i] == ' ' && i + 2 < updated_text.length() && updated_text[i + 1] == ' ' && updated_text[i + 2] == ' ') {
-            updated_text.replace(i, 3, "-");
-        } else if (updated_text[i] == ' ') {
-            updated_text[i] = '_';
+    std::string result;
+    bool lastSpace = false;
+    int consecutiveSpaces = 0;
+    for(char c : text){
+        if(c == ' '){
+            if(lastSpace){
+                consecutiveSpaces++;
+            } else {
+                lastSpace = true;
+                consecutiveSpaces = 1;
+            }
+            if(consecutiveSpaces > 2){
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += '_';
+            }
+        } else {
+            result += c;
+            lastSpace = false;
+            consecutiveSpaces = 0;
         }
     }
-    return updated_text;
+    return result;
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    std::cout << "All test cases pass!" << std::endl;
+    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    
     return 0;
 }
