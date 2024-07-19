@@ -9,17 +9,6 @@ bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) 
 
 std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers);
 
-int main() {
-    // Create a vector of pairs of floats
-    std::vector<std::pair<float, float>> numbers = {{1.0f, 2.0f}, {3.0f, 4.0f}, {2.0f, 3.0f}};
-    
-    if (find_closest_elements(numbers) != (std::make_pair(std::make_pair(2.0f, 3.0f), 0.0f))) {
-        return 1;
-    }
-    
-    return 0;
-}
-
 std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers) {
     std::pair<std::pair<float, float>, float> closest;
     float min_diff = std::numeric_limits<float>::max();
@@ -37,3 +26,7 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
 
     return closest;
 }
+
+std::pair<float, float> pairs[] = {{1.1f, 2.2f}, {3.1f, 4.1f}};
+std::vector<std::pair<float, float>> numbers(pairs, pairs + sizeof(pairs) / sizeof(pairs[0]));
+assert(issame(find_closest_elements(numbers), std::make_pair(std::pair<float, float>(2.2f, 3.1f), 0.0f)));
