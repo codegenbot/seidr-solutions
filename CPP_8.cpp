@@ -3,7 +3,7 @@
 #include <utility>
 
 namespace mystd {
-    using std::vector;
+    using ::std::vector;
 }
 
 bool issame(int a, int b) {
@@ -21,6 +21,7 @@ std::pair<int, int> sum_product(const mystd::vector<int>& numbers) {
 }
 
 int main() {
-    assert(issame(sum_product({10}).first, 10) && issame(sum_product({10}).second, 10));
+    auto result = sum_product({10});
+    assert(issame(result.first, 10) && issame(result.second, 10));
     return 0;
 }
