@@ -1,9 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
@@ -17,7 +11,7 @@ vector<int> order_by_points(vector<int> nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+            return a < b;
         }
         return sum_a < sum_b;
     });
@@ -25,10 +19,10 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return order_by_points(a) == order_by_points(b);
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
