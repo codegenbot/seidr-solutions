@@ -1,11 +1,14 @@
-vector<string> reverse_delete(string s, string c){
-    string result;
-    for(char ch : s){
-        if(find(c.begin(), c.end(), ch) == c.end()){
-            result += ch;
-        }
+for (int i = 0; i < c.size(); i++) {
+        s.erase(remove(s.begin(), s.end(), c[i]), s.end());
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    
+    string result = s;
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    
+    if (result == rev) {
+        return {result, "True"};
+    } else {
+        return {result, "False"};
+    }
 }
