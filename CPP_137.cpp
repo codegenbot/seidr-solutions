@@ -22,5 +22,5 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         }
     }
-    return a;
+    return a;  
 }
