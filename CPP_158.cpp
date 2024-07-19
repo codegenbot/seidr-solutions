@@ -14,4 +14,13 @@ string find_max(vector<string> words) {
     return max_word;
 }
 
-cout << find_max(words) << endl;
+int main() {
+    vector<string> words;
+    string input;
+
+    while (cin >> input) {
+        words.push_back(input);
+    }
+    
+    cout << find_max(words) << endl;
+}
