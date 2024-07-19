@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -44,13 +45,21 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<std::string> a) {
-    std::vector<std::string> b = {"Nine", "Four", "Eight"};
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    if (!issame(by_length({9, 4, 8}))) {
-        assert(false);
-    }
+    std::vector<int> arr = {9, 4, 8};
+    vector<string> result = by_length(arr);
+    assert(issame(result, {"Nine", "Four", "Eight"}));
+    return 0;
 }
