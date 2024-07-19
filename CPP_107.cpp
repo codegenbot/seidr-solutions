@@ -1,6 +1,7 @@
+#include <vector>
+#include <cassert>
+using namespace std;
+
 vector<int> even_odd_palindrome(int n){
-        vector<int> res;
-        res.push_back(n / 2);
-        res.push_back(n - n / 2);
-        return res;
-    }
+    return {n / 2, n - n / 2};
+}
