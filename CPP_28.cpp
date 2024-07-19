@@ -13,14 +13,14 @@ std::string concatenate(std::vector<std::string> strings){
 
 int main(){
     std::vector<std::string> input_strings;
-    std::string input, word;
+    std::string input;
 
     std::cout << "Enter strings to concatenate (separated by spaces): ";
     std::getline(std::cin, input);
 
-    std::istringstream iss(input);
-    while (iss >> word) {
-        input_strings.push_back(word);
+    std::stringstream iss(input);
+    while (iss >> input) {
+        input_strings.push_back(input);
     }
 
     std::string concatenated_result = concatenate(input_strings);
