@@ -12,7 +12,7 @@ def encode(message):
 
 while True:
     try:
-        message = str(input("Enter a message to encode: "))
+        message = input("Enter a message to encode: ")
         break
     except:
         print("Invalid input. Please enter a valid string.")
