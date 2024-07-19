@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> factorize(int n){
     std::vector<int> factors;
     for(int i=2; i*i<=n; i++){
