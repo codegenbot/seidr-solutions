@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
-#include <cctype>
 
 std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
@@ -21,7 +21,7 @@ std::vector<std::string> split_words(const std::string &txt) {
         result.push_back(word);
     }
     if (result.empty()) {
-        int count = 0;
+        size_t count = 0;
         for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
@@ -32,6 +32,10 @@ std::vector<std::string> split_words(const std::string &txt) {
     return result;
 }
 
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+bool is_same(const std::vector<std::string> &a, const std::vector<std::string> &b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    
 }
