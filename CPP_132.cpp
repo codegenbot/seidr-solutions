@@ -1,19 +1,24 @@
-Here's the solution:
+int main() {
+    string str;
+    cin >> str;
 
-```cpp
-int count_open = 0, count_close = 0;
+    bool isNested = false;
+    int countOpen = 0, countClose = 0;
 
-for (char c : str) {
-    if (c == '[') {
-        count_open++;
-    } else if (c == ']') {
-        if (count_open > 0) {
-            count_open--;
-            count_close++;
-        } else {
-            return false;
+    for (char c : str) {
+        if (c == '[') {
+            countOpen++;
+        } else if (c == ']') {
+            countClose++;
+
+            if (countOpen > 0 && countClose >= countOpen) {
+                isNested = true;
+                break;
+            }
         }
     }
-}
 
-return count_open != 0;
+    cout << (isNested ? "true" : "false") << endl;
+
+    return 0;
+}
