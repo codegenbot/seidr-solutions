@@ -1,34 +1,25 @@
 #include <vector>
-using namespace std;
+#include <assert.h>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<vector<int>> get_odd_collatz(int n);
-
-int main() {
-    assert(issame(get_odd_collatz(1) , {1}));
-    // other code...
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size())return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])return false;
     }
     return true;
 }
 
-vector<vector<int>> get_odd_collatz(int n) {
-    vector<int> sequence = {n};
-    while (true) {
-        if (sequence.back() % 2 == 0) {
-            int next = sequence.back() / 2;
-            if (next == 1) break;
-            sequence.push_back(next);
-        } else {
-            int next = sequence.back() * 3 + 1;
-            sequence.push_back(next);
-        }
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
+    while(n!=1){
+        if(n%2==0)n=n/2;
+        else n=3*n+1;
+        result.push_back(n);
     }
-    return {sequence};
+    return result;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
 }
