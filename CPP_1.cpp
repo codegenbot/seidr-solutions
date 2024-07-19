@@ -32,9 +32,7 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     return groups;
 }
 
-int main() {
+void main() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
-    std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
-    assert(is_same(result, expected));
-    return 0;
+    assert(is_same(separate_paren_groups("( ) (( )) (( )( ))"), expected));
 }
