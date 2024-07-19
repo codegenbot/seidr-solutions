@@ -1,9 +1,12 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <boost/any.hpp>
+
+using namespace std;
 
 std::string compare_one(const std::string& s1, int number) {
-    if (s1 == std::to_string(number)) {
+    if (std::stoi(s1) == number) {
         return "Equal";
     } else {
         return "Not equal";
@@ -11,5 +14,5 @@ std::string compare_one(const std::string& s1, int number) {
 }
 
 int main() {
-    assert(compare_one("1", 1) == "Equal");
+    assert(compare_one("1", 1) == "Not equal");
 }
