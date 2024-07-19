@@ -1,31 +1,27 @@
-#include<string>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 1, c = 0, d = 1;
-    
-    // convert string to integer
-    size_t pos = x.find('/');
-    if (pos != string::npos) {
-        a = stoi(x.substr(0, pos));
-        b = stoi(x.substr(pos+1));
-    }
-    
-    pos = n.find('/');
-    if (pos != string::npos) {
-        c = stoi(n.substr(0, pos));
-        d = stoi(n.substr(pos+1));
-    }
+    int a = stoi(getNumerator(x));
+    int b = stoi(getDenominator(x));
+    int c = stoi(getNumerator(n));
+    int d = stoi(getDenominator(n));
 
-    // check if x * n is a whole number
-    long long res = (long long)a*c + (long long)b*d;
-    long long gcd = __gcd(b*d, abs(res));
-    
-    return res / gcd == 0;
+    if (a % c == 0 && b % d == 0) return true;
+    else return false;
+
 }
 
-int main() {
-    cout << simplify("1/5", "5/1"); // prints: 1
-    cout << simplify("1/6", "2/1"); // prints: 0
-    cout << simplify("7/10", "10/2"); // prints: 0
+string getNumerator(string s) {
+    size_t pos = s.find('/');
+    string result = s.substr(0, pos);
+    return result;
+}
+
+string getDenominator(string s) {
+    size_t pos = s.find('/');
+    string result = s.substr(pos + 1);
+    return result;
 }
