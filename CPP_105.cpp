@@ -1,8 +1,6 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<std::string> a,std::vector<std::string> b) {
-    return a == b;
+```cpp
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a == b);
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
