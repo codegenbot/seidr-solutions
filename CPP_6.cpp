@@ -1,7 +1,9 @@
+```cpp
 #include <stack>
 #include <vector>
 #include <string>
 #include <iostream>
+#include <iterator>
 
 using namespace std;
 
