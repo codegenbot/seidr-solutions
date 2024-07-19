@@ -1,17 +1,19 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <sstream>
 
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
-    std::vector<std::string> result;
-    size_t start = 0;
+std::string words_in_sentence(const std::string& sentence) {
+    return split(sentence);
+}
 
-    for (size_t i = 0; i <= sentence.size(); ++i) {
-        if (i == sentence.size() || sentence[i] == ' ') {
-            result.push_back(sentence.substr(start, i - start));
-            start = i + 1;
-        }
+std::vector<std::string> split(const std::string& str) {
+    std::vector<std::string> tokens;
+    std::stringstream ss(str);
+    std::string token;
+
+    while (getline(ss, token, ' ')) {
+        tokens.push_back(token);
     }
 
-    return result;
+    return tokens;
 }
