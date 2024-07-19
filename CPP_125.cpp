@@ -3,7 +3,7 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> processText(string txt) {
+vector<string> split_string(const string& txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
@@ -16,11 +16,9 @@ vector<string> processText(string txt) {
             word += c;
         }
     }
-
     if (!word.empty()) {
         result.push_back(word);
     }
-
     if (result.size() == 0) {
         int oddLowercaseCount = 0;
         for (char c : txt) {
@@ -30,6 +28,5 @@ vector<string> processText(string txt) {
         }
         result.push_back(to_string(oddLowercaseCount));
     }
-
     return result;
 }
