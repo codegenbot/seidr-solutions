@@ -9,7 +9,7 @@ std::vector<int> tri(int value) {
     return std::vector<int>{value};
 }
 
-std::vector<int> complete_the_code(int n) {
+std::vector<int> complete_code(int n) {
     std::vector<int> result;
     if(n == 0){
         result.push_back(0);
@@ -22,7 +22,7 @@ std::vector<int> complete_the_code(int n) {
             if(i % 2 == 0){
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
             }
         }
     }
