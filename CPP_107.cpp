@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,7 +6,7 @@ using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result;
-    result.reserve(2); // reserve space for 2 elements
+    result.reserve(2); 
     int countEven = 0;
     int countOdd = 0;
 
