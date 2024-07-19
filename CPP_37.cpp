@@ -1,9 +1,20 @@
-#include <initializer_list>
 #include <vector>
 #include <cmath>
 
 bool checkSame(float a, float b) {
     return std::abs(a - b) < 1e-9;
+}
+
+bool issame(std::vector<float> a, std::vector<float> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!checkSame(a[i],b[i])){
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
@@ -29,6 +40,11 @@ int main() {
     std::vector<float> output = sort_even(input);
     for (float val : output) {
         std::cout << val << " ";
+    }
+    if (!issame(input,output)){
+        std::cout << "\nTest case failed";
+    } else{
+        std::cout << "\nTest case passed";
     }
     return 0;
 }
