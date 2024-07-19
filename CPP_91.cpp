@@ -1,6 +1,5 @@
 #include <string>
-
-int is_bored(const std::string& S){
+int countBoredom(std::string S){
     int count = 0;
     bool is_boredom = false;
     for (int i = 0; i < S.size(); ++i) {
@@ -12,9 +11,4 @@ int is_bored(const std::string& S){
         }
     }
     return count;
-}
-
-int main() {
-    assert(is_bored("You and I are going for a walk") == 0);
-    return 0;
 }
