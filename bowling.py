@@ -1,51 +1,52 @@
-    def bowling_score(frames):
-        score = 0
-        roll = 0
+```
+def bowling_score(frames):
+    score = 0
+    roll = 0
 
-        while roll < len(frames) - 1:
-            if frames[roll] == "X":
-                score += 10
-                roll += 2
-            elif "/" in frames[roll:roll+3]:
-                parts = frames[roll:roll+3].split("/")
-                total = sum(map(int, filter(str.isdigit, parts)))
-                if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                    score += total + int(parts[-2].split("/")[0])
-                else:
-                    score += total
-                roll += 3
-
-            else:
-                total = 0
-                for i in range(2):
-                    value = frames[roll+i].strip("/")
-                    if value.isdigit():
-                        total += int(value)
-                    elif value.startswith("-"):
-                        total -= 10
-                    else:
-                        total -= 10
-                score += total
-                roll += 2
-
-        if len(frames) > roll and (frames[roll] == "X" or "/" in frames[roll:roll+3]):
-            if frames[roll] == "X":
-                score += 10
-            else:
-                parts = frames[roll:].split("/")
-                total = sum(map(int, filter(str.isdigit, parts)))
-                if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
-                    score += total + int(parts[-2].split("/")[0])
-                else:
-                    score += total
+    while roll < len(frames) - 1:
+        if frames[roll] == "X":
+            score += 10
             roll += 2
-        elif len(frames) > roll and frames[roll] != "/":
-            value = frames[roll].strip("/")
-            if value.isdigit():
-                score += int(value)
-            elif value.startswith("-"):
-                score -= 10
+        elif "/" in frames[roll:roll+3]:
+            parts = frames[roll:roll+3].split("/")
+            total = sum(map(int, filter(str.isdigit, parts)))
+            if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
+                score += total + int(parts[-2].split("/")[0])
+            else:
+                score += total
+            roll += 3
 
-        return score
+        else:
+            total = 0
+            for i in range(2):
+                value = frames[roll+i].strip("/")
+                if value.isdigit():
+                    total += int(value)
+                elif value.startswith("-"):
+                    total -= 10
+                else:
+                    total -= 10
+            score += total
+            roll += 2
 
-    print(bowling_score("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10"))
+    if roll < len(frames) and (frames[roll] == "X" or "/" in frames[roll:roll+3]):
+        if frames[roll] == "X":
+            score += 10
+        else:
+            parts = frames[roll:].split("/")
+            total = sum(map(int, filter(str.isdigit, parts)))
+            if len(parts) > 1 and (parts[-1] == "X" or "/" in frames[roll+3]):
+                score += total + int(parts[-2].split("/")[0])
+            else:
+                score += total
+        roll += 2
+    elif roll < len(frames) and frames[roll] != "/":
+        value = frames[roll].strip("/")
+        if value.isdigit():
+            score += int(value)
+        elif value.startswith("-"):
+            score -= 10
+
+    return score
+
+print(bowling_score("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10".replace("\n", ",")))
