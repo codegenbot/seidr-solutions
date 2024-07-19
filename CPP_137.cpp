@@ -1,3 +1,4 @@
+#include <iostream>
 #include <any>
 #include <cassert>
 #include <string>
@@ -31,4 +32,12 @@ std::any compare_one(const std::any& a, const std::any& b) {
     }
 
     return std::any();
+}
+
+int main() {
+    assert (std::any_cast<std::string>(compare_one(std::any(std::string("1")), std::any(std::string("1"))) == "");
+    assert (std::any_cast<int>(compare_one(std::any(1), std::any(2))) == 2);
+    assert (std::any_cast<float>(compare_one(std::any(3.5f), std::any(2.5f))) == 3.5f);
+
+    return 0;
 }
