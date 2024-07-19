@@ -1,19 +1,11 @@
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-vector<int> factorize(int n) {
-    vector<int> factors;
-    for (int i = 2; i <= n; ++i) {
+vector<int> factors;
+    for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
             factors.push_back(i);
             n /= i;
         }
     }
+    if (n > 1) {
+        factors.push_back(n);
+    }
     return factors;
-}
-
-if (factorize(3 * 2 * 3) == vector<int>{2, 3, 3}) { 
-    std::cout << "Test passed\n"; 
-}
