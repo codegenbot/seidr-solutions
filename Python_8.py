@@ -1,2 +1,4 @@
-numbers = list(map(int, input().split()))
-print(sum(numbers))
+total = 0
+for num in map(int, input().split()):
+    total += num
+print(total)
