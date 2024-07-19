@@ -1,10 +1,9 @@
-```
 #include <iostream>
 #include <string>
 
-bool isVowel(char c) {
+std::string::size_type isVowel(char c) {
     std::string vowels = "aeiouAEIOU";
-    return std::string(1, std::tolower(c)).find(c) == 0;
+    return vowels.find(std::tolower(c)) != std::string::npos;
 }
 
 std::string remove_vowels(std::string input) {
@@ -17,8 +16,7 @@ std::string remove_vowels(std::string input) {
     return result;
 }
 
-int main 
-{
+int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
