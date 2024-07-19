@@ -1,32 +1,19 @@
-```c++
-#include <iostream>
+```cpp
 #include <vector>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b)
+{
+    if(a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++)
+        if(find(b.begin(), b.end(), a[i]) == b.end())
             return false;
-        }
-    }
     return true;
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> common = {4, 3, 2, 8};
-    std::vector<int> user_input;
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        user_input.push_back(x);
-    }
-    if (issame(common, user_input)) {
-        std::cout << "Yes" << std::endl;
-    } else {
-        std::cout << "No" << std::endl;
-    }
+int main()
+{
+    vector<int> common({4, 3, 2, 8}, {}); 
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
 }

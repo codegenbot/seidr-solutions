@@ -1,19 +1,18 @@
-#include <map>
-#include <vector>
-
-int search(std::vector<int> lst) {
-    std::map<int, int> freq;
-    for (int x : lst) {
-        if (!freq.count(x)) {
-            freq[x] = 1;
+int search(vector<int> lst) {
+    map<int, int> freqMap;
+    for (int num : lst) {
+        if (freqMap.find(num) == freqMap.end()) {
+            freqMap[num] = 1;
         } else {
-            freq[x]++;
+            freqMap[num]++;
         }
     }
-    for (auto p : freq) {
-        if (p.second >= p.first && p.first > 0) {
-            return p.first;
+    int maxFreq = -1;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            maxFreq = pair.first;
+            break;
         }
     }
-    return -1;
+    return maxFreq;
 }
