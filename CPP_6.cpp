@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <stack>
 #include <vector>
 #include <string>
@@ -11,6 +11,8 @@ vector<int> parse_nested_parens(string paren_string) {
     stack<int> nesting_levels;
     int max_nesting = 0;
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wignored-qualifiers"
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
@@ -21,6 +23,8 @@ vector<int> parse_nested_parens(string paren_string) {
         }
     }
 
+#pragma GCC diagnostic pop
+
     while (!nesting_levels.empty()) {
         result.push_back(nesting_levels.size());
         nesting_levels.pop();
@@ -29,7 +33,6 @@ vector<int> parse_nested_parens(string paren_string) {
     return result;
 }
 
-int main()
 {
   string input = "(()(())((()))";
   vector<int> result = parse_nested_parens(input);
