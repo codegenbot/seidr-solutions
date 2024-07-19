@@ -16,7 +16,7 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {5, 3, 2, 9};
+    std::vector<int> lst = {5, 3, 20};
     assert(next_smallest(lst) == 5);
     return 0;
 }
