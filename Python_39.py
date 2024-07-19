@@ -1,2 +1,2 @@
-n = int(input("Enter a number: ")) # Get input from the user
-print(n) # Print the input
+n = list(map(int, input().split()))  
+print(sum(n))
