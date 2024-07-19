@@ -18,7 +18,7 @@ bool isSame(vector<int> a, vector<int> b) {
 int main_test() {
     int n;
     std::cin >> n;
-    std::vector<int> user_input(n, 0); 
+    std::vector<int> user_input(n); 
     for (int i = 0; i < n; i++) {
         int x;
         std::cin >> x;
