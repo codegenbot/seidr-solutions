@@ -7,12 +7,14 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
         }
         total_fill += well_fill;
     }
-
-    int buckets_needed;
-    buckets_needed = total_fill / capacity;
-    else if (total_fill % capacity != 0) {
+    int buckets_needed = total_fill / capacity;
+    if (total_fill % capacity != 0) {
         buckets_needed++;
     }
-
     return buckets_needed;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
