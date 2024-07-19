@@ -6,9 +6,20 @@ def is_prime(num):
             return False
     return True
 
-def prime_fib(n: int):
-    fib = [0, 1]
-    while len(fib) <= n:
-        fib.append(fib[-1] + fib[-2])
-    prime_fib_list = [num for num in fib if is_prime(num)]
-    return prime_fib_list[n - 1]
+def prime_fib(n):
+    def is_fib(num):
+        a, b = 1, 1
+        while a < num:
+            a, b = b, a + b
+        return a == num
+    
+    count = 0
+    num = 2
+    while count < n:
+        if is_fib(num) and is_prime(num):
+            count += 1
+        num += 1
+    return num - 1
+
+n = int(input())
+print(prime_fib(n))
