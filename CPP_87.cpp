@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
 bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
     return a == b;
 }
@@ -13,7 +17,7 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     }
 
     std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
-        return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
+        return a[0] < b[0] || (a[0] == b[0] && a[1] < b[1]);
     });
     
     return result;
@@ -23,7 +27,7 @@ bool check_vectors(const std::vector<std::vector<int>>& actual, const std::vecto
     return actual == expected;
 }
 
-void main() {
+int main() {
     auto result = get_row({ {}, {1}, {1, 2, 3} }, 3);
     std::vector<std::vector<int>> expected = { {2, 2} };
     
@@ -32,4 +36,6 @@ void main() {
     } else {
         std::cout << "Test Failed!\n";
     }
+
+    return 0;
 }
