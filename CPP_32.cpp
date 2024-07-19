@@ -2,8 +2,17 @@
 #include <vector>
 #include <cmath>
 #include <cstdlib>
+#include <iomanip>
 
 using namespace std;
+
+double poly(vector<double> coeffs, double solution) {
+    double value = 0;
+    for (int i = 0; i <= coeffs.size() - 1; i++) {
+        value += coeffs[i] * pow(solution, i);
+    }
+    return value;
+}
 
 double find_zero(vector<double> coeffs) {
     double solution;
