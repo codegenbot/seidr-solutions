@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++) {
+    for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -17,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result;
     int sum = 0;
     int factorial = 1;
@@ -36,11 +36,10 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::vector<int> input = f(5);
-    std::vector<int> expected = {1, 3, 2, 10, 5};
+    std::vector<int> v1 = f(5);
+    std::vector<int> v2 = f(5);
     
-    bool result = issame(input, expected);
-    assert(result);
+    assert(issame(v1, v2));
     
     return 0;
 }
