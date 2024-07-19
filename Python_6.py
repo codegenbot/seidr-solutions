@@ -1,5 +1,4 @@
-# Ensure the input contains only '(' and ')' characters
 paren_string = input("Enter a string of parentheses: ").strip()
-if any((paren not in ['(', ')']) for paren in paren_string):
+if not paren_string.isalpha() or set(paren_string) != set("()"):
     print("Invalid input! Please enter only parentheses.")
     exit()
