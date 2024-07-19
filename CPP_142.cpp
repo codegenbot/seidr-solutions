@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-int data[] = {1, 2, 3, 4, 5};
-
 int sum_squares(std::vector<int> input) {
     int total = 0;
     for (int i = 0; i < input.size(); i++) {
@@ -16,7 +14,7 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    std::vector<int> input(data, data + sizeof(data) / sizeof(int));
+    std::vector<int> input({1, 2, 3, 4, 5});
     std::cout << sum_squares(input) << std::endl;
     return 0;
 }
