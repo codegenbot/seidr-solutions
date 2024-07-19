@@ -1,22 +1,22 @@
 ```cpp
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <cassert>
 
-int next_smallest(std::vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
-        return -1; // or some other value to indicate "None"
-    std::vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
+        return -1;
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -1; // or some other value to indicate "None"
+    return -1;
 }
 
 int main() {
-    std::vector<int> lst = {5, 3, 20};
-    assert(next_smallest(lst) == 5);
+    vector<int> lst = {5, 3, 4, 2};
+    assert(next_smallest(lst) == 4);
     return 0;
 }
