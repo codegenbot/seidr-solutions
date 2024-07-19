@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <assert.h>
 
 using namespace std;
 
@@ -37,14 +39,8 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "cherry"};
-    vector<vector<string>> output = sorted_list_sum(lst);
-    for (const auto& str : output) {
-        if (issame(str, lst)) {
-            cout << "The strings are the same." << endl;
-        } else {
-            cout << "The strings are not the same." << endl;
-        }
-    }
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    vector<vector<string>> expected = {{"cc"}, {"dd"}, {"aaaa", "bbbb"}};
+    assert(issame(sorted_list_sum(lst), expected));
     return 0;
 }
