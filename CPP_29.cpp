@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <vector>
 
@@ -26,7 +26,9 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
             start = end + 1;
         }
         if (!issame({temp}, {prefix})) {
-            result.emplace_back(temp); 
+            result.push_back(temp);
+        } else if (temp.size() == 1 && temp[0] == prefix) {
+            result.push_back(temp);
         }
     }
     return result;
