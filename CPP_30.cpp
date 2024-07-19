@@ -1,17 +1,29 @@
 ```cpp
 #include <vector>
 
-std::vector<float> extract_positives(std::vector<float> numbers) {
-    std::vector<float> positive_numbers;
-    for (float number : numbers) {
-        if (number > 0) {
-            positive_numbers.push_back(number);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!(std::abs(a[i]) - std::abs(b[i]) > 1e-6)) {
+            return false;
         }
     }
-    return positive_numbers;
+    return true;
+}
+
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
+    for (float i : l) {
+        if (i > 0) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
 int main() {
-    assert(extract_positives({}).size() == 0);
+    assert(std::issame(get_positive({}), {})); 
     return 0;
 }
