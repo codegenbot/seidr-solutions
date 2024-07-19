@@ -14,14 +14,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"apple", "banana", "cherry"};
-    
-    if (issame(a, b)) {
-        cout << "Vectors a and b are the same." << endl;
+    vector<string> vec1 = {"apple", "banana", "orange"};
+    vector<string> vec2 = {"apple", "banana", "orange"};
+
+    if (issame(vec1, vec2)) {
+        cout << "Vectors are the same" << endl;
     } else {
-        cout << "Vectors a and b are not the same." << endl;
+        cout << "Vectors are different" << endl;
     }
-    
+
     return 0;
 }
