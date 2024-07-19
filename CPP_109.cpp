@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
@@ -10,4 +10,10 @@ bool move_one_ball(std::vector<int>& arr) {
         std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
+}
+
+int main() {
+    std::vector<int> balls = std::vector<int>{};
+    bool result = move_one_ball(balls);
+    return 0;
 }
