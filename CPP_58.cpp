@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
@@ -31,3 +30,7 @@ int compareArrays() {
     }
     return 0;
 }
+
+int main() {
+    compareArrays();
+    return 0;
