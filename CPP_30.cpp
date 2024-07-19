@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+int issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
-        return false;
+        return 0;
     }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 
 std::vector<int> get_positive(const std::vector<int>& l) {
