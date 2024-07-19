@@ -1,25 +1,21 @@
-from typing import List
-
-
+```
 def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
-    groups = []
-    current_group = ""
-
-    for char in paren_string:
-        if char == " ":
-            continue
-        if char == "(":
-            stack.append(char)
-            current_group += char
-        elif char == ")":
-            while stack and stack[-1] != "(":
-                current_group += stack.pop()
-            if not stack:
-                groups.append(current_group)
-                current_group = ""
-            else:
+    def balance_paren(s: str) -> int:
+        stack = []
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if not stack:
+                    return 0
                 stack.pop()
-                current_group += char
+        return len(stack)
 
-    return [group + ")" for group in groups]
+    result = []
+    i, j = 0, 0
+    while j < len(paren_string):
+        if balance_paren(paren_string[i:j+1]) > 0:
+            result.append(paren_string[i:j+1])
+            i = j + 1
+        j += 1
+    return [x.replace(' ', '') for x in result]
