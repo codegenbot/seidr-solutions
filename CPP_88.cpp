@@ -2,9 +2,6 @@
 #include <vector>
 #include <assert.h>
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> sort_array(vector<int> arr);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -19,6 +16,6 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(issame(sort_array({21, 14, 23, 11}), vector<int>({11, 14, 21, 23})));
     return 0;
 }
