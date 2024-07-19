@@ -8,6 +8,7 @@ int how_many_times(string str1, string str2) {
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != string::npos) {
         ++count;
+        if (pos == string::npos) break;
         str1.erase(pos, str2.size());
         pos = 0;
     }
