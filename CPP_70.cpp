@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> rearrangeArray(vector<int> lst) {
+vector<int> rearrangeArray(vector<int>& lst) {
     sort(lst.begin(), lst.end());
     vector<int> res;
     int left = 0, right = lst.size() - 1;
