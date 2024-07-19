@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 
@@ -12,5 +13,4 @@ int main() {
         std::cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     else
         std::cout << "The numbers are not integers: " << a << ", " << b << ", " << c << "\n";
-    return 0;
 }
