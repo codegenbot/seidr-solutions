@@ -1,8 +1,9 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> removeDuplicates(std::vector<int>& l) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> l = a;
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+    return l == b;
 }
