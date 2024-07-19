@@ -1,3 +1,5 @@
+```
+s = input("Enter a string: ")
 def is_happy(s):
     s = s.lower()
     seen = set()
@@ -13,3 +15,5 @@ def is_happy(s):
                 new_s += c
         s = new_s
     return True
+
+print(is_happy(s))
