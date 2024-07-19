@@ -8,24 +8,26 @@ string string_to_md5(string text) {
         return "";
     }
 
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    EVP_MD_CTX_init(&ctx);
+    EVP_MD_CTX md_ctx;
+    unsigned char output[EVP_MAX_MD_SIZE];
+    size_t output_len;
+
+    EVP_MD_CTX_init(&md_ctx);
+
     const char* ptr = text.c_str();
-    size_t len = strlen(ptr);
     while (*ptr) {
-        int64_t bytes = 1;
-        EVP_UPDATE(&ctx, (const unsigned char*)ptr, bytes);
+        EVP_UPDATE(&md_ctx, (const unsigned char*)ptr, 1);
         ptr++;
     }
-    unsigned char *result = EVP_FINAIlize(&ctx, nullptr);
+    
+    output = EVP_Finalize(&md_ctx, &output_len);
 
-    string output;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    string result;
+    for (int i = 0; i < output_len; i++) {
         char buff[3];
-        sprintf(buff, "%02x", result[i]);
-        output += buff;
+        sprintf(buff, "%02x", output[i]);
+        result += buff;
     }
 
-    return output;
+    return result;
 }
