@@ -1,20 +1,19 @@
-#include <iostream>
-#include <string>
 #include <cmath>
+#include <cassert>
 
 int closest_integer(std::string value) {
     double num = std::stod(value);
-    int closestInt = std::round(num);
-    if (num - closestInt == 0.5 || num - closestInt == -0.5) {
-        closestInt = (num > 0) ? std::ceil(num) : std::floor(num);
+    int floor_num = std::floor(num);
+    int ceil_num = std::ceil(num);
+
+    if (num - floor_num < ceil_num - num) {
+        return floor_num;
+    } else {
+        return ceil_num;
     }
-    return closestInt;
 }
 
 int main() {
-    std::string userInput;
-    std::cout << "Enter a number: ";
-    std::cin >> userInput;
-    std::cout << "Closest integer: " << closest_integer(userInput) << std::endl;
+    assert(closest_integer("0") == 0);
     return 0;
 }
