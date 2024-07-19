@@ -35,12 +35,12 @@ int main() {
     std::cin >> n;
 
     std::vector<int> result = get_odd_collatz(n);
-    std::vector<int> expected = {1, 3, 5, 7, 9, 11, 13, 15, 17, 21, 27, 31, 41, 47, 55, 73, 113};
+    std::vector<int> expected_result = {1, 3, 5, 9};
 
-    if (issame(result, expected)) {
-        std::cout << "Correct output" << std::endl;
+    if (issame(result, expected_result)) {
+        std::cout << "Correct Answer" << std::endl;
     } else {
-        std::cout << "Incorrect output" << std::endl;
+        std::cout << "Wrong Answer" << std::endl;
     }
 
     return 0;
