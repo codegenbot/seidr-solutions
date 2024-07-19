@@ -1,8 +1,16 @@
 #include <vector>
 #include <numeric>
-#include <limits>
+#include <cmath>
 
-std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-9) return false;
+    }
+    return true;
+}
+
+std::vector<float> findClosestPair(vector<float> numbers) {
     vector<pair<float, float>> pairs = {};
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j <= numbers.size() - 1; j++) {
@@ -10,11 +18,11 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
         }
     }
 
-    float min_diff = numeric_limits<float>::max();
+    float min_diff = std::numeric_limits<float>::max();
     pair<float, float> closest_pair;
     for (auto &p : pairs) {
         float diff = p.second - p.first;
-        if (abs(diff) < abs(min_diff)) {
+        if (std::abs(diff) < std::abs(min_diff)) {
             min_diff = diff;
             closest_pair = p;
         }
