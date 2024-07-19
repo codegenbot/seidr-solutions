@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool equal_vectors(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -31,8 +32,10 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 
 int main() {
     // Test case for equal_vectors function
-    std::vector<std::vector<std::string>> v1 = {{"apple", "banana"}, {"hello", "world"}};
-    std::vector<std::vector<std::string>> v2 = {{"apple", "banana"}, {"goodbye", "world"}};
+    std::vector<std::vector<std::string>> v1({{"apple", "banana"}}, {{"hello", "world"}});
+
+    std::vector<std::vector<std::string>> v2({{"apple", "banana"}}, {{"goodbye", "world"}});
+
     if (!equal_vectors(v1, v2)) {
         std::cout << "Vectors are not equal" << std::endl;
     } else {
