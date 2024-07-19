@@ -1,10 +1,10 @@
 ```cpp
+#include <string>
 #include <iostream>
-#include <strings.h>
 
-int count_upper(char *s) {
+int count_upper(std::string s) {
     int count = 0;
-    for (int i = 0; s[i]; i++) {
+    for (int i = 0; i < s.length(); i++) {
         if ((i % 2 == 0 && isupper(s[i])) && (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
             count++;
         }
@@ -13,9 +13,9 @@ int count_upper(char *s) {
 }
 
 int main() {
-    char input[100];
+    std::string input;
     std::cout << "Enter a string: ";
-    fgets(input, sizeof(input), stdin);
+    std::getline(std::cin, input);
     int result = count_upper(input);
     std::cout << "Number of uppercase vowels at even positions: " << result << std::endl;
     return 0;
