@@ -5,7 +5,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    // compare vectors a and b
+    return a == b;
 }
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
