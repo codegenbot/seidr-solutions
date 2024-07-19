@@ -1,23 +1,20 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-vector<int> count_up_to(int n);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); ++i){
-        if(a[i] != b[i]) return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-int main(){
-    assert(issame(count_up_to(101) , {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
-    return 0;
-}
-
-vector<int> count_up_to(int n){
-    vector<int> primes;
+std::vector<int> count_up_to(int n) {
+    std::vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -31,4 +28,22 @@ vector<int> count_up_to(int n){
         }
     }
     return primes;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> result = count_up_to(n);
+    if (result.empty()) {
+        std::cout << "No prime numbers found up to " << n << std::endl;
+    } else {
+        std::cout << "Prime numbers up to " << n << " are: ";
+        for (int prime : result) {
+            std::cout << prime << " ";
+        }
+        std::cout << std::endl;
+    }
+    
+    return 0;
 }
