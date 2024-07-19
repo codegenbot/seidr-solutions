@@ -1,8 +1,10 @@
 #include <vector>
 #include <iostream>
 
-std::vector<float> get_positive(std::vector<float> l){
-    std::vector<float> result;
+using namespace std;
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float i : l) {
         if(i > 0) {
             result.push_back(i);
@@ -12,17 +14,14 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main() {
-    std::vector<float> input;
-    float num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
+    vector<float> numbers = {1, -2, 3, -4, 5};
+    vector<float> positive_numbers = get_positive(numbers);
 
-    std::cout << "Positive numbers: ";
-    for(float i : get_positive(input)) {
-        std::cout << i << " ";
+    cout << "Positive numbers: ";
+    for(float i : positive_numbers) {
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
