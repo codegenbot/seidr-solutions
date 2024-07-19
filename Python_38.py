@@ -9,6 +9,6 @@ def decode_cyclic(s: str):
 
 
 # Read input from user without stripping
-input_string = input().strip()
+input_string = input()
 result = decode_cyclic(input_string)
 print(result)
