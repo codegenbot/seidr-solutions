@@ -7,7 +7,7 @@ using namespace std;
 
 map<char, int> histogram(string test);
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool issameMaps(const map<char, int>& a, const map<char, int>& b) {
     return a == b;
 }
 
@@ -35,7 +35,7 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(histogram("a") == map<char, int>{{'a', 1}});
     
     return 0;
 }
