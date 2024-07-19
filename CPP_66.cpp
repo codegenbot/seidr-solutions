@@ -1,8 +1,4 @@
-```cpp
-#include <string>
-#include <cctype>
-
-int digitSum(std::string s) {
+int digitSum(char s) {
     int sum = 0;
     for (char c : s) {
         if (std::isupper(c)) {
