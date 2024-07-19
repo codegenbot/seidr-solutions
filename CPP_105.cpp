@@ -1,7 +1,12 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
+
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> numbers;
     for (int num : arr) {
