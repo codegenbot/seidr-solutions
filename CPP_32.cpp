@@ -8,16 +8,16 @@ double poly(const std::vector<double>& x, const std::vector<double>& coefficient
 std::vector<double> find_zero(const std::vector<double>& coefficients);
 
 int main() {
-    std::vector<double> coeffs;
-    double c;
+    std::vector<double> coeffs{};
 
     // Read coefficients
+    double c;
     while (std::cin >> c) {
         coeffs.push_back(c);
     }
 
     // Find the zero of the polynomial equation
-    std::vector<double> solution = find_zero(coeffs);
+    auto solution = find_zero(coeffs);
 
     // Check the result
     assert(std::abs(poly(solution, coeffs)) < 1e-3);
