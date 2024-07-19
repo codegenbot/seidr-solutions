@@ -1,4 +1,9 @@
-int start_here() {
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
@@ -8,6 +13,6 @@ int start_here() {
             count++;
         }
     }
-    cout << "Number of uppercase vowels at even positions: " << count << endl;
+    assert(count == 4);  
     return 0;
 }
