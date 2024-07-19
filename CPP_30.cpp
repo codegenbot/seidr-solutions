@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -36,4 +37,5 @@ int main() {
         cout << "The vectors are not same." << endl;
     }
 
-    return 0;
+    return 0; 
+}
