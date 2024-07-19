@@ -1,18 +1,26 @@
 #include <vector>
+#include <numeric>
 #include <cassert>
 
-bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
-bool std::vector<float>::rescale_to_unit(std::vector<float>& v) {
-    // implementation of rescale_to_unit function
+
+std::vector<float> rescale_to_unit(const std::vector<float>& v){
+    float min_val = *std::min_element(v.begin(), v.end());
+    float max_val = *std::max_element(v.begin(), v.end());
+    
+    std::vector<float> rescaled;
+    for (float val : v) {
+        float scaled = (val - min_val) / (max_val - min_val);
+        rescaled.push_back(scaled);
+    }
+    
+    return rescaled;
 }
 
-int main() {
-   std::vector<float> v1 = {1.0, 2.0, 3.0};
-   std::vector<float> v2 = {1.0, 2.0, 3.0};
-   if(issame(v1, v2)){
-       rescale_to_unit(v1);
-   }
-   return 0;
+int main(){
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    
+    return 0;
 }
