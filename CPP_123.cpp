@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <assert.h>
-#include <initializer_list>
+#define _SILENT 1
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size()!=b.size())return false;
@@ -11,7 +12,7 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> result = {1};
     while(n!=1){
         if(n%2==0)n=n/2;
         else n=3*n+1;
