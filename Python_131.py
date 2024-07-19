@@ -1,5 +1,4 @@
 from functools import reduce
-
 try:
     n = int(input("Enter a number: "))
     if n <= 0:
