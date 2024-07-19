@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -23,8 +22,7 @@ int main() {
     string text, target;
     cin >> text >> target;
     cin.ignore(); 
-    cin.ignore(); 
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
-    return 0;
+    return 0;}
