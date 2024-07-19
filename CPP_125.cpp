@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-bool issame(vector<string> a,vector<string> b);
+bool issame(vector<string> a, vector<string> b);
 vector<string> split_words(string txt);
 
 vector<string> split_words(string txt) {
@@ -34,8 +34,8 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a,vector<string> b){
-  return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
