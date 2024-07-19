@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <cassert>
@@ -25,4 +26,5 @@ bool isPrime(int n){
     }
     return true;
 
+int result = skjkasdkd({127, 97, 8192});
 assert(result == 10);
