@@ -1,4 +1,3 @@
-```cpp
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
