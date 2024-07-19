@@ -11,10 +11,10 @@ int main() {
 
     vector<int> result(4, 0); // count of each type of coin
 
-    for (int i = 0; i < coins.size(); ++i) {
-        while (cents >= coins[i]) {
-            cents -= coins[i];
-            result[i]++;
+    for (int c : coins) {
+        while (cents >= c) {
+            cents -= c;
+            result[coins.size() - ((c > 25 ? 3 : (c > 10 ? 2 : (c > 5 ? 1 : 0))))]++;  
         }
     }
 
