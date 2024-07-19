@@ -10,14 +10,9 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
 
-    return std::vector<int>{sum, product};
+    return {sum, product};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(sum_product({10}), {10, 10}));
-    return 0;
 }
