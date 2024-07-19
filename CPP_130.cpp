@@ -1,14 +1,14 @@
 vector<int> tri(int n) {
     vector<int> result(1, 3);
     if (n > 0) {
-        for (int i = 2; i <= n; ++i) {
-            int temp;
+        for (int i = 2; i <= n; i++) {
+            int val;
             if (i % 2 == 0) {
-                temp = 1 + i / 2;
+                val = 1 + i / 2;
             } else {
-                temp = result[i - 1] + result[i - 2] + result[i];
+                val = result[i - 1] + result[i - 2] + result[i - 3];
             }
-            result.push_back(temp);
+            result.push_back(val);
         }
     }
     return result;
