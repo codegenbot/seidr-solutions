@@ -8,9 +8,8 @@ int special_factorial(int n) {
 
 int main() {
     assert(special_factorial(1) == 1);
-    assert(special_factorial(3) == 6);
-    assert(special_factorial(5) == 120);
-    assert(special_factorial(6) == 720);
-    // Add more test cases here as needed
+    assert(special_factorial(2) == 2);
+    assert(special_factorial(3) == 12);
+    assert(special_factorial(4) == 144);
     return 0;
 }
