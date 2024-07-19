@@ -20,23 +20,6 @@ vector<string> select_words(string s, int n) {
                 if (vowel_count <= n) {
                     result.push_back(word);
                     word = "";
-                } else {
-                    unsigned vow = 0;
-                    for (char ch : word) {
-                        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-                            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
-                            vow++;
-                    }
-                    if (vow > n) {
-                        word = "";
-                        while (!s.empty() && s.back() != ' ') {
-                            s.pop_back();
-                        }
-                        if (s.empty()) break;
-                    } else {
-                        result.push_back(word);
-                        word = "";
-                    }
                 }
             }
         } else {
