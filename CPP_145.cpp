@@ -1,5 +1,5 @@
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
         while (temp_a > 0) {
@@ -15,9 +15,5 @@ vector<int> order_by_points(vector<int> nums) {
         }
         return sum_a < sum_b;
     });
-    return nums;
-}
-
-bool issame(const vector<int> &a, const vector<int> &b) {
     return a == b;
 }
