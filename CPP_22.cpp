@@ -2,7 +2,8 @@
 #include <list>
 #include <any>
 #include <algorithm>
-#include <cassert>
+#include <assert>
+#include <type_traits>
 
 using namespace std;
 using namespace boost;
@@ -10,7 +11,7 @@ using namespace boost;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == type<int>()) {
+        if (is_same_v<decay_t<decltype(any_cast(value))>, int>::value) {
             result.push_back(any_cast<int>(value));
         }
     }
