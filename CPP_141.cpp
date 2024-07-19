@@ -2,6 +2,9 @@
 #include <string>
 #include <cassert>
 
+// Function declaration
+std::string file_name_check(std::string file_name);
+
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     int dot_count = 0;
@@ -29,6 +32,7 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
+    // Test cases
     assert(file_name_check("file123.txt") == "Yes");
     assert(file_name_check("myFile2.exe") == "Yes");
     assert(file_name_check("data.dll") == "Yes");
