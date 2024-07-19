@@ -1,14 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
-
-bool issame(vector<string> a, vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+#include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> temp;
@@ -53,13 +46,22 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> output = by_length(arr);
-    for (std::string s : output) {
-        if (!issame({s}, {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"})) {
-            return 1;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
+
+int main() {
+    std::vector<int> arr = {9, 4, 8};
+    std::vector<std::string> result = by_length(arr);
+    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
+    assert(issame(result, expected));
     return 0;
 }
