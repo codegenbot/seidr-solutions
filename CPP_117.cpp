@@ -1,26 +1,28 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <iostream>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
-    for (size_t i = 0; i < a.size(); ++i) {
+    
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
+    
     return true;
 }
 
-std::vector<std::string> select_words(std::string s, int n);
+vector<string> select_words(string s, int n);
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonant_count = 0;
     
     for (char c : s) {
