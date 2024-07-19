@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frame = 1
@@ -9,6 +8,11 @@ def bowling_score(frames):
                 break
             frame += 1
         elif char == '/':
-            score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            first_roll = int(frames[:frames.index(char)].split('/')[-1])
+            second_roll = 10 - first_roll
+            if second_roll > 0:
+                score += 10
+            else:
+                score += first_roll + second_roll
             frame += 1
     return score
