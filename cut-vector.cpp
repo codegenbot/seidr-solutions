@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     int split_index = -1;
     
     for (int i = 0; i < n; i++) {
@@ -17,9 +17,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i + 1; j < n; j++) {
             sum2 += v[j];
         }
-        int diff = abs(sum1 - sum2);
-        if (diff < min_diff) {
-            min_diff = diff;
+        if ((sum1 == sum2) || (abs(sum1 - sum2) < min_diff)) {
+            min_diff = abs(sum1 - sum2);
             split_index = i;
         }
     }
