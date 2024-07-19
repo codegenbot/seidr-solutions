@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
@@ -10,7 +9,7 @@ bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(initializer_list<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float>& grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0) {
@@ -43,10 +42,21 @@ std::vector<std::string> numerical_letter_grade(initializer_list<float> grades) 
 }
 
 int main() {
-    std::vector<std::string> letterGrades = numerical_letter_grade({3.8, 2.9, 4.1, 3.5});
+    std::vector<float> grades = {3.8f, 2.9f, 4.1f, 3.5f};
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
 
     for (const auto& grade : letterGrades) {
         std::cout << grade << " ";
     }
     return 0;
+}
+
+int main() {
+    std::vector<float> grades = {0.0f, 0.7f};
+    std::vector<std::string> letterGrades = numerical_letter_grade(std::vector<float>({0, 0.7}));
+
+    for (const auto& grade : letterGrades) {
+        std::cout << grade << " ";
+    }
+    assert(same(numerical_letter_grade({0.0f, 0.7f}), {"F", "D-"}));
 }
