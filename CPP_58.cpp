@@ -1,10 +1,9 @@
 #include <algorithm>
 #include <vector>
 #include <set>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::is_permutation(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
