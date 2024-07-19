@@ -11,10 +11,10 @@ vector<int> generate_integers(int a, int b){
 }
 
 int main(){
-    int a, b;
-    cin >> a >> b;
-    vector<int> output = generate_integers(a, b);
-    for(int num : output){
+    int lower, upper;
+    cin >> lower >> upper;
+    vector<int> result = generate_integers(lower, upper);
+    for(int num : result){
         cout << num << " ";
     }
     return 0;
