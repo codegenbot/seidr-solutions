@@ -1,8 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
+
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
+    while (num != 0) {
+        int remainder = num % 10;
+        v.push_back(remainder);
+        num /= 10;
+    }
+    return v;
+}
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -32,7 +42,7 @@ int checkNumber() {
     for (char c : str) {  
         rev = c + rev;  
     }
-    if (same(vector<int>(stoi(str)), vector<int>(stoi(to_string(n)))) && isPalindrome(n) && n % 2 == 0) 
+    if (same(to_vector(n), to_vector(stoi(rev))) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
