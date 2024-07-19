@@ -33,13 +33,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum1 += v[i];
     }
     
-    if (min_diff == 0) {
-        res[0].assign(v.begin(), v.begin() + index+1);
-        res[1].assign(v.begin() + index, v.end());
-    } else {
-        res[0].assign(v.begin(), v.begin() + index+1);
-        res[1].assign(v.begin() + index, v.end());
-    }
+    res[0].assign(v.begin(), v.begin() + index+1);
+    res[1].assign(v.begin() + index, v.end());
     
     return res;
 }
