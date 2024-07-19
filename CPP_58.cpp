@@ -18,8 +18,7 @@ bool isSame(vector<int> a, vector<int> b) {
 int main() {
     int n;
     cin >> n;
-    vector<int> user_input; 
-    user_input.resize(n); 
+    vector<int> user_input(n); 
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
