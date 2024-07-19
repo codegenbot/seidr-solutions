@@ -40,7 +40,7 @@ int main() {
         coeffs.push_back(coeff);
     }
     
-    auto solution = find_zero(coeffs);
+    std::vector<double> solution = find_zero(coeffs);
     
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
     
