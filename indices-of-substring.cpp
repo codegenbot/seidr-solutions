@@ -10,7 +10,7 @@ std::vector<int> indicesOfSubstring(string text, string target) {
     int pos = 0;
     while ((pos = text.find(target)) != std::string::npos) {
         result.push_back(pos);
-        pos += 1; 
+        pos += 1; // Move the starting position forward to search for next occurrence
     }
     return result;
 }
