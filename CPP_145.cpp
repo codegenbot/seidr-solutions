@@ -3,11 +3,8 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
-#include <cmath>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int num, int b) {
@@ -18,6 +15,10 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         return sum(num) == sum(b) ? num < b : sum(num) < sum(b);
     });
     return nums;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
