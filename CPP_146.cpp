@@ -1,32 +1,20 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <iostream>
-
-int main() {
-    int count = 0;
-    std::vector<int> nums;
-
-    for (int i = 0; i < 5; ++i) {
-        int num;
-        std::cout << "Enter number " << i + 1 << ": ";
-        std::cin >> num;
-        nums.push_back(num);
-    }
-
-    count = specialFilter(nums);
-
-    return 0;
-}
 
 int specialFilter(std::vector<int> nums) {
-    { // Add {}
-    int c = 0;
+    int count = 0;
     for (int num : nums) {
         if (std::abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
-            c++;
+            count++;
         }
     }
-    return c; // Remove {}
+    return count;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5}; 
+    int output = specialFilter(nums);
+    std::cout << "The filtered number is: " << output << std::endl; 
+    return 0;
 }
