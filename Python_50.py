@@ -1,1 +1,1 @@
-input_string = input("Enter the string to decode: ").strip().lower()
+input_string = input("Enter the string to decode: ").rstrip().lower()
