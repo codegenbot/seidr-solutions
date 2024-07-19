@@ -1,21 +1,11 @@
-string encrypt(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char shifted = s[i] + 2 * 2;
-            if(islower(s[i])){
-                if(shifted > 'z'){
-                    shifted = 'a' + (shifted - 'z' - 1);
-                }
-            } else {
-                if(shifted > 'Z'){
-                    shifted = 'A' + (shifted - 'Z' - 1);
-                }
-            }
-            result += shifted;
+string encrypted = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += (c - base + 2) % 26 * 2 + base;
         } else {
-            result += s[i];
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
