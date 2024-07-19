@@ -2,7 +2,6 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
-
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> numbers;
     for (int num : arr) {
