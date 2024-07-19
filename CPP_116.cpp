@@ -19,6 +19,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     });
     return sorted_arr;
 }
+
 // int main() { // Comment out to resolve redefinition of main error
 int main() {
     // Test the function
