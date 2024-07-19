@@ -1,16 +1,9 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
+#include <cctype>
 #include <cassert>
 
 using namespace std;
-
-string solve(string s);
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
-}
 
 string solve(string s){
     bool hasLetter = false;
@@ -28,4 +21,9 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
