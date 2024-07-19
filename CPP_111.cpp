@@ -6,7 +6,7 @@
 using namespace std;
 
 bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
+    return a == b; // Compare two maps for equality
 }
 
 map<char, int> histogram(string test);
