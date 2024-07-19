@@ -1,23 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-int digitSum(const string& s) {
+int digitSum(const std::string& s) {
     int sum = 0;
-    for (char c : s) { 
-        if (isdigit(c)) {
-            sum += static_cast<int>(c - '0'); 
+    for (auto c : s) {
+        if (std::isdigit(c)) {
+            sum += std::stoi(std::string(1, c).erase(0, 1));
         }
     }
     return sum;
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    int num = digitSum(s);
-    cout << "Sum of digits: " << num << endl;
+    assert(digitSum("You are Very Smart") == 327);
+    return 0;
 }
