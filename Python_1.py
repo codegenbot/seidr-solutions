@@ -1,24 +1,18 @@
 ```
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
-    stack = []
-    current_group = ''
-    
+    group = ''
+    nesting_level = 0
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
-            stack.append(char)
-            current_group += char
+            nesting_level += 1
+            group += char
         elif char == ')':
-            while stack and stack[-1] != '(':
-                current_group += stack.pop()
-            if not stack or stack.pop() != '(':
-                raise ValueError("Parentheses are not balanced")
-            current_group += char
-            groups.append(current_group)
-            current_group = ''
-    
+            nesting_level -= 1
+            group += char
+            if nesting_level == 0:
+                groups.append(group)
+                group = ''
     return groups
