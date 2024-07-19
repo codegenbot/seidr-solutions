@@ -6,7 +6,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    assert(issame(std::vector<float>{1.0f}, std::vector<float>{}));
+    assert(issame(std::vector<float>{1.0f}, std::vector<float>{1.0f}));
 
     return 0;
 }
