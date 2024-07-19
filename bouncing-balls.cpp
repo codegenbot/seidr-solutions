@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>  
 #include <iomanip>  
@@ -20,11 +21,8 @@ int main() {
         startHeight *= bouncinessIndex;
     }
     
-    streamsize old_precision = cout.precision();
-    cout << fixed;
-    cout << setprecision(5) << totalDistance << endl;
-    cout.unsetf(ios_base::floatfield);
-    cout.precision(old_precision);
+    std::cout << std::fixed << std::setprecision(5);
+    cout << totalDistance << endl;
     
     return 0;
 }
