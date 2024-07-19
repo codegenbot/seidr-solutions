@@ -8,7 +8,6 @@ float triangle_area(float a, float b, float c) {
         return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
     } else {
         return -1.0f;
-    }
 }
 
 int main() {
@@ -21,4 +20,3 @@ int main() {
     else
         std::cout << "The sides do not form a valid triangle";
     return 0;
-}
