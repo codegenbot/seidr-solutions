@@ -1,16 +1,15 @@
-def encode(message, shift):
+def encode(message: str, shift: int) -> str:
     encoded_message = ""
     for char in message:
         if char.isalpha():
-            base_ord = ord("a") if char.islower() else ord("A")
+            base_ord = ord('a') if char.islower() else ord('A')
             encoded_char_ord = ((ord(char) - base_ord + shift) % 26) + base_ord
             encoded_message += chr(encoded_char_ord)
         else:
             encoded_message += char
     return encoded_message
 
-
-message = input("Enter the message to encode:").strip()
-shift = int(input("Enter the shift value for encoding:").strip())
+message = input().strip()
+shift = int(input().strip())
 result = encode(message, shift)
 print(result)
