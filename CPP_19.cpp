@@ -21,9 +21,7 @@ map<string, int> num_map = {
 string sort_numbers(string numbers);
 
 int main() {
-    string input_numbers;
-    getline(cin, input_numbers);
-    cout << sort_numbers(input_numbers) << endl;
+    // Code to read input and call sort_numbers function
 }
 
 string sort_numbers(string numbers) {
