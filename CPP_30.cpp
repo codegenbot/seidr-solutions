@@ -1,14 +1,12 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
@@ -18,6 +16,6 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); 
+    assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}));
     return 0;
 }
