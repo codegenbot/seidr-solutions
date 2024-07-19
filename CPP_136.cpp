@@ -23,6 +23,6 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b){
 }
 
 int main() {
-    assert(issame(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}), std::make_pair(-3, 1)));
+    assert (issame(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}), std::make_pair(-3, 1)));
     return 0;
 }
