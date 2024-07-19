@@ -20,7 +20,7 @@ int search(vector<int> lst) {
     return max == 0 ? -1 : max;
 }
 
-int main() {
+int main() { 
     vector<int> lst; 
     for (int i = 0; i < 5; ++i) { 
         int temp; cin >> temp; lst.push_back(temp); 
