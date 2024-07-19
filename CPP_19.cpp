@@ -22,12 +22,12 @@ string sort_numbers(string numbers);
 
 int main() {
     string input;
-    cout << "Enter a list of numbers spelled out in words separated by spaces: ";
+    cout << "Enter numbers in words separated by spaces: ";
     getline(cin, input);
 
     string sorted_numbers = sort_numbers(input);
 
-    cout << "Sorted numbers: " << sorted_numbers << endl;
+    cout << "Sorted numbers in words: " << sorted_numbers << endl;
 
     return 0;
 }
