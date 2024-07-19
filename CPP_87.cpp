@@ -3,7 +3,6 @@
 #include <algorithm>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b){
-    // Check if two vectors are the same
     return a == b;
 }
 
