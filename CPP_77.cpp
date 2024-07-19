@@ -12,7 +12,7 @@ int main(){
     int n;
     std::cout << "Enter the number: ";
     std::cin >> n;
-    if(iscuber(n))std::cout << n << " is a perfect cube.\n";
-    else std::cout << n << " is not a perfect cube.";
+    if(iscuber(n))std::cout<<"The number is a perfect cube.";
+    else std::cout<<"The number is not a perfect cube.";
     return 0;
 }
