@@ -1,9 +1,8 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <algorithm>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +10,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> compareElements(std::vector<int> game, std::vector<int> guess) { 
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) { 
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -48,7 +47,7 @@ int mainFunction() {
         guess.push_back(temp);
     }
     
-    std::vector<int> output = compareElements(game, guess);
+    std::vector<int> output = compare(game, guess);
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
