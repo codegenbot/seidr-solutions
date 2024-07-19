@@ -1,6 +1,6 @@
-#include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
+#include <cctype>
 
 int count_distinct_characters(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
