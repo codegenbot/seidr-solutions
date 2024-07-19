@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(char a, char b) {
-    return a == b;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 vector<string> all_prefixes(string str){
