@@ -1,10 +1,9 @@
 #include <cassert>
+
 #include <any>
 #include <list>
 #include <vector>
 #include <initializer_list>
-
-#include <typeindex>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -20,4 +19,4 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-assert(issame({1}, filter_integers({std::any(1), std::any(2), std::any(3), std::any("hello"), std::any(4)}));
+assert(issame({1}, filter_integers({{1}, {2}, {3}, {"hello"}, {4}}));
