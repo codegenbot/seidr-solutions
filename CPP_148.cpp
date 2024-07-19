@@ -1,23 +1,23 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
+std::vector<std::string> generate(const std::string& s1, const std::string& s2) {
     std::vector<std::string> result;
     if (s1.size() > s2.size()) {
         for (int i = 0; i <= s2.size(); i++) {
-            result.push_back(s1.substr(0, i > s2.size() ? s2.size() : i));
+            result.push_back(s1.substr(0, i+1));
         }
+        return result;
     } else {
         for (int i = 0; i <= s1.size(); i++) {
-            result.push_back(s2.substr(0, i > s1.size() ? s1.size() : i));
+            result.push_back(s2.substr(0, i+1));
         }
+        return result;
     }
-    return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,5 +30,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));  
+    std::vector<std::string> result = generate("Jupiter", "Makemake");
+    assert(isSame(result, {}));  
 }
