@@ -29,9 +29,13 @@ int main() {
     }
     b.push_back(line.substr(first));
 
-    if (issame(std::vector<std::string>(a), std::vector<std::string>(b))) {
+    if (issame(a, b)) {
         std::cout << "The two planets are the same." << std::endl;
     } else {
         std::cout << "The two planets are different." << std::endl;
     }
+    
+    ~a;
+    ~b;
+    return 0;
 }
