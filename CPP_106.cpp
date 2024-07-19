@@ -3,12 +3,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> f(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 std::vector<int> f(int n){
     std::vector<int> result(n);
     for (int i = 1; i <= n; ++i) {
@@ -29,11 +23,6 @@ std::vector<int> f(int n){
     return result;
 }
 
-int main() {
-    // Test the f function
-    assert(issame(f(3), {1, 3, 2}));
-    assert(issame(f(0), {}));
-    assert(issame(f(5), {1, 3, 2, 10, 5}));
-
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
