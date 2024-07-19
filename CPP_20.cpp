@@ -10,10 +10,10 @@ namespace std {
 
         for (int i = 0; i < numbers.size() - 1; ++i) {
             for (int j = i + 1; j < numbers.size(); ++j) {
-                float diff = std::abs(numbers[i] - numbers[j]);
+                float diff = abs(numbers[i] - numbers[j]);
                 if (diff < min_diff) {
                     min_diff = diff;
-                    closest = make_pair(std::min(numbers[i], numbers[j]), std::max(numbers[i], numbers[j]));
+                    closest = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
                 }
             }
         }
