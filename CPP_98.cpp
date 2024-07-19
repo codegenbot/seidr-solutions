@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int count_upper(const std::string& input);
+int count_upper(const std::string& input); 
 
 int main() {
     std::cout << "Enter a string: ";
