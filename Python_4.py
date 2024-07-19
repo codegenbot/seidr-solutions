@@ -1,8 +1,6 @@
 try:
-    user_input = input("Enter four numbers separated by space: ").strip().split()
-    numbers = list(map(float, user_input))
-    if len(numbers) != 4:
-        raise ValueError
+    user_input = input("Enter four numbers separated by space: ").strip()
+    numbers = map(float, user_input.split())
     result = sum(numbers)
     print(result)
 except ValueError:
