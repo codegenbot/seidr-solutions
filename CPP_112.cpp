@@ -1,15 +1,3 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
-        }
-    }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, (result == reversed) ? "True" : "False"};
+bool issame(string a, string b) {
+    return a == b;
 }
