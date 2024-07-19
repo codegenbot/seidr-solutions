@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
-#include <sstream>
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     return split(sentence);
