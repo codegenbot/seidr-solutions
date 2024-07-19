@@ -1,8 +1,17 @@
-```cpp
+```c++
 #include <string>
-#include <iostream>
 
-int digitSum(std::string s) {
+int main() {
+    char s[100];
+    int num;
+    std::cout << "Enter a string: ";
+    std::cin.getline(s, 99);
+    num = digitSum(s);
+    std::cout << "Sum of digits: " << num << std::endl;
+    return 0;
+}
+
+int digitSum(char* s) {
     int sum = 0;
     for (char c : s) {
         if (std::isdigit(c)) {
@@ -10,12 +19,4 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Sum of digits is: " << result << std::endl;
-    return 0;
 }
