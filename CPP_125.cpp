@@ -3,19 +3,7 @@
 #include <string>
 #include <cassert>
 
-vector<string> split_words(string txt);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -43,4 +31,16 @@ vector<string> split_words(string txt) {
         result.push_back(to_string(count));
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
