@@ -26,7 +26,7 @@ int main() {
     std::getline(std::cin, input); // Read input from user
     
     std::vector<std::string> input_words = split_words(input);
-    
+
     assert(issame(input_words, {"expected_word1", "expected_word2"}));
     
     return 0;
