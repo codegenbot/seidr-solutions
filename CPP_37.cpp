@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -27,7 +28,7 @@ int main() {
     while(std::cin >> val) {
         try {
             input.push_back(val);
-        } catch (const std::bad_alloc& e) {
+        } catch (...) {
             std::cout << "Invalid input. Please enter a valid floating-point number." << std::endl;
             return 1; 
         }
