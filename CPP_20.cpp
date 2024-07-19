@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
@@ -27,8 +28,6 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
 }
 
 int main() {
-    std::pair<float, float> pairs[] = {{1.1f, 2.2f}, {3.1f, 4.1f}};
-    std::vector<std::pair<float, float>> numbers(pairs, pairs + sizeof(pairs) / sizeof(pairs[0]));
-    assert(issame(find_closest_elements(numbers), std::make_pair(std::pair<float, float>(2.2f, 3.1f), 0.0f)));
-    return 0;
+    std::vector<std::pair<float, float>> nums = {{1.1f, 2.2f}, {3.1f, 4.1f}};
+    assert(issame(find_closest_elements(nums), std::make_pair(std::pair<float, float>(2.2f, 3.1f), 0.0f)));
 }

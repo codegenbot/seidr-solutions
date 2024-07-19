@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -17,7 +18,8 @@ bool isSame(vector<int> a, vector<int> b) {
 int main() {
     int n;
     cin >> n;
-    vector<int> user_input(n); 
+    vector<int> user_input; 
+    user_input.resize(n); 
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
@@ -29,3 +31,4 @@ int main() {
         cout << "No" << endl;
     }
     return 0;
+}
