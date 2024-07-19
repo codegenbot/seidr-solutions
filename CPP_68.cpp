@@ -1,11 +1,10 @@
 #include <vector>
-#include <cfloat>
 #include <cassert>
 
 using namespace std;
 
 bool issame(int a, int b) {
-    if (a == b)
+    if (a % 2 == 0 && b % 2 == 0)
         return true;
     else
         return false;
@@ -15,21 +14,26 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
-    pair<int, int> minPair(INT_MAX, -1);
-
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minPair.first) {
-            minPair.first = arr[i];
-            minPair.second = i;
+        bool found = false;
+        for (int j = 0; j < arr.size(); j++) {
+            if (issame(arr[i], arr[j])) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back({arr[i], i});
+            break;
         }
     }
 
-    result.push_back(minPair);
+    if (result.empty()) {
+        for (int num : arr) {
+            if (num % 2 != 0) return {{num, -1}};
+        }
+    }
 
+    assert((pluck({7, 9, 7, 1}).empty() == true));
     return result;
-}
-
-int main() {
-    assert(pluck({7, 9, 7, 1}).empty() || pluck({7, 9, 7, 1}) == vector<pair<int, int>>{{});
-    return 0;
 }
