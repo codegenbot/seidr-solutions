@@ -1,10 +1,19 @@
+#include <string>
+#include <algorithm>
+
 string circular_shift(int x, int shift) {
-    string num = to_string(x);
-    shift %= num.size();
+    string number = to_string(x);
+    int n = number.size();
+
+    shift %= n;
+
     if (shift == 0) {
-        return num;
-    } else {
-        string shifted = num.substr(num.size() - shift) + num.substr(0, num.size() - shift);
-        return shifted;
+        return number;
     }
+
+    reverse(number.begin(), number.end());
+    reverse(number.begin(), number.begin() + shift);
+    reverse(number.begin() + shift, number.end());
+
+    return number;
 }
