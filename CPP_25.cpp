@@ -1,5 +1,13 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
 
 std::vector<int> factorize(int n){
     std::vector<int> factors;
@@ -11,12 +19,17 @@ std::vector<int> factorize(int n){
             }
         }
     }
-    std::sort(factors.begin(), factors.end());
     return factors;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+int main(){
+    int x, y;
+    std::cin >> x >> y;
+
+    std::vector<int> factors_x = factorize(x);
+    std::vector<int> factors_y = factorize(y);
+
+    assert(issame(factors_x, factors_y));
+
+    return 0;
 }
