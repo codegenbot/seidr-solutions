@@ -2,8 +2,14 @@
 #include <iostream>
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
-    std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
+    std::vector<int> lst;
+    int num;
+    while (true) {
+        std::cout << "Enter a number (-1 to finish): ";
+        std::cin >> num;
+        if (num == -1) break;
+        lst.push_back(num);
+    }
+    std::cout << "The sum of the digits of the maximum prime number is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
