@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,7 +17,7 @@ long long doubleTheDifference(vector<float> lst) {
     return abs(pos_sum - neg_sum);
 }
 
-long long doubleTheDifferenceMain() {
+int main() {
     vector<float> numbers;
     int n; 
     cin >> n;
