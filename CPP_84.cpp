@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+std::string solve(int N);
 
 int main() {
     int N;
