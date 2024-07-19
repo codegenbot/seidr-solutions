@@ -11,7 +11,8 @@ T compare_any(const std::any& a, const std::any& b) {
 
     if (a.type() == typeid(int)) {
         return std::any_cast<int>(a) > std::any_cast<int>(b) ? std::any_cast<int>(a) : std::any_cast<int>(b);
-    } else if (a.type() == typeid(float)) {
+    }
+    else if (a.type() == typeid(float)) {
         return std::any_cast<float>(a) > std::any_cast<float>(b) ? std::any_cast<float>(a) : std::any_cast<float>(b);
     } else if (a.type() == typeid(std::string)) {
         float valA = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
