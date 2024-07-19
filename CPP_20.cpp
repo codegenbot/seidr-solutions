@@ -15,5 +15,10 @@ pair<float, float> find_closest_elements(const vector<float>& numbers) {
         }
     }
 
-    return {closest_elements.first, closest_elements.second};
+    return { closest_elements.first, closest_elements.second };
+}
+
+int main() {
+    // Main function code
+    return 0;
 }
