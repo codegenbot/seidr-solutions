@@ -1,10 +1,11 @@
+```cpp
+#include <string>
+#include <cctype>
+
 string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    for (int i = 0; i < word.length(); i++) {
+    for (int i = word.length() - 2; i > 0; --i) {
         if (!isalpha(word[i])) continue;
-        int left = i + 1;
-        while (left < word.length() && !ispunct(word[left]) && !ispunct(word[left-1]))
-            if (vowels.find(toupper(word[left++])) != string::npos) return toupper(word[--left]);
+        if (!isalpha(word[i-1]) && !isalpha(word[i-2])) return tolower(word[i]);
     }
     return "";
 }

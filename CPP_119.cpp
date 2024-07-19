@@ -1,21 +1,30 @@
-Here is the completed code:
+```
+#include <iostream>
+#include <vector>
+#include <string>
 
-string match_parens(vector<string> lst){
-    string s1 = lst[0];
-    string s2 = lst[1];
-    int balance1 = 0;
-    int balance2 = 0;
-
-    for(char c : s1){
-        if(c == '(') balance1++;
-        else if(c == ')') balance1--;
+std::string match_parens(std::vector<std::string> lst) {
+    int open = 0, close = 0;
+    for (const std::string& s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
+            else close++;
+        }
     }
+    return (open == close) ? "Yes" : "No";
+}
 
-    for(char c : s2){
-        if(c == '(') balance2++;
-        else if(c == ')') balance2--;
+int main() {
+    std::vector<std::string> lst;
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        std::string s;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, s);
+        lst.push_back(s);
     }
-
-    if(balance1 + balance2 == 0) return "Yes";
-    else return "No";
+    std::cout << match_parens(lst) << std::endl;
+    return 0;
 }
