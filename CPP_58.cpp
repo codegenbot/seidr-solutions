@@ -1,28 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
 using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 bool common(vector<int> a, vector<int> b) {
-    vector<int> result;
+    set<int> result;
     for (int i = 0; i < min(a.size(), b.size()); i++) {
-        if (find(a.begin(), a.end(), b[i]) != a.end()) {
-            result.push_back(b[i]);
-        }
+        result.insert(b[i]);
     }
-    return areEqual(a, result);
+    return a == result;
 }
 
 int main_test() {
@@ -35,6 +22,6 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    cout << (areEqual(user_input, user_input) ? "Yes" : "No") << endl;
+    cout << (common(user_input, user_input) ? "Yes" : "No") << endl;
     return 0;
 }
