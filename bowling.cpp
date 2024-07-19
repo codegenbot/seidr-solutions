@@ -14,17 +14,16 @@ int bowlingScore(std::string s) {
         
         if (c >= '1' && c <= '9') {
             while (c != '/' && c >= '0' && c <= '9') {
-                frames[currentFrame] = frames[currentFrame] * 10 + (c - '0');
-                if (currentFrame < 9) {
-                    currentFrame++;
-                }
-                break;
+                frames[currentFrame] *= 10 + (c - '0');
+                c = next(c, s);
+            }
+            
+            if (frames[currentFrame] == 10) {
+                score += 10;
+            } else {
+                score += frames[currentFrame];
             }
         }
-    }
-    
-    for (int i : frames) {
-        score += i;
     }
     
     return score;
