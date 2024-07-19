@@ -1,12 +1,22 @@
-sort(words.begin(), words.end());
-string result;
-int max_unique = 0;
-for(const auto& word : words){
-    int curr_unique = unordered_set<char>(word.begin(), word.end()).size();
-    if(curr_unique > max_unique || (curr_unique == max_unique && word < result)){
-        max_unique = curr_unique;
-        result = word;
+string find_max(vector<string> words) {
+    string result = "";
+    int max_unique_chars = 0;
+    
+    for (const string& word : words) {
+        int chars[26] = {0};
+        int unique_chars = 0;
+        
+        for (char c : word) {
+            if (++chars[c - 'a'] == 1) {
+                unique_chars++;
+            }
+        }
+
+        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < result)) {
+            max_unique_chars = unique_chars;
+            result = word;
+        }
     }
-}
-return result;
+    
+    return result;
 }
