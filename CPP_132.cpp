@@ -1,12 +1,12 @@
-
-bool is_nested(const std::string& str) {
-    int count = 0;
+int count = 0;
     for (char c : str) {
         if (c == '[') {
             count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            }
         }
     }
-    return count == 0;
+    return count < 0 ? true : false;
 }
