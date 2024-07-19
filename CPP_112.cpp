@@ -1,13 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& vecB) {
-    if(a.size() != vecB.size())
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
-        if(a[i] != vecB[i])
+        if(a[i] != b[i])
             return false;
     return true;
 }
@@ -63,4 +63,3 @@ int main() {
         cout << "Strings are not the same." << endl;
     }
     return 0;
-}
