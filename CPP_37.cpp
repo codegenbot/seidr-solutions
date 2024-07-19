@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +13,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(const std::vector<float>& input) {
-    std::vector<float> output;
+    std::vector<float> output(std::allocator<float>());
     for(float val : input) {
         if(val % 2 == 0)
             output.push_back(val);
@@ -21,15 +22,14 @@ std::vector<float> sort_even(const std::vector<float>& input) {
 }
 
 int main() {
-    std::vector<float> input;
+    std::vector<float> input(std::allocator<float>());
     float val;
 
     while(std::cin >> val) {
         try {
             input.push_back(val);
         } catch (...) {
-            // handle the error here
-            std::cout << "Invalid input. Exiting." << std::endl;
+            std::cout << "Invalid input. Please enter a valid floating-point number." << std::endl;
             return 1; 
         }
     }
@@ -43,7 +43,7 @@ int main() {
     for (float v : output) {
         std::cout << v << " ";
     }
-    if (!issame(input, output)) {
+    if (!issame(output, input)) {
         std::cout << "\nTest case failed";
     } else{
         std::cout << "\nTest case passed";
