@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <cassert>
 
 int solve(int N) {
     int sum = 0;
@@ -19,4 +20,6 @@ int main() {
         return 1;
     }
     std::cout << "Sum of bits is: " << solve(N) << std::endl;
+
+    assert(solve(963) == 11);
 }
