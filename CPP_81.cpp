@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool isSame(vector<float> a, vector<float> b) {
+bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -15,7 +15,6 @@ bool isSame(vector<float> a, vector<float> b) {
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
-    letter_grades.reserve(grades.size());
     for (float grade : grades) {
         string strGrade;
         if (grade >= 4.0)
@@ -53,7 +52,7 @@ int main() {
     for (string grade : result) {
         cout << grade << endl;
     }
-    if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
+    if(isSame(vector<string>(), {to_string(grades[0]), to_string(grades[1]), to_string(grades[2])})) cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
 }
