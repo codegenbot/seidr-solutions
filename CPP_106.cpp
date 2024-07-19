@@ -1,30 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> f(int n);
-
-int main() {
-    // Add your test cases here to check the functions
-    std::vector<int> a = {1, 3, 5};
-    std::vector<int> b = {1, 3, 5};
-    assert(issame(a, b) == true);
-
-    std::vector<int> c = {2, 4, 6};
-    std::vector<int> d = {2, 4, 6};
-    assert(issame(c, d) == true);
-
-    std::vector<int> e = {1, 4, 7};
-    std::vector<int> f = {1, 4, 6};
-    assert(issame(e, f) == false);
-
-    std::vector<int> result = f(5);
-    assert(result == std::vector<int>{1, 3, 2, 10, 5});
-
-    return 0;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -55,4 +31,12 @@ std::vector<int> f(int n){
         }
     }
     return result;
+}
+
+int main() {
+    // Test cases
+    assert(issame(std::vector<int>{1, 3, 6, 10}, f(4)));
+    assert(issame(std::vector<int>{2, 4, 8, 16, 32}, f(5)));
+
+    return 0;
 }
