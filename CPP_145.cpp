@@ -1,16 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
-        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
+        while (a > 0) {
+            sum_a += a % 10;
+            a /= 10;
+        }
+        while (b > 0) {
+            sum_b += b % 10;
+            b /= 10;
+        }
         if (sum_a == sum_b) {
             return a < b;
         }
