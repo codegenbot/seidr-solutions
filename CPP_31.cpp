@@ -1,8 +1,6 @@
-```c++
-bool is_divisor = false;
-for (long i = 2; i * i <= n && !is_divisor; ++i) {
+for (int i = 2; i * i <= n && !is_divisor; ++i) {
     if (n % i == 0) {
         is_divisor = true;
     }
 }
-return !is_divisor;
+return static_cast<int>(!is_divisor);
