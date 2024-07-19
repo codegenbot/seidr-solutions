@@ -20,4 +20,3 @@ int main() {
     cin >> str2;
     cout << "The second string appears " << how_many_times(str1, str2) << " times in the first string." << endl;
     return 0;
-}
