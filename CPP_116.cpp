@@ -1,10 +1,10 @@
-sort(arr.begin(), arr.end(), [](int a, int b) {
-    int count_a = __builtin_popcount(a);
-    int count_b = __builtin_popcount(b);
-    if (count_a == count_b) {
-        return a < b;
+bool issame(vector<int> a, vector<int> b) {
+    int count_a = 0, count_b = 0;
+    for (int num : a) {
+        count_a += __builtin_popcount(num);
     }
-    return count_a < count_b;
-});
-
-return arr;
+    for (int num : b) {
+        count_b += __builtin_popcount(num);
+    }
+    return count_a == count_b;
+}
