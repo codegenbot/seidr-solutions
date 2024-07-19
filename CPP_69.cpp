@@ -1,15 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
-
-int count(int num) {
-    int res = 0;
-    for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9}) {
-        if (i == num) res++;
-    }
-    return res;
-}
 
 int search(vector<int> lst) {
     int max = 0;
@@ -24,6 +15,6 @@ int search(vector<int> lst) {
 int main() {
     vector<int> lst = {3, 10, 10, 9, 2};
     int result = search(lst);
-    cout << "The largest number in the list is: " << result << endl;
+    cout << result;
     return 0;
 }
