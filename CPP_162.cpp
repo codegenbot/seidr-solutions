@@ -1,14 +1,15 @@
 if (text.empty()) {
-        return "None";
-    }
-    
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), result);
+    return "None";
+}
 
-    std::stringstream ss;
-    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)result[i];
-    }
-    
-    return ss.str();
+unsigned char digest[MD5_DIGEST_LENGTH];
+MD5((unsigned char*)text.c_str(), text.length(), digest);
+
+char md5hash[2*MD5_DIGEST_LENGTH+1];
+for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    sprintf(&md5hash[i*2], "%02x", (unsigned int)digest[i]);
+}
+md5hash[2*MD5_DIGEST_LENGTH] = '\0';
+
+return string(md5hash);
 }
