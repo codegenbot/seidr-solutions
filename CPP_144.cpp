@@ -1,16 +1,27 @@
-#include<string>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1)).c_str(), "/"));
-    int b = stoi(x.substr(0, 1));
-    int c = stoi(strtok((n.substr(1)).c_str(), "/"));
-    int d = stoi(n.substr(0, 1));
+    int a = stoi(getNumerator(x));
+    int b = stoi(getDenominator(x));
+    int c = stoi(getNumerator(n));
+    int d = stoi(getDenominator(n));
 
-    if (a * d != b * c) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    if (a % c == 0 && b % d == 0) return true;
+    else return false;
+
+}
+
+string getNumerator(string s) {
+    size_t pos = s.find('/');
+    string result = s.substr(0, pos);
+    return result;
+}
+
+string getDenominator(string s) {
+    size_t pos = s.find('/');
+    string result = s.substr(pos + 1);
+    return result;
 }
