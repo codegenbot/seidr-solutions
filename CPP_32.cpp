@@ -14,17 +14,17 @@ double find_zero(const std::vector<double>& coeffs, double x) {
 
 int main() {
     int n;
-    cin >> n;
+    cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> n;
 
     std::vector<double> coeffs;
     for(int i = 0; i < n; i++) {
-        double temp;
-        cin >> temp;
-        coeffs.push_back(temp);
+        double val;
+        cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> val;
+        coeffs.push_back(val);
     }
 
     double x;
-    cin >> x;
+    cin >> std::setprecision(std::numeric_limits<double>::max_digits10) >> x;
 
     double result = find_zero(coeffs, x); 
 
