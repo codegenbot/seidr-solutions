@@ -1,4 +1,4 @@
-```c
+```cpp
 #include <iostream>
 #include <string>
 
@@ -19,5 +19,5 @@ int main() {
     std::string sub;
     std::cin >> s >> sub;
     
-    std::cout << how_many_times(s.c_str(), sub.c_str());
+    std::cout << how_many_times(s, sub);
 }
