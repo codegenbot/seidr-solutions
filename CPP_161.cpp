@@ -3,10 +3,13 @@ for (char &c : s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
     }
-
+    
     return s;
 }
