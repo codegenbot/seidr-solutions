@@ -1,9 +1,9 @@
 def find_zero(xs: list):
     n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients must be even")
+    assert n % 2 == 0
+    assert xs[-2] != 0
 
-    a = xs[0]
-    b = xs[n - 2]
-    x = -b / a
-    return x
+    a = xs[-1]
+    b = xs[-2]
+
+    return -a / b
