@@ -1,6 +1,6 @@
 while True:
     try:
-        num_list = list(map(float, input("Enter exactly four numbers separated by space: ").split()))
+        num_list = list(map(int, input("Enter exactly four numbers separated by space: ").split()))
         if len(num_list) != 4:
             print("Invalid input. Please enter exactly four numbers separated by space.")
         else:
