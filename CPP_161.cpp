@@ -1,26 +1,22 @@
-#include <string>
+#include <iostream>
 #include <algorithm>
-#include <cctype>
 
-std::string solve(const std::string& s) {
+std::string solve(const std::string &s) {
     for(char &c : s) {
         if(isalpha(c)) {
-            if(islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    reverse(s.begin(), s.end());
+
+    if(all_of(s.begin(), s.end(), [](char c) { return !isalpha(c); })) {
+        reverse(s.begin(), s.end());
+    }
     
     return s;
 }
 
 int main() {
-    assert(solve("Hello, World!") == "!DLRO ,OLLEH");
-    assert(solve("abcdefg") == "GFEDCBA");
+    assert (solve("#ccc") == "#CCC");
     
     return 0;
 }
