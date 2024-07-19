@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -25,6 +26,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
     return depths;
 }
 
-void main() {
+int main() {
     // Remove the assertion for now
 }
