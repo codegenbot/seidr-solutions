@@ -4,9 +4,9 @@
 
 using namespace std;
 
-long long doubleTheDifference(vector<double> lst) {
+long long doubleTheDifference(vector<int> lst) {
     long long pos_sum = 0, neg_sum = 0;
-    for (double n : lst) {
+    for (int n : lst) {
         if (n > 0) {
             pos_sum += pow(n, 2);
         } else if (n < 0) {
@@ -17,12 +17,12 @@ long long doubleTheDifference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> numbers;
+    vector<int> numbers;
     int n; 
     cin >> n;
 
     for(int i = 0; i < n; i++) {
-        double num; 
+        int num; 
         cin >> num;
         numbers.push_back(num);
     }
