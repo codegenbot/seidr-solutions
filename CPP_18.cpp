@@ -13,3 +13,6 @@ int how_many_times(string str, string substring) {
     }
     return count;
 }
+
+cin >> s >> sub;
+cout << how_many_times(s, sub);
