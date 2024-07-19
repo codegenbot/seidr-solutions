@@ -32,11 +32,11 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    string test = "hello world";
-    map<char, int> result = histogram(test);
+    string input;
+    getline(cin, input);
+    map<char, int> result = histogram(input);
     for (const auto& entry : result) {
-        cout << entry.first << ": " << entry.second << endl;
+        cout << entry.first << " : " << entry.second << endl;
     }
-
     return 0;
 }
