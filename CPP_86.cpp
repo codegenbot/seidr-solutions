@@ -1,21 +1,9 @@
 #include <iostream>
 #include <string>
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    int i = 0;
-    for (char c : s) {
-        if (c == ' ') {
-            while (i < s.length() && s[i] != ' ') {
-                result += s[i];
-                i++;
-            }
-            i++; 
-        } else {
-            result += c;
-        }
-    }
-    return result;
+std::string anti_shuffle(const std::string& str) {
+    // implementation of anti_shuffle function
+    return str;
 }
 
 int main() {
