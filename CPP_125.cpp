@@ -1,23 +1,28 @@
-// Include necessary header files
-#include <iostream>
-#include <vector>
 #include <string>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b);
 
-// Fix the function signature to include the return type
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+vector<string> split_words(string txt);
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-// Update the main function and add the split_words function definition
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -25,22 +30,17 @@ vector<string> split_words(string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.size() == 1 && islower(result[0][0])) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    if(result.size() == 0){
+        int odd_count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                odd_count++;
             }
         }
-        result[0] = to_string(count);
+        result.push_back(to_string(odd_count));
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
