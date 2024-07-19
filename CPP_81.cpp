@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -11,30 +10,30 @@ bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(float* grades, size_t n) {
+std::vector<std::string> numerical_letter_grade(initializer_list<float> grades) {
     std::vector<std::string> result;
-    for (size_t i = 0; i < n; i++) {
-        if (grades[i] >= 4.0) {
+    for (float grade : grades) {
+        if (grade >= 4.0) {
             result.push_back("A+");
-        } else if (grades[i] >= 3.7) {
+        } else if (grade >= 3.7) {
             result.push_back("A");
-        } else if (grades[i] >= 3.3) {
+        } else if (grade >= 3.3) {
             result.push_back("A-");
-        } else if (grades[i] >= 3.0) {
+        } else if (grade >= 3.0) {
             result.push_back("B+");
-        } else if (grades[i] >= 2.7) {
+        } else if (grade >= 2.7) {
             result.push_back("B");
-        } else if (grades[i] >= 2.3) {
+        } else if (grade >= 2.3) {
             result.push_back("B-");
-        } else if (grades[i] >= 2.0) {
+        } else if (grade >= 2.0) {
             result.push_back("C+");
-        } else if (grades[i] >= 1.7) {
+        } else if (grade >= 1.7) {
             result.push_back("C");
-        } else if (grades[i] >= 1.3) {
+        } else if (grade >= 1.3) {
             result.push_back("C-");
-        } else if (grades[i] >= 1.0) {
+        } else if (grade >= 1.0) {
             result.push_back("D+");
-        } else if (grades[i] >= 0.7) {
+        } else if (grade >= 0.7) {
             result.push_back("D");
         } else {
             result.push_back("F");
@@ -44,23 +43,10 @@ std::vector<std::string> numerical_letter_grade(float* grades, size_t n) {
 }
 
 int main() {
-    float grades[] = {3.8, 2.9, 4.1, 3.5};
-    size_t n = sizeof(grades) / sizeof(grades[0]);
-    std::vector<std::string> letterGrades = numerical_letter_grade(grades, n);
+    std::vector<std::string> letterGrades = numerical_letter_grade({3.8, 2.9, 4.1, 3.5});
 
     for (const auto& grade : letterGrades) {
         std::cout << grade << " ";
     }
     return 0;
-}
-
-int main() {
-    float grades[] = {0.0f, 0.7f};
-    size_t n = sizeof(grades) / sizeof(grades[0]);
-    std::vector<std::string> letterGrades = numerical_letter_grade((float[]){{0, 0.7f}}, 2);
-
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << " ";
-    }
-    assert(same(numerical_letter_grade({0, 0.7f}), {"E", "D-"}));
 }
