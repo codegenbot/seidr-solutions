@@ -14,15 +14,19 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) {
+        return -1;
+    }
+
     std::vector<int> fib = {0, 1};
     int i = 2;
     while (true) {
         fib.push_back(fib[i - 1] + fib[i - 2]);
         if (isPrime(fib[i])) {
             --n;
-        }
-        if (n == 0) {
-            return fib[i];
+            if (n == 0) {
+                return fib[i];
+            }
         }
         ++i;
     }
