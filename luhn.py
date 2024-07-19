@@ -1,6 +1,5 @@
-```
 def luhn(card_number):
-    card_number = list(map(int, str(card_number)[::-1]))  
+    card_number = list(map(int, str(card_number)[::-1])) 
     checksum = 0
     alt = False
     for i, digit in enumerate(card_number):
