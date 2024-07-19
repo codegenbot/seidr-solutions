@@ -1,8 +1,24 @@
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+#include <vector>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+vector<string> split_words(string txt);
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> split_words(const string& txt) {
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
@@ -18,14 +34,14 @@ vector<string> split_words(const string& txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.size() == 0) {
-        int oddLowercaseCount = 0;
+    if (result.empty()) {
+        int count = 0;
         for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
-                oddLowercaseCount++;
+                count++;
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
+        result.push_back(to_string(count));
     }
     return result;
 }
