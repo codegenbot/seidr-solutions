@@ -23,7 +23,6 @@ def prime_fib(n: int):
     return fibonacci(i - 1)
 
 
-if __name__ == "__main__":
-    n = int(input("Enter a number: "))
-    result = prime_fib(n)
-    print(result)
+n = int(input("Enter the value of n: "))
+result = prime_fib(n)
+print(result)
