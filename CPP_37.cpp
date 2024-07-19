@@ -1,4 +1,14 @@
-vector<float> even_elements;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<float> sort_even(vector<float> l);
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_elements;
     for (int i = 0; i < l.size(); i += 2) {
         even_elements.push_back(l[i]);
     }
