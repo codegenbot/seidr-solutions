@@ -6,8 +6,6 @@ bool is_nested(string str) {
         } else if (c == ']') {
             if (count > 0) {
                 count--;
-            } else {
-                return false;
             }
         }
     }
