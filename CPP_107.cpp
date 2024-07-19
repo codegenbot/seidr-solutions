@@ -2,13 +2,11 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
     return a == b;
 }
-
-std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> counts(2, 0);
+std::std::vector<int> even_odd_palindrome(int n) {
+    std::std::vector<int> counts(2, 0);
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
         std::string rev_num = num;
