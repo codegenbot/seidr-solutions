@@ -1,13 +1,18 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> parse_music(string music_string);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b){
+    if(a.size() != b.size()) {
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<int> parse_music(string music_string){
@@ -20,7 +25,7 @@ vector<int> parse_music(string music_string){
             if(music_string[i-1] == 'o'){
                 beats.back() = 2;
             } else {
-                beats.back() = 1;
+                beats.push_back(1);
             }
         }
     }
@@ -29,6 +34,6 @@ vector<int> parse_music(string music_string){
 
 int main(){
     assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-
+    
     return 0;
 }
