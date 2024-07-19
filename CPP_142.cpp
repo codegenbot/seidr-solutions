@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> lst = {1,2,3,4,5};
+int data[] = {1, 2, 3, 4, 5};
 
 int sum_squares(std::vector<int> input) {
     int total = 0;
@@ -17,6 +17,6 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    std::cout << sum_squares(lst) << std::endl;
+    std::cout << sum_squares(std::vector<int>(data, data + sizeof(data)/sizeof(data[0]))) << std::endl;
     return 0;
 }
