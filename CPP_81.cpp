@@ -1,6 +1,6 @@
-#include <string>
+```cpp
 #include <vector>
-#include <iostream>
+#include <string>
 
 bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     if (vec1.size() != vec2.size()) return false;
@@ -13,28 +13,28 @@ bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
-        float grade = grade;
-        if (grade >= 4.0)
+        float gradeCopy = grade; 
+        if (gradeCopy >= 4.0)
             result.push_back("A+");
-        else if (grade > 3.7)
+        else if (gradeCopy > 3.7)
             result.push_back("A");
-        else if (grade > 3.3)
+        else if (gradeCopy > 3.3)
             result.push_back("A-");
-        else if (grade > 3.0)
+        else if (gradeCopy > 3.0)
             result.push_back("B+");
-        else if (grade > 2.7)
+        else if (gradeCopy > 2.7)
             result.push_back("B");
-        else if (grade > 2.3)
+        else if (gradeCopy > 2.3)
             result.push_back("B-");
-        else if (grade > 2.0)
+        else if (gradeCopy > 2.0)
             result.push_back("C+");
-        else if (grade > 1.7)
+        else if (gradeCopy > 1.7)
             result.push_back("C");
-        else if (grade > 1.3)
+        else if (gradeCopy > 1.3)
             result.push_back("C-");
-        else if (grade > 1.0)
+        else if (gradeCopy > 1.0)
             result.push_back("D+");
-        else if (grade > 0.7)
+        else if (gradeCopy > 0.7)
             result.push_back("D");
         else
             result.push_back("F");
