@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -41,7 +39,7 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main {
+int main() {
     string s;
     int n;
     cout << "Enter a sentence: ";
