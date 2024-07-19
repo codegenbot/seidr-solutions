@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,9 +27,8 @@ bool isPalindrome(int n) {
 vector<int> to_vector(int num) {
     vector<int> v;
     string str = to_string(num);  
-    v.clear();
     for (char c : str) {  
-        v.push_back(c - '0'); // subtract '0' because '0'-'9' is the ASCII value for digits
+        v.push_back(static_cast<int>(c - '0')); // use static_cast instead of subtracting '0'.
     }
     return v;
 }
