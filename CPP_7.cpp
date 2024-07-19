@@ -1,6 +1,6 @@
-#include <cassert>
-#include <vector>
 #include <string>
+#include <vector>
+#include <cassert>
 #include <algorithm>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
@@ -12,7 +12,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     return temp_vec;
 }
 
-bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
