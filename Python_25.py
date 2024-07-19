@@ -2,13 +2,17 @@ def factorize(n):
     factors = []
     i = 2
     while i * i <= n:
-        if n % i == 0:
+        if n % i:
+            i += 1
+        else:
             n //= i
             factors.append(i)
-        else:
-            i += 1
     if n > 1:
         factors.append(n)
     return factors
 
-print(factorize(int(input("Enter a number to factorize: "))) )
+try:
+    num = int(input("Enter a number to factorize: "))
+    print(factorize(num))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
