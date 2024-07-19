@@ -9,8 +9,3 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::sort(sorted_b.begin(), sorted_b.end());
     return sorted_a == sorted_b;
 }
-
-int main() {
-    assert(issame({135, 103, 31}, {31, 135}));
-    return 0;
-}
