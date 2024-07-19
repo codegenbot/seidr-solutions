@@ -1,13 +1,13 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
+    sort(lst.begin(), lst.end());
     vector<int> result;
-    int i = 0, j = a.size() - 1;
+    int i = 0, j = lst.size() - 1;
     while (i <= j) {
-        result.push_back(a[i++]);
+        result.push_back(lst[i++]);
         if (i <= j) {
-            result.push_back(a[j--]);
+            result.push_back(lst[j--]);
         }
     }
     return result;
