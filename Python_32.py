@@ -1,5 +1,11 @@
-input_numbers = input().strip().split()
-if len(input_numbers) != 3 or any(not num.replace('.', '', 1).isdigit() for num in input_numbers):
-    print("Invalid input. Please enter exactly three floating-point numbers separated by space.")
-else:
+try:
+    input_numbers = list(map(float, input().strip().split()))
+    if len(input_numbers) != 3 or any(
+        not isinstance(num, float) for num in input_numbers
+    ):
+        raise ValueError
     print("Input accepted successfully.")
+except (ValueError, TypeError):
+    print(
+        "Invalid input. Please enter exactly three floating-point numbers separated by space."
+    )
