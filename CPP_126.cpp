@@ -1,12 +1,13 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-bool is_sorted(vector<int> lst) {
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
+bool is_sorted(const std::vector<int>& lst) {
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
     
-    for (int i = 0; i < sorted_lst.size(); i++) {
-        if (i > 0 && sorted_lst[i] == sorted_lst[i - 1]) {
+    for (int i = 1; i < sorted_lst.size(); i++) {
+        if (sorted_lst[i] == sorted_lst[i - 1]) {
             return false;
         }
     }
@@ -16,6 +17,5 @@ bool is_sorted(vector<int> lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    
     return 0;
 }
