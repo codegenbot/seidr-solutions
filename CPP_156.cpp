@@ -1,42 +1,21 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string intToMiniRoman(int n) {
-    if (n >= 1000) {
-        return "M" + intToMiniRoman(n - 1000);
-    } else if (n >= 900) {
-        return "CM" + intToMiniRoman(n - 900);
-    } else if (n >= 500) {
-        return "D" + intToMiniRoman(n - 500);
-    } else if (n >= 400) {
-        return "CD" + intToMiniRoman(n - 400);
-    } else if (n >= 100) {
-        if (n % 100 == 0) {
-            return std::to_string(n / 100) + "C";
+    std::string roman;
+    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    char sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    int i = 0;
+    while (n > 0) {
+        if (n >= val[i]) {
+            n -= val[i];
+            roman += sym[i];
         } else {
-            return std::to_string(n / 100) + "C" + intToMiniRoman(n % 100);
+            i++;
         }
-    } else if (n >= 90) {
-        return "XC" + intToMiniRoman(n - 90);
-    } else if (n >= 50) {
-        return "L" + intToMiniRoman(n - 50);
-    } else if (n >= 40) {
-        return "XL" + intToMiniRoman(n - 40);
-    } else if (n >= 10) {
-        if (n % 10 == 0) {
-            return std::to_string(n / 10) + "X";
-        } else {
-            return std::to_string(n / 10) + "X" + intToMiniRoman(n % 10);
-        }
-    } else if (n >= 9) {
-        return "IX" + intToMiniRoman(n - 9);
-    } else if (n >= 5) {
-        return "V" + intToMiniRoman(n - 5);
-    } else if (n >= 4) {
-        return "IV" + intToMiniRoman(n - 4);
-    } else {
-        return "I" + intToMiniRoman(n - 1);
     }
+    return roman;
 }
 
 int main() {
