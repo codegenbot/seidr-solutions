@@ -1,16 +1,17 @@
 #include <vector>
+#include <string>
 #include <algorithm>
 
-std::vector<std::string> findPlanetsBetween(const std::string& planet1, const std::string& planet2) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) {
+        if (planets[i] == a[0]) {
             index1 = i;
         }
-        if (planets[i] == planet2) {
+        if (planets[i] == a[1]) {
             index2 = i;
         }
     }
@@ -26,11 +27,9 @@ std::vector<std::string> findPlanetsBetween(const std::string& planet1, const st
         result.push_back(planets[i]);
     }
     
-    return result;
+    return result == b;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+int main() {
+    assert(issame({"Jupiter", "Makemake"}, {}));
 }
-
-assert(issame(findPlanetsBetween("Jupiter", "Makemake"), {}));
