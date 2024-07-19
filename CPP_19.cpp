@@ -15,7 +15,7 @@ string sort_numbers(string numbers) {
             continue;
         }
         temp += numbers[i];
-        if (i + 1 >= numbers.length() || numbers[i + 1] != ' ') {
+        if (i == numbers.length() - 1 || numbers[i + 1] != ' ') {
             numVec.push_back(temp);
             temp = "";
         }
@@ -25,7 +25,7 @@ string sort_numbers(string numbers) {
     string result = "";
     for (int i = 0; i < numVec.size(); i++) {
         result += numMap.find(numVec[i])->second;
-        if (i < numVec.size() - 1) {
+        if (i != numVec.size() - 1) {
             result += " ";
         }
     }
