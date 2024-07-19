@@ -1,11 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    return v1 == v2;
 }
 
 vector<string> odd_count(vector<string> lst){
@@ -28,5 +28,4 @@ int main(){
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     }));
-    return 0;
 }
