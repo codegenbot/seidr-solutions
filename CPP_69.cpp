@@ -1,12 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // For std::count
 using namespace std;
+
+int count(int num) {
+    int res = 0;
+    for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9}) {
+        if (i == num) res++;
+    }
+    return res;
+}
 
 int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && i >= count(lst.begin(), lst.end(), i)) {
+        if (i > 0 && i >= count(i)) {
             max = i;
         }
     }
@@ -14,8 +21,11 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {3, 10, 10, 9, 2};
+    vector<int> lst(5); // Initialize an empty vector of size 5
+    for (int i = 0; i < 5; ++i) { 
+        cin >> lst[i]; // Read input from user and store it in the vector
+    }
     int result = search(lst);
-    cout << result;
+    cout << "The largest number in the list is: " << result << endl;
     return 0;
 }
