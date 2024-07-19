@@ -1,33 +1,11 @@
-bool issame(vector<string> a, vector<string> b);
+#include <algorithm>
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string group;
-    int count = 0;
-    
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (count > 0) {
-                group += c;
-            }
-            count++;
-        } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                group += c;
-            } else if (count == 0 && !group.empty()) {
-                result.push_back(group);
-                group.clear();
-            }
-        }
-    }
-    
-    return result;
-}
+vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    string str;
-    cin >> str;
-    vector<string> groups = separate_paren_groups(str);
-    return 0;
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    vector<string> temp1 = v1;
+    vector<string> temp2 = v2;
+    sort(temp1.begin(), temp1.end());
+    sort(temp2.begin(), temp2.end());
+    return temp1 == temp2;
 }
