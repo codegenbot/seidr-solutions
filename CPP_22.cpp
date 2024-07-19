@@ -2,7 +2,9 @@
 #include <list>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> filter_integers(list<int> values) {
     vector<int> result;
@@ -14,4 +16,7 @@ vector<int> filter_integers(list<int> values) {
     return result;
 }
 
-assert(filter_integers({3, 7, 3, 3, 4, 5}) == vector<int>{3, 3, 3});
+int main() {
+    assert(issame(filter_integers({3,3,3,3,4,5}), {3, 3, 3}));
+    return 0;
+}
