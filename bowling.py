@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -31,5 +32,4 @@ def bowling_score(frames):
     elif len(frames) > roll and frames[roll] != "/":
         score += int(frames[roll].strip("/"))
 
-    print(score)
-print(bowling_score("9-3,5-,7+2,4+,8/3,7/,1/2/X,X/10"))
+    return score
