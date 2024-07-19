@@ -28,3 +28,12 @@ string string_to_md5(string text) {
 
     free(md5_ptr);
     return result;
+}
+
+int main() {
+    string text;
+    cout << "Enter a string: ";
+    getline(cin, text);
+    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
+    return 0;
+}
