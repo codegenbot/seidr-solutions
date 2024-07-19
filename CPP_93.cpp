@@ -1,11 +1,15 @@
-string encode(string message){
-    string encoded_message = "";
+#include <string>
+#include <cctype> // for isalpha, islower, toupper, tolower
+#include <cassert> // for assert
+
+std::string encode(std::string message){
+    std::string encoded_message = "";
     for(char c : message){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
+        if(std::isalpha(c)){
+            if(std::islower(c)){
+                c = std::toupper(c);
             } else {
-                c = tolower(c);
+                c = std::tolower(c);
             }
             if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
                 encoded_message += char(c + 2);
