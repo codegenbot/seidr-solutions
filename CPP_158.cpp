@@ -1,4 +1,10 @@
-string find_max(vector<string> words) {
+#include <string>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+string find_max(const vector<string>& words) {
     string result;
     int max_unique_chars = 0;
     
