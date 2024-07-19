@@ -20,11 +20,13 @@ bool prime_length(std::string str){
     return isPrime;
 }
 
-int main_function(){
+int main1(){
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    if(prime_length(str) != true)
-        std::cerr << "Invalid input. Prime length must be true." << std::endl;
+    if (!prime_length(str)) {
+        std::cerr << "Invalid input." << std::endl;
+        return 1; 
+    }
     return 0;
 }
