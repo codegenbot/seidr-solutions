@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -46,10 +45,11 @@ vector<string> numericalLetterGrade(vector<float> grades) {
     return letterGrades;
 }
 
-int main() {
+int calculate() {
     vector<float> grades = {3.8, 2.9, 4.1};
     vector<string> result = numericalLetterGrade(grades);
     for (string grade : result) {
         cout << grade << endl;
     }
+    return 0;
 }
