@@ -1,26 +1,18 @@
 #include <any>
-#include <cassert>
 #include <string>
-#include <iostream>
+#include <sstream>
+#include <cassert>
 
 std::any compare_one(std::any a, std::any b) {
-    assert(a.type() == b.type());
-
-    if (a.type() == typeid(int)) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(float)) {
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
-    } else if (a.type() == typeid(std::string)) {
-        float valA = stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float valB = stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? a : valA < valB ? b : "None";
-    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string))
-               || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        float valA = a.type() == typeid(int) ? std::any_cast<int>(a) : stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float valB = b.type() == typeid(int) ? std::any_cast<int>(b) : stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        return valA > valB ? a : valA < valB ? b : "None";
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        float valA = stof(std::any_cast<std::string>(std::any_cast<std::string>(a)));
+        float valB = stof(std::any_cast<std::string>(std::any_cast<std::string>(b)));
+        return valA > valB ? a : (valA < valB ? b : std::string("None"));
+    } else {
+        return std::string("None"); // Default case if types are not handled correctly
     }
-
-    // Return a valid result or raise an error
-    return "Error: Invalid types";
 }
