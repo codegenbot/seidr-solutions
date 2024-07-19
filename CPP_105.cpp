@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -8,54 +7,48 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+    std::vector<std::pair<int, int>> result;
+    for(int num : arr){
+        if(num >= 1 && num <= 9){
+            result.push_back({num, 0});
         }
     }
 
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
+    std::sort(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
 
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        switch (num) {
+    std::vector<std::string> numbers;
+    for(const auto &p : result){
+        switch(p.first){
             case 1:
-                result.push_back("One");
+                numbers.push_back("One" + to_string(p.second));
                 break;
             case 2:
-                result.push_back("Two");
+                numbers.push_back("Two" + to_string(p.second));
                 break;
             case 3:
-                result.push_back("Three");
+                numbers.push_back("Three" + to_string(p.second));
                 break;
             case 4:
-                result.push_back("Four");
+                numbers.push_back("Four" + to_string(p.second));
                 break;
             case 5:
-                result.push_back("Five");
+                numbers.push_back("Five" + to_string(p.second));
                 break;
             case 6:
-                result.push_back("Six");
+                numbers.push_back("Six" + to_string(p.second));
                 break;
             case 7:
-                result.push_back("Seven");
+                numbers.push_back("Seven" + to_string(p.second));
                 break;
             case 8:
-                result.push_back("Eight");
+                numbers.push_back("Eight" + to_string(p.second));
                 break;
             case 9:
-                result.push_back("Nine");
+                numbers.push_back("Nine" + to_string(p.second));
                 break;
         }
     }
 
-    return result;
-}
-
-int main() {
-    std::vector<int> input = {9, 4, 8};
-    assert (issame(by_length(input), {"Nine", "Four", "Eight"}));
-    return 0;
+    return numbers;
 }
