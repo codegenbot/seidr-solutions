@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -25,4 +30,14 @@ vector<int> count_up_to(int n) {
         }
     }
     return primes;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = count_up_to(n);
+    for (int prime : result) {
+        cout << prime << " ";
+    }
+    return 0;
 }
