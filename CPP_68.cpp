@@ -1,6 +1,4 @@
-#include <vector>
-#include <climits>
-using namespace std;
+Here is the completed code:
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
