@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+using namespace std;
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     vector<int> wells(n, 0);
@@ -33,10 +35,6 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}};
-    int capacity = 3;
-    
-    cout << "Maximum number of fills: " << max_fill(grid, capacity) << endl;
-
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
     return 0;
 }
