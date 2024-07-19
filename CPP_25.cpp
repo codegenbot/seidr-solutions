@@ -1,16 +1,15 @@
 #include <vector>
 
-vector<int> issame(vector<int> a) {
+vector<int> issame(vector<int> a, vector<int> b) {
     vector<int> factors;
-    int n = a;
-    for (int i = 2; i * i <= n; i++) {
-        while (n % i == 0) {
+    for (int i = 2; i * i <= a; i++) {
+        while (a % i == 0) {
             factors.push_back(i);
-            n /= i;
+            a /= i;
         }
     }
-    if (n > 1) {
-        factors.push_back(n);
+    if (a > 1) {
+        factors.push_back(a);
     }
     return factors;
 }
