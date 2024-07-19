@@ -1,10 +1,7 @@
-if (n == 1) {
-        return 1;
-    }
-    long long result = 1;
-    for (int i = n; i >= 1; --i) {
+long long result = 1;
+    for (int i = 1; i <= n; ++i) {
         long long factorial = 1;
-        for (int j = i; j >= 1; --j) {
+        for (int j = 1; j <= i; ++j) {
             factorial *= j;
         }
         result *= factorial;
