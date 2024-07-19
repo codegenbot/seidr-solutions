@@ -37,11 +37,15 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
+    int n; std::cin >> n;
+    std::vector<int> a(n);
+    for(int i = 0 ; i < n; ++i){
+        std::cin >> a[i];
+    }
     if (!issame(a.size())) {
         a = strange_sort_list(a);
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         std::cout << a[i] << " ";
     }
     return 0;
