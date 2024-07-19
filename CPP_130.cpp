@@ -8,7 +8,6 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 std::vector<int> tri(int n) {
     std::vector<int> tribonacci(n + 1);
     tribonacci[0] = 3;
-    
     if (n > 0) tribonacci[1] = 1;
     if (n > 1) tribonacci[2] = 3;
     
