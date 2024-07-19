@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
-#include <string>
-#include <cstdlib>
+
+std::vector<int> parse_music(std::string music_string);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
