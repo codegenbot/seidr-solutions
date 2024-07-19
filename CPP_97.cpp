@@ -1,4 +1,7 @@
-int unit_a = abs(a) % 10;
-    int unit_b = abs(b) % 10;
-    return unit_a * unit_b;
+#include <cstdlib>
+
+int multiply(int a, int b){
+    int unitA = abs(a % 10);
+    int unitB = abs(b % 10);
+    return unitA * unitB;
 }
