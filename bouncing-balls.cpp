@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <cmath>  
+#include <iomanip>  
 
 using namespace std;
 
@@ -14,16 +15,17 @@ int main() {
     int numBounces;
     cin >> numBounces;
     
-    double previousHeight = startHeight;
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double bounceHeight = previousHeight * bouncinessIndex;
-        totalDistance += bounceHeight - previousHeight;
-        previousHeight = bounceHeight;
+        totalDistance += pow(2, -bouncinessIndex) * startHeight;
+        startHeight *= bouncinessIndex;
     }
     
-    cout << fixed << setprecision(5);
-    cout << totalDistance << endl;
+    streamsize old_precision = cout.precision();
+    cout << fixed;
+    cout << setprecision(5) << totalDistance << endl;
+    cout.unsetf(ios_base::floatfield);
+    cout.precision(old_precision);
     
     return 0;
 }
