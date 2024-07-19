@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-#include <vector>
+#include <string>
 
-bool match_parens(const std::vector<char>& lst) {
+bool match_parens(const std::string& str) {
     int open = 0, close = 0;
-    for (char x : lst) {
+    for (char x : str) {
         if (x == '(') open++;
         else if (x == ')') close++;
     }
@@ -12,15 +12,13 @@ bool match_parens(const std::vector<char>& lst) {
 }
 
 int main() { 
-    std::string line;
-    std::vector<char> lst;
+    std::string s;
     std::cout << "Enter the strings: ";
-    while(std::getline(std::cin, line)) {
-        for(char c : line) {
-            lst.push_back(c);
-        }
+    char c;
+    while(std::cin.get(c) && c != '\n') {
+        s += c;
     }
-    if (match_parens(lst)) {
+    if (match_parens(s)) {
         std::cout << "The parentheses are matched." << std::endl;
     } else {
         std::cout << "The parentheses are not matched." << std::endl;
