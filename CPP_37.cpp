@@ -1,23 +1,22 @@
-```cpp
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++)
-        if(a[i] != b[i])
-            return false;
-    return true;
-}
-
-vector<float> sort_even(vector<float> l){
-    vector<float> l_prime;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            vector<float> even_elements(l.begin() + i, l.begin() + i+1);
-            sort(even_elements.begin(), even_evenements.end());
-            l_prime.push_back(even_elements[0]);
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            vector<float> evenVals;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    evenVals.push_back(l[j]);
+                }
+            }
+            sort(evenVals.begin(), evenVals.end());
+            result[i] = evenVals[0];
         } else {
-            l_prime.push_back(l[i]);
+            result[i] = l[i];
         }
     }
-    return l_prime;
+    return result;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
