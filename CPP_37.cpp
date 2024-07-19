@@ -1,4 +1,13 @@
-vector<float> even_vals;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<float> sort_even(vector<float> l);
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_vals;
     vector<float> sorted_even_vals;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -15,3 +24,4 @@ vector<float> even_vals;
         }
     }
     return l;
+}
