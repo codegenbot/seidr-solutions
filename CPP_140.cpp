@@ -8,7 +8,7 @@ std::string fix_spaces(const std::string& text) {
                 continue;
             else {
                 text.erase(i, 1);
-                text.insert(i, "20%");
+                text.insert(text.begin() + i, "20%");
                 i++;
             }
         }
