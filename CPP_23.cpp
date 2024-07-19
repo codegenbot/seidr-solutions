@@ -1,11 +1,8 @@
-#include <iostream>
-#include <string>
 #include <cstring>
-#include <cassert>
 
 int main() {
-    std::string str = "asdasnakj";
-    assert(str.length() == 9);
-
-    return 0;
+    const char* str = "asdasnakj";
+    assert(std::strlen(str) == 9);
+    
+    return 9;
 }
