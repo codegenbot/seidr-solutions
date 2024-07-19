@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -15,9 +14,9 @@ def bowling_score(frames):
                     score += sum(rolls)
             i += 1
         elif frames[i] == '/':
-            score += 10
+            score += 5
             if i < len(frames) - 1 and frames[i+1].isdigit():
-                score += int(frames[i+2])
+                score += int(frames[i+1])
             i += 2
         else:
             rolls = list(map(int, frames[i].replace("/","").split()))
