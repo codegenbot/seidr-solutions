@@ -1,7 +1,6 @@
 #include <vector>
 #include <any>
 #include <typeinfo>
-#include <iostream>
 #include <cassert>
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
