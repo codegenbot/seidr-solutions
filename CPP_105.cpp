@@ -55,7 +55,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert (issame({{ "One" }},{ { "One" } }));
+    assert(issame({{ "One" }},{ { "One" } }));
     
     std::vector<int> numbers = {9, 4, 8};
     std::vector<std::string> output = by_length(numbers);
