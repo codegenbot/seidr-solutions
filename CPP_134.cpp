@@ -1,19 +1,19 @@
 #include <string>
 #include <cassert>
 
-bool check_if_last_char_is_a_letter(const std::string& txt) {
-    if (txt.empty()) {
+bool check_if_last_char_is_a_letter(const std::string& str) {
+    if (str.empty()) {
         return false;
     }
     
-    char lastChar = txt.back();
+    char lastChar = str.back();
     
     if (isalpha(lastChar)) {
-        int i = txt.size() - 2;
-        while (i >= 0 && txt[i] != ' ') {
+        int i = str.size() - 2;
+        while (i >= 0 && str[i] != ' ') {
             i--;
         }
-        if (i >= 0 && txt[i] == ' ') {
+        if (i >= 0 && str[i] == ' ') {
             return true;
         }
     }
@@ -22,10 +22,10 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    std::string input_text;
-    std::getline(std::cin, input_text);
+    std::string input;
+    std::cin >> input;
     
-    bool result = check_if_last_char_is_a_letter(input_text);
+    bool result = check_if_last_char_is_a_letter(input);
     
     return 0;
 }
