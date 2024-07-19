@@ -15,9 +15,9 @@ int main() {
     std::string line; 
     std::cout << "Enter the strings: ";
     while(getline(cin, line)) {
-        size_t pos = line.find('(');
+        auto pos = line.find('(');
         if(pos != std::string::npos) {
-            line = line.substr(pos);
+            line = std::string(line.begin() + pos, line.end()); // Create a new string from the specified position to the end.
         } else {
             break;
         }
