@@ -10,7 +10,8 @@ def bowling_score(frames):
                 score += 30
                 i += 1
             elif i < len(frames):
-                score += int(frames[i].replace("/","").replace(" ",""))
+                rolls = list(map(int, frames[i].replace("/","").split()))
+                score += sum(rolls)
                 i += 1
         elif frames[i] == '/':
             score += 10
@@ -29,4 +30,4 @@ def bowling_score(frames):
                 i += 2
     return score
 
-print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10|-"))
+print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10"))
