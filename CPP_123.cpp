@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> // Include assert header
+#include <cassert>
 
 using namespace std;
 
