@@ -1,4 +1,4 @@
-bool issame(vector<int> a, vector<int> b); // Declaration
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
