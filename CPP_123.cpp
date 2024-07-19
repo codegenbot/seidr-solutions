@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
-#include <algorithm> // for std::vector comparison
+#include <algorithm> 
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool are_equal(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -14,4 +14,10 @@ std::vector<int> get_odd_collatz(int num) {
     }
     result.push_back(1);
     return result;
+}
+
+int main() {
+    // Test the function
+    assert(are_equal(get_odd_collatz(1), {1}));
+    return 0;
 }
