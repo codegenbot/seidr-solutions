@@ -1,14 +1,22 @@
 #include <string>
 #include <algorithm>
 
-std::result_type solve(std::string input) {
-    std::result_type result = "";
-    for (char c : input) {
+std::string solve(std::string s) {
+    std::string result = "";
+    for (char c : s) {
         if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? std::string(input).reverse() : result;
+    return result.empty() ? std::string(s).reverse() : result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << solve(s) << std::endl;
+    return 0;
 }
