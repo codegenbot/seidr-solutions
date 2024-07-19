@@ -15,8 +15,9 @@ std::string anti_shuffle(std::string s) {
                 word += s[i];
                 i++;
             }
+            sort(word.begin(), word.end());
             for (char c : word) {
-                result += (int)c;
+                result += c;
             }
             i--;
         }
