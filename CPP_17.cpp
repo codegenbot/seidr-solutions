@@ -1,9 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
 vector<int> parse_music(string music_string);
-bool issame(vector<int> a, vector<int> b);
+
+int main(){
+    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>{2, 1, 2, 1, 4, 2, 4, 2});
+    return 0;
+}
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
@@ -21,29 +27,4 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    
-    if (issame(a, b)) {
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-    
-    return 0;
 }
