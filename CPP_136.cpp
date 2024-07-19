@@ -2,11 +2,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> b) {
+std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> b){
     int largest_negative = a[0], smallest_positive = a[0];
     for (int num : b) {
         if (num < 0 && num < largest_negative) {
@@ -18,7 +18,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> a, std::vector<int> 
     return {largest_negative, smallest_positive};
 }
 
-int main() {
+int main(){
     std::vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1}, {1, 2, 3, 4});
     assert(issame(result, {-100, 1}));
     return 0;
