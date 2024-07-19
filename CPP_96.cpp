@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> count_up_to(int n) {
@@ -8,10 +7,10 @@ vector<int> count_up_to(int n) {
     if (n < 2) {
         return result;
     }
-    
+
     vector<bool> is_prime(n, true);
     is_prime[0] = is_prime[1] = false;
-    
+
     for (int i = 2; i < n; ++i) {
         if (is_prime[i]) {
             result.push_back(i);
@@ -20,7 +19,7 @@ vector<int> count_up_to(int n) {
             }
         }
     }
-    
+
     return result;
 }
 
