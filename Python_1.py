@@ -3,18 +3,39 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
+    stack = []
     current_group = ''
-    nesting_level = 0
+    
     for char in paren_string:
         if char == ' ':
             continue
-        if char == '(':
-            nesting_level += 1
+        elif char == '(':
+            stack.append(char)
             current_group += char
         elif char == ')':
-            nesting_level -= 1
-            current_group += char
-            if nesting_level == 0:
+            while stack and stack[-1] != '(':
+                current_group += stack.pop()
+            if stack:
+                current_group += stack.pop()
+            else:
                 result.append(current_group)
                 current_group = ''
-    return result
+        else:
+            while stack and stack[-1] != '(':
+                current_group += stack.pop()
+            if char == ')':
+                current_group += char
+                while stack and stack[-1] != '(':
+                    current_group += stack.pop()
+                stack.pop()
+                result.append(current_group)
+                current_group = ''
+            else:
+                current_group += char
+    
+    if stack:
+        while stack:
+            current_group += stack.pop()
+        result.append(current_group)
+
+    return [group for group in map(str, filter(bool, result))]
