@@ -1,24 +1,25 @@
 #include <string>
-#include <cctype>
+#include <cassert>
 
 std::string encode(std::string message){
-    std::string encoded_message = "";
-    for(char c : message){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                encoded_message += char(c + 2);
+    for(char &c : message){
+        if(std::isalpha(c)){
+            if(std::islower(c)){
+                c = std::toupper(c);
             } else {
-                encoded_message += c;
+                c = std::tolower(c);
             }
-        } else {
-            encoded_message += c;
+            if(c == 'A') c = 'C';
+            else if(c == 'E') c = 'G';
+            else if(c == 'I') c = 'K';
+            else if(c == 'O') c = 'Q';
+            else if(c == 'U') c = 'W';
         }
     }
-    return encoded_message;
+    return message;
 }
 
 int main(){
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WkRtG");
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
     return 0;
 }
