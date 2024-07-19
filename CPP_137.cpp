@@ -1,5 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
+
+using namespace std;
 
 int compare_strings(string a, string b) {
     if (a > b)
