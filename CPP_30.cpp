@@ -34,7 +34,7 @@ int main() {
     vector<float> b = get_positive(a);
     reverse(b.begin(), b.end());
 
-    if (a == b) {
+    if (issame(a, b)) {
         cout << "The vectors are same." << endl;
     } else {
         cout << "The vectors are not same." << endl;
