@@ -1,5 +1,5 @@
 try:
-    input_numbers = list(map(float, input().split()))
+    input_numbers = list(map(float, input().strip().split()))
     if len(input_numbers) != 3 or any(
         not isinstance(num, float) for num in input_numbers
     ):
