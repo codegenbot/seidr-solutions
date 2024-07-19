@@ -2,14 +2,12 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+    std::vector<std::string> result;
     for (const auto &str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
