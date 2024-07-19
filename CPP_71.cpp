@@ -8,14 +8,17 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    float sideA, sideB, sideC;
-    std::cout << "Enter the lengths of sides A, B and C: ";
-    std::cin >> sideA >> sideB >> sideC;
-
-    if (triangle_area(sideA, sideB, sideC) == -1.0f)
-        std::cout << "Invalid input! The entered values don't form a triangle." << std::endl;
-    else
-        std::cout << "The area of the triangle is: " << triangle_area(sideA, sideB, sideC) << std::endl;
-
+    float a, b, c;
+    cout << "Enter side A: ";
+    cin >> a;
+    cout << "Enter side B: ";
+    cin >> b;
+    cout << "Enter side C: ";
+    cin >> c;
+    if (triangle_area(a, b, c) == -1.0f) {
+        cout << "The sides do not form a valid triangle." << endl;
+    } else {
+        cout << "The area of the triangle is: " << triangle_area(a, b, c) << endl;
+    }
     return 0;
 }
