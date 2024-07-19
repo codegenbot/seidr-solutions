@@ -10,8 +10,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end(), std::greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + std::min(k, (int)arr.size()));
+    sort(arr.begin(), arr.end(), std::greater<int>());
+    return vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
