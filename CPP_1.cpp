@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+#include<assert.h>
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     std::sort(a.begin(), a.end());
@@ -14,7 +14,7 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     std::vector<std::string> groups;
     int count = 0;
     std::string current_group;
-    
+
     for(char c : s) {
         if(c == '(') {
             count++;
@@ -32,4 +32,8 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     return groups;
 }
 
-assert(isSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+int main() {
+    std::vector<std::string> expected = {"()", "(())", "(()())"};
+    assert(isSame(separate_paren_groups("( ) (( )) (( )( ))"), expected));
+    return 0;
+}
