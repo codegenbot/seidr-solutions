@@ -9,9 +9,8 @@ vector<int> parse_music(string music_string) {
         if (music_string[i] == 'o') {
             result.push_back(4);
         } else if (music_string[i] == '|') {
-            if (i + 1 < music_string.length() && music_string[i+1] == '.') {
+            if (i > 0 && music_string[i-1] == '.') {
                 result.push_back(1);
-                i++;
             } else {
                 result.push_back(2);
             }
