@@ -23,5 +23,5 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-// Call the issame function with the output of separate_paren_groups as the first argument
-issame(separate_paren_groups(paren_string), b);
+// Corrected function call by passing the output of separate_paren_groups(...) as the first argument
+issame(separate_paren_groups(paren_string));
