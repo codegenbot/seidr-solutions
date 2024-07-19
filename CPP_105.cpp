@@ -1,22 +1,20 @@
-#include <string>
+#include <vector>
+#include <algorithm>
 #include <map>
+#include <string>
+#include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b);
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -30,7 +28,6 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(filtered_arr.begin(), filtered_arr.end());
-
     reverse(filtered_arr.begin(), filtered_arr.end());
 
     map<int, string> num_to_name = {
@@ -50,8 +47,4 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
-} 
-
-int main() {
-    assert(issame(by_length(vector<int>{9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
 }
