@@ -3,7 +3,7 @@
 #include <cassert>
 
 namespace cpp30 {
-    bool are_same(std::vector<float> a, std::vector<float> b) {
+    bool are_same(const std::vector<float> &a, const std::vector<float> &b) {
         return a == b;
     }
 
@@ -36,7 +36,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(are_same(get_positive({}), {}));
+    assert(are_same(get_positive({}), std::vector<float>{}));
 
     return 0;
 }
