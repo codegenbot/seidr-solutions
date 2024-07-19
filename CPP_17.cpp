@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> parse_music(string music_string);
+
 vector<int> parse_music(string music_string){
     vector<int> beats;
     int i = 0;
