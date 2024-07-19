@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<double> a, std::vector<double> b) {
+bool issame(std::vector<double> a,std::vector<double> b){
     return a == b;
 }
 
@@ -32,7 +32,7 @@ std::string numerical_letter_grade(std::vector<double> grades) {
 }
 
 int main() {
-    assert(issame(std::vector<double>{0, 0.7}, std::vector<double>{0.1, 0.7}));
-    assert(numerical_letter_grade({90, 85}) == "B");
-    assert(numerical_letter_grade({45, 55, 67}) == "D");
+    assert (issame(std::vector<double>{0, 0.7}, std::vector<double>{0.1, 0.7}));
+    assert (numerical_letter_grade({90, 85}) == "B");
+    assert (numerical_letter_grade({45, 55, 67}) == "D");
 }
