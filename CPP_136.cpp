@@ -1,4 +1,9 @@
-bool issame(vector<int> a, vector<int> b);
+#include <iostream>
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN;
@@ -8,15 +13,18 @@ vector<int> largest_smallest_integers(vector<int> lst){
         if(num < 0 && num > largest_negative){
             largest_negative = num;
         }
-        if(num > 0 && num < smallest_positive){
+        if(num > 0 && (num < smallest_positive)){
             smallest_positive = num;
         }
     }
     
-    return {largest_negative == INT_MIN ? 0 : largest_negative, smallest_positive == INT_MAX ? 0 : smallest_positive};
+    return {largest_negative, smallest_positive};
 }
 
 int main() {
-    bool same = issame(vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1}));
+    bool result = issame(vector<int>{-3, 1}, largest_smallest_integers({-6, -4, -4, -3, -100, 1}));
+    
+    cout << result;
+    
     return 0;
 }
