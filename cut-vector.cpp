@@ -14,15 +14,14 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long diff = llabs((long long)(sum1 - prev_sum) % (i + 1));
+            long long diff = std::abs(v[i] - ((sum1 - prev_sum) / (i + 1)));
             
             if (diff < min_diff) {
                 min_diff = diff;
-                index = i; 
+                index = i; // update the cutting point
             } else if (diff == 0) {
-                // Both sums are equal, so update the result and return
-                res[0].assign(v.begin(), v.begin() + index+1);
-                res[1].assign(v.begin() + index, v.end());
+                res[0].assign(v.begin(), v.begin() + i+1);
+                res[1].assign(v.begin() + i, v.end());
                 return res;
             }
         }
