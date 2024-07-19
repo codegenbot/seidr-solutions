@@ -33,10 +33,15 @@ int main() {
     vector<string> lst1 = {"apple", "banana", "cherry"};
     vector<string> lst2 = {"apple", "banana", "cherry"};
 
-    if (issame(lst1, lst2)) {
-        vector<string> result = total_match(lst1, lst2);
-        // compare result with expected value here
-    }
+    vector<string> result = total_match(lst1, lst2);
 
-    return 0;
+    vector<string> expected_result = {"apple", "banana", "cherry"};
+
+    if (issame(result, expected_result)) {
+        // Output is as expected
+        return 0;
+    } else {
+        // Output is not as expected
+        return 1;
+    }
 }
