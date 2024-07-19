@@ -38,7 +38,7 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {});    
+    assert(issame(bf("Jupiter", "Makemake"), {}));
     
     return 0;
 }
