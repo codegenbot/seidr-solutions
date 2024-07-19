@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <cstddef>
 
@@ -11,7 +10,7 @@ int countOnes(int n) {
     return count;
 }
 
-int skjkasdkd(void* p, std::size_t n) {
+int customBitCount(void* p, std::size_t n) {
     unsigned char* data = static_cast<unsigned char*>(p);
     int count = 0;
     for (std::size_t i = 0; i < n; ++i) {
@@ -22,6 +21,6 @@ int skjkasdkd(void* p, std::size_t n) {
 
 int main() {
     int arr[] = {127, 97, 8192};
-    assert(skjkasdkd(&arr[0], sizeof(arr)/sizeof(int)) == 10);
+    std::cout << customBitCount(&arr[0], sizeof(arr)/sizeof(int)) << std::endl;
     return 0;
 }
