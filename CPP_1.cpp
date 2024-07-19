@@ -32,3 +32,9 @@ vector<string> separate_paren_groups(const string& paren_string) {
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
+    
+    return 0;
+}
