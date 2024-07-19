@@ -1,3 +1,5 @@
+#include <initializer_list>
+
 #include <vector>
 #include <algorithm>
 
@@ -15,6 +17,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(std::vector<int>(make_a_pile(15)) == (std::vector<int>{1, 3, 5, 7, 9, 11, 13, 15}));
+    assert(make_a_pile(15) == (std::vector<int>{1, 3, 5, 7, 9, 11, 13, 15}));
     return 0;
 }
