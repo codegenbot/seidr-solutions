@@ -5,8 +5,8 @@ bool right_angle_triangle(int a, int b, int c) {
 }
 
 int main() {
-    assert(right_angle_triangle(3, 4, 5) == true);
-    assert(right_angle_triangle(2, 2, 2) == false);
+    assert (right_angle_triangle(3, 4, 5) == true);
+    assert (right_angle_triangle(2, 2, 2) == false);
 
     return 0;
 }
