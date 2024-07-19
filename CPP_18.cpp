@@ -1,3 +1,4 @@
+```c
 #include <string>
 #include <iostream>
 #include <cctype>
@@ -14,9 +15,5 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-int main() {
-    string s, sub;
-    cin >> s >> sub;
-    cout << how_many_times(s, sub);
-    return 0;
-}
+std::cin >> s >> sub;
+std::cout << how_many_times(s, sub);
