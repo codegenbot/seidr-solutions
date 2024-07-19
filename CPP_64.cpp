@@ -1,13 +1,16 @@
-Here is the completed code:
-
-```cpp
 int vowels_count(string s){
     int count = 0;
-    for(int i=0; i<s.length();i++){
-        if((s[i] == 'a')||(s[i] == 'e')||(s[i] == 'i')||(s[i] == 'o')||(s[i] == 'u'))
-            count++;
+    for (char c : s) {
+        switch(tolower(c)) {
+            case 'a': 
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                if (c == 'y' && next_permutation(&s[0], &s.back())) continue;
+                count++;
+            break;
+        }
     }
-    if(s[s.length()-1] == 'y')
-        count++;
     return count;
 }
