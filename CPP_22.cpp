@@ -20,10 +20,10 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result.empty() ? std::vector<int>() : result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-if (!issame({1}, filter_integers({std::any(1), std::any(2), std::any(3), std::any("hello"), std::any(4)}))) {
+if (!std::issame({1}, filter_integers({std::any(1), std::any(2), std::any(3), std::any("hello"), std::any(4)}))) {
     // handle the error or unexpected behavior
 }
