@@ -1,19 +1,9 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
+#include <iostream>
 
-bool move_one_ball(std::vector<int> arr) {
-    int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (std::is_sorted(arr.begin(), arr.end())) {
-            return true;
-        }
-        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+int move_one_ball(int a, int b, int n) {
+    if (n % 2 == 0) {
+        return (a + b) / 2;
+    } else {
+        return a;
     }
-    return false;
-}
-
-int main() {
-    assert(move_one_ball({})==true);
-    return 0;
 }

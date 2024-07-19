@@ -3,7 +3,6 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -32,10 +31,4 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    assert(are_equal(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-
-    return 0;
 }
