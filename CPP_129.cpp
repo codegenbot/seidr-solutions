@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -8,12 +9,16 @@ bool issame(vector<int> a, vector<int> b) {}
 vector<int> minPath(vector<vector<int>> grid, int k);
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
+    vector<vector<int>> grid = {{1, 2, 3},
+                                 {4, 5, 6},
+                                 {7, 8, 9}};
+    int k = 5;
 
     vector<int> result = minPath(grid, k);
 
-    // Print or use the result as needed
+    for (int val : result) {
+        cout << val << " ";
+    }
 
     return 0;
 }
