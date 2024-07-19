@@ -34,7 +34,7 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    cout << issame(histogram("a"), {{'a', 1}});
+    issame(histogram("a"), {{'a', 1}});
     
     return 0;
 }
