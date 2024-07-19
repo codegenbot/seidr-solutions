@@ -1,23 +1,38 @@
-string find_max(vector<string> words){
-    string max_word = *words.begin();
-    for(const auto &word : words){
-        int unique_chars_word = word.length() - (word.length() - unique(word, 0)) + 1;
-        if(unique_chars_word > (max_word.length() - (max_word.length() - unique(max_word, 0)) + 1) || 
-           (unique_chars_word == (max_word.length() - (max_word.length() - unique(max_word, 0)) + 1) && word < max_word))
+#include <vector>
+#include <algorithm>
+#include <set>
+#include <string>
+
+std::string find_max(const std::vector<std::string>& words) {
+    string max_word = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length()) {
+                return a > b;
+            }
+            return a.length() < b.length();
+        });
+    
+    for (string word : words) {
+        set<char> char_set(word.begin(), word.end());
+        if (char_set.size() > max_word.length()) {
             max_word = word;
+        } else if (char_set.size() == max_word.length()) {
+            bool is_max = true;
+            for (char c : max_word) {
+                if (char_set.find(c) == char_set.end()) {
+                    is_max = false;
+                    break;
+                }
+            }
+            if (!is_max) {
+                max_word = word;
+            }
+        }
     }
+    
     return max_word;
 }
 
-int unique(string s, int i){
-    if(i >= s.length())
-        return i;
-    bool found = false;
-    for(int j = i; j < s.length(); j++){
-        if(s[i] == s[j])
-            found = true;
-        else
-            break;
-    }
-    return found ? j : i;
+int main() {
+    assert(find_max({"play", "play", "play"}) == "play");
 }
