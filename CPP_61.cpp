@@ -1,13 +1,20 @@
-int cnt = 0;
-for (char c : brackets) {
-    if (c == '(') {
-        cnt++;
-    } else if (c == ')') {
-        cnt--;
-        if (cnt < 0) {
-            return false;
+#include <string>
+
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int balance = 0;
+
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            balance++;
+        } else if (bracket == ')') {
+            balance--;
+            if (balance < 0) {
+                return false;
+            }
         }
     }
-}
-return cnt == 0;
+
+    return balance == 0;
 }
