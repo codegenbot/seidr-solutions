@@ -10,8 +10,8 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
             result += cipherMap.at(pos);
             pos += 1;
         }
-        if (pos == std::string::npos) {
-            result += c; // handle cases where characters in the text are not found in the cipher map
+        if (std::string::npos == pos) {
+            result += c; // not found in the map, append as is
         }
     }
     return result;
