@@ -1,5 +1,6 @@
-```
 def bowling_score(frames):
+    frames = frames.replace("\n", "").replace(" ", "")
+
     score = 0
     roll = 0
 
