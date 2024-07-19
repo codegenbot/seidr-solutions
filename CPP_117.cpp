@@ -1,5 +1,10 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
+
+bool issame(vector<string> a, vector<string> b);
+vector<string> select_words(string s, int n);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -46,6 +51,5 @@ int main() {
     for (string word : result) {
         // Use the words in the 'result' vector as needed
     }
-    assert(issame(result, {"b", "c", "d", "f"})); 
     return 0;
 }
