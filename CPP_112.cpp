@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <algorithm>
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
@@ -63,3 +64,4 @@ int main() {
         cout << "Strings are not the same." << endl;
     }
     return 0;
+}
