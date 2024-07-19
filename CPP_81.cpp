@@ -1,41 +1,5 @@
-```
-#include <vector>
-#include <string>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size())
-        return false;
-
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-
-    return true;
-}
-
-int main() {
-    std::vector<float> grades;
-    int n;
-    std::cout << "Enter the number of students: ";
-    std::cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        float grade;
-        std::cout << "Enter student " << i+1 << "'s grade: ";
-        std::cin >> grade;
-        grades.push_back(grade);
-    }
-
-    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
-
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << " ";
-    }
-    return 0;
-
-}
-
+```cpp
+bool checkSame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letterGrades;
     for (const auto& grade : grades) {
@@ -51,4 +15,26 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
             letterGrades.push_back("F");
     }
     return letterGrades;
+}
+
+int main() {
+    std::vector<float> grades = {3.8f, 2.9f, 4.1f, 3.5f};
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
+
+    for (const auto& grade : letterGrades) {
+        std::cout << grade << " ";
+    }
+    return 0;
+}
+
+bool checkSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a.size() != b.size())
+        return false;
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
