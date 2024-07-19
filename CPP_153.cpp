@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
     for (const auto& extension : extensions) {
