@@ -35,6 +35,8 @@ std::vector<int> f(int n){
     return result;
 }
 
+/* Optional main function for testing if needed */
+/*
 int main() {
     int n = 5;
     std::vector<int> result = f(n);
@@ -45,3 +47,4 @@ int main() {
     
     return 0;
 }
+*/
