@@ -19,10 +19,12 @@ bool are_same(const vector<string>& a, const vector<string>& b){
 int main(){
     vector<string> prefixes = all_prefixes("WWW");
     vector<string> expected = {"W", "WW", "WWW"};
+
     if (are_same(prefixes, expected)) {
         cout << "Test Passed\n";
     } else {
         cout << "Test Failed\n";
     }
+
     return 0;
 }
