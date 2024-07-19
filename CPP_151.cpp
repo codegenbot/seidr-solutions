@@ -7,10 +7,10 @@ using namespace std;
 long long doubleTheDifference(vector<float> lst) {
     long long pos_sum = 0, neg_sum = 0;
     for (float n : lst) {
-        if (n > 0 && modf(n, &n) == 0) {
-            pos_sum += pow(n, 2);
-        } else if (n < 0 && modf(-n, &n) == 0) {
-            neg_sum -= pow(-n, 2);
+        if (n > 0) {
+            pos_sum += n;
+        } else if (n < 0) {
+            neg_sum -= n;
         }
     }
     return abs(pos_sum - neg_sum);
@@ -18,7 +18,7 @@ long long doubleTheDifference(vector<float> lst) {
 
 int main() {
     vector<float> lst;
-    float num, odd_sum = 0; 
+    float num;
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> num; 
