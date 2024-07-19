@@ -8,3 +8,4 @@ int getMaxFreqNum(const vector<int>& lst) {
     }
     return maxFreqNum > 0 ? maxFreqNum : -1;
 }
+```
