@@ -1,3 +1,4 @@
+#include <vector>
 #include <string>
 
 std::string longest(std::vector<std::string> strings){
@@ -17,7 +18,6 @@ std::string longest(std::vector<std::string> strings){
 
 int main() {
     std::vector<std::string> strings = {"apple", "banana", "orange", "kiwi"};
-    std::string longestString = longest(strings);
-    
+    std::string result = longest(strings);
     return 0;
 }
