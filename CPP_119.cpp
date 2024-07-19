@@ -14,7 +14,8 @@ bool match_parens(const std::string& s) {
 int main() { 
     std::string line; 
     std::cout << "Enter the strings: ";
-    while(std::getline(std::cin, line)) {
+    while(getline(cin, line)) {
+        line.erase(0, line.find_first_of("()"));  // Remove leading parentheses characters
         if(line.empty()) break;
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
