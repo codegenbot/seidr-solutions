@@ -15,14 +15,13 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int n;
+    int n, count = 1;
     cin >> n;
-    std::stringstream ss;
-    ss << "The number is ";
-    if (!is_prime(n)) {
-        ss << "not prime.";
+    cout << "The number is " << std::to_string(n);
+    if (!is_prime(stoi(std::to_string(n)))) {
+        cout << " not prime." << endl;
     } else {
-        ss << "prime.";
+        cout << " prime." << endl;
     }
-    cout << ss.str() << endl; 
+    return 0;
 }
