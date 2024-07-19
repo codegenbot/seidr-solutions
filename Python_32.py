@@ -11,9 +11,6 @@ def find_zero(xs: list):
 
     return -b / a
 
-# Read input
 coefficients = list(map(float, input().split()))
-
-# Call function
 result = find_zero(coefficients)
 print(result)
