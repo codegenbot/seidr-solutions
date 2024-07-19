@@ -25,12 +25,18 @@ int main() {
     std::vector<float> input;
     float val;
 
-    while(true) {
-        std::cin >> val;
-        if(std::cin.fail()) {
-            break; // exit the loop when an error occurs
+    while(std::cin >> val) {
+        try {
+            input.push_back(val);
+        } catch (...) {
+            std::cout << "Invalid input. Please enter a valid floating-point number." << std::endl;
+            return 1; 
         }
-        input.push_back(val);
+    }
+
+    if(input.empty()) {
+        std::cout << "No valid inputs were provided.";
+        return 0;
     }
 
     std::vector<float> output = sort_even(input);
