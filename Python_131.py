@@ -2,9 +2,9 @@ import math
 
 while True:
     try:
-        n = input("Enter a positive integer greater than zero: ").strip()
-        if not n.isdigit() or int(n) <= 0:
-            raise ValueError("Please enter a positive integer greater than zero.")
+        n = int(input("Enter a single digit integer: ").strip())
+        if n <= 0 or n >= 10:
+            raise ValueError("Please enter a single digit integer.")
         
         result = math.prod(map(int, str(n)))
         print(result)
@@ -13,4 +13,4 @@ while True:
     except ValueError as e:
         print(e)
     except Exception as e:
-        print("Invalid input. Please enter a valid positive integer.")
+        print("Invalid input. Please enter a valid single digit integer.")
