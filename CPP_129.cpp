@@ -1,28 +1,32 @@
+#include <vector>
+#include <algorithm>
+
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> path;
     int n = grid.size();
-    int row = 0, col = 0;
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                ++row;
-            } else if (row == 0) {
-                ++col;
-            } else {
-                --row;
-                ++col;
-            }
-        } else {
-            if (row == n - 1) {
-                ++col;
-            } else if (col == 0) {
-                ++row;
-            } else {
-                ++row;
-                --col;
-            }
+    vector<int> path;
+    vector<pair<int, pair<int, int>>> values;
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            values.push_back({grid[i][j], {i, j}});
         }
     }
+
+    sort(values.begin(), values.end());
+
+    int x = values[0].second.first;
+    int y = values[0].second.second;
+
+    path.push_back(grid[x][y]);
+
+    for(int i=1; i<k; i++){
+        if(x+1 < n && (i == k-1 || grid[x+1][y] < grid[x][y])){
+            x++;
+        } else {
+            y++;
+        }
+        path.push_back(grid[x][y]);
+    }
+
     return path;
 }
