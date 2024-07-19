@@ -1,7 +1,6 @@
-```c++
+```cpp
 #include <map>
 #include <string>
-#include <initializer_list>
 using namespace std;
 
 std::map<char, int> histogram(string test) {
@@ -28,7 +27,8 @@ bool issame(const map<char,int>& a, const map<char,int>& b){
     return true;
 }
 
-int main() {
+int main()
+{
     cout << issame(histogram("a"), histogram("b")) << endl;
     return 0;
 }
