@@ -13,12 +13,12 @@ int solution(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers; 
-    long unsigned int n;
+    std::vector<int> numbers(size_t(0)); 
+    size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    numbers.resize(n);
-    for (int i = 0; i < n; i++) {
+    numbers.resize(static_cast<size_t>(n)); 
+    for (size_t i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
