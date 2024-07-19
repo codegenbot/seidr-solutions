@@ -14,12 +14,14 @@ vector<string> select_words(string s, int n) {
             if (!word.empty()) {
                 unsigned vowel_count = 0;
                 for (char ch : word) {
-                    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-                        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+                    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'
+                        || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
                 if (vowel_count <= n) {
                     result.push_back(word);
+                    word = "";
+                } else {
                     word = "";
                 }
             }
@@ -30,12 +32,14 @@ vector<string> select_words(string s, int n) {
     if (!word.empty()) {
         unsigned vowel_count = 0;
         for (char ch : word) {
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'
+                || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                 vowel_count++;
         }
         if (vowel_count <= n) {
             result.push_back(word);
+            word = "";
+        } else {
             word = "";
         }
     }
