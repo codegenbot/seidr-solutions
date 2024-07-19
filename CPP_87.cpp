@@ -3,14 +3,13 @@
 #include <algorithm>
 #include <cassert>
 
-using vector = std::vector<int>;
-
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x){
     std::vector<std::vector<int>> result;
+    
     for(int i = 0; i < lst.size(); i++){
         for(int j = 0; j < lst[i].size(); j++){
             if(lst[i][j] == x){
@@ -30,6 +29,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2})); 
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}));
     return 0;
 }
