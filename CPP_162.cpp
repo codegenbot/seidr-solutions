@@ -1,3 +1,4 @@
+#include <string>
 extern "C" {
 #include <openssl/md5.h>
 }
@@ -14,4 +15,3 @@ std::string string_to_md5(const std::string& input) {
         sprintf(output + i*2, "%02x", result[i]);
     }
     return std::string(output);
-}
