@@ -25,9 +25,11 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main(){
-    vector<int> testInput = {31, 135};
-    vector<int> result = unique_digits(testInput);
+    vector<int> x = {31, 564, 135, 71, 235};
+    vector<int> result = unique_digits(x);
+    
+    // Check for predetermined values
     bool same = issame(result, {31, 135});
-
+    
     return 0;
 }
