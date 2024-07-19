@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 
-std::any compare(std::any a, std::any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -21,5 +21,5 @@ std::any compare(std::any a, std::any b) {
             return b;
         }
     }
-    return std::any();
+    return boost::any();
 }
