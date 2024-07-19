@@ -1,26 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+vector<int> f(int n);
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> f(int n);
-
-int main(){
-    // Your main function code here
-}
-
-std::vector<int> f(int n){
-    std::vector<int> result(n);
+vector<int> f(int n){
+    vector<int> result(n);
     for(int i = 0; i < n; i++){
         if(i % 2 == 0){
             int factorial = 1;
@@ -37,4 +22,16 @@ std::vector<int> f(int n){
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
