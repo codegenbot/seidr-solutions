@@ -1,10 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-bool issame(std::vector<float> a, std::vector<float> b);
-
-std::vector<float> sort_even(std::vector<float> l);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
