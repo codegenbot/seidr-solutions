@@ -5,8 +5,8 @@ def find_closest_elements(numbers):
 
 if __name__ == "__main__":
     try:
-        numbers = list(map(int, input().split()))
+        numbers = list(map(int, input().strip().split()))
         closest_pair = find_closest_elements(numbers)
         print(*closest_pair)
-    except:
-        print("Error: Input is incorrect")
+    except ValueError:
+        print("Please enter space-separated integers only.")
