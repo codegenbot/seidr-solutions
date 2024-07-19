@@ -5,8 +5,8 @@
 #include <initializer_list>
 #include <limits>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return (a.first == b.first && a.second == b.second);
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers);
@@ -20,7 +20,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             float diff = std::abs(numbers[j] - numbers[i]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest = std::make_pair(numbers[i], numbers[j]);
+                closest = std::pair<float, float>(numbers[i], numbers[j]);
             }
         }
     }
