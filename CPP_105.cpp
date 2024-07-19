@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <map>
@@ -15,9 +14,9 @@ vector<string> by_length(vector<string> arr){
     };
     
     vector<int> filtered;
-    for (string num : arr) {
-        if (num >= "One" && num <= "Nine") {
-            filtered.push_back(stoi(num));
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            filtered.push_back(num);
         }
     }
     
