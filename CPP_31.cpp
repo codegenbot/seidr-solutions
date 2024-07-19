@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -13,21 +14,15 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int n, count = 1;
+    int n;
     cin >> n;
-    cout << "The number is ";
     if (!is_prime(n)) {
-        cout << "not prime." << endl;
+        cout << "The number is not prime." << endl;
     } else {
-        for (int i = 2; ; i++) {
-            if (!is_prime(i))
-                break;
-            cout << i << " ";
-            count++;
-            if (i == n)
-                break;
-        }
-        cout << "It's the " << count << " prime number." << endl;
+        ostringstream oss; 
+        oss << "The number is prime. It's the " << (n > 1 ? "first" : "") << " prime number.";
+        string output = oss.str(); 
+        cout << output << endl;
     }
     return 0;
 }
