@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -37,24 +36,21 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 
 int main() {
     int n, m, capacity;
-    std::cout << "Enter number of wells: ";
-    std::cin >> n;
-    std::cout << "Enter number of days: ";
-    std::cin >> m;
-    std::cout << "Enter the capacity of each well: ";
-    std::cin >> capacity;
-
-    std::vector<std::vector<int>> grid(n, std::vector<int>(m));
-
+    std::cin >> n >> m >> capacity;
+    
+    std::vector<std::vector<int>> grid(n);
     for (int i = 0; i < n; ++i) {
+        grid[i].resize(m);
         for (int j = 0; j < m; ++j) {
-            std::cout << "Enter the amount of water in well " << i + 1 << " on day " << j + 1 << ": ";
-            std::cin >> grid[i][j];
+            int x;
+            std::cin >> x;
+            grid[i][j] = x;
         }
     }
 
-    int max_fill_days = max_fill(grid, capacity);
-    std::cout << "Maximum number of days to fill all wells: " << max_fill_days << std::endl;
+    int result = max_fill(grid, capacity);
+    
+    std::cout << "Max fill times: " << result << std::endl;
 
     return 0;
 }
