@@ -10,9 +10,9 @@ bool solve(std::string s) {
 }
 
 int main() {
-    std::string s;
     std::cout << "Enter a string: ";
-    getline(std::cin, s);  
+    std::string s;
+    std::getline(std::cin, s);  
     if (solve(s)) {
         std::cout << "The solution is: " << s << std::endl;
     } else {
