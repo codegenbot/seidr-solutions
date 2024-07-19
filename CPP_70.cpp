@@ -37,3 +37,4 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 int main() {
     assert(issame({1, 2, 3}, strange_sort_vector({3, 2, 1})));
     return 0;
+}
