@@ -1,52 +1,48 @@
-```cpp
 #include <vector>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
+#include <string>
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    string temp = "";
     for (char ch : s) {
-        bool flag = false;
+        bool found = false;
         for (char cc : c) {
             if (ch == cc) {
-                flag = true;
+                found = true;
                 break;
             }
         }
-        if (!flag)
-            temp += ch;
-    }
-    if (temp.length() > 0) {
-        string reverseTemp = temp;
-        reverse(temp.begin(), temp.end());
-        result.push_back(temp);
-        if (isPalindrome(reverseTemp)) {
-            result.push_back("True");
-        } else {
-            result.push_back("False");
+        if (!found) {
+            result.push_back(string(1, ch));
         }
-    } else
+    }
+    string temp = "";
+    for (int i = 0; i < result.size(); i++) {
+        temp += result[i];
+    }
+    if (temp == reverse(temp)) {
+        result.push_back("True");
+    } else {
         result.push_back("False");
+    }
     return result;
 }
 
-bool isPalindrome(string s) {
-    int start = 0, end = s.length() - 1;
-    while (start < end) {
-        if (s[start] != s[end])
-            return false;
-        start++;
-        end--;
+string reverse(string s) {
+    string rev = "";
+    for (int i = s.size() - 1; i >= 0; i--) {
+        rev += s[i];
     }
-    return true;
-}
+    return rev;
+
+    // Not needed, the function should be either inside another function or as a separate function
+    // bool issame(string a, string b) {
+    //     if (a.length() != b.length()) {
+    //         return false;
+    //     }
+    //     for (int i = 0; i < a.length(); i++) {
+    //         if (a[i] != b[i]) {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    //}
