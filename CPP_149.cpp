@@ -1,6 +1,6 @@
-#include <algorithm>
+```c++
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -8,7 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result = lst;
-
+    
     // Remove strings with odd lengths from the list
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
