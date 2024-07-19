@@ -17,7 +17,6 @@ int main() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    numbers.reserve(n);
     for (size_t i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
