@@ -9,7 +9,7 @@ bool checkSame(float a, float b) {
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
-        if (i % static_cast<int>(2) == 0) {
+        if (i % 2 == 0) {
             float maxEven = -INFINITY;
             for (float val : l) {
                 if (checkSame(val, static_cast<int>(val))) {
@@ -22,18 +22,6 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
-
-bool same(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!checkSame(a[i], b[i])) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
