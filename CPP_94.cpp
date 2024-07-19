@@ -1,18 +1,13 @@
-int customBitCount(void* ptr, int size) {
-    int count = 0;
-    unsigned char* p = (unsigned char*)ptr;
-    for(int i=0; i<size; i++) {
-        if((p[i] & 1))
-            count++;
-    }
-    return count;
-}
+#include <cassert>
 
-int bitCount(int a) {
+int skjkasdkd(int* arr, int size) {
     int count = 0;
-    while (a) {
-        a &= ~1;
-        count++;
+    for (int i = 0; i < size; i++) {
+        while (*arr) {
+            *arr &= *arr - 1;
+            count++;
+        }
+        arr++;
     }
     return count;
 }
