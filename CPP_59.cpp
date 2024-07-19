@@ -15,13 +15,7 @@ int largest_prime_factor(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    if (!(std::cin >> n) || n <= 0) {
-        std::cerr << "Invalid input. Please enter a positive integer.\n";
-        return 1;
-    }
-
-    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
-
+    std::cin >> n;
+    std::cout << largest_prime_factor(n) << std::endl;
     return 0;
 }
