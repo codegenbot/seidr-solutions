@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,3 +23,18 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    string s;
+    int n;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+    cout << "Enter the maximum number of vowels allowed in each word: ";
+    cin >> n;
+    vector<string> words = select_words(s, n);
+    for (string w : words) {
+        cout << w << endl;
+    }
+    return 0;
+}
