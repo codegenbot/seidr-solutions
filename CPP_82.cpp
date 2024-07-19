@@ -10,6 +10,7 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, str);
     bool isPrime = prime_length(str);
+    return 0;
 }
 
 bool prime_length(std::string str){
