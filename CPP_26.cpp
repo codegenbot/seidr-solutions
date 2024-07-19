@@ -1,11 +1,11 @@
 ```cpp
-bool checkEqual(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
-        return false;
+        throw runtime_error("Vectors are not of the same size");
     }
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
-            return false;
+            throw runtime_error("Vectors are not equal");
         }
     }
     return true;
@@ -23,6 +23,6 @@ vector<int> uniqueNumbers(vector<int> numbers) {
 
 int main() {
     vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    assert (checkEqual(uniqueNumbers(test) , vector<int>{1, 2, 3, 4, 5}) );
+    assert (issame(uniqueNumbers(test), {1, 2, 3, 4, 5}) );
     return 0;
 }
