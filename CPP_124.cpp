@@ -3,6 +3,9 @@
 #include <string>
 using namespace std;
 
+// Function signature
+bool valid_date(const string& date);
+
 bool valid_date(const string& date) {
     if(date.empty()) return false;
     
@@ -27,6 +30,7 @@ bool valid_date(const string& date) {
 }
 
 int main() {
+    // Test cases with assertions
     assert(valid_date("03-2021"));
     assert(!valid_date("04-2003"));
     
