@@ -1,6 +1,8 @@
-#include <algorithm> // Include for std::equal
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+#include <cctype>
 
 std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
@@ -28,4 +30,8 @@ std::vector<std::string> split_words(const std::string &txt) {
         result.push_back(std::to_string(count));
     }
     return result;
+}
+
+bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
