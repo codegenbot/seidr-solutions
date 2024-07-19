@@ -1,29 +1,15 @@
-// Include necessary headers
-#include <vector>
-#include <cassert>
-
-// Define make_a_pile function
-std::vector<int> make_a_pile(int size) {
-    std::vector<int> result;
-    for (int i = 0; i < size; ++i) {
-        result.push_back(8 + 2 * i);
-    }
-    return result;
+std::vector<int> make_a_pile(std::vector<int> v){
+    std::sort(v.begin(), v.end());
+    return v;
 }
 
-// Fix function signature and comparison in issame function
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return make_a_pile(a) == make_a_pile(b);
 }
 
-// Test the code
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+int main(){
+    std::vector<int> vec1 = {3, 1, 4, 1, 5, 9};
+    std::vector<int> vec2 = {2, 7, 1, 8, 2, 8};
+
+    assert(issame(vec1, vec2) == false);
 }
