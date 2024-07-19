@@ -1,7 +1,8 @@
 #include <vector>
-#include <any_view>
+#include <any>
+#include <cassert>
 
-std::vector<int> filter_integers(std::vector<std::any_view> values) {
+std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto &val : values) {
         if (val.type() == typeid(int)) {
@@ -12,11 +13,10 @@ std::vector<int> filter_integers(std::vector<std::any_view> values) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
+    return a == b;
+}
 
-    return true;
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
 }
