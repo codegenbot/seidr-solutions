@@ -8,7 +8,7 @@ int main() {
     string input;
     cin >> input;
     vector<string> result = separate_paren_groups(input);
-    for (const string& group : result) {
+    for (const auto& group : result) {
         cout << group << endl;
     }
     return 0;
