@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <any>
 
 std::string compare_one(const std::string& s1, int number) {
     if (s1 == std::to_string(number)) {
@@ -12,5 +11,5 @@ std::string compare_one(const std::string& s1, int number) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "Not equal");
+    assert(compare_one(std::string("1"), 1) == "Equal");
 }
