@@ -1,11 +1,9 @@
-// Remove the duplicate issame function with incorrect signature.
-
 #include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
 #include <cassert>
-#include <string> // Include the <string> header
+#include <string>
 
 using namespace std;
 
@@ -37,7 +35,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"})); // Use curly braces for initialization
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 
     return 0;
 }
