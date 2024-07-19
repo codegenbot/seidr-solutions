@@ -1,4 +1,10 @@
-vector<string> result;
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> result;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
