@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
