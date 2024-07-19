@@ -10,8 +10,3 @@ std::string findMax(vector<string> words){
         });
     return max;
 }
-
-int main(){
-    assert ((findMax({"play", "play", "play"}) == "play"));
-    return 0;
-}
