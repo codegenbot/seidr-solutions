@@ -18,8 +18,8 @@ string string_to_md5(string text) {
     EVP_MD_CTX_final(&ctx);
 
     for (int i = 0; i < 16; i++) {
-        stringstream ss;
-        ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(md5[i]);
+        ostringstream ss;
+        ss << hex << std::setfill('0') << setw(2) << (int)md5[i];
         result += ss.str();
     }
 
