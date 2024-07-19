@@ -1,31 +1,41 @@
-string words_in_sentence(string sentence) {
-    string result;
-    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29}; // List of prime numbers up to 30
+#include<stdio.h>
+#include<string>
+#include<vector>
+#include<iostream>
+#include<cmath>
 
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    stringstream ss(sentence);
     string word;
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (is_prime(word.size(), primes)) {
-                result += word + " ";
-            }
-            word = "";
-        } else {
-            word += c;
+    vector<string> primeWords;
+
+    while (ss >> word) {
+        if (is_prime(word.length())) {
+            primeWords.push_back(word);
         }
     }
-    
-    if (is_prime(word.size(), primes)) {
-        result += word;
+
+    string result = "";
+    for (const string& primeWord : primeWords) {
+        result += primeWord + " ";
     }
-    
+
     return result;
 }
 
-bool is_prime(int n, int primes[]) {
-    for (int i : primes) {
-        if (n == i) {
-            return true;
-        }
-    }
-    return false;
+int main() {
+    string sentence;
+    getline(cin, sentence);
+    cout << words_in_sentence(sentence) << endl;
+    return 0;
 }
