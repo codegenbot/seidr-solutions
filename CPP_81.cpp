@@ -1,6 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <string>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -43,10 +42,14 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.9, 4.1};
+    vector<float> grades = {3.5, 4.2, 1.8};
     vector<string> result = numerical_letter_grade(grades);
-    for (string grade : result) {
-        cout << grade << endl;
+    
+    if (issame(vector<string>({"A-","A+","F"}), result)) {
+        cout << "Grades match";
+    } else {
+        cout << "Grades do not match";
     }
+    
     return 0;
 }
