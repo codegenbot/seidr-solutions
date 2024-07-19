@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cmath>
 
 int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& operand) {
@@ -11,10 +11,10 @@ int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& 
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+            result = std::pow(result, operand[i + 1]);
         }
     }
     return result;
