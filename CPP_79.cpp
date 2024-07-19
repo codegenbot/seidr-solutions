@@ -1,24 +1,13 @@
-#include <iostream>
-#include <string>
-#include <sstream>
+Here is the completed code:
 
-std::string decimal_to_binary(int decimal){
-    std::ostringstream binary_stream;
-    while(decimal > 0){
-        if(decimal % 2 == 0)
-            binary_stream << "0";
+string decimal_to_binary(int decimal){
+    string binary = "";
+    while(decimal > 0) {
+        if (decimal % 2 == 0)
+            binary = "0" + binary;
         else
-            binary_stream << "1";
+            binary = "1" + binary;
         decimal /= 2;
     }
-    return binary_stream.str();
-}
-
-int startProgram() {
-    int decimal;
-    std::cout << "Enter a decimal number: ";
-    std::cin >> decimal;
-    std::string binary = decimal_to_binary(decimal);
-    std::cout << "The binary representation is: " << binary << std::endl;
-    return 0;
+    return "db" + binary + "db";
 }
