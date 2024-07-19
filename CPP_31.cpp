@@ -32,4 +32,7 @@ void prime_numbers() {
     }
 }
 
-void prime_numbers()
+int main() {
+    prime_numbers();
+    return 0;
+}
