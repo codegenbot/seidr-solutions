@@ -1,3 +1,8 @@
+```
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
@@ -15,8 +20,4 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
 }
