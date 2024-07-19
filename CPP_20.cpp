@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```cpp
 #include <algorithm>
 #include <numeric>
