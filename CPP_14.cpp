@@ -11,26 +11,18 @@ std::vector<std::string> all_prefixes(std::string str){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    std::vector<std::string> vec1 = all_prefixes("hello");
-    std::vector<std::string> vec2 = all_prefixes("hell");
-    
-    if (issame(vec1, vec2)) {
-        std::cout << "The prefixes are the same." << std::endl;
+    std::vector<std::string> prefixes1 = all_prefixes("hello");
+    std::vector<std::string> prefixes2 = all_prefixes("world");
+
+    if (issame(prefixes1, prefixes2)) {
+        std::cout << "Prefixes are the same" << std::endl;
     } else {
-        std::cout << "The prefixes are different." << std::endl;
+        std::cout << "Prefixes are different" << std::endl;
     }
-    
+
     return 0;
 }
