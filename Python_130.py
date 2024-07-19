@@ -7,6 +7,6 @@ def tri(n):
         res = [3]
         a, b, c = 0, 0, 3
         for i in range(1, n):
-            res.append(c)
+            res.append(a + b + c)
             a, b, c = b, c, a + b + c
         return res
