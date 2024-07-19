@@ -7,16 +7,16 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    unsigned long long sum1 = 0;
-    unsigned long long prev_sum = 0; 
+    long long sum1 = 0;
+    long long prev_sum = 0; 
     long long min_diff = LLONG_MAX;
     int index = -1;
     
     for (int i = 0; i < n; i++) { 
-        if(i > 0 && (sum1 - prev_sum) != 0) {
-            long long diff = abs((unsigned long long)sum1 - prev_sum);
+        if(i > 0) {
+            long long diff = abs(sum1 - prev_sum);
             
-            if (diff <= min_diff) {
+            if ((sum1 - prev_sum) == 0 || diff <= min_diff) {
                 min_diff = diff;
                 index = i; // update the cutting point
             }
@@ -26,7 +26,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         prev_sum = sum1; 
     }
     
-    res[0].assign(v.begin(), v.begin() + index+1);
+    res[0].assign(v.begin(), v.begin() + index);
     res[1].assign(v.begin() + index, v.end());
     
     return res;
