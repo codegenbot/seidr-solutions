@@ -14,7 +14,7 @@ vector<string> result;
                 current_group += c;
             } else if (open_braces == 0) {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
             }
         }
     }
