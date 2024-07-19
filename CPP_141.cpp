@@ -5,7 +5,7 @@ string file_name_check(string file_name) {
     int dotCount = 0;
     int latinLetterCount = 0;
     int validExtension = 0;
-
+    
     for (char c : file_name) {
         if (c >= '0' && c <= '9') {
             digitsCount++;
@@ -15,7 +15,7 @@ string file_name_check(string file_name) {
             latinLetterCount++;
         }
     }
-
+    
     size_t dotPos = file_name.find('.');
     if (dotPos != string::npos) {
         string extension = file_name.substr(dotPos + 1);
@@ -23,7 +23,7 @@ string file_name_check(string file_name) {
             validExtension = 1;
         }
     }
-
+    
     if (digitsCount <= 3 && dotCount == 1 && latinLetterCount > 0 && validExtension) {
         return "Yes";
     } else {
