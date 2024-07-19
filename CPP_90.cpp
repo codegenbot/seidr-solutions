@@ -20,4 +20,4 @@ int main() {
     assert (next_smallest({-35, 34, 12, -45}) == -35);
     // Additional test cases can be added here
     return 0;
-} 
+}
