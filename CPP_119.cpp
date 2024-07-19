@@ -12,8 +12,8 @@ bool match_parens(const std::string& s) {
 }
 
 int main() { 
-    std::string line;
-    while(std::cin >> line) {
+    std::string line; 
+    while(std::getline(std::cin, line)) { 
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
