@@ -1,11 +1,8 @@
-#include <iostream>
-#include <cmath>
-
-int closest_integer(const std::string &value) {
-    double num = std::stod(value);
-    if (num > 0) {
-        return std::floor(num + 0.5);
+double num = stod(value);
+    int rounded_num = round(num);
+    if (num - rounded_num == 0.5) {
+        return (num > 0) ? ceil(num) : floor(num);
     } else {
-        return std::ceil(num - 0.5);
+        return round(num);
     }
 }
