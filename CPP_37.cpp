@@ -1,13 +1,7 @@
-#include <initializer_list>
-#include <algorithm>
+```cpp
+#include <vector>
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) = default;
 
 std::vector<float> sort_even(std::vector<float> l){
     std::vector<float> l_prime;
@@ -21,4 +15,3 @@ std::vector<float> sort_even(std::vector<float> l){
         }
     }
     return l_prime;
-}
