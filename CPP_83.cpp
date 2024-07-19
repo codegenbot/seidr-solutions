@@ -1,16 +1,13 @@
 #include <iostream>
 
-int startsOneEnds(int n) {
+using namespace std;
+
+int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1) {
+    for (long long i = 1; i <= (long long)n; i++) {
+        string str = to_string(i);
+        if ((str.length() == n && str[0] == '1') || (str.length() == n && str[str.length()-1] == '1')) {
             count++;
-        }
-        for (int j = 0; j < n - 1; j++) {
-            int num = i * pow(10, j);
-            if ((num / pow(10, n-1)) % 10 == 1 || (num % 10) == 1) {
-                count++;
-            }
         }
     }
     return count;
@@ -18,8 +15,8 @@ int startsOneEnds(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "The count of numbers that start or end with 1 is: " << startsOneEnds(n) << std::endl;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    cout << "Count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
 }
