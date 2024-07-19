@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
