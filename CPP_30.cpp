@@ -1,20 +1,9 @@
-#include <vector>
-#include <cassert>
-
-bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size();
-}
-
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+vector<vector<float>> get_positive(vector<float> l) {
+    vector<vector<float>> result;
     for (float x : l) {
         if (x > 0) {
-            result.push_back(x);
+            result.push_back({x});
         }
     }
     return result;
 }
-
-int main() {
-    assert(get_positive({}).size() == 0); 
-    return 0;
