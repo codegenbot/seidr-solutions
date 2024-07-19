@@ -14,5 +14,7 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
+    // Your code here
+
     return 0;
 }
