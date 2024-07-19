@@ -16,6 +16,7 @@ int main() {
     std::vector<int> result = strange_sort_list(input);
     
     assert(issame(result, expected));
+
     return 0;
 }
 
