@@ -1,18 +1,21 @@
-```cpp
 #include <iostream>
 #include <string>
 
-std::string int_to_mini_roman(int n) {
-    if (n <= 0)
-        return "";
+struct RomanPair {
+    int value;
+    char symbol;
+};
+
+std::string intToMiniRoman(int num) {
     std::string roman = "";
-    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    char symbols[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    RomanPair pairs[] = {{1000, 'M'}, {900, 'CM'}, {500, 'D'}, {400, 'CD'},
+                          {100, 'C'}, {90, 'XC'}, {50, 'L'}, {40, 'XL'},
+                          {10, 'X'}, {9, 'IX'}, {5, 'V'}, {4, 'IV'}, {1, 'I'}};
     int i = 0;
-    while (n > 0) {
-        if (n >= values[i]) {
-            n -= values[i];
-            roman += symbols[i];
+    while (num > 0) {
+        if (num >= pairs[i].value) {
+            num -= pairs[i].value;
+            roman += pairs[i].symbol;
         } else {
             i++;
         }
@@ -21,6 +24,6 @@ std::string int_to_mini_roman(int n) {
 }
 
 int mainTest() {
-    std::cout << int_to_mini_roman(1000) << std::endl;
+    std::cout << intToMiniRoman(1000) << std::endl;
     return 0;
 }
