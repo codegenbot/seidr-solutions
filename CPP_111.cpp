@@ -1,5 +1,5 @@
-#include <map>
 #include <iostream>
+#include <map>
 #include <cassert>
 
 using namespace std;
