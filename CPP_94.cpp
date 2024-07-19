@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <cassert>
@@ -26,5 +25,16 @@ bool isPrime(int n){
     }
     return true;
 
-int result = skjkasdkd({127, 97, 8192});
-assert(result == 10);
+int main(){
+    std::vector<int> inputVector;
+    int num;
+    while(true){
+        std::cout << "Enter a number (or -1 to stop): ";
+        std::cin >> num;
+        if(num == -1) break;
+        inputVector.push_back(num);
+    }
+    int result = skjkasdkd(inputVector);
+    assert(result == 10);
+    return 0;
+}
