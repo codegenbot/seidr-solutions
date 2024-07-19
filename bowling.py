@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -28,4 +29,4 @@ def bowling_score(frames):
                 i += 2
     return score
 
-print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10"))
+print(bowling_score("X|X|7/4|5|6|8-3|9-0|10|-5|-10|-"))
