@@ -1,12 +1,23 @@
 string words_in_sentence(string sentence){
-    vector<string> words = split(sentence, ' ');
     string result = "";
-    for (string word : words) {
-        if (is_prime(word.length())) {
+    for(string word : split(sentence, " ")){
+        if(is_prime(word.length())){
             result += word + " ";
         }
     }
     return result.substr(0, result.size() - 1);
+}
+
+vector<string> split(const string& str, const string& delim) {
+    vector<string> tokens;
+    size_t pos = 0;
+    size_t prevPos = 0;
+    while ((pos = str.find(delim, prevPos)) != string::npos) {
+        tokens.push_back(str.substr(prevPos, pos - prevPos));
+        prevPos = pos + delim.size();
+    }
+    tokens.push_back(str.substr(prevPos));
+    return tokens;
 }
 
 bool is_prime(int n) {
@@ -15,15 +26,4 @@ bool is_prime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-}
-
-vector<string> split(const string& str, char delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return tokens;
 }
