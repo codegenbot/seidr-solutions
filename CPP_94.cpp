@@ -1,12 +1,18 @@
-#include <vector>
-#include <set>
+```
+#include <iostream>
+using namespace std;
 
-int main() {
-    int len = skjkasdkd({127, 97, 8192});
-    assert(len == 10);
-    return 0;
+int skjkasdkd(int x) {
+    if(x<0)
+        return -1;
+    else
+        return 1;
 }
 
-int skjkasdkd(std::set<int> s) {
-    return s.size();
+int main() {
+    int x;
+    cout << "Enter a number: ";
+    cin >> x;
+    cout << "The result is: " << skjkasdkd(x);
+    return 0;
 }
