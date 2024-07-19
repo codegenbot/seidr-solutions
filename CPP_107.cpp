@@ -3,6 +3,14 @@
 
 using namespace std;
 
+bool same(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 bool isPalindrome(int n) {
     int rev = 0;
     int temp = n;
@@ -14,26 +22,17 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
-int even_odd_palindrome(int n) {
-    vector<int> result;
-    if (isPalindrome(n)) {
-        if (n % 2 == 0)
-            result.push_back(1);
-        else
-            result.push_back(-1);
-    } else {
-        result.push_back(0);
-    }
-    return result[0];
-}
-
-int main() {
+int checkNumber() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    if (isPalindrome(n) && (n % 2 == 0)) 
+    if(isPalindrome(n) && (n % 2 == 0)) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
+}
+
+int main() {
+    checkNumber();
     return 0;
 }
