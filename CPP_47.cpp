@@ -1,10 +1,29 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 
-float median(vector<float> l) {
-    sort(l.begin(), l.end());
-    int n = l.size();
+using namespace std;
+
+int median(vector<float> numbers) {
+    int n = numbers.size();
+    sort(numbers.begin(), numbers.end());
+    
     if (n % 2 == 0)
-        return (l[n/2 - 1] + l[n/2]) / 2.0;
+        return (numbers[n/2 - 1] + numbers[n/2]) / 2;
     else
-        return l[n/2];
+        return numbers[n/2];
+}
+
+int mainFunction() {
+    vector<float> numbers;
+    float num;
+
+    while (cin >> num) {
+        numbers.push_back(num);
+    }
+
+    if (!numbers.empty())
+        cout << median(numbers) << endl;
+
+    return 0;
 }
