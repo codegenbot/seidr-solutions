@@ -18,4 +18,5 @@ int search(vector<int> lst) {
 
 int main() {
     search(vector<int>({3, 10, 10, 9, 2}));
+    return 0;
 }
