@@ -4,3 +4,5 @@ try:
     print(result)
 except ValueError:
     print("Invalid input. Please enter space-separated integers.")
+except KeyboardInterrupt:
+    print("No input received. Please provide space-separated integers.")
