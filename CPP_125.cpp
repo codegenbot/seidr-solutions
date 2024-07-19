@@ -13,7 +13,7 @@ std::vector<std::string> split_words(std::string txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
-                word = "";
+                word = ""; 
             }
         } else {
             word += c;
