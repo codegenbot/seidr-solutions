@@ -3,7 +3,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    std::vector<int> f = {1, 2, 6};
     int factorial = 1;
     int sum = 0;
     int n = a.size();
@@ -16,5 +15,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
             result.push_back(sum);
         }
     }
-    return result == b;
+    return (result == b);
 }
+
+std::vector<int> f = {1, 2, 6};
+assert(issame(f, {1, 2, 6}));
