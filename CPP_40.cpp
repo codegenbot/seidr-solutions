@@ -1,9 +1,15 @@
-for (int i = 0; i < l.size() - 2; ++i) {
-        for (int j = i + 1; j < l.size() - 1; ++j) {
-            for (int k = j + 1; k < l.size(); ++k) {
-                if (l[i] + l[j] + l[k] == 0) {
-                    return true;
-                }
+sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() - 2; i++) {
+        int j = i + 1;
+        int k = l.size() - 1;
+        while (j < k) {
+            int sum = l[i] + l[j] + l[k];
+            if (sum == 0) {
+                return true;
+            } else if (sum < 0) {
+                j++;
+            } else {
+                k--;
             }
         }
     }
