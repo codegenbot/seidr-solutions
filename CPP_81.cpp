@@ -40,17 +40,17 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> grades;
     float grade;
-    
+
     cout << "Enter the number of grades: ";
     int n;
     cin >> n;
-    
+
     for(int i = 0; i < n; ++i) {
         cout << "Enter Grade " << (i+1) << ": ";
         cin >> grade;
         grades.push_back(grade);
     }
-    
+
     vector<string> result = numerical_letter_grade(grades);
     for (string grade : result) {
         cout << grade << endl;
