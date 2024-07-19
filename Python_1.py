@@ -2,6 +2,9 @@ def separate_paren_groups(paren_string):
     stack = []
     result = []
     
+    if not paren_string:
+        return result
+    
     for char in paren_string:
         if char == '(':
             stack.append('(')
