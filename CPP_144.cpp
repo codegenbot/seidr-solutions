@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+#include<string>
 
 using namespace std;
 
@@ -9,5 +8,5 @@ bool simplify(string x, string n) {
     int c = stoi(strtok((n.substr(1)).c_str(), "/"));
     int d = stoi(n.substr(0));
 
-    return (a * d == b * c);
+    return (a*d == b*c);
 }
