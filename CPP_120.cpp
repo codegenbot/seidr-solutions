@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,9 +18,12 @@ std::vector<int> maximum(std::vector<int> a) {
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     std::vector<int> a(n);
-    for (int i = 0; i < n; ++i) cin >> a[i];
+    for (int i = 0; i < n; ++i) std::cin >> a[i];
     std::vector<int> result = maximum(a);
     if (!same(result, a)) return 1;
     return 0;
+}
+
+assert(same(maximum({1, 2, 3, -23, 243, -400, 0}), {}));
