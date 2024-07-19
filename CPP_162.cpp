@@ -8,11 +8,8 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    unsigned char digest[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.length());
-    MD5_Final(digest, &ctx);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
