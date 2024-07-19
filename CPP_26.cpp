@@ -1,26 +1,20 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-    }
-    return true;
+    return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers){
-    unordered_map<int,int> mp;
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    unordered_map<int, bool> seen;
+    std::vector<int> result;
 
-    for(auto num : numbers) {
-        if(mp[num] == 0) {
+    for (int num : numbers) {
+        if (std::find(seen.begin(), seen.end(), num) == seen.end()) {
+            seen[num] = true;
             result.push_back(num);
-            mp[num]++;
         }
     }
 
@@ -28,6 +22,6 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>{1, 2, 3, 4, 5});
     return 0;
 }
