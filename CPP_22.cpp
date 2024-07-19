@@ -6,13 +6,12 @@
 #include <type_traits>
 
 using namespace std;
-using namespace boost;
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same_v<decay_t<decltype(any_cast(value))>, int>::value) {
-            result.push_back(any_cast<int>(value));
+        if (std::any_cast<int>(value).has_value()) {
+            result.push_back(*std::any_cast<std::optional<int>>(value));
         }
     }
     return result;
