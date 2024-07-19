@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 std::vector<int> generate_integers(int a, int b) {
@@ -8,4 +9,8 @@ std::vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+int main() {
+    return 0;
 }
