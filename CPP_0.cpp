@@ -1,10 +1,8 @@
-int n = numbers.size();
-for (int i = 0; i < n; ++i) {
-    for (int j = i + 1; j < n; ++j) {
-        if (abs(numbers[i] - numbers[j]) < threshold) {
+sort(numbers.begin(), numbers.end());
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        if (abs(numbers[i] - numbers[i + 1]) < threshold) {
             return true;
         }
     }
-}
-return false;
+    return false;
 }
