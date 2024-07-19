@@ -5,7 +5,7 @@ def get_integer_input(prompt):
             if num in [1, 2, 3]:
                 return num
             else:
-                print("Please enter a valid integer (1, 2, or 3).")
+                print("Please enter a valid integer within the range (1, 2, or 3).")
         except ValueError:
             print("Please enter a valid integer.")
 
