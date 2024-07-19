@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> solve(int n) {
+vector<int> generateSequence(int n) {
     vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
@@ -23,9 +23,9 @@ vector<int> solve(int n) {
 int main() {
     int n;
     cin >> n;
-    vector<int> res = solve(n);
-    for (int i = 0; i < n; ++i) {
-        cout << res[i] << " ";
+    vector<int> sequence = generateSequence(n);
+    for (int num : sequence) {
+        cout << num << " ";
     }
     return 0;
 }
