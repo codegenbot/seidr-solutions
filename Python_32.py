@@ -1,13 +1,8 @@
-xs = list(map(int, input().split()))
-
-if len(xs) % 2 != 0:
-    raise ValueError("Number of coefficients must be even.")
-
-n = len(xs) - 1
-a = xs[-1]
-b = xs[-2]
-
-if a == 0:
-    print(0)
-else:
-    print(-b / a)
+def find_zero(xs: list):
+    n = len(xs) - 1
+    for i in range(n):
+        if xs[i + 1] == 0:
+            return None
+        if xs[i] != 0:
+            return -xs[i] / xs[i + 1]
+    return None
