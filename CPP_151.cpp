@@ -1,19 +1,22 @@
-```
-#include <bits/stdc++.h>
-using namespace std;
-long long double_the_difference(vector<float> lst) {
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) {  
-                sum += pow(num, 2);  
+        if (num > 0 && std::floor(num) == num) { // check if number is positive and integer
+            if (std::fmod(num, 2.0) != 0.0) { // check if number is odd
+                sum += pow(num, 2); // add square of the number to the sum
             }
         }
     }
     return sum;
 }
+
 int main() {
-    vector<float> numbers = {1.5, 3.4, 7.8, -2.9, 10.1};
-    cout << "Sum: " << double_the_difference(numbers) << endl;
+    std::vector<float> numbers = {1.5f, 2.8f, 3.0f, 4.0f, 6.7f};
+    long long result = double_the_difference(numbers);
+    std::cout << "The sum of squares is: " << result << std::endl;
     return 0;
 }
