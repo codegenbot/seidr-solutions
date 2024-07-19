@@ -1,53 +1,23 @@
-```cpp
-#include <initializer_list>
-using namespace std;
+#include <algorithm>
 
-int getAscendingOrder(const vector<int>& nums) {
-    int points = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        if (nums[i] > nums[i - 1]) {
-            points++;
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
         }
-    }
-    return points;
-}
-
-bool isMonotonic(const vector<int>& nums) {
-    bool increasing = true;
-    bool decreasing = true;
-
-    for (int i = 1; i < nums.size(); i++) {
-        if (nums[i] > nums[i - 1]) {
-            decreasing = false;
-        }
-        else if (nums[i] < nums[i - 1]) {
-            increasing = false;
-        }
+        pairs.push_back({sumOfDigits, i});
     }
 
-    return increasing || decreasing;
-}
+    sort(pairs.begin(), pairs.end());
 
-bool areIdentical(const vector<int>& a, const vector<int>& b) { 
-    return isMonotonic(a) && isMonotonic(b);
-}
-
-int order_by_points(const initializer_list<int> &nums) {
-    int points = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        if (nums[i] > nums[i - 1]) {
-            points++;
-        }
+    vector<int> result;
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
     }
-    return points;
-}
 
-int main() {
-    vector<int> vec1 = {0,6,6,-76,-21,23,4};
-    vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
-    assert(areIdentical(vec1,vec2) == true);
-    int result = getAscendingOrder({0,6,6,-76,-21,23,4});
-    cout << "order_by_points: " << result << endl;
-    assert(areIdentical(vector<int>({0,6,6,-76,-21,23,4}), vector<int>({-76, -21, 0, 4, 23, 6, 6})) == true);
-    return 0;
+    return result;
 }
