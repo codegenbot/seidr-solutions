@@ -20,8 +20,6 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (music_string[i] == 'o') {
             beats.push_back(4);
             i++;
-        } else {
-            i++;
         }
     }
     return beats;
