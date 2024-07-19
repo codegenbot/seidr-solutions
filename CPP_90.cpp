@@ -1,7 +1,7 @@
 ```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
@@ -16,7 +16,7 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {5, 3, 4, 2};
-    assert(next_smallest(lst) == 4);
+    assert(next_smallest({3,4,5}) == 4);
+    std::cout << "Tests passed!" << std::endl;
     return 0;
 }
