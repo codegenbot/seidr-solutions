@@ -1,17 +1,18 @@
+#include <iostream>
 #include <string>
-#include <stoi>
+#include <cassert>
 
 int digitSum(const std::string& s) {
     int sum = 0;
     for (auto c : s) {
-        if (isdigit(c)) {
-            sum += (c - '0');
+        if (std::isdigit(c)) {
+            sum += std::stoi(std::string(1, c).erase(0, 1));
         }
     }
     return sum;
 }
 
 int main() {
-    assert(digitSum("You arE Very Smart") == 327);
+    assert(digitSum("You are Very Smart") == 327);
     return 0;
 }
