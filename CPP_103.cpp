@@ -13,7 +13,7 @@ std::string calculateBinaryString(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1));
+    int avg = static_cast<int>(std::round((double)sum / (m - n + 1)));
     
     std::string binary;
     while (avg > 0) {
@@ -25,6 +25,6 @@ std::string calculateBinaryString(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryString(5, 5) == "1011");
+    assert(calculateBinaryString(5, 5) == "101");
     return 0;
 }
