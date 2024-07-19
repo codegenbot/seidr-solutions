@@ -1,23 +1,27 @@
-#include <boost/any.hpp>
+using namespace boost;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return (boost::any_cast<double>(a) > boost::any_cast<double>(b)) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        return (strA > strB) ? a : b;
-    } else if ((a.type() == typeid(int) || a.type() == typeid(double)) && (b.type() == typeid(string))) {
-        double numA = boost::any_cast<double>(a);
-        string strB = boost::any_cast<string>(b);
-        return (numA > stod(strB)) ? a : b;
-    } else if ((a.type() == typeid(string) || a.type() == typeid(double)) && (b.type() == typeid(int))) {
-        double numB = boost::any_cast<double>(b);
-        string strA = boost::any_cast<string>(a);
-        return (stod(strA) > numB) ? a : b;
+any compare_one(any a, any b) {
+    if (is_any_of<double>(a)) {
+        if (is_any_of<double>(b)) {
+            return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) < get<double>(b)) ? b : any("None")));
+        } else {
+            double da = get<double>(a);
+            string db = boost::any_cast<string>(b);
+            if (stod(db) > da)
+                return b;
+            else if (stod(db) < da)
+                return a;
+            else
+                return any("None");
+        }
     } else {
-        return boost::any("None");
+        string sa = boost::any_cast<string>(a);
+        double db = get<double>(b);
+        if (stod(sa) > db)
+            return a;
+        else if (stod(sa) < db)
+            return b;
+        else
+            return any("None");
     }
 }
