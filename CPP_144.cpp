@@ -1,17 +1,23 @@
-Here is the completed code:
-
-```cpp
 #include <string>
 #include <cmath>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1,x.length()-2)).c_str(),"/"));
-    int b = stoi(strtok(NULL,"/") );
+    string numerator, denominator;
+    size_t pos = x.find("/");
+    numerator = x.substr(0, pos);
+    denominator = x.substr(pos+1);
+
+    pos = n.find("/");
+    numerator = n.substr(0, pos);
+    denominator = n.substr(pos+1);
+
+    int a = stoi(numerator);
+    int b = stoi(denominator);
     
-    int c = stoi(strtok((n.substr(1,n.length()-2)).c_str(),"/"));
-    int d = stoi(strtok(NULL,"/") );
+    int c = stoi(x.substr(2,x.length()-3));
+    int d = stoi(denominator);
 
     double res = (double)a*d/(double)b*c;
 
