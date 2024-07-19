@@ -19,8 +19,7 @@ vector<string> reverse_delete(string s, string c) {
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    string rev = reverse(temp);
-    if (temp == rev) {
+    if (temp == reverse(temp)) {
         result.push_back("True");
     } else {
         result.push_back("False");
