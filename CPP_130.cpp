@@ -1,18 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> tri(int n);
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
-}
-
-int main() {
-    assert(issame(tri(1), {1, 3}));
-    return 0;
 }
 
 vector<int> tri(int n) {
@@ -26,4 +19,9 @@ vector<int> tri(int n) {
         }
     }
     return result;
+}
+
+int main() {
+    assert (issame(tri(1), {1, 3}));
+    return 0;
 }
