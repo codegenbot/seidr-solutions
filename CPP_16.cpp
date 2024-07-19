@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <string>
 
 int count_distinct_characters(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
@@ -9,11 +8,8 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    std::string input_str;
-    std::cin >> input_str;
-
-    int result = count_distinct_characters(input_str);
-    std::cout << result;
-
+    std::string input;
+    std::cin >> input;
+    std::cout << count_distinct_characters(input) << std::endl;
     return 0;
 }
