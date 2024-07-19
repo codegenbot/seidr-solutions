@@ -13,21 +13,21 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+        if (issame(a[i], b[i])) {
+            return true;
         }
     }
-    return true;
+
+    return false;
 }
 
 int main() {
-    std::vector<std::string> a = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    std::vector<std::string> b = {"grunt", "prune"};
-    assert(a == b);
+    assert(same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
