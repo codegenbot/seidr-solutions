@@ -1,4 +1,4 @@
-#include <set>
+#include <vector>
 bool common(vector<int> a, vector<int> b) {
     std::set<int> s1(a.begin(), a.end());
     std::set<int> s2(b.begin(), b.end());
