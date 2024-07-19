@@ -1,24 +1,21 @@
-vector<string> bf(string planet1, string planet2) {
+#include<vector>
+#include<string>
+#include<algorithm>
+
+vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string>::iterator it1 = find(planets.begin(), planets.end(), planet1);
+    vector<string>::iterator it2 = find(planets.begin(), planets.end(), planet2);
+
+    if(it1 == planets.end() || it2 == planets.end()){
+        return {};
+    }
+
+    int minIdx = min(it1 - planets.begin(), it2 - planets.begin());
+    int maxIdx = max(it1 - planets.begin(), it2 - planets.begin());
+
     vector<string> result;
-
-    int index1 = -1, index2 = -1;
-    for (int i = 0; i < 8; ++i) {
-        if (planet1 == planets[i]) {
-            index1 = i;
-        } else if (planet2 == planets[i]) {
-            index2 = i;
-        }
-    }
-
-    if (index1 == -1 || index2 == -1) {
-        return result;
-    }
-
-    int start = min(index1, index2);
-    int end = max(index1, index2);
-
-    for (int i = start + 1; i < end; ++i) {
+    for(int i = minIdx + 1; i < maxIdx; ++i){
         result.push_back(planets[i]);
     }
 
