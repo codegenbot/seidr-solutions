@@ -2,7 +2,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<double> a, std::vector<double> b) {
+    return a == b;
+}
+
+bool issame(std::vector<double> a,std::vector<double> b){
     return a == b;
 }
 
@@ -27,12 +31,12 @@ std::string numerical_letter_grade(std::vector<double> grades) {
     } else if (avg >= 60) {
         return "D";
     } else {
-        return "E";
+        return "F";
     }
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"0", "0.7"}, std::vector<std::string>{"0.1", "0.7"}));
-    assert(numerical_letter_grade({90, 85}) == "B");
-    assert(numerical_letter_grade({45, 55, 67}) == "D");
+    assert (issame(std::vector<double>{0, 0.7}, std::vector<double>{0.1, 0.7}));
+    assert (numerical_letter_grade({90, 85}) == "B");
+    assert (numerical_letter_grade({45, 55, 67}) == "D");
 }
