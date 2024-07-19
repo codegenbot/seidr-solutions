@@ -1,6 +1,7 @@
-vector<float> res;
-    for(int i=1; i<xs.size(); i++){
-        res.push_back(xs[i]*i);
+vector<float> derivative(vector<float> xs){
+    vector<float> der;
+    for(int i = 1; i < xs.size(); ++i){
+        der.push_back(xs[i] * i);
     }
-    return res;
+    return der;
 }
