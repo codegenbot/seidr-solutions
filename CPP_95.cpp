@@ -12,11 +12,7 @@ bool check_dict_case(map<string,string> dict){
         } else if(!key.empty() && isupper(key[0])){
             all_lower = false;
         }
-        
-        if(!all_lower && !all_upper){
-            return false;
-        }
     }
     
-    return true;
+    return all_lower || all_upper;
 }
