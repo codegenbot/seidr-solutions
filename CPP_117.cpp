@@ -1,6 +1,8 @@
-#include <iostream>
+```
+#include <initializer_list>
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -43,9 +45,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    if (!issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"})) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame({select_words("a b c d e f", 1)}, vector<string>{"b", "c", "d", "f"}));
+    std::cout << "Test passed" << std::endl;
 }
