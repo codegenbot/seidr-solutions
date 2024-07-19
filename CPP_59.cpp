@@ -1,21 +1,16 @@
-#include <iostream>
-using namespace std;
-
-int largest_prime_factor(int n) {
-    int factor = 2;
-    while (n > factor) {
-        if (n % factor == 0) {
-            n /= factor;
-        } else {
-            factor++;
+int maxPrime = -1;
+    while (n % 2 == 0) {
+        maxPrime = 2;
+        n /= 2;
+    }
+    for (int i = 3; i <= sqrt(n); i += 2) {
+        while (n % i == 0) {
+            maxPrime = i;
+            n /= i;
         }
     }
-    return factor;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << largest_prime_factor(n) << endl;
-    return 0;
+    if (n > 2) {
+        maxPrime = n;
+    }
+    return maxPrime;
 }
