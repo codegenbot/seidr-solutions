@@ -1,6 +1,6 @@
 #include <string>
 
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
     if (num >= 0) {
         return floor(num + 0.5);
