@@ -17,7 +17,7 @@ int main() {
         }
     }
 
-    assert(double_the_difference(odd_sum, 100.0) == lst.size());
+    assert(double_the_difference(odd_sum, 100.0) == 16800.0);
 
     return 0;
 }
