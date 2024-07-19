@@ -3,8 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b);
-
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     for (int i = 1; i <= n; ++i) {
@@ -13,11 +11,11 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool isSame(const vector<int>& a, const vector<int>& b) {
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(isSame(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
+    assert(isEqual(make_a_pile(8), {1, 3, 5, 7, 9, 11, 13, 15}) == true);
     return 0;
 }
