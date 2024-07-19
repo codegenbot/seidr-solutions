@@ -1,7 +1,12 @@
+#include <algorithm>
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    copy_if(arr.begin(), arr.end(), result.begin(),
-             [k](int x) { return --k > 0; });
-    sort(result.begin(), result.end());
-    return vector<int>(result.begin(), result.begin() + min(k, (int)result.size()));
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
 }
