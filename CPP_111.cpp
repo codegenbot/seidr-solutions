@@ -24,7 +24,7 @@ bool issame(map<char,int> a, map<char,int> b) {
 int main() {
     string test;
     cout << "Enter a string: ";
-    cin >> test;
+    getline(cin, test);
 
     auto hist = histogramTest(test); 
 
@@ -33,6 +33,6 @@ int main() {
     }
 
     if (!issame(hist, {{'a', 1}})) { 
-        return 0; 
+        exit(0); 
     }
 }
