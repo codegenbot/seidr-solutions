@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b);
