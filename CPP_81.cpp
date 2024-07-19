@@ -1,3 +1,5 @@
+```cpp
+#include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
