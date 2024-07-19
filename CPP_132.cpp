@@ -1,11 +1,11 @@
-int count1 = 0, count2 = 0;
+bool is_nested(const std::string& str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
-            count1++;
-        } else if (c == ']' && count1 > 0) {
-            count1--;
-            count2++;
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return count2 > 0;
+    return count == 0;
 }
