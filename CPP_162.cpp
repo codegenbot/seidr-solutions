@@ -1,1 +1,0 @@
-std::cout << string_to_md5("password") << std::endl;
