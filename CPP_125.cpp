@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
@@ -35,6 +34,7 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
+  
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
@@ -45,8 +45,4 @@ vector<string> split_words(string txt) {
         result.push_back(to_string(count));
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
