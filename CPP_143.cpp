@@ -13,15 +13,18 @@ std::vector<std::string> split(const std::string& str) {
 
     for (char c : str) {
         if (!isascii(c)) {
-            tokens.push_back(token);
-            token = "";
+            if (!token.empty()) {
+                tokens.push_back(token);
+                token = "";
+            }
         } else {
             token += c;
         }
     }
 
     // Don't forget to add the last token
-    tokens.push_back(token);
+    if (!token.empty())
+        tokens.push_back(token);
 
     return tokens;
 }
@@ -40,7 +43,7 @@ bool is_prime(int n) {
 std::string longest_prime_word;
 
 int main_func() {
-    std::vector<std::string> words = words_in_sentence("here is");
+    std::vector<std::string> words = split("here is");
     for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
