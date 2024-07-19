@@ -1,3 +1,4 @@
+```cpp
 bool common(vector<int> a, vector<int> b) {
     set<int> s1(a.begin(), a.end());
     set<int> s2(b.begin(), b.end());
