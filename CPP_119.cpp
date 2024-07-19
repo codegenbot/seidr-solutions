@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
-#include <vector>
+#include <string>
 
-bool match_parens(const std::string& str) {
+bool match_parens(const std::string& lst) {
     int open = 0, close = 0;
-    for (char x : str) {
+    for (char x : lst) {
         if (x == '(') open++;
         else if (x == ')') close++;
     }
@@ -12,13 +12,15 @@ bool match_parens(const std::string& str) {
 }
 
 int main() { 
-    std::string line;
+    std::string line, lst; 
     std::cout << "Enter the strings: ";
-    line.reserve(1024);  // reserve some memory to avoid reallocation
-    while(std::getline(std::cin, line)) {
-        line += ' ';  // concatenate lines with a space in between
+    while((std::getline(std::cin, line)) && !line.empty()) {
+        for(char c : line) {
+            lst += c;
+        }
+        std::cin.ignore(); // consume newline characters
     }
-    if (match_parens(line)) {
+    if (match_parens(lst)) {
         std::cout << "The parentheses are matched." << std::endl;
     } else {
         std::cout << "The parentheses are not matched." << std::endl;
