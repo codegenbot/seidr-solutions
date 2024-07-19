@@ -2,11 +2,11 @@
 #include <vector>
 #include <string>
 
-bool match_parens(const std::vector<std::string>& lst) {
+bool matchParens(const std::vector<std::string>& lst) {
     int countOpen = 0, countClose = 0;
 
-    for (const auto& s : lst) {
-        for (char c : s) {
+    for (const auto& str : lst) {
+        for (char c : str) {
             if (c == '(') countOpen++;
             else if (c == ')') countClose++;
         }
@@ -16,8 +16,7 @@ bool match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
-    if(match_parens(lst)) std::cout << "Yes" << std::endl;
-    else std::cout << "No" << std::endl;
+    std::vector<std::string> input = {"(a)", "b(", "(c)"};
+    std::cout << std::boolalpha << matchParens(input) << std::endl;
     return 0;
 }
