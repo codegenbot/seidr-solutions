@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <string>
 
 string solve(string s) {
     string result = "";
@@ -10,19 +9,4 @@ string solve(string s) {
             result += c;
         }
     }
-    if(result.empty()) {
-        string temp = s;
-        std::reverse(temp.begin(), temp.end());
-        return temp;
-    } else {
-        return result;
-    }
-}
-
-int mainTest() {
-    assert (solve("#ccc") == "#CCC");
-    {  
-        std::cout << "This is an example output." << std::endl;
-    }
-    return 0;
-}
+    return result.empty() ? string(s).reverse() : result;
