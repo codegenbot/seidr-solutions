@@ -1,5 +1,5 @@
 #include <cstddef>
-#include <string>
+#include <algorithm>
 #include <cctype>
 
 int check_if_last_char_is_a_letter(const std::string& txt) {
@@ -9,5 +9,5 @@ int check_if_last_char_is_a_letter(const std::string& txt) {
 
 int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == 0);
-    // ...
+    return 0;
 }
