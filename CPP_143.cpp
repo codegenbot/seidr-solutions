@@ -1,32 +1,35 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool is_prime(int n) {
-    // implementation of is_prime function
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
 
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
-    for(char c : sentence){
-        if(c != ' '){
-            word += c;
-        } else {
-            if(is_prime(word.size())){
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
+    std::string word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (is_prime(word.length())) {
                 result += word + " ";
             }
             word = "";
+        } else {
+            word += c;
         }
     }
-    if(is_prime(word.size())){
+    if (is_prime(word.length())) {
         result += word;
     }
     return result;
 }
 
 int main() {
-    assert (words_in_sentence("here is") == "is");
+    assert(words_in_sentence("here is") == "is");
     return 0;
 }
