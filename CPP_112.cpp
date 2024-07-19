@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& vecB) {
+bool issame(const vector<string>& a, const vector<string>& vecB) {
     if(a.size() != vecB.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -10,8 +12,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& v
     return true;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& t) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(const string& s, const string& t) {
+    vector<string> result;
     int i = 0;
     while(i < s.size()) {
         bool found = false;
@@ -35,15 +37,16 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
-    std::vector<std::string> s, t;
-    std::cout << "Enter the first string: ";
-    for(std::string str;std::getline(std::cin, str);s.push_back(str));
-    std::cout << "Enter the second string: ";
-    for(std::string str;std::getline(std::cin, str);t.push_back(str));
+    vector<string> s, t;
+    cout << "Enter the first string: ";
+    string str;
+    while(getline(cin, str))s.push_back(str);
+    cout << "Enter the second string: ";
+    while(getline(cin, str))t.push_back(str);
     if(issame(s,t)) {
         int i = 0;
+        bool found = false;
         while(i < s[0].size()) {
-            bool found = false;
             for(int j = 0; j < t[0].size(); j++) {
                 if(s[0][i] == t[0][j]) {
                     found = true;
@@ -52,12 +55,12 @@ int main() {
                 }
             }
             if(!found) {
-                std::cout << s[0].substr(i) << " ";
+                cout << s[0].substr(i) << " ";
                 break;
             }
         }
     } else {
-        std::cout << "Strings are not the same." << std::endl;
+        cout << "Strings are not the same." << endl;
     }
     return 0;
 }
