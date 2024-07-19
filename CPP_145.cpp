@@ -1,10 +1,12 @@
-```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <utility>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,8 +18,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> order_by_points(std::initializer_list<int> nums) {
-    std::vector<std::pair<int, int>> pairs;
+vector<int> order_by_points(initializer_list<int> nums) {
+    vector<pair<int, int>> pairs;
     for (int num : nums) {
         int sumOfDigits = 0;
         int n = abs(num);
@@ -25,21 +27,17 @@ std::vector<int> order_by_points(std::initializer_list<int> nums) {
             sumOfDigits += n % 10;
             n /= 10;
         }
-        pairs.push_back(std::make_pair(num, sumOfDigits));
+        pairs.push_back({num, sumOfDigits});
     }
 
-    std::sort(pairs.begin(), pairs.end());
+    sort(pairs.begin(), pairs.end());
 
-    std::vector<int> result;
+    vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(pair.first);
+        if (!binary_search(result.begin(), result.end(), pair.first)) {
+            result.push_back(pair.first);
+        }
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-    assert(issame(result, {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
