@@ -1,3 +1,11 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for(int num : x){
@@ -17,4 +25,5 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
-}
+} 
+      
