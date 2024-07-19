@@ -4,7 +4,7 @@
 
 using namespace std;
 
-std::vector<pair<int, int>> pluck(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
@@ -23,4 +23,9 @@ std::vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert(pluck(vector<int>{7, 9, 7, 1}) == vector<pair<int, int>>());
+    return 0;
 }
