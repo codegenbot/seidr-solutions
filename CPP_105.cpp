@@ -1,7 +1,7 @@
-```cpp
+```
+#include <initializer_list>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
