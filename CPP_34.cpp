@@ -1,15 +1,22 @@
-vector<int> unique(vector<int> l){
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<int> unique(vector<int> l) {
     vector<int> result(l.begin(),l.end());
     sort(result.begin(),result.end());
-    vector<int>::iterator it;
-    for(it=result.begin(); it!=--(result.end()); ++it) {
-        if(it != result.begin() && *it == *(it-1)) {
-            result.erase(it);
-            --it;
-        }
-    }
+    result.erase(unique(result.begin(),result.end()), result.end());
     return result;
 }
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && a == b;
+
+int main() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5, 9, 123}));
+    return 0;
 }
