@@ -1,11 +1,11 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -22,7 +22,7 @@ vector<int> tri(int n){
                 if (i % 2 == 0) {
                     res.push_back(1 + i / 2);
                 } else {
-                    res.push_back(res[i - 1] + res[i - 2] + res[i - 1]);
+                    res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
                 }
             }
         }
@@ -32,5 +32,5 @@ vector<int> tri(int n){
 
 int main(){
     assert(issame(tri(1), {1, 3}));
-    ...
+    return 0;
 }
