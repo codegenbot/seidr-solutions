@@ -1,22 +1,20 @@
-#include <string>
+#include <string>  // Include the string header
 
-std::string decimal_to_binary(int decimal)
-{
-    std::string binary = "db";
-    if (decimal == 0) {
-        binary += "0";
-    } else {
-        while (decimal > 0) {
-            binary = ((decimal % 2 == 0) ? "0" : "1") + binary;
-            decimal /= 2;
-        }
+std::string decimal_to_binary(int decimal){  // Use std::string instead of just string
+    std::string binary = "db";  // Use std::string instead of just string
+    while(decimal > 0){
+        binary = std::to_string(decimal % 2) + binary;  // Use std::to_string instead of to_string
+        decimal /= 2;
     }
-    binary += "db";
-    return binary;
+    return binary + "db";
 }
 
-int main()
-{
-    assert(decimal_to_binary(15) == "db1111db");
+int main(){
+    // Add the missing function declaration
+    std::string decimal_to_binary(int decimal);
+    
+    // Ensure the function is working correctly using assert
+    assert (decimal_to_binary(15) == "db1111db");
+    
     return 0;
 }
