@@ -1,5 +1,4 @@
-string anti_shuffle(string s){
-    string result = "";
+string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
