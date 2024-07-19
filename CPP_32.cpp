@@ -14,11 +14,29 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // if number of coefficients is odd, there's no root
-    double sum = 0, sum1 = 0;
-    for(int i=0;i<xs.size();i++){
-        if(i%2 == 0) sum += xs[i];
-        else sum1 += xs[i];
+    double a = xs[0];
+    double b = 0;
+    double c = 0;
+
+    if(xs.size() > 1) {
+        for(int i=1; i<xs.size();i++) {
+            if(i % 2 == 0)
+                b += xs[i] * pow(1, (i-1)/2);
+            else
+                c -= xs[i] * pow(-1, (i-1)/2);
+        }
     }
-    return -sum1/sum; // the zero is at x = -sum1/sum
+
+    double d = b*b - 4*a*c;
+    
+    if(d < 0) return 0; // no real solution
+
+    double sqrt_d = sqrt(d);
+
+    double t1 = (-b + sqrt_d)/(2*a);
+    double t2 = (-b - sqrt_d)/(2*a);
+
+    if(t1 > t2) swap(t1, t2);
+
+    return min(t1, t2);
 }
