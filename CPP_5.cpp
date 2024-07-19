@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimeter) {
+std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     std::vector<int> result;
     if(numbers.empty()) {
         return result;
