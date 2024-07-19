@@ -1,54 +1,22 @@
-#ifndef STRONGEST_EXTENSION_H
-#define STRONGEST_EXTENSION_H
-
+#include <cassert>
 #include <vector>
 #include <string>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
-
-#endif  // STRONGEST_EXTENSION_H
-
-// strongest_extension.cpp
-#include "strongest_extension.h"
-#include <cctype>
-#include <iostream>
-#include <cassert>
-#include <string>
-
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
-    int max_strength = 0;
-    std::string strongest_extension;
-
-    for(auto extension : extensions){
-        int cap = 0, sm = 0;
-        for(char c : extension){
-            if(isupper(c)) cap++;
-            else if(islower(c)) sm++;
-        }
-        int strength = cap - sm;
-        if(strength > max_strength || (strength == max_strength && extension < strongest_extension)){
-            max_strength = strength;
-            strongest_extension = extension;
+std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
+    for (const auto& extension : extensions) {
+        if (!extension.empty()) {
+            return class_name + "." + extension;
         }
     }
-
-    return class_name + "." + strongest_extension;
+    return class_name;
 }
 
-// main.cpp
-#include "strongest_extension.h"
-#include <iostream>
-#include <vector>
-
 int main(){
-    std::string class_name = "My";
-    std::vector<std::string> extensions;
-    extensions.push_back("Java");
-    extensions.push_back("Python");
-    extensions.push_back("C++");
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+    string class_name = "My";
+    vector<string> extensions({"Java", "Python", "C++"}); 
+    cout << Strongest_Extension(class_name, extensions) << endl;
 
-    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == std::string("Sp.671235"));
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == string("Sp.671235"));
 
     return 0;
 }
