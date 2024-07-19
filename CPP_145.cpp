@@ -14,5 +14,6 @@ bool order_by_points(int a, int b) {
     }
     return sum_a < sum_b;
 }
+
 sort(nums.begin(), nums.end(), order_by_points);
 return nums;
