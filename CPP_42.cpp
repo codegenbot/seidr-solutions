@@ -1,3 +1,5 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+for (int &num : b) {
+        num++;
+    }
+    return b;
 }
