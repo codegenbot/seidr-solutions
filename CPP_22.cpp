@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
@@ -11,7 +12,7 @@ using namespace boost;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same_v<decay_t<decltype(any_cast(value))>, int>::value) {
+        if constexpr (is_same_v<decay_t<decltype(any_cast(value))>, int>::value) {
             result.push_back(any_cast<int>(value));
         }
     }
