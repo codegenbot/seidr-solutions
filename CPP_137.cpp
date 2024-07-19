@@ -1,11 +1,14 @@
-#include <iostream>
+#include <any>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
-    return std::max(a, b);
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    }
 }
 
 int main() {
