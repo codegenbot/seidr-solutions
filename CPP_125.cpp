@@ -1,18 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+bool issame(vector<string> a,vector<string> b);
+vector<string> split_words(string txt);
 
-std::vector<std::string> split_words(const std::string& txt) {
-    std::vector<std::string> words;
-    std::string word = "";
+vector<string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
         } else {
@@ -20,18 +20,22 @@ std::vector<std::string> split_words(const std::string& txt) {
         }
     }
     if (!word.empty()) {
-        words.push_back(word);
+        result.push_back(word);
     }
-    if (words.size() == 0) {
+    if (result.size() == 1 && isalpha(result[0][0])) {
         int count = 0;
-        for (char c : txt) {
+        for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        result[0] = to_string(count);
     }
-    return words;
+    return result;
+}
+
+bool issame(vector<string> a,vector<string> b){
+  return a == b;
 }
 
 int main() {
