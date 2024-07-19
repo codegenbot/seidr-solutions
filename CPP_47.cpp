@@ -1,18 +1,13 @@
-#include <initializer_list>
-#include <vector>
-#include <algorithm> 
-#include <ostream>
-#include <iostream>
+int main 
+{
+    vector<float> numbers;
+    float num;
+    
+    while (cin >> num) {
+        numbers.push_back(num);
+    }
+    
+    cout << calculateMedian(numbers) << endl;
 
-using namespace std;
-
-float median(vector<float> v) {
-    sort(v.begin(), v.end());
-    int n = v.size();
-    if (n % 2 == 0)
-        return (v[n/2 - 1] + v[n/2]) / 2;
-    else
-        return v[n/2];
+    return 0;
 }
-
-cout << median(numbers) << std::endl;
