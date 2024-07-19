@@ -1,13 +1,17 @@
 def by_length(arr):
     result = sorted([str(i) for i in arr if 1 <= i <= 9])
     result.reverse()
-    return [f"{'Zero' if i == '0' else}One" if i == '1' else
-            f"Two" if i == '2' else
-            f"Three" if i == '3' else
-            f"Four" if i == '4' else
-            f"Five" if i == '5' else
-            f"Six" if i == '6' else
-            f"Seven" if i == '7' else
-            f"Eight" if i == '8' else
-            f"Nine" if i == '9' else "Invalid number"
-            for i in result]
+    return [name_dict[int(i)] for i in result]
+
+
+name_dict = {
+    "1": "One",
+    "2": "Two",
+    "3": "Three",
+    "4": "Four",
+    "5": "Five",
+    "6": "Six",
+    "7": "Seven",
+    "8": "Eight",
+    "9": "Nine",
+}
