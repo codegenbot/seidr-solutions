@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string& fix_spaces(const std::string& text) {
     std::string result = "";
@@ -14,6 +15,4 @@ std::string& fix_spaces(const std::string& text) {
     return result;
 }
 
-int main() {
-    std::cout << fix_spaces("   Exa 1 2 2 mple");
-}
+std::cout << fix_spaces("   Exa 1 2 2 mple");
