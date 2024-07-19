@@ -8,13 +8,13 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    int i = 0, j = str.length() - 1;
-    while (i < j) {
-        if (!is_palindrome(str.substr(i, j-i+1))) {
-            str.insert(++j, 'a');
-        } else {
-            break;
-        }
-    }
-    return str + string(str.rbegin(), str.rend());
+    int i=str.length()-1;
+    while(i>=0 && str[i]==str[0])
+        i--;
+    if(i<0)
+        return str+str;
+    string postfix = str.substr(0, i+1);
+    string prefix = str.substr(i+1);
+    reverse(prefix.begin(), prefix.end());
+    return postfix + prefix;
 }
