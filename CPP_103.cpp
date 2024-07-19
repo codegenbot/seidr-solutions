@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -26,4 +26,5 @@ int main() {
     int n, m;
     cin >> n >> m;
     cout << rounded_avg(n, m);
+    return 0;
 }
