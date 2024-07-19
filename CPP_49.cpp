@@ -13,3 +13,12 @@ long long int modp(long long int n, long long int p) {
     }
     return result;
 }
+
+int main() {
+    long long int n, p;
+    std::cin >> n >> p;
+    
+    std::cout << modp(n, p) << std::endl;
+
+    return 0;
+}
