@@ -1,13 +1,9 @@
-Here is the solution:
-
-int fuelCost(vector<int> v) {
-    int sum = 0;
-    for (auto x : v) {
-        if (x % 3 == 0) {
-            sum += (x / 3 - 2);
-        } else {
-            sum += (x / 3 - 1);
-        }
+int calculateFuelCost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        int newPrice = (price / 3);
+        if (newPrice < 1) newPrice = 0; else newPrice--;
+        total += newPrice;
     }
-    return sum;
+    return total;
 }
