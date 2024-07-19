@@ -1,9 +1,6 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
+```cpp
 vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    return vector<int>(s.begin(), s.end());
+    vector<int> result(l.begin(), l.end());
+    sort(result.begin(), result.end());
+    return result;
 }
