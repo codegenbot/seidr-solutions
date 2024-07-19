@@ -7,24 +7,26 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
-    string word;
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
+    size_t pos = 0, found;
+    
+    for (int i = 0; i < n; i++) {
+        found = s.find(" ", pos);
+        if (found == string::npos) {
+            words.clear();
+            break;
         }
+        pos = found + 1;
     }
-    if (!word.empty()) {
-        words.push_back(word);
+    
+    if (found != string::npos) {
+        while ((found = s.find(" ", pos)) != string::npos) {
+            words.push_back(s.substr(pos, found - pos));
+            pos = found + 1;
+        }
+        words.push_back(s.substr(pos));
     }
-    if (n >= 0 && n < words.size()) {
-        return vector<string>(words.begin() + n, words.end());
-    }
-    return vector<string>();
+    
+    return words;
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -32,6 +34,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "e", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
