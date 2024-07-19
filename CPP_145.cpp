@@ -1,10 +1,7 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
+bool issame(vector<int> a, vector<int> b);
 
-using namespace std;
-
-vector<int> order_by_points(vector<int> nums) {
+// Lambda function definition
+auto order_by_points = [](vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -22,13 +19,10 @@ vector<int> order_by_points(vector<int> nums) {
         return sum_a < sum_b;
     });
     return nums;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return order_by_points(a) == order_by_points(b);
-}
+};
 
 int main() {
-    assert(issame({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    // Add more test cases as needed
     return 0;
 }
