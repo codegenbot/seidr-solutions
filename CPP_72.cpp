@@ -1,26 +1,10 @@
-```cpp
-#include <iostream>
-#include <vector>
+Here is the completed code:
 
-bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
-    // Your logic goes here to determine if the plane will fly.
-}
-
-int main() {  
-    int n;  
-    cin >> n;
-    std::vector<std::vector<int>> q(n);  
-    for(int i=0; i<n; i++) {
-        int x, y; 
-        cin >> x >> y;
-        q[i].push_back({x,y});
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
     }
-    int w;
-    cin >> w;
-    if (!will_it_fly(q, w)) {
-        cout << "Will not fly.\n";
-    } else {
-        cout << "Will fly.\n";
-    }
-    return 0;
+    bool balanced = str == reverse(str).str;
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
