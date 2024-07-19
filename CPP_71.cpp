@@ -3,8 +3,8 @@
 #include <cmath>
 
 float triangle_area(float a, float b, float c) {
-    float s = (a + b + c) / 2;
-    return sqrt((s - a) * (s - b) * (s - c));
+    float s = (a + b + c) / 2.0;
+    return std::sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
 int main() {
