@@ -1,18 +1,14 @@
-int countTotalChars(const vector<string>& lst) {
-    int totalChars = 0;
-    for (const string& str : lst) {
-        totalChars += str.size();
+int count_chars(const vector<string>& lst) {
+        int count = 0;
+        for (const string& s : lst) {
+            count += s.size();
+        }
+        return count;
     }
-    return totalChars;
-}
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int totalChars1 = countTotalChars(lst1);
-    int totalChars2 = countTotalChars(lst2);
-
-    if (totalChars1 < totalChars2) {
-        return lst1;
-    } else {
+    
+    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+        if (count_chars(lst1) < count_chars(lst2)) {
+            return lst1;
+        }
         return lst2;
     }
-}
