@@ -13,8 +13,7 @@ def factorize(n: int) -> List[int]:
 
 try:
     number = int(input("Enter a number to factorize: "))
-    if number <= 1:
-        raise ValueError("Number should be greater than 1")
-    print(factorize(number))
-except ValueError:
+    assert number > 1, "Number should be greater than 1"
+    print(factorize(number))  
+except (ValueError, AssertionError) as e:
     print("Invalid input. Please enter a valid integer greater than 1.")
