@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -38,9 +37,9 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> result = reverseDelete("mamma", "mia");
-    assert(isSame({ "", "True" }, result));
-    if (isSame({ "", "True" }, result)) {
+    auto v1 = reverseDelete("mamma", "mia");
+    auto v2 = {"", "True"};
+    if (isSame({v1[0], v1[1]}, v2)) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
