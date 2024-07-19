@@ -1,3 +1,13 @@
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for (const auto &str : strings) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
+        }
+    }
+    return result;
+}
+
 #include <vector>
 #include <string>
 #include <cassert>
@@ -14,22 +24,12 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for (const auto &str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
 int main() {
-    vector<string> test_input = {"apple", "banana", "apricot", "orange"};
-    vector<string> expected_output = {"apple", "apricot"};
-    vector<string> filtered_output = filter_by_prefix(test_input, "ap");
-
-    assert(issame(expected_output, filtered_output));
+    vector<string> test_strings = {"apple", "banana", "orange", "pear"};
+    string test_prefix = "o";
+    vector<string> expected_output = {"orange"};
+    vector<string> filtered = filter_by_prefix(test_strings, test_prefix);
+    assert(issame(filtered, expected_output));
 
     return 0;
 }
