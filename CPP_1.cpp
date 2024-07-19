@@ -1,7 +1,17 @@
-vector<string> result;
+#include <vector>
+#include <string>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string);
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string group;
     int balance = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -18,6 +28,6 @@ vector<string> result;
             }
         }
     }
-    
+
     return result;
 }
