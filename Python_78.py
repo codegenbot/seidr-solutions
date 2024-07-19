@@ -6,7 +6,7 @@ def hex_key(num):
         if char.upper() in primes:
             count += 1
         elif char.isdigit():
-            n = int(char, 16)
-            if n > 1 and all(n % i for i in range(2, int(n**0.5) + 1)):
+            num = int(char, 16)
+            if num > 1 and all(num % i for i in range(2, int(num**0.5) + 1)):
                 count += 1
     return count
