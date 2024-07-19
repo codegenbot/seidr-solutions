@@ -1,3 +1,12 @@
-input_string = input("Enter the string to decode: ").strip()
-if not all(char in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. _" for char in input_string):
-    raise ValueError("Input string must contain only letters, digits, '_', '.', and spaces.")
+def decode_string():
+    string_to_decode = input("Enter the string to decode: ")
+
+    decoded_string = ""
+    for char in string_to_decode:
+        decoded_string += chr(ord(char) - 1)
+
+    return decoded_string
+
+
+result = decode_string()
+print(result)
