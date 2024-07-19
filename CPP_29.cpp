@@ -26,7 +26,7 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::ve
             }
         }
         if (!found) {
-            result.push_back(str);
+            result.push_back(std::vector<std::string>(str));
         }
     }
     return result;
@@ -34,6 +34,5 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::ve
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    assert(issame(filter_by_prefix({strings}, "xxx"), {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
-    return 0;
+    return issame(filter_by_prefix({std::vector<std::string>(strings)}, "xxx"), {{"xxx"}, {"xxxAAA"}, {"xxx"}});
 }
