@@ -18,5 +18,5 @@ std::vector<int> sort(std::vector<int> arr){
 }
 
 int main(){
-    assert(issame(sort({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    assert (issame(sort({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
 }
