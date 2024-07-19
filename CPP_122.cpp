@@ -14,6 +14,7 @@ int add_elements(const vector<int>& arr, int k) {
 }
 
 int main() {
-    assert(add_elements({12, 45, 78}, 3) == 135);
+    assert(add_elements({1}, 1) == 0); // Test case with empty array
+    assert(add_elements({15, 25, 5, 105}, 4) == 40); // Test case with multiple elements
     return 0;
 }
