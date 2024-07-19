@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,7 +25,7 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    std::vector<int> result(std::max_element(a.begin(), a.end()) - k + 1); 
+    std::vector<int> result(std::vector<int>(std::max_element(a.begin(), a.end()) - k + 1, 0)); 
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] > k) result.push_back(a[i]);
     }

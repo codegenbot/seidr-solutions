@@ -1,35 +1,13 @@
-#include <iostream>
-#include <algorithm>
-#include <map>
-#include <string>
-#include <set>
+int main() {
+    string test;
+    cout << "Enter a string: ";
+    cin >> test;
 
-using namespace std;
+    map<char, int> histogram = histogram(test);
 
-std::map<char, int> histogram(string test) {
-    std::map<char, int> result;
-    if (test.empty()) return result;
-
-    set<char> uniqueChars;
-    for (char c : test) { 
-        uniqueChars.insert(c);
+    for (auto p : histogram) {
+        cout << p.first << ": " << p.second << endl;
     }
 
-    for (char c : uniqueChars) { 
-        int count = 0;
-        for (char letter : test) {
-            if (letter == c) count++;
-        }
-        if (count > 0) result[c] = count;
-    }
-
-    return result;
+    return 0;
 }
-
-bool isSame(const map<char,int>& a, const map<char,int>& b){
-    if(a.size() != b.size()) return false;
-    for(auto p : a) {
-        auto it = b.find(p.first);
-        if(it == b.end() || it->second != p.second) return false;
-    }
-    return true;
