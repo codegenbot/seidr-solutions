@@ -40,7 +40,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -54,6 +54,10 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     std::vector<int> arr = {9, 4, 8};
-    assert(isSame(by_length(arr), {"Nine", "Four", "Eight"}));
+    std::vector<std::string> result = by_length(arr);
+    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
+    if (!issame(result, expected)) {
+        return 1;
+    }
     return 0;
 }
