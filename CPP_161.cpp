@@ -1,5 +1,4 @@
-string solve(string s){
-    for (int i = 0; i < s.size(); ++i) {
+for (int i = 0; i < s.length(); ++i) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
                 s[i] = toupper(s[i]);
@@ -8,7 +7,7 @@ string solve(string s){
             }
         }
     }
-    int left = 0, right = s.size() - 1;
+    size_t left = 0, right = s.length() - 1;
     while (left < right) {
         swap(s[left], s[right]);
         left++;
