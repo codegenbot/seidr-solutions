@@ -1,25 +1,32 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <cassert>
 
-bool issame(double a, double b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-vector<string> by_length(const vector<int>& arr){
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    vector<int> filtered_arr;
+std::vector<std::string> by_length(std::vector<int> arr){
+    std::vector<std::string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    std::vector<int> filtered_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             filtered_arr.push_back(num);
         }
     }
-    sort(filtered_arr.begin(), filtered_arr.end());
-    reverse(filtered_arr.begin(), filtered_arr.end());
-    vector<string> result;
+    std::sort(filtered_arr.begin(), filtered_arr.end());
+    std::reverse(filtered_arr.begin(), filtered_arr.end());
+    std::vector<std::string> result;
     for (int num : filtered_arr) {
         result.push_back(names[num - 1]);
     }
     return result;
+}
+
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    // Add more test cases if needed
+    std::cout << "All test cases passed successfully." << std::endl;
+    return 0;
 }
