@@ -1,16 +1,11 @@
+#include <iostream>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-string solve(string s); // function prototype
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
-}
-
-string solve(string s){
+string solve(const string& s){
     bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
@@ -22,4 +17,10 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    
+    return 0;
 }
