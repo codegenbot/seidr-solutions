@@ -12,9 +12,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(const std::vector<int>& a, int k) {
-    std::vector<int> result(a.size());
+    std::vector<int> result;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > k) result[i] = a[i];
+        if (a[i] > k) result.push_back(a[i]);
     }
     return result;
 }
@@ -25,6 +25,8 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    if (!issame(maximum(a, k), a)) return 1;
+    int maxElement = *max_element(a.begin(), a.end());
+    std::vector<int> b(maximum(a, k));
+    if (!issame(maximum(a, k), b)) return 1;
     return 0;
 }
