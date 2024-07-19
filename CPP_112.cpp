@@ -5,7 +5,8 @@ vector<string> reverse_delete(string s, string c){
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    string reverseResult = result;
+    reverse(reverseResult.begin(), reverseResult.end());
+    
+    return {result, (result == reverseResult) ? "True" : "False"};
 }
