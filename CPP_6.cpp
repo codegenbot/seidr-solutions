@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -9,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> parse_nested_parens(std::string s){
     int depth = 0;
     std::vector<int> depths;
-    
+
     for(char c : s){
         if(c == '('){
             depth++;
@@ -18,10 +19,11 @@ std::vector<int> parse_nested_parens(std::string s){
             depth--;
         }
     }
-    
+
     return depths;
 }
 
 int main(){
-    assert(issame(parse_nested_parens("(()(())(()))"), std::vector<int>({4, 3})));
+    assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>({4})));
+    return 0;
 }
