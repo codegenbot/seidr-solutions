@@ -2,8 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-using namespace std;
+#include <cmath>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     std::vector<float> sorted_numbers = numbers;
@@ -18,7 +17,7 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     assert(has_close_elements(std::vector<float>{1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
     return 0;
 }
