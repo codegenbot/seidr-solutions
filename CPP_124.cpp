@@ -1,30 +1,32 @@
-Here is the completed code:
-
-```cpp
 #include <string>
-#include <vector>
+#include <sstream>
 
 using namespace std;
 
 bool valid_date(string date) {
-    vector<int> monthDays = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int day, month, year;
-    if (date.length() != 10 || date[2] != '-' || date[5] != '-') {
+    istringstream iss(date);
+    string month, day, year;
+    iss >> month >> day >> year;
+
+    if (month.length() != 2 || day.length() != 2 || year.length() != 4)
         return false;
-    }
-    for (int i = 0; i < 3; i++) {
-        if (!isdigit(date[i])) {
-            return false;
-        }
-    }
-    month = stoi(date.substr(0, 2));
-    day = stoi(date.substr(3, 2));
-    year = stoi(date.substr(6, 4));
-    if (month < 1 || month > 12) {
+
+    int mon = stoi(month), dy = stoi(day), yr = stoi(year);
+
+    if (mon < 1 || mon > 12)
         return false;
-    }
-    if (day < 1 || day > monthDays[month - 1]) {
+
+    if ((mon == 1 || mon == 3 || mon == 5 || mon == 7 || mon == 8 || mon == 10 || mon == 12) &&
+        (dy < 1 || dy > 31))
         return false;
+    else if ((mon == 4 || mon == 6 || mon == 9 || mon == 11) && (dy < 1 || dy > 30))
+        return false;
+    else if (mon == 2) {
+        if ((yr % 4 == 0 && yr % 100 != 0) || yr % 400 == 0)
+            return dy >= 1 && dy <= 29;
+        else
+            return dy >= 1 && dy <= 28;
     }
+
     return true;
 }
