@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,11 +8,11 @@ std::vector<float> sort_even(std::vector<float> l) {
         if (i % 2 == 0) {
             std::vector<float> evenVals;
             for (float val : l) {
-                if (std::abs(val - static_cast<int>(val)) < 1e-5) {
+                if (val % 2.0 == 0.0) {
                     evenVals.push_back(val);
                 }
             }
-            std::sort(evenVals.begin(), evenVals.end());
+            sort(evenVals.begin(), evenVals.end());
             result[i] = evenVals[0];
         } else {
             result[i] = l[i];
