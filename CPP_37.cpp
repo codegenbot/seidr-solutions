@@ -3,9 +3,9 @@ vector<float> sort_even(vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    evenVals.push_back(l[j]);
+            for (float val : l) {
+                if (val % 2.0 == 0.0) {
+                    evenVals.push_back(val);
                 }
             }
             sort(evenVals.begin(), evenVals.end());
