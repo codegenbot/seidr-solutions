@@ -1,18 +1,15 @@
-#include <string>
-#include <cctype>
+#include <algorithm>
+using namespace std;
 
-std::string solve(std::string s) {
-    std::string result = "";
-    bool hasLetters = false;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            hasLetters = true;
-            result += (s[i] >= 'a' && s[i] <= 'z') ? std::toupper(s[i]) : std::tolower(s[i]);
+string solve(string s) {
+    string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
-
-    return hasLetters ? result : std::string(result.rbegin(), result.rend());
+    reverse(result.begin(), result.end());
+    return result;
 }
