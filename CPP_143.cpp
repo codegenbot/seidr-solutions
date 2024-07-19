@@ -1,14 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> split(const std::string& str, char ch) {
-    std::vector<std::string> tokens;
-    std::string token = "";
+std::vector<std::u16string> split(const std::string& str) {
+    std::vector<std::u16string> tokens;
+    std::u16string token = "";
 
     for (char c : str) {
-        if (c == ch) {
+        if (!isascii(c)) {
             tokens.push_back(token);
             token = "";
         } else {
@@ -35,10 +34,9 @@ bool is_prime(int n) {
 
 int main() {
     int longest_prime_length = 0;
-    std::string longest_prime_word;
+    std::u16string longest_prime_word;
 
-    for (const auto &word : split("here is", ' ')) {
-        if(word.empty()) continue;
+    for (const auto &word : split("here is")) {
         bool all_ascii = true;
         for (char c : word) {
             if (!isascii(c)) {
