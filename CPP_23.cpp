@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <cstring>
+#include <string>
 
 int customStringLength(const char* str) {
     return strlen(str);
