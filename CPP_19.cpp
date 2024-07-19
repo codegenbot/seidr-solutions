@@ -21,12 +21,7 @@ map<string, int> num_map = {
 string sort_numbers(string numbers);
 
 int main() {
-    string input;
-    cout << "Enter numbers in words separated by space: ";
-    getline(cin, input);
-
-    cout << "Sorted numbers: " << sort_numbers(input) << endl;
-
+    // Test your code here
     return 0;
 }
 
