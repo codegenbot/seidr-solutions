@@ -1,9 +1,4 @@
 ```cpp
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion-null"
-#include <initializer_list>
-#pragma GCC diagnostic pop
-
 #include <vector>
 #include <string>
 
@@ -31,7 +26,8 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 int main_function() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
+    std::vector<std::string> b(std::vector<std::string>({"xxx", "xxxAAA", "xxx"}));  // C++11 feature used here
+    std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};  // Same thing but without assigning it to a variable
 
     assert (areSame(filter_by_prefix(a, "xxx") , b));
     return 0;
