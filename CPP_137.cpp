@@ -7,9 +7,6 @@ void replace(std::string::iterator begin, std::string::iterator end, char target
 
 boost::any compare_one(const boost::any &a, const boost::any &b);
 
-using namespace std;
-using namespace boost;
-
 void replace(std::string::iterator begin, std::string::iterator end, char target, char replacement) {
     std::replace(begin, end, target, replacement);
 }
@@ -32,17 +29,17 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
             return "None";
         }
     } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if(strA.find_first_of(".,") != string::npos) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        if(strA.find_first_of(".,") != std::string::npos) {
             replace(strA.begin(), strA.end(), ',', '.');
         }
-        if(strB.find_first_of(".,") != string::npos) {
+        if(strB.find_first_of(".,") != std::string::npos) {
             replace(strB.begin(), strB.end(), ',', '.');
         }
-        if(stof(strA) > stof(strB)){
+        if(std::stof(strA) > std::stof(strB)){
             return a;
-        } else if(stof(strA) < stof(strB)){
+        } else if(std::stof(strA) < std::stof(strB)){
             return b;
         } else {
             return "None";
@@ -51,5 +48,8 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
         return "None";
     }
 }
+
+using namespace std;
+using namespace boost;
 
 assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
