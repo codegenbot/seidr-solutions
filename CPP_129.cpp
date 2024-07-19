@@ -1,24 +1,42 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    vector<int> res;
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
     int n = grid.size();
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
-            }
-            int minVal = INT_MAX;
-            vector<int> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-            for (int d = 0; d < 4; ++d) {
-                int ni = i + dir[d][0];
-                int nj = j + dir[d][1];
-                if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                    minVal = min(minVal, grid[ni][nj]);
-                }
-            }
-            res.push_back(minVal);
-            k -= 1;
+            if (grid[i][j] > n * n) return {};
+            result.push_back(grid[i][j]);
         }
     }
-    return res;
+    int start = 0;
+    priority_queue<pair<int, int>> pq;
+    pq.push({1, start});
+    vector<bool> visited(n * n + 1, false);
+    for (int i = 0; i < k; ++i) {
+        pair<int, int> top = pq.top();
+        pq.pop();
+        int val = top.first;
+        int idx = top.second;
+        if (!visited[idx]) {
+            result.push_back(val);
+            visited[idx] = true;
+            if (idx > 0 && !visited[idx - n]) {
+                pq.push({grid[(idx - 1) / n][0], idx - 1});
+            }
+            if (idx < n * n && !visited[idx + 1]) {
+                pq.push({grid[(idx + 1) / n][0], idx + 1});
+            }
+            if (idx % n > 0 && !visited[idx - 1]) {
+                pq.push({grid[0][idx % n], idx - 1});
+            }
+            if (idx % n < n - 1 && !visited[idx + n]) {
+                pq.push({grid[0][idx % n + n], idx + n});
+            }
+        }
+    }
+    return result;
 }
