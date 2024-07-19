@@ -1,10 +1,11 @@
 double find_zero(int n) {
-    int degree;
-    vector<double> coeffs(n+1);
-    vector<int> poly(n);
-
-    double solution; // input from user
+    double solution;
     cin >> solution;
+
+    vector<double> coeffs(n+1); 
+    for (int i = 0; i <= n; i++) {
+        cin >> coeffs[i];
+    }
 
     double sum = 0;
     for (int i = 2; i < n+1; i += 2) {
