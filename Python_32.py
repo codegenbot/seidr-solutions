@@ -1,3 +1,1 @@
-a = float(input())
-b = float(input())
-c = float(input())
+a, b, c = map(float, input().strip().split())
