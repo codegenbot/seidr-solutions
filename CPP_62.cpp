@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+template <typename T>
+bool issame(const std::vector<T>& a, const std::vector<T>& b) {
     return a.size() == b.size();
 }
 
