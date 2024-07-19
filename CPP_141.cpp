@@ -1,5 +1,4 @@
 #include <string>
-
 string file_name_check(string file_name) {
     int digitsCount = 0;
     int dotCount = 0;
