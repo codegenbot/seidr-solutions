@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -11,9 +12,10 @@ int main() {
     ostringstream ss;
     ss << a << ", " << b << ", " << c;
     
-    if(ss.str().size() == 0)
+    if (ss.str().empty())
         cout << "Error: Please enter valid integer values.\n";
     else
         cout << "The numbers are integers: " << ss.str() << "\n";
     
     return 0;
+}
