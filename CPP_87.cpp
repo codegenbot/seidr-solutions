@@ -17,13 +17,17 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     }
 
     std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
-        return a[0] < b[0] || (a[0] == b[0] && a[1] < b[1]);
+        return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
     });
 
     return result;
 }
 
-int main() {
+int contestCode() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    return 0;
+    return 1;
+}
+
+int main() {
+    return contestCode();
 }
