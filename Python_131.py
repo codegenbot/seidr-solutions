@@ -1,3 +1,5 @@
+from functools import reduce
+
 try:
     n = int(input("Enter a number: "))
     if n <= 0:
@@ -6,3 +8,5 @@ try:
     print(result)
 except ValueError:
     print("Invalid input. Please enter a valid positive integer greater than zero.")
+except NameError:
+    print("Please import the 'reduce' function from 'functools'.")
