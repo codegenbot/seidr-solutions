@@ -1,8 +1,16 @@
-int closest_integer(const std::string& value) {
+#include <iostream>
+#include <cmath>
+
+int closest_integer(std::string value) {
     double num = std::stod(value);
-    int closestInt = std::round(num);
-    if (std::abs(num - closestInt) == 0.5) {
-        closestInt = (num - closestInt > 0) ? std::ceil(num) : std::floor(num);
+    if (num >= 0) {
+        return std::floor(num + 0.5);
+    } else {
+        return std::ceil(num - 0.5);
     }
-    return closestInt;
+}
+
+int main() {
+    assert(closest_integer("0") == 0);
+    return 0;
 }
