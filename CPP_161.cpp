@@ -1,16 +1,23 @@
-for(char& c : s) {
-        if(isalpha(c)) {
-            if(islower(c)) {
-                c = toupper(c);
+string solve(string s){
+    string result = "";
+    bool flag = false;
+
+    for (char& c : s) {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                result += toupper(c);
             } else {
-                c = tolower(c);
+                result += tolower(c);
             }
+            flag = true;
+        } else {
+            result += c;
         }
     }
-    
-    if(count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+
+    if (!flag) {
+        reverse(result.begin(), result.end());
     }
-    
-    return s;
+
+    return result;
 }
