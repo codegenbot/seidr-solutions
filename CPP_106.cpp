@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b) {
+    // Your implementation here
+}
+
 vector<int> f(int n) {
     vector<int> result;
     int factorial = 1;
@@ -15,10 +19,6 @@ vector<int> f(int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    // Your implementation here
 }
 
 int main() {
