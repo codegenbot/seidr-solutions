@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <map>
 #include <string>
@@ -25,7 +24,4 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     return allLower || allUpper;
 }
 
-int main() {
-    assert(check_dict_case({}) == false);
-    return 0;
-}
+assert(check_dict_case({}) == false);
