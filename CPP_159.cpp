@@ -1,7 +1,8 @@
 #include <utility>
 #include <cassert>
+#include <vector> // Add this line for vector
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(std::pair<int, int> a, std::pair<int, int> b) { // Change parameters to pairs
     return a == b;
 }
 
