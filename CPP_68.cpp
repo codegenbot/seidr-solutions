@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a,std::vector<int>b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) 
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -34,4 +34,5 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     assert(issame(pluck({7, 9, 7, 1}), {}));
+    return 0;
 }
