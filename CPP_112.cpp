@@ -2,7 +2,17 @@
 #include <vector>
 #include <string>
 
-bool sameStrings(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> reverse_delete(string s, string c);
+
+int main() {
+    bool res1 = issame(reverse_delete("mamma", "mia"), vector<string>{"" , "True"});
+    assert(res1);
+    return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -34,11 +44,3 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return result;
-}
-
-int driver() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    bool res1 = sameStrings(output, vector<string>{"" , "True"});
-    assert(res1);
-    return 0;
-}
