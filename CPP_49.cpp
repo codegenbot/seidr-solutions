@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cassert>
 
+int modp(int n, int p);
+
 int main() {
     int n, p;
     std::cout << "Enter n and p: ";
