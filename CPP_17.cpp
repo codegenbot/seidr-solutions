@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
 #include <string>
@@ -31,7 +31,7 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-int main() {
+bool main() {
     assert(issame(parse_music("o|.|o|.|oo|oo|"), std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2})));
-    return 0;
+    return true;
 }
