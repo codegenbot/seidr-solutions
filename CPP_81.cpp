@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -35,4 +36,9 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         }
     }
     return letter_grades;
+}
+
+int main() {
+    // Test the function if needed
+    return 0;
 }
