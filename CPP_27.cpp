@@ -1,21 +1,21 @@
 #include <iostream>
 #include <string>
 
-std::string flipCase(std::string input) {
-    for(int i = 0; i < input.length(); ++i) {
-        if(input[i] >= 'a' && input[i] <= 'z') {
-            output += (input[i] - 32); // Convert to uppercase
-        }
-        else if(input[i] >= 'A' && input[i] <= 'Z') {
-            output += (input[i] + 32); // Convert to lowercase
+std::string flipCase(const std::string& input) {
+    std::string output = "";
+    for (char c : input) {
+        if (isupper(c)) {
+            output += tolower(c);
+        } else if (islower(c)) {
+            output += toupper(c);
         } else {
-            output += input[i]; // If not an alphabet letter, add as it is
+            output += c;
         }
     }
     return output;
 }
 
-int main_function() -> int {
+int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
