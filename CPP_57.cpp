@@ -15,4 +15,7 @@ bool monotonic(const std::vector<int>& l) {
     return increasing || decreasing;
 }
 
-std::cout << std::boolalpha << monotonic(std::vector<int>{9, 9, 9, 9}) << std::endl;
+int main() {
+    std::cout << std::boolalpha << monotonic(std::vector<int>{9, 9, 9, 9}) << std::endl;
+    return 0;
+}
