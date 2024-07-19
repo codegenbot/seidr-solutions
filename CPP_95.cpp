@@ -1,24 +1,18 @@
-if (dict.empty()) {
-    return false;
-}
-
-bool all_lower = true;
-bool all_upper = true;
-
-for (const auto &pair : dict) {
-    for (char c : pair.first) {
-        if (!islower(c)) {
+if(dict.empty()) return false;
+bool all_lower = true, all_upper = true;
+for(auto const& entry : dict) {
+    for(auto const& c : entry.first) {
+        if(!islower(c)) {
             all_lower = false;
             break;
         }
     }
-
-    for (char c : pair.first) {
-        if (!isupper(c)) {
+    for(auto const& c : entry.first) {
+        if(!isupper(c)) {
             all_upper = false;
             break;
         }
     }
 }
-
 return all_lower || all_upper;
+}
