@@ -1,9 +1,15 @@
-long long double_the_difference(vector<float> lst){
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+std::vector<int> lst = {1, 3, 5, 2, 4};
+long long odd_sum = 0;
+
+long long double_the_difference(std::vector<int> nums) {
+    for (int num : nums) {
+        if (num > 0 && num % 2 != 0) {
+            odd_sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return sum;
+    return odd_sum * 2;
 }
