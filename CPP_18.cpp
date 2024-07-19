@@ -1,9 +1,18 @@
-int how_many_times(string str, string substring){
+#include <string>
+#include <cassert>
+
+int how_many_times(const std::string& str, const std::string& substring){
+    if(substring.empty()) return 0;
     int count = 0;
-    size_t pos = str.find(substring, 0);
-    while (pos != string::npos) {
-        count++;
-        pos = str.find(substring, pos + 1);
+    size_t pos = 0;
+    while((pos = str.find(substring, pos)) != std::string::npos){
+        ++count;
+        ++pos;
     }
     return count;
+}
+
+int main(){
+    assert(how_many_times("john doe", "john") == 1);
+    return 0;
 }
