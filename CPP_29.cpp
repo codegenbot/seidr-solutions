@@ -15,5 +15,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
-return 0;
+int main() {
+    vector<string> filtered = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
+    if(filtered == vector<string>{"xxx", "xxxAAA", "xxx"}) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
+    return 0;
+}
