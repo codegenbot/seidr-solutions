@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& vecB) {
@@ -39,13 +39,14 @@ vector<string> reverse_delete(const string& s, const string& t) {
 int main() {
     vector<string> s, t;
     cout << "Enter the first string: ";
-    for(string str;getline(cin, str);s.push_back(str));
+    string str;
+    while(getline(cin, str))s.push_back(str);
     cout << "Enter the second string: ";
-    for(string str;getline(cin, str);t.push_back(str));
+    while(getline(cin, str))t.push_back(str);
     if(issame(s,t)) {
         int i = 0;
+        bool found = false;
         while(i < s[0].size()) {
-            bool found = false;
             for(int j = 0; j < t[0].size(); j++) {
                 if(s[0][i] == t[0][j]) {
                     found = true;
