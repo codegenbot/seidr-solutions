@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -15,7 +19,7 @@ vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
-} 
+}
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
