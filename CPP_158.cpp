@@ -1,6 +1,9 @@
+```cpp
 #include <vector>
-#include <string>
 #include <initializer_list>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 string find_max(vector<string> words) {
