@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cctype>
 #include <cassert>
 
@@ -24,12 +25,9 @@ std::vector<std::string> split_words(std::string txt) {
         result.push_back(word);
     }
     if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
-        }
+        int count = std::count_if(txt.begin(), txt.end(), [](char c) {
+            return std::islower(c) && (c - 'a') % 2 == 1;
+        });
         result.push_back(std::to_string(count));
     }
     return result;
