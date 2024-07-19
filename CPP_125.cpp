@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b
     return a == b;
 }
 
-std::vector<std::string> split_words(const std::string& str) {
+std::vector<std::string> split_words(const std::string &str) {
     std::vector<std::string> words;
     
     size_t start = 0, end = 0;
