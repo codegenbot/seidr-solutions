@@ -20,7 +20,7 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     return res;
 }
 
-int main() {
+void solveProblem() {
     int n;
     cin >> n; 
     vector<string> lst(n);
@@ -42,5 +42,10 @@ int main() {
         }
     }
 
+    return;
+}
+
+int main() {
+    solveProblem();
     return 0;
 }
