@@ -11,7 +11,8 @@ std::string flip_case(std::string str) {
     return str;
 }
 
-std::cout << flip_case("Hello, World!") << std::endl;
-std::cout << flip_case("These violent delights have violent ends") << std::endl;
-
-assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    
+    return 0;
+}
