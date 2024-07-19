@@ -15,7 +15,7 @@ std::string encrypt(std::string s){
     return result;
 }
 
-int main() {
-    assert(encrypt("a") == "e");
+int main(){
+    assert (encrypt("a")=="e");
     return 0;
 }
