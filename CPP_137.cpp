@@ -1,11 +1,8 @@
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
-
-// Given code snippet
 
 if(a.type() == typeid(int) && b.type() == typeid(int)){
     if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
