@@ -13,7 +13,7 @@ std::string calculateBinaryString(int n, int m) {
         sum += i;
     }
     
-    int avg = static_cast<int>(std::round((double)sum / (m - n + 1)));
+    int avg = std::round((double)sum / (m - n + 1));
     
     std::string binary;
     while (avg > 0) {
