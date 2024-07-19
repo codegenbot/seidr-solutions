@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> by_length(vector<string> arr){
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> numToString = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -30,7 +30,7 @@ vector<string> by_length(vector<string> arr){
 }
 
 int main(){
-    assert(by_length({"Nine", "Four", "Eight"}) == by_length({"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
     
     return 0;
 }
