@@ -1,3 +1,6 @@
-string aa = a + a;
-    return aa.find(b) != string::npos;
+string concatenated_string = a + a;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    return concatenated_string.find(b) != string::npos;
 }
