@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b) {
     return true;
 }
 
-// Define any missing sort_third function if required
+// Define 'sort_third' function if needed
 
 int main() {
     std::vector<int> v1, v2;
