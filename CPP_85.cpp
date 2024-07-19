@@ -11,7 +11,7 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7};
     int result = add(numbers);
     return 0;
 }
