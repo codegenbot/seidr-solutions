@@ -1,15 +1,23 @@
-```
 #include <algorithm>
 #include <vector>
+#include <functional>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool same(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+bool same(vector<int> a, vector<int> b) {
+    return same(vector<int>(a), vector<int>(b));
+}
+
+bool has_val(const vector<int>& lst, int val) {
+    return find(lst.begin(), lst.end(), val) != lst.end();
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -20,28 +28,25 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     int max_val = *max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
-        auto it_min = find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; });
-        if (it_min != lst.end()) {
-            result.push_back(*it_min);
-            lst.erase(it_min);
-        }
-
-        auto it_max = find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; });
-        if (it_max != lst.end()) {
-            result.push_back(*it_max);
-            lst.erase(it_max);
+        if (has_val(lst, min_val)) {
+            result.push_back(*find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; }));
+            lst.erase(find_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; }));
+        } else if (has_val(lst, max_val)) {
+            result.push_back(*find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; }));
+            lst.erase(find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; }));
         }
     }
 
     return result;
 }
 
-int main() {
+int sort_list() {
     vector<int> a = {1, 2, 3};
     vector<int> b = strange_sort_list(a);
-    if (!issame(a, b)) {
+    if (!same(a, b)) {
         for (size_t i = 0; i < a.size(); ++i) {
             assert(b[i] == a[i]);
         }
     }
+    return 0;
 }
