@@ -1,17 +1,11 @@
 #include <vector>
 #include <string>
+#include <cassert>
+#include <cctype>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> split_words(string txt);
-
-int main() {
-    // Function calls and other code
-}
-
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -28,11 +22,11 @@ vector<string> split_words(string txt){
     if(result.empty()){
         int odd_lower_case_count = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(std::islower(c) && (c - 'a') % 2 == 1){
                 odd_lower_case_count++;
             }
         }
-        result.push_back(to_string(odd_lower_case_count));
+        result.push_back(std::to_string(odd_lower_case_count));
     }
     return result;
 }
