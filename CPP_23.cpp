@@ -1,6 +1,10 @@
-```
 #include <string>
 
-int mystrlen(string str){
+int my_strlen(std::string str) {
     return str.length();
+}
+
+int main() {
+    assert(my_strlen("asdasnakj") == 13); 
+    return 0;
 }
