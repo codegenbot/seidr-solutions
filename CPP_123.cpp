@@ -1,14 +1,13 @@
-vector<int> res;
+vector<int> result;
     while (n != 1) {
-        res.push_back(n);
-        n = n % 2 ? 3 * n + 1 : n / 2;
-    }
-    res.push_back(1);
-    sort(res.begin(), res.end());
-    vector<int> odd_res;
-    for (int num : res) {
-        if (num % 2 != 0) {
-            odd_res.push_back(num);
+        if (n % 2 == 1) {
+            result.push_back(n);
         }
+        n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
-    return odd_res;
+    result.push_back(1);
+
+    sort(result.begin(), result.end());
+
+    return result;
+}
