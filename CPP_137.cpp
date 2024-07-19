@@ -1,11 +1,13 @@
 #include <any>
 #include <cassert>
+#include <string>
+#include <typeinfo>
 
 template <typename T, typename U>
 auto compare_one(T a, U b) {
     assert(a.type() == b.type());
 
-    if (a.has_value() || a.type() != typeid(std::string)) {
+    if (a.empty() || a.type() != typeid(std::string)) {
         if (std::any_cast<T>(a) > std::any_cast<U>(b))
             return a;
         else if (std::any_cast<T>(a) < std::any_cast<U>(b))
