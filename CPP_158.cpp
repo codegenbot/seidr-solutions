@@ -1,11 +1,23 @@
 string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(),
-        [&](const string &a, const string &b) {
-            return tie(a.size(), a) < tie(b.size(), b);
-        });
-    for (int i = 0; i < result.length(); ++i)
-        if (result.find(result[i]) != result.find_first_of(result[i]))
-            return words[distance(words.begin(), find_if(words.begin(), words.end(),
-                [&](const string &s) { return s.size() == result.size() && tie(s, 1) > tie(result, 0); })) - words.begin()];
-    return result;
+    string max_word = *words.begin();
+    for(const auto &word : words){
+        int unique_chars_word = word.length() - (word.length() - unique(word, 0)) + 1;
+        if(unique_chars_word > (max_word.length() - (max_word.length() - unique(max_word, 0)) + 1) || 
+           (unique_chars_word == (max_word.length() - (max_word.length() - unique(max_word, 0)) + 1) && word < max_word))
+            max_word = word;
+    }
+    return max_word;
+}
+
+int unique(string s, int i){
+    if(i >= s.length())
+        return i;
+    bool found = false;
+    for(int j = i; j < s.length(); j++){
+        if(s[i] == s[j])
+            found = true;
+        else
+            break;
+    }
+    return found ? j : i;
 }
