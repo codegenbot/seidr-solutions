@@ -41,6 +41,7 @@ int main() {
     for(std::string str;std::getline(std::cin, str);s.push_back(str));
     std::cout << "Enter the second string: ";
     for(std::string str;std::getline(std::cin, str);t.push_back(str));
+
     if(issame(s,t)) {
         int i = 0;
         while(i < s[0].size()) {
