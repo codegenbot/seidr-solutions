@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -8,12 +9,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == "(":
             open_brackets += 1
         temp += char
-        if char == ")" and open_brackets == 0:
+        if char == ")" and open_brackets == 1:
             result.append(temp)
             temp = ""
+            open_brackets = 0
         elif char == ")":
             open_brackets -= 1
     return result
 
-paren_string = input().strip()
+paren_string = input()
 print(separate_paren_groups(paren_string))
