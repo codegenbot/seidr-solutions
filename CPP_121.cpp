@@ -2,9 +2,7 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-int solution(vector<int> numbers) {
+int solution(std::vector<int> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
         if (numbers[i] % 2 != 0) {
@@ -12,24 +10,25 @@ int solution(vector<int> numbers) {
         }
     }
     return sum;
+
 }
 
 int main() {
     size_t n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-    vector<string> numbers;  
+    std::vector<std::string> numbers;  
     for (size_t i = 0; i < n; i++) {
         int num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        numbers.push_back(to_string(num)); 
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        numbers.push_back(std::to_string(num));
     }
     if(numbers.empty()) { 
-        cout << "Sum of odd elements: 0" << endl;
+        std::cout << "Sum of odd elements: 0" << std::endl;
     } else {
-        cout << "Sum of odd elements: " << solution(stoi(numbers[0])) << endl; 
+        std::cout << "Sum of odd elements: " << solution({std::stoi(x) for x in numbers}) << std::endl;
     }
     return 0;
 }
