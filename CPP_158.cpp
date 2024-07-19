@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -26,6 +25,7 @@ std::string find_max(vector<string> words) {
 }
 
 int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
+    vector<string> words = {"play", "play", "play"};
+    cout << find_max(words) << endl;
     return 0;
 }
