@@ -2,7 +2,6 @@
 #include <cmath>
 #include <iostream>
 #include <initializer_list>
-#include <cassert>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
