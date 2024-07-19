@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <assert.h>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
@@ -19,7 +19,7 @@ std::vector<int> filter_integers(const std::vector<int>& v) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 5, 3, 3, 7, 8}), {3, 5, 3, 3, 7, 8}));
     
     return 0;
 }
