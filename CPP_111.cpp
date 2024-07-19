@@ -6,7 +6,7 @@ using namespace std;
 
 map<char, int> histogram(string test);
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,7 +42,11 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    
+    map<char, int> hist1 = histogram("hello world");
+    map<char, int> hist2 = histogram("hi there");
+
+    assert(issame(hist1, hist1) == true);
+    assert(issame(hist1, hist2) == false);
+
     return 0;
 }
