@@ -8,7 +8,9 @@ for(char &c : s) {
         }
     }
     
-    reverse(s.begin(), s.end());
+    if(all_of(s.begin(), s.end(), [](char c) { return !isalpha(c); })) {
+        reverse(s.begin(), s.end());
+    }
     
     return s;
 }
