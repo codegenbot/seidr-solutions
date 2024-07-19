@@ -20,9 +20,3 @@ bool check_dict_case(map<string, string> dict) {
 
     return allUpper || allLower;
 }
-
-int main() {
-    map<string, string> dict;
-    // Your code here
-    return 0;
-}
