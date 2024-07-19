@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -28,4 +28,3 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
         }
     }
     return result;
-}

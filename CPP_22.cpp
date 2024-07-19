@@ -1,15 +1,14 @@
+```cpp
 #include <initializer_list>
+#include <any>
 #include <vector>
 #include <list>
-#include <any>
 #include <algorithm>
-#include <cassert>
-#include <type_traits>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (std::is_same_v<std::remove_pointer_t<std::decay_t<decltype(value)>>, int>) { 
+        if (std::any_cast<int>(value).explicitly_value_initialized()) { 
             result.push_back(std::any_cast<int>(value));
         }
     }
