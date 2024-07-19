@@ -1,14 +1,16 @@
-string ordered_word = s;
-    for (size_t i = 0; i < s.size(); ++i) {
-        if (s[i] == ' ') {
-            continue;
+string result = "";
+    string word = "";
+    for(char c : s){
+        if(c == ' '){
+            sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
-        size_t j = i;
-        while (j < s.size() && s[j] != ' ') {
-            ++j;
-        }
-        sort(ordered_word.begin() + i, ordered_word.begin() + j);
-        i = j;
     }
-    return ordered_word;
+    sort(word.begin(), word.end());
+    result += word;
+    
+    return result;
 }
