@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<pair<int, int>> get_collatz(int n) {
+vector<pair<int, int>> collatz(int n) {
     vector<pair<int, int>> result;
     while(n!=1){
         if(n%2==0)n=n/2;
@@ -23,7 +23,6 @@ bool same(vector<pair<int, int>> a, vector<pair<int, int>> b) {
 
 }
 
-int testMain() {
-    assert(same(get_collatz(1), {{1, 1}}));
-    return 0;
+int main() {
+    assert(same(collatz(1), {{1, 1}}));
 }
