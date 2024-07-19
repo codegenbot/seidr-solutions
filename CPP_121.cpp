@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,7 +11,7 @@ int originalMain() {
         long long num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers.push_back(std::to_string(num));
+        numbers.push_back(std::to_string(static_cast<long long>(num)));
     }
     
     if(numbers.empty()) { 
