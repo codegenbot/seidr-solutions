@@ -6,10 +6,9 @@ while True:
         x = int(input("Enter first integer: "))
         y = int(input("Enter second integer: "))
         result = add(x, y)
-    except (ValueError, KeyboardInterrupt):
-        print("Please enter valid integers.")
-    except KeyboardInterrupt:
-        print("Keyboard interrupt occurred.")
-        break
-    else:
         print(result)
+    except:
+        print("An error occurred. Please make sure to enter valid integers.")
+    except KeyboardInterrupt:
+        print("\nKeyboard interrupt occurred.")
+        break
