@@ -13,7 +13,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
 
-int main() {
+void main() {
     std::vector<float> input = {1.0, 2.0, 3.0, 4.0};
     std::vector<float> derived = derivative(input);
     
@@ -24,6 +24,4 @@ int main() {
     bool isDifferent = issame(input, differentInput);
     
     assert(issame(derived, std::vector<float>{}));
-    
-    return 0;
 }
