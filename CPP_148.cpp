@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+std::vector<std::string> bf(std::string planet1, std::string planet2){
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
 
@@ -35,5 +35,23 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    std::string planet1, planet2;
+    std::cout << "Enter planet 1: ";
+    std::cin >> planet1;
+    std::cout << "Enter planet 2: ";
+    std::cin >> planet2;
+
+    std::vector<std::string> result = bf(planet1, planet2);
+
+    if (result.empty()) {
+        std::cout << "Invalid input planets.\n";
+    } else {
+        std::cout << "Planets between " << planet1 << " and " << planet2 << " are: ";
+        for (const auto& planet : result) {
+            std::cout << planet << " ";
+        }
+        std::cout << "\n";
+    }
+
+    return 0;
 }
