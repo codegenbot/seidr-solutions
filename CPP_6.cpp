@@ -6,7 +6,6 @@
 using namespace std;
 
 vector<int> parse_nested_parens(string paren_string);
-
 bool issame(const vector<int> a, const vector<int> b);
 
 vector<int> parse_nested_parens(string paren_string){
@@ -17,8 +16,8 @@ vector<int> parse_nested_parens(string paren_string){
             depth++;
             depths.push_back(depth);
         } else if(c == ')'){
-            depths.push_back(depth);
             depth--;
+            depths.push_back(depth);
         }
     }
     return depths;
