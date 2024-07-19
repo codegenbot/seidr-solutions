@@ -4,7 +4,7 @@
 
 bool match_parens(const std::string& s) {
     size_t open = 0, close = 0;
-    for (char ch : s) {
+    for(char ch : s) { 
         if (ch == '(') open++;
         else if (ch == ')') close++;
     }
