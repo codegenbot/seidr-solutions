@@ -1,4 +1,4 @@
-#include <vector> // Add this line to include the vector type
+#include <vector>
 
 #include <algorithm>
 #include <iterator>
@@ -6,11 +6,11 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) { // Fix function signature
-    return a == b; // Fix comparison operator
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> common(vector<int> l1, vector<int> l2) { // Define the common function with return type
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
@@ -20,6 +20,6 @@ vector<int> common(vector<int> l1, vector<int> l2) { // Define the common functi
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {})); // Fix the assert statement
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
