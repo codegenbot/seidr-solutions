@@ -1,21 +1,22 @@
 ```cpp
 #include <vector>
-#include <assert.h>
 
-bool issame(std::vector<float> a,std::vector<float> b){
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float i : l) {
-        if (i > 0) {
-            result.push_back(i);
+std::vector<float> extract_positives(std::vector<float> numbers) {
+    std::vector<float> positive_numbers;
+    for (float number : numbers) {
+        if (number > 0) {
+            positive_numbers.push_back(number);
         }
     }
-    return result;
+    return positive_numbers;
 }
+
 int main() {
-     assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}));
-     return 0;
+    std::vector<float> numbers = {-1.0, 0.0, 1.0};
+    std::cout << "[";
+    for(float number : extract_positives(numbers)) {
+        std::cout << number << " ";
+    }
+    std::cout << "]" << std::endl;
+    return 0;
 }
