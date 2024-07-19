@@ -1,6 +1,3 @@
-#include <string>
-#include <cassert>
-
 std::string encode(std::string message){
     for(char &c : message){
         if(std::isalpha(c)){
@@ -18,6 +15,3 @@ std::string encode(std::string message){
     }
     return message;
 }
-
-assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
-return 0;
