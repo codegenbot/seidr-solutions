@@ -6,7 +6,7 @@ int digitSum(const std::string& s) {
     int sum = 0;
     for (auto c : s) {
         if (std::isdigit(c)) {
-            sum += (c - '0');
+            sum += std::isdigit(c) - 48; 
         }
     }
     return sum;
