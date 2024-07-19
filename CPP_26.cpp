@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a_vec, const std::vector<int>& b_vec){
-    return a_vec == b_vec;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
