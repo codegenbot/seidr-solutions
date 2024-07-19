@@ -1,21 +1,33 @@
-if(dict.empty()) {
-        return false;
-    }
-    
-    bool lower = true;
-    bool upper = true;
-    
-    for(auto& pair : dict){
-        string key = pair.first;
-        for(auto& c : key){
-            if(!islower(c)){
-                lower = false;
-            }
-            if(!isupper(c)){
-                upper = false;
-            }
+if (dict.empty()) {
+    return false;
+}
+
+bool lower = true;
+bool upper = true;
+
+for (auto const& pair : dict) {
+    for (auto const& c : pair.first) {
+        if (!islower(c)) {
+            lower = false;
+            break;
         }
     }
-    
-    return lower || upper;
+    if (!lower) {
+        break;
+    }
+}
+
+for (auto const& pair : dict) {
+    for (auto const& c : pair.first) {
+        if (!isupper(c)) {
+            upper = false;
+            break;
+        }
+    }
+    if (!upper) {
+        break;
+    }
+}
+
+return lower || upper;
 }
