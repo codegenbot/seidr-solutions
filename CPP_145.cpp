@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,7 +12,7 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-bool my_comparable(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -46,7 +46,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    assert(is_same(order_by_points(nums), {4, -21, 0, 6, 6, 23, -76}));
+    assert(isSame(order_by_points(nums), { -76, -21, 0, 4, 6, 6, 23 }));
     for (int num : order_by_points(nums)) {
         std::cout << num << " ";
     }
