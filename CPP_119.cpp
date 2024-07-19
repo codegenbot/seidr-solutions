@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,12 +14,15 @@ bool match_parens(const std::string& s) {
 int main() { 
     std::string line; 
     std::cout << "Enter the strings: ";
-    while(std::cin >> line) {
+    while(getline(cin, line)) {
+        while (line[0] == '(') {
+            line.erase(0, 1); // Erase the first character if it's a parenthesis.
+        }
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
         } else {
-            std::cout << "Error: The parentheses are not matched. Please enter a valid input." << std::endl;
+            std::cout << "The parentheses are not matched." << std::endl;
         }
     }
 }

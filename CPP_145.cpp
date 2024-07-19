@@ -2,6 +2,11 @@
 #include <vector>
 #include <iostream>
 
+struct Pair {
+    int sumOfDigits;
+    int index;
+};
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
@@ -14,7 +19,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+    vector<Pair> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = abs(nums[i]);
@@ -29,7 +34,7 @@ vector<int> order_by_points(vector<int> nums) {
 
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(nums[pair.index]);
     }
 
     return result;
@@ -38,10 +43,10 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
+    assert(issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6}));
     vector<int> result = order_by_points(nums);
     for (int num : result) {
         std::cout << num << " ";
     }
-    assert(issame(result, {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
