@@ -1,8 +1,10 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallest_value = -1;
     int smallest_index = -1;
     for(int i = 0; i < arr.size(); i++){
@@ -16,4 +18,16 @@ std::vector<int> pluck(std::vector<int> arr){
         result.push_back(smallest_index);
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
