@@ -1,6 +1,8 @@
-def prefixes(s):
-    return [s[:i+1] for i in range(len(s)]
+import ast
 
-input_string = str(input("Enter a string: "))
+def prefixes(s):
+    return [s[:i+1] for i in range(len(s))]
+
+input_string = ast.literal_eval(input("Enter a string: "))
 result = prefixes(input_string)
 print(result)
