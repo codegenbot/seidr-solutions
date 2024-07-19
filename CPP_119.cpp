@@ -1,17 +1,13 @@
-bool check(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            if (count <= 0) return false;
-            count--;
+Here is the completed code:
+
+```cpp
+string match_parens(vector<string> lst) {
+    int open = 0, close = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
+            else close++;
         }
     }
-    return count == 0;
-}
-
-string match_parens(vector<string> lst) {
-    string s1 = lst[0], s2 = lst[1];
-    return check(s1 + s2) ? "Yes" : "No";
+    return open == close ? "Yes" : "No";
 }
