@@ -1,4 +1,7 @@
+```cpp
 #include <vector>
+#include <cctype>
+#include <functional>
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin(), [](const auto& x, const auto& y){return x == y;});
