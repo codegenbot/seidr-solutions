@@ -1,9 +1,7 @@
 #include <cstring>
 
-// Task: Implement a function that returns the length of a given string using strlen function.
-// Signature: int strlen(const char* str)
-
-int main(){
-    assert (strlen("asdasnakj") == 9);
-    return strlen("asdasnakj");
+// Task: Implement a function to return the length of a C-style string using strlen function
+int main() {
+    assert(strlen("asdasnakj") == 9);
+    return str.length();
 }
