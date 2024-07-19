@@ -4,10 +4,14 @@
 #include<algorithm>
 #include<assert.h>
 
-bool is_same(std::vector<std::string>& a, std::vector<std::string>& b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> a_copy = a;
+    std::vector<std::string> b_copy = b;
+    
+    std::sort(a_copy.begin(), a_copy.end());
+    std::sort(b_copy.begin(), b_copy.end());
+    
+    return a_copy == b_copy;
 }
 
 std::vector<std::string> separate_paren_groups(std::string s) {
