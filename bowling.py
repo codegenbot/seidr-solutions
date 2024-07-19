@@ -17,7 +17,7 @@ def bowling_score(s):
                     frame += 1
                 elif num < 10:  
                     score += min(num, 10)
-                    frame += (num == 10) 
+                    frame += (num == 10)  
                 else:  
                     score += num
                     frame += 1
