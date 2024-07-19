@@ -1,37 +1,34 @@
-Here is the solution:
-
-int bowling(string s) {
+int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    for (int i = 0; i < s.size(); i++) {
+    int roll = 0;
+    vector<int> frames;
+
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            if (s[i + 1] - '0' <= 1) {
-                score += 10 - (s[i + 1] - '0');
-                frame++;
-            } else {
-                int first = s[i + 1] - '0';
-                int second = s[i + 2] - '0';
-                if (first + second == 10) {
-                    score += 10;
-                    frame++;
-                } else {
-                    score += first + 10;
-                    frame++;
-                }
+            if (roll > 1) {
+                int prevRolls = roll - 1;
+                int frameScore = 10 + frames[frames.size() - 2];
+                score += frameScore;
             }
-        } else if (s[i] != 'X') {
-            int points = s[i] - '0';
-            if (points < 2) {
-                score += 10;
-                frame++;
-            } else {
-                score += points;
-                frame++;
-            }
-        } else {
-            score += 10;
-            frame++;
+            roll = 0;
+        } else if (isdigit(s[i])) {
+            int digit = s[i] - '0';
+            roll += digit;
+        }
+
+        if (i == s.length() - 1 || (i + 1 < s.length() && s[i + 1] == '/')) {
+            frames.push_back(roll);
+            roll = 0;
         }
     }
+
+    for (int i = 0; i < frames.size(); i++) {
+        if (frames[i] >= 10) {
+            score += 10 + (i != 9 ? 10 : 0);
+        } else {
+            score += frames[i];
+        }
+    }
+
     return score;
 }
