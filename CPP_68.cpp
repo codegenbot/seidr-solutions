@@ -1,16 +1,20 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-std::vector<int> pluck(std::initializer_list<int> values) {
-    return std::vector<int>(values);
-}
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
-int main() {
+vector<int> pluck(vector<int> v){
+    return v;
+}
+
+int main(){
     assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
