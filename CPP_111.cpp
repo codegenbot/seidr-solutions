@@ -11,7 +11,10 @@ std::map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    auto lettersUnique = letters;
+    letters.erase(std::unique(letters.begin(), letters.end()), letters.end());
+
+    for (char c : lettersUnique) { 
         int count = 0;
         for (char letter : letters) {
             if (letter == c) count++;
@@ -32,6 +35,11 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
 }
 
 int main() {
-    cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
+    string test1, test2;
+    cout << "Enter the first test: ";
+    cin >> test1;
+    cout << "Enter the second test: ";
+    cin >> test2;
+    cout << (isSame(histogram(test1), histogram(test2)) ? "True" : "False") << endl;
     return 0;
 }
