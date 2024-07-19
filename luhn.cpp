@@ -24,7 +24,7 @@ int luhn(const vector<int>& card) {
 }
 
 int main() {
-    vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 3, 4, 0, 1};
-    cout << luhn(card) << endl;
+    vector<int> card = {4,7,8,3,1,6,0,1,9,9,8,5,6,0,2,0};
+    cout << luhn(card) << endl; 
     return 0;
 }
