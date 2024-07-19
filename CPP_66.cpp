@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 int digitSum(const std::string& s) {
     int sum = 0;
