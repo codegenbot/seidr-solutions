@@ -1,24 +1,14 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-namespace std {
-    using ::std::vector;
-
-    bool issame(const vector<int>& a, const vector<int>& b) {
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
-    if(array.empty()) return array;
-    if((array.front() + array.back()) % 2 == 0)
-        std::sort(array.begin(), array.end(), std::greater<int>());
-    else
-        std::sort(array.begin(), array.end());
-    return array;
+int main() {
+    std::vector<int> array1 = {3, 1, 4, 1, 5, 9};
+    std::vector<int> array2 = {3, 1, 4, 1, 5, 9};
+
+    ASSERT_VECTOR_EQ(array1, array2);
+
+    std::vector<int> sorted_array = sort_array(array1);
+
+    return 0;
 }
-
-#define ASSERT_VECTOR_EQ(a, b) assert(std::equal(a.begin(), a.end(), b.begin(), b.end()))
-
-int main()
