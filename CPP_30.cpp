@@ -10,19 +10,3 @@ std::vector<float> get_positive(std::vector<float> l){
     }
     return result;
 }
-
-int main() {
-    std::vector<float> input;
-    float num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-
-    std::cout << "Positive numbers: ";
-    for(float i : get_positive(input)) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
