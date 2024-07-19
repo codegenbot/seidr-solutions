@@ -14,10 +14,10 @@ int digitSum(const string& s) {
 }
 
 int main() {
-    char s[100];
+    string s;
     cout << "Enter a string: ";
-    cin.getline(s, 99);
-    int num = digitSum(string(s));
+    getline(cin, s);
+    int num = digitSum(s);
     cout << "Sum of digits: " << num << endl;
     return 0;
 }
