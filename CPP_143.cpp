@@ -8,23 +8,20 @@ bool isascii(char c) {
 }
 
 std::vector<std::string> split(const std::string& str) {
-    std::vector<std::string> tokens;
+    std::vector<std::string> tokens(std::vector<std::string>::size_type(0));
     std::string token = "";
 
     for (char c : str) {
         if (!isascii(c)) {
-            if (!token.empty()) {
-                tokens.push_back(token);
-                token = "";
-            }
+            tokens.push_back(token);
+            token = "";
         } else {
             token += c;
         }
     }
 
     // Don't forget to add the last token
-    if (!token.empty())
-        tokens.push_back(token);
+    tokens.push_back(token);
 
     return tokens;
 }
