@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -57,7 +56,6 @@ int main() {
         float grade;
         cin >> grade;
         grades.push_back(grade);
-        cin.ignore();
     }
 
     vector<string> letter_grades = numerical_letter_grade(grades);
