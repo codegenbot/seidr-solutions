@@ -28,15 +28,15 @@ int main() {
     std::cout << "Enter a string: ";
     std::cin >> test;
 
-    auto histogram = histogramTest(test); 
+    auto hist = histogramTest(test); 
 
-    for (auto p : histogram) {
+    for (auto p : hist) {
         std::cout << p.first << ": " << p.second << std::endl;
     }
 
-    if (!issame(histogram, {{'a', 1}})) {
+    if (!issame(hist, {{'a', 1}})) {
         assert(false);
     }
-
+    
     return 0;
 }
