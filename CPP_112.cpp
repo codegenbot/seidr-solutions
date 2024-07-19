@@ -35,7 +35,7 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-int main() {
+int driver() {
     vector<string> output = reverse_delete("mamma", "mia");
     assert(issame({output}, {{"", "True"}}));
     return 0;
