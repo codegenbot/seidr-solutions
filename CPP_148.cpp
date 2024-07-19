@@ -1,1 +1,1 @@
-bool issame(std::vector<std::string_view> a, std::vector<std::string_view> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
