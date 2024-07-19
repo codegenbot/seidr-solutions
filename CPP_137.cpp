@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 int compare_strings(const std::string& a, const std::string& b) {
     if (a > b)
         return 1;
