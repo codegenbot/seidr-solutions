@@ -1,13 +1,10 @@
-```cpp
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a,vector<string>b){
-    for(auto s : a){
-        if(find(b.begin(), b.end(), s) == b.end())
+    for(int i = 0; i < a.size() && i < b.size(); i++){
+        if(a[i] != b[i]){
             return false;
+        }
     }
-    return true;
+    return (a.size() == b.size());
 }
 
 int main() {
