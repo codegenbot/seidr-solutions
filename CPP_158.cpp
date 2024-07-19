@@ -15,4 +15,3 @@ string find_max(vector<string> words){
         }
     }
     return max_word;
-}
