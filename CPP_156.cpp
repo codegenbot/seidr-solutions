@@ -17,10 +17,3 @@ string int_to_mini_roman(int number){
 
     return result;
 }
-
-int main() {
-    int number;
-    cin >> number;
-    cout << int_to_mini_roman(number);
-    return 0;
-}
