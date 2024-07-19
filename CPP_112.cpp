@@ -1,7 +1,8 @@
+```c++
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -37,9 +38,9 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-int main() {
+vector<string> main() {
     vector<string> output = reverse_delete("mamma", "mia");
     bool res1 = issame({""}, {"", "True"});
     assert(res1 == true);
-    return 0;
+    return output;
 }
