@@ -1,5 +1,4 @@
-#include <initializer_list>
-
+```cpp
 #include <vector>
 #include <string>
 
@@ -18,6 +17,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    const std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    const std::vector<std::string> expected = {"grunt", "prune"};
+    assert(issame(filter_by_substring(words, "run"), expected));
     return 0;
 }
