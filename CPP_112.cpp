@@ -1,17 +1,13 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
-    if(std::distance(a.begin(), a.end()) != std::distance(b.begin(), b.end()))
+    if(a.size() != b.size())
         return false;
-    auto it = a.begin();
-    for(int i = 0; i<a.size(); i++) {
-        if(*it++ != *b.begin())
+    for(int i = 0; i<a.size(); i++)
+        if(a[i] != b[i])
             return false;
-        ++b.begin();
-    }
     return true;
 }
 
@@ -36,13 +32,13 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
-    std::string s, t;
+    std::vector<std::string> s, t;
     std::cout << "Enter the first string: ";
-    std::cin >> s;
+    for(std::string str;std::cin >> str;s.push_back(str));
     std::cout << "Enter the second string: ";
-    std::cin >> t;
+    for(std::string str;std::cin >> str;t.push_back(str));
     if(compareVectors({s}, {t})) {
-        std::vector<std::string> res = reverse_delete(s, t);
+        std::vector<std::string> res = reverse_delete(s[0], t[0]);
         for(auto str : res) {
             std::cout << str << " ";
         }
