@@ -1,6 +1,6 @@
 int max_fill(vector<vector<int>>& grid, int capacity) {
     int total_fill = 0;
-    int buckets_needed = 0;
+    int buckets_needed;
     for (int i = 0; i < grid.size(); i++) {
         int well_fill = 0;
         for (int j = 0; j < grid[0].size(); j++) {
@@ -12,6 +12,5 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
     else if (total_fill % capacity != 0) {
         buckets_needed++;
     }
-    
     return buckets_needed;
 }
