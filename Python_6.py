@@ -1,6 +1,6 @@
 import sys
 
-paren_string = input()
+paren_string = sys.stdin.readline().rstrip()
 if not all(ch in '()' for ch in paren_string):
     print("Invalid input. Please enter a string containing only '(' and ')' characters.")
     sys.exit()
