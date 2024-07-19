@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -20,7 +20,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
         } else if (c == ' ') {
             depths.push_back(max_depth);
             max_depth = 0;
-            current_depth = 0;
         }
     }
     depths.push_back(max_depth);
@@ -29,6 +28,6 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
 
 int main() {
     assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
-    
+
     return 0;
 }
