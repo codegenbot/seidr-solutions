@@ -3,25 +3,9 @@
 #include <numeric>
 #include <vector>
 #include <utility>
-#include <initializer_list>
 
 bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
     return (a.first == b.first && a.second == b.second);
-}
-
-std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers);
-
-int main() {
-    // Create a vector of pairs of floats
-    std::vector<std::pair<float, float>> numbers = {{1.1f, 2.2f}, {3.1f, 4.1f}, {2.0f, 3.0f}};
-    
-    if (find_closest_elements(numbers) != {{2.0f, 3.0f}, 0.0f}) {
-        return 1;
-    }
-    
-    assert(find_closest_elements({{1.1f, 2.2f}, {3.1f, 4.1f}, {2.0f, 3.0f}}) == {{2.0f, 3.0f}, 0.0f});
-    
-    return 0;
 }
 
 std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std::pair<float, float>> numbers) {
@@ -41,3 +25,9 @@ std::pair<std::pair<float, float>, float> find_closest_elements(std::vector<std:
 
     return closest;
 }
+
+std::vector<std::pair<float, float>> numbers = {{1.1f, 2.2f}, {3.1f, 4.1f}, {5.1f, 2.2f}};
+if (find_closest_elements(numbers) != (std::make_pair(std::make_pair(2.0f, 3.0f), 0.0f))) {
+    return 1;
+}
+return 0;

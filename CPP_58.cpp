@@ -14,6 +14,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
+vector<int> common = {4, 3, 2, 8};
+
 int main() {
     int n;
     cin >> n;
@@ -23,7 +25,7 @@ int main() {
         cin >> x;
         user_input.push_back(x);
     }
-    if (issame(user_input, user_input)) {
+    if (issame(common, user_input)) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;
