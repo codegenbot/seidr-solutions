@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -22,7 +23,7 @@ int main() {
     cout << "Enter numbers (enter 'stop' to finish): ";
     while (true) {
         cin >> num; 
-        if (cin >> num && !cin.fail()) break;
+        if (!cin) break;
         lst.push_back(num);
     }
     long long result = doubleTheDifference(lst);
