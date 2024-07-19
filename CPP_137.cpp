@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -66,6 +67,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return a.convert_to<boost::any>() > boost::any(num) ? a : b;
     }
     else {
-        return boost::any((boost::any("None")).type());
+        return boost::any((int)0);
     }
 }
