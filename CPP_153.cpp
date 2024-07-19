@@ -12,17 +12,3 @@ std::string Strongest_Extension(const string& class_name, const vector<string>& 
     }
     return class_name;
 }
-
-int main() {
-    string className; 
-    vector<string> extensions;
-    
-    cin >> className >> extensions.size();
-    for (size_t i = 0; i < extensions.size(); ++i) {
-        cin >> extensions[i];
-    }
-    
-    cout << Strongest_Extension(className, extensions) << endl;
-    
-    return 0;
-}
