@@ -1,10 +1,14 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <cmath>
 
 int main() {
-    std::vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    auto maxVal = *std::max_element(v.begin(), v.end());
-    std::cout << "Maximum value is: " << maxVal << std::endl;
+    vector<float> l;
+    cout << "Enter the numbers (separated by space): ";
+    for (float x; cin >> x;) {
+        l.push_back(abs(x));
+    }
+    sort(l.begin(), l.end());
+    cout << "The maximum element is: " << *max_element(l.begin(), l.end()) << endl;
+    return 0;
 }
