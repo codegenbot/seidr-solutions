@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> counts(2, 0);
@@ -12,7 +10,8 @@ std::vector<int> even_odd_palindrome(int n) {
         if (num == rev_num) {
             if (i % 2 == 0) {
                 counts[0]++;
-            } else {
+            }
+            else {
                 counts[1]++;
             }
         }
@@ -21,6 +20,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    assert(even_odd_palindrome(1) == std::vector<int>{0, 1});
+    assert (even_odd_palindrome(1) == std::vector<int>{0, 1});
     return 0;
 }
