@@ -2,7 +2,7 @@
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b);
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
@@ -11,7 +11,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
             }
         }
     }
-    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
+    sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
         if (a[0] != b[0]) {
             return a[0] < b[0];
         } else {
@@ -22,11 +22,19 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 int main() {
+    // Sample usage of get_row function
     std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int x = 5;
     std::vector<std::vector<int>> result = get_row(lst, x);
-    for (const auto& pair : result) {
-        std::cout << pair[0] << " " << pair[1] << std::endl;
+
+    // Sample usage of issame function
+    std::vector<std::vector<int>> a = {{1, 2}, {3, 4}};
+    std::vector<std::vector<int>> b = {{1, 2}, {3, 4}};
+    if (issame(a, b)) {
+        // Handle case where a and b are the same
+    } else {
+        // Handle case where a and b are different
     }
+
     return 0;
 }
