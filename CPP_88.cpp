@@ -1,6 +1,8 @@
 #include <vector>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
+    vector<int> array = a;
+
     if (array.empty()) {
         return array;
     }
