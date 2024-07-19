@@ -1,5 +1,5 @@
 #include <vector>
-vector<int> solve(int n) {
+vector<int> process(int n) {
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
