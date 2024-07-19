@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(float a, float b);
+bool issame(const float a, const float b) {
+    return a == b;
+}
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
