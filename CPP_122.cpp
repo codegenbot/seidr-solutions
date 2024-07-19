@@ -1,7 +1,9 @@
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
-int add_elements(const std::vector<int>& arr, int k) {
+int add_elements(const vector<int>& arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
         if (arr[i] >= 10 && arr[i] <= 99) {
@@ -12,6 +14,6 @@ int add_elements(const std::vector<int>& arr, int k) {
 }
 
 int main() {
-    assert(add_elements(std::vector<int>{1}, 1) == 1);
+    assert(add_elements({1, 20, 30, 100}, 4) == 50);
     return 0;
 }
