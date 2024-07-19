@@ -1,14 +1,13 @@
-```cpp
 #include <string>
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    for (const auto& str : a) {
-        if (str != b) {
-            return false;
-        }
+    if (a.empty()) return false;
+    size_t prefix_size = std::min(a[0].size(), b.size());
+    for (size_t i = 0; i < prefix_size; ++i) {
+        if (a[0][i] != b[i]) return false;
     }
-    return true;
+    return a[0].size() == b.size();
 }
 
 std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
