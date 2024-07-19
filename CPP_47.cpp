@@ -1,13 +1,13 @@
-int main 
-{
-    vector<float> numbers;
-    float num;
-    
-    while (cin >> num) {
-        numbers.push_back(num);
-    }
-    
-    cout << calculateMedian(numbers) << endl;
+``` 
+int main { 
+    vector<float> numbers; 
+    float num; 
 
-    return 0;
+    while (cin >> num) { 
+        numbers.push_back(num); 
+    } 
+
+    cout << calculateMedian(numbers) << endl; 
+
+    return 0; 
 }
