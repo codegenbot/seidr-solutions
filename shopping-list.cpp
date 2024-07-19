@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -12,8 +13,8 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices = {5.0, 10.0, 15.0};
-    vector<float> discounts = {10, 20, 30};
+    vector<float> prices = {2.5, 1.8, 3.9};
+    vector<float> discounts = {15, 10, 20};
     float result = shoppingList(prices, discounts);
     return 0;
 }
