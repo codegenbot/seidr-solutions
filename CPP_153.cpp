@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <cctype>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = -1;
@@ -10,8 +9,8 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
-            if (isupper(c)) cap++;
-            else if (islower(c)) sm++;
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > max_strength) {
@@ -23,11 +22,4 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    std::string class_name = "Person";
-    std::vector<std::string> extensions = {"User", "Manager", "Developer", "Admin"};
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
-    return 0;
 }
