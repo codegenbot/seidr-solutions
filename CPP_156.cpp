@@ -1,12 +1,3 @@
-```cpp
-#include <cassert>
-using namespace std;
-
-int main() {
-    assert(intToMiniRoman(1000) == "M");
-    return 0;
-}
-
 string intToMiniRoman(int number) {
     vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
                                          {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
