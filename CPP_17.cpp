@@ -17,30 +17,28 @@ std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
-        if (music_string[i] == 'o') {
+        if (music_string[i] == 'o' && music_string[i + 1] == '|') {
             beats.push_back(4);
-            i++;
-        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
-            beats.push_back(2);
             i += 2;
+        } else if (music_string[i] == 'o') {
+            beats.push_back(2);
+            i++;
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
-        } else {
-            i++;
         }
     }
     return beats;
 }
 
 int main() {
-    std::vector<int> a = {4, 2, 1};
-    std::vector<int> b = parse_music("o|o|.");
+    std::vector<int> test_beats = parse_music("o||o");
+    std::vector<int> expected_beats = {4, 1, 4};
     
-    if (areEqual(a, b)) {
-        std::cout << "Equal" << std::endl;
+    if (areEqual(test_beats, expected_beats)) {
+        std::cout << "Test passed" << std::endl;
     } else {
-        std::cout << "Not Equal" << std::endl;
+        std::cout << "Test failed" << std::endl;
     }
     
     return 0;
