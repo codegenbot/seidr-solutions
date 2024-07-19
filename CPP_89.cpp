@@ -1,19 +1,18 @@
 #include <string>
-using namespace std;
 
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             char base = 'a';
             int shift = (int)(c - base);
             int newShift = (shift + 2 * 26) % 26;
-            result += (base + newShift < 'a'+26) ? base + newShift : (char)((base + newShift - 26));
+            result += base + newShift;
         } else if (c >= 'A' && c <= 'Z') {
             char base = 'A';
             int shift = (int)(c - base);
             int newShift = (shift + 2 * 26) % 26;
-            result += (base + newShift < 'A'+26) ? base + newShift : (char)((base + newShift - 26));
+            result += base + newShift;
         } else {
             result += c;
         }
@@ -22,6 +21,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    assert(encrypt("a")=="e");
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
     return 0;
 }
