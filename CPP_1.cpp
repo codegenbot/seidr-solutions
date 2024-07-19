@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 #include <algorithm>
 
@@ -14,8 +15,8 @@ std::vector<std::string> separate_paren_groups(std::string s) {
     int count = 0;
     std::string current_group;
     
-    for (char c : s) {
-        if (c == '(') {
+    for(char c : s) {
+        if(c == '(') {
             count++;
             current_group += c;
         } else if (c == ')') {
@@ -27,7 +28,7 @@ std::vector<std::string> separate_paren_groups(std::string s) {
             }
         }
     }
-    
+
     return groups;
 }
 
