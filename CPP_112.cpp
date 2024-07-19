@@ -1,41 +1,32 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i<a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& t) {
     std::vector<std::string> result;
-    std::string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
+    for(int i = 0; i < s.size(); i++) {
+        if(std::find(t.begin(), t.end(), s[i]) == t.end()) {
+            result.push_back(s.substr(i));
+            break;
         }
-        if (!found) {
-            temp += ch;
+        else if(i == s.size() - 1) {
+            result.push_back(s);
         }
-    }
-    result.push_back(temp);
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
     }
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    // your code here
+    vector<string> a = reverse_delete("mamma", "mia");
+    vector<string> b = {"", "True"};
+    assert(issame(a, b));
 }
