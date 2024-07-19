@@ -1,13 +1,14 @@
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
-    string result = "";
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    std::string result = "";
     for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string original = result;
-    reverse(result.begin(), result.end());
+    std::string original = result;
+    std::reverse(result.begin(), result.end());
     return {original, (original == result) ? "True" : "False"};
 }
