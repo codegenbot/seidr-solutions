@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a[0] == b[0] && a[1] == b[1];
+    return a == b;
 }
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x){
