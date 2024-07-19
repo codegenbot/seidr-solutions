@@ -1,4 +1,6 @@
-int vowels_count(string s){
+#include <string>
+
+int vowels_count(std::string s){
     int count = 0;
     for(char c : s){
         if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
@@ -10,3 +12,5 @@ int vowels_count(string s){
     }
     return count;
 }
+
+assert (vowels_count(std::string("ACEDY")) == 3);
