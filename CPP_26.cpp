@@ -1,5 +1,20 @@
-vector<int> remove_duplicates(vector<int>& numbers) {
-    sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
+    std::vector<int> result = numbers;
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    return result;
+}
+
+int main() {
+    std::vector<int> expected = {1, 4, 5}; 
+    std::vector<int> testInput = {1, 4, 4, 1, 5, 6, 4};
+    std::vector<int> result = remove_duplicates(testInput);
+    
+    assert(result.size() == expected.size() && std::equal(result.begin(), result.end(), expected.begin()));
+
+    return 0;
 }
