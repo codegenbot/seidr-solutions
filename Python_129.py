@@ -1,7 +1,7 @@
 def minPath(grid, k):
     n = len(grid)
     flat_grid = [cell for row in grid for cell in row]
-    if k > len(flat_grid):
+    if k >= len(flat_grid):
         return flat_grid
     
     start = min(flat_grid)
