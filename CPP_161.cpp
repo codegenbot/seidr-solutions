@@ -1,8 +1,8 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-std::string solve(std::string s) {
+int solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -11,13 +11,16 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    return result.empty();
 }
 
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
-    std::cout << solve(s) << std::endl;
-    return 0;
+    if (solve(s)) {
+        std::cout << s << std::endl;
+    } else {
+        std::cout << "No solution exists" << std::endl;
+    }
 }
