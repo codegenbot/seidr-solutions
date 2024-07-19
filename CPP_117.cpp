@@ -12,9 +12,11 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                int vowel_count = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
-                                  count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
-                                  count(word.begin(), word.end(), 'u');
+                unsigned vowel_count = 0;
+                for (char ch : word) {
+                    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                        vowel_count++;
+                }
                 if (vowel_count <= n) {
                     result.push_back(word);
                 }
@@ -25,9 +27,11 @@ vector<string> select_words(string s, int n) {
         }
     }
     if (!word.empty()) {
-        int vowel_count = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
-                          count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
-                          count(word.begin(), word.end(), 'u');
+        unsigned vowel_count = 0;
+        for (char ch : word) {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                vowel_count++;
+        }
         if (vowel_count <= n) {
             result.push_back(word);
         }

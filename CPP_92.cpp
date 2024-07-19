@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -9,13 +9,13 @@ bool any_int(float a, float b, float c) {
 }
 
 int originalMain() {
-    float a, b, c;
+    int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
     if(any_int(a, b, c))
-        cout << "The numbers are integers: " << (int)a << ", " << (int)b << ", " << (int)c << "\n";
+        cout << "The numbers are integers: " << to_string(a) << ", " << to_string(b) << ", " << to_string(c) << "\n";
     else
-        cout << "The numbers are not integers: " << a << ", " << b << ", " << c << "\n";
+        cout << "The numbers are not integers: " << to_string(a) << ".0, " << to_string(b) << ".0, " << to_string(c) << ".0\n";
     return 0;
 }
 
