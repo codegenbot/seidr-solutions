@@ -14,15 +14,11 @@ std::string flip_case(std::string str) {
     return str;
 }
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    std::string output = flip_case(input);
-    
-    std::cout << output << std::endl;
-    
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+std::string input;
+std::getline(std::cin, input);
 
-    return 0;
-}
+std::string output = flip_case(input);
+
+std::cout << output << std::endl;
+
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
