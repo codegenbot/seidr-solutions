@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,6 +12,7 @@ bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2
         }
     }
     return true;
+
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
@@ -23,6 +25,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 
 }
+
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
