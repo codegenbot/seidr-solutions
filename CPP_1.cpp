@@ -1,12 +1,42 @@
-bool issame(vector<string> a, vector<string> b);
+#include <iostream>
+#include <vector>
+#include <string>
 
-vector<string> separate_paren_groups(string paren_string);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string group;
+std::vector<std::string> separate_paren_groups(std::string paren_string);
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    std::string paren_string;
+    std::cout << "Enter a string with parentheses: ";
+    std::cin >> paren_string;
+    
+    std::vector<std::string> result = separate_paren_groups(paren_string);
+    
+    for (const std::string& group : result) {
+        std::cout << group << std::endl;
+    }
+    
+    return 0;
+}
+
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string group;
     int count = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             if (count > 0) {
@@ -23,30 +53,6 @@ vector<string> separate_paren_groups(string paren_string) {
             }
         }
     }
-
+    
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-    vector<string> groups = separate_paren_groups(input);
-    cout << "Groups:" << endl;
-    for (string group : groups) {
-        cout << group << endl;
-    }
-    return 0;
 }
