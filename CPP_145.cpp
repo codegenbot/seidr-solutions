@@ -1,13 +1,18 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
 }
 
-vector<int> order_by_points(vector<int> nums) {
+vector<int> sortPoints(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -30,6 +35,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    assert(isSame(sortPoints({0,6,6,-76,-21,23,4}),{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
