@@ -1,8 +1,7 @@
-```
 def snow_day(hours, initial_snow, rate_of_fall, melt_rate):
     current_snow = initial_snow
     for _ in range(hours):
         new_snow = rate_of_fall * hours 
         current_snow += new_snow
-        current_snow -= min(current_snow % (24*60*60), melt_rate)
+        current_snow -= current_snow % (1 / melt_rate)
     return round(current_snow, 6)
