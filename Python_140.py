@@ -1,3 +1,5 @@
+Here's the modified code:
+
 ```
 def fix_spaces(text):
     result = ''
@@ -8,4 +10,4 @@ def fix_spaces(text):
             result += '-'
         else:
             result += char
-    return result
+    return result```
