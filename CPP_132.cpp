@@ -7,12 +7,5 @@ bool is_nested(const std::string& str) {
             balance--;
         }
     }
-    return balance < 0;
-}
-
-#include <cassert>
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
-    return 0;
+    return balance == 0;
 }
