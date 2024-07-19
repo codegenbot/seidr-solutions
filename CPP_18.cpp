@@ -1,17 +1,9 @@
-#include <iostream>
-#include <string>
-
-int how_many_times(int, int);
-
-std::string s; 
-std::string sub;
-
-int main() {
-    std::cin >> s >> sub;
-    
-    for(auto c : sub) { 
-        s += c; 
+int how_many_times(std::string str1, std::string str2) {
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = str1.find(str2, pos)) != std::string::npos) {
+        ++count;
+        pos += str2.size();
     }
-    
-    assert(how_many_times(std::stoi(s), std::stoi(sub)) == s.find(sub) != std::string::npos);
+    return count;
 }
