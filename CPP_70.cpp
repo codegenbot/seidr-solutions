@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 
@@ -10,7 +9,7 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strangeSortList(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
@@ -35,11 +34,11 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    using namespace std;
-    vector<int> a = {4, 2, 1, 3};
-    vector<int> b = strange_sort_list(a);
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = strangeSortList(a);
     if (!same(a, b)) {
         for (size_t i = 0; i < a.size(); ++i) {
             assert(b[i] == a[i]);
         }
     }
+}
