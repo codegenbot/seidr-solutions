@@ -1,43 +1,41 @@
-string words_in_sentence(string sentence){
-    string result;
+#include<stdio.h>
+#include<string>
+#include<vector>
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    stringstream ss(sentence);
     string word;
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] != ' '){
-            word += sentence[i];
-        } 
-        else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if(word_length <= 1){
-                is_prime = false;
-            } else {
-                for(int j=2; j*j<=word_length; j++){
-                    if(word_length % j == 0){
-                        is_prime = false;
-                        break;
-                    }
-                }
-            }
-            if(is_prime){
-                result += word + " ";
-            }
-            word = "";
+    vector<string> primeWords;
+
+    while (ss >> word) {
+        if (is_prime(word.length())) {
+            primeWords.push_back(word);
         }
     }
-    int last_word_size = word.length();
-    bool is_prime = true;
-    if(last_word_size <= 1){
-        is_prime = false;
-    } else {
-        for(int j=2; j*j<=last_word_size; j++){
-            if(last_word_size % j == 0){
-                is_prime = false;
-                break;
-            }
-        }
+
+    string result = "";
+    for (const string& primeWord : primeWords) {
+        result += primeWord + " ";
     }
-    if(is_prime){
-        result += word;
-    }
+
     return result;
+}
+
+int main() {
+    string sentence;
+    getline(cin, sentence);
+    cout << words_in_sentence(sentence) << endl;
+    return 0;
 }
