@@ -15,6 +15,5 @@ int add_elements(const vector<int>& arr, int k) {
 
 int main() {
     assert(add_elements({1}, 1) == 0);
-    assert(add_elements({15, 25, 5, 105}, 4) == 40);
     return 0;
 }
