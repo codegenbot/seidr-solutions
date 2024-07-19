@@ -4,14 +4,15 @@ string result = "";
         if (c == ' ') {
             consecutiveSpaces++;
             if (consecutiveSpaces > 2) {
+                result.pop_back();
+                result.pop_back();
                 result += "-";
-                consecutiveSpaces = 1;
             } else {
                 result += "_";
             }
         } else {
-            consecutiveSpaces = 0;
             result += c;
+            consecutiveSpaces = 0;
         }
     }
     return result;
