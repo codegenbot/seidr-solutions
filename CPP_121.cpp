@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-int solution(std::vector<long long> numbers) {
+int solution(vector<int> numbers) {
     int sum = 0;
     for (int i = 1; i < numbers.size(); i++) {
         if (numbers[i] % 2 != 0) {
@@ -12,23 +12,22 @@ int solution(std::vector<long long> numbers) {
 
 }
 
-int myMain() {
+int main() {
     size_t n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
-    std::vector<long long> numbers;  
+    vector<int> numbers;  
     for (size_t i = 0; i < n; i++) {
-        long long num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
+        int num;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> num;
         numbers.push_back(num);
-    }
-    
+   
     if(numbers.empty()) { 
-        std::cout << "Sum of odd elements: 0" << std::endl;
+        cout << "Sum of odd elements: 0" << endl;
     } else {
-        std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
+        cout << "Sum of odd elements: " << solution(numbers) << endl;
     }
     return 0;
 }
