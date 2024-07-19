@@ -9,13 +9,13 @@ vector<string> separate_paren_groups(string paren_string) {
     string current_group;
 
     for (char c : paren_string) {
-        if (issame(current_group.back(), c)) {
+        if (current_group.empty() || !issame(current_group.back(), c)) {
+            current_group += c;
+        } else {
             current_group.pop_back();
             if (current_group.empty()) {
                 result.push_back(current_group);
             }
-        } else {
-            current_group += c;
         }
     }
 
