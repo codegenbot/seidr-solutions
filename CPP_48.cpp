@@ -1,12 +1,14 @@
-#include <string>
+bool is_palindrome(string text){
+    int start = 0;
+    int end = text.length() - 1;
 
-bool is_palindrome(std::string text) {
-    int i = 0, j = text.length() - 1;
-    while (i < j) {
-        if (std::tolower(text[i]) != std::tolower(text[j]))
+    while (start < end) {
+        if (text[start] != text[end]) {
             return false;
-        i++;
-        j--;
+        }
+        start++;
+        end--;
     }
+
     return true;
 }
