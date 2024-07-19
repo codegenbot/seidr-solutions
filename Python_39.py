@@ -1,2 +1,2 @@
-n = list(map(int, input("Enter 3 numbers separated by space: ").split()))
+n = [int(input()) for _ in range(3)]
 print(sum(n))
