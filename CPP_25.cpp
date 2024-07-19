@@ -17,5 +17,5 @@ std::vector<int> factorize(int n){
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
 }
