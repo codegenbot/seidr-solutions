@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 int skjkasdkd(int* arr, int size) {
@@ -12,9 +11,9 @@ int skjkasdkd(int* arr, int size) {
     return sum;
 }
 
-int testMain() {
+int main() {
     int arr[] = {127, 97, 8192};
     int size = sizeof(arr)/sizeof(int);
-    assert(testMain() == 10); 
+    assert(skjkasdkd(&arr[0], size) == 10); 
     return 0;
 }
