@@ -1,21 +1,13 @@
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
-
 vector<int> remove_duplicates(vector<int> numbers){
+    unordered_map<int, bool> seen;
     vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        bool found = false;
-        for(int j = 0; j < result.size(); j++){
-            if(numbers[i] == result[j]){
-                found = true;
-                break;
-            }
-        }
-        if(!found){
-            result.push_back(numbers[i]);
+
+    for(int num : numbers) {
+        if(seen.count(num) == 0) {
+            seen[num] = true;
+            result.push_back(num);
         }
     }
+
     return result;
 }
