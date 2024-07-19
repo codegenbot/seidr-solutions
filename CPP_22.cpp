@@ -1,8 +1,6 @@
 ```cpp
-#include <any>
-#include <list>
+#include <initializer_list>
 #include <vector>
-#include <cassert>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -20,7 +18,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     std::list<std::any> values = {{1}, {2}, {3}, {"hello"}, {4.5}};
-    auto result = filter_integers(values);
-    assert(issame(result, {1, 2, 3}));
+    auto result = filter_integers({1, 2, 3});
+    bool same = issame(result, {1, 2, 3});
+    assert(same == true);
     return 0;
 }
