@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -12,4 +13,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         }
     }
     return true;
+}
+
+float get_positive(float x) {
+    return x > 0 ? x : 0.0f;
 }
