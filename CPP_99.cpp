@@ -1,4 +1,4 @@
-int closest_integer(const std::string& value) {
+int closest_integer(string value) {
     double num = stod(value);
     int intNum = round(num);
     if (num - intNum > 0.5) {
@@ -12,8 +12,4 @@ int closest_integer(const std::string& value) {
             return floor(num);
         }
     }
-}
-int main() {
-    assert(closest_integer("0") == 0);
-    return 0;
 }
