@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cstddef>
 
@@ -21,11 +22,6 @@ int skjkasdkd(int* p, std::size_t n) {
 int main() {
     int arr[] = {127, 97, 8192};
     int size = sizeof(arr)/sizeof(int);
-    int* p = new int[size];
-    for (std::size_t i = 0; i < size; ++i) {
-        p[i] = arr[i];
-    }
-    assert(skjkasdkd(p, size) == 10);
-    delete[] p;
+    std::cout << skjkasdkd(&arr[0], size);
     return 0;
 }
