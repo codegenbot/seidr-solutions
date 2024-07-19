@@ -5,8 +5,6 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
@@ -37,10 +35,15 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 135, 246};
+    vector<int> input = {123, 456, 789, 246};
     vector<int> output = unique_digits(input);
-    for (int num : output) {
-        cout << num << " ";
-    }
+
+    // Test the issame function
+    vector<int> test1 = {1, 2, 3};
+    vector<int> test2 = {1, 2, 3};
+    vector<int> test3 = {1, 2, 4};
+    bool test_result1 = issame(test1, test2); // should return true
+    bool test_result2 = issame(test1, test3); // should return false
+
     return 0;
 }
