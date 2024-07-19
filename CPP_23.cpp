@@ -1,6 +1,6 @@
+#include <cstring>
 
-#include <string>
-
-int getLength(const std::string& str) {
-    return str.length();
+int main() {
+    assert(strlen("asdasnakj") == 9);
+    return strlen("Complete the following code given the task description and function signature.");
 }
