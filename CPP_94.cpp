@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <cassert>
@@ -26,5 +25,9 @@ bool isPrime(int n){
     }
     return true;
 
-int result = skjkasdkd({127, 97, 8192});
-assert(result == 10);
+int main() {
+    std::initializer_list<int> lst = {2,3,5,7};
+    int result = skjkasdkd(lst);
+    assert(result == 10);
+    return 0;
+}

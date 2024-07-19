@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool sameVectors(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -33,7 +33,7 @@ std::cout << "Enter the first string: ";
 std::cin >> s;
 std::cout << "Enter the second string: ";
 std::cin >> t;
-if(sameVectors({s}, {t})) {
+if(issame({s}, {t})) {
     std::vector<std::string> res = reverse_delete(s, t);
     for(auto str : res) {
         std::cout << str << " ";
