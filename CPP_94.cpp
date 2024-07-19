@@ -10,6 +10,6 @@ int main() {
         if (num == -1) break;
         lst.push_back(num);
     }
-    std::cout << "The sum of the digits of the maximum prime number is: " << skjkasdkd(lst) << std::endl;
+    assert(skkasdkd(lst) == 10);
     return 0;
 }
