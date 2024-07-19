@@ -1,22 +1,16 @@
-```cpp
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool issame(const std::string& a, const std::string& b) {
-    if (a.length() != b.length()) {
+```
+bool issame(const string& a, const string& b) {
+    if (a.length() == 0 && b.length() == 0)
+        return true;
+    else if ((a.length() != 0 && b.length() != 0) && 
+             (a.length() > 0 && a[0] == b[0]))
+        return issame(a.substr(1), b.substr(1));
+    else
         return false;
-    }
-    for (int i = 0; i < a.length(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
@@ -37,13 +31,14 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"abc", "def", "ghi", "jkl", "mno", "pqr"};
-    std::vector<std::string> output = sorted_list_sum(lst);
-    for (const auto& str : output) {
-        if (issame(str, "abc")) {
-            continue;
+    vector<string> lst = {"apple", "banana", "cat", "dog", "elephant"};
+    vector<string> result = sorted_list_sum(lst);
+    
+    for (const auto& str : result) {
+        if (!issame("", str)) {
+            cout << str << endl;
         }
-        cout << str << endl;
     }
+
     return 0;
 }
