@@ -1,3 +1,2 @@
-lst = [3, 5, 7, 9, 11]
-output = double_the_difference(lst)
-print(output)
+def double_the_difference(list):
+    return sum(x**2 for x in list if x > 0 and isinstance(x, int) and x % 2 != 0) * 2
