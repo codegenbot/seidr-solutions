@@ -24,14 +24,14 @@ string sort_numbers(string numbers);
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
+
     return 0;
 }
 
 string sort_numbers(string numbers) {
     string result = "";
     map<int, string> rev_num_map;
-    
+
     for (const auto& pair : num_map) {
         rev_num_map[pair.second] = pair.first;
     }
@@ -43,14 +43,14 @@ string sort_numbers(string numbers) {
     while (ss >> num_str) {
         sorted_nums.push_back(num_map[num_str]);
     }
-    
+
     sort(sorted_nums.begin(), sorted_nums.end());
-    
+
     for (int num : sorted_nums) {
         result += rev_num_map[num] + " ";
     }
-    
+
     result.pop_back(); // Remove the extra space at the end
-    
+
     return result;
 }
