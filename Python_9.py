@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
@@ -8,6 +8,5 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-input_numbers = list(map(int, input().split()))
-output = rolling_max(input_numbers)
-print(output)
+numbers = list(map(int, input().split()))
+print(rolling_max(numbers))
