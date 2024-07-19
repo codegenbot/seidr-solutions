@@ -9,15 +9,19 @@ bool isascii(char c) {
 
 std::vector<std::string> split(const std::string& str) {
     std::vector<std::string> tokens;
-    std::string token = "";
+    char token = 0;
 
     for (char c : str) {
         if (!isascii(c)) continue; // skip non-ASCII characters
-        token += c;
+        if (isascii(c)) { 
+            token = c; 
+        } else {
+            break;
+        }
     }
 
-    if (!token.empty()) { 
-        tokens.push_back(token);
+    if (token != 0) { 
+        tokens.push_back(std::string(1, token));
     }
 
     return tokens;
@@ -38,6 +42,7 @@ std::string longest_prime_word;
 
 int main_func() {
     std::vector<std::string> words = split("here is");
+    longest_prime_word = ""; // Initialize with an empty string
     for (const auto &word : words) {
         bool all_ascii = true;
         for (char c : word) {
