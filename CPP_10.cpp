@@ -1,12 +1,20 @@
+#include<stdio.h>
+#include<string>
+using namespace std;
+
+bool is_palindrome(string str){
+    //Test if given string is a palindrome 
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
+
 string make_palindrome(string str){
-    if(str.empty()) return "";
-    int n = str.size();
-    for(int i=n-1; i>=0; --i){
-        if(is_palindrome(str.substr(i))){
-            string prefix = str.substr(0,i);
-            reverse(prefix.begin(), prefix.end());
-            return str + prefix;
+    string rev = string(str.rbegin(), str.rend());
+    for (int i = str.length(); i > 0; i--) {
+        string postfix = str.substr(str.length() - i, i);
+        if (is_palindrome(postfix)) {
+            return str + rev.substr(0, str.length() - i);
         }
     }
-    return ""; //optional, in case there is no palindromic suffix
+    return str + rev.substr(1, str.length());
 }
