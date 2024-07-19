@@ -1,5 +1,5 @@
 try:
-    input_list = list(map(float, input("Enter space-separated coefficients: ").split()))
+    input_list = list(map(float, input("Enter 3 numeric values separated by spaces: ").split(' ')))
     if len(input_list) == 3:
         print(f"Sum of the coefficients is: {sum(input_list)}")
     else:
