@@ -19,7 +19,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
-    std::vector<float> output = rescale_to_unit(input);
-
-    assert(issame(output, rescale_to_unit(input)));
+    std::vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
+    
+    assert(issame(rescale_to_unit(input), expected_output));
+    
+    return 0;
 }
