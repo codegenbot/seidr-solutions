@@ -1,3 +1,14 @@
+#include <map>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
+std::string sort_numbers(std::string numbers);
+
+using namespace std;
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -11,7 +22,7 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+std::string sort_numbers(std::string numbers){
     map<int, string> rev_num_map;
     for(auto const& pair : num_map){
         rev_num_map[pair.second] = pair.first;
