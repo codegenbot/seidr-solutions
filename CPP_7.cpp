@@ -3,6 +3,8 @@
 #include <string>
 #include <algorithm>
 
+using namespace std;
+
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
     std::vector<std::string> temp_vec = vec;
     temp_vec.erase(std::remove_if(temp_vec.begin(), temp_vec.end(), [substr](const std::string& s) {
@@ -12,7 +14,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     return temp_vec;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
