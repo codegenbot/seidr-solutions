@@ -1,12 +1,19 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-            int count = 1;
-            while (i + 1 < text.size() && text[i + 1] == ' ') {
-                text[i] = '-';
-                text.erase(i + 1, 1);
+string result = "";
+    int consecutiveSpaces = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += "_";
             }
+        } else {
+            result += c;
+            consecutiveSpaces = 0;
         }
     }
-    return text;
+    return result;
 }
