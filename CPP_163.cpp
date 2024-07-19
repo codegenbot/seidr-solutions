@@ -1,6 +1,5 @@
 #include <vector>
 
-std::vector<int> issame(int a, int b);
 std::vector<int> issame(int a, int b) {
     std::vector<int> result;
     for (int i = a; i <= b; ++i) {
