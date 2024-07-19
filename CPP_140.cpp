@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -7,8 +8,9 @@ std::string fix_spaces(const std::string& text) {
             if (i > 0 && text[i - 1] == ' ')
                 continue;
             else {
-                i++; 
-                text.insert(i, "2%");
+                text.insert(i, 1, '2');
+                text.insert(i + 1, 1, '%');
+                i++;
             }
         }
     }
