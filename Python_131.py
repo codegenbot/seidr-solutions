@@ -1,9 +1,12 @@
-try:
-    n = int(input("Enter a positive integer greater than zero: "))
-    if n <= 0 or n > 10**9:
-        raise ValueError
-     
-    print(math.prod(map(int, str(n)))
+import math
 
-except ValueError:
-    print("Invalid input. Please enter a positive integer greater than zero.")
+try:
+    n = int(input("Enter a positive integer: ").strip())
+    if n <= 0:
+        raise ValueError("Please enter a positive integer greater than zero.")
+    
+    result = math.prod(map(int, str(n)))
+    print(result)
+    
+except ValueError as e:
+    print(e)
