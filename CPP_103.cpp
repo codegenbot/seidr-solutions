@@ -21,8 +21,3 @@ std::string rounded_avg(int n, int m) {
     
     return binary_avg;
 }
-
-int main() {
-    rounded_avg(5, 5);
-    return 0;
-}
