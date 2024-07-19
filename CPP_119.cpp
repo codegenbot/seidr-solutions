@@ -14,7 +14,7 @@ bool match_parens(const std::vector<std::string>& lst) {
         }
     }
 
-    return result == (countOpen == countClose);
+    return countOpen == countClose;
 }
 
 int main() {
