@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -16,7 +17,7 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    std::vector<int> input(data, data + sizeof(data) / sizeof(int));
+    std::vector<int> input(data, data + sizeof(data) / sizeof(*data));
     std::cout << sum_squares(input) << std::endl;
     return 0;
 }
