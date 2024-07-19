@@ -1,5 +1,18 @@
-int main() {
-    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-    return 0;
+float max_element(const std::vector<float>& l) {
+    float max = l[0];
+    for (size_t i = 1; i < l.size(); i++) {
+        if (l[i] > max) {
+            max = l[i];
+        }
+    }
+    return max;
+}
+
+void main() {
+    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
 }
