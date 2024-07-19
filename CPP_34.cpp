@@ -8,9 +8,12 @@ vector<int> unique(vector<int> l){
 
 auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
     sort(first, last);
-    vector<int> res;
-    for(auto it=first;it!=last;++it)
-        if(it==first || *it<*prev_element(it)) 
-            res.push_back(*it);
-    return res;
+    vector<int> temp;
+    for (auto i = first; i != last; ++i) {
+        if (*i == *(first+1)) {
+            continue;
+        }
+        temp.push_back(*i);
+    }
+    return temp;
 }
