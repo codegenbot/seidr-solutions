@@ -11,7 +11,7 @@ int count_nums(const std::vector<int>& nums) {
 
 }
 
-int main() {
+void mainEntry() {
     std::cout << "Enter the number of integers: ";
     int n; 
     std::cin >> n;
@@ -22,5 +22,4 @@ int main() {
     }
     int result = count_nums(nums);
     std::cout << "Result: " << result << std::endl;
-    return 0;
 }
