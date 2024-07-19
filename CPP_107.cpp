@@ -1,48 +1,31 @@
-```cpp
+```c++
 #include <iostream>
-#include <vector>
-#include <string>
-
 using namespace std;
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result;
-    result.reserve(2); 
-    int countEven = 0;
-    int countOdd = 0;
-
-    for (int i = 1; i <= n; i++) {
-        string str = to_string(i);
-        bool isPalindrome = true;
-
-        for (int j = 0; j < str.length() / 2; j++) {
-            if (str[j] != str[str.length() - j - 1]) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if (isPalindrome) {
-            if (i % 2 == 0)
-                countEven++;
-            else
-                countOdd++;
-        }
+bool isPalindrome(int n) {
+    int rev = 0;
+    int temp = n;
+    while (temp != 0) {
+        int remainder = temp % 10;
+        rev = rev * 10 + remainder;
+        temp /= 10;
     }
-
-    result.push_back(countEven);
-    result.push_back(countOdd);
-
-    return result;
+    return n == rev;
 }
 
-int main 
-{
-    int n;
-    cin >> n;
-    vector<int> output = even_odd_palindrome(n);
-    cout << "Count of Even Palindromes: " << output[0] << endl;
-    cout << "Count of Odd Palindromes: " << output[1] << endl;
+int even_odd_palindrome(int n) {
+    if (n < 0)
+        n = -n;
+    if (n % 2 != 0 || !isPalindrome(n))
+        return 0;
+    else
+        return 1;
+}
 
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "Is the number even and palindrome? " << even_odd_palindrome(n) << endl;
     return 0;
 }
