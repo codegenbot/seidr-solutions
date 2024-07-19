@@ -1,13 +1,18 @@
-int count_distinct_characters(string str) { 
-    string temp = str; 
-    for (char &c : temp) 
-        c = tolower(c); 
-    vector<char> v(temp.begin(), temp.end()); 
-    sort(v.begin(), v.end()); 
-    int distinct = 1; 
-    for (int i = 1; i < v.size(); ++i) { 
-        if (v[i] != v[i - 1]) 
-            distinct++; 
-    } 
-    return distinct;
+vector<char> distinct_chars;
+
+for (char c : str) {
+    int idx = tolower(c) - 'a';
+    if (idx >= 0 && idx <= 25) {
+        bool found = false;
+        for (char d : distinct_chars) {
+            if (d == tolower(c)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            distinct_chars.push_back(tolower(c));
+        }
+    }
 }
+return distinct_chars.size();
