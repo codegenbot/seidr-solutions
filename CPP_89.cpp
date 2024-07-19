@@ -1,14 +1,11 @@
-string result = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char encrypted = c + 2 * ('z' - c) + 1;
-            if(tolower(encrypted) > 'z'){
-                encrypted -= 26;
+for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = 'a' + ((s[i] - 'a' + 2 * 2) % 26);
+            } else {
+                s[i] = 'A' + ((s[i] - 'A' + 2 * 2) % 26);
             }
-            result += encrypted;
-        } else {
-            result += c;
         }
     }
-    return result;
+    return s;
 }
