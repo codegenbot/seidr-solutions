@@ -1,3 +1,5 @@
+#include <iostream>
+#include <vector>
 #include <string>
 
 std::string longest(std::vector<std::string> strings){
