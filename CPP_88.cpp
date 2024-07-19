@@ -1,19 +1,27 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty()) return a;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> sort_array(vector<int> array) {
+    if(array.empty()) return array;
     
-    int sum = a.front() + a.back();
+    int sum = array.front() + array.back();
     
     if(sum % 2 == 0) {
-        std::sort(a.begin(), a.end(), std::greater<int>());
+        sort(array.begin(), array.end(), greater<int>());
     } else {
-        std::sort(a.begin(), a.end());
+        sort(array.begin(), array.end());
     }
     
-    return a;
+    return array;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert (issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    
+    return 0;
 }
