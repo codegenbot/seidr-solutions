@@ -1,9 +1,13 @@
 ```
 def is_equal_to_sum_even(n):
-    for a in range(2, n+1, 2):
-        for b in range(a+2, n+1, 2):
-            for c in range(b+2, n+1, 2):
-                for d in range(c+2, n+1, 2):
-                    if a + b + c + d == n:
-                        return True
+    for i in range(2, n//2 + 1, 2):
+        sum_val = 0
+        for j in range(i, n//i + 1):
+            if n == i*j:
+                return True
+            elif n < i*j:
+                break
+            sum_val += j*2
+        if sum_val == n:
+            return True
     return False
