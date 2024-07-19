@@ -1,5 +1,4 @@
-```cpp
-#include<string>
+#include <string>
 
 std::string encrypt(std::string s) {
     std::string result = "";
@@ -22,5 +21,9 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    // usage of encrypt function
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
+    return 0;
 }
