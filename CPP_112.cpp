@@ -4,7 +4,6 @@ string result = "";
             result += ch;
         }
     }
-    string result_reversed = result;
-    reverse(result_reversed.begin(), result_reversed.end());
-    return {result, result == result_reversed ? "True" : "False"};
+    string palindrome_check = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
+    return {result, palindrome_check};
 }
