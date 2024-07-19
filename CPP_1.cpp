@@ -1,10 +1,8 @@
 bool issame(char a, char b) {
-    return (a == '(' && b == ')') || (a == ')' && b == '(');
+    return (a == '(' && b == ')');
 }
 
 vector<string> separate_paren_groups(string paren_string);
-
-#include <vector>
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
