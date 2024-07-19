@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -15,7 +13,9 @@ int solve(int N) {
 int main() {
     int N;
     std::cout << "Enter a number: ";
-    std::cin >> N;
-    std::string output = "Sum of bits is: " + std::to_string(solve(N));
-    std::cout << output << std::endl;
+    if (!(std::cin >> N)) {
+        std::cout << "Invalid input. Please enter an integer." << std::endl;
+        return 1;
+    }
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
 }
