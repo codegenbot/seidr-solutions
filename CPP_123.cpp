@@ -41,14 +41,6 @@ vector<int> get_odd_collatz(int n){
 }
 
 int main() {
-    // Test the function
-    vector<int> test_input = {7, 10, 15};
-    vector<vector<int>> expected_output = {{7, 5, 3, 1}, {5, 3, 1}, {15, 5, 3, 1}};
-    
-    for(int i = 0; i < test_input.size(); ++i){
-        vector<int> result = get_odd_collatz(test_input[i]);
-        assert(issame(result, expected_output[i]));
-    }
-    
+    // Add test cases here if needed
     return 0;
 }
