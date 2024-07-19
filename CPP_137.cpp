@@ -1,26 +1,46 @@
+#include <cassert>
 #include <boost/any.hpp>
+#include <algorithm>
 #include <string>
 
-template <typename T>
-T compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(T) && b.type() == typeid(T)) {
-        if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
-            return boost::any_cast<T>(a);
-        } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
-            return boost::any_cast<T>(b);
-        }
-    }
-    throw std::invalid_argument("Invalid types");
-}
+using namespace std;
 
-int main() {
-    boost::any a = 10;
-    boost::any b = 20;
-    
-    try {
-        int result = compare_one<int>(a, b);
-        return result;
-    } catch (const std::invalid_argument& e) {
-        return 0;
+string compare_one(boost::any a, boost::any b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+            return boost::any_cast<int>(a);
+        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+            return boost::any_cast<int>(b);
+        } else {
+            return "None";
+        }
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+            return boost::any_cast<float>(a);
+        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+            return boost::any_cast<float>(b);
+        } else {
+            return "None";
+        }
+    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        float num1, num2;
+        if(boost::any_cast<string>(a).find_first_of(",") != string::npos){
+            std::replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
+        }
+        if(boost::any_cast<string>(b).find_first_of(",") != string::npos){
+            std::replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
+        }
+        num1 = stof(boost::any_cast<string>(a));
+        num2 = stof(boost::any_cast<string>(b));
+        
+        if(num1 > num2){
+            return boost::any_cast<string>(a);
+        } else if(num1 < num2){
+            return boost::any_cast<string>(b);
+        } else {
+            return "None";
+        }
+    } else {
+        return "None";
     }
 }
