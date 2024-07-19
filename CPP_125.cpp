@@ -34,3 +34,5 @@ std::vector<std::string> split_words(const std::string &txt) {
     }
     return result;
 }
+
+assert issame(split_words("") , {"0"});
