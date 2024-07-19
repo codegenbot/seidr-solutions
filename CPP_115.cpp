@@ -1,4 +1,9 @@
-int max_fill(vector<vector<int>>& grid, int capacity) {
+#include <vector>
+#include <algorithm>
+
+int max_fill(std::vector<std::vector<int>>& grid, int capacity);
+
+int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     int total_water = 0;
     for (const auto& row : grid) {
         for (int cell : row) {
@@ -8,7 +13,7 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
 
     int buckets_needed = 0;
     while (total_water > 0) {
-        total_water -= min(total_water, capacity);
+        total_water -= std::min(total_water, capacity);
         buckets_needed++;
     }
 
