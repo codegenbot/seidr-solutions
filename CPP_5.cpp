@@ -27,7 +27,7 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
     return result;
 }
 
-int main() {
-    // You can add code inside main() for testing if needed
+int main(){
+    // Include test cases here
     return 0;
 }
