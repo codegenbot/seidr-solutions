@@ -1,4 +1,5 @@
 ```
+```
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -26,3 +27,4 @@ def bowling_score(frames):
         score += int(frames[-1].strip("/"))
 
     return score
+```
