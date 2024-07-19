@@ -13,7 +13,7 @@ std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
     std::string word = "";
     int consonant_count = 0;
-    
+
     for (char c : s) {
         if (c == ' ') {
             if (consonant_count == n) {
@@ -28,11 +28,11 @@ std::vector<std::string> select_words(std::string s, int n) {
             word += c;
         }
     }
-    
+
     if (consonant_count == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
 
