@@ -2,9 +2,10 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <cassert>
 
 std::string flip_case(std::string str) {
-    std::string result; // Non-const
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
@@ -19,8 +20,9 @@ std::string flip_case(std::string str) {
 
 int main() {
     std::string input = "These violent delights have violent ends";
-    std::string output = flip_case(input);
+    std::cout << flip_case(input) << std::endl;
+    output = flip_case(input);
+    output.clear();  
     assert(output == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    std::cout << output << std::endl;
     return 0;
 }
