@@ -1,9 +1,14 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // Return None if there are less than 2 elements
-    vector<int> vec(lst);
-    sort(vec.begin(), vec.end());
-    for(int i = 0; i < vec.size()-1; i++) {
-        if(vec[i] != vec[i+1]) return vec[i+1]; 
+int next_smallest(vector<int> lst) {
+    vector<int> lstCopy(lst);
+    sort(lstCopy.begin(), lstCopy.end());
+    
+    if (lstCopy.size() < 2) return -1;
+    
+    for (int i = 0; i < lstCopy.size(); i++) {
+        if (i > 0 && lstCopy[i] != lstCopy[i-1]) {
+            return lstCopy[i];
+        }
     }
+    
     return -1;
 }
