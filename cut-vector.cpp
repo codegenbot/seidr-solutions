@@ -8,21 +8,22 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     
     unsigned long long sum1 = 0;
-    unsigned long long sum2 = 0; 
+    unsigned long long prev_sum = 0; 
     long long min_diff = LLONG_MAX;
     int index = -1;
     
     for (int i = 0; i < n; i++) { 
-        if(i > 0) {
-            long long diff = llabs((long long)sum1 - (long long)sum2);
+        if(i > 0 && (sum1 - prev_sum) != 0) {
+            long long diff = llabs((long long)sum1 - (long long)prev_sum);
             
-            if (diff <= min_diff) {
+            if (diff <= min_diff && diff != 0 || prev_sum == sum1) {
                 min_diff = diff;
                 index = i; // update the cutting point
             }
         }
         
-        if(i < n/2) sum1 += v[i]; else sum2 += v[i];
+        sum1 += v[i];
+        prev_sum = sum1; 
     }
     
     res[0].assign(v.begin(), v.begin() + index+1);
