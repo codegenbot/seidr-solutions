@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -52,7 +51,8 @@ int main() {
     for (string grade : result) {
         cout << grade << endl;
     }
-    if(isSame(vector<float>({1.0, 2.9, 3.5}), grades)) cout << "Vectors are the same";
+    vector<float> gradesToCompare = {1.0f, 2.9f, 3.5f};
+    if(isSame(vector<string>(grades.begin(), grades.end()), vector<string>(vector<float>(gradesToCompare.begin(), gradesToCompare.end()).begin(), (vector<float>(gradesToCompare.begin(), gradesToCompare.end())).end()))) cout << "Vectors are the same";
     else cout << "Vectors are not the same";
     return 0;
 }
