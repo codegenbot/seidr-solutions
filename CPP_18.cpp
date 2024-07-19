@@ -1,9 +1,20 @@
-int how_many_times(string s, string sub) {
+#include <iostream>
+#include <string>
+
+int how_many_times(const std::string& s, const std::string& sub) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = s.find(sub)) != string::npos) {
+
+    while ((pos = s.find(sub, pos)) != std::string::npos) {
         ++count;
-        s = s.substr(0, pos) + s.substr(pos + sub.length());
+        pos += sub.size();
     }
+
     return count;
+}
+
+int main() {
+    std::string s, sub;
+    std::cin >> s >> sub;
+    std::cout << how_many_times(s, sub);
 }
