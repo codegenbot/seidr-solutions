@@ -1,5 +1,7 @@
-string fix_spaces(string text) {
-    string result = "";
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    std::string result = "";
     bool prev_space = false;
 
     for (char c : text) {
