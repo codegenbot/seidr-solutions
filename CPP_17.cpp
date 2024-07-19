@@ -1,23 +1,20 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
@@ -37,13 +34,14 @@ vector<int> parse_music(string music_string) {
 }
 
 int main() {
-    vector<int> a = {1, 2, 3, 4};
-    vector<int> b = parse_music("o|o");
+    std::vector<int> a = {4, 2, 1};
+    std::vector<int> b = parse_music("o|o|.");
+    
     if (areEqual(a, b)) {
-        cout << "Equal" << endl;
+        std::cout << "Equal" << std::endl;
     } else {
-        cout << "Not Equal" << endl;
+        std::cout << "Not Equal" << std::endl;
     }
-
+    
     return 0;
 }
