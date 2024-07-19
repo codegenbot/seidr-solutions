@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string encrypt(std::string s) {
     std::string result = "";
@@ -14,12 +13,9 @@ std::string encrypt(std::string s) {
         result += c;
     }
     return result;
+
 }
 
-int main(), {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s; 
-    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
-    return 0;
-}
+std::cout << "Enter a string: ";
+std::cin >> s; 
+std::cout << "Encrypted string: " << encrypt(s) << std::endl;
