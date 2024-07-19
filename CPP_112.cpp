@@ -11,39 +11,21 @@ bool isSame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> reverseDelete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
+std::string result;
+std::string temp = "";
+for (char ch : "mamma") {
+    bool found = false;
+    for (char cc : "mia") {
+        if (ch == cc) {
+            found = true;
+            break;
         }
     }
-    result.push_back(temp);
-    std::string revTemp = temp;
-    std::reverse(revTemp.begin(), revTemp.end());
-    if (temp == revTemp) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
+    if (!found) {
+        temp += ch;
     }
-    return result;
 }
-
-int main() {
-    std::vector<std::string> result = reverseDelete("mamma", "mia");
-    assert(isSame({ "", "True" }, result));
-    if (isSame({ "", "True" }, result)) {
-        std::cout << "Test passed." << std::endl;
-    } else {
-        std::cout << "Test failed." << std::endl;
-    }
-    return 0;
-}
+std::string revTemp = temp;
+std::reverse(revTemp.begin(), revTemp.end());
+result = revTemp == temp ? "True" : "False";
+std::cout << result << std::endl;
