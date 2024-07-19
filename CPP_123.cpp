@@ -1,6 +1,9 @@
+```cpp
 #include <vector>
 #include <assert.h>
 #include <initializer_list>
+
+using namespace std;
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -12,7 +15,7 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a,std::vector<int>b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
