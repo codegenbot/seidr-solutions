@@ -4,14 +4,27 @@
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
-    int j = 0;
-    for (float val : l) {
-        if (val % 2.0 == 0.0) {
-            result[j++] = val; // even numbers first
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            std::vector< float > evenVals;
+            for (float val : l) {
+                if (val % 2.0 == 0.0) {
+                    evenVals.push_back(val);
+                }
+            }
+            std::sort(evenVals.begin(), evenVals.end());
+            result[i] = evenVals[0];
         } else {
-            result[j++] = val;
+            result[i] = l[i];
         }
     }
-    std::sort(result.begin(), result.end()); // sort all numbers
     return result;
+}
+
+bool operator==(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i]-b[i]) > 1e-5) return false;
+    }
+    return true;
 }
