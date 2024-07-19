@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && a == b;
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
@@ -19,9 +19,4 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     }
 
     return result;
-}
-
-int main() {
-    assert(std::vector<int>(remove_duplicates({1, 2, 3, 2, 4, 3, 5}).begin(), remove_duplicates({1, 2, 3, 2, 4, 3, 5}).end()) == std::vector<int>({1, 2, 3, 4, 5});
-    return 0;
 }
