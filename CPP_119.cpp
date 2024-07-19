@@ -1,20 +1,23 @@
-```cpp
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-std::string match_parens(std::vector<std::string> lst) {
+bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
-    for (const std::string& s : lst) {
+    for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return open == close;
 }
 
 int main() {
-    assert(match_parens({"" , "("}) == "Yes" );
+    std::vector<std::string> lst = {"(123)", "(456)", "789)"};
+    if (match_parens(lst)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
