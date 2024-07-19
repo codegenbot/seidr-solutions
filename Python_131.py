@@ -1,13 +1,8 @@
-from functools import reduce
-
-def digits(n: int) -> int:
+try:
+    n = int(input("Enter a number: "))
     if n <= 0:
         raise ValueError("Invalid input. Please enter a valid positive integer greater than zero.")
-    return reduce(lambda x, y: x*y, (int(d) for d in str(n)), 1)
-
-try:
-    n = int(input())
-    result = digits(n)
+    result = reduce(lambda x, y: x*y, (int(d) for d in str(n)), 1)
     print(result)
 except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+    print("Invalid input. Please enter a valid positive integer greater than zero.")
