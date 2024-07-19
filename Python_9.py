@@ -2,7 +2,8 @@ from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_num = float("-inf")
-    return [max_num := max(max_num, num) for num in numbers]
+    return [max_num if (max_num := max(max_num, num)) != num else max_num for num in numbers]
 
 numbers = [1, 3, 5, 2, 7, 4, 8]
-print(rolling_max(numbers))
+result = rolling_max(numbers)
+result
