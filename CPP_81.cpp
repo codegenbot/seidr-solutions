@@ -6,16 +6,8 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> numerical_letter_grade(vector<float> grades);
 
 int main() {
-    vector<float> grades = {3.8, 2.5, 4.0, 2.0, 1.5};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    for (string grade : letter_grades) {
-        cout << grade << endl;
-    }
+    // Your code here
     return 0;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Function implementation goes here
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
