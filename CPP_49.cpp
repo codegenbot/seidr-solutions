@@ -1,15 +1,15 @@
 #include <iostream>
 #include <cassert>
 
-int main() {
-    int n, p;
+int modp(int n, int p) {
+    int result;
     std::cout << "Enter n and p: ";
     std::cin >> n >> p;
-    int result = modp(n, p);
+    result = n % p;
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
 
-int modp(int n, int p) {
-    return n % p;
+int main() {
+    return modp(0, 0);
 }
