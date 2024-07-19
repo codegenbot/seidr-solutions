@@ -1,17 +1,16 @@
-```c++
 #include <string>
 
 int main() {
-    char s[100];
+    std::string s;
     int num;
     std::cout << "Enter a string: ";
-    std::cin.getline(s, 99);
+    std::getline(std::cin, s); 
     num = digitSum(s);
     std::cout << "Sum of digits: " << num << std::endl;
     return 0;
 }
 
-int digitSum(char* s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (std::isdigit(c)) {
