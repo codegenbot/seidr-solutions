@@ -1,21 +1,12 @@
 #include <vector>
+#include <cassert>
 
-vector<int> generate_integers(int a, int b){
+vector<int> generate_integers(int a, int b) {
     vector<int> result;
-    for(int i = a; i <= b; i++){
-        if(i % 2 == 0){
+    for (int i = a; i <= b; ++i) {
+        if (i % 2 == 0) {
             result.push_back(i);
         }
     }
     return result;
-}
-
-int main(){
-    int lower, upper;
-    cin >> lower >> upper;
-    vector<int> result = generate_integers(lower, upper);
-    for(int num : result){
-        cout << num << " ";
-    }
-    return 0;
 }
