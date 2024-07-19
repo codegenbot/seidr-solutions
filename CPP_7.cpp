@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
     std::vector<std::string> result;
     for (const auto& word : words) {
@@ -11,8 +13,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     }
     return result;
 }
-
-#include <cassert>
 
 int main() {
     assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == std::vector<std::string>{"grunt", "prune"});
