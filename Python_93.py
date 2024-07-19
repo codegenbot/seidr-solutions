@@ -1,16 +1,26 @@
-```
 def encode(message):
-    vowels = 'aeiouAEIOU'
-    result = ''
+    result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in vowels:
-                if char.isupper():
-                    result += chr((ord('A') + (ord(char) - ord('A')) % 26 - 2) if (char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u') else (ord('A') + (ord(char) - ord('A')) % 26 - 1)
+            if char.isupper():
+                if char == "Z":
+                    result += "A"
                 else:
-                    result += chr((ord('a') + (ord(char) - ord('a')) % 26 - 2) if (char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u') else (ord('a') + (ord(char) - ord('a')) % 26 - 1))
-            else:
-                result += char
+                    result += chr(ord(char) + 1)
+            elif char.islower():
+                if char == "z":
+                    result += "a"
+                else:
+                    result += chr(ord(char) + 1)
         else:
             result += char
+    vowels = "aeiouAEIOU"
+    for i in range(len(result)):
+        if result[i] in vowels:
+            if result[i].isupper():
+                index = ord(result[i]) - ord("A")
+                result = result[:i] + chr((index + 2) % 26 + ord("A")) + result[i + 1 :]
+            else:
+                index = ord(result[i]) - ord("a")
+                result = result[:i] + chr((index + 2) % 26 + ord("a")) + result[i + 1 :]
     return result
