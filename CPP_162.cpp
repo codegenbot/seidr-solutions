@@ -2,7 +2,7 @@
 #include <cstring>
 
 extern "C" {
-    #include <openssl/md5.h>
+    #include <openssl/ssl.h>
 }
 
 char* string_to_md5(const char* input) {
