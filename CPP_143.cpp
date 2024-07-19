@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
