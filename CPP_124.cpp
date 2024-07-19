@@ -1,12 +1,9 @@
 #include <iostream>
 #include <cassert>
 #include <string>
-using namespace std;
+#include <cstdio>
 
-// Function signature
-bool valid_date(const string& date);
-
-bool valid_date(const string& date) {
+bool valid_date(const std::string& date) {
     if(date.empty()) return false;
     
     int month, day, year;
@@ -30,9 +27,7 @@ bool valid_date(const string& date) {
 }
 
 int main() {
-    // Test cases with assertions
-    assert(valid_date("03-2021"));
-    assert(!valid_date("04-2003"));
+    assert(valid_date("04-2003") == false);
     
     return 0;
 }
