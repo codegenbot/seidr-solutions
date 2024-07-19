@@ -10,20 +10,17 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    std::vector<int> numbers;
+    int num;
     
-    for(int i=0; i<n; i++){
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        input.push_back(num);
+    std::cout << "Enter numbers (negative to stop): ";
+    while (std::cin >> num) {
+        if(num < 0) break;
+        numbers.push_back(num);
     }
     
-    int result = add(input);
-    std::cout << "The sum of even elements is: " << result << std::endl;
+    int result = add(numbers);
+    std::cout << "Sum of even numbers: " << result << std::endl;
     
     return 0;
 }
