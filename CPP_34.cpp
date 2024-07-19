@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(std::remove_if(l.begin(), l.end(), [&l](int i){ return std::count(l.begin(), l.end(), i) > 1; }), l.end());
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
