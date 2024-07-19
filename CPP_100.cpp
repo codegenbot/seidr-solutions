@@ -1,7 +1,12 @@
-vector<int> make_a_pile(int n){
-    vector<int> result;
-    for(int i = 0; i < n; ++i){
-        result.push_back(n + 2*i);
+vector<int> levels;
+    levels.push_back(n);
+    for(int i = 1; i < n; ++i){
+        if(n % 2 == 0){
+            n = n + 2;
+        } else {
+            n = n + 1;
+        }
+        levels.push_back(n);
     }
-    return result;
+    return levels;
 }
