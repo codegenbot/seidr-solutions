@@ -1,14 +1,16 @@
-paren_string = ''.join(input().split())
-if not all(ch in '()' for ch in paren_string):
-    print("Invalid input. Please enter a string containing only '(' and ')' characters.")
+paren_string = input()
+if not all(ch in "()" for ch in paren_string):
+    print(
+        "Invalid input. Please enter a string containing only '(' and ')' characters."
+    )
     exit()
 
 valid = True
 count = 0
 for char in paren_string:
-    if char == '(':
+    if char == "(":
         count += 1
-    elif char == ')':
+    elif char == ")":
         count -= 1
         if count < 0:
             valid = False
