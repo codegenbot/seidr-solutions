@@ -2,8 +2,6 @@
 #include <cassert>
 
 int max_fill(vector<vector<int>>& grid, int capacity) {
-    assert(capacity > 0);
-
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
