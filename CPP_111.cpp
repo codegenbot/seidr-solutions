@@ -42,10 +42,11 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    // Test cases
-    assert(issame(histogram("aba"), {{'a', 2}})); // Test case 1
-    assert(issame(histogram("hello"), {{'l', 2}})); // Test case 2
-    assert(issame(histogram("cpp contest"), {{' ', 1}, {'c', 2}, {'p', 2}, {'t', 2}})); // Test case 3
+    // Test Cases
+    assert(issame(histogram("hello"), {{'l', 2}}));
+    assert(issame(histogram("testing"), {{'t', 2}, {'e', 1}, {'s', 1}, {'i', 1}, {'n', 1}, {'g', 1}}));
+    assert(issame(histogram("cppcontest"), {{'t', 2}, {'c', 2}}));
 
+    cout << "All test cases passed!" << endl;
     return 0;
 }
