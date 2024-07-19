@@ -1,2 +1,2 @@
-lst = [1, 2, 3, 4, 5]
-odd_sum = double_the_difference(lst)
+def double_the_difference(lst):
+    return sum((2*x) ** 2 for x in lst if x > 0 and x % 2 != 0)
