@@ -1,6 +1,5 @@
 #include <boost/any.hpp>
 #include <cassert>
-
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -23,5 +22,6 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     }
+
     return boost::any();
 }
