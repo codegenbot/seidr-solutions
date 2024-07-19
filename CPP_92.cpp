@@ -4,17 +4,13 @@
 using namespace std;
 
 int mainFunction() {
-    int a, b, c;
+    string str1, str2, str3;
     cout << "Enter three numbers: ";
-    if (!(cin >> a) || !(cin >> b) || !(cin >> c)) {
+    if (!(cin >> str1) || !(cin >> str2) || !(cin >> str3)) {
         cout << "Error: Please enter valid integer values.\n";
     } else {
-        bool validInputs = true;
-        if (a != static_cast<int>(3.01) || b != 4 || c != 7) {
-            validInputs = false;
-        }
-        
-        assert(validInputs);
+        int a = stoi(str1), b = stoi(str2), c = stoi(str3);
+        assert(a == 3 && b == 4 && c == 7);
         cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     }
 
