@@ -6,7 +6,8 @@
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    vector<int> result;
+    result.reserve(2); // reserve space for 2 elements
     int countEven = 0;
     int countOdd = 0;
 
@@ -29,8 +30,8 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
 
-    result[0] = countEven;
-    result[1] = countOdd;
+    result.push_back(countEven);
+    result.push_back(countOdd);
 
     return result;
 }

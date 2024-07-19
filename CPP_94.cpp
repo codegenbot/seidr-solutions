@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int customBitCount(void* ptr, int size) {
