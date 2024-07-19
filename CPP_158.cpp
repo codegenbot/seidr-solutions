@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 using namespace std;
 
 string find_max(vector<string> words) {
@@ -13,8 +14,7 @@ string find_max(vector<string> words) {
     return max_word;
 }
 
-int main() {
+(int main() { // add parentheses around int main()
     vector<string> words = {"play", "play", "play"};
     cout << find_max(words) << endl;
-    return 0;
-}
+}) // correct indentation of the closing brace.
