@@ -21,6 +21,7 @@ int main() {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
     }
+    assert(solve(963) == 18);
     std::cout << "Sum of bits is: " << solve(N) << std::endl;
     return 0;
 }
