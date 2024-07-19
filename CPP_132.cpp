@@ -1,7 +1,7 @@
 ```cpp
-bool is_nested(const char* str) {
+bool is_nested(std::string str) {
     int count = 0;
-    for (char c : std::string(str)) {
+    for (char c : str) {
         if (c == '[') {
             count++;
         } else if (c == ']') {
@@ -12,5 +12,4 @@ bool is_nested(const char* str) {
             }
         }
     }
-    return count > 0;
-}
+    return count == 0;
