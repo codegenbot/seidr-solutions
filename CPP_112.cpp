@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-vector<string> solve(const string& s, const string& c) {
+vector<string> function(const string &s, const string &c) {
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
