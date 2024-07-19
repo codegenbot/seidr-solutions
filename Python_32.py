@@ -1,11 +1,13 @@
 while True:
     try:
-        input_values = input("Enter space-separated coefficients: ").split()
-        if len(input_values) == 3:
-            input_list = [float(value) for value in input_values]
+        input_list = list(map(float, input("Enter space-separated coefficients: ").split()))
+        if all(isinstance(val, (int, float)) for val in input_list) and len(input_list) == 3:
             print(f"Sum of the coefficients is: {sum(input_list)}")
             break
         else:
-            print("Invalid input. Please enter 3 numeric values separated by spaces.")
+            if len(input_list) != 3:
+                print("Invalid input. Please enter exactly 3 numeric values separated by spaces.")
+            else:
+                print("Invalid input. Please enter numeric values separated by spaces.")
     except ValueError:
         print("Invalid input. Please enter numeric values separated by spaces.")
