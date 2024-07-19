@@ -37,19 +37,17 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     std::string planet1, planet2;
-    
-    std::cout << "Enter two planet names (case-sensitive): ";
     std::cin >> planet1 >> planet2;
 
-    std::vector<std::string> common_planets = bf(planet1, planet2);
+    std::vector<std::string> result = bf(planet1, planet2);
 
-    if (common_planets.empty()) {
-        std::cout << "These planets are not consecutive in the list." << std::endl;
+    if (result.empty()) {
+        std::cout << "Invalid input." << std::endl;
     } else {
-        std::cout << "List of planets between " << planet1 << " and " << planet2 << ":" << std::endl;
-        for (const auto& planet : common_planets) {
-            std::cout << planet << std::endl;
+        for (const auto& planet : result) {
+            std::cout << planet << " ";
         }
+        std::cout << std::endl;
     }
 
     return 0;
