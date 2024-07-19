@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool prime_length(std::string str){
     int len = str.length();
@@ -19,14 +19,9 @@ bool prime_length(std::string str){
     return isPrime;
 }
 
-int main(){
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    if (str.length() > 0) {
-        std::cout << "The length of the entered string is prime: " << prime_length(str) << std::endl;
-    } else {
-        std::cout << "Error! No input given." << std::endl;
-    }
-    return 0;
+    assert (prime_length(str) == true);
 }
