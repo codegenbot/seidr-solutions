@@ -1,4 +1,5 @@
 #include <cassert>
+#include <vector>
 #include <iostream>
 
 int specialFilter(std::vector<int> nums) {
