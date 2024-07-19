@@ -1,17 +1,9 @@
+#include <initializer_list>
 #include <map>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
-
-bool issame(map<char,int> a, map<char,int> b) {
-    if (a.size() != b.size()) return false;
-    for (auto p : a) {
-        if (b.find(p.first) == b.end() || b[p.first] != p.second) return false;
-    }
-    return true;
-}
 
 map<char,int> histogramTest(string s) {
     map<char,int> hist;
@@ -35,7 +27,7 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!issame(hist, {{'a', 1}})) {
+    if (!issame({make_pair('a', 1)}, vector<map<char,int>::pair>(hist.begin(), hist.end()))) {
         return 0;
     }
 }
