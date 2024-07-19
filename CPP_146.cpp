@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <initializer_list>
 #include <cassert>
 #include <vector>
@@ -13,7 +11,6 @@ int specialFilter(std::initializer_list<int> nums) {
         }
     }
     return c; 
-
 }
 
 int main() {

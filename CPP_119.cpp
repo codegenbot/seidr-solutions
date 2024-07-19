@@ -1,9 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
-bool match_parens(const std::string& s) {
+bool match_parens(const char* s) {
     int open = 0, close = 0;
     for (char ch : s) {
         if (ch == '(') open++;
@@ -14,13 +13,12 @@ bool match_parens(const std::string& s) {
 
 int main() { 
     std::string line; 
-    while(std::cin >> line) {
-        bool parenthesisMatched = match_parens(line);
+    while(getline(std::cin, line)) {
+        bool parenthesisMatched = match_parens(line.c_str());
         if (parenthesisMatched) {
             std::cout << "The parentheses are matched." << std::endl;
         } else {
             std::cout << "Error: The parentheses are not matched. Please enter a valid input." << std::endl;
         }
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
