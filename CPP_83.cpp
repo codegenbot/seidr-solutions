@@ -18,4 +18,4 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     cout << "Count of the numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
-}
+    return 0;
