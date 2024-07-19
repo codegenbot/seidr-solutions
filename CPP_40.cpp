@@ -10,3 +10,4 @@ bool triples_sum_to_zero(const vector<int>& l) {
     }
     return false;
 }
+// In the main function, call the 'triples_sum_to_zero' function with appropriate input.
