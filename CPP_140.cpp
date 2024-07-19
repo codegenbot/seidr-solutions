@@ -1,20 +1,17 @@
-string fix_spaces(string text){
+int count = 0;
     string result = "";
-    int count = 0;
-    
-    for(char c : text){
-        if(c == ' '){
+    for (char& c : text) {
+        if (c == ' ') {
             count++;
-            if(count > 2){
-                if(result.back() != '-'){
-                    result += "-";
-                }
+            if (count <= 2) {
+                result += '_';
+            } else {
+                result += '-';
             }
-        } else{
+        } else {
             count = 0;
-            result += (c == ' ') ? '_' : c;
+            result += c;
         }
     }
-    
     return result;
 }
