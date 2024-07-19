@@ -2,10 +2,17 @@ if(date.empty()) {
         return false;
     }
     
-    int month, day, year;
-    if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
+    if(date.size() != 10) {
         return false;
     }
+    
+    if(date[2] != '-' || date[5] != '-') {
+        return false;
+    }
+    
+    int month = stoi(date.substr(0, 2));
+    int day = stoi(date.substr(3, 2));
+    int year = stoi(date.substr(6, 4));
     
     if(month < 1 || month > 12) {
         return false;
