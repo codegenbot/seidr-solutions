@@ -1,10 +1,10 @@
-double num = stod(value);
-    double ceil_val = ceil(num);
-    double floor_val = floor(num);
+int closest_integer(string value){
+    double num = stod(value);
+    int rounded_num = round(num);
     
-    if (num - floor_val < ceil_val - num) {
-        return static_cast<int>(floor_val);
+    if (num - (double)rounded_num < 0) {
+        return floor(num);
     } else {
-        return static_cast<int>(ceil_val);
+        return ceil(num);
     }
 }
