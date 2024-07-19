@@ -1,5 +1,4 @@
-def minPath():
-    min_value = float("inf")
-    # add your code logic here
+def check(min_value):
+    # your implementation here
 
-minPath()
+min_value = float("inf")
