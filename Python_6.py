@@ -1,4 +1,4 @@
-from typing import List
+import sys
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     count = 0
@@ -17,6 +17,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
     return [max_count]
 
-input_paren_string = input()
-result = parse_nested_parens(input_paren_string)
-print(result[0])
+if len(sys.argv) < 2:
+    print("Input missing. Please provide the input string as a command line argument.")
+else:
+    input_paren_string = sys.argv[1]
+    result = parse_nested_parens(input_paren_string)
+    print(result[0])
