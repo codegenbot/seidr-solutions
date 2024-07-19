@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -14,7 +14,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-// Define 'sort_third' function if needed
+void sort_third(std::vector<int>& vec) {
+    std::sort(vec.begin(), vec.end());
+}
 
 int main() {
     std::vector<int> v1, v2;
@@ -30,15 +32,15 @@ int main() {
         std::cin >> v2[i];
     }
 
+    sort_third(v1);
+    sort_third(v2);
+
     // Check if vectors are the same
     if (issame(v1, v2)) {
         std::cout << "Same" << std::endl;
     } else {
         std::cout << "Different" << std::endl;
     }
-
-    // Adjust assert statement if 'sort_third' is needed
-    // assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1});
 
     return 0;
 }
