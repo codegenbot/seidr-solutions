@@ -1,5 +1,39 @@
 #include <map>
 
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
+bool issame(map<char, int> m1, map<char, int> m2) {
+    if (m1.size() != m2.size()) {
+        return false;
+    }
+
+    for (const auto& pair : m1) {
+        if (m2.find(pair.first) == m2.end() || m2[pair.first] != pair.second) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    map<char, int> count;
+
+    for (char c : test) {
+        if (c != ' ') {
+            count[c]++;
+        }
+    }
+
+    int maxCount = 0;
+    for (const auto& pair : count) {
+        maxCount = max(maxCount, pair.second);
+    }
+
+    for (const auto& pair : count) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
+        }
+    }
+
+    return result;
 }
