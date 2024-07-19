@@ -1,6 +1,4 @@
-#include <cassert>
-
-int countBits(int* a, int size) {
+int bitCount(int* a, int size) {
     int count = 0;
     for (int i = 0; i < size; i++) {
         while (*a) {
@@ -13,7 +11,6 @@ int countBits(int* a, int size) {
 }
 
 int main() {
-    assert(countBits(new int[3]{127, 97, 8192}, 3) == 10);
-    delete[] new int[3]{127, 97, 8192};
+    assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
     return 0;
 }
