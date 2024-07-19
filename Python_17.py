@@ -1,15 +1,20 @@
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    beats = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == 'o':
-            beats.append(4)
-            i += 1
-        elif music_string[i:i+2] == 'o|':
-            beats.append(2)
-            i += 2
-        elif music_string[i:i+3] == '.| ':
-            beats.append(1)
-            i += 3
-    return beats
+    beats = [0, 4, 2, 1]  # legend mapping
+    result = []
+    temp = ''
+    for char in music_string:
+        if char in ['o', 'o|']:
+            temp += '0'
+        elif char == '.':
+            temp += '1'
+        elif char == '|':
+            temp += '2'
+        else:
+            raise ValueError("Invalid character")
+    for note in temp:
+        result.append(beats[int(note)])
+    return result
