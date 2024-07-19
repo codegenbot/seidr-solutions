@@ -1,9 +1,10 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <boost/any.hpp>
 
-std::string compare_one(const std::string& s1, const std::string& s2) {
-    if (s1 == s2) {
+std::string compare_one(const std::string& s1, int number) {
+    if (s1 == std::to_string(number)) {
         return "Equal";
     } else {
         return "Not equal";
@@ -11,5 +12,5 @@ std::string compare_one(const std::string& s1, const std::string& s2) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::string("1")) == "Not equal");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
 }
