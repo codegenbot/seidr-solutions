@@ -1,9 +1,9 @@
-#include <string>
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-std::pair<int, int> even_odd_palindrome(int n) {
+std::vector<int> even_odd_palindrome(int n){
     int even = 0, odd = 0;
     for(int i = 1; i <= n; ++i){
         std::string num = std::to_string(i);
@@ -20,6 +20,10 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
+}
+
+int main(){
+    assert (issame(even_odd_palindrome(1) , {0, 1}));
 }
