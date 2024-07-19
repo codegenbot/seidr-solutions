@@ -4,5 +4,5 @@ def sum_squares(lst):
         if isinstance(num, (int, float)):
             total_sum += num ** 2
         else:
-            print("Invalid input! Please enter a list of numbers.")
+            print("Invalid input. Please enter numbers only.")
     return total_sum
