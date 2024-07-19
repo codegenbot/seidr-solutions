@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -34,4 +33,14 @@ string reverse(string s) {
         rev += s[i];
     }
     return rev;
+
+bool issame(vector<string> v) {
+    if(v.size() == 0)
+        return true;
+    string str=v[0];
+    for(int i=1;i<v.size();i++){
+        if(str!=v[i])
+            return false;
+    }
+    return true;
 }
