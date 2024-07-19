@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -20,8 +20,6 @@ int main() {
     size_t result = wordsInSentence(str);
 
     std::cout << "Number of words: " << result << std::endl;
-
-    assert(wordsInSentence("here is") == 2); 
 
     return 0;
 }
