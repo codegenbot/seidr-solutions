@@ -8,15 +8,14 @@ int how_many_times(const std::string& s, const std::string& sub) {
 
     while ((pos = s.find(sub, pos)) != std::string::npos) {
         ++count;
-        pos += sub.size();
+        pos = pos + 1; // or any other valid increment for your position variable.
     }
 
     return count;
 }
 
 int main() {
-    std::string s; 
-    std::string sub;
+    std::string s, sub;
     std::cin >> s >> sub;
     std::cout << how_many_times(s, sub);
 }
