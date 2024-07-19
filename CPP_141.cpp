@@ -1,30 +1,32 @@
-#include <string>
-#include <cctype>
+Here is the completed code:
 
-using namespace std;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
+    string prefix;
 
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (std::isdigit(c)) {
-            count++;
+    for(char c : file_name){
+        if(isdigit(c)){
+            digit_count++;
+        } else if (c == '.'){
+            has_dot = true;
+        } else {
+            if (!prefix.empty()){
+                return "No";
+            }
+            prefix += c;
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3 || file_name.find('.') == string::npos) {
+    if(digit_count > 3 || !has_dot || prefix.empty() || 
+       (prefix[0] < 'a' || prefix[0] > 'z') && (prefix[0] < 'A' || prefix[0] > 'Z')){
         return "No";
+    } else {
+        string suffix = file_name.substr(file_name.find('.') + 1);
+        if(suffix != "txt" && suffix != "exe" && suffix != "dll"){
+            return "No";
+        }
     }
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || !isalpha(file_name[0])) {
-        return "No";
-    }
-    string extension = file_name.substr(dot_pos + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
-    }
+
     return "Yes";
 }
