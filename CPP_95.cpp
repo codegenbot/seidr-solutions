@@ -1,8 +1,5 @@
-#include <iostream>
 #include <map>
-#include <cctype>
-
-using namespace std;
+#include <string>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -26,7 +23,7 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
-    cout << "Code runs successfully." << endl;
-    return 0;
+    map<string, string> my_dict;
+    // add dictionary entries here
+    assert(check_dict_case(my_dict) == true);  
 }
