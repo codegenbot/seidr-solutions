@@ -1,4 +1,47 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool issame(int a, int b) {
+    if (a % 2 == 0 && b % 2 == 0)
+        return true;
+    else
+        return false;
+}
+
+bool issame(const pair<int, int>& p) {
+    return is_same(p.first % 2, p.second % 2);
+}
+
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
+    for (int i = 0; i < arr.size(); i++) {
+        bool found = false;
+        for (int j = 0; j < arr.size(); j++) {
+            if (issame({arr[i], i}, {arr[j], j})) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back({arr[i], i});
+            break;
+        }
+    }
+
+    if (result.empty()) {
+        for (int num : arr) {
+            if (num % 2 != 0) return {{num, -1}};
+        }
+    }
+
+    return result;
+}
+
 int main() {
-    assert(issame({7,9},{7}) && issame({7}, {7}));
+    assert(issame(pluck({7, 9, 7, 1}), vector<int>()));
     return 0;
 }
