@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> eat(int number, int remaining, int need) {
     int totalEaten = number + remaining;
