@@ -1,5 +1,4 @@
-vector<int> eat(int number, int need, int remaining) {
-    int totalCarrots = number + min(need, remaining);
-    int carrotsLeft = max(0, remaining - need);
-    return {totalCarrots, carrotsLeft};
-}
+#include <vector> // Include the vector header
+int total = number + std::min(need, remaining);
+int left = std::max(0, remaining - need);
+return {total, left};
