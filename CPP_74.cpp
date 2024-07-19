@@ -1,11 +1,10 @@
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-int total_chars(vector<string> lst);
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
