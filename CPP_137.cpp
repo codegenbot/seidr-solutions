@@ -2,35 +2,38 @@
 #include <string>
 #include <iostream>
 
-std::any compare_one(std::any a, std::any b) {
-    if (a.type() == typeid(double)) {
-        if (b.type() == typeid(double)) {
-            double da = std::any_cast<double>(a);
-            double db = std::any_cast<double>(b);
-            return (da > db) ? a : ((da < db) ? b : std::any("None"));
-        } else if (b.type() == typeid(std::string)) {
-            std::string sb = std::any_cast<std::string>(b);
-            double da = std::stod(sb);
-            return (da > da) ? a : ((da < da) ? b : std::any("None"));
+using namespace std;
+
+any compare_one(any a, any b) {
+    if (holds_alternative<double>(a)) {
+        if (holds_alternative<double>(b)) {
+            double da = get<double>(a);
+            double db = get<double>(b);
+            return (da > db) ? a : ((da < db) ? b : "None");
+        } else if (holds_alternative<string>(b)) {
+            string sa = any_cast<string>(a);
+            double db = get<double>(b);
+            double da = stod(sa);
+            return (da > db) ? a : ((da < db) ? b : "None");
         } else {
-            throw std::runtime_error("Invalid type");
+            throw runtime_error("Invalid type");
         }
-    } else if (a.type() == typeid(std::string)) {
-        if (b.type() == typeid(double)) {
-            double db = std::any_cast<double>(b);
-            std::string sa = std::any_cast<std::string>(a);
-            double da = std::stod(sa);
-            return (da > db) ? a : ((da < db) ? b : std::any("None"));
-        } else if (b.type() == typeid(std::string)) {
-            std::string sb = std::any_cast<std::string>(b);
-            std::string sa = std::any_cast<std::string>(a);
-            double da = std::stod(sa);
-            double db = std::stod(sb);
-            return (da > db) ? a : ((da < db) ? b : std::any("None"));
+    } else if (holds_alternative<string>(a)) {
+        if (holds_alternative<double>(b)) {
+            string sa = any_cast<string>(a);
+            double db = get<double>(b);
+            double da = stod(sa);
+            return (da > db) ? a : ((da < db) ? b : "None");
+        } else if (holds_alternative<string>(b)) {
+            string sa = any_cast<string>(a);
+            string sb = any_cast<string>(b);
+            double da = stod(sa);
+            double db = stod(sb);
+            return (da > db) ? a : ((da < db) ? b : "None");
         } else {
-            throw std::runtime_error("Invalid type");
+            throw runtime_error("Invalid type");
         }
     } else {
-        throw std::runtime_error("Invalid type");
+        throw runtime_error("Invalid type");
     }
 }
