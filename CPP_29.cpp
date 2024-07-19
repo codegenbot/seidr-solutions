@@ -25,9 +25,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-int main(std::vector<std::string> strings) {
-    a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    b = {"xxx", "xxxAAA", "xxx"};
+int main(int argc, char const *argv[]){ 
+    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
 
     if (issame(filter_by_prefix(a, "xxx"), b)) {
         return 0;
