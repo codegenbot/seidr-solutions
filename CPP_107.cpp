@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -20,7 +21,8 @@ bool isPalindrome(int n) {
         rev = rev * 10 + remainder;
         temp /= 10;
     }
-    return n == rev;
+    string str = to_string(n);
+    return str == to_string(rev);
 }
 
 int checkNumber() {
@@ -31,5 +33,10 @@ int checkNumber() {
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
+    return 0;
+}
+
+int main() {
+    checkNumber();
     return 0;
 }
