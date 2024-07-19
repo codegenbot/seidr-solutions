@@ -9,9 +9,10 @@ std::vector<float> sortEven(std::vector<float> l){
     std::vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            std::vector<float> even_elements(l.begin() + i, l.end());
-            std::sort(even_elements.begin(), even_elements.end());
-            l_prime.push_back(*std::min_element(even_elements.begin(), even_elements.end()));
+            auto even_elements = l.begin() + i;
+            auto end_even = l.end();
+            std::sort(even_elements, end_even);
+            l_prime.push_back(*std::min_element(even_elements, end_even));
         } else {
             l_prime.push_back(l[i]);
         }
