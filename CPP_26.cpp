@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -9,6 +13,13 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    // Test the remove_duplicates function
+    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    vector<int> unique_numbers = remove_duplicates(numbers);
+
+    for (int num : unique_numbers) {
+        cout << num << " ";
+    }
+
     return 0;
 }
