@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,7 +13,9 @@ bool match_parens(const std::vector<std::string>& lst) {
         }
     }
 
-    return countOpen == countClose;
+    if(countOpen != countClose) result = false;
+
+    return result;
 }
 
 int main() {
@@ -22,6 +23,12 @@ int main() {
     bool result = match_parens(lst);
 
     std::cout << (result ? "Yes\n" : "No\n");
+
+    if (!match_parens({")", "("})) {
+        std::cout << "Match failed.\n";
+    } else {
+        std::cout << "Match passed.\n";
+    }
 
     return 0;
 }
