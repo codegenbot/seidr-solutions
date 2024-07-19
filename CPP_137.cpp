@@ -1,16 +1,16 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <variant>
 
-template <typename T>
-std::string compare_one(const T& s1, int number) {
-    if (s1 == std::to_string(number)) {
-        return "Equal";
+std::variant<std::string, bool> compare_one(const std::string& s1, int number) {
+    if (std::stoi(s1) == number) {
+        return {"Equal", true};
     } else {
-        return "Not equal";
+        return {"Not equal", false};
     }
 }
 
 int main() {
-    assert(compare_one("1", 1) == "Equal");
+    assert(std::get<bool>(compare_one("1", 1)) == true);
 }
