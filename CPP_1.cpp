@@ -1,10 +1,21 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
+bool issame(vector<string> a, vector<string> b);
+
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -33,9 +44,10 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input = "(abc(def)(ghi))";
-    vector<string> groups = separate_paren_groups(input);
-    assert(issame(groups, vector<string>{"abc", "def", "ghi"}));
+    vector<string> test_input = {"(group1)(group2)", "(group1)", "(group2)"};
+    vector<string> expected_output = {"group1", "group2", "group1", "group2"};
+    
+    assert(issame(separate_paren_groups(test_input[0]), expected_output));
     
     return 0;
 }
