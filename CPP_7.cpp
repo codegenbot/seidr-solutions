@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,10 +12,6 @@ bool same(const std::vector<std::vector<std::string>>& v1, const std::vector<std
         }
     }
     return true;
-}
-
-bool issame(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
-    return same(v1, v2);
 }
 
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& words, const std::string& substring) {
@@ -38,10 +34,10 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    std::vector<std::vector<std::string>> words = {{"grunt"}, {"trumpet", "prune", "gruesome"}};
+    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substring = "run";
     
-    assert(same(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run"), {{"grunt"}, {"prune"}}));
+    assert(same(filter_by_substring({words}, substring), {{"grunt"}, {"prune"}}));
     
     return 0;
 }
