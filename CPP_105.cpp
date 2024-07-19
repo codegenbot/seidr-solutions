@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <functional>
 #include <cassert>
 
 bool are_same(std::vector<int> a, std::vector<int> b) {
@@ -27,7 +26,4 @@ std::vector<int> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    assert(are_same(by_length({9, 4, 8}), {9, 8, 4}));
-    return 0;
-}
+assert(are_same(by_length({9, 4, 8}), by_length({9, 8, 4})));
