@@ -22,7 +22,7 @@ vector<string> reverse_delete(string s, string c) {
         temp += result[i];
     }
     reverse(temp);
-    if (issame(s, temp)) {
+    if (temp == string(reverse(temp))) {
         result.push_back("True");
     } else {
         result.push_back("False");
