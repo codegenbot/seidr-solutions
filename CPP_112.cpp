@@ -2,16 +2,16 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
+bool issame(vector<std::string> a, vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -21,10 +21,10 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
         }
     }
-    string temp = "";
+    std::string temp = "";
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
@@ -36,8 +36,8 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-string reverse(string s) {
-    string rev = "";
+std::string reverse(std::string s) {
+    std::string rev = "";
     for (int i = s.size() - 1; i >= 0; i--) {
         rev += s[i];
     }
