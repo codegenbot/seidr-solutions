@@ -3,5 +3,4 @@ def concatenate_strings(strings):
 
 # Test the function
 strings = ["Hello", "World", "!"]
-result = concatenate_strings(strings)
-print(result)
+print(concatenate_strings(strings))
