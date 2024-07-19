@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> strange_sort_list(vector<int> lst);
