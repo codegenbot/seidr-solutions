@@ -1,15 +1,20 @@
 #include <vector>
 #include <algorithm>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst);
 
+void main() {
+    std::vector<int> result = strange_sort_list({111111});
+    return;
+}
+
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end(), [](int a, int b) {
-        return is_same(std::vector<int>{a % 10}, std::vector<int>{b % 10}) ? a < b : a % 10 < b % 10;
+        return issame(std::vector<int>{a % 10}, std::vector<int>{b % 10}) ? a < b : a % 10 < b % 10;
     });
     std::vector<int> result;
     int left = 0, right = lst.size() - 1;
