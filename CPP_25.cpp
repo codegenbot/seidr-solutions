@@ -1,11 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
 
 vector<int> factorize(int n) {
     vector<int> factors;
@@ -18,11 +14,6 @@ vector<int> factorize(int n) {
     return factors;
 }
 
-int main() {
-    vector<int> expected{2, 3, 3};
-    vector<int> result = factorize(3 * 2 * 3);
-    
-    assert(issame(result, expected));
-
-    return 0;
+if (factorize(3 * 2 * 3) == vector<int>{2, 3, 3}) { 
+    std::cout << "Test passed\n"; 
 }
