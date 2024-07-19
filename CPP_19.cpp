@@ -1,4 +1,8 @@
-map<string, int> number_map = {
+#include <map>
+#include <string>
+using namespace std;
+
+std::map<std::string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,21 +15,23 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
+string sort_numbers(string numbers);
+
 string sort_numbers(string numbers){
-    vector<string> number_list;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        number_list.push_back(token);
+    string result = "";
+    std::map<int, std::string> sorted_numbers;
+
+    size_t pos = 0;
+    while ((pos = numbers.find(" ")) != std::string::npos) {
+        std::string num = numbers.substr(0, pos);
+        sorted_numbers[number_map[num]] = num;
+        numbers.erase(0, pos + 1);
     }
-    sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
-        return number_map[a] < number_map[b];
-    });
-    
-    string result;
-    for (const string &num : number_list) {
-        result += num + " ";
+    sorted_numbers[number_map[numbers]] = numbers;
+
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
     }
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+
+    return result.substr(0, result.size() - 1);
 }
