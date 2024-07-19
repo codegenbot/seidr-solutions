@@ -1,5 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[0]  # Largest non-zero coefficient
-    b = sum([(-1) ** i * xs[i] for i in range(1, n + 1, 2)])
-    return -b / a
+    if n % 2 != 0:
+        return None
+    for i in range(n, -1, -1):
+        if xs[i] != 0:
+            return -xs[i - 1] / xs[i]
