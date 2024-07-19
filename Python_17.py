@@ -3,7 +3,13 @@ def parse_music():
     music_strings = input().split(";")
 
     num_notes = int(input("Enter the number of notes: "))
-    notes = {note: value for note, value in (input().split() for _ in range(num_notes))}
+    notes = {
+        note: value
+        for note, value in (
+            input("Enter notes separated by space 'note value': ").split()
+            for _ in range(num_notes)
+        )
+    }
 
     return get_notes(music_strings, notes)
 

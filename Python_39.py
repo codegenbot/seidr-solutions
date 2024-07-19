@@ -1,3 +1,4 @@
+import sys
 import math
 
 def is_prime(num):
@@ -17,10 +18,5 @@ def prime_fib(n):
         a, b = b, a + b
     return a
 
-try:
-    n = int(input("Enter a number: "))
-    if n <= 0:
-        raise ValueError("Please enter a positive integer.")
-    print(prime_fib(n))
-except ValueError as e:
-    print(f"Error: {e}")
+n = int(sys.argv[1])
+print(prime_fib(n))
