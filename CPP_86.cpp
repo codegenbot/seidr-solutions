@@ -3,12 +3,12 @@
 #include <string>
 
 std::string anti_shuffle(const std::string& s) {
-    std::string result = ""; // Initialize the string
+    std::string result = "";
     for (char c : s) {
         if (c == ' ') {
             result += '.';
         } else {
-            result += c;
+            result += char(c);
         }
     }
     return result;
