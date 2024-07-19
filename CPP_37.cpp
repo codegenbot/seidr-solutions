@@ -1,5 +1,6 @@
+```cpp
+#include <array>
 #include <vector>
-#include <algorithm>
 
 std::array<float, 10> sort_even(std::array<float, 10> l) {
     std::array<float, 10> result;
