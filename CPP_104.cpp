@@ -4,36 +4,18 @@
 
 using namespace std;
 
-bool issame(int a, int b) {
-    vector<int> digitsA;
-    vector<int> digitsB;
-    
-    while (a > 0) {
-        digitsA.push_back(a % 10);
-        a /= 10;
-    }
-    
-    while (b > 0) {
-        digitsB.push_back(b % 10);
-        b /= 10;
-    }
-    
-    sort(digitsA.begin(), digitsA.end());
-    sort(digitsB.begin(), digitsB.end());
-    
-    return digitsA == digitsB;
+bool issame(int a, int b){
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x);
 
 int main() {
-    vector<int> nums = {123, 456, 789, 321, 654};
-    vector<int> result = unique_digits(nums);
-    
-    for (int num : result) {
+    vector<int> numbers = {123, 456, 789, 246, 135};
+    vector<int> result = unique_digits(numbers);
+    for(int num : result){
         cout << num << " ";
     }
-    
     return 0;
 }
 
