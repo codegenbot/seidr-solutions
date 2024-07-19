@@ -1,18 +1,24 @@
-int customBitCount(void* ptr, int size) {
+#include <cassert>
+
+int countOnes(int n) {
     int count = 0;
-    unsigned char* p = (unsigned char*)ptr;
-    for (int i = 0; i < size; ++i) {
-        if (*((unsigned char*)&p[i])) {
-            ++count;
-        }
-        if ((*(unsigned char*)&p[i]) & 0x80) {
-            ++count;
-        }
+    while (n) {
+        count += n & 1;
+        n >>= 1;
     }
     return count;
 }
 
-int main() {
+int customBitCount(void* p, size_t n) {
+    unsigned char* data = static_cast<unsigned char*>(p);
+    int count = 0;
+    for (size_t i = 0; i < n; ++i) {
+        count += countOnes(*reinterpret_cast<int*>(&data[i]));
+    }
+    return count;
+}
+
+int mainUnique() {
     int arr[] = {127, 97, 8192};
     assert(customBitCount(&arr[0], sizeof(arr)/sizeof(int)) == 10);
     return 0;
