@@ -7,9 +7,9 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(nullptr)); // Add this line
-    int x = rand() % 1000; // Change rand() to rand
-    int y = rand() % 1000; // Change rand() to rand
+    srand(time(nullptr)); 
+    int x = rand() % 1000; 
+    int y = rand() % 1000; 
     assert(add(x, y) == x + y);
     return 0;
 }
