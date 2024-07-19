@@ -16,13 +16,13 @@ std::vector<int> filter_integers(std::vector<std::any> values){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
     std::vector<std::any> values = {1, 2, "hello", 3.14, 5};
     std::vector<int> filtered_values = filter_integers(values);
     assert(issame(filtered_values, std::vector<int>{1, 2, 5}));
     return 0;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
