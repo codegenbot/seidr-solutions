@@ -1,19 +1,23 @@
-```cpp
 #include <iostream>
-#include <assert.h>
+#include <string>
 
-int skjkasdkd(int a[]) {
-    int sum = 0;
-    for (int i : a) {
-        if (i >= 128)
-            sum += 2;
-        else
-            sum++;
+int skjkasdkd(std::vector<int> codePoints) {
+    int vowelCount = 0;
+    for (auto codePoint : codePoints) {
+        if (codePoint == 127 || codePoint == 97 || codePoint == 8192) {
+            vowelCount++;
+        }
     }
-    return sum;
+    return vowelCount;
 }
 
 int main() {
-    assert(skJkasdkd({127, 97, 8192}) == 10);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    int result = skjkasdkd({static_cast<int>(c) for c in input});
+    std::cout << "Number of vowels: " << result << std::endl;
+
     return 0;
 }
