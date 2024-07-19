@@ -1,1 +1,1 @@
-print(factorize(int(input("Enter a number to factorize: "))))
+print(factorize(int(input("Enter a number to factorize: ")))
