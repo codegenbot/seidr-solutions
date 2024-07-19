@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,12 +14,10 @@ int digitSum(const string& s) {
 }
 
 int main() {
-    char* s = new char[100];
-    int num;
+    char s[100];
     cout << "Enter a string: ";
-    cin.getline(s, 99); 
-    num = digitSum(string(s));
+    cin.getline(s, 99);
+    int num = digitSum(string(s));
     cout << "Sum of digits: " << num << endl;
-    delete[] s; 
     return 0;
 }
