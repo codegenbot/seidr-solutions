@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -12,6 +11,7 @@ bool areSame(const std::vector<std::string>& v1, const std::vector<std::string>&
         }
     }
     return true;
+
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
@@ -24,11 +24,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 
 }
-int main_function() {
-    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> b(std::vector<std::string>({"xxx", "xxxAAA", "xxx"}));  // C++11 feature used here
-    std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};  // Same thing but without assigning it to a variable
 
-    assert (areSame(filter_by_prefix(a, "xxx") , b));
+int main() {
+    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
+
+    assert (issame(filter_by_prefix(a, "xxx") , b));
     return 0;
 }
