@@ -16,7 +16,7 @@ vector<int> sum_product(vector<int> numbers){
 }
 
 int main(){
-    assert(sum_product({10}) == vector<int>{10, 10});
+    assert(sum_product({10}) == vector<int>({10, 10}));
     
     return 0;
 }
