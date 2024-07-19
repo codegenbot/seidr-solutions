@@ -19,4 +19,4 @@ def minPath(grid, k):
         if next_cell in visited:
             visited.remove(next_cell)
 
-    return path
+    return path[:k + 1]
