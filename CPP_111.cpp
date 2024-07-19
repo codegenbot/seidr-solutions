@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <algorithm>
@@ -6,7 +5,7 @@
 using namespace std;
 
 std::map<char, int> histogram(string test) {
-    map<char, int> result;
+    std::map<char, int> result;
     if (test.empty()) return result;
 
     string letters = test;
@@ -21,15 +20,14 @@ std::map<char, int> histogram(string test) {
     return result;
 }
 
-int main() {
-    cout << (issame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
-    return 0;
-}
-
 bool issame(const map<char,int>& a, const map<char,int>& b){
     if(a.size() != b.size()) return false;
     for(auto p : a) {
         if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
     }
     return true;
+}
+
+int main() {
+    cout << issame(histogram("a"), histogram("b")) << endl;
 }
