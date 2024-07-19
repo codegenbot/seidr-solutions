@@ -1,11 +1,10 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
+#include <cmath>
 
 std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
-    std::vector<int> result;
+    std::vector<int> result(game.size());
     for (size_t i = 0; i < game.size(); ++i) {
-        result.push_back(std::abs(game[i] - guess[i]));
+        result[i] = std::abs(game[i] - guess[i]);
     }
     return result;
 }
