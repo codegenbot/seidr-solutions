@@ -1,10 +1,10 @@
-#include <cassert>
-#include <cctype>
-#include <cmath>
 #include <iostream>
-using namespace std;
+#include <string>
+#include <vector>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b);
+
 vector<string> split_words(string txt);
 
 bool issame(vector<string> a, vector<string> b){
@@ -40,5 +40,6 @@ vector<string> split_words(string txt){
 }
 
 int main() {
-    // Your code here
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
