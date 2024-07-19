@@ -10,11 +10,14 @@ long long double_the_difference(vector<float> lst){
     return sum;
 }
 int main() {
-    vector<float> list;
-    float num;
-    while (cin >> num && num != -1.0) {
-        list.push_back(num);
+    vector<float> vec; 
+    int n; 
+    cin >> n; 
+    for(int i=0; i<n; i++){
+        float val; 
+        cin >> val; 
+        vec.push_back(val);
     }
-    cout << double_the_difference(list) << endl;
+    cout << double_the_difference(vec) << endl;
     return 0;
 }
