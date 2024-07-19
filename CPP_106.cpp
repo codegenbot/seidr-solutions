@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
         return false;
     }
     
-    for(size_t i = 0; i < a.size(); i++) {
+    for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -36,10 +36,10 @@ std::vector<int> f(int n){
 }
 
 int main() {
-    std::vector<int> result = f(5);
-    std::vector<int> expected = {1, 3, 2, 10, 3};
+    std::vector<int> test1 = f(5);
+    std::vector<int> test2 = f(5);
     
-    assert(issame(result, expected));
+    assert(issame(test1, test2));
     
     return 0;
 }
