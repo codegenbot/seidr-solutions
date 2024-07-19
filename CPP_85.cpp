@@ -10,8 +10,9 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    // Example usage:
+    std::vector<int> numbers = {1, 4, 3, 7, 8};
     int result = add(numbers);
-    std::cout << "The sum of the even elements is: " << result << std::endl;
+    std::cout << "The sum of even numbers in the vector is: " << result << std::endl;
     return 0;
 }
