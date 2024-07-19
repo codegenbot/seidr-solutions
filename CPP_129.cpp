@@ -1,7 +1,11 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> path;
-    for(int i = 0; i < k; i++) {
-        path.push_back(grid[i % grid.size()][i % grid[0].size()]);
+    for (int i = 0; i < k; ++i) {
+        for (const auto &row : grid) {
+            for (int num : row) {
+                path.push_back(num);
+            }
+        }
     }
     return path;
 }
