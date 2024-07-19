@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -14,7 +15,7 @@ int solve(std::string s) {
     return result.empty();
 }
 
-int main() {
+int originalMain() {
     std::string s;
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
@@ -23,4 +24,11 @@ int main() {
     } else {
         std::cout << "No solution exists" << std::endl;
     }
+}
+
+int main() {
+    originalMain();
+    
+    assert (solve("#ccc") == 1);
+    return 0;
 }
