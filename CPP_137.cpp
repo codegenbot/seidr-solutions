@@ -1,31 +1,39 @@
+#include <iostream>
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
 
 using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    }
-    if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return b;
-    }
-    if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        return a > boost::stof(s) ? a : "None";
-    }
-    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a < b ? b : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a > b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (a.cast<string>() >= b.cast<string>()) {
+            return a;
+        } else {
+            return b;
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = b.cast<string>();
         int i = boost::any_cast<int>(a);
-        return i > boost::any_cast<int>(b) ? a : "None";
+        if (i >= stoi(s)) {
+            return a;
+        } else {
+            return b;
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string s = a.cast<string>();
+        int i = boost::any_cast<int>(b);
+        if (stoi(s) >= i) {
+            return a;
+        } else {
+            return b;
+        }
+    } else {
+        return typeid(any).name() == "class std::basic_string<char, std::char_traits<char>, std::allocator<char>>" ? any("None") : any("None");
     }
-    if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string s = boost::any_cast<string>(a);
-        return boost::stof(s) > b ? a : "None";
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string s = boost::any_cast<string>(a);
-        return boost::stof(s) > b ? a : "None";
-    }
-    return "None";
 }
