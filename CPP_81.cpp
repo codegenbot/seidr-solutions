@@ -1,8 +1,9 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
         return false;
 
@@ -12,6 +13,23 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
 
     return true;
+}
+
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+    std::vector<std::string> letterGrades;
+    for (const auto& grade : grades) {
+        if (grade >= 4.0f)
+            letterGrades.push_back("A");
+        else if (grade >= 3.5f)
+            letterGrades.push_back("B");
+        else if (grade >= 3.0f)
+            letterGrades.push_back("C");
+        else if (grade >= 2.5f)
+            letterGrades.push_back("D");
+        else
+            letterGrades.push_back("F");
+    }
+    return letterGrades;
 }
 
 int main() {
@@ -34,21 +52,4 @@ int main() {
     }
     return 0;
 
-}
-
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
-    std::vector<std::string> letterGrades;
-    for (const auto& grade : grades) {
-        if (grade >= 4.0f)
-            letterGrades.push_back("A");
-        else if (grade >= 3.5f)
-            letterGrades.push_back("B");
-        else if (grade >= 3.0f)
-            letterGrades.push_back("C");
-        else if (grade >= 2.5f)
-            letterGrades.push_back("D");
-        else
-            letterGrades.push_back("F");
-    }
-    return letterGrades;
 }
