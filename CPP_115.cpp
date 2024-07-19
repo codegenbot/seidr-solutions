@@ -1,25 +1,22 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    int ans = 0;
+    int n = grid.size();
+    int res = 0;
     
-    for(int i=0;i<rows;++i){
+    for (int i = 0; i < n; ++i) {
         int sum = 0;
-        for(int j=0;j<cols;++j){
-            sum += grid[i][j];
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (grid[i][j]) {
+                sum += 1;
+            }
         }
         
-        while(sum > capacity){
-            int to_fill = min(capacity, sum);
-            ans++;
-            sum -= to_fill;
-            if(i < rows-1)
-                for(int j=0;j<cols;++j)
-                    if(grid[i][j] && --to_fill == 0)
-                        break;
-            i = (i < rows-1)? i : 0;
+        while (sum > 0) {
+            res += (sum + capacity - 1) / capacity;
+            sum %= capacity;
         }
     }
     
-    return ans;
+    return res;
 }
