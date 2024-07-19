@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents, quarters, pennies, nickles, dimes;
     cin >> cents;
