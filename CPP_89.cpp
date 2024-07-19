@@ -21,9 +21,9 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
+    std::getline(std::cin, str);
+    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
     return 0;
 }
