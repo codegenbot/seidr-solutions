@@ -3,8 +3,9 @@
 #include <string>
 
 bool match_parens(const std::string& s) {
-    int open = 0;
-    for (auto c : s) {
+    size_t open = 0;
+    for (size_t i = 0; i < s.size(); ++i) {
+        char c = s[i];
         if (c == '(') open++;
         else if (c == ')') {
             if (open > 0) open--;
