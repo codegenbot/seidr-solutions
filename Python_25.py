@@ -11,5 +11,10 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-number = int(input())
-print(factorize(number))
+try:
+    number = int(input("Enter a number to factorize: "))
+    if number <= 1:
+        raise ValueError("Number should be greater than 1")
+    print(factorize(number))
+except ValueError as e:
+    print(f"Error: {e}")
