@@ -41,6 +41,6 @@ vector<int> get_odd_collatz(int n){
 }
 
 int main() {
-    // Implement test cases here if needed
+    // Test code logic here if needed
     return 0;
 }
