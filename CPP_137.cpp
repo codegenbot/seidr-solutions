@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -31,7 +32,6 @@ void printOutput(string str, int num) {
                 cout << c;
             }
         }
-        cout.flush(); // call flush here
     } else {
         cout << str << endl; 
     }
