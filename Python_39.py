@@ -8,7 +8,7 @@ def is_prime(num):
 
 def prime_fib(n: int):
     def is_fib(num):
-        a, b = 1, 1
+        a, b = 0, 1
         while a < num:
             a, b = b, a + b
         return a == num
@@ -21,9 +21,4 @@ def prime_fib(n: int):
         num += 1
     return num - 1
 
-# Test cases
-print(prime_fib(1))  # 2
-print(prime_fib(2))  # 3
-print(prime_fib(3))  # 5
-print(prime_fib(4))  # 13
-print(prime_fib(5))  # 89
+print(prime_fib(int(input())))
