@@ -11,7 +11,7 @@ int mainFunction() {
         cout << "Error: Please enter valid integer values.\n";
     } else {
         int a = stoi(str1), b = stoi(str2), c = stoi(str3);
-        static_assert(a == 3 && b == 4 && c == 7, "Incorrect input values");
+        assert(a == 3 && b == 4 && c == 7); 
         cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     }
 
