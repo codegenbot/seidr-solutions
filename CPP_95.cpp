@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <map>
 
@@ -24,6 +23,7 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
+    // Use or initialize dict here
     bool result = check_dict_case(dict);
     return 0;
 }
