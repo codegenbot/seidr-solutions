@@ -1,15 +1,11 @@
-string encode(string message){
-        for(char& c : message){
-            if(isalpha(c)){
-                if(islower(c)){
-                    c = toupper(c);
-                } else {
-                    c = tolower(c);
-                }
-                if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                    c = c + 2;
-                }
-            }
+transform(message.begin(), message.end(), message.begin(), ::toupper);
+    for(int i=0; i<message.size(); i++){
+        if(message[i]=='A' || message[i]=='E' || message[i]=='I' || message[i]=='O' || message[i]=='U'){
+            message[i] = message[i] + 2;
         }
-        return message;
+        if(message[i]>'Z'){
+            message[i] = message[i] - 26;
+        }
     }
+    return message;
+}
