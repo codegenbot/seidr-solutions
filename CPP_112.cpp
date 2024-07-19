@@ -1,7 +1,15 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b);
+vector<string> reverse_delete(string s, string c);
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+}
 
 vector<string> reverse_delete(string s, string c){
     string result = "";
@@ -13,13 +21,4 @@ vector<string> reverse_delete(string s, string c){
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     return {result, result == reversed ? "True" : "False"};
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
 }
