@@ -1,6 +1,6 @@
 vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
-        result.push_back(l[i] + 1);
+    for (int num : l) {
+        result.push_back(num + 1);
     }
     return result;
 }
