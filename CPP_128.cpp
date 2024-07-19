@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
@@ -10,7 +9,7 @@ int prod_signs(std::vector<int> arr) {
             return 0;
         }
         product *= (num > 0 ? 1 : -1);
-        sum += std::abs(num);
+        sum += abs(num);
     }
 
     if (arr.empty()) {
@@ -18,4 +17,9 @@ int prod_signs(std::vector<int> arr) {
     }
 
     return product * sum;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    return 0;
 }
