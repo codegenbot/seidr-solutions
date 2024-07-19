@@ -2,7 +2,7 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
+    groups = []
     stack = []
     current_group = ''
     
@@ -15,14 +15,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             while stack and stack[-1] != '(':
                 current_group += stack.pop()
-            if stack:
-                current_group = ')' + current_group
-                stack.pop()
-            else:
-                current_group = '' + current_group
-            result.append(current_group)
-            current_group = ''
-        else:
+            if not stack or stack.pop() != '(':
+                raise ValueError("Parentheses are not balanced")
             current_group += char
+            groups.append(current_group)
+            current_group = ''
     
-    return result
+    return groups
