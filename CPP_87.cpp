@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
+bool check_vectors(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
     return a == b;
 }
 
@@ -21,21 +21,4 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     });
     
     return result;
-}
-
-bool check_vectors(const std::vector<std::vector<int>>& actual, const std::vector<std::vector<int>>& expected) {
-    return actual == expected;
-}
-
-int main() {
-    auto result = get_row({ {}, {1}, {1, 2, 3} }, 3);
-    std::vector<std::vector<int>> expected = { {2, 2} };
-    
-    if (check_vectors(result, expected)) {
-        std::cout << "Test Passed!\n";
-    } else {
-        std::cout << "Test Failed!\n";
-    }
-
-    return 0;
 }
