@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     prev_roll1 = None
@@ -15,4 +16,4 @@ def bowling_score(frames):
         prev_roll1 = char
     return score
 
-print(bowling_score("X45--81818141XX45"))
+print(bowling_score("X45--81818141XX45"))  # Should print: 112
