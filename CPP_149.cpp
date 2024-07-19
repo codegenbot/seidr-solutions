@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -31,15 +32,14 @@ int main() {
         cin >> s; 
     }
     
-    vector<vector<string>> result = sorted_list_sum(lst);
-
-    if(result.size() == 0){
+    if(sorted_list_sum(lst).size() == 0){
         cout << "Sorted List Sum: ";
         for(auto &s : lst){
             cout << s << ", ";
         }
         cout << endl;
     }else{
+        vector<vector<string>> result = sorted_list_sum(lst);
         for (auto &v : result) { 
             cout << v[0] << ": " << v[1] << endl;
         }

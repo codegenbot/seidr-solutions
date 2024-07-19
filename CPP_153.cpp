@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -14,3 +15,4 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
 int main() {
     std::cout << Strongest_Extension("My", {"Java", "Python", "C++"}) << std::endl;
     return 0;
+}
