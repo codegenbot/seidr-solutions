@@ -1,8 +1,9 @@
 #include <string>
+#include <algorithm>
 
 bool is_nested(std::string str) {
     int count = 0;
-    for (char c : str) {
+    for (char c : std::move(str)) { 
         if (c == '[') {
             count++;
         } else if (c == ']') {
@@ -13,5 +14,5 @@ bool is_nested(std::string str) {
             }
         }
     }
-    return count > 0;
+    return count == 0;
 }
