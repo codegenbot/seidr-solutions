@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +20,7 @@ bool match_parens(const std::vector<std::string>& lst) {
 int main() {
     std::vector<std::string> lst;
     std::string str;
-    
+
     while(std::cin >> str) {
         lst.push_back(str);
     }
