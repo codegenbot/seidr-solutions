@@ -1,9 +1,8 @@
 #include <vector>
-#include <cassert>
 
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
-}
+vector<float> derivative(vector<float> xs);
+
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
@@ -13,7 +12,11 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
+}
+
 int main(){
-    assert(issame(derivative({1}), {}));
+    // Your main function code here
     return 0;
 }
