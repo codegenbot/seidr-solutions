@@ -1,10 +1,15 @@
+```cpp
 #include <string>
+#include <vector>
 
-std::string longest(std::vector<std::string> strings){
+std::string longest(const std::vector<std::string>& strings) {
+    if (strings.empty()) {
+        return "";
+    }
     std::string result = strings[0];
-    for(int i=1; i<strings.size(); i++){
-        if(strings[i].size() > result.size()){
-            result = strings[i];
+    for (const auto& str : strings) {
+        if (str.length() > result.length()) {
+            result = str;
         }
     }
     return result;

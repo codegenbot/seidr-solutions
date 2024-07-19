@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <vector>
 #include <string>
