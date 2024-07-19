@@ -5,12 +5,14 @@ using std::cin;
 using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result(target.length(), int{}); 
+    std::vector<int>();
+
     int n = text.length();
     int m = target.length();
 
-    for(int i=0; i<n-m+1; i++){
-        if(text.substr(i,m) == target){
+    for(int i=0; i<=n-m; i++){
+        size_t pos = text.find(target);
+        if(pos != string::npos){
             result.push_back(i);
         }
     }
@@ -22,7 +24,7 @@ int main() {
     string text, target;
     cin >> text >> target;
     cin.ignore(); 
-    cin.ignore(); 
+    cin.ignore(); // Consume second newline
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
