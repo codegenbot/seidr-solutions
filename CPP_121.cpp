@@ -13,7 +13,7 @@ int solution(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int> numbers; 
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
