@@ -2,10 +2,10 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Add your logic here
+    // Add your logic to compare vectors 'a' and 'b'
 }
 
-vector<int> common(vector<int>& l1, vector<int>& l2) {
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
