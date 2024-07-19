@@ -2,7 +2,7 @@ vector<string> sorted_list_sum(vector<string> lst);
 
 bool issame(vector<string> a, vector<string>);
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string>){
     return a == b;
 }
 
