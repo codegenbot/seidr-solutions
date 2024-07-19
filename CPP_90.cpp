@@ -1,13 +1,12 @@
 int next_smallest(vector<int>& lst) {
     sort(lst.begin(), lst.end());
-    int count = 0, prev = INT_MIN;
-    for (auto num : lst) {
-        if (num != prev) {
+    int count = 1;
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] != lst[i - 1]) {
             count++;
-            prev = num;
         }
         if (count == 2) {
-            return num;
+            return lst[i];
         }
     }
     return -1;
