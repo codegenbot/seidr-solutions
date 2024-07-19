@@ -12,9 +12,7 @@ int bitCount(int* a, int size) {
     return count;
 }
 
-int main() {
-    int arr[3] = {127, 97, 8192};
-    int* ptr = arr;
-    assert(bitCount(ptr, 3) == 10);
-    return 0;
+void testMain() {
+    assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
+    return;
 }
