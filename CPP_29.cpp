@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) return false;
@@ -12,7 +13,7 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
     std::vector<std::vector<std::string>> result;
     for (const auto& s : strings) {
         if (s[0].find(prefix) == 0) {
-            std::vector<std::string> temp = {prefix};
+            std::vector<std::string> temp;
             for(int i = prefix.size(); i < s[0].size(); i++) {
                 temp.push_back(s[0].substr(i, 1));
             }
@@ -25,3 +26,4 @@ std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<s
 int main() {
     assert(issame(filter_by_prefix({{"xxx"}, {"asd"}, {"xxy"}, {"john doe"}, {"xxxxAAA"}, {"xxx"}}, "xxx") , {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
     return 0;
+}
