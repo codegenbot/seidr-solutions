@@ -2,10 +2,10 @@ def get_integer_input(prompt):
     while True:
         try:
             num = int(input(prompt))
-            if num in [1, 2, 3]:
+            if num == 1 or num == 2 or num == 3:
                 return num
             else:
-                print("Please enter a valid integer within the range (1, 2, or 3).")
+                print("Please enter a valid integer (1, 2, or 3).")
         except ValueError:
             print("Please enter a valid integer.")
 
