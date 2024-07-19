@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     for (char ch : s) {
@@ -33,4 +35,14 @@ string reverse(string s) {
         rev += s[i];
     }
     return rev;
+
+bool issame(string a, string b) {
+    if(a.size()!=b.size())
+        return false;
+    bool flag=true;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
+            flag=false;
+    }
+    return flag;
 }
