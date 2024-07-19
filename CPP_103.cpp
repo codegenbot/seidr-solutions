@@ -18,3 +18,10 @@ string rounded_avg(int n, int m) {
     reverse(res.begin(), res.end());
     return res;
 }
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << rounded_avg(n, m);
+    return 0;
+}
