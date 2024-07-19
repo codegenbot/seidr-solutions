@@ -8,15 +8,17 @@ def is_prime(num):
 
 def prime_fib(n: int):
     def fibonacci(num):
-        if num <= 1:
-            return num
+        if num == 0:
+            return 0
+        elif num == 1:
+            return 1
         else:
             return fibonacci(num - 1) + fibonacci(num - 2)
 
     count = 0
-    i = 0
+    num = 2
     while count < n:
-        if is_prime(fibonacci(i)):
+        if is_prime(fibonacci(num)):
             count += 1
-        i += 1
-    return fibonacci(i - 1)
+        num += 1
+    return fibonacci(num - 1)
