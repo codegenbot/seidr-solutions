@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,14 +17,14 @@ int main_test() {
     int n;
     std::cin >> n;
     std::vector<int> user_input;
-    user_input.resize(n);  // Resize the vector to 'n' elements
+    user_input.resize(n);
 
     for (int i = 0; i < n; i++) {
         int x;
         std::cin >> x;
         user_input.push_back(x);
     }
-    if (isSame(user_input, user_input)) {
+    if (issame(user_input, user_input)) {
         std::cout << "Yes" << std::endl;
     } else {
         std::cout << "No" << std::endl;
