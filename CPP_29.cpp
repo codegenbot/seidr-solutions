@@ -2,7 +2,7 @@
 #include <string>
 #include <initializer_list>
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -14,8 +14,8 @@ bool issame(const vector<string>& v1, const vector<string>& v2) {
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+    std::vector<std::string> result;
     for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
