@@ -1,4 +1,4 @@
-input_string = input("Enter the string to decode: ").strip().lower()
-if not all(char.islower() or char.isspace() or char.isdigit() for char in input_string): 
+input_string = input("Enter the string to decode (lowercase alphabets, spaces, and digits only): ").strip().lower()
+if not input_string.isalnum():
     print("Input string must contain only lowercase alphabets, spaces, and digits.")
     exit()
