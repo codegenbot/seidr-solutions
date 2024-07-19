@@ -11,11 +11,6 @@ bool are_same(std::vector<int> a, std::vector<int> b) {
 std::vector<int> by_length(std::vector<int> arr) {
     std::vector<int> result;
 
-    std::map<int, std::string> num_to_name = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-    };
-
     std::vector<int> sorted_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
