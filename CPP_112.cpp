@@ -2,17 +2,17 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<std::string> reverseDelete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -26,7 +26,7 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string revTemp = temp;
+    string revTemp = temp;
     std::reverse(revTemp.begin(), revTemp.end());
     if (temp == revTemp) {
         result.push_back("True");
@@ -37,12 +37,12 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    auto v1 = reverseDelete("mamma", "mia");
-    auto v2 = {"", "True"};
-    if (isSame(v1, v2)) {
-        std::cout << "Test passed." << std::endl;
+    vector<string> v1 = reverse_delete("mamma", "mia");
+    vector<string> v2 = {"", "True"};
+    if (issame(v1, v2)) {
+        cout << "Test passed." << endl;
     } else {
-        std::cout << "Test failed." << std::endl;
+        cout << "Test failed." << endl;
     }
     return 0;
 }
