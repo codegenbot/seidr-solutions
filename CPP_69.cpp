@@ -1,10 +1,18 @@
-int getMaxFreqNum(const vector<int>& lst) {
-    int maxFreqNum = -1;
+#include <vector>
+#include <unordered_map>
+
+int search(vector<int> lst) {
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
-        int freq = count(lst.begin(), lst.end(), num);
-        if (num > freq && freq >= maxFreqNum) {
-            maxFreqNum = freq;
+        freq[num]++;
+    }
+    
+    int res = -1;
+    for (auto it : freq) {
+        if (it.first > it.second && it.second >= it.first) {
+            res = std::max(res, it.first);
         }
     }
-    return maxFreqNum > 0 ? maxFreqNum : -1;
+    
+    return res;
 }
