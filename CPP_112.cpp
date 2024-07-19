@@ -1,6 +1,13 @@
-string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> reverse_delete(string s, string c) {
+    string result = "";
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
