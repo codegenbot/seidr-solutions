@@ -5,7 +5,11 @@ def string_to_md5(text):
 
 try:
     input_text = input("Enter the text to hash: ").strip()
+    if not input_text:
+        raise ValueError("Input text cannot be empty")
     result = string_to_md5(input_text)
     print(result)
-except (EOFError, KeyboardInterrupt):
+except EOFError:
     pass
+except ValueError as e:
+    print(e)
