@@ -12,5 +12,5 @@ std::variant<std::string, bool> compare_one(const std::string& s1, int number) {
 }
 
 int main() {
-    assert(std::get<bool>(compare_one("1", 1)) == true);
+    assert(std::get<std::string>(compare_one("1", 1)) == "Equal");
 }
