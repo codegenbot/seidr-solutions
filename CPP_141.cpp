@@ -1,20 +1,20 @@
-Here is the completed code:
-
-string file_name_check(string file_name) {
-    int dot_count = 0, digit_count = 0, letter_count = 0;
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-            letter_count = 0;
-            digit_count = 0;
-        } else if (isdigit(c)) {
-            digit_count++;
-            letter_count = 0;
-        } else if (isalpha(c)) {
-            letter_count++;
-            digit_count = 0;
+```cpp
+int i = 0, j = 0;
+while(i < file_name.length()){
+    if(isdigit(file_name[i])){
+        if (++j > 3) return "No";
+    } else {
+        if (file_name[i] == '.') {
+            if (j != 1) return "No";
+            break;
         }
+        if (!isalpha((unsigned char)file_name[i])) return "No";
     }
-    
-    return dot_count == 1 && letter_count > 0 && digit_count <= 3 ? "Yes" : "No";
+    i++;
 }
+if (j > 3 || i == file_name.length() || j < 1) return "No";
+
+string extension = file_name.substr(j);
+if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
+return "Yes";
