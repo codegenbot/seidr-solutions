@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cmath> 
+#include <cmath>
+
 using namespace std;
 
 string res = "";
