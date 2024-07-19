@@ -1,6 +1,5 @@
+#include <stdio.h>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> count_up_to(int n) {
