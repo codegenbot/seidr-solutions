@@ -13,5 +13,5 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
             result.push_back(delimiter);
         }
     }
-    return result;  
+    return result;
 }
