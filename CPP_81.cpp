@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -47,12 +48,13 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades;
-    string s;
     cout << "Enter the grades (Press 'q' to quit):" << endl;
+    string s;
     while (true) {
-        getline(cin, s);
+        cin >> s; // read a line
         if (s == "q") break;
-        float grade = stof(s);
+        float grade;
+        cin >> grade; // now read a float
         grades.push_back(grade);
     }
     
