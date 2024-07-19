@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> sort_array(std::vector<int> array) {
     if(array.empty()) return array;
@@ -17,7 +17,8 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+// Fix parameter declaration in line 34 to use std::vector<int>
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
