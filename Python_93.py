@@ -10,12 +10,11 @@ def encode(message: str, shift: int) -> str:
     return encoded_message
 
 message = input("Enter message to encode (letters and spaces only): ")
-while not (message.isalpha() or " " in message):
-    message = input("Please enter alphabetic characters and spaces only: ")
+while not all(char.isalpha() or char.isspace() for char in message):
 
 shift = input("Enter shift value: ")
-while not (shift.isdigit() and int(shift) >= 0):
-    shift = input("Please enter a non-negative integer value for shift: ")
+while not shift.isdigit():
+    shift = input("Please enter an integer value for shift: ")
 shift = int(shift)
 
 result = encode(message, shift)
