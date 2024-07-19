@@ -1,4 +1,7 @@
-Here is the completed code:
+#include <vector>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
