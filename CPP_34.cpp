@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 
 bool issame(vector<int> a,vector<int>b){
@@ -5,6 +6,6 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 auto unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
-    std::vector<int> result(std::unique_copy(first, last));
+    std::vector<int> result(std::unique_copy(first, last, [](int a,int b){return a==b;}));
     return result;
 }
