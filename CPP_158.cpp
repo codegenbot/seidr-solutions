@@ -16,8 +16,7 @@ string find_max(vector<string> words) {
     return max_word;
 }
 
-int main 
-{
+int main() {
     vector<string> words;
     string input;
 
