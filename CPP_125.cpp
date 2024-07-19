@@ -1,10 +1,9 @@
 #include <string>
+#include <vector>
 
-bool issame(const string& a, const string& b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
-vector<string> solve(string txt) {
+vector<string> processText(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
@@ -17,17 +16,20 @@ vector<string> solve(string txt) {
             word += c;
         }
     }
+
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.empty()) {
-        int oddCount = 0;
+
+    if (result.size() == 0) {
+        int oddLowercaseCount = 0;
         for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
+                oddLowercaseCount++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(oddLowercaseCount));
     }
+
     return result;
 }
