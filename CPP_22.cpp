@@ -1,8 +1,10 @@
-```cpp
 #include <cassert>
 #include <any>
 #include <list>
 #include <vector>
+#include <iostream>
+
+using namespace std;
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -11,11 +13,11 @@ std::vector<int> filter_integers(std::list<std::any> values) {
             result.push_back(std::any_cast<int>(value));
         }
     }
-    return result.empty() ? std::vector<int>() : result;
+    return result.empty() ? vector<int>() : result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-assert(issame({1}, filter_integers({{1}, {2}, {3}, {"hello"}, {4.5}}));
+assert(issame({1}, filter_integers({any(1), any(2), any(3), any("hello"), any(4.5)}));
