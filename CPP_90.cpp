@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -16,7 +15,8 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {5, 3, 2, 9};
-    assert(next_smallest(lst) == 5);
+    assert(next_smallest({3,4}) == 3);
+    assert(next_smallest({1,2,3}) == 2);
+    assert(next_smallest({5,6,7}) == 5);
     return 0;
 }
