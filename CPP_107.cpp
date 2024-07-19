@@ -31,11 +31,21 @@ int checkNumber() {
     for (char c : str) {  
         rev = c + rev;  
     }
-    if (same(vector<int>(str), vector<int>(rev)) && isPalindrome(n) && n % 2 == 0) 
+    if (same(to_vector(n), to_vector(atoi(rev.c_str()))) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
     return 0;
+}
+
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
+    while (num != 0) {
+        int remainder = num % 10;
+        v.push_back(remainder);
+        num /= 10;
+    }
+    return v;
 }
 
 int main() {
