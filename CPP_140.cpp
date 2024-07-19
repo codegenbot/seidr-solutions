@@ -1,22 +1,23 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string fix_spaces(string text) {
-    string result;
-    bool prev_space = false;
-    for(char c : text){
-        if(c == ' '){
-            if(prev_space){
+std::string fix_spaces(std::string text) {
+    int count = 0;
+    std::string result;
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
                 result.pop_back();
-                result.push_back('-');
+                result.pop_back();
+                result += '-';
             } else {
-                result.push_back('_');
+                result += '_';
             }
-            prev_space = true;
         } else {
-            result.push_back(c);
-            prev_space = false;
+            count = 0;
+            result += c;
         }
     }
     return result;
