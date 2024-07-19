@@ -12,7 +12,7 @@ int solution(std::vector<int> numbers) {
     return sum;
 }
 
-int main() {
+(int main() {
     std::vector<int> numbers; 
     size_t n;
     std::cout << "Enter the number of elements: ";
@@ -25,5 +25,4 @@ int main() {
         numbers[i] = num;
     }
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;
-    return 0;
-}
+})
