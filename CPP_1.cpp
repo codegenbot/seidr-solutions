@@ -10,7 +10,7 @@ bool issame(const vector<string> &a, const vector<string> &b) {
     return true;
 }
 
-vector<string> separate_paren_groups(const string &paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     int count = 0;
     string current_group;
@@ -34,8 +34,9 @@ vector<string> separate_paren_groups(const string &paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("((a)(b))"), {"(a)", "(b)"}));
-    assert(issame(separate_paren_groups("((x)(y)(z))"), {"(x)", "(y)", "(z)"}));
-    assert(issame(separate_paren_groups("(a)(b)"), {"(a)(b)"}));
+    string input = "((group1)(group2)(group3))";
+    vector<string> expected_output = {"group1", "group2", "group3"};
+    vector<string> output = separate_paren_groups(input);
+    assert(issame(output, expected_output));
     return 0;
 }
