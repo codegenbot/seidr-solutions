@@ -1,1 +1,1 @@
-paren_string = input("Please enter a string of parentheses only: ").strip()
+input_paren_string = input("Please enter a string of parentheses only: ").strip()
