@@ -1,4 +1,10 @@
-string solve(string s){
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+auto solve = [](string s){
     bool hasLetter = false;
     for(char &c : s){
         if(isalpha(c)){
@@ -10,4 +16,4 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
-}
+};
