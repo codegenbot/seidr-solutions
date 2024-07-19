@@ -1,21 +1,11 @@
-#include <iostream>
-#include <string>
-
-bool is_palindrome(const std::string& text) {
-    int i = 0, j = text.length() - 1;
-    while (i < j) {
-        if (text[i] != text[j]) {
+int left = 0;
+    int right = text.length() - 1;
+    while (left < right) {
+        if (text[left] != text[right]) {
             return false;
         }
-        i++;
-        j--;
+        left++;
+        right--;
     }
     return true;
-}
-
-int main() {
-    std::cout << is_palindrome("radar") << std::endl;  // Output: 1
-    std::cout << is_palindrome("hello") << std::endl;  // Output: 0
-
-    return 0;
 }
