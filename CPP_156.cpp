@@ -1,17 +1,22 @@
-string int_to_mini_roman(int num) {
-        vector<pair<int, string>> roman_map = {
-            {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
-            {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
-            {5, "v"}, {4, "iv"}, {1, "i"}
-        };
-        string result;
-        
-        for(const auto & mapping : roman_map) {
-            while(num >= mapping.first) {
-                result += mapping.second;
-                num -= mapping.first;
-            }
+string int_to_mini_roman(int number) {
+    vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+
+    string result = "";
+    int i = 0;
+
+    while (number > 0) {
+        while (number >= values[i]) {
+            result += roman[i];
+            number -= values[i];
         }
-        
-        return result;
+        ++i;
     }
+
+    // Convert result to lowercase
+    for (char &c : result) {
+        c = tolower(c);
+    }
+
+    return result;
+}
