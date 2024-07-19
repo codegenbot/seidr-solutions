@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string solve(const string& s){
+string solve(string s){
     bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
