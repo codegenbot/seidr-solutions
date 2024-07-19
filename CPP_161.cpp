@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -15,9 +15,8 @@ int main() {
     std::getline(std::cin, s);
     if (solve(s)) {
         std::cout << s << std::endl;
-        return 0;
     } else {
         std::cout << "No solution exists" << std::endl;
-        return 1;
     }
+    return 0;
 }
