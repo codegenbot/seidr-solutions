@@ -3,14 +3,16 @@ if (n > m) {
     }
     
     int sum = 0;
+    int count = m - n + 1;
+    
     for (int i = n; i <= m; i++) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = round((double)sum / count);
     
     string binary = "";
-    while (avg) {
+    while (avg > 0) {
         binary = to_string(avg % 2) + binary;
         avg /= 2;
     }
