@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,7 +28,7 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
             }
         }
         if (found) {
-            result.push_back(word);
+            result.push_back(std::vector<std::string>(word));
         } else if (!result.empty()) {
             return result; // If no more words are found, stop and return the current result
         }
