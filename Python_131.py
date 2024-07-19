@@ -1,8 +1,5 @@
 import math
 
-n = int(input().strip())
-if n <= 0:
-    print("Invalid input. Please enter a valid positive integer greater than zero.")
-else:
-    result = math.prod(map(int, str(abs(n))))
-    print(result)
+n = int(input("Enter a positive integer: "))
+result = math.prod(map(int, str(n)))
+print(result)
