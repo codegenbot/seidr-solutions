@@ -1,11 +1,9 @@
 #include <string>
 #include <vector>
 
-bool issame(char a, char b) {
-    return a == b;
-}
+bool issame(const string &str1, const string &str2);
 
-vector<string> split_string(const string &txt) {
+vector<string> solve(const string & txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
