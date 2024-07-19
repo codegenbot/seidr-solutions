@@ -20,8 +20,8 @@ int main() {
     for(int i = 0; i < n; i++) {
         std::cin >> values[i];
     }
-
+    
     std::cout << max_element(values) << std::endl;
-
+    
     return 0;
 }
