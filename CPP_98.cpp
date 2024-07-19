@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int count_upper(std::string s) {
