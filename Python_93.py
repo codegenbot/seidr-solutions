@@ -1,4 +1,4 @@
-def encode(message: str, shift: int) -> str:
+def encode(message, shift):
     encoded_message = ""
     for char in message:
         if char.isalpha():
@@ -9,7 +9,7 @@ def encode(message: str, shift: int) -> str:
             encoded_message += char
     return encoded_message
 
-message = input().strip()
-shift = int(input().strip())
+message = input("Enter the message to encode:\n").strip()
+shift = int(input("Enter the shift value for encoding:\n").strip()
 result = encode(message, shift)
 print(result)
