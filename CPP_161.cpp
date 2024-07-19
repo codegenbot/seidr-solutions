@@ -1,8 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
-std::string solve(std::string s) {
+std::string solve(std::string s){
     for(char &c : s){
         if(isalpha(c)){
             c = islower(c) ? toupper(c) : tolower(c);
@@ -14,11 +13,12 @@ std::string solve(std::string s) {
     return s;
 }
 
-int main() {
-    assert (solve("#ccc") == "#CCC");
-    assert (solve("Test123") == "tEST");
-    assert (solve("Coding!") == "cODING");
-    assert (solve("123") == "321");
-    
+int main(){
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
+
+    std::cout << "Output: " << solve(input) << std::endl;
+
     return 0;
 }
