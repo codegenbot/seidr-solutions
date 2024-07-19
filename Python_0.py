@@ -3,9 +3,7 @@ try:
         result = input()
         if not result:
             break
-        if result.isdigit():
+        if result.isnumeric():
             print(int(result))
-        else:
-            break
 except:
     pass
