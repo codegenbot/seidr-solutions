@@ -23,4 +23,3 @@ int main() {
     else
         cout << "The number is not even and palindrome.\n";
     return 0;
-}
