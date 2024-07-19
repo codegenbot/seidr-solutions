@@ -1,4 +1,5 @@
-int total_eaten = number + min(need, remaining);
-    int remaining_carrots = max(0, remaining - need);
-    return {total_eaten, remaining_carrots};
+vector<int> eat(int number, int need, int remaining) {
+    int totalEatenCarrots = number + need;
+    int carrotsLeft = max(0, remaining - need);
+    return {totalEatenCarrots, carrotsLeft};
 }
