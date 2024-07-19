@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -8,20 +9,21 @@ std::string spinWords(std::string sentence) {
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
             if (word.length() >= 5) {
-                result += (word.length() >= 5) ? word.substr(word.length() - 1) + word.substr(0, word.length() - 1) : word;
+                result += (word + " ");
+                word = "";
             } else {
                 result += word + " ";
             }
-            word = "";
         } else {
             word += sentence[i];
         }
     }
 
     if (word.length() >= 5) {
-        result += (word.length() >= 5) ? word.substr(word.length() - 1) + word.substr(0, word.length() - 1) : word;
+        result += (word.substr(word.length() - 1) + word.substr(0, word.length() - 1)) + " ";
+        word = "";
     } else {
-        result += word;
+        result += word + " ";
     }
 
     return result;
