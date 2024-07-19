@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
@@ -7,7 +7,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            result.push_back(std::abs(guess[i] - game[i]));
         }
     }
     return result;
