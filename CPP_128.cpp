@@ -1,4 +1,7 @@
 ```cpp
+#include <cassert>
+#include <iostream>
+
 int prod_signs(std::vector<int> arr) {
     int product = 1;
     long long sum = 0;
@@ -16,4 +19,15 @@ int prod_signs(std::vector<int> arr) {
     }
 
     return product * sum;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    int result = prod_signs({1, -2, 3, 0});
+    if(result == 0) {
+        std::cout << "The product of signs and the sum is: Zero!" << std::endl;
+    } else {
+        std::cout << "The product of signs and the sum is: " << result << std::endl;
+    }
+    return 0; 
 }
