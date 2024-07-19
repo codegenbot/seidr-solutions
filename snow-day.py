@@ -1,10 +1,9 @@
-import math
+from decimal import Decimal, getcontext
 
 def snow_day(hours, initial_snow, rate, melt_rate):
-    current_snow = initial_snow
+    getcontext().prec = 12
+    current_snow = Decimal(initial_snow)
     for _ in range(hours):
-        current_snow += int(rate)
-        if math.isclose(current_snow, 0):
-            break
-        current_snow = max(0, current_snow - int(melt_rate))
-    return round(current_snow, 6)
+        current_snow += Decimal(rate)
+        current_snow = max(0, current_snow - Decimal(melt_rate))
+    return float(current_snow)
