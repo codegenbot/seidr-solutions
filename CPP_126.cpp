@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool is_sorted_contest(std::vector<int> lst) {
     for (int i = 0; i < lst.size() - 1; i++) {
