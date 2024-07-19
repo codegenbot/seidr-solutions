@@ -3,7 +3,7 @@ def find_unique_numbers(numbers):
 
 numbers = []
 while True:
-    num = input()
+    num = input().strip()
     if num == "":
         break
     numbers.append(int(num))

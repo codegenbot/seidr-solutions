@@ -13,6 +13,6 @@ def find_closest_elements(numbers):
 
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+    numbers = list(map(int, input().split()))
     closest_pair = find_closest_elements(numbers)
-    print(closest_pair[0], closest_pair[1])
+    print(min(closest_pair), max(closest_pair))
