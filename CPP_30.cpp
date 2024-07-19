@@ -11,6 +11,5 @@ std::vector<float> get_positive(const std::vector<float>& vec) {
             positive_values.push_back(val);
         }
     }
-    
     return positive_values;
 }
