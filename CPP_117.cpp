@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
 #include <cassert>
+#include <sstream>
 
 using namespace std;
 
@@ -11,11 +11,15 @@ vector<string> select_words(string s, int n) {
     string word;
     istringstream iss(s);
     while (iss >> word) {
-        if (n-- > 0) {
+        if (--n > 0) {
             words.push_back(word);
         }
     }
     return words;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
