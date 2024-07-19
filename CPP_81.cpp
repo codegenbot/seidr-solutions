@@ -7,7 +7,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::string numerical_letter_grade(int grade) {
-    return "E";
+    // Function definition for numerical_letter_grade goes here
+    return ""; // Placeholder return statement
 }
 
 int main() {
