@@ -1,15 +1,12 @@
-from typing import List
-
-def factorize(n: int) -> List[int]:
+def factorize(number):
     factors = []
-    divisor = 2
-    while n > 1:
-        if n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        else:
-            divisor += 1
+    for i in range(1, number + 1):
+        if number % i == 0:
+            factors.append(i)
     return factors
 
-number = int(input("Enter a number to factorize: "))
-print(factorize(number))
+try:
+    number = int(input())
+    print(factorize(number))
+except Exception as e:
+    print("Error reading input:", e)
