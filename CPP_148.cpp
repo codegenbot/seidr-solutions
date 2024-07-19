@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -38,10 +38,12 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 int main() {
     std::string planet1, planet2;
     
+    std::cout << "Enter two planet names: ";
     std::cin >> planet1 >> planet2;
-    
+
     std::vector<std::string> result = bf(planet1, planet2);
 
+    std::cout << "Resulting planets: ";
     for (const auto& planet : result) {
         std::cout << planet << " ";
     }
