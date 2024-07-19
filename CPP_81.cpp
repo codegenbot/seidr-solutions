@@ -43,6 +43,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    // Add your test cases here to verify the correctness of the code
+    // Your main function code here
     return 0;
 }
