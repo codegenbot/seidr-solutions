@@ -14,13 +14,14 @@ def prime_fib(n):
     while count < n:
         if is_prime(a):
             count += 1
+        if count == n:
+            return a
         a, b = b, a + b
-    return a
 
+n = int(input("Enter a number: "))
 try:
-    n = int(input("Enter a number: "))
     if n <= 0:
         raise ValueError("Please enter a positive integer.")
     print(prime_fib(n))
-except (ValueError, EOFError):
-    print("Please enter a valid positive integer.")
+except ValueError as e:
+    print(f"Error: {e}")
