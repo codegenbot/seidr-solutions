@@ -7,7 +7,7 @@ bool issame(vector<int> a, vector<int> b) {
     }
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -37,16 +37,7 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    // Sample usage of the functions
     vector<int> input = {123, 456, 789};
-    vector<int> unique_nums = unique_digits(input);
-    vector<int> expected_output = {123, 789};
-    
-    // Check if the output matches the expected result
-    if (issame(unique_nums, expected_output)) {
-        // Output matches
-    } else {
-        // Output doesn't match
-    }
+    vector<int> result = unique_digits(input);
     return 0;
 }
