@@ -22,5 +22,4 @@ int main() {
     if (issame(generate_integers(17, 89))) {
         return 0;
     }
-    return 0;
 }
