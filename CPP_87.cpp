@@ -5,7 +5,7 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 int main() {
-    // Given code can be here
+    // Add code to call get_row function here
     return 0;
 }
 
