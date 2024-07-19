@@ -1,32 +1,37 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int n1 = boost::any_cast<int>(a);
-    int n2 = boost::any_cast<int>(b);
-    if (n1 > n2) {
-        return n1;
-    } else if (n1 < n2) {
-        return n2;
+if(a.type() == typeid(int) && b.type() == typeid(int)){
+    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+        return a;
+    } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+        return b;
+    } else {
+        return "None";
     }
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    float f1 = boost::any_cast<float>(a);
-    float f2 = boost::any_cast<float>(b);
-    if (f1 > f2) {
-        return f1;
-    } else if (f1 < f2) {
-        return f2;
+} else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+        return a;
+    } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+        return b;
+    } else {
+        return "None";
     }
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string s1 = boost::any_cast<string>(a);
-    string s2 = boost::any_cast<string>(b);
-    if (s1.find(',') != string::npos) {
-        replace(s1.begin(), s1.end(), ',', '.');
+} else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    float a_float = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float b_float = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(a_float > b_float){
+        return a;
+    } else if(a_float < b_float){
+        return b;
+    } else {
+        return "None";
     }
-    if (s2.find(',') != string::npos) {
-        replace(s2.begin(), s2.end(), ',', '.');
-    }
-    if (stof(s1) > stof(s2)) {
-        return s1;
-    } else if (stof(s1) < stof(s2)) {
-        return s2;
+} else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
+    float a_float = a.type() == typeid(int) ? boost::any_cast<int>(a) : stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float b_float = b.type() == typeid(int) ? boost::any_cast<int>(b) : stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(a_float > b_float){
+        return a;
+    } else if(a_float < b_float){
+        return b;
+    } else {
+        return "None";
     }
 }
-return "None";
