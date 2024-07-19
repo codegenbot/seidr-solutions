@@ -25,7 +25,6 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(filtered_arr.begin(), filtered_arr.end());
-
     std::reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
