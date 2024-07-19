@@ -15,7 +15,10 @@ int main() {
     std::string line, lst; 
     std::cout << "Enter the strings: ";
     while((std::getline(std::cin, line)) && !line.empty()) {
-        lst = line; 
+        lst = ""; // Initialize string
+        for(char &c : line) { // use reference to modify the original character
+            lst += c; // directly append characters to string
+        }
         std::cin.ignore(); 
     }
     if (match_parens(lst)) {
