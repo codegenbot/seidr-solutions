@@ -1,13 +1,11 @@
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
-using namespace std;
-
-string concatenate(vector<string> strings){
-    string result;
-    for(const string& s : strings){
-        result += s;
+std::string concatenate(const std::vector<std::string>& strings) {
+    std::string result = "";
+    for (const std::string& str : strings) {
+        result += str;
     }
     return result;
 }
