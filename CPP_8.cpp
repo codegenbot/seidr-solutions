@@ -14,7 +14,7 @@ namespace Solution {
     }
 }
 
-int test() {
+int main() {
     assert(Solution::sum_product({10, 10}) == vector<int>{20, 100});
     assert(Solution::sum_product({10}) == vector<int>{10, 10});
     return 0;
