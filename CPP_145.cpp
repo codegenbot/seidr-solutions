@@ -10,3 +10,5 @@ bool issame(const vector<int>& a, const vector<int>& b){
     });
     return a == b;
 }
+
+assert(issame(sort_by_sum_of_digits({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
