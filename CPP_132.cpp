@@ -1,13 +1,15 @@
-bool is_nested(const char* str) {
+bool is_nested(string str) {
     int count = 0;
-    for (int i = 0; str[i]; ++i) {
-        if (str[i] == '[') {
+    for (char c : str) {
+        if (c == '[') {
             count++;
-        } else if (str[i] == ']') {
+        } else if (c == ']') {
             if (count > 0) {
                 count--;
+            } else {
+                return false;
             }
         }
     }
-    return count != 0;
+    return count > 0;
 }
