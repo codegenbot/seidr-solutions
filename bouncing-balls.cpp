@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <cmath> 
+
 using namespace std;
 
 int main() {
@@ -13,10 +15,10 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        cout << fixed << setprecision(6);
-        totalDistance += pow(2, -0.5) * bouncinessIndex;
+        totalDistance += std::pow(2, -0.5) * bouncinessIndex;
     }
 
+    cout << fixed << std::setprecision(6);
     cout << totalDistance << endl;
 
     return 0;
