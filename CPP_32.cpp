@@ -20,7 +20,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> coeffs(n); // Initialize with 'n'
+    vector<double> coeffs(n); 
 
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
