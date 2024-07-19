@@ -1,22 +1,28 @@
-vector<float> even_elements;
-    vector<float> result;
-    
-    for (int i = 0; i < l.size(); ++i) {
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_vals;
+    vector<float> sorted_even_vals;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_elements.push_back(l[i]);
+            even_vals.push_back(l[i]);
+            sorted_even_vals.push_back(l[i]);
         }
     }
-    
-    sort(even_elements.begin(), even_elements.end());
-    
-    int even_index = 0;
-    for (int i = 0; i < l.size(); ++i) {
+    sort(sorted_even_vals.begin(), sorted_even_vals.end());
+    int sorted_even_index = 0;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_elements[even_index++]);
-        } else {
-            result.push_back(l[i]);
+            l[i] = sorted_even_vals[sorted_even_index];
+            sorted_even_index++;
         }
     }
-    
-    return result;
+    return l;
+}
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
 }
