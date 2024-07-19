@@ -3,15 +3,15 @@
 #include <limits>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
-    std::vector<std::pair<float, float>> pairs = {};
+    vector<pair<float, float>> pairs = {};
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j <= numbers.size() - 1; j++) {
             pairs.push_back({numbers[i], numbers[j]});
         }
     }
 
-    float min_diff = std::numeric_limits<float>::max();
-    std::pair<float, float> closest_pair;
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
     for (auto &p : pairs) {
         float diff = p.second - p.first;
         if (abs(diff) < abs(min_diff)) {
@@ -19,5 +19,5 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
             closest_pair = p;
         }
     }
-    return closest_pair;
+    return {closest_pair.first, closest_pair.second};
 }
