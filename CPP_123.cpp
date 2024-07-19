@@ -21,7 +21,6 @@ int get_odd_collatz(int n) {
 }
 
 int main_function() {
-    int collatz = get_odd_collatz(1);
-    assert(same({collatz}, vector<int>({1})));
+    assert(get_odd_collatz(1) == 1);
     return 0;
 }
