@@ -51,13 +51,3 @@ int main() {
     }
     return 0;
 }
-
-int main() {
-    std::vector<float> grades = {0.0f, 0.7f};
-    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
-
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << " ";
-    }
-    assert(same(numerical_letter_grade({0.0f, 0.7f}), {"F", "D+"}));
-}
