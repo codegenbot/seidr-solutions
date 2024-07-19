@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cmath>
 #include <cassert>
 #include <iostream>
@@ -15,9 +15,11 @@ float triangle_area(float a, float b, float c) {
 int main() {
     float a, b, c;
     std::cin >> a >> b >> c;
-    if (triangle_area(a, b, c) >= 0)
-        std::cout << "The area of the triangle is: " << triangle_area(a, b, c) << std::endl;
-    else
-        std::cout << "These values do not form a valid triangle." << std::endl;
+    float result = triangle_area(a, b, c);
+    if(result == -1.0f) {
+        std::cout << "Not a valid triangle" << std::endl;
+    } else {
+        std::cout << "The area of the triangle is " << result << std::endl;
+    }
     return 0;
 }
