@@ -14,13 +14,12 @@ string string_to_md5(string text) {
 
     EVP_MD_CTX_init(&md_ctx);
 
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        EVP_UPDATE(&md_ctx, (const unsigned char*)ptr, 1);
-        ptr++;
-    }
-    
-    output = EVP_Finalize(&md_ctx, &output_len);
+    const uint8_t* ptr = reinterpret_cast<const uint8_t*>(text.c_str());
+    size_t len = text.size();
+
+    EVP_Update(&md_ctx, &ptr, len);
+
+    output = EVP_Final(&md_ctx, &output_len);
 
     string result;
     for (int i = 0; i < output_len; i++) {
