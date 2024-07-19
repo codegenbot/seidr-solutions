@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <cmath>
 
 int skjkasdkd(vector<int> lst) {
     int max_prime = 0;
@@ -28,10 +28,4 @@ bool isPrime(int n) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
-    vector<int> numbers = {1, 2, 3};
-    cout << "Sum: " << skjkasdkd(numbers) << endl;
 }
