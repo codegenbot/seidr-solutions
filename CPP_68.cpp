@@ -1,22 +1,10 @@
-#include <iostream>
 #include <vector>
 
-bool issame(int a, int b) {
+bool issame(int a, int b){
     return a == b;
 }
 
 std::vector<int> pluck(std::vector<int> arr);
-
-int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::vector<int> result = pluck(arr);
-    
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    
-    return 0;
-}
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
