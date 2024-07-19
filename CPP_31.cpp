@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <sstream>
 
@@ -18,12 +17,13 @@ int main() {
     int n, count = 0;
     cin >> n;
 
-    cout << "Number of primes less than or equal to " << n << ": ";
+    stringstream ss;
     for (int i = 2; i <= n; i++) {
         if (is_prime(i)) {
+            ss << i << " ";
             count++;
         }
     }
-    cout << count << endl;
+    cout << "Number of primes less than or equal to " << n << ": " << count << endl;
     return 0;
 }
