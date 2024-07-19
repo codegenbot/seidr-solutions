@@ -1,5 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -29,12 +32,11 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    // Add more test cases here
     return 0;
 }
