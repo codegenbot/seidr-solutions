@@ -1,13 +1,8 @@
 def minPath(grid, k):
     path = []
-    n = len(grid)
-    m = len(grid[0])
-    for i in range(k):
-        row = i // m
-        col = i % m
-        if row < n and col < m:
-            value = grid[row][col]
-            path.append(value)
-        else:
-            break
+    for i in range(len(grid) * len(grid[0])):
+        row = i // len(grid[0])
+        col = i % len(grid[0])
+        value = grid[row][col]
+        path.append(value)
     return path
