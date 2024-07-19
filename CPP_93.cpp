@@ -1,11 +1,14 @@
 string encode(string message){
-    for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
+    string encoded_message = message;
+    transform(encoded_message.begin(), encoded_message.end(), encoded_message.begin(), [](char c) {
+        if(isalpha(c)){
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                return isupper(c) ? toupper((c + 2 - 'A') % 26 + 'A') : (c + 2 - 'a') % 26 + 'a';
+            } else {
+                return isupper(c) ? tolower(c) : toupper(c);
             }
         }
-    }
-    return message;
+        return c;
+    });
+    return encoded_message;
 }
