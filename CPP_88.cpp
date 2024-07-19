@@ -5,21 +5,15 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty() || b.empty()) return false;
+    if(a.empty()) return a;
     
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
-
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
-    
-    int sum = array.front() + array.back();
+    int sum = a.front() + a.back();
     
     if(sum % 2 == 0) {
-        sort(array.begin(), array.end(), std::greater<int>());
+        sort(a.begin(), a.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        sort(a.begin(), a.end());
     }
     
-    return array;
+    return a;
 }
