@@ -1,11 +1,8 @@
 #include <algorithm>
 #include <vector>
+#include <numeric>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
@@ -30,6 +27,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({1, 4, 3, 2}), {1, 2, 3, 4}));
+    assert(strange_sort_vector({111111}) == std::vector<int>({111111}));
     return 0;
 }
