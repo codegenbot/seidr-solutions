@@ -32,7 +32,7 @@ void printOutput(string str, int num) {
                 cout << c;
             }
         }
-        cout.flush(); // consume the output manually
+        std::cout.flush(); // consume the output manually
     } else {
         cout << str << endl; 
     }
