@@ -5,10 +5,10 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    int i = 0;
+    int diff = 0;
     
     long long sum1 = 0, sum2 = 0;
-    int i = 0;
-    long long diff = 0;
     while(i < n) { 
         sum2 += v[i];
         sum1 -= v[i];
