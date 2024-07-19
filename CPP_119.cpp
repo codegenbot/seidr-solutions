@@ -13,14 +13,12 @@ bool match_parens(const std::vector<std::string>& lst) {
         }
     }
 
-    return countOpen == countClose;
+    if(countOpen != countClose) result = false;
+
+    return result;
 }
 
 int main() {
-    std::vector<std::string> lst = {"(a(b+c))", "(d(e(f(g)))", "((h(i(j))))"};
-    bool result = match_parens(lst);
-
+    bool result = match_parens({"(", ")"});
     std::cout << (result ? "Yes\n" : "No\n");
-
     return 0;
-}
