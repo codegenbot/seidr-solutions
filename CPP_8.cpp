@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(const std::pair<int, int>& a, const std::vector<int>& b) {
-    return a.first == b[0] && a.second == b[1];
+    return a.first == b.at(0) && a.second == b.at(1);
 }
 
 std::pair<int, int> sum_product(int num1, int num2) {
