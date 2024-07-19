@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,6 +17,17 @@ long long doubleTheDifference(vector<float> lst) {
     return abs(pos_sum - neg_sum);
 }
 
-long long result = doubleTheDifference(numbers);
-cout << "Double the difference: " << result << endl;
-return 0;
+int main() {
+    vector<float> numbers;
+    float inputNumber; 
+    long long result = 0; 
+    cout << "Enter numbers (enter 'stop' to finish): ";
+    while (true) {
+        cin >> inputNumber; 
+        if (!cin) break;
+        numbers.push_back(inputNumber);
+    }
+    result = doubleTheDifference(numbers);
+    cout << "Double the difference: " << result << endl;
+    return 0;
+}
