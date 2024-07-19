@@ -2,4 +2,4 @@
 result = input()
 
 # Print the result from input
-print(result)
+print(int(result))
