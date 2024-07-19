@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 
 std::vector<float> extract_positives(std::vector<float> numbers) {
     std::vector<float> positive_numbers;
@@ -12,11 +12,6 @@ std::vector<float> extract_positives(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {-1.0, 0.0, 1.0};
-    auto result = extract_positives(numbers);
-    for (float number : result) {
-        std::cout << number << " ";
-    }
-    std::cout << std::endl;
+    assert(extract_positives({}).size() == 0);
     return 0;
 }
