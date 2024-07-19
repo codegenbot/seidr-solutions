@@ -1,9 +1,11 @@
+import sys
+
 def add(a, b):
     return a + b
 
 try:
     while True:
-        line = input("Enter two integers separated by space: ").strip()
+        line = sys.stdin.readline().strip()
         if line == '':
             break
         x, y = map(int, line.split())
