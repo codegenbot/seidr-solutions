@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <cassert>
 
 bool has_close_elements(const std::vector<float>& a) {
     for (int i = 0; i < a.size() - 1; ++i) {
@@ -12,12 +12,4 @@ bool has_close_elements(const std::vector<float>& a) {
 
 std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
 
-int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if (has_close_elements(a)) {
-        std::cout << "Close elements exist." << std::endl;
-    } else {
-        std::cout << "No close elements found." << std::endl;
-    }
-    return 0;
-}
+assert(has_close_elements(a) == false);
