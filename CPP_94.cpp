@@ -14,6 +14,7 @@ int customBitCount(int* arr, int size) {
 
 int main() {
     int arr[] = {127, 97, 8192};
-    assert(customBitCount(&arr[0], sizeof(arr)/sizeof(int)) == 10);
+    int size = sizeof(arr) / sizeof(arr[0]);
+    assert(bitCount(*((int*)arr)) == customBitCount(&arr[0], size));
     return 0;
 }
