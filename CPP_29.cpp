@@ -2,12 +2,10 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<string> &a, const vector<string> &b) {
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { return a == b; }
 
-vector<string> filter_by_prefix(const vector<string> &strings, const string &prefix) {
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+    std::vector<std::string> result;
     for (const auto &str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
@@ -17,7 +15,7 @@ vector<string> filter_by_prefix(const vector<string> &strings, const string &pre
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
+    
     return 0;
 }
