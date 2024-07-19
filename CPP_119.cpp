@@ -1,27 +1,17 @@
-```c
 #include <iostream>
 #include <vector>
 
-bool match_parens(const std::vector<char>& lst) {
-    int open = 0, close = 0;
-    for (char x : lst) {
-        if (x == '(') open++;
-        else if (x == ')') close++;
-    }
-    return open == close;
-}
-
-int main() {
+int balance_parens() {
     std::vector<char> lst;
     std::cout << "Enter the strings: ";
     char c;
     while((c = getchar()) != '\n') {
         lst.push_back(c);
     }
-    if (match_parens(lst)) {
-        std::cout << "The parentheses are matched." << std::endl;
-    } else {
-        std::cout << "The parentheses are not matched." << std::endl;
+    int open = 0, close = 0;
+    for (char x : lst) {
+        if (x == '(') open++;
+        else if (x == ')') close++;
     }
-    return 0;
+    return (open == close) ? 0 : -1;
 }
