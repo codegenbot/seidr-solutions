@@ -21,6 +21,7 @@ string int_to_mini_roman(int number){
 int main() {
     int number;
     cin >> number;
-    cout << int_to_mini_roman(number);
+    string result = int_to_mini_roman(number);
+    cout << result;
     return 0;
 }
