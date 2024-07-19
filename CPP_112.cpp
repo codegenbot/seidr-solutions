@@ -1,7 +1,6 @@
-```
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool sameStrings(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -37,9 +36,11 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-int driver() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    bool res1 = sameStrings(output, {"", "True"});
+int main() {
+    string s = "mamma";
+    string c = "mia";
+    vector<string> output = reverse_delete(s, c);
+    bool res1 = sameStrings(output, vector<string>{"" , "True"});
     assert(res1);
     return 0;
 }
