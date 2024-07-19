@@ -1,19 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+#include <set>
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    unordered_map<int, bool> seen;
+    std::set<int> seen;
     std::vector<int> result;
 
     for (int num : numbers) {
-        if (seen.find(num) == seen.end()) {
-            seen[num] = true;
+        if (!seen.count(num)) {
+            seen.insert(num);
             result.push_back(num);
         }
     }
