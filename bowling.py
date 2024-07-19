@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the modified code:
 
 def bowling_score(game):
     score = 0
@@ -22,7 +22,7 @@ def bowling_score(game):
             if frame < 9:
                 if game[i] == 'X':
                     score += 10
-                    score += int(game[:i-1])
+                    score += int(game[:i])
                 elif game[i] == '/':
                     score += 10 - int(game[i-1:i])
                     score += int(game[:i-2])
