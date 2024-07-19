@@ -42,9 +42,10 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> words = select_words("a b c d e f", 1);
-    for (string w : words) {
-        // Use the words in the 'words' vector as needed
+    vector<string> result = select_words("a b c d e f", 1);
+    for (string word : result) {
+        // Use the words in the 'result' vector as needed
     }
-    assert(issame(words, vector<string>({"b", "c", "d", "f"})));
+    assert(issame(result, {"b", "c", "d", "f"})); 
+    return 0;
 }
