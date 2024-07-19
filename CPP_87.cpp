@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool std::vector<std::vector<int>> issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
+bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
     return a == b;
 }
 
@@ -30,7 +30,7 @@ bool check_vectors(const std::vector<std::vector<int>>& actual, const std::vecto
 std::vector<std::vector<int>> expected = { {2, 2} };
 
 auto result = get_row({ {}, {1}, {1, 2, 3} }, 3);
-if (issame(result, expected)) {
+if (check_vectors(result, expected)) {
     std::cout << "Test Passed!\n";
 } else {
     std::cout << "Test Failed!\n";
