@@ -1,3 +1,4 @@
-int result = abs(a % 10) * abs(b % 10);
-    return result;
+#include <cstdlib>
+int multiply(int a, int b){
+    return std::abs((a % 10) * (b % 10));
 }
