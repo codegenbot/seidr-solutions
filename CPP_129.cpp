@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {}
@@ -9,11 +5,11 @@ bool issame(vector<int> a, vector<int> b) {}
 vector<int> minPath(vector<vector<int>> grid, int k);
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3},
-                                 {4, 5, 6},
-                                 {7, 8, 9}};
+    vector<vector<int>> grid = {{1, 3, 7},
+                                 {4, 2, 5},
+                                 {6, 8, 0}};
     int k = 5;
-
+    
     vector<int> result = minPath(grid, k);
 
     for (int val : result) {
