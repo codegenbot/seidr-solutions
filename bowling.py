@@ -2,14 +2,14 @@
 def bowling_score(frames):
     score = 0
     frame = 1
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            score += int(frames[i])
+    for char in frames:
+        if char.isdigit():
+            score += int(char)
             if frame == 10:
                 break
             frame += 1
-        elif frames[i] == '/':
-            spare = int(frames[i-1]) + int(frames[i+1])
-            score += 10 - spare
+        elif char == '/':
+            strike_value = 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            score += strike_value
             frame += 1
     return score
