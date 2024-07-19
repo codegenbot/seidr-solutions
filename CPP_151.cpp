@@ -1,14 +1,17 @@
-double double_the_difference(double a, double b) {
-    return 2 * (a - b);
-}
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst);
 
 int main() {
-    vector<float> lst = {2.5, 3.0, 4.2, 5.0, 6.2};
-    long long odd_sum = double_the_difference(lst);
+    std::vector<float> lst = {1.5, 2.0, 3.0, 4.5};
+    std::cout << double_the_difference(lst) << std::endl;
+
     return 0;
 }
 
-long long double_the_difference(const vector<float>& lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
