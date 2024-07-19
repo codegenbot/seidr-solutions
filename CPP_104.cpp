@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
