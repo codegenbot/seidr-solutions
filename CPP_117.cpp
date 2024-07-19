@@ -1,31 +1,15 @@
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    if (s.empty()) {
-        return result;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
 
-    string word;
-    int consonant_count = 0;
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonant_count == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonant_count = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonant_count++;
-            }
-            word += c;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
 
-    if (consonant_count == n) {
-        result.push_back(word);
-    }
+    return true;
+}
 
-    return result;
-} 
+vector<string> select_words(string s, int n);
