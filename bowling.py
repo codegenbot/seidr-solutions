@@ -1,4 +1,3 @@
-```python
 def bowling_score(frames):
     score = 0
     frame = 1
@@ -7,8 +6,14 @@ def bowling_score(frames):
             score += 30
             frame += 1
         elif frames[i] == '/':
-            score += 10 + int(frames[i+1])
-            frame += 2
+            score += 10
+            while i < len(frames) - 1 and not frames[i+1].isdigit():
+                if frames[i+1] == 'X':
+                    score += 30
+                    frame += 1
+                    break
+                else:
+                    i += 1
         else:
             first_roll = int(frames[i])
             if i < len(frames) - 1 and frames[i+1] == 'X':
