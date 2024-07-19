@@ -6,7 +6,7 @@ while True:
         if n <= 0:
             raise ValueError("Please enter a positive integer greater than zero.")
         
-        result = math.prod(map(int, str(n)))
+        result = math.prod(int(digit) for digit in str(n) if digit != '0')
         print(result)
         break
         
