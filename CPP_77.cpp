@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 bool iscuber(int a) {
     int cube_root = round(cbrt(a));
