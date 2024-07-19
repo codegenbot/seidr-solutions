@@ -6,17 +6,7 @@ using namespace std;
 
 vector<string> split_words(string txt);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -45,4 +35,16 @@ vector<string> split_words(string txt) {
         result.push_back(to_string(count));
     }
     return result;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
