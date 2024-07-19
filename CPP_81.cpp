@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -45,10 +48,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-int main() {
+int 
+main() {
     vector<float> grades;
     cout << "Enter the grades (Press 'q' to quit):" << endl;
-
+    
     while (true) {
         string s;
         getline(cin, s);
@@ -58,7 +62,7 @@ int main() {
         grades.push_back(grade);
         cin.ignore();
     }
-
+    
     vector<string> letter_grades = numerical_letter_grade(grades);
     for (int i = 0; i < letter_grades.size(); ++i) {
         cout << "Grade: " << letter_grades[i] << endl;
