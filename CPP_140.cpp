@@ -1,5 +1,8 @@
+#include <string>
+#include <cassert>
+
 std::string fix_spaces(const std::string& text) {
-    std::string modified_text = text;
+    std::string modified_text = text; 
     for (int i = 0; i < modified_text.length(); ++i) {
         if (modified_text[i] == ' ' && i + 2 < modified_text.length() && modified_text[i + 1] == ' ' && modified_text[i + 2] == ' ') {
             modified_text.replace(i, 3, "-");
