@@ -1,16 +1,16 @@
-#include <vector> // Include the vector header file
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Fix function signature
-    return a == b; // Compare vectors for equality
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> eat(int number, int need, int remaining) { // Specify the namespace for vector
+std::vector<int> eat(int number, int need, int remaining) {
     int totalCarrots = number + need;
-    int carrotsLeft = std::max(0, remaining - need); // Specify the namespace for max
+    int carrotsLeft = std::max(0, remaining - need);
     return {totalCarrots, carrotsLeft};
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0})); // Add appropriate assert statement
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
