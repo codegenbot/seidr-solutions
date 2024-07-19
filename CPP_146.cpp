@@ -5,5 +5,11 @@ int specialFilter(std::vector<int> nums) {
             c++;
         }
     }
-    return c;
+    return c; 
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    // add more test cases as needed
+    return 0;
 }
