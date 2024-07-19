@@ -1,20 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!(a[i] == b[i]))
-            return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
 }
 
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string revResult = "";
+    string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -24,23 +17,14 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, ch));
-            revResult += ch;
+            result += ch;
         }
     }
+    string revResult = result;
     reverse(revResult.begin(), revResult.end());
-    return {{"True" , result}, (result.size() == revResult.size() ? "True" : "False")};
+    return {result, (result == revResult ? "True" : "False")};
 }
 
 int main() {
-    string s, c;
-    cout << "Enter the input string: ";
-    cin >> s;
-    cout << "Enter the character to delete: ";
-    cin >> c;
-    vector<string> output = reverse_delete(s,c);
-    for (const auto& str : output) {
-        cout << str << endl;
-    }
-    return 0;
+    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
 }
