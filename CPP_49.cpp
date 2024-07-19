@@ -20,5 +20,5 @@ int modp(int n, int p) {
         }
         n = (n * n) % p;
     }
-    return result;   
+    return result;
 }
