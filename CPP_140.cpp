@@ -1,17 +1,20 @@
 string result = "";
-    bool consecutive = false;
+    bool prevSpace = false;
+    
     for(char c : text){
         if(c == ' '){
-            if(consecutive){
-                result += '-';
+            if(prevSpace){
+                result.pop_back();
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
             }
-            consecutive = true;
+            prevSpace = true;
         } else {
-            result += c;
-            consecutive = false;
+            result.push_back(c);
+            prevSpace = false;
         }
     }
+    
     return result;
 }
