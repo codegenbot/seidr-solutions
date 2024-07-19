@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
@@ -48,3 +47,4 @@ int main() {
         std::cout << "Strings are not the same." << std::endl;
     }
     return 0;
+}
