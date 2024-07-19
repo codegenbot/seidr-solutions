@@ -1,46 +1,30 @@
-#include <vector>
-#include <string>
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(std::string(1, ch));
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+            temp += s[i];
         }
     }
-    std::string temp = "";
-    for (int i = 0; i < result.size(); i++) {
-        temp += result[i];
-    }
-    if (temp == std::string(reverse(temp))) {
-        result.push_back("True");
+    if (temp.length() > 1) {
+        if (temp == reverse(s)) {
+            result.push_back(temp);
+            result.push_back("True");
+        } else {
+            result.push_back(temp);
+            result.push_back("False");
+        }
     } else {
+        result.push_back(temp);
         result.push_back("False");
     }
     return result;
 }
 
-std::string reverse(std::string s) {
-    std::string rev = "";
-    for (int i = s.size() - 1; i >= 0; i--) {
-        rev += s[i];
+string reverse(string str) {
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        rev += str[i];
     }
     return rev;
-
-bool isSame(const std::vector<std::string>& v) {
-    if(v.size() < 2) {
-        return false;
-    }
-    std::string temp = "";
-    for (int i = 0; i < v.size(); i++) {
-        temp += v[i];
-    }
-    return temp == std::string(reverse(temp));
 }
