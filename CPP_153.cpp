@@ -1,12 +1,12 @@
-#include <initializer_list>
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 #include <iostream>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0, sm = 0;
@@ -25,8 +25,8 @@ int Strongest_Extension(string class_name, vector<string> extensions){
 }
 
 int main(){
-    string class_name = "My";
-    vector<string> extensions = {"Java", "Python", "C++"};
-    cout << Strongest_Extension(class_name, extensions) << endl;
+    std::string class_name = "My";
+    std::vector<std::string> extensions = {"Java", "Python", "C++"};
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
