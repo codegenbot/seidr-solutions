@@ -1,8 +1,11 @@
-Here is the completed code for the GCD problem:
+Here is the solution:
 
 def gcd(a, b):
-    while b:
+    while b != 0:
         a, b = b, a % b
     return abs(a)
 
-# Doctest will automatically test this function with provided input and expected output.
+a = int(input())
+b = int(input())
+
+print(gcd(a, b))
