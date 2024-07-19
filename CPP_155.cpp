@@ -1,5 +1,6 @@
 vector<int> counts(2, 0);
     string num_str = to_string(abs(num));
+    
     for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -7,5 +8,6 @@ vector<int> counts(2, 0);
             counts[1]++;
         }
     }
+    
     return counts;
 }
