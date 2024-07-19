@@ -1,23 +1,24 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-string intToMiniRoman(int num) {
-    string result;
+std::string intToMiniRoman(int num) {
+    string roman;
     int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     const char* sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     int i = 0;
     while (num > 0) {
         if (num >= val[i]) {
             num -= val[i];
-            result += sym[i];
+            roman += sym[i];
         } else {
             i++;
         }
     }
-    return result; 
+    return roman; 
 }
 
 int main() { 
