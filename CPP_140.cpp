@@ -8,7 +8,7 @@ std::string fix_spaces(std::string text) {
     for (char c : text) {
         if (c == ' ') {
             consecutive_spaces++;
-            if (consecutive_spaces > 2) {
+            if (consecutive_spaces >= 2) {
                 result.pop_back();
                 result.pop_back();
                 result += "-";
