@@ -1,2 +1,3 @@
 def remove_duplicates(numbers):
-    return list(dict.fromkeys(numbers).keys())
+    seen = set()
+    return list(dict.fromkeys(numbers))
