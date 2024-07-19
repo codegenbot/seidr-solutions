@@ -1,7 +1,15 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 using namespace std;
+
+bool same(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 bool isPalindrome(int n) {
     int rev = 0;
