@@ -11,20 +11,9 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
     }
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    float val1, val2;
-    if (boost::any_cast<string>(a).find_first_of(",.") != string::npos) {
-        val1 = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find_first_of(","), 1, "."));
-    } else {
-        val1 = stof(boost::any_cast<string>(a));
-    }
-    if (boost::any_cast<string>(b).find_first_of(",.") != string::npos) {
-        val2 = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find_first_of(","), 1, "."));
-    } else {
-        val2 = stof(boost::any_cast<string>(b));
-    }
-    if (val1 > val2) {
+    if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
         return a;
-    } else if (val1 < val2) {
+    } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
         return b;
     }
 }
