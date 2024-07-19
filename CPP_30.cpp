@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,6 +24,6 @@ std::vector<float> get_positive(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(isSame(get_positive({}), std::vector<float>{}));
+    assert(isSame(get_positive({}), std::vector<int>{}));
     return 0;
 }
