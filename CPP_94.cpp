@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <cassert>
 
-int skjkasdkd(std::vector<int> lst) {
+int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -31,11 +32,11 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    std::vector<int> test1 = {2,3,4,5};
-    std::cout << "Test 1: " << skjkasdkd(test1) << std::endl;
+    vector<int> lst1 = {2, 3, 5};
+    assert(skjkasdkd(lst1) == 7);
 
-    std::vector<int> test2 = {7,8,9,10};
-    std::cout << "Test 2: " << skjkasdkd(test2) << std::endl;
-    
+    vector<int> lst2 = {4, 6, 8};
+    assert(skjkasdkd(lst2) == 9);
+
     return 0;
 }
