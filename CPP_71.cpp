@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <cassert>
 #include <iostream>
@@ -21,3 +22,4 @@ int main() {
     else
         std::cout << "The sides do not form a valid triangle";
     return 0;
+}
