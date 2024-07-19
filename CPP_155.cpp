@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> countEvenOddDigits(int num) {
+std::vector<int> countDigitParity(int num) {
     std::vector<int> count(2, 0);
     std::string numStr = std::to_string(abs(num));
     for (char c : numStr) {
