@@ -3,10 +3,9 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+using namespace std;
 
 std::vector<std::string> split_words(const std::string &txt) {
     std::vector<std::string> result;
@@ -27,17 +26,21 @@ std::vector<std::string> split_words(const std::string &txt) {
     if(result.size() == 0){
         int count = 0;
         for(char c : txt){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        result.push_back(std::to_string(count));
+        result.push_back(to_string(count));
     }
     return result;
 }
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
     assert(issame(split_words(""), {"0"}));
-    
+
     return 0;
 }
