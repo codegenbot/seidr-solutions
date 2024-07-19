@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -12,7 +12,11 @@ std::vector<int> uniqueElements(std::vector<int> l) {
     return l;
 }
 
-int main() {
+void solveProblem() {
     assert(issame(uniqueElements({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+}
+
+int main() {
+    solveProblem();
     return 0;
 }
