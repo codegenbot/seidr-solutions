@@ -12,18 +12,15 @@ int bowlingScore(std::string s) {
         }
         
         if (c >= '1' && c <= '9') {
-            int strike = false;
             while (c != '/' && c >= '0' && c <= '9') {
-                frames[currentFrame] *= 10 + (c - '0');
-                size_t i = s.find(std::string(1, c));
-                if (i == string::npos) break;
-                c = s[i+1];
+                frames[currentFrame] += c - '0';
+                c = next(c, s);
             }
             
-            if (!strike) {
-                score += frames[currentFrame];
-            } else {
+            if (frames[currentFrame] == 10) {
                 score += 10;
+            } else {
+                score += frames[currentFrame];
             }
         }
     }
@@ -32,7 +29,6 @@ int bowlingScore(std::string s) {
 }
 
 char next(char c, std::string s) {
-    size_t i = s.find(std::string(1, c));
-    if (i == string::npos) return '\0';
+    int i = s.find(c);
     return s[i + 1];
 }
