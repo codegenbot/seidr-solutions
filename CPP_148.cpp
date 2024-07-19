@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <algorithm> // for min and max
+#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +9,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b);
 vector<string> bf(string planet1, string planet2);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Implement the issame function
     return a == b;
 }
 
