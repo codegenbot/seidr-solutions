@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -24,7 +25,7 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main_func() {
-    std::vector<float> input;
-    assert(true);
+    std::vector<float> input = {};
+    assert(issame({}, get_positive(input)));
     return 0;
 }
