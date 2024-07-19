@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-std::vector<int> eat(int number, int remaining, int need) {
+std::pair<int, int> eat(int number, int remaining, int need) {
     int totalEaten = number + remaining;
     int carrotsLeft = std::max(0, remaining - (need - number));
     return {totalEaten, carrotsLeft};
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
 }
 
