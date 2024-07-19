@@ -1,11 +1,10 @@
 ```cpp
 #include <vector>
 #include <string>
-using namespace std;
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letterGrades;
-    for (float grade : grades) {
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+    std::vector<std::string> letterGrades;
+    for (const auto& grade : grades) {
         if (grade >= 4.0f)
             letterGrades.push_back("A");
         else if (grade >= 3.5f)
@@ -21,11 +20,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.8f, 2.9f, 4.1f, 3.5f};
-    vector<string> letterGrades = numerical_letter_grade(grades);
+    std::vector<float> grades = {3.8f, 2.9f, 4.1f, 3.5f};
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
 
     for (const auto& grade : letterGrades) {
-        cout << grade << " ";
+        std::cout << grade << " ";
     }
     return 0;
 }
