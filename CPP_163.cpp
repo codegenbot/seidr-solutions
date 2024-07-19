@@ -11,13 +11,12 @@ std::vector<int> generate_integers(int start, int end) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result;
     for (int i : a) {
         if (std::find(b.begin(), b.end(), i) != b.end()) {
-            result.push_back(i);
+            return true;
         }
     }
-    return !result.empty();
+    return false;
 }
 
 int main() {
