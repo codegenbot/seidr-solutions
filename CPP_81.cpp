@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -46,7 +45,18 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.9, 4.1, 3.5};
+    vector<float> grades;
+    int n;
+    cout << "Enter the number of students: ";
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        float grade;
+        cout << "Enter student " << i+1 << "'s grade: ";
+        cin >> grade;
+        grades.push_back(grade);
+    }
+    
     vector<string> letterGrades = numerical_letter_grade(grades);
     
     for (const auto& grade : letterGrades) {
