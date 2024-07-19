@@ -1,14 +1,10 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a % 3 == 0 ? b % 3 == 0 ? a < b : true : b % 3 == 0 ? false : a < b;
-}
-
-void sort_third(vector<int>& l) {
+vector<int> sort_third(vector<int> l) {
     sort(l.begin(), l.end(), [](int a, int b) {
-        return issame(a, b);
+        return a % 3 == 0 ? b % 3 == 0 ? a > b : true : b % 3 == 0 ? false : a > b;
     });
+    return l;
 }
 
-int main() {
-    // Other code using the sort_third function
-    return 0;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
