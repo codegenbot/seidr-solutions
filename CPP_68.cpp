@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
