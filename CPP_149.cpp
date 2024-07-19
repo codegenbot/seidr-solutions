@@ -1,14 +1,33 @@
-bool issame(vector<string>& a, vector<string>& b) {
+bool issame(vector<string> a, const vector<string>& b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> lst_copy = lst;
+    lst_copy.erase(remove_if(lst_copy.begin(), lst_copy.end(), [](const string& s) { return s.length() % 2 != 0; }), lst_copy.end());
+    sort(lst_copy.begin(), lst_copy.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return lst;
+    return lst_copy;
+}
+
+int main() {
+    vector<string> vec1 = {"apple", "banana", "orange", "kiwi"};
+    vector<string> vec2 = {"apple", "banana", "orange", "kiwi"};
+    
+    if (issame(vec1, vec2)) {
+        cout << "Vectors are the same" << endl;
+    } else {
+        cout << "Vectors are different" << endl;
+    }
+    
+    vector<string> result = sorted_list_sum(vec1);
+    for (const auto& str : result) {
+        cout << str << " ";
+    }
+    
+    return 0;
 }
