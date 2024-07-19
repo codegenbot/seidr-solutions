@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool compare_vectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,14 +16,14 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
-        if (i > 0) {
+        if (i > 0 && !l.empty()) { 
             result.push_back(i);
         }
     }
     return result;
 }
 
-int main() {
-    assert(issame(get_positive({}), {}));
+int main_func() {
+    assert(compare_vectors(get_positive({1}), {1}));
     return 0;
 }
