@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
-
-vector<string> sorted_list_sum(vector<string> lst);
-
 bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
