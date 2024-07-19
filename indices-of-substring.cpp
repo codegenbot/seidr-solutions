@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -6,11 +5,16 @@ using std::cin;
 using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
+    if (target.length() == 0) { // target length is 0
+        result.push_back(-1); // or any other sentinel value
+        return result;
+    }
+    
     std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
-    for(int i=0; i<=n-m; i++){
+    for(int i=0; i<n-m+1; i++){
         if(text.substr(i,m) == target){
             result.push_back(i);
         }
@@ -21,9 +25,8 @@ std::vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text;
-    cin.ignore();
-    std::getline(cin, target);
+    cin >> text >> target;
+    cin.ignore(); 
     cin.ignore(); 
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
