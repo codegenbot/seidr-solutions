@@ -2,19 +2,13 @@
 #include <vector>
 #include <iostream>
 
-bool issueame(std::vector<int> a, std::vector<int> b) {
+bool areVectorsSame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
 }
 
 int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    std::cout << "Original array: ";
-    for (int num : nums) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
     std::vector<int> result = order_by_points(nums);
-    std::cout << "Array after sorting: ";
     for (int num : result) {
         std::cout << num << " ";
     }
