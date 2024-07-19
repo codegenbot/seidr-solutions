@@ -12,11 +12,7 @@ std::vector<int> uniqueElements(std::vector<int> l) {
     return l;
 }
 
-void solveProblem() {
-    assert(issame(uniqueElements({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-}
-
 int main() {
-    solveProblem();
+    assert(issame(uniqueElements({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
     return 0;
 }
