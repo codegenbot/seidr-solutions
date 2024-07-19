@@ -1,6 +1,3 @@
-#include <algorithm>
-#include <vector>
-
 bool areSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
@@ -9,15 +6,10 @@ std::vector<float> sortEven(std::vector<float> l){
     std::vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            auto start = l.begin() + i;
-            auto end = l.end();
-            while(start != end && *start % 2.0f != 0.0f) {
-                start++;
-            }
-            std::vector<float> even_elements(start, end);
-            std::sort(even_elements.begin(), even_elements.end());
-            if(!even_elements.empty()) {
-                l_prime.push_back(*std::min_element(even_elements.begin(), even_elements.end()));
+            auto even_elements = std::partition(l.begin() + i, l.end(), [](float x) { return x % 2.0f == 0.0f });
+            while(even_elements != l.end()){
+                l_prime.push_back(*even_elements);
+                even_elements++;
             }
         } else {
             l_prime.push_back(l[i]);
