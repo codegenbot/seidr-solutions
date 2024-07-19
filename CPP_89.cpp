@@ -1,14 +1,21 @@
-Here is the solution:
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 26) % 26 + 'a';
+            char base = 'a';
+            while ((c - base + 4) % 26 < 0) {
+                base = 'z';
+            }
+            result += (base + (c - base + 4) % 26);
         } else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 26) % 26 + 'A';
+            char base = 'A';
+            while ((c - base + 4) % 26 < 0) {
+                base = 'Z';
+            }
+            result += (base + (c - base + 4) % 26);
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
