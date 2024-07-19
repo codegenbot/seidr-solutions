@@ -1,15 +1,13 @@
-Here is the solution:
-
-```cpp
 string encrypt(string s){
     string result = "";
-    for(int i=0; i<s.length();i++){
-        char ch = s[i];
-        if(ch >= 'a' && ch <= 'm'){
-            result += (ch + 4);
-        } else if(ch >= 'n' && ch <= 'z'){
-            result += (ch - 20);
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 2*2)%26 + 'a';
+        } else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 2*2)%26 + 'A';
         }
+        result += c;
     }
     return result;
 }
