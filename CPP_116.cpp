@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    // Your comparison logic here
-}
-
 std::vector<int> sort(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
         int count_a = __builtin_popcount(a);
@@ -15,6 +11,10 @@ std::vector<int> sort(std::vector<int> arr){
         return count_a < count_b;
     });
     return arr;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Your comparison logic here
 }
 
 int main(){
