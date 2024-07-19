@@ -8,6 +8,6 @@ vector<int> unique(vector<int> l){
 
 vector<int>::iterator unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
     sort(first, last);
-    auto it = unique_copy(first, last); 
-    return it; 
+    auto it = first; // not necessary
+    return it; // not possible to erase an iterator, so this line is also unnecessary
 }
