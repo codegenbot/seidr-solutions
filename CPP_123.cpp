@@ -1,32 +1,26 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<std::pair<int, int>> get_collatz(int n) {
-    std::vector<std::pair<int, int>> result;
-    for (int i = 1; i <= n; ++i) {
-        if (i == 1) {
-            result.push_back({i, 1});
-        } else if (i % 2 == 0) {
-            result.push_back({i, i / 2});
-        } else {
-            result.push_back({i, 3 * i + 1});
-        }
-    }
-    return result;
+using namespace std;
+
+bool same(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool issame(std::vector<std::pair<int, int>> a, std::vector<std::pair<int, int>> b) {
-    if (a.size() != b.size()) {
-        return false;
+int get_odd_collatz(int n) {
+    vector<int> sequence = {n};
+    while (n != 1) {
+        if (n % 2 == 0)
+            n = n / 2;
+        else
+            n = 3 * n + 1;
+        sequence.push_back(n);
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return sequence.size();
 }
 
-int testMain() {
-    assert(issame(get_collatz(1), {{1, 1}}));
+int main_function() {
+    assert(same({get_odd_collatz(1)}, vector<int>({1})));
     return 0;
 }
