@@ -3,7 +3,9 @@
 #include <assert.h>
 #include <iostream>
 
-bool issame(vector<int> a, vector<int> b) {
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,6 +14,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> sort_array(vector<int> arr) {
-    std::sort(arr.begin(), arr.end()); 
+    sort(arr.begin(), arr.end());
     return arr;
 }

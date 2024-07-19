@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -27,4 +27,3 @@ int main() {
     }
     std::cout << "Sum of bits is: " << solve(N) << std::endl;
     return 0;
-}
