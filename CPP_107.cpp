@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 bool isPalindrome(int n) {
     int rev = 0;
     int temp = n;
@@ -12,10 +14,18 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
+int even_odd_palindrome(int n) {
+    if (n < 0)
+        n = -n;
+    string str = to_string(n); 
+    bool is_palindrome = isPalindrome(stoi(str)); 
+    return is_palindrome && (n % 2 == 0);
+}
+
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "Is the number even and palindrome? " << (isPalindrome(n) && (n % 2 == 0)) << std::endl;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "Is the number even and palindrome? " << even_odd_palindrome(n) << endl;
     return 0;
 }
