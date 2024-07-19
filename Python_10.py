@@ -1,4 +1,2 @@
-string_input = input()
-integer_input = int(input())
-output = complete_code(string_input, integer_input)
+output = complete_code(input(), int(input()))
 print(output)
