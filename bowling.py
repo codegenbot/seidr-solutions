@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     frames = frames.replace("\n", "").replace(" ", "")
 
@@ -50,5 +49,3 @@ def bowling_score(frames):
             score -= 10
 
     return score
-
-print(bowling_score("3/X8--525X27X2161"))
