@@ -1,27 +1,29 @@
-#include <boost/any.hpp>
+#include <any>
+#include <string>
 #include <cassert>
-using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
-            return a;
-        } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
-            return b;
-        }
+template <typename T>
+T compare_one(std::any a, std::any b) {
+    if (std::any_cast<T>(a) > std::any_cast<T>(b)) {
+        return std::any_cast<T>(a);
+    } else if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
+        return std::any_cast<T>(b);
     }
+    return std::any_cast<T>(a);
+}
 
-    return boost::any();
+int main() {
+    auto a = std::any(10);
+    auto b = std::any(5);
+    assert(compare_one<int>(a, b) == 10);
+
+    auto c = std::any(7.5f);
+    auto d = std::any(3.2f);
+    assert(compare_one<float>(c, d) == 7.5f);
+
+    auto e = std::any(std::string("20.3"));
+    auto f = std::any(std::string("12.8"));
+    assert(compare_one<std::string>(e, f) == std::any_cast<std::string>(e));
+
+    return 0;
 }
