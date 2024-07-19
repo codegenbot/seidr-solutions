@@ -31,14 +31,11 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    vector<int> lst1 = {2, 3, 4, 5};
-    vector<int> lst2 = {11, 13, 17};
+    vector<int> test1 = {2, 3, 4, 5};
+    vector<int> test2 = {11, 12, 13};
 
-    int result1 = skjkasdkd(lst1);
-    int result2 = skjkasdkd(lst2);
-
-    cout << "Result for lst1: " << result1 << endl;
-    cout << "Result for lst2: " << result2 << endl;
+    cout << "Test 1: " << skjkasdkd(test1) << endl;
+    cout << "Test 2: " << skjkasdkd(test2) << endl;
 
     return 0;
 }
