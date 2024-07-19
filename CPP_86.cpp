@@ -1,12 +1,17 @@
-string ordered;
-    size_t start = 0;
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (s[i] == ' ' || i == s.size()) {
-            string word = s.substr(start, i - start);
+// Function definition
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            ordered += word + ' ';
-            start = i + 1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return ordered;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
