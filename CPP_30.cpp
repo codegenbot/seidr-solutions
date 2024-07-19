@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <assert.h>
@@ -7,7 +8,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (std::abs(a[i] - b[i]) > 1e-6) { // Compare floating point values with precision
             return false;
         }
     }
