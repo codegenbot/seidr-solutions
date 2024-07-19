@@ -1,7 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -11,7 +12,7 @@ bool is_prime(int n) {
     return true;
 }
 
-std::vector<std::string> split(const std::string& str, char c) {
+std::vector<std::string> split(std::string& str, char c) {
     std::vector<std::string> tokens;
     size_t pos = 0;
     while ((pos = str.find(c)) != std::string::npos) {
