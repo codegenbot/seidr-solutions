@@ -42,11 +42,23 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    map<char, int> hist1 = histogram("hello world");
-    map<char, int> hist2 = histogram("hi there");
+    map<char, int> test1 = histogram("hello");
+    assert(test1.size() == 3);
+    assert(test1['h'] == 1);
+    assert(test1['e'] == 1);
+    assert(test1['o'] == 1);
 
-    assert(issame(hist1, hist1) == true);
-    assert(issame(hist1, hist2) == false);
+    map<char, int> test2 = histogram("programming");
+    assert(test2.size() == 3);
+    assert(test2['r'] == 2);
+    assert(test2['g'] == 2);
+    assert(test2['m'] == 2);
+
+    map<char, int> test3 = histogram("       ");
+    assert(test3.empty());
+
+    map<char, int> test4 = histogram("");
+    assert(test4.empty());
 
     return 0;
 }
