@@ -1,26 +1,19 @@
 #include <vector>
+#include <algorithm>
 
-std::vector<int> pluck(const std::vector<int>& v) {
-    int output[1];
-    for(int i=0; i<1; i++) {
-        output[i] = v[0];
+std::vector<int> pluck(const std::vector<std::vector<int>>& v) {
+    std::vector<int> result;
+    for (const auto& i : v[0]) {
+        result.push_back(i);
     }
-    return std::vector<int>(output, output + 1);
+    return result;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main(int argc, char *argv[]) {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    assert(issame(pluck({{7, 9}, {7, 1}}), {}));
     return 0;
 }
