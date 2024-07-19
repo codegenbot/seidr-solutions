@@ -7,19 +7,10 @@ int smallest_change(vector<int> arr) {
     for (int i : arr) {
         s += to_string(i);
     }
-    int left = 0, right = n - 1;
     int count = 0;
-    while (left < right) {
-        if (s[left] != s[right]) {
+    for(int i = 0; i < n/2; i++) {
+        if(s[i] != s[n-i-1]) {
             count++;
-            if (s[left] == s[right-1]) {
-                right--;
-            } else {
-                left++;
-            }
-        } else {
-            left++;
-            right--;
         }
     }
     return count;
