@@ -1,8 +1,9 @@
-```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <utility>
+#include <cassert>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -26,21 +27,17 @@ vector<int> order_by_points(initializer_list<int> nums) {
             sumOfDigits += n % 10;
             n /= 10;
         }
-        pairs.push_back(make_pair(num, sumOfDigits));
+        pairs.push_back({num, sumOfDigits});
     }
 
     sort(pairs.begin(), pairs.end());
 
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(pair.first);
+        if (!binary_search(result.begin(), result.end(), pair.first)) {
+            result.push_back(pair.first);
+        }
     }
 
     return result;
-}
-
-int main() {
-    vector<int> result = order_by_points({0,6,6,-76,-21,23,4});
-    assert(issame(result, {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }

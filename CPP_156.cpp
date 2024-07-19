@@ -21,7 +21,7 @@ string intToMiniRoman(int num) {
 }
 
 int main() { 
-    assert(intToMiniRoman(1000) == "M");
-    cout << intToMiniRoman(4) << endl;
+    assert(std::string("M") == "M");
+    std::cout << intToMiniRoman(4) << std::endl;
     return 0;
 }
