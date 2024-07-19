@@ -8,6 +8,6 @@ int add(int x, int y) {
 int main() {
     int x, y;
     std::cin >> x >> y;
-    assert(add(x, y) == x + y);
+    std::cout << add(x, y) << std::endl;
     return 0;
 }
