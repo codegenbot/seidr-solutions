@@ -1,20 +1,18 @@
-#include <vector> 
+#include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+  // Your implementation here
 }
 
-int main() {
-    std::vector<int> a = {1, 2, 3, 4};
-    std::vector<int> b = {4, 3, 2, 1};
-
-    if (issame(a, b)) {
-        std::cout << "Arrays are the same." << std::endl;
-    } else {
-        std::cout << "Arrays are not the same." << std::endl;
-    }
-
-    return 0;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+	sort(lst.begin(), lst.end());
+	std::vector<int> result;
+	int left = 0, right = lst.size() - 1;
+	while (left <= right) {
+		result.push_back(lst[left++]);
+		if (left <= right) {
+			result.push_back(lst[right--]);
+		}
+	}
+	return result;
 }
