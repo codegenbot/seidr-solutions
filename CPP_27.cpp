@@ -22,6 +22,7 @@ int main() {
     std::string input = "These violent delights have violent ends";
     std::string output = flip_case(input);
     std::cout << "Computed output: " << output << std::endl;
-    assert(flip_case(input) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string expectedOutput = "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS";
+    assert(output == expectedOutput);
     return 0;
 }
