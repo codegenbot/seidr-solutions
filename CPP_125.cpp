@@ -6,13 +6,14 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> split_words(string txt);
 
 int main() {
-    string input;
-    getline(cin, input);
-    vector<string> words = split_words(input);
-    if(issame(words, {"hello", "world"})){
-        cout << "The words are the same." << endl;
+    string text;
+    getline(cin, text);
+    vector<string> words = split_words(text);
+    vector<string> words_copy = words;
+    if(issame(words, words_copy)){
+        cout << "The words are the same" << endl;
     } else {
-        cout << "The words are different." << endl;
+        cout << "The words are different" << endl;
     }
     return 0;
 }
