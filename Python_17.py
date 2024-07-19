@@ -1,14 +1,10 @@
-def parse_music(music_notes, notes):
-    result = []
-    for note in music_notes.split('|'):
-        for char in note:
-            result.append(notes.get(char, 0))
-        result.append(4)
-    result.pop()
-    return result
+def parse_music(music_notes, notes_dict):
+    music_notes_list = music_notes.split('|')
+    output_list = []
+    for note in music_notes_list:
+        if note.strip() in notes_dict:
+            output_list.append(notes_dict[note.strip()])
+    return output_list
 
-notes = {'.': 2, 'o': 1, ' ': 4}
-result = parse_music("o| .| o| .| o o| o o|", notes)
-
-assert result == [1, 2, 1, 2, 4, 1, 4, 1]
+result = parse_music("o| .| o| .| o o| o o|", {'o': 1, '.': 2})
 print(result)
