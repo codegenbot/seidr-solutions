@@ -10,10 +10,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> unique_vec1(std::vector<int> vec1) {
-    std::sort(vec1.begin(), vec1.end());
-    vec1.erase(std::unique(vec1.begin(), vec1.end()), vec1.end());
-    return vec1;
+std::vector<int> unique(std::vector<int> vec) {
+    std::sort(vec.begin(), vec.end());
+    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
+    return vec;
 }
 
 int main() {
@@ -22,7 +22,7 @@ int main() {
     std::vector<int> vec1 = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::vector<int> vec2 = {0, 2, 3, 5, 9, 123};
     
-    std::vector<int> unique_vec = unique_vec1(vec1); // Use unique_vec1 function
+    std::vector<int> unique_vec = unique(vec1);
     
     assert(issame(unique_vec, vec2));
     
