@@ -1,9 +1,7 @@
-def snow_day(hours, rate_of_snow_fall, proportion_melting):
-    total_snowfall = rate_of_snow_fall * hours
-    remaining_hours = max(
-        0, hours - 1
-    )  # subtract one hour because snow starts falling after the first hour
-    initial_snow_ground = 0 if hours <= 1 else snow_ground
-    return round(
-        initial_snow_ground + total_snowfall - proportion_melting * remaining_hours, 5
-    )
+```
+def snow_day(hours, initial_snow_ground, rate_of_snow_fall, proportion_melting):
+    current_snow_ground = initial_snow_ground
+    for _ in range(hours):
+        current_snow_ground += rate_of_snow_fall
+        current_snow_ground -= max(0, min(current_snow_ground, 1)) * proportion_melting
+    return round(current_snow_ground, 5)
