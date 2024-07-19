@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cstddef>
 
@@ -10,10 +11,11 @@ int countOnes(int n) {
     return count;
 }
 
-int skjkasdkd(int* p, std::size_t n) { 
+int skjkasdkd(void* p, std::size_t n) {
+    unsigned char* data = static_cast<unsigned char*>(p);
     int count = 0;
     for (std::size_t i = 0; i < n; ++i) {
-        count += countOnes(*p++); 
+        count += countOnes(*reinterpret_cast<int*>(&data[i]));
     }
     return count;
 }
