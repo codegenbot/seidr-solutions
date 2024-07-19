@@ -1,15 +1,16 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <variant>
 
-std::string compare_one(const std::string& s1, int number) {
+std::variant<std::string, std::string> compare_one(const std::string& s1, int number) {
     if (std::stoi(s1) == number) {
-        return "Equal";
+        return {"Equal"};
     } else {
-        return "Not equal";
+        return {"Not equal"};
     }
 }
 
 int main() {
-    assert(compare_one("1", 1) == "Equal");
+    assert(std::get<std::string>(compare_one("1", 1)) == "Not equal");
 }
