@@ -12,8 +12,8 @@ int main() {
     float a, b, c;
     std::cin >> a >> b >> c;
     if(any_int(a, b, c))
-        std::cout << "The numbers are integers: " << a << ", " << b << ", " << c << std::endl;
+        std::cout << "The numbers are integers." << std::endl;
     else
-        std::cout << "The numbers are not integers: " << a << ", " << b << ", " << c << std::endl;
+        std::cout << "The numbers are not integers." << std::endl;
     return 0;
 }
