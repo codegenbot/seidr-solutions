@@ -13,7 +13,7 @@ int modp(int n, int p) {
     return result;
 }
 
-int main(int argc, char** argv) {
+int main() {
     int n, p;
     std::cout << "Enter n and p: ";
     std::cin >> n >> p;
