@@ -1,27 +1,31 @@
-#include <iostream>
 #include <vector>
-#include <string>
+#include <cassert>
 
-std::string f(std::vector<int> v) {
-    std::string s = "";
-    for (int i : v) {
-        if (i >= 128)
-            s += "1";
-        else
-            s += (char)(i); 
+int skjkasdkd(vector<int> lst){
+    int maxPrime = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
     }
-    return s;
+    int sumOfDigits = 0;
+    while(maxPrime > 0){
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
 }
 
-int main() {
-    std::vector<int> v; 
-    v.push_back(127);
-    v.push_back(97);
-    v.push_back(8192);
-    if(v.empty()) {
-        std::cout << "Error: The vector is empty." << std::endl;
-    } else {
-        std::cout << f(v) << std::endl;
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0)
+            return false;
     }
+    return true;
+
+int main() {
+    int result = skjkasdkd({127, 97, 8192});
+    assert(result == 10);
     return 0;
 }
