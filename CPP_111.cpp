@@ -1,7 +1,14 @@
+#include <iostream>
+#include <sstream>
+#include <map>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> counts;
     stringstream ss(test);
     string word;
+    
     while (ss >> word) {
         for (char c : word) {
             counts[c]++;
