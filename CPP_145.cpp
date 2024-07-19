@@ -1,11 +1,13 @@
 #include <vector>
 
-vector<int> order_by_points(vector<int> nums) {
-    // Existing implementation
-}
+vector<int> order_by_points(vector<int> nums);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    // Existing implementation
 }
 
 int main() {
