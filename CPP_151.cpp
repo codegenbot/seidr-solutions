@@ -1,9 +1,6 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(std::vector<float> lst) {
+#include <bits/stdc++.h>
+using namespace std;
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
@@ -12,10 +9,12 @@ long long double_the_difference(std::vector<float> lst) {
     }
     return sum;
 }
-
 int main() {
-    std::vector<float> lst = {1.5f, 2.25f, 3.0f};
-    long long result = double_the_difference(lst);
-    std::cout << "The doubled difference is: " << result << std::endl;
+    vector<float> list;
+    float num;
+    while (cin >> num && num != -1.0) {
+        list.push_back(num);
+    }
+    cout << double_the_difference(list) << endl;
     return 0;
 }
