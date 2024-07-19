@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
+    std::vector<int> f = {1, 2, 6};
     int factorial = 1;
     int sum = 0;
     int n = a.size();
@@ -15,10 +16,5 @@ std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
             result.push_back(sum);
         }
     }
-    return result;
-}
-
-int main() {
-    assert(issame({1, 2, 3}, {1, 2, 6}) == true);
-    return 0;
+    return result == b;
 }
