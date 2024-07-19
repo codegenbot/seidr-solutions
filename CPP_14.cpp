@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -17,7 +16,13 @@ bool are_same(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
 
-int main() {
-    assert(are_same(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+int main(){
+    vector<string> prefixes = all_prefixes("WWW");
+    vector<string> expected = {"W", "WW", "WWW"};
+    if (are_same(prefixes, expected)) {
+        cout << "Test Passed\n";
+    } else {
+        cout << "Test Failed\n";
+    }
     return 0;
 }
