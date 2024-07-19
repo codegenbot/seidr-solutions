@@ -5,5 +5,8 @@ def parse_music(music_strings, notes):
 
     return get_notes(music_strings, notes)
 
+# Example usage
 notes = {'.': 1, 'o': 2, ' ': 4}
-assert parse_music("o| .| o| .| o o| o o|", notes) == [2, 1, 2, 1, 4, 2, 4, 2]
+result = parse_music("o| .| o| .| o o| o o|", notes)
+assert result == [2, 1, 2, 1, 4, 2, 4, 2]
+print(result)
