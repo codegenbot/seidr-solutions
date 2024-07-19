@@ -16,9 +16,3 @@ std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     }
     return result;
 }
-
-int main() {
-    std::vector<int> result = issame({1, 2, 3}, {1, 2, 6});
-    // Process the result or compare it as needed
-    return 0;
-}
