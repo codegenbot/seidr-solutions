@@ -15,7 +15,7 @@ int modp(int n, int p) {
     return result;
 }
 
-void solve() {
+void solveProblem() {
     int n, p;
     std::cin >> n >> p;
 
@@ -27,10 +27,4 @@ void solve() {
     assert(modp(31, 5) == 3);
 
     std::cout << modp(n, p) << std::endl;
-}
-
-int main() {
-    solve();
-
-    return 0;
 }
