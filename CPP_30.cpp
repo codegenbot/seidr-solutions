@@ -28,7 +28,9 @@ std::vector<float> get_positive(std::vector<float> input_values) {
 }
 
 int main() {
-    assert(issame(get_positive({}), std::vector<float>{}));
+    // Test cases
+    assert(issame(get_positive({1.0, -2.0, 3.0}), {1.0, 3.0}));
+    assert(issame(get_positive({-1.0, -2.0, -3.0}), {}));
   
     return 0;
 }
