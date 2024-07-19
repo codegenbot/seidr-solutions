@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<int> intersperse(const std::vector<int>& vec, int val) {
     std::vector<int> result;
