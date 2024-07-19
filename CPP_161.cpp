@@ -1,18 +1,22 @@
-string solve(string s){
-    for (int i = 0; i < s.size(); ++i) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+int n = s.size();
+    int i = 0, j = n - 1;
+    while (i < j) {
+        if (isalpha(s[i]) && isalpha(s[j])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            s[j] = islower(s[j]) ? toupper(s[j]) : tolower(s[j]);
+            i++;
+            j--;
+        } else if (!isalpha(s[i])) {
+            i++;
+        } else if (!isalpha(s[j])) {
+            j--;
         }
     }
-    int left = 0, right = s.size() - 1;
-    while (left < right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
+    if (i == j && isalpha(s[i])) {
+        s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+    }
+    if (i >= j) {
+        reverse(s.begin(), s.end());
     }
     return s;
 }
