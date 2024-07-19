@@ -5,9 +5,7 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in vowels:
-                index = ord(vowels[vowels.index(char.lower())]) - 97
-                new_index = (index + 2) % 26
-                result += chr(97 + new_index)
+                result += chr((ord(char) - 97 + 2) % 26 + 97) if char.islower() else chr((ord(char) - 65 + 2) % 26 + 65)
             else:
                 result += char.swapcase()
         else:
