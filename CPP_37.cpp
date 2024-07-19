@@ -1,12 +1,12 @@
-```cpp
+````
 #include <algorithm>
 #include <vector>
 
-bool std::issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> std::sort_even(std::vector<float> l){
+std::vector<float> sort_even(std::vector<float> l){
     std::vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
@@ -19,3 +19,4 @@ std::vector<float> std::sort_even(std::vector<float> l){
     }
     return l_prime;
 }
+```
