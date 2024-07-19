@@ -25,8 +25,7 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && word.find_first_of("aeiouAEIOU") != string::npos &&
-        (static_cast<unsigned>(word.length() - 1 - word.find_first_of("aeiouAEIOU"))) <= n) {
+    if (!word.empty() && (word.find_first_of("aeiouAEIOU") == string::npos || word.length() - 1 - word.find_first_of("aeiouAEIOU")) <= n) {
         result.push_back(word);
     }
     return result;
