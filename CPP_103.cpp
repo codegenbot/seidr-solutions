@@ -12,11 +12,11 @@ std::string calculateBinary(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1));
+    double avg = std::round(static_cast<double>(sum) / (m - n + 1));
     
     std::string binary;
     while (avg > 0) {
-        binary = std::to_string(avg % 2) + binary;
+        binary = std::to_string(static_cast<int>(avg) % 2) + binary;
         avg /= 2;
     }
     
