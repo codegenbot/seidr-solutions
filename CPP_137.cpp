@@ -1,6 +1,4 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
+#include "/usr/include/boost/boost/any.hpp"
 
 using namespace std;
 
