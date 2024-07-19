@@ -1,13 +1,13 @@
-#include <string>
 #include <vector>
+#include <string>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(char a, char b) {
+    return (tolower(a) == tolower(b));
 }
 
-std::vector<std::string> process_text(const std::string& txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> splitAndCount(const string& txt) {
+    vector<string> result;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -28,7 +28,7 @@ std::vector<std::string> process_text(const std::string& txt) {
                 oddCount++;
             }
         }
-        result.push_back(std::to_string(oddCount));
+        result.push_back(to_string(oddCount));
     }
     return result;
 }
