@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 #include <cctype>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
