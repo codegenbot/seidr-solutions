@@ -5,8 +5,8 @@ def fix_spaces(text):
         if char == ' ':
             consecutive_spaces += 1
             if consecutive_spaces > 2:
-                result = result[:-2] + '-'
+                result = result.rstrip('_') + '-'
         else:
-            result += '_' if consecutive_spaces >= 1 else char
+            result += '_' if consecutive_spaces > 1 else char
             consecutive_spaces = 0
     return result
