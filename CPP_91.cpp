@@ -1,18 +1,25 @@
-int is_bored(string S){
-    int boredom_count = 0;
-    bool is_sentence = false;
+#include <string> // Include necessary header file
 
-    for(size_t i = 0; i < S.size(); ++i){
-        if(is_sentence && (S[i] == '.' || S[i] == '?' || S[i] == '!')){
-            if(S.substr(i-1, 2) == "I "){
-                boredom_count++;
+int is_bored(std::string S){ // Use 'std::string' instead of 'string'
+    int count = 0;
+    std::string word = "";
+    for(char c : S){
+        if(c == '.' || c == '?' || c == '!'){
+            if(word.length() > 0 && word[0] == 'I'){
+                count++;
             }
-            is_sentence = false;
-        }
-        if(S[i] == 'I' && (i == 0 || S[i-1] == ' ')){
-            is_sentence = true;
+            word = "";
+        } else if(c != ' '){
+            word += c;
         }
     }
+    if(word.length() > 0 && word[0] == 'I'){
+        count++;
+    }
+    return count;
+}
 
-    return boredom_count;
+int main(){
+    assert (is_bored("You and I are going for a walk") == 0);
+    return 0;
 }
