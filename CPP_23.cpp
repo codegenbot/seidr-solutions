@@ -1,9 +1,8 @@
 #include <cstring>
 
-// Function signature: int strlen(const char* str);
-// Task description: Implement the strlen function in C++ to return the length of a C-style string.
+// Task: Implement a function to find the length of a null-terminated string using strlen function
 
 int main(){
-    assert(strlen("asdasnakj") == 9);
+    assert (strlen("asdasnakj") == 9);
     return str.length();
 }
