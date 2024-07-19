@@ -5,37 +5,42 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
     return true;
 }
 
-bool unique_digits(int x) {
-    while (x > 0) {
-        int digit = x % 10;
-        if (digit % 2 == 0) {
-            return false;
-        }
-        x /= 10;
-    }
-    return true;
-}
-
-int main() {
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
-        if (unique_digits(num)) {
+        int temp = num;
+        bool has_even_digit = false;
+        while (temp > 0) {
+            int digit = temp % 10;
+            if (digit % 2 == 0) {
+                has_even_digit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!has_even_digit) {
             result.push_back(num);
         }
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    vector<int> x = {123, 456, 789, 2468, 1357};
+    vector<int> x_unique = unique_digits(x);
+    vector<int> expected_result = {123, 789, 1357};
+    
+    bool same = issame(x_unique, expected_result);
+    return 0;
 }
