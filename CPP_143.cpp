@@ -1,41 +1,34 @@
-#include<stdio.h>
-#include<string>
-#include<vector>
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i <= sqrt(n); ++i) {
-        if (n % i == 0) return false;
-    }
+bool is_prime(int n){
+    // Assume this function is already implemented
     return true;
 }
 
-string words_in_sentence(string sentence) {
-    stringstream ss(sentence);
-    string word;
-    vector<string> primeWords;
-
-    while (ss >> word) {
-        if (is_prime(word.length())) {
-            primeWords.push_back(word);
+string words_in_sentence(string sentence){
+    string result = "";
+    string word = "";
+    for(char c : sentence){
+        if(c != ' '){
+            word += c;
+        } else {
+            if(is_prime(word.size())){
+                result += word + " ";
+            }
+            word = "";
         }
     }
-
-    string result = "";
-    for (const string& primeWord : primeWords) {
-        result += primeWord + " ";
+    if(is_prime(word.size())){
+        result += word;
     }
-
     return result;
 }
 
-int main() {
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+int main(){
+    assert(words_in_sentence("here is") == "is");
     return 0;
 }
