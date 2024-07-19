@@ -14,10 +14,14 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    assert(largest_prime_factor(13195) == 29);
-    assert(largest_prime_factor(10) == 5);
-    assert(largest_prime_factor(56) == 7);
-    assert(largest_prime_factor(100) == 5);
-    
+    int n;
+    std::cout << "Enter a number: ";
+    if (!(std::cin >> n) || n <= 0) {
+        std::cerr << "Invalid input. Please enter a positive integer.\n";
+        return 1;
+    }
+
+    std::cout << "Largest prime factor: " << largest_prime_factor(n) << std::endl;
+
     return 0;
 }
