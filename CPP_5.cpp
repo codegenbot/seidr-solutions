@@ -2,7 +2,15 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> intersperse(vector<int> numbers, int delimiter){
@@ -18,6 +26,5 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
     return 0;
 }
