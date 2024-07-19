@@ -1,7 +1,4 @@
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <map>
 
 vector<string> by_length(vector<int> arr);
 
