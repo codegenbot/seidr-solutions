@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
@@ -34,15 +33,15 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+
 }
 
 int main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
     assert(issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6}));
-    if (!issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6})) {
-        std::cout << "Test failed";
-    } else {
-        std::cout << "Test passed";
+    vector<int> result = order_by_points(nums);
+    for (int num : result) {
+        std::cout << num << " ";
     }
     return 0;
 }

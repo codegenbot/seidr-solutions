@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
+    bool exceededVowels = false;
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
@@ -17,7 +17,9 @@ vector<string> select_words(string s, int n) {
                         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
                         vowel_count++;
                 }
-                if (vowel_count <= n) {
+                if (vowel_count > n) {
+                    exceededVowels = true;
+                } else {
                     result.push_back(word);
                     word = "";
                 }
@@ -26,8 +28,19 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && (unsigned)word.find_first_of("aeiouAEIOU") <= n) {
-        result.push_back(word);
+    if (!word.empty()) {
+        unsigned vowel_count = 0;
+        for (char ch : word) {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+                vowel_count++;
+        }
+        if (vowel_count > n) {
+            exceededVowels = true;
+        } else {
+            result.push_back(word);
+            word = "";
+        }
     }
     return result;
 }
