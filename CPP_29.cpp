@@ -3,11 +3,11 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(unsigned int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -25,12 +25,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> input = {"apple", "banana", "apricot", "carrot"};
-    vector<string> expected_output = {"apple", "apricot"};
-
-    vector<string> output = filter_by_prefix(input, "ap");
-
-    assert(issame(expected_output, output));
-
+    vector<string> input = {"apple", "banana", "orange", "pear", "peach"};
+    vector<string> expected = {"pear", "peach"};
+    
+    vector<string> output = filter_by_prefix(input, "p");
+    
+    assert(issame(output, expected));
+    
     return 0;
 }
