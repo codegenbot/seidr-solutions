@@ -18,9 +18,9 @@ if __name__ == "__main__":
             if n > 0:
                 break
             else:
-                print("Please enter a positive integer.")
+                print("Enter a positive integer.")
         except ValueError:
-            print("Please enter a valid positive integer.")
+            print("Enter a valid positive integer.")
 
     result = factorize(n)
     print(result)
