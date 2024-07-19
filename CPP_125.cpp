@@ -3,16 +3,6 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> split_words(string txt);
-
-int main() {
-    string input_text;
-    getline(cin, input_text);
-    vector<string> words = split_words(input_text);
-    cout << issame(words, words) << endl;
-    return 0;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -39,16 +29,4 @@ vector<string> split_words(string txt){
         result.push_back(to_string(odd_lower_case_count));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
