@@ -24,7 +24,10 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> res(vector<int>(get_odd_collatz(n).begin(), get_odd_collatz(n).end()));
+    {
+        deque<int> temp = get_odd_collatz(n);
+        vector<int> res(temp.begin(), temp.end());
+    }
     for (auto i : res) {
         cout << i << " ";
     }
