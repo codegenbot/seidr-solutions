@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 int count_nums(const std::vector<int>& nums) {
     int result = 0;
-    for (const auto& num : nums) {
+    for (int num : nums) {
         if (num % 2 == 1)
             result++;
     }
