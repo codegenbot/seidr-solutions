@@ -2,35 +2,26 @@ bool issame(vector<string> a, const vector<string>& b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst1, const vector<string>& lst2) {
-    vector<string> lst = lst1;
-    lst.insert(lst.end(), lst2.begin(), lst2.end());
-    
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> lst_copy = lst;
+    lst_copy.erase(remove_if(lst_copy.begin(), lst_copy.end(), [](const string& s) { return s.length() % 2 != 0; }), lst_copy.end());
+    sort(lst_copy.begin(), lst_copy.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    
-    return lst;
+    return lst_copy;
 }
 
 int main() {
-    vector<string> list1 = {"apple", "banana", "orange"};
-    vector<string> list2 = {"pear", "grapes", "kiwi"};
+    vector<string> a = {"apple", "banana", "orange"};
+    vector<string> b = {"apple", "banana", "cherry"};
 
-    if (issame(list1, list2)) {
-        cout << "The lists are the same" << endl;
+    if (issame(a, b)) {
+        cout << "Vectors a and b are the same." << endl;
     } else {
-        cout << "The lists are different" << endl;
-    }
-
-    vector<string> result = sorted_list_sum(list1, list2);
-    
-    for (const auto& str : result) {
-        cout << str << " ";
+        cout << "Vectors a and b are different." << endl;
     }
 
     return 0;
