@@ -1,30 +1,12 @@
 #include <vector>
-#include <cfloat>
-#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
-}
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-
-    pair<int, int> minPair(INT_MAX, -1);
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minPair.first) {
-            minPair.first = arr[i];
-            minPair.second = i;
-        }
+pair<bool, int> issame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) return make_pair(false, -1);
+    for(int i=0; i<v1.size(); i++) {
+        if(v1[i] != v2[i]) return make_pair(false, i);
     }
-
-    result.push_back(minPair);
-
-    return result;
+    return make_pair(true, 0);
 }
