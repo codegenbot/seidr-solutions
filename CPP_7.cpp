@@ -4,24 +4,17 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main() {
-    vector<string> input = {"apple", "banana", "grape", "orange"};
-    string sub = "an";
-    vector<string> filtered_strings = filter_by_substring(input, sub);
+    vector<string> strings = {"apple", "banana", "cherry", "apricot", "blueberry"};
+    string substring = "ap";
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
 
-    vector<string> expected_output = {"banana", "orange"};
-    assert(issame(filtered_strings, expected_output));
+    assert(issame(filtered_strings, vector<string>{"apple", "apricot"}));
 
     return 0;
 }
