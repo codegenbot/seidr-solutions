@@ -1,7 +1,7 @@
 #include <cassert>
 #include <string>
 
-string string_to_md5(const string& text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -17,5 +17,5 @@ string string_to_md5(const string& text) {
         sprintf(&md5String[i * 2], "%02x", (unsigned int)result[i]);
     }
 
-    return string(md5String);
+    return std::string(md5String);
 }
