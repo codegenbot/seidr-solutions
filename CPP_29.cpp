@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
@@ -21,4 +22,19 @@ vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix) {
         }
     }
     return result;
+}
+
+int main() {
+    vector<string> strings = {"apple", "banana", "apricot"};
+    string prefix = "ap";
+    vector<vector<string>> output = filter_by_prefix(strings, prefix);
+    
+    for (vector<string> v : output) {
+        for (string s : v) {
+            cout << s << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
 }
