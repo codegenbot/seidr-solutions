@@ -1,17 +1,9 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    std::vector<int> path;
-    for (const auto& row : grid) {
-        for (int elem : row) {
-            path.push_back(elem);
-        }
-    }
-    std::sort(path.begin(), path.end());
-    return path;
+    // Implementation code here
 }
