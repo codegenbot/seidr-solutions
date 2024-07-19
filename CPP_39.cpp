@@ -1,35 +1,48 @@
 #include <iostream>
+#include <cmath>
 
-int prime_fib(int n) {
-    if (n == 1) return 2;
-    if (n == 2) return 3;
-    
-    int first = 2, second = 3, next;
-    int count = 2;
-    
-    while (count < n) {
-        next = first + second;
-        first = second;
-        second = next;
-        
-        bool isPrime = true;
-        for (int i = 2; i * i <= next; i++) {
-            if (next % i == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        
-        if (isPrime) {
-            count++;
+bool isPrime(int num) {
+    if (num < 2) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(num); ++i) {
+        if (num % i == 0) {
+            return false;
         }
     }
+    return true;
+}
+
+int prime_fib(int n) {
+    if (n <= 0) {
+        return 0;
+    }
     
-    return next;
+    if (n == 1) {
+        return 2;
+    }
+    
+    int prev = 1, curr = 1, next;
+    for (int i = 2; i < n; ++i) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    
+    while (true) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+        
+        if (isPrime(curr)) {
+            return curr;
+        }
+    }
 }
 
 int main() {
-    assert (prime_fib(10) == 433494437);
-    
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
     return 0;
 }
