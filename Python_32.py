@@ -1,9 +1,9 @@
 def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0
-    assert xs[-2] != 0
+    if len(xs) % 2 != 0:
+        raise ValueError("Number of coefficients must be even")
+    if max(xs) == 0:
+        raise ValueError("No non-zero coefficients found")
 
-    a = xs[-1]
-    b = xs[-2]
-
-    return -a / b
+    for i in range(len(xs) - 1, -1, -1):
+        if xs[i] != 0:
+            return round(-xs[i - 1] / xs[i], 2)
