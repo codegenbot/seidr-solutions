@@ -13,5 +13,4 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+```
