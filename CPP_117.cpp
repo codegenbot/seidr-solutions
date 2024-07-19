@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <cctype>
 #include <cassert>
 
 using namespace std;
@@ -8,6 +8,21 @@ using namespace std;
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> select_words(string s, int n);
+
+int main() {
+    // Sample test case
+    string input = "hello world";
+    int n = 2;
+    vector<string> result = select_words(input, n);
+    for (string word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+
+    return 0;
+}
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -46,10 +61,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    
-    return 0;
 }
