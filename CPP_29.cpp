@@ -23,16 +23,11 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
             temp.push_back(str.substr(start, end - start));
             start = end + 1;
         }
-        bool found = false;
         for (int i = 0; i < temp.size(); i++) {
             if (temp[i] != prefix) {
-                result.push_back(temp);
-                found = true;
-                break;
+                result.push_back({temp});
+                return result;
             }
-        }
-        if (!found) {
-            result.push_back({str});
         }
     }
     return result;
@@ -41,14 +36,5 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     std::vector<std::vector<std::string>> result = filter_by_prefix(strings, "xxx");
-    for (const auto& v : result) {
-        std::cout << "{";
-        for (int i = 0; i < v.size(); i++) {
-            std::cout << "\"" << v[i] << "\"";
-            if (i != v.size() - 1)
-                std::cout << ", ";
-        }
-        std::cout << "}\n";
-    }
     return 0;
 }
