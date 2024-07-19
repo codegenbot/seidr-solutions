@@ -9,6 +9,8 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
+    except KeyboardInterrupt:
+        print("Input interrupted. Please enter a valid integer.")
 
 result = digits(n)
 print(result)
