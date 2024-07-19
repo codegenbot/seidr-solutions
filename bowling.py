@@ -1,10 +1,8 @@
-```python
+```
 def bowling_score(frames):
-    '''Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, 
+    '''
+    Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, 
     return the score of that round.
-    
-    :param frames: str
-    :return: int
     '''
     score = 0
     frame = 1
