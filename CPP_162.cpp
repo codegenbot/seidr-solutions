@@ -1,22 +1,12 @@
-#include <iostream>
-#include <string>
-#include "md5.h"
+```cpp
+MD5_CTX ctx;
+unsigned char result[16];
+MD5_Init(&ctx);
+MD5_Update(&ctx, input.c_str(), input.size());
+MD5_Final(result, &ctx);
 
-std::string string_to_md5(std::string input) {
-    MD5_CTX ctx;
-    unsigned char result[16];
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, input.c_str(), input.size());
-    MD5_Final(result, &ctx);
-
-    char output[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(output + i*2, "%02x", result[i]);
-    }
-    return std::string(output);
+char output[33];
+for (int i = 0; i < 16; i++) {
+    sprintf(output + i*2, "%02x", result[i]);
 }
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
-}
+return std::string(output);
