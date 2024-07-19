@@ -11,10 +11,21 @@ bool is_sorted(vector<int> lst) {
         if (temp[i] != lst[i]) return false;
     }
     return true;
-
 }
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    // Add your code here
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> lst.push_back(i);
+    }
+    if (is_sorted(lst)) {
+        cout << "The list is sorted.\n";
+    } else {
+        cout << "The list is not sorted.\n";
+    }
 }
