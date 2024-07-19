@@ -1,50 +1,31 @@
 ```
-int count_digits(const string& file_name) {
-    int count = 0;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count++;
+int i = 0;
+bool isValid = true;
+
+while (i < file_name.size()) {
+    if (isdigit(file_name[i])) {
+        if (++i < file_name.size() && !isValid) break; // count the digits
+        if (count_digits > 3) {
+            isValid = false;
+            break;
         }
-        if (count > 3) {
-            return 1; // more than three digits found
+    } else if (!isalpha(file_name[i])) { // check for non-alphabetical characters
+        if (file_name[i] != '.') { // only one dot allowed
+            isValid = false;
+            break;
+        } else {
+            i++; // skip the dot and start checking the next part
+            if (!isValid) break; // stop counting dots
         }
     }
-    return 0; // no more than three digits found
+
+    i++;
 }
 
-bool is_valid_pre_dot(const string& file_name) {
-    int dot_index = file_name.find('.');
-    if (dot_index == -1 || dot_index == 0) {
-        return false; // dot not found or at the beginning
-    }
-    string pre_dot = file_name.substr(0, dot_index);
-    for (char c : pre_dot) {
-        if (!isalpha(c)) {
-            return false; // does not start with a latin letter
-        }
-    }
-    return true;
+if (i < file_name.size() && (file_name.substr(i + 1).compare("txt") != 0 &&
+                             file_name.substr(i + 1).compare("exe") != 0 &&
+                             file_name.substr(i + 1).compare("dll") != 0)) {
+    isValid = false;
 }
 
-bool is_valid_post_dot(const string& file_name) {
-    int dot_index = file_name.find('.');
-    string post_dot = file_name.substr(dot_index + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    for (const string& ext : valid_extensions) {
-        if (post_dot == ext) {
-            return true;
-        }
-    }
-    return false; // not a valid extension
-}
-
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    bool valid_pre_dot = is_valid_pre_dot(file_name);
-    bool valid_post_dot = is_valid_post_dot(file_name);
-    if (digit_count <= 3 && valid_pre_dot && valid_post_dot) {
-        return "Yes";
-    } else {
-        return "No";
-    }
-}
+return isValid ? "Yes" : "No";
