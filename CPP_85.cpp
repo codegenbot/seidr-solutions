@@ -11,21 +11,19 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> list;
-    int num;
-
-    // Read input from user
-    while(true) {
-        std::cout << "Enter a number (or -1 to stop): ";
-        std::cin >> num;
-        if(num == -1)
-            break;
-        list.push_back(num);
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i=0; i<n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        int x;
+        std::cin >> x;
+        lst.push_back(x);
     }
-
-    // Print the sum of even numbers
-    int result = add(list);
-    std::cout << "Sum of even numbers: " << result << std::endl;
-
+    
+    std::cout << "Sum of even elements at odd positions: " << add(lst) << std::endl;
+    
     return 0;
 }
