@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -50,4 +51,3 @@ int main() {
         cout << w << endl;
     }
     return 0;
-}
