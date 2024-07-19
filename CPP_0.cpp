@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 bool has_close_elements(const vector<float>& numbers, float threshold) {
     sort(numbers.begin(), numbers.end());
     for (int i = 1; i < numbers.size(); i++) {
