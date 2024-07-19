@@ -1,23 +1,23 @@
 #include <algorithm>
-#include <vector>
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<std::pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); ++i) {
-        int sumOfDigits = 0;
-        int num = nums[i];
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int num : nums) {
+        int sum = 0;
+        int originalIndex = 0;
         while (num != 0) {
-            sumOfDigits += num % 10;
+            sum += abs(num % 10);
             num /= 10;
+            originalIndex++;
         }
-        pairs.push_back({sumOfDigits, i});
+        pairs.push_back({sum, originalIndex});
     }
 
-    std::sort(pairs.begin(), pairs.end());
-    
-    std::vector<int> result;
+    sort(pairs.begin(), pairs.end());
+
+    vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(nums[pair.second - 1]);
     }
 
     return result;
