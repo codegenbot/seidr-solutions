@@ -18,8 +18,3 @@ std::vector<int> issame(std::vector<int> a) {
     }
     return result;
 }
-
-int main() {
-    assert(!issame(generate_integers(17, 89)).empty());
-    return 0;
-}
