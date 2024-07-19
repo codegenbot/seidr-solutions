@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -9,24 +10,19 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a) {
-    for (int i = 2; i <= a / 3; i++) {
-        if (is_prime(i) && is_prime(a / i) && a % i == 0) {
-            return true;
+    int count = 0;
+    for (int i = 2; i <= a / 2 && count < 3; i++) {
+        if (is_prime(i) && a % i == 0) {
+            count++;
+            a /= i;
         }
     }
-    return false;
+    return count == 3 && is_prime(a);
 }
 
 int main() {
     int num;
-    std::cout << "Enter a number less than 100: ";
-    std::cin >> num;
-    
-    if (is_multiply_prime(num)) {
-        std::cout << num << " is a multiplication of 3 prime numbers." << std::endl;
-    } else {
-        std::cout << num << " is not a multiplication of 3 prime numbers." << std::endl;
-    }
-    
+    cin >> num;
+    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
     return 0;
 }
