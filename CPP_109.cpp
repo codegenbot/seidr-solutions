@@ -16,10 +16,10 @@ bool move_one_ball(std::vector<int> arr) {
 int main() {
     std::vector<int> arr;
     int n;
-    cin >> n;
+    std::cin >> n;
     for(int i=0;i<n;i++){
         int num;
-        cin>>num;
+        std::cin>>num;
         arr.push_back(num);
     }
     

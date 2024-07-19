@@ -1,6 +1,5 @@
 #include <cassert>
 #include <vector>
-#include <initializer_list>
 
 int next_smallest(std::vector<int> arr) {
     int smallest = INT_MAX;
