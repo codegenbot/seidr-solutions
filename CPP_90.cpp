@@ -1,11 +1,30 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
-    vector<int>(lst.begin(), lst.end()); 
-    sort(begin(), end());
-    if (size() < 2)
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    if (sorted.size() < 2)
         return -1; 
-    for (int i = 0; i < size() - 1; i++) {
-        if (*this->begin() + i < *(this->begin() + i + 1))
-            return *(this->begin() + i + 1);
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] < sorted[i + 1])
+            return sorted[i + 1];
     }
-    return -1;
+    return -1; 
+}
+
+int main() {
+    std::vector<int> lst;
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    if(lst.size()>0) {
+        std::cout << next_smallest(lst) << std::endl;
+    } else {
+        std::cout << -1 << std::endl;
+    }
+    return 0;
 }
