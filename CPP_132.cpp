@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cassert>
 
 bool is_nested(const std::string& str) {
@@ -6,14 +7,23 @@ bool is_nested(const std::string& str) {
     for (char c : str) {
         if (c == '[') {
             count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            }
         }
     }
     return count == 0;
 }
 
+bool valid_nested_brackets(const std::string& str) {
+    return is_nested(str);
+}
+
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
+    std::string input;
+    std::cin >> input;
+    std::cout << (valid_nested_brackets(input) ? "The brackets are nested correctly" : "The brackets are not nested correctly") << std::endl;
+
     return 0;
 }
