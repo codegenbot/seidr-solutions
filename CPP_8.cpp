@@ -1,15 +1,9 @@
-#include<stdio.h>
-#include<vector>
-#include<numeric>
-using namespace std;
+int sum = 0;
+int product = 1;
 
-vector<int> sum_product(vector<int> numbers){
-    if (numbers.empty()) {
-        return {0, 1};
-    }
-    
-    int sum = accumulate(numbers.begin(), numbers.end(), 0);
-    int product = accumulate(numbers.begin(), numbers.end(), 1, multiplies<int>());
-
-    return {sum, product};
+for (int num : numbers) {
+    sum += num;
+    product *= num;
 }
+
+return {sum, product};
