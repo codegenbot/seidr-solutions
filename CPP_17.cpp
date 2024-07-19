@@ -2,11 +2,11 @@
 #include <string>
 #include <cassert>
 
+vector<int> parse_music(string music_string);
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
-
-vector<int> parse_music(string music_string);
 
 vector<int> parse_music(string music_string) {
     vector<int> beats;
