@@ -16,11 +16,6 @@ map<char,int> histogramTest(string s) {
     return hist;
 }
 
-// Define the issame function
-bool issame(map<char,int> a, map<char,int> b) {
-    return a==b;
-}
-
 int main() {
     string test;
     cout << "Enter a string: ";
@@ -32,7 +27,7 @@ int main() {
         cout << p.first << ": " << p.second << endl;
     }
 
-    if (!issame(hist, {{'a', 1}})) { 
+    if (!histogramTest(test) == {{'a', 1}}) { 
         return 0; 
     }
 }
