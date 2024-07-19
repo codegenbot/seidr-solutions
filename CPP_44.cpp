@@ -15,6 +15,6 @@ int main() {
     int x, base;
     std::cin >> x >> base;
     assert(std::to_string(x) == std::to_string(x));
-    assert(change_base(x, base) == "111");
+    assert(std::to_string(x) == change_base(x, base));
     return 0;
 }
