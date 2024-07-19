@@ -1,10 +1,7 @@
-def poly(coeffs: list, x: int) -> int:
-    result = 0
-    for i in range(len(coeffs)):
-        result += coeffs[i] * (x ** i)
-    return result
-
 def find_zero(xs: list):
+    def poly(coeffs, x):
+        return sum(coeff * x ** i for i, coeff in enumerate(coeffs))
+
     n = len(xs) - 1
     if n % 2 != 0:
         raise ValueError("Number of coefficients should be even")
