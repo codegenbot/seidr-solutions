@@ -1,8 +1,24 @@
-```cpp
-int findFirstWord(const std::string& str, const std::string& word) {
+#include <iostream>
+#include <string>
+
+size_t wordsInSentence(const std::string& str) {
+    size_t count = 0;
     size_t pos = 0;
-    while ((pos = str.find(word, pos)) != std::string::npos) {
-        return 1;
+    while ((pos = str.find(" ", pos)) != std::string::npos) {
+        ++count;
+        pos = str.find(" ", pos);
     }
-    return -1;
+    return count + 1; // Add 1 for the last word
+}
+
+int main() {
+    std::cout << "Enter a sentence: ";
+    std::string str;
+    std::cin >> str;
+
+    size_t result = wordsInSentence(str);
+
+    std::cout << "Number of words: " << result << std::endl;
+
+    return 0;
 }
