@@ -13,7 +13,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             count += 1
             max_count = max(max_count, count)
         elif paren_string[i] == ")":
-            count -= 1
+            count = 0
 
     return [max_count]
 
