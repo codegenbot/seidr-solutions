@@ -1,7 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -22,7 +24,7 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     if (start > end) {
-        std::swap(start, end);
+        swap(start, end);
     }
 
     for (int i = start + 1; i < end; ++i) {
@@ -30,8 +32,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
