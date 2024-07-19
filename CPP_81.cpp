@@ -1,11 +1,8 @@
 ```cpp
 #include <iostream>
-using namespace std;
-
 #include <vector>
-#include <string>
 
-bool same(const vector<string>& vec1, const vector<string>& vec2) {
+bool same(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     if (vec1.size() != vec2.size()) return false;
     for (int i = 0; i < vec1.size(); i++) {
         if (vec1[i] != vec2[i]) return false;
@@ -13,46 +10,48 @@ bool same(const vector<string>& vec1, const vector<string>& vec2) {
     return true;
 }
 
-vector<string> numerical_letter_grade(const vector<float>& grades) {
-    #include <string>
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+    std::vector<std::string> result;
     for (float grade : grades) {
-        string letterGrade;
-        if (grade >= 4.0)
+        std::string letterGrade;
+        if (grade >= 4.0) {
             letterGrade = "A+";
-        else if (grade > 3.7)
+        } else if (grade > 3.7) {
             letterGrade = "A";
-        else if (grade > 3.3)
+        } else if (grade > 3.3) {
             letterGrade = "A-";
-        else if (grade > 3.0)
+        } else if (grade > 3.0) {
             letterGrade = "B+";
-        else if (grade > 2.7)
+        } else if (grade > 2.7) {
             letterGrade = "B";
-        else if (grade > 2.3)
+        } else if (grade > 2.3) {
             letterGrade = "B-";
-        else if (grade > 2.0)
+        } else if (grade > 2.0) {
             letterGrade = "C+";
-        else if (grade > 1.7)
+        } else if (grade > 1.7) {
             letterGrade = "C";
-        else if (grade > 1.3)
+        } else if (grade > 1.3) {
             letterGrade = "C-";
-        else if (grade > 1.0)
+        } else if (grade > 1.0) {
             letterGrade = "D+";
-        else if (grade > 0.7)
+        } else if (grade > 0.7) {
             letterGrade = "D";
-        else
+        } else {
             letterGrade = "F";
+        }
         result.push_back(letterGrade);
     }
     return result;
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.9, 4.1, 3.5};
-    vector<string> letterGrades = numerical_letter_grade(grades);
+    std::vector<float> grades = {3.8, 2.9, 4.1, 3.5};
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
 
+    std::cout << "Letter Grades: ";
     for (const auto& grade : letterGrades) {
-        cout << grade << " ";
+        std::cout << grade << " ";
     }
+    std::cout << std::endl;
     return 0;
 }
