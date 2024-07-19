@@ -41,10 +41,7 @@ bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) 
 }
 
 int main() {
-    std::vector<std::string> vec1 = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> vec2 = {"grunt", "prune"};
-
-    assert(same(filter_by_substring(vec1, "run"), vec2));
-
+    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    assert(same(filter_by_substring(words, "run"), std::vector<std::string>({"grunt", "prune"})));
     return 0;
 }
