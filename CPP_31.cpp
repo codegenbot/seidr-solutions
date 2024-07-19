@@ -1,11 +1,9 @@
-bool is_divisible = false;
-if(n <= 1) {
-    return false;
-}
-for(int i=2; i*i<=n; i++) {
-    if(n%i == 0) {
-        is_divisible = true;
-        break;
+#include <math.h>
+
+bool is_prime(long long n) {
+    if (n <= 1) return false;
+    for (long long i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
+    return true;
 }
-return !is_divisible;
