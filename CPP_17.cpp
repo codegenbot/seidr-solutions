@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
+bool areEqual(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,17 +14,17 @@ bool areEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
+vector<int> parse_music(string music_string) {
+    vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
-        if (music_string[i] == 'o' && music_string[i + 1] == '|') {
+        if (music_string[i] == 'o' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(4);
             i += 2;
         } else if (music_string[i] == 'o') {
             beats.push_back(2);
             i++;
-        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
+        } else if (music_string[i] == '.' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
         }
@@ -32,14 +33,12 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::vector<int> test_beats = parse_music("o||o");
-    std::vector<int> expected_beats = {4, 1, 4};
-    
-    if (areEqual(test_beats, expected_beats)) {
-        std::cout << "Test passed" << std::endl;
+    vector<int> a = {1, 2, 4};
+    vector<int> b = parse_music("o|o|o");
+    if (areEqual(a, b)) {
+        cout << "Equal" << endl;
     } else {
-        std::cout << "Test failed" << std::endl;
+        cout << "Not Equal" << endl;
     }
-    
     return 0;
 }
