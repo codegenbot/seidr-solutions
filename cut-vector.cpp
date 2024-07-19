@@ -7,36 +7,23 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    long long sum1 = 0;
-    long long prev_sum = 0; 
-    long long min_diff = LLONG_MAX;
-    int index = -1;
-    
-    for (int i = 0; i < n; i++) { 
-        if(i > 0) {
-            long long diff = std::abs(v[i] - ((sum1 - prev_sum) / (i + 1)));
-            
-            if (diff < min_diff) {
-                min_diff = diff;
-                index = i; // update the cutting point
-            } else if (diff == 0) {
-                res[0].assign(v.begin(), v.begin() + i+1);
-                res[1].assign(v.begin() + i, v.end());
-                return res;
-            }
+    long long total_sum = 0;
+    for (int i : v) {
+        total_sum += i;
+    }
+
+    long long left_sum = 0;
+    for (int i = 0; i < n; i++) {
+        if ((total_sum - left_sum) % (i + 1) == 0 || (total_sum - left_sum) % (i + 1) < LLONG_MAX / 2) {
+            res[0].assign(v.begin(), v.begin() + i+1);
+            res[1].assign(v.begin() + i, v.end());
+            return res;
         }
-        
-        sum1 += v[i];
-        prev_sum = sum1; 
+        left_sum += v[i];
     }
     
-    if (min_diff == 0) {
-        res[0].assign(v.begin(), v.begin() + index+1);
-        res[1].assign(v.begin() + index, v.end());
-    } else {
-        res[0].assign(v.begin(), v.begin() + index+1);
-        res[1].assign(v.begin() + index, v.end());
-    }
+    res[0].assign(v.begin(), v.begin() + n-1);
+    res[1].assign({v[n-1]});
     
     return res;
 }
