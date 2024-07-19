@@ -1,24 +1,10 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
-#include <vector>
+#include <string>
 
-using namespace std;
-
-string sort_numbers(const string& nums_str) {
-    vector<string> numbers;
-    string num;
-    for (char c : nums_str) {
-        if (c == ' ') {
-            numbers.push_back(num);
-            num.clear();
-        } else {
-            num += c;
-        }
-    }
-    numbers.push_back(num);
-
-    map<string, int> number_map = {
+std::string sort_numbers(std::string numbers) {
+    std::map<std::string, int> number_map = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -31,17 +17,29 @@ string sort_numbers(const string& nums_str) {
         {"nine", 9}
     };
 
-    sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    std::vector<std::string> numbers_vec;
+    std::string num;
+    for (char c : numbers) {
+        if (c == ' ') {
+            numbers_vec.push_back(num);
+            num = "";
+        } else {
+            num += c;
+        }
+    }
+    numbers_vec.push_back(num);
+
+    std::sort(numbers_vec.begin(), numbers_vec.end(), [&](const std::string &a, const std::string &b) {
         return number_map[a] < number_map[b];
     });
 
-    string sorted_nums;
-    for (const string& n : numbers) {
-        sorted_nums += n + ' ';
+    std::string sorted_numbers;
+    for (const std::string &num : numbers_vec) {
+        sorted_numbers += num + " ";
     }
-    sorted_nums.pop_back(); // Remove extra space at the end
+    sorted_numbers.pop_back(); // remove extra space at the end
 
-    return sorted_nums;
+    return sorted_numbers;
 }
 
 int main() {
