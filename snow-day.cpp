@@ -1,1 +1,21 @@
-```cout << fixed << setprecision(std::numeric_limits<float>::max_digits10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;```
+#include <iomanip>
+#include <iostream> 
+using namespace std;
+
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+    float snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        float amount = rateOfSnowFall - proportionOfSnowMeltingPerHour * snow;
+        snow += amount;
+    }
+    return snow;
+}
+
+int main() {
+    int hours;
+    cin >> hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    return 0;
+}
