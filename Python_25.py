@@ -1,11 +1,9 @@
 def factorize(number):
     factors = []
-    for i in range(1, int(number ** 0.5) + 1):
+    for i in range(1, number + 1):
         if number % i == 0:
             factors.append(i)
-            if i != number // i:
-                factors.append(number // i)
-    return sorted(factors)
+    return factors
 
-number = int(input())
+number = int(input().strip())
 print(factorize(number))

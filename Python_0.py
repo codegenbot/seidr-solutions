@@ -1,12 +1,9 @@
-try:
-    while True:
-        try:
-            result = input()
-            if not result:
-                break
-            if result.isnumeric():
-                print(int(result))
-        except EOFError:
+while True:
+    try:
+        result = input()
+        if not result:
             break
-except EOFError:
-    pass
+        if result.isdigit():
+            print(int(result))
+    except EOFError:
+        break
