@@ -2,6 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
+
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
     for (int i = 2; i <= n; ++i) {
@@ -11,12 +17,6 @@ std::vector<int> factorize(int n) {
         }
     }
     return factors;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
 }
 
 int main() {
