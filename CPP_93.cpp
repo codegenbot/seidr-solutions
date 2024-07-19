@@ -1,10 +1,9 @@
-transform(message.begin(), message.end(), message.begin(), ::toupper);
-    for(int i=0; i<message.size(); i++){
-        if(message[i]=='A' || message[i]=='E' || message[i]=='I' || message[i]=='O' || message[i]=='U'){
-            message[i] = message[i] + 2;
-        }
-        if(message[i]>'Z'){
-            message[i] = message[i] - 26;
+for(char& c : message){
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
+            }
         }
     }
     return message;
