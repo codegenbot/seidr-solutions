@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
@@ -38,4 +37,18 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else {
         throw std::runtime_error("Invalid type");
     }
+}
+
+int main() {
+    boost::any a = 10.0;
+    boost::any b = "20.5";
+    boost::any result = compare_one(a, b);
+    
+    if (boost::any_cast<std::string>(result) == "None") {
+        std::cout << "The values are equal." << std::endl;
+    } else {
+        std::cout << "The greater value is: " << boost::any_cast<std::string>(result) << "." << std::endl;
+    }
+    
+    return 0;
 }
