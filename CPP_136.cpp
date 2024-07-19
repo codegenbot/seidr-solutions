@@ -6,7 +6,6 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-// Fix the function name to singular form
 vector<int> largest_smallest_integer(vector<int> lst){
     vector<int> result = {0, 0};
     int largest_negative = 0;
