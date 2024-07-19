@@ -1,10 +1,19 @@
+#include <cassert>
+
 int countBits(int* a, int size) {
-    return bitCount(a, size);
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        while (*a) {
+            *a &= ~1;
+            count++;
+        }
+        a++;
+    }
+    return count;
 }
 
 int main() {
-    int arr[] = {127, 97, 8192};
-    assert(countBits(arr, sizeof(arr)/sizeof(arr[0])) == 10);
-    delete[] arr;
+    assert(countBits(new int[3]{127, 97, 8192}, 3) == 10);
+    delete[] new int[3]{127, 97, 8192};
     return 0;
 }
