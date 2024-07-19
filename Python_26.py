@@ -1,14 +1,14 @@
 def find_unique_numbers(numbers):
-    return set(numbers)
+    return list(set(numbers))
 
 numbers = []
 while True:
+    num = input("Enter a number or press Enter to finish: ")
+    if num == "":
+        break
     try:
-        num = input("Enter a number or press Enter to finish: ")
-        if num == "":
-            break
         numbers.append(int(num))
-    except ValueError:
-        print("Invalid input. Please enter a valid number.")
+    except ValueError as e:
+        print("Invalid input:", e)
 
 print(find_unique_numbers(numbers))
