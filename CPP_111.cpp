@@ -37,6 +37,6 @@ int main() {
     if (!issame(histogram, {{'a', 1}})) {
         assert(false);
     }
-    
+
     return 0;
 }
