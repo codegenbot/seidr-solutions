@@ -2,11 +2,9 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-int calculateMedian(vector<float> numbers) {
+int calculateMedian(std::vector<float> numbers) {
     int n = numbers.size();
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     
     if (n % 2 == 0)
         return (numbers[n/2 - 1] + numbers[n/2]) / 2;
@@ -15,15 +13,15 @@ int calculateMedian(vector<float> numbers) {
 }
 
 int mainFunction() {
-    vector<float> numbers;
+    std::vector<float> numbers;
     float num;
 
-    while (cin >> num) {
+    while (std::cin >> num) {
         numbers.push_back(num);
     }
 
     if (!numbers.empty())
-        cout << calculateMedian(numbers) << endl;
+        std::cout << calculateMedian(numbers) << std::endl;
 
     return 0;
 }
