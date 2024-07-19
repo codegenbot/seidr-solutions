@@ -14,8 +14,8 @@ int main() {
     int numBounces;
     cin >> numBounces;
     
-    double previousHeight = startHeight;
     double totalDistance = 0.0;
+    double previousHeight = startHeight;
     for (int i = 1; i <= numBounces; ++i) {
         double bounceHeight = previousHeight * bouncinessIndex;
         totalDistance += bounceHeight - previousHeight;
