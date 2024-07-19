@@ -1,7 +1,13 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
+
+#ifndef _MSC_VER
+#define _MSVC_LANG 201703L
+#else
+#define _MSVC_LANG 201703L
+#endif
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
