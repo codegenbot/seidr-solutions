@@ -2,6 +2,9 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    user_input = input("Enter strings separated by space: ")
-    strings = [string.strip() for string in user_input.split()]
-    return "".join(strings)
+    result = ""
+    for string in strings:
+        if len(result) > 0:
+            result += " "
+        result += string
+    return result
