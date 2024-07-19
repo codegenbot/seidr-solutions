@@ -13,7 +13,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (!visited[i][j]) {
                 vector<int> path;
                 dfs(grid, visited, i, j, k, path);
-                res = min({res, path});
+                res = min(res, path);
             }
         }
     }

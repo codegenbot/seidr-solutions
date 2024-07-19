@@ -1,5 +1,5 @@
-```c
 #include <cassert>
+#include <cstddef>
 
 int countOnes(int n) {
     int count = 0;
@@ -10,10 +10,10 @@ int countOnes(int n) {
     return count;
 }
 
-int customBitCount(void* p, size_t n) {
+int customBitCount(void* p, std::size_t n) {
     unsigned char* data = static_cast<unsigned char*>(p);
     int count = 0;
-    for (size_t i = 0; i < n; ++i) {
+    for (std::size_t i = 0; i < n; ++i) {
         count += countOnes(*reinterpret_cast<int*>(&data[i]));
     }
     return count;
