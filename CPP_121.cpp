@@ -17,7 +17,7 @@ int main() {
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    numbers.resize(static_cast<size_t>(n));
+    numbers.resize(n);
     for (int i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
