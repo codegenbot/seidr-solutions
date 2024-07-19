@@ -1,2 +1,2 @@
-n = int(input()) # Read the input without any prompt
-print(n) # Print the input
+n = [int(input()) for _ in range(3)]
+print(sum(n))
