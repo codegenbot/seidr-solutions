@@ -15,7 +15,7 @@ bool prime_length(std::string str){
         }
     }
 
-    return true;
+    return isPrime;
 
 }
 
@@ -23,6 +23,5 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    bool result = prime_length(str);
-    std::cout << "Is length prime? " << (result ? "Yes" : "No") << std::endl;
+    bool isPrime = prime_length(str);
 }
