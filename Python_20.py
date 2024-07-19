@@ -7,7 +7,7 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter space-separated numbers: ").strip().split()))
+    numbers = list(map(int, input().split()))
 
     if not numbers:
         print("Error: Please provide at least 2 numbers")
