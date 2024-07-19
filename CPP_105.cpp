@@ -27,7 +27,7 @@ std::vector<int> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {9, 8, 4}));
+    assert(issame(by_length({9, 4, 8}), {9, 8, 4});
 
     return 0;
 }
