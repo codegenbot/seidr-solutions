@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -10,13 +11,19 @@ bool issame(vector<string> a,vector<string>b){
 }
 
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
-    map<string,int> mp;
+    map<char,int> mp; // frequency map of characters
     for(auto &s:lst)
-        ++mp[s];
+        for(char c : s) 
+            ++mp[c];
     vector<vector<string>> res;
     for(const auto& pair:mp)
-        if(pair.second > 1)
-            res.push_back({{pair.first, string(pair.second-1,'c')}});
+        if(pair.second > 1) {
+            string key = "{";
+            for(int i=0; i<pair.second-1; i++)
+                key += "c"; // append 'c' (character) to the key
+            key += "}";
+            res.push_back({{pair.first, key}});
+        }
     return res;
 }
 
