@@ -24,7 +24,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 int main() {
     assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 2, 3, 4, 5}));
 
-    std::vector<int> input;
+    std::vector<int> input; 
     int num;
 
     std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
@@ -41,4 +41,3 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
-}
