@@ -1,8 +1,9 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
