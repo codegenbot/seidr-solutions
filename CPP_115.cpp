@@ -1,10 +1,9 @@
 #include <vector>
-
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (int i = 0; i < n; i++) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+        total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
     int max_fill_times = -1;
@@ -12,7 +11,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int fill_times = 0; ; fill_times++) {
         current_water = 0;
         for (int i = 0; i < n; i++) {
-            int water_in_well = accumulate(grid[i].begin(), grid[i].end(), 0);
+            int water_in_well = std::accumulate(grid[i].begin(), grid[i].end(), 0);
             if (water_in_well > capacity) {
                 current_water += capacity;
                 for (int j = 0; j < n; j++) {
