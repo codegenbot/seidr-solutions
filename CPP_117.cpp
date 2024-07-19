@@ -3,29 +3,20 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
-    std::string word;
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
+using namespace std;
+
+vector<string> select_words(string s, int n) {
+    vector<string> words;
+    string word;
+    stringstream ss(s);
+    while (ss >> word) {
         words.push_back(word);
     }
-    if (n >= 0 && n < words.size()) {
-        words.erase(words.begin() + n);
-    }
+    words.erase(words.begin() + n);
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
