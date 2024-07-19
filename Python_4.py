@@ -1,5 +1,5 @@
 try:
+    print("Enter numbers separated by spaces:")
     numbers = list(map(float, input().split()))
-    print(max(numbers))
-except ValueError:
+except EOFError:
     print("Invalid input. Please enter numbers separated by spaces.")
