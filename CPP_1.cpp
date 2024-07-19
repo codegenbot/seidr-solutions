@@ -1,9 +1,9 @@
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
     vector<string> result;
     string current_group = "";
     int balance = 0;
 
-    for (char c : paren_string) {
+    for (char c : a) {
         if (c == '(') {
             if (balance > 0) {
                 current_group += c;
