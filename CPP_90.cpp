@@ -1,5 +1,7 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
@@ -13,4 +15,9 @@ int nextSmallest(vector<int> lst) {
         }
     }
     return -1; 
+}
+
+int runTest() {
+    assert(nextSmallest({-35, 34, 12, -45}) == -35);
+    return 0;
 }
