@@ -1,7 +1,10 @@
-if ((a == b + c) || (b == a + c) || (c == a + b)) {
-        if (a == (int)a && b == (int)b && c == (int)c) {
-            return true;
-        }
+int x = a;
+    int y = b;
+    int z = c;
+    
+    if ((x == y + z) || (y == x + z) || (z == x + y)) {
+        return true;
+    } else {
+        return false;
     }
-    return false;
 }
