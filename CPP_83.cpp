@@ -4,10 +4,15 @@ using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (long long i = 1; i <= (long long)n; i++) {
-        string str = to_string(i);
-        if ((str.length() == n && str[0] == '1') || (str.length() == n && str[str.length()-1] == '1')) {
+    for (long long i = 1; i <= 9; i++) {
+        if (i == 1 || i % 10 == 1)
             count++;
+        if (n > 1) {
+            for (long long j = 1; j < pow(10, n-1); j++) {
+                long long num = i * pow(10, n-1) + j;
+                if (num >= 10 && (num % 10 == 1 || num / pow(10, (int)log10(num)) == 1))
+                    count++;
+            }
         }
     }
     return count;
@@ -17,6 +22,6 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    cout << "Count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
 }
