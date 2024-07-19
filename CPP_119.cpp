@@ -16,10 +16,9 @@ int main() {
     std::cout << "Enter the strings: ";
     while(getline(cin, line)) {
         auto pos = line.find('(');
-        if(pos != std::string::npos) {
-            line.erase(0, pos+1); // Erase all characters from the start of the string up to the first parenthesis.
-        } else {
-            break;
+        while (pos != std::string::npos) {
+            line = std::string(line.begin() + pos + 1, line.end()); // Add 1 to skip the '(' character
+            pos = line.find('('); // Continue searching for '(' until no more found
         }
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
