@@ -1,8 +1,8 @@
-#include <vector>  
+#include <vector>
 
-std::vector<int> rolling_max(std::vector<int> numbers); 
+std::vector<int> rolling_max(std::vector<int> numbers);
 
-bool issame(std::vector<int> a, std::vector<int> b); 
+bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -20,6 +20,6 @@ std::vector<int> rolling_max(std::vector<int> numbers){
 
 int main(){
     std::vector<int> expected_result = {3, 3, 3, 100, 100};
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), expected_result)); 
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), expected_result));
     return 0;
 }
