@@ -36,8 +36,13 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> test_input = separate_paren_groups("((ab)(cd))((ef))");
-    vector<string> expected_output = {"(ab)", "(cd)", "(ef)"};
-    assert(issame(test_input, expected_output));
+    vector<string> test_input = {"(a)(b)(c)", "(ab)(cd)", "((ab))(cd)"};
+    vector<vector<string>> expected_output = {{"a", "b", "c"}, {"ab", "cd"}, {"ab", "cd"}};
+
+    for (int i = 0; i < test_input.size(); ++i) {
+        vector<string> result = separate_paren_groups(test_input[i]);
+        assert(issame(result, expected_output[i]));
+    }
+
     return 0;
 }
