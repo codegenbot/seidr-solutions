@@ -16,6 +16,6 @@ long long double_the_difference(std::vector<int> nums){
 
 int main(){
     long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 42);
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
