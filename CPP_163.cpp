@@ -1,8 +1,8 @@
-#include <vector> // Add this line for vector declaration
+#include <vector>
+#include <cassert>
 
-vector<int> generate_integers(int a, int b) { // Define generate_integers function
-
-    vector<int> result;
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
             result.push_back(i);
@@ -11,13 +11,11 @@ vector<int> generate_integers(int a, int b) { // Define generate_integers functi
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) { // Correct function declaration
-    
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    
-    assert(issame(generate_integers(17, 89), {})); // Example usage
+    assert(issame(generate_integers(17, 89), {}));
     return 0;
 }
