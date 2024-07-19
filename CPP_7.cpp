@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -13,10 +13,4 @@ vector<string> filter_by_substring(vector<string> strings, const string& substri
         }
     }
     return filteredStrings;
-}
-
-int main() {
-    vector<string> result = filter_by_substring({"grunt", "prune"}, "ru");
-    // Process the 'result' as needed
-    return 0;
 }
