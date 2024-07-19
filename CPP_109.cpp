@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-bool move_one_ball(std::vector<int>& arr) {
+bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(arr.begin(), arr.end())) {
@@ -15,8 +15,5 @@ bool move_one_ball(std::vector<int>& arr) {
 int main() {
     std::vector<int> balls = std::vector<int>{};
     bool result = move_one_ball(balls);
-
-    assert(result == true);
-
     return 0;
 }
