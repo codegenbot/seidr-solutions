@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -24,14 +23,14 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({nums[i], i});
+        pairs.push_back({sumOfDigits, i});
     }
 
     std::sort(pairs.begin(), pairs.end());
 
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(pair.second);
+        result.push_back(nums[pair.second]);
     }
 
     return result;
