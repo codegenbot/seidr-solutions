@@ -23,5 +23,3 @@ std::vector<int> even_odd_palindrome(int n) {
     }
     return counts;
 }
-
-// The previous int main() definition is removed and not included here.
