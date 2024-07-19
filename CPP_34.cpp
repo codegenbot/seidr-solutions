@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,8 +6,12 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    unordered_set<int> s(l.begin(), l.end());
-    return vector<int>(s.begin(), s.end());
+    vector<int> result;
+    for(int i : l){
+        if(std::count(l.begin(),l.end(),i)==1)
+            result.push_back(i);
+    }
+    return result;
 }
 
 int driver() {
