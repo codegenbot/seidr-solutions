@@ -15,12 +15,7 @@ int main() {
     std::string line; 
     std::cout << "Enter the strings: ";
     while(getline(cin, line)) {
-        auto pos = std::min({line.find('('), line.find(')')});
-        if(pos != std::string::npos) {
-            line.erase(0, pos);
-        } else {
-            break;
-        }
+        line.erase(0, line.find_first_of("()") != std::string::npos ? line.find_first_of("()") : 100000);
         if(line.empty()) break;
         bool parenthesisMatched = match_parens(line);
         if (parenthesisMatched) {
