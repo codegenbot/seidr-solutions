@@ -1,4 +1,5 @@
-vector<string> result;
+vector<string> separate_paren_groups(string paren_string){
+    vector<string> groups;
     string current_group;
     int balance = 0;
 
@@ -13,11 +14,11 @@ vector<string> result;
             if (balance > 0) {
                 current_group += c;
             } else if (balance == 0) {
-                result.push_back(current_group);
+                groups.push_back(current_group);
                 current_group = "";
             }
         }
     }
 
-    return result;
+    return groups;
 }
