@@ -1,19 +1,15 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+namespace std {
+    bool issame(const vector<float>& a, const vector<float>& b) {
+        return a == b;
+    }
+
+    // Declaration or definition of rescale_to_unit function goes here
 }
 
-std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
-    float min_num = *std::min_element(numbers.begin(), numbers.end());
-    float max_num = *std::max_element(numbers.begin(), numbers.end());
-    std::vector<float> result;
-    for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
-    }
-    return result;
+int main() {
+    // Call to rescale_to_unit function
+    return 0;
 }
