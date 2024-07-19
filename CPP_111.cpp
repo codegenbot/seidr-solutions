@@ -34,15 +34,9 @@ map<char, int> histogram(string test) {
 int main() {
     string test = "hello world";
     map<char, int> result = histogram(test);
-    
     for (const auto& entry : result) {
         cout << entry.first << ": " << entry.second << endl;
     }
-    
-    map<char, int> a = {{'a', 1}, {'b', 2}, {'c', 3}};
-    map<char, int> b = {{'a', 1}, {'b', 2}, {'c', 3}};
-    
-    cout << "Is a same as b: " << issame(a, b) << endl;
-    
+
     return 0;
 }
