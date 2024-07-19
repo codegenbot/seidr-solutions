@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator> // Include the <iterator> header
+#include <numeric> 
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
