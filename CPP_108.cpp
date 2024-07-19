@@ -23,3 +23,4 @@ int main() {
     int result = count_nums(nums);
     std::cout << "Result: " << result << std::endl;
     return 0;
+}
