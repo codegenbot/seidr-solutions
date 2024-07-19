@@ -1,4 +1,3 @@
-```cpp
 #include <iomanip>
 using namespace std;
 
