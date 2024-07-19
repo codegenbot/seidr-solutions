@@ -6,23 +6,20 @@
 using namespace std;
 
 std::map<char, int> histogram(string test) {
-    map<char, int> result;
+    std::map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    auto lettersUnique = letters;
-    letters.erase(unique(letters.begin(), letters.end()), letters.end());
+    set<char> uniqueChars(test.begin(), test.end());
 
-    for (char c : lettersUnique) { 
+    for (char c : uniqueChars) { 
         int count = 0;
-        for (char letter : letters) {
+        for (char letter : test) {
             if (letter == c) count++;
         }
         if (count > 0) result[c] = count;
     }
 
     return result;
-
 }
 
 bool isSame(const map<char,int>& a, const map<char,int>& b){
@@ -32,9 +29,9 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
         if(it == b.end() || it->second != p.second) return false;
     }
     return true;
-
 }
 
 int main() {
     cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
+    return 0;
 }
