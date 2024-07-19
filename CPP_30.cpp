@@ -13,6 +13,5 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    // Test your get_positive function here
     return 0;
 }
