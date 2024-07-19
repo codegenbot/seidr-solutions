@@ -1,8 +1,12 @@
 def tri(n):
-    tribonacci = [3]
-    for i in range(1, n + 1):
-        if i % 2 == 0:
-            tribonacci.append(1 + i // 2)
-        else:
-            tribonacci.append(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i + 1])
-    return tribonacci
+    if n == 0:
+        return [0]
+    elif n == 1:
+        return [3]
+    else:
+        res = [3]
+        a, b, c = 0, 0, 3
+        for _ in range(n):
+            res.append(c)
+            a, b, c = b, c, a + b + c
+        return res
