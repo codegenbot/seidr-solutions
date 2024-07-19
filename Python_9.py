@@ -9,6 +9,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 if __name__ == "__main__":
-    numbers = list(map(int, input().split()))
+    numbers = [int(x) for x in input().split()]
     result = rolling_max(numbers)
     print(result)
