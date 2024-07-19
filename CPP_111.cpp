@@ -1,4 +1,3 @@
-```
 #include <map>
 #include <vector>
 #include <string>
@@ -22,16 +21,18 @@ bool issame(map<char,int> a, map<char,int> b) {
     return a==b;
 }
 
-string test;
-cout << "Enter a string: ";
-cin >> test;
+int main() {
+    string test;
+    cout << "Enter a string: ";
+    cin >> test;
 
-auto hist = histogramTest(test); 
+    auto hist = histogramTest(test); 
 
-for (auto p : hist) {
-    cout << p.first << ": " << p.second << endl;
-}
+    for (auto p : hist) {
+        cout << p.first << ": " << p.second << endl;
+    }
 
-if (!issame(hist, {{'a', 1}})) { 
-    return 0; 
+    if (!issame(hist, {{'a', 1}})) { 
+        return 0; 
+    }
 }
