@@ -1,1 +1,1 @@
-operations = [int(input("Enter operation {}:".format(i+1))) for i in range(3)]
+operations = [int(input("Enter a number: ")) for _ in range(3)]
