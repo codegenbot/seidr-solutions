@@ -12,8 +12,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 # Read input from user
-paren_string = input("Enter a string with parentheses: ")
-if paren_string.count('(') == paren_string.count(')') and paren_string[0] == '(' and paren_string[-1] == ')':
-    print(separate_paren_groups(paren_string))
-else:
-    print("Please enter a string with properly enclosed parentheses.")
+paren_string = input()
+print(separate_paren_groups(paren_string))
