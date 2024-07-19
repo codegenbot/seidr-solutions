@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -5,8 +6,8 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result = lst;
 
     // Remove strings with odd lengths from the list
     for (auto it = result.begin(); it != result.end();) {
@@ -18,14 +19,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the list by string length and then alphabetically
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
-                 return a < b;
-             } else {
-                 return a.length() < b.length();
-             }
-         });
+    std::sort(result.begin(), result.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            } else {
+                return a.length() < b.length();
+            }
+        });
 
     return result;
 }
