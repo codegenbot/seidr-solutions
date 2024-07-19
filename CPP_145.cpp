@@ -1,6 +1,7 @@
 #include <vector>
 
 vector<int> order_by_points(vector<int> nums);
+
 bool issame(const vector<int> &a, const vector<int> &b);
 
 vector<int> order_by_points(vector<int> nums) {
@@ -28,6 +29,6 @@ bool issame(const vector<int> &a, const vector<int> &b) {
 }
 
 int main() {
-    // Add your main function code here if needed
+    // Main function
     return 0;
 }
