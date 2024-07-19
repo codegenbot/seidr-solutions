@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 int count(int num) {
     int res = 0;
@@ -21,8 +22,8 @@ int search(vector<int> lst) {
 
 int main() {
     vector<int> lst; 
+    int temp;
     for (int i = 0; i < 5; ++i) { 
-        int temp;
         cin >> temp; 
         lst.push_back(temp);
     }
