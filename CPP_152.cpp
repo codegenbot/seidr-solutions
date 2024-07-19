@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -30,4 +29,3 @@ std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
         }
     }
     return result;
-}
