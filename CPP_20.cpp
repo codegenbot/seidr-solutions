@@ -4,6 +4,7 @@
 #include <utility>
 #include <initializer_list>
 #include <limits>
+#include <pair>
 
 bool issame(std::pair<float, float> a, std::pair<float, float> b) {
     return (a.first == b.first && a.second == b.second);
