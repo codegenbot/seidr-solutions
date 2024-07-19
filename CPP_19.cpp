@@ -1,5 +1,6 @@
+#include <iostream>
 #include <map>
-#include <string>
+#include <cassert> // Include <cassert> for assert function
 
 using namespace std;
 
@@ -16,10 +17,17 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0; // Return 0 for successful completion
+}
+
 string sort_numbers(string numbers) {
     map<int, string> reverse_map;
     string result = "";
-    
+
     string current_number = "";
     for (char c : numbers) {
         if (c == ' ') {
@@ -36,9 +44,4 @@ string sort_numbers(string numbers) {
     }
     
     return result;
-}
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
 }
