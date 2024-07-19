@@ -1,13 +1,3 @@
-vector<string> result;
-    for (string s : lst) {
-        int count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
-                count++;
-            }
-        }
-        string res = "the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.";
-        result.push_back(res);
-    }
-    return result;
+bool issame(const vector<string> &vec1, const vector<string> &vec2) {
+    return vec1 == vec2;
 }
