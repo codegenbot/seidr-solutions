@@ -4,7 +4,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -46,15 +45,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any("None");
-}
-
-int main() {
-    // Test the function
-    assert(boost::any_cast<string>(compare_one(5, 7)) == "None");
-    assert(boost::any_cast<int>(compare_one(10, 3)) == 10);
-    assert(boost::any_cast<float>(compare_one(3.5f, 3.6f)) == 3.6f);
-    assert(boost::any_cast<string>(compare_one("2.3", "4.5")) == "4.5");
-    assert(boost::any_cast<float>(compare_one(8, "6.7")) == 8);
-
-    return 0;
 }
