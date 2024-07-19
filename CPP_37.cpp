@@ -16,4 +16,3 @@ std::vector<float> sort_even(std::vector<float> l){
         }
     }
     return l_prime;
-}
