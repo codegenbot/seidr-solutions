@@ -5,7 +5,7 @@ bool issame(vector<string> a, vector<string> b) {
     // Function implementation here
 }
 
-vector<string> processText(string txt) {
+vector<string> taskFunction(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
