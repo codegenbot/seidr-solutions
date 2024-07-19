@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 def bowling_score(frames):
     frames = frames.replace("\n", "").replace(" ", "")
 
