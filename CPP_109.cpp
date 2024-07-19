@@ -24,5 +24,6 @@ int main() {
     }
     
     assert(move_one_ball(arr) == true);
+    
     return 0;
 }
