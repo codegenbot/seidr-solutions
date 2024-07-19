@@ -17,6 +17,7 @@ int main() {
     std::vector<float> lst;
     int odd_sum;
 
+    // Read the input list 'lst'
     int n;
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
@@ -25,8 +26,10 @@ int main() {
         lst.push_back(num);
     }
 
+    // Read the 'odd_sum'
     std::cin >> odd_sum;
 
+    // Perform the calculation and check the result
     assert(double_the_difference(lst) == odd_sum);
 
     return 0;
