@@ -1,9 +1,17 @@
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float i : l) {
-        if (i > 0) {
-            result.push_back(i);
+```cpp
+#include <vector>
+
+std::vector<float> extract_positives(std::vector<float> numbers) {
+    std::vector<float> positive_numbers;
+    for (float number : numbers) {
+        if (number > 0) {
+            positive_numbers.push_back(number);
         }
     }
-    return result;
+    return positive_numbers;
+}
+
+int main() {
+    assert(extract_positives({}).size() == 0);
+    return 0;
 }
