@@ -1,6 +1,9 @@
 ```cpp
 #include <initializer_list>
 #include <vector>
+#include <list>
+#include <any>
+#include <algorithm>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -12,13 +15,6 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    std::list<std::any> values = {{1}, {2}, {3}, {"hello"}, {4.5}};
-    auto result = filter_integers(values);
-    bool same = issame(result, {1, 2, 3});
-    return 0;
 }
