@@ -1,20 +1,12 @@
-string result;
-    bool hasConsecutiveSpaces = false;
-    
-    for(char c : text) {
-        if(c == ' ') {
-            if(hasConsecutiveSpaces) {
-                result.pop_back();
-                result.push_back('-');
-            } else {
-                result.push_back('_');
-            }
-            hasConsecutiveSpaces = true;
-        } else {
-            result.push_back(c);
-            hasConsecutiveSpaces = false;
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        text[i] = '_';
+        int j = i + 1;
+        while (j < text.size() && text[j] == ' ') {
+            text[j] = '-';
+            ++j;
         }
+        i = j - 1;
     }
-    
-    return result;
 }
+return text;
