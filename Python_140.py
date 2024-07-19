@@ -12,5 +12,4 @@ def fix_spaces(text):
             ]
         )
         .replace("  ", "_")
-        .replace("--", "-")
     )
