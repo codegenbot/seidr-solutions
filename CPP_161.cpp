@@ -1,4 +1,7 @@
 #include <algorithm>
+#include <string>
+#include <initializer_list>
+
 using namespace std;
 
 string solve(string s) {
