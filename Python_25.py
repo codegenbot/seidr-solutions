@@ -1,4 +1,7 @@
 def factorize(n):
+    if n <= 1:
+        return "Factors are not defined for numbers less than 2."
+    
     factors = []
     i = 2
     while i * i <= n:
