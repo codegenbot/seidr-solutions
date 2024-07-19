@@ -4,11 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     int count = 0;
     string current_group;
@@ -31,4 +27,14 @@ vector<string> separate_paren_groups(string paren_string) {
     }
     
     return result;
+}
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
+    return 0;
 }
