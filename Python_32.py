@@ -3,7 +3,9 @@ while True:
         input_numbers = list(
             map(
                 float,
-                input("Enter three floating-point numbers separated by space: ").split(),
+                input(
+                    "Enter three floating-point numbers separated by space: "
+                ).split(),
             )
         )
         if len(input_numbers) != 3:
@@ -13,4 +15,4 @@ while True:
     except ValueError:
         print(
             "Invalid input. Please enter exactly three floating-point numbers separated by space."
-       )
+        )
