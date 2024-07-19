@@ -35,11 +35,12 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{1, 2}, {3, 4}};
-    int capacity = 5;
+    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}};
+    int capacity = 3;
     
     int result = max_fill(grid, capacity);
-    std::cout << "Maximum number of fill operations: " << result << std::endl;
+    
+    std::cout << "The maximum number of times to fill the wells is: " << result << std::endl;
 
     return 0;
 }
