@@ -1,12 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
-
-bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
-    return vec1 == vec2;
-}
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
@@ -40,9 +35,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         }
     }
     return letter_grades;
-}
-
-int main() {
-    // Your code here
-    return 0;
 }
