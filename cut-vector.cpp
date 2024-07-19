@@ -14,12 +14,20 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) { 
         if(i > 0) {
-            long long diff = abs(prev_sum - sum1);
+            long long diff = abs(sum1 - prev_sum);
             
-            if (diff <= min_diff) {
+            if (diff == 0 || diff <= min_diff) {
                 min_diff = diff;
-                res[0].assign(v.begin(), v.begin() + i+1);
-                res[1].assign(v.begin() + i, v.end());
+                res[0].clear();
+                res[0].reserve(i+1);
+                for(int j=0; j<=i; j++) {
+                    res[0].push_back(v[j]);
+                }
+                res[1].clear();
+                res[1].resize(n-i-1);
+                for(int j=i+1; j<n; j++) {
+                    res[1].push_back(v[j]);
+                }
             }
         }
         
