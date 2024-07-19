@@ -1,13 +1,12 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
-    int countEven = 0;
-    int countOdd = 0;
+    vector<int> result(n+1, 0);
 
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
@@ -22,13 +21,25 @@ vector<int> even_odd_palindrome(int n) {
 
         if (isPalindrome) {
             if (i % 2 == 0)
-                countEven++;
+                result[i] = 1;
             else
-                countOdd++;
+                result[i] = 2;
         }
     }
 
-    result[0] = countEven;
-    result[1] = countOdd;
-
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> output = even_odd_palindrome(n);
+    for(int i=1; i<=n; i++) {
+        if(output[i] == 1)
+            cout << "Count of Even Palindromes: " << output[i] << endl;
+        else if(output[i] == 2)
+            cout << "Count of Odd Palindromes: " << output[i] << endl;
+    }
+
+    return 0;
+}
