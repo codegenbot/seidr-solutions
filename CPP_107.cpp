@@ -17,3 +17,8 @@ bool is_same(int n) {
     }
     return counts;
 }
+
+int main() {
+    // Main function code here
+    return 0;
+}
