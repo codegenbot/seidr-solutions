@@ -1,7 +1,3 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    // Compare a and b
-}
-
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> filtered_strings;
     for (const string& str : strings) {
@@ -12,6 +8,14 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return filtered_strings;
 }
 
-int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
