@@ -27,9 +27,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 
 int main() {
     std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = strange_sort_vector(a); // Rename here
+    std::vector<int> b = strange_sort_vector(a);
     for (size_t i = 0; i < a.size(); ++i) {
-        assert(a[i] == b[i]);
+        assert(b[i] == a[i]);
     }
     return 0;
 }
