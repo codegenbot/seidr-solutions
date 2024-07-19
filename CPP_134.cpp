@@ -1,8 +1,12 @@
-if (txt.empty()) return false;
-    char lastChar = txt.back();
-    if (isalpha(lastChar)) {
-        size_t pos = txt.find_last_of(" ");
-        return pos == string::npos || pos == txt.size() - 1;
+int n = txt.size();
+    if (n == 0)
+        return false;
+    char last_char = txt[n - 1];
+    if (isalpha(last_char)) {
+        if (n >= 2 && txt[n - 2] == ' ')
+            return true;
+        else if (n == 1)
+            return true;
     }
     return false;
 }
