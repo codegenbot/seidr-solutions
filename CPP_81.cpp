@@ -63,3 +63,5 @@ int main() {
     for (int i = 0; i < letter_grades.size(); ++i) {
         cout << "Grade: " << letter_grades[i] << endl;
     }
+    return 0;
+}
