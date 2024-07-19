@@ -37,3 +37,6 @@ bool issame(vector<string> a, vector<string> b) {
     }
     return true;
 }
+
+// In the main function, use the following assert statement:
+assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
