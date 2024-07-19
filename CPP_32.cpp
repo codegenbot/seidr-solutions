@@ -18,9 +18,9 @@ int main() {
 
     std::vector<double> coeffs;
     for(int i = 0; i < n; i++) {
-        double val;
-        cin >> val;
-        coeffs.push_back(val);
+        double temp;
+        cin >> temp;
+        coeffs.push_back(temp);
     }
 
     double x;
