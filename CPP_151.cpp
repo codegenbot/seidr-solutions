@@ -1,6 +1,5 @@
-#include <initializer_list>
-
 using namespace std;
+using size_type = size_t;
 
 long long doubleTheDifference(vector<float> lst) {
     long long pos_sum = 0, neg_sum = 0;
@@ -26,3 +25,4 @@ int main() {
     long long result = doubleTheDifference(lst);
     cout << "Double the difference: " << result << endl;
     return 0;
+}
