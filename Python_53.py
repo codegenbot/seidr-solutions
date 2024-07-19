@@ -3,15 +3,12 @@ def add(a, b):
 
 try:
     while True:
-        input_list = input().strip().split()
-        if len(input_list) != 2:
-            raise ValueError("Invalid input. Please provide two integers separated by space.")
-
-        x, y = map(int, input_list)
+        x, y = map(int, input().strip().split())
         result = add(x, y)
         print(result)
-
+except ValueError:
+    print("Invalid input. Please provide two integers separated by space.")
+except Exception as e:
+    print("An error occurred:", e)
 except EOFError:
     pass
-except ValueError as e:
-    print(e)
