@@ -1,15 +1,8 @@
 ```
 def words_in_sentence(sentence):
-    def is_prime(n):
-        if n < 2: 
-            return False
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                return False
-        return True
-
+    primes = [2,3,5,7,11,13,17,19,23,29]
     result = ''
     for word in sentence.split():
-        if is_prime(len(word)):
+        if len(word) in primes:
             result += word + ' '
     return result.strip()
