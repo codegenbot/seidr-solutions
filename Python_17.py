@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 from typing import List
 
@@ -13,6 +11,6 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(temp_beats)
             temp_beats = 0
         else:
-            temp_beats += beats_per_note.get(note, 4)
+            temp_beats += beats_per_note.get(note, 4)  # Default to 4 if note is unknown
     music_list.append(temp_beats)
     return music_list
