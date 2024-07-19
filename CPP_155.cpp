@@ -3,15 +3,15 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int n) {
-    int even = 0, odd = 0;
+    std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
-            even++;
+            result[0]++;
         } else {
-            odd++;
+            result[1]++;
         }
     }
-    return {even, odd};
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
