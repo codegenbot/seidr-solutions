@@ -1,18 +1,2 @@
-```cpp
-#include <vector>
-#include <string>
-#include <algorithm>
-
 bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
-    for (int i : q) {
-        str += std::to_string(i);
-    }
-    bool balanced = str == std::stoi(str);
-    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
-}
+    return std::accumulate(q.begin(), q.end(), 0) <= w;
