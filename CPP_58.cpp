@@ -19,6 +19,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> user_input;
+    user_input.reserve(n); // reserve enough space for n elements
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
