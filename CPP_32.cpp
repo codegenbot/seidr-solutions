@@ -2,7 +2,6 @@ int main() {
     int n;
     cin >> n;
 
-    // Initialize coeffs vector
     vector<double> coeffs(n);
 
     for(int i = 0; i < n; i++) {
@@ -14,7 +13,7 @@ int main() {
 
     double solution = find_zero(coeffs, x); 
 
-    cout << fixed << setprecision(6) << find_zero(coeffs, x) << endl;
+    cout << fixed << setprecision(6) << solution << endl;
 
-    assert (abs(find_zero(coeffs, x)) < 1e-3);
+    assert (abs(solution) < 1e-3);
 }
