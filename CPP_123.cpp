@@ -24,8 +24,7 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> res;
-    res.insert(res.end(), get_odd_collatz(n).begin(), get_odd_collatz(n).end());
+    vector<int> res(get_odd_collatz(n));
     for (auto i : res) {
         cout << i << " ";
     }
