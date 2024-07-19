@@ -20,7 +20,7 @@ std::map<char, int> histogram(string test) {
     return result;
 }
 
-bool isSame(const map<char,int>& a, const map<char,int>& b){
+bool issame(const map<char,int>& a, const map<char,int>& b){
     if(a.size() != b.size()) return false;
     for(auto p : a) {
         if(b.find(p.first) == b.end() || b[p.first] != p.second) return false;
@@ -29,5 +29,5 @@ bool isSame(const map<char,int>& a, const map<char,int>& b){
 }
 
 int main() {
-    cout << isSame(histogram("a"), histogram("b")) << endl;
+    cout << issame(histogram("a"), histogram("b")) << endl;
 }

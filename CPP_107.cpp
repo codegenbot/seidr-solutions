@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 bool isPalindrome(int n) {
     int rev = 0;
@@ -16,6 +16,10 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Is the number even and palindrome? " << (isPalindrome(n) && (n % 2 == 0)) << std::endl;
+    if (isPalindrome(n) && (n % 2 == 0)) {
+        std::cout << "The number is even and palindrome." << std::endl;
+    } else {
+        std::cout << "The number is not even and palindrome." << std::endl;
+    }
     return 0;
 }
