@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-auto max_value(vector<int> l) {
-    vector<float> v = vector<float>(l.begin(), l.end()); 
-    return *std::max_element(v.begin(), v.end());
+int main() {
+    auto v = std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    assert(abs(*v - 124) < 1e-4);
 }
