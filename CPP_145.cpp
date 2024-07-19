@@ -1,18 +1,18 @@
-// Declare the issame function before main
-bool issame(const vector<int>& a, const vector<int>& b);
+#include <vector>
+#include <algorithm>
 
-// Update the sort function call to use issame
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    // Existing code remains unchanged
-});
-
-// Define the issame function
-bool issame(const vector<int>& a, const vector<int>& b) {
-    // Implement comparison logic
-    // Return true if a and b are the same, false otherwise
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-// Call issame in the main function
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        return a < b;
+    });
+    return nums;
+}
+
 int main() {
-    // Existing code remains unchanged
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
