@@ -20,5 +20,5 @@ int rounded_avg(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::to_string(rounded_avg(n, m)) << endl;
+    cout << rounded_avg(n, m) << endl;
 }
