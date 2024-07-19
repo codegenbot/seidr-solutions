@@ -18,7 +18,7 @@ def minPath(grid, k):
             if found_next:
                 break
         if not found_next:
-            repeat_index = len(path) % len(path)
-            path += [path[repeat_index]] * ((k + 1 - len(path)) // (len(path) - repeat_index))
+            repeat_index = len(path) % (len(visited) + 1)
+            path += [path[repeat_index % len(path)]] * ((k + 1 - len(path)) // (len(path) - repeat_index % len(path)))
 
     return path
