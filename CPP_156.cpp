@@ -19,7 +19,8 @@ std::string intToMiniRoman(int num) {
             i++;
         }
     }
-    return roman.str().clear(), roman.seekp(0), roman.str();
+    string result = roman.str();
+    return result; 
 }
 
 int main() { 
