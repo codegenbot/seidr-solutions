@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<int> pluck(const std::vector<int>& v) {
     std::vector<int> result;
@@ -17,6 +16,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main(int argc, char *argv[]) {
-    assert(issame(pluck({7, 9, 7, 1}), {7, 1}));
+    assert(issame(pluck(std::vector<int>({7, 9, 7, 1})), {7, 1}));
     return 0;
 }
