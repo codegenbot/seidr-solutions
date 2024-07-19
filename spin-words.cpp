@@ -3,18 +3,15 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    int wordLength;
-    std::string word;
+    std::string word = "";
 
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            wordLength = i - word.length();
-            if (wordLength >= 5) {
-                std::string reversedWord = "";
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += word[j];
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (word.length() >= 5) {
+                std::string reversedWord = word;
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
                 }
-                result += reversedWord + " ";
             } else {
                 result += word + " ";
             }
@@ -24,13 +21,23 @@ std::string spinWords(std::string sentence) {
         }
     }
 
-    return result.substr(0, result.length() - 1);
+    if (word.length() >= 5) {
+        std::string reversedWord = word;
+        for (int j = word.length() - 1; j >= 0; j--) {
+            result += word[j];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cout << "Enter a string: ", std::getline(std::cin, input)) {
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
