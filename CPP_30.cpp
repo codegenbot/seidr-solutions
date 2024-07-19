@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -18,24 +18,15 @@ std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
-            result.push_back(num);
+            result.push_back(num); 
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<float> input;
-    float num;
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while (std::cin >> num) {
-        if (num == -1) break;
-        input.push_back(num);
-    }
-    std::vector<float> positive = get_positive(input);
-    if (issame(input, positive)) {
-        std::cout << "All numbers are positive." << std::endl;
-    } else {
-        std::cout << "Not all numbers are positive." << std::endl;
-    }
+    std::vector<float> v1 = get_positive({-1, -2, -3});
+    std::vector<float> v2 = {};
+    assert(issame(v1, v2));
+    return 0;
 }
