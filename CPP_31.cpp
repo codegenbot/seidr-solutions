@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 
@@ -18,10 +17,10 @@ int main() {
     int n, count = 0;
     cin >> n;
 
-    string str;
+    ostringstream oss;
     for (int i = 2; i <= n; i++) {
         if (is_prime(i)) {
-            str += to_string(i) + " ";
+            oss << to_string(i) << " ";
             count++;
         }
     }
