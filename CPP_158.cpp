@@ -1,21 +1,19 @@
-#include <string>
-#include <algorithm>
-#include <vector>
-
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
+    string result = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
+            int countA = 0;
+            for (char c : a) {
+                if (count(c) == 1) {
+                    countA++;
+                }
             }
-            return a.length() > b.length();
+            int countB = 0;
+            for (char c : b) {
+                if (count(c) == 1) {
+                    countB++;
+                }
+            }
+            return make_pair(countA, a) < make_pair(countB, b);
         });
-    for (string word : words) {
-        if (word.length() == max_word.length() && 
-            count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) == 1) {
-            max_word = word;
-            break;
-        }
-    }
-    return max_word;
+    return result;
 }
