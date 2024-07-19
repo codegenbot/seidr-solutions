@@ -21,16 +21,15 @@ bool prime_length(std::string str){
 
 int main() {
     std::string str;
-    char c;
     std::cout << "Enter a string: ";
-    
-    while ((c = std::cin.get()) != '\n') {
-        str += c;
-    }
-    
+    std::cin.ignore(); // Ignore whitespace
+    std::cin >> std::ws; // Read and discard whitespace
+    std::getline(std::cin, str);
     bool isPrime = prime_length(str);
-    if(isPrime)
-        std::cout << "The length of the string is a prime number.";
-    else
-        std::cout << "The length of the string is not a prime number.";
+
+    if(isPrime) {
+        std::cout << "The length of the string is a prime number." << std::endl;
+    } else {
+        std::cout << "The length of the string is not a prime number." << std::endl;
+    }
 }
