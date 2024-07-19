@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(double a, double b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
-vector<string> by_length(const vector<int>& arr){
+vector<string> by_length(vector<int> arr){
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     vector<int> filtered_arr;
     for (int num : arr) {
