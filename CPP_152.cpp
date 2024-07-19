@@ -24,7 +24,7 @@ std::vector<int> compareElements(std::vector<int> game, std::vector<int> guess) 
     return result;
 }
 
-int mainFunction() {
+int main() {
     std::vector<int> game;
     int n;
     std::cout << "Enter the number of elements in the game: ";
