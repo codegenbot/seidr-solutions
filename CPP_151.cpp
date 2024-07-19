@@ -14,8 +14,19 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.3, 4.8, -0.9, 6.7};
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<float> lst(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> lst[i];
+    }
+
     long long result = double_the_difference(lst);
-    std::cout << "The result is: " << result << std::endl;
+
+    std::cout << "The sum of squares is: " << result << std::endl;
+
     return 0;
 }
