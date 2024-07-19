@@ -26,10 +26,17 @@ int main() {
         cin >> num;
         numbers.push_back(to_string(num)); 
     }
+    
     if(numbers.empty()) { 
         cout << "Sum of odd elements: 0" << endl;
     } else {
-        cout << "Sum of odd elements: " << solution(stoi(numbers[0])) << endl; 
+        int sum = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            if (stoi(numbers[i]) % 2 != 0) {
+                sum += stoi(numbers[i]);
+            }
+        }
+        cout << "Sum of odd elements: " << sum << endl; 
     }
     return 0;
 }

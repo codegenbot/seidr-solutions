@@ -1,22 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
+#include <boost/type_id.hpp>
 
 int max(int a, float b) {
     if (a > b)
         return a;
     else
         return b;
-}
-
-int main() {
-    boost::any a = "123";
-    boost::any b = "456";
-
-    std::cout << compare_one(a, b) << std::endl;
-
-    return 0;
 }
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -83,4 +74,13 @@ boost::any compare_one(boost::any a, boost::any b) {
     else {
         return boost::any(typeid(int));
     }
+}
+
+int main() {
+    boost::any a = "123";
+    boost::any b = "456";
+
+    std::cout << compare_one(a, b) << std::endl;
+
+    return 0;
 }

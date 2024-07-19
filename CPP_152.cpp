@@ -1,6 +1,10 @@
 #include <vector>
 #include <initializer_list>
 
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
+
 std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
