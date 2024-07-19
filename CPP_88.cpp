@@ -3,6 +3,10 @@
 #include <cassert>
 #include <functional>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> sort_array(std::vector<int> array){
     if(array.empty()) return array;
     if((array.front() + array.back()) % 2 == 0)
