@@ -7,13 +7,14 @@ def is_prime(num):
     return True
 
 def prime_fib(n: int):
-    first = 2
-    second = 3
-    count = 0
+    if n == 1:
+        return 2
+    if n == 2:
+        return 3
+    count = 2
+    a, b = 1, 2  # Update the initial values to start with the 3rd prime Fibonacci number
     while count < n:
-        temp = first + second
-        first = second
-        second = temp
-        if is_prime(temp):
+        a, b = b, a + b
+        if is_prime(b):
             count += 1
-    return temp
+    return b
