@@ -1,13 +1,13 @@
 #include <typeindex>
 
-bool issame(const std::type_index& type1, const std::type_index& type2) {
-    return type1 == type2;
+bool issame(const type_index& lhs, const type_index& rhs) {
+    return lhs == rhs;
 }
 
 vector<int> filter_integers(list_any values){
     vector<int> result;
     for (const auto& value : values) {
-        if (issame(typeid(int), boost::any_cast<boost::any>(value).type())) {
+        if (boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
