@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> eat(int number, int remaining, int need) {
     int totalEaten = number + remaining;
@@ -14,11 +13,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int num, rem, n;
-    std::cin >> num >> rem >> n;
+    assert(isSame(eat(4, 5, 1), std::vector<int>{5, 0}));
     
-    std::vector<int> result = eat(num, rem, n);
-    std::cout << result[0] << " " << result[1] << std::endl;
-
     return 0;
 }
