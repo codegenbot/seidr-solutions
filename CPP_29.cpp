@@ -1,7 +1,5 @@
-#include <vector>
-#include <string>
-
-bool isSame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+```cpp
+bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -23,9 +21,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 
 }
+
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
 
-    assert (isSame(filter_by_prefix(a, "xxx") , b));
+    assert (same(filter_by_prefix(a, "xxx") , b));
     return 0;
+}
