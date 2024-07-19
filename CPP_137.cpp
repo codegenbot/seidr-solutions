@@ -15,7 +15,7 @@ int main() {
     std::string str1, str2;
     std::cout << "Enter first string: ";
     getline(std::cin, str1);
-    
+
     std::cout << "Enter second string: ";
     getline(std::cin, str2);
 
