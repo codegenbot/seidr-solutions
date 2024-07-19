@@ -2,11 +2,16 @@
 #include <string>
 
 int solve(int N) {
-    int sum = 0;
+    std::string str;
     while (N > 0) {
         int remainder = N % 2;
-        sum += remainder;
+        str.push_back(remainder + '0'); 
         N /= 2;
+    }
+    int sum = 0;
+    for (char c : str) { 
+        if (c == '1')
+            sum++;
     }
     return sum;
 }
@@ -14,14 +19,11 @@ int solve(int N) {
 int main() {
     std::cout << "Enter a number: ";
     int N;
-    if (!(std::cin >> N)) { 
+    std::cin >> N;
+    if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
     }
-    if (N == 0) {
-        std::cout << "Sum of bits is: 0" << std::endl; 
-    } else {
-        std::cout << "Sum of bits is: " << solve(N) << std::endl;
-    }
+    std::cout << "Sum of bits is: " << solve(N) << std::endl;
     return 0;
 }
