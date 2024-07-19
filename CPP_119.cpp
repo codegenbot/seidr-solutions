@@ -17,6 +17,16 @@ bool match_parens(const std::vector<std::string>& lst) {
     return countOpen == countClose;
 }
 
+int testMain() {
+    assert(match_parens({}) == true);
+    assert(match_parens({"("}) == false);
+    assert(match_parens({")"}) == false;
+    assert(match_parens({"}")) == false;
+    assert(match_parens({"}", "("}) == false);
+    assert(match_parens({"}", "(", "("}) == false);
+    return 0;
+}
+
 int main() {
     std::vector<std::string> lst;
     std::cout << "Enter strings separated by spaces: ";
@@ -24,11 +34,7 @@ int main() {
         lst.push_back(s);
     bool result = match_parens(lst);
 
-    if (result) {
-        std::cout << "Yes\n";
-    } else {
-        std::cout << "No\n";
-    }
+    std::cout << (result ? "Yes\n" : "No\n");
 
     return 0;
 }
