@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -14,10 +13,9 @@ int how_many_times(string str1, string str2) {
 
 int main() {
     string str1, str2;
-    cout << "Enter the first string: ";
-    cin >> str1;
-    cout << "Enter the second string: ";
-    cin >> str2;
-    cout << "The second string appears " << how_many_times(str1, str2) << " times in the first string." << endl;
+    cout << "Enter two strings: ";
+    cin >> str1 >> str2;
+    int result = how_many_times(str1, str2);
+    cout << "The strings appear " << result << " times.\n";
     return 0;
 }
