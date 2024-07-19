@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <string>
 #include <cctype>
@@ -48,7 +47,4 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-int main() {
-    assert(are_equal(split_words(""), {"0"}));
-    return 0;
-}
+assert(are_equal(split_words(""), {"0"}));
