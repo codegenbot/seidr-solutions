@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <functional>
@@ -10,10 +11,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return issame(a, vector<int>(b));
 }
 
 bool has_val(const vector<int>& lst, int val) {
