@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -17,17 +17,17 @@ bool isSame(vector<int> a, vector<int> b) {
 
 int main_test() {
     int n;
-    std::cin >> n;
-    std::vector<int> user_input(n, 0); 
+    cin >> n;
+    vector<int> user_input; 
     for (int i = 0; i < n; i++) {
         int x;
-        std::cin >> x;
-        user_input[i] = x; 
+        cin >> x;
+        user_input.push_back(x); 
     }
     if (isSame(user_input, user_input)) {
-        std::cout << "Yes" << std::endl;
+        cout << "Yes" << endl;
     } else {
-        std::cout << "No" << std::endl;
+        cout << "No" << endl;
     }
     return 0;
 }
