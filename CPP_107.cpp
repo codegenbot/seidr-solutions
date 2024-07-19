@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,9 +26,11 @@ bool isPalindrome(int n) {
 
 vector<int> to_vector(int num) {
     vector<int> v;
-    string str = to_string(num);  
-    for (char c : str) {  
-        v.push_back(c - '0'); // subtract '0' because '0'-'9' is the ASCII value for digits
+    while (num > 0) { // Add this condition here
+        int remainder = num % 10;
+        v.push_back(remainder);
+        if (num == 0) break; 
+        num /= 10;
     }
     return v;
 }
@@ -38,7 +39,12 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    if (same(to_vector(n), to_vector(stoi(to_string(n)))) && isPalindrome(n) && n % 2 == 0) 
+    string str = to_string(n);  
+    string rev = "";  
+    for (char c : str) {  
+        rev = c + rev;  
+    }
+    if (same(to_vector(n), to_vector(stoi(rev))) && isPalindrome(n) && n % 2 == 0) 
         cout << "The number is even and palindrome.\n";
     else
         cout << "The number is not even and palindrome.\n";
