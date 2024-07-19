@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,22 +18,33 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
+
     vector<string> strings(n);
-    for(int i = 0; i < n; i++) {
-        cin >> strings[i];
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::getline(std::cin, strings[i]);
     }
 
-    string prefix;
-    cin >> prefix;
+    int m;
+    std::cout << "Enter the number of prefixes: ";
+    std::cin >> m;
 
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+    vector<string> prefixes(m);
+    for(int i = 0; i < m; i++){
+        std::cout << "Enter prefix " << (i+1) << ": ";
+        std::getline(std::cin, prefixes[i]);
+    }
 
-    if(issame({}, filtered_strings)) {
-        cout << "No strings match the given prefix." << endl;
-    } else {
-        for(auto s : filtered_strings) {
-            cout << s << endl;
+    for(auto &prefix : prefixes){
+        vector<string> result = filter_by_prefix(strings, prefix);
+        if(!result.empty()){
+            std::cout << "Strings with prefix '" << prefix << "':\n";
+            for(auto s : result)
+                std::cout << s << "\n";
+        } else {
+            std::cout << "No strings found with the prefix '" << prefix << "'.\n";
         }
     }
 
