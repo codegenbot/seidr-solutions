@@ -20,16 +20,16 @@ int prime_fib(int n) {
     if (n == 2) {
         return 3;
     }
-    int a = 2, b = 3, c;
-    for (int i = 3; i <= n; i++) {
-        c = a + b;
-        while (!isPrime(c)) {
-            c++;
+    int prev = 2, curr = 3, count = 2;
+    while (count < n) {
+        int next = prev + curr;
+        if (isPrime(next)) {
+            count++;
         }
-        a = b;
-        b = c;
+        prev = curr;
+        curr = next;
     }
-    return c;
+    return curr;
 }
 
 int main() {
