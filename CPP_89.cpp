@@ -1,12 +1,17 @@
-string encrypt(string s){
+#include <string>
+#include <cassert>
+
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char base = isupper(s[i]) ? 'A' : 'a';
-            char encrypted_char = (((s[i] - base) + 2) * 2) % 26 + base;
-            result += encrypted_char;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
+            if ((c >= 'a' && encrypted > 'z') || (c <= 'Z' && encrypted > 'Z')) {
+                encrypted -= 26;
+            }
+            result += encrypted;
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
