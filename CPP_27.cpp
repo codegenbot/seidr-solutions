@@ -2,10 +2,9 @@
 #include <iostream>
 #include <cctype>
 #include <string>
-#include <cassert>
 
 std::string flip_case(std::string str) {
-    std::string result = "";
+    std::string result; // Non-const
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
