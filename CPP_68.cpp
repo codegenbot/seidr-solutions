@@ -1,25 +1,35 @@
 #include <vector>
+#include <cfloat>
+#include <cassert>
 
 using namespace std;
+
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
-    int minIndex = -1;
+    pair<int, int> minPair(INT_MAX, -1);
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+        if (arr[i] % 2 == 0 && arr[i] < minPair.first) {
+            minPair.first = arr[i];
+            minPair.second = i;
         }
     }
 
-    if (minEven != INT_MAX) {
-        result.push_back({minEven, minIndex});
-    } else {
-        result.push_back({0, -1});
-    }
+    result.push_back(minPair);
 
     return result;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}).empty(), true)); 
+    return 0;
+}
