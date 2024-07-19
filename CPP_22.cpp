@@ -1,7 +1,7 @@
 #include <vector>
-#include <any>
+#include <any_view>
 
-std::vector<int> filter_integers(std::vector<std::any_view> values){
+std::vector<int> filter_integers(std::vector<std::any_view> values) {
     std::vector<int> result;
     for (const auto &val : values) {
         if (val.type() == typeid(int)) {
@@ -11,11 +11,11 @@ std::vector<int> filter_integers(std::vector<std::any_view> values){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
 
     return true;
