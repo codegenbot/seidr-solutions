@@ -1,7 +1,17 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+#include <string>
+#include <cassert>
 
-    return (x_num * n_num) % (x_den * n_den) == 0;
+bool simplify(const std::string& x, const std::string& n) {
+    int num1 = std::stoi(x.substr(0, x.find('/')));
+    int den1 = std::stoi(x.substr(x.find('/') + 1));
+    int num2 = std::stoi(n.substr(0, n.find('/')));
+    int den2 = std::stoi(n.substr(n.find('/') + 1));
+
+    return (num1 * num2) % (den1 * den2) == 0;
+}
+
+int main() {
+    assert(simplify("1/5", "1/5") == false);
+
+    return 0;
 }
