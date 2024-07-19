@@ -7,12 +7,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 auto unique(vector<int>::iterator first, vector<int>::iterator last) {
-    std::vector<int> result(first,last);
-    std::sort(result.begin(),result.end());
-    std::unique_ptr<std::vector<int>> ptr(new(std::make_unique<std::vector<int>>(result)));
-    return *ptr;
+    std::vector<int> result(std::unique(first, last), last);
+    return result;
 }
 
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5, 9, 123}));
+    assert(std::issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5, 9, 123}));
     return 0;
+}
