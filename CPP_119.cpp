@@ -19,11 +19,9 @@ bool match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst;
-    while (true) {
-        std::string s;
-        std::cout << "Enter string or 'stop' to finish: ";
-        std::getline(std::cin, s);
-        if (s == "stop") break;
+    std::cout << "Enter strings separated by spaces: ";
+    std::string s;
+    while(std::getline(std::cin, s) && !s.empty()) {
         lst.push_back(s);
     }
     bool result = match_parens(lst);
