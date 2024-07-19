@@ -1,1 +1,6 @@
-a, b, c = map(float, input().split())
+print("Enter the value for a:")
+a = float(input())
+print("Enter the value for b:")
+b = float(input())
+print("Enter the value for c:")
+c = float(input())
