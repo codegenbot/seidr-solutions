@@ -1,4 +1,4 @@
-int calculateBucketsNeeded(const vector<vector<int>>& grid, int capacity) {
+int calculate_buckets_needed(vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
@@ -15,13 +15,4 @@ int calculateBucketsNeeded(const vector<vector<int>>& grid, int capacity) {
     }
     
     return buckets_needed;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int capacity = 5;
-    
-    int buckets_needed = calculateBucketsNeeded(grid, capacity);
-    
-    return 0;
 }
