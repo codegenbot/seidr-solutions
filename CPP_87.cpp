@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool are_vectors_same(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
+bool my_issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
     return a == b;
 }
 
