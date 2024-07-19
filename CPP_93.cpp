@@ -3,7 +3,7 @@ string encode(string message){
         if (isalpha(c)) {
             c = isupper(c) ? tolower(c) : toupper(c);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
+                c = (char)(c + 2);
             }
         }
     }
