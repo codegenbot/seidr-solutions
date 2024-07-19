@@ -19,5 +19,7 @@ int main() {
         std::cout << "Invalid input. Please enter an integer." << std::endl;
         return 1;
     }
-    std::cout << "Sum of bits is: " << solve(N) << std::endl;
+    std::cout << "Sum of bits is: ";
+    std::cout << solve(N);
+    std::cout << std::endl;
 }
