@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool isEqual(vector<int> v1, vector<int> v2) {
+bool isEqualTo(vector<int> v1, vector<int> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -10,7 +9,7 @@ bool isEqual(vector<int> v1, vector<int> v2) {
     return true;
 }
 
-vector<int> max_result(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr, int k) {
     if(k >= arr.size()) {
         vector<int> result(arr.begin(), arr.end());
         sort(result.begin(), result.end());
@@ -20,9 +19,4 @@ vector<int> max_result(vector<int> arr, int k) {
         sort(temp.begin(), temp.end());
         return temp;
     }
-}
-
-int main() {
-    assert(isEqual(max_result({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    // more test cases...
 }
