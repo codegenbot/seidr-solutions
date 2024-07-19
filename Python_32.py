@@ -1,7 +1,5 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0:
-        return None
-    for i in range(n, -1, -1):
-        if xs[i] != 0:
-            return -xs[i - 1] / xs[i]
+    a = xs[-1]
+    b = sum([(-1) ** i * coeff for i, coeff in enumerate(xs[:-1])])
+    return -b / a
