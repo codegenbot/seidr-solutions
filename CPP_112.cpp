@@ -1,12 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const vector<vector<string>>& v1, const vector<vector<string>>& v2) {
+    return (v1 == v2);
 }
 
 vector<string> reverse_delete(string s, string c) {
