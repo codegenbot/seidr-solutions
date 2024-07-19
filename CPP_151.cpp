@@ -15,17 +15,15 @@ long long double_the_difference(vector<float> lst){
 int main() {
     vector<float> lst; 
     int odd_sum = 0; 
-    
-    for(int i=1; i<=10; i++){
-        float input;
-        cout << "Enter the number: ";
-        cin >> input;
-        if(input > 0){
-            if(modf(input, &input) == 0.0f){
-                odd_sum += input * input;
-            }
+
+    float num;
+    cout << "Enter numbers (0 to stop): ";
+    while (cin >> num) {
+        if (num > 0) {
+            odd_sum += num * num;
+        } else {
+            break;
         }
-        lst.push_back(input);
     }
 
     assert (double_the_difference(lst) == odd_sum );
