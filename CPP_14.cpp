@@ -2,12 +2,12 @@
 #include <vector>
 #include <string>
 
-bool issame(std::string str1, std::string str2) {
+bool issame(string str1, string str2){
     return str1 == str2;
 }
 
-std::vector<std::string> all_prefixes(std::string str){
-    std::vector<std::string> result;
+vector<string> all_prefixes(string str){
+    vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
         result.push_back(str.substr(0, i));
     }
@@ -15,6 +15,6 @@ std::vector<std::string> all_prefixes(std::string str){
 }
 
 int main() {
-    // Main function implementation
+    // Your main function code here
     return 0;
 }
