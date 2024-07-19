@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 
@@ -15,10 +14,11 @@ std::string intToMiniRoman(int num) {
             i++;
         }
     }
-    return std::move(roman);
+    return roman; 
 }
 
 int main() { 
     assert(intToMiniRoman(1000) == "M");
+    std::cout << intToMiniRoman(4) << std::endl;
     return 0;
 }
