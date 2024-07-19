@@ -22,13 +22,13 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return 0.0f;
     }
     else if(a.type() == typeid(std::string)) {
-        if(std::any_cast<std::string>(a) > std::any_cast<std::string>(b))
+        if(std::any_cast<const std::string&>(a) > std::any_cast<const std::string&>(b))
             return a;
-        else if(std::any_cast<std::string>(a) < std::any_cast<std::string>(b))
+        else if(std::any_cast<const std::string&>(a) < std::any_cast<const std::string&>(b))
             return b;
         else
             return std::string("");
     }
 
-    return std::any();
+    return std::any(); // None
 }
