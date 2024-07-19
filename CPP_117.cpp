@@ -1,28 +1,34 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-#include <sstream>
-#include <string>
+# include <iostream>
+# include <vector>
+# include <cassert>
+# include <sstream>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word;
     stringstream ss(s);
-    while (ss >> word && n > 0) {
+    while (ss >> word) {
         words.push_back(word);
-        n--;
+        if (words.size() == n) {
+            break;
+        }
     }
     return words;
 }
 
 int main() {
     vector<string> result = select_words("Hello, world! Welcome to the code contest.", 2);
-
-    assert(result == vector<string>{"Hello,", "world!"});
-
-    for (const string &word : result) {
+    
+    assert(issame(result, {"world", "contest"}));
+    
+    for (const string& word : result) {
         cout << word << endl;
     }
-
+    
     return 0;
 }
