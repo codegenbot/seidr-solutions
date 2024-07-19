@@ -15,16 +15,9 @@ std::string match_parens(std::vector<std::string> lst) {
 
 int main() {
     std::vector<std::string> lst;
-    // Add your code here to read input from user and store in lst
-    // For example:
-    // std::string s;
-    // while (std::cin >> s) {
-    //     lst.push_back(s);
-    // }
-    
-    // Then, call the function with the vector as an argument
-    // For example:
-    // std::cout << match_parens(lst) << std::endl;
-
+    // Add your code to read input and store it in 'lst'
+    for (const auto& s : lst) {
+        std::cout << match_parens(lst) << std::endl;
+    }
     return 0;
 }
