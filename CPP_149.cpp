@@ -1,9 +1,6 @@
-lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
-            return a < b;
-        }
-        return a.length() < b.length();
-    });
-    return lst;
-}
+sort(lst.begin(), lst.end(), [](string a, string b) {
+    if (a.size() != b.size()) return a.size() < b.size();
+    return a < b;
+});
+lst.erase(remove_if(lst.begin(), lst.end(), [](string s) { return s.size() % 2 != 0; }), lst.end());
+return lst;
