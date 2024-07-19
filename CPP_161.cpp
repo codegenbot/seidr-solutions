@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <string>
 using namespace std;
 
 string solve(string s) {
@@ -12,4 +13,3 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
