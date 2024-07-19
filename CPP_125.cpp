@@ -1,45 +1,32 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
+#include <vector>
 
-using namespace std;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2);
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    if(txt.find(' ') != string::npos){
-        size_t start = 0, end = 0;
-        while((end = txt.find(' ', start)) != string::npos){
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
+std::vector<std::string> solveTask(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
         }
-        result.push_back(txt.substr(start));
-    } else if(txt.find(',') != string::npos){
-        size_t start = 0, end = 0;
-        while((end = txt.find(',', start)) != string::npos){
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
-        }
-        result.push_back(txt.substr(start));
-    } else {
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+    }
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+    if (result.empty()) {
+        int oddCount = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddCount++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(std::to_string(oddCount));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-
-    return 0;
 }
