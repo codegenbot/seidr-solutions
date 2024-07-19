@@ -1,26 +1,20 @@
-#include <iostream>
-#include <set>
-
+#include <vector>
 using namespace std;
 
-bool issame(set<int> s1, set<int> s2) {
-    if (s1.size() != s2.size()) {
-        return false;
+vector<int> pluck(vector<pair<int,int>> v) {
+    vector<int> result;
+    for (const auto& pair : v) {
+        if(pair.second == 7)
+            result.push_back(pair.first);
     }
-    for (int i : s1) {
-        if (!s2.count(i)) {
-            return false;
-        }
-    }
-    return true;
+    return result;
+}
+
+bool issame(vector<int> a,vector<int> b){
+    return a.size() == b.size() && equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    set<int> s1 = {7, 9};
-    set<int> s2 = {7};
-    cout << boolalpha << issame(s1, s2) << endl;  
-    set<int> s3 = {7};
-    set<int> s4 = {7};
-    cout << boolalpha << issame(s3, s4) << endl;  
+    assert(pluck({make_pair(7,9),make_pair(3,7)}) == vector<int>({7}) && pluck({make_pair(7,7)}) == vector<int>({}));
     return 0;
 }
