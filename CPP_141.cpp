@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+string file_name_check(string file_name);
 
 string file_name_check(string file_name) {
     int digit_count = 0;
