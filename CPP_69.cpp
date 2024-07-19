@@ -22,7 +22,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst(5);
+    vector<int> lst(5, 0); 
     for (int i = 0; i < 5; ++i) { 
         cin >> lst[i]; 
     }
