@@ -1,29 +1,30 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 int main() {
+    bool result;
     std::vector<int> lst;
+    
     int n;
-
-    // Read the number of elements in the list.
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
-
-    // Read the list elements.
-    for(int i = 0; i < n; i++) {
-        int temp;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> temp;
-        lst.push_back(temp);
+    
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        lst.push_back(num);
     }
-
-    if(is_sorted(lst)) {
+    
+    result = is_sorted(lst);
+    
+    if (result)
         std::cout << "The list is sorted.\n";
-    } else {
+    else
         std::cout << "The list is not sorted.\n";
-    }
-
+    
     return 0;
 }
 
