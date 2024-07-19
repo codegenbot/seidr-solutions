@@ -1,18 +1,10 @@
-#include <string>
-
-bool correct_bracketing(const std::string& brackets) {
-    int count = 0;
-
-    for (char bracket : brackets) {
-        if (bracket == '<') {
-            count++;
-        } else if (bracket == '>') {
-            if (count <= 0) {
-                return false;
-            }
-            count--;
-        }
+int stackSize = 0;
+for(int i = 0; i < brackets.length(); i++) {
+    if(brackets[i] == '<') {
+        stackSize++;
+    } else if(brackets[i] == '>') {
+        if(stackSize <= 0) return false;
+        stackSize--;
     }
-
-    return count == 0;
 }
+return stackSize == 0;
