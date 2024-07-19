@@ -9,7 +9,7 @@ std::string sub;
 int main() {
     std::cin >> s >> sub;
     
-    for(char c : sub) { 
+    for(auto c : sub) { 
         s += c; 
     }
     
