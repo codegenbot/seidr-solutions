@@ -1,10 +1,9 @@
-Here is the solution:
-
-vector<int> maximum(vector<int> arr,int k){
-    vector<int> result(arr.begin(),arr.end());
-    sort(result.begin(),result.end());
-    for(int i=result.size()-1;i>=result.size()-k;i--){
-        reverse(result.begin()+i,result.end());
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
+    for (int i = 0; i < k; ++i) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    return vector<int>(result.begin(),result.begin()+k);
+    return result;
 }
