@@ -1,8 +1,16 @@
-sort(nums.begin(), nums.end(), [](int a, int b){
-    int sumA = abs(a), sumB = abs(b);
-    while(sumA >= 10) sumA += sumA % 10, sumA /= 10;
-    while(sumB >= 10) sumB += sumB % 10, sumB /= 10;
-    if(sumA == sumB) return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-    return sumA < sumB;
+sort(nums.begin(), nums.end(), [](int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    if (a < 0) a *= -1;
+    if (b < 0) b *= -1;
+    while (a) {
+        sum_a += a % 10;
+        a /= 10;
+    }
+    while (b) {
+        sum_b += b % 10;
+        b /= 10;
+    }
+    if (sum_a == sum_b) return true;
+    return sum_a < sum_b;
 });
 return nums;
