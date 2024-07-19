@@ -1,18 +1,18 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(size_t i=0; i<a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
-
-#include <vector>
-#include <string>
-#include <cassert>
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -24,10 +24,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main() {
-    vector<string> input = {"apple", "banana", "orange", "grape"};
-    vector<string> expected_output = {"apple", "orange"};
-    vector<string> output = filter_by_prefix(input, "a");
-    assert(issame(output, expected_output));
+int main(){
+    vector<string> test_input = {"apple", "banana", "apricot", "peach", "avocado"};
+    vector<string> expected_output = {"apple", "apricot", "avocado"};
+    
+    vector<string> filtered_result = filter_by_prefix(test_input, "a");
+    
+    assert(issame(filtered_result, expected_output));
+    
     return 0;
 }
