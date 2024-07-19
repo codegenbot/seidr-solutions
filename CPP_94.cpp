@@ -32,6 +32,6 @@ bool isPrime(int n) {
 
 int main() {
     assert(skkkasdkd({127, 97, 8192}) == 10);
-    vector<int> numbers = {1, 2, 3};
-    cout << "Sum: " << skjkasdkd(numbers) << endl;
+    vector<int> input = {1, 2, 3};
+    cout << skjkasdkd(input) << endl;
 }
