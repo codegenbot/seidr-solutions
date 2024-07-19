@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cassert>
 
-std::string compare_one(const std::string& s1, int number) {
-    if (s1 == std::to_string(number)) {
+std::string compare_one(const std::string& s1, const std::string& s2) {
+    if (s1 == s2) {
         return "Equal";
     } else {
         return "Not equal";
@@ -11,5 +11,5 @@ std::string compare_one(const std::string& s1, int number) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), 1) == "Equal");
+    assert(compare_one(std::string("1"), std::string("1")) == "Not equal");
 }
