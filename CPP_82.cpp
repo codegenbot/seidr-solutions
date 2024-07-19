@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -25,4 +24,3 @@ int main(){
     std::getline(std::cin, str);
     assert (prime_length(str) == true);
     return 0;
-}
