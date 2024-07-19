@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int add(std::vector<int> lst){
@@ -12,6 +11,6 @@ int add(std::vector<int> lst){
 }
 
 int main(){
-    std::vector<int> lst = {4, 4, 6, 8};
-    assert (add(lst) == 12);
+    std::vector<int> test = {4, 4, 6, 8};
+    assert (add(test) == 12);
 }
