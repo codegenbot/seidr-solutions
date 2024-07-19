@@ -10,5 +10,5 @@ while True:
     except KeyboardInterrupt:
         print("\nKeyboard interrupt occurred.")
         break
-    except ValueError:
+    except:
         print("An error occurred. Please make sure to enter valid integers.")
