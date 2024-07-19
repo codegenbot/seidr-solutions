@@ -4,6 +4,11 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
+int main() {
+    // main function logic goes here
+    return 0;
+}
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
