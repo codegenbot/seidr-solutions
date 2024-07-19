@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,7 +32,7 @@ int main() {
         input.push_back(num);
     }
     std::vector<float> positive = get_positive(input);
-    if (std::vector<float>::issame(input, positive)) {
+    if (issame(input, positive)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
         std::cout << "Not all numbers are positive." << std::endl;
