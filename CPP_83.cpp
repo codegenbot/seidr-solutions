@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int starts_one_ends(int n) {
@@ -8,18 +7,13 @@ int starts_one_ends(int n) {
         if (i == 1 || i == n) {
             count++;
         }
-        for (int j = 1; j < i || j > n; j++) {
-            // Do nothing
+        int start = (i == 1) ? 1 : i;
+        int end = (n < i) ? n + 1 : i;
+        for (int j = start; j <= end; j++) {
+            if (j % 10 != 0 && (j / 10 == 1 || j / 10 == n)) {
+                count++;
+            }
         }
-        count += (n - 1);
     }
     return count;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    cout << "Count of the numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
-    return 0;
 }
