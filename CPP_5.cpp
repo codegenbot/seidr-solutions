@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool issame_vectors(const vector<int>& v1, const vector<int>& v2) {
+bool issame(vector<int> v1, vector<int> v2) {
     return v1 == v2;
 }
 
-std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
+std::vector<int> intersperse(vector<int>& numbers, int delimiter) {
     std::vector<int> result;
     for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
@@ -20,6 +20,6 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
 }
 
 int main() {
-    assert(issame_vectors(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2}, 2), vector<int>{2, 2, 2, 2, 2}));
     return 0;
 }
