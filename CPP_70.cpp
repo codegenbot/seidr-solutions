@@ -9,7 +9,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst);
 
 void main() {
     std::vector<int> result = strange_sort_list({111111});
-    return;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
