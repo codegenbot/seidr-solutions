@@ -1,1 +1,1 @@
-std::vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1}, {0, 0});
+std::vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1}, {});
