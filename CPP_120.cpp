@@ -27,8 +27,6 @@ int main() {
     vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    if (!issame(maximum(a, k), vector<int>())) {
-        return 1;
-    }
+    if (!issame(maximum(a, k), vector<int>())) return 1;
     return 0;
 }
