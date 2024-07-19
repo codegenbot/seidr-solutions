@@ -1,28 +1,22 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
-    vector<string> filtered_strings;
-    for (const string& str : strings) {
-        if (str.find(substring) != string::npos) {
-            filtered_strings.push_back(str);
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substr) {
+    std::vector<std::string> filtered_words;
+    for (const std::string& word : words) {
+        if (word.find(substr) != std::string::npos) {
+            filtered_words.push_back(word);
         }
     }
-    return filtered_strings;
+    return filtered_words;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    return 0;
 }
