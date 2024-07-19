@@ -19,7 +19,13 @@ int main() {
     if (!is_prime(n)) {
         cout << "The number is not prime." << endl;
     } else {
-        cout << "The number is prime." << endl;
+        for(int i=2; i<=n; i++){
+            if(is_prime(i)){
+                cout << i << " ";
+                count++;
+            }
+        }
+        cout << endl << "Count of primes: " << count << endl;
     }
     return 0;
 }
