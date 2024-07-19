@@ -3,10 +3,4 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    string result = "";
-    while (sum > 0) {
-        result = to_string(sum % 2) + result;
-        sum /= 2;
-    }
-    return result.empty() ? "0" : result;
-}
+    return bitset<8>(sum).to_string().substr(8 - sum);
