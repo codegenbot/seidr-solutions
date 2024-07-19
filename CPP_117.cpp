@@ -2,40 +2,23 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
+#include <sstream>
 
 using namespace std;
 
-vector<string> select_words(string s, int n);
-
 vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int consonant_count = 0;
-
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonant_count == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonant_count = 0;
-        } else {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
-                consonant_count++;
-            }
-            word += c;
+    vector<string> words;
+    string word;
+    istringstream iss(s);
+    while (iss >> word) {
+        if (--n > 0) {
+            words.push_back(word);
         }
     }
-
-    if (consonant_count == n) {
-        result.push_back(word);
-    }
-
-    return result;
+    return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
