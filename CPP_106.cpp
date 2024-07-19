@@ -15,6 +15,10 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> f(int n);
 
+int main() {
+    // Main function code here
+}
+
 vector<int> f(int n){
     vector<int> result(n);
     for(int i = 0; i < n; i++){
