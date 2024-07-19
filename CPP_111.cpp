@@ -1,6 +1,4 @@
-#include <map>
-#include <string>
-
+namespace std {
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) return false;
     for (auto p : a) {
@@ -37,6 +35,4 @@ int main() {
     if (!issame(hist, {{'a', 1}})) {
         assert(false);
     }
-    
-    return 0;
 }

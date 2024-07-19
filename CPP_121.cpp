@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,17 +17,12 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<std::string> numbers(n); 
+    std::vector<std::string> numbers; 
     for (size_t i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers[i] = std::to_string(num);
-    }
-    
-    if (n > _M_max_size) {
-        std::cerr << "Error: Input string length exceeds maximum size." << std::endl;
-        return 1;
+        numbers.push_back(std::to_string(num));
     }
     
     std::cout << "Sum of odd elements: " << solution(numbers) << std::endl;

@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,10 +25,7 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     cin >> k;
-    std::vector<int> result;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] > k) result.push_back(a[i]);
-    }
+    std::vector<int> result = maximum(a, k);
     if (!issame(maximum(a, k), result)) return 1;
     return 0;
 }
