@@ -1,7 +1,8 @@
+#include <openssl/evp.h>
+
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
