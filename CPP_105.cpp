@@ -3,13 +3,6 @@
 #include <string>
 #include <algorithm>
 
-namespace std {
-    template<typename _Ty>
-    class initializer_list {
-        // implementation
-    };
-}
-
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> temp;
     for (int i : arr) {
@@ -60,7 +53,6 @@ bool issame(vector<string> a, vector<string> b) {
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
