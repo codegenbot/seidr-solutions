@@ -12,7 +12,7 @@ int bitCount(int* a, int size) {
     return count;
 }
 
-int main() {
+int testMain() {
     assert(bitCount(new int[3]{127, 97, 8192}, 3) == 10);
     return 0;
 }
