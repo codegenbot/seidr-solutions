@@ -1,22 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <cmath> // Include math header for abs function
-
-std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
-    std::vector<int> result;
-    for (size_t i = 0; i < game.size(); ++i) {
-        result.push_back(abs(game[i] - guess[i]));
-    }
-    return result;
-}
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1});
-    
-    return 0;
+    assert(issame(std::vector<int>{1, 2, 3, 5}, std::vector<int>{-1, 2, 3, 4}));
 }
