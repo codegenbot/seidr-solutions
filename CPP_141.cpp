@@ -4,20 +4,7 @@
 
 using namespace std;
 
-std::string file_name_check(std::string file_name);
-
-int main() {
-    assert(file_name_check("file123.txt") == "Yes");
-    assert(file_name_check("myFile2.exe") == "Yes");
-    assert(file_name_check("data.dll") == "Yes");
-    assert(file_name_check(".hidden.txt") == "No");
-    assert(file_name_check("file.txt") == "No");
-    assert(file_name_check("s.txt") == "No");
-
-    return 0;
-}
-
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name) {
     int digit_count = 0;
     int dot_count = 0;
     int dot_index = -1;
@@ -35,10 +22,21 @@ std::string file_name_check(std::string file_name) {
         return "No";
     }
 
-    std::string extension = file_name.substr(dot_index + 1);
+    string extension = file_name.substr(dot_index + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
 
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("file123.txt") == "Yes");
+    assert(file_name_check("myFile2.exe") == "Yes");
+    assert(file_name_check("data.dll") == "Yes");
+    assert(file_name_check(".hidden.txt") == "No");
+    assert(file_name_check("file.txt") == "No");
+    assert(file_name_check("s.") == "No");
+
+    return 0;
 }
