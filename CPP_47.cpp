@@ -1,6 +1,6 @@
 #include <initializer_list>
 #include <vector>
-#include <algorithm> 
+#include <algorithm> // For sort function
 #include <ostream>
 
 using namespace std;
@@ -25,4 +25,3 @@ int main() {
     cout << calculateMedian(numbers) << std::endl;
 
     return 0;
-}

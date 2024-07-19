@@ -5,6 +5,8 @@ int digitSum(string s) {
     for (char c : s) {
         if (isupper(c)) {
             sum += (c - 'A' + 1); 
+        } else if (islower(c)) {
+            sum += (c - 'a' + 1);
         }
     }
     return sum;
