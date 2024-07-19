@@ -3,23 +3,15 @@
 
 using namespace std;
 
-vector<int> count_up_to(int n);
-
-bool issame(const vector<int>& a, const vector<int>& b);
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> count_up_to(int n) {
     vector<int> result;
     if (n < 2) {
         return result;
     }
-
+    
     vector<bool> is_prime(n, true);
     is_prime[0] = is_prime[1] = false;
-
+    
     for (int i = 2; i < n; ++i) {
         if (is_prime[i]) {
             result.push_back(i);
@@ -28,8 +20,12 @@ vector<int> count_up_to(int n) {
             }
         }
     }
-
+    
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
