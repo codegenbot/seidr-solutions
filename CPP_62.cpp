@@ -1,9 +1,4 @@
-#include <vector>
-#include <cassert>
-#include <cmath>
-
-using namespace std;
-
+bool issame(vector<float> a, vector<float> b);
 bool issame(vector<float> a, vector<float> b){
     if (a.size() != b.size()) return false;
     
@@ -21,5 +16,3 @@ vector<float> derivative(vector<float> xs){
     }
     return result;
 }
-
-assert(issame(derivative({1}), vector<float>{}));
