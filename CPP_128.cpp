@@ -1,14 +1,14 @@
 if (arr.empty()) {
         return -32768;
     }
-
+    
     int product = 1;
-    int sum = 0;
-
+    int sum_magnitudes = 0;
+    
     for (int num : arr) {
-        product *= (num == 0) ? 1 : num / abs(num);
-        sum += abs(num);
+        product *= (num == 0) ? 1 : (num > 0) ? 1 : -1;
+        sum_magnitudes += abs(num);
     }
-
-    return product * sum;
+    
+    return product * sum_magnitudes;
 }
