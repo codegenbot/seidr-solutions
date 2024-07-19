@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -22,6 +21,7 @@ std::vector<float> get_positive(const std::vector<float>& l) {
         }
     }
     return result;
+
 }
 
 int main() {
