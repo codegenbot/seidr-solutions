@@ -1,12 +1,20 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(const std::vector<float>& lst) {
-    long long odd_sum = 0;
+double double_the_difference(const std::vector<float>& lst) {
+    long long sum = 0;
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            odd_sum += (long long)pow(num, 2);
+            sum += (long long)pow(num, 2);
         }
     }
-    return odd_sum * 2;
+    return 2 * sum;
+}
+
+int main() {
+    std::vector<float> lst = {2.0, -3.0, 4.0, 5.0, 6.0};
+
+    double odd_sum = double_the_difference(lst);
+
+    return 0;
 }
