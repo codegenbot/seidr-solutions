@@ -1,29 +1,39 @@
-#include <any>
-#include <string>
-#include <cassert>
-
-template <typename T>
-T compare_one(std::any a, std::any b) {
-    if (std::any_cast<T>(a) > std::any_cast<T>(b)) {
-        return std::any_cast<T>(a);
-    } else if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
-        return std::any_cast<T>(b);
+if(a.type() == typeid(int) && b.type() == typeid(int)){
+    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+        return a;
+    } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+        return b;
+    } else {
+        return "None";
     }
-    return std::any_cast<T>(a);
+} else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
+        return a;
+    } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
+        return b;
+    } else {
+        return "None";
+    }
+} else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    float valA = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float valB = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(valA > valB){
+        return a;
+    } else if(valA < valB){
+        return b;
+    } else {
+        return "None";
+    }
+} else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
+    float valA = a.type() == typeid(int) ? boost::any_cast<int>(a) : stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float valB = b.type() == typeid(int) ? boost::any_cast<int>(b) : stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(valA > valB){
+        return a;
+    } else if(valA < valB){
+        return b;
+    } else {
+        return "None";
+    }
 }
-
-int main() {
-    auto a = std::any(10);
-    auto b = std::any(5);
-    assert(compare_one<int>(a, b) == 10);
-
-    auto c = std::any(7.5f);
-    auto d = std::any(3.2f);
-    assert(compare_one<float>(c, d) == 7.5f);
-
-    auto e = std::any(std::string("20.3"));
-    auto f = std::any(std::string("12.8"));
-    assert(compare_one<std::string>(e, f) == "20.3");
-
-    return 0;
+return "None";
 }
