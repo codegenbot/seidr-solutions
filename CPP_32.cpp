@@ -1,7 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -20,10 +19,10 @@ double find_zero(const vector<double>& coeffs){
 }
 
 int main() {
-    vector<double> coeffs = {1.0, 2.0, 1.0};
-    double solution = find_zero(coeffs);
+    vector<double> coefficients = {1.0, 2.0, 1.0};
+    double solution = find_zero(coefficients);
 
-    assert(abs(poly(solution, coeffs)) < 1e-3);
+    assert(abs(poly(solution, coefficients)) < 1e-3);
 
     return 0;
 }
