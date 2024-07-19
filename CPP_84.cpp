@@ -6,7 +6,7 @@ int solve(int N) {
     std::string str;
     while (N > 0) {
         int remainder = N % 2;
-        str += std::to_string(remainder == 0 ? 0 : 1);
+        str += (remainder == 0 ? "0" : "1");
         N /= 2;
     }
     int sum = 0;
