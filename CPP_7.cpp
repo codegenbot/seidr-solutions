@@ -1,24 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <string>
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    // Test your functions here
-    return 0;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
