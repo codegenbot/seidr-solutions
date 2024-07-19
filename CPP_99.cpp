@@ -5,11 +5,11 @@
 double findClosestInt(const std::string& value) {
     double num = std::stod(value);
     int closestInt = std::round(num);
-    if (std::abs(num - closestInt) < 0.0001) {
-        closestInt = std::round(num);
-    } else if (std::abs(num - closestInt + 1) < 0.0001) {
+    if (std::abs(num - closestInt) < 0.00001) {
+        return closestInt;
+    } else if (num - closestInt == 0.5) {
         closestInt = std::ceil(num);
-    } else if (std::abs(num - closestInt - 1) < 0.0001) {
+    } else if (num - closestInt == -0.5) {
         closestInt = std::floor(num);
     }
     return closestInt;
@@ -17,8 +17,8 @@ double findClosestInt(const std::string& value) {
 
 int main() {
     assert(findClosestInt("3.6") == 4);
-    assert(findClosestInt("2.4") == 2);
-    assert(findClosestInt("5.5") == 6);
-
+    assert(findClosestInt("2.5") == 3);
+    assert(findClosestInt("6.2") == 6);
+    
     return 0;
 }
