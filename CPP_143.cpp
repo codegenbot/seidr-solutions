@@ -1,46 +1,36 @@
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <algorithm>
 
-std::string words_in_sentence(std::string sentence);
-bool is_prime(int num);
+using namespace std;
 
-int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
+string words_in_sentence(string sentence) {
+    string result = "";
+    string word = "";
+    int primeLengths[] = {2, 3, 5, 7, 11, 13, 17, 19}; // Prime numbers up to 20
 
-    std::cout << words_in_sentence(sentence) << std::endl;
-
-    return 0;
-}
-
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    std::string word = "";
-    for(char c : sentence){
-        if(c == ' '){
-            if(is_prime(word.length())){
-                result += word + " ";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.size() > 0) {
+                if (find(begin(primeLengths), end(primeLengths), word.size()) != end(primeLengths)) {
+                    result += word + " ";
+                }
+                word = "";
             }
-            word = "";
         } else {
             word += c;
         }
     }
-    if(is_prime(word.length())){
-        result += word;
+
+    if (word.size() > 0) {
+        if (find(begin(primeLengths), end(primeLengths), word.size()) != end(primeLengths)) {
+            result += word;
+        }
     }
+
     return result;
 }
 
-bool is_prime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i <= sqrt(num); i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(words_in_sentence("here is") == "is");
 }
