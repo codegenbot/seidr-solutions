@@ -2,7 +2,7 @@ import math
 
 while True:
     try:
-        n = int(input("Enter a positive integer greater than zero: "))
+        n = int(input("Enter a positive integer greater than zero: ").strip())
         if n <= 0:
             print("Please enter a positive integer greater than zero.")
             continue
