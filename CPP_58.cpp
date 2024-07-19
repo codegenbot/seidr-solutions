@@ -1,7 +1,9 @@
 #include <vector>
-sort(l1.begin(), l1.end());
-sort(l2.begin(), l2.end());
-vector<int> result;
-set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result), issame);
-result.erase(unique(result.begin(), result.end()), result.end());
-return result;
+vector<int> issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    vector<int> result;
+    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+    result.erase(unique(result.begin(), result.end()), result.end());
+    return result;
+}
