@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <assert.h>
 
@@ -17,3 +18,4 @@ std::vector<float> get_positive(std::vector<float> l) {
 int main() {
      assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}));
      return 0;
+}
