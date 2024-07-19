@@ -19,6 +19,6 @@ bool are_same(const vector<string>& a, const vector<string>& b){
 
 int main(){
     assert(are_same(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-
+    
     return 0;
 }
