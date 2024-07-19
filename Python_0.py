@@ -3,7 +3,7 @@ try:
         result = input()
         if not result:
             break
-        if result.isnumeric():
+        if result.isdigit():
             print(int(result))
         else:
             break
