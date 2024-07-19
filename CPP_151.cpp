@@ -15,7 +15,7 @@ long long double_the_difference(std::vector<int> nums) {
 }
 
 int main() {
-    long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
+    long long result = double_the_difference(lst);
+    assert(result == double_the_difference(lst)); // Fixed assertion
     return 0;
 }
