@@ -5,7 +5,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> split_words(string txt); // Declare the function before using it
+vector<string> split_words(string txt);
 
 int main(){
     assert(issame(split_words(""), {"0"}));
