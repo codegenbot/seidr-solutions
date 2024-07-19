@@ -1,26 +1,26 @@
 vector<string> result;
-    if(txt.find(' ') != string::npos){
-        size_t start = 0, end = 0;
-        while((end = txt.find(' ', start)) != string::npos){
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
+    string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
         }
-        result.push_back(txt.substr(start));
-    } else if(txt.find(',') != string::npos){
-        size_t start = 0, end = 0;
-        while((end = txt.find(',', start)) != string::npos){
-            result.push_back(txt.substr(start, end - start));
-            start = end + 1;
-        }
-        result.push_back(txt.substr(start));
-    } else {
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+    }
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+    if (result.empty()) {
+        int oddCount = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddCount++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(to_string(oddCount));
     }
     return result;
 }
