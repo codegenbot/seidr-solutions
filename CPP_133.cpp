@@ -3,7 +3,6 @@
 #include <cmath>
 #include <iostream>
 #include <initializer_list>
-#include <cassert>
 
 int sum_squares(std::vector<double> lst){
     int total = 0;
@@ -16,15 +15,6 @@ int sum_squares(std::vector<double> lst){
 
 int main(){
     assert(sum_squares({-1,1,0})==2); 
-    int user_input();
-    std::cout << "Enter a number to pass to the sum_squares function: ";
-    int input;
-    std::cin >> input;
-    int result = sum_squares({(double)input});
-    return 0;
-}
-
-int user_input(){
     int input;
     std::cout << "Enter a number to pass to the sum_squares function: ";
     std::cin >> input;
