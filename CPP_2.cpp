@@ -7,12 +7,12 @@ double truncate_number(double number) {
 }
 
 int main() {
-    double num1, num2, num3;
-    std::cin >> num1 >> num2 >> num3;
-
-    assert(std::abs(truncate_number(num1) - (num1 - std::floor(num1)) < 1e-4);
-    assert(std::abs(truncate_number(num2) - (num2 - std::floor(num2)) < 1e-4);
-    assert(std::abs(truncate_number(num3) - (num3 - std::floor(num3)) < 1e-4);
+    double input_number;
+    std::cin >> input_number;
+    
+    double result = truncate_number(input_number);
+    
+    std::cout << result;
 
     return 0;
 }
