@@ -1,9 +1,5 @@
-```
+```python
 def bowling_score(frames):
-    '''
-    Given a string representing the individual bowls in a 10-frame round of 10 pin bowling, 
-    return the score of that round.
-    '''
     score = 0
     frame = 1
     for char in frames:
@@ -13,6 +9,9 @@ def bowling_score(frames):
                 break
             frame += 1
         elif char == '/':
-            score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            if int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]) >= 10:
+                score += 10 - (int(frames[frames.index(char) - 1]) + int(frames[frames.index(char) + 1]))
+            else:
+                score += 10
             frame += 1
     return score
