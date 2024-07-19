@@ -1,10 +1,12 @@
-from typing import List, Tuple
-
-
-def rolling_max(numbers: List[int]) -> List[int]:
-    max_numbers = []
-    max_num = float("-inf")
+def rolling_max(numbers):
+    max_values = []
+    current_max = float('-inf')
+    
     for num in numbers:
-        max_num = max(max_num, num)
-        max_numbers.append(max_num)
-    return max_numbers
+        current_max = max(current_max, num)
+        max_values.append(current_max)
+    
+    return max_values
+
+numbers = [5, 2, 3, 8, 1, 4]
+print(rolling_max(numbers))
