@@ -1,6 +1,18 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) = default;
+class MyVector {
+public:
+    bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
+        if(a.size() != b.size())
+            return false;
+        for(int i = 0; i < a.size(); i++)
+            if(a[i] != b[i])
+                return false;
+        return true;
+    }
+};
 
 std::vector<float> sort_even(std::vector<float> l){
     std::vector<float> l_prime;
@@ -14,3 +26,4 @@ std::vector<float> sort_even(std::vector<float> l){
         }
     }
     return l_prime;
+}
