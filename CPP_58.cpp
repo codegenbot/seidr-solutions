@@ -1,10 +1,5 @@
-#include <vector>
-#include <set>
-
 bool common(vector<int> a, vector<int> b) {
-    set<int> result;
-    for (int i = 0; i < min(a.size(), b.size()); i++) {
-        result.insert(b[i]);
-    }
-    return result == set<int>(a.begin(), a.end()) || result == set<int>(b.begin(), b.end());
+    set<int> s1(a.begin(), a.end());
+    set<int> s2(b.begin(), b.end());
+    return (s1 == s2 || s1.issubset(s2) || s2.issubset(s1));
 }
