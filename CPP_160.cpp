@@ -1,8 +1,11 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <cassert>
 
-int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& operand) {
+using namespace std;
+
+int do_algebra(const vector<string>& operato, const vector<int>& operand) {
     int result = operand[0];
     for (int i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
@@ -14,13 +17,13 @@ int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& 
         } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = std::pow(result, operand[i + 1]);
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert(do_algebra({"//", "*", "//"}, {7, 3, 4, 5}) == 8);
     return 0;
 }
