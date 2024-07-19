@@ -22,11 +22,6 @@ std::string string_to_md5(const std::string& text) {
     for (unsigned int i = 0; i < md_len; i++) {
         snprintf(&mdString[i*2], 3, "%02x", (unsigned int)md_value[i]);
     }
-
+    
     return std::string(mdString);
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
 }
