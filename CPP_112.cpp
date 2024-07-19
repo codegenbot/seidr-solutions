@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool compareVectors(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i<a.size(); i++)
@@ -36,7 +36,7 @@ int main() {
     for(std::string str;std::getline(std::cin, str);s.push_back(str));
     std::cout << "Enter the second string: ";
     for(std::string str;std::getline(std::cin, str);t.push_back(str));
-    if(compareVectors({s},{t})) {
+    if(issame(s,t)) {
         int i = 0;
         while(i < s[0].size()) {
             bool found = false;
