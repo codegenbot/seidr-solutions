@@ -7,6 +7,8 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input().strip()
+
+# Read input from user without stripping
+input_string = input().rstrip('\n')
 result = decode_cyclic(input_string)
 print(result)
