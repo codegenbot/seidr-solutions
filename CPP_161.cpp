@@ -1,17 +1,13 @@
 string solve(string s){
-    string result = "";
     bool hasLetter = false;
-    for(char c : s){
-        if(isalpha(c)){
+    for (char& c : s) {
+        if (isalpha(c)) {
             hasLetter = true;
-            result += islower(c) ? toupper(c) : tolower(c);
-        }
-        else{
-            result += c;
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
     }
-    return result;
+    return s;
 }
