@@ -1,11 +1,11 @@
+def encode_cyclic(s: str):
+    s += ' ' * (len(s) % 3)
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
 def decode_cyclic(s: str):
-    result = ""
-    group = ""
-    for char in s:
-        group += char
-        if len(group) == 3:
-            result += group[1] + (group[0] if len(result) % 3 == 0 else "")
-            group = ""
-    if group:
-        result += group[1] + (group[0] if len(result) % 3 == 0 else "")
-    return result
+    s += ' ' * (len(s) % 3)
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [group[-1] + group[:-1] if len(group) > 2 else group for group in groups]
+    return "".join(groups)
