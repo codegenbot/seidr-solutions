@@ -16,7 +16,6 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    assert(next_smallest({3,4,5}) == 4);
-    std::cout << "Tests passed!" << std::endl;
+    assert(next_smallest({3, 5, 7, 9}) == 5);
     return 0;
 }
