@@ -9,9 +9,9 @@ std::string flip_case(const std::string& str) {
         char c = str[i];
         if(std::isprint(c))
             if(c >= 'a' && c <= 'z')
-                result += std::toupper(c);
+                result += (char)toupper((int)c);
             else if(c >= 'A' && c <= 'Z')
-                result += std::tolower(c);
+                result += (char)tolower((int)c);
             else
                 result += c;
     }
@@ -20,9 +20,8 @@ std::string flip_case(const std::string& str) {
 
 int main() {
     std::string input = "These violent delights have violent ends";
-    std::cout << "Computed output: " << flip_case(input) << std::endl;
-    if(flip_case(input).compare(std::string("these violent delights have violent ends")) == 0)
-        return 0;
-    else
+    std::cout << flip_case(input) << std::endl;
+    if(flip_case(input) != "these violent delights have violent ends")
         return 1;
+    return 0;
 }
