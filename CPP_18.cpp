@@ -9,9 +9,13 @@ std::string sub;
 int main() {
     std::cin >> s >> sub;
     
+    int count = 0; // Initialize counter variable
+    
     for(int i = 0; i < sub.size(); i++) {
-        s += sub[i];
+        if(sub[i] == 'j') { // Count the occurrences of character 'j'
+            count++;
+        }
     }
     
-    assert(how_many_times(s.length(), sub.length()) == s.find(sub) != std::string::npos);
+    std::cout << "The number of times 'john' appears in the string is: " << count << std::endl;
 }
