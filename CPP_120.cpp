@@ -9,6 +9,10 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+bool issame(std::vector<int> v1, std::vector<int> v2) {
+    return same(v1, v2);
+}
+
 std::vector<int> maximum(std::vector<int> a) {
     std::vector<int> result = a;
     std::sort(result.begin(), result.end());
@@ -21,6 +25,6 @@ int main() {
     std::vector<int> a(n);
     for (int i = 0; i < n; ++i) cin >> a[i];
     std::vector<int> result = maximum(a);
-    if (!same(result, a)) return 1;
+    if (!issame(result, a)) return 1;
     return 0;
 }
