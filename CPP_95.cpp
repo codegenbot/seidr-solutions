@@ -1,19 +1,10 @@
-if(dict.empty()) {
-    return false;
-}
-
-bool isLower = true;
-bool isUpper = true;
-
-for(auto const& pair : dict) {
-    for(auto const& c : pair.first) {
-        if(islower(c)) {
-            isUpper = false;
-        } else if(isupper(c)) {
-            isLower = false;
-        }
+if(dict.empty()) return false;
+bool lower = true, upper = true;
+for(auto const &entry : dict) {
+    for(char c : entry.first) {
+        if(!islower(c)) lower = false;
+        if(!isupper(c)) upper = false;
     }
 }
-
-return isLower || isUpper;
+return lower || upper;
 }
