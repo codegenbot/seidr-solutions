@@ -5,6 +5,6 @@ def decode_string(input_string):
 
     return decoded_string
 
-input_string = str(input())
+input_string = input().rstrip()
 result = decode_string(input_string)
 print(result)

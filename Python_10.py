@@ -5,6 +5,6 @@ def complete_code(string_input, integer_input):
         return "Invalid input"
 
 string_input = input("Enter a string: ")
-integer_input = int(input("Enter an integer: "))
+integer_input = int(input("Enter an integer: ").strip())
 output = complete_code(string_input, integer_input)
 print(output)
