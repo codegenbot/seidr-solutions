@@ -2,10 +2,14 @@
 #include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
-    return a.size() == b.size();
+    return a == b;
 }
 
-int main() {
-    assert(issame(std::vector<float>({1.0f}), std::vector<float>{}));
+std::vector<float> derivative(const std::vector<float>& v){
+    return v;
+}
+
+int main(){
+    assert(issame(derivative({1}), std::vector<float>{}));
     return 0;
 }
