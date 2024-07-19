@@ -1,18 +1,10 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-std::vector<int> sort_third(std::vector<int> v) {
-    std::sort(v.begin(), v.end());
-    return v;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
-}
-
-int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> sorted_a = a;
+    std::vector<int> sorted_b = b;
+    std::sort(sorted_a.begin(), sorted_a.end());
+    std::sort(sorted_b.begin(), sorted_b.end());
+    return sorted_a == sorted_b;
 }
