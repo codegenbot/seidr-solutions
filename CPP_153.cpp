@@ -1,3 +1,4 @@
+int Strongest_Extension(string class_name, vector<string> extensions);
 #include <vector>
 #include <cctype>
 #include <iostream>
