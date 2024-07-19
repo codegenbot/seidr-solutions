@@ -38,7 +38,11 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
-    assert(issame(order_by_points(nums), {0,-76,-21,4,6,6,23}));
-    std::cout << (issame(order_by_points(nums), {0,-76,-21,4,6,6,23}) ? "Test passed" : "Test failed");
+    assert(issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6}));
+    if (!issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6})) {
+        std::cout << "Test failed";
+    } else {
+        std::cout << "Test passed";
+    }
     return 0;
 }
