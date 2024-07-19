@@ -1,5 +1,6 @@
 #include <vector>
-#include <typeinfo>
+#include <list>
+#include <any>
 
 std::vector<int> filter_integers(const std::list<std::any>& values){
     std::vector<int> result;
@@ -9,4 +10,11 @@ std::vector<int> filter_integers(const std::list<std::any>& values){
         }
     }
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
+int main() {
+    // Main function implementation
+    return 0;
 }
