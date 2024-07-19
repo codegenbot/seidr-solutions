@@ -1,38 +1,25 @@
 #include <vector>
-
-std::vector<int> tri(int n) {
-    std::vector<int> result;
-    result.push_back(3);
-    if (n == 0) {
-        return result;
-    }
-    
-    result.push_back(1);
-    if (n == 1) {
-        return result;
-    }
-    
-    result.push_back(2);
-    if (n == 2) {
-        return result;
-    }
-    
-    for (int i = 3; i <= n; ++i) {
-        if (i % 2 == 0) {
-            result.push_back(1 + i / 2);
-        } else {
-            result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
-        }
-    }
-    
-    return result;
-}
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    issame(tri(1), {1, 3});
-    return 0;
+    std::vector<int> res;
+    int n = 5; // Example input value
+    if (n >= 0) {
+        res.push_back(3);
+        if (n > 0) {
+            res.push_back(1);
+            for (int i = 2; i <= n; ++i) {
+                if (i % 2 == 0) {
+                    res.push_back(1 + i / 2);
+                } else {
+                    res.push_back(res[i - 1] + res[i - 2]);
+                }
+            }
+        }
+    }
+    assert (issame(res, {3, 1, 2, 3, 5, 8}));
 }
