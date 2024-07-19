@@ -22,6 +22,6 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 }
 
 int main() {
-    assert(issame(solve({4, 3, 2, 8}, {}), {}));
+    assert(solve({4, 3, 2, 8}, {}) == vector<int>{});
     return 0;
 }
