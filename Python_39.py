@@ -6,11 +6,21 @@ def is_prime(num):
             return False
     return True
 
+
 def prime_fib(n):
-    count = 2
-    a, b = 1, 1
-    while count < n:
-        a, b = b, a + b
-        if is_prime(b):
-            count += 1
-    return b
+    fib_list = [0, 1]
+    while len(fib_list) <= n:
+        fib_list.append(fib_list[-1] + fib_list[-2])
+
+    for num in fib_list:
+        if is_prime(num):
+            n -= 1
+        if n == 0:
+            return num
+
+
+try:
+    n = int(input())
+    print(prime_fib(n))
+except:
+    print("Invalid input")
