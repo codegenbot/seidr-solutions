@@ -1,11 +1,10 @@
-#include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
-bool is_prime(int n){
-    // Assume this function is already implemented
-    return true;
+bool is_prime(int n) {
+    // implementation of is_prime function
 }
 
 string words_in_sentence(string sentence){
@@ -27,7 +26,7 @@ string words_in_sentence(string sentence){
     return result;
 }
 
-int main(){
-    assert(words_in_sentence("here is") == "is");
+int main() {
+    assert (words_in_sentence("here is") == "is");
     return 0;
 }
