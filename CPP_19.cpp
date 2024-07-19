@@ -1,3 +1,8 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
 map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
@@ -11,10 +16,16 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+}
+
 string sort_numbers(string numbers) {
     map<int, string> reverse_map;
     string result = "";
-    
+
     string current_number = "";
     for (char c : numbers) {
         if (c == ' ') {
