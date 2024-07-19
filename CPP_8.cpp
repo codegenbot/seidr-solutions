@@ -1,15 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-};
+}
 
-vector<int> sum_product(vector<int> a) {
+std::vector<int> sum_product(std::vector<int> a) {
     int sum = 0;
     int product = 1;
     for (int num : a) {
