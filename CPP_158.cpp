@@ -3,14 +3,11 @@
 using namespace std;
 
 int main() {
-    cout << find_max({"play", "play", "play"}) << endl;
-}
-
-string find_max(vector<string> words){
-    string max = *max_element(words.begin(), words.end(),
+    string max = *max_element({"play", "play", "play"},
         [](const string& a, const string& b){
             if(a.size() == b.size()) return a < b;
             return a.size() > b.size();
         });
-    return max;
+    cout << max << endl;
+    return 0;
 }
