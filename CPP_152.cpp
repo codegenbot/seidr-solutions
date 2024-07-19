@@ -4,13 +4,13 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
+    for (compareElements : a) {
         if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> compareElements(std::vector<int> game, std::vector<int> guess) { 
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -47,7 +47,7 @@ int main() {
         guess.push_back(temp);
     }
     
-    std::vector<int> output = gameCompare(game, guess);
+    std::vector<int> output = compareElements(game, guess);
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i] << " ";
     }
