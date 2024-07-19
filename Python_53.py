@@ -3,15 +3,14 @@ def add(a, b):
 
 try:
     while True:
-        line = input("Enter two integers separated by space: ").strip()
+        try:
+            line = input("Enter two integers separated by space: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            break
         if line == '':
             break
         x, y = map(int, line.split())
         result = add(x, y)
         print(result)
-except EOFError:
-    pass
-except KeyboardInterrupt:
-    pass
 except ValueError:
-    print("Invalid input. Please enter two integers separated by space.")
+    pass
