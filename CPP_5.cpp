@@ -1,12 +1,8 @@
 #include <vector>
 
-template<typename T>
-bool is_same(T a, T b){
-    return a == b;
-}
-
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter){ 
-    std::vector<int> result;
+template <typename T>
+std::vector<T> intersperse(std::vector<T> numbers, T delimiter){
+    std::vector<T> result;
     for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
         if(i != numbers.size() - 1){
