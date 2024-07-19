@@ -1,25 +1,30 @@
-```
+```cpp
 #include <cmath>
 #include <cassert>
 #include <iostream>
+#include <string>
 
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
         float s = (a + b + c) / 2;
-        return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
+        return sqrt(s * (s - a) * (s - b) * (s - c));
     } else {
         return -1.0f;
     }
 }
 
-int main() {
+int main() { 
+    assert(abs(triangle_area(2, 2, 10) - 2.23607) < 0.01);
     float a, b, c;
-    std::cin >> a >> b >> c;
-    float result = triangle_area(a, b, c);
-    if(result == -1.0f) {
-        std::cout << "Not a valid triangle" << std::endl;
-    } else {
-        std::cout << "The area of the triangle is " << result << std::endl;
-    }
+    std::cout << "Enter side lengths a, b, and c of the triangle: ";
+    std::string a_str, b_str, c_str;
+    std::cin >> a_str >> b_str >> c_str;
+    a = stof(a_str);
+    b = stof(b_str);
+    c = stof(c_str);
+    if(a+b>c && a+c>b && b+c>a)
+        std::cout << "The area of the triangle is " << triangle_area(a,b,c);
+    else
+        std::cout << "The sides do not form a valid triangle";
     return 0;
 }
