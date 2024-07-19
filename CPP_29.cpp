@@ -1,19 +1,16 @@
-```c++
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+using namespace std;
 
-int main() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    string prefix = "xxx";
-    vector<string> result = filter_by_prefix(strings, prefix);
-    
-    assert(result == {"xxx", "xxxAAA", "xxx"});
-    
-    return 0;
+bool isSame(vector<string> a,vector<string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -23,4 +20,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
+}
+
+int main() {
+    assert(isSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
