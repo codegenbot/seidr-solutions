@@ -1,5 +1,5 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -43,9 +43,9 @@ int main() {
     vector<vector<int>> res = cutVector(v);
     for (auto &v : res) {
         for (int x : v) {
-            cout << x << " ";
+            std::cout << x << " ";
         }
-        cout << endl;
+        std::cout << endl;
     }
     return 0;
 }
