@@ -21,6 +21,19 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // Implementation of issame function goes here
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // Main function implementation
+    return 0;
 }
