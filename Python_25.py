@@ -6,4 +6,4 @@ def factorize(n):
             n //= i
     return factors
 
-print(factorize(int(input("Enter a number to factorize: ")))
+print(factorize(int(input("Enter a number to factorize: ")))  # Added closing parenthesis at the end.
