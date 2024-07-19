@@ -1,8 +1,41 @@
-int a = 2, b = 3, c;
-    for (int i = 3; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
+#include <iostream>
+
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
     }
-    return b;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int prime_fib(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 2;
+    }
+    int prev = 1, curr = 1, next;
+    for (int i = 3; i <= n; i++) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    while (!isPrime(curr)) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
 }
