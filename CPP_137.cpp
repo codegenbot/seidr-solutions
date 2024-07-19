@@ -3,6 +3,13 @@
 #include <string>
 #include <boost/any.hpp>
 
+int max(int a, float b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
 int main() {
     boost::any a = "123";
     boost::any b = "456";
