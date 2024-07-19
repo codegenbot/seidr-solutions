@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+
 using namespace std;
 
 string flip_case(string str) {
