@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 
 int next_smallest(vector<int> lst) {
