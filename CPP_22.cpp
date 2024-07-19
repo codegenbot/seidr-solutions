@@ -1,24 +1,9 @@
-#include <vector>
-#include <cassert>
-#include <algorithm>
-#include <cctype>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
-
-std::vector<int> filter_integers(const std::vector<int>& input) {
-    std::vector<int> result;
-    for (int num : input) {
-        if (std::isdigit(num + '0')) {
-            result.push_back(num);
+vector<int> filter_integers(list_any values){
+    vector<int> result;
+    for (const auto &val : values) {
+        if (val.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(val));
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
-    
-    return 0;
 }
