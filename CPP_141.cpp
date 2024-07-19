@@ -1,18 +1,14 @@
-int digits_count = 0;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digits_count++;
-        }
-    }
+int dotPosition = file_name.find('.');
+    if(dotPosition == string::npos || dotPosition == 0 || dotPosition == file_name.length()-1) return "No";
     
-    size_t dot_pos = file_name.find('.');
-    if (digits_count <= 3 && dot_pos != string::npos &&
-        dot_pos > 0 && dot_pos < file_name.size() - 1) {
-        string file_ext = file_name.substr(dot_pos + 1);
-        if ((file_ext == "txt" || file_ext == "exe" || file_ext == "dll") && isalpha(file_name[0])) {
-            return "Yes";
-        }
-    }
+    string beforeDot = file_name.substr(0, dotPosition);
+    string afterDot = file_name.substr(dotPosition+1);
+
+    if(beforeDot.empty() || !isalpha(beforeDot[0])) return "No";
+    if(count_if(afterDot.begin(), afterDot.end(), ::isdigit) > 3) return "No";
+    
+    if(afterDot == "txt" || afterDot == "exe" || afterDot == "dll")
+        return "Yes";
     
     return "No";
 }
