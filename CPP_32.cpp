@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -5,14 +6,6 @@
 #include <iomanip>
 
 using namespace std;
-
-double poly(vector<double> coeffs, double solution) {
-    double value = 0;
-    for (int i = 0; i <= coeffs.size() - 1; i++) {
-        value += coeffs[i] * pow(solution, i);
-    }
-    return value;
-}
 
 double find_zero(vector<double> coeffs) {
     double solution;
@@ -36,5 +29,6 @@ int main() {
         cin >> coeffs[i];
     }
 
-    cout << fixed << setprecision(6) << find_zero(coeffs) << endl;
+    double result = find_zero(coeffs);
+    cout << fixed << setprecision(6) << result << endl;
 }
