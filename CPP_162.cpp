@@ -22,8 +22,8 @@ string string_to_md5(string text) {
     string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         char buf[3];
-        sprintf(buf, "%02x", md5[i]);
-        result += string(buf);
+        sprintf(buf, "%02x", md5_ptr[i]);
+        result += buf;
     }
 
     free(md5_ptr);
