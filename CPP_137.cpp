@@ -66,6 +66,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return a.convert_to<boost::any>() > boost::any(num) ? a : b;
     }
     else {
-        return any("None");
+        return boost::any("None");
     }
 }
