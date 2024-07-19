@@ -21,7 +21,8 @@ vector<string> reverse_delete(string s, string c) {
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    if (temp == reverse(temp)) {
+    reverse(temp);
+    if (issame(s, temp)) {
         result.push_back("True");
     } else {
         result.push_back("False");
@@ -35,6 +36,7 @@ string reverse(string s) {
         rev += s[i];
     }
     return rev;
+}
 
 bool issame(string a, string b) {
     if(a.size()!=b.size())
