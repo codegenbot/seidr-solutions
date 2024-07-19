@@ -13,9 +13,10 @@ int solve(int N) {
 }
 
 int main() {
-    int N;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> N;
+    std::getline(std::cin, str);
+    int N = std::stoi(str);
     if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;
