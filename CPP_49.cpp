@@ -1,3 +1,6 @@
+#ifndef MAIN_CPP
+#define MAIN_CPP
+
 #include <iostream>
 
 int modp(int n, int p) {
@@ -20,3 +23,5 @@ int main() {
     std::cout << result << std::endl;
     return 0;
 }
+
+#endif
