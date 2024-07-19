@@ -1,14 +1,20 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(vector<string> a, vector<string> b);
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+vector<string> split_words(string txt);
+
+int main() {
+    // Main function code here
+}
+
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -16,29 +22,17 @@ std::vector<std::string> split_words(std::string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.size() == 1 && isalpha(result[0][0])) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    if(result.empty()){
+        int odd_lower_case_count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                odd_lower_case_count++;
             }
         }
-        result[0] = std::to_string(count);
+        result.push_back(to_string(odd_lower_case_count));
     }
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
