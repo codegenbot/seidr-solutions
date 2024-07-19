@@ -4,7 +4,9 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
-# Read input from the user
+
+# Explicitly ask user for input
+print("Enter space-separated coefficients:")
 input_list = list(map(float, input().split()))
 
 # Call the function with the input
