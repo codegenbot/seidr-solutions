@@ -19,6 +19,6 @@ std::vector<int> issame(std::vector<int> a, std::vector<int> b, int n) {
 
 int main() {
     assert(issame({}, {1, 2, 6}, 3));
-
+    
     return 0;
 }
