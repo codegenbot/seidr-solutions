@@ -6,10 +6,9 @@ using namespace std;
 
 int digitSum(const string& s) {
     int sum = 0;
-    for (auto c : s) {
+    for (char c : s) {
         if (isdigit(c)) {
-            int num = c - '0';
-            sum += num;
+            sum += c - '0';
         }
     }
     return sum;
