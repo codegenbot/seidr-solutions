@@ -1,11 +1,10 @@
 #include <map>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) return false;
     for (auto p : a) {
-        if (b.find(p.first) == b.end() || p.second != b.at(p.first)) {
+        if (b.find(p.first) == b.end() || p.second != b[p.first]) {
             return false;
         }
     }
@@ -13,7 +12,7 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 std::map<char, int> histogramTest(std::string str) {
-    std::map<char, int> result;
+    std::map<char, int> result = {};
     for (char c : str) {
         if (result.find(c) == result.end()) {
             result[c] = 1;
