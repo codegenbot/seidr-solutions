@@ -1,5 +1,5 @@
-```cpp
 #include <algorithm>
+#include <initializer_list>
 #include <numeric>
 #include <vector>
 
@@ -16,7 +16,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[j] - numbers[i]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest = pair<float, float>(numbers[i], numbers[j]);
+                closest = make_pair(numbers[i], numbers[j]);
             }
         }
     }
