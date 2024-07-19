@@ -1,6 +1,5 @@
-#include <initializer_list>
 #include <vector>
-#include <algorithm>
+#include <initializer_list>
 
 std::vector<int> gameCompare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
