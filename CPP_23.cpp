@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cassert>
 #include <cstring>
-#include <string>
 
 int customStringLength(const char* str) {
     return strlen(str);
@@ -9,6 +8,5 @@ int customStringLength(const char* str) {
 
 int main() {
     assert(customStringLength("asdasnakj") == 9);
-    std::string str = "Hello, World!";
-    return str.length();
+    return customStringLength("asdas  asnakj");
 }
