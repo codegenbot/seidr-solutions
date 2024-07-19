@@ -2,6 +2,9 @@ def separate_paren_groups(paren_string):
     stack = []
     result = []
     
+    if not paren_string:
+        return result
+    
     for char in paren_string:
         if char == '(':
             stack.append('(')
@@ -15,6 +18,5 @@ def separate_paren_groups(paren_string):
     
     return result
 
-print("Enter a string containing parenthesis with optional spaces:")
-paren_string = input()
-print(separate_paren_groups(paren_string.replace(' ', '')))
+paren_string = input().strip().replace(' ', '')
+print(separate_paren_groups(paren_string))
