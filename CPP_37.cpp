@@ -9,14 +9,13 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evenVals;
+            float maxEven = -INFINITY;
             for (float val : l) {
-                if (std::abs(val - static_cast<int>(val)) < 1e-9) {
-                    evenVals.push_back(val);
+                if (issame(val, static_cast<int>(val))) {
+                    maxEven = std::max(maxEven, val);
                 }
             }
-            std::sort(evenVals.begin(), evenVals.end());
-            result.push_back(evenVals[0]);
+            result.push_back(maxEven);
         } else {
             result.push_back(l[i]);
         }
