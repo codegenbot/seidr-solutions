@@ -39,3 +39,14 @@ std::vector<int> tri(int n) {
     
     return result;
 }
+
+int main() {
+    std::vector<int> expected = {0, 3, 1, 2, 7, 4, 11, 6, 15, 8};
+    std::vector<int> result = tri(9);
+    
+    if (issame(expected, result)) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
