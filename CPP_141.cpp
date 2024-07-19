@@ -1,25 +1,43 @@
-Here is the completed code:
+#include <cctype>
 
-string file_name_check(string file_name){
+string file_name_check(string file_name) {
+    int dot_count = 0;
     int digit_count = 0;
-    bool found_dot = false;
+    bool has_dot = false;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digit_count++;
-            if(digit_count > 3)
-                return "No";
-        }else if(file_name[i] == '.'){
-            found_dot = true;
-        }else if(!found_dot && !isalpha(file_name[i]))
-            return "No";
-
+        } else if (isalpha(c) || c == '.') {
+            if (c == '.') {
+                has_dot = true;
+                dot_count++;
+            }
+        }
     }
 
-    size_t dot_pos = file_name.find('.');
-    string extension = file_name.substr(dot_pos+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll")
+    if (dot_count > 1 || digit_count > 3) {
         return "No";
+    }
+
+    size_t found = file_name.find('.');
+    string extension = file_name.substr(found + 1);
+
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    if (find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()) {
+        return "No";
+    }
+
+    size_t start = file_name.find('.');
+    if (start == string::npos) {
+        return "Yes";
+    }
+
+    for (char c : file_name.substr(0, start)) {
+        if (!isalpha(c) && c != '.') {
+            return "No";
+        }
+    }
 
     return "Yes";
 }
