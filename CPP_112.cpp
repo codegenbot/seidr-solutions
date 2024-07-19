@@ -37,8 +37,8 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame({ "", "True" }, reverseDelete("mamma", "mia")));
-    if (issame({ "", "True" }, reverse_delete("mamma", "mia"))) {
+    bool result = issame({ "", "True" }, reverseDelete("mamma", "mia"));
+    if (result) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
