@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
@@ -28,12 +27,8 @@ vector<int> remove_duplicates(vector<int> numbers) {
 
 }
 
-int main_test() {
+int main() {
     vector<int> test = {1, 2, 3, 2, 4, 3, 5};
-    try{
-        assert (areEqual(remove_duplicates(test), vector<int>{1, 2, 3, 4, 5}) );
-    }catch(runtime_error e){
-        cout << "Error: " << e.what() << endl;
-    }
+    assert (areEqual(remove_duplicates(test), vector<int>{1, 2, 3, 4, 5}) );
     return 0;
 }
