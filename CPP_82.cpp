@@ -24,6 +24,5 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    assert(prime_length(str) == true);
-    return 0;
+    assert(prime_length(str));
 }
