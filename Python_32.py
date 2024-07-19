@@ -1,12 +1,14 @@
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("Number of coefficients must be even.")
-
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients must be even")
 
-    if a == 0:
+    max_coeff = max([abs(coeff) for coeff in xs])
+    if max_coeff == 0:
         return 0
 
-    return -b / a
+    for i in range(n):
+        if xs[i] == max_coeff:
+            break
+
+    return -xs[-1] / xs[i]
