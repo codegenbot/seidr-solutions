@@ -1,6 +1,6 @@
-#include <vector>  // Include the necessary header
-#include <cstdlib> // Include for abs function
-#include <cassert> // Include for assert function
+#include <vector>
+#include <cstdlib>
+#include <cassert>
 
 using namespace std;
 
@@ -21,6 +21,6 @@ int prod_signs(const vector<int>& arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); // Pass a vector<int> type parameter
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
