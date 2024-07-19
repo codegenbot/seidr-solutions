@@ -1,19 +1,14 @@
-for(char &c : s){
-    if(isalpha(c)){
-        if(islower(c)){
-            c = toupper(c);
-        } else {
-            c = tolower(c);
+string solve(string s){
+    int n = s.size();
+    bool hasLetter = false;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
+    if(!hasLetter){
+        reverse(s.begin(), s.end());
+    }
+    return s;
 }
-
-size_t start = 0;
-size_t end = s.size() - 1;
-while(start < end){
-    swap(s[start], s[end]);
-    start++;
-    end--;
-}
-
-return s;
