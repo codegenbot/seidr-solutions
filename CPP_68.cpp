@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
@@ -36,5 +35,8 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-// Corrected comparison in main function
-assert(issame(pluck({7, 9, 7, 1}), vector<int>{}));
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}), vector<int>{}));
+    
+    return 0;
+}
