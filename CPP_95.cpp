@@ -2,17 +2,18 @@ bool check_dict_case(map<string, string> dict) {
     if (dict.empty())
         return false;
 
+    bool allUpper = true;
+    bool allLower = true;
+
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        bool allLower = true;
-        bool allUpper = true;
-        for (char c : it->first) {
-            if (!(islower(c)))
-                allLower = false;
-            if (!(isupper(c)))
-                allUpper = false;
+        auto key = it->first;
+        if (!isupper(key[0]) || !all(ismember, key.begin(), key.end())) {
+            allUpper = false;
         }
-        if (!allLower && !allUpper)
-            return false;
+        if (!islower(key[0]) || !all(isalpha, key.begin(), key.end())) {
+            allLower = false;
+        }
     }
-    return true;
+
+    return allUpper && allLower;
 }
