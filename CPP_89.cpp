@@ -1,15 +1,12 @@
-string result = "";
-    int shift = 2 * 2;
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            char encryptedChar = 'a' + (c - 'a' + shift) % 26;
-            result += encryptedChar;
-        } else if (c >= 'A' && c <= 'Z') {
-            char encryptedChar = 'A' + (c - 'A' + shift) % 26;
-            result += encryptedChar;
+string encrypt(string s){
+    string encrypted = "";
+    for(char c : s){
+        if(isalpha(c)){
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += (c - base + 2 * 2) % 26 + base;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
