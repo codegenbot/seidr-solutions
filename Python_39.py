@@ -1,5 +1,6 @@
 import math
 
+
 def is_prime(num):
     if num < 2:
         return False
@@ -8,14 +9,14 @@ def is_prime(num):
             return False
     return True
 
+
 def prime_fib(n):
-    count = 0
     a, b = 0, 1
-    while count < n:
+    for _ in range(n):
         if is_prime(a):
-            count += 1
+            return a
         a, b = b, a + b
-    return a
+
 
 n = int(input("Enter a number: "))
 print(prime_fib(n))
