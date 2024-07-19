@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,10 +13,9 @@ int solve(int N) {
 }
 
 int main() {
-    std::string str;
+    int N;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    int N = std::stoi(str);
+    std::cin >> N;
     if (N == 0) {
         std::cout << "Invalid input. Please enter a non-zero integer." << std::endl;
         return 1;

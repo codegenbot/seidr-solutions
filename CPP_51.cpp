@@ -7,11 +7,11 @@ bool isVowel(char c) {
     return vowels.find(std::tolower(c)) != std::string::npos;
 }
 
-std::string remove_vowels(std::string input) {
-    std::string result;
+std::basic_string<char> remove_vowels(std::string input) {
+    std::basic_string<char> result;
     for (char c : input) {
         if (!isVowel(c)) {
-            result += std::tolower(c);
+            result += c;
         }
     }
     return result;
@@ -22,9 +22,13 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::string output = remove_vowels(input);
+    std::basic_string<char> output = remove_vowels(input);
 
-    std::cout << "String after removing vowels: " << output << std::endl;
+    std::cout << "String after removing vowels: ";
+    for (char c : output) {
+        std::cout << c;
+    }
+    std::cout << std::endl;
 
     return 0;
 }
