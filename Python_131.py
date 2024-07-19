@@ -2,11 +2,11 @@ import math
 
 while True:
     try:
-        n = int(input("Enter a positive integer greater than zero: ").strip())
-        if n <= 0:
+        n = input("Enter a positive integer greater than zero: ").strip()
+        if not n.isdigit() or int(n) <= 0:
             raise ValueError("Please enter a positive integer greater than zero.")
         
-        result = math.prod(int(digit) for digit in str(n) if digit != '0')
+        result = math.prod(map(int, str(n)))
         print(result)
         break
         
