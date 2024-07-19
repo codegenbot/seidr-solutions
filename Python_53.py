@@ -9,5 +9,9 @@ try:
         x, y = map(int, line.split())
         result = add(x, y)
         print(result)
-except (ValueError, EOFError, KeyboardInterrupt):
+except EOFError:
     pass
+except KeyboardInterrupt:
+    pass
+except ValueError:
+    print("Invalid input. Please enter two integers separated by space.")
