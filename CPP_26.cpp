@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -11,17 +10,15 @@ bool issame(vector<int> a, vector<int> b) {
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::unordered_map<int, bool> seen;
     std::vector<int> result(std::move(numbers)); // Assuming you want to remove duplicates from input vector itself.
-    
+
     for (int num : numbers) {
-        if (std::find_if(result.begin(), result.end(),
-                         [&seen](int n){ return !seen[n];}) == result.end()) {
+        if (std::find_if(result.begin(), result.end(), [&](int n){return n == num;}) == result.end()) {
             seen[num] = true;
-            result.pop_back(); // Remove the last element from the vector
+            result.push_back(num);
         }
     }
 
-    std::sort(result.begin(), result.end());
-    return result;
+    return std::move(result); // Return the modified vector
 }
 
 int main() {
