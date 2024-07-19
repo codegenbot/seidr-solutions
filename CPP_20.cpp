@@ -1,6 +1,9 @@
+```
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <utility>
+#include <initializer_list>
 
 bool issame(vector<float> a, vector<float> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
@@ -15,7 +18,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[j] - numbers[i]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest = make_pair(numbers[i], numbers[j]);
+                closest = pair<float, float>(numbers[i], numbers[j]);
             }
         }
     }
