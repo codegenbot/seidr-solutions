@@ -1,4 +1,4 @@
-```
+```cpp
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
@@ -12,13 +12,14 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type() == typeid(int)) {
             int num = boost::any_cast<int>(value);
-            bool isInt = true;
-            try {
-                int c = num + 0; // check if it's an integer
-            } catch (...) {
-                isInt = false;
+            bool found = false;
+            for (int i : result) {
+                if (i == num) {
+                    found = true;
+                    break;
+                }
             }
-            if (isInt) {
+            if (!found) {
                 result.push_back(num);
             }
         }
