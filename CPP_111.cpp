@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <initializer_list>
 #include <map>
 #include <string>
 
@@ -10,8 +11,10 @@ std::map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    auto unique_letters = letters | unique;
-    for (char c : unique_letters) {
+    auto lettersUnique = letters;
+    letters.erase(std::unique(letters.begin(), letters.end()), letters.end());
+
+    for (char c : lettersUnique) { 
         int count = 0;
         for (char letter : letters) {
             if (letter == c) count++;
