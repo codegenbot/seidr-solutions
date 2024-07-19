@@ -1,4 +1,3 @@
-```cpp
 #include <any>
 #include <list>
 #include <vector>
@@ -11,7 +10,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
             result.push_back(std::any_cast<int>(value));
         }
     }
-    return result;
+    return result.empty() ? std::vector<int>() : result;
 }
 
 bool same_vector(const std::vector<int>& a, const std::vector<int>& b) {
