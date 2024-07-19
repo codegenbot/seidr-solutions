@@ -13,9 +13,15 @@ int digitSum(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int result = digitSum(input);
+    int input;
+    std::cout << "Enter a number: ";
+    while (!(std::cin >> input)) {
+        std::cout << "Invalid input. Please enter a number: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Enter a number: ";
+    }
+    int result = digitSum(std::to_string(input));
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
+}
