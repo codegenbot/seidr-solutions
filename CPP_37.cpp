@@ -1,5 +1,16 @@
-vector<float> issame(vector<float> a, vector<float> b) {
-    vector<float> l = a;
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void sort_even(vector<float>& l) {
     vector<float> even_vals;
     vector<float> sorted_even_vals;
     for (int i = 0; i < l.size(); i++) {
@@ -16,12 +27,9 @@ vector<float> issame(vector<float> a, vector<float> b) {
             j++;
         }
     }
-    return l;
 }
 
-void sort_even(vector<float>& l);
-
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
