@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    // Your logic here
 }
 
 vector<string> bf(string planet1, string planet2) {
