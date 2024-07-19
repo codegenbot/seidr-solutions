@@ -1,9 +1,9 @@
+```
 #include <iostream>
-#include <cassert>
 
 using namespace std;
 
-int mainFunction() {
+int main() {
     int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
