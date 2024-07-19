@@ -1,22 +1,29 @@
 string words_in_sentence(string sentence){
+    vector<string> words = split(sentence, ' ');
     string result = "";
-    int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-    for(int i = 0; i < sentence.size(); i++){
-        if(i > 0) result += " ";
-        string word = "";
-        while(sentence[i] != ' ' && i < sentence.size()){
-            word += sentence[i];
-            i++;
+    for (string word : words) {
+        if (is_prime(word.length())) {
+            result += word + " ";
         }
-        bool isPrime = false;
-        for(int j = 0; j < 10; j++){
-            if(atoi(word.c_str()) == prime[j]){
-                result += word;
-                isPrime = true;
-                break;
-            }
-        }
-        if(!isPrime) continue;
     }
-    return result;
+    return result.substr(0, result.size() - 1);
+}
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+vector<string> split(const string& str, char delimiter) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
 }
