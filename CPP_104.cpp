@@ -19,7 +19,7 @@ std::vector<int> unique_digits(std::vector<int> x){
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
@@ -27,7 +27,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (std::size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
