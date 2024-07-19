@@ -1,22 +1,16 @@
 #include <cassert>
 #include <set>
 
-int setSize(set<int> s) {
+int setSize(const std::set<int>& s) {
     return s.size();
 }
 
 int getSetSize(int a, int b, int c) {
     set<int> s = {a, b, c};
-    int size = 0;
-    for (auto x : s) {
-        if (x > a && x < b)
-            size++;
-    }
-    return size;
+    return setSize(s);
 }
 
 int main() {
-    int result = getSetSize(127, 97, 8192);
-    assert(result == 10); 
+    assert(getSetSize(127, 97, 8192) == 3); 
     return 0;
 }
