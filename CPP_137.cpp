@@ -5,38 +5,38 @@
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
+string compare_one(boost::any a, boost::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return a;
+            return boost::any_cast<int>(a);
         } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return b;
+            return boost::any_cast<int>(b);
         } else {
             return "None";
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
         if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return a;
+            return boost::any_cast<float>(a);
         } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return b;
+            return boost::any_cast<float>(b);
         } else {
             return "None";
         }
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
         float num1, num2;
         if(boost::any_cast<string>(a).find_first_of(",") != string::npos){
-            replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
+            std::replace(boost::any_cast<string>(a).begin(), boost::any_cast<string>(a).end(), ',', '.');
         }
         if(boost::any_cast<string>(b).find_first_of(",") != string::npos){
-            replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
+            std::replace(boost::any_cast<string>(b).begin(), boost::any_cast<string>(b).end(), ',', '.');
         }
         num1 = stof(boost::any_cast<string>(a));
         num2 = stof(boost::any_cast<string>(b));
-        
+
         if(num1 > num2){
-            return a;
+            return boost::any_cast<string>(a);
         } else if(num1 < num2){
-            return b;
+            return boost::any_cast<string>(b);
         } else {
             return "None";
         }
