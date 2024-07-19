@@ -1,9 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
-
-using namespace std;
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -25,23 +23,23 @@ bool isPalindrome(int n) {
     return n == rev;
 }
 
-vector<int> to_vector(int num) {
-    vector<int> v;
-    string str = to_string(num);  
+std::vector<int> to_vector(int num) {
+    std::vector<int> v;
+    std::string str = std::to_string(num);  
     v.clear();
     for (char c : str) {  
-        v.push_back(c - '0'); // subtract '0' because '0'-'9' is the ASCII value for digits
+        v.push_back(std::stoi(std::string(1, c)) - 48);
     }
     return v;
 }
 
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    if (same(to_vector(n), to_vector(stoi(to_string(n)))) && isPalindrome(n) && n % 2 == 0) 
-        cout << "The number is even and palindrome.\n";
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    if (same(to_vector(n), to_vector(std::stoi(std::to_string(n)))) && isPalindrome(n) && n % 2 == 0) 
+        std::cout << "The number is even and palindrome.\n";
     else
-        cout << "The number is not even and palindrome.\n";
+        std::cout << "The number is not even and palindrome.\n";
     return 0;
 }
