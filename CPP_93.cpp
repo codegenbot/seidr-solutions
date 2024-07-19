@@ -1,14 +1,15 @@
-for (int i = 0; i < message.size(); i++) {
-    if (isalpha(message[i])) {
-        if (islower(message[i])) {
-            message[i] = toupper(message[i]);
-        } else {
-            message[i] = tolower(message[i]);
+string encode(string message){
+        for(char& c : message){
+            if(isalpha(c)){
+                if(islower(c)){
+                    c = toupper(c);
+                } else {
+                    c = tolower(c);
+                }
+                if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                    c = c + 2;
+                }
+            }
         }
-        if (message[i] == 'A' || message[i] == 'E' || message[i] == 'I' || message[i] == 'O' || message[i] == 'U') {
-            message[i] += 2;
-        }
+        return message;
     }
-}
-return message;
-}
