@@ -1,14 +1,11 @@
-string longest(vector<string> strings) {
-    if(strings.empty()) {
+if(strings.empty()) {
         return "None";
     }
-
-    string longestStr = strings[0];
-    for(int i = 1; i < strings.size(); i++) {
-        if(strings[i].length() >= longestStr.length()) {
-            longestStr = strings[i];
+    string longestString = strings[0];
+    for(string s : strings) {
+        if(s.length() > longestString.length() || (s.length() == longestString.length() && s < longestString)) {
+            longestString = s;
         }
     }
-
-    return longestStr;
+    return longestString;
 }
