@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> generate(const std::string& s1, const std::string& s2) {
+std::vector<std::string> bf(const std::string& s1, const std::string& s2) {
     std::vector<std::string> result;
     if (s1.size() > s2.size()) {
         for (int i = 0; i <= s2.size(); i++) {
@@ -17,7 +17,7 @@ std::vector<std::string> generate(const std::string& s1, const std::string& s2) 
     }
 }
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,6 +30,6 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> result = generate("Jupiter", "Makemake");
-    assert(isSame(result, {}));  
+    std::vector<std::string> result = bf("Jupiter", "Makemake");
+    assert(compare(result, {}));  
 }
