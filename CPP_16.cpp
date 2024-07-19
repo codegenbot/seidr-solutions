@@ -1,15 +1,24 @@
-#include <string>
-#include <algorithm>
-#include <set>
-
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 int count_distinct_characters(string str) {
-    string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    set<char> s; 
-    for (char c : temp) { 
-        s.insert(c); 
+    vector<char> charSet;
+    for (char c : str) {
+        if (tolower(c) >= 'a' && tolower(c) <= 'z') {
+            bool found = false;
+            for (char ch : charSet) {
+                if (ch == tolower(c)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                charSet.push_back(tolower(c));
+            }
+        }
     }
-    return s.size(); 
+    return charSet.size();
 }
