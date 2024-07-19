@@ -1,27 +1,29 @@
+```cpp
 #include <vector>
 #include <assert.h>
+#include <initializer_list>
 
 using namespace std;
 
-vector<pair<int, int>> get_collatz(int n) {
-    vector<pair<int, int>> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while(n!=1){
         if(n%2==0)n=n/2;
         else n=3*n+1;
-        result.push_back({n, 1});
+        result.push_back(n);
     }
     return result;
 }
 
-bool same(vector<pair<int, int>> a, vector<pair<int, int>> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
-        if(a[i].first!=b[i].first || a[i].second!=b[i].second)return false;
+        if(a[i]!=b[i])return false;
     }
     return true;
 
 }
 
 int main() {
-    assert(same(get_collatz(1), {{1, 1}}));
+    assert(issame(get_odd_collatz(1), {1}));
 }
