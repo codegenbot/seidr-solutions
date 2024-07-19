@@ -2,4 +2,4 @@
 #include <algorithm>
 #include <cmath>
 
-vector<float> l;
+std::vector<float> l;
