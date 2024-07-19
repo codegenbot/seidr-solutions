@@ -1,9 +1,13 @@
-```cpp
 #include <string>
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    return a.size() == 1 && a[0] == b;
+    if (a.empty()) return false;
+    size_t prefix_size = std::min(a[0].size(), b.size());
+    for (size_t i = 0; i < prefix_size; ++i) {
+        if (a[0][i] != b[i]) return false;
+    }
+    return a[0].size() == b.size();
 }
 
 std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
@@ -20,7 +24,7 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
             temp.push_back(str.substr(start, end - start));
             start = end + 1;
         }
-        if (!(temp.size() == 1 && temp[0] == prefix)) {
+        if (!issame({temp}, prefix)) {
             result.emplace_back(temp); 
         }
     }
