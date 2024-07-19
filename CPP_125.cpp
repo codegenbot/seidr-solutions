@@ -47,4 +47,6 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-assert(are_equal(split_words(""), {"0"}));
+int main() {
+    assert(are_equal(split_words(""), {"0"}));
+}
