@@ -1,8 +1,8 @@
 #include <algorithm>
 using namespace std;
 
-string anti_shuffle(string s) {
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
@@ -13,7 +13,7 @@ string anti_shuffle(string s) {
                 i++;
             }
             for (char c : word) {
-                result += min_element(word.begin(), word.end()) -> first;
+                result += min_element(word.begin(), word.end())->first;
             }
             i--;
         }
