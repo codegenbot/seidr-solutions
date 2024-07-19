@@ -10,7 +10,7 @@ bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::initializer_list<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
