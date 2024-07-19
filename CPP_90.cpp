@@ -1,19 +1,15 @@
+Here is the solution:
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
+    if (lst.empty()) return -1; // None in Python
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i == 0 || sorted[i] != sorted[i-1]) {
-            if (i+1 < sorted.size() && sorted[i] == sorted[i+1]) {
-                return -1; // Return None
-            } else {
-                for (int j = 0; j < lst.size(); j++) {
-                    if (lst[j] == sorted[i]) {
-                        return lst[j];
-                    }
-                }
-            }
+    int count = 0;
+    for (auto i = sorted.begin(); i != sorted.end(); ++i) {
+        if (*i > *next(i)) {
+            return *i;
         }
+        ++count;
     }
-    return -1; // Return None
+    return -1; // None in Python
 }
