@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,11 +9,11 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix) {
-    vector<vector<string>> result;
-    for (string s : strings) {
+std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+    std::vector<std::vector<std::string>> result;
+    for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
-            vector<string> temp = {prefix};
+            std::vector<std::string> temp = {prefix};
             for(int i = prefix.size(); i < s.size(); i++) {
                 temp.push_back(s.substr(i, 1));
             }
@@ -25,16 +24,6 @@ vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "apricot"};
-    string prefix = "ap";
-    vector<vector<string>> output = filter_by_prefix(strings, prefix);
-    
-    for (vector<string> v : output) {
-        for (string s : v) {
-            cout << s << " ";
-        }
-        cout << endl;
-    }
-    
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
