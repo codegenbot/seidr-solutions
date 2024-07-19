@@ -1,17 +1,15 @@
-Here is the solution:
+Here is the completed code:
 
 ```cpp
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm')
-            c = (c - 'a' + 2) % 26 + 'a';
-        else if(c >= 'n' && c <= 'x')
-            c = (c - 'n' + 14) % 26 + 'n';
-        else
-            c = s[i];
-        result += c;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char baseChar = isupper(c) ? 'A' : 'a';
+            result += ((c - baseChar + 2 * 26) % 26) + baseChar;
+        } else {
+            result += c;
+        }
     }
     return result;
 }
