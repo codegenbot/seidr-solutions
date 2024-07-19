@@ -1,26 +1,24 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
-    std::string result = "";
-    int consecutive_spaces = 0;
-    
-    for (char c : text) {
-        if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
+    std::string result;
+    bool consecutive = false;
+    for(char c : text) {
+        if(c == ' ') {
+            if(consecutive) {
                 result.pop_back();
-                result.pop_back();
-                result += "-";
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
+                consecutive = true;
             }
         } else {
-            consecutive_spaces = 0;
-            result += c;
+            result.push_back(c);
+            consecutive = false;
         }
     }
-    
     return result;
 }
 
