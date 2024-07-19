@@ -1,13 +1,4 @@
-bool issame(string a, string b) {
-    return a == b;
-}
-
-vector<string> select_words(string s, int n);
-
-int main() {
-    // Code logic
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -37,4 +28,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
+} 
