@@ -1,4 +1,7 @@
-int result = -1;
+#include <vector>
+
+int search(const std::vector<int>& lst) {
+    int result = -1;
     for (int num : lst) {
         int count = 0;
         for (int i : lst) {
