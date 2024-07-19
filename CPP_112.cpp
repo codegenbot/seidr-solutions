@@ -1,10 +1,3 @@
-string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
-        }
-    }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
-    return {result, result == result_reverse ? "True" : "False"};
+bool issame(const pair<string, string>& a, const pair<string, string>& b) {
+    return a.first == b.first && a.second == b.second;
 }
