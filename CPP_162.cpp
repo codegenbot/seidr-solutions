@@ -13,12 +13,13 @@ string string_to_md5(string text) {
     size_t output_len;
 
     EVP_MD_CTX_init(&md_ctx);
-    const unsigned char* ptr = (const unsigned char*)text.c_str();
-    size_t len = text.length();
 
-    EVP_Update(&md_ctx, ptr, len);
-
-    EVP_Finish(&md_ctx, output, &output_len);
+    const char* ptr = text.c_str();
+    while (*ptr) {
+        EVP_UPDATE(&md_ctx, (const unsigned char*)ptr, 1);
+        ptr++;
+    }
+    output = EVP_Finalize(&md_ctx, &output_len);
 
     string result;
     for (int i = 0; i < output_len; i++) {
