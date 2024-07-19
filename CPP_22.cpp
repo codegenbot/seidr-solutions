@@ -1,10 +1,18 @@
-#include <boost/type_index.hpp>
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
 
-vector<int> filter_integers(list<any> values){
-    vector<int> result;
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
+}
+
+std::vector<int> filter_integers(std::list<boost::any> values){
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == typeid(int)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value).type() == typeid(int)) {
+            if (!issame(result, vector<int>{boost::any_cast<int>(value)})) {
+                result.push_back(boost::any_cast<int>(value));
+            }
         }
     }
     return result;
