@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,8 +16,6 @@ int sum_squares(std::vector<int> input) {
 }
 
 int main() {
-    int n = sizeof(data) / sizeof(*data);
-    std::vector<int> vec(data, data + n);
-    std::cout << sum_squares(vec) << std::endl;
+    std::cout << sum_squares({data[0], data[1], data[2], data[3], data[4]});
     return 0;
 }
