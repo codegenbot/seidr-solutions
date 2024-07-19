@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 bool issame(const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -28,7 +29,7 @@ std::vector<std::vector<std::string>> sorted_list_sum(const std::vector<std::str
         }
         if (!wordList.empty()) {
             std::sort(wordList.begin(), wordList.end());
-            result.push_back({std::to_string(sum), wordList[0]});  // pass string reference
+            result.push_back({std::to_string(sum), wordList[0]});
         }
     }
     return result;
@@ -39,14 +40,15 @@ int newMain() {
     std::string str;
     std::cout << "Enter strings (enter 'stop' to finish): ";
     while (true) {
-        std::cin >> str;
+        std::getline(std::cin, str);
         if (str == "stop") break;
-        lst.push_back(str);
+        std::istringstream iss(str);
+        std::string word;
+        while (std::getline(iss, word, ' ')) {
+            lst.push_back(word);
+        }
     }
     std::vector<std::vector<std::string>> expected = sorted_list_sum(lst);
-    assert(issame(expected, {{std::string("cc"), {std::string{"cc"}}}, 
-                             {{std::string("dd"), {std::string{"dd"}}}, 
-                             {{std::string("aaaa"), {std::string{"aaaa"}}}, 
-                             {{std::string("bbbb"), {std::string{"bbbb"}}}}}));
+    assert(issame(expected, {{{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}}));
     return 0;
 }
