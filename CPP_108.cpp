@@ -1,28 +1,32 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-int count_nums(std::vector<std::string> numbers) {
-    int even_count = 0;
-    for (const auto& num : numbers) {
-        if (stoi(num) % 2 == 0)
-            even_count++;
+int count_nums(vector<int> nums) {
+    int count = 0;
+    for (int num : nums) {
+        if (num >= 0) {
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // convert to positive
+            int sum = 0;
+            bool is_negative = true;
+            while (num > 0) {
+                if (is_negative) {
+                    sum -= num % 10;
+                } else {
+                    sum += num % 10;
+                }
+                num /= 10;
+                is_negative = !is_negative; // toggle sign
+            }
+            if (sum > 0) {
+                count++;
+            }
+        }
     }
-    return even_count;
-}
-
-int main() { 
-    std::vector<std::string> numbers; 
-    int n; 
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        string num; 
-        cin >> num; 
-        numbers.push_back(num);
-    }
-    
-    int result = count_nums(numbers);
-    std::cout << result;
-    return 0;
+    return count;
 }
