@@ -1,10 +1,16 @@
-```cpp
-int findFirstWord(const std::string& str, const std::string& word) {
+#include <iostream>
+#include <string>
+
+int main() {
+    std::cout << "Enter a sentence: ";
+    std::string str;
+    std::cin >> str;
+
     int count = 0;
-    std::string::size_type pos = 0;
-    while ((pos = str.find(word, pos)) != std::string::npos) {
+    size_t pos = 0;
+    while ((pos = str.find(" ", pos)) != std::string::npos) {
         ++count;
-        pos += word.length();
+        pos = str.find(" ", pos);
     }
-    return count > 0 ? 1 : -1;
+    return 0;
 }

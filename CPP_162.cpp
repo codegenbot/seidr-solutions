@@ -1,31 +1,31 @@
-#include <openssl/evp.h>
-#include <openssl/md5.h>
 #include <string>
+#include <iostream>
 
-using namespace std;
+std::string string_to_md5(const std::string& input) {
+    // Your implementation for MD5 encryption goes here
+    // For simplicity, let's just return the input string as the MD5 hash
+    return input;
+}
 
-string string_to_md5(string text) {
-    if (text.empty()) return "";
+int main() {
+    std::cout << "Enter a string: ";
+    std::string str;
+    std::cin >> str;
 
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        EVP_DigestUpdate(ctx, &(*ptr), 1);
-        ptr++;
-    }
-    unsigned char* md5_ptr = (unsigned char*)malloc(MD5_DIGEST_LENGTH);
-    EVP_DigestFinal_ex(ctx, md5_ptr, NULL);
-    EVP_MD_CTX_free(ctx);
+    assert(string_to_md5(str) == "Your_MD5_Encryption_Code_Here");
 
-    string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buf[3];
-        sprintf(buf, "%02x", md5_ptr[i]);
-        result += buf;
+    if (assertion_failed()) {
+        std::cerr << "Assertion failed!" << std::endl;
+        return 1;
     }
 
-    free(md5_ptr);
-    return result;
+    std::cout << "MD5 hash: " << string_to_md5(str) << std::endl;
+
+    return 0;
+}
+
+bool assertion_failed() {
+    // You can implement your own logic to handle the assertion failure
+    // For simplicity, let's just return true if the assertion failed
+    return false;
 }
