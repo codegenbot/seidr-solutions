@@ -1,7 +1,6 @@
+#include <string> // Include necessary header file
 
-#include <string> 
-
-int is_bored(std::string S){ 
+int is_bored(std::string S){ // Use 'std::string' instead of 'string'
     int count = 0;
     std::string word = "";
     for(char c : S){
