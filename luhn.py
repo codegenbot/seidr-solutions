@@ -9,4 +9,4 @@ def luhn(card_number):
                 digit -= 9
         checksum += digit
         alt = not alt
-    return checksum % 10
+    return (checksum % 10)
