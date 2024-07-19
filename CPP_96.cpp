@@ -1,20 +1,20 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for(size_t i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-std::vector<int> count_up_to(int n) {
-    std::vector<int> result;
+vector<int> count_up_to(int n){
+    vector<int> result;
     for(int i=2; i<n; i++){
         bool isPrime = true;
         for(int j=2; j*j<=i; j++){
