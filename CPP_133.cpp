@@ -19,13 +19,13 @@ int main() {
     std::cout << "Enter numbers separated by space: ";
     getline(std::cin, strInput); 
     size_t pos = 0;
-    int total = 0; // initialize total here
+    int total = 0; // Declare and initialize the total variable as an integer
     std::string token;
 
     while ((pos = strInput.find(" ")) != std::string::npos) {
         token = strInput.substr(0, pos);
         total += sum_squares({std::stod(token)}); 
-        strInput.erase(0, pos + 1);
+        strInput = strInput.substr(pos + 1);
     }
     
     if (!strInput.empty()) {
