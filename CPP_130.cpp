@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> tri(int n) {
+std::vector<iint> tri(int n) {
     std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
