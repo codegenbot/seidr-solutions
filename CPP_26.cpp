@@ -1,13 +1,26 @@
-vector<int> remove_duplicates(vector<int> numbers){
-    unordered_map<int,int> mp;
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> remove_duplicates(vector<int> numbers) {
+    unordered_map<int, bool> seen;
     vector<int> result;
 
-    for(auto num : numbers) {
-        if(mp[num] == 0) {
+    for (int num : numbers) {
+        if (!seen.count(num) || !seen[num]) {
+            seen[num] = true;
             result.push_back(num);
-            mp[num]++;
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>{1, 2, 3, 4, 5});
+    return 0;
 }
