@@ -1,12 +1,25 @@
-Here is the completed code:
+Here's the solution:
 
 bool is_sorted(vector<int> lst){
+    bool ascending = true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            return false;
+            ascending = false;
+            break;
+        }
+        else{
+            int count = 0;
+            for(int j = i; j < lst.size(); j++){
+                if(lst[j] == lst[i])
+                    count++;
+                else
+                    break;
+            }
+            if(count > 1){
+                ascending = false;
+                break;
+            }
         }
     }
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    return lst.size() == 1 || (lst[0] + 1 == lst[1]);
+    return ascending;
 }
