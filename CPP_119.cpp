@@ -20,12 +20,15 @@ bool match_parens(const std::vector<std::string>& lst) {
 int main() {
     std::vector<std::string> lst;
     std::cout << "Enter strings separated by spaces: ";
-    while(getline(std::cin, std::string(s)), !s.empty()) {
+    for(std::string s; std::getline(std::cin, s) && !s.empty();)
         lst.push_back(s);
-    }
     bool result = match_parens(lst);
 
-    std::cout << (result ? "Yes\n" : "No\n");
+    if (result) {
+        std::cout << "Yes\n";
+    } else {
+        std::cout << "No\n";
+    }
 
     return 0;
 }
