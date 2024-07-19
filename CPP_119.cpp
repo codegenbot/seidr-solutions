@@ -4,9 +4,9 @@
 
 bool match_parens(const std::string& s) {
     int open = 0, close = 0;
-    for (auto x : s) {
-        if (x == '(') open++;
-        else if (x == ')') close++;
+    for (char ch : s) {
+        if (ch == '(') open++;
+        else if (ch == ')') close++;
     }
     return open == close;
 }
