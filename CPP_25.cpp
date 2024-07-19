@@ -1,14 +1,12 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> factorize(int n) {
-    vector<int> factors;
+std::vector<int> factorize(int n) {
+    std::vector<int> factors;
     for (int i = 2; i <= n; ++i) {
         while (n % i == 0) {
             factors.push_back(i);
@@ -18,5 +16,5 @@ vector<int> factorize(int n) {
     return factors;
 }
 
-assert(issame(factorize(3 * 2 * 3), vector<int>{2, 3, 3}));
+assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
 return 0;
