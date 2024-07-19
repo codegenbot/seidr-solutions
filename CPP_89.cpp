@@ -1,14 +1,13 @@
-Here is the solution:
-
-string encrypt(string s) {
+string encrypt(string s){
     string result = "";
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            c = ('a' + ((c - 'a' + 4 * 2) % 26));
-        } else if (c >= 'A' && c <= 'Z') {
-            c = ('A' + ((c - 'A' + 4 * 2) % 26));
+    for(int i=0; i<s.length(); i++){
+        char ch = s[i];
+        if(ch >= 'a' && ch <= 'z'){
+            ch = (ch - 'a' + 2*2) % 26 + 'a';
+        } else if(ch >= 'A' && ch <= 'Z'){
+            ch = (ch - 'A' + 2*2) % 26 + 'A';
         }
-        result += c;
+        result += ch;
     }
     return result;
 }
