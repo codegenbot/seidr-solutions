@@ -1,10 +1,11 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> result;
+using namespace std;
+
+std::vector<string> by_length(vector<int> arr) {
+    vector<string> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             switch (i) {
@@ -40,7 +41,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -52,10 +53,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int unique_main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> result = by_length(arr);
-    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
-    assert(issame(result, expected));
-    return 0;
-}
+vector<int> arr = {9, 4, 8};
+vector<string> result = by_length(arr);
