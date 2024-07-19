@@ -1,8 +1,9 @@
-#include <cassert>
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool below_zero(const std::vector<int>& nums) {
-    for (int num : nums) {
+bool below_zero(const std::vector<int>& arr) {
+    for (int num : arr) {
         if (num < 0) {
             return true;
         }
@@ -11,6 +12,9 @@ bool below_zero(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    std::vector<int> input = {1, -2, 2, -2, 5, -5, 4, -4};
+    bool result = below_zero(input);
+    std::cout << std::boolalpha << result << std::endl;
+    
     return 0;
 }
