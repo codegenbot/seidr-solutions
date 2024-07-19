@@ -4,12 +4,12 @@
 std::vector<int> f(int n);
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
     
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for(unsigned int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -35,7 +35,7 @@ std::vector<int> f(int n){
     return result;
 }
 
-int main() {
+int main(){
     std::vector<int> test1 = f(5);
     std::vector<int> test2 = f(5);
     
