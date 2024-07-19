@@ -25,13 +25,12 @@ std::map<char, int> histogram(string test) {
 bool isSame(const map<char,int>& a, const map<char,int>& b){
     if(a.size() != b.size()) return false;
     for(auto p : a) {
-        auto it = b.find(p.first);
-        if(it == b.end() || it->second != p.second) return false;
+        if(b.find(p.first) == b.end() || b.at(p.first) != p.second) return false;
     }
     return true;
 }
 
 int main() {
-    cout << (isSame(histogram("a"), histogram("b")) ? "True" : "False") << endl;
+    cout << isSame(histogram("a"), histogram("b")) << endl;
     return 0;
 }
