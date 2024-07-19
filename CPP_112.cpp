@@ -31,13 +31,13 @@ string reverse(string s) {
     }
     return rev;
 
-    bool issame(string a, string b) {
-        if (a.length() != b.length()) {
-            return false;
-        }
-        for (int i = 0; i < a.length(); i++) {
-            if (a[i] != b[i]) {
-                return false;
-        }
-        return true;
+bool issame(string a, string b) {
+    if(a.size()!=b.size())
+        return false;
+    bool flag=true;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
+            flag=false;
     }
+    return flag;
+}
