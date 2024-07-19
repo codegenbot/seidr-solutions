@@ -1,8 +1,8 @@
 #include <string>
-#include <algorithm>
 #include <cctype>
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 
 std::string flip_case(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(), [](char c) {
