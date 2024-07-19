@@ -2,7 +2,7 @@
 #include <vector>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
@@ -29,7 +29,11 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(std::equal({111111}, {111111}) == true);
+    assert(std::equal({111111}, strange_sort_vector({111111}));
     return 0;
 }
