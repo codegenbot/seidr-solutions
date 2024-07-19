@@ -6,10 +6,11 @@ std::vector<int> even_odd_count(int num) {
     
     while (num != 0) {
         int digit = abs(num % 10);
-        if (digit % 2 == 0)
+        if (digit % 2 == 0) {
             counts[0]++;
-        else
+        } else {
             counts[1]++;
+        }
         num /= 10;
     }
     
