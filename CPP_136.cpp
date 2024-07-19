@@ -1,5 +1,3 @@
-
-// Fix the function name to singular form and add missing 's' in function call
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
