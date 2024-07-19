@@ -6,7 +6,7 @@ def minPath(grid, k):
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
     while len(path) < k:
-        min_value = float('inf')
+        min_value = float("inf")
         next_cell = None
         for i, j in visited:
             for di, dj in directions:
