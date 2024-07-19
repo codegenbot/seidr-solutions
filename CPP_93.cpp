@@ -1,10 +1,13 @@
-string encode(string message){
+#include <string>
+#include <cassert>
+
+std::string encode(std::string message){
     for(char &c : message){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
+        if(std::isalpha(c)){
+            if(std::islower(c)){
+                c = std::toupper(c);
             } else {
-                c = tolower(c);
+                c = std::tolower(c);
             }
             if(c == 'A') c = 'C';
             else if(c == 'E') c = 'G';
