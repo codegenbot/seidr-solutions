@@ -1,3 +1,5 @@
+import sys
+
 def separate_paren_groups(paren_string):
     stack = []
     result = []
@@ -15,7 +17,5 @@ def separate_paren_groups(paren_string):
 
     return result
 
-
-paren_string = input()
-if all(char in "()" for char in paren_string):
-    print(separate_paren_groups(paren_string.replace(" ", "")))
+paren_string = input().strip()
+print(separate_paren_groups(paren_string.replace(" ", "").strip()))
