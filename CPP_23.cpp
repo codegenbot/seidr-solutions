@@ -1,6 +1,6 @@
 #include <cstring>
 
-// Task: Implement a function to return the length of a C-style string.
+// Task: Implement a function that returns the length of a C-style string
 // Signature: int strlen(const char* str)
 
 int main(){
