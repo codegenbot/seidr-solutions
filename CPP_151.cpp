@@ -15,8 +15,6 @@ long long double_the_difference(std::vector<int> nums){
 }
 
 int main(){
-    long long expected_result = 2 * ((1 * 1) + (3 * 3) + (5 * 5)); // Calculate expected result
-    assert(double_the_difference(lst) == expected_result);
-    
+    assert(double_the_difference(lst) == 34);
     return 0;
 }
