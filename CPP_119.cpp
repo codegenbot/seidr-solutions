@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,10 +11,9 @@ bool match_parens(const std::vector<std::string>& lst) {
             if (c == '(') countOpen++;
             else if (c == ')') countClose++;
         }
-        if(countOpen != countClose) return false;
     }
 
-    return result && (countOpen == countClose);
+    return countOpen == countClose;
 }
 
 int main() {
