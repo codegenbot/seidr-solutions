@@ -14,7 +14,7 @@ string find_max(vector<string> words) {
     return max_word;
 }
 
-(int main() { // add parentheses around int main()
+int main() {
     vector<string> words = {"play", "play", "play"};
     cout << find_max(words) << endl;
-}) // correct indentation of the closing brace.
+}

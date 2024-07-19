@@ -20,8 +20,20 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     return res;
 }
 
+vector<string> get_input() {
+    int n;
+    cout << "Enter the number of strings: ";
+    cin >> n;
+    vector<string> lst(n);
+    for(int i=0; i<n; ++i) {
+        cin >> lst[i];
+    }
+    return lst;
+}
+
 int main() {
-    vector<string> lst = {"a", "b", "c", "a", "c"};
+    vector<string> lst = get_input();
+    
     vector<vector<string>> result = sorted_list_sum(lst);
     
     for(auto &v : result) {
