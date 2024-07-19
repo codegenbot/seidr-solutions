@@ -9,9 +9,11 @@ bool issame(vector<float> a, vector<float> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
+pair<float, float> find_closest_elements(vector<float> numbers);
+
 pair<float, float> find_closest_elements(vector<float> numbers) {
     pair<float, float> closest;
-    float min_diff = std::numeric_limits<float>::max();
+    float min_diff = numeric_limits<float>::max();
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
@@ -26,7 +28,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return closest;
 }
 
-int main() {
+int main_check() {
     vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
     pair<float, float> result = find_closest_elements(numbers);
     
