@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <ostream>
 
 std::string intToMiniRoman(int num) {
     std::string roman;
@@ -19,7 +19,7 @@ std::string intToMiniRoman(int num) {
     return roman;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     std::cout << intToMiniRoman(1000) << std::endl;
     return 0;
 }
