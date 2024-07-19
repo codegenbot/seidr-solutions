@@ -1,15 +1,7 @@
 map<char,int> histogram(string test);
 
 bool issame(const map<char,int>& a, const map<char,int>& b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (const auto& entry : a) {
-        if (b.find(entry.first) == b.end() || b.at(entry.first) != entry.second) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 map<char,int> histogram(string test){
