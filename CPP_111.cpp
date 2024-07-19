@@ -33,7 +33,7 @@ int main() {
     }
 
     if (!issame(hist, {{'a', 1}})) {
-        return 0; // add this to avoid undefined behavior
+        return 0; 
     }
     
     return 0;
