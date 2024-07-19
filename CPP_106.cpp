@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     int factorial = 1;
