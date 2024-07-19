@@ -1,2 +1,1 @@
-```c++
 std::cout << fix_spaces("   Exa 1 2 2 mple");
