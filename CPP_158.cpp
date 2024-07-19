@@ -1,13 +1,12 @@
-string maxWord = "";
-    int maxUniqueChars = 0;
-
-    for (const string& word : words) {
-        int uniqueChars = set<char>(word.begin(), word.end()).size();
-        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)) {
-            maxUniqueChars = uniqueChars;
-            maxWord = word;
-        }
+for(string &word : words) {
+        sort(word.begin(), word.end());
+        word.erase(unique(word.begin(), word.end()), word.end());
     }
-
-    return maxWord;
+    sort(words.begin(), words.end(), [](const string &a, const string &b){
+        if(a.length() == b.length()){
+            return a < b;
+        }
+        return a.length() > b.length();
+    });
+    return words[0];
 }
