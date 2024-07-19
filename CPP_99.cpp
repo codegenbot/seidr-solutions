@@ -1,8 +1,3 @@
 double num = stod(value);
-    int closestInt = round(num);
-    if (num - closestInt > 0) {
-        return ceil(num);
-    } else {
-        return floor(num);
-    }
+    return num < 0 ? ceil(num) : floor(num);
 }
