@@ -18,9 +18,10 @@ std::string solve(const std::string& s) {
     return s;
 }
 
-int main() {
-    assert(solve("aBcDeFg") == "GfEdCbA");
-    assert(solve("123abc456DEF") == "fedCBA654321");
-    
-    return 0;
-}
+// In the main function or test cases
+// Test inputs
+std::string input1 = "Hello123";
+std::string input2 = "AbCdEfG";
+// Comparing outputs using assertions
+assert(solve(input1) == "321OLLEH");
+assert(solve(input2) == "gFeDcBa");
