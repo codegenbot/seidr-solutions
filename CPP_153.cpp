@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -6,9 +5,9 @@
 #include <iostream>
 #include <cassert>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0, sm = 0;
@@ -27,9 +26,9 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main(){
-    std::string class_name = "My";
-    std::vector<std::string> extensions = {"Java", "Python", "C++"};
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+    string class_name = "My";
+    vector<string> extensions = {"Java", "Python", "C++"};
+    cout << Strongest_Extension(class_name, extensions) << endl;
     assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
