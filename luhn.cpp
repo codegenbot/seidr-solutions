@@ -24,13 +24,10 @@ int luhn(vector<int> digits) {
 
 int main() {
     vector<int> digits1 = {3,4,5,8,6,7,1,2};
-    cout << "Test case 1: " << luhn(digits1) << endl;
-    
-    vector<int> digits2 = {4, 3, 9, 4, 7, 8, 6, 4};
-    cout << "Test case 2: " << luhn(digits2) << endl;
-    
-    vector<int> digits3 = {1, 5, 5, 9, 9, 8, 5, 6, 5};
-    cout << "Test case 3: " << luhn(digits3) << endl;
-    
+    cout << "Test Case 1: " << luhn(digits1) << endl;
+
+    vector<int> digits2 = {9,7,8,0,0,8,6,4,6,7,5,3,9,1,4};
+    cout << "Test Case 2: " << luhn(digits2) << endl;
+
     return 0;
 }
