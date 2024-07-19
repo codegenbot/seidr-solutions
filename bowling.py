@@ -1,25 +1,34 @@
 def bowling_score(frames):
     score = 0
-    roll = 1
+    bonus = 0
     for i in range(10):
-        if "/" in frames[roll:roll+2]:
-            if frames[roll] == "X":
+        if "/" in frames[i * 2 : i * 2 + 2]:
+            strike = False
+            spare = False
+            if frames[i * 2] == "X":
+                strike = True
                 score += 10
-            elif int(frames[roll].strip("/")) + int(frames[roll+1]) == 10:
+                bonus = 0
+            elif frames[i * 2] + frames[i * 2 + 1] == "10":
+                spare = True
                 score += 10
+                bonus = 0
             else:
-                score += 10
-                roll += 2
+                score += 1 + int(frames[i * 2 + 1])
         else:
-            if frames[roll] == "X":
+            if frames[i * 2] == "X":
+                strike = True
                 score += 10
-                roll += 1
-            elif int(frames[roll].strip("/")) + int(frames[roll+1]) == 10:
+                bonus = 0
+            elif frames[i * 2] + frames[i * 2 + 1] == "10":
+                spare = True
                 score += 10
-                roll += 2
+                bonus = 0
             else:
-                score += int(frames[roll]) + int(frames[roll+1])
-        if roll < 20 and "/" in frames[roll:roll+2]:
-            score += int(frames[roll].strip("/")) + int(frames[roll+1].strip("/"))
-        roll += 2
+                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
+        if strike:
+            bonus += sum(int(x) for x in frames[2 * i + 2:])
+        elif spare:
+            bonus += sum(int(x) for x in frames[2 * i + 2:2*(i+1)])
+    score += bonus
     return score
