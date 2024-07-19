@@ -4,5 +4,5 @@ int largest_divisor(int n){
             return i;
         }
     }
-    return 1;
+    return -1; // If no divisor found
 }

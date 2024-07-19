@@ -1,5 +1,7 @@
 #include <string>
 
+int vowels_count(std::string s);
+
 int vowels_count(std::string s){
     int count = 0;
     for(char c : s){
@@ -7,7 +9,7 @@ int vowels_count(std::string s){
             count++;
         }
     }
-    if(!s.empty() && tolower(s.back()) == 'y'){
+    if(tolower(s.back()) == 'y'){
         count++;
     }
     return count;

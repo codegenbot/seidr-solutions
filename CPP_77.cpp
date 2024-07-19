@@ -1,5 +1,6 @@
 #include <cmath>
+
 bool iscuber(int a) {
-    int cubeRoot = round(cbrt(abs(a)));
-    return a == cubeRoot * cubeRoot * cubeRoot;
+    int root = round(cbrt(a));
+    return (root * root * root == a);
 }
