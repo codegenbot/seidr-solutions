@@ -1,9 +1,9 @@
 int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+    for (int num : q) {
+        sum += num;
     }
     
-    if (sum > w) {
+    if (q.size() % 2 != 0) {
         return false;
     }
     
@@ -13,5 +13,5 @@ int sum = 0;
         }
     }
     
-    return true;
+    return sum <= w;
 }
