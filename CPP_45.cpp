@@ -7,6 +7,11 @@ double triangle_area(double a, double h) {
 }
 
 int main() {
-    assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
+    double base, height;
+    std::cin >> base >> height;
+    
+    double result = triangle_area(base, height);
+    std::cout << "Triangle Area: " << result << std::endl;
+
     return 0;
 }
