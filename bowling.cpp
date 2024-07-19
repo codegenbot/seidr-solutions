@@ -1,35 +1,31 @@
 #include <string>
+#include <vector>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int currentFrame = 1;
+    int currentFrame = 0;
     std::vector<int> frames(10);
-
+    
     for (char c : s) {
         if (c == '/') {
-            if (frames[currentFrame - 1] == 10) {
-                score += 10;
-            } else {
-                score += frames[currentFrame - 1];
-            }
             currentFrame++;
+            continue;
         }
-
-        if (c >= '0' && c <= '9') {
-            int strike = false;
+        
+        if (c >= '1' && c <= '9') {
             while (c != '/' && c >= '0' && c <= '9') {
-                frames[currentFrame - 1] *= 10 + (c - '0');
+                frames[currentFrame] *= 10 + (c - '0');
                 c = next(c, s);
             }
-
-            if (!strike) {
-                score += frames[currentFrame - 1];
-            } else {
+            
+            if (frames[currentFrame] == 10) {
                 score += 10;
+            } else {
+                score += frames[currentFrame];
             }
         }
     }
-
+    
     return score;
 }
 
