@@ -5,8 +5,7 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(1 + distance(l.begin(), l.end()));
-    sort(result.begin(), result.end());
+    vector<int> result(std::remove_if(l.begin(), l.end(), [&l](int i){ return std::count(l.begin(), l.end(), i) > 1; }), l.end());
     return result;
 }
 
