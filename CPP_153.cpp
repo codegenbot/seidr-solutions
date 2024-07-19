@@ -1,5 +1,8 @@
+```cpp
+#include <assert>
 #include <vector>
 #include <string>
+#include <iostream>
 
 std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
     for (const auto& extension : extensions) {
@@ -10,12 +13,10 @@ std::string Strongest_Extension(const std::string& class_name, const std::vector
     return class_name;
 }
 
-int main(){
-    string class_name = "My";
-    vector<string> extensions({"Java", "Python", "C++"}); 
-    cout << Strongest_Extension(class_name, extensions) << endl;
+std::string class_name = "My";
+std::vector<std::string> extensions({"Java", "Python", "C++"}); 
+std::cout << Strongest_Extension(class_name, extensions) << std::endl;
 
-    assert (Strongest_Extension("Sp", vector<string>({"671235", "Bb"})) == string("Sp.671235"));
+assert (Strongest_Extension("Sp", {"671235", "Bb"}) == std::string("Sp.671235"));
 
-    return 0;
-}
+return 0;

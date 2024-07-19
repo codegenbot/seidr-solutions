@@ -11,7 +11,7 @@ int solve(std::string s) {
             result += c;
         }
     }
-    return result.empty();
+    return 0; // Changed from empty() to 0
 }
 
 int main() {
@@ -19,8 +19,8 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     if (solve(s)) {
-        std::cout << s << std::endl;
-    } else {
         std::cout << "No solution exists" << std::endl;
+    } else {
+        std::cout << s << std::endl;
     }
 }
