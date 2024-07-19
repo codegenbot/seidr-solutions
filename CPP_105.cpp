@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::string s1, std::string s2) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
 
