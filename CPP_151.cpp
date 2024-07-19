@@ -20,4 +20,4 @@ int main() {
     assert(double_the_difference(odd_sum, 100.0) == 123.0);
 
     return 0;
-}
+}  
