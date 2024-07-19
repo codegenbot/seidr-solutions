@@ -1,17 +1,15 @@
 if(text.empty()) {
-    return "None";
+        return "None";
+    }
+
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), result);
+
+    char md5_string[MD5_DIGEST_LENGTH * 2 + 1];
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(&md5_string[i*2], "%02x", (unsigned int)result[i]);
+    }
+    md5_string[MD5_DIGEST_LENGTH * 2] = '\0';
+
+    return string(md5_string);
 }
-
-MD5_CTX ctx;
-MD5_Init(&ctx);
-MD5_Update(&ctx, text.c_str(), text.size());
-
-unsigned char hash[MD5_DIGEST_LENGTH];
-MD5_Final(hash, &ctx);
-
-stringstream ss;
-for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-    ss << hex << setw(2) << setfill('0') << static_cast<int>(hash[i]);
-}
-
-return ss.str();
