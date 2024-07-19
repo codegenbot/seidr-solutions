@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-int std::max_element(std::vector<int> l) {
+int max_value(std::vector<int> l) {
     return *std::max_element(l.begin(), l.end());
 }
