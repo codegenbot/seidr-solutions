@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,11 +13,11 @@ int solution(std::vector<std::string> numbers) {
 }
 
 int main() {
-    std::vector<std::string> numbers; 
     size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    numbers.reserve(numbers.size());
+    std::vector<std::string>(n);  
+    std::vector<std::string> numbers; 
     for (size_t i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
