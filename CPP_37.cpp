@@ -1,12 +1,11 @@
 ```cpp
-#include <vector>
-#include <algorithm>
+#include <array>
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+std::array<float, 10> sort_even(std::array<float, 10> l) {
+    std::array<float, 10> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector< float > evenVals;
+            std::array< float, l.size()> evenVals;
             for (float val : l) {
                 if (val % 2.0 == 0.0) {
                     evenVals.push_back(val);
@@ -19,12 +18,4 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
-
-bool operator==(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(abs(a[i]-b[i]) > 1e-5) return false;
-    }
-    return true;
 }
