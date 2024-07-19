@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> unique(vector<int>::iterator first, vector<int>::iterator last) {
+std::vector<int> unique(std::vector<int>::iterator first, std::vector<int>::iterator last) {
     std::vector<int> result(std::unique(first, last), last);
     return result;
 }
