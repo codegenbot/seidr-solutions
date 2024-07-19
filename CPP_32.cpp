@@ -20,6 +20,7 @@ int main() {
     cin >> n;
     
     vector<double> coeffs(n);
+    coeffs.resize(n); // Initialize the vector with n default elements
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
