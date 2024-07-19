@@ -1,16 +1,18 @@
-#include <openssl/evp.h>
+#include <openssl/ssl.h>
+extern "C" {
+    #include <openssl/md5.h>
+}
+#include <string>
 
 std::string string_to_md5(const std::string& input) {
-    EVP_MD_CTX* ctx = EVP_MD_CTX_create();
+    MD5_CTX ctx;
     unsigned char result[16];
-    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(ctx, input.c_str(), input.size());
-    unsigned int len;
-    EVP_DigestFinal_ex(ctx, result, &len);
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, input.c_str(), input.size());
+    MD5_Final(result, &ctx);
 
-    // Convert the bytes to hexadecimal
     char output[33];
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < 16; i++) {
         sprintf(output + i*2, "%02x", result[i]);
     }
     return std::string(output);
