@@ -12,7 +12,6 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    int testResult = specialFilter({1, 11, 21});
-    // do something with the result
+    int result = specialFilter({1, 11, 21}); // Example usage of the function
     return 0;
 }
