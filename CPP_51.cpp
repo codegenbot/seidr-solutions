@@ -1,17 +1,15 @@
-```
 #include <iostream>
 #include <string>
 
 std::string remove_vowels(std::string input) {
-    std::string result = "";
     for(char c : input){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'
            && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' 
            && tolower(c) != 'o' && tolower(c) != 'u'){
-            result += tolower(c); // Convert to lowercase
+            input += tolower(c); // Convert to lowercase and append
         }
     }
-    return result;
+    return input; // Return the modified string
 }
 
 int main(){
@@ -21,4 +19,3 @@ int main(){
     
     std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
     return 0;
-}
