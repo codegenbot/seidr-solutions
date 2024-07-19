@@ -1,14 +1,11 @@
 string encode(string message){
-    string encoded_message = message;
-    transform(encoded_message.begin(), encoded_message.end(), encoded_message.begin(), [](char c) {
+    for(char &c : message){
         if(isalpha(c)){
-            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-                return isupper(c) ? toupper((c + 2 - 'A') % 26 + 'A') : (c + 2 - 'a') % 26 + 'a';
-            } else {
-                return isupper(c) ? tolower(c) : toupper(c);
+            c = isupper(c) ? tolower(c) : toupper(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
             }
         }
-        return c;
-    });
-    return encoded_message;
+    }
+    return message;
 }
