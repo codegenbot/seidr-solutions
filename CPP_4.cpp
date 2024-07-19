@@ -18,5 +18,7 @@ float mean_absolute_deviation(std::vector<float> numbers){
 }
 
 int main() {
+    assert(mean_absolute_deviation({1.0, 2.0, 3.0}) == 0.666667f);
+    
     return 0;
 }
