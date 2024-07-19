@@ -1,9 +1,9 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
-bool issame(int a, int b){
+bool issame(double a, double b) {
     return a == b;
 }
 
@@ -22,4 +22,4 @@ vector<string> by_length(const vector<int>& arr){
         result.push_back(names[num - 1]);
     }
     return result;
-} 
+}
