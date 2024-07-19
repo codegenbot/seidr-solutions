@@ -1,9 +1,11 @@
-```
-def is_happy(s):
-    if len(s) < 3:
+def is_happy(n):
+    if not n.isnumeric():
         return False
-    for i in range(0, len(s), 3):
-        chunk = s[i:i+3]
-        if len(set(chunk)) != 3:
-            return False
-    return True
+    n = int(n)
+    if n < 1:
+        return False
+    seen = set()
+    while n != 1 and n not in seen:
+        seen.add(n)
+        n = sum(int(i) ** 2 for i in str(n))
+    return n == 1
