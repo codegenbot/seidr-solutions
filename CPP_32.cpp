@@ -21,7 +21,6 @@ int main() {
     cin >> n;
 
     vector<double> coeffs(n);
-
     for(int i = 0; i < n; i++) {
         cin >> coeffs[i];
     }
