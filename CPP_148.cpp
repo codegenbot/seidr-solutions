@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -36,17 +36,14 @@ std::vector<std::string> bf(std::string planet1, std::string planet2){
 
 int main() {
     std::string planet1, planet2;
-    std::cout << "Enter the names of two planets: ";
+    std::cout << "Enter two planet names: ";
     std::cin >> planet1 >> planet2;
 
     std::vector<std::string> output = bf(planet1, planet2);
-    if (output.empty()) {
-        std::cout << "Invalid input. Make sure planet names are correct.";
-    } else {
-        std::cout << "Intermediate planets between " << planet1 << " and " << planet2 << ": ";
-        for (const auto& planet : output) {
-            std::cout << planet << " ";
-        }
+
+    std::cout << "Output planets between " << planet1 << " and " << planet2 << " are: ";
+    for (const auto &planet : output) {
+        std::cout << planet << " ";
     }
 
     return 0;
