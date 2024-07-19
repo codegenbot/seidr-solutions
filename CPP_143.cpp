@@ -27,9 +27,3 @@ std::string words_in_sentence(std::string sentence) {
     }
     return result;
 }
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-
-    return 0;
-}
