@@ -1,14 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 #include <sstream>
 
-std::vector<std::string> split(const std::string& sentence) {
-    std::istringstream iss(sentence);
-    std::vector<std::string> result;
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
+    return split(sentence);
+}
 
-    for (std::string s; iss >> s;) {
-        result.push_back(s);
+std::vector<std::string> split(const std::string& str) {
+    std::vector<std::string> tokens;
+    std::stringstream ss(str);
+    std::string token;
+
+    while (getline(ss, token, '\n')) {
+        tokens.push_back(token);
     }
 
-    return result;
+    return tokens;
 }
