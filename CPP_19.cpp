@@ -20,6 +20,16 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers);
 
+int main() {
+    string input_numbers;
+    cout << "Enter numbers separated by spaces: ";
+    getline(cin, input_numbers);
+
+    cout << sort_numbers(input_numbers) << endl;
+
+    return 0;
+}
+
 string sort_numbers(string numbers) {
     map<int, string> rev_map;
     for (const auto& pair : num_map) {
@@ -44,11 +54,4 @@ string sort_numbers(string numbers) {
 
     result.pop_back(); // Remove extra space at the end
     return result;
-}
-
-int main() {
-    string input;
-    getline(cin, input);
-    cout << sort_numbers(input) << endl;
-    return 0;
 }
