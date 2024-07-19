@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-std::string match_parens(const std::vector<std::string>& lst) {
+std::string match_parens(std::vector<std::string> lst) {
     int open = 0;
     int close = 0;
     for (int i = 0; i < lst.size(); i++) {
@@ -21,7 +22,9 @@ std::string match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"()", "((", "))"};
-    std::string result = match_parens(lst);
+    std::vector<std::string> input = {"(())", "(()))"};
+
+    std::cout << match_parens(input) << std::endl;
+
     return 0;
 }
