@@ -15,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main_test() {
+bool isSameVector(vector<int> v) {
     int n;
     cin >> n;
     vector<int> user_input(n, 0);  
@@ -25,7 +25,7 @@ int main_test() {
         cin >> x;
         user_input[i] = x;  
     }
-    if (issame(user_input, user_input)) {
+    if (issame(v, user_input)) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;
