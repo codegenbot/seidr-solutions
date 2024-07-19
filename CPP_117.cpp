@@ -11,29 +11,28 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                unsigned vowel_count = 0;
+                size_t vowel_count = 0;
                 for (char ch : word) {
                     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                         vowel_count++;
                 }
-                if (vowel_count <= n) { 
+                if (!word.empty() && vowel_count <= n) { 
                     result.push_back(word);
-                    word = "";
                 }
+                word = "";
             }
         } else {
             word += c;
         }
     }
     if (!word.empty()) {
-        unsigned vowel_count = 0;
+        size_t vowel_count = 0;
         for (char ch : word) {
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                 vowel_count++;
         }
-        if (vowel_count <= n) { 
+        if (!word.empty() && vowel_count <= n) { 
             result.push_back(word);
-            word = "";
         }
     }
     return result;
