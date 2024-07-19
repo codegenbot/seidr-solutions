@@ -7,7 +7,7 @@ vector<string> sorted_list_sum(vector<string> lst){
         return a.length() < b.length();
     });
     return lst;
-} 
+}
 
 bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
