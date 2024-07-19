@@ -24,12 +24,12 @@ bool check_if_last_char_is_a_letter(const std::string& text) {
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     if (check_if_last_char_is_a_letter(input)) {
         std::cout << "Last character is a letter and there is a space before it." << std::endl;
     } else {
-        std::cout << "Last character is not a letter or there is no space before it." << std::endl;
+        std::cout << "Either the last character is not a letter or there is no space before it." << std::endl;
     }
-    
+
     return 0;
 }
