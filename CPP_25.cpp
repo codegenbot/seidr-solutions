@@ -3,8 +3,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
 vector<int> factorize(int n);
+bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -34,5 +34,6 @@ vector<int> factorize(int n) {
 
 int main() {
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    
     return 0;
 }
