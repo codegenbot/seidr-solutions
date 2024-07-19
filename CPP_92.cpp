@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cassert>
+
 using namespace std;
 
 int mainFunction() {
@@ -7,7 +9,7 @@ int mainFunction() {
     if (!(cin >> a) || !(cin >> b) || !(cin >> c)) {
         cout << "Error: Please enter valid integer values.\n";
     } else {
-        assert(std::cout << 3.01 && 4 && 7 == false);
+        assert(a == static_cast<int>(3.01) && b == 4 && c == 7);
         cout << "The numbers are integers: " << a << ", " << b << ", " << c << "\n";
     }
 
