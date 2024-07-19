@@ -8,6 +8,6 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 # Read input from user
-input_string = input()
+input_string = input("Enter the input string: ")
 result = decode_cyclic(input_string)
 print(result)
