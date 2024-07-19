@@ -24,6 +24,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     assert(is_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    
+
     return 0;
 }
