@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
@@ -11,14 +10,16 @@ bool iscuber(int a){
     return false;
 }
 
-int main(){
+int main() {
     int n;
-    std::cout << "Enter the number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> n;
 
-    if(iscuber(n)){
-        std::cout << "The number is a perfect cube.\n";
+    if(iscuber(n)) {
+        std::cout << "The number is a perfect cube.";
     } else {
-        std::cout << "The number is not a perfect cube.\n";
+        std::cout << "The number is not a perfect cube.";
     }
+
+    return 0;
 }
