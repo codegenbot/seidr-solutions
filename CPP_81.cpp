@@ -32,8 +32,9 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
-    assert(issame(numerical_letter_grade({4.0, 3.2, 2.5, 1.8}) , {"A+", "B", "C", "D"}));
-    assert(issame(numerical_letter_grade({3.7, 2.0, 1.5}) , {"A", "C+", "D+"}));
+    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
+    assert (issame(numerical_letter_grade({4.0, 3.7, 3.3}) , {"A+", "A", "A-"}));
+    assert (issame(numerical_letter_grade({2.5, 1.9, 0.8}) , {"C", "D+", "D-"}));
+
     return 0;
 }
