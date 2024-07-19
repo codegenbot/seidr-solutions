@@ -1,7 +1,6 @@
 #include <vector>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     int factorial = 1;
     int sum = 0;
@@ -15,8 +14,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
             result.push_back(sum);
         }
     }
-    return (result == b);
+    return result;
 }
-
-std::vector<int> f = {1, 2, 6};
-assert(issame(f, {1, 2, 6}));
