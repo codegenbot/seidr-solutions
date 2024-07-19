@@ -1,16 +1,17 @@
 #include <vector>
-#include <numeric>
+#include <cmath>
+
+using namespace std;
 
 float mean_absolute_deviation(vector<float> numbers) {
-    float mean = 0;
-    for (const auto& num : numbers) {
-        mean += num;
+    float sum = 0;
+    float avg = 0;
+    
+    for (float num : numbers) {
+        sum += abs(num - avg);
     }
-    mean /= numbers.size();
-
-    float mad = 0;
-    for (const auto& num : numbers) {
-        mad += abs(num - mean);
-    }
-    return mad / numbers.size();
+    
+    avg = sum / numbers.size();
+    
+    return avg;
 }
