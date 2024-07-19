@@ -11,26 +11,26 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    for (const auto& pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+string sort_numbers(string numbers) {
+    string result = "";
+    map<int, string> sorted_numbers;
+    string current_number = "";
+    
+    for (char c : numbers) {
+        if (c == ' ') {
+            sorted_numbers[number_map[current_number]] = current_number;
+            current_number = "";
+        } else {
+            current_number += c;
+        }
     }
-
-    vector<int> nums;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        nums.push_back(number_map[token]);
+    
+    sorted_numbers[number_map[current_number]] = current_number;
+    
+    for (auto& pair : sorted_numbers) {
+        result += pair.second + " ";
     }
-
-    sort(nums.begin(), nums.end());
-
-    string result;
-    for (int num : nums) {
-        result += reverse_map[num] + " ";
-    }
-
-    result.pop_back(); // Remove the last space
+    
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
