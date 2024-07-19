@@ -10,11 +10,9 @@ std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<int> expected = {1, 4, 5}; 
-    std::vector<int> testInput = {1, 4, 4, 1, 5, 6, 4};
-    std::vector<int> result = remove_duplicates(testInput);
-    
-    assert(result.size() == expected.size() && std::equal(result.begin(), result.end(), expected.begin()));
-
+    std::vector<int> numbers = {1, 5, 1, 4, 7, 4, 6, 5};
+    std::vector<int> expected = {1, 4, 5};
+    auto unique_numbers = remove_duplicates(numbers);
+    assert(unique_numbers == expected);
     return 0;
 }
