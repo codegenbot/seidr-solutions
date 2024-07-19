@@ -1,6 +1,7 @@
 #include <algorithm>
-#include <string>
 #include <iostream>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -19,8 +20,6 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    int x, shift;
-    cin >> x >> shift;
-    cout << circular_shift(x, shift);
+    cout << circular_shift(11, 101) << endl;
     return 0;
 }
