@@ -16,12 +16,8 @@ string find_max(vector<string> words) {
 
 int main() {
     vector<string> words;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        words.push_back(s);
-    }
+    words.push_back("play");
+    words.push_back("play");
+    words.push_back("play");
     cout << find_max(words) << endl;
 }
