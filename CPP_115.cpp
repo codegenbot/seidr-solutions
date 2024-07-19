@@ -1,4 +1,4 @@
-int calculate_buckets_needed(const vector<vector<int>>& grid, int capacity) {
+int calculateBucketsNeeded(const vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
@@ -18,10 +18,15 @@ int calculate_buckets_needed(const vector<vector<int>>& grid, int capacity) {
 }
 
 int main() {
+    // Input grid initialization
     vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    // Capacity for buckets
     int capacity = 5;
     
-    int buckets_needed = calculate_buckets_needed(grid, capacity);
+    // Calculate and output buckets needed
+    int buckets_needed = calculateBucketsNeeded(grid, capacity);
+    cout << "Buckets needed: " << buckets_needed << endl;
     
     return 0;
 }
