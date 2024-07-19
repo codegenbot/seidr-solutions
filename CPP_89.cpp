@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -24,3 +25,4 @@ int main() {
     input.erase(input.find_last_not_of('\n') + 1); 
     std::cout << "Encrypted string: " << encrypt(input) << std::endl;
     return 0;
+}
