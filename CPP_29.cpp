@@ -2,7 +2,7 @@
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::string& b) {
-    if (a.size() != 1 || a[0] != b) {
+    if (a.size() != 1 || !a[0].compare(0, a[0].size(), b)) {
         return false;
     }
     return true;
@@ -22,13 +22,8 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
             temp.push_back(str.substr(start, end - start));
             start = end + 1;
         }
-        for (int i = 0; i < temp.size(); i++) {
-            if (temp[i] != prefix) {
-                result.push_back({temp});
-                break;
-            } else if (i == temp.size() - 1) {
-                result.push_back({temp});
-            }
+        if (!issame({temp}, prefix)) {
+            result.push_back(temp);
         }
     }
     return result;
@@ -36,6 +31,11 @@ std::vector<std::vector<std::string>> filter_by_prefix(const std::vector<std::st
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    auto result = filter_by_prefix(strings, "xxx");
-    return 0;
+    std::vector<std::vector<std::string>> result = filter_by_prefix(strings, "xxx");
+    for (const auto& temp : result) {
+        for (const auto& str : temp) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
+    }
 }
