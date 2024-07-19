@@ -1,7 +1,7 @@
 #include <vector>
 #include <set>
 
-bool check_common(vector<int> a, vector<int> b) {
+bool common(vector<int> a, vector<int> b) {
     set<int> result;
     for (int i = 0; i < min(a.size(), b.size()); i++) {
         result.insert(b[i]);
