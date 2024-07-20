@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start = std::max(interval1[0], interval2[0]);
