@@ -1,14 +1,14 @@
+```
 #include <iostream>
 #include <string>
 
 int pairedDigits(std::string s) {
     int sum = 0;
     for (std::string::iterator it = s.begin(); it != s.end(); ++it) {
-        if (*it == '0' && (it == s.begin() || *(it - 1) != '0')) {
-            // Skip leading zeros
-        } else {
-            if ((int)*it - '0' == (int)*(it + 1) - '0') sum += (int)*it - '0';
+        if ((int)*it - '0' != 0 || (it + 1 == s.end())) {
+            if (*it == *(it+1)) sum += (int)*it - '0';
         }
+        else if ((int)*it - '0' == (int)*(it + 1) - '0' && it + 1 != s.end()) sum += (int)*it - '0';
     }
     return sum;
 }
