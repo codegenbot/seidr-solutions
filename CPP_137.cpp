@@ -2,74 +2,81 @@
 #include <string>
 #include <algorithm>
 
-int compare_one(int a, float b) {
-    if (a > b)
-        return a;
-    else if (a < b)
-        return b;
-    else
-        return 0;
-}
-
 int compare_one(int a, std::string b) {
-    if (std::stoi(b) > a)
+    if (a > stoi(b)) {
         return a;
-    else if (std::stoi(b) < a)
-        return std::stoi(b);
-    else
-        return a;
+    }
+    else if (a < stoi(b)) {
+        return stoi(b);
+    }
+    else {
+        return 0;
+    }
 }
 
 int compare_one(float a, int b) {
-    if (a > b)
-        return a;
-    else if (a < b)
+    if (a > b) {
+        return (int)a;
+    }
+    else if (a < b) {
         return b;
-    else
-        return 0;
-}
-
-int compare_one(float a, std::string b) {
-    if (std::stoi(b.erase(0, 1).erase((std::string)b.length()-1)) < a)
-        return a;
-    else if (std::stoi(b.erase(0, 1).erase((std::string)b.length()-1)) > a)
-        return std::stoi(b.erase(0, 1).erase((std::string)b.length()-1));
-    else
-        return a;
-}
-
-int compare_one(std::string a, int b) {
-    if (a > to_string(b))
-        return a;
-    else if (a < to_string(b))
-        return to_string(b);
-    else
-        return 0;
+    }
+    else {
+        return (int)a;
+    }
 }
 
 int compare_one(std::string a, float b) {
-    if (a > to_string(b).erase(0, 1).erase((std::string)(to_string(b)).length()-1))
-        return a;
-    else if (a < to_string(b).erase(0, 1).erase((std::string)(to_string(b)).length()-1))
-        return to_string(b).erase(0, 1).erase((std::string)(to_string(b)).length()-1);
-    else
-        return a;
+    if (stoi(a) > b) {
+        return stoi(a);
+    }
+    else if (stoi(a) < b) {
+        return (int)b;
+    }
+    else {
+        return 0;
+    }
 }
 
-int compare_one(float a, float b) {
-    if (a > b)
-        return a;
-    else if (a < b)
-        return b;
-    else
+int compare_one(float a, std::string b) {
+    if (a > stoi(b)) {
+        return (int)a;
+    }
+    else if (a < stoi(b)) {
+        return stoi(b);
+    }
+    else {
         return 0;
+    }
 }
 
-int compare_one(std::string a, std::string b) {
-    if (a > b)
-        return a;
-    else if (a < b)
-        return b;
-    else
-        return 0;
+int main() {
+    int x;
+    std::string y;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << "Enter a string: ";
+    std::cin >> y;
+
+    if (std::is_same<decltype(x), int>::value) {
+        if (std::is_same<decltype(y), std::string>::value) {
+            std::cout << compare_one(x, y) << std::endl;
+        }
+        else {
+            std::cout << compare_one(x, static_cast<float>(y)) << std::endl;
+        }
+    }
+    else if (std::is_same<decltype(x), float>::value) {
+        if (std::is_same<decltype(y), int>::value) {
+            std::cout << compare_one(x, y) << std::endl;
+        }
+        else {
+            std::cout << "Invalid input" << std::endl;
+        }
+    }
+    else {
+        std::cout << "Invalid input" << std::endl;
+    }
+
+    return 0;
 }
