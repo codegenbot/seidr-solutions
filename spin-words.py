@@ -1,6 +1,3 @@
-```
-import string
-
 def spin_words(sentence):
     return " ".join(
         word.strip().translate(str.maketrans("", "", string.punctuation))[::-1] 
