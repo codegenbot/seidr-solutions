@@ -1,15 +1,10 @@
-#include<vector>
-#include<utility>
-using namespace std;
+int sum = 0;
+int product = 1;
 
-pair<int, int> sum_product(vector<int> numbers){
-    int sum = 0;
-    int product = 1;
-    
-    for(int num : numbers){
-        sum += num;
-        product *= num;
-    }
-    
-    return make_pair(sum, product);
+for (int num : numbers) {
+    sum += num;
+    product *= num;
+}
+
+return {sum, product};
 }
