@@ -23,13 +23,12 @@ else if(a.type() == typeid(string) && b.type() == typeid(string)){
         return "None";
 }
 else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
-    if(stof(boost::any_cast<string>(a)) > boost::any_cast<int>(b))
+    if(stof(a.type() == typeid(int) ? to_string(boost::any_cast<int>(a)) : boost::any_cast<string>(a)) > stof(b.type() == typeid(int) ? to_string(boost::any_cast<int>(b)) : boost::any_cast<string>(b)))
         return a;
-    else if(stof(boost::any_cast<string>(a)) < boost::any_cast<int>(b))
+    else if(stof(a.type() == typeid(int) ? to_string(boost::any_cast<int>(a)) : boost::any_cast<string>(a)) < stof(b.type() == typeid(int) ? to_string(boost::any_cast<int>(b)) : boost::any_cast<string>(b)))
         return b;
     else
         return "None";
 }
-else{
-    return "None";
+return "None";
 }
