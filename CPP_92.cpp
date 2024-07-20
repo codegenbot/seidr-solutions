@@ -16,9 +16,12 @@ int main() {
     float a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-    if(any_int(a, b, c)) 
-        cout << "At least one integer" << endl; 
-    else 
-        cout << "No integers" << endl; 
+
+    if(any_int(a, b, c)) {
+        cout << "At least one number is an integer." << endl;
+    } else {
+        cout << "None of the given numbers are integers." << endl;
+    }
+    
     return 0;
 }
