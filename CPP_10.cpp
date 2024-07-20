@@ -1,12 +1,21 @@
-string make_palindrome(string str){
-    if(str.empty()) return "";
-    
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string make_palindrome(std::string str){
+    if(str.empty()) return str;
     int n = str.size();
-    for(int i=n-1; i>=0; i--){
-        if(is_palindrome(str.substr(i))){
-            return str + string(str.rbegin(), str.rbegin() + n - i);
-        }
+    int i = n - 1;
+    while(i >= 0 && str[i] != str[0]) {
+        i--;
     }
-    
-    return str + string(str.rbegin() + 1, str.rend());
+    std::string prefix = str.substr(0, i+1);
+    std::string palindrome_suffix = str.substr(i+1);
+    std::string prefix_reverse(prefix.rbegin(), prefix.rend());
+    return str + prefix_reverse;
+}
+
+int main() {
+    assert (make_palindrome("jerry") == "jerryrrej");
+    return 0;
 }
