@@ -14,13 +14,14 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    cout << "Enter three floating point numbers: ";
+    cout << "Enter three numbers: ";
     cin >> a >> b >> c;
 
-    if (any_int(a, b, c))
-        cout << "The sum of one integer and two integers is true." << endl;
-    else
-        cout << "The sum of one integer and two integers is false." << endl;
-
+    if(any_int(a, b, c)) {
+        cout << "At least one number is an integer." << endl;
+    } else {
+        cout << "None of the given numbers are integers." << endl;
+    }
+    
     return 0;
 }
