@@ -11,7 +11,7 @@ def solve_boolean(expression):
         elif char != 'T' and char != 'F':
             raise ValueError("Invalid operation")
         elif not stack:
-            temp_result = char
+            result = char
         else:
             op = stack.pop()
             if op == '&':
