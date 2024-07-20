@@ -2,10 +2,10 @@
 #include <vector>
 #include <sstream>
 #include <cassert>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    bool result = a.size() == b.size();
-    return result;
+    return a.size() == b.size();
 }
 
 std::vector<std::string> split_words(const std::string& input) {
@@ -30,7 +30,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(words.empty());
+    assert(issame(split_words(""), {"0"}));
 
     return 0;
 }
