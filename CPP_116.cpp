@@ -15,6 +15,10 @@ void custom_sort(std::vector<int>& arr) {
     });
 }
 
-std::vector<int> arr = {2, 4, 8, 16, 32};
-custom_sort(arr);
-assert(issame(arr, {2, 4, 8, 16, 32}));
+int main() {
+    std::vector<int> arr = {2, 4, 8, 16, 32};
+    custom_sort(arr);
+    assert(issame(arr, {2, 4, 8, 16, 32}));
+    
+    return 0;
+}
