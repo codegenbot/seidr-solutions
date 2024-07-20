@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -7,7 +6,7 @@ std::string camelCase(const std::string& str) {
     std::string result = "";
     bool upper = true;
 
-    for (char c : str + "") {
+    for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
                 result += toupper(result[0]);
@@ -15,10 +14,15 @@ std::string camelCase(const std::string& str) {
             }
             upper = true;
         } else if (upper) {
-            result += toupper(c);
+            result += tolower(c);
             upper = false;
         } else {
-            result += tolower(c);
+            if (!result.empty() && isdigit(result.back())) {
+                result += toupper(c);
+                upper = true;
+            } else {
+                result += tolower(c);
+            }
         }
     }
 
@@ -27,6 +31,6 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string input = "camel-case example-test-string";
-    std::cout << camelCase(input + "") << std::endl;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
