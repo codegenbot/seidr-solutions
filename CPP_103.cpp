@@ -1,7 +1,7 @@
+#include <cassert>
 #include <string>
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 std::string calculateBinaryAverage(int n, int m) {
     if (n > m) {
@@ -25,6 +25,6 @@ std::string calculateBinaryAverage(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryAverage(5, 5) == "101"); // Assert the output for a given input
+    assert(calculateBinaryAverage(5, 5) == "101");
     return 0;
 }
