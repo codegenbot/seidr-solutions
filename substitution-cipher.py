@@ -5,7 +5,7 @@ cipher_map = {}
 for i in range(len(cipher1)):
     cipher_map[cipher1[i]] = cipher2[i]
 
-message = input("Enter the message to be deciphered: ")
+message = input("Enter message to decipher: ")
 
 deciphered_message = ""
 for char in message:
