@@ -1,6 +1,5 @@
-```c++
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -9,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
-            result[0] = v;
+            result[0] = {v};
             result[1].clear();
             break;
         }
