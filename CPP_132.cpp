@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -16,5 +15,5 @@ bool is_nested(string str) {
 
 int main() {
     assert(is_nested("]]]]]]]" == false);
-    
+    // ...
 }
