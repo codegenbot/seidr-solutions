@@ -1,16 +1,21 @@
-int max_fill(vector<vector<int>>& grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    int total_water = 0;
-    int total_buckets = 0;
-    
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++){
-            total_water += grid[i][j];
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int count = 0;
+    for (int j = 0; j < grid[0].size(); ++j) {
+        int sum = 0;
+        for (int i = 0; i < grid.size(); ++i) {
+            sum += grid[i][j];
         }
+        count += (sum + capacity - 1) / capacity;
     }
-    
-    total_buckets = (total_water + capacity - 1) / capacity;
-    
-    return total_buckets;
+    return count;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
