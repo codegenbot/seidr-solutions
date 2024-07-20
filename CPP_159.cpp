@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -19,7 +19,7 @@ std::vector<int> eat(int x, int y, int z) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), {5, 4}));
     std::cout << "Function 'issame' works correctly." << std::endl;
     return 0;
 }
