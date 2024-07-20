@@ -1,13 +1,9 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.length() == 0)
-        return false;
-    for(int i = 0; i < txt.length(); i++) {
-        if(i == txt.length() - 1 && isalpha(txt[i]))
-            return true;
-        else if(!isspace(txt[i])) {
-            if(isalpha(txt[i]))
-                return false;
-        }
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length()-1, 1);
+    for(int i=0; i<txt.length() -1; i++) {
+        if(txt[i] == ' ') break;
     }
+    if(i >= txt.length() -1 || txt[i] != ' ') return isalpha(lastChar[0]);
     return false;
 }
