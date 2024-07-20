@@ -1,10 +1,13 @@
-Here is the solution:
+Here is the completed code:
 
-vector<int>::iterator it;
-
-if(lst.empty()) return NULL; 
-
-next(it = min_element(lst.begin() + 1, lst.end()));
-if(it == lst.begin())
-    return NULL;
-return *it;
+int next_smallest(vector<int> lst){
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    if(sorted_lst.size() < 2) return -1;
+    for(int i=0; i<sorted_lst.size()-1; i++){
+        if(sorted_lst[i] != sorted_lst[i+1]){
+            return sorted_lst[i+1];
+        }
+    }
+    return -1;
+}
