@@ -1,8 +1,6 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string longest = strings[0];
-    for(auto s : strings) {
-        if(s.length() > longest.length()) longest = s;
-    }
-    return longest;
+vector<string>::iterator it = max_if(strings.begin(), strings.end(), [](const string& a, const string& b) { return a.size() < b.size(); });
+if (it == strings.end()) {
+    return "";
+} else {
+    return *it;
 }
