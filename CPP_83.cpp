@@ -28,4 +28,3 @@ int main() {
     cin >> n;
     cout << starts_one_ends(n);
     return 0;
-}
