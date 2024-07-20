@@ -23,4 +23,7 @@ bool are_equal(vector<string> a, vector<string> b){
     return a == b;
 }
 
-int main() {}
+int main(){
+    assert(are_equal(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    return 0;
+}
