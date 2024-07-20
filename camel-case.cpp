@@ -7,7 +7,7 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            capitalizeNext = true; // Reset capitalization flag
+            capitalizeNext = true; 
         } else if (capitalizeNext) {
             // First character of a new group, uppercase it
             result += toupper(c);
