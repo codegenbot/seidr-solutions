@@ -1,5 +1,7 @@
+#include <cassert>
 #include <string>
 #include <iostream>
+#include <cmath>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) {
@@ -20,9 +22,4 @@ std::string rounded_avg(int n, int m) {
     }
     
     return binary_avg;
-}
-
-int main() {
-    std::cout << rounded_avg(5, 5) << std::endl;
-    return 0;
 }
