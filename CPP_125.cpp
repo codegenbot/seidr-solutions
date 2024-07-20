@@ -1,10 +1,11 @@
+// Add missing declarations and definitions
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
 #include <sstream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b ) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     return std::equal(a.begin(), a.end(), b.begin());
 }
@@ -19,7 +20,7 @@ std::vector<std::string> split_words(const std::string& txt) {
     return words;
 }
 
-int main() {
+int main(){
     assert(issame(split_words(""), {}));
     return 0;
 }
