@@ -6,13 +6,13 @@
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
     for (int i = 0; i < cipher_map1.length(); i++) {
-        mapping[cipher_map1[i]] = cipher_map2[i];
+        mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
     }
     
     std::string result = "";
     for (char c : message) {
-        if(mapping.find(c) != mapping.end()) {
-            result += mapping.at(c);
+        if(mapping.find(std::tolower(c)) != mapping.end()) {
+            result += mapping.at(std::tolower(c));
         } else {
             result += c; 
         }
