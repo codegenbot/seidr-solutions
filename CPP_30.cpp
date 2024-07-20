@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> result;
@@ -24,6 +23,17 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
+    // Test case 1: Empty vector
     assert(issame(get_positive({}), {}));
+
+    // Test case 2: Positive numbers only
+    assert(issame(get_positive({1.0, 2.0, 3.0}), {1.0, 2.0, 3.0}));
+
+    // Test case 3: Negative numbers only
+    assert(issame(get_positive({-1.3, -5.0, -2.7}), {}));
+
+    // Test case 4: Mix of positive and negative numbers
+    assert(issame(get_positive({-1.0, 2.0, -3.0, 4.0}), {2.0, 4.0}));
+
     return 0;
 }
