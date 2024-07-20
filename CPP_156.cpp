@@ -1,19 +1,11 @@
-#include <map>
-using namespace std;
-
+vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 string int_to_mini_roman(int number) {
-    map<int, string> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, 
-                               {400, "cd"}, {100, "c"}, {90, "cx"},
-                               {50, "l"}, {40, "xl"}, {10, "x"}, 
-                               {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
-    string result;
-
-    for (auto p = roman.rbegin(); p != roman.rend(); ++p) {
-        while (number >= p->first) {
-            result += p->second;
-            number -= p->first;
+    string roman;
+    for (int i = 0; i < 13; ++i)
+        while (number >= val[i]) {
+            number -= val[i];
+            roman += roman[i];
         }
-    }
-
-    return result;
+    return roman;
 }
