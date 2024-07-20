@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 bool any_int(float a, float b, float c) {
@@ -16,10 +15,12 @@ int main() {
     float a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
-    if(any_int(a, b, c)) {
-        std::cout << "The sum of two integers is an integer.\n";
+
+    if (any_int(a, b, c)) {
+        std::cout << "At least one integer." << std::endl;
     } else {
-        std::cout << "The sum of two integers is not an integer.\n";
+        std::cout << "No integers." << std::endl;
     }
+
     return 0;
 }
