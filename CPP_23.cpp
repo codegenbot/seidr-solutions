@@ -1,3 +1,3 @@
-size_t strlen(string str) {
+int strlen(string str){
     return str.length();
 }
