@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -6,17 +5,17 @@
 bool issame(vector<string> a, vector<string>b);
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+    vector<string> nums;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            nums.push_back(i);
+            nums.push_back(to_string(i));
     }
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
     vector<string> result;
-    for (int num : nums) {
+    for (string num : nums) {
         string str = "";
-        switch (num) {
+        switch (stoi(num)) {
             case 1:
                 str = "One";
                 break;
