@@ -6,5 +6,7 @@ def solve_boolean(expression):
             if not parsing:
                 return eval(''.join(map(str, stack)))
             stack.append(char)
-        stack.append(char) if char in ['|', '&'] else parsing = (char == '|')
-    return eval(''.join(map(str, stack)))
+        elif char == '|':
+            parsing = False
+        elif char == '&':
+            stack.append(char)
