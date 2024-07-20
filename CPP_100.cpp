@@ -4,7 +4,10 @@
 using namespace std;
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 vector<int> make_a_pile(int n) {
