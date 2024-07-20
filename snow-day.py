@@ -1,4 +1,3 @@
-```
 def snow_day(hours, initial_snow, rate, melt_rate):
     total_snow = round(initial_snow, 5)
     for _ in range(hours):
