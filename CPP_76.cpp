@@ -1,7 +1,7 @@
-if (x <= 0 || n <= 0) {
+if (n <= 1 || x <= 0) {
         return false;
     }
-    
+
     double result = log(x) / log(n);
-    return (result - (int)result == 0);
+    return abs(result - round(result)) < 1e-9;
 }
