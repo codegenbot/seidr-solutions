@@ -4,20 +4,17 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool upper = true;
+    bool lower = true;
 
     for (char c : str) {
         if (c == '-') {
-            if (!result.empty()) {
-                result += toupper(result[0]);
-                result.erase(0, 1);
-            }
-            upper = true;
-        } else if (upper) {
-            result += toupper(c);
-            upper = false;
+            lower = !lower;
         } else {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
             result += tolower(c);
+            lower = false;
         }
     }
 
