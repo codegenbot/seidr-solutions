@@ -1,4 +1,7 @@
-```
+```c++
+#include <string>
+#include <algorithm>
+
 std::string spinWords(std::string sentence) {
     std::string result = "";
     int i = 0;
@@ -27,5 +30,5 @@ std::string spinWords(std::string sentence) {
         result += word;
     }
 
-    return result;
+    return result.substr(0, result.find_last_of(" ") + 1);
 }
