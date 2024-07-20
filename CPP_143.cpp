@@ -1,6 +1,16 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
+    for (const auto& word : split(sentence, " ")) {
+        if (is_prime(word.length())) {
+            result += word + " ";
+        }
+    }
+    return result.substr(0, result.length() - 1);
+}
 
 std::vector<std::string> split(const std::string& str, const std::string& delimiter) {
     std::vector<std::string> tokens;
@@ -21,17 +31,7 @@ bool is_prime(int n) {
     return true;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
-    }
-    return result.substr(0, result.length() - 1);
-}
-
 int main() {
-    std::cout << words_in_sentence("Hello world this is a test") << std::endl;
+    std::cout << words_in_sentence("here is") << std::endl;
     return 0;
 }

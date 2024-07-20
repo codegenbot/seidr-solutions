@@ -1,6 +1,3 @@
-```cpp
-#include <vector>
-
 int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
@@ -9,10 +6,4 @@ int specialFilter(vector<int> nums){
         }
     }
     return count;
-}
-
-int main() {
-    // call the function
-    int result = specialFilter({1, 11, 21, 31});
-    return 0;
 }
