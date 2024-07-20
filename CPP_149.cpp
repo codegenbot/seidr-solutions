@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::string& str1, const std::string& str2) {
-    if (str1.length() != str2.length()) {
+bool issame(const std::string& s1, const std::string& s2) {
+    if (s1.length() != s2.length()) {
         return false;
     }
-    for (int i = 0; i < str1.length(); ++i) {
-        if (str1[i] != str2[i]) {
+    for (int i = 0; i < s1.length(); ++i) {
+        if (s1[i] != s2[i]) {
             return false;
         }
     }
@@ -24,7 +24,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
 
     sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
@@ -36,18 +36,13 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input_list = {"hello", "world", "abc", "abcd", "abcc"};
-    std::vector<std::string> output_list;
-
-    for (const auto& str : input_list) {
-        if (issame(str, "hello")) {
-            output_list = sorted_list_sum(input_list);
+    std::vector<std::string> lst = {"abc", "abcd", "cd", "cde"};
+    std::vector<std::string> result = sorted_list_sum(lst);
+    for (const auto& str : result) {
+        if (issame("abc", str)) {
+            std::cout << "The sum is: " << str << std::endl;
             break;
         }
-    }
-
-    for (const auto& str : output_list) {
-        std::cout << str << " ";
     }
     return 0;
 }
