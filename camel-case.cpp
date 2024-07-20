@@ -1,18 +1,28 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-std::string camelCase(const std::string& s) {
-    s.erase(remove(s.begin(), s.end(), '-'), s.end()); 
-
+std::string camelCase(std::string s) {
     std::string result;
-    bool capitalize = true;
+    bool first = true;
 
     for (char c : s) {
-        if (c == '-') { 
-            capitalize = true;
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = false;
+        } else if (c == ' ') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = true;
         } else {
-            capitalize ? result += toupper(c) : result += tolower(c); 
+            if (first) {
+                result += c;
+            } else {
+                result += char(tolower(c));
+            }
+            first = false;
         }
     }
 
@@ -21,8 +31,8 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cin >> input;
-    std::cout << camelCase(input) << std::endl;
-
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
+    }
     return 0;
 }
