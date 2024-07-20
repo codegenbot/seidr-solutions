@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card = [int(x) for x in str(card_number)]
     
