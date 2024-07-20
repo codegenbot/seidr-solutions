@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -14,7 +16,6 @@ vector<int> leaders(vector<int>& arr) {
     return leaders;
 }
 
-#include <initializer_list>
 int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(arr);
