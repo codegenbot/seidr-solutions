@@ -6,3 +6,4 @@ bool is_nested(string str) {
         else if (c == ']') close++;
     }
     return open > 0 && close > open;
+}
