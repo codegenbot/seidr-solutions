@@ -1,3 +1,4 @@
+```
 text = input("Enter the text: ")
 target = input("Enter the target: ").strip()
 
@@ -7,5 +8,5 @@ while not text or not target:
     target = input("Enter the target: ").strip()
 
 import re
-result = [m.start() for m in re.finditer(target, text)]
+result = [m.start() for m in iter(re.finditer(target, text))]
 print(result)
