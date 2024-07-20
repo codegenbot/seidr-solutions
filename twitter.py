@@ -1,6 +1,8 @@
+```
+import re
+
 def validate_tweet(tweet):
-    tweet = tweet.strip().replace(' ', '').encode().decode('utf-8', 'ignore')
-    if len(tweet) > 140:
+    if len(re.sub(r'\W+', '', tweet).strip()) > 140:
         return "Too many characters"
     elif tweet == "":
         return "You didn't type anything"
