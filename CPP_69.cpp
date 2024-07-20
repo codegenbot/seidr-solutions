@@ -1,5 +1,3 @@
-#include <vector>
-
 int search(vector<int> lst) {
     int max = -1;
     for (int i : lst) {
