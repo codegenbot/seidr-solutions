@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <set>
 
 using namespace std;
@@ -10,6 +10,7 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
     set<char> setC(c.begin(), c.end());
+    
     string res = "";
     
     for (char c : s) {
@@ -29,7 +30,6 @@ vector<string> reverse_delete(string s, string c) {
         right--;
     }
     
-    vector<string> finalResult;
     finalResult.push_back(res);
     if (isPalindrome) {
         finalResult.push_back("True");
