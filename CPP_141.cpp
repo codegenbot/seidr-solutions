@@ -1,27 +1,29 @@
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
+Here is the completed code:
+
+string file_name_check(string file_name){
+    int dot_count = 0;
+    bool has_dot = false;
+    int digit_count = 0;
+
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+            has_dot = true;
+        }
+        else if(isdigit(file_name[i])){
+            digit_count++;
+        }
+        else if((file_name[i] >= 'a' && file_name[i] <= 'z') || (file_name[i] >= 'A' && file_name[i] <= 'Z')){
+            if(!has_dot) has_dot = true;
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3 || !file_name.empty() && !isalpha(file_name[0])) {
+    if(dot_count > 1 || digit_count > 3 || !has_dot){
         return "No";
     }
 
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || file_name.size() - 1 != dot_pos) {
-        return "No";
-    }
-
-    string extension = file_name.substr(dot_pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()) {
+    string extension = file_name.substr(file_name.find('.')+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
 
