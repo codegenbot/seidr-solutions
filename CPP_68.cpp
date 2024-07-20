@@ -1,16 +1,15 @@
-```cpp
 #include <vector>
-#include <climits>
+#include <limits>
 
-std::vector<int> pluck(std::vector<int> arr) {
+std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
-    if (arr.empty()) return result;
+    if(arr.empty()) return result;
 
     int min_even = INT_MAX;
     int min_index = -1;
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < min_even) {
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] % 2 == 0 && arr[i] < min_even){
             min_even = arr[i];
             min_index = i;
         }
@@ -20,8 +19,4 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(min_index);
 
     return result;
-}
-
-bool issame(int a, int b) {
-    // your implementation here
 }
