@@ -1,13 +1,14 @@
 #include <cassert>
 #include <utility>
 #include <iostream>
+#include <vector>
 
-bool issame(std::pair<int, int> first_pair, std::pair<int, int> second_pair) {
-    return first_pair == second_pair;
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+    return a == b;
 }
 
 std::pair<int, int> eat(int x, int y, int z) {
-    return std::make_pair(y+z, x);
+    return std::make_pair(y + z, x);
 }
 
 int main() {
