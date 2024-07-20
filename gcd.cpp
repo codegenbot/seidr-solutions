@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
