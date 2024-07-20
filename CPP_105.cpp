@@ -11,11 +11,7 @@ bool issame(vector<string> a, vector<string> b){
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    vector<int> numbers = {9, 5, 2, 7, 3, 1, 8, 4, 6};
-    vector<string> result = by_length(numbers);
-    for (const string& word : result) {
-        cout << word << " ";
-    }
+    // Code block enclosed in curly braces
     return 0;
 }
 
