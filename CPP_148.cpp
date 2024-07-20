@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -38,12 +37,4 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-int main() {
-    vector<string> result = bf("Jupiter", "Makemake");
-    for (const auto& planet : result) {
-        cout << planet << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
+areEqual(bf("Jupiter", "Makemake"), vector<string>{});
