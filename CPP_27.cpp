@@ -13,10 +13,6 @@ string flip_case(string str){
 }
 
 int main(){
-    string input;
-    getline(cin, input);
-    string result = flip_case(input);
-    cout << result << endl;
-    
+    assert(flip_case("Hello, World!") == "hELLO, wORLD!");
     return 0;
 }
