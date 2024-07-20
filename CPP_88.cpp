@@ -10,8 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return std::equal(a_copy.begin(), a_copy.end(), b_copy.begin());
 }
 
-int main(){
-    assert(issame({21, 14, 23, 11} , {23, 21, 14, 11}));
-    
+int main() {
+    assert(issame({21, 14, 23, 11}, {23, 21, 14, 11}));
     return 0;
 }
