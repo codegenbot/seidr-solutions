@@ -1,6 +1,7 @@
-vector<int> result;
-    for (int elem : x) {
-        int temp = elem;
+vector<int> unique_digits(vector<int> x){
+    vector<int> result;
+    for (int num : x) {
+        int temp = num;
         bool hasEvenDigit = false;
         while (temp > 0) {
             if (temp % 2 == 0) {
@@ -10,7 +11,7 @@ vector<int> result;
             temp /= 10;
         }
         if (!hasEvenDigit) {
-            result.push_back(elem);
+            result.push_back(num);
         }
     }
     sort(result.begin(), result.end());
