@@ -1,7 +1,8 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+int main() {
+    vector<int> arr = {12, 10, 8, 6}; 
     vector<int> leaders;
     int max_right = arr.back();
     for (int i = arr.size() - 2; i >= 0; i--) {
@@ -11,6 +12,8 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     leaders.push_back(arr.back());
-    return leaders;
-
+    for (int leader : leaders) {
+        cout << leader << " ";
+    }
+    return 0;
 }
