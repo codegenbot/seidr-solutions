@@ -4,17 +4,14 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool lower = true;
+    bool inLowercase = true;
 
     for (char c : str) {
         if (c == '-') {
-            lower = !lower;
+            inLowercase = !inLowercase;
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += tolower(c);
-            lower = false;
+            result += inLowercase ? tolower(c) : toupper(c);
+            inLowercase = false;
         }
     }
 
