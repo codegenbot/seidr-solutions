@@ -7,7 +7,7 @@
 map<char, int> histogram(string test);
 
 bool issame(const map<char, int>& a, const map<char, int>& b) {
-    // Function implementation here
+    return a == b;
 }
 
 map<char, int> histogram(string test) {
