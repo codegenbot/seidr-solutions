@@ -5,8 +5,8 @@ int vowels_count(string s){
             count++;
         }
     }
-    if(!s.empty() && (tolower(s.back()) == 'y')){
-        count++;
+    if(count > 0 && (tolower(s.back()) == 'y')){
+        count--;
     }
     return count;
 }
