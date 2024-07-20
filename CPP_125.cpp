@@ -19,13 +19,12 @@ vector<string> split_words(const string& txt) {
 int main() {
     string input;
     getline(cin, input);
-
-    vector<string> output = split_words(input);
-
-    for (const auto& word : output) {
+    vector<string> words = split_words(input);
+    
+    for (const auto& word : words) {
         cout << word << " ";
     }
     cout << endl;
-
+    
     return 0;
 }
