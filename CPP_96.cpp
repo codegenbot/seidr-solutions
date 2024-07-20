@@ -1,22 +1,18 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()) return false;
-    
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+        if(a[i] != b[i]) return false;
     }
-    
     return true;
 }
 
-std::vector<int> count_up_to(int n){
-    std::vector<int> primes;
+vector<int> count_up_to(int n){
+    vector<int> primes;
     if(n < 2) return primes;
     
-    std::vector<bool> is_prime(n, true);
+    vector<bool> is_prime(n, true);
     is_prime[0] = is_prime[1] = false;
     
     for(int i = 2; i * i < n; i++){
