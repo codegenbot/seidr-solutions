@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-std::string calculateBinaryAverage(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -25,6 +25,6 @@ std::string calculateBinaryAverage(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryAverage(5, 5) == "101");
+    assert(rounded_avg(5, 5) == "101");
     return 0;
 }
