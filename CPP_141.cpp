@@ -1,25 +1,25 @@
-int count_digits = 0;
-    bool valid = true;
+int digitCount = 0;
+    int dotCount = 0;
+    int dotIndex = -1;
     
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count_digits++;
-        } else if (c == '.') {
-            if (count_digits > 3 || file_name.find('.') == 0 || file_name.find('.') == file_name.size() - 1) {
-                valid = false;
-                break;
-            }
-            string extension = file_name.substr(file_name.find('.') + 1);
-            if (extension != "txt" && extension != "exe" && extension != "dll") {
-                valid = false;
-                break;
-            }
+    for (int i = 0; i < file_name.size(); i++) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            digitCount++;
+        }
+        else if (file_name[i] == '.') {
+            dotCount++;
+            dotIndex = i;
         }
     }
     
-    if (count_digits > 3) {
-        valid = false;
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size() - 1) {
+        return "No";
     }
     
-    return valid ? "Yes" : "No";
+    string extension = file_name.substr(dotIndex + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    
+    return "Yes";
 }
