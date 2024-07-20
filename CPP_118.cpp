@@ -3,22 +3,24 @@ string get_closest_vowel(string word) {
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
-            return "Y";
+        if (word[i] == 'Y' || word[i] == 'y') return "U";
+        if (word[i] == 'y') return "u";
+        if (word[i] == 'E' || word[i] == 'e') return "E";
+        if (word[i] == 'A' || word[i] == 'a') return "A";
+        if (word[i] == 'I' || word[i] == 'i') return "I";
+        if (word[i] == 'O' || word[i] == 'o') return "O";
+        if (word[i] == 'U' || word[i] == 'u') return "U";
+    }
+    for (int i = 0; i < n - 1; ++i) {
+        if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (isvowel(word[i])) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isalpha(word[j])) break;
-                if (ispunct(word[j]) || isdigit(word[j])) break;
-                if (word[j] == 'Y' && j > 1 && isupper(word[j-1]) && islower(word[j-2]))
-                    return "Y";
-            }
-            for (int j = i + 1; j < n; ++j) {
-                if (!isalpha(word[j])) break;
-                if (ispunct(word[j]) || isdigit(word[j])) break;
-                if (isvowel(word[j])) return tolower((char)word[j]);
-            }
-        }
+        if (word[i] == 'Y' || word[i] == 'y') return "U";
+        if (word[i] == 'y') return "u";
+        if (word[i] == 'E' || word[i] == 'e') return "E";
+        if (word[i] == 'A' || word[i] == 'a') return "A";
+        if (word[i] == 'I' || word[i] == 'i') return "I";
+        if (word[i] == 'O' || word[i] == 'o') return "O";
+        if (word[i] == 'U' || word[i] == 'u') return "U";
     }
     return "";
 }
