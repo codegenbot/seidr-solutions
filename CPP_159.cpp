@@ -1,3 +1,7 @@
+#include <cassert>
+#include <iostream>
+#include <vector>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -8,4 +12,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+std::vector<int> eat(int x, int y, int z) {
+    return {y + z, x};
 }
