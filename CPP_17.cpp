@@ -2,8 +2,16 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> parse_music(string music_string){
@@ -13,10 +21,14 @@ vector<int> parse_music(string music_string){
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == '|') {
-            if (!beats.empty() && beats.back() == 4) {
-                beats.back() = 2;
-            } else {
+            if (beats.empty()) {
                 beats.push_back(1);
+            } else {
+                if (beats.back() == 4) {
+                    beats.back() = 2;
+                } else {
+                    beats.back() = 1;
+                }
             }
         }
     }
