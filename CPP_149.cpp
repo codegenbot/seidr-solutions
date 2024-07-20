@@ -18,7 +18,7 @@ int main(){
 
 vector<string> sorted_list_sum(vector<string> lst){
     int sum = 0;
-    for (const string& s : lst) {
+    for(const auto& s : lst){
         sum += s.length();
     }
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
