@@ -1,18 +1,22 @@
 def solve_boolean(expression):
     stack = []
+    operator_stack = []
     evaluate_expression = False
     for char in expression:
         if char in ['T', 'F']:
             stack.append(char)
             evaluate_expression = True
         elif char in ['|', '&']:
-            while len(stack) >= 2 and stack[-1] == '&' and (char == '|' or stack[-2] == '|'):
+            while len(operator_stack) and (operator_stack[-1] == '&' or (char == '|' and operator_stack[-1] == '|')):
                 a = stack.pop() == 'T'
                 b = stack.pop() == 'T'
-                stack.append(a and b)
-            if evaluate_expression:
-                stack.append(char)
-                evaluate_expression = False
+                if operator_stack[-1] == '&':
+                    stack.append(a and b)
+                else:
+                    stack.append(a or b)
+                operator_stack.pop()
+            operator_stack.append(char)
+            evaluate_expression = True
         else:
             if not evaluate_expression:
                 break
