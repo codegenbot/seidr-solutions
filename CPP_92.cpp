@@ -17,11 +17,11 @@ int main() {
     cout << "Enter three floating point numbers: ";
     cin >> a >> b >> c;
 
-    if(any_int(a, b, c)) {
-        cout << "At least one integer" << endl;
+    if (any_int(a, b, c)) {
+        cout << "At least one integer." << endl;
     } else {
-        cout << "No integers" << endl;
+        cout << "No integers." << endl;
     }
-    
+
     return 0;
 }
