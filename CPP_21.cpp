@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -10,12 +9,13 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
     float max_num = *std::max_element(numbers.begin(), numbers.end());
-    std::vector<float> result;
+   
+    std::vector<float> rescaled_numbers;
     for (float num : numbers) {
         float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
+        rescaled_numbers.push_back(rescaled_num);
     }
-    return result;
+    return rescaled_numbers;
 }
 
 int main() {
