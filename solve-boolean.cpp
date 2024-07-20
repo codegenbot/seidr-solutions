@@ -1,22 +1,38 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    bool result = false;
+
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            while (!operationStack.empty() && operationStack.top() == '&') {
+                operationStack.pop();
             }
-            if (st.empty()) return false;
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            operationStack.push('&');
+        } else if (booleanExpression[i] == '|') {
+            while (!operationStack.empty() && operationStack.top() == '|') {
+                operationStack.pop();
             }
-            if (st.empty()) return true;
+            operationStack.push('|');
+        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 't') {
+            result = true;
+        } else if (booleanExpression[i] == 'F' || booleanExpression[i] == 'f') {
+            result = false;
         } else {
-            st.push(s[i]);
+            while (!operationStack.empty()) {
+                operationStack.pop();
+            }
+            if (result) {
+                operationStack.push('&');
+            } else {
+                operationStack.push('|');
+            }
+            result = true;
         }
     }
-    while (!st.empty()) {
-        st.pop();
+
+    while (!operationStack.empty()) {
+        operationStack.pop();
     }
-    return false;
+
+    return result;
 }
