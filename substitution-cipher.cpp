@@ -2,17 +2,21 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
-using namespace std;
-
-string decipher(string cipher_map1, string cipher_map2, string message) {
-    map<char, char> mapping;
-    for (int i = 0; i < min(cipher_map1.length(), cipher_map2.length()); i++) {
+std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    std::unordered_map<char, char> mapping;
+    for (int i = 0; i < cipher_map1.length(); i++) {
         mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
-        mapping[toupper(cipher_map1[i])] = toupper(cipher_map2[i]);
     }
     
-    string result = "";
+    for (int i = 0; i < cipher_map1.length(); i++) {
+        if(toupper(cipher_map1[i]) != cipher_map1[i]) {
+            mapping[toupper(cipher_map1[i])] = toupper(cipher_map2[i]);
+        }
+    }
+    
+    std::string result = "";
     for (char c : message) {
         if(mapping.find(std::tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
@@ -27,12 +31,12 @@ string decipher(string cipher_map1, string cipher_map2, string message) {
 
 int main() {
     char cipher_map1[256], cipher_map2[256], message[256];
-    cout << "Enter the first string: ";
-    cin.getline(cipher_map1, 256);
-    cout << "Enter the second string: ";
-    cin.getline(cipher_map2, 256);
-    cout << "Enter the message to decipher: ";
-    cin.getline(message, 256);
-    cout << "Deciphered message: " << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
+    std::cout << "Enter the first string: ";
+    std::cin.getline(cipher_map1, 256);
+    std::cout << "Enter the second string: ";
+    std::cin.getline(cipher_map2, 256);
+    std::cout << "Enter the message to decipher: ";
+    std::cin.getline(message, 256);
+    std::cout << "Deciphered message: " << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
     return 0; 
 }
