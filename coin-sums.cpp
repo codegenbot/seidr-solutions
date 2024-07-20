@@ -5,18 +5,29 @@ int main() {
     int cents;
     cin >> cents;
 
+    int dimes = 0;
+    int nickels = 0;
+    int pennies = 0;
+
     int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = cents / 10;
-    cents %= 10;
+    while (cents >= 10) {
+        dimes++;
+        cents -= 10;
+    }
 
-    int nickels = cents / 5;
-    cents %= 5;
+    while (cents >= 5) {
+        nickels++;
+        cents -= 5;
+    }
 
-    int pennies = cents;
+    pennies = cents; // store the remaining cents as pennies
 
-    cout << quarters << " quarter(s), " << dimes << " dime(s), " << nickels << " nickel(s), and " << pennies << " penny(ies)." << endl;
+    cout << to_string(quarters) << " quarters" << endl;
+    cout << to_string(dimes) << " dimes" << endl;
+    cout << to_string(nickels) << " nickels" << endl;
+    cout << to_string(pennies) << " pennies" << endl;
 
     return 0;
 }
