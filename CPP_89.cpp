@@ -1,6 +1,10 @@
-string result = "";
+#include <string>
+#include <cctype>
+
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
+        if (std::isalpha(c)) {
             char encrypted = (c - 'a' + 2 * 2) % 26 + 'a';
             result += encrypted;
         } else {
