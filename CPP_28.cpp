@@ -1,13 +1,7 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
-std::string concatenate(const std::vector<std::string>& input_strings) {
-    std::string result;
-    for (const std::string& s : input_strings) {
+string concatenate(vector<string> strings){
+    string result;
+    for(const string& s : strings){
         result += s;
     }
     return result;
 }
-
-int main();
