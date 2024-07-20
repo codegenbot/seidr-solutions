@@ -1,10 +1,5 @@
-```
-print("Please enter a string in kebab-case: ")
-s = input().replace("-", " ").strip()
-
 def camel_case(s):
-    words = s.split()
-    return ''.join(word.capitalize() if i > 0 else word + ("" if i == len(words) - 1 else ".") for i, word in enumerate(words))
-
-result = camel_case(s)
-print(result.strip())
+    result = s.split()[0].replace('-', ' ').strip().capitalize()
+    for word in s.split()[1:]:
+        result += word.replace('-', '').capitalize() + ''
+    return result

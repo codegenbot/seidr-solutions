@@ -1,8 +1,5 @@
 def substitution_cipher(cipher1, cipher2, message):
-    result = ""
-    for i in range(len(message)):
-        if i < len(message) and message[i] in cipher1:
-            result += cipher2[cipher1.index(message[i])]
-        else:
-            result += message[i]
-    return result
+    cipher_map = {c: d for c, d in zip(cipher1.lower(), cipher2.lower())}
+    return "".join([cipher_map.get(char.lower(), char) if char.isalpha() 
+                    else (char.upper() if char.isupper() else char) 
+                    for char in message])
