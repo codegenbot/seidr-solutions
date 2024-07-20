@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -39,19 +40,14 @@ bool isPrime(int n) {
 }
 
 int main() {
-    int N;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> N;
-
-    vector<int> lst(N);
-    for (int i = 0; i < N; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
+    int n;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> n;
+    vector<int> lst(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Element " << i + 1 << ": ";
         std::cin >> lst[i];
     }
-
-    int result = skjkasdkd(lst);
-
-    std::cout << "The sum of digits of the maximum prime number is: " << result << std::endl;
-
+    std::cout << "The sum of digits in the maximum prime number is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
