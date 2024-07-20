@@ -6,6 +6,7 @@ def camel_case(s):
     return words[0] + ''.join(word.capitalize() for word in words[1:]) if len(words) > 1 else words[0]
 
 result = ''
-result += camel_case(s)
+for line in s.split():
+    result += camel_case(line) + ' '
 
 print(result.strip())
