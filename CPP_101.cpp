@@ -1,6 +1,10 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -13,4 +17,9 @@ vector<string> words_string(string s){
         words.push_back(word);
     }
     return words;
+}
+
+int main(){
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    return 0;
 }
