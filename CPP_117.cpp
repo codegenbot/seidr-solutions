@@ -1,19 +1,16 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 #include <sstream>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> select_words(const string& input, int word_count) {
-    vector<string> words;
-    istringstream iss(input);
-    string word;
+std::vector<std::string> select_words(const std::string& input, int word_count) {
+    std::vector<std::string> words;
+    std::istringstream iss(input);
+    std::string word;
 
     for (int i = 0; i < word_count; ++i) {
         if (iss >> word) {
@@ -24,7 +21,4 @@ vector<string> select_words(const string& input, int word_count) {
     return words;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 4), {"a", "b", "c", "d"}));
-    return 0;
-}
+assert(issame(select_words("a b c d e f", 4), {"a", "b", "c", "d"}));
