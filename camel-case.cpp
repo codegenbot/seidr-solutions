@@ -8,16 +8,13 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!result.empty()) {
+            if (!upper) {
+                result += ' ';
                 upper = true;
             }
         } else {
-            if (upper) {
-                result += toupper(c);
-                upper = false;
-            } else {
-                result += tolower(c);
-            }
+            result += upper ? toupper(c) : tolower(c);
+            upper = false;
         }
     }
 
