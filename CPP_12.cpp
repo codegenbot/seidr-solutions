@@ -1,13 +1,13 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string result = strings[0];
-    for(auto s : strings){
-        if(s.length() > result.length()){
-            result = s;
-        }
-        else if(s.length() == result.length() && s < result){
-            result = s;
+Here is the solution:
+
+string longest(vector<string> strings) {
+    if (strings.empty()) return "";
+    string longestSoFar = strings[0];
+    for (const auto& s : strings) {
+        if (s.length() > longestSoFar.length()) {
+            longestSoFar = s;
+        } else if (s.length() == longestSoFar.length()) {
+            longestSoFar = s;
         }
     }
-    return result;
-}
+    return longestSoFar;
