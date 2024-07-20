@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -31,10 +30,9 @@ bool isPrime(int num) {
         }
     }
     return true;
-
 }
+
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
