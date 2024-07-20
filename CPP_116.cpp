@@ -18,9 +18,5 @@ int main() {
     std::vector<int> arr = {2, 4, 8, 16, 32};
     custom_sort(arr);
     assert(issame(arr, {2, 4, 8, 16, 32}));
-    // Fixed test assertion in main function
-    std::vector<int> sorted_arr = {2, 4, 8, 16, 32};
-    custom_sort(sorted_arr);
-    assert(issame(arr, sorted_arr));
     return 0;
 }
