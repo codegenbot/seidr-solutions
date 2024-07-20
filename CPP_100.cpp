@@ -1,19 +1,17 @@
-#include <vector>
+Here is the completed code:
 
-using namespace std;
-
+```cpp
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    int stones = 1;
-    
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-            stones += 2;
-        } else {
-            stones += 1;
+    vector<int> pile;
+    int current = 1;
+    for (int i = 0; i < n; ++i) {
+        if (n % 2 == 1) { // n is odd
+            pile.push_back(current);
+            current += 2;
+        } else { // n is even
+            pile.push_back(current);
+            current += 1;
         }
-        result.push_back(stones);
     }
-    
-    return result;
+    return pile;
 }
