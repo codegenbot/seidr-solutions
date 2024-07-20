@@ -1,13 +1,29 @@
+```cpp
 std::string spinWords(std::string str) {
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    std::string word;
+    std::string result;
 
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            word = std::string(word.rbegin(), word.rend());
+    int length = 0;
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            length = 0;
+        } else {
+            length++;
+            if (length >= 5) {
+                int j = length - 1;
+                std::string temp;
+                while (j >= 0) {
+                    temp += str[i - 1 - j];
+                    j--;
+                }
+                result += temp + " ";
+                length = 0;
+            } else {
+                result += str.substr(i - length, length) + " ";
+                length = 0;
+            }
         }
-        result += word + " ";
     }
 
-    return result.substr(0, result.size() - 1);
+    return result;
+}
