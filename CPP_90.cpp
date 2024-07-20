@@ -2,7 +2,7 @@
 #include <vector>
 
 int next_smallest(vector<int> lst){
-    if(lst.empty()) return NULL; // Return None (or NULL) if there is no such element.
+    if(lst.empty()) return NULL; 
     vector<int> v = lst;
     sort(v.begin(), v.end());
     for(int i = 1; i < v.size(); i++){
@@ -10,7 +10,7 @@ int next_smallest(vector<int> lst){
             return v[i];
         }
     }
-    return NULL; // Return None (or NULL) if there is no such element.
+    return NULL; 
 }
 
 int main() {
