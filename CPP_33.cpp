@@ -1,8 +1,8 @@
-vector<int> l_copy = l;
+vector<int> result = l;
     for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+        if ((i + 1) % 3 == 0) {
+            sort(result.begin() + i - 2, result.begin() + i + 1);
         }
     }
-    return l_copy;
+    return result;
 }
