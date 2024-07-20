@@ -1,3 +1,4 @@
+```
 std::string spinWords(std::string sentence) {
     std::string result = "";
     int i = 0;
@@ -27,3 +28,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
+}
