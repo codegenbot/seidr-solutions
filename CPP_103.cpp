@@ -1,6 +1,3 @@
-#include <string>
-using std::string; 
-
 if (n > m) {
     return "-1";
 }
