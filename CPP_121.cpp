@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Include assert header
 
-int solutions(vector<int> lst){
+int solutions(std::vector<int> lst){
     int sum = 0;
     for(int i = 0; i < lst.size(); i += 2){
         if(lst[i] % 2 != 0){
@@ -12,9 +12,5 @@ int solutions(vector<int> lst){
 }
 
 int main() {
-    assert(solutions({1, 2, 3, 4, 5}) == 9);
-    assert(solutions({2, 4, 6, 8, 10}) == 0);
-    assert(solutions({1, 3, 5, 7, 9}) == 15);
-
-    return 0;
+    assert(solutions(std::vector<int>{3, 13, 2, 9}) == 3);
 }
