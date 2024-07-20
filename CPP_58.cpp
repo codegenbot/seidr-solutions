@@ -2,7 +2,6 @@
 #include <algorithm>
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    // Your existing code here
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
