@@ -1,6 +1,6 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b); 
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars_lst1 = 0, total_chars_lst2 = 0;
