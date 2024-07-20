@@ -1,37 +1,26 @@
 #include <vector>
 #include <string>
-#include <cctype>
+#include <algorithm>
 #include <cassert>
+#include <sstream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> words;
+    std::istringstream iss(txt);
     std::string word;
-    for (char c : txt) {
-        if (std::isspace(c)) {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
+    while (iss >> word) {
         words.push_back(word);
     }
     return words;
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
-    
+    assert(issame(split_words(""), {}));
+
     return 0;
 }
