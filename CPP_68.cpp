@@ -1,4 +1,5 @@
 #include <vector>
+
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -15,11 +16,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if (minIndex != -1) {
-        result.push_back({minEven, minIndex});
-    } else {
-        result.push_back({0, -1});
-    }
+    if (minIndex != -1) result.push_back({minEven, minIndex});
     
     return result;
 }
