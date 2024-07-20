@@ -1,11 +1,12 @@
 def find_first_negative_index(nums):
+    if nums[0] < 0:
+        return 0
     total_sum = 0
-    i = 0
+    i = 1
     while True:
-        if i == 0: total_sum = nums[i]
-        else: total_sum += nums[i]
+        total_sum += nums[i]
         if total_sum < 0:
-            return i + 1
+            return i
         elif i == len(nums) - 1:
             return -1
         i += 1
