@@ -15,9 +15,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string to encrypt: ";
-    getline(cin, input);
-    cout << "Encrypted string: " << encrypt(input) << endl;
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Encrypted string: " << encrypt(str) << endl;
     return 0;
 }
