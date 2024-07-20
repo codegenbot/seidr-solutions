@@ -1,42 +1,29 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 #include <cctype>
 
-using namespace std;
-
-void split(const string& s, vector<string>& result, char c) {
-    size_t pos = 0;
-    size_t prev = 0;
-    
-    while ((pos = s.find(c, prev)) != string::npos) {
-        result.push_back(s.substr(prev, pos - prev));
-        prev = pos + 1;
-    }
-    if (prev < s.size())
-        result.push_back(s.substr(prev));
-}
-
-string camelCase(string s) {
-    string result;
+std::string camelCase(std::string s) {
+    std::string result;
     bool first = true;
 
     for (char c : s) {
         if (c == '-') {
             if (!first) {
-                result += toupper(c);
+                result += char(toupper(c));
             }
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += toupper(c);
+                result += char(toupper(c));
             }
             first = true;
         } else {
             if (first) {
-                result += tolower(c);
+                result += c;
             } else {
-                result += toupper(c);
+                result += char(tolower(c));
             }
             first = false;
         }
@@ -46,17 +33,20 @@ string camelCase(string s) {
 }
 
 int main() {
-    string line;
-    while (getline(cin, line)) {
-        vector<string> words;
-        split(line, words, ' ');
-        
-        for (const auto& word : words) {
-            if (!words.empty())
-                cout << camelCase(word);
-            else
-                cout << camelCase(word);
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        std::stringstream ss(line);
+        std::string word;
+        std::vector<std::string> words;
+        std::string result;
+
+        while (std::getline(ss, word, ' ')) { 
+            if (!words.empty()) {
+                result += camelCase(word) + " ";
+            } else {
+                result = camelCase(word) + " ";
+            }
+            words.clear();
         }
-        cout << endl;
     }
 }
