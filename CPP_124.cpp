@@ -45,9 +45,9 @@ int main() {
     std::cin >> input_date;
     
     if (valid_date(input_date)) {
-        std::cout << "Valid date entered." << std::endl;
+        std::cout << "Valid date." << std::endl;
     } else {
-        std::cout << "Invalid date entered." << std::endl;
+        std::cout << "Invalid date." << std::endl;
     }
     
     return 0;
