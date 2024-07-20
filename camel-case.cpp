@@ -1,29 +1,26 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool inWord = false;
+    bool lower = true;
 
     for (char c : str) {
         if (c == '-') {
-            inWord = true;
+            lower = !lower;
         } else {
-            if (!inWord) {
-                inWord = true;
-                result += toupper(c);
+            if (result.empty()) {
+                if (!lower) {
+                    result += topper(c);
+                } else {
+                    result += tolower(c);
+                }
             } else {
-                result += tolower(c);
+                if (!lower) {
+                    result[0] = toupper(result[0]);
+                }
+                result[0] = tolower(c);
+                lower = false;
             }
         }
     }
 
     return result;
-}
-
-int main() {
-    std::string input = "s-lsdsy-uhhe";
-    std::cout << camelCase(input) << std::endl;
-    return 0;
 }
