@@ -33,16 +33,12 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
-    try {
-        if (input.empty()) {
-            throw std::runtime_error("Input cannot be empty");
-        }
-        
-        std::cout << toCamelCase(input) << std::endl;
-    } catch(const std::exception& e) {
-        std::cerr << "Error: " << e.what() << '\n';
-    }
 
+    if(input.empty()) {
+        std::cout << "Error: Input cannot be empty." << std::endl;
+    } else {
+        std::cout << toCamelCase(input) << std::endl;
+    }
+    
     return 0;
 }
