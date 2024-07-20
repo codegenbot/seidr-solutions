@@ -1,12 +1,13 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
 int main() {
     std::string input;
     std::cout << "Enter a positive integer: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
     std::string output = squareDigits(input);
-    std::cout << "Square of digits: " << output << "\n";
+    std::cout << "Square digits of " << input << " is " << output << std::endl;
     return 0;
 }
 
