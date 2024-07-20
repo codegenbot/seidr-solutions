@@ -1,5 +1,2 @@
-size_t pos = txt.find_last_of(" ");
-if (pos == string::npos) return false;
-
-string last_part = txt.substr(pos + 1);
-return isalpha(last_part.back());
+size_t lastSpace = txt.find_last_of(' ');
+return !txt.empty() && (lastSpace == string::npos || txt[lastSpace+1] >= 'a' && txt[lastSpace+1] <= 'z');
