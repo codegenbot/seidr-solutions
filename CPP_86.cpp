@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <string>
 
-std::string anti_shuffle(std::string s) {
+std::string anti_shuffle(std::string s){
     std::string result = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
@@ -21,10 +20,10 @@ std::string anti_shuffle(std::string s) {
     return result;
 }
 
-int main() {
+int main(){
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Anti-Shuffled String: " << anti_shuffle(str) << std::endl;
+    std::cout << "Anti-shuffled string: " << anti_shuffle(str) << std::endl;
     return 0;
 }
