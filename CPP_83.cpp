@@ -9,14 +9,10 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if (n > 1) {
-            int num = i;
-            while (num < 10 * n) {
-                num *= 10;
-                if ((num % 10) == 1) {
-                    count++;
-                }
-                num++;
+        if ((n > 1) && (i != 1)) {
+            int num = i * pow(10, n - 1);
+            if ((num % 10) == 1) {
+                count++;
             }
         }
     }
