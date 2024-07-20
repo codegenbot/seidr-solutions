@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
@@ -18,4 +16,8 @@ vector<float> find_closest_elements(vector<float> numbers) {
     return closest_elements;
 }
 
-assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<float>{2.2f, 3.1f});
+int main() {
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<float>{2.2f, 3.1f});
+    
+    return 0;
+}
