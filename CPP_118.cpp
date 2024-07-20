@@ -6,7 +6,7 @@ std::string get_closest_vowel(std::string word) {
     for(int i = 0; i < word.length(); i++) {
         if(!isalpha(word[i])) continue;
         if(isvowel(tolower(word[i]))) {
-            while(i > left && !isalpha(word[left]) && i > left) {
+            while(left < i && !isalpha(word[left]) && left <= i) {
                 left++;
             }
             return string(1, tolower(word[i]));
