@@ -14,13 +14,8 @@ std::string spinWords(std::string str) {
                 result += word + " ";
             word = "";
         } 
-        else {
+        else 
             word += c;
-            if ((str.length()-1) == str.find(c) && word.length() >= 5)
-                result = (result != "") ? result + std::string(word.rbegin(), word.rend()) + " " : std::string(word.rbegin(), word.rend());
-            else
-                result = (result != "") ? result + word + " " : word + " ";
-        }
     }
 
     if (word.length() >= 5)
