@@ -1,19 +1,21 @@
-```
 #include <algorithm>
 #include <vector>
-#include <functional>
+#include <iostream>
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a > b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
-    int min = *std::min_element(lst.begin(), lst.end());
-    int max = *std::max_element(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
+    int min = *min_element(lst.begin(), lst.end());
+    int max = *max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         for (int i : lst) {
