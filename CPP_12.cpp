@@ -1,9 +1,9 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return ""; // Return None in case the input vector is empty.
+string longest(vector<string> strings) {
+    if (strings.empty()) return ""; // return None in case the input vector is empty
     string res = strings[0];
-    for(string s:strings){
-        if(s.length() > res.length())
-            res = s;
+    for (const auto& str : strings) {
+        if (str.length() > res.length()) res = str;
+        else if (str.length() == res.length()) res = str; // return the first one in case of multiple strings of the same length
     }
-    return res; // Return the first one in case of multiple strings of the same length.
+    return res;
 }
