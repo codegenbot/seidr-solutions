@@ -1,3 +1,5 @@
+Here is the solution:
+
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
@@ -7,11 +9,9 @@ int vowels_count(string s) {
             case 'i':
             case 'o':
             case 'u':
-                if (c == 'y' && s.size() - 1 == find(s.rbegin(), s.rend(), c) - s.rbegin())
-                    break;
-                count++;
+                if (c == 'y' && s[s.size() - 1] != 'y') break;
             default:
-                break;
+                count++;
         }
     }
     return count;
