@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <string>
 
 std::string spinWords(std::string sentence) {
@@ -10,7 +10,7 @@ std::string spinWords(std::string sentence) {
         if (sentence[i] != ' ') {
             word += sentence[i];
         } else {
-            if (word.length() >= 5) { 
+            if (word.length() >= 5) {
                 std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
@@ -21,7 +21,8 @@ std::string spinWords(std::string sentence) {
         i++;
     }
 
-    if (word.length() >= 5) { 
+    // Process the last word
+    if (word.length() >= 5) {
         std::string reversedWord(word.rbegin(), word.rend());
         result += reversedWord;
     } else {
