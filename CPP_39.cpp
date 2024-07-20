@@ -28,10 +28,9 @@ int prime_fib(int n) {
 }
 
 int main() {
-    cout << prime_fib(1) << endl;
-    cout << prime_fib(2) << endl;
-    cout << prime_fib(3) << endl;
-    cout << prime_fib(4) << endl;
-    cout << prime_fib(5) << endl;
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
     return 0;
 }
