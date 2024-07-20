@@ -1,34 +1,46 @@
+#include <boost/any.hpp>
+#include <string>
+#include <vector>
+
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    any_cast<double>(a);
-    any_cast<double>(b);
-
-    double d1 = 0;
-    double d2 = 0;
-
-    if (any_cast<bool>(is_double(a))) {
-        d1 = any_cast<double>(a);
+    if (is_same<any_type, int>(a.type()) && is_same<any_type, float>(b.type())) {
+        return (float)a > (float)b ? a : b;
     }
-    if (any_cast<bool>(is_double(b))) {
-        d2 = any_cast<double>(b);
+    else if (is_same<any_type, float>(a.type()) && is_same<any_type, int>(b.type())) {
+        return (float)a > (float)b ? a : b;
     }
-
-    if (d1 > d2) return a;
-    else if (d2 > d1) return b;
-
-    string s1 = "";
-    string s2 = "";
-
-    if (any_cast<bool>(is_string(a))) {
-        s1 = any_cast<string>(a);
+    else if (is_same<any_type, string>(a.type()) && is_same<any_type, string>(b.type())) {
+        vector<string> strs = {any_cast<string>(a), any_cast<string>(b)};
+        sort(strs.begin(), strs.end());
+        return strs.back();
     }
-    if (any_cast<bool>(is_string(b))) {
-        s2 = any_cast<string>(b);
+    else if (is_same<any_type, int>(a.type()) && is_same<any_type, string>(b.type())) {
+        double a_val = stod(any_cast<string>(b));
+        if ((int)a > a_val) {
+            return a;
+        }
+        else if ((int)a < a_val) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
-
-    if (s1 > s2) return a;
-    else if (s2 > s1) return b;
-
-    return "None";
+    else if (is_same<any_type, string>(a.type()) && is_same<any_type, int>(b.type())) {
+        double b_val = stod(any_cast<string>(a));
+        if ((int)b > b_val) {
+            return b;
+        }
+        else if ((int)b < b_val) {
+            return a;
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else {
+        return boost::any("None");
+    }
 }
