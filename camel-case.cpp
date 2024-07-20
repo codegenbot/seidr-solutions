@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -52,4 +51,4 @@ int main() {
 
     std::cout << camelCase(result) << std::endl;
 
-    return 0; }
+    return 0}
