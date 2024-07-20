@@ -1,4 +1,9 @@
-```
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -24,4 +29,18 @@ string spinWords(string str) {
         }
     }
     return result;
+}
+
+int main() {
+    string str;
+    while(true) {
+        cout << "Enter a sentence (or 'exit' to quit): ";
+        getline(cin, str);
+        if (!str.empty()) {
+            str.erase(0, str.find_first_not_of(' '));
+        }
+        if(str == "exit") break;
+        cout << spinWords(str) << endl;
+    }
+    return 0;
 }
