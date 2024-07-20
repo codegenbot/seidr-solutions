@@ -1,14 +1,11 @@
-#include <vector>
-#include <cmath>
-#include <algorithm>
-
+```cpp
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.5f, 4.0f, 6.25f};
+    vector<float> lst = {1.0f, 2.0f, 3.5f, 4.0f, 5.5f};
     long long result = double_the_difference(lst);
     return 0;
 }
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 

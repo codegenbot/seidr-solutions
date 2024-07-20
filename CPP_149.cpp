@@ -1,13 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -35,15 +31,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
 
     return result;
-}
-
-int main() {
-    vector<string> lst = {"apple", "banana", "cherry"};
-    vector<string> sorted_list = sorted_list_sum(lst);
-
-    for (const auto& str : sorted_list) {
-        std::cout << str << " ";
-    }
-
-    return 0;
 }
