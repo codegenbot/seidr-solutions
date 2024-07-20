@@ -14,7 +14,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result(a.size(), 0);
+    std::vector<int> result(a.size());
     for (int i = 0; i < a.size(); ++i) {
         result[i] = a[i] - b[i];
     }
