@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -11,7 +10,7 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(arr.back());
+    leaders.push_back(rightmost);
     return leaders;
 }
 
