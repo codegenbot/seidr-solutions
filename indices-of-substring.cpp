@@ -22,6 +22,6 @@ int main() {
     getline(cin, target);
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
