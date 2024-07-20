@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <algorithm>
 #include <cassert>
 
@@ -17,6 +17,6 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
 }
 
 int main() {
-    assert(issame({"mamma", "mia"} , {"", "True"}) == std::vector<std::string>{"", "True"});
+    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"", "True"});
     return 0;
 }
