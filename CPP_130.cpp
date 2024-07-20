@@ -4,7 +4,7 @@
 #include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return std::equal(a.begin(), a.begin() + a.size(), b.begin());
 }
 
 std::vector<int> yourFunctionName(const std::vector<int>& n) {
@@ -19,6 +19,5 @@ int main() {
     assert(issame(other, {0, 0}));
 
     std::cout << "Code fixed successfully!" << std::endl;
-    
     return 0;
 }
