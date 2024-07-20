@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -24,9 +25,12 @@ std::string spinWords(std::string str) {
         }
     }
     return result;
+}
 
 int main() {
-    std::string testString = "Hello World";
-    std::cout << spinWords(testString) << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << spinWords(input) << std::endl;
     return 0;
 }
