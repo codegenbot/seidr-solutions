@@ -5,6 +5,7 @@ using namespace std;
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
+    vector<int> res;
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -18,36 +19,33 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
     
-    int res = INT_MAX;
-    vector<int> path;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] == dp[n-1][n-1]) {
-                int val = grid[i][j];
-                res = min(res, val);
-                path.push_back(val);
+    int i = n - 1, j = n - 1;
+    while (k > 0) {
+        res.push_back(grid[i][j]);
+        if (i > 0 && j > 0) {
+            if (dp[i-1][j] < dp[i][j-1]) {
+                i--;
+            } else {
+                j--;
             }
+        } else if (i > 0) {
+            i--;
+        } else {
+            j--;
         }
+        k--;
     }
     
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[j][i] == res) {
-                result.push_back(grid[j][i]);
-                break;
-            }
-        }
-    }
-    
-    return result;
+    reverse(res.begin(), res.end());
+    return res;
 }
 
 int main() {
     vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
     int k = 3;
-    vector<int> res = minPath(grid, k);
-    for (int i : res) {
+    vector<int> result = minPath(grid, k);
+    
+    for (int i : result) {
         cout << i << " ";
     }
     return 0;
