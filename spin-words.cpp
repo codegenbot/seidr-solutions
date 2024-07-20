@@ -26,13 +26,14 @@ string spinWords(string str) {
 
     if (word.length() >= 5) {
         for (int i = word.length() - 1; i >= 0; --i) {
-            result += word[i];
+            result = result + word[i] + " ";
         }
     } else {
         result = word + " ";
     }
 
-    return result + " ";
+    result += " ";
+    return result;
 }
 
 int main() {
