@@ -1,13 +1,13 @@
-Here is the completed code:
-
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string lastChar = txt.substr(txt.length() - 1);
-    string restOfText = txt.substr(0, txt.length() - 1);
-    size_t pos = 0;
-    while ((pos = restOfText.find(' ')) != std::string::npos) {
-        if (pos == txt.length() - 2) return true; // check the last character
-        restOfText.erase(pos, 1);
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.size()-1);
+    bool isLetter = (lastChar[0] >= 'a' && lastChar[0] <= 'z') || (lastChar[0] >= 'A' && lastChar[0] <= 'Z');
+    if(isLetter){
+        for(int i=0; i<txt.size()-1; i++){
+            if(txt[i] == ' ' || txt[i] < 'a' || txt[i] > 'z' || txt[i] < 'A' || txt[i] > 'Z'){
+                return false;
+            }
+        }
     }
-    return isalpha(lastChar[0]);
+    return isLetter;
 }
