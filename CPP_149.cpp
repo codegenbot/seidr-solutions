@@ -1,27 +1,19 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
+Here is the completed code:
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    // Remove strings with odd lengths
-    vector<string> filteredList;
-    for (const string& str : lst) {
+    vector<string> result;
+    for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            filteredList.push_back(str);
+            result.push_back(str);
         }
     }
-
-    // Sort the list by length and then alphabetically
-    sort(filteredList.begin(), filteredList.end(),
+    sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
-                 return a < b;
-             } else {
+             if (a.length() != b.length()) {
                  return a.length() < b.length();
+             } else {
+                 return a < b;
              }
          });
-
-    return filteredList;
+    return result;
 }
