@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
@@ -12,5 +10,6 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
+    leaders.push_back(rightmost);
     return leaders;
 }
