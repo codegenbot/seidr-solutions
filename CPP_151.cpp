@@ -1,10 +1,10 @@
-Here's the solution:
+Here's the completed code:
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0) {
-            sum += pow(num, 2);
+    for(float n : lst) {
+        if(floor(n) == n && n > 0) {
+            sum += pow(n,2);
         }
     }
     return sum;
