@@ -1,24 +1,30 @@
-```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
 std::string camelCase(const std::string& str) {
-    std::string result = "";
-    bool firstWord = true;
+    std::string result;
+    bool inWord = false;
 
     for (char c : str) {
         if (c == '-') {
-            if (!firstWord) { 
-                result += ' ';
-                result += toupper(str[str.find(c) + 1]);
-            }
-            firstWord = false;
+            inWord = true;
+            result += ' ';
         } else {
-            if (!firstWord) { 
-                result += toupper(c);
-            } else {
+            if (!inWord) {
                 result += tolower(c);
+                inWord = true;
+            } else {
+                result += toupper(c);
             }
-            firstWord = false; 
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
