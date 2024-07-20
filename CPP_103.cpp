@@ -2,7 +2,7 @@
 #include <bitset>
 #include <cassert>
 
-std::string task_function(int n, int m) {
+std::string solve(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -12,12 +12,13 @@ std::string task_function(int n, int m) {
         sum += i;
     }
 
-    int avg = (int)((double)sum / (m - n + 1));
-    std::bitset<32> binary_avg(avg);
-    return binary_avg.to_string().substr(binary_avg.to_string().find('1'));
+    int avg = (int)round((double)sum / (m - n + 1));
+    std::string binary_avg = std::bitset<32>(avg).to_string();
+    return binary_avg.substr(binary_avg.find('1'));
 }
 
 int main() {
-    assert(task_function(5, 5) == "101");
+    assert(solve(5, 5) == "101");
+    
     return 0;
 }
