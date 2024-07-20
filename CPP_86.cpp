@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 using namespace std;
 
 string anti_shuffle(string s){
@@ -7,17 +9,21 @@ string anti_shuffle(string s){
             result += " ";
         } else {
             string temp = "";
-            int j=i;
-            while(j < s.length() && s[j] != ' '){
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
                 temp += s[j];
-                j++;
+                i = j;
             }
             sort(temp.begin(), temp.end());
-            for(int k=0; k<temp.length(); k++){
-                result += temp[k];
-            }
-            i = j-1;
+            result += temp;
         }
     }
     return result;
+}
+
+int main(){
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << "Anti-shuffled string: " << anti_shuffle(str) << endl;
+    return 0;
 }
