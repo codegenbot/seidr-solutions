@@ -6,8 +6,8 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size();
 }
 
 vector<string> split_words(const string& txt) {
