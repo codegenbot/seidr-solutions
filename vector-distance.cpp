@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 double vectorDistance(int n, float v1[], float v2[]) {
     double sum = 0.0;
@@ -19,24 +20,13 @@ int main() {
 
     float* v1 = new float[n], *v2 = new float[n];
     for (int i = 0; i < n; i++) {
+        std::string input1, input2;
         std::cout << "Enter element " << i+1 << " of vector 1: ";
-        for (int j = 0; j < n; j++) {
-            int c;
-            while (!(c = std::cin.get()) || c != ' ');
-            v1[i] = (float)(c - '0'); 
-        }
-        char c;
-        std::cin >> c;
-        if (c != ' ') {
-            std::cerr << "Invalid input. Please enter a space between numbers." << std::endl;
-            return 1; // Exit with an error code
-        }
+        std::cin >> input1;
         std::cout << "Enter element " << i+1 << " of vector 2: ";
-        for (int j = 0; j < n; j++) {
-            int c;
-            while (!(c = std::cin.get()) || c != ' ');
-            v2[i] = (float)(c - '0'); 
-        }
+        std::cin >> input2;
+        v1[i] = std::stof(input1);
+        v2[i] = std::stof(input2);
     }
 
     double distance = vectorDistance(n, v1, v2);
