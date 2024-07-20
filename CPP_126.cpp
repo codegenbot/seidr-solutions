@@ -1,12 +1,23 @@
-bool is_sorted(vector<int> lst) {
+Here is the completed code:
+
+bool is_sorted(vector<int> lst){
+    if (lst.size() <= 1) {
+        return true;
+    }
     for (int i = 0; i < lst.size() - 1; i++) {
         if (lst[i] >= lst[i + 1]) {
-            for (int j = i + 1; j < lst.size(); j++) {
-                if (lst[j] == lst[i]) {
-                    return false;
-                }
+            return false;
+        }
+    }
+    int count = 1;
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] == lst[i - 1]) {
+            count++;
+            if (count > 2) {
+                return false;
             }
-            return true;
+        } else {
+            count = 1;
         }
     }
     return true;
