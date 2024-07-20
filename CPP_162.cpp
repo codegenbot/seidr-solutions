@@ -12,7 +12,7 @@ std::string string_to_md5(std::string text) {
     
     std::stringstream ss;
     for (int i = 0; i < 16; i++) {
-        ss << std::hex << std::setfill('0') << std::setw(2) << (int)result[i];
+        ss << std::hex << std::setfill('0') << std::fixed << std::setw(2) << (int)result[i];
     }
     
     return ss.str();
