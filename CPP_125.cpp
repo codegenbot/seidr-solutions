@@ -1,11 +1,8 @@
+#include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
-#include <cassert>
-#include <sstream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> split_words(const std::string& txt) {
@@ -19,6 +16,6 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {}));
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
