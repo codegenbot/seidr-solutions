@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -18,12 +17,13 @@ std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (const auto& word : split(s, " -")) {
+    for (const auto& word : split(s, "-")) {
         if (first) {
             result += word;
             first = false;
         } else {
-            result += toupper(word.c_str()[0]) + word.erase(0, 1);
+            std::string concatenate = ((toupper)(word[0])) + word.substr(1);
+            result += concatenate;
         }
     }
 
@@ -33,7 +33,7 @@ std::string toCamelCase(const std::string& s) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::getline(std::cin, input) >> std::ws;
     std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
