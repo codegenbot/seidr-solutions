@@ -1,21 +1,21 @@
 Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
-    vector<char> sc(c.begin(), c.end());
-    string result = "";
-    for (char ch : s) {
+    vector<char> s_vector(s.begin(), s.end());
+    for (char& ch : s_vector) {
         bool found = false;
-        for (char cch : sc) {
-            if (cch == ch) {
+        for (char cch : c) {
+            if (ch == cch) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result += ch;
+            s.erase(remove(s.begin(), s.end(), ch), s.end());
         }
     }
-    string revResult = result;
-    reverse(revResult.begin(), revResult.end());
-    return {result, (revResult == result ? "True" : "False")};
+    string result = s;
+    reverse(result.begin(), result.end());
+    vector<string> res({result, (result == s ? "True" : "False")});
+    return res;
 }
