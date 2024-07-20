@@ -17,6 +17,5 @@ int specialFilter(const std::vector<int>& nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // Add more assert statements for additional test cases
     return 0;
 }
