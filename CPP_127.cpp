@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -18,11 +17,12 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
         }
     }
 
-    return std::to_string(isPrime);
+    return isPrime ? "YES" : "NO";
 }
 
+#include <iostream>
+
 int main() {
-    // Example usage
     std::vector<int> interval1 = {1, 5};
     std::vector<int> interval2 = {3, 7};
 
