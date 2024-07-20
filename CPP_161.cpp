@@ -1,11 +1,13 @@
-string solve(string s){
+string solve(string s) {
     string res = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-        }else{
-            res+=s[i];
+    for (char c : s) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            res += c;
+        } else {
+            res += c;
         }
     }
-    return (res.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? string(res.rbegin(), res.rend()) : res;
+    reverse(res.begin(), res.end());
+    return res;
 }
