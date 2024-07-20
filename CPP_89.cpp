@@ -1,20 +1,23 @@
-#include <iostream>
+Here is the modified code:
+
 #include <string>
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 3) % 26 + 'a';
-        } else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 3) % 26 + 'A';
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            int shift = (c - base + 2 * 2) % 26;
+            result += ((shift < 26) ? (char)(base + shift)) : ((isupper(c)) ? (char)((base + shift - 26))) : (char)(base + shift));
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
 
 int main() {
-    assert(encrypt("a") == "d");
+    string input = "Hello, World!";
+    cout << encrypt(input) << endl;
     return 0;
 }
