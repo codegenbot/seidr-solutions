@@ -17,6 +17,6 @@ std::vector<std::string> issame(const std::vector<std::string>& a, const std::ve
 }
 
 int main() {
-    assert(issame({"mamma", "mia"} , {"", "True"}) == std::vector<std::string>{"", "True"});
+    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"", "True"});
     return 0;
 }
