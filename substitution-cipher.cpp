@@ -1,4 +1,3 @@
-```c++
 #include <map>
 #include <string>
 #include <iostream>
@@ -6,8 +5,10 @@
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
-    for (int j = 0; j < std::min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping.insert(std::make_pair(std::tolower(cipher_map1[j]), std::tolower(cipher_map2[j])));
+    for (int i = 0; i < cipher_map1.length(); i++) {
+        if(i < cipher_map2.length()) {
+            mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
+        }
     }
     
     std::string result = "";
