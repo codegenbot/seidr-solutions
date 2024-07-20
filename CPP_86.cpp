@@ -1,16 +1,23 @@
-string anti_shuffle(string s){
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+string anti_shuffle(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += " ";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            result += s[i];
         } else {
-            string temp = "";
-            for(int j=i; j<s.length() && s[j] != ' '; j++){
-                temp += s[j];
-                i = j;
+            string word;
+            int j = i;
+            while (j < s.size() && s[j] != ' ') {
+                word += s[j++];
             }
-            sort(temp.begin(), temp.end());
-            result += temp;
+            for (char c : word) {
+                result += (c <= 'z' && c >= 'a') ? ((int)c + 1) > 122 ? 'a' : (char)(c + 1) : (char)c;
+            }
+            i = j - 1;
         }
     }
     return result;
