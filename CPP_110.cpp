@@ -1,11 +1,13 @@
+#include <vector>
+#include <string>
+#include <assert.h>
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int even = 0;
-    for (int i : lst1) {
-        if (i % 2 == 0)
-            even++;
+    int oddCount = 0;
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            oddCount++;
+        }
     }
-    if (even == lst1.size())
-        return "YES";
-    else
-        return "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
