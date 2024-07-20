@@ -10,10 +10,7 @@ std::string solveBoolean(std::string s) {
             if (!result && s[i+1] != '|')
                 return "False";
         }
-        if (s[i] == 'T')
-            result = true;
-        if (s[i] == 'F')
-            result = false;
+        result = (s[i] == '&' ? false : true);
     }
     return result ? "True" : "False";
 }
