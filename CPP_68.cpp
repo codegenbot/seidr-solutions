@@ -19,11 +19,6 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
         return {};
     } else {
         std::sort(evenNodes.begin(), evenNodes.end());
-        return {{evenNodes[0].first, evenNodes[0].second}};
+        return {evenNodes[0]};
     }
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
 }
