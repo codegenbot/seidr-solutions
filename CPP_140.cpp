@@ -6,9 +6,9 @@ string result = "";
             if (consecutiveSpaces > 2) {
                 result.pop_back();
                 result.pop_back();
-                result += '-';
+                result += "-";
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
             consecutiveSpaces = 0;
