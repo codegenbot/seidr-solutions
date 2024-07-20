@@ -5,14 +5,21 @@ vector<string> by_length(vector<int> arr) {
             temp.push_back(i);
         }
     }
+
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
+
     vector<string> result;
-    map<int, string> numMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     for (int i : temp) {
-        if (numMap.find(i) != numMap.end()) {
-            result.push_back(numMap[i]);
+        if (i >= 1 && i <= 9) {
+            string s = to_string(i);
+            if (s.length() == 1) {
+                result.push_back("One" + s - '0');
+            } else {
+                result.push_back(to_string(i));
+            }
         }
     }
+
     return result;
 }
