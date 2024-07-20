@@ -1,13 +1,12 @@
 def solve_boolean(expression):
     stack = []
-    parsing = True
     for char in expression:
         if char in ['T', 'F']:
-            if not parsing:
-                return eval(''.join(map(str, stack)))
-            stack.append(char)
+            stack.append(char == 'T' if char in ['T', 'F'] else None)
         elif char == '|':
-            parsing = False
+            a, b = stack.pop(), stack.pop()
+            stack.append(a or b)
         elif char == '&':
-            continue
-    return eval(''.join(map(str, stack)))
+            a, b = stack.pop(), stack.pop()
+            stack.append(a and b)
+    return stack[0]
