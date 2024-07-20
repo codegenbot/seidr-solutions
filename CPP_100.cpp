@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -15,12 +15,17 @@ bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> make_a_pile(int n);
-
 std::vector<int> make_a_pile(int n){
     std::vector<int> result;
     for(int i=0; i<n; i++){
         result.push_back(8 + 2*i);
     }
     return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> pile = make_a_pile(n);
+    return 0;
 }
