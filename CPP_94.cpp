@@ -4,12 +4,12 @@ int skjkasdkd(vector<int> lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
     }
-    int sumOfDigits = 0;
+    int sum = 0;
     while(maxPrime > 0){
-        sumOfDigits += maxPrime % 10;
+        sum += maxPrime % 10;
         maxPrime /= 10;
     }
-    return sumOfDigits;
+    return sum;
 }
 
 bool isPrime(int n){
