@@ -4,9 +4,9 @@
 
 using namespace std;
 
-vector<string> vector_sort(vector<string> lst) {
+long long vector_sort(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(), 
-        [](const string& a, const string& b){return a.length() % 2 && b.length() % 2;});
+        [](const string& a, const string& b){return (a.length() + a.length()) % 2 && (b.length() + b.length()) % 2;});
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
         [](const string& a, const string& b){
@@ -14,10 +14,9 @@ vector<string> vector_sort(vector<string> lst) {
                 return a < b;
             else return a.length() < b.length();
         });
-    int sum = 0;
-    for(string s : lst) {
+    long long sum = 0;
+    for (string s : lst) {
         sum += s.length();
     }
-    cout << "Sum of the lengths: " << sum << endl;
-    return lst;
+    return sum;
 }
