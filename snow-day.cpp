@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
-#include <iomanip> 
-using std::cout;
-using std::fixed;
+#include <iomanip>
+using namespace std;
 
-double snowDay(int hours, float initialSnow, float rate, float meltRate) {
+double snowDay(int hours, double initialSnow, double rate, double meltRate) {
     double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
         snow += rate;
@@ -16,8 +14,8 @@ double snowDay(int hours, float initialSnow, float rate, float meltRate) {
 int main() {
     int hours;
     cin >> hours;
-    float initialSnow, rate, meltRate;
-    cin >> initialSnow >> rate >> meltRate;
-    cout << fixed << std::setprecision(10) << snowDay(hours, initialSnow, rate, meltRate) << endl;
+    float initialSnow, r;
+    cin >> initialSnow >> r >> meltRate;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, r, meltRate) << endl;
     return 0;
 }
