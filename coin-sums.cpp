@@ -14,8 +14,8 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
 
-    int nickles = cents / 5;
-    cents %= 5;
+    int nickles = (cents / 10) * 2; 
+    cents %= 10;
 
     int pennies = cents;
 
