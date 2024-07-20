@@ -1,26 +1,23 @@
-#include <string>
-
-std::string solveBoolean(std::string s) {
-    std::string result = "True";
-    for (int i = 0; i < s.size(); i++) {
+bool solveBoolean(std::string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            if (result == "True") {
-                if (i+1 >= s.size() || s[i+1] != '&')
-                    return "False";
-            }
+            char a = st.top();
+            st.pop();
+            char b = s[i + 1];
+            s[i] = '\0';
+            i++;
+            st.push((a == 'T' && b == 'T') ? 'T' : 'F');
         } else if (s[i] == '|') {
-            if (result == "False") {
-                if (i+1 >= s.size() || s[i+1] != '|')
-                    return "False";
-            } else {
-                result = "True";
-            }
-        } else if (s[i] == 'T' && s[i+1] == 'r' && s[i+2] == 'u' && s[i+3] == 'e') {
-            i += 3;
-            result = "True";
-        } else if (s[i] == 'F' && s[i+1] == 'a' && s[i+2] == 'l' && s[i+3] == 's' && s[i+4] == 'e') {
-            i += 4;
-            result = "False";
+            char a = st.top();
+            st.pop();
+            char b = s[i + 1];
+            s[i] = '\0';
+            i++;
+            st.push((a == 'T' || b == 'T') ? 'T' : 'F');
+        } else if (s[i] != '&') {
+            st.push(s[i]);
         }
     }
-    return result;
+    return st.top() == 'T';
+}
