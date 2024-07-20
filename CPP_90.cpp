@@ -1,4 +1,3 @@
-```cpp
 int next_smallest(vector<int> lst){
     if(lst.empty()) return NULL; 
     vector<int> v = lst;
