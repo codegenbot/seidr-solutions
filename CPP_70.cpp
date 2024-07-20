@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -34,7 +34,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
+    assert(is_same(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
 
     return 0;
 }
