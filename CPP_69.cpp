@@ -1,8 +1,12 @@
-int search(const vector<int>& lst) {
+#include <algorithm>
+#include <cassert>
+#include <vector>
+
+int search(const std::vector<int>& lst) {
     int result = -1;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            result = max(result, num);
+        if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
+            result = std::max(result, num);
         }
     }
     return result;
