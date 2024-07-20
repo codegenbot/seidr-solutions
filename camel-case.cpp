@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,16 +16,14 @@ std::string split(const std::string& s, const std::string& delimiter) {
 
 std::string toCamelCase(const std::string& s) {
     std::string result;
-
     bool first = true;
 
     for (const auto& word : split(s, " -")) {
         if (first) {
-            result += word;
+            result += std::move(word);
             first = false;
         } else {
-            result += std::move(std::string(1, toupper(word[0]))); // added std::move here
-            result += word.substr(1);
+            result += toupper(word[0]) + word.substr(1);
         }
     }
 
@@ -33,16 +32,13 @@ std::string toCamelCase(const std::string& s) {
 
 int main() {
     std::string input;
-
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-
     try {
         if(input.empty()) throw std::runtime_error("Error: Input string is empty");
         std::cout << toCamelCase(input) << std::endl;
     } catch(const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << '\n';
     }
-
     return 0;
 }
