@@ -1,27 +1,26 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
-#include <cmath>
+#include <cassert>
 
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
+using namespace std;
+
+int isPrime(int n) {
+    if (n <= 1) return 0;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return 0;
     }
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
+    return 1;
 }
 
-std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
-    int start1 = interval1.first;
-    int end1 = interval1.second;
-    int start2 = interval2.first;
-    int end2 = interval2.second;
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start1 = interval1[0];
+    int end1 = interval1[1];
+    int start2 = interval2[0];
+    int end2 = interval2[1];
 
-    int intersectionStart = std::max(start1, start2);
-    int intersectionEnd = std::min(end1, end2);
+    int intersectionStart = max(start1, start2);
+    int intersectionEnd = min(end1, end2);
 
     if (intersectionStart > intersectionEnd) {
         return "NO";
@@ -37,5 +36,6 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
