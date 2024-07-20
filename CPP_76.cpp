@@ -1,11 +1,10 @@
-#include <cmath>
-#include <cassert>
-
+```cpp
 bool is_simple_power(int x, int n) {
-    return pow(n, ceil(log(x) / log(n))) == x;
-}
-
-int main() {
-    assert(is_simple_power(1, 12));
-    return 0;
+    double log_x = log(x);
+    double log_n = log(n);
+    
+    if (fmod(log_x, log_n) == 0)
+        return true;
+    else
+        return false;
 }
