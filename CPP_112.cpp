@@ -36,10 +36,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     std::string reversedResult = result;
     std::reverse(reversedResult.begin(), reversedResult.end());
 
-    return reversedResult == "euarT";
+    return reversedResult == "euammmmia";
 }
 
 int main() {
-    assert(issame(reverse_delete({"mamma"}, {"mia"}), {"", "True"}));
+    assert(issame(reverse_delete({"mamma"}, {"mia"}), { "ammam", "mia" }));
     return 0;
 }
