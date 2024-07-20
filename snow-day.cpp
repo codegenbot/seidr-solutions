@@ -13,12 +13,18 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
 
 int main() {
     int hours;
+    cout << "Enter the number of hours: ";
     cin >> hours;
+
     float initialSnow, rateOfFall, meltRate;
-    cin >> initialSnow >> rateOfFall >> meltRate;
+    cout << "Enter initial snow: ";
+    cin >> initialSnow;
+    cout << "Enter rate of fall (in inches): ";
+    cin >> rateOfFall;
+    cout << "Enter melting rate (as a percentage): ";
+    cin >> meltRate;
 
-    double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
+    double result = snowDay(hours, initialSnow, rateOfFall / 12.0f, meltRate / 100.0f);
     cout << "Result: " << result << endl;
-
     return 0;
 }
