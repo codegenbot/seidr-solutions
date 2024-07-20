@@ -1,27 +1,26 @@
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
+Here is the completed code:
 
 string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos > 1 || dot_pos == file_name.size() - 1) {
-        return "No";
-    }
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
-    if (!before_dot.empty() && isalpha(before_dot[0])) {
-        if (digit_count > 3 || after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
-            return "No";
+    int digit_count = 0;
+    bool has_dot = false;
+    string before_dot;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (c == '.') {
+            has_dot = true;
+        } else if (!has_dot) {
+            before_dot += c;
         }
-    } else {
-        return "No";
     }
+
+    if (!before_dot.size()) return "No";
+    if (!has_dot || before_dot[0] < 'a' || before_dot[0] > 'z' && before_dot[0] < 'A' || before_dot[0] > 'Z') return "No";
+
+    string after_dot = file_name.substr(file_name.find('.') + 1);
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+
     return "Yes";
 }
