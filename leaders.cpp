@@ -4,12 +4,11 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    int last_index = n-1;
-    result.push_back(arr[last_index]);
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= arr[last_index]) {
+    int maxRight = arr[n-1];
+    for(int i=n-1; i>=0; i--) {
+        if(arr[i] >= maxRight) {
             result.push_back(arr[i]);
-            last_index = i;
+            maxRight = arr[i];
         }
     }
     return result;
