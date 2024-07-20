@@ -1,15 +1,14 @@
 #include <string>
 
-bool is_nested(std::string str); // declaration before main()
+bool is_nested(std::string str); 
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    if (is_nested(input)) {
-        std::cout << "The string is nested." << std::endl;
+    std::string str;
+    cin >> str;
+    if (is_nested(str)) {
+        cout << "The string is nested." << endl;
     } else {
-        std::cout << "The string is not nested." << std::endl;
+        cout << "The string is not nested." << endl;
     }
     return 0;
 }
@@ -28,4 +27,3 @@ bool is_nested(std::string str) {
         }
     }
     return count > 0;
-}
