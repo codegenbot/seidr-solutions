@@ -1,10 +1,13 @@
-int count = 0;
+int balance = 0;
     for (char c : str) {
         if (c == '[') {
-            count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+            balance++;
+        } else {
+            balance--;
+        }
+        if (balance >= 2) {
+            return true;
         }
     }
-    return count < str.size() && count > 0;
+    return false;
 }
