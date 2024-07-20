@@ -10,7 +10,7 @@ std::vector<int> tri(int n){
         if(i % 2 == 0){
             result[i] = 1 + i / 2;
         } else{
-            result[i] = result[i - 1] + result[i - 2] + result[i - 1];
+            result[i] = result[i - 1] + result[i - 2] + result[i + 1];
         }
     }
     return result;
@@ -22,8 +22,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main(){
     std::vector<int> tri(int n);
-
+    
     assert(issame(tri(1), {1, 3}));
-
+    
     return 0;
 }
