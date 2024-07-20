@@ -18,8 +18,8 @@ int main() {
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
     if(any_int(a, b, c)) 
-        cout << "The sum of two integers is an integer.\n";
+        cout << "The sum of the integers is an integer.\n";
     else
-        cout << "The sum of two integers is not an integer.\n";
+        cout << "The sum of the integers is not an integer.\n";
     return 0;
 }
