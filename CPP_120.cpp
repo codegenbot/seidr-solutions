@@ -1,8 +1,24 @@
+#include <vector>
+using namespace std;
+
 bool issame(vector<int> a,vector<int>b){
-    // your logic here
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
     assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
     return 0;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
+    sort(arr.begin(), arr.end());
+    for (int i = 0; i < k; i++) {
+        result.push_back(arr[arr.size() - 1 - i]);
+    }
+    return result;
 }
