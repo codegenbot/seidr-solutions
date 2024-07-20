@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 int pairedDigits(string s) {
@@ -21,4 +16,3 @@ int main() {
     cin >> input;
     cout << "The sum of the paired digits is: " << pairedDigits(input) << std::endl;
     return 0;
-}
