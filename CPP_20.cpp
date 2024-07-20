@@ -2,7 +2,7 @@
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() <= 1)
-        throw runtime_error("Vector must have at least two elements");
+        return {};
 
     float min_diff = numeric_limits<float>::max();
     pair<float, float> closest_pair;
@@ -12,7 +12,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(diff, numbers[i]), max(diff, numbers[i]));
+                closest_pair = {numbers[i], numbers[j]};
             }
         }
     }
