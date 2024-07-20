@@ -1,3 +1,5 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,27 +8,38 @@ using namespace std;
 
 string kebabToCamel(string s) {
     string result = "";
-    int i;
-    for (i = 0; i <= s.size(); i++) {
-        if (s[i] == '-') {
-            if (result.size() > 0)
-                result[result.size()-1] = toupper(result[result.size()-1]);
-            result += tolower(s.substr(i+1));
-            i++;
-        } else if (i == s.size()) {
-            char c = toupper(s[i]);
-            result += c;
-        } else {
-            result += s[i];
+    size_t pos = 0;
+    
+    while (pos < s.length()) {
+        pos = s.find('-', pos);
+        
+        if (pos == string::npos) {
+            result += toupper(s[pos]);
+            break;
         }
+        
+        for (size_t i = pos; i < pos + 1; ++i) {
+            if (s[i] != '-') {
+                result += tolower(s[i]);
+            } else {
+                break;
+            }
+        }
+        
+        if (pos != string::npos) {
+            result += toupper(s[pos + 1]);
+        }
+        
+        pos++;
     }
+    
     return result;
 }
 
 int main() {
-    string input;
+    string s;
     cout << "Enter a kebab-case string: ";
-    cin >> input;
-    cout << "CamelCase representation: " << kebabToCamel(input) << endl;
+    cin >> s;
+    cout << "CamelCase: " << kebabToCamel(s) << endl;
     return 0;
 }
