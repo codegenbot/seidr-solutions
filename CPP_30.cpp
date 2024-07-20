@@ -2,13 +2,13 @@
 #include <cassert>
 
 std::vector<float> get_positive(std::vector<float> v) {
-    std::vector<float> result;
-    for (float num : v) {
-        if (num > 0) {
-            result.push_back(num);
+    std::vector<float> positive_values;
+    for (float val : v) {
+        if (val > 0.0) {
+            positive_values.push_back(val);
         }
     }
-    return result;
+    return positive_values;
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
