@@ -1,49 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    pq.push({0, {0, 0}});
+    visited[0][0] = 1;
+
     vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                vector<int> path;
-                dfs(grid, visited, i, j, k, path);
-                res = minPath(res, path);
-            }
-        }
-    }
-    return res;
-}
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
 
-vector<int> minPath(vector<int> a, vector<int> b) {
-    int n = min(a.size(), b.size());
-    for (int i = 0; i < n; ++i) {
-        if (a[i] > b[i]) {
-            return b;
-        } else if (a[i] < b[i]) {
-            return a;
+        if (k > 0) {
+            res.push_back(val);
+            k--;
         }
-    }
-    return a.size() <= b.size() ? a : b;
-}
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
-    if (k == 0) {
-        return;
-    }
-    visited[i][j] = true;
-    path.push_back(grid[i][j]);
-    for (int x = -1; x <= 1; ++x) {
-        for (int y = -1; y <= 1; ++y) {
-            if (abs(x) + abs(y) == 1 && i + x >= 0 && j + y >= 0 && i + x < grid.size() && j + y < grid[0].size()) {
-                if (!visited[i + x][j + y]) {
-                    dfs(grid, visited, i + x, j + y, k - 1, path);
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                int nx = x + dx;
+                int ny = y + dy;
+
+                if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    visited[nx][ny] = 1;
+                    pq.push({val, {nx, ny}});
                 }
             }
         }
+
+        if (k == 0) break;
     }
-    visited[i][j] = false;
+
+    return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (int x : res) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
