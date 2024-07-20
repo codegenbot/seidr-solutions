@@ -2,19 +2,31 @@
 #include <string>
 #include <algorithm>
 
-int compare_one(int a, std::string b) {
-    if (a > stoi(b)) {
+int compareOne(int a, float b) {
+    if (a > b) {
         return a;
     }
-    else if (a < stoi(b)) {
-        return stoi(b);
+    else if (a < b) {
+        return b;
     }
     else {
-        return 0;
+        return a;
     }
 }
 
-int compare_one(float a, int b) {
+int compareOne(int a, std::string b) {
+    if (a > std::stoi(b)) {
+        return a;
+    }
+    else if (a < std::stoi(b)) {
+        return a;
+    }
+    else {
+        return a;
+    }
+}
+
+int compareOne(float a, int b) {
     if (a > b) {
         return (int)a;
     }
@@ -26,24 +38,48 @@ int compare_one(float a, int b) {
     }
 }
 
-int compare_one(std::string a, float b) {
-    if (stoi(a) > b) {
-        return stoi(a);
+int compareOne(float a, std::string b) {
+    if (std::stof(b) > a) {
+        return (int)std::stof(b);
     }
-    else if (stoi(a) < b) {
-        return (int)b;
+    else if (std::stof(b) < a) {
+        return (int)a;
     }
     else {
-        return 0;
+        return (int)a;
     }
 }
 
-int compare_one(float a, std::string b) {
-    if (a > stoi(b)) {
-        return (int)a;
+int compareOne(std::string a, int b) {
+    if (std::stoi(a) > b) {
+        return std::stoi(a);
     }
-    else if (a < stoi(b)) {
-        return stoi(b);
+    else if (std::stoi(a) < b) {
+        return b;
+    }
+    else {
+        return std::stoi(a);
+    }
+}
+
+int compareOne(std::string a, float b) {
+    if (std::stof(a) > b) {
+        return std::stoi(a);
+    }
+    else if (std::stof(a) < b) {
+        return (int)b;
+    }
+    else {
+        return std::stoi(a);
+    }
+}
+
+int compareOne(std::string a, std::string b) {
+    if (std::stoi(a) > std::stoi(b)) {
+        return std::stoi(a);
+    }
+    else if (std::stoi(a) < std::stoi(b)) {
+        return std::stoi(b);
     }
     else {
         return 0;
@@ -51,32 +87,19 @@ int compare_one(float a, std::string b) {
 }
 
 int main() {
-    int x;
-    std::string y;
-    std::cout << "Enter an integer: ";
-    std::cin >> x;
-    std::cout << "Enter a string: ";
-    std::cin >> y;
-
-    if (std::is_same<decltype(x), int>::value) {
-        if (std::is_same<decltype(y), std::string>::value) {
-            std::cout << compare_one(x, y) << std::endl;
-        }
-        else {
-            std::cout << compare_one(x, static_cast<float>(y)) << std::endl;
-        }
+    int a, b;
+    std::cout << "Enter the first number: ";
+    std::cin >> a;
+    std::cout << "Enter the second number: ";
+    std::cin >> b;
+    if (a > b) {
+        std::cout << "The larger number is " << a << ".\n";
     }
-    else if (std::is_same<decltype(x), float>::value) {
-        if (std::is_same<decltype(y), int>::value) {
-            std::cout << compare_one(x, y) << std::endl;
-        }
-        else {
-            std::cout << "Invalid input" << std::endl;
-        }
+    else if (a < b) {
+        std::cout << "The larger number is " << b << ".\n";
     }
     else {
-        std::cout << "Invalid input" << std::endl;
+        std::cout << "Both numbers are the same.\n";
     }
-
     return 0;
 }
