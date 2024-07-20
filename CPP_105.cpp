@@ -6,7 +6,11 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr){
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> by_length(vector<int> arr) {
     vector<int> filtered_arr;
     vector<string> result;
     map<int, string> num_map = {
@@ -18,9 +22,7 @@ vector<string> by_length(vector<int> arr){
             filtered_arr.push_back(num);
     }
 
-    sort(filtered_arr.begin(), filtered_arr.end());
-
-    reverse(filtered_arr.begin(), filtered_arr.end());
+    sort(filtered_arr.begin(), filtered_arr.end(), greater<int>());
 
     for (int num : filtered_arr) {
         result.push_back(num_map[num]);
@@ -29,12 +31,8 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
+int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    cout << "Test Passed!";
+    
     return 0;
 }
