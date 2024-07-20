@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <string>
+#include <limits>
 
 std::string spinWords(std::string str) {
     std::string result;
@@ -25,8 +27,11 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
-    while(getline(std::cin, std::string(str))) {
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::cin >> str;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
         if (str == "exit") break;
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
