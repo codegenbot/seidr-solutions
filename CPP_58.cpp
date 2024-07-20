@@ -16,10 +16,10 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
 
 int main() {
     auto issame = [](const vector<int>& a, const vector<int>& b) {
-          return a == b;
+        return a == b;
     };
-    
+
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    
+
     return 0;
 }
