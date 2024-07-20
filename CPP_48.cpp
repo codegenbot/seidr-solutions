@@ -1,15 +1,7 @@
-```c++
-bool is_palindrome(string text) {
-    int left = 0;
-    int right = text.size() - 1;
-
-    while (left < right) {
-        if (text[left] != text[right]) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-
-    return true;
+```cpp
+int length = text.length();
+for(int i = 0; i < length/2; i++){
+    if(text[i] != text[length - i - 1])
+        return false;
 }
+return true;
