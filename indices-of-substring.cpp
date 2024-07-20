@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -21,7 +19,7 @@ int main() {
     cin >> n;
     string text;
     getline(cin, text);
-    vector<int> result = findIndices(text.substr(0, n), string(1, (char)0)); // fix this line
+    vector<int> result = findIndices(text, text.substr(0, n));
     for (int i : result) {
         cout << i << " ";
     }
