@@ -26,7 +26,7 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    getline(cin, ws) >> a >> b;
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
