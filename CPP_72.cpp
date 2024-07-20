@@ -1,17 +1,16 @@
-#include <algorithm>
-#include <numeric>
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     
-    if (str != reverse(str).s) {
+    if (str != std::string(str.rbegin(), str.rend())) {
         return false;
-    } else if (accumulate(q.begin(), q.end(), 0) > w) {
+    } else if (std::accumulate(q.begin(), q.end(), 0) > w) {
         return false;
     }
     
@@ -19,5 +18,5 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
+    assert(will_it_fly({5}, 5) == true);
 }
