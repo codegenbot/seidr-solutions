@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -14,14 +13,11 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
-    cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
+    // Test case 1: 
+    cout << any_int(3.01, 4, 7) << endl; 
 
-    if(any_int(a, b, c))
-        cout << "The sum of integers is equal to the integer value." << endl;
-    else
-        cout << "The sum of integers is not equal to the integer value." << endl;
+    // Test case 2:
+    cout << any_int(0.5, 0.5, 0.5) << endl;
 
     return 0;
 }
