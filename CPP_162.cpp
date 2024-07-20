@@ -1,5 +1,5 @@
 #include <openssl/md5.h>
-#include <string>
+#include <openssl/err.h>
 
 using namespace std;
 
@@ -22,4 +22,10 @@ string string_to_md5(string text) {
     }
 
     return md5;
+
+}
+
+int main() {
+    // Your code that calls string_to_md5()
+    return 0;
 }
