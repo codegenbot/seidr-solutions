@@ -1,14 +1,21 @@
 def solve_boolean(expression):
     stack = []
     for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '&':
-            first, second = stack.pop() if stack else None, stack.pop() if stack else None
-            stack.append(first and second) if first is not None and second is not None else False
-        elif char == '|':
-            first, second = stack.pop() if stack else None, stack.pop() if stack else None
-            stack.append(first or second) if first is not None and second is not None else False
-    return stack[-1]
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack[-1] != '(':
+                first, second = stack.pop(), stack.pop()
+                stack.append(not (not first and not second))
+            stack.pop()  # Remove the '('
+        elif char in ['&', '|']:
+            while len(stack) > 0 and stack[-1] in ['&', '|']:
+                if stack[-1] == '&':
+                    first, second = stack.pop(), stack.pop()
+                    stack.append(first and second)
+                else:
+                    first, second = stack.pop(), stack.pop()
+                    stack.append(not (not first or not second))
+            stack.append(char)
+        elif char in ['T', 'F']:
+            stack.append(char == 'T')
