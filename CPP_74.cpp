@@ -12,6 +12,6 @@ bool total_match(const std::vector<std::string>& a, const std::vector<std::strin
 }
 
 int main() {
-    assert(issame({"this"}, {}) == false);
+    assert(!issame({"this"}, {}));
     return 0;
 }
