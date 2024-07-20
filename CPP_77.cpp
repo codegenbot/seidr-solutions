@@ -1,12 +1,21 @@
-Here is the completed code:
+// Check if a number is a cube of an integer.
+#include <cmath>
+#include <iostream>
 
 bool iscuber(int a){
-    int i = 1;
-    while (pow(i, 3) <= a) {
-        if (pow(i, 3) == a) {
-            return true;
-        }
-        i++;
+    int c = (int)cbrt(a);
+    return a == pow(c, 3);
+}
+
+int main() {
+    int num;
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+
+    if(iscuber(num)) {
+        std::cout << num << " is a cube of an integer." << std::endl;
+    } else {
+        std::cout << num << " is not a cube of an integer." << std::endl;
     }
-    return false;
+    return 0;
 }
