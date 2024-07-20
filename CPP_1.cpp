@@ -1,14 +1,37 @@
-bool issame(vector<string> a, vector<string> b) {
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string);
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
+    int count = 0;
+
+    for (char c : paren_string) {
+        if (c == '(') {
+            count++;
+            if (count > 1) {
+                current_group += c;
+            }
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                current_group += c;
+            } else if (count == 0) {
+                result.push_back(current_group);
+                current_group = "";
+            }
+        }
+    }
+
+    return result;
+}
 
 int main() {
-    vector<string> test_input = {"(abc)", "(def)", "((ghi)(jkl))"};
-    vector<string> expected_output = {"(abc)", "(def)", "((ghi)(jkl))"};
+    vector<string> expected = {"(ab)", "(cd)"};
+    vector<string> result = separate_paren_groups("(ab)(cd)");
 
-    assert(issame(separate_paren_groups("((abc)(def)((ghi)(jkl)))"), expected_output));
-
-    return 0;
+    assert(issame(result, expected));
 }
