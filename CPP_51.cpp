@@ -1,7 +1,7 @@
-```cpp
-string str = "";
+string str;
 for (char c : text) {
-    if (!strchr("aeiouAEIOU", tolower(c)))
+    if (!strchr("aeiouAEIOU", c)) {
         str += c;
+    }
 }
-return str;```
+return str;
