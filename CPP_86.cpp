@@ -23,7 +23,7 @@ std::string anti_shuffle(std::string s) {
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    std::getline(std::cin, str);
     std::cout << "Anti-shuffled string: " << anti_shuffle(str) << std::endl;
     return 0;
 }
