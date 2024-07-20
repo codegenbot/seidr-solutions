@@ -1,27 +1,34 @@
-#include <iostream>
-#include <string>
+Here is the completed code:
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (c == '-') {
-            result += c + c;
-        } else if (c == ' ') {
-            result += c;
-        } else {
-            if (!result.empty()) {
-                result[0] -= 32; // convert to uppercase
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
             }
-            result += c;
+            if (result != "") {
+                result += char(toupper(s[i]));
+            } else {
+                result = toupper(s[i]) + "";
+            }
+        } else if (s[i] == ' ') {
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            if (result != "") {
+                result += char(toupper(s[i]));
+            } else {
+                result = toupper(s[i]) + "";
+            }
+        } else {
+            if (result != "") {
+                result += tolower(s[i]);
+            } else {
+                result = tolower(s[i]) + "";
+            }
         }
     }
     return result;
-}
-
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
-    return 0;
 }
