@@ -1,9 +1,7 @@
-print("Please enter a string in kebab-case: ")
-s = input()
-
+```
+s = input("Please enter a string in kebab-case: ")
 def camel_case(s):
     words = s.split("-")
-    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(words))
+    return ''.join(word.capitalize() if i > 0 else word.lower()) for i, word in enumerate(words))]
 
-result = camel_case(s)
-print(result.strip())
+print(camel_case(s).strip())
