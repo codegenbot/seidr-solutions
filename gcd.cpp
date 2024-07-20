@@ -1,7 +1,7 @@
+````
 #include <vector>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
@@ -35,3 +35,4 @@ int main() {
     for (int i : result)
         std::cout << i << " ";
     return 0;
+}
