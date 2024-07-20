@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -11,7 +8,7 @@ int main() {
     int remaining2 = remaining % 10;
     int pennies = remaining2_;
     int nickles = (remaining2_ - pennies) / 5;
-
+    
     cout << quarters << endl;
     cout << nickles << endl;
     cout << dimes << endl;
