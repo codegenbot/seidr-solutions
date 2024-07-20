@@ -1,14 +1,13 @@
 vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
-        int n = num;
-        while (n > 0) {
-            int digit = n % 10;
-            if (digit % 2 == 0) {
+        int tmp = num;
+        while (tmp > 0) {
+            if ((tmp % 10) % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
-            n /= 10;
+            tmp /= 10;
         }
         if (!hasEvenDigit) {
             result.push_back(num);
