@@ -13,7 +13,7 @@ std::string calculateBinaryAverage(int n, int m) {
         sum += i;
     }
     
-    int result = sum / (m - n + 1);
+    int result = std::round((double)sum / (m - n + 1));
     
     std::string binary_avg = "";
     while (result > 0) {
@@ -24,8 +24,4 @@ std::string calculateBinaryAverage(int n, int m) {
     return binary_avg;
 }
 
-int main() {
-    assert(calculateBinaryAverage(5, 5) == "101");
-    
-    return 0;
-}
+assert(calculateBinaryAverage(5, 5) == "101");
