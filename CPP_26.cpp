@@ -18,11 +18,11 @@ int main() {
     std::vector<int> numbers = {1, 2, 2, 3, 4, 4, 5};
     std::vector<int> unique_numbers = remove_duplicates(numbers);
 
-    assert(unique_numbers.size() == 4);
-    assert(unique_numbers[0] == 1);
-    assert(unique_numbers[1] == 3);
-    assert(unique_numbers[2] == 4);
-    assert(unique_numbers[3] == 5);
+    assert(issame(unique_numbers.size(), 4));
+    assert(issame(unique_numbers[0], 1));
+    assert(issame(unique_numbers[1], 3));
+    assert(issame(unique_numbers[2], 4));
+    assert(issame(unique_numbers[3], 5));
 
     for (int num : unique_numbers) {
         std::cout << num << " ";
