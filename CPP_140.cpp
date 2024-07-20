@@ -23,10 +23,4 @@ std::string fix_spaces(std::string text) {
     return result;
 } 
 
-int main() {
-    std::string text;
-    std::getline(std::cin, text);
-    std::cout << fix_spaces(text) << std::endl;
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    return 0;
-}
+assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
