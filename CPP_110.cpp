@@ -1,3 +1,4 @@
+#include <vector>
 #include <string>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
@@ -7,5 +8,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return to_string(oddCount == 0);
+    return oddCount == 0 ? "YES" : "NO";
 }
