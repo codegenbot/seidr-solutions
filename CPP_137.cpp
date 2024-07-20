@@ -2,34 +2,80 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-string compare_one(string a, int b) {
-    if (a > to_string(b)) {
+int compare_one(int a, std::string b) {
+    if (a > stoi(b)) {
         return a;
     }
-    else if (a < to_string(b)) {
-        return to_string(b);
+    else if (a < stoi(b)) {
+        return stoi(b);
     }
     else {
-        return "None";
+        return 0;
+    }
+}
+
+int compare_one(float a, int b) {
+    if (a > b) {
+        return (int)a;
+    }
+    else if (a < b) {
+        return b;
+    }
+    else {
+        return (int)a;
+    }
+}
+
+int compare_one(std::string a, float b) {
+    if (stoi(a) > b) {
+        return stoi(a);
+    }
+    else if (stoi(a) < b) {
+        return (int)b;
+    }
+    else {
+        return 0;
+    }
+}
+
+int compare_one(float a, std::string b) {
+    if (a > stoi(b)) {
+        return (int)a;
+    }
+    else if (a < stoi(b)) {
+        return stoi(b);
+    }
+    else {
+        return 0;
     }
 }
 
 int main() {
-    string input1, input2;
-    cout << "Enter the first value: ";
-    cin >> input1;
-    cout << "Enter the second value: ";
-    cin >> input2;
+    int x;
+    std::string y;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << "Enter a string: ";
+    std::cin >> y;
 
-    if (input2.length() > 0 && isdigit(input2[0])) {
-        int b = stoi(input2);
-        string output = compare_one(input1, b);
-        cout << output << endl;
+    if (std::is_same<decltype(x), int>::value) {
+        if (std::is_same<decltype(y), std::string>::value) {
+            std::cout << compare_one(x, y) << std::endl;
+        }
+        else {
+            std::cout << compare_one(x, static_cast<float>(y)) << std::endl;
+        }
+    }
+    else if (std::is_same<decltype(x), float>::value) {
+        if (std::is_same<decltype(y), int>::value) {
+            std::cout << compare_one(x, y) << std::endl;
+        }
+        else {
+            std::cout << "Invalid input" << std::endl;
+        }
     }
     else {
-        cout << "Invalid second value. Please enter an integer." << endl;
+        std::cout << "Invalid input" << std::endl;
     }
 
     return 0;
