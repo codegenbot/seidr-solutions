@@ -14,7 +14,8 @@ int main() {
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
     
-    assert(issame(l, {0, 2, 3, 5, 9, 123}));
+    vector<int> expected = {0, 2, 3, 5, 9, 123};
+    assert(issame(l, expected));
     
     return 0;
 }
