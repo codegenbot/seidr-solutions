@@ -1,17 +1,30 @@
-bool is_nested(const std::string& str) {
-    int stack_size = 0;
-    for (typename auto c : str) { 
-        if (c == '[') {
-            stack_size++;
-        } else if (c == ']') {
-            if (stack_size <= 0)
-                return false;
-            stack_size--;
-        }
-    }
-    return stack_size > 0;
-}
+#include <string>
+
+bool is_nested(std::string); // Function declaration before its definition
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    if (is_nested(str)) {
+        cout << "The string is nested." << endl;
+    } else {
+        cout << "The string is not nested." << endl;
+    }
+}
+
+bool is_nested(std::string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
+            }
+        }
+    }
+    return count > 0;
 }
