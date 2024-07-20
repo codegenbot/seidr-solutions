@@ -1,10 +1,10 @@
-int factor = 2;
-    while (n > factor) {
-        if (n % factor == 0) {
-            n /= factor;
+int i = 2;
+    while (i * i <= n) {
+        if (n % i == 0) {
+            n /= i;
         } else {
-            factor++;
+            i++;
         }
     }
-    return factor;
+    return n;
 }
