@@ -24,4 +24,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     return result;
-}
