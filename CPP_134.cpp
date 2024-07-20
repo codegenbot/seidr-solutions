@@ -1,5 +1,5 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string last_char = txt.substr(txt.length() - 1);
-    return !isspace(last_char[0]) && isalpha(last_char[0]);
-}
+size_t pos = txt.find_last_of(" ");
+if (pos == string::npos) return false;
+
+string last_part = txt.substr(pos + 1);
+return isalpha(last_part.back());
