@@ -4,10 +4,10 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-void custom_sort(std::vector<int>& arr) {
+void sort_array(std::vector<int>&& arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
@@ -17,7 +17,7 @@ void custom_sort(std::vector<int>& arr) {
 
 int main() {
     std::vector<int> arr = {2, 4, 8, 16, 32};
-    custom_sort(arr);
+    sort_array(std::move(arr));
     assert(issame(arr, {2, 4, 8, 16, 32}));
     
     return 0;
