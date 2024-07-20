@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 #include <cmath>
 
 int specialFilter(std::vector<int> nums){
@@ -16,10 +16,8 @@ int specialFilter(std::vector<int> nums){
     return count;
 }
 
-int main(){
-    // Test cases
+int main() {
     assert(specialFilter({}) == 0);
-    // Add more test cases as needed
-
+    // Add more test cases if needed
     return 0;
 }
