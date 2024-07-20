@@ -16,14 +16,3 @@ std::string string_to_md5(const std::string& text) {
 
     return std::string(md5_hash);
 }
-
-// Test the function
-std::string expected_md5 = "5f4dcc3b5aa765d61d8327deb882cf99";
-std::string input_text = "password";
-std::string calculated_md5 = string_to_md5(input_text);
-
-if (calculated_md5 == expected_md5) {
-    return "Function works correctly!";
-} else {
-    return "Function does not produce correct MD5 hash for 'password'";
-}
