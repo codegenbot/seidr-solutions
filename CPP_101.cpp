@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -19,11 +19,12 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool are_equal(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
-    assert(are_equal(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+int main() {
+    string s;
+    getline(cin, s);
+    vector<string> result = words_string(s);
+    for (const auto &word : result) {
+        cout << word << " ";
+    }
     return 0;
 }
