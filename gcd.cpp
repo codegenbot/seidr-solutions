@@ -1,30 +1,31 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
-    
-    while (start < text.length()) {
-        size_t found = text.find(target, start);
-        
-        if (found != string::npos) {
-            indices.push_back(found);
-            start = found + target.length();
-        } else {
-            break;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
         }
     }
-    
-    return indices;
+
+    return result;
 }
 
+// Function to calculate the greatest common divisor of two numbers
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
