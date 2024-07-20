@@ -1,4 +1,4 @@
-#include <iostream>
+#include <vector>
 #include <cassert>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
@@ -9,7 +9,7 @@ std::pair<int, int> eat(int number, int need, int remaining) {
 }
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
-    return a == b;
+    return a.first == b.first && a.second == b.second;
 }
 
 int main() {
