@@ -1,7 +1,9 @@
 #include <any>
 #include <string>
+#include <cassert>
 
-std::any* compare_one(const std::any& a, const std::any& b) {
+template<typename T>
+auto compare_one(const T& a, const T& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
             return &a;
@@ -22,4 +24,9 @@ std::any* compare_one(const std::any& a, const std::any& b) {
         }
     }
     return nullptr;
+}
+
+int main() {
+    assert (std::any_cast<std::string>(*compare_one(std::string("1"), std::string("1")) == "None");
+    return 0;
 }
