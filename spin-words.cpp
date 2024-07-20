@@ -21,7 +21,7 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             wordLen = temp.length();
             if (wordLen >= 5) {
-                temp = temp.substr(1) + temp[0];
+                temp = temp.substr(rev(temp));
             }
             result += temp + " ";
             temp = "";
@@ -34,6 +34,5 @@ string spinWords(string str) {
 }
 
 int main() {
-    // Your code here
     return 0;
 }
