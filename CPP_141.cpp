@@ -1,30 +1,27 @@
-bool has_digits(const string& s) {
-    for (char c : s) {
-        if (isdigit(c)) return true;
-    }
-    return false;
-}
+Here is the completed code:
 
-string file_name_check(string file_name) {
-    int dot_count = 0;
-    bool starts_with_letter = false;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
 
-    for (int i = 0; i < file_name.length(); i++) {
-        char c = file_name[i];
-        if (c == '.') {
-            dot_count++;
-        } else if (!starts_with_letter && isalpha(c)) {
-            starts_with_letter = true;
-        } else if (isdigit(c) || has_digits(file_name.substr(i))) {
+    for(int i = 0; i < file_name.size(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+        }
+        else if(file_name[i] == '.'){
+            has_dot = true;
+        }
+        else if(i > 0 && !isalpha(file_name[i-1]) && !has_dot){
             return "No";
         }
     }
 
-    if (dot_count != 1) return "No";
-    int pos = file_name.find('.');
-    string ext = file_name.substr(pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), ext) == valid_extensions.end()) {
+    if(digit_count > 3 || !has_dot){
+        return "No";
+    }
+
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
 
