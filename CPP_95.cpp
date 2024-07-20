@@ -7,16 +7,16 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
+        string key = pair.first;
+        if (!allLower && !allUpper)
             break;
-        } else if (allLower && isupper(pair.first[0])) {
-            allLower = false;
-        } else if (allUpper && islower(pair.first[0])) {
-            allUpper = false;
+        if (!allLower) {
+            allLower = all(std::begin(key), std::end(key), ::tolower);
+        }
+        if (!allUpper) {
+            allUpper = all(std::begin(key), std::end(key), ::toupper);
         }
     }
 
-    return allLower || allUpper;
+    return allLower && !allUpper || !allLower && allUpper;
 }
