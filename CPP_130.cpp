@@ -1,37 +1,22 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+bool issame(const std::vector<int> &a, const std::vector<int> &b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<int> tri(int n) {
-    vector<int> result;
-    if (n >= 0) {
-        result.push_back(3);
-        if (n > 0) {
-            result.push_back(1);
-            for (int i = 2; i <= n; ++i) {
-                if (i % 2 == 0) {
-                    result.push_back(1 + i / 2);
-                } else {
-                    result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
-                }
-            }
-        }
-    }
-    return result;
+std::vector<int> yourFunctionName(int n){
+    std::vector<int> tri(n, 0); // Define tri array with size n initialized to 0
+    return tri;
 }
 
-int main() {
-    assert(issame(tri(1), {1, 3}));
+int main(){
+    int n = 2; // Set appropriate value for n
+    std::vector<int> tri = yourFunctionName(n); // Call your function with appropriate parameter
+    assert(issame(tri, {1, 3})); // Check if the result is as expected
     return 0;
 }
