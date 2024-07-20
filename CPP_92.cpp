@@ -5,5 +5,8 @@ bool any_int(float a, float b, float c) {
     int bi = (int)b;
     int ci = (int)c;
 
-    return (ai == ai + bi + ci) || (bi == bi + ai + ci) || (ci == ci + ai + bi);
+    if (ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == bi + ci)
+        return true;
+    else
+        return false;
 }
