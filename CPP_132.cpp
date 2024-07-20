@@ -8,12 +8,10 @@ int main() {
     cin >> input;
     
     if (is_nested(input)) {
-        cout << "The string is nested.\n";
+        cout << "The string is nested." << endl;
     } else {
-        cout << "The string is not nested.\n";
+        cout << "The string is not nested." << endl;
     }
-    
-    return 0;
 }
 
 bool is_nested(std::string str) {
