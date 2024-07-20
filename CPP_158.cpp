@@ -1,9 +1,18 @@
 string find_max(vector<string> words){
-    string max_word = *min_element(words.begin(), words.end());
-    for(string word : words){
-        if(count(word.begin(), word.end, [](char c){return count(c,c)|c-'a'+1<=26;}) > count(max_word.begin(),max_word.end(),[](char c){return count(c,c)|c-'a'+1<=26;}) ){
-            max_word = word;
+    string result;
+    int maxUnique = 0;
+
+    for (const auto& word : words) {
+        set<char> uniqueChars(word.begin(), word.end());
+        if (uniqueChars.size() > maxUnique) {
+            maxUnique = uniqueChars.size();
+            result = word;
+        } else if (uniqueChars.size() == maxUnique) {
+            if (word < result) {
+                result = word;
+            }
         }
     }
-    return max_word;
+
+    return result;
 }
