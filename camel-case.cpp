@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string s) {
     std::string result;
     bool first = true;
@@ -11,28 +8,15 @@ std::string camelCase(std::string s) {
                 result += char(toupper(c));
             }
             first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result += char(toupper(c));
-            }
-            first = true;
         } else {
             if (first) {
                 result += c;
             } else {
                 result += char(tolower(c));
             }
-            first = false;
+            first = !first;
         }
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
-    }
-    return 0;
 }

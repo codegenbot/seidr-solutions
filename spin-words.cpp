@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -5,34 +6,21 @@ std::string spinWords(std::string str) {
     std::string result;
     int length = 0;
 
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length()) {
-            if (length >= 5) {
-                std::string temp;
-                for (int j = length - 1; j >= 0; j--) {
-                    temp += str[i - j - 1];
-                }
-                result += temp + " ";
-            } else {
-                result += str.substr(i - length, length) + " ";
-            }
-        } else if (str[i] == ' ') {
-            if (length >= 5) {
-                std::string temp;
-                for (int j = length - 1; j >= 0; j--) {
-                    temp += str[i - j - 1];
-                }
-                result += temp + " ";
-            } else {
-                result += str.substr(i - length, length) + " ";
-            }
+    for (int i = str.length() - 1; i >= 0; i--) {
+        if (str[i] == ' ') {
+            result += ' ';
             length = 0;
         } else {
             length++;
+            if (length >= 5) {
+                result += str[i];
+            } else {
+                result += str[i];
+            }
         }
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
