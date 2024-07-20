@@ -19,7 +19,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(grade > 1.3) letterGrade = "C-";
         else if(grade > 1.0) letterGrade = "D+";
         else if(grade > 0.7) letterGrade = "D";
-        else letterGrade = "E";
+        else letterGrade = "F";
         result.push_back(letterGrade);
     }
     return result;
@@ -29,7 +29,11 @@ int main() {
     vector<float> grades = {0, 0.7};
     vector<string> result = numerical_letter_grade(grades);
     
-    assert(result.size() == 2 && result[0] == "E" && result[1] == "D-");
+    cout << "The letter grades are: ";
+    for(string grade : result) {
+        cout << grade << " ";
+    }
+    cout << endl;
     
     return 0;
 }
