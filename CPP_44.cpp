@@ -1,6 +1,17 @@
-#include <cassert>
+#include <iostream>
 #include <string>
+#include <cassert>
 
+// Function prototype declaration
 std::string change_base(int num, int base);
 
-assert(change_base(x, x + 1) == std::to_string(x));
+int main() {
+    int x = 10;
+    assert(change_base(x, x + 1) == std::to_string(x));
+    return 0;
+}
+
+// Function definition
+std::string change_base(int num, int base) {
+    return std::to_string(num); // Convert 'num' to a string using std::to_string
+}
