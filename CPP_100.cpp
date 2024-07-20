@@ -1,7 +1,16 @@
+Here is the solution:
+
 vector<int> make_a_pile(int n) {
-    vector<int> pile(1);
-    for (int i = 1; i < n; i++) {
-        pile.push_back((pile[i-1] % 2 == 0 ? pile[i-1] + 1 : pile[i-1] - 1));
+    vector<int> pile;
+    int current = 1;
+    for (int i = 0; i < n; ++i) {
+        if ((n & 1) == 1) { // n is odd
+            pile.push_back(current);
+            current += 2;
+        } else { // n is even
+            pile.push_back(current);
+            current += 1;
+        }
     }
     return pile;
 }
