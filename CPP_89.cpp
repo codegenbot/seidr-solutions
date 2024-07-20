@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <string>
 
 string encrypt(string s) {
@@ -17,9 +15,7 @@ string encrypt(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Encrypted string: " << encrypt(s) << endl;
+    string input = "Hello, World!";
+    cout << "Encrypted text: " << encrypt(input) << endl;
     return 0;
 }
