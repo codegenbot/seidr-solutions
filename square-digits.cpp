@@ -1,19 +1,12 @@
 #include <string>
 using namespace std;
 
-string squareDigits(string input) {
+int main() {
     string output = "";
-    for (char c : input) {
+    for (char c : "123") { 
         int digit = c - '0';
         output += to_string(digit * digit);
     }
-    return output;
-}
-
-int main() {
-    string input;
-    cout << "Enter an integer: ";
-    cin >> input;
-    cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
+    cout << output << endl; 
     return 0;
 }
