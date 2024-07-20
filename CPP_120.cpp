@@ -1,8 +1,8 @@
 #include <vector>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> customSort(vector<int> arr, int k) {
     std::vector<int> result;
-    std::sort(arr.begin(), arr.end());
+    sort(arr.begin(), arr.end());
     for (int i = 0; i < k; i++) {
         result.push_back(arr[arr.size() - 1 - i]);
     }
