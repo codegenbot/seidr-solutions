@@ -1,11 +1,18 @@
-vector<int> maximum(vector<int> myArr, int k) {
+#include <vector>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
-    if (k > myArr.size()) {
+    if (k > arr.size()) {
         return {};
     }
-    sort(myArr.begin(), myArr.end());
-    for (int i = myArr.size() - 1; i >= myArr.size() - k; --i) {
-        result.push_back(myArr[i]);
+    sort(arr.begin(), arr.end());
+    for (int i = arr.size() - 1; i >= arr.size() - k; --i) {
+        result.push_back(arr[i]);
     }
     return result;
 }
