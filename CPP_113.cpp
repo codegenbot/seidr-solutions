@@ -14,12 +14,21 @@ vector<string> odd_count(vector<string> lst){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
     vector<string> input = {"12345", "67890"};
+    vector<string> expected_output = {"the number of odd elements 3\n the string 12345 of the input.", "the number of odd elements 2\n the string 67890 of the input."};
     vector<string> output = odd_count(input);
-    assert(issame(output, {"the number of odd elements 3\n the string 12345 of the input.", "the number of odd elements 2\n the string 67890 of the input."}));
+    assert(issame(output, expected_output));
     return 0;
 }
