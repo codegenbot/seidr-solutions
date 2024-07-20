@@ -1,26 +1,25 @@
-#include <string> // Include the string header
+#include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b); // Correct function signature
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int total_chars_lst1 = 0, total_chars_lst2 = 0;
-
-    for (const string& str : lst1) {
-        total_chars_lst1 += str.length();
+bool issame(const vector<string>& a, const vector<string>& b){
+    vector<string> total_match;
+    int total_chars1 = 0;
+    int total_chars2 = 0;
+    
+    for (const string& str : a) {
+        total_chars1 += str.size();
     }
-
-    for (const string& str : lst2) {
-        total_chars_lst2 += str.length();
+    
+    for (const string& str : b) {
+        total_chars2 += str.size();
     }
-
-    if (total_chars_lst1 < total_chars_lst2) {
-        return lst1;
+    
+    if (total_chars1 < total_chars2) {
+        return a;
     } else {
-        return lst2;
+        return b;
     }
 }
 
-int main() {
-    assert(issame(total_match({"this"}, {}), {})); // Ensure total_match is declared before it's used
-    return 0;
-}
+assert(issame(total_match({"this"}, {}), {}) == true);
