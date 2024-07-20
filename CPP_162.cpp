@@ -1,38 +1,31 @@
-#include<string>
-#include<openssl/evp.h>
+#include <string>
+#include <openssl/md5.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char buffer[1024];
-    unsigned int len = text.length();
-    MD5_CTX mdContext;
-    MD5Init(&mdContext);
-    const char *pText = text.c_str();
-    size_t i = 0;
-
-    while (i < len) {
-        size_t n = len - i;
-        if (n > sizeof(buffer) / sizeof(buffer[0])) {
-            n = sizeof(buffer) / sizeof(buffer[0]);
-        }
-        memcpy(buffer, &pText[i], n);
-        MD5Update(&mdContext, buffer, n);
-        i += n;
+    if (text.empty()) {
+        return "";
     }
 
-    unsigned char digest[16];
-    MD5Final(digest, &mdContext);
+    unsigned char md5[16];
+    MD5_CTX md5ctx;
+    MD5_Init(&md5ctx);
+    const char* txt = text.c_str();
+    size_t len = text.size();
+    unsigned char buf[1024];
 
-    string result;
-
-    for (size_t i = 0; i < 16; ++i) {
-        char buff[3];
-        sprintf(buff, "%02x", (int)digest[i]);
-        result.append(string(buff));
+    for (size_t i = 0; i < len; i += 1024) {
+        size_t remaining = min(len - i, 1024);
+        memcpy(buf, &txt[i], remaining);
+        MD5_Update(&md5ctx, buf, remaining);
     }
 
-    return result;
+    MD5_Final(md5, &md5ctx);
+
+    ostringstream oss;
+    for (int i = 0; i < 16; ++i) {
+        oss << setfill('0') << setw(2) << hex << (int)md5[i];
+    }
+    return oss.str();
 }
