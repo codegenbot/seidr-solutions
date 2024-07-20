@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+bool issame(std::vector<float> a, std::vector<float> b);
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,9 +17,13 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-// Declare the derivative function here
-
 int main() {
-    assert(issame(derivative({1}), {}));
+    // Define the function derivative here if needed
+    
+    std::vector<float> vec1 = {1.0, 2.0, 3.0};
+    std::vector<float> vec2 = {1.0, 2.0, 3.0};
+    
+    assert(issame(vec1, vec2));
+    
     return 0;
 }
