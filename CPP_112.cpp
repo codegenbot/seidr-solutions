@@ -1,22 +1,12 @@
-#include <iostream>
 #include <string>
-#include <vector>
 #include <algorithm>
-#include <cassert>
 
-std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
-    std::string s = a[0] + b[0];
-    std::string c = a[1] + b[1];
+bool issame(std::string a, std::string b) {
     std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
+    for (char ch : a) {
+        if (b.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    return {result, result == std::string(result.rbegin(), result.rend()) ? "True" : "False"};
-}
-
-int main() {
-    assert(issame({"mamma", "mia"} , {"", "True"}) == std::vector<std::string>{"", "True"});
-    return 0;
+    return result == std::string(result.rbegin(), result.rend());
 }
