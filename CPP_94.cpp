@@ -33,7 +33,6 @@ bool isPrime(int num) {
 }
 
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst);
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
