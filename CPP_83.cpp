@@ -11,11 +11,12 @@ int starts_one_ends(int n) {
         }
         if (n > 1) {
             int num = i;
-            while (--n) {
+            while (num < 10 * n) {
                 num *= 10;
-            }
-            if ((num % 10) == 1) {
-                count++;
+                if ((num % 10) == 1) {
+                    count++;
+                }
+                num++;
             }
         }
     }
