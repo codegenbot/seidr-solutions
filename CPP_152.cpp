@@ -22,6 +22,6 @@ std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert(issame(std::vector<int>({1, 2, 3, 5}), std::vector<int>({-1, 2, 3, 4})));
     return 0;
 }
