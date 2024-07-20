@@ -1,1 +1,3 @@
-cipher_map = {c: d for c, d in zip(cipher1, cipher2)}
+cipher_map = { }
+for i in range(len(cipher1)):
+    cipher_map[cipher1[i]] = cipher2[i]
