@@ -1,8 +1,9 @@
-long long sum = 0;
-    for (auto num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
+long long double_the_difference(vector<float> lst){
+    long long sum = 0;
+    for (int i = 0; i < lst.size(); i++) {
+        if (lst[i] > 0 && fmod(lst[i], 1) == 0 && (int)lst[i] % 2 != 0) {
+            sum += pow(lst[i], 2);
         }
     }
-    return sum;
+    return sum * 2;
 }
