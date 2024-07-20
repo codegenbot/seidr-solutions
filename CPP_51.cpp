@@ -1,12 +1,8 @@
-```cpp
-string::iterator it = text.begin();
-while(it != text.end()) {
-    if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u' ||
-        tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || 
-        tolower(*it) == 'o' || tolower(*it) == 'u') {
-        text.erase(it);
-    } else {
-        ++it;
+string str;
+for (char c : text) {
+    if (!isalpha(c) || !strncasecmp(&c, "aeiouAEIOU", 6)) {
+        continue;
     }
+    str += c;
 }
-return text;
+return str;
