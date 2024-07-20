@@ -1,11 +1,6 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> get_positive(std::vector<float> v) {
-    // Implementation of get_positive function
-    return v;
-}
-
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
@@ -19,6 +14,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert(issame(std::vector<float>{}, std::vector<float>{}));
     return 0;
 }
