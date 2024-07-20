@@ -3,7 +3,15 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
@@ -32,7 +40,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             letter_grades.push_back("D");
         else
-            letter_grades.push_back("E");
+            letter_grades.push_back("F");
     }
     return letter_grades;
 }
