@@ -2,9 +2,13 @@
 #include <iostream>
 #include <iomanip>
 
-int snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
-    int totalSnow = static_cast<int>(initialSnow + rateOfFall * hours - meltRate * hours);
-    return totalSnow;
+float snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+    float snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        snow += rateOfFall;
+        snow -= meltRate;
+    }
+    return snow;
 }
 
 int main() {
