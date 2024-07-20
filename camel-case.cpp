@@ -17,7 +17,7 @@ std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (const auto& word : split(s, "- ")) {
+    for (const auto& word : split(s, "-")) {
         if (first) {
             result += word;
             first = false;
