@@ -31,6 +31,5 @@ std::map<char, int> histogram(std::string test) {
 
 int main() {
     assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
-    
     return 0;
 }
