@@ -15,5 +15,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> eat(int x, int y, int z) {
-    return {y + z, x};
+    return std::vector<int>{y + z, x};
 }
