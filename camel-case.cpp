@@ -33,7 +33,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-
+    
     if (input.empty()) {
         std::cout << "Error: Input cannot be empty." << std::endl;
     } else {
