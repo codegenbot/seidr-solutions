@@ -1,6 +1,4 @@
-#include <vector>
 #include <string>
-#include <assert.h>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
