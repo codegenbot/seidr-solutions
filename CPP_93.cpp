@@ -1,5 +1,6 @@
 string encode(string message){
-    for(char &c : message){
+    string encoded_message = "";
+    for(char c : message){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
@@ -10,6 +11,7 @@ string encode(string message){
                 c = c + 2;
             }
         }
+        encoded_message += c;
     }
-    return message;
+    return encoded_message;
 }
