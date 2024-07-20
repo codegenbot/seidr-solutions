@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+using namespace std;
 
 std::vector<int> f(int n){
     std::vector<int> result;
@@ -19,6 +18,10 @@ std::vector<int> f(int n){
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main(){
