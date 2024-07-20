@@ -28,7 +28,7 @@ int countWhitePegs(string code, string guess) {
             }
         }
     }
-    return codeCounts.sum() - blackPegs;
+    return codeCounts[0]+codeCounts[1]+codeCounts[2]+codeCounts[3]-countBlackPegs(code, guess);
 }
 
 int main() {
