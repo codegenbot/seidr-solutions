@@ -1,19 +1,19 @@
+```c
 #include <map>
 #include <string>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    char* mapping[256];
-    int i = 0;
+    std::map<char, char> mapping;
     for (int j = 0; j < std::min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping[tolower(cipher_map1[j])] = &tolower(cipher_map2[j]);
+        mapping[tolower(cipher_map1[j])] = tolower(cipher_map2[j]);
         mapping[toupper(cipher_map1[j])] = toupper(cipher_map2[j]);
     }
     
     std::string result = "";
     for (char c : message) {
-        if(mapping[std::tolower(c)] != nullptr) {
+        if(mapping.find(std::tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
-            result += *mapping[std::tolower(c)];
+            result += mapping[std::tolower(c)];
         } else {
             // If character is not found in the map, add it as it is to the result
             result += c; 
