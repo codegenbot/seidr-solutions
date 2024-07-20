@@ -17,10 +17,10 @@ int main() {
 
     int pennies = cents;
 
-    std::string output = std::to_string(quarters) + " quarter" + (quarters > 1 ? "s" : "") + ", ";
-    output += std::to_string(dimes) + " dime" + (dimes > 1 ? "s" : "") + ", ";
-    output += std::to_string(nickels) + " nickel" + (nickels > 1 ? "s" : "") + ", and ";
-    output += std::to_string(pennies) + " penny" + (pennies > 1 ? "s" : "");
+    std::string output = std::to_string(quarters) + " quarter(s), " +
+                        std::to_string(dimes) + " dime(s), " +
+                        std::to_string(nickels) + " nickel(s), and " +
+                        std::to_string(pennies) + " penny(ies).";
 
     std::cout << output << std::endl;
 
