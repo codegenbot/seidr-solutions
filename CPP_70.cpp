@@ -1,3 +1,4 @@
+```
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
