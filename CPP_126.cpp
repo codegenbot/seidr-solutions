@@ -1,15 +1,20 @@
-```cpp
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 bool is_sorted(std::vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            int count = 0;
-            for(int j = 0; j < lst.size(); j++){
-                if(lst[j] == lst[i])count++;
+            std::vector<int> temp;
+            for(int j = 0; j < i; j++){
+                temp.push_back(lst[j]);
             }
-            if(count > 1)return false;
+            if(std::count(temp.begin(), temp.end(), lst[i]) > 1) return false;
+            temp.clear();
+            for(int j = i; j < lst.size(); j++){
+                temp.push_back(lst[j]);
+            }
+            if(std::count(temp.begin(), temp.end(), lst[i-1]) > 1) return false;
+            return true;
         }
     }
     return true;
