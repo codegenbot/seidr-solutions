@@ -1,23 +1,28 @@
 string words_in_sentence(string sentence){
-    string result = "";
-    int i = 0;
-    while(i < sentence.size()){
-        int j = i+1;
-        while(j <= sentence.size() && !isalpha(sentence[j])){
-            j++;
+    vector<string> words;
+    string word;
+    for(int i = 0; i < sentence.length(); i++){
+        if(sentence[i] == ' ' || i == sentence.length() - 1){
+            if(i != sentence.length() - 1)word += ' ';
+            words.push_back(word);
+            word = "";
+        }else{
+            word += sentence[i];
         }
-        if(j > i) {
-            string word = sentence.substr(i, j-i);
-            bool is_prime = true;
-            for(int k = 2; k*k <= stol(word); k++){
-                if(stol(word)%k == 0){
-                    is_prime = false;
-                    break;
-                }
-            }
-            if(is_prime) result += word + " ";
-        }
-        i = j;
     }
-    return result;
+
+    string result;
+    for(auto w : words){
+        int len = w.length();
+        bool is_prime = true;
+        for(int i = 2; i * i <= len; i++){
+            if(len % i == 0){
+                is_prime = false;
+                break;
+            }
+        }
+        if(is_prime)result += w + " ";
+    }
+
+    return result.substr(0, result.length() - 1);
 }
