@@ -3,8 +3,7 @@
 #include <sstream>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::string& input) {
-    std::vector<std::string> b = split_words(input);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
 
