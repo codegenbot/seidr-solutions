@@ -16,10 +16,10 @@ int main() {
     float a, b, c;
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
-    if (any_int(a, b, c)) {
-        std::cout << "At least one of the integers is equal to the sum of the other two.\n";
+    if(any_int(a, b, c)) {
+        std::cout << "The sum of two integers is an integer.\n";
     } else {
-        std::cout << "None of the integers are equal to the sum of the other two.\n";
+        std::cout << "The sum of two integers is not an integer.\n";
     }
     return 0;
 }
