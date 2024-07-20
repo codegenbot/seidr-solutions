@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -17,3 +18,4 @@ int main() {
     cin >> initialSnow >> rate >> meltRate;
     cout << fixed << snowDay(hours, initialSnow, rate, meltRate) << endl;
     return 0;
+}
