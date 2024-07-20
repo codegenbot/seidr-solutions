@@ -1,4 +1,4 @@
-```
+```Python
 n = int(input())
 prices = [float(x) for x in input().split()]
 discounts = [float(x) for x in input().split()]*((n+99)//100)
