@@ -16,7 +16,4 @@ def luhn(card_number):
         total += num
         is_second = not is_second
         
-    return total % 10 == 0
-
-card_number = input().strip()
-print(luhn(int(card_number)))
+    return total
