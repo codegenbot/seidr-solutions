@@ -3,21 +3,21 @@
 #include <boost/any.hpp>
 #include <cassert>
 
-bool issame(const std::vector<boost::any>& v1, const std::vector<boost::any>& v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2){
     return v1 == v2;
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
-    for (auto val : values) {
-        if (val.type() == typeid(int)) {
+    for (auto val : values){
+        if (val.type() == typeid(int)){
             result.push_back(boost::any_cast<int>(val));
         }
     }
     return result;
 }
 
-int main() {
+int main(){
     // Your main function code here
     return 0;
 }
