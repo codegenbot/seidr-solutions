@@ -1,25 +1,28 @@
-#include <boost/any.hpp>
 #include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/type_traits.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string strA = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string strB = any_cast<string>(b);
-            return (stod(strA) > stod(strB)) ? a : ((stod(strA) < stod(strB)) ? b : boost::any("None"));
-        } else {
-            double numB = any_cast<double>(b);
-            return (stod(strA) > numB) ? a : ((stod(strA) < numB) ? b : boost::any("None"));
-        }
-    } else if (is_any_of<string>(b)) {
-        string strB = any_cast<string>(b);
-        double numA = any_cast<double>(a);
-        return (numA > stod(strB)) ? a : ((numA < stod(strB)) ? b : boost::any("None"));
-    } else {
-        double numA = any_cast<double>(a);
-        double numB = any_cast<double>(b);
-        return (numA > numB) ? a : ((numA < numB) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else {
+        return boost::any("None");
     }
 }
