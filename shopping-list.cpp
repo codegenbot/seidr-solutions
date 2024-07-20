@@ -24,7 +24,6 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << showpoint;
-    cout << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << showpoint << shoppingList(prices, discounts) << endl;
     return 0;
 }
