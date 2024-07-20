@@ -1,3 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
 std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string combined;
     for (const auto& str : a) {
@@ -15,5 +25,10 @@ std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const
     }
 
     std::reverse(result.begin(), result.end());
-    return {result, "euarT"};
+    return {result, "True"};
+}
+
+int main() {
+    assert(issame(reverse_delete({"mamma"}, {"mia"}), std::vector<std::string>{"aim", "True"}));
+    return 0;
 }
