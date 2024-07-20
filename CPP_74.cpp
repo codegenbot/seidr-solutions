@@ -30,6 +30,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     assert(issame(total_chars({"this"}, {}), {}));
-
+    
     return 0;
 }
