@@ -1,5 +1,5 @@
 #include <cassert>
-#include <cstdio>
+#include <string>
 
 int fruit_distribution(const std::string& s, int n) {
     int apples, oranges, mango;
