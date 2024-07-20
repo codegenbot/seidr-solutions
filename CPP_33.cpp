@@ -1,5 +1,5 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> sort_third(vector<int> l) {
@@ -7,7 +7,7 @@ vector<int> sort_third(vector<int> l) {
     vector<int> not_divisible_by_three;
     
     for (int i = 0; i < l.size(); ++i) {
-        if (l[i] % 3 == 0) {
+        if (i % 3 == 0) {
             divisible_by_three.push_back(l[i]);
         } else {
             not_divisible_by_three.push_back(l[i]);
@@ -20,7 +20,7 @@ vector<int> sort_third(vector<int> l) {
     int j = 0;
     int k = 0;
     for (int i = 0; i < l.size(); ++i) {
-        if (l[i] % 3 == 0) {
+        if (i % 3 == 0) {
             result.push_back(divisible_by_three[j]);
             ++j;
         } else {
