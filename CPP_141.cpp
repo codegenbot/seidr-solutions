@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 string file_name_check(string file_name){
     int digit_count = 0;
@@ -27,4 +28,9 @@ string file_name_check(string file_name){
     if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
 
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
 }
