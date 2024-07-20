@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(char a, char b) {
+bool issame(char a, char b){
     return a == b;
 }
 
