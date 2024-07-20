@@ -5,3 +5,4 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
         snow *= (1 - meltRate / 100.0);
     }
     return snow;
+}
