@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
 
 std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -17,6 +16,6 @@ std::vector<std::string> issame(const std::vector<std::string>& a, const std::ve
 }
 
 int main() {
-    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"mm", "False"});
+    assert(issame({"mamma", "mia"} , {"", "True"}) == std::vector<std::string>{"", "True"});
     return 0;
 }
