@@ -20,3 +20,4 @@ vector<int> leaders(vector<int>& arr) {
     leaders.push_back(rightmost);
     return leaders;
 }
+```
