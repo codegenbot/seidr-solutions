@@ -14,9 +14,7 @@ std::string flip_case(std::string str) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::string result = flip_case(input);
-    std::cout << result << std::endl;
+    std::string test_str = "Hello World";
+    assert(flip_case(test_str) == "hELLO wORLD");
     return 0;
 }
