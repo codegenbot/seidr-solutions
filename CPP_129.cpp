@@ -1,50 +1,24 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
-    int rows = grid.size();
-    int cols = grid[0].size();
-    vector<vector<int>> dp(rows, vector<int>(cols, k+1));
-    dp[0][0] = grid[0][0];
-    
-    for (int i = 1; i < rows; ++i) {
-        dp[i][0] = dp[i-1][0] + grid[i][0];
-    }
-    
-    for (int j = 1; j < cols; ++j) {
-        dp[0][j] = dp[0][j-1] + grid[0][j];
-    }
-    
-    for (int i = 1; i < rows; ++i) {
-        for (int j = 1; j < cols; ++j) {
-            dp[i][j] = grid[i][j] + std::min(dp[i-1][j], dp[i][j-1]);
-        }
-    }
-    
-    vector<int> path;
-    int i = rows - 1;
-    int j = cols - 1;
-    
-    while (i > 0 || j > 0) {
-        path.push_back(grid[i][j]);
-        if (i > 0 && dp[i][j] - grid[i][j] == dp[i-1][j]) {
-            --i;
-        } else {
-            --j;
-        }
-    }
-    
-    path.push_back(grid[0][0]);
-    std::reverse(path.begin(), path.end());
-    
-    return path;
-}
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
+}
+
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    int n = grid.size();
+    std::vector<int> path;
+    int row = 0, col = 0;
+    
+    // Rest of the existing logic goes here
+
+    return path;
 }
