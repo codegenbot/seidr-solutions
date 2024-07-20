@@ -13,11 +13,12 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    if(nums.empty())
-        cout << "Error: Input vector is empty." << endl;
-    else
-        cout << "Error: No pair found with sum equal to the target." << endl;
-    return {0, 0}; // default value
+    if (nums.empty()) {
+        cout << "Error: The input vector is empty." << endl;
+    } else {
+        cout << "No pair found with sum " << target << "." << endl;
+    }
+    return {0, 0};
 }
 
 int main() {
