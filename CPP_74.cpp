@@ -1,15 +1,14 @@
 #include <string>
 
-template <typename T>
-T issame(const T& lst1, const T& lst2) {
+vector<string> issame(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
-    for (const std::string& str : lst1) {
+    for (const string& str : lst1) {
         total_chars1 += str.size();
     }
     
-    for (const std::string& str : lst2) {
+    for (const string& str : lst2) {
         total_chars2 += str.size();
     }
     
