@@ -1,8 +1,2 @@
-if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    double power = log(x) / log(n);
-    
-    return (power == int(power));
+return (x > 0 && n > 0 && pow(n, round(log(x) / log(n))) == x);
 }
