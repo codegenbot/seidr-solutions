@@ -1,12 +1,9 @@
-#include <vector>
-#include <algorithm>
-
 int add_elements(vector<int> arr, int k) {
-    vector<int> temp;
-    for (int i = 0; i < min(k, (int)arr.size()); i++) {
-        if (to_string(arr[i]).size() <= 2) {
-            temp.push_back(arr[i]);
+    int sum = 0;
+    for (int i = 0; i < k && i < arr.size(); i++) {
+        if (abs(arr[i]) <= 99) {
+            sum += arr[i];
         }
     }
-    return accumulate(temp.begin(), temp.end(), 0);
+    return sum;
 }
