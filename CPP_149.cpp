@@ -1,22 +1,12 @@
-```
 #include <algorithm>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-long long sorted_list_sum(vector<string> lst) {
-    vector<string> sorted_lst = vector_sort(lst);
-    long long sum = 0;
-    for (const string& str : sorted_lst) {
-        sum += stol(str);
-    }
-    return sum;
-}
-
-vector<string> vector_sort(vector<string> lst) {
+long long vector_sort(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(),
-        [](const string& a, const string& b){return a.length() % 2 && b.length() % 2;});
+        [](const string& a, const string& b){return (a.length() % 2 && !b.empty()) || (!a.empty() && b.length() % 2);});
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
         [](const string& a, const string& b){
@@ -24,5 +14,9 @@ vector<string> vector_sort(vector<string> lst) {
                 return a < b;
             else return a.length() < b.length();
         });
-    return lst;
+    long long sum = 0;
+    for (auto str : lst) {
+        sum += str.length();
+    }
+    return sum;
 }
