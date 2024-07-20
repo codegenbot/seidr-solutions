@@ -13,7 +13,7 @@ bool total_match(const std::vector<std::string>& a, const std::vector<std::strin
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"this"}, std::vector<std::string>{})); 
+    assert(total_match(std::vector<std::string>{"this"}, std::vector<std::string>{}) == true);
     
     return 0;
 }
