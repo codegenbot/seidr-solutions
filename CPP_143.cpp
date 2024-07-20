@@ -1,37 +1,28 @@
-#include <vector>
-#include <string>
-
-using namespace std;
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
-}
-
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-    
-    for (const auto& word : words) {
-        if (isPrime(word.length())) {
-            result += word + " ";
+string words_in_sentence(string sentence){
+    string result = "";
+    int length = 0;
+    for(int i = 0; i < sentence.length(); i++){
+        if(sentence[i] == ' '){
+            if(isPrime(length)){
+                result += sentence.substr(0, length) + " ";
+            }
+            length = 0;
+        } else {
+            length++;
         }
     }
-    
-    return result.substr(0, result.size() - 1);
+    if(isPrime(length)){
+        result += sentence.substr(0, length);
+    }
+    return result;
 }
 
-vector<string> split(const string& str, char c) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i = 2; i*i <= n; i++){
+        if(n % i == 0)
+            return false;
     }
-    tokens.push_back(str);
-    return tokens;
+    return true;
 }
