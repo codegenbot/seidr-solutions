@@ -1,8 +1,7 @@
-size_t pos = 0;
-while (pos < txt.length()) {
-    if (txt[pos] == ' ') {
-        break;
-    }
-    pos++;
+Here is the completed code:
+
+bool check_if_last_char_is_a_letter(string txt) {
+    if(txt.empty()) return false;
+    char lastChar = txt.back();
+    return (isalpha(lastChar)) && (!isspace(txt.find(lastChar)));
 }
-return pos + 1 < txt.length() && isalpha(txt.back());
