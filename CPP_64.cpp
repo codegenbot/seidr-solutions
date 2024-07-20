@@ -1,18 +1,26 @@
 #include <string>
-#include <cctype>
-#include <cassert>
+
+using namespace std;
 
 int vowels_count(std::string s){
     int count = 0;
-    char lastChar = s.back();
+    std::string vowels = "aeiouyAEIOUY";
+    
     for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && c == lastChar))
+        if(vowels.find(c) != std::string::npos){
             count++;
+        }
     }
+    
+    if(s.back() == 'y' || s.back() == 'Y'){
+        count--;
+    }
+    
     return count;
 }
 
 int main() {
-    assert(vowels_count("ACEDY") == 3);
-    return 0;
+    std::string input = "Hello World";
+    int result = vowels_count(input);
+    return result;
 }
