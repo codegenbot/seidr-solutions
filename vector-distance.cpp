@@ -20,7 +20,11 @@ int main() {
     float* v1 = new float[n], *v2 = new float[n];
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << " of vector 1: ";
-        std::cin >> v1[i]; 
+        for (int j = 0; j < n; j++) {
+            int c;
+            while (!(c = std::cin.get()) || c != ' ');
+            v1[i] = (float)(c - '0'); 
+        }
         char c;
         std::cin >> c;
         if (c != ' ') {
@@ -28,12 +32,10 @@ int main() {
             return 1; // Exit with an error code
         }
         std::cout << "Enter element " << i+1 << " of vector 2: ";
-        std::cin >> v2[i];
-        char c2;
-        std::cin >> c2;
-        if (c2 != ' ') {
-            std::cerr << "Invalid input. Please enter a space between numbers." << std::endl;
-            return 1; // Exit with an error code
+        for (int j = 0; j < n; j++) {
+            int c;
+            while (!(c = std::cin.get()) || c != ' ');
+            v2[i] = (float)(c - '0'); 
         }
     }
 
