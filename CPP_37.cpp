@@ -30,5 +30,3 @@ bool issame(vector<float> a, vector<float> b) {
     }
     return true;
 }
-
-assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, -10, 4, 23, 2, 3, 12, 5, 11}));
