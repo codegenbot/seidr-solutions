@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -16,6 +15,4 @@ std::vector<float> derivative(std::vector<float> xs) {
 
 int main() {
     assert(is_same(derivative({1.0f}), std::vector<float>()));
-    
-    return 0;
 }
