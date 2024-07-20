@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <algorithm>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
