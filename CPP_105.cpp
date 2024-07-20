@@ -10,8 +10,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
 
     // Sort the array and reverse it
-    std::sort(arr.begin(), arr.end());
-    std::reverse(arr.begin(), arr.end());
+    sort(arr.begin(), arr.end());
+    reverse(arr.begin(), arr.end());
 
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -54,5 +54,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    return 0;
 }
