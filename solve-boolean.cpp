@@ -3,9 +3,9 @@ std::string solveBoolean(std::string input) {
     stack<bool> values;
 
     for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 'T') {
+        if(input[i] == 't') {
             values.push(true);
-        } else if(input[i] == 'F') {
+        } else if(input[i] == 'f') {
             values.push(false);
         } else if(input[i] == '|') {
             while(values.size() > 1) {
