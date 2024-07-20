@@ -30,3 +30,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
+}
