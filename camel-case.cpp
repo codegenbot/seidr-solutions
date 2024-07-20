@@ -1,3 +1,4 @@
+```c++
 std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
@@ -7,7 +8,7 @@ std::string toCamelCase(const std::string& s) {
             result += word;
             first = false;
         } else {
-            result += char(toupper((word)[0])) + word.substr(1);
+            result += char(toupper(word[0])) + word.substr(1);
         }
     }
 
