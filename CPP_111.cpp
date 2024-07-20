@@ -1,27 +1,18 @@
-#include <iostream>
-#include <map>
-#include <sstream>
-
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test);
+map<char, int> histogram(string test);
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::map<char, int> result = histogram(input);
-    for (const auto& entry : result) {
-        std::cout << entry.first << ": " << entry.second << std::endl;
-    }
+    // Main function code goes here
     return 0;
 }
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::istringstream iss(test);
-    std::string word;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
@@ -29,9 +20,9 @@ std::map<char, int> histogram(std::string test) {
     }
     int maxCount = 0;
     for (const auto& entry : result) {
-        maxCount = std::max(maxCount, entry.second);
+        maxCount = max(maxCount, entry.second);
     }
-    std::map<char, int> resultMap;
+    map<char, int> resultMap;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
             resultMap[entry.first] = entry.second;
