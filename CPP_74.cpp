@@ -1,6 +1,7 @@
 #include <string>
 
-vector<string> issame(const vector<string>& lst1, const vector<string>& lst2) {
+template <typename T>
+T issame(const T& lst1, const T& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
