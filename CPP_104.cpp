@@ -1,9 +1,19 @@
-for (auto &num : x) {
-    string s = to_string(num);
-    if (any_of(s.begin(), s.end(), [](char c) { return c % 2 == 0; })) {
-        num = -1;
+vector<int> unique_digits(vector<int> x){
+    vector<int> result;
+    for (int num : x) {
+        int temp = num;
+        bool hasEvenDigit = false;
+        while (temp > 0) {
+            if (temp % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
+            result.push_back(num);
+        }
     }
+    sort(result.begin(), result.end());
+    return result;
 }
-x.erase(remove(x.begin(), x.end(), -1), x.end());
-sort(x.begin(), x.end());
-return x;
