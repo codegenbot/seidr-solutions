@@ -23,8 +23,9 @@ string decode_cyclic(string s){
     int i;
     for (i=0;i<num;i++)
     {
-        if (s.length()>(i*3)+1) x=s.substr(i*3,1)+s.substr(i*3+1,2);
-        else x=s.substr(i*3,s.length()-i*3);
+        if (i==num-1) x=s.substr(i*3);
+        else x=s.substr(i*3,3);
+        if (x.length()==2) x=x[1]+x[0];
         output=output+x;
     }
     return output;
