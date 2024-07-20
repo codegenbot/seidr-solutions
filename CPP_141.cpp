@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -34,10 +35,8 @@ std::string file_name_check(std::string file_name) {
 
 int main() {
     std::string file_name;
-    std::cout << "Enter the file name: ";
+    std::cout << "Enter the filename: ";
     std::cin >> file_name;
-
-    std::cout << "Result: " << file_name_check(file_name) << std::endl;
-
+    std::cout << file_name_check(file_name) << std::endl;
     return 0;
 }
