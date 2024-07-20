@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -18,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a == b ? boost::any("None") : (a.convert_to<int>() > b.convert_to<int>()) ? a : b;
+        return a.convert_to<int>() > b.convert_to<int>() ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return a.convert_to<float>() > b.convert_to<float>() ? a : b;
