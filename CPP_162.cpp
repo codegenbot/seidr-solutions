@@ -19,14 +19,13 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", result[i]);
-        md5 += buffer;
+        md5 += string(buffer);
     }
 
     return md5;
 }
 
 int main() {
-    string text = "Hello, World!";
-    cout << "MD5 of '" << text << "' is: " << string_to_md5(text) << endl;
+    cout << string_to_md5("test") << endl;
     return 0;
 }
