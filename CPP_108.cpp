@@ -6,12 +6,11 @@ int count_nums(vector<int> nums) {
             bool sign = false;
             while (num != 0) {
                 int digit = abs(num) % 10;
-                if (!sign && digit < 0) {
-                    sign = true;
-                    digit = -digit;
+                if (sign || digit > 0) {
+                    sum += digit;
                 }
-                sum += digit;
                 num /= 10;
+                sign = !sign;
             }
             if (sum > 0) {
                 count++;
