@@ -7,6 +7,6 @@ def shopping_list():
     for i in range(min(n, len(prices))):
         price = prices[i] * (1 - discounts[i]/100)
         total_price += price
-    return round(total_price,2)
+    return round(total_price, 2)
 
 print(shopping_list())
