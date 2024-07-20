@@ -2,20 +2,22 @@
 using namespace std;
 
 int mastermind(const string& code, const string& guess) {
-    map<char, int> char_count;
-    for (char c : guess) {
-        ++char_count[c];
-    }
     int white = 0;
     int black = 0;
+    map<char, int> charCount;
+
+    for (char c : code) {
+        charCount[c]++;
+    }
 
     for (char c : code) {
         if (c == guess[guess.find(c)]) {
             ++black;
-        } else if (char_count[c] > 0) {
+        } else if (charCount.count(c) > 0 && charCount[c] > 1) {
+            --charCount[c];
             ++white;
-            --char_count[c];
         }
     }
 
     return black + white;
+}
