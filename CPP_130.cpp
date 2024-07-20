@@ -12,12 +12,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> yourFunctionName(int n) {
-    return std::vector<int>(n, 0);
+    return std::vector<int>(n, 1);
 }
 
 int main() {
     int n = 2;
     std::vector<int> tri = yourFunctionName(n);
-    assert(issame(tri, {0, 0}));
+    assert(issame(tri, {1, 1}));
     return 0;
 }
