@@ -1,18 +1,27 @@
-int start1 = interval1[0];
+int is_prime(int n) {
+    if (n <= 1) return 0;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return 0;
+    }
+    return 1;
+}
+
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
     int end2 = interval2[1];
-    
-    int intersectionStart = max(start1, start2);
-    int intersectionEnd = min(end1, end2);
-    
-    if (intersectionStart > intersectionEnd) {
+
+    int intersection_start = max(start1, start2);
+    int intersection_end = min(end1, end2);
+
+    if (intersection_start > intersection_end) {
         return "NO";
     }
-    
-    int intersectionLength = intersectionEnd - intersectionStart;
-    
-    if (isPrime(intersectionLength)) {
+
+    int intersection_length = intersection_end - intersection_start;
+
+    if (is_prime(intersection_length)) {
         return "YES";
     } else {
         return "NO";
