@@ -1,10 +1,11 @@
-int factor = 2;
-    while (n > factor) {
-        if (n % factor == 0) {
-            n /= factor;
+int largest_prime_factor(int n){
+    int largestPrime = 2;
+    while (n > largestPrime){
+        if (n % largestPrime == 0){
+            n /= largestPrime;
         } else {
-            factor++;
+            largestPrime++;
         }
     }
-    return factor;
+    return largestPrime;
 }
