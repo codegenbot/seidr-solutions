@@ -7,19 +7,16 @@ int mastermind(string code, string guess) {
     vector<char> guess_chars(guess.begin(), guess.end());
 
     for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+        if(code_chars[i] == guess_chars[i]) {
             black++;
-            code_chars[i] = '\0';
-            guess_chars[i] = '\0';
-        }
-    }
-
-    for(int i=0; i<4; i++) {
-        for(int j=i+1; j<4; j++) {
-            if(code_chars[j] == guess[i]) {
-                white++;
-                code_chars[j] = '\0';
+        } else {
+            int count = 0;
+            for(int j=0; j<4; j++) {
+                if(code_chars[i] == guess_chars[j])
+                    count++;
             }
+            if(count > 0)
+                white += count - 1;
         }
     }
 
