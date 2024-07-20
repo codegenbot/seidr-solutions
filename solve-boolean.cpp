@@ -1,21 +1,21 @@
 bool solveBoolean(string s) {
-    bool result = true;
-    for (char c : s) {
-        if (c == 'F') {
-            result = false;
-        } else if (c == '&') {
-            if (!result) return false;
-        } else if (c == '|') {
-            int i = 0;
-            while (i < s.size() && (s[i] == '&' || s[i] == '|')) {
-                ++i;
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (s[i] == 'F') result = false;
-            else i++;
-            while (i < s.size() && (s[i] == '&' || s[i] == '|')) {
-                ++i;
+            if (st.empty()) {
+                return false;
             }
+            st.pop();
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
+    return !st.empty();
 }
