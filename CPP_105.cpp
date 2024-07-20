@@ -1,24 +1,22 @@
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
+    for (int x : arr) {
+        if (x >= 1 && x <= 9) {
+            nums.push_back(x);
         }
     }
-
+    
     sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
+    
     vector<string> result;
-    map<int, string> numberMap = {{1, "One"}, {2, "Two"}, {3, "Three"},
-                                   {4, "Four"}, {5, "Five"}, {6, "Six"},
-                                   {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-
-    for (int num : nums) {
-        if (numberMap.count(num)) {
-            result.push_back(numberMap[num]);
-        }
+    for (int x : nums) {
+        result.push_back(to_string(x) == "1" ? "One" : to_string(x) == "2" ? "Two" : 
+                         to_string(x) == "3" ? "Three" : to_string(x) == "4" ? "Four" :
+                         to_string(x) == "5" ? "Five" : to_string(x) == "6" ? "Six" :
+                         to_string(x) == "7" ? "Seven" : to_string(x) == "8" ? "Eight" : "Nine");
     }
-
+    
+    reverse(result.begin(), result.end());
+    
     return result;
 }
