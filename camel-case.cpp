@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -9,12 +8,8 @@ std::string camelCase(std::string str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!inWord) {
-                inWord = true;
-            } else {
-                result += ' ';
-                inWord = true;
-            }
+            result += ' ';
+            inWord = true;
         } else if (inWord) {
             result += toupper(c);
             inWord = false;
@@ -23,12 +18,17 @@ std::string camelCase(std::string str) {
         }
     }
 
+    // Remove the leading space
+    if (!result.empty()) {
+        result[0] = toupper(result[0]);
+    }
+
     return result;
 }
 
 int main() {
     std::string str;
-    std::cout << "Enter a kebab-case string: ";
+    std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, str);
     std::cout << camelCase(str) << std::endl;
 
