@@ -1,4 +1,3 @@
-```cpp
 int snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
     float totalSnow = initialSnow;
     
