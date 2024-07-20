@@ -20,18 +20,19 @@ int prime_fib(int n) {
     if (n == 2) {
         return 3;
     }
-    int a = 1, b = 1, c;
+    
+    int prev = 1, curr = 1, next;
     for (int i = 3; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-        while (!isPrime(c)) {
-            c = a + b;
-            a = b;
-            b = c;
+        next = prev + curr;
+        while (!isPrime(next)) {
+            next = prev + curr;
+            prev = curr;
+            curr = next;
         }
+        prev = curr;
+        curr = next;
     }
-    return c;
+    return next;
 }
 
 int main() {
