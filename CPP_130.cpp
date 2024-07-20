@@ -19,5 +19,7 @@ int main() {
     other[0] = 1; other[1] = 3;
     assert(issame(other, tri));
 
+    assert(issame(tri, {0, 0}); // Added this line to keep consistency with the existing code
+
     return 0;
 }
