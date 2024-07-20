@@ -1,6 +1,13 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
-    sort(lst.begin(), lst.end());
-    auto it = lower_bound(lst.begin(), lst.end(), lst[0]);
-    return *it == lst.back() ? -1 : *(it + 1);
+Here is the completed code:
+
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2)
+        return -1; // or any other value that you want to indicate None
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i=0; i<sorted.size()-1; i++){
+        if(sorted[i] != sorted[i+1])
+            return sorted[i+1];
+    }
+    return -1; // or any other value that you want to indicate None
 }
