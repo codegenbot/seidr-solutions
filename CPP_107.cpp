@@ -4,15 +4,7 @@
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> even_odd_palindrome(int n){
@@ -34,6 +26,5 @@ vector<int> even_odd_palindrome(int n){
 
 int main() {
     assert(issame(even_odd_palindrome(1), {0, 1}));
-    
     return 0;
 }
