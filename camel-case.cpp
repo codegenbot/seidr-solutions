@@ -1,29 +1,22 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    bool capitalizeNext = true;
-
-    for (char c : str) {
+    for (char c : s + " ") {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            result += (result.empty() ? "" : "") + (char(toupper(c + 1)));
         } else {
-            result += tolower(c);
+            result += c;
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
