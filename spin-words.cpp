@@ -22,7 +22,7 @@ std::string spinWords(std::string sentence) {
 
     // Process the last word
     if (word.length() >= 5) {
-        std::string reversedWord(word.rbegin(), word.end());
+        std::string reversedWord(word.rbegin(), word.rend());
         result += reversedWord;
     } else {
         result += word;
