@@ -1,5 +1,7 @@
 #include <iostream>
 
+#ifndef DEBUG
+
 int modp(int n, int p) {
     if (p == 1) return 0;
     int result = 1;
@@ -13,7 +15,6 @@ int modp(int n, int p) {
     return result;
 }
 
-// Provided code snippet
 int main() {
     int n, p;
     std::cout << "Enter n and p: ";
@@ -24,3 +25,5 @@ int main() {
     
     return 0;
 }
+
+#endif
