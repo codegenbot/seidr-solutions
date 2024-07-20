@@ -1,11 +1,11 @@
 #include <iostream>
 
-double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+double snowDay(int hours, double initialSnow, double rateOfFall, double meltRate) {
     double totalSnow = initialSnow;
 
-    for (int i = 0; i < hours; ++i) {
+    for (int i = 0; i < hours; i++) {
         totalSnow += rateOfFall;
-        totalSnow -= meltRate * rateOfFall / 100.0;
+        totalSnow -= totalSnow * meltRate / 100.0;
     }
 
     return totalSnow;
