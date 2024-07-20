@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -17,5 +16,5 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfFall, meltRate;
     cin >> initialSnow >> rateOfFall >> meltRate;
-    cout << fixed << setf(ios::fixed, ios::floatfield) << snowDay(hours, initialSnow, rateOfFall, meltRate) << endl;
-    return 0;}
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall, meltRate) << endl;
+    return 0;
