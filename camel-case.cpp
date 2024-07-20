@@ -1,29 +1,23 @@
-#include <iostream>
+```cpp
 #include <string>
-#include <sstream>
+#include <cctype>
 
-std::string camelCase(std::string s) {
-    std::string result;
-    bool first = true;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool upper = true;
 
-    for (char c : s) {
+    for (char c : str) {
         if (c == '-') {
-            if (!first) {
-                result += char(toupper(c));
+            if (!result.empty()) {
+                result += toupper(result[0]);
+                result.erase(0, 1);
             }
-            first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result += " ";
-            }
-            first = true;
+            upper = true;
+        } else if (upper) {
+            result += toupper(c);
+            upper = false;
         } else {
-            if (first) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
-            first = false;
+            result += tolower(c);
         }
     }
 
@@ -31,24 +25,7 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string temp;
-    std::string result = "";
-
-    while (std::cin >> temp, !std::cin.fail()) {
-        if (!result.empty()) 
-            result += " ";
-        for (char c : temp) {
-            if (c == '-') {
-                result += char(toupper(c));
-                break;
-            } else if (first) 
-                result += toupper(c);
-            else 
-                result += tolower(c);
-            first = false;
-        }
-    }
-
-    std::cout << camelCase(result) << std::endl;
-
-    return 0}
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
+    return 0;
+}
