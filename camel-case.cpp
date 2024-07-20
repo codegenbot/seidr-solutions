@@ -2,9 +2,10 @@
 #include <string>
 
 std::string toCamelCase(const std::string& s) {
-    std::string temp = "";
+    std::string result;
     bool first = true;
 
+    std::string temp = "";
     for (const auto& word : split(s, " -")) {
         if (!first) {
             temp += toupper(word[0]) + word.substr(1);
@@ -12,7 +13,7 @@ std::string toCamelCase(const std::string& s) {
             temp += word;
         }
         first = false;
-        result = temp;
+        result += temp;
         temp = "";
     }
 
