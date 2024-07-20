@@ -9,4 +9,3 @@ string encrypt(string s) {
         result += c;
     }
     return result;
-}
