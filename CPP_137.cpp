@@ -15,17 +15,16 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
         return "None";
     }
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    string strA = boost::any_cast<string>(a);
-    string strB = boost::any_cast<string>(b);
-    if(strA.find_first_of(".,") != string::npos){
-        replace(strA.begin(), strA.end(), ',', '.');
-    }
-    if(strB.find_first_of(".,") != string::npos){
-        replace(strB.begin(), strB.end(), ',', '.');
-    }
-    if(stod(strA) > stod(strB)){
+    float num1, num2;
+    string str1 = boost::any_cast<string>(a);
+    string str2 = boost::any_cast<string>(b);
+    replace(str1.begin(), str1.end(), ',', '.');
+    replace(str2.begin(), str2.end(), ',', '.');
+    num1 = stof(str1);
+    num2 = stof(str2);
+    if(num1 > num2){
         return a;
-    } else if(stod(strA) < stod(strB)){
+    } else if(num1 < num2){
         return b;
     } else {
         return "None";
