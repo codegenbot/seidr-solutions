@@ -10,11 +10,11 @@ int closest_integer(std::string value) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter a floating point number: ";
     std::cin >> input;
 
     int result = closest_integer(input);
-    std::cout << "Closest integer to " << input << " is: " << result << std::endl;
+    std::cout << "Closest integer: " << result << std::endl;
 
     return 0;
 }
