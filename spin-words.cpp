@@ -23,3 +23,4 @@ int main() {
         cout << spinWords(str) << endl;
     }
     return 0;
+}
