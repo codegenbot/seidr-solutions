@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <string>
 #include <sstream>
 
-using namespace std;
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
+}
 
-vector<string> split_words(const string& txt) {
+vector<string> split_words(string input) {
     vector<string> words;
-    istringstream iss(txt);
+    stringstream ss(input);
     string word;
-    while (iss >> word) {
+    
+    while (ss >> word) {
         words.push_back(word);
     }
+    
     return words;
 }
 
