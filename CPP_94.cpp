@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 
 int findMaxPrimeSum(std::vector<int> lst) {
