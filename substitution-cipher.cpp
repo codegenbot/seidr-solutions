@@ -12,8 +12,10 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
     std::string result = "";
     for (char c : message) {
         if(mapping.find(std::tolower(c)) != mapping.end()) {
+            // If character is found in the map, substitute with corresponding value from the map
             result += mapping.at(std::tolower(c));
         } else {
+            // If character is not found in the map, add it as it is to the result
             result += c; 
         }
     }
