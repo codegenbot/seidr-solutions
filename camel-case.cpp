@@ -1,22 +1,17 @@
-std::string camelCase(std::string s) {
-    std::string result;
-    bool first = true;
-
-    for (char c : s) {
-        if (c == '-') {
-            if (!first) {
-                result += char(toupper(c));
-            }
-            first = false;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == '-') {
+            i++; // skip hyphen
         } else {
-            if (first) {
-                result += c;
-            } else {
-                result += char(tolower(c));
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
             }
-            first = !first;
+            result += str.substr(i, str.find(' ', i) - i);
+            i = str.find(' ', i); // move to next group or end of string
+            if (i == std::string::npos) break;
         }
     }
-
     return result;
 }
