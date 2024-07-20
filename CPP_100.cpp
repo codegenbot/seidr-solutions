@@ -1,17 +1,28 @@
-Here is the completed code:
+```cpp
+#include <vector>
 
-vector<int> make_a_pile(int n) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
-        } else {
-            n++;
-            stones = n;
+    int current = 1;
+    for (int i = 0; i < n; ++i) {
+        if (n % 2 == 1) { // n is odd
+            pile.push_back(current);
+            current += 2;
+        } else { // n is even
+            pile.push_back(current);
+            current += 1;
         }
     }
     return pile;
 }
+
+int main() {
+    assert(std::equal(make_a_pile(8).begin(), make_a_ple
