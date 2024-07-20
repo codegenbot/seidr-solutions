@@ -12,7 +12,9 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         } else {
             if (word.length() >= 5) {
-                result += std::string(word.rbegin(), word.rend()) + " ";
+                auto reversedWord = word;
+                std::reverse(reversedWord.begin(), reversedWord.end());
+                result += reversedWord + " ";
             } else {
                 result += word + " ";
             }
@@ -23,10 +25,12 @@ std::string spinWords(std::string sentence) {
 
     // Process the last word
     if (word.length() >= 5) {
-        result += std::string(word.rbegin(), word.rend());
+        auto reversedWord = word;
+        std::reverse(reversedWord.begin(), reversedWord.end());
+        result += reversedWord;
     } else {
         result += word;
     }
 
-    return result.substr(0, result.find_last_of(" ") + 1);
+    return result.substr(0, result.find_last_of(' '));
 }
