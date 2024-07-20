@@ -7,13 +7,9 @@ string anti_shuffle(string s){
             result += " ";
         } else {
             string temp = "";
-            bool foundSpace = false;
-            for(int j=i; j<s.length() && !foundSpace; j++){
-                if(s[j] != ' '){
-                    temp += s[j];
-                } else {
-                    foundSpace = true;
-                }
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                temp += s[j];
+                i = j;
             }
             sort(temp.begin(), temp.end());
             result += temp;
