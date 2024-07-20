@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <limits>
@@ -31,7 +30,7 @@ int main() {
     while (true) {
         std::cout << "Enter a string: ";
         std::cin >> str;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if (str == "exit") break;
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
