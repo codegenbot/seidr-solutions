@@ -4,7 +4,7 @@
 bool issame(const vector<int>& a, const vector<int>& b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return a == b;
+    return includes(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<int> common(const vector<int>& l1, const vector<int>& l2) {
