@@ -17,7 +17,7 @@ int main() {
 
     int pennies = cents;
 
-    std::string output;
+    std::string output = "";
     if (quarters > 0) {
         output += std::to_string(quarters) + " quarter" + (quarters > 1 ? "s" : "") + ", ";
     }
