@@ -1,12 +1,15 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+bool issame(const std::string& str);
+
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
@@ -14,17 +17,21 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if (!word.empty()) {
         result.push_back(word);
     }
-    if(result.empty()){
+    if (result.size() == 1 && issame(result[0])) {
         int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+        for (char c : result[0]) {
+            if (c >= 'a' && c <= 'z' && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result[0] = std::to_string(count);
     }
     return result;
+}
+
+bool issame(const std::string& str) {
+    return str.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos;
 }
