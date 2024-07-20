@@ -1,3 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b);
+
+pair<float, float> find_closest_elements(vector<float> numbers);
+
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
