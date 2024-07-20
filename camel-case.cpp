@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -24,7 +23,7 @@ std::string split(const std::string& s, const std::string& delimiter) {
 
     while ((pos = s.find(delimiter)) != std::string::npos) {
         token = s.substr(0, pos);
-        s = s.substr(pos + delimiter.size()).str(); // or just s = s.substr(pos + delimiter.size()) if you're using C++11
+        s = s.substr(pos + delimiter.size());
     }
 
     return token;
