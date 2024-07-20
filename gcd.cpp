@@ -25,16 +25,13 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
-    std::cin >> a >> b;
+    (std::cin >> a).ignore();
+    (std::cin >> std::ws).get(b);
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
-
-    std::cout << "Enter the target string: ";
-    std::cin.ignore();
-    std::getline(std::cin, target);
+    std::cout << "Enter the text and target string for Indices of Substring: ";
+    std::cin >> text >> target;
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
