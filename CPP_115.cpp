@@ -1,12 +1,10 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        int total = 0;
-        for (int j = 0; j < cols; ++j) {
+int count = 0;
+        for (int j = 0; j < grid[0].size(); ++j) {
             int sum = 0;
-            for (int i = 0; i < rows; ++i) {
+            for (int i = 0; i < grid.size(); ++i) {
                 sum += grid[i][j];
             }
-            total += sum / capacity + (sum % capacity != 0);
+            count += (sum / capacity) + (sum % capacity != 0);
         }
-        return total;
+        return count;
     }
