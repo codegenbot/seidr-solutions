@@ -9,7 +9,6 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
