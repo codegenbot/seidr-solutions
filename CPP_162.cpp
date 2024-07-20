@@ -26,6 +26,7 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    // Your code that calls string_to_md5()
+    string text = "Your input here";
+    cout << string_to_md5(text) << endl;
     return 0;
 }
