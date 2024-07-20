@@ -6,12 +6,11 @@ using std::cin;
 using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result;
+    std::vector<int> result; 
+    result.resize(0); 
     int n = text.length();
     int m = target.length();
 
-    result.resize(0);
-    
     for(int i=0; i<=n-m; i++){
         if(text.substr(i,m) == target){
             result.push_back(i);
@@ -25,7 +24,7 @@ int main() {
     string text, target;
     cin >> text;
     cin.ignore();
-    std::getline(cin, target);
+    getline(cin, target);
     cin.ignore(); 
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
