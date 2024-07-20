@@ -1,8 +1,7 @@
 #include <set>
-#include <algorithm>
 #include <vector>
 
-std::vector<int> common(std::initializer_list<int> l1,std::initializer_list<int> l2){
+std::vector<int> common(std::initializer_list<int> l1, std::initializer_list<int> l2) {
     std::set<int> s1(l1);
     std::set<int> s2(l2);
 
