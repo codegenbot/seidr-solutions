@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.5f, 4.0f, 6.7f};
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
     long long result = double_the_difference(lst);
     return 0;
 }
