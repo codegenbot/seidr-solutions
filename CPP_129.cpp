@@ -1,55 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> visited(n, vector<int>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    pq.push({0, {0, 0}});
-    visited[0][0] = 1;
-
-    vector<int> res;
-    while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        pq.pop();
-
-        if (k > 0) {
-            res.push_back(val);
-            k--;
-        }
-
-        for (int dx = -1; dx <= 1; dx++) {
-            for (int dy = -1; dy <= 1; dy++) {
-                int nx = x + dx;
-                int ny = y + dy;
-
-                if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                    visited[nx][ny] = 1;
-                    pq.push({val, {nx, ny}});
-                }
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i > 0) {
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
+            } else {
+                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
             }
         }
-
-        if (k == 0) break;
     }
-
-    return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    for (int x : res) {
-        cout << x << " ";
+    
+    int min_val = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] == dp[n-1][n-1]) {
+                vector<int> path;
+                int val = grid[i][j];
+                for (int l = 0; l <= k; l++) {
+                    path.push_back(val);
+                    if (l < k) {
+                        if (i > 0) i--;
+                        else if (j > 0) j--;
+                        else break;
+                    }
+                }
+                return path;
+            }
+        }
     }
-    cout << endl;
-
-    return 0;
+    
+    return {};
 }
