@@ -11,7 +11,7 @@ std::string change_base(int x, int base){
     return result;
 }
 
-int contest_main() {
+int main() {
     int x = 10;
     assert(change_base(x, x + 1) == std::to_string(x));
     std::cout << "Test passed" << std::endl;
