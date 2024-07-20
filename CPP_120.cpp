@@ -12,6 +12,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    // Test cases can be added here
+    // Main function implementation
     return 0;
 }
