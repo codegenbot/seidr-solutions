@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -21,10 +22,8 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
-
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << '\n';
+    }
     return 0;
 }
