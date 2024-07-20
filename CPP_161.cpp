@@ -2,11 +2,17 @@ string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            c = tolower(c);
+            if (result.back() == 'z' || result.back() == 'Z') {
+                c = toupper(c);
+            }
         } else {
-            result += c;
+            c = c;
         }
+        result += c;
     }
-    reverse(result.begin(), result.end());
+    if (result.empty()) {
+        reverse(result.begin(), result.end());
+    }
     return result;
 }
