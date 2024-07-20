@@ -1,8 +1,8 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <map>
 #include <cctype>
+#include <utility>
+#include <iostream>
 
 int main() {
     std::string cipher_map1;
@@ -18,8 +18,7 @@ int main() {
     std::string message;
     std::cin >> message;
 
-    std::string result = decipher(cipher_map1, cipher_map2, message);
-    std::cout << result << std::endl;
+    std::cout << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
 
