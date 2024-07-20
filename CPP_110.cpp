@@ -1,12 +1,8 @@
-Here is the completed code:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool possible = true;
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            possible = false;
-            break;
-        }
+        if (num % 2 != 0)
+            oddCount++;
     }
-    return possible ? "YES" : "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
