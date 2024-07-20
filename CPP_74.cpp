@@ -1,6 +1,6 @@
-#include <string>
+#include <string> // Include the string header
 
-bool issame(vector<string> a, vector<string> b); 
+bool issame(vector<string> a, vector<string> b); // Correct function signature
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars_lst1 = 0, total_chars_lst2 = 0;
@@ -21,6 +21,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), {})); // Ensure total_match is declared before it's used
     return 0;
 }
