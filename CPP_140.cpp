@@ -1,19 +1,9 @@
-string result = "";
-    int consecutiveSpaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += "_";
-            }
-        } else {
-            result += c;
-            consecutiveSpaces = 0;
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ' && i < text.length() - 2 && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text.replace(i, 3, "-");
+        } else if (text[i] == ' ') {
+            text.replace(i, 1, "_");
         }
     }
-    return result;
+    return text;
 }
