@@ -11,13 +11,13 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int x, n;
-    std::cin >> x >> n;
-    
+    // Test the function is_simple_power
+    int x = 64;
+    int n = 2;
     if (is_simple_power(x, n)) {
-        std::cout << "True" << std::endl;
+        std::cout << x << " is a power of " << n << std::endl;
     } else {
-        std::cout << "False" << std::endl;
+        std::cout << x << " is not a power of " << n << std::endl;
     }
 
     return 0;
