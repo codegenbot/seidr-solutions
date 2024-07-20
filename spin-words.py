@@ -1,3 +1,6 @@
-```
+import string
+
 def spin_words(sentence):
-    return ' '.join(word[::-1] if len(word) >= 5 else word for word in sentence.split())
+    translator = str.maketrans('', '', string.punctuation)
+    sentence_no_punct = sentence.translate(translator)
+    return ' '.join(word[::-1] if len(word.strip(string.whitespace)) >= 5 else word for word in sentence_no_punct.split())
