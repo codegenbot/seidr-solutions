@@ -11,7 +11,7 @@ int count_nums(std::vector<int> nums) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum % 2 == 1)
+            if (sum == 1)
                 count++;
         } else {
             int sum = 0, sign = -1;
@@ -20,7 +20,7 @@ int count_nums(std::vector<int> nums) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum % 2 == 1)
+            if (sum == 1)
                 count++;
         }
     }
