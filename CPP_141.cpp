@@ -22,10 +22,10 @@ std::string file_name_check(std::string file_name){
     return "Yes";
 }
 
-int main(){
-    std::string file_name;
+int main() {
     std::cout << "Enter the file name: ";
+    std::string file_name;
     std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
+    std::cout << "Is this a valid file name? " << file_name_check(file_name) << std::endl;
     return 0;
 }
