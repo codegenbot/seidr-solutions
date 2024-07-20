@@ -1,5 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -18,9 +21,8 @@ int main() {
     std::vector<int> tri = yourFunctionName(n);
     assert(issame(tri, {0, 0}));
     
-    std::vector<int> other = yourFunctionName(n);
-    other[0] = 1; other[1] = 3;
-    assert(issame(other, {1, 3}));
+    tri = yourFunctionName(n);
+    assert(issame(tri, {1, 3}));
 
     return 0;
 }
