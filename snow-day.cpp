@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip> 
 using namespace std;
@@ -8,7 +7,7 @@ double snowDay(int hours, float initialSnow, float rate, float meltRate) {
     for (int i = 0; i < hours; i++) {
         snow += rate;
         snow -= meltRate * snow;
-        if (abs(snow) < 1e-9) {
+        if (std::abs(snow) < 1e-9) {
             snow = 0;
         }
     }
