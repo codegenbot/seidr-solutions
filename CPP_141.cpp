@@ -1,5 +1,3 @@
-string file_name_check(string);
-
 string file_name_check(string file_name){
     int count = 0;
     bool foundDot = false;
@@ -19,3 +17,5 @@ string file_name_check(string file_name){
     if(extension != "txt" && extension != "exe" && extension != "dll")
         return "No";
     return "Yes";
+}
+string file_name_check(string);
