@@ -1,7 +1,5 @@
 #include <cassert>
-#include <utility>
-#include <vector> // Added for vector
-#include <iostream> // Added for output
+#include <utility> // for std::pair
 
 std::pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
@@ -11,11 +9,10 @@ std::pair<int, int> eat(int number, int need, int remaining) {
 }
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
-    return a == b; // Compare pairs for equality
+    return a == b;
 }
 
 int main() {
     assert(issame(eat(4, 5, 1), std::make_pair(5, 0)));
-    std::cout << "Function 'issame' works correctly." << std::endl; // Output to test success
     return 0;
 }
