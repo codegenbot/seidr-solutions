@@ -1,7 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <vector>
+#include <cctype>
 
 std::string camelCase(std::string s) {
     std::string result;
@@ -32,19 +33,16 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string input;
-    while (std::getline(std::cin, input)) {
-        std::stringstream ss(input);
-        std::string word;
-
-        std::cout << "Processing: " << input << std::endl;
-
-        while (std::getline(ss, word, '-')) {
-            if (!word.empty()) {
-                std::cout << camelCase(word) << ' ';
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        std::vector<std::string> words;
+        for (const auto& word : line.split(' ')) {
+            if (!words.empty()) {
+                result += camelCase(word);
+            } else {
+                result = camelCase(word);
             }
+            words.clear();
         }
-        std::cout << std::endl;
     }
-    return 0;
 }
