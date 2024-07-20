@@ -1,24 +1,22 @@
+```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
+    ops = ['&', '|']
+    stack = []
+    result = True if expression[0] == 'T' else False
 
-    def eval_expression(s):
-        while '&' in s or '|' in s:
-            for op in ['&', '|']:
-                left, right = s.split(op)
-                s = str(eval_boolean(left)) and (op == '&' or str(eval_boolean(right)))
-        return str(eval_boolean(s))
-
-    def eval_boolean(expression):
-        if expression[0] == 'T':
-            return True
-        elif expression[0] == 'F':
-            return False
-        elif expression[1] in ['&', '|']:
-            return eval_boolean(expression[:2]) and (expression[1] == '&' or eval_boolean(expression[2:]))
+    for char in expression:
+        if char in ops:
+            stack.append(char)
+        elif char != 'T' and char != 'F':
+            raise ValueError("Invalid operation")
+        elif not stack:
+            temp_result = char
         else:
-            return True if expression == 'T' else False
+            op = stack.pop()
+            if op == '&':
+                result = result and temp_result
+            elif op == '|':
+                result = result or temp_result
+            temp_result = True if char == 'T' else False
 
-    return eval_expression(expression)
+    return result
