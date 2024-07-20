@@ -17,7 +17,6 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin.ignore(); 
     getline(cin, tweet);
-    cout << validateTweet(tweet);
+    cout << validateTweet(string(tweet));
 }
