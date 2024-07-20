@@ -1,16 +1,16 @@
-vector<int> result;
-    if (n >= 0) {
-        result.push_back(3);
-        if (n > 0) {
-            result.push_back(1);
-            for (int i = 2; i <= n; ++i) {
-                if (i % 2 == 0) {
-                    result.push_back(1 + i / 2);
-                } else {
-                    result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
-                }
-            }
-        }
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]) return false;
     }
-    return result;
+    return true;
+}
+
+int main(){
+    vector<int> tri(4); // Define tri array with appropriate size
+    tri = yourFunctionName(n); // Call your function with appropriate parameter
+    assert(issame(tri , {1, 3})); // Check if the result is as expected
+    return 0;
 }
