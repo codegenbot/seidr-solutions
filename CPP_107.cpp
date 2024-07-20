@@ -1,14 +1,14 @@
 #include <vector>
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size())
+bool issame(const vector<int>& vec1, const vector<int>& vec2) {
+    if (vec1.size() != vec2.size()) {
         return false;
-    
-    for(int i = 0; i < v1.size(); ++i) {
-        if(v1[i] != v2[i])
-            return false;
     }
-    
+    for (int i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -30,5 +30,6 @@ vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Main function logic using even_odd_palindrome function
+    // Main function code here
+    return 0;
 }
