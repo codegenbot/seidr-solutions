@@ -6,17 +6,9 @@ std::string solveBoolean(std::string s) {
         if (s[i] == '&') {
             if (result == "True" && s[i+1] != '&')
                 return "False";
-            else if (result == "False" && s[i+1] == '&')
-                continue;
-            else
-                result = "False";
         } else if (s[i] == '|') {
             if (result == "False" && s[i+1] != '|')
                 return "False";
-            else if (result == "True" && s[i+1] == '|')
-                continue;
-            else
-                result = "True";
         }
     }
     return result;
