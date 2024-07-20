@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 int count(int i) {
     int c = 0;
