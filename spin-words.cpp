@@ -1,4 +1,4 @@
-#include <initializer_list>
+#include <string>
 
 using namespace std;
 
@@ -33,7 +33,11 @@ int main() {
     while(true) {
         cout << "Enter a sentence (or 'exit' to quit): ";
         getline(cin, str);
+        if (!str.empty()) {
+            str.erase(0, str.find_first_not_of(' '));
+        }
         if(str == "exit") break;
         cout << spinWords(str) << endl;
     }
     return 0;
+}
