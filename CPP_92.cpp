@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,11 +18,10 @@ int main() {
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
 
-    if(any_int(a, b, c)) {
-        cout << "At least one number is an integer." << endl;
-    } else {
-        cout << "None of the given numbers are integers." << endl;
-    }
-    
+    if(any_int(a, b, c))
+        cout << "The sum of integers is equal to the integer value." << endl;
+    else
+        cout << "The sum of integers is not equal to the integer value." << endl;
+
     return 0;
 }
