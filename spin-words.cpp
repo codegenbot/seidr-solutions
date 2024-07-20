@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -6,16 +5,20 @@ std::string spinWords(std::string str) {
     std::string result;
     std::string word;
 
+    bool lastWord = false;
+
     for (char c : str) {
         if (c == ' ') {
-            if (word.length() >= 5)
+            if (!lastWord && word.length() >= 5)
                 result += std::string(word.rbegin(), word.rend()) + " ";
             else
                 result += word + " ";
             word = "";
-        } 
-        else 
+            lastWord = false;
+        } else {
             word += c;
+            lastWord = true;
+        }
     }
 
     if (word.length() >= 5)
@@ -34,4 +37,5 @@ int main() {
         if (str == "exit") break;
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
+    return 0;
 }
