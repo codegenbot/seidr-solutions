@@ -1,5 +1,8 @@
-string encrypt(string s) {
-    string result = "";
+#include <iostream>
+#include <string>
+
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             c = (c - 'a' + 2 * 26 - 2) % 26 + 'a';
@@ -9,4 +12,9 @@ string encrypt(string s) {
         result += c;
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
