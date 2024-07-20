@@ -23,16 +23,15 @@ int countWhitePegs(string code, string guess) {
             totalCorrectColors++;
         }
     }
-
-    int blackPegs = countBlackPegs(code, guess);
-    return totalCorrectColors - blackPegs;
+    int whitePegs = totalCorrectColors - countBlackPegs(code, guess);
+    return whitePegs;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int whitePegs = countWhitePegs(code, guess);
     int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = countWhitePegs(code, guess);
     cout << whitePegs << endl;
     cout << blackPegs << endl;
     return 0;
