@@ -1,7 +1,8 @@
+#include <iostream>
 #include <string>
 
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
@@ -12,12 +13,4 @@ string encrypt(string s) {
         }
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Encrypted string: " << encrypt(input) << endl;
-    return 0;
 }
