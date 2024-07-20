@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 int sumOfDigits(int n) {
     int sum = 0;
@@ -10,7 +9,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int skjkasdkd(vector<int> lst) {
+int findMaxPrime(vector<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
