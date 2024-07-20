@@ -1,5 +1,15 @@
-size_t pos = txt.find_last_of(" ");
-if (pos == string::npos) return false;
+Here is the completed code:
 
-string last_part = txt.substr(pos + 1);
-return isalpha(last_part.back());
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.length() == 0)
+        return false;
+
+    string lastChar = txt.substr(txt.length()-1,1);
+    for(int i=0; i<txt.length();i++){
+        if(txt[i] == ' ' && txt[i+1] == lastChar[0]){
+            return false;
+        }
+    }
+
+    return isalpha(lastChar[0]);
+}
