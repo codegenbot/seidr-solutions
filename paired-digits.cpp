@@ -5,7 +5,7 @@ int pairedDigits(std::string s) {
     int sum = 0;
     for (std::string::iterator it = s.begin(); it != s.end(); ++it) {
         if (*it == '0') {
-            ++it;  
+            ++it;  // Skip the current '0'
             if (it == s.end() || *it != '0') break;
         }
         if ((int)*it - '0' == (int)*(it + 1) - '0') sum += (int)*it - '0';
