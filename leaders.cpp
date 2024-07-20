@@ -1,12 +1,6 @@
-````
+```cpp
 #include <vector>
 using namespace std;
-
-int main() {
-    vector<int> leaders = leaders({1, 3, 4, 2});
-    // do something with leaders...
-    return 0;
-}
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
@@ -17,7 +11,15 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(rightmost);
+    leaders.push_back(arr.back());
     return leaders;
 }
-```
+
+int main() {
+    vector<int> arr = {17, 28, 4};
+    vector<int> leaders = leaders(arr);
+    for (int i : leaders) {
+        cout << i << " ";
+    }
+    return 0;
+}
