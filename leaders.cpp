@@ -22,6 +22,6 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> res = leaders({1, 3, 4, 2});  
+    vector<int> res = leaders({1, 3, 4, 2});
     return 0;
 }
