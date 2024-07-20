@@ -1,7 +1,6 @@
-int digitSum(string s){
-    int sum = 0;
-    for(char c : s){
-        if(isupper(c)){
+int sum = 0;
+    for (char c : s) {
+        if (c >= 'A' && c <= 'Z') {
             sum += c;
         }
     }
