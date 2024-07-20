@@ -1,38 +1,31 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string toCamelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
-
-    for (char c : s) {
-        if (c == '-') {
-            if (!first) {
-                result += char(toupper(c));
-            } else {
-                first = false;
-            }
-        } else if (c == ' ') {
-            if (!first) {
-                result += char(toupper(c));
-            } else {
-                first = false;
-            }
+string kebabToCamel(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == '-') {
+            i++;
+            result += toupper(str[i]);
+        } else if (str[i] == ' ') {
+            result += " ";
+            i++;
         } else {
-            if (first) {
-                first = false;
-            }
-            result += c;
+            if (!result.size() || result.back() != ' ')
+                result += tolower(str[i]);
+            else
+                result += str[i];
+            i++;
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << toCamelCase(input) << std::endl;
+    string input;
+    while (cin >> input) {
+        cout << kebabToCamel(input) << endl;
+    }
     return 0;
 }
