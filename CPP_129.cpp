@@ -1,27 +1,29 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    if(a.size() != b.size()) return false;
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
+namespace CustomNamespace {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        if (a.size() != b.size()) return false;
+        for (size_t i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) return false;
+        }
+        return true;
     }
-    return true;
-}
 
-std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
-    std::vector<int> result;
-    for(int i = 0; i < k; ++i){
-        for(const auto& row : grid){
-            for(int num : row){
-                result.push_back(num);
+    std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k) {
+        std::vector<int> result;
+        for (int i = 0; i < k; ++i) {
+            for (const auto& row : grid) {
+                for (int num : row) {
+                    result.push_back(num);
+                }
             }
         }
+        return result;
     }
-    return result;
 }
 
-int main(){
-    assert(issame(std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+int main() {
+    assert(CustomNamespace::issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, CustomNamespace::minPath({{1, 3}, {3, 2}}, 10)));
     return 0;
 }
