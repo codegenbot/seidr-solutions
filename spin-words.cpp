@@ -26,4 +26,6 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-std::cout << spinWords("this is just a test") << std::endl;
+int main() {
+    std::cout << spinWords("this is just a test") << std::endl;
+    return 0;
