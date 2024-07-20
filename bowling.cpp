@@ -5,27 +5,18 @@ int bowlingScore(std::string frames) {
     int roll1, roll2;
 
     for (int i = 0; i < 10; i++) {
-        if (frames[i] == 'X') { // Strike
+        if (frames[i] == 'X') { 
             score += 10 + bowlingStrike(frames, i);
-        } else if (frames[i] == '/') { // Spare
-            if (i == 9) {
-                score += 10 - (frames[i] - '/') - (frames[i + 1] - '0');
-            } else {
-                score += 10 - frames[i + 1] - frames[i + 2];
-            }
+        } else if (frames[i] == '/') { 
+            score += 10 - frames[i+1] - frames[i+2];
+            i++;
         } else {
             roll1 = frames[i] - '0';
-            if (i < 8 && frames[i + 1] == 'X') { // Spare
-                score += roll1 + 10;
-            } else if (i < 9) {
-                roll2 = frames[i + 1] - '0';
-                if (roll1 + roll2 >= 10) { // Spare
-                    score += roll1 + roll2;
-                } else {
-                    score += roll1 + roll2;
-                }
+            roll2 = frames[i+1] - '0';
+            if (roll1 + roll2 >= 10) { 
+                score += roll1 + roll2;
             } else {
-                score += roll1 + (frames[i + 1] - '0');
+                score += roll1 + roll2;
             }
         }
     }
@@ -34,15 +25,17 @@ int bowlingScore(std::string frames) {
 }
 
 int bowlingStrike(std::string frames, int i) {
-    int score = 10;
+    int score = 0;
 
-    for (int j = i + 1; j < i + 4; j++) {
-        if (frames[j] == 'X') { // Strike
+    for (int j = i+1; j < i+4; j++) {
+        if (frames[j] == 'X') { 
             score += 10 + bowlingStrike(frames, j);
-        } else if (frames[j] == '/') { // Spare
-            score += 10 - frames[j + 1] - frames[j + 2];
+        } else if (frames[j] == '/') { 
+            score += 10 - frames[j+1] - frames[j+2];
+            break;
         } else {
-            score += frames[j] - '0' + frames[j + 1] - '0';
+            score += frames[j] - '0' + frames[j+1] - '0';
+            break;
         }
     }
 
