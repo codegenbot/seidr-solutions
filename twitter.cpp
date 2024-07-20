@@ -1,9 +1,4 @@
 ```cpp
-#include <string>
-#include <sstream>
-
-using namespace std;
-
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -11,4 +6,5 @@ string validateTweet(string tweet) {
     if (tweet.length() > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + "\" characters";
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
+}
