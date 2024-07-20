@@ -7,13 +7,14 @@ bool iscuber(int a){
 }
 
 int main() {
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    if(iscuber(n)) {
-        std::cout << n << " is a cube.\n";
-    } else {
-        std::cout << n << " is not a cube.\n";
-    }
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    if(iscuber(num))
+        std::cout << num << " is a cube";
+    else
+        std::cout << num << " is not a cube";
+
     return 0;
 }
