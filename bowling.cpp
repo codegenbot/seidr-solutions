@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const std::string& input) {
     int score = 0;
     for (int i = 0; i < input.size(); ++i) { 
@@ -14,3 +15,4 @@ int bowlingScore(const std::string& input) {
         }
     }
     return score;
+}
