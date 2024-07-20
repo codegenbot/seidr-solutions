@@ -1,10 +1,5 @@
 bool issame(vector<int> a, vector<int> b){
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return (a == b);
 }
 
 vector<int> filter_integers(list_any values);
