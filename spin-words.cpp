@@ -1,35 +1,29 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            word += str[i];
-        } else {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
+string spinWords(string str) {
+    string result = "";
+    size_t start = 0;
+    while (start < str.length()) {
+        size_t end = str.find(' ', start);
+        if (end == string::npos) {
+            end = str.length();
         }
+        string word = str.substr(start, end - start);
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
+        }
+        result += word + " ";
+        start = end + 1;
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    result += word;
-    
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // should print "a"
-    std::cout << spinWords("this is a test") << std::endl; // should print "this is a test"
-    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona test"
-    std::cout << spinWords("hi") << std::endl; // should print "hi"
-    
+    // Your code here
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
