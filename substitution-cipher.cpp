@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <map>
 #include <cctype>
@@ -9,6 +8,10 @@ int main() {
 
     std::string cipher_map2;
     std::cin >> cipher_map2;
+
+    if(cipher_map1.length() != cipher_map2.length()) {
+        return 0; // or handle the error more elegantly
+    }
 
     std::string message;
     std::cin >> message;
@@ -24,9 +27,9 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
     }
     
     std::map<char, char> mapping;
-    for (int j = 0; j < cipher_map1.length(); j++) {
-        if(isalpha(cipher_map2[j])) { 
-            mapping.insert(std::make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
+    for (int i = 0; i < std::min(cipher_map1.length(), cipher_map2.length()); i++) {
+        if(isalpha(cipher_map2[i])) { 
+            mapping.insert(std::make_pair(tolower(cipher_map1[i]), tolower(cipher_map2[i])));
         }
     }
     
