@@ -23,14 +23,14 @@ std::string calculateBinaryAverage(int n, int m) {
     return binary_avg;
 }
 
-int main() {
+int main_calculateBinaryAverage() {
     int n, m;
     std::cin >> n >> m;
     
-    int rounded_avg = std::round((double)(n + m) / 2);
-    
     std::string result = calculateBinaryAverage(n, m);
     std::cout << result << std::endl;
+    
+    assert(calculateBinaryAverage(5, 5) == "101");
     
     return 0;
 }
