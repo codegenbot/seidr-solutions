@@ -1,13 +1,13 @@
-int balance = 0;
-    for (char bracket : brackets) {
-        if (bracket == '<') {
-            balance++;
-        } else if (bracket == '>') {
-            balance--;
+int count = 0;
+    for (char c : brackets) {
+        if (c == '<') {
+            count++;
+        } else if (c == '>') {
+            count--;
         }
-        if (balance < 0) {
+        if (count < 0) {
             return false;
         }
     }
-    return balance == 0;
+    return count == 0;
 }
