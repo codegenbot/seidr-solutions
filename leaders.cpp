@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -14,13 +16,11 @@ vector<int> leaders(vector<int>& arr) {
     return leaders;
 }
 
-#include <initializer_list>
-
-int main() {
+vector<int> main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(arr);
     for (int num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    return 0;
+    return result;
 }
