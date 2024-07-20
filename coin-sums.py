@@ -6,3 +6,5 @@ def coin_sums(cents):
         while cents >= coins[i]:
             results[i] += cents // coins[i]
             cents %= coins[i]
+
+    return ' '.join(map(str, results))
