@@ -10,13 +10,13 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b){
 }
 
 std::vector<int> yourFunctionName(int n){
-    std::vector<int> tri(n, 0); // Define tri array with size n initialized to 0
+    std::vector<int> tri(n, 0);
     return tri;
 }
 
-int main() {
-    int n = 2; // Set appropriate value for n
-    std::vector<int> tri = yourFunctionName(n); // Call your function with appropriate parameter
-    assert(issame(tri, {0, 0})); // Check if the result is as expected
+int main(){
+    int n = 2;
+    std::vector<int> tri = yourFunctionName(n);
+    assert(issame(tri, {0, 0}));
     return 0;
 }
