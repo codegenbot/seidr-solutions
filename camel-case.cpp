@@ -17,12 +17,12 @@ std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (const auto& word : split(s, "-")) {
+    for (const auto& word : split(s, "- ")) {
         if (first) {
             result += word;
             first = false;
         } else {
-            std::string concatenate = ((toupper)(word[0])) + word.substr(1);
+            std::string concatenate = (std::toupper)(word[0]) + word.substr(1);
             result += concatenate;
         }
     }
