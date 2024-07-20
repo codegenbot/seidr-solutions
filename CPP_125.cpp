@@ -1,36 +1,34 @@
-for (char &c : txt) {
-        if (c == ',') {
-            replace(txt.begin(), txt.end(), ',', ' ');
-            break;
-        }
-    }
-
-    vector<string> result;
-    string word;
+vector<string> result;
+    int oddLettersCount = 0;
     for (char &c : txt) {
-        if (isspace(c)) {
-            if (!word.empty()) {
-                result.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
+        if (islower(c) && (c - 'a') % 2 == 1) {
+            oddLettersCount++;
         }
     }
-
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-
-    if (result.empty()) {
-        int count = 0;
+    if (txt.find(' ') != string::npos) {
+        string word;
         for (char &c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+            if (c == ' ') {
+                result.push_back(word);
+                word = "";
+            } else {
+                word += c;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(word);
+    } else if (txt.find(',') != string::npos) {
+        string word;
+        for (char &c : txt) {
+            if (c == ',') {
+                result.push_back(word);
+                word = "";
+            } else {
+                word += c;
+            }
+        }
+        result.push_back(word);
+    } else {
+        result.push_back(to_string(oddLettersCount));
     }
-
     return result;
 }
