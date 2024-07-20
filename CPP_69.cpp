@@ -1,11 +1,10 @@
-Here is the completed code:
-
-int search(vector<int> lst) {
-    int max = 0;
-    for (int i : lst) {
-        if (i > 0 && i >= count(i)) {
-            max = i;
+int search(vector<int> lst){
+    int max = -1;
+    for(int num : lst){
+        if(num > 0 && num >= count(lst.begin(), lst.end(), num)){
+            max = num;
+            break;
         }
     }
-    return max == 0 ? -1 : max;
+    return max;
 }
