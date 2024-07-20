@@ -1,4 +1,7 @@
 #include <vector>
+#include <cassert>
+
+std::vector<int> make_a_pile(int n);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()){
@@ -12,15 +15,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     }
     
     return true;
-}
-
-std::vector<int> make_a_pile(int n);
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> pile = make_a_pile(n);
-    return 0;
 }
 
 std::vector<int> make_a_pile(int n){
