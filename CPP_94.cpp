@@ -1,5 +1,5 @@
+```c++
 #include <vector>
-#include <cassert>
 
 int findMaxPrimeSum(std::vector<int> lst) {
     int maxPrime = 0;
@@ -30,5 +30,4 @@ bool isPrime(int num) {
         }
     }
     return true;
-
 }
