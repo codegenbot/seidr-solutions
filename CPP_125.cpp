@@ -1,9 +1,15 @@
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> result;
     string word = "";
-    
+    bool hasWhitespace = false;
     for (char c : txt) {
-        if (c == ' ' || c == ',') {
+        if (isspace(c)) {
+            hasWhitespace = true;
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else if (c == ',') {
+            hasWhitespace = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
@@ -12,20 +18,22 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    
     if (!word.empty()) {
         result.push_back(word);
     }
 
-    if (result.size() == 0) {
-        int oddCount = 0;
+    if (!hasWhitespace) {
+        int oddLowerCount = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                oddCount++;
+            if (islower(c)) {
+                int order = c - 'a';
+                if (order % 2 == 1) {
+                    oddLowerCount++;
+                }
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(oddLowerCount));
     }
-    
+
     return result;
 }
