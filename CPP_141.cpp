@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -31,12 +30,4 @@ string file_name_check(string file_name) {
     }
 
     return "Yes";
-}
-
-int main() {
-    string file_name;
-    cout << "Enter the file name: ";
-    getline(cin, file_name);
-    cout << file_name_check(file_name) << endl;
-    return 0;
 }
