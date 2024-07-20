@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -11,7 +10,8 @@ std::string camelCase(const std::string& str) {
         if (c == '-') {
             inWord = true;
         } else if (!inWord && c == ' ') { 
-            continue; 
+            inWord = true;
+            result += topper(c);
         } else {
             if (!inWord) {
                 inWord = true;
