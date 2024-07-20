@@ -1,5 +1,5 @@
+```
 #include <iostream>
-using namespace std;
 
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
@@ -14,14 +14,12 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    cout << "Enter three floating point numbers: ";
-    cin >> a >> b >> c;
-
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
-        cout << "At least one integer." << endl;
+        std::cout << "The sum of any two is equal to the third.\n";
     } else {
-        cout << "No integers." << endl;
+        std::cout << "The sum of no two is equal to the third.\n";
     }
-
     return 0;
 }
