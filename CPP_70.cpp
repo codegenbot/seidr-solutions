@@ -9,5 +9,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
         if (!lst.empty())
             sort(lst.begin(), lst.end());
     }
+
     return result;
 }
