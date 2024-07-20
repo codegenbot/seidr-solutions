@@ -1,6 +1,3 @@
-Here is the completed code:
-
-```cpp
 string solve(string s) {
     string result = "";
     for (char c : s) {
