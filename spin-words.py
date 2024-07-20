@@ -1,10 +1,5 @@
 def spin_words(sentence):
-    words = sentence.split()
-    result = []
-    for word in words:
-        word = ''.join(c for c in word if c.isalpha())
-        if len(word) >= 5:
-            result.append(word[::-1])
-        else:
-            result.append(word)
-    return ' '.join(result)
+    if isinstance(sentence, str):
+        return ' '.join(word[::-1] if len(word.strip(string.whitespace)) >= 5 else word for word in sentence.split())
+    else:
+        return "Invalid input. Please provide a string."

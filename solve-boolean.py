@@ -1,32 +1,40 @@
-```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
-    operators = {'&':1, '|':2}
-    precedence = {'&':1, '|':2}
-
     for char in expression:
         if char in ['T', 'F']:
             stack.append(char)
+        elif char == '(':
+            operator_stack.append('(')
         elif char in ['|', '&']:
-            while (operator_stack and 
-                   operator_stack[-1] in operators and
-                   operators[operator_stack[-1]] >= precedence[char]):
-                evaluate_operator(stack, operator_stack.pop())
+            while (len(operator_stack) and ((operator_stack[-1] == '&' and char == '|') or
+                                             (operator_stack[-1] == '|' and char == '&'))):
+                op = operator_stack.pop()
+                if op == '(':
+                    break
+                b = stack.pop() == 'T'
+                a = stack.pop() == 'T'
+                if op == '&':
+                    stack.append(a and b)
+                else:
+                    stack.append(a or b)
             operator_stack.append(char)
-
-    while operator_stack:
-        evaluate_operator(stack, operator_stack.pop())
-
+        elif char == ')':
+            while len(operator_stack) and operator_stack[-1] != '(':
+                op = operator_stack.pop()
+                b = stack.pop() == 'T'
+                a = stack.pop() == 'T'
+                if op == '&':
+                    stack.append(a and b)
+                else:
+                    stack.append(a or b)
+            operator_stack.pop()
+    while len(operator_stack):
+        op = operator_stack.pop()
+        b = stack.pop() == 'T'
+        a = stack.pop() == 'T'
+        if op == '&':
+            stack.append(a and b)
+        else:
+            stack.append(a or b)
     return stack[0] == 'T' if stack else None
-
-def evaluate_operator(stack, operator):
-    a = stack.pop() == 'T'
-    b = stack.pop() == 'T'
-    
-    if operator == '&':
-        stack.append(a and b)
-    elif operator == '|':
-        stack.append(a or b)
-
-return stack[0] == 'T' if stack else None
