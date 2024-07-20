@@ -1,10 +1,7 @@
-if(strings.empty()){
+if (strings.empty()) {
     return "";
+} else {
+    string result = *min_element(strings.begin(), strings.end(),
+        [](const string& a, const string& b) {return a.size() < b.size(); });
+    return result;
 }
-string result = strings[0];
-for(string s : strings){
-    if(s.length() > result.length()){
-        result = s;
-    }
-}
-return result;
