@@ -1,11 +1,15 @@
-Here is the completed code:
-
-```cpp
 bool is_nested(string str) {
-    int open = 0, close = 0;
+    int count = 0;
     for (char c : str) {
-        if (c == '[') open++;
-        else if (c == ']') close++;
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
+            }
+        }
     }
-    return open > 0 && close > open;
+    return count > 0;
 }
