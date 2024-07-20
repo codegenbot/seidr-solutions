@@ -1,28 +1,18 @@
-int count_nums(vector<int> v) {
+#include <vector>
+
+int count_nums(const vector<int>& n) {
     int count = 0;
-    for (int num : v) {
+    for (const auto& num : n) {
         if (num >= 0) {
             int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0)
-                count++;
-        } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            bool is_negative = true;
-            while (num > 0) {
-                int digit = num % 10;
-                if (is_negative && digit != 1) {
-                    break; // stop counting if we find a non-1 negative digit
-                }
+            bool is_negative = false;
+            while (num > 0 || (!is_negative && num < 0)) {
+                int digit = abs(num) % 10;
                 sum += digit;
+                is_negative = (num < 0);
                 num /= 10;
             }
-            if (sum > 0)
-                count++;
+            if (sum > 0) count++;
         }
     }
     return count;
