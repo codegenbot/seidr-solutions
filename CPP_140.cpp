@@ -1,24 +1,10 @@
-int count = 0;
-    bool consecutive = false;
-    string result = "";
-    
-    for(char c : text){
-        if(c == ' '){
-            count++;
-            if(count > 2){
-                if(!consecutive){
-                    result += '-';
-                    consecutive = true;
-                }
-            } else {
-                result += '_';
-            }
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        if (i + 2 < text.size() && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text.replace(i, text.find_first_not_of(' ', i) - i, "-");
         } else {
-            count = 0;
-            consecutive = false;
-            result += c;
+            text[i] = '_';
         }
     }
-    
-    return result;
 }
+return text;
