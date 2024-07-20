@@ -6,16 +6,17 @@ int modp(int n, int p) {
         return 1;
     long long res = 1;
     for (int i = 1; i <= n; i++) {
-        res = (res * i) % p;
+        res = (long long)res * i % p;
     }
     return res;
 }
 
 int main() {
-    printf("%d\n", modp(3, 5));
-    printf("%d\n", modp(1101, 101));
-    printf("%d\n", modp(0, 101));
-    printf("%d\n", modp(3, 11));
-    printf("%d\n", modp(100, 101));
+    int n, p;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("Enter the value of p: ");
+    scanf("%d", &p);
+    printf("2^n modulo p = %d\n", modp(n, p));
     return 0;
 }
