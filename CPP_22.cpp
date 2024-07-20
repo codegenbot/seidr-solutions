@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,4 +16,7 @@ std::vector<int> filter_integers(const std::vector<int>& data) {
     return result;
 }
 
-assert(issame(filter_integers({3, 2, 3, 3, 5, 6}), std::vector<int>{3, 3, 3}));
+int main() {
+    assert(issame(filter_integers({3, 2, 3, 3, 5, 6}), std::vector<int>{3, 3, 3}));
+    return 0;
+}
