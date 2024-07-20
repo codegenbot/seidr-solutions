@@ -9,3 +9,8 @@ int next_smallest(vector<int> lst){
     }
     return NULL; 
 }
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
+}
