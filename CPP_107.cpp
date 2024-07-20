@@ -1,20 +1,15 @@
-vector<int> even_odd_palindrome(int n){
-        int count_even = 0;
-        int count_odd = 0;
-        
-        for(int i=1; i<=n; ++i){
-            string forward = to_string(i);
-            string backward = forward;
-            reverse(backward.begin(), backward.end());
-            
-            if(forward == backward){
-                if(i % 2 == 0){
-                    count_even++;
-                } else {
-                    count_odd++;
-                }
+vector<int> count = {0, 0};
+    for (int i = 1; i <= n; ++i) {
+        string s = to_string(i);
+        string rev_s = s;
+        reverse(rev_s.begin(), rev_s.end());
+        if (s == rev_s) {
+            if (i % 2 == 0) {
+                count[0]++;
+            } else {
+                count[1]++;
             }
         }
-        
-        return {count_even, count_odd};
     }
+    return count;
+}
