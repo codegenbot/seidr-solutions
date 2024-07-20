@@ -1,6 +1,4 @@
 #include <vector>
-#include <iostream>
-#include <algorithm>
 
 bool are_same(vector<vector<int>> a, vector<vector<int>> b){
     return a == b;
