@@ -1,8 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
-#include <limits>
-
 using std::cout;
 using std::cin;
 using std::string;
@@ -24,9 +22,8 @@ std::vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text, target;
     cin >> text;
-    cin.ignore(std::streamsize::max, '\n');
-    std::getline(cin, target);
     cin.ignore(); 
+    getline(cin, target);
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
