@@ -1,28 +1,35 @@
+#include <openssl/evp.h>
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX mdctx;
-    const char* ptr = text.c_str();
-    MD5_Init(&mdctx);
-    while (*ptr) {
-        MD5_Update(&mdctx, ptr, strlen(ptr) + 1);
-        ptr += strlen(ptr) + 1;
-    }
-    MD5_Final(md, &mdctx);
 
-    string out;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buf[3];
-        sprintf(buf, "%02x", md[i]);
-        out.append(buf);
+    unsigned char buffer[16];
+    EVP_MD_CTX mdctx;
+    EVP_PKEY *pkey = NULL;
+    const EVP_MD *md = EVP_md5();
+    unsigned char md_value[EVP_MAX_BLOCK_LENGTH];
+
+    if (!EVP_MD_CTX_init(&mdctx))
+        return "";
+
+    if (1 != EVP_DigestInit_ex(&mdctx, md, NULL))
+        return "";
+
+    EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
+
+    if (1 != EVP_DigestFinal_ex(&mdctx, md_value, &buffer))
+        return "";
+
+    string result = "";
+    for(int i = 0; i < 16; i++) {
+        char c = buffer[i];
+        sprintf(&result[0], "%02x", c);
     }
-    
-    return out;
+
+    EVP_MD_CTX_cleanup(&mdctx);
+
+    return result;
 }
