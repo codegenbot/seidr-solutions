@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -15,18 +14,21 @@ int main(){
     int num;
     int k;
 
-    std::cout << "Enter the number of elements: ";
-    std::cin >> k;
-    
+    // Read input
+    cout << "Enter the number of elements: ";
+    cin >> k;
+    arr.resize(k);
+
     for(int i=0; i<k; i++){
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        arr.push_back(num);
+        cout << "Enter element #"<<i+1<<": ";
+        cin >> arr[i];
     }
 
-    int result = add_elements(arr, k);
+    // Calculate sum
+    int sum = add_elements(arr, k);
 
-    std::cout << "Sum of elements: " << result << std::endl;
+    // Print result
+    cout << "Sum of elements: "<<sum<<endl;
 
     return 0;
 }
