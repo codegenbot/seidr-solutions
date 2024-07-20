@@ -2,26 +2,22 @@
 #include <sstream>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
-    
-    EVP_MD_CTX md_ctx;
-    EVP_MD *md = EVP_md5();
-    unsigned char digest[16];
-    unsigned int len;
+    if (text.empty()) return "";
 
-    if (!EVP_DigestInit_ex(&md_ctx, md, NULL)) {
-        return "Error";
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX c;
+    MD5_Init(&c);
+    const char *ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&c, ptr, 1);
+        ptr++;
+    }
+    MD5_Final(md, &c);
+
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
     }
 
-    if (1 != EVP_DigestUpdate(&md_ctx, text.c_str(), text.size())) {
-        return "Error";
-    }
-    
-    EVP_DigestFinal_ex(&md_ctx, digest, &len);
-    string result;
-    for(int i = 0; i < len; i++) {
-        sprintf(result + strlen(result), "%02x", (unsigned char)digest[i]);
-    }
-
-    return result;
+    return ss.str();
 }
