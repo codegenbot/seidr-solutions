@@ -1,38 +1,53 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    bool result = false;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
-                operationStack.pop();
+bool evaluateBooleanExpression(string expression) {
+    bool result = true;
+    for (int i = 0; i < expression.size(); i++) {
+        switch (expression[i]) {
+            case 'T':
+                return true;
+            case 'F':
+                return false;
+            case '&': {
+                bool a = true, b = true;
+                if (i + 1 < expression.size()) {
+                    if (expression[i + 1] == 'T')
+                        a = true;
+                    else
+                        a = false;
+                    i++;
+                }
+                if (i + 1 < expression.size()) {
+                    if (expression[i + 1] == 'T')
+                        b = true;
+                    else
+                        b = false;
+                    i++;
+                }
+                result &= a && b;
+                break;
             }
-            operationStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            while (!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
+            case '|': {
+                bool a = true, b = true;
+                if (i + 1 < expression.size()) {
+                    if (expression[i + 1] == 'T')
+                        a = true;
+                    else
+                        a = false;
+                    i++;
+                }
+                if (i + 1 < expression.size()) {
+                    if (expression[i + 1] == 'T')
+                        b = true;
+                    else
+                        b = false;
+                    i++;
+                }
+                result |= a || b;
+                break;
             }
-            operationStack.push('|');
-        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 't') {
-            result = true;
-        } else if (booleanExpression[i] == 'F' || booleanExpression[i] == 'f') {
-            result = false;
-        } else {
-            while (!operationStack.empty()) {
-                operationStack.pop();
-            }
-            if (result) {
-                operationStack.push('&');
-            } else {
-                operationStack.push('|');
-            }
-            result = true;
         }
     }
-
-    while (!operationStack.empty()) {
-        operationStack.pop();
-    }
-
     return result;
 }
