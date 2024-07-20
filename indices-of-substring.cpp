@@ -1,5 +1,4 @@
-```cpp
-#include <iostream> 
+#include <iostream> // for cout and endl
 #include <vector>
 using namespace std;
 
