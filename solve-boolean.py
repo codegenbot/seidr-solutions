@@ -1,8 +1,8 @@
+```
 def solve_boolean(expression):
     ops = ['&', '|']
     stack = []
     result = True if expression[0] == 'T' else False
-    temp = None
 
     for char in expression:
         if char in ops:
@@ -10,16 +10,11 @@ def solve_boolean(expression):
         elif char != 'T' and char != 'F':
             raise ValueError("Invalid operation")
         elif not stack:
-            temp = char
-            if op == '&':
-                result &= (temp == 'T')
-            elif op == '|':
-                result |= (temp == 'T')
-        else:
             op = stack.pop()
+            val = (char == 'T')
             if op == '&':
-                result &= (temp == 'T' and (temp == char))
+                result = result and val
             elif op == '|':
-                result |= (temp == 'T' or (temp == char))
+                result = result or val
 
     return result
