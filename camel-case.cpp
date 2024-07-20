@@ -10,7 +10,7 @@ std::string toCamelCase(const std::string& s) {
         if (!first) {
             temp += toupper(word[0]) + word.substr(1);
         } else {
-            temp += word;
+            temp = word;
         }
         first = false;
         result += temp;
@@ -24,7 +24,7 @@ std::string split(const std::string& s, const std::string& delimiter) {
     size_t pos = 0;
     std::string token;
 
-    while ((pos = s.find(delimiter)) != std::string::npos) {
+    while ((pos = s.find(delimiter)) != 0) {
         token = s.substr(0, pos);
         s = s.substr(pos + delimiter.size());
     }
