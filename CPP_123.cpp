@@ -4,9 +4,7 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int n); // Function prototype
-
-bool issame(vector<int> a, vector<int> b) {
+bool is_same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -39,8 +37,7 @@ vector<int> get_odd_collatz(int n) {
     return odd_result;
 }
 
-int main() {
-    assert(issame(get_odd_collatz(1), {1})); // Updated assert statement
-
+int main_renamed() {
+    assert(is_same(get_odd_collatz(1), {1}));
     return 0;
 }
