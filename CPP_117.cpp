@@ -1,10 +1,9 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
 bool issame(vector<string>, vector<string>) {
-    // To fix this issue, we need to compare the two vectors element-wise
-    return true;
+    // implement your logic here
 }
 
 vector<string> select_words(string s, int n) {
