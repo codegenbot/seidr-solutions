@@ -10,8 +10,12 @@ int bowlingScore(string s) {
         } else if (c == '/') {
             score += 10 + currentRoll;
             currentRoll = 0;
-        } else if (isdigit(c)) {
-            currentRoll = currentRoll * 10 + (c - '0') * 10;
+        } else {
+            currentRoll += (c - '0');
+            if (currentRoll >= 10) {
+                score += 10 + 10 - currentRoll;
+                currentRoll = 0;
+            }
         }
     }
     return score;
