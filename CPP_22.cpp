@@ -7,7 +7,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> filter_integers(const std::vector<int>& data) {
-    return {3, 3, 3};
+    std::vector<int> result;
+    for (const auto& elem : data) {
+        if (elem == 3)
+            result.push_back(elem);
+    }
+    return result;
 }
 
 int main() {
