@@ -1,27 +1,39 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
+std::string camelCase(const std::string& str) {
+    std::vector<std::string> words;
+    if (str.find(' ') == std::string::npos)
+        words.push_back(str);
+    else {
+        size_t pos = 0;
+        while ((pos = str.find(' ')) != std::string::npos) {
+            words.push_back(str.substr(0, pos));
+            str.erase(0, pos + 1);
+        }
+        if (!str.empty())
+            words.push_back(str);
+    }
 
-    for (char c : s) {
-        if (c == '-') {
-            if (!first) {
-                result += char(toupper(c));
-            } else {
-                first = false;
-            }
-        } else if (c == ' ') {
-            continue; 
-        } else {
-            if (first) {
-                first = false;
-            }
-            if (c != '-') {
-                result += toupper(c);
-            } else {
+    std::string result;
+    bool capitalizeNext = true;
+
+    for (const auto& word : words) {
+        for (char c : word) {
+            if (capitalizeNext && !std::isalpha(c)) {
                 result += c;
+                capitalizeNext = false;
+            } else {
+                if (c == '-') {
+                    result += ' ';
+                    capitalizeNext = true;
+                } else if (capitalizeNext) {
+                    result += toupper(c);
+                    capitalizeNext = false;
+                } else {
+                    result += tolower(c);
+                }
             }
         }
     }
@@ -30,15 +42,9 @@ std::string toCamelCase(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    // Remove spaces
-    for (auto &c : input) {
-        if (c == ' ') c = '-';
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
-
-    std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
