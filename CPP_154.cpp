@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool cycpattern_check(const std::string& a, const std::string& b) {
     std::string combined = a + a;
@@ -8,4 +9,6 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
+    
+    return 0;
 }
