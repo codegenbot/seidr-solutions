@@ -1,3 +1,9 @@
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <vector>
+#include <cassert>
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
