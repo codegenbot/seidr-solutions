@@ -1,18 +1,11 @@
 string solve(string s) {
-    string result = "";
+    string res = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            c = tolower(c);
-            if (result.back() == 'z' || result.back() == 'Z') {
-                c = toupper(c);
-            }
+        if (!isalpha(c)) {
+            res += c;
         } else {
-            c = c;
+            res += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
         }
-        result += c;
     }
-    if (result.empty()) {
-        reverse(result.begin(), result.end());
-    }
-    return result;
+    return res.empty() ? string(s).reverse() : res;
 }
