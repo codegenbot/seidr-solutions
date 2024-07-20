@@ -2,38 +2,36 @@
 using namespace std;
 
 bool valid_date(string date) {
-    int day, month, year;
-    char separator = '-';
+    size_t pos = 0, pos2 = 0;
+    string month, day, year;
     
-    // Check if the input string has exactly 10 characters.
-    if(date.length() != 10){
-        return false;
-    }
-    
-    // Extract day, month and year from the input string
-    for(int i=0; i<3; i++){
-        if(i==1) separator = '-';
-        else separator = '-';
-        int j = 0;
-        while (date[j] != separator && j < date.length()) {
-            j++;
+    // Split the date into month-day-year
+    pos = date.find('-');
+    if (pos != string::npos) {
+        month = date.substr(0, pos);
+        date.erase(0, pos + 1);
+        pos = date.find('-');
+        if (pos != string::npos) {
+            day = date.substr(0, pos);
+            date.erase(0, pos + 1);
+            year = date;
         }
-        if(i == 0) month = stoi(date.substr(0, j));
-        else day = stoi(date.substr(j+1));
     }
-    
-    year = stoi(date.substr(5));
     
     // Check for valid month
-    if(month < 1 || month > 12)
+    int mon = stoi(month);
+    if (mon < 1 || mon > 12)
         return false;
     
     // Check for valid day
-    if((month == 2 && (day < 1 || day > 29)) ||
-       (month == 4 || month == 6 || month == 9 || month == 11) &&
-       (day < 1 || day > 30) ||
-       (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
-       (day < 1 || day > 31))
+    int dy = stoi(day);
+    if ((mon == 2 && dy < 1) || (mon == 4 || mon == 6 || mon == 9 || mon == 11) && dy < 1 || 
+        (mon == 1 || mon == 3 || mon == 5 || mon == 7 || mon == 8 || mon == 10 || mon == 12) && dy > 31)
+        return false;
+    
+    // Check for valid year
+    int yr = stoi(year);
+    if(yr < 0)
         return false;
     
     return true;
