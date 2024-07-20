@@ -15,8 +15,7 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    assert(maximum(input, 3) == std::vector<int>{3, 243, 243, 243, 0});
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 3) == std::vector<int>{3, 243, 243, 243, 0});
     
     return 0;
 }
