@@ -7,9 +7,8 @@ namespace CustomNamespace {
         // Return a vector of integers representing the path
     }
 
-    bool issame(std::vector<int> a, std::vector<int> b){
-        // Implement logic to compare two vectors of integers
-        // Return true if a and b are the same, false otherwise
+    bool issame(const std::vector<int>& a, const std::vector<int>& b){
+        return a == b;
     }
 }
 
