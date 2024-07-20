@@ -32,7 +32,7 @@ string camelCase(string str) {
 int main() {
     string str;
     cout << "Enter a kebab-case string: ";
-    getline(cin, str);
+    getline(cin, str); 
     cout << "Camel Case String: " << camelCase(str) << endl;
     return 0;
 }
