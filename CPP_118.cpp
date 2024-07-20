@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -15,7 +16,7 @@ string get_closest_vowel(string word) {
                 if(!isvowel(word[j]) && !right.empty()) break;
                 if(!isvowel(word[j])) right.push_back(word[j]);
             }
-            return word.substr(0, i+1);
+            return word.substr(0, i + (right.size() > 0 ? right.size() : 1));
         }
     }
     return "";
