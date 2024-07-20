@@ -1,6 +1,6 @@
-```cpp
 #include <string>
 #include <cctype>
+#include <vector>
 
 using namespace std;
 
@@ -37,8 +37,8 @@ int main() {
     string file_name;
     cout << "Enter the file name: ";
     cin >> file_name;
-
-    cout << "The result is: " << file_name_check(file_name) << endl;
-
+    
+    cout << "The output is: " << file_name_check(file_name);
+    
     return 0;
 }
