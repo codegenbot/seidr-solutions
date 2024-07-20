@@ -26,15 +26,15 @@ int gcd(int a, int b) {
 int main() {
     string str;
     cout << "Enter the text and target string for Indices of Substring: ";
-    cin >> str; 
+    cin >> str;
 
-    int start = str.find(' '); 
+    int start = str.find(' ');
     if (start == string::npos) {
-        string text = str; 
+        string text = str;
         string target = "";
     } else {
-        string text = str.substr(0, start); 
-        string target = str.substr(start + 1); 
+        string text = str.substr(0, start);
+        string target = str.substr(start + 1);
     }
 
     int a, b;
