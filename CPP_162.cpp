@@ -1,3 +1,8 @@
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <digest.h>
+
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "None";
 
@@ -10,7 +15,7 @@ std::string string_to_md5(std::string text) {
 
     std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(md[i]);
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)md[i];
     }
 
     return ss.str();
