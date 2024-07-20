@@ -1,6 +1,6 @@
-# include <iostream>
-# include <cassert>
-# include <string>
+#include <iostream>
+#include <cassert>
+#include <string>
 
 std::string change_base(int a, int b) {
     std::string result;
