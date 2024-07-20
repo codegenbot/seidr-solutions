@@ -1,24 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
+Here is the completed code:
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int n = grid.size();
+    int m = grid[0].size();
+    int ans = 0;
+    for (int i = 0; i < n; ++i) {
+        int cur_water = 0;
+        for (int j = 0; j < m; ++j) {
+            if (grid[i][j] == 1) {
+                cur_water += 1;
+            }
+        }
+        while (cur_water > 0) {
+            int amount_to_take = min(cur_water, capacity);
+            cur_water -= amount_to_take;
+            ans++;
+        }
     }
-    
-    int buckets_needed = total_water / capacity;
-    int remaining_water = total_water % capacity;
-
-    if (remaining_water > 0) {
-        buckets_needed++;
-    }
-
-    return buckets_needed;
-}
-
-int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    return 0;
+    return ans;
 }
