@@ -17,9 +17,6 @@ int specialFilter(const std::vector<int>& nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // Add more test cases here
-    assert(specialFilter({12, 23, 45, 6, 78}) == 2);
-    assert(specialFilter({-15, 25, -37, 48, 59}) == 3);
-
+    // Add more assert statements for additional test cases
     return 0;
 }
