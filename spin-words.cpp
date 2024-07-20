@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -17,9 +18,6 @@ std::string spinWords(std::string str) {
 
     if (!word.empty())
         result += !word.length() >= 5 ? word : std::string(word.rbegin(), word.rend());
-    else
-        result += "";
-
     return result;
 }
 
