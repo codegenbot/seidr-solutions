@@ -1,5 +1,7 @@
-#include <set>
+```cpp
 #include <vector>
+#include <set>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -16,9 +18,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     
     vector<int> result(intersection.begin(), intersection.end());
     return result;
-}
-
-int main() {
-    assert(common({4, 3, 2, 8}, {}) == {});
-    return 0;
 }
