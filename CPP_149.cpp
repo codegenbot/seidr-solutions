@@ -1,9 +1,9 @@
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size())
-        return false;
+    if(a.size()!=b.size()) return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
     for(int i=0;i<a.size();i++){
-        if(std::sort(a[i].begin(),a[i].end()) != std::sort(b[i].begin(),b[i].end()))
-            return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
