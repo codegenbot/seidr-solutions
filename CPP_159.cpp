@@ -1,10 +1,17 @@
 #include <cassert>
 #include <utility>
 #include <iostream>
-#include <vector> // Add include for vector type
+#include <vector>
 
-bool issame(std::pair<int, int> first_pair, std::pair<int, int> second_pair) {
-    return first_pair == second_pair;
+std::pair<int, int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = total > remaining ? remaining : total;
+    int left = remaining - eaten;
+    return std::make_pair(eaten, left);
+}
+
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+    return a == b;
 }
 
 int main() {
