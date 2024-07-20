@@ -1,12 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> maxK(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
+vector<int> maximum(vector<int> myArr, int k) {
+    vector<int> result;
+    if (k > myArr.size()) {
+        return {};
+    }
+    sort(myArr.begin(), myArr.end());
+    for (int i = myArr.size() - 1; i >= myArr.size() - k; --i) {
+        result.push_back(myArr[i]);
+    }
     return result;
 }
