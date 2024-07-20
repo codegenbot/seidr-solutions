@@ -1,46 +1,56 @@
-#include <string>
-#include <map>
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
+    string letters[256]; // assuming ASCII characters only
+    for (int i = 0; i < 256; i++) {
+        letters[i] = "";
+    }
     string temp;
+    int maxCount = 0;
+
     for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                if (result.find(temp[0]) == result.end() || result[temp[0]] == 1) {
-                    result[temp[0]] = 1;
-                } else {
-                    result[temp[0]]++;
-                }
-                temp.clear();
-            }
-        } else {
+        if (c != ' ') { // ignore spaces
             temp += c;
+        } else {
+            if (!temp.empty()) {
+                int count = 1;
+                for (int i = 1; i <= letters[c[0]].size(); i++) {
+                    if (letters[c[0]][i - 1] == c) {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                letters[c[0]] += temp + " ";
+                result[c] = count;
+            }
+            temp = "";
         }
     }
 
     if (!temp.empty()) {
-        if (result.find(temp[0]) == result.end() || result[temp[0]] == 1) {
-            result[temp[0]] = 1;
-        } else {
-            result[temp[0]]++;
+        int count = 1;
+        for (int i = 1; i <= letters[temp[0]].size(); i++) {
+            if (letters[temp[0]][i - 1] == temp[0]) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        result[temp[0]] = count;
+    }
+
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
         }
     }
 
-    map<char, int> maxMap;
-    int maxValue = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxValue) {
-            maxMap.clear();
-            maxMap[it->first] = it->second;
-            maxValue = it->second;
-        } else if (it->second == maxValue) {
-            maxMap[it->first] = it->second;
+    map<char, int> mostFrequent;
+    for (auto& p : result) {
+        if (p.second == maxCount) {
+            mostFrequent[p.first] = p.second;
         }
     }
 
-    return maxMap;
+    return mostFrequent;
 }
