@@ -18,7 +18,7 @@ std::string toCamelCase(const std::string& s) {
     return result;
 }
 
-std::string split(std::string s, const std::string& delimiter) -> std::string {
+std::string split(std::string& s, const std::string& delimiter) -> std::string {
     size_t pos = 0;
     std::string token;
 
