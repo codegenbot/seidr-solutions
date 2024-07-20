@@ -1,8 +1,24 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int x : lst1) {
-        if (x % 2 != 0 && !binary_search(lst2.begin(), lst2.end(), x)) {
-            return "NO";
+    int evenCount = 0;
+    for (int num : lst1) {
+        if (num % 2 == 0)
+            evenCount++;
+    }
+    for (int i = 0; i < lst1.size(); i++) {
+        bool found = false;
+        for (int j = 0; j < lst2.size(); j++) {
+            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
+                swap(lst1[i], lst2[j]);
+                found = true;
+                break;
+            }
         }
+        if (!found)
+            return "NO";
+    }
+    for (int num : lst1) {
+        if (num % 2 != 0)
+            return "NO";
     }
     return "YES";
 }
