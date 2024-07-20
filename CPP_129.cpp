@@ -18,24 +18,37 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
     
-    int min_val = INT_MAX;
+    int res = INT_MAX;
+    vector<int> path;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (dp[i][j] == dp[n-1][n-1]) {
-                vector<int> path;
                 int val = grid[i][j];
-                for (int l = 0; l <= k; l++) {
-                    path.push_back(val);
-                    if (l < k) {
-                        if (i > 0) i--;
-                        else if (j > 0) j--;
-                        else break;
-                    }
-                }
-                return path;
+                res = min(res, val);
+                path.push_back(val);
             }
         }
     }
     
-    return {};
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[j][i] == res) {
+                result.push_back(grid[j][i]);
+                break;
+            }
+        }
+    }
+    
+    return result;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    return 0;
 }
