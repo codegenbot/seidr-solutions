@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -23,3 +24,4 @@ int main() {
     std::cin >> input;
     std::cout << camelCase(input) << std::endl;
     return 0;
+}
