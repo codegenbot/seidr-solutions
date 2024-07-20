@@ -7,7 +7,7 @@ def luhn(card_number):
         else:
             doubled_num = num * 2
             if doubled_num > 9: 
-                new_card_number.append(doubled_num - 9) 
+                new_card_number.append(doubled_num - 9) # Subract 9 if the number is greater than 9
             else:
                 new_card_number.append(doubled_num)
     return sum(new_card_number)
