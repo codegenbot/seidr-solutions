@@ -1,8 +1,10 @@
-```#include <vector>
+````
+#include <vector>
 using namespace std;
 
 int main() {
     vector<int> leaders = leaders({1, 3, 4, 2});
+    // do something with leaders...
     return 0;
 }
 
@@ -18,3 +20,4 @@ vector<int> leaders(vector<int>& arr) {
     leaders.push_back(rightmost);
     return leaders;
 }
+```
