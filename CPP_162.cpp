@@ -22,10 +22,10 @@ string string_to_md5(string text) {
     }
 
     return md5;
-
 }
 
 int main() {
-    // Your code that calls string_to_md5()
+    string text = "Hello";
+    cout << string_to_md5(text) << endl;
     return 0;
 }
