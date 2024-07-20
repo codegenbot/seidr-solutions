@@ -4,8 +4,8 @@
 
 int count(int i) {
     int c = 0;
-    for (int j : {i}) {
-        if (j == i)
+    for (int x : {1, 2, 3, 4, 5}) {
+        if (x <= i)
             c++;
     }
     return c;
