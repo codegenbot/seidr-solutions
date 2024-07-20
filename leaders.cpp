@@ -10,15 +10,13 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(arr.back());
+    leaders.push_back(rightmost);
     return leaders;
 }
 
 int main() {
-    vector<int> arr = {17, 115, 2, 27, 3, 2, 8, 2};
+    vector<int> arr = {1, 3, 4, 2};
     vector<int> leaders = leaders(arr);
-    for (int i : leaders) {
-        cout << i << " ";
-    }
+    // Do something with the leaders vector
     return 0;
 }
