@@ -1,11 +1,13 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    int len = txt.length();
-    if(len == 0)
-        return false;
-    char lastChar = txt[len-1];
-    for(int i = 0; i < len - 1; i++) {
-        if(txt[i] == ' ' && txt[i+1] == lastChar) 
-            return false;
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.size()-1);
+    bool isLetter = (lastChar[0] >= 'a' && lastChar[0] <= 'z') || (lastChar[0] >= 'A' && lastChar[0] <= 'Z');
+    if(isLetter){
+        for(int i=0; i<txt.size()-1; i++){
+            if(txt[i] == ' ' || txt[i] < 'a' || txt[i] > 'z' || txt[i] < 'A' || txt[i] > 'Z'){
+                return false;
+            }
+        }
     }
-    return isalpha(lastChar);
+    return isLetter;
 }
