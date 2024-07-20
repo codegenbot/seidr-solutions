@@ -1,10 +1,5 @@
-```cpp
 bool issame(int a, int b) {
-    if (a == b) return true;
-    for (int i : {a, b}) {
-        if (i != min && i != max) return false;
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> strange_sort_list(vector<int> lst) {
