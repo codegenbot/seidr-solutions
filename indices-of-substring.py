@@ -1,8 +1,17 @@
-import re
-def indices_of_substring(problem_name):
+```
+while True:
     text = input("Enter the text: ")
+    if not text:
+        print("Text cannot be empty. Please try again.")
+    else:
+        break
+while True:
     target = input("Enter the target string: ")
-    result = [m.start() for m in re.finditer(target, text)]
-    return result
+    if not target:
+        print("Target cannot be empty. Please try again.")
+    else:
+        break
 
-print(indices_of_substring("indices-of-substring"))
+import re
+result = [m.start() for m in re.finditer(target, text)]
+print(result)

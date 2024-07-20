@@ -21,7 +21,7 @@ double vectorDistance(int n) {
         sum += pow((v2.elements[i] - v1.elements[i]), 2);
     }
     
-    return sqrt(sum);
+    return pow(sqrt(sum), 1.0);
 }
 
 int main() {
