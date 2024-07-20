@@ -17,9 +17,9 @@ int main() {
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
     if (any_int(a, b, c)) {
-        std::cout << "The sum of any two is equal to the third.\n";
+        std::cout << "At least one of the integers is equal to the sum of the other two.\n";
     } else {
-        std::cout << "The sum of no two is equal to the third.\n";
+        std::cout << "None of the integers are equal to the sum of the other two.\n";
     }
     return 0;
 }

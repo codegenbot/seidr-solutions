@@ -4,20 +4,23 @@ using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
-    int even = 0;
-    int odd = 0;
-    
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
-        
-        if (str == reverse(str)) { // Check if the number is palindrome
-            if (i % 2 == 0) even++; // Count even palindromes
-            else odd++; // Count odd palindromes
+        bool isPalindrome = true;
+        int start = 0, end = str.length() - 1;
+        while (start < end) {
+            if (str[start] != str[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+        if (isPalindrome && i % 2 == 0) {
+            result[0]++;
+        } else if (isPalindrome && i % 2 != 0) {
+            result[1]++;
         }
     }
-    
-    result[0] = even;
-    result[1] = odd;
-    
     return result;
 }
