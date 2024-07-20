@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -12,9 +13,9 @@ std::string camelCase(const std::string& str) {
         } else {
             if (!inWord && c != '-') { // Start of a new word
                 inWord = true;
-                result += std::toupper(c);
+                result += toupper(c);
             } else if (c != '-') {
-                result += std::tolower(c);
+                result += tolower(c);
             }
         }
     }
