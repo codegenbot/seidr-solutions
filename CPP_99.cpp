@@ -1,8 +1,16 @@
+#include <iostream>
 #include <cmath>
-#include <cassert>
 
 int closest_integer(std::string value) {
-    double num = stod(value);
-    int rounded = static_cast<int>(num < 0 ? ceil(num - 0.5) : floor(num + 0.5));
-    return rounded;
+    double num = std::stod(value);
+    int lower = std::floor(num);
+    int upper = std::ceil(num);
+    return (std::abs(num - lower) < std::abs(num - upper)) ? lower : upper;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << closest_integer(input) << std::endl;
+    return 0;
 }
