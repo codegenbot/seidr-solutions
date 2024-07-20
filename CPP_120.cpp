@@ -2,6 +2,10 @@
 #include <iostream>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 std::vector<int> maximum(const std::vector<int>& arr, int k) {
     std::vector<int> result;
     for (int i = 0; i <= arr.size() - k; ++i) {
@@ -15,7 +19,8 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
 }
 
 int main() {
-    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 3) == std::vector<int>{3, 243, 243, 243, 0});
+    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
+    assert(issame(maximum(input, 3), std::vector<int>{3, 243, 243, 243, 0});
     
     return 0;
 }
