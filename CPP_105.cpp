@@ -5,17 +5,41 @@ vector<string> by_length(vector<int> arr) {
             nums.push_back(num);
         }
     }
-
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
-
     vector<string> result;
-    map<int, string> digitNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-                                     {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-
     for (int num : nums) {
-        result.push_back(digitNames[num]);
+        string str = "";
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
     }
-
     return result;
 }
