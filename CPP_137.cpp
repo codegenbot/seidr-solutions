@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -10,7 +9,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         return max(a.convert_to<int>(), b.convert_to<float>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<string>(b, string())) ? a : b;
+        string s = boost::any_cast<string>(b);
+        int i = boost::any_cast<int>(a);
+        return i > s.length() ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
@@ -19,10 +20,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a.convert_to<int>() > b.convert_to<int>() ? a : b;
+        return a == b ? boost::any("None") : (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return a.convert_to<float>() > b.convert_to<float>() ? a : b;
+        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
     }
 
     return boost::any("None");
