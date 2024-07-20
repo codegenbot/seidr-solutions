@@ -1,4 +1,4 @@
-```
+```python
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -8,7 +8,7 @@ def solve_boolean(expression):
         raise ValueError("Invalid operation")
     else:
         result = True if expression[0] == 'T' else False
-        for op, val in zip(['&', '|'], [expression.index(op), expression.rindex(op)]):
+        for op, val in zip(['&', '|'], [expression.index(op) if op in expression else -1, expression.rindex(op) if op in expression else -1]):
             if op == '&':
                 result = result and (val > 0)
             elif op == '|':
