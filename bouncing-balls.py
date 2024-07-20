@@ -12,7 +12,7 @@ def bouncing_balls():
         total_distance += 2 * (height + height * bounciness_index)
         height = height * bounciness_index
 
-    return str(format(total_distance, ".4f"))
+    return format(total_distance, ".4f")
 
 
 print(bouncing_balls())
