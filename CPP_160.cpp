@@ -1,18 +1,49 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
+
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = 0;
-    for (int i = 1; i < operand.size(); i++) {
-        if (*operator_.begin() == "+") {
+    int i = 0;
+
+    for (i = 0; i < operato.size(); i++) {
+        if (operato[i] == "+") {
             result += operand[i];
-        } else if (*operator_.begin() == "-") {
+        } else if (operato[i] == "-") {
             result -= operand[i];
-        } else if (*operator_.begin() == "*") {
-            result *= operand[i];
-        } else if (*operator_.begin() == "//") {
-            result = result / operand[i];
-        } else if (*operator_.begin() == "**") {
-            result = pow(result, operand[i]);
+        } else if (operato[i] == "*") {
+            int temp = 0;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "*") {
+                    temp += operand[j] * operand[j + 1];
+                    break;
+                }
+            }
+            result += temp;
+        } else if (operato[i] == "//") {
+            int temp = 0;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "//") {
+                    temp = operand[j] / static_cast<int>(operand[j + 1]);
+                    break;
+                }
+            }
+            result += temp;
+        } else if (operato[i] == "**") {
+            int temp = 0;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "**") {
+                    temp = pow(operand[j], operand[j + 1]);
+                    break;
+                }
+            }
+            result += temp;
         }
-        operator_.erase(operator_.begin());
     }
+
     return result;
 }
