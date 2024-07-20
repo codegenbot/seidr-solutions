@@ -3,8 +3,6 @@
 #include <string>
 #include <map>
 
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
@@ -15,12 +13,8 @@ int whitePegs(string code, string guess) {
     return count;
 }
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    int white = whitePegs(code, guess);
-    int black = 0;
+int black_codePegs(string code, string guess) {
+    int count = 0;
     map<char, int> codeCount;
     for (int i = 0; i < 4; i++) {
         codeCount[code[i]]++;
@@ -28,19 +22,28 @@ int main() {
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            count++;
             codeCount[code[i]]--;
         }
     }
 
     for (auto &pair : codeCount) {
         if (pair.second > 0) {
-            black += pair.second;
+            count += pair.second;
         }
     }
 
-    cout << white << std::endl;
-    cout << black << std::endl;
+    return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+
+    int white = whitePegs(code, guess);
+    int black = black_codePegs(code, guess);
+
+    std::cout << white << std::endl;
+    std::cout << black << std::endl;
 
     return 0;
-}

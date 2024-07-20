@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ string spinWords(string str) {
                     result += word[i];
                 }
             } else {
-                result = word + " ";
+                result += word;
             }
             word = "";
         }
@@ -28,10 +29,8 @@ string spinWords(string str) {
             result += word[i];
         }
     } else {
-        result = word + " ";
+        result += word;
     }
-
-    result += " ";
 
     return result;
 }
