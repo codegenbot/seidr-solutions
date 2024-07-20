@@ -36,6 +36,6 @@ for (int num : output) {
 std::cout << std::endl;
 
 // Assert function call
-assert(std::issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
+assert(issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
 
 return 0;
