@@ -1,13 +1,17 @@
-```
+```cpp
 bool issame(int a, int b) {
-    return a == b;
+    if (a == b) return true;
+    for (int i : {a, b}) {
+        if (i != min && i != max) return false;
+    }
+    return true;
 }
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     int min = *lst.rbegin();
     int max = *lst.begin();
 
@@ -19,7 +23,7 @@ vector<int> strange_sort_list(vector<int> lst) {
                 break;
             }
         }
-        std::sort(lst.begin(), lst.end());
+        sort(lst.begin(), lst.end());
         min = *lst.rbegin();
     }
 
