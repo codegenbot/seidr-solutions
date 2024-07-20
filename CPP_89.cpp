@@ -1,7 +1,12 @@
-string result = "";
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string encrypt(const std::string& s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encrypted = c + 2 * 2;
+            char encrypted = c + 4;
             if (islower(c)) {
                 if (encrypted > 'z') {
                     encrypted = 'a' + (encrypted - 'z' - 1);
@@ -17,4 +22,10 @@ string result = "";
         }
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    // Add more test cases here
+    return 0;
 }
