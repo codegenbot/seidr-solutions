@@ -1,5 +1,6 @@
 #include <cassert>
 #include <cmath>
+#include <string>
 
 int closest_integer(const char* value)
 {
