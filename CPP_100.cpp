@@ -1,4 +1,4 @@
-#include <vector> // Include the necessary header file for vector
+#include <vector>
 
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
@@ -15,6 +15,6 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Specify std::vector<int> with 'std::'
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
