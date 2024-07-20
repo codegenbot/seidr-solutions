@@ -1,8 +1,13 @@
 text = input("Enter the text: ")
-target = input("Enter the target string: ")
+target = input("Enter the target string (or leave blank for no target): ")
 
-result = [m.start() for m in (i for i in range(len(text)) if text.startswith(target, i))]
-if result:
-    print(result)
+import re
+
+if len(text) > 0 and len(target) > 0:
+    result = [m.start() for m in re.finditer(target, text)]
+    if result:
+        print(result)
+    else:
+        print("Target not found in Text")
 else:
-    print("Target not found in Text")
+    print("Please enter both a text and target string.")
