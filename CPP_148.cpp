@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include <algorithm>
 
 vector<string> bf(string planet1, string planet2) {
