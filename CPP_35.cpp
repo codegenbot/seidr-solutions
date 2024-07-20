@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-int findMax(int l[], int n) {
-    return *max_element(l, l+n);
+int findMax(int arr[], int n) {
+    return *max_element(arr, arr+n);
 }
