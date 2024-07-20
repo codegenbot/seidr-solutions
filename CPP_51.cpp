@@ -1,13 +1,12 @@
-Here is the solution:
-
-```cpp
-string remove_vowels(string text) {
+string remove_vowels(string text){
     string result = "";
     for (char c : text) {
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'
-            && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+        if (!isalpha(c)) {
             result += c;
+        } else if (!strncasecmp(&c, "aeiouAEIOU", 6)) {
+            continue;
         }
+        result += c;
     }
     return result;
 }
