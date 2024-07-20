@@ -1,6 +1,6 @@
 ```
 def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet if e.isprintable())
+    tweet = tweet.strip()
     if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
@@ -8,5 +8,5 @@ def validate_tweet(tweet):
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-tweet = input("Enter your tweet: ")
+tweet = input("Enter your tweet: ").encode('utf-8').decode('utf-8')
 print(validate_tweet(tweet))
