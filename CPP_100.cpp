@@ -1,6 +1,9 @@
+Here is the completed code:
+
+```cpp
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
             pile.push_back(i * 2 - 1);
         } else {
