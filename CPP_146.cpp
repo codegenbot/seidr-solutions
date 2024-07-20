@@ -15,6 +15,5 @@ int specialFilter(vector<int> nums){
 }
 
 int main(int argc, char* argv[]) {
-    // Add test cases or input handling here if needed
-    return 0;
+    // Your main function code here
 }
