@@ -29,6 +29,7 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {1};
-    std::cout << "Number of numbers: " << count_nums(nums) << std::endl;
+    int result = count_nums(nums);
+    std::cout << "The number of integers is: " << result << std::endl;
     return 0;
 }
