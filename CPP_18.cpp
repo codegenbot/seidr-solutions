@@ -1,9 +1,3 @@
-Here is the completed code:
-
-```cpp
-#include <string>
-using namespace std;
-
 int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
