@@ -9,7 +9,7 @@ std::string spinWords(std::string sentence) {
         if (sentence[i] != ' ') {
             word += sentence[i];
         } else {
-            if (word.length() >= 5) { // Changed 4 to 5
+            if (word.length() >= 5) {
                 std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
@@ -29,3 +29,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
+}
