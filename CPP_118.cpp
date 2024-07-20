@@ -8,11 +8,14 @@ bool isvowel(char c) {
 
 string get_closest_vowel(string word) {
     int n = word.size();
-    string result;
     for(int i = 0; i < n; ++i) {
         if(isvowel(word[i])) {
-            if(result.empty()) return word.substr(i);
-            else return min(result, word.substr(i), [](const string& a, const string& b){return a.size() > b.size();});
+            string left = "";
+            for(int j = i - 1; j >= 0; --j) {
+                if(!isvowel(word[j]) && !left.empty()) break;
+                if(!isvowel(word[j])) left.push_back(word[j]);
+            }
+            return word.substr(0, i);
         }
     }
     return "";
