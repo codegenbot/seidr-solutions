@@ -1,7 +1,6 @@
 #include <any>
 #include <string>
 #include <cassert>
-#include <typeinfo>
 
 template<typename T>
 const T compare_one(const std::any& a, const std::any& b) {
@@ -16,6 +15,6 @@ const T compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one<std::string>(std::string("1"), std::string("1")) == std::string("1")));
+    assert(compare_one<std::string>("1", "1") == "1");
     return 0;
 }
