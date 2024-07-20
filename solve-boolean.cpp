@@ -1,38 +1,22 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    bool result = false;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
-                operationStack.pop();
-            }
-            operationStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            while (!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
-            }
-            operationStack.push('|');
-        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 't') {
-            result = true;
-        } else if (booleanExpression[i] == 'F' || booleanExpression[i] == 'f') {
-            result = false;
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '|') s.pop();
+            if (!s.empty()) s.pop();
+            else return false;
+        } else if (expression[i] == '|') {
+            while (!s.empty()) s.pop();
+            if (!s.empty()) s.pop();
+            else return true;
         } else {
-            while (!operationStack.empty()) {
-                operationStack.pop();
-            }
-            if (result) {
-                operationStack.push('&');
-            } else {
-                operationStack.push('|');
-            }
-            result = true;
+            s.push(expression[i]);
         }
     }
-
-    while (!operationStack.empty()) {
-        operationStack.pop();
-    }
-
-    return result;
+    if (s.size() > 1) return false;
+    else if (s.size() == 0) return true;
+    else return s.top() == 'T';
 }
