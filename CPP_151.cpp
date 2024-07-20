@@ -1,17 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <assert.h>
 
-long long double_the_difference(const std::vector<float>& lst) {
+long long double_the_difference(const std::vector<float> &lst) {
     long long sum = 0;
-    for (size_t i = 0; i < lst.size(); i++) {
-        if (i % 2 == 0) {
-            sum += lst[i];
-        } else {
-            sum -= lst[i];
+    for (float num : lst) {
+        if (static_cast<int>(num) % 2 != 0) {
+            sum += 2 * num;
         }
     }
-    return 2 * sum;
+    return sum;
 }
 
 int main() {
