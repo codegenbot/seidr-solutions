@@ -1,18 +1,12 @@
-string get_closest_vowel(string word) {
-    string vowels = "AEIOUaeiou";
-    int closest_vowel_index = -1;
-    
-    for (int i = word.length() - 2; i > 0; --i) {
-        if (vowels.find(word[i]) != string::npos && 
-            !isalpha(word[i-1]) && !isalpha(word[i+1])) {
-            closest_vowel_index = i;
-            break;
+string vowels = "aeiouAEIOU";
+    for (int i = word.length() - 2; i > 0; i--) {
+        if (vowels.find(word[i]) != string::npos) {
+            for (int j = i - 1; j > 0; j--) {
+                if (vowels.find(word[j]) == string::npos) {
+                    return word.substr(i, 1);
+                }
+            }
         }
     }
-    
-    if (closest_vowel_index != -1) {
-        return string(1, word[closest_vowel_index]);
-    }
-
     return "";
 }
