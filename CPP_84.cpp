@@ -1,6 +1,7 @@
-int sum = 0;
+string binarySum = "";
     while (N > 0) {
-        sum += N % 2;
+        binarySum = to_string(N % 2) + binarySum;
         N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - sum);
+    return binarySum;
+}
