@@ -16,7 +16,7 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet); 
+    getline(cin, tweet);
     if (tweet.length() > 140) {
         cout << validateTweet(tweet) << endl;
     } else {
