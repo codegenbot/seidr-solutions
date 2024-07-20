@@ -1,19 +1,17 @@
-#include<string>
-using namespace std;
-
 string get_closest_vowel(string word) {
-    int n = word.size();
-    string res;
-    for(int i=n-1; i>=0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' || 
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
-            if(i>0 && !isVowel(word[i-1])) res = word.substr(i, 1);
+    string vowels = "aeiouAEIOU";
+    int max_right_index = -1;
+    for (int i = 0; i < word.size(); i++) {
+        if (!isalpha(word[i])) continue;
+        if (vowels.find(toupper(word[i])) != string::npos) {
+            int j = i + 1;
+            while (j < word.size() && !isalpha(word[j])) j++;
+            if (j == word.size()) break;
+            if (!isalpha(word[j])) {
+                max_right_index = i;
+                break;
+            }
         }
     }
-    return res;
-}
-
-bool isVowel(char c) {
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+    return max_right_index != -1 ? string(1, vowels.find(toupper(word[max_right_index]))) : "";
 }
