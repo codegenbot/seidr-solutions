@@ -1,26 +1,23 @@
-#include <string>
-#include <sstream>
-
+#include<stdio.h>
+#include<string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    int totalApples = 0;
-    int totalOranges = 0;
-
     size_t pos = 0;
-    while ((pos = s.find(" apples")) != string::npos) {
-        if (s.substr(0, pos).find_first_of("0123456789") != string::npos) {
-            totalApples = stoi(s.substr(0, pos));
-        }
-        s.erase(0, pos + 8);
+    int apples = 0, oranges = 0;
+
+    while ((pos = s.find(" apples", pos)) != string::npos) {
+        apples = stoi(s.substr(0, pos).substr(s.find(" ") + 1));
+        break;
     }
 
-    while ((pos = s.find(" oranges")) != string::npos) {
-        if (s.substr(0, pos).find_first_of("0123456789") != string::npos) {
-            totalOranges = stoi(s.substr(0, pos));
-        }
-        s.erase(0, pos + 8);
+    if (s.find(" oranges") != string::npos) {
+        pos = s.find(" oranges");
+        size_t end = s.find(" ", pos);
+        if (end == string::npos)
+            end = s.length();
+        oranges = stoi(s.substr(pos, end - pos));
     }
 
-    return n - totalApples - totalOranges;
+    return n - apples - oranges;
 }
