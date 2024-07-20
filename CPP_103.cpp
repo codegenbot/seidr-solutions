@@ -1,11 +1,21 @@
-if (n > m) {
-        return "-1";
-    }
+#include <string>
+#include <cassert>
+
+std::string solve(int n, int m) {
+    assert(n <= m);
+
     int sum = 0;
-    for (int i = n; i <= m; ++i) {
+    for (int i = n; i <= m; i++) {
         sum += i;
     }
-    int avg = round((double)sum / (m - n + 1));
-    string binary_avg = bitset<32>(avg).to_string();
-    return binary_avg.substr(binary_avg.find('1'));
+
+    int avg = std::round((double)sum / (m - n + 1));
+
+    std::string binary = "";
+    while (avg > 0) {
+        binary = std::to_string(avg % 2) + binary;
+        avg /= 2;
+    }
+
+    return binary;
 }
