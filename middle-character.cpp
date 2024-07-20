@@ -1,6 +1,6 @@
-#include <string>
 #include <iostream>
-#include <sstream>
+#include <string>
+
 using namespace std;
 
 string middleCharacter(string str) {
