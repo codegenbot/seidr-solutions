@@ -1,3 +1,4 @@
+```c++
 #include <map>
 #include <string>
 #include <iostream>
@@ -5,10 +6,8 @@
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
-    for (int i = 0; i < cipher_map1.length(); i++) {
-        if(i < cipher_map2.length()) {
-            mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
-        }
+    for (int j = 0; j < std::min(cipher_map1.length(), cipher_map2.length()); j++) {
+        mapping.insert(std::make_pair(std::tolower(cipher_map1[j]), std::tolower(cipher_map2[j])));
     }
     
     std::string result = "";
@@ -34,7 +33,7 @@ int main() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.getline(cipher_map2, 256);
     std::cout << "Enter the message to decipher: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.ignore(std::numericlimits<std::streamsize>::max(), '\n');
     std::cin.getline(message, 256);
     std::cout << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
     return 0;
