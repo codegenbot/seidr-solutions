@@ -1,12 +1,10 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
-        return false;
+    if (txt.empty()) return false;
+    char lastChar = txt.back();
+    bool isPartOfWord = false;
+    for (int i = 0; i < txt.size() - 1; i++) {
+        if (isspace(txt[i])) break;
+        isPartOfWord = true;
     }
-    int last_index = txt.length() - 1;
-    for (int i = 0; i < last_index; i++) {
-        if (!isspace(txt[i])) {
-            return !isalpha(txt[last_index]);
-        }
-    }
-    return isalpha(txt[last_index]);
+    return isalpha(lastChar) && !isPartOfWord;
 }
