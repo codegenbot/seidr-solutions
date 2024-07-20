@@ -21,6 +21,9 @@ int main() {
     std::vector<float> v1(n), v2(n);
 
     for (int i = 0; i < n; i++) {
+        v1.push_back(0.0); 
+        v2.push_back(0.0);
+        
         float s;
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 1: ";
