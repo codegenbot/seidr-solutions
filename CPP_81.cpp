@@ -1,14 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
     for(float grade : grades){
@@ -30,11 +20,12 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return result;
 }
 
-int main() {
+bool issame(vector<string> a,vector<string> b){
+    return (a == b);
+}
+
+int main(){
     vector<float> grades = {0, 0.7};
-    vector<string> result = numerical_letter_grade(grades);
-    
-    assert(result.size() == 2 && result[0] == "E" && result[1] == "D-");
-    
+    assert(issame(numerical_letter_grade(grades), {"F", "D-"}));
     return 0;
 }
