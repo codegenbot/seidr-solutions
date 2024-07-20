@@ -1,9 +1,9 @@
-string longest(vector<string> strings) {
-    if (strings.empty()) return "";
-    string res = strings[0];
-    for (const auto& s : strings) {
-        if (s.length() > res.length()) res = s;
-        else if (s.length() == res.length()) res = s;
-    }
-    return res;
+if (strings.empty()) {
+    return "";
+} else {
+    string result = *min_element(strings.begin(), strings.end(), 
+        [](const string& s1, const string& s2) { 
+            return s1.size() < s2.size(); 
+    });
+    return result;
 }
