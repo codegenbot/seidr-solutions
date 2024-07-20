@@ -47,4 +47,3 @@ int main() {
     std::cout << black << std::endl;
 
     return 0;
-}
