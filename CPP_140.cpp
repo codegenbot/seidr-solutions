@@ -1,13 +1,17 @@
-for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-            int j = i + 1;
-            while (j < text.length() && text[j] == ' ') {
-                text[j] = '-';
-                ++j;
+string result;
+    bool isConsecutive = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (!isConsecutive) {
+                result += '_';
+            } else {
+                result += '-';
             }
-            i = j - 1;
+            isConsecutive = true;
+        } else {
+            result += c;
+            isConsecutive = false;
         }
     }
-    return text;
+    return result;
 }
