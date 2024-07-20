@@ -20,4 +20,3 @@ bool solveBoolean(std::string s) {
         }
     }
     return st.top() == 'T';
-}
