@@ -1,23 +1,28 @@
 ```cpp
+#include <initializer_list>
 #include <map>
 #include <string>
 #include <iostream>
 #include <limits>
-#include <unordered_map>
 
 using namespace std;
 
-unordered_map<char, char> mapping;
+map<char, char> mapping;
 string decipher(string cipher_map1, string cipher_map2, string message) {
     for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping.insert(pair<char, char>(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
+        mapping.insert(make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
     string result = "";
     for (char c : message) {
         if(mapping.find(tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
-            result += mapping[tolower(c)];
+            char temp = mapping[tolower(c)];
+            // Handle case of uppercase characters as well
+            if(isalpha(temp))
+                result += (isupper(c) ? toupper(temp) : tolower(temp));
+            else
+                result += temp; 
         } else {
             // If character is not found in the map, add it as it is to the result
             result += c; 
