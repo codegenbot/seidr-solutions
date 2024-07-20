@@ -1,11 +1,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool areEqual(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -38,4 +37,4 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-assert(issame(bf("Jupiter", "Makemake"), {}));
+areEqual(bf("Jupiter", "Makemake"), {});
