@@ -1,4 +1,3 @@
-// Include necessary headers
 #include <vector>
 #include <iostream>
 #include <algorithm>
