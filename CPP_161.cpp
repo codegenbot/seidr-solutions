@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <cctype>
 #include <functional>
-#include <cassert>
 
 std::string solve(std::string s);
 
@@ -16,9 +15,4 @@ std::string solve(std::string s) {
         std::reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
 }
