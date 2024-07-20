@@ -25,10 +25,12 @@ int main() {
 
     pennies = cents; // store the remaining cents as pennies
 
-    std::cout << quarters << " quarters" << std::endl;
-    std::cout << dimes << " dimes" << std::endl;
-    std::cout << nickels << " nickels" << std::endl;
-    std::cout << pennies << " pennies" << std::endl;
+    std::cout << quarters << " quarter(s)" << std::endl;
+    if (dimes > 1) std::cout << dimes << " dime(s)" << std::endl;
+    else std::cout << dimes << " dime" << std::endl;
+    if (nickels > 1) std::cout << nickels << " nickel(s)" << std::endl;
+    else std::cout << nickels << " nickel" << std::endl;
+    std::cout << pennies << " penny" << std::endl;
 
     return 0;
 }
