@@ -1,5 +1,6 @@
-text = input("Enter the text: ")
-target = input("Enter the target: ")
+```
+text = input("Enter the text: ").strip()
+target = input("Enter the target: ").strip()
 
 if text and target:
     import re
