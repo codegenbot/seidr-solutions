@@ -25,27 +25,27 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    cout << "select_words(\"Mary had a little lamb\", 4) ==> {";
+    cout << "select_words(\"Mary had a little lamb\", 4) ==> \"{" << endl;
     for (string s : select_words("Mary had a little lamb", 4)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Mary had a little lamb\", 3) ==> {";
+    cout << "select_words(\"Mary had a little lamb\", 3) ==> {" << endl;
     for (string s : select_words("Mary had a little lamb", 3)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words('simple white space', 2) ==> {";
+    cout << "select_words('simple white space', 2) ==> {" << endl;
     for (string s : select_words("simple white space", 2)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Hello world\", 4) ==> {";
+    cout << "select_words(\"Hello world\", 4) ==> {" << endl;
     for (string s : select_words("Hello world", 4)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Uncle sam\", 3) ==> {";
+    cout << "select_words(\"Uncle sam\", 3) ==> {" << endl;
     for (string s : select_words("Uncle sam", 3)) {
         cout << "\"" << s << "\",";
     }
