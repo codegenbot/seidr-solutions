@@ -20,20 +20,18 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 }
 
 int main(){
-    // Read input
     int n;
     std::cin >> n;
-    std::vector<int> input(n);
-    for(int i=0; i<n; ++i){
-        std::cin >> input[i];
+    std::vector<int> lst(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> lst[i];
     }
 
-    // Call function and output
-    std::vector<int> output = strange_sort_list(input);
-    for(int num : output){
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
+    std::vector<int> result = strange_sort_list(lst);
 
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
+    }
+    
     return 0;
 }
