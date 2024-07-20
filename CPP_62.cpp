@@ -24,6 +24,6 @@ std::vector<float> derivative(std::vector<float> input) {
 }
 
 int main() {
-    assert(issame(derivative({1}), {0}));
+    assert(issame(derivative({1.0f}), {0.0f}));
     return 0;
 }
