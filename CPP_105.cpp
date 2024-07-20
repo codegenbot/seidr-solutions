@@ -11,8 +11,7 @@ bool issame(vector<string> a, vector<string> b){
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    // Code block enclosed in curly braces {}
-    return 0;
+    // Existing main function code here
 }
 
 vector<string> by_length(vector<int> arr){
