@@ -1,8 +1,9 @@
-bool monotonic(vector<float> l){
-    bool increasing = true, decreasing = true;
-    for (int i = 1; i < l.size(); ++i) {
-        if (l[i] > l[i - 1]) decreasing = false;
-        if (l[i] < l[i - 1]) increasing = false;
+bool inc = true, dec = true;
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > l[i - 1])
+            dec = false;
+        if (l[i] < l[i - 1])
+            inc = false;
     }
-    return increasing || decreasing;
+    return inc || dec;
 }
