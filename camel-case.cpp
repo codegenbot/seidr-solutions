@@ -1,6 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
+
+std::string toCamelCase(const std::string& s) {
+    std::string result;
+    bool first = true;
+
+    for (const auto& word : split(s, " -")) {
+        result = (first) ? word : toupper(word[0]) + word.substr(1);
+        first = false;
+    }
+
+    return result;
+}
 
 std::string split(const std::string& s, const std::string& delimiter) {
     size_t pos = 0;
@@ -12,22 +23,6 @@ std::string split(const std::string& s, const std::string& delimiter) {
     }
 
     return token;
-}
-
-std::string toCamelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
-
-    for (const auto& word : split(s, " -")) {
-        if (first) {
-            result += std::move(word);
-            first = false;
-        } else {
-            result += toupper(word[0]) + word.substr(1);
-        }
-    }
-
-    return result;
 }
 
 int main() {
