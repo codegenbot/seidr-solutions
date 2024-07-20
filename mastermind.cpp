@@ -21,3 +21,4 @@ int mastermind(const string& code, const string& guess) {
     }
 
     return black + white;
+}
