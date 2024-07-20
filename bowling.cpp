@@ -8,10 +8,15 @@ int bowlingScore(string s) {
             score += 30;
             currentRoll = 0;
         } else if (c == '/') {
-            score += 10 + currentRoll;
+            if (currentRoll > 0)
+                score += 10 + currentRoll;
             currentRoll = 0;
-        } else if (c >= '1' && c <= '9') {
-            currentRoll = currentRoll * 10 + (c - '0') * 10;
+        } else {
+            currentRoll = currentRoll * 10 + (c - '0') * 1;
         }
+    }
+    while (currentRoll < 10) {
+        score += 10;
+        currentRoll = 0;
     }
     return score;
