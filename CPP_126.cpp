@@ -8,9 +8,8 @@ bool is_sorted(vector<int> lst){
     }
     vector<int>::iterator it;
     for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
-        if(*it > 0 && count(lst.begin(), it, *it) > 1){
+        if(std::count(lst.begin(), it, *it) > 1)
             return false;
-        }
     }
     return true;
 }
