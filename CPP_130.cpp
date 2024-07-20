@@ -1,16 +1,28 @@
 vector<int> tri(int n){
-    vector<int> result;
-    result.push_back(3);
-    if(n == 0) return result;
-    result.push_back(1);
-
-    for(int i = 2; i <= n; ++i){
+    vector<int> sequence;
+    if(n == 0){
+        sequence.push_back(0);
+        return sequence;
+    }
+    
+    sequence.push_back(3);
+    if(n == 1){
+        return sequence;
+    }
+    
+    sequence.push_back(1);
+    if(n == 2){
+        return sequence;
+    }
+    
+    sequence.push_back(2);
+    for(int i = 4; i <= n; i++){
         if(i % 2 == 0){
-            result.push_back(1 + i / 2);
+            sequence.push_back(1 + i / 2);
         } else {
-            result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+            sequence.push_back(sequence[i - 1] + sequence[i - 2] + sequence[i - 3]);
         }
     }
-
-    return result;
+    
+    return sequence;
 }
