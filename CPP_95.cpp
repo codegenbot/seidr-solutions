@@ -20,8 +20,3 @@ bool check_dict_case(map<string, string> dict) {
 
     return all_upper || all_lower;
 }
-
-int main() {
-    assert(check_dict_case({}) == false);
-    // Rest of your code
-}
