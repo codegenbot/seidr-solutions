@@ -2,55 +2,40 @@
 #include <string>
 #include <sstream>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    bool first = true;
+std::string result;
 
-    for (char c : s) {
+std::string camelCase() {
+    bool first = true;
+    for (char c : result) {
         if (c == '-') {
             if (!first) {
-                result += char(toupper(c));
+                std::cout << char(toupper(c));
             }
             first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result += " ";
-            }
-            first = true;
         } else {
             if (first) {
-                result += toupper(c);
+                std::cout << toupper(c);
             } else {
-                result += tolower(c);
+                std::cout << tolower(c);
             }
             first = false;
         }
     }
-
-    return result;
 }
 
 int main() {
-    std::string result;
+    result = "";
+    bool first = true;
 
-    while (std::cin >> result) {
-        for (int i = 0; i < result.size(); ++i) {
-            if (result[i] == '-') {
-                result[i] = '\0';
-                break;
-            }
+    while (std::getline(std::cin, result, '-')) {
+        if (!first) result += " ";
+        else first = false;
+        for (char c : result) {
+            if (c == '-') break;
+            if (first) std::cout << toupper(c);
+            else std::cout << tolower(c);
         }
-
-        char firstChar = result[0];
-        result[0] = toupper(firstChar);
-        for (int i = 1; i < result.size(); ++i) {
-            if (std::string(1, result[i]).find_first_of("-") == std::string::npos) {
-                result[i] = tolower(result[i]);
-            }
-        }
-
-        result += camelCase(std::cin.get());
     }
-
-    std::cout << result << std::endl;
+    camelCase();
+    std::cout << std::endl;
 }
