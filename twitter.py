@@ -1,13 +1,12 @@
 ```
-import re
-
 def validate_tweet(tweet):
-    if len(re.sub(r'\W+', '', tweet).strip()) > 140:
+    tweet = tweet.strip()
+    if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
         return "You didn't type anything"
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-tweet = input("Enter your tweet: ")
+tweet = input("Enter your tweet: ").encode('utf-8').decode('utf-8')
 print(validate_tweet(tweet))
