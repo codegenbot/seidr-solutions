@@ -7,5 +7,5 @@ sort(numbers.begin(), numbers.end());
             result = {numbers[i], numbers[i + 1]};
         }
     }
-    return result;
+    return {result.first, result.second};
 }
