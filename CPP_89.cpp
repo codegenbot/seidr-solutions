@@ -1,14 +1,13 @@
-Here is the completed code:
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            c = (c - 'a' + 2 * 26 - 2) % 26 + 'a';
-        } else if (c >= 'A' && c <= 'Z') {
-            c = (c - 'A' + 2 * 26 - 2) % 26 + 'A';
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            int shift = (c - base + 2 * 2) % 26;
+            result += ((shift < 26) ? (char)(base + shift)) : ((isupper(c)) ? (char)((base + shift - 26))) : (char)(base + shift));
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
