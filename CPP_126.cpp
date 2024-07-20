@@ -1,4 +1,4 @@
-Here's the completed code:
+Here is the completed code:
 
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
@@ -6,10 +6,10 @@ bool is_sorted(vector<int> lst){
             return false;
         }
     }
-    vector<int> temp(lst.begin(), lst.end());
-    sort(temp.begin(), temp.end());
-    for(int i = 0; i < lst.size(); i++){
-        if(lst[i] != temp[i]){
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        int count = count(it, lst.end(), *it);
+        if(count > 1) {
             return false;
         }
     }
