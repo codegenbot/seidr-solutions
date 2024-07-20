@@ -17,3 +17,5 @@ vector<int> get_odd_collatz(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
+    // Function implementation
+}
