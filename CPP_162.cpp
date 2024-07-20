@@ -1,6 +1,5 @@
-#include <iostream>
-#include <string>
 #include <openssl/md5.h>
+#include <string>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -16,19 +15,4 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(md5_hash);
-}
-
-int main() {
-    std::string input = "password";
-    std::string expected_hash = "5f4dcc3b5aa765d61d8327deb882cf99";
-    
-    std::string md5_hash = string_to_md5(input);
-
-    if (md5_hash == expected_hash) {
-        std::cout << "MD5 hash matches the expected value." << std::endl;
-    } else {
-        std::cout << "MD5 hash does not match the expected value." << std::endl;
-    }
-
-    return 0;
 }
