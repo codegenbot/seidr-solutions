@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 
 vector<string> numerical_letter_grade(vector<float> grades) {
@@ -11,7 +12,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         } else if (grade > 3.3) {
             letter_grade = "A-";
         } else if (grade > 3.0) {
-            letter_grade = "B+";
+            letter_grade = "B+");
         } else if (grade > 2.7) {
             letter_grade = "B";
         } else if (grade > 2.3) {
