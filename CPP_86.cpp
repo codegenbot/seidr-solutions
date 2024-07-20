@@ -7,12 +7,16 @@ string anti_shuffle(string s){
             result += " ";
         } else {
             string temp = "";
-            for(int j=i; j<s.length() && s[j] != ' '; j++){
+            int j=i;
+            while(j < s.length() && s[j] != ' '){
                 temp += s[j];
-                i = j;
+                j++;
             }
             sort(temp.begin(), temp.end());
-            result += temp;
+            for(int k=0; k<temp.length(); k++){
+                result += temp[k];
+            }
+            i = j-1;
         }
     }
     return result;
