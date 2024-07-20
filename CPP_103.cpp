@@ -25,6 +25,6 @@ std::string calculateBinaryAverage(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryAverage(5, 5) == "1010101");
+    assert(calculateBinaryAverage(5, 5) == "101");
     return 0;
 }
