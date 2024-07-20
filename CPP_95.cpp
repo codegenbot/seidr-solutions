@@ -1,22 +1,14 @@
-Here is the completed code:
+bool check_dict_case(map<string, string> dict) {
+    if(dict.empty()) return false;
 
-bool check_dict_case(map<string,string> dict){
-    if(dict.empty())
-        return false;
-
-    bool allUpper = true;
     bool allLower = true;
+    bool allUpper = true;
 
     for(auto it = dict.begin(); it != dict.end(); ++it) {
-        string key = it->first;
-        if(!isupper(key[0])) {
-            allUpper = false;
-        }
-        if(!islower(key[0])) {
-            allLower = false;
-            break;
-        }
+        if(!allLower && !allUpper) break;
+        if(allLower) allLower &= tolower(it->first).find_first_of('A') == string::npos;
+        if(allUpper) allUpper &= toupper(it->first).find_first_of('a') == string::npos;
     }
 
-    return (allUpper && allLower);
+    return allLower || allUpper;
 }
