@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <cmath>
 
 int sumOfDigits(int n) {
     int sum = 0;
