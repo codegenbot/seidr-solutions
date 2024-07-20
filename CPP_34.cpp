@@ -3,7 +3,6 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implement the function logic here
     return a == b;
 }
 
