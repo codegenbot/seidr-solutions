@@ -4,7 +4,7 @@
 
 std::string solve(int n, int m) {
     assert(n >= 0 && m >= 0);
-    
+
     if (n > m) {
         return "-1";
     }
@@ -14,7 +14,7 @@ std::string solve(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1));
+    int avg = std::round(static_cast<double>(sum) / (m - n + 1));
     
     std::string binary = "";
     while (avg > 0) {
