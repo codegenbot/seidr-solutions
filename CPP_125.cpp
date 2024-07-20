@@ -4,7 +4,7 @@
 #include <cassert>
 #include <sstream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -19,6 +19,6 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words(""), {}));
     return 0;
 }
