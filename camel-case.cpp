@@ -1,21 +1,55 @@
+```cpp
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
-std::string toCamelCase(std::string s) {
-    std::stringstream ss;
-    bool capitalizeNext = true;
+std::string camelCase(std::string s) {
+    std::string result;
+    bool first = true;
 
     for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            ss << (char)toupper(c);
-            capitalizeNext = false;
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = false;
+        } else if (c == ' ') {
+            if (!first) {
+                result += " ";
+            }
+            first = true;
         } else {
-            ss << (char)tolower(c);
+            if (first) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
+            first = false;
         }
     }
 
-    return ss.str();
+    return result;
 }
+
+int main() {
+    std::string temp;
+    std::string result = "";
+    bool first = true;
+
+    while (std::cin >> temp, !std::cin.fail()) {
+        if (!first) 
+            result += " ";
+        else 
+            first = false;
+        for (char c : temp) {
+            if (c == '-') break;
+            if (first) 
+                result += toupper(c);
+            else 
+                result += tolower(c);
+        }
+    }
+
+    std::cout << camelCase(result) << std::endl;
+
+    return 0; }
