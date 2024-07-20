@@ -1,20 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your logic to check if vectors are same
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
@@ -25,7 +18,7 @@ vector<int> pluck(vector<int> arr) {
     if (evenNodes.empty()) {
         return {};
     } else {
-        sort(evenNodes.begin(), evenNodes.end());
-        return {evenNodes[0].first};
+        std::sort(evenNodes.begin(), evenNodes.end());
+        return {evenNodes[0]};
     }
 }
