@@ -1,7 +1,8 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <map>
 #include <cctype>
-#include <utility>
 
 int main() {
     std::string cipher_map1;
