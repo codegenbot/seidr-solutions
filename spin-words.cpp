@@ -1,4 +1,4 @@
-#include <algorithm>
+```cpp
 #include <string>
 
 std::string spinWords(std::string sentence) {
@@ -30,11 +30,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << spinWords(input) << std::endl;
-    return 0;
 }
