@@ -1,7 +1,5 @@
 #include <vector>
 
-namespace std;
-
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
     stones.push_back(n);
@@ -14,6 +12,7 @@ std::vector<int> make_a_pile(int n){
         }
         stones.push_back(n);
     }
+    
     return stones;
 }
 
