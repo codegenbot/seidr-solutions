@@ -1,31 +1,18 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
+Here is the solution:
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.size() && s[i] == ' ') {
-                i++; // skip the spaces
+    for (char c : s + " ") {
+        if (c == '-') {
+            result += toupper(s[s.find(c) + 1]);
+            s.erase(s.find(c), 1);
+        } else if (c == ' ') {
+            if (!result.empty()) {
+                result += toupper(c);
             }
-            result += toupper(s[i]);
-        } else if (!result.empty() && isalpha(s[i])) {
-            result += tolower(s[i]);
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "CamelCase: " << camelCase(input) << endl;
-    return 0;
 }
