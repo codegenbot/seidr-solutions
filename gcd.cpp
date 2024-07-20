@@ -1,14 +1,15 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int start = 0;
     while (start < text.size()) {
         size_t found = text.find(target, start);
-        if (found == std::string::npos) break;
+        if (found == string::npos) break;
         indices.push_back(found);
         start = found + 1;
     }
@@ -23,18 +24,26 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    std::cout << "Enter two integers for GCD: ";
-    (std::cin >> a).ignore();
-    (std::cin >> std::ws).get(b);
-    std::cout << gcd(a, b) << std::endl;
+    string str;
+    cout << "Enter the text and target string for Indices of Substring: ";
+    cin >> str; 
 
-    std::string text, target;
-    std::cout << "Enter the text and target string for Indices of Substring: ";
-    std::getline(std::cin, text);
-    (std::cin >> std::ws).get(target);
-    std::vector<int> result = findIndices(text, target);
+    int start = str.find(' '); 
+    if (start == string::npos) {
+        string text = str; 
+        string target = "";
+    } else {
+        string text = str.substr(0, start); 
+        string target = str.substr(start + 1); 
+    }
+
+    int a, b;
+    cout << "Enter two integers for GCD: ";
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    vector<int> result = findIndices(text, target);
     for (int i : result)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
