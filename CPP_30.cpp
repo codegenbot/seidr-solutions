@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b);
+bool issame(vector<float> a, vector<float> b); // Function signature for issame
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
