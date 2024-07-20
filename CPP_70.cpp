@@ -6,7 +6,7 @@ bool issame(vector<int> a, vector<int> b);
 vector<int> strange_sort_list(vector<int> lst);
 
 int main() {
-    // Main function implementation
+    // main function code here
 }
 
 vector<int> strange_sort_list(vector<int> lst){
