@@ -20,3 +20,8 @@ string file_name_check(string file_name){
 
     return valid ? "Yes" : "No";
 }
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
+}
