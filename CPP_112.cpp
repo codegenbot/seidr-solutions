@@ -1,40 +1,56 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
-bool issame(string s1, string s2)
-{
-    if(s1.length() != s2.length())
-        return false;
-    for(int i = 0; i < s1.length(); i++)
-    {
-        if(s1[i] != s2[i])
-            return false;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    
+    // Create a set of characters in string c for efficient lookup
+    set<char> setC(c.begin(), c.end());
+    
+    // Initialize an empty string to store the result
+    string res = "";
+    
+    // Iterate over each character in string s
+    for (char c : s) {
+        // If the character is not in the set of characters in string c, add it to the result
+        if (setC.count(c) == 0) {
+            res += c;
+        }
     }
-    return true;
+    
+    // Check if the result string is palindrome
+    bool isPalindrome = true;
+    int left = 0, right = res.length() - 1;
+    while (left < right) {
+        if (res[left] != res[right]) {
+            isPalindrome = false;
+            break;
+        }
+        left++;
+        right--;
+    }
+    
+    // Create a vector containing the result string and "True"/"False" for the check
+    vector<string> finalResult;
+    finalResult.push_back(res);
+    if (isPalindrome) {
+        finalResult.push_back("True");
+    } else {
+        finalResult.push_back("False");
+    }
+    
+    return finalResult;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    string temp = "";
-    for (char x : s) {
-        bool flag = false;
-        for (char y : c) {
-            if (x == y) {
-                flag = true;
-                break;
-            }
-        }
-        if (!flag) {
-            temp += x;
-        }
-    }
-    vector<string> result;
-    string str1 = temp;
-    reverse(str1.begin(), str1.end());
-    string str2 = temp;
-    if (issame(str1, str2))
-        result.push_back("True");
-    else
-        result.push_back("False");
-    result.push_back(temp);
-    return result;
+int main() {
+    string s = "abcdedcba";
+    string c = "ab";
+    vector<string> result = reverse_delete(s, c);
+    cout << "Result: " << result[0] << ", Is Palindrome: " << result[1] << endl;
+    
+    return 0;
 }
