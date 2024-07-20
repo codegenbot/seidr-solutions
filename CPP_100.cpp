@@ -1,16 +1,17 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+using namespace std;
 
-```cpp
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int current = 1;
+    unsigned int stones = 1; 
     for (int i = 0; i < n; ++i) {
-        if (n % 2 == 1) { // n is odd
-            pile.push_back(current);
-            current += 2;
-        } else { // n is even
-            pile.push_back(current);
-            current += 1;
+        if ((stones + 1) % 2 == 0) {
+            pile.push_back(stones);
+            stones += 2;
+        } else {
+            pile.push_back(stones);
+            stones += 1;
         }
     }
     return pile;
