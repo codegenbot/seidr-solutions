@@ -31,3 +31,5 @@ def solve_boolean(expression):
                         continue
                     if op[1] != '':
                         result = op[0](result, False)
+
+    return result
