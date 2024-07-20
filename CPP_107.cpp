@@ -4,6 +4,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
