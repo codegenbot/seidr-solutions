@@ -1,22 +1,13 @@
 #include <iostream>
 #include <map>
 #include <cassert>
-#include <algorithm>
 
-using namespace std;
-
-map<char, int> histogram(string test);
-
-bool issame(map<char, int> a, map<char, int> b){
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
     return a == b;
 }
 
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-}
-
-map<char, int> histogram(string test) {
-    map<char, int> freq;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> freq;
     for (char c : test) {
         if (c != ' ') {
             freq[c]++;
@@ -24,13 +15,19 @@ map<char, int> histogram(string test) {
     }
     int maxFreq = 0;
     for (const auto& p : freq) {
-        maxFreq = max(maxFreq, p.second);
+        maxFreq = std::max(maxFreq, p.second);
     }
-    map<char, int> result;
+    std::map<char, int> result;
     for (const auto& p : freq) {
         if (p.second == maxFreq) {
             result[p.first] = p.second;
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    
+    return 0;
 }
