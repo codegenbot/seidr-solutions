@@ -1,27 +1,33 @@
-#include <string>
 #include <openssl/evp.h>
-
-using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md5[16];
-    EVP_MD_CTX ctx;
-    EVP_PKEY_CTX *pctx = NULL;
-    pctx = EVP_PKEY_CTX_new_id(EVP_sha1(), NULL);
-    EVP_PKEY_init_key(pctx, NULL, NULL);
-
-    EVP_DigestInit_ex(&ctx, EVP_sha1(), 0);
-    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&ctx, md5, NULL);
-
-    string result = "";
-    for (int i = 0; i < 16; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", md5[i]);
-        result += buffer;
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&ctx, ptr, 1);
+        ptr++;
     }
+    MD5_Final(md, &ctx);
+
+    string result;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
+        result.push_back(tohex((unsigned char)md[i]));
 
     return result;
+}
+
+string tohex(unsigned int x) {
+    static const char* hexDigits = "0123456789abcdef";
+    unsigned int mask = 0xf;
+    string res;
+
+    for (int i = 3; i >= 0; --i, mask >>= 4) {
+        res.push_back(hexDigits[(x & mask) >> ((3 - i) * 4)]);
+    }
+
+    return res;
 }
