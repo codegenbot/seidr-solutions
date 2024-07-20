@@ -1,12 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <limits>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(string text, string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -21,8 +24,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text >> ws >> target;
-    vector<int> res = indicesOfSubstring(text, target);
+    cin >> text;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(cin, target);
+    std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
     return 0;
