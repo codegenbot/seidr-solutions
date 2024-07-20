@@ -1,10 +1,6 @@
-int next_smallest(vector<int> lst){
-    vector<int> lst_copy = lst;
-    sort(lst_copy.begin(), lst_copy.end());
-    
-    if (lst_copy.size() < 2) {
-        return -1; 
-    }
-    
-    return lst_copy[1];
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // Return None
+    sort(lst.begin(), lst.end());
+    auto it = lower_bound(lst.begin(), lst.end(), lst[0]);
+    return *it == lst.back() ? -1 : *(it + 1);
 }
