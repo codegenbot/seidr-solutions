@@ -1,3 +1,6 @@
+Here's the modified code with the necessary include statements and a working solution for the "spin-words" problem.
+
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -14,7 +17,7 @@ std::string spinWords(std::string sentence) {
         result += word + " ";
     }
     
-    return result.substr(0, result.size()-1); 
+    return result.substr(0, result.size()-1); // remove the extra space at the end
 }
 
 int main() {
