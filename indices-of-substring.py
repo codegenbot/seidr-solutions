@@ -7,6 +7,6 @@ if text and target:
     if result:
         print(result)
     else:
-        print("Target not found in Text")
+        print(list(range(len(text))))
 else:
-    print("Please enter both a text and target string.")
+    print()
