@@ -19,13 +19,8 @@ int main() {
         cents -= 5;
         nickles++;
     }
-
-    int pennies = cents;
-    while (pennies >= 5) {
-        pennies -= 5;
-        nickles++;
-    }
-    pennies = cents;
+    pennies = cents; // update this line
+    pennies += (cents % 5); // update this line
 
     cout << quarters << endl;
     cout << dimes << endl;
