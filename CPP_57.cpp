@@ -1,10 +1,13 @@
-bool monotonic(vector<float> l) {
-    bool inc = true, dec = true;
-    for(int i=1; i<l.size(); i++) {
+bool monotonic(vector<float> l){
+    bool increasing = true;
+    bool decreasing = true;
+
+    for(int i=1; i<l.size(); i++){
         if(l[i] > l[i-1])
-            dec = false;
+            decreasing = false;
         else if(l[i] < l[i-1])
-            inc = false;
+            increasing = false;
     }
-    return inc || dec;
+
+    return increasing || decreasing;
 }
