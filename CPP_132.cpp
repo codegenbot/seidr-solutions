@@ -1,16 +1,10 @@
-int n = str.size();
-    int count = 0;
-    
-    for (int i = 0; i < n; i++) {
-        if (str[i] == '[') {
+int count = 0;
+    for (char c : str) {
+        if (c == '[') {
             count++;
-        } else if (str[i] == ']') {
+        } else if (c == ']' && count > 0) {
             count--;
         }
-        if (count < 0) {
-            return true;
-        }
     }
-    
-    return false;
+    return count < 0;
 }
