@@ -1,15 +1,7 @@
-```cpp
 #include <vector>
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
     for(int i = 0; i <= n - m; i++) {
@@ -22,4 +14,11 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
     }
     return result;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
