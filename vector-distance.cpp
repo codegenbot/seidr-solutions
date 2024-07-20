@@ -18,18 +18,15 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    std::vector<float> v1(n), v2(n);
+    std::vector<std::vector<float>> v1(n), v2(n);
 
     for (int i = 0; i < n; i++) {
-        v1.push_back(0.0); 
-        v2.push_back(0.0);
-        
         float s;
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 1: ";
             std::cin >> s;
             try {
-                v1[i] = s;
+                v1[i].push_back(s);
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
@@ -42,7 +39,7 @@ int main() {
             std::cout << "Enter element " << i+1 << " of vector 2: ";
             std::cin >> s;
             try {
-                v2[i] = s;
+                v2[i].push_back(s);
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
@@ -52,7 +49,20 @@ int main() {
         }
     }
 
-    double distance = vectorDistance(n, v1, v2);
+    double distance = vectorDistance(n, v1[0], v2[0]);
+    for (int i = 1; i < n; i++) {
+        if (v1[i].size() != v2[i].size()) {
+            std::cout << "Vectors are not of the same dimension.\n";
+            return 0;
+        }
+        double sum = 0.0;
+        for (int j = 0; j < v1[i].size(); j++) {
+            double diff = v2[i][j] - v1[i][j];
+            sum += diff * diff;
+        }
+        distance += sqrt(sum);
+    }
+
     std::cout << "Euclidean distance between the two vectors is: " << distance << std::endl;
 
     return 0;
