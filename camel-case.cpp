@@ -3,7 +3,7 @@
 #include <sstream>
 
 std::string camelCase(std::string s) {
-    std::string result;
+    std::string result = "";
     bool first = true;
 
     for (char c : s) {
@@ -14,14 +14,14 @@ std::string camelCase(std::string s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += " ";
+                result += char(toupper(c));
             }
             first = true;
         } else {
             if (first) {
-                result += toupper(c);
+                result += c;
             } else {
-                result += tolower(c);
+                result += char(tolower(c));
             }
             first = false;
         }
@@ -31,23 +31,26 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string result = "";
     bool first = true;
+    std::string temp;
 
     while (std::cin >> temp, !std::cin.fail()) {
-        if (!first) 
-            result += " ";
-        else 
+        if (!first) {
+            std::cout << " ";
+        } else {
             first = false;
+        }
         for (char c : temp) {
             if (c == '-') break;
-            if (first) 
-                result += toupper(c);
-            else 
-                result += tolower(c);
+            if (first) {
+                std::cout << toupper(c);
+            } else {
+                std::cout << tolower(c);
+            }
         }
     }
 
-    std::cout << camelCase(result) << std::endl;
+    std::cout << "\nProcessing: " << temp << std::endl;
+    std::cout << camelCase(temp) << std::endl;
 
     return 0;
