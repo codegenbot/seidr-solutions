@@ -25,7 +25,7 @@ vector<int> tri(int n){
                 if (i % 2 == 0) {
                     result.push_back(1 + i / 2);
                 } else {
-                    result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
+                    result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                 }
             }
         }
@@ -34,6 +34,6 @@ vector<int> tri(int n){
 }
 
 int main() {
-    // Add test cases here
+    // Add test cases here to validate the tri and issame functions
     return 0;
 }
