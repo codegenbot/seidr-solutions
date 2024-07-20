@@ -1,9 +1,6 @@
-bool is_simple_power(int x, int n) {
-    double log_x = log(x);
-    double log_n = log(n);
+Here is the completed code:
 
-    if (fmod(log_x, log_n) == 0)
-        return true;
-    else
-        return false;
+bool is_simple_power(int x, int n) {
+    double y = pow(n, log(x) / log(n));
+    return (y == x);
 }
