@@ -1,28 +1,29 @@
-Here's the solution:
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
 
-string spinWords(string str) {
-    string result = "";
-    int spaceCount = 0;
-    
-    for (int i = str.length() - 1; i >= 0; i--) {
-        if (str[i] == ' ') {
-            spaceCount++;
-            continue;
+std::string spinWords(const std::string& input) {
+    std::string output;
+    std::stringstream ss(input);
+    std::string word;
+
+    while (ss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
-        
-        if (spaceCount > 0) {
-            string temp = str.substr(i, str.find(' ', i) - i);
-            for (int j = temp.length() - 1; j >= 0; j--) {
-                result += temp[j];
-            }
-            spaceCount--;
-        } else {
-            if (temp.size() >= 5)
-                for (int j = temp.length() - 1; j >= 0; j--)
-                    result += temp[j];
-            else
-                result += temp;
-        }
+        output += word + " ";
     }
-    return result;
+
+    return output.substr(0, output.size() - 1);
+}
+
+int main() {
+    // Test the function
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
 }
