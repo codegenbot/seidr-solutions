@@ -1,17 +1,10 @@
 Here is the completed code:
 
 ```cpp
-#include <string>
-using namespace std;
-
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string last_char = txt.substr(txt.size() - 1);
-    for (char c : txt) {
-        if (c == ' ') {
-            if (last_char == "") return true;
-            break;
-        }
-    }
-    return isalpha(last_char[0]);
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length()-1);
+    string restOfText = txt.substr(0,txt.length()-1);
+    bool isLastCharALetter = isalpha(lastChar[0]);
+    return isLastCharALetter && !any_of(restOfText.begin(), restOfText.end(), ::isalnum);
 }
