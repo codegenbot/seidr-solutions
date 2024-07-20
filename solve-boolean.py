@@ -9,12 +9,12 @@ def solve_boolean(expression):
                 b = stack.pop() == 'T'
                 stack.append(a and b)
             if char == '&':
-                if stack:
-                    stack.append(stack.pop() == 'T')
+                if len(stack) >= 2 and stack[-1] == 'T' and stack[-2] == 'T':
+                    stack.pop()
+                    stack.pop()
+                    stack.append(False)
                 else:
-                    break
-        elif len(stack) >= 1:
-            break
-    return stack.pop() == 'T' if stack else None
+                    stack.append(stack.pop() == 'T')
+    return stack.pop() == 'T'
 
 print(solve_boolean('f&f&f|f|f|t|t&t|t&f|t&t&f|t&t|f'))
