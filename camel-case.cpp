@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
 std::string camelCase(const std::string& str) {
     std::string result = "";
     bool inWord = false;
@@ -6,14 +10,20 @@ std::string camelCase(const std::string& str) {
         if (c == '-') {
             inWord = true;
         } else {
-            if (!inWord) {
+            if (!inWord && c != '-') { // Start of a new word
                 inWord = true;
-                result += toupper(c);
-            } else {
-                result += tolower(c);
+                result += std::toupper(c);
+            } else if (c != '-') {
+                result += std::tolower(c);
             }
         }
     }
 
-    return result.size() && (result[0] = toupper(result[0]), result);
+    return result;
+}
+
+int main() {
+    std::string input = "s-lsdsy-uhhe";
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
