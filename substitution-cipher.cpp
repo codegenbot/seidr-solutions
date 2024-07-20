@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,16 +7,13 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
     std::map<char, char> mapping;
     for (int i = 0; i < cipher_map1.length(); i++) {
         mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
-        mapping[toupper(cipher_map1[i])] = toupper(cipher_map2[i]);
     }
     
     std::string result = "";
     for (char c : message) {
         if(mapping.find(std::tolower(c)) != mapping.end()) {
-            // If character is found in the map, substitute with corresponding value from the map
             result += mapping.at(std::tolower(c));
         } else {
-            // If character is not found in the map, add it as it is to the result
             result += c; 
         }
     }
