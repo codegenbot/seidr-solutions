@@ -1,8 +1,10 @@
-double num = stod(value);
-int closestInt;
-if (num >= 0) {
-    closestInt = floor(num + 0.5);
-} else {
-    closestInt = ceil(num - 0.5);
+#include <cmath>
+
+int closest_integer(const string& value) {
+    double num = stod(value);
+    int closestInt = round(num);
+    if (num - closestInt == 0.5 || num - closestInt == -0.5) {
+        closestInt = (num > 0) ? ceil(num) : floor(num);
+    }
+    return closestInt;
 }
-return closestInt;
