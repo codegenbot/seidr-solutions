@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 std::string calculateBinaryAverage(int n, int m) {
     if (n > m) {
@@ -12,18 +13,20 @@ std::string calculateBinaryAverage(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1));
+    int rounded_avg = std::round((double)sum / (m - n + 1));
     
     std::string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
-        avg /= 2;
+    while (rounded_avg > 0) {
+        binary_avg = std::to_string(rounded_avg % 2) + binary_avg;
+        rounded_avg /= 2;
     }
+    
+    assert(calculateBinaryAverage(5, 5) == "101");
     
     return binary_avg;
 }
 
-int main() {
+int main_calculateBinaryAverage() {
     int n, m;
     std::cin >> n >> m;
     
