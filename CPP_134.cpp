@@ -1,8 +1,14 @@
-Here is the completed code:
-
-```cpp
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false; // Check if string is empty.
-    char lastChar = txt.back(); // Get the last character of the string.
-    return !isalnum(lastChar); // Check if last character is not alphanumeric.
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.length() == 0) return false; // Check for empty string
+    char last_char = txt.back();
+    bool is_part_of_word = false;
+    
+    for(int i = 0; i < txt.length() - 1; i++){
+        if(!isspace(txt[i])){
+            is_part_of_word = true;
+            break;
+        }
+    }
+    
+    return isalpha(last_char) && !is_part_of_word;
 }
