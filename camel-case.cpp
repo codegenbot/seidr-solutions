@@ -1,33 +1,31 @@
-```c++
-#include <string>
 #include <iostream>
-using namespace std;
+#include <string>
 
-string kebabToCamel(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == '-') {
-            i++;
-            result += toupper(str[i]);
-        } else if (str[i] == ' ') {
-            result += " ";
-            i++;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true; // Reset capitalization flag
+        } else if (capitalizeNext) {
+            // First character of a new group, uppercase it
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            if (!result.size() || result.back() != ' ')
-                result += tolower(str[i]);
-            else
-                result += str[i];
-            i++;
+            // Not the first character, lowercase it
+            result += tolower(c);
         }
     }
+
     return result;
 }
 
 int main() {
-    string input;
-    while (cin >> input) {
-        cout << kebabToCamel(input) << endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
+
     return 0;
 }
