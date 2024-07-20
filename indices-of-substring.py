@@ -1,20 +1,9 @@
 ```
-text = None
-target = None
+text = input("Enter the text: ")
+target = input("Enter the target: ")
 
-while True:
-    try:
-        text = input("Enter the text: ")
-        target = input("Enter the target: ")
-        if not isinstance(text, str) or not isinstance(target, str):
-            raise ValueError
-        break
-    except (ValueError, EOFError):
-        print("Invalid input. Please enter a string.")
-
-import re
-
-if len(text) > 0 and len(target) > 0:
+if text and target:
+    import re
     result = [m.start() for m in re.finditer(target, text)]
     if result:
         print(result)
