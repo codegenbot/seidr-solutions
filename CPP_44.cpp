@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cassert>
 #include <string>
 
@@ -8,6 +7,6 @@ std::string change_base(int a, int b) {
 
 int main() {
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x));
+    assert(change_base(x, x + 1) == std::to_string(static_cast<long>(x)));
     return 0;
 }
