@@ -1,24 +1,35 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::stringstream ss(sentence);
     std::string word;
     
-    while (ss >> word) {
-        if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        result += word + " ";
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ' ') {
+            word += str[i];
+        } else {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
+        }
     }
     
-    return result.substr(0, result.size()-1); // remove the extra space at the end
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    std::cout << spinWords("a") << std::endl; // should print "a"
+    std::cout << spinWords("this is a test") << std::endl; // should print "this is a test"
+    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona test"
+    std::cout << spinWords("hi") << std::endl; // should print "hi"
+    
     return 0;
 }
