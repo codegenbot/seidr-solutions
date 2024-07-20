@@ -1,3 +1,4 @@
+```cpp
 std::string solveBoolean(std::string input) {
     stack<char> ops;
     stack<bool> values;
