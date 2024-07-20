@@ -2,12 +2,11 @@
 #include <vector>
 #include <map>
 
-int count(int n) {
+int count(int i) {
     int c = 0;
-    for (int i : {1, 2, 3, 4, 5}) {
-        if (i <= n) {
+    for (int j : {i}) {
+        if (j == i)
             c++;
-        }
     }
     return c;
 }
