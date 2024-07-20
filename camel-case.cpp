@@ -1,10 +1,9 @@
-```
 #include <iostream>
 #include <string>
 #include <sstream>
 
 std::string camelCase(std::string s) {
-    std::string result;
+    std::string result = "";
     bool first = true;
 
     for (char c : s) {
@@ -15,14 +14,14 @@ std::string camelCase(std::string s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += char(toupper(c));
+                result += " ";
             }
             first = true;
         } else {
             if (first) {
-                result += c;
+                result += toupper(c);
             } else {
-                result += char(tolower(c));
+                result += tolower(c);
             }
             first = false;
         }
@@ -34,15 +33,24 @@ std::string camelCase(std::string s) {
 int main() {
     std::string result;
 
-    while (std::cin >> s && s != "-") {
-        if (!result.empty()) {
-            result += " ";
+    while (std::cin >> result) {
+        for (int i = 0; i < result.size(); ++i) {
+            if (result[i] == '-') {
+                result[i] = '\0';
+                break;
+            }
         }
-        for (char c : s) {
-            if (c == '-') break;
-            if (first) result += toupper(c);
-            else result += tolower(c);
+
+        char firstChar = result[0];
+        result[0] = toupper(firstChar);
+        for (int i = 1; i < result.size(); ++i) {
+            if (std::string(1, result[i]).find_first_of("-") == std::string::npos) {
+                result[i] = tolower(result[i]);
+            }
         }
+
+        result += camelCase(std::cin.get());
     }
-    std::cout << camelCase(result) << std::endl;
+
+    std::cout << result << std::endl;
 }
