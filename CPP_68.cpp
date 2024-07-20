@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -29,9 +28,4 @@ vector<int> pluck(vector<int> arr) {
         sort(evenNodes.begin(), evenNodes.end());
         return {evenNodes[0].first};
     }
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
-    return 0;
 }
