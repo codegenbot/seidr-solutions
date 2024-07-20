@@ -1,24 +1,18 @@
-int count_nums(vector<int> nums) {
+#include <vector>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num >= 0) {
-            int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0)
-                count++;
-        } else {
-            num = -num;
-            int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 0)
-                count++;
+        if (num > 0) continue; // skip negative numbers and zero
+        int sign = 1;
+        if (num < 0) { sign = -1; num = -num; }
+        int sum_digits = 0;
+        while (num > 0) {
+            sum_digits += num % 10;
+            num /= 10;
         }
+        sum_digits *= sign;
+        if (sum_digits > 0) count++;
     }
     return count;
 }
