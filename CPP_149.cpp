@@ -1,11 +1,21 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-long long vector_sort(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
+long long sorted_list_sum(vector<string> lst) {
+    vector<string> sorted_lst = vector_sort(lst);
+    long long sum = 0;
+    for (const string& str : sorted_lst) {
+        sum += stol(str);
+    }
+    return sum;
+}
+
+vector<string> vector_sort(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(),
         [](const string& a, const string& b){return a.length() % 2 && b.length() % 2;});
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
@@ -14,9 +24,5 @@ long long vector_sort(vector<string> lst) {
                 return a < b;
             else return a.length() < b.length();
         });
-    long long sum = 0;
-    for (string s : lst) {
-        sum += s.length();
-    }
-    return sum;
+    return lst;
 }
