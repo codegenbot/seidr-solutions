@@ -25,11 +25,11 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    getline(cin, to_string(a)) >> ws >> b;
+    getline(cin, text) >> ws >> target;
     cout << gcd(a, b) << endl;
 
     string text, target;
-    getline(cin, text) >> ws >> target;
+    cin >> text >> target;
     vector<int> indices = indicesOfSubstring(text, target);
     for(int i : indices)
         cout << i << " ";
