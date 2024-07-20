@@ -1,28 +1,31 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+using namespace std;
+
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.size() && s[i] == ' ') {
+                i++; // skip the spaces
+            }
+            result += toupper(s[i]);
+        } else if (!result.empty() && isalpha(s[i])) {
+            result += tolower(s[i]);
         } else {
-            result += tolower(c);
+            result += s[i];
         }
     }
-    
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << "camelCase: " << camelCase(str) << std::endl;
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    cin >> input;
+    cout << "CamelCase: " << camelCase(input) << endl;
     return 0;
 }
