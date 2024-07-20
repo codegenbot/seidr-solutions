@@ -1,20 +1,14 @@
-string txt;
-cin >> txt;
-
-bool result = false;
-
-if(txt.length() > 0) {
-    if(isalpha(txt.back())) {
-        int i = txt.length()-1;
-        while(i > 0 && isspace(txt[i-1])) {
-            i--;
-        }
-        if(i == 0 || !isalpha(txt[i-1])) {
-            result = true;
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    int lastCharIndex = txt.length() - 1;
+    char lastChar = txt[lastCharIndex];
+    bool isLetter = isalpha(lastChar);
+    bool isPartOfWord = false;
+    for (int i = 0; i < lastCharIndex; i++) {
+        if (!isspace(txt[i])) {
+            isPartOfWord = true;
+            break;
         }
     }
+    return isLetter && !isPartOfWord;
 }
-
-cout << (result ? "true" : "false") << endl;
-
-return result;
