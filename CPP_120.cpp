@@ -1,3 +1,5 @@
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
+#include <vector>
+
+std::vector<int> maximum(const std::vector<int>& arr, int k) {
+    // Your code here
 }
