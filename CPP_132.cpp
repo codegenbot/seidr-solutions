@@ -1,10 +1,12 @@
 int balance = 0;
-    for(char c : str){
-        if(c == '['){
+    
+    for (char c : str) {
+        if (c == '[') {
             balance++;
-        } else if(c == ']' && balance > 0){
+        } else if (c == ']' && balance > 0) {
             balance--;
         }
     }
-    return balance < 0 && str.size() > 2;
+    
+    return balance < 0 ? true : false;
 }
