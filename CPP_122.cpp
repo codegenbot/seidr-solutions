@@ -11,16 +11,15 @@ int add_elements(std::vector<int> arr, int k){
 
 int main(){
     std::vector<int> arr;
-    int k;
-    cout << "Enter the number of elements: ";
-    cin >> k;
-    arr.resize(k);
-    
-    for(int i=0; i<k; i++){
-        cout << "Enter element " << i+1 << ": ";
+    int n;
+    cin >> n;
+    arr.resize(n);
+    for(int i = 0; i < n; i++){
         cin >> arr[i];
     }
     
-    cout << "Sum of elements <= 100 is: " << add_elements(arr, k) << endl;
+    int k;
+    cin >> k;
+    cout << add_elements(arr, k) << endl;
     return 0;
 }
