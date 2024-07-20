@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -13,12 +14,11 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    if (nums.empty()) {
-        cout << "Error: Input vector is empty." << endl;
-    } else {
-        cout << "No pair found with the given target sum." << endl;
-    }
-    return {0, 0};
+    if (nums.empty())
+        cout << "Error: The input vector is empty." << endl;
+    else
+        cout << "Error: No pair found in the input vector that sums to the target value." << endl;
+    return {0, 0}; // default value
 }
 
 int main() {
