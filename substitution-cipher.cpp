@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include <bits/stdc++.h>
 
 using namespace std;
 
