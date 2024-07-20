@@ -1,6 +1,7 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start = std::max(interval1[0], interval2[0]);
@@ -22,10 +23,9 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
 }
 
 int main() {
+    // test the function
     std::vector<int> interval1 = {1, 5};
     std::vector<int> interval2 = {3, 7};
-
     std::cout << intersection(interval1, interval2) << std::endl;
-
     return 0;
 }
