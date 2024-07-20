@@ -5,9 +5,10 @@ using namespace std;
 
 int count(int i) {
     int c = 0;
-    while (i > 0) {
-        i /= 10;
-        c++;
+    for (int j : {1, 2, 3, 4, 5}) {
+        if (j <= i) {
+            c++;
+        }
     }
     return c;
 }
