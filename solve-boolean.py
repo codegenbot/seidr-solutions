@@ -1,4 +1,4 @@
-```
+"""
 def solve_boolean(expression):
     stack = []
     operator_stack = []
@@ -35,3 +35,4 @@ def solve_boolean(expression):
         elif op == '|':
             stack.append(stack.pop() == 'T' or stack.pop() == 'T')
     return stack[0] == 'T' if stack else None
+"""
