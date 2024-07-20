@@ -1,15 +1,11 @@
 ```
 cipher1 = input("Enter the first string: ")
-cipher2 = input("Enter the second string (to create the cipher map): ")
-input_string = input("Enter the message to decipher: ")
+cipher2 = input("Enter the second string: ")
 
-cipher_map = {}
-for i in range(len(cipher1)):
-    if cipher1[i] != cipher2[i]:
-        cipher_map[cipher1[i]] = cipher2[i]
+cipher_map = {c: d for c, d in zip(cipher1, cipher2)}
 
-decrypted_message = ""
-for char in input_string:
-    decrypted_message += cipher_map.get(char, char)
+text = input("Enter the text to be deciphered: ")
 
-print("Decrypted message:", decrypted_message)
+decrypted_text = ''.join(cipher_map.get(i, i) for i in text)
+
+print(decrypted_text)
