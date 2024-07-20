@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
@@ -35,4 +34,4 @@ def _eval(stack, operator_stack):
     elif op == "|":
         stack.append(b1 or b2)
 
-print(solve_boolean("t&t|t"))  # Output: True
+print(solve_boolean("t&t|t"))
