@@ -1,35 +1,18 @@
-#include <string>
-using namespace std;
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-    
-    // Count correct colors but wrong positions
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // mark as checked
-            guess[i] = ' '; // mark as checked
+        } else {
+            int count = 0;
+            for(int j=0; j<4; j++) {
+                if(code[i] == guess[j])
+                    count++;
+            }
+            if(count > 0)
+                white += count - 1;
         }
     }
-    
-    // Count correct colors and positions
-    for (int i = 0; i < 4; ++i) {
-        int j = 0;
-        while (j < 4 && code[j] != ' ') j++;
-        if (j == 4) continue;
-        
-        while (j < 4 && guess[j] != ' ') j++;
-        if (j == 4) continue;
-        
-        if (code[i] == guess[j]) {
-            white++;
-            black--;
-            code[i] = ' '; // mark as checked
-            guess[j] = ' '; // mark as checked
-        }
-    }
-    
-    return black;
+    return black + white;
 }
