@@ -13,6 +13,8 @@ int modp(int n, int p) {
     return result;
 }
 
+int modp(int n, int p);
+
 int main() {
     int n, p;
     std::cout << "Enter two integers (n and p): ";
