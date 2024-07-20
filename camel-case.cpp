@@ -15,7 +15,7 @@ std::string camelCase(std::string s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += char(toupper(c));
+                result += char(tolower(c));
             }
             first = true;
         } else {
