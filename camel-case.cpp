@@ -10,7 +10,7 @@ std::string toCamelCase(const std::string& s) {
             result += word;
             first = false;
         } else {
-            result += toupper(word[0]) + word.substr(1);
+            result += std::string(1, toupper(word[0])) + word.substr(1);
         }
     }
 
@@ -33,12 +33,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-
-    if(input.empty()) {
-        std::cout << "Error: Input cannot be empty." << std::endl;
-    } else {
-        std::cout << toCamelCase(input) << std::endl;
-    }
-    
+    std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
