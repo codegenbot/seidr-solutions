@@ -1,18 +1,15 @@
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
-using namespace std;
+Here is the solution:
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
     set<int> result;
     
-    // find the intersection of two sets
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        inserter(result, result.begin()));
+    for (auto i : s1) {
+        if (s2.find(i) != s2.end()) {
+            result.insert(i);
+        }
+    }
     
-    vector<int> v(result.begin(), result.end());
-    sort(v.begin(), v.end());
-    return v;
+    return vector<int>(result.begin(), result.end());
 }
