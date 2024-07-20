@@ -2,10 +2,13 @@ int mastermind(const string& code, const string& guess) {
     int white = 0;
     int black = 0;
 
+    vector<char> codeVec(code.begin(), code.end());
+    vector<char> guessVec(guess.begin(), guess.end());
+
     for (int i = 0; i < 4; ++i) {
-        if (code.substr(i, 1) == guess.substr(i, 1)) {
+        if (codeVec[i] == guessVec[i]) {
             ++black;
-        } else if (count(code.begin(), code.end(), guess[i]) > 0) {
+        } else if (count(guessVec.begin(), guessVec.end(), codeVec[i]) > 0) {
             ++white;
         }
     }
