@@ -35,6 +35,7 @@ vector<string> by_length(vector<int> arr) {
                 break;
             case 9:
                 result.push_back("Nine");
+                break;
         }
     }
     return result;
