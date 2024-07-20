@@ -1,31 +1,29 @@
-```
-#include <iostream>
-#include <algorithm>
+```cpp
 #include <vector>
+#include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
-    if (lst.empty()) return result;
-
-    sort(lst.begin(), lst.end());
-    int min = *lst.rbegin();
-    int max = *lst.begin();
 
     while (!lst.empty()) {
-        for (int i : lst) {
-            if (i == min) {
-                result.push_back(i);
-                lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                break;
-            }
+        int min_val = *min_element(lst.begin(), lst.end());
+        result.push_back(min_val);
+        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+
+        if (!lst.empty()) {
+            int max_val = *max_element(lst.begin(), lst.end());
+            result.push_back(max_val);
+            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
         }
-        sort(lst.begin(), lst.end());
-        min = *lst.rbegin();
     }
 
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({111111}) , {111111}));
 }
