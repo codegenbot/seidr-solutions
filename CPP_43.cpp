@@ -7,7 +7,7 @@ bool pairs_sum_to_zero(vector<int> l) {
     set<int> s(l.begin(), l.end());
     for (int i = 0; i < s.size(); i++) {
         int complement = -s[i];
-        if (s.find(complement) != s.end() && s.count(s[i]) > 1) {
+        if (find(s.begin() + i + 1, s.end(), complement) != s.end()) {
             return true;
         }
     }
