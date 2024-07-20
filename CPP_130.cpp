@@ -5,21 +5,25 @@ vector<int> result;
     }
     result.push_back(3);
     if(n == 1){
-        result.push_back(3);
         return result;
     }
     result.push_back(1);
-    int prev = 3, prev_prev = 3;
-    for(int i = 2; i <= n; ++i){
+    if(n == 2){
+        return result;
+    }
+    result.push_back(2);
+    int prev1 = 3, prev2 = 2, prev3 = 1;
+    for(int i = 4; i <= n + 1; i++){
+        int current;
         if(i % 2 == 0){
-            result.push_back(1 + i/2);
+            current = 1 + i / 2;
+        } else {
+            current = prev1 + prev2 + prev3;
         }
-        else{
-            int current = prev + prev_prev + result[i-2]; 
-            result.push_back(current);
-            prev_prev = prev;
-            prev = current;
-        }
+        result.push_back(current);
+        prev3 = prev2;
+        prev2 = prev1;
+        prev1 = current;
     }
     return result;
 }
