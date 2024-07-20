@@ -1,4 +1,4 @@
-string result;
+string result = "";
     int consecutiveSpaces = 0;
     for (char c : text) {
         if (c == ' ') {
@@ -8,11 +8,11 @@ string result;
                 result.pop_back();
                 result += "-";
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
-            consecutiveSpaces = 0;
             result += c;
+            consecutiveSpaces = 0;
         }
     }
     return result;
