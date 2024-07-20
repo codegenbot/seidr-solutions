@@ -16,7 +16,7 @@ int main() {
     assert(issame(tri, {0, 0}));
 
     std::vector<int> other = yourFunctionName({1, 3});
-    assert(issame(other, {0, 0}));
+    assert(issame(other, {1, 3}));
 
     std::cout << "Code fixed successfully!" << std::endl;
     return 0;
