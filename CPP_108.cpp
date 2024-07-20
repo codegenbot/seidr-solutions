@@ -5,20 +5,22 @@ int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
-            int sum = 0, abs_num = num;
+            int sum = 0;
+            int abs_num = abs(num);
             while (abs_num > 0) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum > 0)
+            if (sum % 2 == 1)
                 count++;
         } else {
-            int sum = 0, sign = -1, abs_num = -num;
+            int sum = 0, sign = -1;
+            int abs_num = abs(num);
             while (abs_num > 0) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sign * sum > 0)
+            if (sum % 2 == 1)
                 count++;
         }
     }
