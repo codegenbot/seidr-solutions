@@ -1,12 +1,11 @@
-```c
 #include <iostream>
 #include <string>
 
 int main() {
     std::string tweet;
     std::cout << "Enter a tweet: ";
-    std::cin >> tweet; 
-
+    std::getline(std::cin, tweet); 
+    
     if (tweet.length() > 140) {
         std::cout << "Too many characters";
     } else if (tweet.empty()) {
