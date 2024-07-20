@@ -21,7 +21,7 @@ std::string split(const std::string& s, const std::string& delimiter) {
     size_t pos = 0;
     std::string token;
 
-    while ((pos = s.find(delimiter)) != std::string::npos) {
+    while ((pos = s.find(delimiter)) != 0) {
         token = s.substr(0, pos);
         s = s.substr(pos + delimiter.size());
     }
@@ -33,11 +33,16 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
+    
     try {
-        if(input.empty()) throw std::runtime_error("Error: Input string is empty");
+        if (input.empty()) {
+            throw std::runtime_error("Input cannot be empty");
+        }
+        
         std::cout << toCamelCase(input) << std::endl;
     } catch(const std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << '\n';
     }
+
     return 0;
 }
