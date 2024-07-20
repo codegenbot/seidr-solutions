@@ -1,21 +1,40 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(char a, char b) {
+    if (a == 'S' && b == 'S') {
+        return true;
+    } else if (a != b) {
+        return false;
+    }
+    return true;
+}
 
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
-    for (char x : s) {
+    vector<string> result;
+    string temp = "";
+    for (char i : s) {
         bool found = false;
-        for (char y : c) {
-            if (x == y) {
+        for (char j : c) {
+            if (i == j) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result += x;
+            temp += i;
         }
     }
-    string temp = result;
-    reverse(temp.begin(), temp.end());
-    vector<string> output = {result, (temp == result ? "True" : "False")};
-    return output;
+    result.push_back(temp);
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
