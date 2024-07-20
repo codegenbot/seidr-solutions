@@ -1,8 +1,8 @@
 int count = 0;
-    for (char c : str) {
-        if (c == '[') {
+    for(char c : str){
+        if(c == '['){
             count++;
-        } else if (c == ']' && count > 0) {
+        } else if(c == ']' && count > 0){
             count--;
         }
     }
