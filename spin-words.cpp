@@ -26,10 +26,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::getline(std::cin, str);
-        if (str == "exit") break;
+    while(getline(std::cin, str) && str != "exit") {
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
     return 0;
