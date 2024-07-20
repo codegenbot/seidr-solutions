@@ -11,17 +11,16 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     float min_diff = numbers[1] - numbers[0];
     std::vector<float> closest_elements = { numbers[0], numbers[1] };
     for (int i = 1; i < numbers.size() - 1; ++i) {
-        if (numbers[i + 1] - numbers[i] < min_diff) {
-            min_diff = numbers[i + 1] - numbers[i];
+        if (numbers[i + 1] == numbers[i]) {
             closest_elements = { numbers[i], numbers[i + 1] };
+            break;
         }
     }
     return closest_elements;
 }
 
 int main() {
-    std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    if (issame(result, std::vector<float>{2.2f, 3.1f})) {
+    if (issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1})) {
         std::cout << "Test case passed!" << std::endl;
     } else {
         std::cout << "Test case failed!" << std::endl;
