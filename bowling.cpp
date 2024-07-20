@@ -1,7 +1,6 @@
-````
 int bowlingScore(const string& input) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < input.length(); ++i) {
         if (input.at(i) == 'X') {
             score += 30;
         } else if (input.at(i) == '/') {
@@ -16,4 +15,3 @@ int bowlingScore(const string& input) {
     }
     return score;
 }
-```
