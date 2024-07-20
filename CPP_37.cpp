@@ -22,6 +22,3 @@ vector<float> sort_even(vector<float> l) {
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
-
-// Replace the incomplete function call in the assert statement with a valid function call
-sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
