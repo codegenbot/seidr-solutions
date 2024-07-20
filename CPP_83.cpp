@@ -16,8 +16,6 @@ int starts_one_ends(int n) {
     return count;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    cout << starts_one_ends(n) << endl;
-}
+cin >> n;
+cout << starts_one_ends(n) << endl;
+return 0;
