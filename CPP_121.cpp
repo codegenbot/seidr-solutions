@@ -12,21 +12,9 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        lst.push_back(x);
-    }
-
+    std::vector<int> lst = {3, 13, 2, 9};
     int result = solution(lst);
     std::cout << "Result: " << result << std::endl;
-
+    
     return 0;
 }
