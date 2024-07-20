@@ -1,13 +1,11 @@
-string solve(string s) {
-    string res = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = tolower(c);
-            res += c;
+string solve(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            result += (isupper(s[i])) ? tolower(s[i]) : toupper(s[i]);
         } else {
-            res += c;
+            result += s[i];
         }
     }
-    reverse(res.begin(), res.end());
-    return res;
+    return result;
 }
