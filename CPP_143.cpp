@@ -1,41 +1,37 @@
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
-            return false;
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
     return true;
 }
 
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
+std::vector<std::string> split(const std::string& str, const std::string& delimiter) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(delimiter)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + delimiter.length());
+    }
+    tokens.push_back(str);
+    return tokens;
+}
 
-    for (auto word : words) {
-        int len = word.length();
-        if (isPrime(len)) {
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
+    for (const auto& word : split(sentence, " ")) {
+        if (is_prime(word.length())) {
             result += word + " ";
         }
     }
-
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
 
-vector<string> split(string str, char symbol) {
-    vector<string> tokens;
-    string token;
-    for (auto c : str) {
-        if (c == symbol) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
-    }
-    tokens.push_back(token);
-    return tokens;
+int main() {
+    std::cout << words_in_sentence("Hello world this is a test") << std::endl;
+    return 0;
 }
