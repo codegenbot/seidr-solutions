@@ -1,13 +1,11 @@
 Here is the completed code:
 
-#include <algorithm>
-
 int search(vector<int> lst) {
-    int max = -1;
+    int max = 0;
     for (int i : lst) {
-        if (i > 0 && i <= count(lst.begin(), lst.end(), i)) {
+        if (i > 0 && i >= count(i)) {
             max = i;
         }
     }
-    return max;
+    return max == 0 ? -1 : max;
 }
