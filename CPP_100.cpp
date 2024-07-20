@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -15,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+    vector<int> pile;
     int current = 1;
     for (int i = 0; i < n; ++i) {
         if (n % 2 == 1) { // n is odd
