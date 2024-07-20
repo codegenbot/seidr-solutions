@@ -12,6 +12,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    // Main function implementation can be added here if needed
-    return 0;
+    // Main function implementation (if needed)
 }
