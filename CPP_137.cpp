@@ -5,9 +5,9 @@
 template<typename T>
 const T compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(T) && b.type() == typeid(T)) {
-        if (std::any_cast<T>(a) > std::any_cast<T>(b)) {
+        if (std::any_cast<T>(a) >= std::any_cast<T>(b)) {
             return std::any_cast<T>(a);
-        } else if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
+        } else {
             return std::any_cast<T>(b);
         }
     }
