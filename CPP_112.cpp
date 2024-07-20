@@ -1,16 +1,14 @@
-```
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(string s1, string s2) {
-    if(s1.length() != s2.length()) {
+using namespace std;
+
+bool issame(char a, char b) {
+    if (a == 'S' && b == 'S') {
+        return true;
+    } else if (a != b) {
         return false;
-    }
-    for(int i = 0; i < s1.length(); i++) {
-        if(s1[i] != s2[i]) {
-            return false;
-        }
     }
     return true;
 }
@@ -33,7 +31,7 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (issame(temp, rev)) {
+    if (temp == rev) {
         result.push_back("True");
     } else {
         result.push_back("False");
