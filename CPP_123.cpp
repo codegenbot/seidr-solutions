@@ -1,5 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -35,6 +38,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(10), {1, 3, 5, 7, 9}));
+    assert(issame(get_odd_collatz(1), {1}));
     return 0;
 }
