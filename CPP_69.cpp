@@ -3,11 +3,12 @@
 
 using namespace std;
 
-int count(int n) {
+int count(int i) {
     int c = 0;
-    while (n > 0) {
-        n /= 10;
-        c++;
+    while (i > 0) {
+        if (i % 10 == 7)
+            c++;
+        i /= 10;
     }
     return c;
 }
