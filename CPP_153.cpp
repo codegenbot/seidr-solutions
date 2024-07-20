@@ -1,12 +1,12 @@
 Here is the completed code:
 
-```cpp
 string Strongest_Extension(string class_name, vector<string> extensions) {
-    int strongest = -1;
-    string strongest_extension;
+    string strongest_extension = "";
+    int max_strength = 0;
     
     for (const auto& extension : extensions) {
         int cap = 0, sm = 0;
+        
         for (char c : extension) {
             if (isupper(c)) cap++;
             else if (islower(c)) sm++;
@@ -14,9 +14,9 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         
         int strength = cap - sm;
         
-        if (strength > strongest || (strength == strongest && extensions.size() - (find(extensions.begin(), extensions.end(), extension) - extensions.begin()) > 0)) {
-            strongest = strength;
+        if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
             strongest_extension = extension;
+            max_strength = strength;
         }
     }
     
