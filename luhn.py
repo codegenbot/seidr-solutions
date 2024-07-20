@@ -6,6 +6,7 @@ def luhn(card_number):
     
     if len(card) > 16:
         return 
+        
     new_card = []
     double_even = False
     for num in card:
@@ -19,8 +20,5 @@ def luhn(card_number):
 
     return sum(new_card)
 
-card_number = input().strip()
-if card_number.isdigit() and len(card_number) == 16:
-    print(luhn(int(card_number)))
-else:
-    print('Invalid input: Card number should be 16 digits.')
+card_number = re.sub('[^0-9]', '', input()).lstrip("0") or "0"
+print(luhn(int(card_number)))
