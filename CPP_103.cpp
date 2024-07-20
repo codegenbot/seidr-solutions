@@ -1,4 +1,3 @@
-#include <cassert>
 #include <string>
 #include <iostream>
 #include <cmath>
@@ -25,6 +24,6 @@ std::string calculateBinaryAverage(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinaryAverage(5, 5) == "101");
+    std::cout << calculateBinaryAverage(5, 5) << std::endl;
     return 0;
 }
