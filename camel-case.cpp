@@ -12,12 +12,14 @@ std::string toCamelCase(const std::string& s) {
             } else {
                 first = false;
             }
-        } else if (c != '-') {
+        } else if (c == ' ') {
+            continue; 
+        } else {
             if (first) {
                 first = false;
             }
-            if (c >= 'a' && c <= 'z') {
-                result += char(toupper(c));
+            if (c != '-') {
+                result += toupper(c);
             } else {
                 result += c;
             }
@@ -32,10 +34,11 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
 
-    // Remove spaces and replace with ""
+    // Remove spaces
     for (auto &c : input) {
         if (c == ' ') c = '-';
     }
 
     std::cout << toCamelCase(input) << std::endl;
     return 0;
+}
