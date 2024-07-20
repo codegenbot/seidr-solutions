@@ -1,3 +1,11 @@
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
+}
+
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
@@ -19,7 +27,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+int main(){
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"aaaa", "aaaa"});
     return 0;
 }
