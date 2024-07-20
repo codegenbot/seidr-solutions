@@ -11,13 +11,12 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(rightmost);
+    leaders.push_back(arr.back());
     return leaders;
 }
 
 int main() {
     vector<int> arr = {1, 3, 4, 2};
     vector<int> leaders = leaders(arr);
-    // Do something with the leaders vector
     return 0;
 }
