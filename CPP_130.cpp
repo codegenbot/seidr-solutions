@@ -17,7 +17,7 @@ int main() {
     assert(issame(tri, {0, 0}));
 
     std::vector<int> other = yourFunctionName(n);
-    other[0] = 1; 
+    other[0] = 1;
     other[1] = 3;
     assert(issame(other, tri));
 
