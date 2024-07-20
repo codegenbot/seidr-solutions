@@ -1,12 +1,44 @@
-int a = 1, b = 1, c;
-    int count = 2;
-    while (count < n) {
-        c = a + b;
-        a = b;
-        b = c;
-        if (is_prime(c)) {
-            count++;
+#include <iostream>
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) {
+            return false;
         }
     }
-    return c;
+    return true;
+}
+
+int prime_fib(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 2;
+    }
+
+    int prev = 1, curr = 1;
+    for (int i = 3; i <= n; ++i) {
+        int next = prev + curr;
+        prev = curr;
+        curr = next;
+
+        while (!isPrime(curr)) {
+            next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+    }
+
+    return curr;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
 }
