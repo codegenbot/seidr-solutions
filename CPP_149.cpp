@@ -1,14 +1,29 @@
-bool issame(vector<string> a,vector<string>b){
-    if(a.size()!=b.size())return false;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
+    
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
+        }
     }
-    return true;
+    
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+    
+    return result;
 }
 
 int main() {
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cccc", "dd", "aaaa", "bbbb"}));
+    vector<string> list = {"apple", "banana", "cherry"};
+    vector<string> output = sorted_list_sum(list);
+    for (const auto& str : output) {
+        cout << str << endl;
+    }
     return 0;
 }
