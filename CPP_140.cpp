@@ -1,19 +1,18 @@
-string result;
-    bool prev_space = false;
+int count = 0;
+    string result = "";
     for (char c : text) {
         if (c == ' ') {
-            if (!prev_space) {
-                if (!result.empty() && result.back() == '_') {
-                    result.pop_back();
-                    result.push_back('-');
-                } else {
-                    result.push_back('_');
-                }
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += "_";
             }
-            prev_space = true;
         } else {
-            result.push_back(c);
-            prev_space = false;
+            result += c;
+            count = 0;
         }
     }
     return result;
