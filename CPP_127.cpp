@@ -37,7 +37,7 @@ std::string solve(const std::pair<int, int>& interval1, const std::pair<int, int
 }
 
 int main() {
-    assert (solve({-2, -2}, {-3, -2}) == "NO");
+    assert(solve({-2, -2}, {-3, -2}) == "NO");
 
     return 0;
 }
