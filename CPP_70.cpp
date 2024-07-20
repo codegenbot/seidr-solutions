@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -17,4 +22,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({111111}) , {111111}));
+    // ... rest of your code ...
 }
