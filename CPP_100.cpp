@@ -17,10 +17,26 @@ vector<int> make_a_pile(int n){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // Implementation of issame function
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    // Call make_a_pile function and use issame function
+    vector<int> pile1 = make_a_pile(5);
+    vector<int> pile2 = make_a_pile(5);
+
+    if(issame(pile1, pile2)){
+        cout << "Both piles are the same." << endl;
+    } else {
+        cout << "Piles are different." << endl;
+    }
+
     return 0;
 }
