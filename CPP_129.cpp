@@ -18,7 +18,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
     int row = 0, col = 0;
     
-    // Rest of the existing logic goes here
+    // Existing logic goes here
 
     return path;
 }
