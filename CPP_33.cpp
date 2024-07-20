@@ -1,17 +1,24 @@
-void sort_third(vector<int>& v) {
-    for (int i = 0; i < v.size(); i += 3) {
-        sort(v.begin() + i, v.begin() + i + 3);
-    }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> res = l;
+    for (int i = 0; i < l.size(); ++i) {
+        if ((i + 1) % 3 == 0) {
+            std::sort(res.begin() + i - 2, res.begin() + i + 1);
+        }
+    }
+    return res;
 }
 
 int main() {
-    vector<int> result = l;
-    sort_third(result);
-    vector<int> expected = l;
-    sort(expected.begin(), expected.end());
-    return issame(result, expected);
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    
+    return 0;
 }
