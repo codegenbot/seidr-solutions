@@ -27,7 +27,7 @@ int main() {
             nickles++;
         } else {
             pennies += cents;
-            break;
+            cents = 0;
         }
     }
 
