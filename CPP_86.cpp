@@ -1,14 +1,14 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
-using namespace std;
 
-string anti_shuffle(string s){
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
             result += " ";
         } else {
-            string temp = "";
+            std::string temp = "";
             for(int j=i; j<s.length() && s[j] != ' '; j++){
                 temp += s[j];
                 i = j;
@@ -20,10 +20,10 @@ string anti_shuffle(string s){
     return result;
 }
 
-int main(){
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << "Anti-shuffled string: " << anti_shuffle(str) << endl;
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Anti-shuffled string: " << anti_shuffle(str) << std::endl;
     return 0;
 }
