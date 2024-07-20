@@ -3,12 +3,18 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    bool balanced = true;
-    for (int i = 0; i < str.length() / 2; i++) {
-        if (str[i] != str[str.length() - i - 1]) {
-            balanced = false;
-            break;
-        }
+    if (!is_palindrome(str)) {
+        return false;
     }
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    int sum = 0;
+    for (int i : q) {
+        sum += i;
+    }
+    return sum <= w;
+}
+
+bool is_palindrome(string s) {
+    string t = s;
+    reverse(t.begin(), t.end());
+    return s == t;
 }
