@@ -1,13 +1,12 @@
-string encode(string message){
-    string encoded_message = message;
-    transform(encoded_message.begin(), encoded_message.end(), encoded_message.begin(), [](char c) {
-        if(isalpha(c)){
+for (char &c : message) {
+        if (isalpha(c)) {
             c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c += 2;
-            }
+            if (c == 'a') c = 'c';
+            else if (c == 'e') c = 'g';
+            else if (c == 'i') c = 'k';
+            else if (c == 'o') c = 'q';
+            else if (c == 'u') c = 'w';
         }
-        return c;
-    });
-    return encoded_message;
+    }
+    return message;
 }
