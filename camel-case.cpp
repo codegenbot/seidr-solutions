@@ -27,10 +27,8 @@ int main() {
         std::string word;
         std::cout << camelCase();
         while (std::getline(ss, word, ' ')) {
-            if (!str.empty()) {
-                std::cout << camelCase(word[0] ? tolower(word[0]) : "") << " ";
-            }
-            str.erase(0, word.length() + 1);
+            if (!word.empty())
+                std::cout << capitalize(word) << " ";
         }
         std::cout << std::endl;
     }
