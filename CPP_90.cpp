@@ -1,14 +1,11 @@
-vector<int>::iterator it;
-
-if (lst.size() < 2) {
-    return nullptr;
+int next_smallest(vector<int> lst){
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    
+    for(int i=0; i<v.size()-1; i++){
+        if(v[i] < v[i+1])
+            return v[i+1];
+    }
+    
+    return -1; // or any value to indicate None
 }
-
-sort(lst.begin(), lst.end());
-it = unique(lst.begin(), lst.end());
-
-if (std::distance(it, lst.end()) < 2) {
-    return nullptr;
-}
-
-return *(it + 1);
