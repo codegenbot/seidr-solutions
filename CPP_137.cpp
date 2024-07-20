@@ -1,20 +1,17 @@
-#include <any>
+#include <iostream>
 #include <cassert>
 #include <string>
 
 template<typename T>
-const T compare_one(const std::any& a, const std::any& b) {
-    if (a.type() == typeid(T) && b.type() == typeid(T)) {
-        if (std::any_cast<T>(a) < std::any_cast<T>(b)) {
-            return std::any_cast<T>(a);
-        } else {
-            return std::any_cast<T>(b);
-        }
+const T compare_one(const T& a, const T& b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
     }
-    return T();
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one<std::string>(std::string("1"), std::string("1"))) == "1");
+    assert(compare_one<std::string>("1", "1") == "1");
     return 0;
 }
