@@ -5,14 +5,14 @@ std::string solveBoolean(std::string s) {
         if (s[i] == '&') {
             if (i > 0 && s[i-1] == 'T')
                 return "False";
-            else if (i < s.size() - 1 && s[i+1] == 'F')
-                return "False";
+            else
+                result = "True";
         } else if (s[i] == '|') {
             if (i > 0 && s[i-1] == 'F')
                 return "False";
-            else if (i < s.size() - 1 && s[i+1] == 'T')
-                return "True";
+            else
+                result = "True";
         }
     }
-    return s[0] == 'T' ? "True" : "False";
+    return result;
 }
