@@ -1,28 +1,19 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b); // Function signature for issame
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
         }
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
