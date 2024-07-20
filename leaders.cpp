@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -10,13 +11,15 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(rightmost);
+    leaders.push_back(arr.back());
     return leaders;
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
+    vector<int> arr = {17, 11, 13, 2, 23, 19};
     vector<int> leaders = leaders(arr);
-    // Do something with the leaders vector
+    for (int i : leaders) {
+        cout << i << " ";
+    }
     return 0;
 }
