@@ -1,7 +1,7 @@
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool issame(const string& a, const string& b) {
-    return a.find(b) != string::npos;
+bool issame(const string& str, const string& substring) {
+    return str.find(substring) != string::npos;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
