@@ -2,25 +2,19 @@
 def solve_boolean(expression):
     ops = ['&', '|']
     stack = []
-    result = True if expression[-1] == 'T' else False
     expression = expression[::-1]
+    result = True if expression[0] == 'T' else False
 
     for char in expression:
-        if char in ops:
-            stack.append(char)
-        elif char != 'T' and char != 'F':
+        if char not in ops and char != 'T' and char != 'F':
             raise ValueError("Invalid operation")
+        elif char != 'T' and char != 'F':
+            op = stack.pop()
+            if op == '&':
+                result = result and (char == 'T')
+            elif op == '|':
+                result = result or (char == 'T')
         else:
-            while stack and stack[-1] in ops:
-                op = stack.pop()
-                if op == '&':
-                    result = result and (char == 'T')
-                elif op == '|':
-                    result = result or (char == 'T')
-            if char != result:
-                if op == '&':
-                    result = False
-                elif op == '|':
-                    result = True
+            stack.append(char)
 
     return result
