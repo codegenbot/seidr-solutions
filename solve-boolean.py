@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
@@ -8,8 +7,7 @@ def solve_boolean(expression):
         elif char == '(':
             operator_stack.append(char)
         elif char in ['|', '&']:
-            while (len(operator_stack) and ((operator_stack[-1] == '&' and char == '|') or
-                                             (operator_stack[-1] == '|' and char == '&'))):
+            while len(operator_stack) and operator_stack[-1] != '(':
                 op = operator_stack.pop()
                 b = stack.pop() == 'T'
                 a = stack.pop() == 'T'
