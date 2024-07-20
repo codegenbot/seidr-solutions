@@ -1,7 +1,10 @@
-if(strings.empty()) return "";
-string result = *strings.begin();
-for(string s : strings){
-    if(s.length() > result.length())
-        result = s;
+string longest(vector<string> strings){
+    if(strings.empty())
+        return "";
+    string result = strings[0];
+    for(auto s : strings){
+        if(s.length() > result.length())
+            result = s;
+    }
+    return result;
 }
-return result;
