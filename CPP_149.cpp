@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -38,12 +39,33 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> strings = {"abc", "abcd", "cd", "def", "cde"};
-    for (const auto& str : sorted_list_sum(strings)) {
-        if (issame(str, "abcd")) {
-            std::cout << "Sum: " << str.length() << "\n";
-        } else {
-            std::cout << "String: " << str << "\n";
+    std::vector<std::string> input;
+    int num_strings;
+
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
+
+    for (int i = 0; i < num_strings; ++i) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> str;
+        input.push_back(str);
+    }
+
+    std::vector<std::string> output = sorted_list_sum(input);
+
+    for (const auto& str : output) {
+        bool same_found = false;
+
+        for (int i = 0; i < num_strings; ++i) {
+            if (issame(str, input[i])) {
+                same_found = true;
+                break;
+            }
+        }
+
+        if (!same_found) {
+            std::cout << str << " ";
         }
     }
 
