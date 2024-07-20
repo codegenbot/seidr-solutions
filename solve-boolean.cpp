@@ -2,16 +2,22 @@
 
 std::string solveBoolean(std::string s) {
     std::string result = "True";
-    bool prevBit = false;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            if (result == "True" && !prevBit)
+            if (result == "True" && s[i+1] != '&')
                 return "False";
+            else if (result == "False" && s[i+1] == '&')
+                continue;
+            else
+                result = "False";
         } else if (s[i] == '|') {
-            if (result == "False" && prevBit)
+            if (result == "False" && s[i+1] != '|')
                 return "False";
+            else if (result == "True" && s[i+1] == '|')
+                continue;
+            else
+                result = "True";
         }
-        prevBit = s[i] != 'F';
     }
     return result;
 }
