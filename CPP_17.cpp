@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,21 +14,17 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> parse_music(string music_string){
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     int length = music_string.length();
     for (int i = 0; i < length; ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == '|') {
-            if (beats.empty()) {
-                beats.push_back(1);
+            if (i > 0 && music_string[i - 1] == 'o') {
+                beats.back() = 2;
             } else {
-                if (beats.back() == 4) {
-                    beats.back() = 2;
-                } else {
-                    beats.back() = 1;
-                }
+                beats.push_back(1);
             }
         }
     }
