@@ -1,6 +1,9 @@
-int count = 0;
-for(int i=0; i<brackets.size(); i++){
-    if(brackets[i] == '(')count++;
-    else if(brackets[i] == ')')if(count > 0)count--;else return false;
+int stack_size = 0;
+for(char bracket : brackets){
+    if(bracket == '(') stack_size++;
+    else if(bracket == ')') {
+        if(stack_size <= 0) return false;
+        stack_size--;
+    }
 }
-return count == 0;
+return stack_size == 0;
