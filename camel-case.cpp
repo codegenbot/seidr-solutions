@@ -5,34 +5,37 @@ std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (const auto& word : split(s, " -")) {
-        if (first) {
-            result += word;
-            first = false;
-        } else {
-            result += char(toupper(word[0])) + word.substr(1);
+    for (char c : s) {
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            } else {
+                first = false;
+            }
+        } else if (c != '-') {
+            if (first) {
+                first = false;
+            }
+            if (c >= 'a' && c <= 'z') {
+                result += char(toupper(c));
+            } else {
+                result += c;
+            }
         }
     }
 
     return result;
 }
 
-std::string split(const std::string& s, const std::string& delimiter) {
-    size_t pos = 0;
-    std::string token;
-
-    while ((pos = s.find(delimiter)) != 0) {
-        token = s.substr(0, pos);
-        s = s.substr(pos + delimiter.size());
-    }
-
-    return token;
-}
-
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
+
+    // Remove spaces and replace with ""
+    for (auto &c : input) {
+        if (c == ' ') c = '-';
+    }
+
     std::cout << toCamelCase(input) << std::endl;
     return 0;
-}
