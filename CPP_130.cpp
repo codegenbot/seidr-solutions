@@ -10,7 +10,8 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b){
 }
 
 std::vector<int> yourFunctionName(int n){
-    return std::vector<int>(n, 0);
+    std::vector<int> tri(n, 0);
+    return tri;
 }
 
 int main(){
