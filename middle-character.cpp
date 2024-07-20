@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 using namespace std;
 
 string middleCharacter(string str) {
@@ -17,4 +17,3 @@ int main() {
     cin >> str;
     cout << middleCharacter(str) << endl;
     return 0;
-}
