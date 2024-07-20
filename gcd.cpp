@@ -27,8 +27,11 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
+    std::string text;
+    char c;
+    std::cin >> c >> text; // reads one character and the rest of the line
+    std::string target;
+    std::cin >> target;
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
