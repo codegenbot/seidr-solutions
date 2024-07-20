@@ -1,27 +1,20 @@
-#include <string>
-#include <algorithm>
-
-using namespace std;
+#include <openssl/ripemd160.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
+    if (text.empty()) return "";
+
+    unsigned char hash[16];
+    MD5_CTX md5;
+    MD5_Init(&md5);
+    MD5_Update(&md5, text.c_str(), text.size());
+    MD5_Final(hash, &md5);
+
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", hash[i]);
+        result += string(buf);
     }
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char *cstr = text.c_str();
-    while (*cstr) {
-        MD5_Update(&ctx, cstr, 1);
-        cstr++;
-    }
-    MD5_Final(md, &ctx);
-
-    ostringstream oss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        oss << setfill('0') << setw(2) << hex << (int)md[i];
-    }
-
-    return oss.str();
+    return result;
 }
