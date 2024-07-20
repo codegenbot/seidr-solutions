@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,4 +21,4 @@ double find_zero(vector<double> coeffs){
 
 vector<double> coeffs = {1, -3, 2};
 double solution = find_zero(coeffs);
-assert(fabs(poly(coeffs, solution)) < 1e-3);
+assert(std::abs(poly(coeffs, solution)) < 1e-3);
