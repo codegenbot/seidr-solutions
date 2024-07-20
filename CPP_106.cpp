@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <iostream> // add this if you want to use assert
 
-std::vector<int> f(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b);
+using namespace std;
 
 std::vector<int> f(int n){
     std::vector<int> result;
@@ -25,7 +24,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-int main() {
-    assert(issame(f(3), {1, 2, 6}));
+int main(){
+    assert(issame(f(3), {1, 2, 6})); // add include <iostream> for assert
     return 0;
 }
