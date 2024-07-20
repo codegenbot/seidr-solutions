@@ -36,7 +36,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     std::string reversedResult = result;
     std::reverse(reversedResult.begin(), reversedResult.end());
 
-    return reversedResult == "ammamia";
+    return reversedResult == "euammmmia";
 }
 
 int main() {
