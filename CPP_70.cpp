@@ -4,7 +4,15 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -36,6 +44,6 @@ for (int num : output) {
 std::cout << std::endl;
 
 // Assert function call
-assert(std::issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
+assert(issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
 
 return 0;
