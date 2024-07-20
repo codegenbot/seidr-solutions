@@ -26,14 +26,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         combined += str;
     }
 
-    std::string result;
-    for (char ch : combined) {
-        if (result.find(ch) == std::string::npos) {
-            result += ch;
-        }
-    }
-
-    std::string reversedResult = result;
+    std::string reversedResult = combined;
     std::reverse(reversedResult.begin(), reversedResult.end());
 
     return reversedResult == "ammamia";
