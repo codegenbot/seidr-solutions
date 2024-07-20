@@ -15,9 +15,12 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> derivative(std::vector<float> input) {
-    // Implementation of derivative function goes here
-    return {};  // Placeholder return value
+std::vector<float> derivative(std::vector<float> v) {
+    std::vector<float> result;
+    for (size_t i = 1; i < v.size(); ++i) {
+        result.push_back(v[i] - v[i - 1]);
+    }
+    return result;
 }
 
 int main() {
