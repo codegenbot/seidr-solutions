@@ -22,6 +22,6 @@ std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
 }
