@@ -6,8 +6,15 @@ long long minSubArraySum(vector<long long> nums) {
         sum += nums[i];
         if (sum < min_sum)
             min_sum = sum;
-        if (sum > 0)
-            sum = 0;
+        if (sum > 0) {
+            int left = i;
+            while (left > 0 && sum >= 1) {
+                sum -= nums[left - 1];
+                left--;
+            }
+            if (sum < min_sum)
+                min_sum = sum;
+        }
     }
     return min_sum;
 }
