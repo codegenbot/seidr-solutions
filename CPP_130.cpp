@@ -19,5 +19,6 @@ int main() {
     assert(issame(other, {0, 0}));
 
     std::cout << "Code fixed successfully!" << std::endl;
+    
     return 0;
 }
