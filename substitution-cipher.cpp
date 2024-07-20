@@ -1,15 +1,15 @@
-```c++
 #include <map>
 #include <string>
 #include <iostream>
 #include <limits>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 map<char, char> mapping;
 string decipher(string cipher_map1, string cipher_map2, string message) {
     for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping.insert({tolower(cipher_map1[j]), tolower(cipher_map2[j])});
+        mapping.insert(make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
     string result = "";
@@ -40,3 +40,4 @@ int main() {
     cin.getline(message, 256);
     cout << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
     return 0;
+}
