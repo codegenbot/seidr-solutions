@@ -1,26 +1,36 @@
 Here is the completed code:
 
-vector<bool> primeCheck(100001, true);
-primeCheck[0] = primeCheck[1] = false;
+#include <vector>
+#include <string>
+#include <algorithm>
 
-for(int i=2;i*i<=100000;i++){
-    if(primeCheck[i]){
-        for(int j=i*i;j<=100000;j+=i){
-            primeCheck[j] = false;
+using namespace std;
+
+int skjkasdkd(vector<int> lst) {
+    int max_prime = 0;
+    for (auto x : lst) {
+        if (isPrime(x)) {
+            max_prime = max(max_prime, x);
         }
     }
+
+    int sum = 0;
+    while (max_prime > 0) {
+        sum += max_prime % 10;
+        max_prime /= 10;
+    }
+
+    return sum;
 }
 
-int maxPrime=0;
-for(auto x:lst){
-    if(x>0 && primeCheck[x]){
-        maxPrime=x;
-        break;
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
     }
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
-int sumOfDigits=0;
-while(maxPrime){
-    sumOfDigits += (maxPrime % 10);
-    maxPrime /= 10;
-}
-return sumOfDigits;
