@@ -3,7 +3,13 @@
 #include <string>
 
 std::string change_base(int a, int b) {
-    return std::to_string(a % b);
+    std::string result;
+    while (a > 0) {
+        int remainder = a % b;
+        result = std::to_string(remainder) + result;
+        a /= b;
+    }
+    return result;
 }
 
 int main(){
