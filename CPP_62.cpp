@@ -1,14 +1,15 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<float> derivative(std::vector<float> xs) {
-    std::vector<float> result;
-    for (size_t i = 1; i < xs.size(); i++) {
-        result.push_back(xs[i] - xs[i - 1]);
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
