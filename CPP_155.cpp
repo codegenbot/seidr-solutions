@@ -1,11 +1,13 @@
-int even = 0, odd = 0;
-    while (num != 0) {
-        if ((num % 10) % 2 == 0) {
-            even++;
+int even_count = 0, odd_count = 0;
+    string num_str = to_string(abs(num));
+  
+    for (char digit : num_str) {
+        if ((digit - '0') % 2 == 0) {
+            even_count++;
         } else {
-            odd++;
+            odd_count++;
         }
-        num /= 10;
     }
-    return {even, odd};
+  
+    return {even_count, odd_count};
 }
