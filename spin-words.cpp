@@ -5,19 +5,19 @@ std::string spinWords(std::string str) {
     std::string result;
     std::string word;
 
-    bool lastWord = false;
+    bool isLastWord = false;
 
     for (char c : str) {
         if (c == ' ') {
-            if (!lastWord && word.length() >= 5)
+            if (word.length() >= 5)
                 result += std::string(word.rbegin(), word.rend()) + " ";
             else
                 result += word + " ";
             word = "";
-            lastWord = false;
+            isLastWord = false;
         } else {
             word += c;
-            lastWord = true;
+            if (isLastWord) continue;
         }
     }
 
