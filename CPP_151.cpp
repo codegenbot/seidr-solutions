@@ -1,5 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+
+std::vector<float> lst = {1.0, 2.0, 3.0};
+double odd_sum = double_the_difference(lst);
 
 double double_the_difference(const std::vector<float>& lst) {
     double sum = 0;
@@ -11,11 +15,4 @@ double double_the_difference(const std::vector<float>& lst) {
         }
     }
     return 2 * sum;
-}
-
-int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0};
-    double odd_sum = double_the_difference(lst);
-    std::cout << odd_sum << std::endl;
-    return 0;
 }
