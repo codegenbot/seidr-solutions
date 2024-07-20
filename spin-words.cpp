@@ -8,16 +8,17 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
-                result += std::string(word.rbegin(), word.rend()) + " ";
+                result += std::string(word).reverse() + " ";
             else
                 result += word + " ";
             word = "";
-        } else
+        } 
+        else 
             word += c;
     }
 
     if (word.length() >= 5)
-        result += std::string(word.rbegin(), word.rend());
+        result += std::string(word).reverse();
     else
         result += word;
 
@@ -32,5 +33,4 @@ int main() {
         if (str == "exit") break;
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
-    return 0;
 }
