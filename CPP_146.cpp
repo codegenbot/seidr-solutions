@@ -15,5 +15,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(int argc, char* argv[]) {
-    // Your main function code here
+    // Sample usage
+    vector<int> numbers = {15, -27, 8, 123};
+    int result = specialFilter(numbers);
+    return 0;
 }
