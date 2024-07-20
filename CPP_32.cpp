@@ -12,12 +12,12 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> coeffs){
+double find_zero(vector<double> coeffs) {
     double a = coeffs[0];
     double b = coeffs[1];
-    return -b/a;
+    return -b / a;
 }
 
 vector<double> coeffs = {1, -3, 2};
 double solution = find_zero(coeffs);
-assert(std::abs(poly(coeffs, solution)) < 1e-3);
+assert(std::abs(poly(coeffs, solution)) < 1e-3); // Use std::abs instead of abs
