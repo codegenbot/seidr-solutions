@@ -40,14 +40,14 @@ bool isPrime(int n) {
 }
 
 int main() {
+    vector<int> lst;
     int num;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> num;
-    std::vector<int> lst(num);
-    for (int i = 0; i < num; i++) {
-        std::cout << "Element " << i + 1 << ": ";
-        std::cin >> lst[i];
+    while (true) {
+        cout << "Enter a number (-1 to stop): ";
+        cin >> num;
+        if (num == -1) break;
+        lst.push_back(num);
     }
-    std::cout << "The result is: " << skjkasdkd(lst) << std::endl;
+    cout << "Maximum prime is: " << skjkasdkd(lst) << endl;
     return 0;
 }
