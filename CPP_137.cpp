@@ -1,20 +1,39 @@
 if(a.type() == typeid(int) && b.type() == typeid(int)){
-    int int_a = boost::any_cast<int>(a);
-    int int_b = boost::any_cast<int>(b);
-    if(int_a > int_b) return int_a;
-    if(int_a < int_b) return int_b;
+    if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
+        return a;
+    else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
+        return b;
 }
-if(a.type() == typeid(float) && b.type() == typeid(float)){
-    float float_a = boost::any_cast<float>(a);
-    float float_b = boost::any_cast<float>(b);
-    if(float_a > float_b) return float_a;
-    if(float_a < float_b) return float_b;
+else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    if(boost::any_cast<float>(a) > boost::any_cast<float>(b))
+        return a;
+    else if(boost::any_cast<float>(a) < boost::any_cast<float>(b))
+        return b;
 }
-if(a.type() == typeid(string) && b.type() == typeid(string)){
-    string str_a = boost::any_cast<string>(a);
-    string str_b = boost::any_cast<string>(b);
-    if(str_a > str_b) return str_a;
-    if(str_a < str_b) return str_b;
+else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+    if(a.type().name() == b.type().name()){
+        if(a == b)
+            return "None";
+        else if(std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b)))
+            return a;
+        else
+            return b;
+    }
 }
-return "None";
+else if(a.type() == typeid(int) && b.type() == typeid(std::string)){
+    if(std::to_string(boost::any_cast<int>(a)) == boost::any_cast<std::string>(b))
+        return "None";
+    else if(std::to_string(boost::any_cast<int>(a)) > boost::any_cast<std::string>(b))
+        return a;
+    else
+        return b;
+}
+else if(a.type() == typeid(std::string) && b.type() == typeid(int)){
+    if(boost::any_cast<std::string>(a) == std::to_string(boost::any_cast<int>(b)))
+        return "None";
+    else if(boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<int>(b)))
+        return a;
+    else
+        return b;
+}
 }
