@@ -3,7 +3,7 @@
 #include <string>
 
 bool issame(char a, char b){
-    return a == b;
+    return tolower(a) == tolower(b);
 }
 
 vector<string> split_words(string txt);
