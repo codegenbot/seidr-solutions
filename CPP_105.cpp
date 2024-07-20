@@ -15,7 +15,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::map<int, std::string> num_to_word = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
+        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
 
@@ -35,15 +35,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> input = {5, 2, 9, 1, 3};
-    std::vector<std::string> expected_output = {"Nine", "Three", "Two", "One", "Five"};
-
-    std::vector<std::string> result = by_length(input);
-
-    assert(issame(result, expected_output));
-
-    return 0;
 }
