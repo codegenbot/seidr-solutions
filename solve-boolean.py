@@ -1,16 +1,20 @@
 def solve_boolean(expression):
     stack = []
-    parsing = True
+    result = None
     for char in expression:
         if char in ['T', 'F']:
-            if not parsing:
-                result = eval(''.join(map(str, stack)))
-                stack = []
-                parsing = bool(result)
-            stack.append(char)
-        elif char in ['|', '&']:
-            if char == '&':
-                stack[-1] = f'({stack[-1]} & '
+            if stack and (stack[-1] == '|' or stack[-1] == '&'):
+                top = stack.pop()
+                result = eval(f'({result}) {top} {char}')
             else:
-                stack[-1] = f'({stack[-1]} | ' 
-    return eval(''.join(map(str, [stack[0][:-2]])))
+                result = char
+        elif char in ['|', '&']:
+            while stack and stack[-1] != '(':
+                if stack[-1] == '|':
+                    top = stack.pop()
+                    result = f'({result}) | {top}'
+                elif stack[-1] == '&':
+                    top = stack.pop()
+                    result = f'({result}) & {top}'
+            stack.append('(')
+    return eval(f'{result}')
