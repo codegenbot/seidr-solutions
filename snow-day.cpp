@@ -1,14 +1,13 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
-float snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
-    float snow = initialSnow;
+int snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+    float currentSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        snow += rateOfFall;
-        snow -= meltRate;
+        currentSnow += rateOfFall;
+        currentSnow -= meltRate;
     }
-    return snow;
+    return static_cast<int>(currentSnow);
 }
 
 int main() {
@@ -16,6 +15,7 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfFall, meltRate;
     cin >> initialSnow >> rateOfFall >> meltRate;
+
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall, meltRate) << endl;
     return 0;
 }
