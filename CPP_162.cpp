@@ -1,26 +1,19 @@
-```
-#include <string>
-#include <sstream>
-
-using namespace std;
+```cpp
+#include <digest.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+    unsigned char result[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
-    unsigned char buffer[1024];
-    stringstream ss(text);
-    char c;
-    while (ss >> noskipws >> c) {
-        MD5_Update(&ctx, &c, 1);
-    }
-    MD5_Final(&ctx, buffer);
-    
-    stringstream md5Stream;
+    const unsigned char *p = reinterpret_cast<const unsigned char *>(text.c_str());
+    MD5_Update(&ctx, p, text.size());
+    MD5_Final(result, &ctx);
+    string output;
     for (int i = 0; i < 16; ++i) {
-        md5Stream << setfill('0') << setw(2) << hex << (int)buffer[i];
+        stringstream ss;
+        ss << hex << setfill('0') << setw(2) << static_cast<int>(result[i]);
+        output += ss.str();
     }
-    
-    return md5Stream.str();
+    return output;
 }
