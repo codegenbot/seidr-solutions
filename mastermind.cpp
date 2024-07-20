@@ -1,23 +1,41 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+using namespace std;
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
-        } else {
-            bool found = false;
-            for(int j=0; j<4; j++) {
-                if(guess[j] == code[i] && j != i) {
-                    white++;
-                    found = true;
-                    break;
-                }
-            }
-            if(!found)
-                black++;
+int countBlackPegs(string code, string guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+            code[i] = ' '; // mark the correct place as visited
         }
     }
+    return blackPegs;
+}
 
-    return black + white - 2*count(code.begin(), code.end(), guess[0]);
+int countWhitePegs(string code, string guess) {
+    int whitePegs = 0;
+    vector<char> codeCounts(6, 0);
+    for (int i = 0; i < 4; ++i) {
+        codeCounts[code[i]]++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != ' ') { // only consider unvisited positions
+            if (code.find(guess[i]) != string::npos) {
+                whitePegs++;
+                codeCounts[guess[i]]--; // mark the position as visited
+            }
+        }
+    }
+    return whitePegs;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = countWhitePegs(code, guess);
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
+    return 0;
 }
