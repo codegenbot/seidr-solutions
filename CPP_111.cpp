@@ -5,10 +5,7 @@ bool issame(map<char, int> a, map<char, int> b) {
 map<char, int> histogram(string test);
 
 int main() {
-    string test;
-    getline(cin, test);
-    map<char, int> result = histogram(test);
-    // Additional code if needed
+    // Main function code here
     return 0;
 }
 
