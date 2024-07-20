@@ -30,5 +30,9 @@ bool isPrime(int num) {
         }
     }
     return true;
+}
 
+int main() {
+    assert(findMaxPrimeSum({127, 97, 8192}) == 10);
+    return 0;
 }
