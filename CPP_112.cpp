@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
+std::pair<std::string, std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
     std::string result = "";
@@ -17,6 +17,6 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
 }
 
 int main() {
-    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"mm", "False"});
+    assert(issame({"mamma", "mia"}, {"", "True"}) == std::make_pair("mm", "False"));
     return 0;
 }
