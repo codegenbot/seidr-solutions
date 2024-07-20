@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,10 +19,8 @@ string camelCase(string str) {
     }
     
     // Remove leading space
-    if (!result.empty()) {
-        while (result[0] == ' ') {
-            result.erase(0, 1);
-        }
+    while (result[0] == ' ') {
+        result.erase(0, 1);
     }
     
     return result;
@@ -38,4 +35,3 @@ int main() {
     cout << temp;
     cout << endl;
     return 0;
-}
