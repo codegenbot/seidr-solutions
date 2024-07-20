@@ -5,14 +5,14 @@ int bowlingScore(std::string frames) {
     int roll1, roll2;
 
     for (int i = 0; i < 10; i++) {
-        if (frames[i] == 'X') { // Strike
+        if (frames[i] == 'X') { 
             score += 10 + bowlingStrike(frames, i);
-        } else if (frames[i] == '/') { // Spare
-            score += 10 - frames[i + 1] - frames[i + 2];
+        } else if (frames[i] == '/') { 
+            score += 10 - (frames[i + 1] - '0' - 48) - (frames[i + 2] - '0' - 48);
         } else {
             roll1 = frames[i] - '0';
             roll2 = frames[i + 1] - '0';
-            if (roll1 + roll2 >= 10) { // Spare
+            if (roll1 + roll2 >= 10) { 
                 score += roll1 + roll2;
             } else {
                 score += roll1 + roll2;
@@ -27,12 +27,13 @@ int bowlingStrike(std::string frames, int i) {
     int score = 10;
 
     for (int j = i + 1; j < i + 4; j++) {
-        if (frames[j] == 'X') { // Strike
+        if (frames[j] == 'X') { 
             score += 10 + bowlingStrike(frames, j);
-        } else if (frames[j] == '/') { // Spare
-            score += 10 - frames[j + 1] - frames[j + 2];
+        } else if (frames[j] == '/') { 
+            score += 10 - (frames[j + 1] - '0' - 48) - (frames[j + 2] - '0' - 48);
         } else {
-            score += frames[j] - '0' + frames[j + 1] - '0';
+            score += frames[j] - '0';
+            if(j+1 < frames.size())score += frames[j + 1] - '0';
         }
     }
 
