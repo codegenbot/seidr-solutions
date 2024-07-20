@@ -3,28 +3,33 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    int wordLength;
+    int i = 0;
     std::string word;
 
-    for (int i = 0; i < sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            wordLength = i - word.length();
-            if (wordLength >= 5) {
-                std::string reversedWord = "";
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += word[j];
-                }
+    while (i < sentence.length()) {
+        if (sentence[i] != ' ') {
+            word += sentence[i];
+        } else {
+            if (word.length() >= 4) {
+                std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
                 result += word + " ";
             }
             word = "";
-        } else {
-            word += sentence[i];
         }
+        i++;
     }
 
-    return result;
+    // Process the last word
+    if (word.length() >= 4) {
+        std::string reversedWord(word.rbegin(), word.rend());
+        result += reversedWord;
+    } else {
+        result += word;
+    }
+
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
