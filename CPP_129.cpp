@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>&, const std::vector<int>&){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()) return false;
     for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]) return false;
@@ -9,7 +9,7 @@ bool issame(const std::vector<int>&, const std::vector<int>&){
     return true;
 }
 
-std::vector<int> minPath(const std::vector<std::vector<int>>&, int){
+std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
     std::vector<int> result;
     for(int i = 0; i < k; ++i){
         for(const auto& row : grid){
@@ -22,5 +22,7 @@ std::vector<int> minPath(const std::vector<std::vector<int>>&, int){
 }
 
 int main(){
+    using std::vector;
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
