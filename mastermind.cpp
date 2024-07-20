@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <map>
 using namespace std;
 
 int whitePegs(string code, string guess) {
@@ -42,4 +38,3 @@ int main() {
     cout << black << std::endl;
 
     return 0;
-}
