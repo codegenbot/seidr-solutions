@@ -1,9 +1,20 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that you consider as None
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    auto it = std::next(std::min_element(lst.begin(), lst.end()));
-    while (*it == *std::min_element(lst.begin(), it)) {
-        ++it;
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; 
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i = 0; i < sorted.size(); i++){
+        if(sorted[i] != lst[0]){
+            return sorted[i];
+        }
     }
-    return *it;
+    return -1; 
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -45);
+    return 0;
 }
