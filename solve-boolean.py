@@ -13,4 +13,4 @@ def solve_boolean(expression):
         elif char == '|':
             first, second = stack.pop(), stack.pop()
             stack.append(first or second)
-    return stack[0]
+    return stack[-1]
