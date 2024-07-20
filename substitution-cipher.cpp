@@ -1,11 +1,14 @@
-```cpp
-string decipher(string cipher_map1, string cipher_map2, string message) {
-    map<char, char> mapping;
+#include <string>
+#include <map>
+#include <cctype>
+
+std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    std::map<char, char> mapping;
     for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
         mapping.insert(make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
-    string result = "";
+    std::string result = "";
     for (char c : message) {
         if(mapping.find(tolower(c)) != mapping.end()) {
             char temp = mapping[tolower(c)];
