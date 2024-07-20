@@ -1,7 +1,15 @@
+```
 #include <vector>
-#include <limits>
+#include <algorithm>
 
-std::vector<int> pluck(std::vector<int> arr){
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
+std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     if(arr.empty()) return result;
 
