@@ -1,4 +1,3 @@
-```
 text = input("Enter the text: ").strip()
 target = input("Enter the target: ").strip()
 
