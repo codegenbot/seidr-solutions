@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -9,6 +8,7 @@ int specialFilter(std::vector<int> nums){
     }
     return count;
 }
+
 int main() {
     assert(specialFilter(std::vector<int>()) == 0);
     return 0;
