@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
-bool order_by_points(const std::vector<int>& points) {
+int order_by_points(const std::vector<int>& points) {
     return std::accumulate(points.begin(), points.end(), 0);
 }
 
