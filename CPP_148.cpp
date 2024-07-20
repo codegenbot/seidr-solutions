@@ -1,28 +1,18 @@
 vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-    int start = -1, end = -1;
-    
-    for(int i=0; i<8; i++){
-        if(planet1 == planets[i]){
-            start = i;
-        }
-        
-        if(planet2 == planets[i]){
-            end = i;
-        }
+
+    auto it1 = find(planets.begin(), planets.end(), planet1);
+    auto it2 = find(planets.begin(), planets.end(), planet2);
+
+    if (it1 == planets.end() || it2 == planets.end()) {
+        return result;
     }
-    
-    if(start == -1 || end == -1){
-        return {};
-    }
-    
-    if(start > end){
-        swap(start, end);
-    }
-    
-    for(int i=start+1; i<end; i++){
+
+    int start = min(distance(planets.begin(), it1), distance(planets.begin(), it2));
+    int end = max(distance(planets.begin(), it1), distance(planets.begin(), it2));
+
+    for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
-    
+
     return result;
-}
