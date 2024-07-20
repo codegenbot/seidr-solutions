@@ -1,18 +1,22 @@
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <map>
+#include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    // Function implementation
-}
+using namespace std;
 
 vector<string> by_length(vector<int> arr);
 
+bool issame(vector<string> a, vector<string> b);
+
 int main() {
-    // Code block enclosed in curly braces
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr){
