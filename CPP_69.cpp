@@ -5,8 +5,9 @@
 int count(int i) {
     int c = 0;
     for (int j : {i}) {
-        if (j == i)
+        if (j == i) {
             c++;
+        }
     }
     return c;
 }
