@@ -1,11 +1,19 @@
-int stack_size = 0;
-for (char c : str) {
-    if (c == '[') {
-        stack_size++;
-    } else if (c == ']') {
-        if (stack_size <= 0)
-            return false;
-        stack_size--;
-    }
+int main() {
+    return 0;
 }
-return stack_size > 0;
+
+bool is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
+            }
+        }
+    }
+    return count > 0;
+}
