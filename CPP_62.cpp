@@ -17,15 +17,13 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> derivative(std::vector<float> input) {
     std::vector<float> result;
-    
     for (size_t i = 1; i < input.size(); ++i) {
         result.push_back(input[i] - input[i - 1]);
     }
-    
     return result;
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({1.0f}), {0.0f}));
     return 0;
 }
