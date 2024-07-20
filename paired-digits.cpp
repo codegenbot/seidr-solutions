@@ -1,11 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
-        if ((s[i] - '0') == (s[i + 1] - '0')) {
-            sum += (s[i] - '0');
+        int num = s[i] - '0';
+        char strNum[2];
+        sprintf(strNum, "%d", num);
+        if (strNum[0] == strNum[1]) {
+            sum += num;
         }
     }
     return sum;
