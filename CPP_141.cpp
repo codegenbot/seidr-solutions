@@ -9,11 +9,12 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !string(file_name.substr(i)).compare("txt") && !string(file_name.substr(i)).compare("exe") && !string(file_name.substr(i)).compare("dll"))){
-            return "No";
+        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l')){
+            return "Yes";
         }
     }
     if(!found_dot) return "No";
     if(digit_count > 0) return "No";
+    if(file_name[0] < 'a' || (file_name[0] > 'z' && file_name[0] < 'A') || file_name[0] > 'Z') return "No";
     return "Yes";
 }
