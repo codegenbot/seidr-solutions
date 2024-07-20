@@ -3,7 +3,6 @@ s = input()
 
 def camel_case(s):
     words = s.split("-")
-    result = "".join(word.capitalize() for word in words)
-    return result[0].upper() + result[1:].lower()
+    return ''.join(word.capitalize() for word in words[0] + [word.capitalize() for word in words[1:]]).replace("-", "").lower().capitalize()
 
 print(camel_case(s))
