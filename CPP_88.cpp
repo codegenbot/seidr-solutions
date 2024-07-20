@@ -11,7 +11,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 int main(){
-    assert(issame({21, 14, 23, 11}, {23, 21, 14, 11}));
+    assert(issame({21, 14, 23, 11} , {23, 21, 14, 11}));
     
     return 0;
 }
