@@ -11,8 +11,11 @@ string anti_shuffle(string s) {
             for (int j = i; j < s.length() && s[j] != ' '; j++) {
                 word += s[j];
             }
-            sort(word.begin(), word.end());
-            result += word;
+            string newWord;
+            for (char c : word) {
+                newWord += (c <= 'z' ? c : c - 26 + 'a');
+            }
+            result += newWord;
             i = j - 1;
         }
     }
