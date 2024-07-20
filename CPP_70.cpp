@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -20,7 +20,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    // Read input
     int n;
     std::cin >> n;
     std::vector<int> input(n);
@@ -28,7 +27,6 @@ int main() {
         std::cin >> input[i];
     }
 
-    // Call function and output
     std::vector<int> output = strange_sort_list(input);
     for (int num : output) {
         std::cout << num << " ";
