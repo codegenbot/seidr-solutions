@@ -1,12 +1,10 @@
-int vowels_count(string s){
-    int count = 0;
-    char vowels[] = {'a', 'e', 'i', 'o', 'u'};
-    for(char &c : s){
-        if(find(begin(vowels), end(vowels), tolower(c)) != end(vowels)){
-            if(tolower(c) == 'y' && &c != &s.back())
-                continue;
-            count++;
-        }
-    }
-    return count;
+transform(s.begin(), s.end(), s.begin(), ::tolower);
+int count = 0;
+for(auto c : s){
+    if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+        count++;
+}
+if (!s.empty() && (s.back() == 'y' || s.back() == 'Y'))
+    count--;
+return count;
 }
