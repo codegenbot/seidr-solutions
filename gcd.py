@@ -1,17 +1,21 @@
-Here is the solution:
-
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
-    indices = []
-    i = 0
-    while i < len(text):
+    result = []
+    index = 0
+    while index < len(text):
         pos = text.find(target)
         if pos == -1:
             break
-        indices.append(pos + 1)  # Add 1 because Python list indices start at 0
-        i += pos + 1
-    return indices
+        result.append(pos + 1)
+        index += pos + 1
+    return result
+
+
+# Test cases
+print(gcd(1, 1))
+print(indices_of_substring("Hello World", "o"))
