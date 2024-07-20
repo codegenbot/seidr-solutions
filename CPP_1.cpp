@@ -32,7 +32,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<string> result = separate_paren_groups("((group1)(group2))");
-    assert(issame(result, {"(group1)", "(group2)"}));
+    vector<string> result = separate_paren_groups("((hello)(world))");
+    vector<string> expected = {"(hello)", "(world)"};
+    assert(issame(result, expected));
     return 0;
 }
