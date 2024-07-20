@@ -1,15 +1,16 @@
-#include <openssl/evp.h>
-#include <string.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 char* string_to_md5(const char* input) {
     unsigned char result[16];
-    EVP_MD_CTX *md5ctx = EVP_MD_CTX_new();
+    EVP_MD_CTX md5ctx;
     const EVP_MD *md = EVP_sha1();
-    EVP_DigestInit_ex(md5ctx, md, nullptr);
-    EVP_DigestUpdate(md5ctx, input, strlen(input));
+    EVP_MD_CTX_init(&md5ctx);
+    EVP_DigestInit_ex(&md5ctx, md, nullptr);
+    EVP_DigestUpdate(&md5ctx, input, strlen(input));
     unsigned char* output = new unsigned char[16];
     EVP_Digest(&md5ctx, 16, output, nullptr, 0);
-    EVP_MD_CTX_destroy(md5ctx);
+    EVP_MD_CTX_destroy(&md5ctx);
 
     char* hash = new char[33];
     for (int i = 0; i < 16; i++) {
@@ -23,7 +24,7 @@ int main() {
     char input[1024]; 
     printf("Enter a string: ");
     fgets(input, sizeof(input), stdin);
-    *(input+strrchr(input, '\n')) = 0; // remove newline character
+    input[strcspn(input, "\n")] = 0; // remove newline character
     char* hash = string_to_md5(input);
     printf("MD5 hash: %s\n", hash);
     delete[] hash; 
