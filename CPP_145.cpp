@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> a_sorted = a;
@@ -10,6 +11,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::sort(b_sorted.begin(), b_sorted.end());
 
     return std::is_permutation(a_sorted.begin(), a_sorted.end(), b_sorted.begin());
+}
+
+int order_by_points(const std::vector<int>& points) {
+    int res = 0;
+    for (int i : points) {
+        res += i;
+    }
+    return res;
 }
 
 int main() {
