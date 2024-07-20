@@ -4,23 +4,25 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            lower = !lower;
-        } else {
-            if (result.empty()) {
-                if (!lower) {
-                    result += topper(c);
-                } else {
-                    result += tolower(c);
-                }
-            } else {
+            if (!result.empty()) {
                 if (!lower) {
                     result[0] = toupper(result[0]);
                 }
-                result[0] = tolower(c);
+            }
+            lower = !lower;
+            result += " ";
+        } else {
+            if (!result.empty() && !lower) {
+                result[0] = toupper(result[0]);
                 lower = false;
             }
+            result += tolower(c);
         }
     }
 
-    return result;
+    if (!lower) {
+        result[0] = toupper(result[0]);
+    }
+    
+    return result.substr(1); // Remove the extra space at the beginning
 }
