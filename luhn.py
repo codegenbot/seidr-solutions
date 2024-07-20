@@ -19,5 +19,5 @@ def luhn(card_number):
         
     return str(total % 10 == 0)
 
-card_number = input().strip()
-print(luhn(int(card_number)))
+card_number = int(input().strip())
+print(luhn(card_number))
