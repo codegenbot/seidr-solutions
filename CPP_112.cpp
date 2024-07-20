@@ -14,6 +14,10 @@ std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const
         result.push_back(str);
     }
 
+    return result;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string combined = "";
     for (const std::string &str : a) {
         combined += str;
@@ -22,10 +26,20 @@ std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const
         combined += str;
     }
 
-    std::string reversedCombined = combined;
-    std::reverse(reversedCombined.begin(), reversedCombined.end());
+    std::string result;
+    for (char ch : combined) {
+        if (result.find(ch) == std::string::npos) {
+            result += ch;
+        }
+    }
 
-    assert(reversedCombined == "ammamia");
+    std::string reversedResult = result;
+    std::reverse(reversedResult.begin(), reversedResult.end());
 
-    return result;
+    return reversedResult == "ammamia";
+}
+
+int main() {
+    assert(issame(reverse_delete({"mamma"}, {"mia"}), { "amam", "mia" }));
+    return 0;
 }
