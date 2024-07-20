@@ -1,16 +1,18 @@
 #include <string>
 
 std::string solveBoolean(std::string s) {
-    bool result = true;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            if (result && s[i+1] != '&')
+            if (i > 0 && s[i-1] == 'T')
+                return "False";
+            else if (i < s.size() - 1 && s[i+1] == 'F')
                 return "False";
         } else if (s[i] == '|') {
-            if (!result && s[i+1] != '|')
+            if (i > 0 && s[i-1] == 'F')
                 return "False";
+            else if (i < s.size() - 1 && s[i+1] == 'T')
+                return "True";
         }
-        result = (s[i] == '&' ? false : true);
     }
-    return result ? "True" : "False";
+    return s[0] == 'T' ? "True" : "False";
 }
