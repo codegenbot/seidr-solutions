@@ -1,13 +1,11 @@
 text = input("Enter the text: ")
 target = input("Enter the target: ").strip()
 
-if not text and not target:
-    print(list(range(len(text))))
-elif not text or not target:
-    print()
-else:
-    import re
+while not text or not target:
+    print("Invalid input! Please try again.")
+    text = input("Enter the text: ")
+    target = input("Enter the target: ").strip()
 
-    result = [m.start() for m in re.finditer(target, text)]
-    if result:
-        print(result)
+import re
+result = [m.start() for m in re.finditer(target, text)]
+print(result)
