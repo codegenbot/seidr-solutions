@@ -1,45 +1,38 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string kebabToCamel(string s) {
+string camelCase(string s) {
     string result = "";
-    size_t pos = 0;
-    
-    while (pos < s.length()) {
-        pos = s.find('-', pos);
-        
-        if (pos == string::npos) {
-            result += toupper(s[pos]);
-            break;
-        }
-        
-        for (size_t i = pos; i < pos + 1; ++i) {
-            if (s[i] != '-') {
-                result += tolower(s[i]);
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.size() && s[i] == ' ') {
+                i++;
+            }
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
+        } else {
+            if (!result.empty()) {
+                result += toupper(s[i]);
             } else {
-                break;
+                result += tolower(s[i]);
             }
         }
-        
-        if (pos != string::npos) {
-            result += toupper(s[pos + 1]);
-        }
-        
-        pos++;
     }
-    
     return result;
 }
 
 int main() {
-    string s;
-    cout << "Enter a kebab-case string: ";
-    cin >> s;
-    cout << "CamelCase: " << kebabToCamel(s) << endl;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
+    }
     return 0;
 }
