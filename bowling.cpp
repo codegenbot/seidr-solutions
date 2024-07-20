@@ -8,7 +8,7 @@ int bowlingScore(std::string frames) {
         if (frames[i] == 'X') { // Strike
             score += 10 + bowlingStrike(frames, i);
         } else if (frames[i] == '/') { // Spare
-            score += 10 - frames[i + 1] - (frames[i + 2] - '0');
+            score += 10 - frames[i + 1] - frames[i + 2];
         } else {
             roll1 = frames[i] - '0';
             roll2 = frames[i + 1] - '0';
@@ -30,9 +30,9 @@ int bowlingStrike(std::string frames, int i) {
         if (frames[j] == 'X') { // Strike
             score += 10 + bowlingStrike(frames, j);
         } else if (frames[j] == '/') { // Spare
-            score += 10 - frames[j + 1] - (frames[j + 2] - '0');
+            score += 10 - frames[j + 1] - frames[j + 2];
         } else {
-            score += frames[j] - '0' + (frames[j + 1] - '0');
+            score += frames[j] - '0' + frames[j + 1] - '0';
         }
     }
 
