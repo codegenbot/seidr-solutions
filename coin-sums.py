@@ -6,8 +6,7 @@ def coin_sums(cents):
         count = cents // coins[i]
         results[i] = count
         cents -= count * coins[i]
-
-        if cents == 0:
-            break
-
+        
+        if cents < 0: continue
+        
     return tuple(results)
