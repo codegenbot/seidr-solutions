@@ -1,7 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+#include <initializer_list>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
     return std::is_permutation(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> order_by_points(std::initializer_list<int> points) {
+    std::vector<int> sorted_points(points);
+    std::sort(sorted_points.begin(), sorted_points.end());
+    return sorted_points;
 }
 
 int main() {
@@ -18,9 +28,6 @@ int main() {
         std::cin >> num;
         vec2.push_back(num);
     }
-
-    std::sort(vec1.begin(), vec1.end());
-    std::sort(vec2.begin(), vec2.end());
 
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are permutations of each other.\n";
