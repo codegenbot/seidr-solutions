@@ -2,12 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(int a, int b) {
+    int count_a = __builtin_popcount(a);
+    int count_b = __builtin_popcount(b);
+    return count_a == count_b;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
         if (count_a == count_b) {
@@ -19,6 +21,10 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    // Replace assert with appropriate error handling logic based on requirements
+    std::vector<int> arr = {5, 3, 7, 1, 2};
+    arr = sort_array(arr);
+    for (int num : arr) {
+        std::cout << num << " ";
+    }
     return 0;
 }
