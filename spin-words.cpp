@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 
-void printResult(std::string result) {
-    std::cout << result << std::endl;
+int main() {
+    std::cout << spinWords("Hello World This is a test") << std::endl;
+    return 0;
 }
 
 std::string spinWords(std::string sentence) {
@@ -34,9 +35,4 @@ std::string spinWords(std::string sentence) {
     }
 
     return result;
-}
-
-int main() {
-    std::cout << spinWords("Hello World This is a test") << std::endl;
-    return 0;
 }
