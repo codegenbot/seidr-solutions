@@ -1,8 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
@@ -29,11 +34,7 @@ int main() {
     vector<float> grades = {0, 0.7};
     vector<string> result = numerical_letter_grade(grades);
     
-    cout << "The letter grades are: ";
-    for(string grade : result) {
-        cout << grade << " ";
-    }
-    cout << endl;
+    assert(result.size() == 2 && result[0] == "E" && result[1] == "D-");
     
     return 0;
 }
