@@ -2,6 +2,8 @@
 #include <cmath>
 #include <iomanip>
 
+using namespace std;
+
 int main() {
     double start_height, first_bounce_height;
     int num_bounces;
