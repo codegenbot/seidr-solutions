@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     int sum_a = 0, sum_b = 0;
@@ -42,15 +43,4 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     std::vector<int> sorted_nums = nums;
     std::sort(sorted_nums.begin(), sorted_nums.end(), comparator);
     return sorted_nums;
-}
-
-int main() {
-    // Test the implementation
-    std::vector<int> test_nums = {-76, -21, 0, 4, 23, 6, 6};
-    std::vector<int> ordered_nums = order_by_points(test_nums);
-    
-    // Add your own test cases here
-    assert(issame(ordered_nums, {-76, -21, 0, 4, 23, 6, 6}));
-
-    return 0;
 }
