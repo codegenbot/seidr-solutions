@@ -1,14 +1,21 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
+    vector<int> v(q);
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+
+    for (int i = 0; i < v.size(); i++) {
+        if (v[i] != q[i]) return false;
     }
-    if (str != reverse(str).s) return false;
+
     int sum = 0;
-    for (int i : q) {
-        sum += i;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
     }
+    
     return sum <= w;
 }
