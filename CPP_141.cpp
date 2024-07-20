@@ -35,8 +35,8 @@ std::string file_name_check(std::string file_name) {
 
 int main() {
     std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
+    std::cout << "Enter the file name: ";
+    std::cin >> file_name;
     std::cout << file_name_check(file_name) << std::endl;
     return 0;
 }
