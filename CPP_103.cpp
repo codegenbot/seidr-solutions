@@ -24,4 +24,14 @@ std::string calculateBinaryAverage(int n, int m) {
     return binary_avg;
 }
 
-assert(calculateBinaryAverage(5, 5) == "101");
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    
+    std::string result = calculateBinaryAverage(n, m);
+    std::cout << result << std::endl;
+    
+    assert(calculateBinaryAverage(5, 5) == "101");
+
+    return 0;
+}
