@@ -1,10 +1,15 @@
-int prod_signs(vector<int> arr) {
-    long long result = 1;
+#include <vector>
+
+int prod_signs(const vector<int>& arr) {
+    if (arr.empty()) return -32768;
+    int sign = 1;
+    long long sum = 0;
     for (int num : arr) {
         if (num == 0) {
-            return -32768;
+            return 0; // If zero is present, product of signs will be zero
         }
-        result *= pow(-1, (num > 0));
+        sign *= (num > 0 ? 1 : -1);
+        sum += abs(num);
     }
-    return abs(result);
+    return sum * sign;
 }
