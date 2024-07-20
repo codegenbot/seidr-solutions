@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -36,6 +37,8 @@ int main() {
     std::string file_name;
     std::cout << "Enter a file name: ";
     std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
+
+    std::cout << "Is the file valid? " << file_name_check(file_name) << std::endl;
+
     return 0;
 }
