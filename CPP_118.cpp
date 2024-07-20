@@ -2,17 +2,15 @@
 #include <cctype>
 
 std::string get_closest_vowel(std::string word) {
-    int left = 0;
+    int closest = -1;
     for(int i = 0; i < word.length(); i++) {
-        if(!isalpha(word[i])) continue;
-        if(isvowel(tolower(word[i]))) {
-            while(left < i && !isalpha(word[left]) && left <= i) {
-                left++;
+        if(isalpha(word[i]) && isvowel(tolower(word[i]))) {
+            if(closest == -1 || i < closest) {
+                closest = i;
             }
-            return string(1, tolower(word[i]));
         }
     }
-    return "";
+    return (closest != -1) ? string(1, tolower(word[closest])) : "";
 }
 
 int main() {
