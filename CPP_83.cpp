@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -17,7 +18,6 @@ int starts_one_ends(int n) {
         }
     }
     return count;
-
 }
 
 int main() {
