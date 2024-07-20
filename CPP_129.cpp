@@ -15,6 +15,6 @@ namespace CustomNamespace {
 
 int main() {
     using namespace CustomNamespace;
-    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, CustomNamespace::minPath({{1, 3}, {3, 2}}, 10)));
     return 0;
 }
