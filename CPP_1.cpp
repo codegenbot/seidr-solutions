@@ -11,9 +11,10 @@ vector<string> separate_paren_groups(string paren_string) {
             balance++;
         } else if (c == ')') {
             balance--;
-            if (balance > 0) {
+            if (balance >= 0) {
                 group += c;
-            } else if (balance == 0) {
+            }
+            if (balance == 0) {
                 result.push_back(group);
                 group = "";
             }
@@ -21,8 +22,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
