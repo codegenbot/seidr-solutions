@@ -1,15 +1,7 @@
 #include <vector>
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if(v1.size() != v2.size()) {
-        return false;
-    }
-    for(int i = 0; i < v1.size(); ++i) {
-        if(v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> even_odd_palindrome(int n) {
@@ -30,10 +22,10 @@ vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Example usage
-    vector<int> result = even_odd_palindrome(100);
-    for(int i : result) {
-        cout << i << " ";
+    // Sample usage
+    vector<int> result = even_odd_palindrome(10);
+    for (int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
