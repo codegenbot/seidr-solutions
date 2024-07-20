@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.empty() && b.empty();
+    return a == b;
 }
 
 std::vector<int> generate_integers(int a, int b) {
