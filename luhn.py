@@ -1,4 +1,3 @@
-```
 def luhn(card):
     card = list(map(int, ''.join(filter(str.isdigit, str(card).replace(" ", ""))).replace('0', ''))) 
     for i in range(len(card)-1, 0, -2):
