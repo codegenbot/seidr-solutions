@@ -1,8 +1,9 @@
-long long result = 0;
-    for (float n : lst) {
-        if (n > 0 && n == (int)n && (int)n % 2 != 0) {
-            result += n * n;
+long long double_the_difference(vector<float> lst){
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
+            sum += static_cast<long long>(num) * static_cast<long long>(num);
         }
     }
-    return result;
+    return sum;
 }
