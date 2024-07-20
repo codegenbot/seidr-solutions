@@ -14,8 +14,8 @@ int main() {
     string test1 = "Hello World";
     string test2 = "Programming";
     
-    cout << vowels_count(test1) << endl; // Output: 3
-    cout << vowels_count(test2) << endl; // Output: 3
+    cout << vowels_count(test1) << endl; // Expected output: 3
+    cout << vowels_count(test2) << endl; // Expected output: 4
     
     return 0;
 }
