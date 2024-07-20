@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-vector<int> issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
