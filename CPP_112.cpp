@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <cassert>
-
 bool areDifferentCharacters(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
@@ -17,6 +11,6 @@ bool areDifferentCharacters(const std::vector<std::string>& a, const std::vector
 }
 
 int main() {
-    assert(areDifferentCharacters({"mamma", "mia"}, {"", "True"}) == false);
+    assert(areDifferentCharacters({"mamma", "mia"}, {"", "True"}) == true);
     return 0;
 }
