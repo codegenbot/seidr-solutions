@@ -15,10 +15,3 @@ double double_the_difference(const std::vector<float>& lst) {
     }
     return 2 * sum;
 }
-
-int main() {
-    double odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
-    std::cout << odd_sum << std::endl;
-    return 0;
-}
