@@ -1,10 +1,12 @@
+```c++
 #include <vector>
 using namespace std;
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Werror"
-#include <initializer_list>
-#pragma GCC diagnostic pop
+int main() {
+    vector<int> leaders = leaders({1, 3, 4, 2});
+    // do something with leaders...
+    return 0;
+}
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
@@ -15,5 +17,6 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
+    leaders.push_back(rightmost);
     return leaders;
 }
