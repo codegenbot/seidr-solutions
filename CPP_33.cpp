@@ -1,8 +1,12 @@
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // Add your comparison logic here
 }
 
 vector<int> sort_third(vector<int> l) {
+    // Add your sorting logic here
+}
+
+vector<int> fix_code(vector<int> l) {
     vector<int> divisible_by_three;
     vector<int> not_divisible_by_three;
     
