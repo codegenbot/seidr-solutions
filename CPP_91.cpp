@@ -1,9 +1,11 @@
-int boredom = 0;
-    string word = "";
-    for (char c : S) {
-        if (c == ' ' && word == "I") boredom++;
-        if (c == '.' || c == '?' || c == '!') word = "";
-        else if (c != ' ') word += c;
+int is_bored(string S){
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = S.find("I ", pos)) != string::npos) {
+        if (pos == 0 || S[pos - 1] == '.' || S[pos - 1] == '?' || S[pos - 1] == '!') {
+            count++;
+        }
+        pos += 2; // Move position after "I "
     }
-    return boredom;
+    return count;
 }
