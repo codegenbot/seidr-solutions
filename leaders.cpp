@@ -1,26 +1,18 @@
-Here is the solution:
-
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(const std::vector<int>& arr) {
-    int n = arr.size();
-    std::vector<int> leaders;
+vector<int> leaders(vector<int>& vec) {
+    vector<int> res;
+    int n = vec.size();
     
-    if (n == 1) {
-        leaders.push_back(arr[0]);
-        return leaders;
+    // The rightmost element is always a leader.
+    res.push_back(vec.back());
+    
+    for(int i = n-2; i >= 0; --i) {
+        if(vec[i] >= vec.back()) 
+            res.push_back(vec[i]);
     }
     
-    for (int i = n - 1; i >= 0; --i) {
-        bool is_leader = true;
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[j] >= arr[i]) {
-                is_leader = false;
-                break;
-            }
-        }
-        if (is_leader) leaders.push_back(arr[i]);
-    }
-    
-    return leaders;
+    reverse(res.begin(), res.end());
+    return res;
 }
