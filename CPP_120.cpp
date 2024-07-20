@@ -8,7 +8,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return std::vector<int>(arr.begin(), arr.begin() + k);
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
