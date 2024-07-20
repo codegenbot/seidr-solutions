@@ -1,10 +1,13 @@
-#include <string>
 #include <algorithm>
 #include <cctype>
-#include <functional>
 #include <cassert>
 
-std::string solve(std::string s);
+std::string solve(std::string s); // Function prototype
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
+}
 
 std::string solve(std::string s) {
     for (char &c : s) {
@@ -12,13 +15,8 @@ std::string solve(std::string s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (std::count_if(s.begin(), s.end(), isalpha) == 0) {
-        std::reverse(s.begin(), s.end());
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+        reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
 }
