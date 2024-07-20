@@ -1,4 +1,3 @@
-```Python
 print("Please enter a string in kebab-case: ")
 s = input()
 
