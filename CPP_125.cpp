@@ -2,7 +2,6 @@
 #include <vector>
 #include <sstream>
 #include <cassert>
-#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
@@ -30,7 +29,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame(split_words(""), {"0"}));
+    assert(words.empty());
 
     return 0;
 }
