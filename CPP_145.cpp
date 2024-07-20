@@ -1,8 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
@@ -21,11 +19,16 @@ int main() {
         vec2.push_back(num);
     }
 
+    std::sort(vec1.begin(), vec1.end());
+    std::sort(vec2.begin(), vec2.end());
+
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are permutations of each other.\n";
     } else {
         std::cout << "Vectors are not permutations of each other.\n";
     }
+
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
