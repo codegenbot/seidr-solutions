@@ -4,8 +4,8 @@
 #include <algorithm>
 
 std::string spinWords(const std::string& input) {
-    std::string output;
     std::stringstream ss(input);
+    std::string output;
     std::string word;
 
     while (ss >> word) {
