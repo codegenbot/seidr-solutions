@@ -6,25 +6,19 @@
 using namespace std;
 
 struct Vector {
-    float x;
+    float elements[100]; // assuming maximum dimension is 100
 };
 
 double vectorDistance(int n) {
     Vector v1, v2;
     
-    cin >> v1.x;
-    for (int i = 1; i < n; i++) {
-        cin >> v1.x;
-    }
-    
-    cin >> v2.x;
-    for (int i = 1; i < n; i++) {
-        cin >> v2.x;
+    for (int i = 0; i < n; i++) {
+        cin >> v1.elements[i] >> v2.elements[i];
     }
     
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow((v2.x - v1.x), 2);
+        sum += pow((v2.elements[i] - v1.elements[i]), 2);
     }
     
     return sqrt(sum);
