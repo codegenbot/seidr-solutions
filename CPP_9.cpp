@@ -1,25 +1,24 @@
-vector<int> rolling_max(vector<int> numbers) {
-    vector<int> result;
-    int n = numbers.size();
-    for (int i = 0; i < n; ++i) {
-        int max_val = numbers[i];
-        for (int j = i + 1; j < n; ++j) {
-            if (numbers[j] > max_val) {
-                max_val = numbers[j];
-            }
-        }
-        result.push_back(max_val);
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b); // Declaration
+
+std::vector<int> rolling_max(std::vector<int> numbers){
+    std::vector<int> result;
+    int max_num = numbers[0];
+    for(int i=0; i<numbers.size(); i++){
+        max_num = std::max(max_num, numbers[i]);
+        result.push_back(max_num);
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){ // Definition
     return a == b;
 }
 
-int main() {
-    // Test the rolling_max function
+int main(){
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    
     return 0;
 }
