@@ -1,23 +1,22 @@
-if(dict.empty()) {
-    return false;
-}
+if(dict.empty()) return false;
 
-bool all_lower = true;
-bool all_upper = true;
+bool all_lowercase = true;
+bool all_uppercase = true;
 
-for(const auto& entry : dict) {
-    for(const auto& c : entry.first) {
+for(auto const& pair : dict) {
+    for(auto const& c : pair.first) {
         if(!islower(c)) {
-            all_lower = false;
+            all_lowercase = false;
             break;
         }
     }
-    for(const auto& c : entry.first) {
+    for(auto const& c : pair.first) {
         if(!isupper(c)) {
-            all_upper = false;
+            all_uppercase = false;
             break;
         }
     }
 }
 
-return all_lower || all_upper;
+return all_lowercase || all_uppercase;
+}
