@@ -1,6 +1,6 @@
-#include <vector>
-#include <cmath>
-
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess) {
