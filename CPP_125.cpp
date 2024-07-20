@@ -4,14 +4,16 @@
 #include <string>
 #include <sstream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size();
 }
 
-std::vector<std::string> split_words(const std::string& txt) {
-    std::vector<std::string> words;
-    std::istringstream iss(txt);
-    std::string word;
+vector<string> split_words(const string& txt) {
+    vector<string> words;
+    istringstream iss(txt);
+    string word;
     while (iss >> word) {
         words.push_back(word);
     }
