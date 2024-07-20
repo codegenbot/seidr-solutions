@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
+#include <assert.h>
 
 bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
