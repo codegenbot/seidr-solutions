@@ -1,13 +1,12 @@
-#include <vector>
-#include <algorithm>
 #include <string>
+#include <vector>
 
-bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<string> s1, vector<string> s2) {
+    if (s1.size() != s2.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < s1.size(); i++) {
+        if (s1[i] != s2[i]) {
             return false;
         }
     }
@@ -32,10 +31,6 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
-    return result;
+    vector<string> output = {temp, (rev == temp ? "True" : "False")};
+    return output;
 }
