@@ -2,9 +2,9 @@ Here is the completed code:
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime)
-            maxPrime = i;
+    for(int num : lst){
+        if(isPrime(num) && num > maxPrime)
+            maxPrime = num;
     }
     int sumOfDigits = 0;
     while(maxPrime > 0){
