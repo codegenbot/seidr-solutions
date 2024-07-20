@@ -1,5 +1,11 @@
+```cpp
 #include <vector>
 using namespace std;
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Werror"
+#include <initializer_list>
+#pragma GCC diagnostic pop
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
@@ -12,8 +18,3 @@ vector<int> leaders(vector<int>& arr) {
     }
     return leaders;
 }
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Werror"
-#include <initializer_list>
-#pragma GCC diagnostic pop
