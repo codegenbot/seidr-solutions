@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -17,8 +16,8 @@ vector<int> leaders(vector<int>& arr) {
 
 int main() {
     vector<int> arr = {};
-    for (int num : {16, 17, 4, 3, 5, 2, 8, 9, 1, 3}) {
-        arr.push_back(num);
+    for (int i : {16, 17, 4, 3, 5, 2, 8, 9, 1, 3}) {
+        arr.push_back(i);
     }
     vector<int> result = leaders(arr);
     for (int num : result) {
