@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -19,6 +20,6 @@ std::vector<int> yourFunctionName(int n) {
 int main() {
     int n = 2;
     std::vector<int> tri = yourFunctionName(n);
-    assert(issame(tri, {0, 0}));
+    assert(issame(tri, {0, 0}) == true);
     return 0;
 }
