@@ -1,39 +1,43 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
 #include <string>
-#include <cmath>
 
 bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i <= sqrt(n); ++i) {
-        if (n % i == 0) return false;
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i*i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
     }
     return true;
 }
 
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+std::string solve(const std::pair<int, int>& interval1, const std::pair<int, int>& interval2) {
+    int start1 = interval1.first;
+    int end1 = interval1.second;
+    int start2 = interval2.first;
+    int end2 = interval2.second;
 
-    if (start > end) return "NO";
-    
-    int length = end - start + 1;
-    
-    return isPrime(length) ? "YES" : "NO";
+    int intersectionStart = std::max(start1, start2);
+    int intersectionEnd = std::min(end1, end2);
+
+    if (intersectionStart > intersectionEnd) {
+        return "NO";
+    }
+
+    int intersectionLength = intersectionEnd - intersectionStart;
+
+    if (isPrime(intersectionLength)) {
+        return "YES";
+    } else {
+        return "NO";
+    }
 }
 
 int main() {
-    vector<int> interval1 = {1, 2};
-    vector<int> interval2 = {2, 3};
-    cout << intersection(interval1, interval2) << endl;
-
-    interval1 = {-1, 1};
-    interval2 = {0, 4};
-    cout << intersection(interval1, interval2) << endl;
-
-    interval1 = {-3, -1};
-    interval2 = {-5, 5};
-    cout << intersection(interval1, interval2) << endl;
+    assert (solve({-2, -2}, {-3, -2}) == "NO");
 
     return 0;
 }
