@@ -18,9 +18,8 @@ int specialFilter(const std::vector<int>& nums) {
 int main() {
     assert(specialFilter({}) == 0);
     // Add more test cases here
-    assert(specialFilter({12, 25, -37, 48}) == 2);
-    assert(specialFilter({9, 11, -13, 24}) == 1);
-    assert(specialFilter({-15, -27, -30, -42}) == 0);
-    
+    assert(specialFilter({12, 23, 45, -13, 78}) == 2);
+    assert(specialFilter({9, 8, 7, 6}) == 0);
+    assert(specialFilter({11, 22, 33, 44, 55}) == 0);
     return 0;
 }
