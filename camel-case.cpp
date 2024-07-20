@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -14,11 +13,11 @@ std::string camelCase(const std::string& str) {
             capitalizeNext = false;
         } else {
             if (!capitalizeNext) {
-                result += c;
-                capitalizeNext = true;
+                result += tolower(c);
+                capitalizeNext = true; // Start new word
             } else {
-                result += toupper(c);
-                capitalizeNext = false;
+                result += c;
+                capitalizeNext = false; 
             }
         }
     }
