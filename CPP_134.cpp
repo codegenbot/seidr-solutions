@@ -1,5 +1,20 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()) return false;
-    char lastChar = txt.back();
-    return (isalpha(lastChar)) && (!std::isspace(lastChar));
+string txt;
+cin >> txt;
+
+bool result = false;
+
+if(txt.length() > 0) {
+    if(isalpha(txt.back())) {
+        int i = txt.length()-1;
+        while(i > 0 && isspace(txt[i-1])) {
+            i--;
+        }
+        if(i == 0 || !isalpha(txt[i-1])) {
+            result = true;
+        }
+    }
 }
+
+cout << (result ? "true" : "false") << endl;
+
+return result;
