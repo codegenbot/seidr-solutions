@@ -2,20 +2,25 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <map>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    std::map<char, char> mapping;
+    std::string lower_cipher_map1 = cipher_map1;
+    std::string lower_cipher_map2 = cipher_map2;
+
+    // Convert to lowercase
+    for (int i = 0; i < lower_cipher_map1.length(); i++) {
+        mapping[lower_cipher_map1[i]] = lower_cipher_map2[i];
+    }
+
     std::string result = "";
     for (char c : message) {
-        bool found = false;
-        for (int i = 0; i < cipher_map1.length(); i++) {
-            if (c == cipher_map1[i]) {
-                result += cipher_map2[i];
-                found = true;
-                break;
-            }
-        }
-        if (!found)
+        if(mapping.find(tolower(c)) != mapping.end()) { 
+            result += mapping.at(tolower(c));
+        } else {
             result += c; 
+        }
     }
     return result;
 }
@@ -23,11 +28,11 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first string: ";
-    std::cin >> cipher_map1;
+    std::getline(std::cin, cipher_map1);
     std::cout << "Enter the second string: ";
-    std::cin >> cipher_map2;
+    std::getline(std::cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
+    std::getline(std::cin, message);
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
