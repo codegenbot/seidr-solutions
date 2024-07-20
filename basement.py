@@ -4,4 +4,3 @@ def find_first_negative_index(nums):
         total_sum += num
         if total_sum < 0:
             return i + 1
-    return -1
