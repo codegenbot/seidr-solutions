@@ -1,38 +1,30 @@
-```cpp
-#include <iostream>
-#include <string>
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool has_dot = false;
 
-std::string file_name_check(std::string file_name){
-    int count = 0;
-    bool foundDot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            count++;
-        }
-        else if(file_name[i] == '.'){
-            foundDot = true;
-        }
-        else if(foundDot && (i != file_name.length()-1) && (file_name.substr(i+1).find("txt") != std::string::npos || file_name.substr(i+1).find("exe") != std::string::npos || file_name.substr(i+1).find("dll") != std::string::npos)){
-            return "Yes";
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+        } else if (c == '.') {
+            has_dot = true;
         }
     }
-    if(count > 3 || !foundDot){
+
+    if (digit_count > 3 || !has_dot) {
         return "No";
     }
-    else{
-        for(int i=0; i<file_name.length(); i++){
-            if(isalpha(file_name[i]) && i == 0){
-                return "Yes";
-            }
-        }
+
+    size_t dot_pos = file_name.find('.');
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!before_dot.size() || !isalpha(before_dot[0])) {
         return "No";
     }
-}
 
-int main(){
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
-    return 0;
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+        return "No";
+    }
+
+    return "Yes";
 }
