@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 bool is_nested(std::string); // Function declaration before its definition
@@ -6,7 +7,6 @@ int main() {
     string str;
     cout << "Enter a string: ";
     cin >> str;
-
     if (is_nested(str)) {
         cout << "The string is nested." << endl;
     } else {
@@ -28,8 +28,4 @@ bool is_nested(std::string str) {
         }
     }
     return count > 0;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
 }
