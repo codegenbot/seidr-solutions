@@ -39,10 +39,8 @@ int main() {
     assert(!issame({1, 2, 3}, {1, 2, 4}));
 
     // Test tri function
-    assert(issame(tri(0), {3}));
-    assert(issame(tri(1), {3, 1}));
-    assert(issame(tri(2), {3, 1, 2}));
-    assert(issame(tri(3), {3, 1, 2, 4}));
+    vector<int> result = tri(5);
+    assert(issame(result, {3, 1, 2, 4, 6, 11}));
 
     return 0;
 }
