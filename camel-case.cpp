@@ -1,18 +1,27 @@
-```cpp
+#include <iostream>
+#include <string>
+
 std::string camelCase(std::string str) {
     std::string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == '-') {
-            i++; // skip hyphen
-        } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += str.substr(i, str.find(' ', i) - i);
-            i = str.find(' ', i); // move to next group or end of string
-            if (i == std::string::npos) break;
+    for (int i = 0; i < str.length(); i++) {
+        if (i > 0 && str[i] == '-') {
+            result[0] = toupper(result[0]);
+            result += " ";
         }
+        int j = i + 1;
+        while (j < str.length() && str[j] != '-') {
+            j++;
+        }
+        result += str.substr(i, j - i);
+        i = j - 1;
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> str;
+    std::cout << "The camelCase conversion is: " << camelCase(str) << std::endl;
+    return 0;
 }
