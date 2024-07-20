@@ -1,23 +1,14 @@
-string result = "";
-    bool isPrevSpace = false;
-    int spaceCount = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            spaceCount++;
-            if (spaceCount > 2) {
-                if (!isPrevSpace) {
-                    result += "-";
-                    isPrevSpace = true;
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            if (i + 1 < text.size() && text[i + 1] == ' ') {
+                text.replace(i, 1, "-");
+                while (i + 1 < text.size() && text[i + 1] == ' ') {
+                    text.erase(i + 1, 1);
                 }
             } else {
-                result += "_";
-                isPrevSpace = true;
+                text.replace(i, 1, "_");
             }
-        } else {
-            result += c;
-            isPrevSpace = false;
-            spaceCount = 0;
         }
     }
-    return result;
+    return text;
 }
