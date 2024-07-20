@@ -1,6 +1,11 @@
-Here is the completed code:
+#include <cmath>
 
 bool iscuber(int a){
-    int c = (int)cbrt(a);
-    return a == pow(c, 3);
+    int i = 1;
+    while (pow(i,3) <= a) {
+        if (pow(i,3) == a)
+            return true;
+        i++;
+    }
+    return false;
 }
