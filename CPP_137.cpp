@@ -2,33 +2,29 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-string compare_one(string a, int b) {
-    if (a > to_string(b)) {
+std::string compare_one(std::string a, int b) {
+    if (a > std::to_string(b)) {
         return a;
     }
-    else if (a < to_string(b)) {
-        return to_string(b);
+    else if (a < std::to_string(b)) {
+        return std::to_string(b);
     }
     else {
-        return "None";
+        return a;
     }
 }
 
 int main() {
-    string inputA;
-    int inputB;
+    std::string input;
+    int num;
 
-    cout << "Enter the first value: ";
-    cin >> inputA;
+    std::cout << "Enter your string: ";
+    std::getline(std::cin, input);
+
+    std::cout << "Enter your number: ";
+    std::cin >> num;
+
+    std::cout << "The result is: " << compare_one(input, num) << std::endl;
     
-    cout << "Enter the second value: ";
-    cin >> inputB;
-
-    string result = compare_one(inputA, inputB);
-
-    cout << "The comparison result is: " << result << endl;
-
     return 0;
 }

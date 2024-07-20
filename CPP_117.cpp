@@ -28,4 +28,5 @@ std::vector<std::string> select_words(std::string s, int n) {
 
 int main() {
     assert(issame(vector<string>(select_words("a b c d e f", 1)), vector<string> {"b", "c", "d", "f"}));
+    return 0;
 }
