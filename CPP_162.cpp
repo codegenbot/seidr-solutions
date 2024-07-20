@@ -1,15 +1,23 @@
-#include <iostream>
-#include <sstream>
-#include <iomanip>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-    
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned const char*)text.c_str(), text.size(), result);
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+    if (text.empty()) return "None";
+
+    unsigned char md5[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* cstr = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, cstr, len);
+    MD5_Final(md5, &ctx);
+
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md5[i]);
+        result += buf;
     }
-    return ss.str();
+    
+    return result;
 }
