@@ -31,12 +31,12 @@ bool issame(vector<int> a, vector<int> b){
 int main(){
     vector<int> pile1 = make_a_pile(5);
     vector<int> pile2 = make_a_pile(5);
-    
+
     if(issame(pile1, pile2)){
-        cout << "The piles are the same." << endl;
+        cout << "Both piles are the same." << endl;
     } else {
-        cout << "The piles are different." << endl;
+        cout << "Piles are different." << endl;
     }
-    
+
     return 0;
 }
