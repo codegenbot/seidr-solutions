@@ -1,22 +1,22 @@
-```cpp
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
-    int rightmost = arr.back();
-    for (int i = arr.size() - 2; i >= 0; --i) {
-        if (arr[i] >= rightmost) {
-            leaders.push_back(arr[i]);
-            rightmost = arr[i];
+    vector<int> result;
+    int n = arr.size();
+    for(int i=n-1; i>=0; i--) {
+        bool is_leader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] < arr[j]) {
+                is_leader = false;
+                break;
+            }
         }
+        if(is_leader) result.push_back(arr[i]);
     }
-    leaders.push_back(arr.back());
-    return leaders;
+    return result;
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> leaders = leaders(arr);
-    return 0;
+    return leaders(vector<int>{}); 
 }
