@@ -1,20 +1,22 @@
-Here is the completed code:
+Here is the solution:
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
-    for (const auto& str : lst) {
+    // Delete strings that have odd lengths from the input list
+    for (const string& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
+    // Sort the resulted vector by length and then alphabetically
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             if (a.size() != b.size()) {
-                 return a.size() < b.size();
-             } else {
+             if (a.length() == b.length()) {
                  return a < b;
+             } else {
+                 return a.length() < b.length();
              }
          });
 
