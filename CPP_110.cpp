@@ -1,8 +1,8 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0 && !any_of(lst2.begin(), lst2.end(), [num](int x) { return x == num; })) {
-            return "NO";
-        }
+        if (num % 2 != 0)
+            oddCount++;
     }
-    return "YES";
+    return oddCount == 0 ? "YES" : "NO";
 }
