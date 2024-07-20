@@ -5,7 +5,7 @@
 std::string compare_one(std::string a, int b) {
     if (a > std::to_string(b)) {
         return a;
-    } 
+    }
     else if (a < std::to_string(b)) {
         return std::to_string(b);
     }
@@ -15,16 +15,16 @@ std::string compare_one(std::string a, int b) {
 }
 
 int main() {
-    std::string inputA, inputB;
+    std::string input;
     int num;
 
-    std::cout << "Enter the first value: ";
-    std::cin >> inputA;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
 
-    std::cout << "Enter the second value: ";
+    std::cout << "Enter an integer: ";
     std::cin >> num;
 
-    std::cout << compare_one(inputA, num) << std::endl;
+    std::cout << "Result: " << compare_one(input, num) << std::endl;
 
     return 0;
 }
