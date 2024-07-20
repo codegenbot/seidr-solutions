@@ -1,14 +1,10 @@
-Here is the completed code:
-
+```
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2)
-        return -1; // or any other value that represents "None"
     vector<int> v = lst;
+    if(v.size() < 2) return -1; // Return None if there is no such element.
     sort(v.begin(), v.end());
-    for (int i = 0; i < v.size(); i++) {
-        if (v[i] != v[0]) {
-            return v[i];
-        }
-    }
-    return -1; // or any other value that represents "None"
+    auto it = unique(v.begin(), v.end());
+    v.erase(it, v.end());
+    if(v.size() < 2) return -1;
+    return *(v.begin()+1);
 }
