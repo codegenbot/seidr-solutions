@@ -1,17 +1,30 @@
-bool is_nested(const std::string& str) {
-    int stack_size = 0;
-    for (typename auto c : str) { 
-        if (c == '[') {
-            stack_size++;
-        } else if (c == ']') {
-            if (stack_size <= 0)
-                return false;
-            stack_size--;
-        }
-    }
-    return stack_size > 0;
-}
+```cpp
+#include <string>
+
+bool is_nested(std::string);
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
+    std::cout << std::boolalpha;
+    cout << is_nested("]]]")) << endl;
+    cout << is_nested("[[[") << endl;
+    cout << is_nested("[]") << endl;
+    cout << is_nested("[][]") << endl;
+    cout << is_nested("[][][]") << endl;
+    return 0;
+}
+
+bool is_nested(std::string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return false;
+            }
+        }
+    }
+    return count > 0;
 }
