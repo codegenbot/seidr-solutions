@@ -8,9 +8,6 @@ vector<string> bf(string planet1, string planet2) {
         } else if (planets[i] == planet2) {
             index2 = i;
         }
-        
-        if (index1 != -1 && index2 != -1)
-            break;
     }
     
     if (index1 == -1 || index2 == -1)
