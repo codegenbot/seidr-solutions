@@ -15,11 +15,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> eat(int x, int y, int z) {
-    return {y + z, x};
+    return {x, y + z};
 }
 
-int main() {
+void main() {
     assert(issame(eat(4, 5, 1), {5, 4}));
     std::cout << "Function 'issame' works correctly." << std::endl;
-    return 0;
 }
