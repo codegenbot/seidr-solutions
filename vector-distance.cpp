@@ -1,8 +1,9 @@
 ```c++
 #include <iostream>
 #include <cmath>
+#include <vector>
 
-double vectorDistance(int n, float v1[], float v2[]) {
+double vectorDistance(int n, std::vector<float>& v1, std::vector<float>& v2) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
         sum += (v2[i] - v1[i]) * (v2[i] - v1[i]);
@@ -16,13 +17,15 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    float v1[n], v2[n];
-    std::cout << "Enter vector 1 (elements separated by spaces): ";
+    std::vector<float> v1(n), v2(n);
+    std::cout << "Enter vector 1: ";
     for (int i = 0; i < n; i++) {
+        std::cout << "Element " << i + 1 << ": ";
         std::cin >> v1[i];
     }
-    std::cout << "Enter vector 2 (elements separated by spaces): ";
+    std::cout << "Enter vector 2: ";
     for (int i = 0; i < n; i++) {
+        std::cout << "Element " << i + 1 << ": ";
         std::cin >> v2[i];
     }
 
