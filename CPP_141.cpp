@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,10 +22,10 @@ std::string file_name_check(std::string file_name){
     return "Yes";
 }
 
-int main() {
-    std::cout << "Enter a file name: ";
+int main(){
     std::string file_name;
+    std::cout << "Enter the file name: ";
     std::cin >> file_name;
-    std::cout << "File name is: " << file_name_check(file_name) << "\n";
+    std::cout << file_name_check(file_name) << std::endl;
     return 0;
 }
