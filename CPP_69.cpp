@@ -3,13 +3,13 @@
 
 using namespace std;
 
-int count(int i) {
-    int c = 0;
-    while (i > 0) {
-        i /= 10;
-        c++;
+int count(int n) {
+    int cnt = 0;
+    for (int i : {1, 2, ..., n}) {
+        if (i % n == 0)
+            cnt++;
     }
-    return c;
+    return cnt;
 }
 
 int search(vector<int> lst) {
