@@ -7,13 +7,20 @@ def solve_boolean(expression):
 
     for char in expression:
         if char in ops:
+            stack.append(char)
+        elif char != 'T' and char != 'F':
+            raise ValueError("Invalid operation")
+        else:
             while stack and stack[-1] in ops:
                 op = stack.pop()
                 if op == '&':
                     result = result and (char == 'T')
                 elif op == '|':
                     result = result or (char == 'T')
-            stack.append(char)
-        elif char != 'T' and char != 'F':
-            raise ValueError("Invalid operation")
+            if char != result:
+                if op == '&':
+                    result = False
+                elif op == '|':
+                    result = True
+
     return result
