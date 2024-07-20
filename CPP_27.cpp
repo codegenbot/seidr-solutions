@@ -12,7 +12,7 @@ string flip_case(string str){
     return str;
 }
 
-int main(){
+int main() {
     assert(flip_case("Hello, World!") == "hELLO, wORLD!");
     return 0;
 }
