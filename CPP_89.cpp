@@ -4,8 +4,8 @@ string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            int shift = (c - base + 2 * 2) % 26;
+            char base = isalpha(c) ? (c >= 'A' && c <= 'Z') ? 'A' : 'a' : 'a';
+            int shift = (c - base + 3) % 26;
             result += ((shift < 26) ? (char)(base + shift)) : ((isupper(c)) ? (char)((base + shift - 26))) : (char)(base + shift));
         } else {
             result += c;
@@ -15,9 +15,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string to encrypt: ";
-    getline(cin, input);
-    cout << "Encrypted string: " << encrypt(input) << endl;
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    cout << "Encrypted String: " << encrypt(s) << endl;
     return 0;
 }
