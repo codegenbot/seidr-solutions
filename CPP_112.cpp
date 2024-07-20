@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -13,4 +14,9 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
         }
     }
     return {result, result == std::string(result.rbegin(), result.rend()) ? "True" : "False"};
+}
+
+int main() {
+    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"", "True"});
+    return 0;
 }
