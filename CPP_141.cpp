@@ -1,29 +1,38 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-string file_name_check(string file_name) {
-    int digitCount = 0;
-    bool foundDot = false;
+std::string file_name_check(std::string file_name) {
+    int digit_count = 0;
+    bool has_dot = false;
 
     for (char c : file_name) {
         if (isdigit(c)) {
-            digitCount++;
-            if (digitCount > 3)
-                return "No";
+            digit_count++;
         } else if (c == '.') {
-            foundDot = true;
+            has_dot = true;
         }
     }
 
-    if (!foundDot || file_name.find('.') == string::npos)
+    if (digit_count > 3 || !has_dot) {
         return "No";
+    }
 
-    string beforeDot = file_name.substr(0, file_name.find('.'));
-    string afterDot = file_name.substr(file_name.find('.') + 1);
+    size_t dot_pos = file_name.find('.');
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
 
-    if (beforeDot.empty() || !isalpha(beforeDot[0]))
+    if (!before_dot.size() || !isalpha(before_dot[0])) {
         return "No";
-    if (!(afterDot == "txt" || afterDot == "exe" || afterDot == "dll"))
+    }
+
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
         return "No";
+    }
 
     return "Yes";
+}
+
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
 }
