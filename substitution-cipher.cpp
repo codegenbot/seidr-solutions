@@ -1,15 +1,16 @@
-#include <initializer_list>
+```cpp
 #include <map>
 #include <string>
 #include <iostream>
 #include <limits>
+#include <unordered_map>
 
 using namespace std;
 
-map<char, char> mapping;
+unordered_map<char, char> mapping;
 string decipher(string cipher_map1, string cipher_map2, string message) {
     for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping.insert(make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
+        mapping.insert(pair<char, char>(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
     string result = "";
