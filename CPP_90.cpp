@@ -1,10 +1,11 @@
-int next_smallest(vector<int> lst){
-    vector<int> lst_copy = lst;
-    sort(lst_copy.begin(), lst_copy.end());
-    
-    if (lst_copy.size() < 2) {
-        return -1; 
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // returning None in C++ terms
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for (int i = 0; i < copy.size()-1; i++) {
+        if (copy[i] != copy[i+1]) {
+            return copy[i+1];
+        }
     }
-    
-    return lst_copy[1];
+    return -1; // returning None in C++ terms
 }
