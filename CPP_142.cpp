@@ -4,12 +4,10 @@ int sum_squares(vector<int> lst){
         if (i % 3 == 0) {
             lst[i] = lst[i] * lst[i];
             sum += lst[i];
-        }
-        else if (i % 4 == 0) {
+        } else if (i % 4 == 0) {
             lst[i] = lst[i] * lst[i] * lst[i];
             sum += lst[i];
-        }
-        else {
+        } else {
             sum += lst[i];
         }
     }
