@@ -1,11 +1,11 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
 string validateTweet(string& tweet) {
-    tweet.erase(tweet.find('\n'), 1); 
     if (tweet.empty()) {
         return "You didn't type anything";
     }
@@ -19,5 +19,6 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << validateTweet(tweet) << endl;
 }
