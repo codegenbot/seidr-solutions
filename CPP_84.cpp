@@ -13,7 +13,8 @@ string solve(int N) {
     }
     int sum = 0;
     for (int i = 0; i < binary.length(); i++) {
-        sum += (binary[i] - '0');
+        if (binary[i] == '1')
+            sum += 1;
     }
     return to_string(sum);
 }
