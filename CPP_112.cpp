@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
     std::string result = "";
