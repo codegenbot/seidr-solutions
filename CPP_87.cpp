@@ -1,15 +1,7 @@
 #include <vector>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i].size() != b[i].size() || a[i][0] != b[i][0] || a[i][1] != b[i][1]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
@@ -32,6 +24,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
 }
 
 int main() {
-    // Write main function code here if needed
+    // Your main function code here
     return 0;
 }
