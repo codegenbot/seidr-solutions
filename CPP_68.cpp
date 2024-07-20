@@ -1,27 +1,30 @@
+```
 #include <vector>
-#include <climits>
+#include <algorithm>
 
-using namespace std;
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if(arr.empty()) return result;
-    
-    int smallest = INT_MAX;
-    int smallestIndex = -1;
-    
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            smallestIndex = i;
+
+    int min_even = INT_MAX;
+    int min_index = -1;
+
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] % 2 == 0 && arr[i] < min_even){
+            min_even = arr[i];
+            min_index = i;
         }
     }
-    
-    if(smallest != INT_MAX || smallestIndex != -1) {
-        result.push_back({smallest, smallestIndex});
-    } else {
-        result.push_back({0, -1});
-    }
-    
+
+    result.push_back(min_even);
+    result.push_back(min_index);
+
     return result;
 }
