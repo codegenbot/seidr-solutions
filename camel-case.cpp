@@ -1,23 +1,15 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (c == '-') {
-            c = ' ';
+std::string camelCase(const std::string& str) {
+    std::string result;
+    for (const auto& word : str.split("-")) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
-    }
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += toupper(s[i + 1]);
-            i++;
-        } else if (!result.empty() && isalpha(s[i])) {
-            result += tolower(s[i]);
-        } else {
-            result += s[i];
-        }
+        result += word;
     }
     return result;
 }
@@ -25,7 +17,7 @@ std::string camelCase(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
     return 0;
 }
