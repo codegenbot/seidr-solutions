@@ -1,24 +1,19 @@
-string result;
-    bool lastSpace = false;
-    int spaceCount = 0;
-    
+string result = "";
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            spaceCount++;
-            if (spaceCount > 2) {
-                if (!lastSpace) {
-                    result += '-';
-                }
-                lastSpace = true;
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += "-";
             } else {
                 result += '_';
             }
         } else {
             result += c;
-            lastSpace = false;
-            spaceCount = 0;
+            count = 0;
         }
     }
-    
     return result;
 }
