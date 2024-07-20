@@ -2,7 +2,6 @@
 #include <string>
 #include <cassert>
 
-// Function prototype declaration
 std::string change_base(int num, int base);
 
 int main() {
@@ -11,7 +10,6 @@ int main() {
     return 0;
 }
 
-// Function definition
 std::string change_base(int num, int base) {
-    return std::to_string(num); // Convert 'num' to a string using std::to_string
+    return num == base ? "1" : std::to_string(num / base);
 }
