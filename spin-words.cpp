@@ -16,6 +16,9 @@ string spinWords(string str) {
             while(j < str.length() && str[j] != ' ') {
                 j++;
             }
+            if(j < str.length()) {
+                j++;
+            }
             string word = str.substr(i, j - i);
             if(word.length() >= 5) {
                 for(int k = word.length() - 1; k >= 0; k--) {
@@ -24,8 +27,7 @@ string spinWords(string str) {
             } else {
                 result += word;
             }
-            if(j < str.length() - 1) i = j + 1;
-            else i = j;
+            i = j;
         }
     }
     return result;
