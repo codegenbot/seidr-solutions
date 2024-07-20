@@ -8,7 +8,8 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        inserter(intersection, intersection.begin()));
+                      inserter(intersection, intersection.begin()));
 
-    return vector<int>(intersection.begin(), intersection.end());
+    vector<int> result(intersection.begin(), intersection.end());
+    return result;
 }
