@@ -1,4 +1,3 @@
-```
 cipher1, cipher2, text_to_decipher = input().split(), input().split()[0], input()
 cipher_map = {}
 for i in range(len(cipher1)):
