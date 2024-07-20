@@ -4,10 +4,12 @@
 namespace CustomNamespace {
     std::vector<int> minPath(std::vector<std::vector<int>> paths, int n) {
         // implementation
+        return {};
     }
 
     bool issame(std::vector<int> a, std::vector<int> b) {
         // implementation
+        return a == b;
     }
 }
 
