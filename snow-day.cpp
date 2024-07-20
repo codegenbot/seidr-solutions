@@ -11,10 +11,9 @@ double snowDay(int hours, float initialSnow, float rate, float meltRate) {
 }
 
 int main() {
-    int hours, hourss;
-    cin >> hours >> hourss;
-    float initialSnow, ratee, meltRete;
-    cin >> initialSnow >> ratee >> meltRete;
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, ratee, meltRete) << endl;
+    int hours;
+    float initialSnow, rate, meltRate;
+    cin >> hours >> initialSnow >> rate >> meltRate;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rate, meltRate) << endl;
     return 0;
 }
