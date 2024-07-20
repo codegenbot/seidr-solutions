@@ -1,31 +1,29 @@
+#include <iostream>
 #include <string>
-using namespace std;
+#include <sstream>
+#include <algorithm>
 
-string spinWords(string input) {
-    string output = "";
-    size_t pos = 0;
-    
-    while ((pos = input.find(" ")) != string::npos) {
-        size_t nextSpace = input.find(" ", pos + 1);
-        if (nextSpace == string::npos || distance(input.begin() + pos, input.begin() + nextSpace) >= 5)
-            output += reverse(input.substr(pos, nextSpace - pos)).append(" ");
-        else
-            output += input.substr(pos, nextSpace - pos).append(" ");
-        
-        pos = nextSpace;
+std::string spinWords(const std::string& input) {
+    std::string output;
+    std::stringstream ss(input);
+    std::string word;
+
+    while (ss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        output += word + " ";
     }
-    
-    if (pos < input.size())
-        output += reverse(input.substr(pos)).append(" ");
-    
+
     return output.substr(0, output.size() - 1);
 }
 
 int main() {
-    // Your test cases here
-    cout << spinWords("this is a test") << endl;
-    cout << spinWords("hi") << endl;
-    cout << spinWords("a") << endl;
-    cout << spinWords("this is another test") << endl;
+    // Test the function
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
