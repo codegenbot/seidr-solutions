@@ -1,36 +1,40 @@
-#include <boost/any.hpp>
-#include <string>
+Here is the completed code:
 
-using namespace boost;
+```cpp
+#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        if (ai > bi)
-            return a;
-        else if (bi > ai)
-            return b;
-        else
-            return any("None");
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double ad = boost::any_cast<double>(a);
-        double bd = boost::any_cast<double>(b);
-        if (ad > bd)
-            return a;
-        else if (bd > ad)
-            return b;
-        else
-            return any("None");
-    } else if ((a.type() == typeid(string) && b.type() == typeid(double)) ||
-               (a.type() == typeid(double) && b.type() == typeid(string))) {
-        string as = boost::any_cast<string>(a);
-        double bd = boost::any_cast<double>(b);
-        return (stod(as) > bd) ? a : ((bd > stod(as)) ? b : any("None"));
-    } else if ((a.type() == typeid(string) && b.type() == typeid(string))) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        return (stod(as) > stod(bs)) ? a : ((stod(bs) > stod(as)) ? b : any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return boost::any(b);
     }
-    return any("None");
+    if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return boost::any(b);
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string s = boost::lexical_cast<string>(b.convert_to<double>());
+        if (s.find('.') != string::npos || s.find(',') != string::npos)
+            s = s.substr(0, s.find('.'));
+        return boost::any(s);
+    }
+    if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        string s = boost::lexical_cast<string>(a.convert_to<double>());
+        if (s.find('.') != string::npos || s.find(',') != string::npos)
+            s = s.substr(0, s.find('.'));
+        return boost::any(s);
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (a.convert_to<string>() > b.convert_to<string>())
+            return a;
+        else if (b.convert_to<string>() > a.convert_to<string>())
+            return b;
+        else
+            return boost::any("None");
+    }
+    if (a.convert_to<double>() > b.convert_to<double>())
+        return a;
+    else if (b.convert_to<double>() > a.convert_to<double>())
+        return b;
+    else
+        return boost::any("None");
 }
