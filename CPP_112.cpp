@@ -1,6 +1,9 @@
-```cpp
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
+
+bool issame(vector<string>, vector<string>);
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
