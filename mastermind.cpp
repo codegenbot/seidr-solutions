@@ -1,42 +1,49 @@
-#include <vector>
-#include <iostream>
+#include <string>
 using namespace std;
 
-int countBlackPegs(string code, string guess) {
-    int blackPegs = 0;
+int blackPegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-            guess[i] = ' '; // mark the correct place as visited
-            code[i] = ' '; // mark the correct place as visited
+            count++;
         }
     }
-    return blackPegs;
+    return count;
 }
 
-int countWhitePegs(string code, string guess) {
-    int whitePegs = 0;
-    vector<char> codeCounts(6, 0);
+int whitePegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeMap, guessMap;
+
+    // Count the frequency of each character in both strings
     for (int i = 0; i < 4; ++i) {
-        codeCounts[code[i]]++;
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
     }
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != ' ') { // only consider unvisited positions
-            if (code.find(guess[i]) != string::npos) {
-                whitePegs++;
-                codeCounts[guess[i]]--; // mark the position as visited
-            }
+
+    // For each unique character in the code string, subtract the count in the guess string
+    // and increment the white peg count if the difference is greater than zero
+    for (auto& pair : codeMap) {
+        if (pair.second > 0 && guessMap[pair.first] < pair.second) {
+            count += pair.second - guessMap[pair.first];
         }
     }
-    return whitePegs;
+
+    return count;
 }
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = countWhitePegs(code, guess);
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter the guess: ";
+    cin >> guess;
+    
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+
+    cout << white << endl;
+    cout << black << endl;
+
     return 0;
 }
