@@ -1,7 +1,7 @@
 ```cpp
-#include <iostream>
 #include <map>
 #include <string>
+#include <iostream>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
