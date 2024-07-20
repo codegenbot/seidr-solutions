@@ -1,5 +1,5 @@
 #include <vector>
-vector<int> max_levels(string paren_string) {
+vector<int> levels_count(string paren_string) {
     vector<int> levels;
     int max_level = 0;
     int current_level = 0;
