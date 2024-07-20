@@ -1,28 +1,10 @@
 #include <string>
 
-bool is_nested(std::string str); // declaration before main()
-
-int main() {
-    string s;
-    cin >> s;
-    if (is_nested(s)) {
-        cout << "The string is nested.\n";
-    } else {
-        cout << "The string is not nested.\n";
-    }
-}
-
-bool is_nested(std::string str) {
-    int count = 0;
+bool is_nested(string str) {
+    int open = 0, close = 0;
     for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return false;
-            }
-        }
+        if (c == '[') open++;
+        else if (c == ']') close++;
     }
-    return count > 0;
+    return open > close && (open - close >= 1);
+}
