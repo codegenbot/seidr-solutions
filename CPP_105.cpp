@@ -1,3 +1,26 @@
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <vector>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<int> arr1, vector<int> arr2) {
+    if (arr1.size() != arr2.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < arr1.size(); ++i) {
+        if (arr1[i] != arr2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
