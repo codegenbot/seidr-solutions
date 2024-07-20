@@ -18,8 +18,8 @@ std::string file_name_check(std::string file_name) {
     }
 
     size_t dot_pos = file_name.find('.');
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
+    std::string before_dot = file_name.substr(0, dot_pos);
+    std::string after_dot = file_name.substr(dot_pos + 1);
 
     if (!before_dot.size() || !isalpha(before_dot[0])) {
         return "No";
