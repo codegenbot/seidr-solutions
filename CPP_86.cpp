@@ -1,30 +1,25 @@
-```cpp
-#include <iostream>
 #include <algorithm>
 #include <string>
+#include <boost/lexical_cast.hpp>
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += " ";
+using namespace std;
+
+string anti_shuffle(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            result += s[i];
         } else {
-            std::string temp = "";
-            for(int j=i; j<s.length() && s[j] != ' '; j++){
-                temp += s[j];
-                i = j;
+            string word;
+            for (int j = i; j < s.size() && s[j] != ' '; j++) {
+                word += s[j];
             }
-            sort(temp.begin(), temp.end());
-            result += temp;
+            for (char c : word) {
+                char ch = (c <= 'z' && c >= 'a') ? (c + 1 > 'z' ? 'a' : c + 1) : c;
+                result += boost::lexical_cast<string>(ch);
+            }
+            // i = j - 1;
         }
     }
     return result;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Anti-shuffled String: " << anti_shuffle(str) << std::endl;
-    return 0;
 }
