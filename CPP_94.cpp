@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int sumOfDigits(int n) {
