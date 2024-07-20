@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> reverse_delete(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::vector<std::string> result;
     for (const std::string &str : a) {
         std::string reversedStr = str;
@@ -17,7 +17,7 @@ std::vector<std::string> reverse_delete(const std::vector<std::string> &a, const
     return result;
 }
 
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string combined = "";
     for (const std::string &str : a) {
         combined += str;
@@ -40,6 +40,6 @@ bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b
 }
 
 int contest_main() {
-    assert(issame(reverse_delete({"mamma"}, {"mia"}), {"", "euarT"}));
+    assert(issame(reverse_delete({"mamma"}, {"mia"}), {}));
     return 0;
 }
