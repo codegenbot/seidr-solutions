@@ -29,10 +29,11 @@ int main() {
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    string text, target;
-    getline(cin, text) >> ws >> target;
+    string text;
+    getline(cin, text) >> ws;
+    string target;
+    getline(cin, target) >> ws;
     vector<int> indices = indicesOfSubstring(text, target);
     for(int i : indices)
         cout << i << " ";
     return 0;
-}
