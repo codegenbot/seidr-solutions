@@ -17,11 +17,10 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if(smallest != INT_MAX) {
+    if(smallest != INT_MAX || smallestIndex != -1) {
         result.push_back({smallest, smallestIndex});
     } else {
         result.push_back({0, -1});
     }
     
     return result;
-}
