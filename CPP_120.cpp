@@ -1,10 +1,22 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-std::vector<int> maximum(const std::vector<int>& arr, int k){
+std::vector<int> maximum(const std::vector<int>& arr, int k) {
     std::vector<int> result;
-    std::partial_sort(arr.begin(), arr.begin() + k, arr.end(), std::greater<int>());
-    for (int i = 0; i < k; ++i) {
-        result.push_back(arr[i]);
+    for (int i = 0; i <= arr.size() - k; ++i) {
+        int max_val = arr[i];
+        for (int j = 1; j < k; ++j) {
+            max_val = std::max(max_val, arr[i + j]);
+        }
+        result.push_back(max_val);
     }
     return result;
+}
+
+int main() {
+    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
+    assert(maximum(input, 3) == std::vector<int>{3, 243, 243, 243, 0});
+    
+    return 0;
 }
