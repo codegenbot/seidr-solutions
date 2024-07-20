@@ -1,7 +1,5 @@
-#include <vector>
-#include <iostream>
 #include <string>
-#include <initializer_list>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,27 +17,11 @@ string spinWords(string str) {
             }
             string word = str.substr(i, j - i);
             if(word.length() >= 5) {
-                for(int k = word.length() - 1; k >= 0; k--) {
-                    result += word[k];
-                }
-            } else {
-                result += word;
+                reverse(word.begin(), word.end());
             }
+            result += word;
             i = j;
         }
     }
     return result;
 }
-
-int main() {
-    string str;
-    while(true) {
-        cout << "Enter a sentence (or 'exit' to quit): ";
-        getline(cin, str);
-        if (!str.empty()) {
-            str.erase(0, str.find_first_not_of(' '));
-        }
-        if(str == "exit") break;
-        cout << spinWords(str) << endl;
-    }
-    return 0;
