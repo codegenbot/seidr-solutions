@@ -18,5 +18,6 @@ vector<int> leaders(vector<int>& arr) {
 int main() {
     vector<int> arr = {1, 3, 4, 2};
     vector<int> leaders = leaders(arr);
+    // Do something with the leaders vector
     return 0;
 }
