@@ -4,6 +4,8 @@ cipher2 = input("Enter the second string: ")
 
 cipher_map = {c: d for c, d in zip(cipher1, cipher2)}
 
-decrypted_message = "".join([cipher_map.get(char, char) for char in input("Enter the message to decipher: ")])
+text = input("Enter the text to be deciphered: ")
 
-print(decrypted_message)
+deciphered_text = "".join([cipher_map.get(c, c) for c in text])
+
+print(deciphered_text)
