@@ -1,5 +1,7 @@
-def luhn():
-    card = [int(x) for x in str(input().strip().replace(" ", "").replace("-", "")) if isinstance(int(x), int)]
+import re
+
+def luhn(card_number):
+    card = [int(x) for x in re.sub('[^0-9]', '', str(card_number))]
     if len(card) < 15:
         return sum(card)
     card += [0] * (16 - len(card))
@@ -17,4 +19,5 @@ def luhn():
 
     return sum(new_card)
 
-print(luhn())
+card_number = input().strip()
+print(luhn(int(card_number)))
