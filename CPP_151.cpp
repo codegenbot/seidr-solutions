@@ -17,15 +17,12 @@ long long double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst = {1, 2, 3};
-    double odd_sum = 0;
-    for (double num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                odd_sum += pow(num, 2); 
-            }
-        }
+    vector<double> lst;
+    double n;
+    while (cin >> n) {
+        lst.push_back(n);
     }
-    assert(double_the_difference(lst) == odd_sum );
+    long long result = double_the_difference(lst);
+    cout << result << endl;
     return 0;
 }
