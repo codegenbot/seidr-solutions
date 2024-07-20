@@ -1,7 +1,7 @@
 ```cpp
-bool is_nested(const string& str) {
+bool is_nested(const std::string& str) {
     int stack_size = 0;
-    for (auto &c : str) { 
+    for (typename auto c : str) { 
         if (c == '[') {
             stack_size++;
         } else if (c == ']') {
@@ -11,4 +11,8 @@ bool is_nested(const string& str) {
         }
     }
     return stack_size > 0;
+}
+
+int main() {
+    assert(is_nested("]]]]]]]]") == false);
 }
