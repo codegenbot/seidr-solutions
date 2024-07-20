@@ -24,8 +24,7 @@ std::string camelCase(std::string str) {
 int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
-    str.erase(str.find_last_not_of("\n") + 1);
+    std::getline(std::cin, str).erase(str.find_last_not_of("\n") + 1);
 
     std::cout << "Camel case output: " << camelCase(str) << std::endl;
 
