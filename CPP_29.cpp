@@ -18,13 +18,14 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape", "apricot"};
+    vector<string> strings = {"apple", "banana", "apricot", "orange", "grape"};
     string prefix = "ap";
-    vector<string> result = filter_by_prefix(strings, prefix);
-
-    assert(result.size() == 2);
-    assert(result[0] == "apple");
-    assert(result[1] == "apricot");
+    
+    vector<string> filteredStrings = filter_by_prefix(strings, prefix);
+    
+    assert(filteredStrings.size() == 2);
+    assert(filteredStrings[0] == "apple");
+    assert(filteredStrings[1] == "apricot");
 
     return 0;
 }
