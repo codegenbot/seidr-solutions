@@ -4,21 +4,23 @@ using namespace std;
 
 int fruit_distribution(string s, int n) {
     size_t pos = 0;
-    string temp = "";
-    for (size_t i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            continue;
-        }
-        if (isdigit(s[i])) {
-            temp += s[i];
-        } else if (temp != "") {
-            pos = i;
+    int apples = 0, oranges = 0;
+
+    while ((pos = s.find("apples", pos)) != string::npos) {
+        if (s.find("and", pos) == string::npos || s.find("and", pos + 8) == string::npos)
             break;
-        }
+        size_t end = s.find(" and ", pos);
+        apples = stoi(s.substr(pos, end - pos));
+        pos = end + 4;
     }
 
-    int total_apples_oranges = stoi(temp);
-    int remaining_fruits = n - total_apples_oranges;
+    while ((pos = s.find("oranges", pos)) != string::npos) {
+        if (s.find("and", pos) == string::npos || s.find("and", pos + 7) == string::npos)
+            break;
+        size_t end = s.find(" and ", pos);
+        oranges = stoi(s.substr(pos, end - pos));
+        pos = end + 4;
+    }
 
-    return remaining_fruits;
+    return n - apples - oranges;
 }
