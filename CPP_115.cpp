@@ -1,24 +1,20 @@
-Here is the completed code:
-
-```cpp
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    int res = 0;
+    int n = grid.size();
+    int result = 0;
     
-    for (int r = 0; r < rows; ++r) {
-        int col_sum = 0;
-        for (int c = 0; c < cols; ++c) {
-            if (grid[r][c] == 1) {
-                col_sum += 1;
+    for (int i = 0; i < n; i++) {
+        int water = 0;
+        for (int j = 0; j < grid[0].size(); j++) {
+            if (grid[i][j] == 1) {
+                water += 1;
             }
         }
-        
-        while (col_sum > capacity) {
-            col_sum -= capacity;
-            res++;
+        while (water > 0) {
+            water -= capacity;
+            result++;
+            if (water >= 0) break;
         }
     }
     
-    return res;
+    return result;
 }
