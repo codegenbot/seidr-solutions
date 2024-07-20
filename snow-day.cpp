@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 
@@ -6,8 +7,8 @@ using namespace std;
 double snowDay(int hours, double groundSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
     double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        groundSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
-        groundSnow = max(0.0, groundSnow);
+        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
+        groundSnow = max(0.0, groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow);
     }
     return groundSnow;
 }
@@ -19,3 +20,4 @@ int main() {
     cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
+}
