@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,8 +15,8 @@ int pairedDigits(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> input;
-    std::cout << "The sum of the paired digits is: " << pairedDigits(input) << std::endl;
+    cout << "Enter a string of digits: ";
+    cin >> input;
+    cout << "The sum of the paired digits is: " << pairedDigits(input) << std::endl;
     return 0;
 }
