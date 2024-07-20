@@ -13,8 +13,8 @@ int main() {
     int nickles = 0; // No need for nickels as we have enough pennies
     
     cout << quarters << endl;
-    cout << nickles << endl;
     cout << dimes << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
     
     return 0;
