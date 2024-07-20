@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 std::string calculateBinaryAverage(int n, int m) {
     if (n > m) {
