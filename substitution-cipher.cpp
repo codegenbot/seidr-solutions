@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -5,7 +6,7 @@
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
-    for (int i = 0; i < cipher_map1.length(); i++) {
+    for (int i = 0; i < min(cipher_map1.length(), cipher_map2.length()); i++) {
         mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
     }
     
