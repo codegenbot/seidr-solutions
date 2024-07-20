@@ -9,12 +9,8 @@ def solve_boolean(expression):
             stack.append(char)
         elif char != 'T' and char != 'F':
             raise ValueError("Invalid operation")
-        elif not stack:
-            op = stack.pop()
-            val = (char == 'T')
-            if op == '&':
-                result = result and val
-            elif op == '|':
-                result = result or val
+        else:
+            op = op[0]; val = (char == 'T'); 
+            if op == '&': result = result and val else: result = result or val 
 
     return result
