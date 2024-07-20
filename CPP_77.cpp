@@ -1,20 +1,19 @@
-#include<iostream>
-using namespace std;
+#include <cmath>
+#include <iostream>
 
 bool iscuber(int a){
     int c = (int)cbrt(a);
     return a == pow(c, 3);
 }
 
-int main(){
-    int num;
-    cout << "Enter an integer: ";
-    cin >> num;
-    
-    if(iscuber(num))
-        cout << num << " is a cube.";
-    else
-        cout << num << " is not a cube.";
-
+int main() {
+    int n;
+    std::cout << "Enter an integer: ";
+    std::cin >> n;
+    if(iscuber(n)) {
+        std::cout << n << " is a cube.\n";
+    } else {
+        std::cout << n << " is not a cube.\n";
+    }
     return 0;
 }
