@@ -1,4 +1,10 @@
-vector<int> result;
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> tri(int n) {
+    std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
         return result;
@@ -16,4 +22,8 @@ vector<int> result;
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
