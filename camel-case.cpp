@@ -1,20 +1,20 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string camelCase(std::string s) {
+    std::stringstream ss(s);
     std::string result = "";
-    bool capitalizeNextWord = true;
+    bool capitalizeNext = true;
     
-    for (char c : s) {
-        if (c == '-') {
-            capitalizeNextWord = true;
-        } else {
-            if (capitalizeNextWord) {
-                result += toupper(c);
-                capitalizeNextWord = false;
-            } else {
-                result += tolower(c);
+    for (std::string group; ss >> group;) {
+        if (!result.empty()) {
+            result += toupper(group[0]);
+            for (int i = 1; i < group.length(); ++i) {
+                result += tolower(group[i]);
             }
+        } else {
+            result = toupper(group);
         }
     }
     
