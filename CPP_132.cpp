@@ -3,15 +3,17 @@
 bool is_nested(std::string); // Function declaration before its definition
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
 
     if (is_nested(str)) {
-        cout << "The string is nested." << endl;
+        std::cout << "The input string is nested.\n";
     } else {
-        cout << "The string is not nested." << endl;
+        std::cout << "The input string is not nested.\n";
     }
+
+    return 0;
 }
 
 bool is_nested(std::string str) {
