@@ -5,8 +5,6 @@ std::string spinWords(std::string str) {
     std::string result;
     std::string word;
 
-    bool isLastWord = false;
-
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
@@ -14,11 +12,8 @@ std::string spinWords(std::string str) {
             else
                 result += word + " ";
             word = "";
-            isLastWord = false;
-        } else {
+        } else
             word += c;
-            if (isLastWord) continue;
-        }
     }
 
     if (word.length() >= 5)
