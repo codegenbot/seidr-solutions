@@ -1,10 +1,6 @@
 ```
 prices = [float(x) for x in input().split()]
-n_items = len(prices)
-discounts = [float(x) for x in input().split()][: (n_items // len(discounts) + 1) * len(discounts)]
+discounts = [float(x) for x in input().split()][:len(prices)]
 
 n = len(prices)
-print("{:.1f}".format(calculate_total_price(n, prices, discounts)))
-
-def calculate_total_price(n, prices, discounts):
-    return sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
+print("{:.1f}".format(sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))))
