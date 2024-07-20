@@ -1,18 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+        if (c != ' ') {
+            word += c;
+        } else if (!word.empty()) {
+            bool has_n_consonants = false;
+            int consonant_count = 0;
+            for (char ch : word) {
+                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+                    && ch != ' ') {
+                    consonant_count++;
+                    has_n_consonants = true;
+                }
+            }
+            if (consonant_count == n) {
                 result.push_back(word);
             }
             word = "";
-        } else {
-            word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+    bool has_n_consonants = false;
+    int consonant_count = 0;
+    for (char ch : word) {
+        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+            && ch != ' ') {
+            consonant_count++;
+            has_n_consonants = true;
+        }
+    }
+    if (consonant_count == n) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    cout << "[";
+    for (string word : select_words("Mary had a little lamb", 4)) {
+        cout << "\"" << word << "\"";
+    }
+    cout << "]";
+
+    return 0;
 }
