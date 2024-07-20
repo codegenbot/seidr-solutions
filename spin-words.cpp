@@ -12,25 +12,21 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         } else {
             if (word.length() >= 5) {
-                for(int j = word.length()-1; j >= 0; --j)
-                    result += word[j];
-                result += " ";
-                word = "";
+                result += std::string(word.rbegin(), word.rend()) + " ";
             } else {
                 result += word + " ";
-                word = "";
             }
+            word = "";
         }
         i++;
     }
 
     // Process the last word
     if (word.length() >= 5) {
-        for(int j = word.length()-1; j >= 0; --j)
-            result += word[j];
+        result += std::string(word.rbegin(), word.rend());
     } else {
         result += word;
     }
 
-    return result;
+    return result.substr(0, result.find_last_of(" ") + 1);
 }
