@@ -1,27 +1,15 @@
+Here is the completed code:
+
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            bool found = false;
-            for(int j = 0; j < i; j++){
-                if(!found && lst[j] == lst[i-1]) found = true;
-                else temp.push_back(lst[j]);
-            }
-            if(found) return false;
-            for(int j = i; j < lst.size(); j++){
-                if(temp.empty() || temp.back() < lst[j]){
-                    temp.push_back(lst[j]);
-                }else{
-                    bool duplicate = false;
-                    for(int k = 0; k < temp.size(); k++){
-                        if(temp[k] == lst[j]) {
-                            duplicate = true;
-                            break;
-                        }
-                    }
-                    if(!duplicate) return false;
-                }
-            }
+            return false;
+        }
+    }
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(std::distance(it, lst.end()) > 1){
+            return false;
         }
     }
     return true;
