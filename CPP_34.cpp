@@ -1,3 +1,5 @@
-sort(l.begin(), l.end());
-l.erase(unique(l.begin(), l.end()), l.end());
-return l;
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
