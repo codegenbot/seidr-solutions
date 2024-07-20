@@ -26,13 +26,13 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    if (issame(vec1, vec2)) {
+    if (issame(vec1, vec2) && issame(order_by_points(vec1), order_by_points(vec2))) {
         std::cout << "Vectors are permutations of each other.\n";
     } else {
         std::cout << "Vectors are not permutations of each other.\n";
     }
 
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), order_by_points({-76, -21, 0, 4, 23, 6, 6})));
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
