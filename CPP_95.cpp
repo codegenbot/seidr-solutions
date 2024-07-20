@@ -1,18 +1,27 @@
-if(dict.empty()) return false;
-bool all_lower = true, all_upper = true;
-for(auto const& pair : dict) {
-    for(char c : pair.first) {
-        if(!islower(c)) {
-            all_lower = false;
-            break;
-        }
+#include <iostream>
+#include <string>
+#include <map>
+#include <cctype>
+
+bool check_dict_case(std::map<std::string, std::string> dict){
+    if(dict.empty()) return false;
+    
+    bool all_lowercase = true;
+    bool all_uppercase = true;
+    
+    for(const auto& pair : dict){
+        if(pair.first.empty() || !isalpha(pair.first[0])) return false;
+        
+        if(!all_lowercase && !all_uppercase) return false;
+        
+        if(all_lowercase && !islower(pair.first[0])) all_lowercase = false;
+        if(all_uppercase && !isupper(pair.first[0])) all_uppercase = false;
     }
-    for(char c : pair.first) {
-        if(!isupper(c)) {
-            all_upper = false;
-            break;
-        }
-    }
+    
+    return (all_lowercase || all_uppercase);
 }
-return all_lower || all_upper;
+
+int main(){
+    assert (check_dict_case(std::map<std::string, std::string>{}) == false);
+    return 0;
 }
