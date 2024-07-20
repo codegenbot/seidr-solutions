@@ -1,25 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
 int main() {
     std::string tweet;
     std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
     
-    if (std::cin >> tweet) {
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        if (!tweet.empty()) {
-            if (tweet.length() > 140) {
-                std::cout << "Too many characters";
-            } else {
-                std::cout << "Your tweet has " << tweet.length() << " characters";
-            }
-        } else {
-            std::cout << "You didn't type anything";
-        }
+    if (tweet.length() > 140) {
+        std::cout << "Too many characters";
+    } else if (tweet.empty()) {
+        std::cout << "You didn't type anything";
     } else {
-        std::cout << "Invalid input";
+        std::cout << "Your tweet has " << tweet.erase(tweet.find('\n'))->length() << " characters";
     }
     
     return 0;
