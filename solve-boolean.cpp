@@ -1,30 +1,15 @@
-std::string solveBoolean(std::string input) {
-    stack<char> ops;
-    stack<bool> values;
+#include <string>
 
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 't') {
-            values.push(true);
-        } else if(input[i] == 'f') {
-            values.push(false);
-        } else if(input[i] == '|') {
-            while(values.size() > 1) {
-                bool b = values.top();
-                values.pop();
-                bool a = values.top();
-                values.pop();
-                values.push(a || b);
-            }
-        } else if(input[i] == '&') {
-            while(values.size() > 1) {
-                bool b = values.top();
-                values.pop();
-                bool a = values.top();
-                values.pop();
-                values.push(a && b);
-            }
+std::string solveBoolean(std::string s) {
+    std::string result = "True";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '&') {
+            if (result == "True" && (i+1) >= s.size() || s[i+1] != '&')
+                return "False";
+        } else if (s[i] == '|') {
+            if (result == "False" && (i+1) >= s.size() || s[i+1] != '|')
+                return "False";
         }
     }
-
-    return (values.top()) ? "True" : "False";
+    return result;
 }
