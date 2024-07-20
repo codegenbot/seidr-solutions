@@ -19,9 +19,9 @@ int main() {
     float v1[n], v2[n];
     std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << " of vector 1: ";
+        std::cout << "Enter element for vector 1: ";
         std::cin >> v1[i];
-        std::cout << "Enter element " << i+1 << " of vector 2: ";
+        std::cout << "Enter element for vector 2: ";
         std::cin >> v2[i];
     }
 
