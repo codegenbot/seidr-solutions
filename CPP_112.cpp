@@ -3,8 +3,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::string& a, const std::string& b) {
-    std::string combined = a + b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    std::string combined = "";
+    for (const std::string& str : a) {
+        combined += str;
+    }
+    for (const std::string& str : b) {
+        combined += str;
+    }
 
     std::string result = "";
     for (char ch : combined) {
@@ -18,6 +24,6 @@ bool issame(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    assert(issame("mamma", "mia"));
+    assert(issame({"mamma"}, {"mia"}));
     return 0;
 }
