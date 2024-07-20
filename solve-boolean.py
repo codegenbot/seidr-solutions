@@ -1,25 +1,12 @@
 def solve_boolean(expression):
-    def eval_expression(s):
-        if s[0] in ['T', 'F']:
-            return {'T': True, 'F': False}[s[0]]
-        elif s[0] == '&':
-            a = eval_expression(s[2:])
-            return a and eval_expression(s[5:])
-        else:
-            a = eval_expression(s[1:])
-            return a or eval_expression(s[4:])
-
-    result_str = ''
-    parsing = True
-    for char in expression[::-1]:
+    stack = []
+    for char in expression:
         if char in ['T', 'F']:
-            if parsing:
-                result_str += char
-            else:
-                return eval_expression(result_str + char)
+            stack.append(char)
         elif char in ['|', '&']:
+            while stack and (stack[-1] == '&' or ((stack[-1] == '|') and stack[-2].startswith('|'))):
+                stack.pop()
             if char == '&':
-                result_str += '& '
+                stack.append('&')
             else:
-                result_str += '| '
-    return eval_expression(result_str)
+                stack.append('|')
