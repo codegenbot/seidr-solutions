@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <cmath>
+#include <cmath> // Include this for pow()
 #include <iomanip>
 
 using namespace std;
