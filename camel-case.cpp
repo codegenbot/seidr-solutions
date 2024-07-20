@@ -1,7 +1,3 @@
-```c++
-#include <iostream>
-#include <string>
-
 std::string toCamelCase(const std::string& s) {
     std::string result;
     bool first = true;
