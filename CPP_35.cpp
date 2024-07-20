@@ -1,6 +1,11 @@
 #include <algorithm>
 #include <cmath>
 
-int maxAbsSum(vector<int>& l) {
-    return *max_element(l.begin(), l.end());
+int largestAbsoluteValue(int arr[], int n) {
+    vector<int> l;
+    for (int i = 0; i < n; i++) {
+        l.push_back(arr[i]);
+    }
+    
+    return *max_element(abs(l.begin(), abs(l.end()));
 }
