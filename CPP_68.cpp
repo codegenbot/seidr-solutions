@@ -1,13 +1,5 @@
-```
 #include <vector>
-#include <algorithm>
-
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
-}
+#include <limits>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
@@ -27,4 +19,8 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(min_index);
 
     return result;
+}
+
+bool issame(int a, int b) {
+    // implement the logic here
 }
