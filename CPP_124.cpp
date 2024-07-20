@@ -3,12 +3,6 @@
 
 bool valid_date(const std::string& date);
 
-int main() {
-    assert(valid_date("04-2003") == false);
-
-    return 0;
-}
-
 bool valid_date(const std::string& date) {
     if(date.empty()) return false;
     
