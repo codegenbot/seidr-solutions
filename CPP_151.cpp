@@ -1,1 +1,1 @@
-vector<float> lst = {1.5f, 2.0f, 3.5f, 4.0f, 5.5f};
+vector<float> lst = {1.5f, 2.0f, 3.5f, 4.0f};
