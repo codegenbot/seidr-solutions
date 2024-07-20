@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -35,7 +34,7 @@ int main() {
     bool first = true;
     std::string temp;
 
-    while (std::cin >> temp, !std::cin.fail()) {
+    while (std::getline(std::cin, temp, '-')) {
         if (!first) result += " ";
         else first = false;
         for (char c : temp) {
@@ -44,9 +43,5 @@ int main() {
             else result += tolower(c);
         }
     }
-
-    std::cout << "Processing: " << temp << std::endl;
-    std::cout << camelCase(result) << std::endl;
-
-    return 0;
+    std::cout << result << std::endl;
 }
