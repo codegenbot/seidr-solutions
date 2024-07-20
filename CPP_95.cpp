@@ -1,24 +1,21 @@
-Here is the completed code:
-
-```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
-    
+
     bool all_lower = true;
     bool all_upper = true;
-    
-    for (const auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            all_lower = false;
-            all_upper = false;
-            break;
-        } else if (!all_lower || !all_upper) {
-            continue;
+
+    for (auto& pair : dict) {
+        string key = pair.first;
+        if (!all_lower && !all_upper) break;
+
+        if (isupper(key[0])) {
+            if (!all_upper) all_upper = true;
+            else all_lower = false;
+        } else {
+            if (!all_lower) all_lower = true;
+            else all_upper = false;
         }
-        
-        all_lower &= islower(pair.first[0]);
-        all_upper &= isupper(pair.first[0]);
     }
-    
+
     return all_lower || all_upper;
 }
