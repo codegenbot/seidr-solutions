@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 int bowlingScore(string s) {
@@ -12,8 +11,6 @@ int bowlingScore(string s) {
             score += 10 + currentRoll;
             currentRoll = 0;
         } else if (c >= '1' && c <= '9') {
-            currentRoll = 10 - (10 - (c - '0')) * 2;
-        } else {
             currentRoll = currentRoll * 10 + (c - '0') * 10;
         }
     }
