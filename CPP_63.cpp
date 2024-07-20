@@ -3,12 +3,14 @@ if (n == 0 || n == 1) {
     } else if (n == 2) {
         return 1;
     }
-    int a = 0, b = 0, c = 1, d;
-    for (int i = 3; i <= n; ++i) {
-        d = a + b + c;
+
+    int a = 0, b = 0, c = 1, fib;
+    for (int i = 3; i <= n; i++) {
+        fib = a + b + c;
         a = b;
         b = c;
-        c = d;
+        c = fib;
     }
-    return c;
+
+    return fib;
 }
