@@ -1,2 +1,5 @@
-return (n % 8 == 0);
+if(n % 4 == 0)
+    return true;
+else
+    return false;
 }
