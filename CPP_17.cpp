@@ -2,27 +2,19 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
+vector<int> parse_music(string music_string){
+    vector<int> beats;
     int length = music_string.length();
     for (int i = 0; i < length; ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == '|') {
             if (beats.empty()) {
-                assert(false); // handle edge case where '|' appears before 'o'
+                beats.push_back(1);
             } else if (beats.back() == 4) {
                 beats.back() = 2;
             } else {
