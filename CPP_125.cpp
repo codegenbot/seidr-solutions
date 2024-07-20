@@ -1,26 +1,37 @@
 vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    int oddCount = 0;
+    for(char c : txt) {
+        if(islower(c)) {
+            int index = c - 'a';
+            if(index % 2 == 1) {
+                oddCount++;
+            }
+        }
+    }
+    if(txt.find(' ') != string::npos) {
+        string word = "";
+        for(char c : txt) {
+            if(c == ' ') {
                 result.push_back(word);
                 word = "";
+            } else {
+                word += c;
             }
-        } else {
-            word += c;
         }
-    }
-    if (!word.empty()) {
         result.push_back(word);
-    }
-    if (result.size() == 1 && islower(result[0][0])) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    } else if(txt.find(',') != string::npos) {
+        string word = "";
+        for(char c : txt) {
+            if(c == ',') {
+                result.push_back(word);
+                word = "";
+            } else {
+                word += c;
             }
         }
-        result[0] = to_string(count);
+        result.push_back(word);
+    } else {
+        result.push_back(to_string(oddCount));
     }
     return result;
 }
