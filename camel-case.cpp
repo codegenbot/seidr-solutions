@@ -1,17 +1,24 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool inLowercase = true;
+    bool upper = true;
 
-    for (char c : str) {
+    for (char c : str + "") {
         if (c == '-') {
-            inLowercase = !inLowercase;
+            if (!result.empty()) {
+                result += toupper(result[0]);
+                result.erase(0, 1);
+            }
+            upper = true;
+        } else if (upper) {
+            result += toupper(c);
+            upper = false;
         } else {
-            result += inLowercase ? tolower(c) : toupper(c);
-            inLowercase = false;
+            result += tolower(c);
         }
     }
 
@@ -20,6 +27,6 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string input = "camel-case example-test-string";
-    std::cout << camelCase(input) << std::endl;
+    std::cout << &camelCase(input + "") << std::endl;
     return 0;
 }
