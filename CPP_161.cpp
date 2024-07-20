@@ -1,11 +1,11 @@
-string solve(string s) {
-    string res = "";
-    for (char c : s) {
-        if (!isalpha(c)) {
-            res += c;
+Str solve(Str s){
+    Str result = "";
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            res += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+            result += s[i];
         }
     }
-    return res.empty() ? string(s).reverse() : res;
+    return (result.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == Str::npos) ? Str(result.rbegin(), result.rend()) : result;
 }
