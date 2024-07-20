@@ -2,22 +2,21 @@
 #include <vector>
 #include <sstream>
 #include <cassert>
-#include <string>
 
-namespace std {
-    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-        return a.size() == b.size();
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> split_words(const string& input) {
+    vector<string> words;
+    stringstream ss(input);
+    string word;
+
+    while (ss >> word) {
+        words.push_back(word);
     }
 
-    std::vector<std::string> split_words(const std::string& input) {
-        std::vector<std::string> words;
-        std::stringstream ss(input);
-        std::string word;
-
-        while (ss >> word) {
-            words.push_back(word);
-        }
-
-        return words;
-    }
+    return words;
 }
