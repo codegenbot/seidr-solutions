@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
     int quarters = cents / 25;
     cents %= 25;
@@ -17,7 +17,12 @@ int main() {
 
     int pennies = cents;
 
-    cout << std::to_string(quarters) << " quarter(s), " << std::to_string(dimes) << " dime(s), " << std::to_string(nickels) << " nickel(s), and " << std::to_string(pennies) << " penny(ies)." << endl;
+    std::string output = std::to_string(quarters) + " quarter(s), " +
+                        std::to_string(dimes) + " dime(s), " +
+                        std::to_string(nickels) + " nickel(s), and " +
+                        std::to_string(pennies) + " penny(ies).";
+
+    std::cout << output << std::endl;
 
     return 0;
 }
