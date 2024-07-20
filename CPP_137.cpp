@@ -1,83 +1,40 @@
 ```cpp
 #include <boost/any.hpp>
+#include <string>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
-            return a;
+    if (is_any_of<std::string>(a)) {
+        std::string str_a = any_cast<std::string>(a);
+        if (is_any_of<std::string>(b)) {
+            std::string str_b = any_cast<std::string>(b);
+            if (str_a == "None") return b;
+            if (str_b == "None") return a;
+            if (std::stod(str_a) > std::stod(str_b)) return a;
+            else if (std::stod(str_a) < std::stod(str_b)) return b;
+            else return boost::any("None");
+        } else {
+            double num_b = any_cast<double>(b);
+            if (str_a == "None") return b;
+            if (num_b > std::stod(str_a)) return a;
+            else if (num_b < std::stod(str_a)) return b;
+            else return boost::any("None");
         }
-        else if ((string)a.convert_to<string>() < (string)b.convert_to<string>()) {
-            return b;
+    } else {
+        if (is_any_of<std::string>(b)) {
+            std::string str_b = any_cast<std::string>(b);
+            double num_a = any_cast<double>(a);
+            if (str_b == "None") return a;
+            if (num_a > std::stod(str_b)) return a;
+            else if (num_a < std::stod(str_b)) return b;
+            else return boost::any("None");
+        } else {
+            double num_a = any_cast<double>(a);
+            double num_b = any_cast<double>(b);
+            if (num_a > num_b) return a;
+            else if (num_a < num_b) return b;
+            else return boost::any("None");
         }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((int)a.convert_to<int>() > (string)b.convert_to<string>().erase(0, 1).erase((string)b.convert_to<string())).length()-1) {
-            return a;
-        }
-        else if ((int)a.convert_to<int>() < (string)b.convert_to<string>().erase(0, 1).erase((string)b.convert_to<string()">)).length()-1) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if ((string)a.convert_to<string>() > to_string((int)b.convert_to<int>())) {
-            return a;
-        }
-        else if ((string)a.convert_to<string>() < to_string((int)b.convert_to<int>())) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if ((string)a.convert_to<string>() > to_string((float)b.convert_to<float>()).erase(0, 1).erase((string)b.convert_to<string()">)).length()-1) {
-            return a;
-        }
-        else if ((string)a.convert_to<string>() < to_string((float)b.convert_to<float>()).erase(0, 1).erase((string>b.convert_to<string()">))).length()-1) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        if ((float)a.convert_to<float>() > (string)b.convert_to<string>().erase(0, 1).erase((string>b.convert_to<string()">))).length()-1) {
-            return a;
-        }
-        else if ((float)a.convert_to<float>() < (string>b.convert_to<string>().erase(0, 1).erase((string>b.convert_to<string()">))).length()-1) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if ((string)a.convert_to<string>() > to_string((float)b.convert_to<float>())) {
-            return a;
-        }
-        else if ((string>a.convert_to<string>() < to_string((float>b.convert_to<float>())))) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max((float)a.convert_to<float>(), (float)b.convert_to<float>());
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return any((string)a.convert_to<string>() > (string>b.convert_to<string>()) ? a : ((string>a.convert_to<string>() < (string>b.convert_to<string>())) ? b : any("None")));
     }
 }

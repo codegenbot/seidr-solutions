@@ -1,4 +1,3 @@
-```cpp
 bool is_nested(const std::string& str) {
     int stack_size = 0;
     for (typename auto c : str) { 
