@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<int> maximum(vector<int> arr, int k) {
+vector<int> maxk(vector<int> arr, int k) {
     vector<int> result;
     sort(arr.begin(), arr.end());
     for (int i = 0; i < k; i++) {
