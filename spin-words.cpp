@@ -9,11 +9,9 @@ std::string spinWords(std::string sentence) {
     while (i < sentence.length()) {
         if (i == sentence.length() - 1 || sentence[i + 1] == ' ') {
             if (i >= 4) {
-                std::string reversedWord(word.rbegin(), word.rend());
-                result += reversedWord + " ";
-            } else {
-                result += word + " ";
+                word = std::string(word.rbegin(), word.rend());
             }
+            result += word + " ";
             word = "";
         } else {
             if (sentence[i] != ' ') {
@@ -23,7 +21,7 @@ std::string spinWords(std::string sentence) {
         i++;
     }
 
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
