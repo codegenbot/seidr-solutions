@@ -1,13 +1,18 @@
+Here is the completed code:
+
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evens;
+    vector<pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            evens.push_back({arr[i], i});
+            evenNodes.push_back({arr[i], i});
         }
     }
-    if (evens.empty()) {
+    
+    if (evenNodes.empty()) {
         return {};
     }
-    sort(evens.begin(), evens.end());
-    return {{evens[0].first, evens[0].second}};
+    
+    sort(evenNodes.begin(), evenNodes.end());
+    
+    return {{evenNodes[0].first, evenNodes[0].second}};
 }
