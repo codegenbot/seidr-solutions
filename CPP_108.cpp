@@ -11,15 +11,16 @@ int count_nums(std::vector<int> nums) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            count++;
+            if (sum % 2 == 1)
+                count++;
         } else {
-            int sum = 0, sign = 1;
+            int sum = 0, sign = -1;
             int abs_num = abs(num);
             while (abs_num > 0) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum > 0)
+            if (sum % 2 == 1)
                 count++;
         }
     }
