@@ -1,31 +1,31 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    std::string word;
-
-    for (char c : input) {
-        if (c == ' ') {
-            output += c;
-        } else {
-            word += c;
-            if (word.length() >= 5 || !input.substr(input.find(c)+1).find(' ")) {
-                std::reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            word.clear();
-        }
+string spinWords(string input) {
+    string output = "";
+    size_t pos = 0;
+    
+    while ((pos = input.find(" ")) != string::npos) {
+        size_t nextSpace = input.find(" ", pos + 1);
+        if (nextSpace == string::npos || distance(input.begin() + pos, input.begin() + nextSpace) >= 5)
+            output += reverse(input.substr(pos, nextSpace - pos)).append(" ");
+        else
+            output += input.substr(pos, nextSpace - pos).append(" ");
+        
+        pos = nextSpace;
     }
-
-    return output;
+    
+    if (pos < input.size())
+        output += reverse(input.substr(pos)).append(" ");
+    
+    return output.substr(0, output.size() - 1);
 }
 
 int main() {
-    // your code here
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << '\n';
-    }
+    // Your test cases here
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("hi") << endl;
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is another test") << endl;
     return 0;
 }
