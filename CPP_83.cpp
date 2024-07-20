@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <cmath> 
+#include <cmath>
 
 using namespace std;
 
@@ -17,7 +17,6 @@ int starts_one_ends(int n) {
         }
     }
     return count;
-
 }
 
 cout << "Enter a positive integer: ";
