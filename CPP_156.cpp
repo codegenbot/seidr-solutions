@@ -1,16 +1,20 @@
-string int_to_mini_roman(int number) {
+#include <string>
+
+using namespace std;
+
+string int_to_mini_roman(int num) {
+    vector<pair<int, string>> romanValues = {{1000, "M"}, {900, "CM"}, {500, "D"}, 
+                                               {400, "CD"}, {100, "C"}, {90, "XC"},
+                                               {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"},
+                                               {5, "V"}, {4, "IV"}, {1, "I"}};
+
     string roman = "";
-    vector<pair<int, string>> roman_numerals = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                                  {400, "CD"}, {100, "C"}, {90, "XC"},
-                                                  {50, "L"}, {40, "XL"}, {10, "X"},
-                                                  {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    
-    for (const auto& numeral : roman_numerals) {
-        while (number >= numeral.first) {
-            roman += numeral.second;
-            number -= numeral.first;
+    for (const auto& pair : romanValues) {
+        while (num >= pair.first) {
+            roman += pair.second;
+            num -= pair.first;
         }
     }
-    
+
     return roman;
 }
