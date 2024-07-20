@@ -28,7 +28,7 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-int main() {
+int main(){
     vector<int> pile1 = make_a_pile(5);
     vector<int> pile2 = make_a_pile(5);
     if(issame(pile1, pile2)){
