@@ -19,6 +19,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    // Replace assert with appropriate error handling logic
+    // Replace assert with appropriate error handling logic before using in production
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
