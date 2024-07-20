@@ -3,7 +3,7 @@
 using namespace std;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result(target.length()); // Initialize with capacity m
+    std::vector<int> result(target.length());
     int n = text.length();
     int m = target.length();
 
