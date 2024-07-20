@@ -7,7 +7,7 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             int found = false;
             for (int num2 : lst2) {
                 if (num2 % 2 == 0) {
-                    swap(lst1[lst1.size() - 1], std::find(lst2.begin(), lst2.end(), num2) - lst2.begin());
+                    swap(lst1[lst1.size() - 1], lst2[find(lst2.begin(), lst2.end(), num2) - lst2.begin()]);
                     found = true;
                     break;
                 }
