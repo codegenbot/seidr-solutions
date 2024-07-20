@@ -1,53 +1,24 @@
-#include <string>
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.size(); i++) {
-        switch (expression[i]) {
-            case 'T':
-                return true;
-            case 'F':
-                return false;
-            case '&': {
-                bool a = true, b = true;
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        a = true;
-                    else
-                        a = false;
-                    i++;
-                }
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        b = true;
-                    else
-                        b = false;
-                    i++;
-                }
-                result &= a && b;
-                break;
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            case '|': {
-                bool a = true, b = true;
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        a = true;
-                    else
-                        a = false;
-                    i++;
-                }
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        b = true;
-                    else
-                        b = false;
-                    i++;
-                }
-                result |= a || b;
-                break;
+            if (st.empty()) return "False";
+            else st.top() = '&';
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
+            if (st.empty()) return "True";
+            else st.top() = '|';
+        } else if (s[i] != '&' && s[i] != '|') {
+            st.push(s[i]);
         }
     }
-    return result;
+    while (!st.empty()) {
+        st.pop();
+    }
+    return st.empty() ? "True" : "False";
 }
