@@ -4,11 +4,10 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    std::string temp = s;
-    while (temp[0] == '0' && temp.length() > 1) temp.erase(0, 1);
-    for (int i = 0; i < temp.length() - 1; i++) {
-        if ((i < temp.length() - 1) && ((temp[i] == '0') || (temp[i] - '0' == temp[i + 1] - '0'))) {
-            sum += (temp[i] - '0');
+    while (s[0] == '0' && s.length() > 1) s.erase(0, 1);
+    for (int i = 0; i < s.length() - 1; i++) {
+        if ((s[i] == '0') || (s[i] - '0' == s[i + 1] - '0')) {
+            sum += (s[i] - '0');
         }
     }
     return sum;
