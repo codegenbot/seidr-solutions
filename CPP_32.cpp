@@ -12,10 +12,10 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> coeffs){
+double find_zero(vector<double> coeffs) {
     double a = coeffs[0];
     double b = coeffs[1];
-    return -b/a;
+    return -b / a;
 }
 
 vector<double> coeffs = {1, -3, 2};
