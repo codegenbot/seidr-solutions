@@ -1,23 +1,31 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+    int n = grid.size();
+    vector<int> wells(n);
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
+            wells[i] += grid[i][j];
+        }
     }
     
-    int bucket_trips = 0;
-    while (total_water > 0) {
-        int water_in_bucket = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            for (int j = 0; j < grid[0].size(); ++j) {
-                if (grid[i][j] == 1 && water_in_bucket < capacity) {
-                    water_in_bucket++;
-                }
+    int ans = 0;
+    while (true) {
+        bool changed = false;
+        
+        for (int i = 0; i < n; i++) {
+            if (wells[i] > capacity) {
+                wells[i] -= capacity;
+                changed = true;
+            } else if (wells[i] == capacity) {
+                wells[i] = 0;
+                changed = true;
             }
         }
         
-        total_water -= water_in_bucket;
-        bucket_trips++;
+        if (!changed) break;
+        
+        ans++;
     }
     
-    return bucket_trips;
+    return ans;
 }
