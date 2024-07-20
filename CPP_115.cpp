@@ -16,8 +16,3 @@ int max_fill(const std::vector<std::vector<int>>& grid, int capacity) {
     }
     return buckets_needed;
 }
-
-int main() {
-    assert(max_fill(std::vector<std::vector<int>>{{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    return 0;
-}
