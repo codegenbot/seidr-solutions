@@ -1,17 +1,17 @@
-vector<pair<int, string>> roman_numerals{
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"},
-        {1, "i"}
-    };
-
-    string result;
-    for(const auto& pair : roman_numerals){
-        while(number >= pair.first){
-            result += pair.second;
-            number -= pair.first;
+string int_to_mini_roman(int number){
+    vector<int> numbers = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+    vector<string> romans = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
+    string result = "";
+    
+    int i = romans.size() - 1;
+    while(number > 0){
+        int div = number / numbers[i];
+        number %= numbers[i];
+        while(div--){
+            result += romans[i];
         }
+        --i;
     }
-
+    
     return result;
 }
