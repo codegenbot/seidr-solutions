@@ -2,7 +2,7 @@
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX mdContext;
     MD5_Init(&mdContext);
@@ -13,12 +13,12 @@ string string_to_md5(string text) {
     }
     MD5_Final(result, &mdContext);
 
-    ostringa hexString;
+    string output;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", result[i]);
-        hexString += buffer;
+        char buff[3];
+        sprintf(buff, "%02x", result[i]);
+        output.append(buff);
     }
 
-    return string(hexString);
+    return output;
 }
