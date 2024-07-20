@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -7,5 +6,4 @@ def coin_sums(cents):
         while cents >= coins[i]:
             results[i] += 1
             cents -= coins[i]
-
     return tuple(results)
