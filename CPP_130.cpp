@@ -16,11 +16,11 @@ std::vector<int> yourFunctionName(int n) {
 int main() {
     int n = 2;
     std::vector<int> tri = yourFunctionName(n);
-    assert(issame(tri, {0, 0}));
+    assert (issame(tri, {0, 0}));
     
     std::vector<int> other = yourFunctionName(n);
     other[0] = 1; other[1] = 3;
-    assert(issame(other, {1, 3}));
+    assert (issame(other, {1, 3}));
 
     return 0;
 }
