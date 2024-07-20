@@ -1,17 +1,16 @@
-```cpp
-int bowlingScore(const std::string& input) {
+int bowlingScore(const string& input) {
     int score = 0;
-    for (int i = 0; i < input.size(); ++i) { 
-        if (input[i] == 'X') {
+    for (int i = 0; i < input.length(); ++i) {
+        if (input.at(i) == 'X') {
             score += 30;
-        } else if (input[i] == '/') {
+        } else if (input.at(i) == '/') {
             int next = i + 1;
-            while (next < input.size() && input[next] != '/') {
+            while (next < input.length() && input.at(next) != '/') {
                 next++;
             }
             score += (10 - (next - i));
         } else {
-            score += (input[i] - '0');
+            score += (input.at(i) - '0');
         }
     }
     return score;
