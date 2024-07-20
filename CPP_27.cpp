@@ -1,3 +1,5 @@
+#include <string>
+
 string flip_case(string str){
     for(char &c : str){
         if(islower(c)){
