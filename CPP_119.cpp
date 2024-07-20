@@ -1,21 +1,13 @@
-```cpp
-#include <iostream>
-#include <vector>
 #include <string>
-using namespace std;
+#include <vector>
 
-bool isMatch(const vector<string>& vec) {
+bool match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
-    for (const string& s : vec) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
             else close++;
         }
     }
     return open == close;
-}
-
-int main() {
-    assert(isMatch({"" , "("}) == true);
-    return 0;
 }
