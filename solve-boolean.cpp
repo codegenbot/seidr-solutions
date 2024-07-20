@@ -1,14 +1,11 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string input) {
+std::string solveBoolean(std::string input) {
     stack<char> ops;
     stack<bool> values;
 
     for(int i = 0; i < input.length(); i++) {
-        if(input[i] == 't') {
+        if(input[i] == 'T') {
             values.push(true);
-        } else if(input[i] == 'f') {
+        } else if(input[i] == 'F') {
             values.push(false);
         } else if(input[i] == '|') {
             while(values.size() > 1) {
@@ -29,5 +26,5 @@ bool solveBoolean(string input) {
         }
     }
 
-    return values.top();
+    return (values.top()) ? "True" : "False";
 }
