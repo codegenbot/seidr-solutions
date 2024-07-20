@@ -1,54 +1,49 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> &v) {
     int n = v.size();
-    vector<vector<int>> result(2);
-    
-    if (n == 0)
-        return result;
-        
-    int left_sum = 0, right_sum = 0;
-    
-    for (int i = 0; i < n/2; i++) {
-        left_sum += v[i];
-        right_sum += v[n-i-1];
+    vector<int> left(n);
+    copy(v.begin(), v.end(), left.begin());
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (abs(left[i] - left[i-1]) <= minDiff) {
+            minDiff = abs(left[i] - left[i-1]);
+            cutIndex = i;
+        }
     }
-    
-    if (n % 2 == 1)
-        result[0] = vector<int>(v.begin(), v.end()-1);
-    else
-        result[0] = vector<int>(v.begin(), v.end());
-        
-    result[1].push_back(v.back());
-    
+    vector<vector<int>> result(2);
+    result[0].resize(cutIndex+1);
+    copy(v.begin(), v.begin()+cutIndex+1, result[0].begin());
+    result[1].resize(n-cutIndex-1);
+    copy(v.begin()+cutIndex+1, v.end(), result[1].begin());
     return result;
 }
 
 int main() {
     int n;
-    cout << "Enter the number of elements in the vector: ";
     cin >> n;
-
     vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
         cin >> v[i];
     }
-
     vector<vector<int>> result = cutVector(v);
-
-    cout << "The resulting subvectors are: " << endl;
-    for (int i = 0; i < 2; i++) {
-        if (i == 0)
-            cout << "Left: ";
-        else
-            cout << "Right: ";
-        
-        for (int num : result[i])
-            cout << num << " ";
-        cout << endl;
+    cout << "[";
+    for (int i = 0; i < result[0].size(); i++) {
+        cout << result[0][i];
+        if (i < result[0].size()-1) {
+            cout << " ";
+        }
     }
+    cout << "] [" << "[";
 
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i];
+        if (i < result[1].size()-1) {
+            cout << " ";
+        }
+    }
+    cout << "]" << endl;
     return 0;
 }
