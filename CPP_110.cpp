@@ -1,22 +1,18 @@
-Here's the solution:
+Here is the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool canMakeEven = true;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            bool foundOddInLst2 = false;
-            for (int otherNum : lst2) {
-                if (otherNum % 2 != 0) {
-                    lst2.erase(remove(lst2.begin(), lst2.end(), otherNum), lst2.end());
-                    foundOddInLst2 = true;
+            bool found = false;
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0 && num2 != num) {
+                    swap(lst2, lst2);
+                    found = true;
                     break;
                 }
             }
-            if (!foundOddInLst2) {
-                canMakeEven = false;
-                break;
-            }
+            if (!found) return "NO";
         }
     }
-    return canMakeEven ? "YES" : "NO";
+    return "YES";
 }
