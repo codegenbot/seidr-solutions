@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <vector>
-#include <iostream>
+#include <cctype>
 
-bool issame(int a, int b) {
-    if (a > b)
+bool issame(int x, int y) {
+    if (x % 2 == 0 && y % 2 != 0 || x % 2 != 0 && y % 2 == 0)
         return true;
     else
         return false;
@@ -13,9 +13,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
+    int min = *std::min_element(lst.begin(), lst.end());
+    int max = *std::max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         for (int i : lst) {
