@@ -1,7 +1,10 @@
 def find_first_negative_index(nums):
     total_sum = 0
-    for i, num in enumerate(nums):
-        total_sum += num
+    i = 0
+    while True:
+        total_sum += nums[i]
         if total_sum < 0:
             return i
-    return -1
+        elif i == len(nums) - 1:
+            return -1
+        i += 1

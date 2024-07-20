@@ -1,4 +1,3 @@
-```
 def luhn():
     card = [int(x) for x in str(input().replace(" ", "")) if isinstance(int(x), int)]
     if len(card) < 15:
