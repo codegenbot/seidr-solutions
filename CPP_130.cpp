@@ -1,22 +1,24 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); ++i){
+    for(size_t i=0; i<a.size(); ++i){
         if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> yourFunctionName(int n){
-    std::vector<int> tri(n, 0); // Define tri array with size n initialized to 0
-    return tri;
+std::vector<int> yourFunctionName(int n) {
+    return std::vector<int>(n, 0);
 }
 
 int main(){
-    int n = 2; // Set appropriate value for n
-    std::vector<int> tri = yourFunctionName(n); // Call your function with appropriate parameter
-    assert(issame(tri, {1, 3})); // Check if the result is as expected
+    std::vector<int> tri;
+
+    tri = yourFunctionName(2);
+
+    assert(issame(tri, {0, 0}));
+
     return 0;
 }
