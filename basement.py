@@ -1,4 +1,4 @@
-def find_first_negative_index(nums):
+def basement(nums):
     if sum(nums) < 0:
         for i, num in enumerate(nums):
             total_sum = 0
