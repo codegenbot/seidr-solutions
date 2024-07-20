@@ -1,4 +1,9 @@
-for (char &c : s) {
+#include <algorithm>
+#include <cctype>
+#include <cassert>
+
+std::string solve(std::string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
@@ -7,4 +12,9 @@ for (char &c : s) {
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
