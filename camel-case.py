@@ -1,16 +1,13 @@
-```
 print("Please enter a string in kebab-case: ")
 s = input()
 
-
 def camel_case(s):
     result = ""
-    for word in s.replace("-", " ").split():
-        if len(result) > 0:
-            result += word.capitalize()
+    for group in s.replace("-", " ").split():
+        if result:
+            result += group.capitalize()
         else:
-            result += word.lower()
+            result += group
     return result
-
 
 print(camel_case(s))
