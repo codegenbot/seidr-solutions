@@ -1,15 +1,12 @@
-bool monotonic(const vector<int>& l) {
+bool isMonotonic(const vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
-    
-    for (int i = 1; i < l.size(); ++i) {
-        if (l[i] < l[i-1]) {
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > l[i - 1]) {
+            decreasing = false;
+        } else if (l[i] < l[i - 1]) {
             increasing = false;
         }
-        if (l[i] > l[i-1]) {
-            decreasing = false;
-        }
     }
-    
     return increasing || decreasing;
 }
