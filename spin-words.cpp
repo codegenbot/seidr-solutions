@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -11,7 +10,7 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         } else {
             if(word.length() >= 4) {
-                std::string reversedWord(word.rbegin(), std::move(word).rend());
+                std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
                 result += word + " ";
