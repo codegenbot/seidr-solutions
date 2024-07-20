@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -23,6 +25,9 @@ std::vector<int> factorize(int n) {
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), std::vector<int>({2, 3, 3})));
+    std::vector<int> expected_factors = {2, 3, 3};
+    std::vector<int> calculated_factors = factorize(3 * 2 * 3);
+    assert(issame(calculated_factors, expected_factors));
+
     return 0;
 }
