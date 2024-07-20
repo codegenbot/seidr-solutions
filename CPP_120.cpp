@@ -1,8 +1,14 @@
 bool issame(vector<int> a,vector<int>b){
-    // your logic here
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+    assert (issame(vector<int>(maximum({1, 2, 3, -23, 243, -400, 0}, 0) ), vector<int>()));
     return 0;
 }
