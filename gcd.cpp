@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
@@ -26,16 +24,14 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
-    std::stringstream ss;
-    ss >> a;
-    std::cout << std::endl;
-    ss >> b;
+    std::cin >> a;
+    std::cin >> b;
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
     std::cout << "Enter the text and target string for Indices of Substring: ";
     std::getline(std::cin, text);
-    std::cout << std::endl;
+    std::cin.ignore();
     std::getline(std::cin, target);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
