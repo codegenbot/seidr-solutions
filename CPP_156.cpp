@@ -1,13 +1,21 @@
-vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-
 string int_to_mini_roman(int number) {
-    string result;
-    for (int i = 0; i < 13; i++) {
-        while (number >= val[i]) {
-            number -= val[i];
-            result += roman[i];
-        }
-    }
-    return result;
+    string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
+                      "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
+                      "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX",
+                      "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX",
+                      "XL", "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX",
+                      "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX",
+                      "LX", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX",
+                      "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX",
+                      "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX",
+                      "XC", "XCI", "XCII", "XCIII", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX",
+                      "C"};
+
+    int c = number / 100;
+    int x = (number % 100) / 10;
+    int i = number % 10;
+
+    string result = roman[c] + roman[x] + roman[i];
+
+    return tolower(result);
 }
