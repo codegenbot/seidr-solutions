@@ -1,7 +1,4 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string input) {
+std::string solveBoolean(std::string input) {
     stack<char> ops;
     stack<bool> values;
 
@@ -29,5 +26,5 @@ bool solveBoolean(string input) {
         }
     }
 
-    return values.top();
+    return (values.top()) ? "True" : "False";
 }
