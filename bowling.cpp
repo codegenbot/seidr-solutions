@@ -1,17 +1,18 @@
-using namespace std;
-
-int bowlingScore(string s) {
+```cpp
+int bowlingScore(const std::string& input) {
     int score = 0;
-    int currentRoll = 0;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < input.size(); ++i) { 
+        if (input[i] == 'X') {
             score += 30;
-            currentRoll = 0;
-        } else if (c == '/') {
-            score += 10 + currentRoll;
-            currentRoll = 0;
-        } else if (c >= '1' && c <= '9') {
-            currentRoll = currentRoll * 10 + (c - '0') * 10;
+        } else if (input[i] == '/') {
+            int next = i + 1;
+            while (next < input.size() && input[next] != '/') {
+                next++;
+            }
+            score += (10 - (next - i));
+        } else {
+            score += (input[i] - '0');
         }
     }
     return score;
+}
