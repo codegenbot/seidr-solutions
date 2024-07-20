@@ -1,23 +1,34 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
+using namespace std;
+
+int solve(const string& mastermindCode, const string& guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    for (char c : mastermindCode) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                count++;
+                break; // Don't check this character again
+            }
+        }
+
+        if (count > 0) {
+            blackPegs++; // Correct color, correct place
         } else {
-            bool found = false;
-            for(int j=0; j<4; j++) {
-                if(guess[j] == code[i] && j != i) {
-                    white++;
-                    found = true;
-                    break;
+            int whiteCount = 0;
+            for (char d : guess) {
+                if (c == d) {
+                    whiteCount++;
                 }
             }
-            if(!found)
-                black++;
+            whitePegs += whiteCount; // Correct color, wrong place
         }
     }
 
-    return black + white - 2*count(code.begin(), code.end(), guess[0]);
+    return {blackPegs, whitePegs};
 }
