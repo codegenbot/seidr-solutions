@@ -22,17 +22,18 @@ map<char, int> histogram(string test) {
         ++result[word[0]];
     }
 
-    map<char, int> maxMap;
+    map<char, int> maxCountMap;
     int maxCount = 0;
-    for (auto& p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-            maxMap.clear();
-            maxMap[p.first] = p.second;
-        } else if (p.second == maxCount) {
-            maxMap[p.first] = p.second;
+
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+            maxCount = pair.second;
+        } else if (pair.second == maxCount) {
+            maxCountMap[pair.first] = pair.second;
         }
     }
 
-    return maxMap;
+    return maxCountMap;
 }
