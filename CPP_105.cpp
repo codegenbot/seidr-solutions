@@ -6,8 +6,24 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> result;
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> arr.push_back(i);
+    }
+    vector<string> result = by_length(arr);
+    for(auto str : result) {
+        cout << str << endl;
+    }
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
 
     // Sort the array and reverse it
     sort(arr.begin(), arr.end());
@@ -15,7 +31,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            std::string str;
+            string str;
             switch (num) {
                 case 1:
                     str = "One";
@@ -50,9 +66,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    return 0;
 }
