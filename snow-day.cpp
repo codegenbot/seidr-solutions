@@ -2,12 +2,16 @@
 #include <iomanip>
 
 int snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
-    float currentSnow = initialSnow;
+    float totalSnow = initialSnow;
+
     for (int i = 0; i < hours; i++) {
-        currentSnow += rateOfFall;
-        currentSnow -= meltRate;
+        totalSnow += rateOfFall;
+        if (totalSnow > 0) {
+            totalSnow -= meltRate;
+        }
     }
-    return static_cast<int>(currentSnow);
+
+    return totalSnow;
 }
 
 int main() {
