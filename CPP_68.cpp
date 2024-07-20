@@ -1,9 +1,16 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> pluck(vector<int> arr) {
@@ -19,6 +26,6 @@ vector<int> pluck(vector<int> arr) {
         return {};
     } else {
         sort(evenNodes.begin(), evenNodes.end());
-        return {{evenNodes[0].first, evenNodes[0].second}};
+        return {evenNodes[0].first};
     }
 }
