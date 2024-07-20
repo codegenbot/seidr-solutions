@@ -33,4 +33,7 @@ std::string spinWords(std::string sentence) {
     return result;
 }
 
-int main() { std::cout << spinWords("This is a test sentence"); return 0; }
+int main() {
+    std::string output = spinWords("This is a test sentence");
+    return 0;
+}
