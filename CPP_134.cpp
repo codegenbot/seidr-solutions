@@ -5,8 +5,7 @@ if (txt.empty()) {
     char lastChar = txt.back();
     
     if (isalpha(lastChar)) {
-        size_t lastSpace = txt.find_last_of(' ');
-        if (lastSpace == string::npos || lastSpace < txt.size() - 1) {
+        if (txt.size() == 1 || txt[txt.size() - 2] == ' ') {
             return true;
         }
     }
