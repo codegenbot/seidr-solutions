@@ -1,12 +1,18 @@
+```c++
 #include <iostream>
 #include <iomanip> 
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rate, float meltRate) {
-    double totalFall = rate * hours;
-    double newSnow = initialSnow + totalFall;
-    double totalMelt = (meltRate * hours * initialSnow) + (meltRate * rate * hours);
-    return newSnow - totalMelt;
+    double snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        snow += rate;
+        snow -= meltRate * snow;
+        if (abs(snow) < 1e-9) {
+            snow = 0;
+        }
+    }
+    return snow;
 }
 
 int main() {
