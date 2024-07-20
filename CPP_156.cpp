@@ -1,17 +1,20 @@
 string int_to_mini_roman(int number){
-    vector<int> numbers = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-    vector<string> romans = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
+    if (number < 1 || number > 1000) return "";
+
+    vector<int> values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+    vector<string> numerals = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+
     string result = "";
-    
-    int i = romans.size() - 1;
-    while(number > 0){
-        int div = number / numbers[i];
-        number %= numbers[i];
-        while(div--){
-            result += romans[i];
+    int i = 0;
+
+    while (number > 0) {
+        while (number >= values[i]) {
+            result += numerals[i];
+            number -= values[i];
         }
-        --i;
+        i++;
     }
-    
+
+    transform(result.begin(), result.end(), result.begin(), ::tolower);
     return result;
 }
