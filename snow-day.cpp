@@ -1,27 +1,5 @@
-int main() {
-    int hours = 0;
-    float initialSnow = 0.0f;
-    float rateOfFall = 0.0f;
-    float meltRate = 0.0f;
-
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
-
-    std::cout << "Enter the initial amount of snow on the ground: ";
-    std::cin >> initialSnow;
-
-    std::cout << "Enter the rate of snow fall per hour (in inches): ";
-    std::cin >> rateOfFall;
-
-    std::cout << "Enter the proportion of snow melting per hour (as a percentage): ";
-    std::cin >> meltRate;
-
-    double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
-
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " inches." << std::endl;
-
-    return 0;
-}
+#include <iostream>
+using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
     double snow = initialSnow;
@@ -30,4 +8,25 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
         snow *= (1 - meltRate / 100.0);
     }
     return snow;
+}
+
+int main() {
+    int hours;
+    float initialSnow, rateOfFall, meltRate;
+
+    cout << "Enter the number of hours: ";
+    cin >> hours;
+    cout << "Enter the initial snow in cm: ";
+    cin >> initialSnow;
+    cout << "Enter the rate of fall in cm/hour: ";
+    cin >> rateOfFall;
+    cout << "Enter the melt rate as a percentage: ";
+    cin >> meltRate;
+
+    double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
+
+    cout << fixed << showpoint << setprecision(2);
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " cm" << endl;
+
+    return 0;
 }
