@@ -1,4 +1,4 @@
-def luhn():
+def luhn(card_number):
     card = [int(x) for x in str(input().strip().replace(" ", "").replace("-", "")) if isinstance(int(x), int)]
     if len(card) < 15:
         return sum(card)
@@ -7,11 +7,11 @@ def luhn():
     new_card = []
     for i, num in enumerate(card):
         if i % 2 == 0:  
-            new_card.append(num * 2)
-        else:  
             temp = num * 2
             new_card.append((temp // 10) + ((temp % 10) if temp < 10 else 9))
+        else:  
+            new_card.append(num)
 
     return sum(new_card)
 
-print(luhn())
+print(luhn(input().strip()))
