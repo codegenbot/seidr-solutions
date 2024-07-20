@@ -1,50 +1,42 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 #include <string>
-#include <set>
 
-using namespace std;
+bool issame(vector<string> s1, vector<string> s2) {
+    if (s1.size() != s2.size()) {
+        return false;
+    }
+    for (int i = 0; i < s1.size(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    set<char> setC(c.begin(), c.end());
-    
-    string res = "";
-    
-    for (char c : s) {
-        if (setC.count(c) == 0) {
-            res += c;
+    string temp = "";
+    for (char i : s) {
+        bool found = false;
+        for (char j : c) {
+            if (i == j) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            temp += i;
         }
     }
-    
-    bool isPalindrome = true;
-    int left = 0, right = res.length() - 1;
-    while (left < right) {
-        if (res[left] != res[right]) {
-            isPalindrome = false;
-            break;
-        }
-        left++;
-        right--;
-    }
-    
-    vector<string> finalResult;
-    finalResult.push_back(res);
-    if (isPalindrome) {
-        finalResult.push_back("True");
+    result.push_back(temp);
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
+    if (temp == rev) {
+        result.push_back("True");
     } else {
-        finalResult.push_back("False");
+        result.push_back("False");
     }
-    
-    return finalResult;
-}
-
-int main() {
-    string s = "abcdedcba";
-    string c = "ab";
-    vector<string> result = reverse_delete(s, c);
-    cout << "Result: " << result[0] << ", Is Palindrome: " << result[1] << endl;
-    
-    return 0;
+    return result;
 }
