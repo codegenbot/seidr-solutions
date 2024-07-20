@@ -1,24 +1,26 @@
-vector<string> bf(string planet1, string planet2){
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int orbit1 = -1, orbit2 = -1;
+    int start = -1, end = -1;
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            orbit1 = i;
-        } else if (planets[i] == planet2) {
-            orbit2 = i;
+        if (planet1 == planets[i]) {
+            start = i;
+        }
+        if (planet2 == planets[i]) {
+            end = i;
         }
     }
 
-    if (orbit1 == -1 || orbit2 == -1) {
+    if (start == -1 || end == -1) {
         return result;
     }
 
-    int start = min(orbit1, orbit2) + 1;
-    int end = max(orbit1, orbit2);
+    if (start > end) {
+        swap(start, end);
+    }
 
-    for (int i = start; i < end; i++) {
+    for (int i = start + 1; i < end; i++) {
         result.push_back(planets[i]);
     }
 
