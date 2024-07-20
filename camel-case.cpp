@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -28,7 +27,10 @@ int main() {
         std::string word;
         std::cout << camelCase();
         while (std::getline(ss, word, ' ')) {
-            std::cout << camelCase(word) << " ";
+            if (!str.empty()) {
+                std::cout << camelCase(word[0] ? tolower(word[0]) : "") << " ";
+            }
+            str.erase(0, word.length() + 1);
         }
         std::cout << std::endl;
     }
