@@ -17,9 +17,10 @@ bool monotonic(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(monotonic({1, 2, 3, 4}) == true);
-    assert(monotonic({4, 3, 2, 1}) == true);
-    assert(monotonic({1, 2, 2, 4}) == false);
-    assert(monotonic({4, 2, 2, 1}) == false);
+    assert(monotonic({1, 2, 3, 4, 5}) == true);
+    assert(monotonic({5, 4, 3, 2, 1}) == true);
+    assert(monotonic({1, 3, 2, 4, 5}) == false);
+    assert(monotonic({5, 4, 3, 2, 6}) == false);
+    
     return 0;
 }
