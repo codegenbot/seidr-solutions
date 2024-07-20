@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 
@@ -16,6 +15,6 @@ string squareDigits(string input) {
 int main() {
     string input;
     cout << "Enter an integer: ";
-    cin >> input;
+    getline(cin, input);
     cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
 }
