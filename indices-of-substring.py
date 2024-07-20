@@ -1,4 +1,3 @@
-```
 text = input("Enter the text: ")
 while not text:
     print("Text cannot be empty. Please try again.")
@@ -11,5 +10,4 @@ while not target:
 
 import re
 result = [m.start() for m in re.finditer(target, text)]
-if result:
-    print(result)
+print(result)
