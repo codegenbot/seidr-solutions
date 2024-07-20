@@ -1,18 +1,17 @@
-int count = 0;
-    string result = "";
-    for (char c : text) {
-        if (c == ' ') {
+string result = "";
+    int count = 0;
+    for(char c : text){
+        if(c == ' '){
             count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
+            if(count > 2){
+                count = 1;
                 result += "-";
             } else {
                 result += "_";
             }
         } else {
-            result += c;
             count = 0;
+            result += c;
         }
     }
     return result;
