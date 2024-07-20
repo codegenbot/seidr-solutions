@@ -22,10 +22,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << " of vector 1: ";
         std::cin >> v1[i]; 
-        std::cin.ignore(); // ignore the newline character
+        std::cin.ignore(1, '\n'); // ignore the newline character
 
         std::cout << "Enter element " << i+1 << " of vector 2: ";
-        std::cin >> v2[i] >> std::ws; // fix this line
+        std::cin >> v2[i]; 
+        std::cin.ignore(1, '\n'); // ignore the newline character
     }
 
     double distance = vectorDistance(n, v1, v2);
