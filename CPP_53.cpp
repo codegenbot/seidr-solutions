@@ -1,4 +1,3 @@
-```cpp
 #include<cstdlib>
 using namespace std;
 int add(int x, int y) {
@@ -10,4 +9,3 @@ int main() {
     int y=rand()%1000;
     cout << "Sum: " << add(x,y) << endl;
     return 0;
-}
