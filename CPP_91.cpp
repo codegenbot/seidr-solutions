@@ -5,9 +5,8 @@ int is_bored(string S){
     while ((pos = S.find(" ", pos)) != string::npos) {
         if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
-            break;
         }
-        pos++;
+        pos += 1;
     }
     return count;
 }
