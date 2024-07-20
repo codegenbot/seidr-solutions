@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 int main() {
-    int Strongest_Extension(string class_name,vector<string> extensions){
+    int Strongest_Extension(string class_name, vector<string> extensions) {
         int strongest = -1;
         string strongest_extension;
         for(auto &extension : extensions){
@@ -21,27 +22,23 @@ int main() {
         return class_name + "." + strongest_extension;
     }
 
-    string className, extensionsString;
+    string className, extensionsStr;
     cout << "Enter the name of the class: ";
     cin >> className;
-    cout << "Enter the list of extensions (comma separated): ";
-    getline(cin, extensionsString);
-    vector<string> extensions = split(extensionsString, ',');
-    
+
+    cout << "Enter the list of extensions (space separated): ";
+    cin >> extensionsStr;
+
+    vector<string> extensions;
+    istringstream iss(extensionsStr);
+    string extension;
+    while(getline(iss, extension, ' ')) {
+        extensions.push_back(extension);
+    }
+
     int result = Strongest_Extension(className, extensions);
 
     cout << "The strongest extension is: " << result << endl;
 
     return 0;
-}
-
-string split(const string& str, char sep) {
-    size_t pos = 0, prev = 0;
-    vector<string> tokens;
-    while ((pos = str.find(sep, prev)) != string::npos) {
-        tokens.push_back(str.substr(prev, pos - prev));
-        prev = pos + 1;
-    }
-    tokens.push_back(str.substr(prev));
-    return tokens[0];
 }
