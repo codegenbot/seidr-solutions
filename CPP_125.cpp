@@ -1,37 +1,32 @@
-vector<string> result;
-    string delimiter = " ";
-    size_t pos = 0;
-    string token;
-    
-    while ((pos = txt.find(delimiter)) != string::npos) {
-        token = txt.substr(0, pos);
-        result.push_back(token);
-        txt.erase(0, pos + delimiter.length());
-    }
-    
-    // Check if there are no whitespaces and split on commas
-    if (txt.find(',') != string::npos) {
-        delimiter = ",";
-        pos = 0;
-        while ((pos = txt.find(delimiter)) != string::npos) {
-            token = txt.substr(0, pos);
-            result.push_back(token);
-            txt.erase(0, pos + delimiter.length());
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
+    bool hasWhiteSpace = false;
+    for(char c : txt){
+        if(c == ' '){
+            hasWhiteSpace = true;
+            result.push_back(word);
+            word = "";
+        } else if(c == ','){
+            hasWhiteSpace = true;
+            result.push_back(word);
+            word = "";
+        } else {
+            word += c;
         }
-        result.push_back(txt);
-    } else if (result.empty()) {
-        int odd_chars = 0;
-        for(char c : txt) {
-            if (islower(c)) {
-                int ord = c - 'a';
-                if (ord % 2 != 0) {
-                    odd_chars++;
-                }
+    }
+    if(hasWhiteSpace){
+        if(!word.empty()){
+            result.push_back(word);
+        }
+    } else {
+        int oddCount = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 != 0){
+                oddCount++;
             }
         }
-        result.push_back(to_string(odd_chars));
-    } else {
-        result.push_back(txt);
+        result.push_back(to_string(oddCount));
     }
-    
     return result;
+}
