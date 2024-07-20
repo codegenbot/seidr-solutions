@@ -1,8 +1,10 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.empty() && b.empty();
+namespace std {
+    bool issame(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
 }
 
 std::vector<int> generate_integers(int a, int b) {
