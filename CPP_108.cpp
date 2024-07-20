@@ -13,7 +13,7 @@ int count_nums(std::vector<int> nums) {
             }
             count++;
         } else {
-            int sum = 0, sign = 1;
+            int sum = 0, sign = -1; // Changed this line
             int abs_num = abs(num);
             while (abs_num > 0) {
                 sum += abs_num % 10;
