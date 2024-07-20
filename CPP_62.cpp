@@ -1,7 +1,4 @@
-#include <vector>
-#include <cassert>
-
-bool is_same(std::vector<float> a, std::vector<float> b) {
+bool is_same(std::vector<float> a, std::vector<float> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +12,7 @@ bool is_same(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> derivative(std::vector<float> xs){
     std::vector<float> result;
-    for(int i = 1; i < xs.size(); i++){
+    for(size_t i = 1; i < xs.size(); i++){
         result.push_back(xs[i] * i);
     }
     return result;
