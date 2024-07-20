@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -14,9 +15,6 @@ void custom_sort(std::vector<int>& arr) {
     });
 }
 
-int main() {
-    std::vector<int> arr = {2, 4, 8, 16, 32};
-    custom_sort(arr);
-    assert(issame(arr, {2, 4, 8, 16, 32}));
-    return 0;
-}
+std::vector<int> arr = {2, 4, 8, 16, 32};
+custom_sort(arr);
+assert(issame(arr, {2, 4, 8, 16, 32}));
