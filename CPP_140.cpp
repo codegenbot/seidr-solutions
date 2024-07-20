@@ -1,15 +1,18 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        int count = 1;
-        while (i + count < text.size() && text[i + count] == ' ') {
-            ++count;
-        }
-        if (count > 2) {
-            text.replace(i, count, "-");
+string fix_spaces(string text){
+    string result = "";
+    int count_consecutive_spaces = 0;
+    for(char c : text){
+        if(c == ' '){
+            count_consecutive_spaces++;
+            if(count_consecutive_spaces > 2){
+                result += '-';
+            } else {
+                result += '_';
+            }
         } else {
-            text[i] = '_';
+            count_consecutive_spaces = 0;
+            result += c;
         }
     }
-}
-return text;
+    return result;
 }
