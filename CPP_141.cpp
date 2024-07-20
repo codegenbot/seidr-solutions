@@ -1,28 +1,29 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+Here is the completed code:
 
-    for (int i = 0; i < file_name.length(); i++) {
-        if (isdigit(file_name[i])) {
-            digit_count++;
-            if (digit_count > 3) return "No";
-        } else if (file_name[i] == '.') {
-            found_dot = true;
-        } else if (!found_dot && !isalpha(file_name[i])) {
-            return "No";
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+            if (digitCount > 3)
+                return "No";
+        } else if (c == '.') {
+            foundDot = true;
         }
     }
 
-    if (!found_dot || file_name.find('.') == string::npos) {
+    if (!foundDot || file_name.find('.') == string::npos)
         return "No";
-    }
 
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    for (string ext : valid_extensions) {
-        if (extension == ext) break;
-    }
-    if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    string beforeDot = file_name.substr(0, file_name.find('.'));
+    string afterDot = file_name.substr(file_name.find('.') + 1);
+
+    if (beforeDot.empty() || !isalpha(beforeDot[0]))
+        return "No";
+    if (!(afterDot == "txt" || afterDot == "exe" || afterDot == "dll"))
+        return "No";
 
     return "Yes";
 }
