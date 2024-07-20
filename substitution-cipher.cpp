@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <map>
 #include <string>
@@ -17,12 +16,7 @@ string decipher(string cipher_map1, string cipher_map2, string message) {
     for (char c : message) {
         if(mapping.find(tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
-            char temp = mapping[tolower(c)];
-            // Handle case of uppercase characters as well
-            if(isalpha(temp))
-                result += (isupper(c) ? toupper(temp) : tolower(temp));
-            else
-                result += temp; 
+            result += mapping[tolower(c)];
         } else {
             // If character is not found in the map, add it as it is to the result
             result += c; 
@@ -35,13 +29,10 @@ string decipher(string cipher_map1, string cipher_map2, string message) {
 int main() {
     char cipher_map1[256], cipher_map2[256], message[256];
     cout << "Enter the first string: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.getline(cipher_map1, 256);
     cout << "Enter the second string: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.getline(cipher_map2, 256);
     cout << "Enter the message to decipher: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.getline(message, 256);
     cout << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
     return 0;
