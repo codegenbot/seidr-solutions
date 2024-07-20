@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card = [int(x) for x in str(card_number)]
     
@@ -16,7 +17,7 @@ def luhn(card_number):
         total += num
         is_second = not is_second
         
-    return str(total % 10 == 0)
+    return total % 10 == 0
 
 card_number = int(input().strip())
 print(luhn(card_number))
