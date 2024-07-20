@@ -29,6 +29,7 @@ vector<string> reverse_delete(string s, string c) {
         right--;
     }
     
+    vector<string> finalResult;
     finalResult.push_back(res);
     if (isPalindrome) {
         finalResult.push_back("True");
