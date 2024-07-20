@@ -1,22 +1,36 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> sort_third(const std::vector<int>& l) {
-    std::vector<int> result = l;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            std::sort(result.begin() + i, result.begin() + i + 3);
-        }
+void sort_third(vector<int>& v) {
+    for (int i = 0; i < v.size(); i += 3) {
+        sort(v.begin() + i, v.begin() + i + 3);
     }
-    return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(vector<int>& v1, vector<int>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    vector<int> result = l;
+    sort_third(result);
     
+    vector<int> expected_result = l;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            sort(expected_result.begin() + i, expected_result.begin() + i + 3);
+        }
+    }
+    
+    if (issame(result, expected_result)) {
+        cout << "Output matches expected result." << endl;
+    } else {
+        cout << "Output does not match expected result." << endl;
+    }
     return 0;
 }
