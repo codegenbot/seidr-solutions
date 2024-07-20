@@ -1,3 +1,3 @@
-float triangle_area(float a, float h){
-    return 0.5 * a * h;
+float area = 0.5 * a * h;
+    return area;
 }
