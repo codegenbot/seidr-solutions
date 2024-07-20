@@ -10,11 +10,13 @@ std::string camelCase(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             inWord = true;
+        } else if (!inWord && c == ' ') { 
+            continue; 
         } else {
-            if (!inWord && c != '-') { // Start of a new word
+            if (!inWord) {
                 inWord = true;
                 result += toupper(c);
-            } else if (c != '-') {
+            } else {
                 result += tolower(c);
             }
         }
