@@ -1,18 +1,15 @@
-string int_to_mini_romank(int number){
-    vector<pair<int, string>> roman_map = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
-    };
+vector<string> romans{"i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix",
+                              "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc",
+                              "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm",
+                              "m", "mm", "mmm"};
 
-    string result = "";
-    
-    for (const auto& pair : roman_map) {
-        while (number >= pair.first) {
-            result += pair.second;
-            number -= pair.first;
+        string result = "";
+        int index = 0;
+        while (number > 0) {
+            int digit = number % 10;
+            result = romans[index + digit - 1] + result;
+            number /= 10;
+            index += 10;
         }
+        return result;
     }
-    
-    return result;
-}
