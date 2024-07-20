@@ -36,13 +36,3 @@ bool isPrime(int n) {
         }
     }
     return true;
-
-int main() {
-    vector<int> lst;
-    int num;
-    while (cin >> num) {
-        lst.push_back(num);
-    }
-    cout << skjkasdkd(lst) << endl;
-    return 0;
-}
