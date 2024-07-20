@@ -2,13 +2,22 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result;
-    for (size_t i = 0; i < a.size(); ++i) {
-        result.push_back(a[i] - b[i]);
-    }
-    return result;
+int main() {
+    assert(issame(std::vector<int>{1, 2, 3, 5}, std::vector<int>{1, 2, 3, 5}) == true);
+    assert(issame(std::vector<int>{-1, 2, 3, 4}, std::vector<int>{-1, 2, 3, 4}) == true);
+    assert(issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3, 4}) == false);
+    assert(issame(std::vector<int>{1, 2, 3, 5}, std::vector<int>{1, 2, 3}) == false);
 }
