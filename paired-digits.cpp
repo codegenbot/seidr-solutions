@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 int pairedDigits(std::string s) {
     while (!s.empty() && s[0] == '0') s.erase(0, 1);
     int sum = 0;
@@ -11,12 +8,4 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::string s;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> s;
-    int result = pairedDigits(s);
-    std::cout << "Sum of the paired digits is: " << result << std::endl;
 }
