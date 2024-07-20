@@ -20,10 +20,9 @@ std::vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin >> text >> ws;
     std::getline(cin, target);
-    cin.ignore(); 
+    cin.ignore(INT_MAX);
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
