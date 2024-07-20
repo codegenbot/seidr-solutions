@@ -5,11 +5,11 @@ T issame(const T& lst1, const T& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
-    for (const string& str : lst1) {
+    for (const std::string& str : lst1) {
         total_chars1 += str.size();
     }
     
-    for (const string& str : lst2) {
+    for (const std::string& str : lst2) {
         total_chars2 += str.size();
     }
     
