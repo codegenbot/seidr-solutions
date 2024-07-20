@@ -5,7 +5,12 @@ bool issame(map<char, int> a, map<char, int> b) {
 map<char, int> histogram(string test);
 
 int main() {
-    // Main function code here
+    string test;
+    getline(cin, test);
+    map<char, int> result = histogram(test);
+    for (const auto& entry : result) {
+        cout << entry.first << " " << entry.second << endl;
+    }
     return 0;
 }
 
