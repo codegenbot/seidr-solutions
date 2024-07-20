@@ -25,8 +25,6 @@ std::string spinWords(std::string str) {
     }
     return result;
 
-}
-
 int main() {
     std::string testString = "Hello World";
     std::cout << spinWords(testString) << std::endl;
