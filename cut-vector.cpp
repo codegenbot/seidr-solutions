@@ -8,17 +8,17 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
-            result[0] = {v.begin(), v.end()};
+            result[0] = {v};
             result[1].clear();
             break;
         }
         
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; j++) {
-            leftSum += *v.begin() + j;
+            leftSum += v[j];
         }
         for (int j = i; j < n; j++) {
-            rightSum += *v.begin() + j;
+            rightSum += v[j];
         }
         
         if (leftSum == rightSum) {
