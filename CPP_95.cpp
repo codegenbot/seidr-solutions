@@ -1,24 +1,18 @@
-Here is the completed code:
-
-```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
-    
-    bool all_lower = true;
+
     bool all_upper = true;
-    
-    for (const auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            all_lower = false;
-            all_upper = false;
-            break;
-        } else if (!all_lower || !all_upper) {
-            continue;
+    bool all_lower = true;
+
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!all_upper && !all_lower) break;
+        if (all_upper) {
+            all_upper = all_upper && tolower(it->first).find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos;
         }
-        
-        all_lower &= islower(pair.first[0]);
-        all_upper &= isupper(pair.first[0]);
+        if (all_lower) {
+            all_lower = all_lower && toupper(it->first).find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos;
+        }
     }
-    
-    return all_lower || all_upper;
+
+    return all_upper || all_lower;
 }
