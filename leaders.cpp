@@ -10,7 +10,7 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    leaders.push_back(rightmost);
+    leaders.push_back(arr.back());
     return leaders;
 }
 
