@@ -1,3 +1,4 @@
+```c++
 #include <map>
 #include <string>
 #include <iostream>
@@ -32,4 +33,4 @@ int main() {
     std::cout << "Enter the message to decipher: ";
     std::cin.getline(message, 256);
     std::cout << "Deciphered message: " << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
-    return {0};
+    return 0;
