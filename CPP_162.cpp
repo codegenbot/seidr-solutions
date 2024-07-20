@@ -9,16 +9,17 @@ string string_to_md5(string text) {
         return "";
     }
 
-    MD5_CTX ctx;
+    MD5_CTX md5;
     unsigned char result[16];
     stringstream ss;
+    MD5_Init(&md5);
+    MD5_Update(&md5, text.c_str(), text.size());
+    MD5_Final(result, &md5);
 
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(result, &ctx);
-
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+    for (int i = 0; i < 16; i++) {
+        char buff[3];
+        sprintf(buff, "%02x", result[i]);
+        ss << buff;
     }
 
     return ss.str();
