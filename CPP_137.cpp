@@ -15,10 +15,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
+        string s1 = boost::any_cast<string>(a);
+        string s2 = boost::any_cast<string>(b);
+        return (s1 > s2) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a == b ? boost::any("None") : (a.convert_to<int>() > b.convert_to<int>()) ? a : b;
+        return a.convert_to<int>() > b.convert_to<int>() ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return a.convert_to<float>() > b.convert_to<float>() ? a : b;
