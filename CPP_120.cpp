@@ -1,4 +1,2 @@
 sort(arr.begin(), arr.end(), greater<int>());
-    arr.resize(k);
-    return arr;
-}
+return vector<int>(arr.begin(), arr.begin() + k);
