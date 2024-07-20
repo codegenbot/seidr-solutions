@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,13 +12,13 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> createVectorWithZeros(int n) {
+std::vector<int> yourFunctionName(int n) {
     return std::vector<int>(n, 0);
 }
 
 int main() {
     int n = 2;
-    std::vector<int> tri = createVectorWithZeros(n);
+    std::vector<int> tri = yourFunctionName(n);
     assert(issame(tri, {0, 0}));
     return 0;
 }
