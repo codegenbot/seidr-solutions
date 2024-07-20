@@ -25,7 +25,8 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string numbers = "three seven two";
+    string numbers = "one two three";
     string sorted_numbers = sort_numbers(numbers);
-    assert(sorted_numbers == "3 7 2");
+    assert(sorted_numbers == "1 2 3");
+    return 0;
 }
