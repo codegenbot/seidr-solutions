@@ -1,25 +1,40 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (char c : s) {
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    std::string word = "";
+    for (char c : str) {
         if (c == '-') {
-            result += c + ((result.length() > 0) ? "" : " ");
+            words.push_back(word);
+            word = "";
         } else if (c == ' ') {
-            continue;
+            words.push_back(word);
+            word = "";
         } else {
-            result += toupper(c);
+            word += c;
         }
     }
+    words.push_back(word);
+
+    std::string result = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
+        } else {
+            result += words[i];
+        }
+    }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
