@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double snowDay(int hours, double groundSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
-    double totalSnow = groundSnow;
+    double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
         groundSnow = max(0.0, groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow);
