@@ -15,6 +15,6 @@ auto compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(*std::any_cast<std::string>(compare_one<std::string>(std::string("1"), std::string("1"))).compare(std::string("1")) == 0);
+    assert(*std::any_cast<std::string>(compare_one<std::string>(std::string("1"), std::string("1"))) == std::string("1"));
     return 0;
 }
