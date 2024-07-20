@@ -1,16 +1,14 @@
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <unordered_set>
 
-vector<int> common(vector<int> l1,vector<int> l2){
-    vector<int> result;
-    set<int> s1(l1.begin(),l1.end());
-    set<int> s2(l2.begin(),l2.end());
+vector<int> common(vector<int> l1, vector<int> l2) {
+    unordered_set<int> set1(l1.begin(), l1.end());
+    set1.erase(unique(set1.begin(), set1.end()), set1.end());
 
-    for(set<int>::iterator it = s1.begin(); it != s1.end(); ++it)
-        if(s2.find(*it) != s2.end())
-            result.push_back(*it);
+    unordered_set<int> set2(l2.begin(), l2.end());
+    set2.erase(unique(set2.begin(), set2.end()), set2.end());
 
-    sort(result.begin(),result.end());
-    return result;
+    set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+        back_inserter(set1));
+
+    return vector<int>(set1.begin(), set1.end());
 }
