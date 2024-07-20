@@ -20,9 +20,3 @@ pair<float, float> find_closest_elements(vector<float> numbers){
     }
     return {result.first, result.second};
 }
-
-int main(){
-    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
-    pair<float, float> closest_elements = find_closest_elements(numbers);
-    return 0;
-}
