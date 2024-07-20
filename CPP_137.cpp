@@ -1,30 +1,16 @@
-if(a.type() == typeid(int) && b.type() == typeid(int)){
-    int intA = boost::any_cast<int>(a);
-    int intB = boost::any_cast<int>(b);
-    if(intA > intB) return intA;
-    else if(intA < intB) return intB;
-    else return "None";
-} else if(a.type() == typeid(float) && b.type() == typeid(float)){
-    float floatA = boost::any_cast<float>(a);
-    float floatB = boost::any_cast<float>(b);
-    if(floatA > floatB) return floatA;
-    else if(floatA < floatB) return floatB;
-    else return "None";
-} else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    string strA = boost::any_cast<string>(a);
-    string strB = boost::any_cast<string>(b);
-    replace(strA.begin(), strA.end(), ',', '.');
-    replace(strB.begin(), strB.end(), ',', '.');
-    if(stof(strA) > stof(strB)) return strA;
-    else if(stof(strA) < stof(strB)) return strB;
-    else return "None";
-} else if((a.type() == typeid(int) && b.type() == typeid(string))
-        || (a.type() == typeid(string) && b.type() == typeid(int))){
-    int intA = (a.type() == typeid(int)) ? boost::any_cast<int>(a) : stoi(boost::any_cast<string>(a));
-    int intB = (b.type() == typeid(int)) ? boost::any_cast<int>(b) : stoi(boost::any_cast<string>(b));
-    if(intA > intB) return intA;
-    else if(intA < intB) return intB;
-    else return "None";
+if(a.index() == 0 && b.index() == 0){
+    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
+    if(boost::any_cast<int>(b) > boost::any_cast<int>(a)) return b;
+} else if(a.index() == 1 && b.index() == 1){
+    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)) return a;
+    if(boost::any_cast<float>(b) > boost::any_cast<float>(a)) return b;
+} else {
+    string sa = boost::any_cast<string>(a);
+    string sb = boost::any_cast<string>(b);
+    sa.erase(std::remove(sa.begin(), sa.end(), ','), sa.end());
+    sb.erase(std::remove(sb.begin(), sb.end(), ','), sb.end());
+    if(stof(sa) > stof(sb)) return a;
+    if(stof(sb) > stof(sa)) return b;
 }
-return boost::any();
+return "None";
 }
