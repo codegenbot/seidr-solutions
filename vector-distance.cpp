@@ -17,14 +17,12 @@ int main() {
     std::cin >> n;
 
     float v1[n], v2[n];
-    std::cout << "Enter vector 1: ";
+    std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Element " << i + 1 << ": ";
         std::cin >> v1[i];
     }
-    std::cout << "Enter vector 2: ";
+    std::cout << "Enter vector 2 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Element " << i + 1 << ": ";
         std::cin >> v2[i];
     }
 
