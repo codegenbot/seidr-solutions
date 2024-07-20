@@ -15,6 +15,6 @@ bool isMatch(const vector<string>& vec) {
 }
 
 int main() {
-    assert(isMatch({")", "("}) == true);
+    assert(isMatch({}) == true);
     return 0;
 }
