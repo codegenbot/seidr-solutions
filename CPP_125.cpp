@@ -13,7 +13,7 @@ vector<string> words;
     if (!word.empty()) {
         words.push_back(word);
     }
-    if (words.empty()) {
+    if (words.size() == 0) {
         int count = 0;
         for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
