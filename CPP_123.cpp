@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+std::vector<int> get_odd_collatz(int n);
+
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -17,6 +17,10 @@ std::vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
