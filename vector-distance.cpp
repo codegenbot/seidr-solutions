@@ -5,8 +5,11 @@
 
 using namespace std;
 
-double vectorDistance(int n) {
-    float v1[n], v2[n];
+double vectorDistance() {
+    int n;
+    cin >> n;
+    
+    float v1[100], v2[100];
     
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
@@ -21,8 +24,5 @@ double vectorDistance(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance() << endl;
 }
