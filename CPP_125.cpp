@@ -21,6 +21,6 @@ vector<string> split_words(const string& txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), vector<string>({""})));
+    assert(issame(split_words(""), {""}));
     return 0;
 }
