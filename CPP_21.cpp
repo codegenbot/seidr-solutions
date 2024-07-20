@@ -15,8 +15,14 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
+    // Test the rescale_to_unit function
     vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
+    
+    // Output the rescaled numbers
+    for (float num : rescaled_numbers) {
+        cout << num << " ";
+    }
     
     return 0;
 }
