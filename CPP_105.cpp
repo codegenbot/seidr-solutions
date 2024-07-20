@@ -1,9 +1,13 @@
+Here is the completed code:
+
 vector<string> by_length(vector<int> arr) {
     vector<int> sortedArr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            sortedArr.push_back(i);
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sortedArr.push_back(num);
+        }
     }
+    sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
     vector<string> result;
     for (int num : sortedArr) {
@@ -40,4 +44,3 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
     return result;
-}
