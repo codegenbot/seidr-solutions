@@ -1,4 +1,6 @@
-Here is the completed code:
+#include <string>
+
+using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty()) return false;

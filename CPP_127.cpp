@@ -1,5 +1,6 @@
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start = std::max(interval1[0], interval2[0]);
@@ -19,8 +20,6 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
 
     return isPrime ? "YES" : "NO";
 }
-
-#include <iostream>
 
 int main() {
     std::vector<int> interval1 = {1, 5};

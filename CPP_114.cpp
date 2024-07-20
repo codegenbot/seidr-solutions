@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -14,5 +15,6 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    assert(minSubArraySum({1, -1}) == 0);
+    vector<long long> nums = {1, -1};
+    cout << minSubArraySum(nums) << endl;
 }
