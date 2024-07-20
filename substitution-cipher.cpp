@@ -1,10 +1,10 @@
-```cpp
 #include <map>
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::map<char, char> mapping;
+    std::unordered_map<char, char> mapping;
     for (int i = 0; i < cipher_map1.length(); i++) {
         mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
         mapping[toupper(cipher_map1[i])] = toupper(cipher_map2[i]);
@@ -31,6 +31,5 @@ int main() {
     std::cin.getline(cipher_map2, 256);
     std::cout << "Enter the message to decipher: ";
     std::cin.getline(message, 256);
-    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
+    std::cout << "Deciphered message: " << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
     return 0;
-}
