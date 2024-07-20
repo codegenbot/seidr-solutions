@@ -32,7 +32,7 @@ int main() {
         std::cout << "Vectors are not permutations of each other.\n";
     }
 
-    assert(issame({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(std::vector<int>{0, 6, 6, -76, -21, 23, 4}, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
