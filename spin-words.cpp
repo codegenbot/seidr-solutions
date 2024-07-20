@@ -35,7 +35,7 @@ int main() {
     string str;
     while(true) {
         cout << "Enter a sentence (or 'exit' to quit): ";
-        getline(cin, str);
+        getline(cin, str); 
         if(str == "exit") break;
         cout << spinWords(str) << endl;
     }
