@@ -1,17 +1,22 @@
 string fix_spaces(string text){
     string result = "";
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(result.length() > 0 && (result.back() == ' ' || result.back() == '-')){
-                if(i < text.length()-1 && text[i+1] == ' '){
-                    result += '-';
-                }else{
-                    result += '_';
+    for(int i=0; i<text.size(); i++){
+        if(text[i] == ' ' && (i==0 || text[i-1] != ' ') && (i==text.size()-1 || text[i+1] != ' ')){
+            result += '_';
+        } else if(text[i] == ' '){
+            bool consecutive = false;
+            for(int j=i; j<text.size(); j++){
+                if(text[j] == ' '){
+                    consecutive = true;
+                    i = j;
+                    break;
                 }
-            }else{
-                result += '_';
+                if(!consecutive) {
+                    result += '-';
+                    break;
+                }
             }
-        }else{
+        } else {
             result += text[i];
         }
     }
