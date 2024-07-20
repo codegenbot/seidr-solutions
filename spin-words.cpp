@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <string>
+#include <iostream>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
@@ -32,4 +33,6 @@ std::string spinWords(std::string sentence) {
     return result;
 }
 
-int main() { return spinWords("This is a test sentence"); }
+int main() {
+    std::cout << spinWords("This is a test sentence") << std::endl;
+    return 0;
