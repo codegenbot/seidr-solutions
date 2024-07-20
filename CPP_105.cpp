@@ -8,20 +8,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> arr.push_back(i);
+    vector<string> result = by_length({1,2,3});
+    for (const string &s : result) {
+        cout << s << endl;
     }
-    vector<string> result = by_length(arr);
-    cout << "Result: ";
-    for(string str : result) {
-        cout << str << " ";
-    }
-    return 0;
 }
 
 vector<string> by_length(vector<int> arr) {
