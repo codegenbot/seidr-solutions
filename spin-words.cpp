@@ -1,7 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -37,8 +38,7 @@ int main() {
         cout << "Enter a sentence (or 'exit' to quit): ";
         getline(cin, str);
         if (!str.empty()) {
-            cout << "Please enter valid input (e.g., words separated by spaces): ";
-            getline(cin, str);
+            str.erase(0, str.find_first_not_of(' '));
         }
         if(str == "exit") break;
         cout << spinWords(str) << endl;
