@@ -11,7 +11,7 @@ bool is_prime(int n) {
     return true;
 }
 
-bool is_multiply_prime(int a){
+bool is_multiply_prime(int a) {
     if (a < 6) return false;
     
     vector<int> primes;
@@ -20,8 +20,8 @@ bool is_multiply_prime(int a){
     }
     
     for (int i = 0; i < primes.size(); i++) {
-        for (int j = i; j < primes.size(); j++) {
-            for (int k = j; k < primes.size(); k++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
                 if (primes[i] * primes[j] * primes[k] == a) return true;
             }
         }
@@ -31,8 +31,15 @@ bool is_multiply_prime(int a){
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << (is_multiply_prime(n) ? "true" : "false") << endl;
+    int num;
+    cout << "Enter a number less than 100: ";
+    cin >> num;
+    
+    if (is_multiply_prime(num)) {
+        cout << num << " is a multiplication of 3 prime numbers." << endl;
+    } else {
+        cout << num << " is not a multiplication of 3 prime numbers." << endl;
+    }
+    
     return 0;
 }
