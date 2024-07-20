@@ -1,18 +1,30 @@
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string find_max(vector<string> words) {
+    string maxWord = *min_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
-                return a < b;
+            int countA = a.size();
+            int countB = b.size();
+            if (countA != countB)
+                return countA > countB;
+            int uniqueCountA = 0;
+            for (char c : a) {
+                if (c >= 'a' && c <= 'z') {
+                    uniqueCountA++;
+                    break;
+                }
             }
-            return a.size() > b.size();
+            int uniqueCountB = 0;
+            for (char c : b) {
+                if (c >= 'a' && c <= 'z') {
+                    uniqueCountB++;
+                    break;
+                }
+            }
+            return uniqueCountA > uniqueCountB;
         });
-    for(const auto &word : words){
-        if(word.size() >= max_word.size()){
-            set<char> s(word.begin(), word.end());
-            if(s.size() > (set<char>(max_word.begin(), max_word.end())).size()){
-                max_word = word;
-            }
-        }
-    }
-    return max_word;
+    return maxWord;
 }
