@@ -1,8 +1,18 @@
-if (x <= 0 || n <= 0) {
+#include <iostream>
+#include <cmath>
+#include <cassert>
+
+bool is_simple_power(int x, int n) {
+    if (x <= 0 || n <= 0) {
         return false;
     }
     
     double result = log(x) / log(n);
+    return (result == floor(result));
+}
+
+int main() {
+    assert (is_simple_power(1, 12)==true);
     
-    return (result == (int)result);
+    return 0;
 }
