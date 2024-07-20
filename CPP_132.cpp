@@ -1,10 +1,8 @@
-int stack_size = 0;
-for (char c : str) {
-    if (c == '[') {
-        stack_size++;
-    } else if (c == ']') {
-        if (stack_size <= 0) return false;
-        stack_size--;
+bool is_nested(string str) {
+    int open = 0, close = 0;
+    for (char c : str) {
+        if (c == '[') open++;
+        else if (c == ']') close++;
     }
+    return open > 0 && close > open;
 }
-return stack_size > 0;
