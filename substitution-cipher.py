@@ -1,12 +1,18 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     if len(cipher1) != len(cipher2):
         print("Warning: cipher strings are not the same length")
-    cipher_map = {k:v for k,v in zip(cipher1.lower(), cipher2.lower())}
+    cipher_map = {(char1 if char1.isalpha() else '-').lower():(char2 if char2.isalpha() else '-').lower() for char1, char2 in zip(cipher1, cipher2)}
     deciphered_message = ""
     for char in message:
-        deciphered_message += char if not char.isalpha() else cipher_map.get(char.lower(), char)
-        if char.isupper():
-            deciphered_message += char.upper()
+        if char.isalpha():
+            deciphered_char = cipher_map.get(char.lower(), char)
+            if char.isupper():
+                deciphered_message += deciphered_char.upper()
+            else:
+                deciphered_message += deciphered_char
+        else:
+            deciphered_message += char
     return deciphered_message
 
 cipher1 = input("Enter the first string: ")
