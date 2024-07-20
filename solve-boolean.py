@@ -2,8 +2,8 @@
 def solve_boolean(expression):
     ops = ['&', '|']
     stack = []
-    result = True if expression[0] == 'T' else False
     expression = expression[::-1]
+    result = True if expression[0] == 'T' else False
 
     for char in expression:
         if char not in ops and char != 'T' and char != 'F':
