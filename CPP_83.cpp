@@ -10,25 +10,10 @@ int starts_one_ends(int n) {
             count++;
         }
         if (i > 1) {
-            for (int j = 1; j <= n; j++) {
-                int num = i * pow(10, n - 1);
-                if ((num % 10) == 1) {
-                    count++;
-                }
-                else if (j < n) {
-                    int digit = (num / pow(10, n - 1)) % 10;
-                    num = i * pow(10, j - 1) + digit * pow(10, n - j);
-                    for (int k = j; k < n; k++) {
-                        if ((num % 10) != 1) {
-                            break;
-                        }
-                        num /= 10;
-                        j--;
-                    }
-                    if (j == 0) {
-                        count++;
-                    }
-                }
+            int num = i;
+            while (num < 10 * pow(10, n - 1)) {
+                num *= 10;
+                count++;
             }
         }
     }
