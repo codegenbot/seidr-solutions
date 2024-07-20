@@ -1,3 +1,4 @@
+```cpp
 string decipher(string cipher_map1, string cipher_map2, string message) {
     map<char, char> mapping;
     for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
