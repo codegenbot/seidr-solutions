@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::vector<int>(a) == std::vector<int>(b);
+    return a == b;
 }
 
 std::vector<int> maximum(const std::vector<int>& arr, int k) {
