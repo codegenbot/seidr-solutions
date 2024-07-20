@@ -18,15 +18,15 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    std::vector<float> v1(n), v2(n);  // Initialize with n elements
+    std::vector<std::vector<float>> v1, v2;  // Initialize with n elements
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         float s;
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 1: ";
             std::cin >> s;
             try {
-                v1[i] = s;
+                v1[i].push_back(s);
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
@@ -39,7 +39,7 @@ int main() {
             std::cout << "Enter element " << i+1 << " of vector 2: ";
             std::cin >> s;
             try {
-                v2[i] = s;
+                v2[i].push_back(s);
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
@@ -51,11 +51,15 @@ int main() {
 
     double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = v2[i] - v1[i];
-        distance += diff * diff;
+        double sum = 0.0;
+        for (int j = 0; j <= i; j++) {
+            double diff = v2[j] - v1[j];
+            sum += diff * diff;
+        }
+        distance += sqrt(sum);
     }
-    
-    std::cout << "Euclidean distance between the two vectors is: " << sqrt(distance) << std::endl;
+
+    std::cout << "Euclidean distance between the two vectors is: " << distance << std::endl;
 
     return 0;
 }
