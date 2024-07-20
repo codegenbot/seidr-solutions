@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdio>
 
 bool valid_date(const std::string& date) {
     if (date.empty()) {
@@ -40,13 +41,13 @@ bool valid_date(const std::string& date) {
 
 int main() {
     std::string date;
-    std::cout << "Enter a date in the format (MM-DD-YYYY): ";
+    std::cout << "Enter a date in the format (mm-dd-yyyy): ";
     std::cin >> date;
 
     if (valid_date(date)) {
-        std::cout << "Valid date." << std::endl;
+        std::cout << "Valid date\n";
     } else {
-        std::cout << "Invalid date." << std::endl;
+        std::cout << "Invalid date\n";
     }
 
     return 0;
