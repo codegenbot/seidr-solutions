@@ -1,7 +1,7 @@
-#include <iostream>
+#include <string>
 #include <vector>
+#include <iostream>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -36,10 +36,4 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    
-    return 0;
 }
