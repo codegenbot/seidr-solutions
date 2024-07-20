@@ -1,3 +1,4 @@
+```cpp
 Str solve(Str s){
     Str result = "";
     for(int i=0; i<s.length(); i++){
