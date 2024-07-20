@@ -8,31 +8,30 @@ def solve_boolean(expression):
         elif char == '(':
             operator_stack.append(char)
         elif char in ['|', '&']:
-            while len(operator_stack) and (operator_stack[-1] == '&' or (char == '|' and operator_stack[-1] == '|')):
-                a = stack.pop() == 'T'
+            while (len(operator_stack) and ((operator_stack[-1] == '&' and char == '|') or
+                                             (operator_stack[-1] == '|' and char == '&'))):
+                op = operator_stack.pop()
                 b = stack.pop() == 'T'
-                if operator_stack[-1] == '&':
+                a = stack.pop() == 'T'
+                if op == '&':
                     stack.append(a and b)
                 else:
                     stack.append(a or b)
-                operator_stack.pop()
             operator_stack.append(char)
         elif char == ')':
-            while operator_stack[-1] != '(':
-                a = stack.pop() == 'T'
+            while len(operator_stack) and operator_stack[-1] != '(':
+                op = operator_stack.pop()
                 b = stack.pop() == 'T'
-                if operator_stack[-1] == '&':
+                a = stack.pop() == 'T'
+                if op == '&':
                     stack.append(a and b)
                 else:
                     stack.append(a or b)
-                operator_stack.pop()
             operator_stack.pop()
     while len(operator_stack):
-        a = stack.pop() == 'T'
-        b = stack.pop() == 'T'
-        if operator_stack[-1] == '&':
-            stack.append(a and b)
-        else:
-            stack.append(a or b)
-        operator_stack.pop()
+        op = operator_stack.pop()
+        if op == '&':
+            stack.append(stack.pop() == 'T' and stack.pop() == 'T')
+        elif op == '|':
+            stack.append(stack.pop() == 'T' or stack.pop() == 'T')
     return stack[0] == 'T' if stack else None
