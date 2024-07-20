@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()){
@@ -15,9 +14,18 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
+std::vector<int> make_a_pile(int n);
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> pile = make_a_pile(n);
+    return 0;
+}
+
 std::vector<int> make_a_pile(int n){
     std::vector<int> result;
-    for(int i = 0; i < n; i++){
+    for(int i=0; i<n; i++){
         result.push_back(8 + 2*i);
     }
     return result;
