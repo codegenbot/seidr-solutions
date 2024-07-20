@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <cassert>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
