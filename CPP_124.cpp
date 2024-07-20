@@ -40,15 +40,15 @@ bool valid_date(const std::string& date) {
 }
 
 int main() {
-    std::string date;
-    std::cout << "Enter a date in the format (mm-dd-yyyy): ";
-    std::cin >> date;
-
-    if (valid_date(date)) {
-        std::cout << "Valid date\n";
+    std::string input_date;
+    std::cout << "Enter a date in the format (MM-DD-YYYY): ";
+    std::cin >> input_date;
+    
+    if (valid_date(input_date)) {
+        std::cout << "Valid date entered." << std::endl;
     } else {
-        std::cout << "Invalid date\n";
+        std::cout << "Invalid date entered." << std::endl;
     }
-
+    
     return 0;
 }
