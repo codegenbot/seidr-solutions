@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,4 +20,9 @@ std::vector<int> get_odd_collatz(int n) {
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    // Your code goes here...
 }
