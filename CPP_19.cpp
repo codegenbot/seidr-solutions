@@ -1,20 +1,32 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_num_map;
-for (auto const &pair : num_map) {
-    rev_num_map[pair.second] = pair.first;
-}
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-string result;
-string current_num;
-for (char c : numbers) {
-    if (c == ' ') {
-        result += rev_num_map[num_map[current_num]] + " ";
-        current_num = "";
-    } else {
-        current_num += c;
+string sort_numbers(string numbers) {
+    vector<string> number_words;
+    stringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        number_words.push_back(word);
     }
-}
-result += rev_num_map[num_map[current_num]];
-
-return result;
+    
+    sort(number_words.begin(), number_words.end(), [&](const string& a, const string& b) {
+        return number_map[a] < number_map[b];
+    });
+    
+    string sorted_numbers;
+    for (const string& word : number_words) {
+        sorted_numbers += word + " ";
+    }
+    sorted_numbers.pop_back(); // Remove the extra space at the end
+    return sorted_numbers;
 }
