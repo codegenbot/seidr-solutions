@@ -1,38 +1,14 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    bool result = false;
-
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
-                operationStack.pop();
-            }
-            operationStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            while (!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
-            }
-            operationStack.push('|');
-        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 't') {
-            result = true;
-        } else if (booleanExpression[i] == 'F' || booleanExpression[i] == 'f') {
-            result = false;
-        } else {
-            while (!operationStack.empty()) {
-                operationStack.pop();
-            }
-            if (result) {
-                operationStack.push('&');
-            } else {
-                operationStack.push('|');
-            }
-            result = true;
+string solveBoolean(string s) {
+    bool res = (s[0] == 'T');
+    for(int i=1; i<s.length(); i++){
+        if(s[i]=='&') {
+            res &= (s[i+1] == 'T');
+            i++;
+        }
+        else if(s[i] == '|') {
+            res |= (s[i+1] == 'T');
+            i++;
         }
     }
-
-    while (!operationStack.empty()) {
-        operationStack.pop();
-    }
-
-    return result;
+    return res ? "True" : "False";
 }
