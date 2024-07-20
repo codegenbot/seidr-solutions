@@ -1,18 +1,8 @@
-#include <vector>
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    // your logic here
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    if (k > arr.size()) {
-        return {};
-    }
-    sort(arr.begin(), arr.end());
-    for (int i = arr.size() - 1; i >= arr.size() - k; --i) {
-        result.push_back(arr[i]);
-    }
-    return result;
+int main() {
+    assert (issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+    return 0;
 }
