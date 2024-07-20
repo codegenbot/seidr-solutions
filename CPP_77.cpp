@@ -1,20 +1,22 @@
-#include <cmath>
-#include <iostream>
-
+```cpp
+// Task: Determine whether a given number is a perfect cube.
 bool iscuber(int a){
     int c = (int)cbrt(a);
     return a == pow(c, 3);
 }
 
-int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
+#include <cmath>
+#include <iostream>
 
-    if(iscuber(num)) {
-        std::cout << num << " is a perfect cube.\n";
+int main() {
+    int n;
+    std::cout << "Enter an integer: ";
+    std::cin >> n;
+
+    if(iscuber(n)) {
+        std::cout << n << " is a perfect cube.\n";
     } else {
-        std::cout << num << " is not a perfect cube.\n";
+        std::cout << n << " is not a perfect cube.\n";
     }
 
     return 0;
