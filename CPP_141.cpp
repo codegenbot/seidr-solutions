@@ -1,22 +1,34 @@
-Here is the completed code:
-
-string file_name_check(string file_name){
+int count_digits(const string& str) {
     int count = 0;
-    bool foundDot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9')
+    for (char c : str) {
+        if (isdigit(c)) {
             count++;
-        else if(file_name[i] == '.'){
-            foundDot = true;
-        }
-        else if(i > 0 && (file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
-            return "No";
         }
     }
-    if(count > 3 || !foundDot)
+    return count;
+}
+
+string file_name_check(string file_name) {
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos == 0) {
         return "No";
-    string extension = file_name.substr(file_name.find('.')+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll")
+    }
+
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!all_of(before_dot.begin(), before_dot.end(), ::isalpha)) {
         return "No";
+    }
+
+    if (count_digits(file_name) > 3) {
+        return "No";
+    }
+
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) {
+        return "No";
+    }
+
     return "Yes";
 }
