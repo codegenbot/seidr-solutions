@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <string>
 
 std::string spinWords(std::string sentence) {
