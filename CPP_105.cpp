@@ -1,3 +1,5 @@
+#include <string>
+
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
@@ -11,35 +13,36 @@ vector<string> by_length(vector<int> arr) {
 
     vector<string> result;
     for (int num : numbers) {
+        string str = "";
         switch (num) {
             case 1:
-                result.push_back("One");
+                str = "One";
                 break;
             case 2:
-                result.push_back("Two");
+                str = "Two";
                 break;
             case 3:
-                result.push_back("Three");
+                str = "Three";
                 break;
             case 4:
-                result.push_back("Four");
+                str = "Four";
                 break;
             case 5:
-                result.push_back("Five");
+                str = "Five";
                 break;
             case 6:
-                result.push_back("Six");
+                str = "Six";
                 break;
             case 7:
-                result.push_back("Seven");
+                str = "Seven";
                 break;
             case 8:
-                result.push_back("Eight");
+                str = "Eight";
                 break;
             case 9:
-                result.push_back("Nine");
-                break;
+                str = "Nine";
         }
+        result.push_back(str);
     }
 
     return result;
