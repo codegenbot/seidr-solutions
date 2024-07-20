@@ -20,16 +20,12 @@ int main() {
     float v1[n], v2[n];
     std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        if (!(std::cin >> v1[i])) {
-            // error handling code here
-        }
+        std::cin >> v1[i]; 
     }
     
     std::cout << "Enter vector 2 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        if (!(std::cin >> v2[i])) {
-            // error handling code here
-        }
+        std::cin >> v2[i]; 
     }
 
     double distance = vectorDistance(n, v1, v2);
