@@ -14,7 +14,7 @@ std::vector<int> yourFunctionName(int n){
     return tri;
 }
 
-int main(){
+int main() {
     int n = 2; // Set appropriate value for n
     std::vector<int> tri = yourFunctionName(n); // Call your function with appropriate parameter
     assert(issame(tri, {0, 0})); // Check if the result is as expected
