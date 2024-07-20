@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -26,4 +32,12 @@ string spinWords(string str) {
     }
 
     return result + " ";
+}
+
+int main() {
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("this is another test") << endl;
+    cout << spinWords("hi") << endl;
+    return 0;
 }
