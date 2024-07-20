@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     parsing = True
@@ -7,9 +6,11 @@ def solve_boolean(expression):
             if not parsing:
                 result = eval(''.join(map(str, stack)))
                 stack = []
-                parsing = False
+                parsing = bool(result)
             stack.append(char)
         elif char in ['|', '&']:
-            stack.append(char)
-            parsing = (char == '|')
-    return eval(''.join(map(str, stack)))
+            if char == '&':
+                stack[-1] = f'({stack[-1]} & '
+            else:
+                stack[-1] = f'({stack[-1]} | ' 
+    return eval(''.join(map(str, [stack[0][:-2]])))
