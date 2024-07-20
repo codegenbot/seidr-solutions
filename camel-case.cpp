@@ -33,19 +33,19 @@ std::string camelCase(std::string s) {
 int main() {
     std::string temp;
     std::string result = "";
-    bool first = true;
 
     while (std::cin >> temp, !std::cin.fail()) {
-        if (!first) 
+        if (!result.empty()) 
             result += " ";
-        else 
-            first = false;
         for (char c : temp) {
-            if (c == '-') break;
-            if (first) 
+            if (c == '-') {
+                result += char(toupper(c));
+                break;
+            } else if (first) 
                 result += toupper(c);
             else 
                 result += tolower(c);
+            first = false;
         }
     }
 
