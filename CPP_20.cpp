@@ -20,7 +20,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    const std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    const std::vector<float>& result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
     if (issame(result, std::vector<float>{2.2f, 3.1f})) {
         std::cout << "Test case passed!" << std::endl;
     } else {
