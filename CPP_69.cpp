@@ -1,8 +1,15 @@
-int search(vector<int> lst) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int search(vector<int> lst){
     int max = -1;
-    for (auto num : lst) {
-        if (num > 0 && num <= count(lst.begin(), lst.end(), num)) {
+    for(int num : lst){
+        if(num > 0 && num >= count(lst.begin(), lst.end(), num)){
             max = num;
+            break;
         }
     }
     return max;
