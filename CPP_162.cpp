@@ -1,8 +1,5 @@
-Here is the modified code:
-
-```cpp
 #include <string>
-#include <openssl/md5.h>
+#include <algorithm>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
