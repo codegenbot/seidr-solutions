@@ -5,7 +5,13 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+    std::vector<int> a_sorted = a;
+    std::vector<int> b_sorted = b;
+
+    std::sort(a_sorted.begin(), a_sorted.end());
+    std::sort(b_sorted.begin(), b_sorted.end());
+
+    return std::is_permutation(a_sorted.begin(), a_sorted.end(), b_sorted.begin());
 }
 
 int order_by_points(const std::vector<int>& points) {
