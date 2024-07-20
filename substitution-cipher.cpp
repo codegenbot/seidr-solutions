@@ -1,20 +1,22 @@
-```c++
+#include <initializer_list>
 #include <map>
 #include <string>
 #include <iostream>
 #include <limits>
 
-std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::map<char, char> mapping;
-    for (int j = 0; j < std::min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping.insert(std::make_pair(std::tolower(cipher_map1[j]), std::tolower(cipher_map2[j])));
+using namespace std;
+
+map<char, char> mapping;
+string decipher(string cipher_map1, string cipher_map2, string message) {
+    for (int j = 0; j < min(cipher_map1.length(), cipher_map2.length()); j++) {
+        mapping.insert(make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
-    std::string result = "";
+    string result = "";
     for (char c : message) {
-        if(mapping.find(std::tolower(c)) != mapping.end()) {
+        if(mapping.find(tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
-            result += mapping[std::tolower(c)];
+            result += mapping[tolower(c)];
         } else {
             // If character is not found in the map, add it as it is to the result
             result += c; 
@@ -25,16 +27,16 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 }
 
 int main() {
-    char cipher_map1[257], cipher_map2[257], message[257];
-    std::cout << "Enter the first string: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin.getline(cipher_map1, 257);
-    std::cout << "Enter the second string: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin.getline(cipher_map2, 257);
-    std::cout << "Enter the message to decipher: ";
-    std::cin.ignore(std::numericlimits<std::streamsize>::max(), '\n');
-    std::cin.getline(message, 257);
-    std::cout << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
+    char cipher_map1[256], cipher_map2[256], message[256];
+    cout << "Enter the first string: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.getline(cipher_map1, 256);
+    cout << "Enter the second string: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.getline(cipher_map2, 256);
+    cout << "Enter the message to decipher: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.getline(message, 256);
+    cout << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
     return 0;
 }
