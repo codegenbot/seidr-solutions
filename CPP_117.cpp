@@ -1,9 +1,9 @@
 #include <vector>
+#include <string>
 #include <algorithm>
-using namespace std;
 
 bool issame(vector<string>, vector<string>) {
-    // implementation of the function goes here
+    // your implementation here
 }
 
 vector<string> select_words(string s, int n) {
