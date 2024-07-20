@@ -1,10 +1,9 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool compare(const std::string& a, const std::string& b) {
-    if (a.length() == b.length())
-        return true;
-    return false;
+bool compare(const std::string& str1, const std::string& str2) {
+    return str1 == str2;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
