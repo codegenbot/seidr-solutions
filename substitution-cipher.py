@@ -1,6 +1,17 @@
-cipher1, cipher2, text_to_decipher = input().split(), input().split()[0], input()
+cipher1 = input("Enter first cipher string: ")
+cipher2 = input("Enter second cipher string: ")
+
 cipher_map = {}
 for i in range(len(cipher1)):
     cipher_map[cipher1[i]] = cipher2[i]
-result = ''.join([cipher_map.get(c, c) for c in text_to_decipher])
-print(result)
+
+message = input("Enter the message to decipher: ")
+
+deciphered_message = ""
+for char in message:
+    if char in cipher_map:
+        deciphered_message += cipher_map[char]
+    else:
+        deciphered_message += char
+
+print(deciphered_message)
