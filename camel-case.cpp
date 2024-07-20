@@ -9,21 +9,12 @@ std::string camelCase(std::string str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!inWord) {
-                inWord = true;
-                continue;
-            }
-            char nextChar = c + 1;
-            while(nextChar <= ' ') {
-                nextChar++;
-            }
-            result += std::toupper(nextChar - 1);
-            inWord = false;
+            inWord = true;
         } else if (inWord) {
             result += std::toupper(c);
+            inWord = false;
         } else {
             result += std::tolower(c);
-            inWord = true;
         }
     }
 
@@ -34,6 +25,7 @@ int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, str);
+    str.erase(str.find_last_not_of("\n") + 1);
 
     std::cout << "Camel case output: " << camelCase(str) << std::endl;
 
