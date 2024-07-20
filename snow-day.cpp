@@ -1,32 +1,27 @@
 #include <iostream>
-using namespace std;
+#include <cmath>
 
-double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+int main() {
+    int hours = 0; 
+    float initialSnow = 0.0f;
+    float rateOfFall = 0.0f;
+    float meltRate = 0.0f;
+
+    std::cout << "Enter hours: ";
+    std::cin >> hours;
+    std::cout << "Enter initial snow: ";
+    std::cin >> initialSnow;
+    std::cout << "Enter rate of fall: ";
+    std::cin >> rateOfFall;
+    std::cout << "Enter melt rate (as a percentage): ";
+    std::cin >> meltRate;
+
     double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
         snow += rateOfFall;
         snow *= (1 - meltRate / 100.0);
     }
-    return snow;
-}
-
-int main() {
-    int hours;
-    float initialSnow, rateOfFall, meltRate;
-
-    cout << "Enter the number of hours: ";
-    cin >> hours;
-    cout << "Enter the initial snow in cm: ";
-    cin >> initialSnow;
-    cout << "Enter the rate of fall in cm/hour: ";
-    cin >> rateOfFall;
-    cout << "Enter the melt rate as a percentage: ";
-    cin >> meltRate;
-
-    double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
-
-    cout << fixed << showpoint << setprecision(2);
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " cm" << endl;
+    std::cout << "Result: " << snow << std::endl;
 
     return 0;
 }
