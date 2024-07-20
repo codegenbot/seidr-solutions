@@ -17,9 +17,9 @@ int main() {
     std::cout << "Enter three numbers: ";
     std::cin >> a >> b >> c;
     if(any_int(a, b, c)) {
-        std::cout << "At least one integer.\n";
+        std::cout << "The sum of two integers is an integer.\n";
     } else {
-        std::cout << "No integers.\n";
+        std::cout << "The sum of two integers is not an integer.\n";
     }
     return 0;
 }
