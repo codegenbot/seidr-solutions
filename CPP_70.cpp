@@ -1,8 +1,11 @@
 ```cpp
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a,vector<int>b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size();i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -20,4 +23,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({1,2,3}), {1,3,2}));
+    assert(!issame(strange_sort_vector({1,2,3,4}), {1,3,2,4}));
+    return 0;
 }
