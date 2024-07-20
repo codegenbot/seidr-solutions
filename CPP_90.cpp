@@ -1,10 +1,8 @@
-int next_smallest(vector<int> lst){
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i = 0; i < (int)sorted.size() - 1; ++i){
-        if(sorted[i] != sorted[i+1]){
-            return sorted[i+1];
-        }
-    }
-    return -1; // or None as per the problem description
+vector<int>::iterator it = min_element(lst.begin(), lst.end());
+if (next(it) != lst.end()) {
+    return *it;
+} else if (!lst.empty()) {
+    return None; // or return 0 if you want to return an integer value
+} else {
+    return None; // or return 0 if you want to return an integer value
 }
