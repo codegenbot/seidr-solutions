@@ -4,8 +4,8 @@
 #include <algorithm>
 
 std::string spinWords(const std::string& input) {
-    std::string output;
     std::stringstream ss(input);
+    std::string output;
     std::string word;
 
     while (ss >> word) {
@@ -19,6 +19,7 @@ std::string spinWords(const std::string& input) {
 }
 
 int main() {
+    // Test the function
     std::cout << spinWords("a") << std::endl;
     std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
