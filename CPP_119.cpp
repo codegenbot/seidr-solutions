@@ -1,24 +1,17 @@
-bool check(vector<char>& s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(')
-            count++;
-        else
-            count--;
-        if (count < 0) return false;
-    }
-    return true;
-}
+Here is the solution to the problem:
 
-string match_parens(vector<string> lst) {
-    vector<char> left, right;
+```cpp
+int match_parens(vector<string> lst) {
+    stack<char> s;
     for (string str : lst) {
         for (char c : str) {
-            if (c == '(')
-                left.push_back(c);
-            else
-                right.push_back(c);
+            if (c == '(') {
+                s.push(c);
+            } else {
+                if (s.empty() || s.top() != '(') return 0; // No match
+                s.pop();
+            }
         }
     }
-    return check(left) && check(right) ? "Yes" : "No";
+    return s.empty(); // Check if stack is empty, if not then no match
 }
