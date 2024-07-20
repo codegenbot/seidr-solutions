@@ -4,9 +4,10 @@
 #include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
     std::stringstream ss(sentence);
     std::string word;
+    
+    std::string result = "";
     
     while (ss >> word) {
         if (word.length() >= 5)
