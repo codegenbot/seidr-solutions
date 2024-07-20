@@ -1,13 +1,25 @@
-bool check_dict_case(map<string,string> dict){
-    if(dict.empty()) return false;
-    bool all_upper = true, all_lower = true;
-    for(auto p : dict){
-        string key = p.first;
-        if(!all_upper && !all_lower) break;
-        for(char c : key){
-            if(c >= 'a' && c <= 'z') all_upper = false;
-            else if(c >= 'A' && c <= 'Z') all_lower = false;
+bool check_dict_case(map<string, string> dict) {
+    if (dict.empty())
+        return false;
+
+    bool allUpper = true;
+    bool allLower = true;
+
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!allUpper && !allLower)
+            return false;
+
+        if (!allUpper) {
+            if (!(it->first).find((char)32) == string::npos)
+                allUpper = false;
+        }
+
+        if (!allLower) {
+            for (char& c : it->first)
+                if (c >= 'A' && c <= 'Z')
+                    allLower = false;
         }
     }
-    return all_upper || all_lower;
+
+    return allUpper || allLower;
 }
