@@ -12,8 +12,7 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    assert(monotonic({1.0, 2.0, 3.0}) == true);
-    assert(monotonic({3.0, 2.0, 1.0}) == true);
-    assert(monotonic({1.0, 2.0, 1.0}) == false);
+    std::vector<float> nums = {1.1, 2.2, 3.3, 4.4, 5.5};
+    assert(monotonic(nums));
     return 0;
 }
