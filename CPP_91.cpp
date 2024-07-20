@@ -16,5 +16,5 @@ int is_bored(string S){
 }
 
 int main() {
-    assert (is_bored("") == 0);
+    assert(is_bored("") == 0);
 }
