@@ -8,8 +8,3 @@ int get_matrix_triples(int n) {
     }
     return count;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
