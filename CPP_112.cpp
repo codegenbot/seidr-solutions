@@ -1,10 +1,10 @@
 #include <vector>
 #include <algorithm>
-using namespace std;
+#include <string>
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char i : s) {
         bool found = false;
         for (char j : c) {
@@ -18,8 +18,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
+    std::string rev = temp;
+    std::reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
     } else {
