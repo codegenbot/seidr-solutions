@@ -7,13 +7,13 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            string word = "";
-            for (int j = i; j <= s.find(' ', i); j++) {
-                word += s[j];
+            char temp = s[i];
+            while (i + 1 < s.length() && s[i + 1] <= temp) {
+                i++;
             }
-            sort(word.begin(), word.end());
-            result += word;
-            i = s.find(' ', i) - 1;
+            for (; i >= 0 && s[i] <= temp; i--) {
+                result += s[i];
+            }
         }
     }
     return result;
