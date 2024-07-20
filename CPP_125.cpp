@@ -2,8 +2,8 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::string& s) {
-    return s.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos;
+bool issame(const std::string& str) {
+    return str.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos;
 }
 
 std::vector<std::string> split_words(const std::string& txt) {
