@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,27 +19,23 @@ int gcd(int a, int b) {
     if (b == 0)
         return a;
     else
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-    return a;
+        return gcd(b, a % b);
 }
 
 int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
     std::cin >> a;
-    while ((std::cin.peek() != '\n') && (std::cin.peek() != EOF)) std::cin.ignore();
+    std::cin.ignore();
     std::cin >> b;
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cout << "Enter the text and target string for Indices of Substring: ";
+    std::cout << "Enter the text string for Indices of Substring: ";
     std::getline(std::cin, text);
-    while ((std::cin.peek() != '\n') && (std::cin.peek() != EOF)) std::cin.ignore();
-    std::getline(std::cin, target);
+    std::cout << "Enter the target string for Indices of Substring: ";
+    std::cin >> target; 
+    std::cin.ignore(); 
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
