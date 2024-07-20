@@ -3,13 +3,14 @@
 
 struct RomanPair {
     int value;
-    char symbol;
+    std::string symbol;
 };
 
 std::string intToMiniRoman(int num) {
     std::string roman = "";
-    RomanPair pairs[] = {{1000, 'M'}, {900, '\x43'}, {500, 'D'}, {400, '\x43'},{100, 'C'}, {90, '\x58'}, {50, 'L'}, {40, '\x58'},
-                          {10, '\x58'}, {9, '\x49'}, {5, 'V'}, {4, '\x49'}, {1, 'I'}};
+    RomanPair pairs[] = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+                          {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+                          {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
     int i = 0;
     while (num > 0) {
         if (num >= pairs[i].value) {
