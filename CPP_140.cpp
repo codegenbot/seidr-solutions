@@ -8,11 +8,11 @@ string result = "";
                 result.pop_back();
                 result += "-";
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
-            consecutive_spaces = 0;
             result += c;
+            consecutive_spaces = 0;
         }
     }
     return result;
