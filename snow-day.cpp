@@ -1,5 +1,9 @@
-int main() {
-    double snow = snowDay(10, 10.0, 1.0, 5.0); 
-    std::cout << "Total Snow: " << snow << std::endl;
-    return 0;
+```cpp
+double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+    double snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        snow += rateOfFall;
+        snow *= (1 - meltRate / 100.0);
+    }
+    return snow;
 }
