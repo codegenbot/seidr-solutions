@@ -26,6 +26,6 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string input = "camel-case example-test-string";
-    std::cout << std::camelCase(input) << std::endl;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
