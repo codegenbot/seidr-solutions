@@ -1,16 +1,15 @@
+#include <iostream>
 #include <algorithm>
 #include <string>
-#include <cassert>
-#include <cstring>
 
-std::string remove_vowels(const std::string& text) {
-    std::string result = text;
-    result.erase(std::remove_if(result.begin(), result.end(), [](char c) { return strchr("aeiouAEIOU", c) != nullptr; }), result.end());
-    return result;
+std::string remove_vowels(std::string text) {
+    text.erase(std::remove_if(text.begin(), text.end(), [](char c) { return std::strchr("aeiouAEIOU", c) != NULL; }), text.end());
+    return text;
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-
+    std::string text;
+    std::cin >> text;
+    std::cout << remove_vowels(text) << std::endl;
     return 0;
 }
