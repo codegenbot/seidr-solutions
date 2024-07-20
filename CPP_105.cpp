@@ -1,19 +1,21 @@
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> nums;
+bool issame(vector<string> a, vector<string>b);
+
+vector<string> by_length(vector<int> arr) {
+    vector<string> nums;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            nums.push_back(i);
+            nums.push_back(to_string(i));
     }
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
-    std::vector<std::string> result;
-    for (int num : nums) {
-        std::string str = "";
-        switch (num) {
+    vector<string> result;
+    for (string num : nums) {
+        string str = "";
+        switch (stoi(num)) {
             case 1:
                 str = "One";
                 break;
@@ -48,9 +50,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> result = by_length(arr);
-    if (result == std::vector<std::string>({"Nine", "Eight", "Four"})) {
-        std::cout << "The result is same." << std::endl;
-    }
+    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    return 0;
 }
