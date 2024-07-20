@@ -3,12 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-void custom_sort(std::vector<int>& arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+void custom_sort(vector<int>& arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
         return (count_a == count_b) ? a < b : count_a < count_b;
@@ -16,9 +16,9 @@ void custom_sort(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {2, 4, 8, 16, 32};
+    vector<int> arr = {2, 4, 8, 16, 32};
     custom_sort(arr);
-    assert(issame(arr, arr));
+    assert(issame(arr, {2, 4, 8, 16, 32}));
     
     return 0;
 }
