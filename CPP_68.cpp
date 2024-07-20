@@ -1,29 +1,27 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <climits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your logic to check if vectors are same
-}
+using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> evenNodes;
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            evenNodes.push_back({arr[i], i});
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if(arr.empty()) return result;
+    
+    int smallest = INT_MAX;
+    int smallestIndex = -1;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        if(arr[i] % 2 == 0 && arr[i] < smallest) {
+            smallest = arr[i];
+            smallestIndex = i;
         }
     }
-
-    if (evenNodes.empty()) {
-        return {};
+    
+    if(smallest != INT_MAX) {
+        result.push_back({smallest, smallestIndex});
     } else {
-        std::sort(evenNodes.begin(), evenNodes.end());
-        return {{evenNodes[0].first, evenNodes[0].second}};
+        result.push_back({0, -1});
     }
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
+    
+    return result;
 }
