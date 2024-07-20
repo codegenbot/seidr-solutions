@@ -5,8 +5,7 @@
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
     for (int j = 0; j < std::min(cipher_map1.length(), cipher_map2.length()); j++) {
-        mapping[tolower(cipher_map1[j])] = tolower(cipher_map2[j]);
-        mapping[toupper(cipher_map1[j])] = toupper(cipher_map2[j]);
+        mapping.insert(std::make_pair(cipher_map1[j], cipher_map2[j]));
     }
     
     std::string result = "";
@@ -19,17 +18,17 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
             result += c; 
         }
     }
-    return result;
+    if(result.empty()) return "Deciphered message: ";
+    return "Deciphered message: " + result;
 }
 
 int main() {
     char cipher_map1[256], cipher_map2[256], message[256];
     std::cout << "Enter the first string: ";
-    std::cin >> cipher_map1;
+    std::cin.getline(cipher_map1, 256);
     std::cout << "Enter the second string: ";
-    std::cin >> cipher_map2;
+    std::cin.getline(cipher_map2, 256);
     std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
+    std::cin.getline(message, 256);
+    std::cout << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
     return 0;
-}
