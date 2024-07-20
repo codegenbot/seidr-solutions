@@ -1,7 +1,17 @@
 #include <vector>
+#include <iostream>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+using namespace std;
+
+bool issame(int n1, int n2) {
+    if (n1 == n2)
+        return true;
+    else
+        return false;
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
