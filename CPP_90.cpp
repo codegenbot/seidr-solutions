@@ -1,13 +1,13 @@
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None in Python equivalent
-    
-    sort(lst.begin(), lst.end());
-    
-    for(int i = 0; i < lst.size()-1; i++) {
-        if (lst[i] != lst[i+1]) {
-            return lst[i+1];
+    if (lst.size() < 2) {
+        return -1; // or any other value that represents "None"
+    }
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 0; i < sorted.size(); i++) {
+        if (sorted[i] != sorted[0]) {
+            return sorted[i];
         }
     }
-    
-    return -1; // Return None in Python equivalent
+    return -1; // or any other value that represents "None"
 }
