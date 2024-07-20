@@ -1,47 +1,54 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    if (n == 1)
-        return {v, {}};
+    vector<vector<int>> result(2);
     
-    int minDiff = INT_MAX;
-    int pos;
-    for (int i = 0; i < n - 1; ++i) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j <= i; ++j)
-            sum1 += v[j];
-        for (int j = i + 1; j < n; ++j)
-            sum2 += v[j];
+    if (n == 0)
+        return result;
         
-        if (abs(sum1 - sum2) < minDiff) {
-            minDiff = abs(sum1 - sum2);
-            pos = i;
-        }
+    int left_sum = 0, right_sum = 0;
+    
+    for (int i = 0; i < n/2; i++) {
+        left_sum += v[i];
+        right_sum += v[n-i-1];
     }
     
-    return {std::vector<int>(v.begin(), v.begin() + pos), std::vector<int>(v.begin() + pos, v.end())};
+    if (n % 2 == 1)
+        result[0] = vector<int>(v.begin(), v.end()-1);
+    else
+        result[0] = vector<int>(v.begin(), v.end());
+        
+    result[1].push_back(v.back());
+    
+    return result;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> v(n);
-    for (auto &x : v)
-        std::cin >> x;
-    
-    auto res = cutVector(v);
-    
-    cout << "First half: ";
-    for (const auto &x : res.first)
-        cout << x << " ";
-    cout << endl;
-    
-    cout << "Second half: ";
-    for (const auto &x : res.second)
-        cout << x << " ";
-    cout << endl;
-    
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
+
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> v[i];
+    }
+
+    vector<vector<int>> result = cutVector(v);
+
+    cout << "The resulting subvectors are: " << endl;
+    for (int i = 0; i < 2; i++) {
+        if (i == 0)
+            cout << "Left: ";
+        else
+            cout << "Right: ";
+        
+        for (int num : result[i])
+            cout << num << " ";
+        cout << endl;
+    }
+
     return 0;
 }
