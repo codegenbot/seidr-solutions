@@ -9,13 +9,21 @@ std::string camelCase(std::string str) {
 
     for (char c : str) {
         if (c == '-') {
-            inWord = true;
-            continue;
+            if (!inWord) {
+                inWord = true;
+                continue;
+            }
+            char nextChar = c + 1;
+            while(nextChar <= ' ') {
+                nextChar++;
+            }
+            result += std::toupper(nextChar - 1);
+            inWord = false;
         } else if (inWord) {
             result += std::toupper(c);
-            inWord = false;
         } else {
             result += std::tolower(c);
+            inWord = true;
         }
     }
 
