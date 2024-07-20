@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,8 +27,9 @@ int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
     std::stringstream ss;
-    ss << a; std::cin >> a; 
-    ss.clear(); ss << b; std::cin >> b;
+    ss >> a;
+    std::cout << std::endl;
+    ss >> b;
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
