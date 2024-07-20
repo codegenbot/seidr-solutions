@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 
@@ -9,7 +8,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     
     if(arr.empty()) return result;
     
-    int smallest_even = INT_MAX;  
+    int smallest_even = std::numeric_limits<int>::max();
     int smallest_index = -1;
     
     for(int i = 0; i < arr.size(); i++) {
