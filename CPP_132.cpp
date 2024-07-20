@@ -1,9 +1,11 @@
-int count = 0;
-for(char c : str){
-    if(c == '[') count++;
-    else if(c == ']') {
-        if(count <= 0) return false;
-        count--;
+int stack_size = 0;
+for (char c : str) {
+    if (c == '[') {
+        stack_size++;
+    } else if (c == ']') {
+        if (stack_size <= 0)
+            return false;
+        stack_size--;
     }
 }
-return count > 0;
+return stack_size > 0;
