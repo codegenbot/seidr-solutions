@@ -1,17 +1,23 @@
-#include<string>
-using namespace std;
-
 string words_in_sentence(string sentence){
     string result = "";
-    int n = sentence.size();
-    for(int i=0; i<n; i++){
-        if(i > 0) result += " ";
-        string word = sentence.substr(i, n-i);
-        bool isPrime = true;
-        for(int j = 2; j*j <= stol(word); j++)
-            if(stol(word) % j == 0)
-                isPrime = false;
-        if(isPrime) result += word;
+    int i = 0;
+    while(i < sentence.size()){
+        int j = i+1;
+        while(j <= sentence.size() && !isalpha(sentence[j])){
+            j++;
+        }
+        if(j > i) {
+            string word = sentence.substr(i, j-i);
+            bool is_prime = true;
+            for(int k = 2; k*k <= stol(word); k++){
+                if(stol(word)%k == 0){
+                    is_prime = false;
+                    break;
+                }
+            }
+            if(is_prime) result += word + " ";
+        }
+        i = j;
     }
     return result;
 }
