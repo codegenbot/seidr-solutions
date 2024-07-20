@@ -1,24 +1,17 @@
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
-
-bool issame(int n1, int n2) {
-    if (n1 == n2)
-        return true;
-    else
-        return false;
-}
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        pile.push_back(stones);
-        if (stones % 2 == 1) {
-            stones = stones + 1;
+    unsigned int stones = 1; 
+    for (int i = 0; i < n; ++i) {
+        if ((stones + 1) % 2 == 0) {
+            pile.push_back(stones);
+            stones += 2;
         } else {
-            stones = stones + 2;
+            pile.push_back(stones);
+            stones += 1;
         }
     }
     return pile;
