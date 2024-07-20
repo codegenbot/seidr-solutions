@@ -1,8 +1,9 @@
-#include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
+}
 
 vector<string> by_length(vector<int> arr) {
     vector<int> sortedArr;
@@ -47,8 +48,3 @@ vector<string> by_length(vector<int> arr) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
