@@ -11,5 +11,6 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-int main() {
+int main() { 
+    return 0; 
 }
