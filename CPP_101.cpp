@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> words_string(string s) {
+vector<string> words_string(string s){
     vector<string> words;
     stringstream ss(s);
     string word;
@@ -19,11 +19,11 @@ vector<string> words_string(string s) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(vector<string> a, vector<string> b){
     return a == b;
 }
 
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+int main(){
+    assert(is_same(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
