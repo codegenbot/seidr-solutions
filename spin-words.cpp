@@ -12,8 +12,7 @@ std::string spinWords(std::string str) {
             else
                 result += word + " ";
             word = "";
-        } 
-        else 
+        } else
             word += c;
     }
 
@@ -34,3 +33,4 @@ int main() {
         std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
     return 0;
+}
