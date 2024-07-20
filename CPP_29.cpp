@@ -15,10 +15,16 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main(){
-    vector<string> strings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
-    for (const auto& str : strings) {
+int main() {
+    string prefix;
+    cin >> prefix;
+    
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"};
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+
+    for (const auto& str : filtered_strings) {
         cout << str << endl;
     }
+
     return 0;
 }
