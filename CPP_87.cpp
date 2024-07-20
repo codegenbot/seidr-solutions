@@ -1,6 +1,4 @@
 #include <vector>
-#include <iostream>
-#include <algorithm>
 
 bool are_same(vector<vector<int>> a, vector<vector<int>> b){
     return a == b;
@@ -27,6 +25,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
 }
 
 int main() {
+    // Test cases
     assert (are_same(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
     
     return 0;
