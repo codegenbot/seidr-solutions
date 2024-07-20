@@ -37,20 +37,3 @@ bool isPrime(int n) {
     }
     return true;
 }
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-    
-    vector<int> lst(n);
-    
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> lst[i];
-    }
-    
-    std::cout << "The sum of digits in the largest prime number is: " << skjkasdkd(lst) << std::endl;
-    
-    return 0;
-}
