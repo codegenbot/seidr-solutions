@@ -12,8 +12,9 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.5f, 3.0f, -4.5f, 5.0f};
+    std::vector<float> lst = {1.5f, 3.0f, -4.7f, 2.0f};
     int result = double_the_difference(lst);
-    std::cout << "The difference is: " << result << std::endl;
+    std::cout << "The sum of squares is: " << result << std::endl;
+    
     return 0;
 }
