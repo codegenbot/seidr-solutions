@@ -1,24 +1,17 @@
-Here is the solution:
+#include <algorithm>
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    // Delete strings that have odd lengths from the input list
-    for (const string& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-
-    // Sort the resulted vector by length and then alphabetically
-    sort(result.begin(), result.end(),
+    auto it = unique(lst.begin(), lst.end(), 
+                      [](const string& a, const string& b) { return a.length() % 2 && b.length() % 2; });
+    lst.erase(it, lst.end());
+    
+    sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
+             if (a.length() == b.length()) 
                  return a < b;
-             } else {
+             else
                  return a.length() < b.length();
-             }
          });
 
-    return result;
+    return lst;
 }
