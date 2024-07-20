@@ -1,11 +1,16 @@
+```Python
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
-    for i in range(len(message)):
-        if i < len(message) and message[i] in cipher1:
-            try:
-                result += cipher2[cipher1.index(message[i])]
-            except ValueError:
-                result += message[i]
+    for char in message:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
-            result += message[i]
+            result += char
     return result
+
+cipher1 = "mibcrjldqgezwxpnkuyfs"
+cipher2 = "xfzhcupmnsdryevlkwojq"
+message = "cljbicefdwzlskwjjkgcypk"
+
+print(substitution_cipher(cipher1, cipher2, message))
