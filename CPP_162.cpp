@@ -19,13 +19,14 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", result[i]);
-        md5 += string(buffer);
+        md5 += buffer;
     }
 
     return md5;
 }
 
 int main() {
-    cout << string_to_md5("test") << endl;
+    string text = "Your input here";
+    cout << string_to_md5(text) << endl;
     return 0;
 }
