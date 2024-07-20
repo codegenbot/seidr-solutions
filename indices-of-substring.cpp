@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace;
@@ -21,7 +20,7 @@ int main() {
     string text, target;
     getline(cin, text);
     getline(cin, target);
-    std::vector<int> res = indicesOfSubstring(text, target);
+    vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
     return 0;
