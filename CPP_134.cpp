@@ -1,2 +1,8 @@
-size_t last_space = txt.find_last_of(' ');
-return (last_space != string::npos && !isalnum(txt[last_space + 1]));
+Here is the completed code:
+
+```
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    char last_char = txt.back();
+    return isalpha(last_char) && !isalnum(last_char);
+}
