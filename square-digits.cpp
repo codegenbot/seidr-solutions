@@ -1,6 +1,5 @@
-```c++
 #include <string>
-#include <iostream>
+using namespace std;
 
 std::string squareDigits(std::string input) {
     std::string output = "";
@@ -9,13 +8,4 @@ std::string squareDigits(std::string input) {
         output += std::to_string(digit * digit);
     }
     return output;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-    
-    std::cout << "Square of digits: " << squareDigits(input) << std::endl; 
-    return 0;
 }
