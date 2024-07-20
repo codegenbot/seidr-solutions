@@ -4,11 +4,13 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid operation")
     else:
         result = True if expression[0] == 'T' else False
-        for op in expression:
+        for op, val in zip(['&', '|'], [expression.index(op), expression.rindex(op)]):
             if op == '&':
-                result = result and (expression != 'T')
+                result = result and (val == 1)
             elif op == '|':
-                result = result or (expression != 'F')
+                result = result or (val == 1)
         return result
