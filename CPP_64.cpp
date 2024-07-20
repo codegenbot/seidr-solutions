@@ -1,11 +1,11 @@
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        if ((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') &&
-            (s.find(c) != s.rfind(c))) {
-            continue;
+    for(int i = 0; i < s.length(); i++){
+        char c = tolower(s[i]);
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'||
+           (c == 'y' && i == s.length() - 1)){
+            count++;
         }
-        count++;
     }
     return count;
 }
