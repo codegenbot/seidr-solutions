@@ -1,19 +1,19 @@
-string anti_shuffle(string s) {
+using namespace std;
+
+string anti_shuffle(string s){
     string result = "";
-    size_t pos = 0;
-    while ((pos = s.find(' ')) != string::npos) {
-        string word = s.substr(0, pos);
-        for (char &c : word) {
-            char temp = c;
-            for (int i = 0; i < word.length(); i++) {
-                if (temp > word[i]) {
-                    swap(temp, word[i]);
-                }
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            result += " ";
+        } else {
+            string temp = "";
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                temp += s[j];
+                i = j;
             }
+            sort(temp.begin(), temp.end());
             result += temp;
         }
-        s.erase(0, pos + 1);
     }
-    result += s;
     return result;
 }
