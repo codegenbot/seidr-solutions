@@ -1,12 +1,20 @@
 #include <iostream>
+using namespace std;
 
-double probability(int n, int m) {
-    return (double)(n - 1) / (n * m);
+double findProbability(int n, int m) {
+    double numerator = 0;
+    for (int i = m + 1; i <= n; i++) {
+        numerator += 1.0 / m;
+    }
+    
+    double denominator = (double)(n * m);
+    
+    return numerator / denominator;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(2) << probability(n, m) << "\n";
+    cin >> n >> m;
+    cout << fixed << setprecision(4) << findProbability(n, m) << endl;
     return 0;
 }
