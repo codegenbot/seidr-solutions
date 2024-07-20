@@ -20,13 +20,16 @@ int main() {
     float* v1 = new float[n], *v2 = new float[n];
     std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << " of vector 1: ";
-        std::cin >> v1[i]; 
-        std::cin.ignore(); // ignore the newline character
-
-        std::cout << "Enter element " << i+1 << " of vector 2: ";
-        std::cin >> v2[i]; 
-        std::cin.ignore(); // ignore the newline character
+        std::string s;
+        std::cin >> s;
+        v1[i] = atof(s.c_str());
+    }
+    
+    std::cout << "Enter vector 2 (elements separated by spaces): ";
+    for (int i = 0; i < n; i++) {
+        std::string s;
+        std::cin >> s;
+        v2[i] = atof(s.c_str());
     }
 
     double distance = vectorDistance(n, v1, v2);
