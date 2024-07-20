@@ -26,7 +26,7 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
+    getline(cin, ws) >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
@@ -35,4 +35,3 @@ int main() {
     for(int i : indices)
         cout << i << " ";
     return 0;
-}
