@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -31,6 +32,6 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    assert(issame(pluck({7, 9, 7, 1}) , {}));
     return 0;
 }
