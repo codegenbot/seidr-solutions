@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert> // Add this line for using assert
+#include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return a == b;
 }
 
