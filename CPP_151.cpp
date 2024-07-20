@@ -1,9 +1,9 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for(auto num : lst) {
+    for (auto num : lst) {
         if (num > 0 && floor(num) == num) { 
             sum += pow(num, 2); 
         }
@@ -12,9 +12,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 3.0f, -4.7f, 2.0f};
-    int result = double_the_difference(lst);
-    std::cout << "The sum of squares is: " << result << std::endl;
-    
+    std::vector<float> lst = {1.5f, 3.7f, -4.2f}; 
+    float odd_sum = double_the_difference(lst);
+    assert(odd_sum == 6.25f); 
     return 0;
 }
