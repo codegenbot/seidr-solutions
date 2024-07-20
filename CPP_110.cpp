@@ -1,9 +1,9 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
-    for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
-    }
     for (int i = 0; i < lst1.size(); i++) {
         bool found = false;
         for (int j = 0; j < lst2.size(); j++) {
@@ -13,12 +13,10 @@ string exchange(vector<int> lst1, vector<int> lst2) {
                 break;
             }
         }
-        if (!found)
-            return "NO";
+        if (!found) return "NO";
     }
-    for (int num : lst1) {
-        if (num % 2 != 0)
-            return "NO";
+    for (int i : lst1) {
+        if (i % 2 != 0) return "NO";
     }
     return "YES";
 }
