@@ -1,10 +1,17 @@
+#include <iostream>
 #include <vector>
 
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size()){
+        return false;
+    }
     
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+        if(a[i] != b[i]){
+            return false;
+        }
     }
     
     return true;
@@ -32,4 +39,16 @@ vector<int> count_up_to(int n){
     }
     
     return primes;
+}
+
+int main(){
+    int n;
+    cin >> n;
+    
+    vector<int> result = count_up_to(n);
+    for(int prime : result){
+        cout << prime << " ";
+    }
+    
+    return 0;
 }
