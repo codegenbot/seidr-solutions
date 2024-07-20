@@ -1,11 +1,19 @@
+Here is the completed code:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int even_count = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) return "NO";
-    }
-    for (int i = 0; i < lst2.size(); i++) {
-        for (int j = i + 1; j < lst2.size(); j++) {
-            if ((lst2[i] % 2 == 0 && num % 2 != 0) || (lst2[j] % 2 != 0 && num % 2 == 0)) return "YES";
+        if (num % 2 == 0) {
+            even_count++;
         }
     }
-    return "NO";
+    bool can_exchange = false;
+    for (int num : lst2) {
+        if (num % 2 == 0 && !can_exchange) {
+            can_exchange = true;
+        } else if (num % 2 != 0 && can_exchange) {
+            return "NO";
+        }
+    }
+    return even_count > 0 ? "YES" : "NO";
 }
