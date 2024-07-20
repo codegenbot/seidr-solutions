@@ -1,12 +1,8 @@
 string decimal_to_binary(int decimal){
-    ostringstream oss;
-    oss << "db";
-    for(int i = 31; i >= 0; --i){
-        if((decimal >> i) & 1)
-            oss << '1';
-        else
-            oss << '0';
+    string binary = "";
+    while(decimal > 0){
+        binary = (decimal & 1) ? "1" + binary : "0" + binary;
+        decimal >>= 1;
     }
-    oss << "db";
-    return oss.str();
+    return "db" + binary + "db";
 }
