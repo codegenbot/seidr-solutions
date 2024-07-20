@@ -25,8 +25,7 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
-    (std::cin >> a).ignore();
-    (std::cin >> std::ws).get(b);
+    std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
