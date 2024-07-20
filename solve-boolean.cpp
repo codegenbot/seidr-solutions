@@ -6,12 +6,11 @@ std::string solveBoolean(std::string s) {
         if (s[i] == '&') {
             if (result && s[i+1] != '&')
                 return "False";
-            result &= (s[i+1] == '&' || s[i+1] == 'T');
         } else if (s[i] == '|') {
             if (!result && s[i+1] != '|')
                 return "False";
-            result |= (s[i+1] == '|' || s[i+1] == 'F');
         }
+        result = (s[i] == 'T');
     }
     return result ? "True" : "False";
 }
