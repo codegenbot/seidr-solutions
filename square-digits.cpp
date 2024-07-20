@@ -1,11 +1,10 @@
 #include <string>
-#include <cstddef>
 
 std::string squareDigits(std::string input) {
     std::string output = "";
-    for (std::size_t i = 0; i < input.length(); i++) {
+    for(int i = 0; i < input.length(); i++) {
         int digit = input[i] - '0';
-        output += std::to_string(digit * digit);
+        output += to_string(digit * digit);
     }
     return output;
 }
