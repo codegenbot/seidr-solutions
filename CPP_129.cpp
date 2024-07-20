@@ -1,41 +1,50 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    vector<int> res;
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
-            } else {
-                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (visited[i][j] == 0) {
+                pq.push({grid[i][j], {i, j}});
+                visited[i][j] = 1;
             }
         }
     }
     
-    int min_val = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] == dp[n-1][n-1]) {
-                vector<int> path;
-                int val = grid[i][j];
-                for (int l = 0; l <= k; l++) {
-                    path.push_back(val);
-                    if (l < k) {
-                        if (i > 0) i--;
-                        else if (j > 0) j--;
-                        else break;
-                    }
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        pq.pop();
+        
+        if (k > 0) {
+            res.push_back(val);
+            k--;
+            
+            vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+            random_shuffle(dirs.begin(), dirs.end());
+            
+            for (auto dir : dirs) {
+                int ni = pos.first + dir.first;
+                int nj = pos.second + dir.second;
+                
+                if (ni >= 0 && ni < n && nj >= 0 && nj < n && visited[ni][nj] == 0) {
+                    pq.push({grid[ni][nj], {ni, nj}});
+                    visited[ni][nj] = 1;
                 }
-                return path;
             }
+        } else {
+            break;
         }
     }
     
-    return {};
+    return res;
 }
