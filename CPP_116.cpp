@@ -19,6 +19,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    // Replace assert with appropriate error handling logic as needed
+    // Replace assert with appropriate error handling logic
     return 0;
 }
