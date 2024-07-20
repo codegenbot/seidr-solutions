@@ -9,3 +9,11 @@ string squareDigits(string input) {
     }
     return output;
 }
+
+int main() {
+    string input;
+    cout << "Enter an integer: ";
+    cin >> input;
+    cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
+    return 0;
+}
