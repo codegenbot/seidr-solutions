@@ -1,37 +1,25 @@
 #include <vector>
 #include <string>
-#include <cassert>
-#include <cctype>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
-    int consonantCount = 0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    for (char c : s) {
-        if (c == ' ' || c == '\0' || c == '\n') {
-            if (consonantCount == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonantCount = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonantCount++;
-            }
-            word += c;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
     
-    if (consonantCount == n) {
-        result.push_back(word);
-    }
-    
-    return result;
+    return true;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+void select_words() {
+    // Implementation of select_words function
+}
+
+int main() {
+    // Your main function logic here
+    return 0;
 }
