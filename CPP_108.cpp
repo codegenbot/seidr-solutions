@@ -29,7 +29,6 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {1};
-    int result = count_nums(nums);
-    std::cout << "The number of integers is: " << result << std::endl;
+    assert(count_nums(nums) == 1);
     return 0;
 }
