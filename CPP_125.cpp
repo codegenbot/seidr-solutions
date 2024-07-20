@@ -1,29 +1,36 @@
-vector<string> words;
-    string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(word != ""){
-                words.push_back(word);
-                word = "";
+for (char &c : txt) {
+        if (c == ',') {
+            replace(txt.begin(), txt.end(), ',', ' ');
+            break;
+        }
+    }
+
+    vector<string> result;
+    string word;
+    for (char &c : txt) {
+        if (isspace(c)) {
+            if (!word.empty()) {
+                result.push_back(word);
+                word.clear();
             }
         } else {
             word += c;
         }
     }
-    
-    if(word != ""){
-        words.push_back(word);
+
+    if (!word.empty()) {
+        result.push_back(word);
     }
-    
-    if(words.empty()){
-        int oddCount = 0;
-        for(char c : txt){
-            if(islower(c) && ((c - 'a') % 2 == 1)){
-                oddCount++;
+
+    if (result.empty()) {
+        int count = 0;
+        for (char &c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                count++;
             }
         }
-        words.push_back(to_string(oddCount));
+        result.push_back(to_string(count));
     }
-    
-    return words;
+
+    return result;
 }
