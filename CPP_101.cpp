@@ -1,6 +1,9 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -13,4 +16,13 @@ vector<string> words_string(string s){
         words.push_back(word);
     }
     return words;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    return 0;
 }
