@@ -2,15 +2,15 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
         return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i])
             return false;
-        }
     }
+    
     return true;
 }
 
@@ -36,6 +36,10 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    // Test the get_odd_collatz function
+    vector<int> test_result = get_odd_collatz(10);
+    vector<int> expected_result = {1, 3, 5, 5, 7, 9, 13, 15, 21, 27};
+    assert(issame(test_result, expected_result));
+    
     return 0;
 }
