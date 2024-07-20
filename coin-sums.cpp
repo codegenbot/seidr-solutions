@@ -5,7 +5,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25;
+    int quarters = 0;
     while (cents >= 25) {
         cents -= 25;
         quarters++;

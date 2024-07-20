@@ -3,13 +3,19 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
     else:
-        result = True
+        result = None
+        op = ''
         for char in expression:
-            if char == '&':
-                result &= (expression[expression.index(char) + 1] == 'T')
-            elif char == '|':
-                result |= (expression[expression.index(char) + 1] == 'T')
+            if char in '&|':
+                if op == '':
+                    result = bool(char == '&')
+                else:
+                    if op == '&':
+                        result &= (char == 'T')
+                    else:
+                        result |= (char == 'T')
+                op = char
+            elif result is None:
+                result = char == 'T'
         return result
