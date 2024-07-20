@@ -18,18 +18,12 @@ int main() {
     std::cin >> n;
 
     float* v1 = new float[n], *v2 = new float[n];
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << " of vector 1: ";
-        std::cin >> *v1;
-        std::cout << " (space): ";
-        char c;
-        std::cin >> c;
-
+        std::cin >> v1[i];
         std::cout << "Enter element " << i+1 << " of vector 2: ";
-        std::cin >> *v2;
-        std::cout << " (space): ";
-        char c2;
-        std::cin >> c2;
+        std::cin >> v2[i];
     }
 
     double distance = vectorDistance(n, v1, v2);
