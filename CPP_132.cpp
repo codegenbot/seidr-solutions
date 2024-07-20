@@ -1,16 +1,19 @@
 Here is the completed code:
 
 ```cpp
+#include <string>
+using namespace std;
+
 bool is_nested(string str) {
-    int count = 0;
+    int open = 0, close = 0;
     for (char c : str) {
         if (c == '[') {
-            count++;
+            open++;
         } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            }
+            close++;
+            if (open > 0)
+                open--;
         }
     }
-    return count > 0;
+    return close > open;
 }
