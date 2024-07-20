@@ -1,3 +1,4 @@
 ```
 def substitution_cipher(cipher1, cipher2, message):
-    return ''.join([cipher2[i] for i in [cipher1.index(c) if c in cipher1 else None for c in message]])
+    cipher_map = {c: d for c, d in zip(cipher1, cipher2)}
+    return ''.join([cipher_map.get(c, '') for c in message])
