@@ -21,9 +21,13 @@ int main() {
     std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << " of vector 1: ";
-        std::cin >> v1[i]; 
+        if (!(std::cin >> v1[i]).good()) { break; } 
+
         std::cout << "Enter element " << i+1 << " of vector 2: ";
-        std::cin >> v2[i] >> std::ws; 
+        if (!(std::cin >> v2[i]) && !std::cin.fail() && std::cin.peek() == '\n') { break; } 
+        else {
+            while (std::cin.get() != '\n') continue; 
+        }
     }
 
     double distance = vectorDistance(n, v1, v2);
