@@ -1,7 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <string>
-#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) {
@@ -15,7 +13,7 @@ bool isPrime(int n) {
     return true;
 }
 
-std::string solve(const std::pair<int, int>& interval1, const std::pair<int, int>& interval2) {
+std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
     int start1 = interval1.first;
     int end1 = interval1.second;
     int start2 = interval2.first;
@@ -38,7 +36,5 @@ std::string solve(const std::pair<int, int>& interval1, const std::pair<int, int
 }
 
 int main() {
-    assert(solve({-2, -2}, {-3, -2}) == "NO");
-
-    return 0;
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
 }
