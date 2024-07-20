@@ -1,7 +1,7 @@
 ```cpp
-#include <iostream>
 #include <map>
 #include <string>
+#include <iostream>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::map<char, char> mapping;
@@ -24,13 +24,13 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 }
 
 int main() {
-    std::string cipher_map1, cipher_map2, message;
+    char cipher_map1[256], cipher_map2[256], message[256];
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, cipher_map1);
+    std::cin.getline(cipher_map1, 256);
     std::cout << "Enter the second string: ";
-    std::getline(std::cin, cipher_map2);
+    std::cin.getline(cipher_map2, 256);
     std::cout << "Enter the message to decipher: ";
-    std::getline(std::cin, message);
+    std::cin.getline(message, 256);
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
