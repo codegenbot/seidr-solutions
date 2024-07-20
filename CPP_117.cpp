@@ -7,55 +7,38 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    int consonants = 0;
-
+    string word = "";
     for (char c : s) {
-        if (c == ' ') {
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                    consonants++;
+                }
+            }
             if (consonants == n) {
                 result.push_back(word);
             }
-            word.clear();
-            consonants = 0;
-        } else {
-            bool isVowel = false;
-            switch (tolower(c)) {
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                    isVowel = true;
-                    break;
-            }
-            if (!isVowel) {
-                consonants++;
-            }
-            word += c;
+            word = "";
         }
     }
-
-    if (consonants == n) {
-        result.push_back(word);
-    }
-
     return result;
 }
 
 int main() {
     string s;
     int n;
-
-    cout << "Enter a sentence: ";
+    cout << "Enter a string: ";
     cin >> s;
     cout << "Enter the number of consonants: ";
     cin >> n;
-
     vector<string> words = select_words(s, n);
-
-    for (const auto& word : words) {
-        cout << word << endl;
+    cout << "Words with exactly " << n << " consonants are: ";
+    for (string word : words) {
+        cout << word << " ";
     }
-
+    cout << endl;
     return 0;
 }
