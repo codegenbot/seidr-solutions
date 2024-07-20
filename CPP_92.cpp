@@ -13,11 +13,15 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    // Test case 1: 
-    cout << any_int(3.01, 4, 7) << endl; 
+    float a, b, c;
+    cout << "Enter three numbers: ";
+    cin >> a >> b >> c;
 
-    // Test case 2:
-    cout << any_int(0.5, 0.5, 0.5) << endl;
-
+    if(any_int(a, b, c)) {
+        cout << "At least one of the numbers is an integer." << endl;
+    } else {
+        cout << "None of the numbers are integers." << endl;
+    }
+    
     return 0;
 }
