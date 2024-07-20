@@ -18,8 +18,7 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    std::vector<float>(n), v1(n);  // Initialize with n elements
-    std::vector<float>(n), v2(n);  // Same for the second vector
+    std::vector<float> v1(n, 0.0f), v2(n, 0.0f);  
 
     for (int i = 0; i < n; i++) {
         float s;
