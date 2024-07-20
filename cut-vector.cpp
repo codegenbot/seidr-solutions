@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -22,8 +22,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         
         if (leftSum == rightSum) {
-            result[0] = {v.begin(), v.begin() + i};
-            result[1] = {v.begin() + i, v.end()};
+            result[0] = {vector<int>(v.begin(), v.begin() + i)};
+            result[1] = {vector<int>(v.begin() + i, v.end())};
             break;
         }
     }
