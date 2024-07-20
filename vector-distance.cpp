@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
 double vectorDistance(int n, float v1[], float v2[]) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = v2[i] - v1[i];
-        sum += diff * diff;
+        sum += pow(v2[i] - v1[i], 2);
     }
     
     return sqrt(sum);
