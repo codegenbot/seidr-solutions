@@ -35,4 +35,3 @@ int main() {
     for (int i : result)
         std::cout << i << " ";
     return 0;
-}
