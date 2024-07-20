@@ -1,10 +1,9 @@
 def find_first_negative_index(nums):
-    total_sum = nums[0]
-    i = 1
-    while True:
-        if total_sum < 0:
-            return i - 1
-        elif i == len(nums):
-            return len(nums)
-        total_sum += nums[i]
-        i += 1
+    total_sum = 0
+    if any(num < 0 for num in nums):
+        total_sum = sum(nums[:nums.index(min(x for x in nums if x < 0)) + 1])
+    else:
+        return len(nums) - 1
+    if total_sum < 0:
+        return nums.index(min(x for x in nums if x < 0))
+    return len(nums) - 1
