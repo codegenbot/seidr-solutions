@@ -26,10 +26,11 @@ int main() {
     }
     
     std::cout << "Enter vector 2 (elements separated by spaces): ";
-    std::string str;
     for (int i = 0; i < n; i++) {
+        std::string str;
         std::cin >> str;
         v2[i] = stof(str);
+        std::cin.ignore();
     }
 
     double distance = vectorDistance(n, v1, v2);
