@@ -4,9 +4,8 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    auto it = s.begin();
-    while (it != s.end() && *it == '0') it++;
-    for (auto i = it; i < s.length() - 1; i++) {
+    while (s.length() > 1 && s[0] == '0') s.erase(0, 1);
+    for (int i = 0; i < s.length() - 1; i++) {
         if ((s[i] - '0' == s[i + 1] - '0')) {
             sum += (s[i] - '0');
         }
