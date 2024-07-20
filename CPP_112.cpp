@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
     std::string result = "";
@@ -13,10 +13,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
             result += ch;
         }
     }
-    return result == std::string(result.rbegin(), result.rend());
+    return {result, result == std::string(result.rbegin(), result.rend()) ? "True" : "False"};
 }
 
 int main() {
-    assert(issame({"mamma", "mia"}, {"", "True"}) == false);
+    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"mm", "False"});
     return 0;
 }
