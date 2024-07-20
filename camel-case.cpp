@@ -16,8 +16,7 @@ std::string camelCase(const std::string& str) {
                 result += c;
                 capitalizeNext = true;
             } else {
-                result += tolower(c);
-                capitalizeNext = false; 
+                result += toupper(c);
             }
         }
     }
