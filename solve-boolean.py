@@ -18,8 +18,9 @@ def solve_boolean(expression):
         else:
             op = stack.pop()
             if op == '&':
-                result &= (temp == 'T' and (temp == char))
+                result &= (temp == 'T')
             elif op == '|':
-                result |= (temp == 'T' or (temp == char))
+                result |= (temp == 'T')
+            temp = None
 
     return result
