@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 #include <vector>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool found_dot = false;
 
@@ -16,13 +17,13 @@ string file_name_check(string file_name){
         }
     }
 
-    if (!found_dot || file_name.find('.') == string::npos) {
+    if (!found_dot || file_name.find('.') == std::string::npos) {
         return "No";
     }
 
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    for (string ext : valid_extensions) {
+    std::string extension = file_name.substr(file_name.find('.') + 1);
+    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
+    for (std::string ext : valid_extensions) {
         if (extension == ext) break;
     }
     if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
