@@ -1,6 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result;
@@ -9,7 +10,10 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
-                result += std::string(word).substr(word.rbegin(), word.rend()) + " ";
+                {std::vector<char> wordVec(word);
+                 std::reverse(wordVec.begin(), wordVec.end());
+                 result += std::string(wordVec.begin(), wordVec.end()) + " ";
+                }
             else
                 result += word + " ";
             word = "";
@@ -19,7 +23,9 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5)
-        result += std::string(word).substr(word.rbegin(), word.rend());
+        {std::vector<char> wordVec(word);
+         std::reverse(wordVec.begin(), wordVec.end());
+         result += std::string(wordVec.begin(), wordVec.end());}
     else
         result += word;
 
