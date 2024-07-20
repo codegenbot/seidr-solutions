@@ -2,13 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> largest_smallest_integers(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end());
-    return {nums.front(), nums.back()};
-}
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
+}
+
+std::vector<int> largest_smallest_integers(const std::vector<int>& nums) {
+    int largest = *std::max_element(nums.begin(), nums.end());
+    int smallest = *std::min_element(nums.begin(), nums.end());
+    return {smallest, largest};
 }
 
 int main() {
