@@ -1,8 +1,10 @@
 double num = stod(value);
-int closestInt;
-if (num >= 0) {
-    closestInt = floor(num + 0.5);
-} else {
-    closestInt = ceil(num - 0.5);
+    int rounded = round(num);
+    if (num - rounded > 0.5) {
+        return ceil(num);
+    } else if (num - rounded < -0.5) {
+        return floor(num);
+    } else {
+        return rounded;
+    }
 }
-return closestInt;
