@@ -9,7 +9,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> order_by_points(std::initializer_list<int> points) {
-    return std::vector<int>(points);
+    std::vector<int> sorted_points(points);
+    std::sort(sorted_points.begin(), sorted_points.end());
+    return sorted_points;
 }
 
 int main() {
