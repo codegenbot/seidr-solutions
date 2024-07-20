@@ -1,6 +1,5 @@
-```
 def luhn():
-    card = [int(x) for x in str(input().replace(" ", "")).split() if isinstance(x, str) and x.isdigit()]
+    card = [int(x) for x in str(input().replace(" ", "")) if isinstance(int(x), int)]
     if len(card) < 15:
         return sum(card)
     card += [0] * (16 - len(card))
