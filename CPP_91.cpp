@@ -1,14 +1,12 @@
 int is_bored(string S){
     int count = 0;
+    string boredom = "I";
     size_t pos = 0;
     while ((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == '.' || S[pos] == '?' || S[pos] == '!') {
+        if (S.substr(pos, boredom.size()).compare(boredom) == 0) {
             count++;
-            pos += 1; // skip the punctuation
         }
-        else {
-            pos++; // move to the next character
-        }
+        pos += boredom.size();
     }
     return count;
 }
