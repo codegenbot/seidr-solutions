@@ -1,5 +1,8 @@
 double num = stod(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    return (abs(num - lower) < abs(num - upper)) ? lower : upper;
+int closestInt;
+if (num >= 0) {
+    closestInt = floor(num + 0.5);
+} else {
+    closestInt = ceil(num - 0.5);
 }
+return closestInt;
