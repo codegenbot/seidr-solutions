@@ -10,5 +10,5 @@ bool will_it_fly(vector<int> q, int w) {
     if (str != string(str.rbegin(), str.rend()).s) return false;
     long sum = 0;
     for (int i : q) sum += i;
-    return static_cast<long>(sum) <= w;
+    return sum <= w;
 }
