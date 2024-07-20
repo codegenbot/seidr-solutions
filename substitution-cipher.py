@@ -1,9 +1,9 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for i in range(len(message)):
-        if i < len(cipher1) and message[i] == cipher1[i]:
-            result += cipher2[i]
+        if message[i] in cipher1:
+            index = cipher1.index(message[i])
+            result += cipher2[index]
         else:
             result += message[i]
     return result
