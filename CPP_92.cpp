@@ -1,6 +1,5 @@
 ```
 #include <iostream>
-using namespace std;
 
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
@@ -15,11 +14,12 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
-    if(any_int(a, b, c)) 
-        cout << "The sum of the integers is an integer.\n";
-    else
-        cout << "The sum of the integers is not an integer.\n";
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
+    if (any_int(a, b, c)) {
+        std::cout << "At least one of the integers is equal to the sum of the other two.\n";
+    } else {
+        std::cout << "None of the integers are equal to the sum of the other two.\n";
+    }
     return 0;
 }
