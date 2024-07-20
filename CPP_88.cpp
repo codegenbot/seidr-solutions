@@ -1,10 +1,16 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+    std::vector<int> a_copy = a;
+    std::vector<int> b_copy = b;
+    std::sort(a_copy.begin(), a_copy.end());
+    std::sort(b_copy.begin(), b_copy.end());
+    return std::equal(a_copy.begin(), a_copy.end(), b_copy.begin());
 }
 
-void sort_array(std::vector<int>& arr){
-    std::sort(arr.begin(), arr.end());
+int main() {
+    assert(issame({21, 14, 23, 11}, {23, 21, 14, 11}));
+    return 0;
 }

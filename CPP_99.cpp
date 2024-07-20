@@ -1,3 +1,4 @@
+#include <cassert>
 #include <cmath>
 
 int closest_integer(std::string value)
