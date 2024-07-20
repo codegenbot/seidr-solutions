@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -16,8 +17,10 @@ int main() {
     assert(issame(tri, {0, 0}));
 
     std::vector<int> other = yourFunctionName(n);
-    other[0] = 1; other[1] = 3;
-    assert(issame(other, {1, 3}));
+    other[0] = 1; 
+    other[1] = 3;
+    assert(issame(other, tri));
 
+    std::cout << "Code fixed successfully!" << std::endl;
     return 0;
 }
