@@ -20,6 +20,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
+    // Read input
     int n;
     std::cin >> n;
     std::vector<int> input(n);
@@ -27,6 +28,7 @@ int main() {
         std::cin >> input[i];
     }
 
+    // Call function and output
     std::vector<int> output = strange_sort_list(input);
     for (int num : output) {
         std::cout << num << " ";
