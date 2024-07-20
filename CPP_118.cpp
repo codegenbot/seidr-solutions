@@ -1,14 +1,11 @@
 #include <string>
 
-string get_closest_vowel(string word);
-
-string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    int n = word.length();
-    for (int i = n - 2; i > 0; --i) {
-        if (vowels.find(word[i]) != string::npos && !isalpha(word[i-1]) && !isalpha(word[i+1])) {
-            return string(1, word[i]);
+char get_closest_vowel(const std::string& word) {
+    std::string vowels = "aeiouAEIOU";
+    for (int i = word.size() - 2; i > 0; i--) {
+        if (vowels.find(word[i]) != std::string::npos && !isalpha(word[i - 1]) && !isalpha(word[i + 1])) {
+            return word[i];
         }
     }
-    return "";
+    return ' ';
 }
