@@ -1,4 +1,6 @@
+```cpp
 #include <algorithm>
+#include <string>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
