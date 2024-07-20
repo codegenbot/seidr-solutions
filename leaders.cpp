@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 using namespace std;
@@ -16,11 +15,8 @@ vector<int> leaders(vector<int>& arr) {
     return leaders;
 }
 
-int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    vector<int> result = leaders(arr);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    return 0;
+vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
+vector<int> result = leaders(arr);
+for (int num : result) {
+    cout << num << " ";
 }
