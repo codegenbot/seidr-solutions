@@ -23,6 +23,7 @@ int main() {
     cin >> text;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(cin, target);
+    cin.ignore(); 
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
         cout << i << " ";
