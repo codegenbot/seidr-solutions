@@ -1,7 +1,13 @@
-for (int i = 1; i < l.size(); ++i) {
+bool monotonic(vector<float> l){
+    bool increasing = true;
+    bool decreasing = true;
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > l[i - 1]) {
+            decreasing = false;
+        }
         if (l[i] < l[i - 1]) {
-            return false;
+            increasing = false;
         }
     }
-    return true;
+    return increasing || decreasing;
 }
