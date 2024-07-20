@@ -29,3 +29,15 @@ vector<int> parse_nested_parens(string paren_string) {
 
     return depths;
 }
+
+int main() {
+    string input;
+    getline(cin, input);
+
+    vector<int> result = parse_nested_parens(input);
+    vector<int> expected = {2, 3, 1};
+
+    assert(issame(result, expected));
+
+    return 0;
+}
