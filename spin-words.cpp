@@ -1,27 +1,43 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string output;
-    std::stringstream ss(input);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (char c : str) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (word.length() >= 5) {
+                for (int i = word.length() - 1; i >= 0; --i) {
+                    result += word[i];
+                }
+            } else {
+                result += word;
+            }
+            word = "";
         }
-        output += word + " ";
     }
 
-    return output.substr(0, output.size() - 1);
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; --i) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
 
 int main() {
-    // Test the function
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("this is another test") << endl;
+    cout << spinWords("hi") << endl;
     return 0;
 }
