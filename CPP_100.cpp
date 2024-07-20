@@ -2,7 +2,7 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> make_a_pile(int n){
+vector<int> make_a_pile(int n) {
     vector<int> stones;
     stones.push_back(n);
     for(int i = 1; i < n; ++i){
@@ -16,26 +16,26 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-int main(){
+int main() {
     vector<int> pile1 = make_a_pile(5);
     vector<int> pile2 = make_a_pile(5);
 
-    if(issame(pile1, pile2)){
-        cout << "Both piles are the same." << endl;
+    if(issame(pile1, pile2)) {
+        cout << "Piles are the same" << endl;
     } else {
-        cout << "Piles are different." << endl;
+        cout << "Piles are different" << endl;
     }
 
     return 0;
