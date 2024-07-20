@@ -9,24 +9,23 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
         snow *= (1 - meltRate / 100.0);
     }
     return snow;
-
 }
 
 int main(int argc, char** argv) {
-    int hours = 0;
+    int hours;
     cout << "Enter the number of hours: ";
     cin >> hours;
 
-    float initialSnow = 0.0f;
-    cout << "Enter the initial snow on the ground: ";
+    float initialSnow;
+    cout << "Enter the initial amount of snow: ";
     cin >> initialSnow;
 
-    float rateOfFall = 0.0f;
-    cout << "Enter the rate of fall (in cm/h): ";
+    float rateOfFall;
+    cout << "Enter the rate of snow fall: ";
     cin >> rateOfFall;
 
-    float meltRate = 0.0f;
-    cout << "Enter the rate of melting (as a percentage): ";
+    float meltRate;
+    cout << "Enter the proportion of snow melting per hour (in percent): ";
     cin >> meltRate;
 
     double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
