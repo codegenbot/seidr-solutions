@@ -1,20 +1,19 @@
-int luhn(const vector<int>& card) {
+#include <vector>
+using namespace std;
+
+int luhn(const vector<int>& numbers) {
     int sum = 0;
     bool alternate = false;
 
-    for (int i = card.size() - 1; i >= 0; i--) {
-        int digit = card[i];
-
+    for (int number : numbers) {
         if (alternate) {
-            digit *= 2;
-
-            // subtract 9 from the result if it is over 9
-            if (digit > 9) {
-                digit -= 9;
+            number *= 2;
+            if (number > 9) {
+                number -= 9;
             }
         }
 
-        sum += digit;
+        sum += number;
         alternate = !alternate;
     }
 
