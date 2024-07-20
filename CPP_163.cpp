@@ -1,7 +1,5 @@
-Here is the completed code:
-
-```cpp
-#include <vector>
+#include<stdio.h>
+#include<vector>
 using namespace std;
 
 vector<int> generate_integers(int a, int b) {
