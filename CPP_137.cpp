@@ -1,8 +1,7 @@
 #include <any>
 #include <string>
 
-template<typename T>
-auto compare_one(const T& a, const T& b) {
+std::any* compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
             return &a;
