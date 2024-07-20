@@ -13,6 +13,5 @@ while True:
         break
 
 import re
-result = [m.start() for m in re.finditer(target, text)]
-if result:
-    print(result)
+result = [m.start() for m in re.finditer(target, text) if m]
+print(result)
