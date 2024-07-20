@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result;
@@ -8,7 +9,7 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
-                result += word[::-1] + " ";
+                result += word.substr(0, word.size()) + " ";
             else
                 result += word + " ";
             word = "";
