@@ -25,3 +25,13 @@ std::string spinWords(std::string str) {
 
     return result;
 }
+
+int main() {
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, str);
+        if (str == "exit") break;
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
+    }
+}
