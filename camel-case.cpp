@@ -1,36 +1,23 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
-std::string camelCase(std::string str) {
-    std::string result;
-    bool inWord = false;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool firstWord = true;
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';
-            inWord = true;
-        } else if (inWord) {
-            result += toupper(c);
-            inWord = false;
+            if (!firstWord) { 
+                result += ' ';
+                result += toupper(str[str.find(c) + 1]);
+            }
+            firstWord = false;
         } else {
-            result += tolower(c);
+            if (!firstWord) { 
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
+            firstWord = false; 
         }
     }
 
-    // Remove the leading space
-    if (!result.empty()) {
-        result[0] = toupper(result[0]);
-    }
-
     return result;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
-    std::cout << camelCase(str) << std::endl;
-
-    return 0;
 }
