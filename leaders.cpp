@@ -9,23 +9,15 @@ int main() {
 }
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    if (arr.empty()) {
-        return result;
-    }
-    
+    vector<int> leaders;
     int rightmost = arr.back();
-    result.push_back(rightmost);
-    
     for (int i = arr.size() - 2; i >= 0; --i) {
         if (arr[i] >= rightmost) {
-            result.push_back(arr[i]);
+            leaders.push_back(arr[i]);
             rightmost = arr[i];
         }
     }
-    
-    reverse(result.begin(), result.end());
-    
-    return result;
+    leaders.push_back(rightmost);
+    return leaders;
 }
 ```
