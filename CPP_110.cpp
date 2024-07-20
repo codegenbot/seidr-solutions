@@ -1,24 +1,22 @@
+Here's the solution:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
+    bool canMakeEven = true;
     for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
-    }
-    for (int i = 0; i < lst1.size(); i++) {
-        bool found = false;
-        for (int j = 0; j < lst2.size(); j++) {
-            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
-                swap(lst1[i], lst2[j]);
-                found = true;
+        if (num % 2 != 0) {
+            bool foundOddInLst2 = false;
+            for (int otherNum : lst2) {
+                if (otherNum % 2 != 0) {
+                    lst2.erase(remove(lst2.begin(), lst2.end(), otherNum), lst2.end());
+                    foundOddInLst2 = true;
+                    break;
+                }
+            }
+            if (!foundOddInLst2) {
+                canMakeEven = false;
                 break;
             }
         }
-        if (!found)
-            return "NO";
     }
-    for (int num : lst1) {
-        if (num % 2 != 0)
-            return "NO";
-    }
-    return "YES";
+    return canMakeEven ? "YES" : "NO";
 }
