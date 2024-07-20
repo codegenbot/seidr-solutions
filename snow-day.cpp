@@ -11,5 +11,5 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
 }
 
 int main() {
-    return snowDay(0, 0, 0, 0); 
+    return snowDay(0, 0, 0, 0); // Call your function with some test values
 }
