@@ -8,10 +8,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
-int order_by_points(const std::vector<int>& points) {
-    return std::accumulate(points.begin(), points.end(), 0);
-}
-
 int main() {
     int n, m;
     std::cin >> n >> m;
@@ -26,7 +22,7 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    if (issame(vec1, vec2) && order_by_points(vec1) == order_by_points(vec2)) {
+    if (issame(vec1, vec2)) {
         std::cout << "Vectors are permutations of each other.\n";
     } else {
         std::cout << "Vectors are not permutations of each other.\n";
