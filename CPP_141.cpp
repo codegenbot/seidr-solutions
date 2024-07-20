@@ -1,32 +1,29 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid = true;
+#include <string>
 
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            dot_count++;
-            if(dot_count > 1){
-                valid = false;
-                break;
-            }
-        }else if(isdigit(c)){
-            digit_count++;
-            if(digit_count > 3){
-                valid = false;
-                break;
-            }
-        }else if(!isalpha(c) && c != '.'){
-            valid = false;
-            break;
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+    string prefix = "";
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            foundDot = true;
+        } else if (!foundDot) {
+            prefix += c;
         }
     }
-
-    string extension = file_name.substr(file_name.find('.')+1);
-    if(extension.length() > 3 || (extension!="txt" && extension!="exe" && extension!="dll")){
-        valid = false;
+    
+    if (digitCount > 3 || !foundDot || prefix.empty() || !isalpha(prefix[0])) {
+        return "No";
     }
-
-    return valid ? "Yes" : "No";
+    
+    string suffix = file_name.substr(file_name.find('.') + 1);
+    if (!(suffix == "txt" || suffix == "exe" || suffix == "dll")) {
+        return "No";
+    }
+    
+    return "Yes";
 }
