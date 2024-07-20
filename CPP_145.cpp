@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <numeric>
+#include <algorithm>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
+}
+
+bool issame(const int a, const int b) {
+    return a == b;
 }
 
 int order_by_points(const std::vector<int>& points) {
@@ -26,13 +30,13 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    if (issame(vec1, vec2) && issame(order_by_points(vec1), order_by_points(vec2))) {
+    if (issame(vec1.size(), vec2.size()) && issame(order_by_points(vec1), order_by_points(vec2))) {
         std::cout << "Vectors are permutations of each other.\n";
     } else {
         std::cout << "Vectors are not permutations of each other.\n";
     }
 
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), order_by_points({-76, -21, 0, 4, 23, 6, 6})));
 
     return 0;
 }
