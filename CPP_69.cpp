@@ -3,12 +3,12 @@
 #include <map>
 
 int count(int i) {
-    int cnt = 0;
-    for (int x : std::vector<int>{i}) {
-        if (x == i)
-            cnt++;
+    int c = 0;
+    for (int j : {i}) {
+        if (j == i)
+            c++;
     }
-    return cnt;
+    return c;
 }
 
 int search(std::vector<int> lst) {
