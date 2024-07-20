@@ -6,7 +6,7 @@ using namespace std;
 
 long long vector_sort(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(), 
-        [](const string& a, const string& b){return (a.length() + a.length()) % 2 && (b.length() + b.length()) % 2;});
+        [](const string& a, const string& b){return a.length() % 2 && b.length() % 2;});
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
         [](const string& a, const string& b){
