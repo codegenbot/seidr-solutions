@@ -1,10 +1,6 @@
 #include <vector>
-#include <string>
 #include <algorithm>
-
-bool compare(const std::string& str1, const std::string& str2) {
-    return str1 == str2;
-}
+#include <string>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> nums;
@@ -54,7 +50,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 int main() {
     std::vector<int> arr = {9, 4, 8};
     std::vector<std::string> result = by_length(arr);
-    if (result == {"Nine", "Eight", "Four"}) {
+    if (result == std::vector<std::string>({"Nine", "Eight", "Four"})) {
         std::cout << "The result is same." << std::endl;
     }
 }
