@@ -1,7 +1,5 @@
 #include <map>
 
-std::map<char, int> histogram(std::string test);
-
 bool is_same(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
