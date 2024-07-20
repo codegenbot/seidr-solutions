@@ -1,22 +1,9 @@
-#include <vector>
-#include <cassert>
+// Update function signatures
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b);
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result(a.size(), 0);
-    for (int i = 0; i < a.size(); ++i) {
-        result[i] = a[i] - b[i];
-    }
-    return result;
+// Update main function definition
+int main() {
+    assert(issame(std::vector<int>({1, 2, 3, 5}), std::vector<int>({-1, 2, 3, 4})));
+    return 0;
 }
