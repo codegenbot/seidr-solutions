@@ -11,7 +11,9 @@ bool monotonic(std::vector<float> l){
     return increasing || decreasing;
 }
 
-int main(){
-    assert(monotonic({1.2, 2.3, 3.4, 4.5}) == true);
+int main() {
+    assert(monotonic({1.0, 2.0, 3.0}) == true);
+    assert(monotonic({3.0, 2.0, 1.0}) == true);
+    assert(monotonic({1.0, 2.0, 1.0}) == false);
     return 0;
 }
