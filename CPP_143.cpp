@@ -22,10 +22,10 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(const string& str, char c) {
+vector<string> split(const string& str, char delimiter) {
     vector<string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
+    while ((pos = str.find(delimiter)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + 1);
     }
