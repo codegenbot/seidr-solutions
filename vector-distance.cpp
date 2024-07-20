@@ -1,28 +1,33 @@
-#include <vector>
+```c++
 #include <iostream>
 #include <cmath>
-#include <iomanip>
-
-using namespace std;
 
 double vectorDistance(int n, float v1[], float v2[]) {
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow((v2[i] - v1[i]), 2);
+        sum += (v2[i] - v1[i]) * (v2[i] - v1[i]);
     }
     
-    return sqrt(sum); 
+    return sqrt(sum);
 }
 
 int main() {
     int n;
-    float v1[100], v2[100];
-    
-    cin >> n;
-    
+    std::cout << "Enter the dimension of the vectors: ";
+    std::cin >> n;
+
+    float v1[n], v2[n];
+    std::cout << "Enter vector 1: ";
     for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
+        std::cin >> v1[i];
     }
-    
-    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
+    std::cout << "Enter vector 2: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> v2[i];
+    }
+
+    double distance = vectorDistance(n, v1, v2);
+    std::cout << "Euclidean distance between the two vectors is: " << distance << std::endl;
+
+    return 0;
 }
