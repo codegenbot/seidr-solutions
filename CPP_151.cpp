@@ -4,8 +4,8 @@
 
 std::vector<float> lst = {1.0, 2.0, 3.0};
 
-double double_the_difference(const std::vector<float>& lst) {
-    double sum = 0;
+float double_the_difference(const std::vector<float>& lst) {
+    float sum = 0;
     for (size_t i = 0; i < lst.size(); i++) {
         if (i % 2 == 0) {
             sum += lst[i];
@@ -17,8 +17,8 @@ double double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    double odd_sum = double_the_difference(lst);
-    assert(odd_sum == odd_sum);
+    float odd_sum = double_the_difference(lst);
+    assert(double_the_difference(lst) == odd_sum);
     std::cout << odd_sum << std::endl;
     return 0;
 }
