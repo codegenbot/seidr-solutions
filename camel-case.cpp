@@ -21,7 +21,7 @@ std::string split(std::string s, const std::string& delimiter) {
     size_t pos = 0;
     std::string token;
 
-    while ((pos = s.find(delimiter)) != std::string::npos) {
+    while ((pos = s.find(delimiter)) != 0) {
         token = s.substr(0, pos);
         s = s.substr(pos + delimiter.size());
     }
