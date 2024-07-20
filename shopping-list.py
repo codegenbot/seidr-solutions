@@ -1,5 +1,6 @@
+```
 n = int(input())
-n_items = n  
+n_items = n 
 prices = [float(x) for x in input().split()]
 discounts = [float(x) for x in input().split()][: (n_items // len(discounts) + 1) * len(discounts)]
 
