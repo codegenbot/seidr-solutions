@@ -1,19 +1,14 @@
-Here is the solution:
+vector<pair<float, float>> pairs;
 
-#include <algorithm>
-
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    vector<pair<float, float>> result;
-    pair<float, float> closest;
-
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        for (int j = i + 1; j < numbers.size(); j++) {
-            if (closest.first == 0 || abs(numbers[i] - numbers[j]) < abs(closest.second - closest.first)) {
-                closest = make_pair(numbers[i], numbers[j]);
-            }
-        }
+for(int i = 0; i < numbers.size() - 1; ++i){
+    for(int j = i + 1; j < numbers.size(); ++j){
+        pairs.push_back({numbers[i], numbers[j]});
     }
-
-    result.push_back(closest);
-    return vector<float>({closest.first, closest.second});
 }
+
+pair<float, float> closest_pair = *min_element(pairs.begin(), pairs.end(), 
+    [&] (const pair<float, float>& p1, const pair<float, float>& p2) {
+        return abs(p1.first - p1.second) > abs(p2.first - p2.second);
+});
+
+return {closest_pair.first, closest_pair.second};
