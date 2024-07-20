@@ -17,13 +17,11 @@ int main() {
     std::vector<int> test1 = {1, 2, 3, 4, 5};
     assert(smallest_change(test1) == 2);
 
-    std::vector<int> test2 = {1, 2, 1, 2, 1};
+    std::vector<int> test2 = {1, 2, 3, 2, 1};
     assert(smallest_change(test2) == 0);
 
-    std::vector<int> test3 = {1, 2, 3, 2, 1};
+    std::vector<int> test3 = {1, 2, 2, 1};
     assert(smallest_change(test3) == 0);
-
-    std::cout << "All tests passed successfully." << std::endl;
 
     return 0;
 }
