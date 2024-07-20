@@ -1,3 +1,4 @@
+```
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     
@@ -20,9 +21,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> list = {"apple", "banana", "cherry"};
-    vector<string> output = sorted_list_sum(list);
-    for (const auto& str : output) {
+    vector<string> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        input.push_back(s);
+    }
+    vector<string> output = sorted_list_sum(input);
+    for(string str : output) {
         cout << str << endl;
     }
     return 0;
