@@ -1,20 +1,38 @@
 #include <vector>
+using namespace std;
 
-int luhn(const std::vector<int>& cc) {
+int luhn(int n) {
     int sum = 0;
-    bool doubleNext = false;
+    bool isSecond = false;
+    vector<int> digits;
 
-    for (int i = cc.size() - 1; i >= 0; --i) {
-        int digit = cc[i];
-        
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
+    while (n > 0) {
+        digits.push_back(n % 10);
+        n /= 10;
+        if (!isSecond && digits.size() >= 2) {
+            isSecond = true;
+            int doubleDigit = digits.back() * 2;
+            sum += doubleDigit / 10 + (doubleDigit % 10);
+        } else {
+            sum += digits.back();
         }
-        
-        sum += digit;
-        doubleNext = !doubleNext;
     }
 
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> ccNumber;
+    for(int i=0; i<n; i++) {
+        int x;
+        cin >> x;
+        ccNumber.push_back(x);
+    }
+
+    cout << luhn(0) << endl;
+
+    return 0;
 }
