@@ -1,5 +1,11 @@
-vector<int> f(int n){
-    vector<int> result;
+#include <vector>
+#include <cassert>
+#include <iostream> // add this if you want to use assert
+
+using namespace std;
+
+std::vector<int> f(int n){
+    std::vector<int> result;
     int sum = 0;
     int factorial = 1;
     for (int i = 1; i <= n; ++i) {
