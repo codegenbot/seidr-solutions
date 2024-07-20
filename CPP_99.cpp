@@ -1,7 +1,8 @@
 #include <cassert>
 #include <cmath>
+#include <string>
 
-int closest_integer(const char* value)
+int closest_integer(std::string value)
 {
     double num = std::stod(value);
     int lower = std::floor(num);
