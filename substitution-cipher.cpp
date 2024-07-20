@@ -1,15 +1,19 @@
 ```c
 #include <map>
 #include <string>
+#include <iostream>
 
-std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::map<char, char> mapping;
-    for (int i = 0; i < std::min(cipher_map1.length(), cipher_map2.length()); i++) {
-        mapping[std::tolower(cipher_map1[i])] = std::tolower(cipher_map2[i]);
-        mapping[toupper(cipher_map1[i])] = toupper(cipher_map2[i]);
+using namespace std;
+
+string decipher(string cipher_map1, string cipher_map2, string message) {
+    unordered_map<char, char> mapping;
+    for (int i = 0; i < min(cipher_map1.length(), cipher_map2.length()); i++) {
+        pair<char, char> p = make_pair(std::tolower(cipher_map1[i]), std::tolower(cipher_map2[i]));
+        p.second = toupper(cipher_map2[i]);
+        mapping[std::tolower(cipher_map1[i])] = p.second;
     }
     
-    std::string result = "";
+    string result = "";
     for (char c : message) {
         if(mapping.find(std::tolower(c)) != mapping.end()) {
             // If character is found in the map, substitute with corresponding value from the map
@@ -24,12 +28,12 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 
 int main() {
     char cipher_map1[256], cipher_map2[256], message[256];
-    std::cout << "Enter the first string: ";
-    std::cin.getline(cipher_map1, 256);
-    std::cout << "Enter the second string: ";
-    std::cin.getline(cipher_map2, 256);
-    std::cout << "Enter the message to decipher: ";
-    std::cin.getline(message, 256);
-    std::cout << "Deciphered message: " << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
+    cout << "Enter the first string: ";
+    cin.getline(cipher_map1, 256);
+    cout << "Enter the second string: ";
+    cin.getline(cipher_map2, 256);
+    cout << "Enter the message to decipher: ";
+    cin.getline(message, 256);
+    cout << "Deciphered message: " << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
     return 0; 
 }
