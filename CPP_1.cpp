@@ -10,11 +10,13 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -50,7 +52,7 @@ int main() {
 
     vector<string> groups = separate_paren_groups(input);
 
-    for (const auto &group : groups) {
+    for (const string& group : groups) {
         cout << group << endl;
     }
 
