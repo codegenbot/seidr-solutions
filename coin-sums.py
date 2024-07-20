@@ -3,12 +3,10 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
     
     while cents > 0:
-        coins.sort(reverse=True)
-        for i in range(len(coins)):
+        for i in range(len(coins)-1, -1, -1):
             count = cents // coins[i]
             if count > 0:
                 result[i] = count
                 cents %= coins[i]
-                break
     
     return tuple(result)
