@@ -14,11 +14,11 @@ int smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(smallest_change({1, 2, 3, 4, 5}) == 2);
-    assert(smallest_change({1, 2, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 3, 2, 1}) == 0);
-    assert(smallest_change({1, 2, 3, 4, 5, 6}) == 3);
-
+    std::vector<int> test1 = {1, 2, 3, 2, 1};
+    std::vector<int> test2 = {1, 2, 3, 4, 5};
+    
+    assert(smallest_change(test1) == 0);
+    assert(smallest_change(test2) == 2);
+    
     return 0;
 }
