@@ -1,16 +1,18 @@
-string encode(string message){
-    for(char& c : message){
-        if(isalpha(c)){
-            c = toupper(c);
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                c = char(c + 2);
-            }
-            if(islower(c)){
-                c = toupper(c);
-            } else {
-                c = tolower(c);
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string encode(string message) {
+    string encoded_message = message;
+    
+    for (char& c : encoded_message) {
+        if (isalpha(c)) {
+            c = isupper(c) ? tolower(c) : toupper(c); // Swap case
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                c = c + 2 > 'z' ? c - 24 : c + 2; // Replace vowels
             }
         }
     }
-    return message;
+    
+    return encoded_message;
 }
