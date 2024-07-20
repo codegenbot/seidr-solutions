@@ -1,18 +1,14 @@
-```cpp
 #include <algorithm>
-using namespace std;
+#include <string>
 
-int mastermind(const string& code, const string& guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
-
     for (int i = 0; i < 4; ++i) {
-        if (codeArray[i] == guessArray[i]) {
+        if (code.substr(i, 1) == guess.substr(i, 1)) {
             ++black;
-        } else if (count(guessArray.begin(), guessArray.end(), codeArray[i]) > 0) {
+        } else if (std::count(guess.begin(), guess.end(), code.substr(i, 1)) > 0) {
             ++white;
         }
     }
