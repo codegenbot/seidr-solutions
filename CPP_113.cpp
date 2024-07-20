@@ -18,11 +18,13 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    vector<string> input = {"1234", "56789", "2468"};
-    vector<string> expected_output = {"the number of odd elements 2\n the string 1234 of the input.",
-                                      "the number of odd elements 4\n the string 56789 of the input.",
-                                      "the number of odd elements 0\n the string 2468 of the input."};
-    vector<string> result = odd_count(input);
-    assert(issame(result, expected_output));
+    vector<string> input = {"1234", "5678", "9876"};
+    vector<string> expected_output = {"the number of odd elements 2\n the string 1234 of the input.", 
+                                      "the number of odd elements 2\n the string 5678 of the input.", 
+                                      "the number of odd elements 1\n the string 9876 of the input."};
+    vector<string> output = odd_count(input);
+    
+    assert(issame(output, expected_output));
+    
     return 0;
 }
