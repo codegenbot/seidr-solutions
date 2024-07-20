@@ -1,26 +1,27 @@
 vector<string> words;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
+    string word;
+    bool hasWhitespace = false;
+    for (char& c : txt) {
+        if (c == ' ') {
+            hasWhitespace = true;
+            words.push_back(word);
+            word = "";
+        } else if (c == ',') {
+            hasWhitespace = true;
+            words.push_back(word);
+            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    if (words.empty()) {
-        int oddCount = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
-            }
+    if (!hasWhitespace) {
+        if (word.empty()) {
+            words.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c) { return islower(c) && (c - 'a') % 2 == 1; })));
+        } else {
+            words.push_back(word);
         }
-        words.push_back(to_string(oddCount));
+    } else {
+        words.push_back(word);
     }
     return words;
 }
