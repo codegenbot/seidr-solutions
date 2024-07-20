@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <string>
 
@@ -11,7 +12,7 @@ int main() {
     } else if (tweet.empty()) {
         std::cout << "You didn't type anything";
     } else {
-        std::cout << "Your tweet has " << (tweet.find('\n') != std::string::npos ? tweet.length() : tweet.erase(tweet.find('\n')).length()) << " characters";
+        std::cout << "Your tweet has " << tweet.length() << " characters";
     }
     
     return 0;
