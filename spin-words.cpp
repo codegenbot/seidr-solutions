@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <string>
 
@@ -12,8 +11,7 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         } else {
             if (word.length() >= 5) {
-                auto reversedWord = word;
-                std::reverse(reversedWord.begin(), reversedWord.end());
+                std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
                 result += word + " ";
@@ -25,12 +23,13 @@ std::string spinWords(std::string sentence) {
 
     // Process the last word
     if (word.length() >= 5) {
-        auto reversedWord = word;
-        std::reverse(reversedWord.begin(), reversedWord.end());
+        std::string reversedWord(word.rbegin(), word.rend());
         result += reversedWord;
     } else {
         result += word;
     }
 
-    return result.substr(0, result.find_last_of(' '));
+    return result;
 }
+
+int main() { return spinWords("This is a test sentence"); }
