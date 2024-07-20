@@ -32,6 +32,7 @@ string spinWords(string str) {
     }
 
     result += " ";
+
     return result;
 }
 
