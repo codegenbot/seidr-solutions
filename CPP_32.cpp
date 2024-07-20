@@ -1,11 +1,9 @@
 double find_zero(vector<double> xs){
-    double sum = 0;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        if(i%2==1)
-            continue;
-        sum+=xs[i]/(double)pow(xs[0],i);
+    double a = xs[0];
+    double b = 0;
+    for (int i=1; i<xs.size();i++){
+        if(i%2==0) b+=xs[i]*pow(xs.back(),(i-1)/2.0);
+        else a+=xs[i]/pow(xs.back(),(i-1)/2.0);
     }
-    return -sum;
+    return -b/a;
 }
