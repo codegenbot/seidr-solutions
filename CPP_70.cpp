@@ -33,7 +33,7 @@ int main() {
     for (int num : output) {
         std::cout << num << " ";
     }
-    std::cout << "\n";
+    std::cout << std::endl;
 
     return 0;
 }
