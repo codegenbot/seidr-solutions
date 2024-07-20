@@ -1,8 +1,11 @@
-int prod_signs(vector<int> arr){
-    int res = 1; // Initialize result as 1
-    for(int num : arr){ // Iterate over each number in the array
-        if(num == 0) return -32768; // Return -32768 if array contains zero
-        res *= (num > 0 ? 1 : ((num < 0) ? -1 : 0)); // Update result with product of signs
+int prod_signs(vector<int> arr) {
+    if(arr.empty()) return -32768;
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
+    for(int num : arr) {
+        if(num == 0) continue;
+        sign_product *= (num > 0 ? 1 : -1);
+        sum_of_magnitudes += abs(num);
     }
-    return res;
+    return sign_product * sum_of_magnitudes;
 }
