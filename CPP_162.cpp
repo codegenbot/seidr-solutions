@@ -1,5 +1,5 @@
 #include <string>
-#include <openssl/md5.h>
+#include <sstream>
 
 using namespace std;
 
@@ -8,18 +8,19 @@ string string_to_md5(string text) {
         return "";
     }
 
-    unsigned char md5[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* str = text.c_str();
-    size_t len = text.length();
-    MD5_Update(&ctx, str, len);
-    MD5_Final(md5, &ctx);
+    unsigned char result[16];
 
-    ostringstream oss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        oss << setfill('0') << setw(2) << hex << (int)md5[i];
+    MD5_Init(&ctx);
+    const char *cstr = text.c_str();
+    size_t len = text.length();
+    MD5_Update(&ctx, cstr, len);
+    MD5_Final(result, &ctx);
+
+    stringstream ss;
+    for (size_t i = 0; i < 16; ++i) {
+        ss << hex << setfill('0') << setw(2) << (int)result[i];
     }
 
-    return oss.str();
+    return ss.str();
 }
