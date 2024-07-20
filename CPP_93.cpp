@@ -1,10 +1,13 @@
-for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = ((c - 'a' + 2) % 26) + 'a';
+string encode(string message){
+    string encoded_message = message;
+    transform(encoded_message.begin(), encoded_message.end(), encoded_message.begin(), [](char c) {
+        if(isalpha(c)){
+            c = isupper(c) ? tolower(c) : toupper(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c += 2;
             }
         }
-    }
-    return message;
+        return c;
+    });
+    return encoded_message;
 }
