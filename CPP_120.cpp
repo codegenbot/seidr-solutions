@@ -1,11 +1,11 @@
-vector<int> maximum(vector<int> myArr, int k) {
+vector<int> maximum(vector<int> myVector, int k) {
     vector<int> result;
-    if (k > myArr.size()) {
+    if (k > myVector.size()) {
         return {};
     }
-    sort(myArr.begin(), myArr.end());
-    for (int i = myArr.size() - 1; i >= myArr.size() - k; --i) {
-        result.push_back(myArr[i]);
+    sort(myVector.begin(), myVector.end());
+    for (int i = myVector.size() - 1; i >= myVector.size() - k; --i) {
+        result.push_back(myVector[i]);
     }
     return result;
 }
