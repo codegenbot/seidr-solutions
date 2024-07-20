@@ -1,15 +1,16 @@
+```
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, double groundSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
-    double totalSnow = 0;
+    double totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
-        groundSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
-        groundSnow = max(0.0, groundSnow);
+        double newSnow = rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+        totalSnow += newSnow;
+        if(totalSnow > groundSnow + rateOfSnowFall) totalSnow = groundSnow + rateOfSnowFall;
     }
-    return groundSnow;
+    return totalSnow;
 }
 
 int main() {
