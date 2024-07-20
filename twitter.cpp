@@ -9,10 +9,10 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (std::size(tweet) > 140) {
+    if (tweet.length() > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(std::size(tweet)) + " characters";
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {
