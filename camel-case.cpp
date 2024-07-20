@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -35,4 +34,3 @@ int main() {
     getline(cin, str); 
     cout << "Camel Case String: " << camelCase(str) << endl;
     return 0;
-}
