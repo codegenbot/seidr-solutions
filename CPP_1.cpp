@@ -1,19 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <string>
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
+    int balance = 0;
 
-bool issame(vector<string> a, vector<string> b);
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (balance > 0) {
+                group += c;
+            }
+            balance++;
+        } else if (c == ')') {
+            balance--;
+            if (balance > 0) {
+                group += c;
+            } else if (balance == 0) {
+                result.push_back(group);
+                group = "";
+            }
+        }
+    }
 
-vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    // Main function code here
+    return result;
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // issame function code here
-}
-
-vector<string> separate_paren_groups(string paren_string) {
-    // separate_paren_groups function code here
+    return a == b;
 }
