@@ -1,11 +1,12 @@
 int fib4(int n) {
     if (n <= 1) return 0;
-    int prev3 = 2, prev2 = 0, prev1 = 0;
-    for (int i = 4; i <= n; i++) {
-        int temp = prev1 + prev2 + prev3;
-        prev3 = prev2;
-        prev2 = prev1;
-        prev1 = temp;
+    int a = 0, b = 0, c = 2, d = 0;
+    for (int i = 3; i <= n; ++i) {
+        int t = a + b + c + d;
+        a = b;
+        b = c;
+        c = d;
+        d = t;
     }
-    return prev1;
+    return d;
 }
