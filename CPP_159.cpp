@@ -1,7 +1,6 @@
 #include <cassert>
 #include <utility>
 #include <iostream>
-#include <vector>
 
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
