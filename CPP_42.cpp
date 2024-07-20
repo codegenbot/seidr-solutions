@@ -1,5 +1,10 @@
-for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+#include <vector>
+
+using namespace std;
+
+vector<int> incr_list(vector<int> l) {
+    for (int &num : l) {
+        num++;
     }
     return l;
 }
