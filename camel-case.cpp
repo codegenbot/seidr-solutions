@@ -29,4 +29,3 @@ int main() {
         cout << kebabToCamel(input) << endl;
     }
     return 0;
-}
