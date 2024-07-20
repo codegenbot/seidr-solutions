@@ -1,24 +1,38 @@
-#include <string>
-using namespace std;
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    bool result = false;
 
-bool solveBoolean(string s) {
-    if(s == "T" || s == "t") return true;
-    if(s == "F" || s == "f") return false;
-    
-    int i = 0, j = 1;
-    while(j < s.length()) {
-        if(s[j] == '|') {
-            string left = s.substr(i,j-i);
-            string right = s.substr(j+1);
-            return solveBoolean(left) || solveBoolean(right);
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            while (!operationStack.empty() && operationStack.top() == '&') {
+                operationStack.pop();
+            }
+            operationStack.push('&');
+        } else if (booleanExpression[i] == '|') {
+            while (!operationStack.empty() && operationStack.top() == '|') {
+                operationStack.pop();
+            }
+            operationStack.push('|');
+        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 't') {
+            result = true;
+        } else if (booleanExpression[i] == 'F' || booleanExpression[i] == 'f') {
+            result = false;
+        } else {
+            while (!operationStack.empty()) {
+                operationStack.pop();
+            }
+            if (result) {
+                operationStack.push('&');
+            } else {
+                operationStack.push('|');
+            }
+            result = true;
         }
-        else if(s[j] == '&') {
-            string left = s.substr(i,j-i);
-            string right = s.substr(j+1);
-            return solveBoolean(left) && solveBoolean(right);
-        }
-        j++;
     }
-    
-    return false;
+
+    while (!operationStack.empty()) {
+        operationStack.pop();
+    }
+
+    return result;
 }
