@@ -17,8 +17,13 @@ vector<string> split_words(string txt) {
     if (txt.find(',') == string::npos) {
         int count = 0;
         for (char c : txt) {
-            if (c >= 'a' && c <= 'z' && (count & 1)) {
+            if ((int)c >= 97 && (int)c <= 122) {
                 count++;
+                if (count % 2 != 0) {
+                    break;
+                }
+            } else {
+                break;
             }
         }
         result.push_back(to_string(count));
