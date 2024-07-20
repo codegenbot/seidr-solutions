@@ -1,16 +1,13 @@
-string int_to_mini_roman(int number) {
-    vector<pair<int, string>> roman = {{1000, "m"}, {900, "cm"}, {500, "d"},
-                                         {400, "cd"}, {100, "c"}, {90, "xc"},
-                                         {50, "l"}, {40, "xl"}, {10, "x"},
-                                         {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
-    string result = "";
-    for (const auto& p : roman) {
-        while (number >= p.first) {
-            number -= p.first;
-            result += p.second;
+string int_to_mini_roman(int number) {
+    string result;
+    for (int i = 0; i < 13; i++) {
+        while (number >= val[i]) {
+            number -= val[i];
+            result += roman[i];
         }
     }
-
     return result;
 }
