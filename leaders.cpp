@@ -1,4 +1,9 @@
-#include <vector>
+```cpp
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Werror"
+#include <initializer_list>
+#pragma GCC diagnostic pop
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
