@@ -1,9 +1,10 @@
 ```c
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
@@ -24,7 +25,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    for(const auto& str: result) cout<<str<<endl;
-    return 0;
+    std::vector<std::string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
+    }
 }
