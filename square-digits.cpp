@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream>
+#include <cmath>
 
 std::string squareDigits(std::string input) {
     std::string output = "";
