@@ -1,9 +1,31 @@
-int pennies = cents;
-cout << quarters << endl;  
-cout << dimes << endl;      
-cout << nickels << endl;    
-pennies %= 5; // update pennies
-for (int i = 0; i < pennies; ++i) {
-    cout << "1";          
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cents;
+    cin >> cents;
+
+    int quarters = cents / 25;
+    cents %= 25;
+
+    int dimes = 0;
+    while (cents >= 10) {
+        dimes++;
+        cents -= 10;
+    }
+
+    int nickels = 0;
+    while (cents >= 5) {
+        nickels++;
+        cents -= 5;
+    }
+
+    int pennies = cents;
+
+    cout << quarters << endl;  
+    cout << dimes << endl;      
+    cout << nickels << endl;    
+    cout << pennies << endl;
+
+    return 0;
 }
-cout << endl;
