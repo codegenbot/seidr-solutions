@@ -1,15 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int n, const vector<int>& result) {
-    if (n < 3) {
-        return true;
-    }
-    return result[n - 1] == result[n - 2] + result[n - 3];
+bool issame(int a, int b) {
+    return a == b;
 }
 
-vector<int> tri(int n) {
-    vector<int> result;
+std::vector<int> tri(int n) {
+    std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
         return result;
