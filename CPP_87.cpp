@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert> // Add this line
+#include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return a == b;
 }
 
@@ -14,7 +14,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                result.push_back({i, j});
+                result.push_back({ i, j });
             }
         }
     }
@@ -28,6 +28,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    assert(issame(get_row({ {}, { 1 }, { 1, 2, 3 } }, 3), { { 2, 2 } }));
     return 0;
 }
