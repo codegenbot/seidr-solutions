@@ -1,14 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
-#include <iterator>
 
 using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
@@ -24,10 +20,11 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-int main() {
-    std::vector<int> expected_factors = {2, 3, 3};
-    std::vector<int> calculated_factors = factorize(3 * 2 * 3);
-    assert(issame(calculated_factors, expected_factors));
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
+int main() {
+    assert(issame(factorize(3 * 2 * 3), std::vector<int>({2, 3, 3})));
     return 0;
 }
