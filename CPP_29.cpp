@@ -5,12 +5,22 @@
 
 using namespace std;
 
-vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
-        if (str.compare(0, prefix.size(), prefix) == 0) {
+        if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
     return result;
+}
+
+int main() {
+    auto issame = [](vector<string> a, vector<string> b) {
+        return a == b;
+    };
+
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    
+    return 0;
 }
