@@ -1,5 +1,8 @@
+```cpp
 #include <string>
 #include <sstream>
+
+using namespace std;
 
 string validateTweet(string tweet) {
     if (tweet.empty()) {
