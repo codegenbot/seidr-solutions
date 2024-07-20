@@ -1,7 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int n) {
+bool issame(int a, int b) {
+    return a == b;
+}
+
+std::vector<int> tri(int n) {
     std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
@@ -20,8 +24,4 @@ bool issame(int n) {
         }
     }
     return result;
-}
-
-std::vector<int> tri(int n) {
-    return issame(n);
 }
