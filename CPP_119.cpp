@@ -1,6 +1,6 @@
 string match_parens(vector<string> lst) {
     int open = 0, close = 0;
-    for (const auto& str : lst) {
+    for (const string& str : lst) {
         for (char c : str) {
             if (c == '(') open++;
             else close++;
