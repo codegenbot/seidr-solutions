@@ -8,10 +8,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 3, 5, 2};
+    std::vector<int> vec = {1, 2, 3, 4, 5};
     int k = 3;
-    std::cout << "Maximum subarray of size " << k << ": ";
-    for (int i : maximum(arr, k)) {
+    std::vector<int> output = maximum(vec, k);
+    for (int i : output) {
         std::cout << i << " ";
     }
     return 0;
