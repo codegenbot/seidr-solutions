@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
-    cipher_map = {char1: char2 for char1, char2 in zip(cipher1.lower(), cipher2.lower())}
-    return ''.join([cipher_map.get(char, char) for char in message.lower()])
+    cipher_map = str.maketrans(''.join([chr(a) for a in zip(map(ord, cipher1.lower()), map(ord, cipher2.lower()))]).replace(chr(32), ' '), chr(32)*len(message))
+    return message.translate(cipher_map).upper()
