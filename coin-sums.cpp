@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -8,20 +11,29 @@ int main() {
         quarters++;
     }
 
-    cout << quarters << endl;
-
     int dimes = cents / 10;
     cents %= 10;
 
+    int nickles = 0;
+    while (cents >= 5) {
+        cents -= 5;
+        nickles++;
+    }
+
+    int pennies = 0;
+    while (cents > 0) {
+        if (cents >= 5) {
+            cents -= 5;
+            nickles++;
+        } else {
+            pennies += cents;
+            break;
+        }
+    }
+
+    cout << quarters << endl;
     cout << dimes << endl;
-
-    int nickles = cents / 5;
-    cents %= 5;
-
     cout << nickles << endl;
-
-    int pennies = cents;
-
     cout << pennies << endl;
 
     return 0;

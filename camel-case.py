@@ -1,9 +1,15 @@
+```
 print("Please enter a string in kebab-case: ")
 s = input()
 
 def camel_case(s):
     words = s.split("-")
-    result = "".join(word.capitalize() for word in words)
-    return result[0].upper() + result[1:].lower()
+    result = ""
+    for i, word in enumerate(words):
+        if i > 0:
+            result += word.capitalize()
+        else:
+            result += word
+    return result
 
 print(camel_case(s))
