@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -18,3 +19,4 @@ int main() {
     cin >> input;
     cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
     return 0;
+}
