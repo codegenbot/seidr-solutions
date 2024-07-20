@@ -1,5 +1,6 @@
-```c++
+Here is the completed code:
+
 bool iscuber(int a){
-    int c = round(cbrt(a));
-    return (a == pow(c, 3));
+    double c = cbrt(a);
+    return c == (int)c;
 }
