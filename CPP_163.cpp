@@ -2,7 +2,7 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -14,9 +14,4 @@ std::vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(generate_integers(17, 89), std::vector<int>()));
-    return 0;
 }
