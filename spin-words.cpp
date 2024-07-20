@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -39,3 +38,4 @@ int main() {
         cout << spinWords(str) << endl;
     }
     return 0;
+}
