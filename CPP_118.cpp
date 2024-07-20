@@ -1,14 +1,14 @@
-string get_closest_vowel(string word){
-    int left = 0, right = word.size() - 1;
-    while(left < right){
-        if(!isalpha(word[left])){left++; continue;}
-        if(!isalpha(word[right])){right--; continue;}
-        if(isvowel(tolower(word[left])) || isvowel(tolower(word[right]))){
-            if(abs(left-right) == 2) return tolower(word.substr(left+1, right-left-1));
-            else if(isvowel(tolower(word[left]))) return tolower(word[left]);
-            else return tolower(word[right]);
+string get_closest_vowel(string word) {
+    string vowels = "aeiouAEIOU";
+    for (int i = word.length() - 1; i > 0; i--) {
+        if (vowels.find(word[i]) != string::npos) {
+            int j;
+            for (j = i - 1; j >= 0; j--) {
+                if (vowels.find(word[j]) == string::npos)
+                    break;
+            }
+            return word.substr(j + 1, i - j - 1);
         }
-        left++; right--;
     }
     return "";
 }
