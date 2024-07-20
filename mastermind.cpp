@@ -1,23 +1,17 @@
-#include <algorithm>
-using namespace std;
-
+```cpp
 int mastermind(const string& code, const string& guess) {
     int white = 0;
     int black = 0;
-    map<char, int> charCount;
 
-    for (char c : code) {
-        charCount[c]++;
-    }
-
-    for (char c : code) {
-        if (c == guess[guess.find(c)]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code.substr(i, 1) == guess.substr(i, 1)) {
             ++black;
-        } else if (charCount.count(c) > 0 && charCount[c] > 1) {
-            --charCount[c];
-            ++white;
+        } else {
+            auto it = find(guess.begin(), guess.end(), code.substr(i, 1));
+            if (it != guess.end()) {
+                ++white;
+            }
         }
     }
 
     return black + white;
-}
