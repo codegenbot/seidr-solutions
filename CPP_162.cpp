@@ -1,21 +1,22 @@
+#include <string>
 #include <sstream>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char buffer[16];
-    MD5_CTX mdContext;
-    MD5_Init(&mdContext);
-    const char* str = text.c_str();
-    size_t length = text.size();
-    MD5_Update(&mdContext, str, length);
-    MD5_Final(buffer, &mdContext);
-
+    MD5_CTX ctx;
+    unsigned char md[16];
     stringstream ss;
+
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(md, &ctx);
+
     for (int i = 0; i < 16; ++i) {
-        if (i == 4 || i == 9 || i == 14) 
-            ss << "\\";
-        ss << printf("%02x", buffer[i]);
+        sprintf(ss.str().c_str(), "%02x", md[i]);
+        ss.seekp(0);
     }
 
     return ss.str();
