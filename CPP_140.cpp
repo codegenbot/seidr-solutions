@@ -1,18 +1,10 @@
-string fix_spaces(string text){
-    string result = "";
-    int count_consecutive_spaces = 0;
-    for(char c : text){
-        if(c == ' '){
-            count_consecutive_spaces++;
-            if(count_consecutive_spaces > 2){
-                result += '-';
-            } else {
-                result += '_';
-            }
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        if (i + 2 < text.size() && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text.replace(i, text.find_first_not_of(' ', i) - i, "-");
         } else {
-            count_consecutive_spaces = 0;
-            result += c;
+            text[i] = '_';
         }
     }
-    return result;
 }
+return text;
