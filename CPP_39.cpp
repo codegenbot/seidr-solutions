@@ -16,8 +16,7 @@ bool isPrime(int num) {
 int prime_fib(int n) {
     if (n == 1) {
         return 2;
-    }
-    if (n == 2) {
+    } else if (n == 2) {
         return 3;
     }
     
@@ -32,6 +31,7 @@ int prime_fib(int n) {
         prev = curr;
         curr = next;
     }
+    
     return next;
 }
 
