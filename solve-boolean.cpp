@@ -1,13 +1,23 @@
-string solveBoolean(string s) {
-    string result = "True";
-    for (int i = 0; i < s.size(); i++) {
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            if (result == "True" && s[i+1] != '&')
-                return "False";
+            char a = st.top();
+            st.pop();
+            char b = s[i + 1];
+            s[i] = '\0';
+            i++;
+            st.push((a == 'T' && b == 'T') ? 'T' : 'F');
         } else if (s[i] == '|') {
-            if (result == "False" && s[i+1] != '|')
-                return "False";
+            char a = st.top();
+            st.pop();
+            char b = s[i + 1];
+            s[i] = '\0';
+            i++;
+            st.push((a == 'T' || b == 'T') ? 'T' : 'F');
+        } else if (s[i] != '&') {
+            st.push(s[i]);
         }
     }
-    return result;
+    return st.top() == 'T';
 }
