@@ -1,4 +1,4 @@
-bool isEqual(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
@@ -13,7 +13,7 @@ vector<string> sorted_list_sum(vector<string> lst){
     return lst;
 }
 
-int main(){
-    assert(isEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+int main() {
+    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
