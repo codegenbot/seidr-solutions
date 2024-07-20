@@ -18,6 +18,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
