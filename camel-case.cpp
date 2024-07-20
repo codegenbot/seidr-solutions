@@ -33,22 +33,16 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string result;
-    bool first = true;
 
-    while (std::getline(std::cin, temp, '-')) {
-        if (!first) {
+    while (std::cin >> s && s != "-") {
+        if (!result.empty()) {
             result += " ";
-        } else {
-            first = false;
         }
-        for (char c : temp) {
+        for (char c : s) {
             if (c == '-') break;
-            if (first) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
+            if (first) result += toupper(c);
+            else result += tolower(c);
         }
     }
-    std::cout << result << std::endl;
+    std::cout << camelCase(result) << std::endl;
 }
