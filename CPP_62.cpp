@@ -15,15 +15,15 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> derivative(std::vector<float> v) {
+std::vector<float> derivative(std::vector<float> input) {
     std::vector<float> result;
-    for (size_t i = 1; i < v.size(); ++i) {
-        result.push_back(v[i] - v[i - 1]);
+    for (size_t i = 1; i < input.size(); ++i) {
+        result.push_back(input[i] - input[i - 1]);
     }
     return result;
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({1}), {0}));
     return 0;
 }
