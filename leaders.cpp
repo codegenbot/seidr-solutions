@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -13,7 +12,9 @@ vector<int> leaders(vector<int>& arr) {
                 break;
             }
         }
-        if(is_leader) result.push_back(arr[i]);
+        if(is_leader) {
+            result.push_back(arr[i]);
+        }
     }
     return result;
 }
