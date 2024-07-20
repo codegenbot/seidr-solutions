@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -15,4 +16,13 @@ std::vector<int> sort_array(std::vector<int> arr) {
         return __builtin_popcount(a) < __builtin_popcount(b);
     });
     return arr;
+}
+
+int main() {
+    std::vector<int> arr = {5, 3, 7, 1, 2};
+    arr = sort_array(arr);
+    for (int num : arr) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
