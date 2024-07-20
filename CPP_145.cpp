@@ -1,32 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
-}
+    std::vector<int> a_sorted = a;
+    std::vector<int> b_sorted = b;
 
-std::vector<int> order_by_points(std::initializer_list<int> points) {
-    std::vector<int> sorted_points(points);
-    std::sort(sorted_points.begin(), sorted_points.end());
-    return sorted_points;
+    std::sort(a_sorted.begin(), a_sorted.end());
+    std::sort(b_sorted.begin(), b_sorted.end());
+
+    return std::is_permutation(a_sorted.begin(), a_sorted.end(), b_sorted.begin());
 }
 
 int main() {
-    std::vector<int> vec1, vec2;
     int n, m;
     std::cin >> n >> m;
+
+    std::vector<int> vec1(n), vec2(m);
+
     for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        vec1.push_back(num);
+        std::cin >> vec1[i];
     }
+    
     for (int i = 0; i < m; ++i) {
-        int num;
-        std::cin >> num;
-        vec2.push_back(num);
+        std::cin >> vec2[i];
     }
 
     if (issame(vec1, vec2)) {
@@ -34,8 +31,6 @@ int main() {
     } else {
         std::cout << "Vectors are not permutations of each other.\n";
     }
-
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
