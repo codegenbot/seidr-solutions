@@ -23,5 +23,6 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    // Rest of your code
+    map<string, string> dict = {{"HELLO", "WORLD"}, {"hello", "world"}};
+    cout << (check_dict_case(dict) ? "True" : "False") << endl;
 }
