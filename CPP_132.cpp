@@ -3,7 +3,15 @@
 bool is_nested(std::string); // Function declaration before its definition
 
 int main() {
-    std::cout << (is_nested("[[[[]]]]") ? "true" : "false") << std::endl;
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+
+    if (is_nested(str)) {
+        cout << "The string is nested." << endl;
+    } else {
+        cout << "The string is not nested." << endl;
+    }
 }
 
 bool is_nested(std::string str) {
