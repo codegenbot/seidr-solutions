@@ -1,3 +1,4 @@
+```python
 def solve_boolean(expression):
     stack = []
     for char in expression:
