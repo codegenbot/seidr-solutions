@@ -1,4 +1,4 @@
-````
+```
 def solve_boolean(expression):
     stack = []
     for char in expression:
@@ -16,5 +16,3 @@ def solve_boolean(expression):
                     break
             stack.append(char)
     return stack.pop() == 'T' if stack else None
-
-print(solve_boolean('f&f&f|f|f|t|t&t|t&f|t&t&f|t&t|f'))
