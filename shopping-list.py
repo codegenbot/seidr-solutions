@@ -1,4 +1,3 @@
-```
 n = int(input())
 prices = [float(x) for x in input().split()]
 discounts = [float(x) for x in input().split()]*((len(prices)-1)//(len(prices)))
