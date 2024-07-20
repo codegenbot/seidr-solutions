@@ -1,9 +1,12 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> yourFunctionName(int n) {
@@ -13,11 +16,11 @@ std::vector<int> yourFunctionName(int n) {
 int main() {
     int n = 2;
     std::vector<int> tri = yourFunctionName(n);
-    assert(issame(tri, {0, 0}));
+    assert(issame(tri, std::vector<int>{0, 0}));
     
     std::vector<int> other = yourFunctionName(n);
     other[0] = 1; other[1] = 3;
-    assert(issame(other, {1, 3}));
+    assert(issame(other, std::vector<int>{1, 3}));
 
     return 0;
 }
