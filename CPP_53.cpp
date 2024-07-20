@@ -8,9 +8,10 @@ int add(int x, int y) {
 
 int main() {
     int x, y;
+    std::cout << "Enter two numbers to add: ";
     std::cin >> x >> y;
-    
-    std::cout << add(x, y) << std::endl;
+
+    std::cout << "Sum: " << add(x, y) << std::endl;
 
     return 0;
 }
