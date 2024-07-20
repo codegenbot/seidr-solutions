@@ -1,28 +1,24 @@
-string words_in_sentence(string sentence){
-    vector<string> words;
-    string word;
-    for(int i = 0; i < sentence.length(); i++){
-        if(sentence[i] == ' ' || i == sentence.length() - 1){
-            if(i != sentence.length() - 1)word += ' ';
-            words.push_back(word);
-            word = "";
-        }else{
-            word += sentence[i];
-        }
-    }
+Here is the solution:
 
-    string result;
-    for(auto w : words){
-        int len = w.length();
+string words_in_sentence(string sentence){
+    string result = "";
+    for(int i=0; i<sentence.size(); i++){
+        int len = 1;
+        for(int j=i+1; j<=sentence.size(); j++){
+            if(j == sentence.size() || sentence[j] != ' ') {
+                len++;
+                break;
+            }
+        }
+        string word = sentence.substr(i, len);
         bool is_prime = true;
-        for(int i = 2; i * i <= len; i++){
-            if(len % i == 0){
+        for(int j=2; j*j <= len; j++){
+            if(len % j == 0){
                 is_prime = false;
                 break;
             }
         }
-        if(is_prime)result += w + " ";
+        if(is_prime) result += word + " ";
     }
-
-    return result.substr(0, result.length() - 1);
+    return result;
 }
