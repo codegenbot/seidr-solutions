@@ -13,10 +13,10 @@ std::string camelCase(const std::string& str) {
             capitalizeNext = false;
         } else {
             if (!capitalizeNext) {
-                result += tolower(c);
-                capitalizeNext = true; // Start new word
-            } else {
                 result += c;
+                capitalizeNext = true;
+            } else {
+                result += tolower(c);
                 capitalizeNext = false; 
             }
         }
