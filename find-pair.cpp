@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include <iostream> 
+#include <vector>  
 #include <unordered_map>
 
 using namespace std;
@@ -13,8 +13,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    cout << "No pair found with sum equal to " << target << endl;
-    return {0, 0};
+    throw runtime_error("No such pair exists in the given vector and target");
 }
 
 int main() {
@@ -26,9 +25,13 @@ int main() {
     }
     int target;
     cin >> target;
-
-    pair<int, int> result = findPair(nums, target);
-    cout << result.first << " " << result.second << endl;
+    
+    try {
+        pair<int, int> result = findPair(nums, target);
+        cout << result.first << " " << result.second << endl;
+    } catch(runtime_error& e) {
+        cout << e.what() << endl;
+    }
 
     return 0;
 }
