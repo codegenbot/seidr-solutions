@@ -7,12 +7,16 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            char temp = s[i];
-            while (i + 1 < s.length() && s[i + 1] <= temp) {
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
                 i++;
             }
-            for (; i >= 0 && s[i] <= temp; i--) {
-                result += s[i];
+            for (char c : word) {
+                result += min_element(word.begin(), word.end()) -> first;
+            }
+            if (i < s.length()) {
+                result += " ";
             }
         }
     }
