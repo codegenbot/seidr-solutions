@@ -1,11 +1,10 @@
-int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // returning -1 as per the problem statement it should return None
-    
-    vector<int> v(lst);
-    sort(v.begin(), v.end());
-    
-    for(int i=0; i<v.size()-1; i++){
-        if(v[i] < v[i+1]) return v[i];
-    }
-    return -1;
-}
+Here is the solution:
+
+vector<int>::iterator it;
+
+if(lst.empty()) return NULL; 
+
+next(it = min_element(lst.begin() + 1, lst.end()));
+if(it == lst.begin())
+    return NULL;
+return *it;
