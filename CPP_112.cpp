@@ -3,45 +3,43 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<string> reverse_delete(const vector<string>& a, const vector<string>& b) {
-    vector<string> result;
-    for (const string& str : a) {
-        string reversedStr = str;
-        reverse(reversedStr.begin(), reversedStr.end());
+std::vector<std::string> reverse_delete(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> result;
+    for (const std::string& str : a) {
+        std::string reversedStr = str;
+        std::reverse(reversedStr.begin(), reversedStr.end());
         result.push_back(reversedStr);
     }
-    for (const string& str : b) {
+    for (const std::string& str : b) {
         result.push_back(str);
     }
 
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    string combined = "";
-    for (const string& str : a) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::string combined = "";
+    for (const std::string& str : a) {
         combined += str;
     }
-    for (const string& str : b) {
+    for (const std::string& str : b) {
         combined += str;
     }
 
-    string result;
+    std::string result;
     for (char ch : combined) {
-        if (result.find(ch) == string::npos) {
+        if (result.find(ch) == std::string::npos) {
             result += ch;
         }
     }
 
-    string reversedResult = result;
-    reverse(reversedResult.begin(), reversedResult.end());
+    std::string reversedResult = result;
+    std::reverse(reversedResult.begin(), reversedResult.end());
 
     return reversedResult == "ammamia";
 }
 
 int contest_main() {
-    assert(issame(reverse_delete({"mamma"}, {"mia"}), {"amam", "mia"}));
+    assert(issame(reverse_delete(std::vector<std::string>{"mamma"}, std::vector<std::string>{"mia"}), std::vector<std::string>{"amam", "mia"}));
     return 0;
 }
