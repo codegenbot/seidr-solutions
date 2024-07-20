@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -10,8 +13,7 @@ string spinWords(string str) {
             while(j < str.length() && str[j] != ' ') {
                 j++;
             }
-            if(j < str.length()) j--;
-            string word = str.substr(i, j - i + 1);
+            string word = str.substr(i, j - i);
             if(word.length() >= 5) {
                 for(int k = word.length() - 1; k >= 0; k--) {
                     result += word[k];
@@ -19,7 +21,7 @@ string spinWords(string str) {
             } else {
                 result += word;
             }
-            i = j + 1;
+            i = j;
         }
     }
     return result;
