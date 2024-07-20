@@ -4,7 +4,10 @@ int count = 0;
             for (int i = 0; i < grid.size(); i++) {
                 sum += grid[i][j];
             }
-            count += (sum / capacity) + (sum % capacity != 0);
+            while (sum > 0) {
+                sum -= capacity;
+                count++;
+            }
         }
         return count;
     }
