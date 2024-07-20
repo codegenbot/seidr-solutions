@@ -1,35 +1,31 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
+std::string spinWords(const std::string& input) {
+    std::string output;
     std::string word;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            word += str[i];
-        } else {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
+
+    for (char c : input) {
+        if (c == ' ') {
+            output += c;
             word = "";
+        } else {
+            word += c;
+            if (word.length() >= 5) {
+                word = std::string(word.rbegin(), word.rend());
+            }
+            output += word + " ";
         }
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    result += word;
-    
-    return result;
+
+    return output.substr(0, output.size()-1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // should print "a"
-    std::cout << spinWords("this is a test") << std::endl; // should print "this is a test"
-    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona test"
-    std::cout << spinWords("hi") << std::endl; // should print "hi"
-    
+    std::cout << spinWords("a") << std::endl; // Output: a
+    std::cout << spinWords("this is a test") << std::endl; // Output: this is a test
+    std::cout << spinWords("this is another test") << std::endl; // Output: this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // Output: hi
+
     return 0;
 }
