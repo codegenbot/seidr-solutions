@@ -1,8 +1,5 @@
-```Python
-def decipher_message(message):
-    cipher1 = "abcdefghijklmnopqrstuvwxyz"
-    cipher2 = "thequickbrownfxjumpoverlazydog"
-    
+```
+def decipher_message(cipher1, cipher2, message):
     cipher_map = {}
     for i in range(len(cipher1)):
         cipher_map[cipher1[i]] = cipher2[i]
@@ -19,4 +16,4 @@ def decipher_message(message):
 cipher1 = "abcdefghijklmnopqrstuvwxyz"
 cipher2 = "thequickbrownfxjumpoverlazydog"
 message = "gurpenmlxrfvqrbarpbzrguvaqvnyqra"
-print(decipher_message(message))
+print(decipher_message(cipher1, cipher2, message))
