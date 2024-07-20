@@ -1,7 +1,24 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <vector>
+#include <cctype>
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> result;
+    std::string temp;
+
+    for (char x : s) {
+        if (x == c) {
+            result.push_back(temp);
+            temp = "";
+        } else {
+            temp += x;
+        }
+    }
+    result.push_back(temp);
+
+    return result;
+}
 
 std::string camelCase(std::string s) {
     std::string result;
@@ -15,7 +32,7 @@ std::string camelCase(std::string s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += char(tolower(c));
+                result += char(toupper(c));
             }
             first = true;
         } else {
@@ -32,22 +49,20 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string input;
-    while (std::getline(std::cin, input)) {
-        std::stringstream ss(input);
-        std::string word;
+    std::string line;
+    std::string result;
 
-        std::cout << "Processing: " << input << std::endl;
-
-        while (std::getline(ss, word, '-')) {
-            for(auto & c : word) {
-                if(c == ' ') c = '-';
-            }
-            if (!word.empty()) {
-                std::cout << camelCase(word) << ' ';
+    while (std::getline(std::cin, line)) {
+        std::vector<std::string> words = split(line, '-');
+        
+        for (const auto& word : words) {
+            if (!result.empty()) {
+                result += camelCase(word);
+            } else {
+                result = camelCase(word);
             }
         }
-        std::cout << std::endl;
     }
-    return 0;
+
+    std::cout << result;
 }
