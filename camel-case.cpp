@@ -4,17 +4,18 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool upper = true;
+    bool inWord = false;
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';
-            upper = true;
-        } else if (upper) {
-            result += toupper(c);
-            upper = false;
+            inWord = true;
         } else {
-            result += tolower(c);
+            if (!inWord) {
+                inWord = true;
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
         }
     }
 
@@ -22,7 +23,7 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input = "s-lsdsy-uhhe";
-    std::cout << camelCase(input + " ") << std::endl;
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
