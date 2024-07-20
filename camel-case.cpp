@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -22,7 +21,7 @@ std::string split(const std::string& s, const std::string& delimiter) {
     size_t pos = 0;
     std::string token;
 
-    while ((pos = s.find(delimiter)) != std::string::npos) {
+    while ((pos = s.find(delimiter)) != 0) {
         token = s.substr(0, pos);
         s = s.substr(pos + delimiter.size());
     }
@@ -34,7 +33,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-
+    
     if (input.empty()) {
         std::cout << "Error: Input cannot be empty." << std::endl;
     } else {
