@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+bool issame(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
@@ -19,8 +18,4 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
     } else {
         return lst2;
     }
-}
-
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
 }
