@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -32,6 +33,9 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::cout << words_in_sentence("Hello World") << std::endl;
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    std::cout << words_in_sentence(sentence) << std::endl;
     return 0;
 }
