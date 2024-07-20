@@ -1,11 +1,11 @@
 vector<string> split_words(string txt){
     vector<string> words;
-    string word;
+    string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
                 words.push_back(word);
-                word.clear();
+                word = "";
             }
         } else {
             word += c;
@@ -15,13 +15,13 @@ vector<string> split_words(string txt){
         words.push_back(word);
     }
     if(words.empty()){
-        int oddLetters = 0;
+        int count = 0;
         for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
-                oddLetters++;
+                count++;
             }
         }
-        words.push_back(to_string(oddLetters));
+        words.push_back(to_string(count));
     }
     return words;
 }
