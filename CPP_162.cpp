@@ -26,6 +26,7 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    // Your code that calls string_to_md5()
+    string text = "Hello, World!";
+    cout << "MD5 of '" << text << "' is: " << string_to_md5(text) << endl;
     return 0;
 }
