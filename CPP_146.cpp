@@ -15,6 +15,6 @@ int main() {
     assert(specialFilter({}) == 0);
     std::vector<int> nums = {11, 12, 13, 14, 15};
     int result = specialFilter(nums);
-    std::cout << "The number of filtered numbers is: " << result << std::endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
