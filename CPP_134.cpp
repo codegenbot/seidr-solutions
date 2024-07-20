@@ -1,9 +1,13 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string lastChar = txt.substr(txt.size() - 1);
-    for (char c : txt) {
-        if (c == ' ') break;
-        if (!isalpha(c)) return false;
+Here is the completed code:
+
+```cpp
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length()-1);
+    for(int i=0; i<txt.length()-1; i++){
+        if(txt[i] == ' ' && txt.substr(i+1).find(lastChar) != string::npos){
+            return true;
+        }
     }
     return isalpha(lastChar[0]);
 }
