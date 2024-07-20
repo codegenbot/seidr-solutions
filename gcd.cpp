@@ -1,30 +1,20 @@
-#include <vector>
-#include <string>
-
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    int lastIndex = 0;
-
-    while ((lastIndex = text.find(target, lastIndex)) != std::string::npos) {
-        result.push_back(lastIndex);
-        lastIndex += 1; // to avoid overlapping match
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int len = target.length();
+    for(int i=0; i<=(text.length()-len);i++){
+        bool match=true;
+        for(int j=0;j<len;j++){
+            if(text[i+j] != target[j]) {
+                match=false;
+                break;
+            }
+        }
+        if(match) indices.push_back(i);
     }
-
-    return result;
+    return indices;
 }
 
 int gcd(int a, int b) {
-    if (b == 0) 
-        return a; 
-    else 
-        return gcd(b, a % b); 
-}
-
-int main() {
-    int a, b;
-    std::cin >> a >> b;
-
-    std::cout << gcd(a, b) << "\n";
-
-    return 0;
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
