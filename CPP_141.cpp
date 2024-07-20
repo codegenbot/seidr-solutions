@@ -1,31 +1,28 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    string before_dot;
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+    string beforeDot;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else{
-            if(!found_dot){
-                before_dot += file_name[i];
-            }
+    for (int i = 0; i < file_name.size(); i++) {
+        char c = file_name[i];
+        if (c == '.') {
+            foundDot = true;
+        } else if (isdigit(c)) {
+            digitCount++;
+        } else if (!foundDot) {
+            beforeDot += c;
         }
     }
 
-    if(digit_count > 3 || !found_dot || before_dot.empty() || !isalpha(before_dot[0])){
+    if (digitCount > 3 || !foundDot || beforeDot.empty() || !isalpha(beforeDot[0])) {
         return "No";
     }
-    else if(found_dot && (file_name.substr(file_name.find('.')+1).compare("txt") != 0 &&
-                           file_name.substr(file_name.find('.')+1).compare("exe") != 0 &&
-                           file_name.substr(file_name.find('.')+1).compare("dll") != 0)){
+
+    string afterDot = file_name.substr(foundDot ? foundDot + 1 : file_name.size());
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
         return "No";
     }
-    else{
-        return "Yes";
-    }
+
+    return "Yes";
 }
