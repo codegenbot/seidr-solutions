@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -10,10 +9,14 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        for (int j = 0; j < n - 1; j++) {
-            int num = i * pow(10, j);
-            if ((num % 10) == 1) {
-                count++;
+        if (n > 1) {
+            int num = i;
+            while (num < 10 * n) {
+                num *= 10;
+                if ((num % 10) == 1) {
+                    count++;
+                }
+                num++;
             }
         }
     }
