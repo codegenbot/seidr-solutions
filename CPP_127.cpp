@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start = std::max(interval1[0], interval2[0]);
@@ -19,21 +18,14 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
         }
     }
 
-    return std::to_string(isPrime);
+    return isPrime ? "YES" : "NO";
 }
 
 int main() {
-    int n1, m1, n2, m2;
-    std::cout << "Enter the start and end of interval1: ";
-    std::cin >> n1 >> m1;
-    std::vector<int> interval1 = {n1, m1};
-    
-    std::cout << "Enter the start and end of interval2: ";
-    std::cin >> n2 >> m2;
-    std::vector<int> interval2 = {n2, m2};
+    std::vector<int> interval1 = {1, 5};
+    std::vector<int> interval2 = {3, 7};
 
-    std::string result = intersection(interval1, interval2);
-    std::cout << "The intersection is: " << result << std::endl;
+    std::cout << intersection(interval1, interval2) << std::endl;
 
     return 0;
 }
