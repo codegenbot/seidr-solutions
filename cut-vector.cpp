@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 #include <vector>
+#include <string> // You don't actually need this one, as you're using namespace std; already.
+using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
