@@ -17,12 +17,7 @@ int main() {
 
     int pennies = cents;
 
-    string output = to_string(quarters) + " quarter(s), " +
-                    to_string(dimes) + " dime(s), " +
-                    to_string(nickels) + " nickel(s), and " +
-                    to_string(pennies) + " penny(ies).";
-
-    cout << output << endl;
+    cout << std::to_string(quarters) << " quarter(s), " << std::to_string(dimes) << " dime(s), " << std::to_string(nickels) << " nickel(s), and " << std::to_string(pennies) << " penny(ies)." << endl;
 
     return 0;
 }
