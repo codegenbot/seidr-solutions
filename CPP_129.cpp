@@ -3,11 +3,14 @@
 
 namespace CustomNamespace {
     std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n){
-        // Implement logic to calculate path
-        // Return a vector of integers representing the path
+        std::vector<int> path;
+        for (int i = 0; i < n; ++i) {
+            path.push_back(matrix[i % matrix.size()][i % matrix[0].size()]);
+        }
+        return path;
     }
 
-    bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    bool issame(std::vector<int> a, std::vector<int> b){
         return a == b;
     }
 }
