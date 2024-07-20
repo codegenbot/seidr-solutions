@@ -1,8 +1,22 @@
+#include <iostream>
+#include <string>
+
 bool is_palindrome(string text) {
-    int i = 0, j = text.length() - 1;
-    while (i < j) {
-        if (text[i] != text[j]) return false;
-        i++; j--;
+    int left = 0;
+    int right = text.length() - 1;
+
+    while (left < right) {
+        if (tolower(text[left]) != tolower(text[right])) {
+            return false;
+        }
+        left++;
+        right--;
     }
+
     return true;
+}
+
+int main() {
+    assert(is_palindrome("xywzx") == false);
+    return 0;
 }
