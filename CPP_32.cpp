@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -18,15 +18,6 @@ double find_zero(vector<double> coeffs) {
     return -b / a;
 }
 
-int main() {
-    vector<double> coeffs = {1, -3, 2};
-    double solution = find_zero(coeffs);
-  
-    if (std::abs(poly(coeffs, solution)) < 1e-3) {
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
-    }
-
-    return 0;
-}
+vector<double> coeffs = {1, -3, 2};
+double solution = find_zero(coeffs);
+assert(std::abs(poly(coeffs, solution)) < 1e-3); // Use std::abs instead of abs
