@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool std::issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     std::vector<int> result = numbers;
