@@ -1,29 +1,16 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    int y = boost::any_cast<int>(b);
-    if (x > y) return a;
-    else if (x < y) return b;
-    else return "None";
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    float x = boost::any_cast<float>(a);
-    float y = boost::any_cast<float>(b);
-    if (x > y) return a;
-    else if (x < y) return b;
-    else return "None";
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string x = boost::any_cast<string>(a);
-    string y = boost::any_cast<string>(b);
-    if (stof(x) > stof(y)) return a;
-    else if (stof(x) < stof(y)) return b;
-    else return "None";
-} else if ((a.type() == typeid(int) && b.type() == typeid(float)) || 
-           (a.type() == typeid(int) && b.type() == typeid(string)) || 
-           (a.type() == typeid(float) && b.type() == typeid(int)) || 
-           (a.type() == typeid(string) && b.type() == typeid(float)) || 
-           (a.type() == typeid(string) && b.type() == typeid(int))) {
-    if (boost::any_cast<int>(a) > boost::any_cast<float>(b)) return a;
-    else if (boost::any_cast<int>(a) < boost::any_cast<float>(b)) return b;
-    else return "None";
-} else {
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("float")) || is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("float"))) {
+        return (boost::get<float>(a) > boost::get<float>(b)) ? a : b;
+    } else if ((is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("string"))) || (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("string")))) {
+        return (boost::get<std::string>(a) > boost::get<std::string>(b)) ? a : b;
+    } else if ((is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("int"))) || (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("float")))) {
+        return boost::get<int>(a) > boost::get<int>(b) ? a : b;
+    }
     return "None";
 }
