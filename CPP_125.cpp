@@ -17,6 +17,14 @@ vector<string> split_words(const string& txt) {
 }
 
 int main() {
-    assert(split_words("") == vector<string>{""});
+    string input;
+    getline(cin, input);
+    vector<string> words = split_words(input);
+    
+    for (const auto& word : words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
