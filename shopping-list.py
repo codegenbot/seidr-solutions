@@ -1,12 +1,11 @@
-```
 def shopping_list():
     n = int(input())
     prices = list(map(float, input().split()))
     if len(prices) != n:
-        return "Error: Prices length does not match n"
+        return 
     discounts = list(map(float, input().split()))
     if len(discounts) != n:
-        return "Error: Discounts length does not match n"
+        return 
     total_price = 0
     for i in range(n):
         price = prices[i] * (1 - discounts[i] / 100)
