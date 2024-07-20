@@ -15,22 +15,17 @@ int countBlackPegs(string code, string guess) {
 }
 
 int countWhitePegs(string code, string guess) {
-    int whitePegs = 0;
-    vector<int> codeCounts(6, 0);
+    int totalCorrectColors = 0;
+    for (char c : code) {
+        totalCorrectColors += count(code, &c);
+    }
+    vector<char> codeCounts(6, 0);
     for (int i = 0; i < 4; ++i) {
         codeCounts[code[i]]++;
     }
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != ' ') { // only consider unvisited positions
-            codeCounts[guess[i]]--;
-        }
-    }
-    int totalCorrectColors = 0;
-    for (int i = 0; i < 6; ++i) {
-        totalCorrectColors += codeCounts[i];
-    }
     int blackPegs = countBlackPegs(code, guess);
-    return totalCorrectColors - blackPegs;
+    int whitePegs = totalCorrectColors - blackPegs;
+    return whitePegs;
 }
 
 int main() {
