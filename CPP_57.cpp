@@ -12,6 +12,6 @@ bool monotonic(std::vector<float> l){
 }
 
 int main(){
-    std::vector<float> input = {1.2, 2.5, 3.1, 4.7, 4.8};
-    assert(monotonic(input));
+    assert(monotonic({1.2, 2.3, 3.4, 4.5}) == true);
+    return 0;
 }
