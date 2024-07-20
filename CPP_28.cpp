@@ -12,5 +12,7 @@ string concatenate(vector<string> strings){
     return result;
 }
 
-assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
-```
+int main(){
+    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    return 0;
+}
