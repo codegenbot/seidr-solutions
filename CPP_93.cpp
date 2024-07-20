@@ -1,17 +1,15 @@
-string encode(string message){
-    string encoded_message = "";
-    for(char c : message){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if (isalpha(c)) {
+            c = toupper(c);
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 c = c + 2;
             }
+            if (c > 'Z') {
+                c = c - 26;
+            }
+            return islower(c) ? tolower(c) : c;
         }
-        encoded_message += c;
-    }
-    return encoded_message;
+        return c;
+    });
+    return message;
 }
