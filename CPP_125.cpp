@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(char a, char b){
     return tolower(a) == tolower(b);
 }
