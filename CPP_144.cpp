@@ -3,5 +3,5 @@ int x_num = stoi(x.substr(0, x.find('/')));
     int n_num = stoi(n.substr(0, n.find('/')));
     int n_den = stoi(n.substr(n.find('/') + 1));
 
-    return (x_num * n_num) % (x_den * n_den) == 0;
+    return (x_num * n_den) % (x_den * n_num) == 0;
 }
