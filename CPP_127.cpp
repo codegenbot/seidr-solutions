@@ -1,6 +1,9 @@
-#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-string intersection(vector<int> interval1, vector<int> interval2);
+using namespace std;
 
 int is_prime(int n) {
     if (n <= 1) return 0;
@@ -9,6 +12,8 @@ int is_prime(int n) {
     }
     return 1;
 }
+
+string intersection(vector<int> interval1, vector<int> interval2);
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
@@ -25,4 +30,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     } else {
         return "NO";
     }
+}
+
+int main() {
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
