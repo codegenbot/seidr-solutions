@@ -6,13 +6,12 @@ std::vector<int> parse_music(std::string music_string) {
     for (int i = 0; i < music_string.size(); ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (music_string[i] == '|' && i + 1 < music_string.size()) {
-            if (music_string[i + 1] == 'o') {
+        } else if (music_string[i] == '|') {
+            if (i + 1 < music_string.size() && music_string[i + 1] == 'o') {
                 beats.push_back(2);
                 ++i;
-            } else if (music_string[i + 1] == '.') {
+            } else {
                 beats.push_back(1);
-                ++i;
             }
         }
     }
@@ -32,16 +31,16 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::string music_input = "o|o.|o";
-    std::vector<int> expected_output = {4, 2, 1, 4};
-    
-    std::vector<int> parsed_output = parse_music(music_input);
-    
-    if (is_same(parsed_output, expected_output)) {
-        std::cout << "Output matches expected result." << std::endl;
+    std::string music_string = "o|o||o";
+    std::vector<int> expected_result = {4, 2, 1, 4};
+
+    std::vector<int> result = parse_music(music_string);
+
+    if (is_same(result, expected_result)) {
+        std::cout << "Output matches the expected result." << std::endl;
     } else {
-        std::cout << "Output does not match expected result." << std::endl;
+        std::cout << "Output does not match the expected result." << std::endl;
     }
-    
+
     return 0;
 }
