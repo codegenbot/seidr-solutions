@@ -2,7 +2,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b); // Declaration
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
@@ -14,7 +16,7 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){ // Definition
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
