@@ -4,7 +4,7 @@ int prev = lst[0];
 for (int i = 1; i < lst.size(); i++) {
     if (lst[i] != prev) {
         count++;
-        if (count == 2) {
+        if (count == 1) {
             return lst[i];
         }
     }
