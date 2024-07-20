@@ -1,20 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> remove_duplicates(vector<int> numbers){
-    sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
-}
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-int main() {
-    // Main function code here
-    return 0;
+std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
+    std::vector<int> result = numbers;
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end(), issame), result.end());
+    return result;
 }
