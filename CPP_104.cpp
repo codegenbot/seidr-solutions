@@ -1,10 +1,16 @@
+#include <algorithm>
+#include <cassert>
+#include <vector>
+
+using namespace std;
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
-            if (temp % 2 == 0) {
+            if (temp % 10 % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
