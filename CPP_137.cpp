@@ -1,41 +1,44 @@
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
+#include <vector>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any(b.get<boost::any>());
+    if (is_same<any_type, int>(a.type()) && is_same<any_type, float>(b.type())) {
+        return (float)a > (float)b ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return (boost::any) (b > a ? b : a);
+    else if (is_same<any_type, float>(a.type()) && is_same<any_type, int>(b.type())) {
+        return (float)a > (float)b ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = any_cast<string>(a);
-        string str_b = any_cast<string>(b);
-
-        int len_a = str_a.size();
-        int len_b = str_b.size();
-
-        for (int i = 0; i < len_a; ++i) {
-            if (str_a[i] == ',') {
-                --len_a;
-                break;
-            }
+    else if (is_same<any_type, string>(a.type()) && is_same<any_type, string>(b.type())) {
+        vector<string> strs = {any_cast<string>(a), any_cast<string>(b)};
+        sort(strs.begin(), strs.end());
+        return strs.back();
+    }
+    else if (is_same<any_type, int>(a.type()) && is_same<any_type, string>(b.type())) {
+        double a_val = stod(any_cast<string>(b));
+        if ((int)a > a_val) {
+            return a;
         }
-
-        for (int i = 0; i < len_b; ++i) {
-            if (str_b[i] == ',') {
-                --len_b;
-                break;
-            }
+        else if ((int)a < a_val) {
+            return b;
         }
-
-        str_a = str_a.substr(0, len_a);
-        str_b = str_b.substr(0, len_b);
-
-        return boost::any((boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? b : a);
+        else {
+            return boost::any("None");
+        }
+    }
+    else if (is_same<any_type, string>(a.type()) && is_same<any_type, int>(b.type())) {
+        double b_val = stod(any_cast<string>(a));
+        if ((int)b > b_val) {
+            return b;
+        }
+        else if ((int)b < b_val) {
+            return a;
+        }
+        else {
+            return boost::any("None");
+        }
     }
     else {
         return boost::any("None");
