@@ -1,8 +1,14 @@
-Here is the completed code:
+Here is the solution:
 
 int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // Return None or -1
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    int idx = distance(sorted.begin(), find(sorted.begin(), sorted.end(), *max_element(lst.begin(), lst.end())));
-    return (idx == 0 || idx == (int)sorted.size() - 1)? -1 : sorted[idx];
+    if(lst.size() < 2) return -1; // Return None as per the problem description
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for(int i = 0; i < copy.size(); i++) {
+        if(i == 0 || copy[i] != copy[i-1]) {
+            if(i+1 >= copy.size() - 1) return -1; // Return None as per the problem description
+            else if(copy[i] < copy[i+1]) return copy[i];
+        }
+    }
+    return -1; // Return None as per the problem description
+}
