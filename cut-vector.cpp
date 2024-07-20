@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream> 
 using namespace std;
@@ -8,7 +9,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
-            result[0] = vector<int>(v.begin(), v.end());
+            result[0] = {v.begin(), v.end()};
             result[1].clear();
             break;
         }
@@ -22,8 +23,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         
         if (leftSum == rightSum) {
-            result[0] = vector<int>(v.begin(), v.begin() + i);
-            result[1] = vector<int>(v.begin() + i, v.end());
+            result[0] = {v.begin(), v.begin() + i};
+            result[1] = {v.begin() + i, v.end()};
             break;
         }
     }
