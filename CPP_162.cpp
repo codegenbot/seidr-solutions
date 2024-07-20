@@ -1,23 +1,15 @@
-#include <string>
+#include <iostream>
 #include <sstream>
+#include <iomanip>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX c;
-    MD5_Init(&c);
-    const char *ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&c, ptr, 1);
-        ptr++;
-    }
-    MD5_Final(md, &c);
-
+    
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((unsigned const char*)text.c_str(), text.size(), result);
     stringstream ss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
+        ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
-
     return ss.str();
 }
