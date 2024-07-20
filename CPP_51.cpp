@@ -1,8 +1,8 @@
-string str;
-for (char c : text) {
-    if (!isalpha(c) || !strncasecmp(&c, "aeiouAEIOU", 6)) {
-        continue;
+string remove_vowels(string text){
+    string result = "";
+    for(char c : text){
+        if( ! (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') )
+            result += c;
     }
-    str += c;
+    return result;
 }
-return str;
