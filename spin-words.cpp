@@ -7,20 +7,18 @@ std::string spinWords(std::string str) {
 
     for (char c : str) {
         if (c == ' ') {
-            if (word.length() >= 5)
-                result += std::string(word).reverse() + " ";
-            else
-                result += word + " ";
+            if (!word.empty())
+                result += !word.length() >= 5 ? word + " " : std::string(word.rbegin(), word.rend()) + " ";
             word = "";
         } 
         else 
             word += c;
     }
 
-    if (word.length() >= 5)
-        result += std::string(word).reverse();
+    if (!word.empty())
+        result += !word.length() >= 5 ? word : std::string(word.rbegin(), word.rend());
     else
-        result += word;
+        result += "";
 
     return result;
 }
