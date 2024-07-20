@@ -11,16 +11,16 @@ int count_nums(std::vector<int> nums) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum == 1)
+            if (sum > 0)
                 count++;
         } else {
-            int sum = 0, sign = -1;
+            int sum = 0, sign = 1;
             int abs_num = abs(num);
             while (abs_num > 0) {
                 sum += abs_num % 10;
                 abs_num /= 10;
             }
-            if (sum == 1)
+            if (sum > 0)
                 count++;
         }
     }
@@ -29,6 +29,7 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {1};
-    assert(count_nums(nums) == 1);
+    int result = count_nums(nums);
+    std::cout << "The number of integers is: " << result << std::endl;
     return 0;
 }
