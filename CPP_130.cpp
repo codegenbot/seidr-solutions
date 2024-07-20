@@ -7,18 +7,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> yourFunctionName(int n) {
-    return std::vector<int>(n, 0);
+std::vector<int> yourFunctionName(const std::vector<int>& n) {
+    return std::vector<int>(n.size(), 0);
 }
 
 int main() {
-    int n = 2;
-    std::vector<int> tri = yourFunctionName(n);
+    std::vector<int> tri = yourFunctionName({0, 0});
     assert(issame(tri, {0, 0}));
 
-    std::vector<int> other = yourFunctionName(n);
-    other[0] = 1;
-    other[1] = 3;
+    std::vector<int> other = yourFunctionName({1, 3});
     assert(issame(other, {1, 3}));
 
     std::cout << "Code fixed successfully!" << std::endl;
