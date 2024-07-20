@@ -1,8 +1,5 @@
 double num = stod(value);
-int closestInt;
-if (num >= 0) {
-    closestInt = floor(num + 0.5);
-} else {
-    closestInt = ceil(num - 0.5);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return (num - lower < upper - num) ? lower : upper;
 }
-return closestInt;
