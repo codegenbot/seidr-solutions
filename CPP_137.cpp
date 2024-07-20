@@ -1,4 +1,4 @@
-#include <any>
+#include <boost/any.hpp>
 #include <cassert>
 #include <string>
 #include <iostream>
@@ -16,6 +16,6 @@ const T compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one<std::string>(std::string("1"), std::string("1"))) == "1");
+    assert(std::any_cast<std::string>(compare_one<std::string>(std::string("abc"), std::string("abc"))) == "abc");
     return 0;
 }
