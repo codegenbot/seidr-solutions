@@ -3,7 +3,8 @@
 #include <cassert>
 
 bool issame(const vector<string>& a, const vector<string>& b){
-    vector<string> total_match;
+    vector<string> total_match = a;
+    
     int total_chars1 = 0;
     int total_chars2 = 0;
     
@@ -22,4 +23,4 @@ bool issame(const vector<string>& a, const vector<string>& b){
     }
 }
 
-assert(issame(total_match({"this"}, {}), {}) == true);
+assert(issame(total_match({"this"}, {}), {}) == true;
