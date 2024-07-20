@@ -12,18 +12,13 @@ int add_elements(std::vector<int> arr, int k){
 int main(){
     std::vector<int> arr;
     int k;
-    
-    cout << "Enter the size of array: ";
+    cout << "Enter the number of elements: ";
     cin >> k;
-
     arr.resize(k);
-
     for(int i=0; i<k; i++){
-        cout << "Enter element " << i+1 << ": ";
+        cout << "Enter element " << (i+1) << ": ";
         cin >> arr[i];
     }
-
-    cout << "Sum of elements is: " << add_elements(arr, k) << endl;
-    
+    cout << "The sum is: " << add_elements(arr, k) << endl;
     return 0;
 }
