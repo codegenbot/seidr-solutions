@@ -1,18 +1,34 @@
+#include<iomanip>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+        if (c != ' ') {
+            word += c;
+        } else if (!word.empty()) {
+            bool has_n_consonants = count_if(word.begin(), word.end(),
+                [](char ch) { return !isalpha(ch) || isvowel(tolower(ch)); }) == n;
+            if (has_n_consonants) {
                 result.push_back(word);
             }
             word = "";
-        } else {
-            word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+    bool has_n_consonants = count_if(word.begin(), word.end(),
+        [](char ch) { return !isalpha(ch) || isvowel(tolower(ch)); }) == n;
+    if (has_n_consonants) {
         result.push_back(word);
     }
+    sort(result.begin(), result.end());
     return result;
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
