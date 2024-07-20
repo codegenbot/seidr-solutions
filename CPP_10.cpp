@@ -12,7 +12,7 @@ string make_palindrome(string str){
     while(i>=0 && str[i]==str[0]){
         i--;
     }
-    string prefix=str.substr(0,i+1);
-    string suffix=str.substr(i+1)+string(str.rbegin(),str.rend()).substr(prefix.length());
-    return prefix+prefix+suffix;
+    string prefix = str.substr(0, i+1);
+    string suffix = str.substr(i+1)+prefix;
+    return suffix;
 }
