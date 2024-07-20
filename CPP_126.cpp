@@ -1,4 +1,4 @@
-Here is the completed code:
+Here's the completed code:
 
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
@@ -6,15 +6,13 @@ bool is_sorted(vector<int> lst){
             return false;
         }
     }
-    bool firstOccur = true;
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] == lst[i+1]){
-            if(firstOccur){
-                firstOccur = false;
-            } else {
-                return false;
-            }
+    int count = 0;
+    for(int num: lst){
+        if(num == 0){
+            count++;
+        }else{
+            break;
         }
     }
-    return true;
+    return count <= 1;
 }
