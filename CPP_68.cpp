@@ -12,9 +12,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    if (minIndex != -1) {
-        result.push_back({minEvenValue, minIndex});
-    }
+    result.push_back({minEvenValue, minIndex});
 
     return result;
 }
