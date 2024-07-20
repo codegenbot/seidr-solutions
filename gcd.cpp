@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -34,4 +33,4 @@ int main() {
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
-}
+    return 0;
