@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,12 +28,11 @@ int main() {
     std::cin >> a;
     std::cin.ignore();
     std::cin >> b;
-    std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
     std::cout << "Enter the text and target string for Indices of Substring: ";
     std::getline(std::cin, text);
-    std::cin.ignore();
+    std::cin.ignore(); 
     std::getline(std::cin, target);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
