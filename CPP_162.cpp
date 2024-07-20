@@ -1,32 +1,34 @@
-```cpp
-#include <iostream>
 #include <string>
-#include <algorithm>
-#include <iomanip>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
-std::string string_to_md5(std::string text) {
-    if (text.empty()) return "None";
-    
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+
     unsigned char md[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    size_t len = text.size();
-    while(len > 0) {
-        MD5_Update(&ctx, ptr, len);
-        len -= sizeof(char)*1024;
-        if(len <= 0) break;
-        ptr += sizeof(char)*1024;
-    }
-    MD5_Final(md,&ctx);
+    const EVP_MD *evp_md;
+    EVP_MD_CTX ctx;
+    unsigned char input[1024];
 
-    std::string result;
-    for(int i=0; i<16; ++i){
-        char c = (md[i] >> 4) & 15;
-        result.push_back((c < 10)? c+'0' : c-10 + 'a');
-        c = md[i] & 15;
-        result.push_back((c < 10)? c+'0' : c-10 + 'a');
+    int i = 0;
+    for (const auto& c : text) {
+        input[i++] = (unsigned char)c;
     }
-    
+    input[i] = '\0';
+
+    evp_md = EVP_get_md5();
+    EVP_DigestInit_ex(&ctx, evp_md, NULL);
+    EVP_DigestUpdate(&ctx, input, i);
+    EVP_DigestFinal_ex(&ctx, md, NULL);
+
+    string result;
+    for (const auto& c : (string)md) {
+        char buf[3];
+        sprintf(buf, "%02x", c);
+        result += string(buf);
+    }
+
     return result;
 }
