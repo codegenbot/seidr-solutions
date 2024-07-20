@@ -3,15 +3,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> get_odd_collatz(int n) {
@@ -33,12 +25,4 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(odd_result.begin(), odd_result.end());
     return odd_result;
-}
-
-int main() {
-    // Example usage
-    vector<int> result = get_odd_collatz(10);
-    assert(issame(result, {1, 3, 5, 9, 19}));
-    
-    return 0;
 }
