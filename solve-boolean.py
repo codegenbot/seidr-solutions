@@ -1,28 +1,20 @@
 def solve_boolean(expression):
-    def evaluate_operator(s, op):
-        if s[0] == '(':
-            return int(evaluate_expression(s[1:-1]))
-        elif s[0] in ['T', 'F']:
-            return {'T': 1, 'F': 0}[s[0]]
-        else:
-            a = evaluate_operator(s[:3], op)
-            b = evaluate_operator(s[4:], op)
-            return op == '&' and a & b or op == '|' and a | b
-
-    def evaluate_expression(expression):
-        result_str = ''
-        parsing = True
-        for char in expression[::-1]:
-            if char in ['T', 'F']:
-                if parsing:
-                    result_str += char
+    stack = []
+    for char in expression:
+        if char in ['T', 'F']:
+            stack.append(char)
+        elif char in ['|', '&']:
+            while len(stack) >= 2 and stack[-1] == '&' and (char == '|' or stack[-2] == '|'):
+                a = stack.pop() == 'T'
+                b = stack.pop() == 'T'
+                stack.append(a and b)
+            if char == '&':
+                if len(stack) >= 2 and stack[-1] == 'T' and stack[-2] == 'T':
+                    stack.pop()
+                    stack.pop()
+                    stack.append(False)
                 else:
-                    return str(evaluate_operator(result_str + char, '|'))
-            elif char in ['|', '&']:
-                if char == '&':
-                    result_str += '& '
-                else:
-                    result_str += '| '
-        return str(evaluate_operator(result_str, '|'))
+                    stack.append(stack.pop() == 'T')
+    return stack.pop() == 'T'
 
-    return int(evaluate_expression(expression))
+print(solve_boolean('f&f&f|f|f|t|t&t|t&f|t&t&f|t&t|f'))
