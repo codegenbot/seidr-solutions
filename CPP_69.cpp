@@ -3,15 +3,6 @@
 
 using namespace std;
 
-int count(int n) {
-    int c = 0;
-    for (int i : {1, 2, ..., n}) {
-        if (n % i == 0)
-            c++;
-    }
-    return c;
-}
-
 int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
