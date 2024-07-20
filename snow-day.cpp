@@ -2,10 +2,11 @@
 #include <iomanip> 
 using namespace std;
 
-double snowDay(int hours, float initialSnow, float rate, float meltRate) {
-    double snow = initialSnow;
+long double snowDay(int hours, float initialSnow, float rate, float meltRate) {
+    long double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        snow = snow - (meltRate * snow) + rate;
+        snow += rate;
+        snow -= meltRate * snow;
     }
     return snow;
 }
