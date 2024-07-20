@@ -1,14 +1,8 @@
-if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
-        if(boost::any_cast<int>(a) < boost::any_cast<int>(b)) return b;
-    }
-    if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)) return a;
-        if(boost::any_cast<float>(a) < boost::any_cast<float>(b)) return b;
-    }
-    if(a.type() == typeid(string) && b.type() == typeid(string)){
-        if(stod(boost::any_cast<string>(a)) > stod(boost::any_cast<string>(b))) return a;
-        if(stod(boost::any_cast<string>(a)) < stod(boost::any_cast<string>(b))) return b;
-    }
-    return "None";
+if(a == b) return "None";
+if(a.type() == typeid(string) || b.type() == typeid(string)){
+    string sa = boost::any_cast<string>(a);
+    string sb = boost::any_cast<string>(b);
+    if(stod(sa) == stod(sb)) return "None";
+    return stod(sa) > stod(sb) ? a : b;
 }
+return boost::any_cast<double>(a) > boost::any_cast<double>(b) ? a : b;
