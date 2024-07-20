@@ -2,15 +2,15 @@
 #include <vector>
 #include <string>
 
-bool issame(char a, char b){
-    return tolower(a) == tolower(b);
+bool issame(const std::string& s){
+    return std::adjacent_find(s.begin(), s.end()) == s.end();
 }
 
-vector<string> split_words(string txt);
+std::vector<std::string> split_words(std::string txt);
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -27,11 +27,11 @@ vector<string> split_words(string txt){
     if(result.empty()){
         int oddLowercaseCount = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(std::islower(c) && (c - 'a') % 2 == 1){
                 oddLowercaseCount++;
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
+        result.push_back(std::to_string(oddLowercaseCount));
     }
     return result;
 }
