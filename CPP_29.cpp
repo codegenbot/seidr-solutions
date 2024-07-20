@@ -14,11 +14,3 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 }
-
-int main(){
-    vector<string> strings = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
-    for (const auto& str : strings) {
-        cout << str << endl;
-    }
-    return 0;
-}
