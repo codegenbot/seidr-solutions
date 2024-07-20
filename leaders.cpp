@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -14,24 +15,11 @@ vector<int> leaders(vector<int>& arr) {
     return leaders;
 }
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
-    int leader = -1;
-    for (int i = arr.size() - 1; i >= 0; i--) {
-        if (arr[i] > leader) {
-            leaders.push_back(arr[i]);
-            leader = arr[i];
-        }
-    }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
-}
-
 int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(arr);
     for (int num : result) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
     return 0;
 }
