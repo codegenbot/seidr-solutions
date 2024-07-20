@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <iomanip> 
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rate, float meltRate) {
@@ -17,7 +15,5 @@ int main() {
     cin >> hours;
     float initialSnow, rate, meltRate;
     cin >> initialSnow >> rate >> meltRate;
-    cout << fixed << setprecision(10) << showpoint;
-    cout << snowDay(hours, initialSnow, rate, meltRate) << endl;
+    cout << fixed << snowDay(hours, initialSnow, rate, meltRate) << endl;
     return 0;
-}
