@@ -1,23 +1,19 @@
-vector<float> even_values;
-    vector<float> result;
-    
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+#include <vector>
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+
+using namespace std;
+
+vector<float> sort_even(vector<float> numbers) {
+    vector<float> even_numbers;
+    for (float num : numbers) {
+        if (fmod(num, 2) == 0) {
+            even_numbers.push_back(num);
         }
     }
-    
-    sort(even_values.begin(), even_values.end());
-    
-    int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            result.push_back(even_values[even_index]);
-            even_index++;
-        } else {
-            result.push_back(l[i]);
-        }
-    }
-    
-    return result;
+    sort(even_numbers.begin(), even_numbers.end());
+    return even_numbers;
 }
+
+// You can now test your functions here
