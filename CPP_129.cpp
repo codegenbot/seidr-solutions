@@ -1,34 +1,47 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    int rows = grid.size();
-    int cols = grid[0].size();
-    
-    std::vector<std::vector<int>> dp(rows, std::vector<int>(cols, k+1));
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int m = grid.size();
+    int n = grid[0].size();
+    vector<vector<int>> dp(m, vector<int>(n, k + 1));
+
     dp[0][0] = grid[0][0];
-    
-    for(int i = 0; i < rows; ++i){
-        for(int j = 0; j < cols; ++j){
-            if(i > 0) dp[i][j] = std::min(dp[i][j], dp[i-1][j] + grid[i][j]);
-            if(j > 0) dp[i][j] = std::min(dp[i][j], dp[i][j-1] + grid[i][j]);
+    for (int i = 1; i < m; ++i) {
+        dp[i][0] = dp[i - 1][0] + grid[i][0];
+    }
+    for (int j = 1; j < n; ++j) {
+        dp[0][j] = dp[0][j - 1] + grid[0][j];
+    }
+    for (int i = 1; i < m; ++i) {
+        for (int j = 1; j < n; ++j) {
+            dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
         }
     }
-    
-    std::vector<int> path;
-    int r = rows - 1, c = cols - 1;
-    while(r >= 0 && c >= 0){
-        path.push_back(grid[r][c]);
-        if(r == 0 && c == 0) break;
-        if(r > 0 && dp[r][c] == dp[r-1][c] + grid[r][c]) r--;
-        else c--;
+
+    int i = m - 1, j = n - 1;
+    vector<int> path;
+    while (i > 0 || j > 0) {
+        path.push_back(grid[i][j]);
+        if (i == 0) {
+            --j;
+        } else if (j == 0) {
+            --i;
+        } else {
+            if (dp[i - 1][j] < dp[i][j - 1]) {
+                --i;
+            } else {
+                --j;
+            }
+        }
     }
-    
-    std::reverse(path.begin(), path.end());
+    path.push_back(grid[0][0]);
+    reverse(path.begin(), path.end());
+
     return path;
 }
 
