@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
-std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
     std::string result = "";
@@ -12,10 +13,10 @@ std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::str
             result += ch;
         }
     }
-    return {result, result == std::string(result.rbegin(), result.rend()) ? "True" : "False"};
+    return result == std::string(result.rbegin(), result.rend());
 }
 
 int main() {
-    assert(issame({"mamma", "mia"}, {"", "True"}) == std::vector<std::string>{"mm", "False"});
+    assert(issame({"mamma", "mia"}, {"", "True"}) == false);
     return 0;
 }
