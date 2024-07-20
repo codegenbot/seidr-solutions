@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include <utility>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::unordered_map<char, char> mapping;
