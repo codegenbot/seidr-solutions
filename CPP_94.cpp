@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <cmath>
 
 int sumOfDigits(int n) {
     int sum = 0;
@@ -10,7 +11,7 @@ int sumOfDigits(int n) {
     return sum;
 }
 
-int skjkasdkd(vector<int> lst) {
+int findMaxPrime(vector<int> lst) {
     int maxPrime = -1;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -36,20 +37,4 @@ bool isPrime(int n) {
         }
     }
     return true;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-
-    vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> lst[i];
-    }
-
-    std::cout << "The sum of digits of the maximum prime number is: " << skjkasdkd(lst) << std::endl;
-
-    return 0;
 }
