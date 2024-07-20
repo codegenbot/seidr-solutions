@@ -1,3 +1,4 @@
+// Task description: Check if a number is a perfect cube.
 #include <cmath>
 #include <iostream>
 
@@ -7,14 +8,15 @@ bool iscuber(int a){
 }
 
 int main() {
-    int n;
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> n;
-    
-    if(iscuber(n))
-        std::cout << n << " is a cube.\n";
-    else
-        std::cout << n << " is not a cube.\n";
-    
+    std::cin >> num;
+
+    if(iscuber(num)) {
+        std::cout << num << " is a perfect cube." << std::endl;
+    } else {
+        std::cout << num << " is not a perfect cube." << std::endl;
+    }
+
     return 0;
 }
