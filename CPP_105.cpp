@@ -1,22 +1,44 @@
-#include <string>
-
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-
+    vector<int> nums;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            int num = i;
-            string str = "";
-            map<int, string> numberMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-                                           {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-            while (num > 0) {
-                str = numberMap[num % 10] + " " + str;
-                num /= 10;
-            }
-            result.push_back(str.substr(0, str.length() - 1));
+            nums.push_back(i);
         }
     }
-
-    reverse(result.begin(), result.end());
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+    vector<string> result;
+    for (int num : nums) {
+        string str = "";
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+        }
+        result.push_back(str);
+    }
     return result;
 }
