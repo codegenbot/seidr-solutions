@@ -1,13 +1,15 @@
-int count = 0;
-for (char bracket : brackets) {
-    if (bracket == '<') {
-        count++;
-    } else if (bracket == '>') {
-        count--;
+bool correct_bracketing(string brackets){
+    int open_count = 0;
+    for(char c : brackets){
+        if(c == '<'){
+            open_count++;
+        }
+        else if(c == '>'){
+            if(open_count == 0){
+                return false;
+            }
+            open_count--;
+        }
     }
-    if (count < 0) {
-        return false;
-    }
-}
-return count == 0;
+    return open_count == 0;
 }
