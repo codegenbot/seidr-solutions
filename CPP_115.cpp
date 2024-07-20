@@ -1,20 +1,9 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int result = 0;
-    
-    for (int i = 0; i < n; i++) {
-        int water = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (grid[i][j] == 1) {
-                water += 1;
-            }
-        }
-        while (water > 0) {
-            water -= capacity;
-            result++;
-            if (water >= 0) break;
-        }
+    int total_water = 0;
+    for (auto row : grid) {
+        total_water += accumulate(row.begin(), row.end(), 0);
     }
-    
-    return result;
+    return total_water / capacity;
 }
