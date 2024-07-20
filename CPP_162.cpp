@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <string>
 #include <openssl/md5.h>
 
