@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
 int main() {
     int cents;
-    std::cin >> cents;
+    cin >> cents;
 
     int dimes = 0;
     int nickels = 0;
@@ -25,10 +25,10 @@ int main() {
 
     pennies = cents; // store the remaining cents as pennies
 
-    std::cout << std::to_string(quarters) << std::endl;
-    std::cout << std::to_string(dimes) << std::endl;
-    std::cout << std::to_string(nickels) << std::endl;
-    std::cout << std::to_string(pennies) << std::endl;
+    cout << quarters << " quarters" << endl;
+    cout << dimes << " dimes" << endl;
+    cout << nickels << " nickels" << endl;
+    cout << pennies << " pennies" << endl;
 
     return 0;
 }
