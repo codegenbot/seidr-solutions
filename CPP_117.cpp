@@ -1,56 +1,45 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string current_word = "";
-    bool in_word = false;
-    
+    string word = "";
     for (char c : s) {
-        if (isalpha(c)) { // Check if the character is a letter
-            if (!in_word) {
-                in_word = true; // Start of a new word
-                current_word += c;
-            } else {
-                current_word += c;
-            }
-        } else { // Character is not a letter, it's either space or something else
-            if (in_word) {
-                in_word = false; // End of the word
-                int consonants = 0;
-                for (char d : current_word) {
-                    if (!isvowel(d)) {
-                        consonants++;
-                    }
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                    consonants++;
                 }
-                if (consonants == n) {
-                    result.push_back(current_word);
-                }
-                current_word = "";
             }
+            if (consonants == n) {
+                result.push_back(word);
+            }
+            word = "";
         }
     }
-    
-    // Check the last word
-    if (in_word) {
-        in_word = false;
-        int consonants = 0;
-        for (char d : current_word) {
-            if (!isvowel(d)) {
-                consonants++;
-            }
-        }
-        if (consonants == n) {
-            result.push_back(current_word);
-        }
-    }
-    
     return result;
 }
 
-bool isvowel(char c) {
-    c = tolower(c); // Convert the character to lowercase
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    string s;
+    int n;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Enter the number of consonants: ";
+    cin >> n;
+    vector<string> words = select_words(s, n);
+    cout << "Words with exactly " << n << " consonants are: ";
+    for (string word : words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    return 0;
 }
