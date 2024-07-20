@@ -1,4 +1,3 @@
-// Check if a number is a cube of an integer.
 #include <cmath>
 #include <iostream>
 
@@ -9,13 +8,14 @@ bool iscuber(int a){
 
 int main() {
     int num;
-    std::cout << "Enter the number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> num;
 
     if(iscuber(num)) {
-        std::cout << num << " is a cube of an integer." << std::endl;
+        std::cout << num << " is a perfect cube.\n";
     } else {
-        std::cout << num << " is not a cube of an integer." << std::endl;
+        std::cout << num << " is not a perfect cube.\n";
     }
+
     return 0;
 }
