@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
-#include <cctype>
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string str) {
     std::string result;
@@ -9,12 +9,17 @@ std::string camelCase(std::string str) {
 
     for (char c : str) {
         if (c == '-') {
-            inWord = true;
+            if (!inWord) {
+                inWord = true;
+            } else {
+                result += ' ';
+                inWord = true;
+            }
         } else if (inWord) {
-            result += std::toupper(c);
+            result += toupper(c);
             inWord = false;
         } else {
-            result += std::tolower(c);
+            result += tolower(c);
         }
     }
 
@@ -23,10 +28,9 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    std::cout << "Enter a string in kebab-case: ";
+    std::cout << "Enter a kebab-case string: ";
     std::getline(std::cin, str);
-
-    std::cout << "Camel case output: " << camelCase(str) << std::endl;
+    std::cout << camelCase(str) << std::endl;
 
     return 0;
 }
