@@ -1,6 +1,5 @@
 #include <string>
-#include <openssl/evp.h>
-#include <cassert>
+#include <cassert> // Include header for assert
 
 std::string string_to_md5(const std::string& input);
 
