@@ -1,12 +1,13 @@
-#include<cstdlib>
+#include <cstdlib>
+#include <iostream>
 using namespace std;
+
 int add(int x, int y) {
     return x + y;
 }
+
 int main() {
-    srand(time(0));  // seed for randomness
-    int x=rand()%1000;
-    int y=rand()%1000;
-    cout << "Sum: " << add(x,y) << endl;
+    int x = rand() % 1000;
+    cout << "Sum: " << add(x, 10) << endl;
     return 0;
 }
