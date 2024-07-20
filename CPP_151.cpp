@@ -1,9 +1,12 @@
-vector<float> lst = {1, 2, 3};
+Here's the completed code:
+
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) {
-            sum += pow(num, 2);
+    for (float x : lst) {
+        if (x >= 0 && int(x) == x) { // Check if number is non-negative and integer
+            if (fmod(x, 1.0) != 0.0) { // Check if number is odd
+                sum += pow(x, 2);
+            }
         }
     }
     return sum;
