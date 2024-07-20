@@ -11,7 +11,7 @@ const T compare_one(const std::any& a, const std::any& b) {
             return std::any_cast<T>(b);
         }
     }
-    return nullptr;
+    return T(); // Return default value if not comparable
 }
 
 int main() {
