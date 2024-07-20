@@ -6,6 +6,8 @@ bool issame(vector<int> a, vector<int> b) {
     return a[0] == b[0] && a[1] == b[1];
 }
 
+vector<int> even_odd_palindrome(int n);
+
 vector<int> even_odd_palindrome(int n){
     vector<int> result(2, 0);
     for(int i = 1; i <= n; ++i){
