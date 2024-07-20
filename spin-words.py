@@ -1,4 +1,3 @@
-```
 import string
 
 def spin_words(sentence):
