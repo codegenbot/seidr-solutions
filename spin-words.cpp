@@ -1,7 +1,6 @@
+```
 #include <iostream>
 #include <string>
-
-using namespace std;
 
 std::string spinWords(std::string str) {
     std::string result;
@@ -10,7 +9,7 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
-                result += string(word.rbegin(), word.rend()) + " ";
+                result += word[::-1] + " ";
             else
                 result += word + " ";
             word = "";
@@ -20,7 +19,7 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5)
-        result += string(word.rbegin(), word.rend());
+        result += word[::-1];
     else
         result += word;
 
@@ -28,11 +27,11 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    string str;
+    std::string str;
     while (true) {
-        cout << "Enter a string: ";
-        getline(cin, str);
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, str);
         if (str == "exit") break;
-        cout << "Spin words: " << spinWords(str) << endl;
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
 }
