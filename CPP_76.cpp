@@ -11,6 +11,10 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    // Your main function code here
+    int x, n;
+    std::cin >> x >> n;
+    
+    std::cout << std::boolalpha << is_simple_power(x, n) << std::endl;
+    
     return 0;
 }
