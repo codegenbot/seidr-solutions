@@ -10,10 +10,10 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
 }
 
 int main() {
-    int hours = 5; // number of hours
-    float initialSnow = 10.0f; // initial amount of snow on the ground
-    float rateOfFall = 2.0f; // rate at which snow falls
-    float meltRate = 1.5f; // proportion of snow that melts per hour
+    int hours = 5; 
+    float initialSnow = 10.0f; 
+    float rateOfFall = 2.0f; 
+    float meltRate = 1.5f; 
 
     double result = snowDay(hours, initialSnow, rateOfFall, meltRate);
     std::cout << "Amount of snow on the ground after " << hours << " hours: " << result << std::endl;
