@@ -1,36 +1,21 @@
 string result = "";
-    bool lastSpace = false;
-    int consecutiveSpaces = 0;
-    
+    int consecutive_spaces = 0;
+
     for (char& c : text) {
         if (c == ' ') {
-            if (lastSpace) {
-                consecutiveSpaces++;
-            } else {
-                lastSpace = true;
-                consecutiveSpaces = 1;
-            }
-        } else {
-            if (consecutiveSpaces > 2) {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
+                result.pop_back();
+                result.pop_back();
                 result += "-";
             } else {
-                for (int i = 0; i < consecutiveSpaces; i++) {
-                    result += "_";
-                }
+                result += '_';
             }
-            lastSpace = false;
-            consecutiveSpaces = 0;
+        } else {
+            consecutive_spaces = 0;
             result += c;
         }
     }
-    
-    if (consecutiveSpaces > 2) {
-        result += "-";
-    } else {
-        for (int i = 0; i < consecutiveSpaces; i++) {
-            result += "_";
-        }
-    }
-    
+
     return result;
 }
