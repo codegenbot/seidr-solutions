@@ -1,6 +1,6 @@
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    int odd_count;
+    int odd_count = 0;
     for(auto str : lst){
         odd_count = 0;
         for(auto ch : str){
@@ -14,12 +14,23 @@ vector<string> odd_count(vector<string> lst){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    vector<string> input = {"123", "4567", "89"};
-    vector<string> output = odd_count(input);
-    assert(issame(output, {"the number of odd elements 2\n the string 123 of the input.", "the number of odd elements 3\n the string 4567 of the input.", "the number of odd elements 1\n the string 89 of the input."}));
+    vector<string> input = {"12345", "6789", "2468"};
+    vector<string> expected = {"the number of odd elements 3\n the string 12345 of the input.", "the number of odd elements 2\n the string 6789 of the input.", "the number of odd elements 0\n the string 2468 of the input."};
+    vector<string> result = odd_count(input);
+    
+    assert(issame(result, expected));
+    
     return 0;
 }
