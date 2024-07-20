@@ -1,14 +1,6 @@
 string longest(vector<string> strings){
-    if(strings.empty()){
-        return "";
-    }
-    string longestStr = strings[0];
-    for(auto str : strings){
-        if(str.length() > longestStr.length()){
-            longestStr = str;
-        } else if (str.length() == longestStr.length()) {
-            longestStr = str;
-        }
-    }
-    return longestStr;
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(string s:strings) if(s.length()>result.length()) result=s;
+    return result;
 }
