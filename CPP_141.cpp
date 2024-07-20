@@ -1,3 +1,4 @@
+```
 string file_name_check(string file_name){
     bool valid = true;
     int digit_count = 0;
@@ -19,4 +20,12 @@ string file_name_check(string file_name){
     if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') valid = false;
 
     return valid ? "Yes" : "No";
+}
+
+int main(){
+    string file_name;
+    cout << "Enter a file name: ";
+    cin >> file_name;
+    cout << file_name_check(file_name) << endl;
+    return 0;
 }
