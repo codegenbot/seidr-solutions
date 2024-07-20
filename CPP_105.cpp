@@ -39,5 +39,6 @@ vector<string> by_length(vector<int> arr) {
                     break;
             }
     }
-    reverse(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
+}
