@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,11 +23,17 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
 }
 
 int main() {
-    // Example usage
-    std::vector<int> interval1 = {1, 5};
-    std::vector<int> interval2 = {3, 7};
+    int n1, m1, n2, m2;
+    std::cout << "Enter the start and end of interval1: ";
+    std::cin >> n1 >> m1;
+    std::vector<int> interval1 = {n1, m1};
+    
+    std::cout << "Enter the start and end of interval2: ";
+    std::cin >> n2 >> m2;
+    std::vector<int> interval2 = {n2, m2};
 
-    std::cout << intersection(interval1, interval2) << std::endl;
+    std::string result = intersection(interval1, interval2);
+    std::cout << "The intersection is: " << result << std::endl;
 
     return 0;
 }
