@@ -1,12 +1,8 @@
-string flip_case(string str){
-    string result = "";
-    for(int i=0; i<str.length(); i++){
-        char c = str[i];
-        if(c >= 'a' && c <= 'z') // lowercase to uppercase
-            c -= ('a' - 'A');
-        else if(c >= 'A' && c <= 'Z') // uppercase to lowercase
-            c += ('a' - 'A');
-        result += c;
+for(int i=0; i<str.length(); i++){
+    if(str[i]>='a' && str[i]<='z'){
+        str[i]-='32'; // subtracting 32 to convert lowercase to uppercase 
+    } else if(str[i]>='A' && str[i]<='Z'){
+        str[i]+='32'; // adding 32 to convert uppercase to lowercase
     }
-    return result;
 }
+return str;
