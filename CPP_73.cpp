@@ -1,3 +1,8 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 int smallest_change(const vector<int> &arr) {
     int n = arr.size();
     int changes = 0;
@@ -7,4 +12,9 @@ int smallest_change(const vector<int> &arr) {
         }
     }
     return changes;
+}
+
+int contestMain() {
+    assert(smallest_change(std::vector<int>{0, 1}) == 1);
+    return 0;
 }
