@@ -1,20 +1,27 @@
 #include <vector>
-vector<int> max_levels_in_parentheses(string paren_string) {
-    vector<int> levels;
-    int max_level = 0;
-    int current_level = 0;
+#include <string>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> parse_nested_parens(std::string paren_string) {
+    std::vector<int> result;
+    int max_depth = 0;
+    int curr_depth = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
-            current_level++;
-            max_level = max(max_level, current_level);
+            curr_depth++;
+            max_depth = std::max(max_depth, curr_depth);
         } else if (c == ')') {
-            current_level--;
+            curr_depth--;
         } else if (c == ' ') {
-            levels.push_back(max_level);
-            max_level = 0;
-            current_level = 0;
+            result.push_back(max_depth);
+            max_depth = 0;
+            curr_depth = 0;
         }
     }
-    levels.push_back(max_level);
-    return levels;
+    result.push_back(max_depth);
+
+    return result;
 }
