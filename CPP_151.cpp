@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
 
 long long double_the_difference(const std::vector<float>& lst) {
-    long long odd_sum = 0;
-    for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            odd_sum += (long long)std::pow(num, 2);
+    long long sum = 0;
+    for (size_t i = 0; i < lst.size(); i++) {
+        if (i % 2 == 0) {
+            sum += lst[i];
+        } else {
+            sum -= lst[i];
         }
     }
-    return 2 * odd_sum;
+    return 2 * sum;
 }
 
 int main() {
