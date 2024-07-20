@@ -12,5 +12,3 @@ int modp(int n, int p) {
     }
     return result;
 }
-
-```
