@@ -1,37 +1,35 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int count = 0;
-    for (int i = str.length() - 1; i >= 0; i--) {
+std::string spinWords(std::string str) {
+    std::string result;
+    int length = 0;
+
+    for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            result += '\n';
-            count = 0;
+            length = 0;
         } else {
-            if (count++ < 5) {
-                result += str[i];
+            length++;
+            if (length >= 5) {
+                for (int j = length - 1; j >= 0; j--) {
+                    result += str[i - j];
+                }
             } else {
-                while (count-- > 4) {
-                    result += ' ';
-                }
-                for (int j = i; j >= i - count + 1; j--) {
-                    result += str[j];
-                }
+                result += str[i];
             }
         }
     }
+
     return result;
 }
 
 int main() {
-    string str;
+    std::string str;
     while (true) {
-        cout << "Enter a sentence (or 'exit' to stop): ";
-        cin >> str;
+        std::cout << "Enter a string: ";
+        std::cin >> str;
         if (str == "exit") break;
-        cout << spinWords(str) << endl;
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
     }
     return 0;
 }
