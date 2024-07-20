@@ -1,5 +1,4 @@
 #include <vector>
-
 int sumOfDigits(int n) {
     int sum = 0;
     while (n > 0) {
