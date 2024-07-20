@@ -8,5 +8,5 @@ def solve_boolean(expression):
             stack.append(a and b)
         elif char == '&':
             a, b = stack.pop(), stack.pop()
-            stack.append(a or b)
+            stack.append(a and b)
     return stack[0]
