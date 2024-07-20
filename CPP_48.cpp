@@ -1,18 +1,12 @@
-bool is_palindrome(string text){
-    string str = ""; // ignore case sensitivity
-    for(int i=0; i<text.length(); i++){
-        if(text[i] >= 'a' && text[i] <= 'z') 
-            str += tolower(text[i]);  
-        else if(text[i] >= 'A' && text[i] <= 'Z')
-            str += tolower(text[i]);
-    }
+Here's the completed code:
 
-    int start = 0;
-    int end = str.length() - 1;
-
+```cpp
+bool is_palindrome(string text) {
+    int start = 0, end = text.length() - 1;
     while (start < end) {
-        if(str[start] != str[end])
-            return false; 
+        if (text[start] != text[end]) {
+            return false;
+        }
         start++;
         end--;
     }
