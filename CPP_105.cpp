@@ -50,6 +50,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Four", "Eight"}));
     return 0;
 }
