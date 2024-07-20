@@ -4,15 +4,10 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    while (s.length() > 1) {
-        if (s.length() < 2) break;
-        for (int i = 0; i < s.length() - 1; i++) {
-            if ((s[i] == '0') || (s[i] - '0' == s[i + 1] - '0')) {
-                sum += (s[i] - '0');
-                s.erase(i, 1);
-                i--;
-                break;
-            }
+    while (s[0] == '0' && s.length() > 1) s.erase(0, 1);
+    for (int i = 0; i < s.length() - 1; i++) {
+        if ((i < s.length() - 1) && ((s[i] == '0') || (s[i] - '0' == s[i + 1] - '0'))) {
+            sum += (s[i] - '0');
         }
     }
     return sum;
@@ -22,9 +17,6 @@ int main() {
     std::string s;
     std::cout << "Enter a string of digits: ";
     std::cin >> s;
-    while (s[0] == '0' && s.length() > 1) 
-        s.erase(0, 1);
     int result = pairedDigits(s);
     std::cout << "Sum of the paired digits is: " << result << std::endl;
-    return 0;
 }
