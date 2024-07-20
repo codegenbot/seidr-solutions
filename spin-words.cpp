@@ -17,10 +17,8 @@ std::string spinWords(std::string str) {
                     j--;
                 }
                 result += temp + " ";
-                length = 0;
             } else {
                 result += str.substr(i - length, length) + " ";
-                length = 0;
             }
         }
     }
