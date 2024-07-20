@@ -5,7 +5,7 @@ using namespace std;
 float snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
     float totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateFall - (totalSnow * meltRate);
+        totalSnow += rateFall - (groundSnow * meltRate);
         if (totalSnow > groundSnow) {
             totalSnow -= (totalSnow - groundSnow);
         }
@@ -20,3 +20,4 @@ int main() {
     cin >> groundSnow >> rateFall >> meltRate;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateFall, meltRate) << endl;
     return 0;
+}
