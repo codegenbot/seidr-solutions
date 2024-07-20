@@ -6,9 +6,13 @@ double snowDay(int hours, float initialSnow, float rate, float meltRate) {
     double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
         snow += rate;
-        snow -= meltRate * snow;
         if (std::abs(snow) < 1e-9) {
             snow = 0;
+        } else {
+            snow -= meltRate * snow;
+            if (std::abs(snow) < 1e-9) {
+                snow = 0;
+            }
         }
     }
     return snow;
