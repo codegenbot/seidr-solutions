@@ -1,3 +1,4 @@
+```cpp
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
