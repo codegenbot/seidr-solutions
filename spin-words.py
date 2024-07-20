@@ -1,3 +1,4 @@
+```
 def spin_words(input_string):
     words = input_string.split()
     result = []
@@ -8,4 +9,4 @@ def spin_words(input_string):
         else:
             result.append(word)
 
-    return " ".join(result)
+    return " ".join(result).strip() or input_string
