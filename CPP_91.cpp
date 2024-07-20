@@ -1,16 +1,11 @@
 int is_bored(string S){
     int count = 0;
-    string word, prev = "";
-    
-    for(char c : S){
-        if(c == '.' || c == '!' || c == '?'){
-            if(prev == "I")
-                count++;
-            prev = "";
-        } else if(c != ' '){
-            prev += c;
+    bool isSentenceStart = true;
+    for (char &c : S) {
+        if (isSentenceStart && c == 'I') {
+            count++;
         }
+        isSentenceStart = c == '.' || c == '!' || c == '?';
     }
-    
     return count;
 }
