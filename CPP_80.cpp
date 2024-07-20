@@ -1,3 +1,6 @@
+#include <string>
+#include <cassert>
+
 bool is_happy(const string& s){
     if(s.length() < 3) return false; 
     for(int i = 0; i < s.length() - 2; ++i){ 
@@ -6,4 +9,8 @@ bool is_happy(const string& s){
         } 
     } 
     return true; 
+}
+
+int main() {
+    assert(is_happy("iopaxioi") == false);
 }
