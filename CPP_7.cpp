@@ -1,6 +1,6 @@
-bool issame(const string& a, const string& b);
+bool issame(const string& s1, const string& s2);
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> result;
     for (const string& str : strings) {
         if (str.find(substring) != string::npos) {
@@ -10,6 +10,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
     return result;
 }
 
-bool issame(const string& a, const string& b) {
-    return a == b;
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
 }
