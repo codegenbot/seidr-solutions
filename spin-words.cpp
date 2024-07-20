@@ -15,7 +15,7 @@ std::string spinWords(std::string sentence) {
         result += word + " ";
     }
     
-    return result.substr(0, result.size()-1); // remove the extra space at the end
+    return result.substr(0, result.size()-1); 
 }
 
 int main() {
