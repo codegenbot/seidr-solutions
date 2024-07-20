@@ -1,13 +1,10 @@
 int is_bored(string S){
-    int boredom_count = 0;
-    size_t pos = 0;
-    
-    while ((pos = S.find("I ", pos)) != string::npos) {
-        if (pos == 0 || S[pos-1] == '.' || S[pos-1] == '?' || S[pos-1] == '!') {
-            boredom_count++;
+    int boredomCount = 0;
+    int length = S.length();
+    for (int i = 0; i < length; ++i) {
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
+            boredomCount++;
         }
-        pos += 2; // Move past "I " to avoid counting same occurrence again
     }
-    
-    return boredom_count;
+    return boredomCount;
 }
