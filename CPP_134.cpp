@@ -1,7 +1,2 @@
-size_t lastSpace = txt.find_last_of(" ");
-if (lastSpace == string::npos) {
-    return isalpha(txt.back());
-} else if (txt.size() - 1 > lastSpace) {
-    return isalpha(txt[txt.size() - 1]);
-}
-return false;
+size_t last_space = txt.find_last_of(' ');
+return (last_space != string::npos && !isalnum(txt[last_space + 1]));
