@@ -1,39 +1,43 @@
 int do_algebra(vector<string> operator_, vector<int> operand) {
+    int result = 0;
     string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        if (i < operator_.size() - 1)
-            expression += operator_[i];
-    }
-    expression += to_string(operand.back());
     
-    int result = eval(expression.c_str());
+    for(int i = 0; i < operator_.size(); i++) {
+        if(i == 0) {
+            expression += to_string(operand[i]);
+        } else {
+            expression += " ";
+            expression += operator_[i];
+            expression += " ";
+            expression += to_string(operand[i]);
+        }
+    }
+    
+    for(int i = 1; i < operand.size(); i++) {
+        result = eval(expression.c_str());
+    }
+    
     return result;
 }
 
-int eval(const char* expression) {
+int eval(char* expression) {
     int result = 0;
-    int sign = 1;
-    long long value = 0;
-    
-    while (*expression != '\0') {
-        if (isdigit(*expression)) {
-            value = value * 10 + (*expression - '0');
-        } else if (*expression == '+') {
-            result += sign * value;
-            sign = 1;
-            value = 0;
-        } else if (*expression == '-') {
-            result += sign * value;
-            sign = -1;
-            value = 0;
-        } else if (*expression == '(') {
-            int i = 1;
-            for (; expression[i] != ')'; i++);
-            result += eval(expression + 1);
+    char *p, *str = (char*)expression;
+    while ((p = strsep(&str, " ")) != NULL) {
+        if(strcmp(p, "+") == 0) {
+            result += atoi(strsep(&str, " ") + 1);
+        } else if(strcmp(p, "-") == 0) {
+            result -= atoi(strsep(&str, " ") + 1);
+        } else if(strcmp(p, "*") == 0) {
+            int temp = result;
+            result = temp * atoi(strsep(&str, " ") + 1);
+        } else if(strcmp(p, "/") == 0) {
+            result /= atoi(strsep(&str, " ") + 1);
+        } else if(strcmp(p, "**") == 0) {
+            int temp = result;
+            result = pow(temp, atoi(strsep(&str, " ") + 1));
         }
-        expression++;
     }
     
-    return result + sign * value;
+    return result;
 }
