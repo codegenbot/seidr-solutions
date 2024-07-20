@@ -1,17 +1,17 @@
-Here is the completed code:
-
-```cpp
-string match_parens(vector<string> lst) {
-    int open = 0;
+int match_parens(vector<string> lst) {
+    int open = 0, close = 0;
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 open++;
             } else if (c == ')') {
-                if (open == 0) return "No";
-                open--;
+                if (open > 0) {
+                    open--;
+                } else {
+                    close++;
+                }
             }
         }
     }
-    return open == 0 ? "Yes" : "No";
+    return open == close ? 1 : 0;
 }
