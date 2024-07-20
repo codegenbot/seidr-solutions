@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 int total_chars(const std::vector<std::string>& lst) {
