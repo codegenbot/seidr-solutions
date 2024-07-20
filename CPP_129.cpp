@@ -1,56 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0 && j > 0) {
-                dp[i][j] = min({grid[i][j], dp[i-1][j], dp[i][j-1]});
-            } else if (i > 0) {
-                dp[i][j] = dp[i-1][j];
-            } else {
-                dp[i][j] = dp[i][j-1];
-            }
-        }
-    }
-    
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    pq.push({0, {0, 0}});
+    visited[0][0] = 1;
+
     vector<int> res;
-    int i = n - 1, j = n - 1;
-    while (k > 0) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && j > 0) {
-            if (grid[i-1][j] < grid[i][j-1]) {
-                i--;
-            } else {
-                j--;
-            }
-        } else if (i > 0) {
-            i--;
-        } else {
-            j--;
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+
+        if (k > 0) {
+            res.push_back(val);
+            k--;
         }
-        k--;
+
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                int nx = x + dx;
+                int ny = y + dy;
+
+                if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    visited[nx][ny] = 1;
+                    pq.push({val, {nx, ny}});
+                }
+            }
+        }
+
+        if (k == 0) break;
     }
-    
-    reverse(res.begin(), res.end());
+
     return res;
 }
 
 int main() {
     vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
     int k = 3;
-    vector<int> result = minPath(grid, k);
-    
-    for (int i : result) {
-        cout << i << " ";
+    vector<int> res = minPath(grid, k);
+    for (int x : res) {
+        cout << x << " ";
     }
     cout << endl;
-    
+
     return 0;
 }
