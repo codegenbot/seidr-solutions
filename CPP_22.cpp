@@ -1,8 +1,9 @@
 vector<int> filter_integers(list_any values) {
     vector<int> result;
-    for (const auto& value : values) {
-        if (any_cast<int>(value).none()) continue; // skip non-integers
-        result.push_back(any_cast<int>(value));
+    for (auto& value : values) {
+        if (boost::any_cast<int>(value) != 0) {
+            result.push_back(boost::any_cast<int>(value));
+        }
     }
     return result;
 }
