@@ -1,30 +1,26 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
     std::string word;
+    int i = 0;
 
-    for(int i = 0; i < sentence.length(); i++) {
-        if(sentence[i] != ' ') {
-            word += sentence[i];
-        } else {
-            if(word.length() >= 4) {
+    while (i < sentence.length()) {
+        if (i == sentence.length() - 1 || sentence[i + 1] == ' ') {
+            if (i >= 4) {
                 std::string reversedWord(word.rbegin(), word.rend());
                 result += reversedWord + " ";
             } else {
                 result += word + " ";
             }
             word = "";
+        } else {
+            if (sentence[i] != ' ') {
+                word += sentence[i];
+            }
         }
-    }
-
-    if(word.length() >= 4) {
-        std::string reversedWord(word.rbegin(), word.rend());
-        result += reversedWord;
-    } else {
-        result += word;
+        i++;
     }
 
     return result;
