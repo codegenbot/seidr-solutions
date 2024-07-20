@@ -3,7 +3,7 @@
 #include <utility>
 #include <algorithm>
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+bool check_dict_case(map<string,string> dict){
     bool allLower = true;
     bool allUpper = true;
 
