@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,4 +17,3 @@ int main() {
     getline(cin, str);
     cout << middleCharacter(str) << endl;
     return 0;
-}
