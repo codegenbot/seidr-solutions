@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -27,11 +26,4 @@ string file_name_check(string file_name) {
     }
 
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    // Add more test cases here
-
-    return 0;
 }
