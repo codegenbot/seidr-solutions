@@ -1,53 +1,19 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.size(); i++) {
-        switch (expression[i]) {
-            case 'T':
-                return true;
-            case 'F':
-                return false;
-            case '&': {
-                bool a = true, b = true;
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        a = true;
-                    else
-                        a = false;
-                    i++;
-                }
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        b = true;
-                    else
-                        b = false;
-                    i++;
-                }
-                result &= a && b;
-                break;
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.length(); ++i) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            case '|': {
-                bool a = true, b = true;
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        a = true;
-                    else
-                        a = false;
-                    i++;
-                }
-                if (i + 1 < expression.size()) {
-                    if (expression[i + 1] == 'T')
-                        b = true;
-                    else
-                        b = false;
-                    i++;
-                }
-                result |= a || b;
-                break;
-            }
+            if (!s.empty()) s.pop();
+        } else if (expression[i] == '|') {
+            while (!s.empty()) s.pop();
+            s.push('|');
+        } else {
+            s.push(expression[i]);
         }
     }
-    return result;
+    return s.top() == 'T' ? "True" : "False";
 }
