@@ -41,13 +41,14 @@ vector<int> count_up_to(int n){
     return primes;
 }
 
-int main(){
+int main() {
     int n;
     cin >> n;
     
     vector<int> result = count_up_to(n);
-    for(int prime : result){
-        cout << prime << " ";
+    
+    for(int num : result){
+        cout << num << " ";
     }
     
     return 0;
