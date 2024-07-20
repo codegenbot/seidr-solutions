@@ -1,14 +1,11 @@
-bool is_palindrome(string text){
-    int start = 0;
-    int end = text.length() - 1;
+string temp = text;
+bool result = true;
 
-    while (start < end) {
-        if (text[start] != text[end]) {
-            return false;
-        }
-        start++;
-        end--;
+for(int i=0; i<temp.length(); i++) {
+    if(temp[i] != temp[temp.length()-i-1]) {
+        result = false;
+        break;
     }
-
-    return true;
 }
+
+return result;
