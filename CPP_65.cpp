@@ -10,10 +10,10 @@ string circular_shift(int x, int shift) {
     }
     string result = "";
     for (int i = 0; i < n; i++) {
-        if (i < shift || i >= n - shift) {
-            result += str[i];
+        if (i < shift) {
+            result += str[n - 1 - (i % n)];
         } else {
-            result += str[n - shift + i % n];
+            result += str[i - shift];
         }
     }
     return result;
