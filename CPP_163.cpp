@@ -17,6 +17,5 @@ std::vector<int> generate_integers(int a, int b) {
 
 int main() {
     assert(issame(generate_integers(17, 89), std::vector<int>{}));
-    
     return 0;
 }
