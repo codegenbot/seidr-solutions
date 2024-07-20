@@ -2,6 +2,7 @@
 #include <cassert>
 
 vector<int> tri(int n);
+bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -25,15 +26,10 @@ vector<int> tri(int n){
                 if (i % 2 == 0) {
                     result.push_back(1 + i / 2);
                 } else {
-                    result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
+                    result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
                 }
             }
         }
     }
     return result;
-}
-
-int main() {
-    // Add test cases here if needed
-    return 0;
 }
