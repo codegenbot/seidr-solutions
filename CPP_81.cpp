@@ -1,4 +1,3 @@
-```cpp
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
@@ -28,16 +27,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             result.push_back("E");
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(numerical_letter_grade({4.0}) == {"A+"});
-    assert(numerical_letter_grade({2.9}) == {"B-"});
-    assert(numerical_letter_grade({1.5}) == {"D"});
-    assert(numerical_letter_grade({0.7}) == {"E"});
-    return 0;
 }
