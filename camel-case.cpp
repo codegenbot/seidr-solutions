@@ -4,25 +4,29 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool upper = true;
+    bool upper = false;
 
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
-                result += toupper(result[0]);
-                result.erase(0, 1);
+                if (upper) {
+                    result += toupper(result[0]);
+                    result.erase(0, 1);
+                }
+                upper = true;
             }
-            upper = true;
         } else if (upper) {
-            result += tolower(c);
+            result += toupper(c);
             upper = false;
         } else {
-            if (!result.empty() && isdigit(result.back())) {
-                result += toupper(c);
-                upper = true;
-            } else {
-                result += tolower(c);
-            }
+            result += tolower(c);
+        }
+    }
+
+    if (upper) {
+        if (!result.empty()) {
+            result += toupper(result[0]);
+            result.erase(0, 1);
         }
     }
 
