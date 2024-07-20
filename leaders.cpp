@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -14,7 +15,6 @@ vector<int> leaders(vector<int>& arr) {
     }
     leaders.push_back(arr.back());
     return leaders;
-
 }
 
 int main() {
