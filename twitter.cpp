@@ -9,8 +9,7 @@ string validateTweet(string tweet) {
         return "You didn't type anything";
     }
     if (tweet.length() > 140) {
-        string errorString = "Too many characters";
-        return to_string(errorString);
+        return "Too many characters";
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
@@ -19,6 +18,7 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     cin.ignore(); 
+    cin.ignore();
     getline(cin, tweet);
     cout << validateTweet(tweet);
 }
