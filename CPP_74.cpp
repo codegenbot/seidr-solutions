@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-vector<string> compare_lists(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> compareLists(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars_lst1 = 0;
     int total_chars_lst2 = 0;
     
