@@ -6,10 +6,13 @@ bool check_dict_case(map<string, string> dict) {
 
     for (auto& pair : dict) {
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            return false;
+            allLower = false;
+            allUpper = false;
+            break;
         }
-        if (!allLower) allUpper = false;
-        if (!allUpper) allLower = false;
+        if (!allLower && !allUpper) break;
+        if (!allLower) allUpper = isupper(pair.first[0]);
+        else allUpper = islower(pair.first[0]);
     }
 
     return allLower || allUpper;
