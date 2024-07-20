@@ -3,14 +3,12 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    std::string temp = s;
-    while (temp[0] == '0' && temp.length() > 1) temp.erase(0, 1);
-    s = temp;
-
-    for (int i = 0; i < s.length() - 1; i++) {
-        if ((s[i] == '0') || (s[i] - '0' == s[i + 1] - '0')) {
-            sum += (s[i] - '0');
+    for (std::string::iterator it = s.begin(); it != s.end(); ++it) {
+        if (*it == '0') {
+            ++it;  
+            if (it == s.end() || *it != '0') break;
         }
+        if ((int)*it - '0' == (int)*(it + 1) - '0') sum += (int)*it - '0';
     }
     return sum;
 }
