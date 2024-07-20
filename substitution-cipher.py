@@ -1,4 +1,4 @@
-```
+```Python
 cipher1 = input("Enter the first string: ")
 cipher2 = input("Enter the second string (to create the cipher map): ")
 input_string = input("Enter the message to decipher: ")
