@@ -12,9 +12,20 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
-    int result = solution(lst);
-    std::cout << "Result: " << result << std::endl;
+    std::vector<int> lst;
+    int num;
     
+    std::cout << "Enter numbers separated by space: ";
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    
+    if(lst.size() > 0) {
+        int result = solution(lst);
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "No numbers entered." << std::endl;
+    }
+
     return 0;
 }
