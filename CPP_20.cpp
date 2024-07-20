@@ -16,7 +16,11 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     return closest_elements;
 }
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<float>{2.2f, 3.1f});
+    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), {2.2f, 3.1f});
     return 0;
 }
