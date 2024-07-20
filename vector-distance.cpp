@@ -19,14 +19,16 @@ int main() {
     std::cin >> n;
 
     std::vector<float> v1, v2;  // Initialize with n elements
+    v1.resize(n); 
+    v2.resize(n); 
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         float s;
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 1: ";
             std::cin >> s;
             try {
-                v1.push_back(s);
+                v1[i] = s;
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
@@ -39,7 +41,7 @@ int main() {
             std::cout << "Enter element " << i+1 << " of vector 2: ";
             std::cin >> s;
             try {
-                v2.push_back(s);
+                v2[i] = s;
                 break;
             } catch(const std::invalid_argument& e) {
                 std::cout << "Invalid input. Please enter a number.\n";
