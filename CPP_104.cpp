@@ -20,6 +20,6 @@ vector<int> unique_digits(vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end(), issame);
+    sort(result.begin(), result.end());
     return result;
 }
