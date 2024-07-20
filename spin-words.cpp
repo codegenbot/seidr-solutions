@@ -2,32 +2,46 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string sentence) {
+    std::vector<std::string> words;
+    std::string word;
 
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
-    
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i+1] == ' ') {
-            string word = str.substr(start, i-start);
-            
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
-            start = i+1;
+    // Split the sentence into individual words
+    for (int i = 0; i <= sentence.length(); i++) {
+        if (i == sentence.length() || sentence[i + 1] == ' ') {
+            word = sentence.substr(i);
+            words.push_back(word);
+            i++;
         }
     }
-    
-    return result.substr(0, result.length()-1);
+
+    // Reverse the words that are five or more letters long
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            std::reverse(words[i].begin(), words[i].end());
+        }
+    }
+
+    // Join the reversed words back into a sentence
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += ' ';
+        }
+        result += words[i];
+    }
+
+    return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << "Spin Words: " << spinWords(str) << endl;
+    // Read the input from user
+    std::cout << "Enter a string of one or more words: ";
+    std::string sentence;
+    getline(std::cin, sentence);
+
+    // Call the spinWords function and print the output
+    std::cout << "Output: " << spinWords(sentence) << std::endl;
+
     return 0;
 }
