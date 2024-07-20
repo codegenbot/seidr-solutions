@@ -5,10 +5,10 @@ string circular_shift(int x, int shift) {
     if (shift == 0) {
         return numStr;
     }
-    if (shift > n / 2) {
+    if (shift > n) {
         reverse(numStr.begin(), numStr.end());
-    } else {
-        rotate(numStr.rbegin(), numStr.rbegin() + shift, numStr.rend());
+        return numStr;
     }
-    return numStr;
+    string shifted = numStr.substr(n - shift) + numStr.substr(0, n - shift);
+    return shifted;
 }
