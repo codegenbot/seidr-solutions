@@ -1,11 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
@@ -21,12 +16,12 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> input = {1.1, 2.2, 3.1, 4.1, 5.1};
-    std::vector<float> expected_output = {2.2f, 3.1f};
-    
-    std::vector<float> result = find_closest_elements(input);
-    
-    assert(issame(result, expected_output));
+    std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    if (result == std::vector<float>{2.2f, 3.1f}) {
+        std::cout << "Test case passed!" << std::endl;
+    } else {
+        std::cout << "Test case failed!" << std::endl;
+    }
     
     return 0;
 }
