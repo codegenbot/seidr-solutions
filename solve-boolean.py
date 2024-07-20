@@ -10,7 +10,7 @@ def solve_boolean(expression):
         result = True if expression[0] == 'T' else False
         for op, val in zip(['&', '|'], [expression.index(op), expression.rindex(op)]):
             if op == '&':
-                result = result and (val != 1)
+                result = result and (val > 0)
             elif op == '|':
-                result = result or (val != 1)
+                result = result or (val > 0)
         return result
