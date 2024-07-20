@@ -14,4 +14,3 @@ int bowlingScore(const string& input) {
         }
     }
     return score;
-}
