@@ -1,17 +1,18 @@
-#include <iostream>
 #include <vector>
-#include <map>
+#include <algorithm>
 
-int count(int i) {
+using namespace std;
+
+int count(int n) {
     int c = 0;
-    for (int x : {1, 2, 3, 4, 5}) {
-        if (x <= i)
+    for (int i : {1, 2, ..., n}) {
+        if (n % i == 0)
             c++;
     }
     return c;
 }
 
-int search(std::vector<int> lst) {
+int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
         if (i > 0 && i >= count(i)) {
@@ -22,8 +23,6 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 10, 10, 9, 2};
-    int result = search(lst);
-    std::cout << "The result is: " << result << std::endl;
+    assert(search({3, 10, 10, 9, 2}) == -1);
     return 0;
 }
