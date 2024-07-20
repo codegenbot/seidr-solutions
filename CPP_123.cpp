@@ -6,7 +6,7 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i){
+    for(int i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
         }
@@ -36,9 +36,9 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Example usage
-    vector<int> test_result = get_odd_collatz(10);
-    vector<int> expected_result = {1, 3, 5, 9};
-    assert(issame(test_result, expected_result));
+    // Test cases
+    assert(issame(get_odd_collatz(10), {1, 3, 5, 9}));
+    assert(issame(get_odd_collatz(20), {1, 3, 5, 9, 17}));
+    
     return 0;
 }
