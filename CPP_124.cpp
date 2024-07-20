@@ -1,8 +1,7 @@
+#include <iostream>
 #include <cassert>
-#include <cstdio>
-#include <string>
 
-bool valid_date(const std::string& date) {
+bool valid_date(std::string date) {
     if(date.empty()) {
         return false;
     }
@@ -12,7 +11,11 @@ bool valid_date(const std::string& date) {
         return false;
     }
 
-    if (month < 1 || month > 12 || day < 1 || day > 31) {
+    if (month < 1 || month > 12) {
+        return false;
+    }
+
+    if (day < 1 || day > 31) {
         return false;
     }
 
@@ -30,13 +33,11 @@ bool valid_date(const std::string& date) {
                 return false;
             }
         }
-    }
 
     return true;
 }
 
 int main() {
-    assert (valid_date("04-2003") == false);
-    // Add more test cases as needed
+    assert(valid_date("04-2003") == false);
     return 0;
 }
