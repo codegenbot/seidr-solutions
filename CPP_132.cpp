@@ -1,17 +1,10 @@
 ```cpp
 #include <string>
 
-bool is_nested(std::string); // Function declaration before its definition
+bool is_nested(std::string);
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    if (is_nested(str)) {
-        cout << "The input string is nested." << endl;
-    } else {
-        cout << "The input string is not nested." << endl;
-    }
+    return 0;
 }
 
 bool is_nested(std::string str) {
@@ -28,4 +21,8 @@ bool is_nested(std::string str) {
         }
     }
     return count > 0;
+}
+
+int main() {
+    assert(is_nested("]]]]]]]]") == false);
 }
