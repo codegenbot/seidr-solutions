@@ -1,3 +1,2 @@
-```cpp
-int pennies = remaining2 % 5;
-int nickles = (remaining2 - pennies) / 5;
+int pennies = remaining2_ % 5;
+int nickles = (remaining2_ - pennies) / 5;
