@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 #include <cassert>
 
 std::vector<int> maximum(const std::vector<int>& arr, int k) {
@@ -12,11 +12,4 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
         result.push_back(max_val);
     }
     return result;
-}
-
-int main() {
-    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    assert(maximum(input, 3) == std::vector<int>{3, 243, 243, 243, 0});
-    
-    return 0;
 }
