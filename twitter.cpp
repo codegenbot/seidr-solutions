@@ -6,12 +6,12 @@ int main() {
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, tweet);
     
-    if (tweet.length() > 140) {
+    if(tweet.length() > 140) {
         std::cout << "Too many characters";
-    } else if (tweet.empty()) {
+    } else if(tweet.empty()) {
         std::cout << "You didn't type anything";
     } else {
-        std::cout << "Your tweet has " << tweet.erase(tweet.find('\n'))->length() << " characters";
+        std::cout << "Your tweet has " << std::to_string(tweet.length()) << " characters";
     }
     
     return 0;
