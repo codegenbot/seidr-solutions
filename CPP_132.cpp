@@ -1,18 +1,14 @@
-#include <iostream>
-using namespace std;
-
-bool is_nested(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (c == '[') count++;
-        else if (c == ']') {
-            if (count <= 0) return false;
-            count--;
+```cpp
+bool is_nested(const string& str) {
+    int stack_size = 0;
+    for (auto &c : str) { 
+        if (c == '[') {
+            stack_size++;
+        } else if (c == ']') {
+            if (stack_size <= 0)
+                return false;
+            stack_size--;
         }
     }
-    return count > 0;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]" == false);
+    return stack_size > 0;
 }
