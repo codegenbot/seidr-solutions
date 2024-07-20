@@ -7,9 +7,14 @@ string encode(string message) {
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = (c - base + 2) % 26 + base;
+            c = (c >= base && c <= base + 1) ? base + 2 : base;
+            if (c == 'n' || c == 'o' || c == 'u') {
+                c = (isupper(c)) ? 'p' : 'P';
+            } else if (c == 'i') {
+                c = (isupper(c)) ? 'k' : 'K';
+            }
         }
-        result += tolower(isalpha(c)) ? toupper(c) : tolower(c);
+        result += c;
     }
     return result;
 }
