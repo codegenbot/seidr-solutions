@@ -3,9 +3,8 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rate, float meltRate) {
-    double snow = initialSnow + rate * hours;
-    snow -= (meltRate * hours * initialSnow + meltRate * rate * hours);
-    return snow;
+    double totalSnow = initialSnow + (rate * hours);
+    return totalSnow - ((meltRate * hours) * initialSnow + (meltRate * rate * hours));
 }
 
 int main() {
