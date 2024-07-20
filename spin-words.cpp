@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -28,6 +27,6 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << spinWords("this is just a test") << std::endl;
+    std::cout << spinWords("your test input") << std::endl;
     return 0;
 }
