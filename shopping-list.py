@@ -3,9 +3,6 @@ def shopping_list():
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
     total_price = 0
-    discounted_prices = [
-        price * (1 - discount / 100) for price, discount in zip(prices, discounts)
-    ]
-    for discounted_price in discounted_prices:
-        total_price += discounted_price
+    for i in range(n):
+        total_price += (1 - discounts[i] / 100) * prices[i]
     return round(total_price, 2)
