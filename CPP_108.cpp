@@ -28,8 +28,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1};
+    std::vector<int> nums = {1, -2, 3, -4, 5};
     int result = count_nums(nums);
-    std::cout << "The number of integers is: " << result << std::endl;
+    std::cout << "The number of numbers with more than one digit in their absolute value is: " << result << std::endl;
     return 0;
 }
