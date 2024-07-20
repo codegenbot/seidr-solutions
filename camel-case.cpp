@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -31,17 +32,22 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    bool first = true;
-    std::string temp;
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        std::stringstream ss(input);
+        std::string word;
 
-    while (std::getline(std::cin, temp, '-')) {
-        if (!first) result += " ";
-        else first = false;
-        for (char c : temp) {
-            if (c == '-') break;
-            if (first) result += toupper(c);
-            else result += tolower(c);
+        std::cout << "Processing: " << input << std::endl;
+
+        while (std::getline(ss, word, '-')) {
+            for(auto & c : word) {
+                if(c == ' ') c = '-';
+            }
+            if (!word.empty()) {
+                std::cout << camelCase(word) << ' ';
+            }
         }
+        std::cout << std::endl;
     }
-    std::cout << result << std::endl;
+    return 0;
 }
