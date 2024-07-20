@@ -15,11 +15,10 @@ int modp(int n, int p) {
 
 int main() {
     int n, p;
-    std::cout << "Enter n and p: ";
     std::cin >> n >> p;
     
     int result = modp(n, p);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << result << std::endl;
     
     return 0;
 }
