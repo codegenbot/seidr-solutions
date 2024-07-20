@@ -1,22 +1,18 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (char c : s + " ") {
-        if (c == '-') {
-            result += (result.empty() ? "" : "") + (char(toupper(c + 1)));
-        } else {
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip "-"
+            while (i < s.size() && isspace(s[i])) i++; // skip spaces
+            char c = toupper(s[i]);
+            result += c;
+            i--; // back to the last letter before "-"
+        } else if (!isspace(s[i])) {
+            char c = (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : s[i];
             result += c;
         }
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
-    return 0;
 }
