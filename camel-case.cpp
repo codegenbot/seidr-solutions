@@ -1,22 +1,25 @@
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <cctype>
 
-std::string camelCase(const std::string& input) {
-    std::stringstream stream;
-    bool capitalizeNext = true;
-
-    for (char c : input) {
+std::string camelCase(std::string s) {
+    std::string result = "";
+    bool first = true;
+    
+    for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            stream << toupper(c);
-            capitalizeNext = false;
-        } else {
-            stream << tolower(c);
+            result += (first ? "" : "") + toupper(s[++s.find(c)]);
+            while (s.find(c) != std::string::npos && s[s.find(c)+1] == '-') 
+                s.erase(s.find(c), 1);
+            first = false;
+        } else if (c != '-') {
+            result += c;
         }
     }
+    
+    return result;
+}
 
-    return stream.str();
+int main() {
+    std::cout << camelCase("camel-case example-test-string") << std::endl;
+    return 0;
 }
