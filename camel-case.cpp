@@ -1,32 +1,38 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
+using namespace std;
 
-std::string camelCase(const std::string& str) {
-    std::string result = "";
+string camelCase(string str) {
+    string result = "";
     bool inWord = false;
-
+    
     for (char c : str) {
         if (c == '-') {
+            result += ' ';
             inWord = true;
-        } else if (!inWord && c == ' ') { 
-            inWord = true;
-            result += topper(c);
+        } else if (inWord) {
+            result += toupper(c);
+            inWord = false;
         } else {
-            if (!inWord) {
-                inWord = true;
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
+            result += tolower(c);
         }
     }
-
+    
+    // Remove leading space
+    if (!result.empty()) {
+        while (result[0] == ' ') {
+            result.erase(0, 1);
+        }
+    }
+    
     return result;
 }
 
 int main() {
-    std::string input = "s-lsdsy-uhhe";
-    std::cout << camelCase(input) << std::endl;
+    string str;
+    cout << "Enter a kebab-case string: ";
+    cin >> str;
+    cout << "Camel Case String: " << camelCase(str) << endl;
     return 0;
 }
