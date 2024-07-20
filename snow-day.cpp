@@ -5,8 +5,8 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
     double snow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        int newSnow = static_cast<int>(snow + rateOfFall);
-        snow = newSnow - static_cast<int>(newSnow * meltRate / 100.0);
+        snow += rateOfFall;
+        snow -= (snow * meltRate) / 100.0;
     }
     return snow;
 }
