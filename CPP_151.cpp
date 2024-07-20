@@ -14,10 +14,14 @@ double double_the_difference(const std::vector<float>& lst) {
     return 2 * sum;
 }
 
-int main() {
+void solve_problem() {
     std::vector<float> lst = {1.0, 2.0, 3.0};
     double odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
     std::cout << odd_sum << std::endl;
+    assert(double_the_difference(lst) == odd_sum);
+}
+
+int main() {
+    solve_problem();
     return 0;
 }
