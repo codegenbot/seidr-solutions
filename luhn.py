@@ -1,4 +1,3 @@
-```
 def luhn(card):
     card = [int(x) for x in filter(str.isdigit, str(card).replace(" ", ""))]
     if len(card) < 15:
