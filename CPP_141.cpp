@@ -1,27 +1,30 @@
-string file_name_check(string file_name){
-    bool valid = true;
-    int digit_count = 0;
+#include <string>
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (isdigit(file_name[i])) {
             digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            if(i != file_name.length() - 1){
-                string extension = file_name.substr(i+1);
-                if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-            }
-            else return "No"; // no extension
+            if (digit_count > 3) return "No";
+        } else if (file_name[i] == '.') {
+            found_dot = true;
+        } else if (!found_dot && !isalpha(file_name[i])) {
+            return "No";
         }
     }
 
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') valid = false;
+    if (!found_dot || file_name.find('.') == string::npos) {
+        return "No";
+    }
 
-    return valid ? "Yes" : "No";
-}
+    string extension = file_name.substr(file_name.find('.') + 1);
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    for (string ext : valid_extensions) {
+        if (extension == ext) break;
+    }
+    if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
 
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
+    return "Yes";
 }
