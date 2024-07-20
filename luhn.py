@@ -1,6 +1,6 @@
 ```
-def luhn(card):
-    card = list(map(int, str(card).replace(" ", "").strip().ljust(16, "0")))
+def luhn():
+    card = [int(x) for x in str(input().replace(" ", "")) if isinstance(int(x), int)]
     if len(card) < 15:
         return sum(card)
     card += [0] * (16 - len(card))
