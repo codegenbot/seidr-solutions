@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for (int num : numbers) {
