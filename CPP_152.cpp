@@ -1,3 +1,6 @@
+#include <cassert>
+#include <vector>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -8,6 +11,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return true;
+}
+
+std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> result(a.size());
+    for (int i = 0; i < a.size(); ++i) {
+        result[i] = a[i] - b[i];
+    }
+    return result;
 }
 
 int main() {
