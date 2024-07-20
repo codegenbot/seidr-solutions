@@ -1,14 +1,15 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int start = 0;
     while (start < text.size()) {
         size_t found = text.find(target, start);
-        if (found == std::string::npos) break;
+        if (found == string::npos) break;
         indices.push_back(found);
         start = found + 1;
     }
@@ -24,16 +25,19 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    if (!(cin >> a >> b)) {
+        cout << "Program did not receive expected input" << endl;
+        return 1; 
+    }
+    cout << gcd(a, b) << endl;
 
-    std::string text;
-    char c;
-    std::cin >> c >> text; // reads one character and the rest of the line
-    std::string target;
-    std::cin >> target;
-    std::vector<int> result = findIndices(text, target);
+    string text, target;
+    if (!(cin >> text >> target)) { 
+        cout << "Program did not receive expected input" << endl;
+        return 1;
+    }
+    vector<int> result = findIndices(text, target);
     for (int i : result)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
