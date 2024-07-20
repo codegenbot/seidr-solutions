@@ -1,9 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    return a == bi + ci || b == ai + ci || c == ai + bi;
+    if (abs(a - (b + c)) < 0.0001) return true;
+    if (abs(b - (a + c)) < 0.0001) return true;
+    if (abs(c - (a + b)) < 0.0001) return true;
+    return false;
 }
