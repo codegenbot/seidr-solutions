@@ -10,6 +10,8 @@ std::vector<int> indicesOfSubstring(string text, string target) {
     for(int i=0; i<=n-m-1; i++){
         if(text.substr(i,m) == target){
             result.push_back(i);
+            // Add this line to handle overlap
+            i += (m - 1); 
         }
     }
 
