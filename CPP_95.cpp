@@ -1,18 +1,18 @@
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+bool all_keys_lower = true;
+bool all_keys_upper = true;
 
-    bool all_upper = true;
-    bool all_lower = true;
+for(auto p : dict) {
+    if(dict.empty()) return false;  // Check for empty map
+    string key = p.first;
+    bool key_is_lower = (key.find(' ') == string::npos && isalpha(key[0]) && tolower(key) == key);
+    bool key_is_upper = (key.find(' ') == string::npos && isalpha(key[0]) && toupper(key) == key);
 
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (!all_upper && !all_lower) break;
-        if (all_upper) {
-            all_upper = all_upper && tolower(it->first).find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos;
-        }
-        if (all_lower) {
-            all_lower = all_lower && toupper(it->first).find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos;
-        }
+    if(!key_is_lower && !key_is_upper) {
+        return false;  // Found a mixed case key
     }
 
-    return all_upper || all_lower;
+    all_keys_lower &= key_is_lower;
+    all_keys_upper &= key_is_upper;
 }
+
+return all_keys_lower || all_keys_upper;
