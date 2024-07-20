@@ -1,33 +1,22 @@
-bool issame(const vector<int>& a, const vector<int>& b) {
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> divisible_by_three;
-    vector<int> not_divisible_by_three;
-    
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> l_copy = l;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            divisible_by_three.push_back(l[i]);
-        } else {
-            not_divisible_by_three.push_back(l[i]);
+            std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
-    
-    sort(divisible_by_three.begin(), divisible_by_three.end());
-    
-    vector<int> result;
-    int j = 0;
-    int k = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            result.push_back(divisible_by_three[j]);
-            ++j;
-        } else {
-            result.push_back(not_divisible_by_three[k]);
-            ++k;
-        }
-    }
-    
-    return result;
+    return l_copy;
+}
+
+int main() {
+    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    return 0;
 }
