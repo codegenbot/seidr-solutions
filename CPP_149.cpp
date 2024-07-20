@@ -21,4 +21,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    return 0;
 }
