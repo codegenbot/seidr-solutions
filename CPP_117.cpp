@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <sstream>
+#include <string>
 
 std::vector<std::string> select_words(const std::string& sentence, int n) {
     std::vector<std::string> words;
