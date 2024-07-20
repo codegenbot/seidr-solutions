@@ -1,12 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-bool issame(int a, int b) {
-    if (a > b)
-        return false;
-    else
-        return true;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
