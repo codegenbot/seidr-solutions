@@ -4,16 +4,18 @@ using namespace std;
 int vowels_count(const string &s){
     int count = 0;
     for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && c == s.back()))
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && (c == s.back())))
             count++;
     }
     return count;
 }
 
-int main() {
-    // Test cases
-    cout << vowels_count("Hello World") << endl; // Expected output: 3
-    cout << vowels_count("Programming") << endl; // Expected output: 3
-
+int main(){
+    string test1 = "Hello World";
+    string test2 = "This is a test";
+    
+    cout << vowels_count(test1) << endl; // Expected output: 3
+    cout << vowels_count(test2) << endl; // Expected output: 4
+    
     return 0;
 }
