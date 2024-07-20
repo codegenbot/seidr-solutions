@@ -1,22 +1,19 @@
 #include <vector>
 #include <cassert>
 
-class Solution {
-public:
-    static bool issame(const std::vector<int>& a, const std::vector<int>& b){
-        if(a.size() != b.size()){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(size_t i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
-        
-        for(size_t i=0; i<a.size(); i++){
-            if(a[i] != b[i]){
-                return false;
-            }
-        }
-        
-        return true;
     }
-};
+    
+    return true;
+}
 
 std::vector<int> make_a_pile(int n){
     std::vector<int> result;
