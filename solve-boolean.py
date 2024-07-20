@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
@@ -7,32 +8,31 @@ def solve_boolean(expression):
         elif char == '(':
             operator_stack.append(char)
         elif char in ['|', '&']:
-            while (len(operator_stack) and ((operator_stack[-1] == '&' and char == '|') or
-                                             (operator_stack[-1] == '|' and char == '&'))):
-                op = operator_stack.pop()
-                b = stack.pop() == 'T'
+            while len(operator_stack) and (operator_stack[-1] == '&' or (char == '|' and operator_stack[-1] == '|')):
                 a = stack.pop() == 'T'
-                if op == '&':
+                b = stack.pop() == 'T'
+                if operator_stack[-1] == '&':
                     stack.append(a and b)
                 else:
                     stack.append(a or b)
+                operator_stack.pop()
             operator_stack.append(char)
         elif char == ')':
-            while len(operator_stack) and operator_stack[-1] != '(':
-                op = operator_stack.pop()
-                b = stack.pop() == 'T'
+            while operator_stack[-1] != '(':
                 a = stack.pop() == 'T'
-                if op == '&':
+                b = stack.pop() == 'T'
+                if operator_stack[-1] == '&':
                     stack.append(a and b)
                 else:
                     stack.append(a or b)
+                operator_stack.pop()
             operator_stack.pop()
     while len(operator_stack):
-        op = operator_stack.pop()
-        b = stack.pop() == 'T'
         a = stack.pop() == 'T'
-        if op == '&':
+        b = stack.pop() == 'T'
+        if operator_stack[-1] == '&':
             stack.append(a and b)
         else:
             stack.append(a or b)
+        operator_stack.pop()
     return stack[0] == 'T' if stack else None
