@@ -5,8 +5,9 @@ bool is_sorted(vector<int> lst){
             for(int j = 0; j < i; j++){
                 temp.push_back(lst[j]);
             }
-            if(count(temp.begin(), temp.end(), lst[i]) > 1)
+            if(count(temp.begin(), temp.end(), lst[i]) > 1){
                 return false;
+            }
         }
     }
     return true;
