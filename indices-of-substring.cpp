@@ -5,14 +5,14 @@ using std::cin;
 using std::string;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    if (target.length() == 0) { // target length is 0
-        result.push_back(-1); // or any other sentinel value
-        return result;
-    }
-    
     std::vector<int> result;
     int n = text.length();
     int m = target.length();
+
+    if (m == 0) { // target length is 0
+        result.push_back(-1); 
+        return result;
+    }
 
     for(int i=0; i<n-m+1; i++){
         if(text.substr(i,m) == target){
