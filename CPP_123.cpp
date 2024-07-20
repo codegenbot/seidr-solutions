@@ -1,7 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> get_odd_collatz(int n);
+
+vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 1) {
@@ -13,5 +17,3 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     sort(result.begin(), result.end());
     return result;
 }
-
-assert (issame(collatz(1), {1}));
