@@ -1,34 +1,36 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    bool inWord = false;
-    int wordLength = 0;
+std::string spinWords(std::string str) {
+    std::string result;
+    std::string word;
 
-    for (auto c : sentence + " ") { 
+    for (char c : str) {
         if (c == ' ') {
-            if (inWord && wordLength >= 5) {
-                for (int i = --wordLength; i >= 0; --i)
-                    result += sentence[wordLength - i];
-            } else
-                result += c;
-            inWord = false;
-            wordLength = 0;
-        } else {
-            inWord = true;
-            result += c;
-            wordLength++;
-        }
+            if (word.length() >= 5)
+                result += std::string(word.rbegin(), word.rend()) + " ";
+            else
+                result += word + " ";
+            word = "";
+        } else
+            word += c;
     }
+
+    if (word.length() >= 5)
+        result += std::string(word.rbegin(), word.rend());
+    else
+        result += word;
 
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::cin >> str;
+        if (str == "exit") break;
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
+    }
     return 0;
 }
