@@ -1,13 +1,9 @@
 ```cpp
-#include <cmath>
 bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 0.0001) return true;
-    if (abs(b - (a + c)) < 0.0001) return true;
-    if (abs(c - (a + b)) < 0.0001) return true;
-    return false;
+    return (a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a);
 }
 
 int main() {
-    assert(any_int(3.01, 4, 7) == false);
-    return 0;
+    assert(any_int(3.01f, 4, 7) == false);
+    // Rest of your code
 }
