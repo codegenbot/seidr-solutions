@@ -1,34 +1,43 @@
-using namespace boost;
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    any_cast<double>(a);
-    any_cast<double>(b);
-
-    double d1 = 0;
-    double d2 = 0;
-
-    if (any_cast<bool>(is_double(a))) {
-        d1 = any_cast<double>(a);
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any(b.get<boost::any>());
     }
-    if (any_cast<bool>(is_double(b))) {
-        d2 = any_cast<double>(b);
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return (boost::any) (b > a ? b : a);
     }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str_a = any_cast<string>(a);
+        string str_b = any_cast<string>(b);
 
-    if (d1 > d2) return a;
-    else if (d2 > d1) return b;
+        int len_a = str_a.size();
+        int len_b = str_b.size();
 
-    string s1 = "";
-    string s2 = "";
+        for (int i = 0; i < len_a; ++i) {
+            if (str_a[i] == ',') {
+                --len_a;
+                break;
+            }
+        }
 
-    if (any_cast<bool>(is_string(a))) {
-        s1 = any_cast<string>(a);
+        for (int i = 0; i < len_b; ++i) {
+            if (str_b[i] == ',') {
+                --len_b;
+                break;
+            }
+        }
+
+        str_a = str_a.substr(0, len_a);
+        str_b = str_b.substr(0, len_b);
+
+        return boost::any((boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? b : a);
     }
-    if (any_cast<bool>(is_string(b))) {
-        s2 = any_cast<string>(b);
+    else {
+        return boost::any("None");
     }
-
-    if (s1 > s2) return a;
-    else if (s2 > s1) return b;
-
-    return "None";
 }
