@@ -13,7 +13,7 @@ long long double_the_difference(std::vector<float> lst){
     return 2 * odd_sum;
 }
 
-int main() {
+int main(){
     std::vector<float> lst = {1.0, 2.0, 3.0};
     long long result = double_the_difference(lst);
     assert(result == 18);
