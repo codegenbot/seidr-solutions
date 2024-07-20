@@ -4,17 +4,20 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool upper = false;
+    bool upper = true;
 
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
                 if (upper) {
                     result += toupper(result[0]);
-                    result.erase(0, 1);
+                } else {
+                    result += tolower(result[0]);
                 }
-                upper = true;
+                result.erase(0, 1);
             }
+            result += ' ';
+            upper = true;
         } else if (upper) {
             result += toupper(c);
             upper = false;
@@ -23,18 +26,11 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    if (upper) {
-        if (!result.empty()) {
-            result += toupper(result[0]);
-            result.erase(0, 1);
-        }
-    }
-
     return result;
 }
 
 int main() {
-    std::string input = "camel-case example-test-string";
-    std::cout << camelCase(input) << std::endl;
+    std::string input = "s-lsdsy-uhhe";
+    std::cout << camelCase(input + " ") << std::endl;
     return 0;
 }
