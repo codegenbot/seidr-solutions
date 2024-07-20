@@ -11,5 +11,5 @@ int main() {
 }
 
 std::string change_base(int num, int base) {
-    return num == base ? "1" : std::to_string(num / base);
+    return num < base ? std::to_string(num) : change_base(num / base, base) + std::to_string(num % base);
 }
