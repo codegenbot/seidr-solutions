@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cctype>
-
 std::string camelCase(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -16,12 +11,4 @@ std::string camelCase(std::string s) {
         }
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the string: ";
-    std::cin >> input;
-    std::cout << camelCase(input) << std::endl;
-    return 0;
 }
