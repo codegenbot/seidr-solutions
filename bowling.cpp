@@ -11,15 +11,11 @@ int bowlingScore(std::string frames) {
             score += 10 - frames[i + 1] - frames[i + 2];
         } else {
             roll1 = frames[i] - '0';
-            if (i < 8) {
-                roll2 = frames[i + 1] - '0';
-                if (roll1 + roll2 >= 10) { // Spare
-                    score += roll1 + roll2;
-                } else {
-                    score += roll1 + roll2;
-                }
+            roll2 = frames[i + 1] - '0';
+            if (roll1 + roll2 >= 10) { // Spare
+                score += roll1 + roll2;
             } else {
-                score += roll1;
+                score += roll1 + roll2;
             }
         }
     }
