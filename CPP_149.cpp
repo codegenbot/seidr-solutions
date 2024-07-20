@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,11 +7,13 @@ bool issame(const std::string& str1, const std::string& str2) {
     if (str1.length() != str2.length()) {
         return false;
     }
-    for (int i = 0; i < str1.length(); i++) {
+    
+    for (int i = 0; i < str1.length(); ++i) {
         if (str1[i] != str2[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -24,7 +27,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
 
     sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
@@ -36,24 +39,34 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+    std::vector<std::string> input;
+    int num_strings;
 
-    std::vector<std::string> lst;
-    for (int i = 0; i < n; i++) {
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
+
+    for (int i = 0; i < num_strings; ++i) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
         std::cin >> str;
-        if (!issame(str, "sum")) {
-            lst.push_back(str);
-        }
+        input.push_back(str);
     }
 
-    std::vector<std::string> result = sorted_list_sum(lst);
+    std::vector<std::string> output = sorted_list_sum(input);
 
-    for (const auto& str : result) {
-        std::cout << str << "\n";
+    for (const auto& str : output) {
+        bool same_found = false;
+
+        for (int i = 0; i < num_strings; ++i) {
+            if (issame(str, input[i])) {
+                same_found = true;
+                break;
+            }
+        }
+
+        if (!same_found) {
+            std::cout << str << " ";
+        }
     }
 
     return 0;
