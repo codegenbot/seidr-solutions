@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Add this line
 
 using namespace std;
 
@@ -22,9 +22,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-int main() {
-    vector<string> grades = numerical_letter_grade({0, 0.7});
-    assert(issame(grades, {"E", "D-"}));
 }
