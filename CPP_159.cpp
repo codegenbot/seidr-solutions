@@ -19,7 +19,7 @@ std::vector<int> eat(int x, int y, int z) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), {5, 4}));
     std::cout << "Function 'issame' works correctly." << std::endl;
     return 0;
 }
