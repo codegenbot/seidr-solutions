@@ -11,17 +11,26 @@ vector<string> reverse_delete(string s, string c) {
                 break;
             }
         }
-        if (!found) {
+        if (!found)
             temp += i;
-        }
     }
-    result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
+    if (isPalindrome(temp)) {
+        result.push_back(temp);
         result.push_back("True");
     } else {
+        result.push_back(temp);
         result.push_back("False");
     }
     return result;
+}
+
+bool isPalindrome(string s) {
+    int start = 0, end = s.length() - 1;
+    while (start < end) {
+        if (s[start] != s[end])
+            return false;
+        start++;
+        end--;
+    }
+    return true;
 }
