@@ -1,31 +1,37 @@
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
+vector<string> result;
+    string delimiter = " ";
+    size_t pos = 0;
+    string token;
+    
+    while ((pos = txt.find(delimiter)) != string::npos) {
+        token = txt.substr(0, pos);
+        result.push_back(token);
+        txt.erase(0, pos + delimiter.length());
     }
     
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
-        result.clear();
-        int oddCount = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                oddCount++;
+    // Check if there are no whitespaces and split on commas
+    if (txt.find(',') != string::npos) {
+        delimiter = ",";
+        pos = 0;
+        while ((pos = txt.find(delimiter)) != string::npos) {
+            token = txt.substr(0, pos);
+            result.push_back(token);
+            txt.erase(0, pos + delimiter.length());
+        }
+        result.push_back(txt);
+    } else if (result.empty()) {
+        int odd_chars = 0;
+        for(char c : txt) {
+            if (islower(c)) {
+                int ord = c - 'a';
+                if (ord % 2 != 0) {
+                    odd_chars++;
+                }
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(odd_chars));
+    } else {
+        result.push_back(txt);
     }
     
     return result;
-}
