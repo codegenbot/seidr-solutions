@@ -35,14 +35,12 @@ vector<int> tri(int n){
 
 int main() {
     // Test issame function
-    vector<int> test1 = {1, 2, 3};
-    vector<int> test2 = {1, 2, 3};
-    assert(issame(test1, test2) == true);
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
 
     // Test tri function
-    vector<int> result = tri(3);
-    vector<int> expected = {3, 1, 2, 6};
-    assert(issame(result, expected) == true);
+    vector<int> result = tri(5);
+    assert(issame(result, {3, 1, 2, 4, 6, 11}));
 
     return 0;
 }
