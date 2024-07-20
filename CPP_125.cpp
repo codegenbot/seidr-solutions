@@ -17,15 +17,9 @@ vector<string> split_words(const string& txt) {
 }
 
 int main() {
-    vector<string> words;
     string input;
     getline(cin, input);
-    istringstream iss(input);
-    string word;
-    
-    while (iss >> word) {
-        words.push_back(word);
-    }
+    vector<string> words = split_words(input);
     
     for (const auto& word : words) {
         cout << word << " ";
