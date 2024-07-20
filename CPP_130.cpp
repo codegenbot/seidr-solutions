@@ -20,5 +20,8 @@ int main() {
     int n = 2;
     std::vector<int> tri = yourFunctionName(n);
     assert(issame(tri, {0, 0}));
+    
+    assert(issame(tri, {1, 3}));
+
     return 0;
 }
