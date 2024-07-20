@@ -28,12 +28,10 @@ def solve_boolean(expression):
                 else:
                     stack.append(a or b)
             operator_stack.pop()
-
     while len(operator_stack):
         op = operator_stack.pop()
         if op == '&':
             stack.append(stack.pop() == 'T' and stack.pop() == 'T')
         elif op == '|':
             stack.append(stack.pop() == 'T' or stack.pop() == 'T')
-
     return stack[0] == 'T' if stack else None
