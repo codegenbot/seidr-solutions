@@ -1,4 +1,6 @@
-Here is the solution:
-
-def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
-    return round(initial_snow + hours * rate_of_fall - hours * melting_rate, 6)
+def snow_day(hours, initial_snow, rate, melt_rate):
+    total_snow = round(initial_snow, 5)
+    for _ in range(hours):
+        total_snow += rate
+        total_snow -= min(total_snow, melt_rate)
+    return round(total_snow, 5)
