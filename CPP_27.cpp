@@ -1,11 +1,14 @@
+Here is the solution:
+
 string flip_case(string str) {
     string result = "";
     for (char c : str) {
-        if (islower(c)) {
+        if (c >= 'a' && c <= 'z') 
             result += toupper(c);
-        } else {
+        else if (c >= 'A' && c <= 'Z')
             result += tolower(c);
-        }
+        else
+            result += c;
     }
     return result;
 }
