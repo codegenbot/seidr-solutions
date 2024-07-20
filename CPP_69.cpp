@@ -1,4 +1,5 @@
-#include <vector>
+#include <algorithm>
+#include <numeric>
 
 int search(vector<int> lst) {
     int max = -1;
