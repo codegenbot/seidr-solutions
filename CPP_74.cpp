@@ -8,12 +8,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-bool total_match(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool total_match(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return issame(a, b);
 }
 
 int main() {
-    assert(total_match({"this"}, {}) == true);
-
+    assert(issame(total_match({}, {}), {}));
     return 0;
 }

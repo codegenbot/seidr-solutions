@@ -1,10 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+std::vector<int> strange_sort_list(std::vector<int> lst);
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
@@ -19,17 +17,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-void main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> input(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> input[i];
-    }
-
-    std::vector<int> output = strange_sort_list(input);
-    for (int num : output) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
