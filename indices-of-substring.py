@@ -9,5 +9,6 @@ while not target:
     target = input("Enter the target string: ")
 
 import re
+
 result = [m.start() for m in re.finditer(target, text)]
-print(result)
+print([i for i in result if i >= 0])
