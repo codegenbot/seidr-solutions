@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <string>
+#include <sstream>
+
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
