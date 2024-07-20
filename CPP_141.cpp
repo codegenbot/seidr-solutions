@@ -23,9 +23,10 @@ std::string file_name_check(std::string file_name){
     return "Yes";
 }
 
-int main(){
-    std::cout << file_name_check("file.txt") << std::endl;
-    std::cout << file_name_check("abc.exe") << std::endl;
-    std::cout << file_name_check("123.dll") << std::endl;
+int main() {
+    std::string file_name;
+    std::cout << "Enter the file name: ";
+    std::getline(std::cin, file_name);
+    std::cout << file_name_check(file_name) << std::endl;
     return 0;
 }
