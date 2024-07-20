@@ -4,6 +4,7 @@ int sum = 0;
     }
     if (sum <= w && equal(q.begin(), q.end(), q.rbegin())) {
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
