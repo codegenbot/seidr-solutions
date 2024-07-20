@@ -1,14 +1,12 @@
-int total_chars_lst1 = 0;
-    for (const auto& str : lst1) {
-        total_chars_lst1 += str.size();
+int totalChars1 = 0, totalChars2 = 0;
+    for (const string& str : lst1) {
+        totalChars1 += str.length();
     }
-
-    int total_chars_lst2 = 0;
-    for (const auto& str : lst2) {
-        total_chars_lst2 += str.size();
+    for (const string& str : lst2) {
+        totalChars2 += str.length();
     }
-
-    if (total_chars_lst1 < total_chars_lst2) {
+    
+    if (totalChars1 < totalChars2) {
         return lst1;
     } else {
         return lst2;
