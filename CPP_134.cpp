@@ -1,13 +1,20 @@
-Here is the completed code:
+string txt;
+cin >> txt;
 
-```cpp
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1);
-    for(int i=0; i<txt.length()-1; i++){
-        if(txt[i] == ' ' && txt.substr(i+1).find(lastChar) != string::npos){
-            return true;
+bool result = false;
+
+if(txt.length() > 0) {
+    if(isalpha(txt.back())) {
+        int i = txt.length()-1;
+        while(i > 0 && isspace(txt[i-1])) {
+            i--;
+        }
+        if(i == 0 || !isalpha(txt[i-1])) {
+            result = true;
         }
     }
-    return isalpha(lastChar[0]);
 }
+
+cout << (result ? "true" : "false") << endl;
+
+return result;
