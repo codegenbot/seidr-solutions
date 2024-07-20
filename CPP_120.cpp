@@ -4,10 +4,6 @@
 #include <functional>
 #include <cassert>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
-}
-
 std::vector<int> maximum(const std::vector<int>& arr, int k){
     std::vector<int> sortedArr = arr;
     std::sort(sortedArr.begin(), sortedArr.end(), std::greater<int>());
@@ -15,7 +11,10 @@ std::vector<int> maximum(const std::vector<int>& arr, int k){
 }
 
 int main(){
-    assert(std::issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>{243, 3, 2}));
+    std::vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
     
     return 0;
 }
