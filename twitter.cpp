@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,13 +15,7 @@ string validateTweet(string tweet) {
 
 int main() {
     string tweet;
-    while(true) {
-        cout << "Enter a tweet: ";
-        getline(cin, tweet);
-        if (tweet.length() <= 140)
-            break;
-        cout << "Too many characters. Try again.\n";
-    }
-    cout << validateTweet(tweet) << endl;
+    cout << "Enter a tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet);
     return 0;
-}
