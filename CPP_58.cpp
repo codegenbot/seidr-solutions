@@ -13,13 +13,3 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
-
-int main() {
-    assert(common({4, 3, 2, 8}, {}) == vector<int>{});
-    assert(common({1, 2, 3}, {3, 4, 5}) == vector<int>{3});
-    assert(common({1, 2, 3}, {4, 5, 6}) == vector<int>{});
-    assert(common({}, {4, 5, 6}) == vector<int>{});
-    assert(common({1, 2, 3}, {1, 2, 3}) == vector<int>{1, 2, 3});
-    
-    return 0;
-}
