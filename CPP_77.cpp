@@ -1,6 +1,22 @@
-Here is the solution:
+// Check if a number is a cube of another number.
+#include <cmath>
+#include <iostream>
 
 bool iscuber(int a){
-    int c = round(cbrt(a));
-    return (c*c*c) == a;
+    int c = (int)cbrt(a);
+    return a == pow(c, 3);
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    if(iscuber(num)) {
+        std::cout << num << " is a cube of another number." << std::endl;
+    } else {
+        std::cout << num << " is not a cube of another number." << std::endl;
+    }
+
+    return 0;
 }
