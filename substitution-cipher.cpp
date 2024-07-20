@@ -19,17 +19,15 @@ int main() {
 }
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    int min_len = std::min(cipher_map1.length(), cipher_map2.length());
-    
-    // Create a map of the first two strings
-    std::map<char, char> mapping;
-    for (int j = 0; j < min_len; j++) {
-        if(j < cipher_map1.length()) {
-            mapping.insert(std::make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
-        }
+    if(cipher_map1.length() != cipher_map2.length()) {
+        return "";
     }
-
-    // Apply the cipher
+    
+    std::map<char, char> mapping;
+    for (int j = 0; j < cipher_map1.length(); j++) {
+        mapping.insert(std::make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
+    }
+    
     std::string result = "";
     for (char c : message) {
         if(mapping.find(tolower(c)) != mapping.end()) {
