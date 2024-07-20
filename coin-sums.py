@@ -1,7 +1,13 @@
-def coin_sums(cents):
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
-    return [cents // coin for coin in coins]
+    result = []
+
+    for coin in coins:
+        result.append(cents // coin)
+        cents %= coin
+
+    return result
 
 
-cents = int(input())
-print(*coin_sums(cents))
+print(*coin_sums(), sep="\n")
