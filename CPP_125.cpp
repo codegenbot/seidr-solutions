@@ -43,6 +43,6 @@ vector<string> split_words(string txt) {
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    // Add additional test cases here if needed
+    // Additional test cases
     return 0;
 }
