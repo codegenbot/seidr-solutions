@@ -6,6 +6,5 @@ int rows = grid.size();
                 total_water += grid[i][j];
             }
         }
-        int num_buckets = (total_water + capacity - 1) / capacity;
-        return num_buckets * rows;
+        return (total_water + capacity - 1) / capacity;
     }
