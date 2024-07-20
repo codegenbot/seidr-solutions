@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
     int max_right = arr.back();
@@ -10,6 +12,7 @@ vector<int> leaders(vector<int>& arr) {
     }
     leaders.push_back(arr.back());
     return leaders;
+
 }
 
 int main() {
