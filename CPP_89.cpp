@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cassert>
 
-std::string encrypt(const std::string& s) {
+std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -25,7 +25,6 @@ std::string encrypt(const std::string& s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e");
-    // Add more test cases here
+    assert (encrypt("a")=="e");
     return 0;
 }
