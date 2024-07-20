@@ -30,6 +30,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Replace the assert function with appropriate testing mechanism for the contest platform
+    // Replace assert with suitable testing mechanism as required by the contest platform
     return 0;
 }
