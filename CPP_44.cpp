@@ -1,6 +1,7 @@
 #include <string>
 #include <cassert>
-#include <iostream>
+#include <iostream> // Add include for std::cout
+#include <string>   // Include for std::to_string
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -14,6 +15,6 @@ std::string change_base(int x, int base){
 int main() {
     int x = 10;
     assert(change_base(x, x + 1) == std::to_string(x));
-    std::cout << "Test passed" << std::endl;
+    std::cout << "Test passed" << std::endl; // Output success message
     return 0;
 }
