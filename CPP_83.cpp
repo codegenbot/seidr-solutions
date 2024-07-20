@@ -9,13 +9,20 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if ((i / pow(10, floor(log10(i))) % 10) == 1) {
-            count++;
-        }
-        for (int j = 0; j < n - 1; j++) {
-            int num = i * pow(10, j);
-            if ((num % 10) == 1) {
-                count++;
+        if ((long long)i != i) { // check for overflow
+            for (int j = 0; j < n - 1; j++) {
+                int num = i * pow(10, j);
+                if ((num % 10) == 1) {
+                    count++;
+                }
+            }
+        } else {
+            for (long long num = i; num <= (long long)pow(10, n) - 1; num /= 10) { // check for overflow
+                int digit = static_cast<int>(num % 10);
+                if (digit == 1 || digit == 9) {
+                    count++;
+                }
+                if ((long long)num / 10 != num) break;
             }
         }
     }
