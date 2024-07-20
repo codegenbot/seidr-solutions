@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int findMaxPrimeSum(std::vector<int> lst) {
     int maxPrime = 0;
@@ -30,9 +29,4 @@ bool isPrime(int num) {
         }
     }
     return true;
-}
-
-int main() {
-    assert(findMaxPrimeSum({127, 97, 8192}) == 10);
-    return 0;
 }
