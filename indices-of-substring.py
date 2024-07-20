@@ -1,4 +1,3 @@
-```
 text = input("Enter the text: ")
 while not text:
     print("Text cannot be empty. Please try again.")
