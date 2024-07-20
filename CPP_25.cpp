@@ -1,12 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> // added this line
 
 using namespace std;
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
@@ -20,4 +16,13 @@ std::vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
+    return 0;
 }
