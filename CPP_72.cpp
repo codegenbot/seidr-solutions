@@ -5,12 +5,8 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    
-    if (str != reverse(str).s) {
-        return false;
-    } else if (accumulate(q.begin(), q.end(), 0) > w) {
-        return false;
-    }
-    
-    return true;
+    if (str != reverse(str).s) return false;
+    int sum = 0;
+    for (int i : q) sum += i;
+    return sum <= w;
 }
