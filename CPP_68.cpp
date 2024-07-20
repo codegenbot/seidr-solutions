@@ -1,29 +1,18 @@
-Here is the completed code:
-
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
-
+    vector<pair<int, int>> pairs;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            evenNodes.push_back({arr[i], i});
+            pairs.push_back({arr[i], i});
         }
     }
-
-    if (evenNodes.empty()) {
-        return {};
-    }
-
-    int minEvenValue = evenNodes[0].first;
-    int minIndex = evenNodes[0].second;
-
-    for (int i = 1; i < evenNodes.size(); i++) {
-        if (evenNodes[i].first < minEvenValue) {
-            minEvenValue = evenNodes[i].first;
-            minIndex = evenNodes[i].second;
-        } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = min(minIndex, evenNodes[i].second);
-        }
-    }
-
-    return {{minEvenValue, minIndex}};
+    
+    if (pairs.empty()) return {};
+    
+    pair<int, int> result = *min_element(pairs.begin(), pairs.end());
+    
+    vector<int> output;
+    output.push_back(result.first);
+    output.push_back(result.second);
+    
+    return output;
 }
