@@ -1,11 +1,8 @@
-int next_smallest(vector<int> lst) {
+Here is the completed code:
+
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // Return None or -1
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // or None in Python
-    for (int i = 0; i < sorted.size()-1; i++) {
-        if (sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
-        }
-    }
-    return -1; // or None in Python
-}
+    int idx = distance(sorted.begin(), find(sorted.begin(), sorted.end(), *max_element(lst.begin(), lst.end())));
+    return (idx == 0 || idx == (int)sorted.size() - 1)? -1 : sorted[idx];
