@@ -1,22 +1,37 @@
-bool solveBoolean(string s) {
+string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return false;
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
+            if (st.empty()) {
+                return "False";
+            } else {
+                char c = st.top();
                 st.pop();
+                if (c == 'T') {
+                    return "True";
+                } else {
+                    return "False";
+                }
             }
-            if (st.empty()) return true;
-        } else {
+        } else if (s[i] != '&') {
             st.push(s[i]);
         }
     }
-    while (!st.empty()) {
+    while (!st.empty() && st.top() == '&') {
         st.pop();
     }
-    return false;
+    if (st.empty()) {
+        return "True";
+    } else {
+        char c = st.top();
+        st.pop();
+        if (c == 'T') {
+            return "True";
+        } else {
+            return "False";
+        }
+    }
 }
