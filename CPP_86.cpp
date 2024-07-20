@@ -12,8 +12,11 @@ string anti_shuffle(string s) {
                 word += s[i];
                 i++;
             }
-            for (int j = 0; j < word.length(); j++) {
-                result += word[j];
+            for (char c : word) {
+                result += min_element(word.begin(), word.end()) -> first;
+            }
+            if (i < s.length()) {
+                result += " ";
             }
         }
     }
