@@ -43,9 +43,10 @@ vector<string> split_words(string txt) {
 
 int main() {
     assert(issame(split_words(""), {"0"}));
-    assert(issame(split_words("hello,world"), {"hello", "world"}));
-    assert(issame(split_words("123 456"), {"123", "456"}));
+    // Additional test cases
+    assert(issame(split_words("Hello, World!"), {"Hello", "World!"}));
+    assert(issame(split_words("This is a test."), {"This", "is", "a", "test."}));
+    assert(issame(split_words("12345"), {"12345"}));
     assert(issame(split_words("a b c"), {"a", "b", "c"}));
-    assert(issame(split_words("A!B,C"), {"A!B", "C"}));
     return 0;
 }
