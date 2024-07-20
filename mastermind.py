@@ -2,7 +2,7 @@ def mastermind(code, guess):
     black_pegs = 0
     white_pegs = 0
     code_counts = [0] * 6
-
+    
     for c in code:
         code_counts[ord(c) - ord("B")] += 1
 
