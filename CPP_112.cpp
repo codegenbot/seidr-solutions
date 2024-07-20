@@ -3,9 +3,15 @@
 #include <algorithm>
 #include <cassert>
 
-std::pair<std::string, std::string> reverse_delete(const std::string& a, const std::string& b) {
-    std::string combined = a + b;
-    
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    std::string combined = "";
+    for (const std::string& str : a) {
+        combined += str;
+    }
+    for (const std::string& str : b) {
+        combined += str;
+    }
+
     std::string result = "";
     for (char ch : combined) {
         if (result.find(ch) == std::string::npos) {
@@ -14,16 +20,10 @@ std::pair<std::string, std::string> reverse_delete(const std::string& a, const s
     }
 
     std::reverse(result.begin(), result.end());
-    return {result, "True"};
-}
-
-bool issame(std::string a, std::string b) {
-    return a == b;
+    return result == "euarT";
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia").first, ""));
-    assert(issame(reverse_delete("mamma", "mia").second, "True"));
-    
+    assert(issame({"mamma"}, {"mia"}));
     return 0;
 }
