@@ -1,47 +1,40 @@
-#include <iostream>
+Here is the solution:
+
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(const std::string& input) {
-    std::vector<std::string> words;
-    if (!input.empty()) {
-        size_t pos = 0;
-        do {
-            size_t nextPos = input.find(' ', pos);
-            if (nextPos == std::string::npos) {
-                nextPos = input.length();
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            for (++i; i < s.size() && s[i] == '-'; i++);
+            if (i < s.size()) {
+                char c = toppercase(s[i]);
+                result += c;
             }
-            words.push_back(input.substr(pos, nextPos - pos));
-            pos = nextPos + 1;
-        } while (pos < input.length());
-    }
-
-    std::string output;
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (!words[i].empty()) {
-            size_t dashPos = words[i].find('-');
-            if (dashPos != std::string::npos) {
-                output += words[i].substr(0, dashPos).substr(0, 1).toupper();
-                output += words[i].substr(dashPos + 1);
-                for (++i; i < words.size() && words[i][0] == '-'; ++i) {
-                    output += words[i].substr(1);
-                }
-                break;
-            } else {
-                if (i > 0) {
-                    output.push_back(' ');
-                }
-                output += words[i];
-            }
+        } else if (s[i] != ' ') {
+            char c = toppercase(s[i]);
+            result += c;
         }
     }
-
-    return output;
+    return result;
 }
 
+char toppercase(char c) {
+    if (c >= 'a' && c <= 'z') {
+        return (char)(c - 32);
+    } else {
+        return c;
+    }
+}
 int main() {
-    std::cout << kebabToCamel("nospaceordash") << "\n";
-    std::cout << kebabToCamel("two-words") << "\n";
-    std::cout << kebabToCamel("two words") << "\n";
-    std::cout << kebabToCamel("all separate words") << "\n";
-    return 0;
+    // Read input from user
+    string s;
+    cin >> s;
+
+    // Convert to camelCase
+    string result = camelCase(s);
+
+    // Print output
+    cout << result << endl;
 }
