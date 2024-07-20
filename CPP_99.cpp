@@ -2,7 +2,7 @@
 #include <cmath>
 #include <string>
 
-int closest_integer(std::string value)
+int closest_integer(const char* value)
 {
     double num = std::stod(value);
     int lower = std::floor(num);
