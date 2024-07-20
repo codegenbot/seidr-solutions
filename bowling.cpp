@@ -1,38 +1,38 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
+    int lastRoll = 0;
+    int currentFrame = 1;
 
-    for (int i = 0; i < 10; i++) {
-        if (frames[i] == 'X') { // Strike
-            score += 10 + bowlingStrike(frames, i);
-        } else if (frames[i] == '/') { // Spare
-            score += 10 - frames[i + 1] - frames[i + 2];
-        } else {
-            roll1 = frames[i] - '0';
-            roll2 = frames[i + 1] - '0';
-            if (roll1 + roll2 >= 10) { // Spare
-                score += roll1 + roll2;
+    for (char c : s) {
+        if (c == '/') {
+            if (lastRoll == 10) {
+                score += 10 + getRollValue(s.substr(currentFrame*2, 2));
+                currentFrame++;
             } else {
-                score += roll1 + roll2;
+                score += lastRoll + getRollValue(string(1,c));
+                currentFrame++;
             }
+            lastRoll = 0;
+        } else if (c == 'X') {
+            score += 10 + getRollValue(s.substr(currentFrame*2+1, 1));
+            currentFrame++;
+            lastRoll = 10;
+        } else {
+            int roll = c - '0';
+            score += roll;
+            lastRoll = roll;
         }
     }
 
     return score;
 }
 
-int bowlingStrike(string frames, int i) {
-    int score = 10;
-
-    for (int j = i + 1; j < i + 4; j++) {
-        if (frames[j] == 'X') { // Strike
-            score += 10 + bowlingStrike(frames, j);
-        } else if (frames[j] == '/') { // Spare
-            score += 10 - frames[j + 1] - frames[j + 2];
-        } else {
-            score += frames[j] - '0' + frames[j + 1] - '0';
-        }
+int getRollValue(string s) {
+    if (s[0] == 'X') {
+        return 10;
+    } else if (s[0] == '/') {
+        return s[1] - '0';
+    } else {
+        return s[0] - '0' + s[1] - '0';
     }
-
-    return score;
 }
