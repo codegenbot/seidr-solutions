@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card = [int(x) for x in str(input().strip().replace(" ", "").replace("-", "")) if isinstance(int(x), int)]
     if len(card) < 15:
@@ -6,15 +5,12 @@ def luhn(card_number):
     card += [0] * (16 - len(card))
 
     new_card = []
-    double_even = False
-    for num in card:
-        if double_even:
+    for i, num in enumerate(card):
+        if i % 2 == 0:  
             temp = num * 2
             new_card.append((temp // 10) + ((temp % 10) if temp < 10 else 9))
-            double_even = False
-        else:
+        else:  
             new_card.append(num)
-            double_even = not double_even
 
     return sum(new_card)
 
