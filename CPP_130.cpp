@@ -34,6 +34,6 @@ vector<int> tri(int n){
 }
 
 int main() {
-    // Add test cases here to validate the tri and issame functions
+    // Add test cases here if needed
     return 0;
 }
