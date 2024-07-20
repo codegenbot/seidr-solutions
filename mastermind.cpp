@@ -28,18 +28,21 @@ int countWhitePegs(string code, string guess) {
             }
         }
     }
-    int totalCorrectColors = 0;
-    for (int i = 0; i < 6; ++i) {
-        totalCorrectColors += codeCounts[i];
-    }
-    int blackPegs = countBlackPegs(code, guess);
-    return totalCorrectColors - blackPegs;
+    return whitePegs;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << countWhitePegs(code, guess) << endl;
-    cout << countBlackPegs(code, guess) << endl;
+    int blackPegs = countBlackPegs(code, guess);
+    int totalCorrectColors = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != ' ') {
+            totalCorrectColors++;
+        }
+    }
+    int whitePegs = totalCorrectColors - blackPegs;
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
     return 0;
 }
