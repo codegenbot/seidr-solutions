@@ -1,29 +1,42 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool first = true;
+std::string toCamelCase(std::string input) {
+    std::string output;
+    int i = 0;
 
-    for (char c : str) {
-        if (c == '-') {
-            first = false;
-        } else if (!first) {
-            result[0] = toupper(c);
-            result += "!";
-            first = true;
+    while (i < input.length()) {
+        if (input[i] == '-') {
+            i++;
+            continue;
+        }
+        if (output.empty()) {
+            output += toUpperCase(input[i]);
         } else {
-            result += tolower(c);
+            output += toLowerCase(input[i]);
+        }
+        while (i + 1 < input.length() && input[i + 1] != ' ') {
+            i++;
+            output += input[i];
         }
     }
 
-    return result.substr(1);
+    return output;
 }
 
-int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << '\n';
+char toUpperCase(char c) {
+    if (c >= 'a' && c <= 'z') {
+        return c - ('a' - 'A');
+    } else {
+        return c;
     }
-    return 0;
+}
+
+char toLowerCase(char c) {
+    if (c >= 'A' && c <= 'Z') {
+        return c + ('a' - 'A');
+    } else {
+        return c;
+    }
 }
