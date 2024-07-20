@@ -1,14 +1,10 @@
-```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == 't':
         return True
-    elif expression == 'F':
+    elif expression == 'f':
         return False
     else:
-        result = True if expression[0] == 'T' else False
-        for op in expression:
-            if op == '&':
-                result = result and (expression != 'T')
-            elif op == '|':
-                result = result or (expression != 'F')
-        return result
+        for operation in expression.split('&'):
+            if operation != 'f' and not solve_boolean(operation):
+                return False
+        return solve_boolean(expression.split('&')[0].split('|')[0] == 't')
