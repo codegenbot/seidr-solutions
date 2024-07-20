@@ -18,12 +18,12 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int solve() {
-    assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
+    assert(areEqual(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
     return 0;
 }
 
