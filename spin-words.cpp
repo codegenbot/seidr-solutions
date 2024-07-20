@@ -10,10 +10,7 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
-                {std::vector<char> wordVec(word);
-                 std::reverse(wordVec.begin(), wordVec.end());
-                 result += std::string(wordVec.begin(), wordVec.end()) + " ";
-                }
+                result += std::string(std::vector<char>(word.begin(), word.end())).reverse() + " ";
             else
                 result += word + " ";
             word = "";
@@ -23,9 +20,7 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5)
-        {std::vector<char> wordVec(word);
-         std::reverse(wordVec.begin(), wordVec.end());
-         result += std::string(wordVec.begin(), wordVec.end());}
+        result += std::string(std::vector<char>(word.begin(), word.end())).reverse();
     else
         result += word;
 
