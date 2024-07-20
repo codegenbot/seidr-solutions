@@ -19,24 +19,17 @@ int main() {
 }
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    if(cipher_map1.length() != cipher_map2.length()) {
-        return "";
-    }
-    
-    std::map<char, char> mapping;
-    for (int j = 0; j < cipher_map1.length(); j++) {
-        mapping.insert(std::make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
-    }
+    std::map<char, char> mapping(cipher_map1.begin(), cipher_map1.end());
     
     std::string result = "";
     for (char c : message) {
         if(mapping.find(tolower(c)) != mapping.end()) {
-            char temp = mapping[tolower(c)];
+            char temp = mapping[std::tolower(c)];
             // Check if the original character was uppercase or lowercase
-            if(isupper(c))
-                result += toupper(temp);
+            if(std::isupper(c))
+                result += std::toupper(temp);
             else
-                result += tolower(temp);
+                result += std::tolower(temp);
         } else {
             result += c; 
         }
