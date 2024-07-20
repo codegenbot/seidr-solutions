@@ -3,13 +3,13 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
+    double totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall;
         
         if (proportionOfSnowMeltingPerHour > 0.0) {
-            totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
+            totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
         }
     }
     
@@ -24,4 +24,3 @@ int main() {
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
     
     return 0;
-}
