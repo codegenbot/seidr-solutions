@@ -9,6 +9,7 @@ std::string string_to_md5(const std::string& input) {
     unsigned int md_len;
 
     OpenSSL_add_all_digests();
+    OpenSSL_init_crypto(0, nullptr);
 
     md = EVP_get_digestbyname("md5");
     assert(md != nullptr);
