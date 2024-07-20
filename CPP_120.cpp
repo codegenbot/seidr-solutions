@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-bool maximum(vector<int> arr, int k) {
+vector<int> getKthSmallest(vector<int> arr, int k) {
     vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
     return result;
