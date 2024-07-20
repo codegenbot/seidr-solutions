@@ -5,7 +5,7 @@ string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
     string result;
     
-    for (string word : words) {
+    for (const auto& word : words) {
         if (is_prime(word.length())) {
             result += word + " ";
         }
@@ -22,20 +22,13 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(string sentence, char delimiter) {
-    vector<string> result;
-    string temp;
-
-    for (char c : sentence) {
-        if (c != delimiter) {
-            temp += c;
-        } else {
-            result.push_back(temp);
-            temp = "";
-        }
+vector<string> split(const string& str, char c) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
-
-    result.push_back(temp);
-
-    return result;
+    tokens.push_back(str);
+    return tokens;
 }
