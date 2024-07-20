@@ -1,6 +1,8 @@
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -39,3 +41,4 @@ int main() {
         cout << spinWords(str) << endl;
     }
     return 0;
+}
