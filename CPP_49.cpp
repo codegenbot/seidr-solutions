@@ -13,7 +13,7 @@ int modp(int n, int p) {
     return result;
 }
 
-int solveProblem() {
+int main() {
     int n, p;
     std::cout << "Enter two integers (n and p): ";
     std::cin >> n >> p;
