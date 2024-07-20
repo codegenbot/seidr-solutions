@@ -1,15 +1,14 @@
-vector<int> res(2, 0);
-    for (int i = 1; i <= n; i++) {
-        string s = to_string(i);
-        string rev = s;
-        reverse(rev.begin(), rev.end());
-        if (s == rev) {
-            if (i % 2 == 0) {
-                res[0]++;
-            } else {
-                res[1]++;
+int even_count = 0, odd_count = 0;
+        for(int i=1; i<=n; i++){
+            string num_str = to_string(i);
+            string rev_str = string(num_str.rbegin(), num_str.rend());
+            if(num_str == rev_str){
+                if(i % 2 == 0){
+                    even_count++;
+                } else {
+                    odd_count++;
+                }
             }
         }
+        return {even_count, odd_count};
     }
-    return res;
-}
