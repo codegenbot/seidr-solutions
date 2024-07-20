@@ -1,17 +1,17 @@
-Here's the completed code:
+int is_bored(string S){
+    int count = 0;
+    string word;
+    bool boredom = false;
 
-```cpp
-int is_bored(string S) {
-    int boredoms = 0;
-    string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.size() > 3 && sentence.substr(0, 2) == "I ")
-                boredoms++;
-            sentence.clear();
-        } else {
-            sentence += c;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(i > 0 && S.substr(0, i).find("I") != std::string::npos){
+                boredom = true;
+            }
+            if(boredom) count++;
+            boredom = false;
         }
     }
-    return boredoms;
+
+    return count;
 }
