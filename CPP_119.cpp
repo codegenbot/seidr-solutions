@@ -5,7 +5,11 @@ for (const string& s : lst) {
         if (c == '(') {
             countOpen++;
         } else if (c == ')') {
-            countClose++;
+            if (countOpen > 0) {
+                countOpen--;
+            } else {
+                countClose++;
+            }
         }
     }
 }
