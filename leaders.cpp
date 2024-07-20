@@ -1,18 +1,15 @@
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int>& vec) {
-    vector<int> res;
-    int n = vec.size();
+std::vector<int> leaders(std::vector<int>& arr) {
+    int rightmost = arr.back();
+    std::vector<int> result;
     
-    // The rightmost element is always a leader.
-    res.push_back(vec.back());
-    
-    for(int i = n-2; i >= 0; --i) {
-        if(vec[i] >= vec.back()) 
-            res.push_back(vec[i]);
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
+        }
     }
     
-    reverse(res.begin(), res.end());
-    return res;
+    return result;
 }
