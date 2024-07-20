@@ -14,13 +14,12 @@ int main() {
     int nickels = cents / 5;
     cents %= 5;
 
+    int pennies = cents;
+
     cout << quarters << endl;  
     cout << dimes << endl;      
     cout << nickels << endl;    
-    for (int i = 0; i < cents; ++i) {
-        cout << "1";          
-    }
-    cout << endl;
+    cout << pennies << endl;
 
     return 0;
 }
