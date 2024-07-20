@@ -18,9 +18,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", md5[i]);
-        result += buff;
+        char buf[3];
+        sprintf(buf, "%02x", md5[i]);
+        result.append(buf);
     }
 
     return result;
