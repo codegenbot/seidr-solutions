@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <sstream>
@@ -21,23 +20,16 @@ int main() {
     std::cout << "Enter vector 1 (elements separated by spaces): ";
     for (int i = 0; i < n; i++) {
         std::string str;
-        getline(std::cin, str); 
-        std::istringstream iss(str);
-        for(int j=0;j<2;j++){
-            iss >> v1[i];
-            if(j==0)std::cin.ignore();
-        }
+        std::cin >> str;
+        v1[i] = stof(str);
+        std::cin.ignore();
     }
-
+    
     std::cout << "Enter vector 2 (elements separated by spaces): ";
+    std::string str;
     for (int i = 0; i < n; i++) {
-        std::string str;
-        getline(std::cin, str); 
-        std::istringstream iss(str);
-        for(int j=0;j<2;j++){
-            iss >> v2[i];
-            if(j==0)std::cin.ignore();
-        }
+        std::cin >> str;
+        v2[i] = stof(str);
     }
 
     double distance = vectorDistance(n, v1, v2);
