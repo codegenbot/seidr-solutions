@@ -18,13 +18,13 @@ int vowels_count(std::string s){
     return count;
 }
 
-int main() {
+int main(){
     std::string input;
     cout << "Enter a string: ";
     cin >> input;
     
     int result = vowels_count(input);
-    cout << "Number of vowels in the string: " << result;
+    cout << "Number of vowels in the string: " << result << endl;
     
     return 0;
 }
