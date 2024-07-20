@@ -1,20 +1,28 @@
+#include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 string circular_shift(int x, int shift) {
     string str = to_string(x);
-    int n = str.length();
-    if (shift >= n) {
-        return str;
+    vector<char> chars(str.begin(), str.end());
+    
+    if (shift >= str.length()) {
+        reverse(chars.begin(), chars.end());
+    } else {
+        rotate(chars.begin() + shift, chars.end(), chars.begin() + str.length());
     }
-    string result = "";
-    for (int i = 0; i < n; i++) {
-        if (i < shift) {
-            continue;
-        }
-        result += str[i - shift];
-    }
-    result += str.substr(0, shift);
-    return result;
+    
+    return string(chars.begin(), chars.end());
+}
+
+int main() {
+    int x, shift;
+    cout << "Enter an integer: ";
+    cin >> x;
+    cout << "Enter the number of shifts: ";
+    cin >> shift;
+    cout << circular_shift(x, shift) << endl;
+    return 0;
 }
