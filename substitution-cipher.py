@@ -1,4 +1,4 @@
-```Python
+```
 cipher1 = input("Enter the first string: ")
 cipher2 = input("Enter the second string: ")
 text = input("Enter the text to decipher: ")
