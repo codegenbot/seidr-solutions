@@ -22,8 +22,3 @@ vector<int> even_odd_palindrome(int n){
     }
     return result;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
