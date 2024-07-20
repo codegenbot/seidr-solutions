@@ -1,37 +1,34 @@
-#include <boost/any.hpp>
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int ai = boost::any_cast<int>(a);
-        float bf = boost::any_cast<float>(b);
-        return (ai > bf) ? a : ((bf > ai) ? b : boost::any("None"));
+    any_cast<double>(a);
+    any_cast<double>(b);
+
+    double d1 = 0;
+    double d2 = 0;
+
+    if (any_cast<bool>(is_double(a))) {
+        d1 = any_cast<double>(a);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ai = boost::any_cast<int>(a);
-        string bs = boost::any_cast<string>(b);
-        return (stof(bs) > ai) ? b : ((ai > stof(bs)) ? a : boost::any("None"));
+    if (any_cast<bool>(is_double(b))) {
+        d2 = any_cast<double>(b);
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float af = boost::any_cast<float>(a);
-        int bi = boost::any_cast<int>(b);
-        return (af > bi) ? a : ((bi > af) ? b : boost::any("None"));
+
+    if (d1 > d2) return a;
+    else if (d2 > d1) return b;
+
+    string s1 = "";
+    string s2 = "";
+
+    if (any_cast<bool>(is_string(a))) {
+        s1 = any_cast<string>(a);
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string as = boost::any_cast<string>(a);
-        float bf = boost::any_cast<float>(b);
-        return (stof(as) > bf) ? a : ((bf > stof(as)) ? b : boost::any("None"));
+    if (any_cast<bool>(is_string(b))) {
+        s2 = any_cast<string>(b);
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string as = boost::any_cast<string>(a);
-        int bi = boost::any_cast<int>(b);
-        return (stof(as) > bi) ? a : ((bi > stof(as)) ? b : boost::any("None"));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        return (stof(as) > stof(bs)) ? a : ((stof(bs) > stof(as)) ? b : boost::any("None"));
-    }
-    else {
-        return boost::any("None");
-    }
+
+    if (s1 > s2) return a;
+    else if (s2 > s1) return b;
+
+    return "None";
 }
