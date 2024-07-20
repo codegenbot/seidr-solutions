@@ -1,11 +1,13 @@
+Here is the completed code:
+
 int next_smallest(vector<int> lst){
-    if (lst.size() < 2) return -1; // None for cpp contest
-    
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    
-    int idx = distance(sorted.begin(), find(sorted.begin(), sorted.end(), *max_element(sorted.begin(), sorted.end())));
-    if(idx >= sorted.size()-2 || idx < 0) return -1; // None for cpp contest
-    
-    return *next(cbegin(sorted), cend(sorted) - 2);
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    if(sorted_lst.size() < 2) return -1;
+    for(int i=0; i<sorted_lst.size()-1; i++){
+        if(sorted_lst[i] != sorted_lst[i+1]){
+            return sorted_lst[i+1];
+        }
+    }
+    return -1;
 }
