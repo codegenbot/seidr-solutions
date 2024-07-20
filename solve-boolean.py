@@ -1,17 +1,31 @@
-````
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    operations = {'&': lambda a, b: a and b, '|': lambda a, b: a or b}
     stack = []
-    for char in expression:
-        if char in operations:
-            b = stack.pop()
-            a = stack.pop()
-            stack.append(operations[char](a, b))
-        else:
-            stack.append(char == 'T')
-    return stack[0]
-```
+    result = None
+    for c in expression:
+        if c in ['&', '|']:
+            while stack and stack[-1] != '(':
+                op = stack.pop()
+                if op == '&':
+                    result = result and (c == 'T')
+                elif op == '|':
+                    result = result or (c == 'T')
+            if c == '(':
+                stack.append(c)
+            else:
+                stack.append(c)
+        elif c == '(':
+            stack.append(c)
+        elif c == ')':
+            while stack and stack[-1] != '(':
+                op = stack.pop()
+                if op == '&':
+                    result = result and (expression[stack.index(c)+1:] == 'T')
+                elif op == '|':
+                    result = result or (expression[stack.index(c)+1:] == 'T')
+            stack.pop()
+    return result
