@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size();
+    return a == b;
 }
 
 std::vector<std::string> split_words(const std::string& input) {
