@@ -2,7 +2,6 @@
 #include <cassert>
 
 vector<int> tri(int n);
-bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -32,4 +31,18 @@ vector<int> tri(int n){
         }
     }
     return result;
+}
+
+int main() {
+    // Test issame function
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
+
+    // Test tri function
+    assert(issame(tri(0), {3}));
+    assert(issame(tri(1), {3, 1}));
+    assert(issame(tri(2), {3, 1, 2}));
+    assert(issame(tri(3), {3, 1, 2, 4}));
+
+    return 0;
 }
