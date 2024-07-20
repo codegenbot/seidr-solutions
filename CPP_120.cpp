@@ -3,15 +3,15 @@
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result(arr.begin(), arr.begin() + k);
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<int> arr = {1, 3, 5, 2};
     int k = 3;
-    std::vector<int> output = maximum(arr, k);
-    for (int i : output) {
+    std::cout << "Maximum subarray of size " << k << ": ";
+    for (int i : maximum(arr, k)) {
         std::cout << i << " ";
     }
     return 0;
