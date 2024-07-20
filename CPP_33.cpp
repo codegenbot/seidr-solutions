@@ -1,28 +1,8 @@
-vector<int> divisible_by_three;
-    vector<int> not_divisible_by_three;
-    
+vector<int> l_copy = l;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            divisible_by_three.push_back(l[i]);
-        } else {
-            not_divisible_by_three.push_back(l[i]);
+            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
-    
-    sort(divisible_by_three.begin(), divisible_by_three.end());
-    
-    vector<int> result;
-    int j = 0;
-    int k = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            result.push_back(divisible_by_three[j]);
-            ++j;
-        } else {
-            result.push_back(not_divisible_by_three[k]);
-            ++k;
-        }
-    }
-    
-    return result;
+    return l_copy;
 }
