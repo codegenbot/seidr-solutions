@@ -1,9 +1,8 @@
-```c++
-#include <vector>
 using namespace std;
 
 int main() {
     vector<int> leaders = leaders({1, 3, 4, 2});
+    // do something with leaders...
     return 0;
 }
 
