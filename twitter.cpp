@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -7,4 +8,3 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
-}
