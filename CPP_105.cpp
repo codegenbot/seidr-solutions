@@ -1,42 +1,22 @@
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9)
-            nums.push_back(num);
-    }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-    vector<string> result;
-    for (int num : nums) {
-        switch (num) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
+    for (int x : arr) {
+        if (x >= 1 && x <= 9) {
+            nums.push_back(x);
         }
     }
+    
+    sort(nums.begin(), nums.end());
+    
+    vector<string> result;
+    for (int x : nums) {
+        result.push_back(to_string(x) == "1" ? "One" : to_string(x) == "2" ? "Two" : 
+                         to_string(x) == "3" ? "Three" : to_string(x) == "4" ? "Four" :
+                         to_string(x) == "5" ? "Five" : to_string(x) == "6" ? "Six" :
+                         to_string(x) == "7" ? "Seven" : to_string(x) == "8" ? "Eight" : "Nine");
+    }
+    
+    reverse(result.begin(), result.end());
+    
     return result;
 }
