@@ -5,10 +5,6 @@ bool issame(vector<int> a, vector<int> b);
 
 vector<int> strange_sort_list(vector<int> lst);
 
-int main() {
-    // main function code here
-}
-
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
