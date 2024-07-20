@@ -14,7 +14,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    cout << "No pair found with the given sum." << endl;
+    cout << "No pair found that sums to the target." << endl;
     return {0, 0};
 }
 
