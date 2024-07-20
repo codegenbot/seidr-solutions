@@ -1,47 +1,41 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::vector<std::string> words;
-    std::string word;
-
-    // Split the sentence into individual words
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i + 1] == ' ') {
-            word = sentence.substr(i);
-            words.push_back(word);
-            i++;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::size_t pos = 0;
+    
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::size_t wordPos = str.find(" ", pos);
+        
+        if (wordPos - pos >= 5) {
+            std::string word = str.substr(pos, wordPos - pos);
+            std::reverse(word.begin(), word.end());
+            result += word + " ";
+        } else {
+            result += str.substr(pos, wordPos - pos) + " ";
         }
+        
+        pos = wordPos + 1;
     }
-
-    // Reverse the words that are five or more letters long
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
-        }
+    
+    if (pos >= 5) {
+        std::string word = str.substr(pos);
+        std::reverse(word.begin(), word.end());
+        result += word;
+    } else {
+        result += str;
     }
-
-    // Join the reversed words back into a sentence
-    std::string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += ' ';
-        }
-        result += words[i];
-    }
-
+    
     return result;
 }
 
 int main() {
-    // Read the input from user
-    std::cout << "Enter a string of one or more words: ";
-    std::string sentence;
-    getline(std::cin, sentence);
-
-    // Call the spinWords function and print the output
-    std::cout << "Output: " << spinWords(sentence) << std::endl;
-
+    // Your test cases here
+    std::cout << spinWords("a") << std::endl;  // Should print "a"
+    std::cout << spinWords("this is a test") << std::endl;  // Should print "this is a tset"
+    std::cout << spinWords("this is another test") << std::endl;  // Should print "this is rehtona tset"
+    std::cout << spinWords("hi") << std::endl;  // Should print "hi"
+    
     return 0;
 }
