@@ -17,11 +17,7 @@ vector<string> select_words(const string& sentence, int n) {
 }
 
 int main() {
-    assert(select_words("a b c d e f", 4)[0] == "a");
-    assert(select_words("a b c d e f", 4)[1] == "b");
-    assert(select_words("a b c d e f", 4)[2] == "c");
-    assert(select_words("a b c d e f", 4)[3] == "d");
-
-    assert(select_words("a b c d e f", 1)[0] == "a");
+    assert(select_words("a b c d e f", 4) == vector<string>{"a", "b", "c", "d"});
+    assert(select_words("a b c d e f", 1) == vector<string>{"a"});
     return 0;
 }
