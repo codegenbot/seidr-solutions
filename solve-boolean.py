@@ -4,7 +4,15 @@ def solve_boolean(expression):
     for char in expression:
         if char in ['T', 'F']:
             if not parsing:
-                return ''.join(map(str, stack)) == 'TF' and len(stack) == 1
+                return eval(''.join(map(str, stack)))
             stack.append(char)
-        stack.append(char) if char in ['|', '&'] else parsing = char not in ['T', 'F']
-    return ''.join(map(str, stack)) == 'TF' and len(stack) == 1
+        elif char in ['|', '&']:
+            stack.append(char)
+            parsing = (char == '|')
+            if parsing:
+                if stack and stack[-1] == '&':
+                    result = solve_boolean(''.join(stack[:-1]))
+                    return result
+    if len(stack) > 0: 
+        return eval(''.join(map(str, stack)))
+    return True
