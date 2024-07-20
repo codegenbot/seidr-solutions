@@ -17,3 +17,4 @@ int main() {
     cout << "Enter an integer: ";
     cin >> input;
     cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
+}
