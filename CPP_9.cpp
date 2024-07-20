@@ -1,19 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b); // Declaration
+bool issame(vector<int> a, vector<int> b); // Declaration
 
-std::vector<int> rolling_max(std::vector<int> numbers){
-    std::vector<int> result;
+vector<int> rolling_max(vector<int> numbers){
+    vector<int> result;
     int max_num = numbers[0];
     for(int i=0; i<numbers.size(); i++){
-        max_num = std::max(max_num, numbers[i]);
+        max_num = max(max_num, numbers[i]);
         result.push_back(max_num);
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Definition
+bool issame(vector<int> a, vector<int> b){ // Definition
     return a == b;
 }
 
