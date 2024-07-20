@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
@@ -16,10 +17,10 @@ std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int current = 1;
     for (int i = 0; i < n; ++i) {
-        if (n % 2 == 1) { // n is odd
+        if (n % 2 == 1) { 
             pile.push_back(current);
             current += 2;
-        } else { // n is even
+        } else { 
             pile.push_back(current);
             current += 1;
         }
