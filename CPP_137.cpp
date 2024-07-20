@@ -1,38 +1,53 @@
+```cpp
+#include <string>
 #include <boost/any.hpp>
-#include <boost/type_index.hpp>
-using namespace std;
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == b.type()) {
-        if (a.type() == typeid(int)) {
-            int x = boost::any_cast<int>(a);
-            int y = boost::any_cast<int>(b);
-            return (x > y) ? a : ((x < y) ? b : any("None"));
-        } else if (a.type() == typeid(double)) {
-            double x = boost::any_cast<double>(a);
-            double y = boost::any_cast<double>(b);
-            return (x > y) ? a : ((x < y) ? b : any("None"));
-        } else if (a.type() == typeid(string)) {
-            string x = boost::any_cast<string>(a);
-            string y = boost::any_cast<string>(b);
-            return (x > y) ? a : ((x < y) ? b : any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        int valA = std::stoi(strA);
+        int valB = std::stoi(strB);
+        if (valA > valB)
+            return a;
+        else if (valA < valB)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else {
+        double valA, valB;
+        if (boost::any_cast<int>(a) > 0) {
+            valA = boost::any_cast<int>(a);
+        } 
+        else if (boost::any_cast<double>(a) > 0.0) {
+            valA = boost::any_cast<double>(a);
         }
-    } else {
-        if (a.type() == typeid(int)) {
-            int x = boost::any_cast<int>(a);
-            double y = boost::any_cast<double>(b);
-            return (y < x) ? a : b;
-        } else if (a.type() == typeid(double)) {
-            double x = boost::any_cast<double>(a);
-            string y = boost::any_cast<string>(b);
-            if (stod(y) > x) return b;
-            else return a;
-        } else if (a.type() == typeid(string)) {
-            string x = boost::any_cast<string>(a);
-            double y = boost::any_cast<double>(b);
-            if (stod(x) < y) return a;
-            else return b;
+        else {
+            valA = boost::any_cast<std::string>(a).find(',') != std::string::npos ? std::stod(boost::any_cast<std::string>(a)) : 0.0;
         }
+
+        if (boost::any_cast<int>(b) > 0) {
+            valB = boost::any_cast<int>(b);
+        }
+        else if (boost::any_cast<double>(b) > 0.0) {
+            valB = boost::any_cast<double>(b);
+        }
+        else {
+            valB = boost::any_cast<std::string>(b).find(',') != std::string::npos ? std::stod(boost::any_cast<std::string>(b)) : 0.0;
+        }
+
+        if (valA > valB)
+            return a;
+        else if (valA < valB)
+            return b;
+        else
+            return boost::any("None");
     }
 }
