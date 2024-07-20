@@ -3,12 +3,12 @@
 using namespace std;
 
 std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result;
+    std::vector<int> result(target.length()); // Initialize with capacity m
     int n = text.length();
     int m = target.length();
 
     for(int i=0; i<=n-m; i++){
-        if(text.substr(i,m) == target){
+        if(text.find(target)!=string::npos){
             result.push_back(i);
         }
     }
@@ -22,6 +22,6 @@ int main() {
     getline(cin, target);
     std::vector<int> res = indicesOfSubstring(text, target);
     for (int i : res)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
