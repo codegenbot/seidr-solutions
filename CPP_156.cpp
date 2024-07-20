@@ -1,17 +1,14 @@
-#include <vector>
-#include <string>
+string int_to_mini_roman(int number) {
+    const vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+        {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+    string result;
 
-std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-                                                  {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
-                                                  {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
-std::string int_to_mini_roman(int number) {
-    std::string result;
-    for (const auto& pair : roman) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            result += pair.second;
+    for (const auto& roman_value : roman) {
+        while (number >= roman_value.first) {
+            number -= roman_value.first;
+            result += roman_value.second;
         }
     }
-    return result;
+
+    return to_string(number == 0 ? 0 : number).length() > 3 ? "Error: Number is too large" : result;
 }
