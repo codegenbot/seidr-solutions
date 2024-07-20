@@ -1,29 +1,24 @@
-```
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+        return max((int)boost::any_cast<int>(a), (float)boost::any_cast<float>(b));
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return max((float)boost::any_cast<int>(b), (float)boost::any_cast<float>(a));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return boost::any("None");
+    } else {
+        return boost::any("None");
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return a.convert<string>() > b.convert<string>() ? a : b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return stoi(str) >= (int)a ? "None" : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
-        return stoi(str) >= (int)b ? "None" : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return stof(str) > (float)a ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = boost::any_cast<string>(a);
-        return stof(str) > (float)b ? a : b;
-    }
-    return "None";
 }
