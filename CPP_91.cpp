@@ -15,4 +15,4 @@ int is_bored(string S){
     return count;
 }
 
-assert(is_bored("") == 0);
+assert (is_bored("") == 0);
