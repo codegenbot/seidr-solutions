@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+#define TESTING
+
 using namespace std;
 
 bool is_prime(int n) {
@@ -28,6 +30,7 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
+#ifndef TESTING
 int main() {
     int num;
     cout << "Enter a number less than 100: ";
@@ -35,3 +38,4 @@ int main() {
     cout << (is_multiply_prime(num) ? "true" : "false") << endl;
     return 0;
 }
+#endif
