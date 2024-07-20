@@ -3,7 +3,7 @@
 #include <cassert>
 #include <sstream>
 
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -20,3 +20,5 @@ std::vector<std::string> select_words(const std::string& input, int word_count) 
 
     return words;
 }
+
+assert(issame(select_words("a b c d e f", 4), {"a", "b", "c", "d"}));
