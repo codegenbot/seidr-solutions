@@ -1,7 +1,6 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
