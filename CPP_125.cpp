@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 vector<string> split_words(const string& txt) {
     vector<string> words;
     istringstream iss(txt);
@@ -21,6 +17,6 @@ vector<string> split_words(const string& txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {""}));
+    assert(split_words("") == vector<string>{""});
     return 0;
 }
