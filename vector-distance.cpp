@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -6,23 +7,19 @@
 using namespace std;
 
 struct Vector {
-    float* x; // Declare a pointer instead of an array
-    int size;
+    float elements[100]; // assuming maximum dimension is 100
 };
 
 double vectorDistance(int n) {
-    Vector v1[n], v2[n]; // Declare the vectors
+    Vector v1, v2;
     
     for (int i = 0; i < n; i++) {
-        v1[i].x = new float;
-        v2[i].x = new float;
-        
-        cin >> *v1[i].x >> *v2[i].x;
+        cin >> v1.elements[i] >> v2.elements[i];
     }
     
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow((*v2[i].x - *v1[i].x), 2);
+        sum += pow((v2.elements[i] - v1.elements[i]), 2);
     }
     
     return sqrt(sum);
