@@ -1,7 +1,9 @@
 ```
 n = int(input())
-prices = list(map(float, input().split()))
-discounts = list(map(float, input().split()))
+prices = [float(x) for x in input().split()]
+discounts = [float(x) for x in input().split()][:n]
 
-total_price = sum(price - (price * discount / 100) for price, discount in zip(prices, discounts))
-print(round(total_price, 1))
+def calculate_total_price(n, prices, discounts):
+    return sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
+
+print("{:.1f}".format(calculate_total_price(n, prices, discounts)))
