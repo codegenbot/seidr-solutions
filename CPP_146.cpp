@@ -8,3 +8,4 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+}
