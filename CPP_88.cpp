@@ -6,9 +6,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::is_permutation(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end());
-    return arr;
+std::vector<int> sort_array(const std::vector<int>& arr) {
+    std::vector<int> sorted_arr = arr;
+    std::sort(sorted_arr.begin(), sorted_arr.end());
+    return sorted_arr;
 }
 
 int main() {
