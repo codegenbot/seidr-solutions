@@ -1,14 +1,10 @@
-Here is the solution:
-
-string flip_case(string str) {
+string filp_case(string str){
     string result = "";
-    for (char c : str) {
-        if (c >= 'a' && c <= 'z') 
-            result += toupper(c);
-        else if (c >= 'A' && c <= 'Z')
-            result += tolower(c);
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            result += toupper(str[i]);
         else
-            result += c;
+            result += tolower(str[i]);
     }
     return result;
 }
