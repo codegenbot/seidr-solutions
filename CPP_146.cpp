@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <cassert>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -12,6 +10,7 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
+    int result = specialFilter(vector<int>());
+    assert(result == 0);
     return 0;
 }
