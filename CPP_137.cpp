@@ -1,57 +1,54 @@
 #include <boost/any.hpp>
 #include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max(a.convert_to<int>(), b.convert_to<float>());
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return max(a, boost::any(b.convert_to<int>()));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
 
-        if (str1 > str2) {
-            return a;
+        size_t pos = str1.find(',');
+        if (pos != string::npos) {
+            str1 = str1.substr(0, pos);
         }
-        else if (str1 < str2) {
-            return b;
+
+        pos = str2.find(',');
+        if (pos != string::npos) {
+            str2 = str2.substr(0, pos);
         }
-        else {
-            return any("None");
+
+        return max(str1, str2);
+    }
+    else if (a.type() == typeid(string)) {
+        string str = a.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str = str.substr(0, pos);
+        }
+
+        if (b.type() == typeid(int)) {
+            return max(str, boost::any(b));
         }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string str = boost::any_cast<string>(a);
-        double num = boost::any_cast<double>(b);
+    else if (b.type() == typeid(string)) {
+        string str = b.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str = str.substr(0, pos);
+        }
 
-        if (stod(str) > num) {
-            return a;
-        }
-        else if (stod(str) < num) {
-            return b;
-        }
-        else {
-            return any("None");
-        }
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double num = boost::any_cast<double>(a);
-        string str = boost::any_cast<string>(b);
-
-        if (num > stod(str)) {
-            return a;
-        }
-        else if (num < stod(str)) {
-            return b;
-        }
-        else {
-            return any("None");
+        if (a.type() == typeid(int)) {
+            return max(a, boost::any(str));
         }
     }
 
-    return any("None");
+    return boost::any("None");
 }
