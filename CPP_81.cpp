@@ -6,8 +6,8 @@ bool issame(vector<string> a,vector<string> b){
     return (a == b);
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
-    std::vector<std::string> result;
+vector<string> numerical_letter_grade(vector<float> grades){
+    vector<string> result;
     for(float grade : grades){
         string letterGrade;
         if(grade >= 4.0) letterGrade = "A+";
