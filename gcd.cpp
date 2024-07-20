@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -36,3 +35,4 @@ int main() {
     for(int i : indices)
         cout << i << " ";
     return 0;
+}
