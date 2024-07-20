@@ -4,6 +4,12 @@
 bool is_nested(std::string);
 
 int main() {
+    std::cout << std::boolalpha;
+    cout << is_nested("]]]")) << endl;
+    cout << is_nested("[[[") << endl;
+    cout << is_nested("[]") << endl;
+    cout << is_nested("[][]") << endl;
+    cout << is_nested("[][][]") << endl;
     return 0;
 }
 
@@ -21,8 +27,4 @@ bool is_nested(std::string str) {
         }
     }
     return count > 0;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
 }
