@@ -1,4 +1,6 @@
-```#include <iostream>
+Here is the modified code:
+
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -18,5 +20,4 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     cout << validateTweet(tweet);
-    return 0;
 }
