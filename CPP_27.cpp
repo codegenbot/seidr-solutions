@@ -12,3 +12,11 @@ std::string flip_case(std::string str) {
     }
     return str;
 }
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::string result = flip_case(input);
+    std::cout << result << std::endl;
+    return 0;
+}
