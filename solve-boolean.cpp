@@ -1,25 +1,28 @@
 bool solveBoolean(std::string s) {
-    bool res = true;
+    bool result = true;
     int i = 0;
+    
     while (i < s.length()) {
-        if (s[i] == '&') {
-            i++;
-            bool a = s[i] == 'T';
-            i++;
-            bool b = s[i] == 'T';
-            i++;
-            res &= (a && b);
+        if (s[i] == 'F') {
+            result = false;
+            break;
         } else if (s[i] == '|') {
             i++;
-            bool a = s[i] == 'T';
+            if (i >= s.length() || s[i] == 'F') {
+                return true;
+            }
+        } else if (s[i] == '&') {
             i++;
-            bool b = s[i] == 'T';
-            i++;
-            res |= (a || b);
-        } else {
-            i++;
-            res = s[i] == 'T';
+            while (i < s.length() && s[i] != '|') {
+                if (s[i] == 'T') {
+                    break;
+                } else {
+                    result = false;
+                }
+                i++;
+            }
         }
     }
-    return res;
+    
+    return result;
 }
