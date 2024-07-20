@@ -1,29 +1,36 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
+    for (int num : n) {
         if (num >= 0) {
             int sum = 0;
-            int n = num;
-            while (n > 0) {
-                sum += abs(n % 10);
-                n /= 10;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         } else {
-            int sum = 0, sign = 1;
-            int n = -num;
-            while (n > 0) {
-                if (sign == 1) {
-                    sum += abs(n % 10);
-                    n /= 10;
+            num = -num; // make the number positive for calculation
+            int sum = 0;
+            bool isNegative = true;
+            while (num > 0) {
+                int digit = num % 10;
+                if (isNegative) {
+                    if (digit != 1) {
+                        sum += digit;
+                    } else {
+                        sum++;
+                        isNegative = false;
+                    }
                 } else {
-                    sign = -1;
-                    n--;
+                    sum += digit;
                 }
+                num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         }
     }
     return count;
