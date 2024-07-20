@@ -28,16 +28,17 @@ int main() {
     std::cout << "Enter integer 2 for GCD: ";
     std::cin >> b;
 
-    std::string text, target;
+    std::string text;
     std::cout << "Enter the text for Indices of Substring: ";
     std::getline(std::cin, text);
+
+    std::string target;
     std::cout << "Enter the target string for Indices of Substring: ";
     std::getline(std::cin, target);
-
-    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
-
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
+    std::cout << "\n";
+    std::cout << "GCD is: " << gcd(a, b) << std::endl;
     return 0;
 }
