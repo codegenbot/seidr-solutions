@@ -1,44 +1,48 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-int main() {
-    int Strongest_Extension(string class_name, vector<string> extensions) {
-        int strongest = -1;
-        string strongest_extension;
-        for(auto &extension : extensions){
-            int cap = 0, sm = 0;
-            for(char c : extension) {
-                if(isupper(c)) cap++;
-                else if(islower(c)) sm++;
-            }
-            int strength = cap - sm;
-            if(strength > strongest) {
-                strongest = strength;
-                strongest_extension = extension;
-            } 
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+    int strongest = -1;
+    std::string strongest_extension;
+    for(auto &extension : extensions){
+        int cap = 0, sm = 0;
+        for(char c : extension) {
+            if(std::isupper(c)) cap++;
+            else if(std::islower(c)) sm++;
         }
-        return class_name + "." + strongest_extension;
+        int strength = cap - sm;
+        if(strength > strongest) {
+            strongest = strength;
+            strongest_extension = extension;
+        } 
     }
+    return class_name + "." + strongest_extension;
+}
 
-    string className, extensionsStr;
-    cout << "Enter the name of the class: ";
-    cin >> className;
-
-    cout << "Enter the list of extensions (space separated): ";
-    cin >> extensionsStr;
-
-    vector<string> extensions;
-    istringstream iss(extensionsStr);
-    string extension;
-    while(getline(iss, extension, ' ')) {
+int main() {
+    std::string class_name;
+    std::vector<std::string> extensions;
+    
+    // Get input from user
+    std::cout << "Enter the name of the class: ";
+    std::cin >> class_name;
+    
+    std::cout << "Enter the list of extensions (space separated): ";
+    while(std::cin.peek() != '\n') {
+        std::string extension;
+        std::cin >> extension;
         extensions.push_back(extension);
+        if(std::cin.peek() == ' ') {
+            std::cin.ignore();
+        }
     }
-
-    int result = Strongest_Extension(className, extensions);
-
-    cout << "The strongest extension is: " << result << endl;
-
+    
+    // Call the function
+    int result = Strongest_Extension(class_name, extensions);
+    
+    // Print the output
+    std::cout << "The strongest extension is: " << class_name + "." << strongest_extension << std::endl;
+    
     return 0;
 }
