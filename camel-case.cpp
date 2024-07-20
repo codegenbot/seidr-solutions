@@ -1,29 +1,32 @@
-std::string toCamelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
-
-    for (const auto& word : split(s, " -")) {
-        if (first) {
-            result += word;
-            first = false;
-        } else {
-            result += std::string(1, toupper(word[0])) + word.substr(1);
-        }
-    }
-
-    return result;
-}
+#include <iostream>
+#include <string>
 
 std::string split(const std::string& s, const std::string& delimiter) {
     size_t pos = 0;
     std::string token;
 
-    while ((pos = s.find(delimiter)) != 0) {
+    while ((pos = s.find(delimiter)) != std::string::npos) {
         token = s.substr(0, pos);
         s = s.substr(pos + delimiter.size());
     }
 
     return token;
+}
+
+std::string toCamelCase(const std::string& s) {
+    std::string result;
+    bool first = true;
+
+    for (const auto& word : split(s, "- ")) {
+        if (first) {
+            result += word;
+            first = false;
+        } else {
+            result += toupper(word.c_str()[0]) + word.erase(0, 1);
+        }
+    }
+
+    return result;
 }
 
 int main() {
