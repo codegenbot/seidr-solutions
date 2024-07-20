@@ -6,4 +6,3 @@ std::string validateTweet(std::string tweet) {
         return "Too many characters";
     }
     return "Your tweet has " + std::to_string(tweet.length()) + " characters";
-}
