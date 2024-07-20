@@ -14,4 +14,5 @@ while True:
 
 import re
 result = [m.start() for m in re.finditer(target, text)]
-print(result)
+if result:
+    print(result)
