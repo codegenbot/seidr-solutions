@@ -1,11 +1,26 @@
 #include <vector>
+#include <string>
 #include <algorithm>
-#include <cctype>
 
 bool issame(vector<string>, vector<string>) {
-    // Function implementation
+    // implement me
 }
 
-int main() {
-    // Your code here
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+                result.push_back(word);
+            }
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+        result.push_back(word);
+    }
+    return result;
 }
