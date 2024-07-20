@@ -1,3 +1,4 @@
+```
 def find_first_negative_index(nums):
     total_sum = 0
     for i in range(len(nums)):
