@@ -20,5 +20,15 @@ vector<float> sort_even(vector<float> l) {
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
+
+assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, -10, 4, 23, 2, 3, 12, 5, 11}));
