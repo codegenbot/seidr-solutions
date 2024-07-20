@@ -1,9 +1,1 @@
-import unicodedata
-
-def validate_tweet(tweet):
-    if len(unicodedata.normalize('NFC', tweet)) > 140:
-        return "Too many characters"
-    elif tweet == "":
-        return "You didn't type anything"
-    else:
-        return f"Your tweet has {len(unicodedata.normalize('NFC', tweet))} characters"
+f"Your tweet has {len(re.sub(r'\W+', '', tweet))} characters"
