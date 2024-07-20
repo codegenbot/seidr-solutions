@@ -1,8 +1,26 @@
-int prod_signs(vector<int> arr){
-    long long res = 1; // Initialize result as 1
-    for(int num : arr){ // Iterate over each number in the array
-        if(num != 0) // Check if the number is not zero
-            res *= (num > 0 ? 1 : -1); // Multiply the sign of the number to the result
+#include <vector>
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    int product = 1;
+    long long sumMagnitude = 0; // to avoid overflow
+    
+    for (int num : arr) {
+        if (num == 0) {
+            return 0; // as soon as a zero is found, the product of signs will be 0
+        }
+        product *= sign(num);
+        sumMagnitude += abs(num); 
     }
-    return abs(res) == 0 ? -32768 : res; // Return -32768 for empty array or 0, else return the absolute value
+    
+    return (arr.empty()) ? -32768 : product * sumMagnitude;
+}
+
+int sign(int num) {
+    if (num > 0)
+        return 1;
+    else if (num < 0)
+        return -1;
+    else
+        return 0;
 }
