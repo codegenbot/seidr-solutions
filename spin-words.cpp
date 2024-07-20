@@ -1,35 +1,28 @@
-#include <iostream>
-#include <string>
+Here's the solution:
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
+string spinWords(string str) {
+    string result = "";
+    int spaceCount = 0;
     
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            word += str[i];
-        } else {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+    for (int i = str.length() - 1; i >= 0; i--) {
+        if (str[i] == ' ') {
+            spaceCount++;
+            continue;
+        }
+        
+        if (spaceCount > 0) {
+            string temp = str.substr(i, str.find(' ', i) - i);
+            for (int j = temp.length() - 1; j >= 0; j--) {
+                result += temp[j];
             }
-            result += word + " ";
-            word = "";
+            spaceCount--;
+        } else {
+            if (temp.size() >= 5)
+                for (int j = temp.length() - 1; j >= 0; j--)
+                    result += temp[j];
+            else
+                result += temp;
         }
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    result += word;
-    
     return result;
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl; // should print "a"
-    std::cout << spinWords("this is a test") << std::endl; // should print "this is a test"
-    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona test"
-    std::cout << spinWords("hi") << std::endl; // should print "hi"
-    
-    return 0;
 }
