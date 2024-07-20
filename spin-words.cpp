@@ -1,35 +1,33 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string output = "";
-    std::string word = "";
-
-    for (char c : input) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            word = "";
-        } else {
-            word += c;
-        }
+std::string spinWords(std::string str) {
+    std::string result = "";
+    size_t pos = 0;
+    
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::string word = str.substr(0, pos);
+        
+        if (word.length() >= 5)
+            word = std::string(word.rbegin(), word.rend());
+        
+        result += word + " ";
+        str.erase(0, pos + 1);
     }
-
-    // Add the last word
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-    output += word;
-
-    return output;
+    
+    if (str.length() >= 5)
+        result += std::string(str.rbegin(), str.rend());
+    else
+        result += str;
+    
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl; // should print a
+    std::cout << spinWords("this is a test") << std::endl; // should print this is a test
+    std::cout << spinWords("this is another test") << std::endl; // should print this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // should print hi
+    
     return 0;
 }
