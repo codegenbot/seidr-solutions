@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -13,9 +16,9 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickels << endl;
+    cout << quarters << endl;  
+    cout << dimes << endl;      
+    cout << nickels << endl;    
     cout << pennies << endl;
 
     return 0;
