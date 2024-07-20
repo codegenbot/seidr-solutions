@@ -1,4 +1,3 @@
-```c++
 #include <initializer_list>
 #include <map>
 #include <string>
@@ -41,4 +40,3 @@ int main() {
     cin.getline(message, 256);
     cout << decipher(string(cipher_map1), string(cipher_map2), string(message)) << endl;
     return 0;
-}
