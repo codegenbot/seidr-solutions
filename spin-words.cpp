@@ -12,8 +12,9 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         } else {
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-                result += word + " ";
+                for(int j = word.length()-1; j >= 0; --j)
+                    result += word[j];
+                result += " ";
                 word = "";
             } else {
                 result += word + " ";
@@ -25,8 +26,8 @@ std::string spinWords(std::string sentence) {
 
     // Process the last word
     if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-        result += word;
+        for(int j = word.length()-1; j >= 0; --j)
+            result += word[j];
     } else {
         result += word;
     }
