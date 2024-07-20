@@ -1,6 +1,8 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -25,10 +27,8 @@ int main() {
     while (std::getline(std::cin, str)) {
         std::stringstream ss(str);
         std::string word;
-        std::cout << camelCase();
         while (std::getline(ss, word, ' ')) {
-            if (!word.empty())
-                std::cout << capitalize(word) << " ";
+            std::cout << camelCase(word) << " ";
         }
         std::cout << std::endl;
     }
