@@ -1,35 +1,39 @@
 #include <iostream>
+#include <string>
 
 int main() {
     int cents;
     std::cin >> cents;
 
-    int quarters = 0;
-    int dimes = 0;
-    int nickels = 0;
-    int pennies = 0;
+    int quarters = cents / 25;
+    cents %= 25;
 
-    while (cents > 25) {
-        cents -= 25;
-        quarters++;
+    if (quarters > 0) {
+        std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << ", ";
     }
 
-    while (cents > 10) {
-        cents -= 10;
-        dimes++;
+    int remaining_cents = cents; 
+    int dimes = remaining_cents / 10;
+    cents %= 10;
+
+    if (dimes > 0 || !std::string(1, '\n').empty()) {
+        std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << ", ";
     }
 
-    while (cents > 5) {
-        cents -= 5;
-        nickels++;
+    remaining_cents = cents; 
+    int nickels = remaining_cents / 5;
+    cents %= 5;
+
+    if (nickels > 0 || !std::string(1, '\n').empty()) {
+        std::cout << nickels << " nickel" << (nickels > 1 ? "s" : "") << ", ";
     }
 
-    pennies = cents;
+    int pennies = remaining_cents; 
+    if (pennies > 0 || !std::string(1, '\n').empty()) {
+        std::cout << pennies << " penny" << (pennies > 1 ? "s" : "");
+    }
 
-    std::cout << quarters << std::endl;
-    std::cout << dimes << std::endl;
-    std::cout << nickels << std::endl;
-    std::cout << pennies << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }
