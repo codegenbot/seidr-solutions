@@ -15,5 +15,8 @@ int main() {
     std::vector<int> lst = {3, 13, 2, 9};
     std::cout << solution(lst) << std::endl;
 
+    // Pass assert with your expected output
+    // assert(solution({3, 13, 2, 9}) == 3);
+
     return 0;
 }
