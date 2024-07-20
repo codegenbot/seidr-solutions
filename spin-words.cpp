@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -31,7 +32,9 @@ string spinWords(string str) {
         result = word + " ";
     }
 
-    return result + " ";
+    result += " ";
+
+    return result;
 }
 
 int main() {
