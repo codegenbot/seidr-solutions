@@ -1,15 +1,10 @@
 #include <vector>
 using namespace std;
 
-double calculateEuclideanDistance(const vector<float>& vec1, const vector<float>& vec2) {
-    if (vec1.size() != vec2.size()) {
-        // Check if vectors have the same length
-        return -1.0;  // Return error value
-    }
-
+double vector_distance(int n, const vector<float>& v1, const vector<float>& v2) {
     double sum = 0;
-    for (int i = 0; i < vec1.size(); ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+    for (int i = 0; i < n; ++i) {
+        sum += pow(v1[i] - v2[i], 2);
     }
     return sqrt(sum);
 }
@@ -18,17 +13,14 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n);
-    for (float &x : v1)
-        cin >> x;
+    vector<float> v1(n), v2(n);
 
-    cin.ignore();  // Ignore the newline character left over
-    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> v1[i] >> v2[i];
+    }
 
-    vector<float> v2(n);
-    for (float &x : v2)
-        cin >> x;
+    double result = vector_distance(n, v1, v2);
+    cout << fixed << setprecision(10) << result << endl;
 
-    cout << fixed << setprecision(10) << calculateEuclideanDistance(v1, v2) << endl;
     return 0;
 }
