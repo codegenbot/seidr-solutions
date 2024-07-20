@@ -29,11 +29,10 @@ int main() {
     std::cin.ignore();
     std::cin >> b;
 
-    std::string text, target;
     std::cout << "Enter the text and target string for Indices of Substring: ";
-    std::getline(std::cin, text);
-    std::cin.ignore(); 
-    std::getline(std::cin, target);
+    std::getline(std::cin, std::string(text));
+    std::cin.ignore();
+    std::cin >> std::string(target);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
