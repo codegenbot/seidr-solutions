@@ -1,8 +1,9 @@
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int sum1 = 0, sum2 = 0;
+    int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
     }
+    int sum2 = 0;
     for (const string& s : lst2) {
         sum2 += s.length();
     }
