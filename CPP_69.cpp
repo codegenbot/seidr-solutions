@@ -5,10 +5,9 @@ using namespace std;
 
 int count(int i) {
     int c = 0;
-    while (i > 0) {
-        if (i % 10 == 7)
-            c++;
+    while(i > 0) {
         i /= 10;
+        c++;
     }
     return c;
 }
