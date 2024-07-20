@@ -1,18 +1,20 @@
 #include <algorithm>
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    float min_diff = numeric_limits<float>::max();
-    pair<float, float> closest_pair;
-
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        for (int j = i + 1; j < numbers.size(); j++) {
-            float diff = abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                closest_pair = make_pair(minimal(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
-            }
-        }
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+    vector<pair<float, float>> result;
+    
+    pair<float, float> closest = *min_element(numbers.begin(), numbers.end(),
+        [&] (float a, float b) {
+            return make_pair(abs(a - numbers[0]), a);
+        });
+        
+    for(auto &num : numbers) {
+        if(num == closest.first || num == closest.second)
+            continue;
+        pair<float, float> temp = { abs(num - closest.first), num };
+        result.push_back(temp);
     }
-
-    return vector<float>(closest_pair);
+    
+    sort(result.begin(), result.end());
+    return vector<pair<float, float>>({result[0].second, result[1].second});
 }
