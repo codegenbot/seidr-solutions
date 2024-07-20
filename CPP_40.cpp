@@ -1,22 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool triples_sum_to_zero(const std::vector<int>& l) {
+bool triples_sum_to_zero(std::vector<int> l) {
+    sort(l.begin(), l.end());
     for (int i = 0; i < l.size(); i++) {
-        for (int j = i + 1; j < l.size(); j++) {
-            for (int k = j + 1; k < l.size(); k++) {
-                if (l[i] + l[j] + l[k] == 0) {
-                    return true;
-                }
+        int left = i + 1;
+        int right = l.size() - 1;
+        while (left < right) {
+            int sum = l[i] + l[left] + l[right];
+            if (sum == 0) {
+                return true;
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right--;
             }
         }
     }
     return false;
-}
-
-int main() {
-    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
-
-    return 0;
 }
