@@ -1,26 +1,38 @@
-#include <vector>
+Here is the solution in C++:
+
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (c == '-') {
-            continue;
-        } else if (c == ' ') {
-            result += toUpper(s.substr(s.find(c) + 1, 0));
-            s.erase(0, s.find(c) + 1);
-        } else {
-            result += c;
+    std::vector<std::string> parts = split(s, "-");
+    std::string result;
+    
+    for (const auto& part : parts) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
+        result += part + " ";
     }
-    return result;
+    
+    return result.substr(0, result.size() - 1);
+}
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> parts;
+    std::stringstream ss(s);
+    std::string part;
+
+    while (std::getline(ss, part, c)) {
+        parts.push_back(part);
+    }
+
+    return parts;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter the string: ";
-    std::cin >> input;
-    std::cout << camelCase(input) << std::endl;
+    std::cout << camelCase("nospaceordash") << "\n";
+    std::cout << camelCase("two-words") << "\n";
+    std::cout << camelCase("two words") << "\n";
+    std::cout << camelCase("all separate words") << "\n";
     return 0;
 }
