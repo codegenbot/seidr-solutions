@@ -21,7 +21,7 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             wordLen = temp.length();
             if (wordLen >= 5) {
-                temp = temp.substr(rev(temp));
+                temp = temp.substr(wordLen - 1) + temp.substr(0, wordLen - 1);
             }
             result += temp + " ";
             temp = "";
@@ -34,5 +34,9 @@ string spinWords(string str) {
 }
 
 int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
