@@ -7,4 +7,7 @@ def coin_sums(cents):
         if count > 0:
             result[i] = count
             cents %= coins[i]
+        else:
+            break
+
     return tuple(result)
