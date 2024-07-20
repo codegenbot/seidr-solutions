@@ -1,34 +1,45 @@
-#include<iomanip>
-#include<vector>
-#include<string>
-#include<algorithm>
+```
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (c != ' ') {
-            word += c;
+        if (isalpha(c)) {
+            word += tolower(c);
         } else if (!word.empty()) {
-            bool has_n_consonants = count_if(word.begin(), word.end(),
-                [](char ch) { return !isalpha(ch) || isvowel(tolower(ch)); }) == n;
-            if (has_n_consonants) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                    consonants++;
+                }
+            }
+            if (consonants == n) {
                 result.push_back(word);
             }
             word = "";
         }
     }
-    bool has_n_consonants = count_if(word.begin(), word.end(),
-        [](char ch) { return !isalpha(ch) || isvowel(tolower(ch)); }) == n;
-    if (has_n_consonants) {
-        result.push_back(word);
-    }
-    sort(result.begin(), result.end());
     return result;
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    string s;
+    int n;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Enter the number of consonants: ";
+    cin >> n;
+    vector<string> words = select_words(s, n);
+    cout << "Words with exactly " << n << " consonants are: ";
+    for (string word : words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    return 0;
 }
