@@ -1,8 +1,12 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(!ispunct(c) && !isalpha(c) || (c >= 'a' && c <= 'z') && (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'))
+#include <cctype>
+string remove_vowels(string text) {
+    string result;
+    for (char c : text) {
+        if (!isalpha(c)) {
             result += c;
+        } else if (!isvowel(c)) {
+            result += tolower(c);
+        }
     }
     return result;
 }
