@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
