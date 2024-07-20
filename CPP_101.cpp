@@ -19,11 +19,7 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool is_same(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main(){
-    assert(is_same(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
     return 0;
 }
