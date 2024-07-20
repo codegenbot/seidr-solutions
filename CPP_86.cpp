@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <string>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
@@ -18,7 +17,6 @@ string anti_shuffle(string s) {
                 char ch = (c <= 'z' && c >= 'a') ? (c + 1 > 'z' ? 'a' : c + 1) : c;
                 result += boost::lexical_cast<string>(ch);
             }
-            i = j - 1;
         }
     }
     return result;
