@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -27,11 +28,6 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::getline(std::cin, str);
-        if (str == "exit") break;
-        std::cout << "Spin words: " << spinWords(str) << std::endl;
-    }
+    std::cout << spinWords("this is just a test") << std::endl;
+    return 0;
 }
