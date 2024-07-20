@@ -19,7 +19,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {3, 5, 6, 9, 12};
+    std::vector<int> arr = {5, 3, 7, 1, 2};
     arr = sort_array(arr);
     for (int num : arr) {
         std::cout << num << " ";
