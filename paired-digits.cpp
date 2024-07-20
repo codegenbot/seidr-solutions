@@ -1,5 +1,4 @@
 #include <string>
-
 int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -11,5 +10,7 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    return pairedDigits("123221");
+    std::string str = "121"; 
+    int result = pairedDigits(str);
+    return 0;
 }
