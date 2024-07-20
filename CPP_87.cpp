@@ -1,9 +1,16 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                result.push_back({i, j});
+                result.push_back({ i, j });
             }
         }
     }
@@ -14,4 +21,10 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
+}
+
+int my_main() {
+    vector<vector<int>> input = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+    vector<vector<int>> result = get_row(input, 6);
+    return 0;
 }
