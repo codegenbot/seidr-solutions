@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 long long minSubArraySum(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
@@ -6,8 +6,14 @@ long long minSubArraySum(vector<long long> nums) {
         sum += nums[i];
         if (sum < min_sum)
             min_sum = sum;
-        if (sum > 0)
-            sum = 0;
+        if (sum > 0) {
+            int left = i;
+            while (left > 0 && sum >= 1) {
+                sum -= nums[left--];
+            }
+            if (sum < min_sum)
+                min_sum = sum + nums[i];
+        }
     }
     return min_sum;
 }
