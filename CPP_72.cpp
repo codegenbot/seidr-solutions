@@ -1,9 +1,16 @@
+Here is the completed code:
+
 bool will_it_fly(vector<int> q, int w) {
-    bool balanced = true;
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            balanced = false;
-            break;
-        }
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
     }
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    
+    if (str != reverse(str).s) {
+        return false;
+    } else if (accumulate(q.begin(), q.end(), 0) > w) {
+        return false;
+    }
+    
+    return true;
+}
