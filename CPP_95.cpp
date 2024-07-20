@@ -1,32 +1,12 @@
-Here is the completed code:
-
-```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto& pair : dict) {
-        if ((pair.first[0] >= 'a' && pair.first[0] <= 'z')) {
-            for (char c : pair.first) {
-                if (!islower(c)) {
-                    allLower = false;
-                    break;
-                }
-            }
-        } else if ((pair.first[0] >= 'A' && pair.first[0] <= 'Z')) {
-            for (char c : pair.first) {
-                if (!isupper(c)) {
-                    allUpper = false;
-                    break;
-                }
-            }
-        } else {
-            return false;
-        }
-
-        if (!allLower && !allUpper) return false;
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!islower(it->first[0])) allLower = false;
+        if (!isupper(it->first[0])) allUpper = false;
     }
 
     return allLower || allUpper;
