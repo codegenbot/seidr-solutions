@@ -25,6 +25,10 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
     
     std::map<char, char> mapping;
     for (int j = 0; j < cipher_map1.length(); j++) {
+        if(mapping.find(tolower(cipher_map1[j])) != mapping.end()) {
+            // handle duplicate keys
+            return "";
+        }
         mapping.insert(std::make_pair(tolower(cipher_map1[j]), tolower(cipher_map2[j])));
     }
     
