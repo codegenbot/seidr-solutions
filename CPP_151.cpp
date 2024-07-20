@@ -1,7 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-long long double_the_difference(vector<float> lst) {
+int main() {
+    std::vector<float> lst = {1.0f, 2.5f, 3.0f, 4.25f, 5.0f};
+    long long result = double_the_difference(lst);
+    return 0;
+}
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
@@ -11,11 +18,4 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<float> lst = {1.5, 2.25, 3.125, 4.0625}; 
-    long long result = double_the_difference(lst);
-    cout << "The result is: " << result << endl;
-    return 0;
 }
