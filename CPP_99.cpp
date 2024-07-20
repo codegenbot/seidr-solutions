@@ -11,7 +11,6 @@ int closest_integer(std::string value) {
 int main() {
     std::string input;
     std::cin >> input;
-    int result = closest_integer(input);
-    std::cout << result << std::endl;
+    std::cout << closest_integer(input) << std::endl;
     return 0;
 }
