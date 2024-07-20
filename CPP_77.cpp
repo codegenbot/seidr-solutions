@@ -2,11 +2,11 @@ Here is the completed code:
 
 bool iscuber(int a){
     int i = 1;
-    while (i * i * i <= a) {
-        if (i * i * i == a) {
+    while (true) {
+        if(pow(i,3) == a)
             return true;
-        }
+        else if (pow(i,3)>a)
+            return false;
         i++;
     }
-    return false;
 }
