@@ -4,24 +4,14 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    else:
-        stack = []
-        for char in expression:
-            if char == '&':
-                stack.append('and')
-            elif char == '|':
-                while len(stack) > 1 and stack.pop() == 'and':
-                    pass
-                stack.append('or')
-            elif char in ['T', 'F']:
-                while stack and stack[-1] == 'or':
-                    if stack.pop() == 'or' and (char == 'T'):
-                        return True
-                    if stack.pop() == 'or' and char == 'F':
-                        return False
-                if stack and stack[-1] == 'and':
-                    if stack.pop() == 'and' and char == 'T':
-                        return True
-                    if stack.pop() == 'and' and char == 'F':
-                        return False
-        return not bool(stack)
+    if '&' in expression and '|' in expression:
+        raise ValueError("Invalid operation")
+    operators = ['&', '|']
+    values = [expression.index(op) for op in operators]
+    result = True if expression[0] == 'T' else False
+    for op, val in zip(operators, values):
+        if op == '&':
+            result = result and (val > 0)
+        elif op == '|':
+            result = result or (val > 0)
+    return result
