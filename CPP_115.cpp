@@ -1,26 +1,11 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    vector<int> buckets(n);
-    int count = 0;
-    
-    while (true) {
-        bool changed = false;
-        
-        for (int i = 0; i < n; i++) {
-            if (grid[i].size() > 0 && buckets[i] < capacity) {
-                int amount = min(capacity - buckets[i], (int)grid[i].size());
-                grid[i].erase(grid[i].begin(), grid[i].begin() + amount);
-                buckets[i] += amount;
-                changed = true;
-            }
-        }
-        
-        if (!changed) break;
-        
-        count++;
+    int res = 0, sum = 0;
+    for (const auto& row : grid) {
+        sum += accumulate(row.begin(), row.end(), 0);
     }
-    
-    return count;
+    while (sum > 0) {
+        sum -= capacity;
+        res++;
+    }
+    return res;
 }
