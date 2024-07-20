@@ -1,16 +1,13 @@
-int search(vector<int> lst) {
-    int result = -1;
-    unordered_map<int, int> freqMap;
-    
+int result = -1;
+    unordered_map<int, int> freq;
     for (int num : lst) {
-        freqMap[num]++;
+        freq[num]++;
     }
-    
-    for (auto& pair : freqMap) {
-        if (pair.second >= pair.first && pair.first > result) {
-            result = pair.first;
+    for (auto it = freq.rbegin(); it != freq.rend(); ++it) {
+        if (it->first > 0 && it->first <= it->second) {
+            result = it->first;
+            break;
         }
     }
-    
     return result;
 }
