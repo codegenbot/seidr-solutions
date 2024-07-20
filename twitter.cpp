@@ -9,7 +9,8 @@ string validateTweet(string tweet) {
         return "You didn't type anything";
     }
     if (tweet.length() > 140) {
-        return "Too many characters";
+        string errorString = "Too many characters";
+        return errorString;
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
