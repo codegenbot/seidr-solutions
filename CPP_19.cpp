@@ -1,7 +1,43 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+#include <map>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <cassert>
 
-sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
-    return num_map[a] < num_map[b];
-});
+using namespace std;
 
-return numbers;
+string sort_numbers(string numbers);
+
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
+    vector<string> number_words;
+    stringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        number_words.push_back(word);
+    }
+    
+    sort(number_words.begin(), number_words.end(), [&](const string& a, const string& b) {
+        return number_map[a] < number_map[b];
+    });
+    
+    string sorted_numbers;
+    for (const string& word : number_words) {
+        sorted_numbers += word + " ";
+    }
+    sorted_numbers.pop_back(); // Remove the extra space at the end
+    return sorted_numbers;
+}
