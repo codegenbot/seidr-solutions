@@ -34,12 +34,12 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string line;
+    std::vector<std::string> words;
+    std::string result;
+
     while (std::getline(std::cin, line)) {
         std::stringstream ss(line);
         std::string word;
-        std::vector<std::string> words;
-        std::string result;
-
         while (std::getline(ss, word, ' ')) { 
             if (!words.empty()) {
                 result += camelCase(word) + " ";
