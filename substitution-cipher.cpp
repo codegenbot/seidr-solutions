@@ -1,7 +1,7 @@
-```cpp
 #include <map>
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     std::unordered_map<char, char> mapping;
@@ -32,5 +32,4 @@ int main() {
     std::cout << "Enter the message to decipher: ";
     std::cin.getline(message, 256);
     std::cout << "Deciphered message: " << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
-    return 0;
-}
+    return {0};
