@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,7 +23,6 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
-
 }
 
 int main() {
@@ -32,22 +31,22 @@ int main() {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Mary had a little lamb\", 3) ==> {";
+    cout << "select_words(\"Mary had a little lamb\", 3) ==> ";
     for (string s : select_words("Mary had a little lamb", 3)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words('simple white space', 2) ==> {";
+    cout << "select_words('simple white space', 2) ==> ";
     for (string s : select_words("simple white space", 2)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Hello world\", 4) ==> {";
+    cout << "select_words(\"Hello world\", 4) ==> ";
     for (string s : select_words("Hello world", 4)) {
         cout << "\"" << s << "\",";
     }
     cout << endl;
-    cout << "select_words(\"Uncle sam\", 3) ==> {";
+    cout << "select_words(\"Uncle sam\", 3) ==> ";
     for (string s : select_words("Uncle sam", 3)) {
         cout << "\"" << s << "\",";
     }
