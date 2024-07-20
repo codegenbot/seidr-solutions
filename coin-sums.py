@@ -4,5 +4,5 @@ def coin_sums(cents):
 
     for i in range(len(coins)-1, -1, -1):
         while cents >= coins[i]:
-            results[i] += min((cents + coins[i] - 1) // coins[i], len(coins))
-            cents -= coins[i] * min((cents + coins[i] - 1) // coins[i], len(coins))
+            results[i] += cents // coins[i]
+            cents %= coins[i]
