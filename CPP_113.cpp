@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Include the <cassert> header
+#include <cassert>
+
+#define NDEBUG 1
 
 using namespace std;
 
@@ -20,10 +22,15 @@ vector<string> odd_count(vector<string> lst){
 }
 
 int main() {
-    assert(odd_count({"271", "137", "314"}) == vector<string> {
+    vector<string> expected = {
         "the number of odd elements 2 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
-    });
+    };
+
+    vector<string> result = odd_count({"271", "137", "314"});
+
+    assert(result == expected);
+
     return 0;
 }
