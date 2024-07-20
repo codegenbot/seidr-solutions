@@ -1,12 +1,14 @@
-```cpp
 #include <iostream>
 
-int snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
-    float currentSnow = initialSnow;
-    for (int i = 0; i < hours; i++) {
-        currentSnow += rateOfFall - meltRate / 100.0 * currentSnow;
+double snowDay(int hours, float initialSnow, float rateOfFall, float meltRate) {
+    double totalSnow = initialSnow;
+
+    for (int i = 0; i < hours; ++i) {
+        totalSnow += rateOfFall;
+        totalSnow -= meltRate * rateOfFall / 100.0;
     }
-    return static_cast<int>(currentSnow);
+
+    return totalSnow;
 }
 
 int main() {
@@ -25,7 +27,7 @@ int main() {
     std::cout << "Enter proportion of snow melting per hour (%): ";
     std::cin >> meltRate;
 
-    int result = snowDay(hours, initialSnow, rateOfFall / 100.0, meltRate / 100.0);
+    double result = snowDay(hours, initialSnow, rateOfFall / 100.0, meltRate / 100.0);
 
     std::cout << "Final amount of snow: " << result << " cm\n";
 
