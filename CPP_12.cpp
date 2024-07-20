@@ -1,9 +1,8 @@
-if (strings.empty()) {
-    return "";
-} else {
-    string result = *min_element(strings.begin(), strings.end(), 
-        [](const string& s1, const string& s2) { 
-            return s1.size() < s2.size(); 
-    });
+string longest(vector<string> strings){
+    if(strings.empty()) return ""; // Return None in case the input vector is empty.
+    string result = strings[0]; // Initialize the result as the first string in the vector.
+    for(const auto& str : strings){ // Iterate over each string in the vector.
+        if(str.length() > result.length()) result = str; // Update the result if a longer string is found.
+    }
     return result;
 }
