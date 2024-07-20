@@ -5,16 +5,14 @@ string file_name_check(string file_name){
         if(isdigit(file_name[i])){
             digit_count++;
             if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
+        } else if(file_name[i] == '.'){
             found_dot = true;
-        }
-        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l')){
-            return "Yes";
+        } else if(!found_dot && !isalpha(file_name[i])) {
+            return "No";
         }
     }
-    if(!found_dot) return "No";
-    if(digit_count > 0) return "No";
-    if(file_name[0] < 'a' || (file_name[0] > 'z' && file_name[0] < 'A') || file_name[0] > 'Z') return "No";
+    if(!found_dot || file_name.find(".txt") == string::npos &&
+       file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos) 
+       return "No";
     return "Yes";
 }
