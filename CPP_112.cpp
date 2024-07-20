@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool areDifferentCharacters(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string s = a[0] + b[0];
     std::string c = a[1] + b[1];
     std::string result = "";
@@ -17,6 +17,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame({"mamma", "mia"}, {"", "True"}) == false);
+    assert(areDifferentCharacters({"mamma", "mia"}, {"", "True"}) == false);
     return 0;
 }
