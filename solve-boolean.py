@@ -1,21 +1,19 @@
 def solve_boolean(expression):
     stack = []
     parsing = True
-    for char in expression[::-1]:  
+    for char in expression:
         if char in ['T', 'F']:
-            if parsing:
-                stack.append(char)
-            else:
-                term = ''.join(stack)[::-1]  
-                if term[0] == '&':
-                    result = eval(f'({term} & False)')
-                elif term[0] == '|':
-                    result = eval(f'({term} | True)')
-                stack = [str(result)]
-                parsing = not parsing
+            if not parsing:
+                result = eval(''.join(map(str, stack)))
+                stack = []
+                parsing = bool(result)
+            stack.append(char)
         elif char in ['|', '&']:
             if char == '&':
-                stack[-1] = f'{stack[-1]} & '
-            else:
-                stack[-1] = f'{stack[-1]} | ' 
-    return eval(''.join(map(str, [stack[0]])))
+                if stack[-1] == 'F':
+                    stack.pop()
+                else:
+                    stack.append(' & ')
+            elif char == '|':
+                stack.append(f' | {char}')
+    return eval(''.join(map(str, [stack[0][:-2]])))
