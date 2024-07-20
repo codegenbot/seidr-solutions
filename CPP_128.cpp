@@ -1,17 +1,8 @@
-#include <vector>
-
-int prod_signs(const vector<int>& arr) {
-    int signProduct = 1;
-    long long sumMagnitude = 0;
-
-    if (arr.empty()) {
-        return -32768;
+int prod_signs(vector<int> arr){
+    int res = 1; // Initialize result as 1
+    for(int num : arr){ // Iterate over each number in the array
+        if(num == 0) return -32768; // Return -32768 if array contains zero
+        res *= (num > 0 ? 1 : ((num < 0) ? -1 : 0)); // Update result with product of signs
     }
-
-    for (int num : arr) {
-        signProduct *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sumMagnitude += abs(num);
-    }
-
-    return signProduct * sumMagnitude;
+    return res;
 }
