@@ -1,7 +1,7 @@
 #include <algorithm>
+#include <vector>
 #include <cmath>
 
-int findMax(int arr[], int n) {
-    vector<int> l(arr, arr+n);
-    return *max_element(l.begin(), l.end());
+int findMax(std::vector<int> l) {
+    return *std::max_element(l.begin(), l.end());
 }
