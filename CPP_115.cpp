@@ -1,9 +1,26 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
-    int total_water = 0;
-    for (int i = 0; i < n; ++i) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+    vector<int> buckets(n);
+    int count = 0;
+    
+    while (true) {
+        bool changed = false;
+        
+        for (int i = 0; i < n; i++) {
+            if (grid[i].size() > 0 && buckets[i] < capacity) {
+                int amount = min(capacity - buckets[i], (int)grid[i].size());
+                grid[i].erase(grid[i].begin(), grid[i].begin() + amount);
+                buckets[i] += amount;
+                changed = true;
+            }
+        }
+        
+        if (!changed) break;
+        
+        count++;
     }
     
-    return total_water / capacity + ((total_water % capacity) ? 1 : 0);
+    return count;
 }
