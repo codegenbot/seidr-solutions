@@ -1,21 +1,22 @@
+```
 def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack[-1] != '(':
-                first, second = stack.pop(), stack.pop()
-                stack.append(not (not first and not second))
-            stack.pop()  # Remove the '('
-        elif char in ['&', '|']:
-            while len(stack) > 0 and stack[-1] in ['&', '|']:
-                if stack[-1] == '&':
-                    first, second = stack.pop(), stack.pop()
-                    stack.append(first and second)
-                else:
-                    first, second = stack.pop(), stack.pop()
-                    stack.append(not (not first or not second))
-            stack.append(char)
-        elif char in ['T', 'F']:
-            stack.append(char == 'T')
+    def helper(expression):
+        if '(' in expression:
+            i = expression.index('(')
+            j = expression.index(')')
+            return helper(expression[i+1:j]) and (expression[:i].strip('&|') == 'T' or
+                                                     expression[:i].strip('&|').count('&') > expression[:i].strip('&|').count('|'))
+        if '&' in expression:
+            left = True if expression[0] == 'T' else False
+            right = True if expression[-1] == 'T' else False
+            return left and right
+        elif '|' in expression:
+            left = True if expression[0] == 'T' else False
+            right = True if expression[-1] == 'T' else False
+            return left or right
+        if expression[0] == 'T':
+            return True
+        if expression[0] == 'F':
+            return False
+
+    return helper(expression)
