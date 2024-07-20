@@ -1,33 +1,26 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+```cpp
+bool issame(vector<string> a,vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.size() != b.size()) {
-                 return a.size() < b.size();
-             } else {
-                 return a < b;
-             }
-         });
-
-    return result;
-}
-
-int main(){
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"aaaa", "aaaa"});
-    return 0;
+    // Remove strings with odd lengths from the vector
+    lst.erase(remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.size() % 2 != 0; }), lst.end());
+    
+    // Sort the remaining strings by length and then alphabetically
+    sort(lst.begin(), lst.end(), 
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            } else {
+                return a.size() < b.size();
+            }
+        });
+    
+    return lst;
 }
