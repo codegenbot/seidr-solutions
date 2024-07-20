@@ -1,20 +1,19 @@
-#include <iostream>
 #include <string>
-using namespace std;
+#include <iostream>
 
-string middleCharacter(string str) {
+std::string middleCharacter(std::string str) {
     int len = str.length();
     if(len % 2 == 1) {
-        return string(1, str[len/2]);
+        return std::string(1, str[len/2]);
     } else {
-        return string(1, str[(len-1)/2]) + string(1, str[len/2]);
+        return std::string(1, str[(len-1)/2]) + std::string(1, str[len/2]);
     }
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    cout << middleCharacter(str) << endl;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    std::cout << middleCharacter(str) << std::endl;
     return 0;
 }
