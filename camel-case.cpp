@@ -1,27 +1,52 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (i > 0 && str[i] == '-') {
-            result[0] = toupper(result[0]);
-            result += " ";
+std::string camelCase(std::string s) {
+    std::string result;
+    bool first = true;
+
+    for (char c : s) {
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = false;
+        } else if (c == ' ') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = true;
+        } else {
+            if (first) {
+                result += c;
+            } else {
+                result += char(tolower(c));
+            }
+            first = false;
         }
-        int j = i + 1;
-        while (j < str.length() && str[j] != '-') {
-            j++;
-        }
-        result += str.substr(i, j - i);
-        i = j - 1;
     }
+
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << "The camelCase conversion is: " << camelCase(str) << std::endl;
+    bool first = true;
+    std::string temp;
+
+    while (std::cin >> temp, !std::cin.fail()) {
+        if (!first) result += " ";
+        else first = false;
+        for (char c : temp) {
+            if (c == '-') break;
+            if (first) result += toupper(c);
+            else result += tolower(c);
+        }
+    }
+
+    std::cout << "Processing: " << temp << std::endl;
+    std::cout << camelCase(result) << std::endl;
+
     return 0;
 }
