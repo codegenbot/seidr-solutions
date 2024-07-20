@@ -1,11 +1,13 @@
-bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            if(count(lst.begin(), lst.end(), lst[i]) > 1)
-                return false;
-        }
-        else
-            return false;
+bool is_sorted(vector<int> lst) {
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] <= lst[i - 1]) return false;
     }
-    return true;
+    vector<int> duplicates;
+    for (int num : unique(lst.begin(), lst.end())) {
+        int count = count(lst.begin(), lst.end(), num);
+        if (count > 1) {
+            duplicates.push_back(num);
+        }
+    }
+    return duplicates.empty();
 }
