@@ -14,4 +14,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return result;
 }
 
-assert(issame(collatz(1), {1}));
+assert (issame(collatz(1), {1}));
