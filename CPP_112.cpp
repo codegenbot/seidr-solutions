@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::string s = a[0] + b[0];
