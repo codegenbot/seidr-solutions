@@ -1,17 +1,14 @@
-```
-while True:
-    text = input("Enter the text: ")
-    if text:
-        break
+text = input("Enter the text: ")
+while not text:
     print("Text cannot be empty. Please try again.")
+    text = input("Enter the text: ")
 
-while True:
-    target = input("Enter the target string: ")
-    if target:
-        break
+target = input("Enter the target string: ")
+while not target:
     print("Target cannot be empty. Please try again.")
+    target = input("Enter the target string: ")
 
 import re
 
 result = [m.start() for m in re.finditer(target, text)]
-print([i for i in result if i >= 0])
+print([i for i in result if i >= 0] or "Target not found in Text")
