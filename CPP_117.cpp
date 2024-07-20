@@ -3,7 +3,7 @@
 #include <cctype>
 
 bool issame(vector<string>, vector<string>) {
-    // this function is not used anywhere in the program
+    // implementation not required for this problem
 }
 
 vector<string> select_words(string s, int n) {
@@ -16,7 +16,7 @@ vector<string> select_words(string s, int n) {
             }
             word = "";
         } else {
-            word += c;
+            word += tolower(c); // convert all characters to lowercase
         }
     }
     if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
