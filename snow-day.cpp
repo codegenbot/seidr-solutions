@@ -4,13 +4,12 @@
 using namespace std;
 
 double snowDay(int hours, double groundSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
-    double totalSnow = groundSnow;
+    double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        double newSnow = rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
-        totalSnow += newSnow;
-        if(totalSnow > groundSnow + rateOfSnowFall) totalSnow = groundSnow + rateOfSnowFall;
+        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
+        groundSnow = max(0.0, groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow);
     }
-    return totalSnow;
+    return groundSnow;
 }
 
 int main() {
