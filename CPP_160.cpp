@@ -11,27 +11,23 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
                 if (operator_[j] == "*") {
                     temp *= operand[j + 1];
                 } else if (operator_[j] == "+") {
-                    result += temp * operand[j];
+                    result += temp * operand[j + 1];
                     break;
                 }
             }
         } else if (operator_[i] == "//") {
             int temp = operand[i + 1];
-            for (int j = i + 1; j < operator_.size(); j++) {
+            for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "//") {
-                    temp /= operand[j + 1];
-                } else if (operator_[j] == "+") {
-                    result += temp / operand[j];
+                    result /= temp;
                     break;
                 }
             }
         } else if (operator_[i] == "**") {
             int base = operand[i + 1];
-            for (int j = i + 1; j < operator_.size(); j++) {
+            for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "**") {
-                    result = pow(result, operand[j + 1]);
-                } else if (operator_[j] == "+") {
-                    result = pow(base, operand[j]);
+                    result = pow(base, operand[j + 1]);
                     break;
                 }
             }
