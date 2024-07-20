@@ -3,13 +3,13 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<string> &a, const vector<string> &b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
 }
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -23,14 +23,14 @@ vector<string> split_words(string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    if(result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos){
+    if(result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos){
         int oddCount = 0;
         for(char c : result[0]){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(std::islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
-        result[0] = to_string(oddCount);
+        result[0] = std::to_string(oddCount);
     }
     return result;
 }
