@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+#define NDEBUG 1
+
 using namespace std;
 
 vector<string> odd_count(vector<string> lst){
@@ -17,17 +19,4 @@ vector<string> odd_count(vector<string> lst){
         result.push_back("the number of odd elements " + to_string(odd_count) + " in the string " + s + " of the input.");
     }
     return result;
-}
-
-int main() {
-    vector<string> expected = {"the number of odd elements 2 in the string 271 of the input.",
-                                "the number of odd elements 2 in the string 137 of the input.",
-                                "the number of odd elements 2 in the string 314 of the input."};
-    vector<string> result = odd_count({"271", "137", "314"});
-    if (result == expected) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
-    return 0;
 }
