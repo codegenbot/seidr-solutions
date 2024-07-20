@@ -1,14 +1,24 @@
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> unique_chars;
+    string temp;
     for (char c : str) {
-        if (find(unique_chars.begin(), unique_chars.end(), c) == unique_chars.end()) {
-            unique_chars.push_back(c);
+        if (isalpha(c)) {
+            char lower = tolower(c);
+            bool found = false;
+            for (char d : temp) {
+                if (d == lower) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                temp += lower;
         }
     }
-    return unique_chars.size();
+    return temp.size();
 }
