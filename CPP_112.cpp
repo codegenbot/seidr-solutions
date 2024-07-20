@@ -9,7 +9,7 @@ using namespace std;
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    set<char> setC(c.begin(), c.end()); 
+    set<char> setC(c.begin(), c.end());
     string res = "";
     
     for (char c : s) {
