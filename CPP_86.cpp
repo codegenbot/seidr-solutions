@@ -1,20 +1,23 @@
-string anti_shuffle(string s){
-    string res = "";
-    for(size_t i = 0; i < s.size(); i++){
-        if(s[i] == ' '){
-            res += ' ';
-        }else{
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+string anti_shuffle(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            result += " ";
+        } else {
             string word;
-            for(size_t j = i; j < s.size() && s[j] != ' '; j++){
-                word += s[j];
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
+                i++;
             }
-            i = j - 1;
-            string new_word;
-            for(auto c : word){
-                new_word += (char)(c);
+            for (int j = 0; j < word.length(); j++) {
+                result += static_cast<char>(word[j]);
             }
-            res += new_word + ' ';
         }
     }
-    return res.substr(0, res.size() - 1);
+    return result;
 }
