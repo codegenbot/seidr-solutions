@@ -1,11 +1,12 @@
-Here is the completed code:
-
-string remove_vowels(string text){
+```c++
+string remove_vowels(string text) {
     string result = "";
-    for(int i=0; i < text.length(); i++){
-        if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u' &&
-           text[i] != 'A' && text[i] != 'E' && text[i] != 'I' && text[i] != 'O' && text[i] != 'U')
-            result += text[i];
+    for (char c : text) {
+        if (!isalpha(c)) {
+            result += c;
+        } else if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+            result += c;
+        }
     }
     return result;
 }
