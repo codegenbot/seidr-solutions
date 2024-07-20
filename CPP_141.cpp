@@ -9,18 +9,10 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l')){
-            string extension = "";
-            for(int j=i+1; j<file_name.length(); j++){
-                if(file_name[j] == '.')
-                    break;
-                else
-                    extension += file_name[j];
-            }
-            if(extension != "txt" && extension != "exe" && extension != "dll")
-                return "No";
-        }
+        else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
-    if(!found_dot || digit_count > 3) return "No";
+    if(!found_dot || file_name.find('.') == string::npos) return "No";
+    string extension = file_name.substr(file_name.find('.')+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
     return "Yes";
 }
