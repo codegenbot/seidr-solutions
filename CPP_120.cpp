@@ -1,13 +1,10 @@
 #include <vector>
 
-std::vector<int> maximum(const std::vector<int>& arr, int k) {
+std::vector<int> maximum(const std::vector<int>& arr, int k){
     std::vector<int> result;
-    for (int i = 0; i <= arr.size() - k; ++i) {
-        int max_val = arr[i];
-        for (int j = 1; j < k; ++j) {
-            max_val = std::max(max_val, arr[i + j]);
-        }
-        result.push_back(max_val);
+    std::partial_sort(arr.begin(), arr.begin() + k, arr.end(), std::greater<int>());
+    for (int i = 0; i < k; ++i) {
+        result.push_back(arr[i]);
     }
     return result;
 }
