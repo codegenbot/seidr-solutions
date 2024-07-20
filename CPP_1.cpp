@@ -1,8 +1,6 @@
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -29,9 +27,12 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-int main() {
-    vector<string> expected = {"(ab)", "(cd)"};
-    vector<string> result = separate_paren_groups("(ab)(cd)");
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-    assert(issame(result, expected));
+int main() {
+    vector<string> result = separate_paren_groups("((ab)(cd))");
+    assert(issame(result, {"(ab)", "(cd)"}));
+    return 0;
 }
