@@ -1,21 +1,16 @@
 #include <string>
-using namespace std;
+#include <cassert>
 
-int vowels_count(const string &s){
+int vowels_count(std::string s){
     int count = 0;
     for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && c == s.back()))
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && &c == &s.back()-1))
             count++;
     }
     return count;
 }
 
 int main() {
-    string test1 = "Hello World";
-    string test2 = "Programming";
-    
-    cout << "Test 1: " << vowels_count(test1) << endl;
-    cout << "Test 2: " << vowels_count(test2) << endl;
-    
+    assert(vowels_count("ACEDY") == 3);
     return 0;
 }
