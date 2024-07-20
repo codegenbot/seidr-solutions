@@ -24,10 +24,11 @@ string spinWords(string str) {
             } else {
                 result += word;
             }
+            result += " "; // Add this line to handle the last word
             i = j;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1); // Remove trailing space
 }
 
 int main() {
@@ -35,6 +36,9 @@ int main() {
     while(true) {
         cout << "Enter a sentence (or 'exit' to quit): ";
         getline(cin, str);
+        if (!str.empty()) {
+            str.erase(0, str.find_first_not_of(' '));
+        }
         if(str == "exit") break;
         cout << spinWords(str) << endl;
     }
