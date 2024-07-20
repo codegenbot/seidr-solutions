@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
@@ -5,13 +8,18 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        string key = pair.first;
-        if (!allLower && !allUpper) break;
-
-        if (isupper(key[0])) {
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             allLower = false;
-        } else if (islower(key[0])) {
             allUpper = false;
+            break;
+        } else if (!allLower && !allUpper) {
+            continue;
+        }
+
+        if (!allLower) {
+            if (!isupper(pair.first[0])) return false;
+        } else if (!allUpper) {
+            if (!islower(pair.first[0])) return false;
         }
     }
 
