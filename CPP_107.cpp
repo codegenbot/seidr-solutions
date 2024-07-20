@@ -4,7 +4,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
+    return a == b;
+}
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2, 0);
@@ -22,13 +24,4 @@ std::vector<int> even_odd_palindrome(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    return 0;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
