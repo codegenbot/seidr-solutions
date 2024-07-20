@@ -3,8 +3,8 @@
 #include <boost/any.hpp>
 #include <cassert>
 
-bool issame(const std::type_info& type, const std::type_info& target_type){
-    return type == target_type;
+bool issame(const std::type_info& type1, const std::type_info& type2){
+    return type1 == type2;
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values){
