@@ -1,14 +1,13 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 #include <algorithm>
 
 std::string spinWords(const std::string& input) {
-    std::stringstream ss(input);
     std::string output;
+    std::istringstream iss(input);
     std::string word;
 
-    while (ss >> word) {
+    while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
