@@ -13,6 +13,6 @@ bool total_match(const std::vector<std::string>& a, const std::vector<std::strin
 }
 
 int main() {
-    assert(total_match({"this"}, {}) == true);
+    assert(total_match({"this"}, {}));
     return 0;
 }
