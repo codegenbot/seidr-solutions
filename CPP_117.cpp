@@ -63,7 +63,6 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
-
 }
 
 int main() {
