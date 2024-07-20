@@ -11,6 +11,6 @@ string middleCharacter(string str) {
 }
 
 int main() {
-    cout << middleCharacter("your_input_string");
+    cout << middleCharacter("your_input_string") << endl;
     return 0;
 }
