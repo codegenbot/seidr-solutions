@@ -19,33 +19,33 @@ int main() {
     std::cin >> n;
 
     std::vector<float> v1, v2;  // Initialize with n elements
-    v1.resize(n); 
-    v2.resize(n); 
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         float s;
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 1: ";
-            std::cin >> s;
-            try {
-                v1[i] = s;
+            if(std::cin >> s) {
+                v1.push_back(s);
                 break;
-            } catch(const std::invalid_argument& e) {
+            } else {
                 std::cout << "Invalid input. Please enter a number.\n";
+                // reset the bad input flag
                 std::cin.clear();
+                // ignore any remaining characters in the stream
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
         }
 
         while(true) {
             std::cout << "Enter element " << i+1 << " of vector 2: ";
-            std::cin >> s;
-            try {
-                v2[i] = s;
+            if(std::cin >> s) {
+                v2.push_back(s);
                 break;
-            } catch(const std::invalid_argument& e) {
+            } else {
                 std::cout << "Invalid input. Please enter a number.\n";
+                // reset the bad input flag
                 std::cin.clear();
+                // ignore any remaining characters in the stream
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
         }
