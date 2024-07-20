@@ -30,6 +30,7 @@ int main() {
 
     string text, target;
     getline(cin, text);
+    cin.ignore();
     getline(cin, target);
     vector<int> result = findIndices(text, target);
     for (int i : result)
