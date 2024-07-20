@@ -1,17 +1,21 @@
 string result = "";
-    bool isConsecutive = false;
+    int consecutiveSpaces = 0;
+    
     for(char c : text){
         if(c == ' '){
-            if(!isConsecutive){
-                result += '_';
-                isConsecutive = true;
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
+                result.pop_back();
+                result.pop_back();
+                result.push_back('-');
             } else {
-                result += '-';
+                result.push_back('_');
             }
         } else {
-            result += c;
-            isConsecutive = false;
+            result.push_back(c);
+            consecutiveSpaces = 0;
         }
     }
+    
     return result;
 }
