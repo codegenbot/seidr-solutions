@@ -3,43 +3,40 @@
 #include <vector>
 #include <cctype>
 
-std::vector<std::string> split(const std::string& s, char c) {
-    std::vector<std::string> result;
-    std::string temp;
+using namespace std;
 
-    for (char x : s) {
-        if (x == c) {
-            result.push_back(temp);
-            temp = "";
-        } else {
-            temp += x;
-        }
+void split(const string& s, vector<string>& result, char c) {
+    size_t pos = 0;
+    size_t prev = 0;
+    
+    while ((pos = s.find(c, prev)) != string::npos) {
+        result.push_back(s.substr(prev, pos - prev));
+        prev = pos + 1;
     }
-    result.push_back(temp);
-
-    return result;
+    if (prev < s.size())
+        result.push_back(s.substr(prev));
 }
 
-std::string camelCase(std::string s) {
-    std::string result;
+string camelCase(string s) {
+    string result;
     bool first = true;
 
     for (char c : s) {
         if (c == '-') {
             if (!first) {
-                result += char(toupper(c));
+                result += toupper(c);
             }
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += char(toupper(c));
+                result += toupper(c);
             }
             first = true;
         } else {
             if (first) {
-                result += c;
+                result += tolower(c);
             } else {
-                result += char(tolower(c));
+                result += toupper(c);
             }
             first = false;
         }
@@ -49,20 +46,17 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string line;
-    std::string result;
-
-    while (std::getline(std::cin, line)) {
-        std::vector<std::string> words = split(line, '-');
+    string line;
+    while (getline(cin, line)) {
+        vector<string> words;
+        split(line, words, ' ');
         
         for (const auto& word : words) {
-            if (!result.empty()) {
-                result += camelCase(word);
-            } else {
-                result = camelCase(word);
-            }
+            if (!words.empty())
+                cout << camelCase(word);
+            else
+                cout << camelCase(word);
         }
+        cout << endl;
     }
-
-    std::cout << result;
 }
