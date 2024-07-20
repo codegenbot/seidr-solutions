@@ -1,20 +1,15 @@
 #include <string>
 
 std::string solveBoolean(std::string s) {
-    bool result = true;
+    std::string result = "True";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            if (result && s[i+1] != '&')
+            if (result == "True" && (i+1 >= s.size() || s[i+1] != '&'))
                 return "False";
-            result &= (s[i+1] == 'T');
         } else if (s[i] == '|') {
-            if (!result && s[i+1] != '|')
+            if (result == "False" && (i+1 >= s.size() || s[i+1] != '|'))
                 return "False";
-            result |= (s[i+1] == 'T');
         }
     }
-    if (result) 
-        return "True";
-    else
-        return "False";
+    return result;
 }
