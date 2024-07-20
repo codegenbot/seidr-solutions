@@ -30,6 +30,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    // Replace assert with suitable testing mechanism as required by the contest platform
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    
     return 0;
 }
