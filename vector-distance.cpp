@@ -14,7 +14,7 @@ double vectorDistance(int n) {
     
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        sum += (v2[i] - v1[i]) * (v2[i] - v1[i]);
     }
     
     return sqrt(sum);

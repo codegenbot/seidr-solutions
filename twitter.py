@@ -1,6 +1,5 @@
-```python
 def validate_tweet(tweet):
-    tweet = tweet.strip()
+    tweet = tweet.encode('utf-8').decode('utf-8').strip()
     if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
