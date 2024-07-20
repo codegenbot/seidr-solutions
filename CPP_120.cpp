@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> maximum(const std::vector<int>& arr, int k) {
@@ -15,8 +15,4 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
     return result;
 }
 
-int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {3, 243, 243, 243, 0}));
-    
-    return 0;
-}
+assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {3, 243, 243, 243, 0});
