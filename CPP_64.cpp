@@ -1,8 +1,10 @@
-int vowels_count(string s) {
+Here is the solution:
+
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && s[s.size() - 1] == 'y')) {
+    for(int i=0; i<s.size(); i++){
+        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') 
+           && (i == s.size()-1 || !isupper(s[i]))){
             count++;
         }
     }
