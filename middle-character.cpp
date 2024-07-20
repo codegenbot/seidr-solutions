@@ -11,6 +11,9 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::cout << middleCharacter("hello") << std::endl;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Middle character(s): " << middleCharacter(str) << std::endl;
     return 0;
 }
