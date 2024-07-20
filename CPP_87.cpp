@@ -20,5 +20,10 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
         }
         return a[0] < b[0];
     });
-    assert(result == vector<vector<int>>{ { 2, 2 } });
+    return result;
+}
+
+int main() {
+    assert(get_row({ {}, { 1 }, { 1, 2, 3 } }, 3) == vector<vector<int>>{ { 2, 2 } });
+    return 0;
 }
