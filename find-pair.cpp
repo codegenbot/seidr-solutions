@@ -1,7 +1,4 @@
 #include <vector>
-#include <unordered_map>
-#include <iostream>
-
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
@@ -13,20 +10,21 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    return {0, 0}; // default value
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (auto& x : nums) {
-        cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
     int target;
     cin >> target;
+    
     pair<int, int> result = findPair(nums, target);
-    cout << result.first << endl;
-    cout << result.second << endl;
+    cout << result.first << " " << result.second << endl;
+
     return 0;
 }
