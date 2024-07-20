@@ -4,21 +4,19 @@
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char *ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&ctx, ptr, 1);
-        ptr++;
+    if (text.empty()) {
+        return "";
     }
-    MD5_Final(md, &ctx);
 
+    MD5_CTX ctx;
+    unsigned char result[16];
     stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(result, &ctx);
+
+    for (int i = 0; i < 16; i++) {
+        ss << hex << setfill('0') << fixed << setw(2) << (int)result[i];
     }
 
     return ss.str();
