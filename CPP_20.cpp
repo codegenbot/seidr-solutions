@@ -1,19 +1,20 @@
 #include <algorithm>
-using namespace std;
+#include <vector>
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    vector<float> result;
-    float min_diff = numeric_limits<float>::max();
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+    float min_diff = std::numeric_limits<float>::max();
+    float closest_pair[2] = {0.0f, 0.0f};
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        for (int j = i + 1; j <= numbers.size() - 1; ++j) {
-            float diff = abs(numbers[i] - numbers[j]);
+    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+        for (size_t j = i + 1; j < numbers.size(); ++j) {
+            float diff = std::abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                result = {numbers[i], numbers[j]};
+                closest_pair[0] = numbers[i];
+                closest_pair[1] = numbers[j];
             }
         }
     }
 
-    return result;
+    return {closest_pair[0], closest_pair[1]};
 }
