@@ -1,31 +1,28 @@
-#include <iostream>
-#include <string>
+Here's the solution:
 
-std::string spinWords(const std::string& input) {
-    std::string output;
-    std::string word;
-
-    for (char c : input) {
-        if (c == ' ') {
-            output += c;
-            word = "";
-        } else {
-            word += c;
-            if (word.length() >= 5) {
-                word = std::string(word.rbegin(), word.rend());
+string spinWords(string str) {
+    string result = "";
+    int spaceCount = 0;
+    
+    for (int i = str.length() - 1; i >= 0; i--) {
+        if (str[i] == ' ') {
+            spaceCount++;
+            continue;
+        }
+        
+        if (spaceCount > 0) {
+            string temp = str.substr(i, str.find(' ', i) - i);
+            for (int j = temp.length() - 1; j >= 0; j--) {
+                result += temp[j];
             }
-            output += word + " ";
+            spaceCount--;
+        } else {
+            if (temp.size() >= 5)
+                for (int j = temp.length() - 1; j >= 0; j--)
+                    result += temp[j];
+            else
+                result += temp;
         }
     }
-
-    return output.substr(0, output.size()-1);
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl; // Output: a
-    std::cout << spinWords("this is a test") << std::endl; // Output: this is a test
-    std::cout << spinWords("this is another test") << std::endl; // Output: this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // Output: hi
-
-    return 0;
+    return result;
 }
