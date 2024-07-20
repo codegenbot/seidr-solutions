@@ -11,5 +11,5 @@ int solutions(std::vector<int> lst){
 }
 
 int main(){
-    std::assert(solutions({3, 13, 2, 9}) == 3);  
+    assert(solutions({3, 13, 2, 9}) == 3);  
 }
