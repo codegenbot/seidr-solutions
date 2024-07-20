@@ -7,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
     std::vector<int> result;
-    for(int i = 0; i < k; ++i){
+    for(int i = 0; i < k/grid.size(); ++i){
         for(const auto& row : grid){
             for(int num : row){
                 result.push_back(num);
@@ -17,4 +17,6 @@ std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
     return result;
 }
 
-assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+}
