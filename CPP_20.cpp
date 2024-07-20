@@ -1,20 +1,21 @@
-#include <algorithm>
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();
-    int left = 0;
-    int right = 1;
-
-    for (int i = 2; i < numbers.size(); i++) {
-        if (numbers[i] - numbers[left] < min_diff) {
-            min_diff = numbers[i] - numbers[left];
-            right = i;
-        } else if (numbers[right] - numbers[left] > min_diff) {
-            left = right;
-            right = i;
+    pair<float, float> closest_pair;
+    
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            float diff = abs(numbers[i] - numbers[j]);
+            if (diff < min_diff) {
+                min_diff = diff;
+                closest_pair = {numbers[i], numbers[j]};
+            }
         }
     }
-
-    return {numbers[left], numbers[right]};
+    
+    return vector<float>(closest_pair);
 }
