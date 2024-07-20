@@ -14,6 +14,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     return result;
 }
 
+#include <vector>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
