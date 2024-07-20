@@ -1,18 +1,28 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip "-"
-            while (i < s.size() && isspace(s[i])) i++; // skip spaces
-            char c = toupper(s[i]);
-            result += c;
-            i--; // back to the last letter before "-"
-        } else if (!isspace(s[i])) {
-            char c = (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : s[i];
-            result += c;
+std::string kebabToCamel(const std::string& str) {
+    std::string result;
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
+
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
+    }
+    return 0;
 }
