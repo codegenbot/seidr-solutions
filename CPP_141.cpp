@@ -1,38 +1,24 @@
-```cpp
-#include <iostream>
-#include <string>
+Here is the completed code:
 
-std::string file_name_check(std::string file_name){
-    int count = 0;
-    bool foundDot = false;
+string file_name_check(string file_name){
+    bool valid = true;
+    int digit_count = 0;
+
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
-            count++;
+            digit_count++;
+            if(digit_count > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            foundDot = true;
-        }
-        else if(foundDot && (i != file_name.length()-1) && (file_name.substr(i+1).find("txt") != std::string::npos || file_name.substr(i+1).find("exe") != std::string::npos || file_name.substr(i+1).find("dll") != std::string::npos)){
-            return "Yes";
-        }
-    }
-    if(count > 3 || !foundDot){
-        return "No";
-    }
-    else{
-        for(int i=0; i<file_name.length(); i++){
-            if(isalpha(file_name[i]) && i == 0){
-                return "Yes";
+            if(i != file_name.length() - 1){
+                string extension = file_name.substr(i+1);
+                if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
             }
+            else return "No"; // no extension
         }
-        return "No";
     }
-}
 
-int main(){
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
-    return 0;
+    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') valid = false;
+
+    return valid ? "Yes" : "No";
 }
