@@ -1,22 +1,27 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = any_cast<string>(b);
-        float num = 0;
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            num = stof(str.substr(0, pos));
+if (a.type() == boost::any::typeless_type) {
+    if (b.type() == boost::any::typeless_type) {
+        return "None";
+    } else {
+        if (boost::any_cast<double>(b) > boost::any_cast<double>(a)) {
+            return b;
         } else {
-            num = stof(str);
+            return a;
         }
-        return a > num ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return a > any_cast<string>(b) ? a : "None";
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a > boost::any_cast<int>(b) ? a : "None";
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return a > any_cast<float>(b) ? a : "None";
     }
-    return "None";
+} else {
+    if (b.type() == boost::any::typeless_type) {
+        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+            return a;
+        } else {
+            return "None";
+        }
+    } else {
+        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+            return a;
+        } else if (boost::any_cast<double>(b) > boost::any_cast<double>(a)) {
+            return b;
+        } else {
+            return "None";
+        }
+    }
 }
