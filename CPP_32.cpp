@@ -22,4 +22,6 @@ int main() {
     vector<double> coeffs = {1, -3, 2};
     double solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
+
+    return 0;
 }
