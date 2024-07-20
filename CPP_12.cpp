@@ -1,9 +1,14 @@
-```
-string longest(vector<string> strings) {
-    if (strings.empty()) return "";
-    string result = strings[0];
-    for (const auto& str : strings) {
-        if (str.length() > result.length()) result = str;
-    }
-    return result;
+vector<string>::iterator it = strings.begin();
+if (it == strings.end()) {
+    return "";
 }
+for (vector<string>::iterator i = ++it; i != strings.end(); ++i) {
+    if (i->length() > it->length()) {
+        it = i;
+    } else if (i->length() == it->length()) {
+        if (i->compare(it->substr(0, 1)) < 0) {
+            it = i;
+        }
+    }
+}
+return *it;
