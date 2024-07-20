@@ -11,7 +11,7 @@ vector<int> parse_music(string music_string) {
         } else if (music_string[i] == '|') {
             if (i + 1 < music_string.length() && music_string[i+1] == '.') {
                 result.push_back(1);
-                i++;
+                i++; // skip '.'
             } else {
                 result.push_back(2);
             }
