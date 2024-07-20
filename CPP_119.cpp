@@ -1,5 +1,7 @@
-int countOpen = 0, countClose = 0;
+Here is the completed code:
 
+```cpp
+int countOpen = 0;
 for (const string& s : lst) {
     for (char c : s) {
         if (c == '(') {
@@ -8,14 +10,9 @@ for (const string& s : lst) {
             if (countOpen > 0) {
                 countOpen--;
             } else {
-                countClose++;
+                return "No";
             }
         }
     }
 }
-
-if (countOpen == countClose) {
-    return "Yes";
-} else {
-    return "No";
-}
+return countOpen == 0 ? "Yes" : "No";
