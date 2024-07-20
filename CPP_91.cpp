@@ -1,18 +1,18 @@
 #include <string>
 
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
-    bool is_boredom = false;
-    for (int i = 0; i < S.length(); ++i) {
-        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
-            is_boredom = true;
-        }
-        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && is_boredom) {
+    size_t pos = 0;
+    while ((pos = S.find("I ", pos)) != std::string::npos) {
+        if (pos == 0 || S[pos - 1] == '.' || S[pos - 1] == '?' || S[pos - 1] == '!') {
             count++;
-            is_boredom = false;
         }
+        pos += 2;
     }
     return count;
 }
 
-assert (is_bored("") == 0);
+int main(){
+    assert(is_bored("You and I are going for a walk") == 0);
+    return 0;
+}
