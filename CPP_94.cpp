@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert>
+using namespace std;
 
-int findMaxPrimeSum(std::vector<int> lst) {
+int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -30,5 +30,10 @@ bool isPrime(int num) {
         }
     }
     return true;
+}
 
+int main() {
+    vector<int> lst = {127, 97, 8192};
+    cout << skjkasdkd(lst);
+    return 0;
 }
