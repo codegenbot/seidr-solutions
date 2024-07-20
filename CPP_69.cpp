@@ -1,9 +1,9 @@
-int search(vector<int> lst){
-    int max = 0;
-    for(int i : lst){
-        if(i > 0 && (i > max || count(lst.begin(), lst.end(), i) >= i)){
-            max = i;
+int search(std::vector<int> lst) {
+    int max = -1;
+    for (auto num : lst) {
+        if (num > 0 && num <= count(lst.begin(), lst.end(), num)) {
+            max = num;
         }
     }
-    return max == 0 ? -1 : max;
+    return max;
 }
