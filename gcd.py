@@ -15,5 +15,5 @@ def indices_of_substring(text, target):
         index = pos + 1
     return result
 
-print(gcd(1, 1))
+print(gcd(12, 15))
 print(indices_of_substring("Hello World", "o"))
