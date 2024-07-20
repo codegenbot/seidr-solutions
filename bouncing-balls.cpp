@@ -1,8 +1,7 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-
-using namespace std;
 
 int main() {
     double start_height, first_bounce_height;
