@@ -1,28 +1,18 @@
-vector<string> all_planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-
-    int start_idx = -1, end_idx = -1;
-    for (int i = 0; i < all_planets.size(); ++i) {
-        if (all_planets[i] == planet1) {
-            start_idx = i;
-        } else if (all_planets[i] == planet2) {
-            end_idx = i;
-        }
+    auto it1 = find(planets.begin(), planets.end(), planet1);
+    auto it2 = find(planets.begin(), planets.end(), planet2);
+    if (it1 == planets.end() || it2 == planets.end()) {
+        return {};
     }
-
-    if (start_idx == -1 || end_idx == -1) {
-        return result;
+    int index1 = distance(planets.begin(), it1);
+    int index2 = distance(planets.begin(), it2);
+    if (index1 > index2) {
+        swap(index1, index2);
     }
-
-    if (start_idx < end_idx) {
-        for (int i = start_idx + 1; i < end_idx; ++i) {
-            result.push_back(all_planets[i]);
-        }
-    } else {
-        for (int i = start_idx - 1; i > end_idx; --i) {
-            result.push_back(all_planets[i]);
-        }
+    for (int i = index1 + 1; i < index2; i++) {
+        result.push_back(planets[i]);
     }
-
     return result;
 }
