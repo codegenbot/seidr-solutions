@@ -3,7 +3,7 @@ string get_closest_vowel(string word) {
     while (left < right && !isVowel(word[left])) left++;
     while (left < right && !isVowel(word[right])) right--;
     for (int i = left; i < right; i++) {
-        if (isVowel(word[i])) return string(1, tolower(word[i]));
+        if (isVowel(word[i])) return string(1, word[i]);
     }
     return "";
 }
