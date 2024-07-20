@@ -22,25 +22,21 @@ int countWhitePegs(string code, string guess) {
     }
     for (int i = 0; i < 4; ++i) {
         if (guess[i] != ' ') { // only consider unvisited positions
-            if (code.find(guess[i]) != string::npos) {
-                whitePegs++;
-                codeCounts[guess[i]]--; // mark the position as visited
-            }
+            codeCounts[guess[i]]--;
         }
     }
     int totalCorrectColors = 0;
     for (int i = 0; i < 6; ++i) {
-        totalCorrectColors += codeCounts[i];
+        if (codeCounts[i]) totalCorrectColors += codeCounts[i];
     }
-    int blackPegsCounted = countBlackPegs(code, guess);
-    return totalCorrectColors - blackPegsCounted;
+    return totalCorrectColors - countBlackPegs(code, guess);
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int whitePegs = countWhitePegs(code, guess);
     int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = countWhitePegs(code, guess);
     cout << whitePegs << endl;
     cout << blackPegs << endl;
     return 0;
