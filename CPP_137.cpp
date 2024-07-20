@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,14 +9,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         return max(a.convert_to<int>(), b.convert_to<float>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return (boost::any_cast<int>(a) > str.size()) ? a : b;
+        return (boost::any_cast<int>(a) > boost::any_cast<string>(b, string())) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return (str1 > str2) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return a == b ? boost::any("None") : (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
