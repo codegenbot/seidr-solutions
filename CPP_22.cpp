@@ -18,6 +18,18 @@ std::vector<int> filter_integers(std::list<boost::any> values){
 }
 
 int main() {
-    // Main function logic here
+    // Test the filter_integers function
+    std::list<boost::any> values;
+    values.push_back(10);
+    values.push_back(20.5);
+    values.push_back(30);
+    values.push_back("hello");
+
+    std::vector<int> filtered_values = filter_integers(values);
+
+    for (const auto &val : filtered_values) {
+        std::cout << val << " ";
+    }
+
     return 0;
 }
