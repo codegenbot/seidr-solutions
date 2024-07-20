@@ -3,21 +3,15 @@
 #include <cassert>
 
 bool monotonic(const std::vector<int>& l) {
-    bool increasing = true;
-    bool decreasing = true;
+    bool increasing = false;
+    bool decreasing = false;
     for (int i = 1; i < l.size(); i++) {
         if (l[i] < l[i - 1]) {
-            increasing = false;
+            increasing = true;
         }
         if (l[i] > l[i - 1]) {
-            decreasing = false;
+            decreasing = true;
         }
     }
-    return increasing || decreasing;
-}
-
-int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
-    // Add more test cases here
-    return 0;
+    return !increasing || !decreasing;
 }

@@ -13,13 +13,3 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // Add more test cases here
-    return 0;
-}
