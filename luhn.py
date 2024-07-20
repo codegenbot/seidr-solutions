@@ -1,8 +1,9 @@
+```
 def luhn(card_number):
     card = [int(x) for x in str(card_number)]
     
     if len(card) > 16:
-        return False
+        return "Invalid input: Card number should be less than 16 digits."
 
     total = 0
     is_second = False
@@ -16,7 +17,7 @@ def luhn(card_number):
         total += num
         is_second = not is_second
         
-    return total % 10 == 0
+    return total
 
 card_number = input().strip()
 print(luhn(int(card_number)))
