@@ -1,30 +1,29 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any(b);
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float fa = boost::any_cast<float>(a), fb = boost::any_cast<float>(b);
-        return (fa > fb ? a : b);
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a), sb = boost::any_cast<string>(b);
-        return (sa > sb ? a : b);
+        return a.convert<string>() > b.convert<string>() ? a : b;
     }
-    else if ((a.type() == typeid(int) && b.type() != typeid(int)) ||
-             (a.type() != typeid(int) && b.type() == typeid(int))) {
-        return "None";
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        return stoi(str) >= (int)a ? "None" : b;
     }
-    else {
-        float fa = boost::any_cast<float>(a), fb = boost::any_cast<float>(b);
-        if (fa > fb)
-            return a;
-        else
-            return b;
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(a);
+        return stoi(str) >= (int)b ? "None" : a;
     }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        return stof(str) > (float)a ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = boost::any_cast<string>(a);
+        return stof(str) > (float)b ? a : b;
+    }
+    return "None";
 }
