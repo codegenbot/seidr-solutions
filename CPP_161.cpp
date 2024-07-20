@@ -1,11 +1,13 @@
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
-    return (result.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) ? string(result.rbegin(), result.rend()) : result;
+    return result.empty() ? string(s).reverse() : result;
 }
