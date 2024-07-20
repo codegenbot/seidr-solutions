@@ -3,9 +3,9 @@ s = input()
 
 def camel_case(s):
     words = s.split("-")
-    if len(words) > 1:
-        return words[0].capitalize() + ''.join(word.lower() for word in words[1:])
-    else:
-        return words[0].capitalize()
+    return words[0] + ''.join(word.capitalize() for word in words[1:]) if len(words) > 1 else words[0]
 
-print(camel_case(s).replace('-', ''))
+result = ''
+result += camel_case(s)
+
+print(result.strip())
