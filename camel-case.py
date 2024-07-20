@@ -3,4 +3,4 @@ def camel_case(s):
     result = words[0].lower()
     for word in words[1:]:
         result += word.capitalize()
-    return result
+    return result.capitalize()
