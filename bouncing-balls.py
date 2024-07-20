@@ -1,4 +1,3 @@
-```
 def bouncing_balls():
     h1 = float(input())
     h2 = float(input())
@@ -8,8 +7,8 @@ def bouncing_balls():
 
     total_distance = 0
     for _ in range(bounces):
-        total_distance += 2 * h2
         h2 *= bounciness_index
+        total_distance += 2 * h2 + 2*h1
 
     return str(round(total_distance, 6))
 
