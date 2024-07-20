@@ -3,25 +3,25 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word;
     int i = 0;
-
     while (i < sentence.length()) {
-        if (i == sentence.length() - 1 || sentence[i + 1] == ' ') {
-            if (i >= 4) {
-                word = std::string(word.rbegin(), word.rend());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            if (sentence[i] != ' ') {
-                word += sentence[i];
-            }
+        if (sentence[i] == ' ') {
+            i++;
+            continue;
         }
-        i++;
+        int j = i + 1;
+        while (j < sentence.length() && sentence[j] != ' ') {
+            j++;
+        }
+        std::string word(sentence.substr(i, j - i));
+        if (word.length() >= 5) {
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        } else {
+            result += word + " ";
+        }
+        i = j;
     }
-
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
