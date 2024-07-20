@@ -32,4 +32,3 @@ int main() {
     std::cin.getline(message, 256);
     std::cout << decipher(std::string(cipher_map1), std::string(cipher_map2), std::string(message)) << std::endl;
     return 0;
-}
