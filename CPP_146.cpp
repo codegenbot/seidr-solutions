@@ -1,6 +1,6 @@
 #include <vector>
 
-int specialFilter(std::vector<int> nums){
+int specialFilter(std::vector<int> nums) {
     int count = 0;
     for(int num : nums){
         if(abs(num) > 10 && (num % 10) % 2 != 0 && (abs(num) / 10) % 2 != 0)
@@ -10,7 +10,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    int result = specialFilter(vector<int>());
-    assert(result == 0);
+    assert(specialFilter(std::vector<int>()) == 0);
     return 0;
 }
