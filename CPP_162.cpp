@@ -1,5 +1,6 @@
 #include <openssl/md5.h>
 #include <openssl/err.h>
+#include <string>
 
 using namespace std;
 
@@ -25,7 +26,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string text = "Hello";
-    cout << string_to_md5(text) << endl;
+    // Your code that calls string_to_md5()
     return 0;
 }
