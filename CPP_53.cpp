@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <cassert>
 
 int add(int x, int y) {
@@ -6,11 +7,10 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(NULL));
-    int x = rand() % 1000;
-    int y = rand() % 1000;
+    int x, y;
+    std::cin >> x >> y;
     
-    assert(add(x, y) == x + y);
-    
+    std::cout << add(x, y) << std::endl;
+
     return 0;
 }
