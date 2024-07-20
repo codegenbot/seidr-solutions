@@ -21,7 +21,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
         
-        if (abs(leftSum - rightSum) <= 1) {
+        if (leftSum == rightSum) {
             result[0] = vector<int>(v.begin(), v.begin() + i);
             result[1] = vector<int>(v.begin() + i, v.end());
             break;
