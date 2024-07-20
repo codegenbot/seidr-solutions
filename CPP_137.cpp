@@ -1,7 +1,6 @@
 #include <any>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 template<typename T>
 auto compare_one(const std::any& a, const std::any& b) {
