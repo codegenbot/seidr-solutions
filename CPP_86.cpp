@@ -1,22 +1,36 @@
 #include <algorithm>
+using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            result += " ";
-            continue;
+    for (const auto& word : split(s, " ")) {
+        string temp = word;
+        sort(temp.begin(), temp.end());
+        result += temp + " ";
+    }
+    return result.substr(0, result.size() - 1);
+}
+
+string split(const string& str, const string& delimiter) {
+    size_t pos = 0;
+    string token;
+    vector<string> tokens;
+    while ((pos = str.find(delimiter)) != string::npos) {
+        token = str.substr(0, pos);
+        str.erase(0, pos + delimiter.length());
+        tokens.push_back(token);
+    }
+    tokens.push_back(str);
+    return join(tokens, " ");
+}
+
+string join(const vector<string>& tokens, const string& delimiter) {
+    string result;
+    for (const auto& token : tokens) {
+        if (!result.empty()) {
+            result += delimiter;
         }
-        string word = "";
-        for (int j = i; j < s.size() && s[j] != ' '; j++) {
-            word += s[j];
-        }
-        i = j - 1;
-        string newWord = "";
-        for (char c : word) {
-            newWord += (c <= 'z' && c >= 'a') ? c : (c <= 'Z' && c >= 'A') ? c : ' ';
-        }
-        result += newWord;
+        result += token;
     }
     return result;
 }
