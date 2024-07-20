@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
@@ -34,6 +33,11 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
-    assert (file_name_check("s.") == "No");
+    std::string file_name;
+    std::cout << "Enter the file name: ";
+    std::cin >> file_name;
+
+    std::cout << "Result: " << file_name_check(file_name) << std::endl;
+
     return 0;
 }
