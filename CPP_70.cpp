@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,4 +18,12 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
 
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({111111}) , {111111}));
 }
