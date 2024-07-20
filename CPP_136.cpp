@@ -1,3 +1,9 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0, smallest_positive = 0;
     for (int num : lst) {
@@ -8,4 +14,9 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     return {largest_negative, smallest_positive};
+}
+
+int main() {
+    // Test the functions if needed
+    return 0;
 }
