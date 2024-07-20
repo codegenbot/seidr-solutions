@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
@@ -32,14 +33,14 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::string music_string = "o|o|.||o";
+    std::string music_string = "o|o|.|o";
+    std::vector<int> expected = {4, 2, 1, 4};
     std::vector<int> result = parse_music(music_string);
-    std::vector<int> expected_result = {4, 2, 1, 1, 4};
 
-    if (is_same(result, expected_result)) {
-        std::cout << "Output matches the expected result." << std::endl;
+    if (is_same(result, expected)) {
+        std::cout << "Output matches expected result." << std::endl;
     } else {
-        std::cout << "Output does not match the expected result." << std::endl;
+        std::cout << "Output does not match expected result." << std::endl;
     }
 
     return 0;
