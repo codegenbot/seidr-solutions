@@ -1,8 +1,6 @@
-Here is the completed code:
-
-bool any_int(float a, float b, float c) {
-    if (a == int(a) && b == int(b) && c == int(c)) {
-        return a + b == c || a + c == b || b + c == a;
+bool any_int(float a, float b, float c){
+    if (round(a) + round(b) == round(c) || round(a) + round(c) == round(b) || round(b) + round(c) == round(a)) {
+        return true;
     }
     return false;
 }
