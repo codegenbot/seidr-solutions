@@ -1,17 +1,11 @@
 int is_bored(string S){
     int count = 0;
-    string word;
-    bool boredom = false;
-
-    for(int i=0; i<S.length(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(i > 0 && S.substr(0, i).find("I") != std::string::npos){
-                boredom = true;
-            }
-            if(boredom) count++;
-            boredom = false;
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == '.' || S[pos] == '?' || S[pos] == '!') {
+            count++;
         }
+        pos += 1; // increment to find the next "I"
     }
-
     return count;
 }
