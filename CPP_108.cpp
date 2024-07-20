@@ -1,18 +1,19 @@
-#include <vector>
-
-int count_nums(const vector<int>& n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (const auto& num : n) {
-        if (num >= 0) {
-            int sum = 0;
+    for (int num : nums) {
+        if (num > 0) {
+            int sum_of_digits = 0;
             bool is_negative = false;
-            while (num > 0 || (!is_negative && num < 0)) {
-                int digit = abs(num) % 10;
-                sum += digit;
-                is_negative = (num < 0);
+            if (num < 0) {
+                is_negative = true;
+                num = -num;
+            }
+            while (num > 0) {
+                sum_of_digits += num % 10;
                 num /= 10;
             }
-            if (sum > 0) count++;
+            if (!is_negative && sum_of_digits > 0 || is_negative && sum_of_digits >= 1)
+                count++;
         }
     }
     return count;
