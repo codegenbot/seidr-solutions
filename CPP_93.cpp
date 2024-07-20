@@ -1,5 +1,6 @@
 #include <string>
 #include <cctype>
+#include <cassert>
 
 std::string encode(std::string message){
     for (char &c : message) {
