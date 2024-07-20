@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) {
