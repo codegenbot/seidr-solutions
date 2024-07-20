@@ -1,30 +1,30 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
 #include <algorithm>
 
-using namespace std;
+std::string compare_one(std::string a, int b) {
+    if (a > std::to_string(b)) {
+        return a;
+    } 
+    else if (a < std::to_string(b)) {
+        return std::to_string(b);
+    }
+    else {
+        return "None";
+    }
+}
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), b.convert_to<float>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<string>(b, string())) ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return (str1 > str2) ? a : b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a == b ? boost::any("None") : (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
-    }
+int main() {
+    std::string inputA, inputB;
+    int num;
 
-    return boost::any("None");
+    std::cout << "Enter the first value: ";
+    std::cin >> inputA;
+
+    std::cout << "Enter the second value: ";
+    std::cin >> num;
+
+    std::cout << compare_one(inputA, num) << std::endl;
+
+    return 0;
 }
