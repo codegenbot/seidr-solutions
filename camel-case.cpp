@@ -1,31 +1,29 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
+#include <string>
 using namespace std;
 
-void camelCase(string str) {
-    string temp = "";
-    for (char c : str) {
-        if (c == '-') {
-            temp += char(toupper(c + 1));
-        } else if (!temp.empty() && c == ' ') {
-            temp[0] = toupper(temp[0]);
-            temp += string(1, c);
-        } else {
-            temp += c;
+string camelCase(string s) {
+    string res = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.size() && isspace(s[i])) i++; // skip leading spaces
+            if (!res.empty()) res += char(toupper(s[i])); // capitalize first letter of each word after first one
+        } else if (!isspace(s[i]) || i == 0) {
+            res += tolower(s[i]); // add lowercase letters
         }
     }
-    cout << temp << endl;
+    return res;
 }
 
 int main() {
-    int n; cin >> n;
-    for (int i = 0; i < n; ++i) {
-        string str;
-        cin.ignore();
-        getline(cin, str);
-        camelCase(str);
+    int n;
+    cin >> n;
+    while (n--) {
+        string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
