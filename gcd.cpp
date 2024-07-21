@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,19 +22,19 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    std::cout << "Enter two integers for GCD: ";
-    std::cin >> a;
-    std::cin.ignore();
-    std::cin >> b;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string s1, s2;
+    std::cout << "Enter two numbers for GCD: ";
+    getline(std::cin, s1);
+    std::cout << "for GCD: ";
+    getline(std::cin, s2);
+    int a = stoi(s1), b = stoi(s2);
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
     std::cout << "Enter the target string for Indices of Substring: ";
-    std::getline(std::cin, target);
+    getline(std::cin, target);
     std::cout << "Enter the text string for Indices of Substring: ";
-    std::getline(std::cin, text);
+    getline(std::cin, text);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
