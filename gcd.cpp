@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
@@ -28,13 +29,13 @@ int main() {
     std::cout << "for GCD: ";
     getline(std::cin, s2);
     int a = stoi(s1), b = stoi(s2);
-    std::cout << gcd(a, b) << std::endl;
+    std::cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cout << "Enter the target string for Indices of Substring: ";
-    getline(std::cin, target);
     std::cout << "Enter the text string for Indices of Substring: ";
     getline(std::cin, text);
+    std::cout << "Enter the target string for Indices of Substring: ";
+    getline(std::cin, target);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
