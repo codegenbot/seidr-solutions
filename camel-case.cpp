@@ -1,43 +1,37 @@
-Here is the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string toCamelCase(string s) {
-    string result = "";
-    int i = 0;
+std::string toCamelCase(const std::string& str) {
+    std::string result;
+    size_t pos = 0;
     
-    while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
-            continue;
-        }
-        
-        if (result != "") {
-            result += toupper(s[i]);
+    while (pos < str.size()) {
+        if (str.find('-', pos) != std::string::npos) {
+            pos = str.find('-', pos);
+            result += toupper(str.substr(pos + 1, 1));
+            result += tolower(str.substr(pos + 2, str.find(' ', pos) - pos - 2));
+            pos = str.find(' ', pos);
+        } else if (str.find(' ', pos) != std::string::npos) {
+            pos = str.find(' ', pos);
+            result += toupper(str.substr(pos + 1, 1));
+            result += tolower(str.substr(pos + 2, str.rfind(' ') - pos - 1));
         } else {
-            result += tolower(s[i]);
+            if (str.size() > pos + 1) {
+                result += toupper(str[pos]);
+                result += tolower(str.substr(pos + 1));
+            } else {
+                return str;
+            }
         }
-        i++;
     }
     
     return result;
 }
 
 int main() {
-    string s;
-    while (true) {
-        cout << "Enter a kebab-case string or 'quit' to stop: ";
-        cin >> s;
-        
-        if (s == "quit")
-            break;
-        
-        cout << "CamelCase: " << toCamelCase(s) << endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << toCamelCase(input) << '\n';
     }
-    
     return 0;
 }
