@@ -33,8 +33,11 @@ int main() {
     std::cout << "Enter the text string for Indices of Substring: ";
     std::cin >> text;
     std::cin.ignore();
-    std::getline(std::cin, target);
+    std::getline(std::cin, text);
     std::cout << "Enter the target string for Indices of Substring: ";
+    std::cin >> target;
+    std::cin.ignore();
+    std::getline(std::cin, target);
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
