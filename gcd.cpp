@@ -35,7 +35,7 @@ int main() {
     std::getline(std::cin, text);
     std::cout << "Enter the target string for Indices of Substring: ";
     std::cin >> target;
-    std::cin.ignore();
+    std::cin.ignore(); 
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
