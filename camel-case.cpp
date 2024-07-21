@@ -1,38 +1,39 @@
-Here is the solution:
+Here is the completed code:
 
+#include <iostream>
 #include <string>
-using namespace std;
 
-string kebabToCamel(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            if (i > 0 && !result.empty()) {
-                result.push_back(char(toupper(s[i+1])));
-                i++;
-            } else {
-                continue;
+std::string camelCase(std::string input) {
+    std::string output;
+    bool firstWord = true;
+
+    for (char c : input) {
+        if (c == '-') {
+            c = ' ';
+        } else if (c == ' ') {
+            if (!firstWord) {
+                output.push_back(toupper(c));
             }
-        } else if (s[i] == ' ') {
-            result.append(" ");
-            while (s[i+1] == '-') {
-                i++;
-            }
+            firstWord = false;
         } else {
-            if (result.empty()) {
-                result += tolower(s[i]);
+            if (!firstWord) {
+                output.push_back(tolower(c));
             } else {
-                result.push_back(char(toupper(s[i])));
+                output += toupper(c);
+                firstWord = false;
             }
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    string s;
-    cout << "Enter a string in kebab-case: ";
-    getline(cin, s);
-    cout << kebabToCamel(s) << endl;
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
+
     return 0;
 }
