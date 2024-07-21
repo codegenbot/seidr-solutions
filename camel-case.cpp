@@ -1,33 +1,23 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            result += (firstWord)? toupper(str[str.find(c)+1]) : char(toupper((int)c));
-            firstWord = false;
-        } else if (c == ' ') {
-            result += toupper(c);
-            firstWord = true;
+string camelCase(string s) {
+    string res = "";
+    int count = 0;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '-') {
+            res += toupper(s[i+1]);
+            i++;
+            while(i < s.length() && (s[i] == '-' || s[i] == ' ')) {
+                i++;
+            }
+            count = 0;
+        } else if(count > 0) {
+            res += tolower(s[i]);
+            count++;
         } else {
-            result += c;
+            res += s[i];
+            count = 1;
         }
     }
-    
-    return result;
-}
-
-int main() {
-    std::string str;
-    while (true) {
-        std::cout << "Enter a string in kebab-case: ";
-        std::cin >> str;
-        if (!str.size())
-            break;
-        std::cout << "The camelCase equivalent is: " << camelCase(str) << std::endl;
-    }
-    return 0;
+    return res;
 }
