@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -38,7 +36,7 @@ int main() {
     std::string target;
     std::cout << "Enter the target string for Indices of Substring: ";
     std::cin >> target;
-    std::cin.ignore(); 
+    std::cin.ignore();
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
