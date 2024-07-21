@@ -30,11 +30,11 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cout << "Enter the target string for Indices of Substring: ";
-    std::getline(std::cin, target);
-    
     std::cout << "Enter the text string for Indices of Substring: ";
-    std::getline(std::cin, text);
+    std::cin >> text;
+    std::cin.ignore();
+    std::getline(std::cin, target);
+    std::cout << "Enter the target string for Indices of Substring: ";
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
