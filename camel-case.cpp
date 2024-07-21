@@ -1,31 +1,43 @@
+Here is the completed code:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string kebabToCamel(string str) {
+string toCamelCase(string s) {
     string result = "";
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == '-') {
-            result += toupper(str[++i]);
-        } else if (!result.empty() && islower(str[i])) {
-            result += toupper(str[i]) + tolower(str[i+1]);
+    int i = 0;
+    
+    while (i < s.length()) {
+        if (s[i] == '-') {
             i++;
-        } else {
-            result += str[i];
+            continue;
         }
+        
+        if (result != "") {
+            result += toupper(s[i]);
+        } else {
+            result += tolower(s[i]);
+        }
+        i++;
     }
+    
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        string s;
+    string s;
+    while (true) {
+        cout << "Enter a kebab-case string or 'quit' to stop: ";
         cin >> s;
-        cout << kebabToCamel(s) << endl;
+        
+        if (s == "quit")
+            break;
+        
+        cout << "CamelCase: " << toCamelCase(s) << endl;
     }
+    
     return 0;
 }
