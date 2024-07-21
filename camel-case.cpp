@@ -1,35 +1,47 @@
+Here is the completed code:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string output;
-    int i = 0;
+using namespace std;
 
-    while (i < input.length()) {
-        if (input[i] == '-') {
-            i++;
-            output += toupper(input[i]);
-        } else {
-            if (output.length() > 0 && output[output.length()-1] != '.') {
-                output += ' ';
+string kebabToCamel(const string& str) {
+    string result;
+    size_t start = 0;
+    
+    while (start < str.length()) {
+        size_t end = str.find('-', start);
+        if (end == string::npos) {
+            // last part, convert to camelCase and return
+            string part = str.substr(start);
+            for (size_t i = 1; i < part.length(); ++i) {
+                result += toupper(part[i]);
             }
-            output += tolower(input[i]);
+            return result + part[0];
         }
-        i++;
+        
+        size_t len = end - start;
+        if (len > 0) {
+            // not the first part, convert to camelCase and add
+            string part = str.substr(start, len);
+            for (size_t i = 1; i < part.length(); ++i) {
+                result += toupper(part[i]);
+            }
+            result += part[0];
+        }
+        
+        start = end + 1;
     }
-
-    return output;
+    
+    return str; // nothing to convert
 }
 
 int main() {
-    std::string input;
-
-    while (true) {
-        std::cout << "Enter a kebab-case string: ";
-        std::getline(std::cin, input);
-        if (input == "nospaceordash") break;
-        std::cout << "CamelCase: " << camelCase(input) << "\n";
-    }
-
+    cout << kebabToCamel("nospaceordash") << endl;
+    cout << kebabToCamel("two-words") << endl;
+    cout << kebabToCamel("two words") << endl;
+    cout << kebabToCamel("all separate words") << endl;
+    
     return 0;
 }
