@@ -1,32 +1,27 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string str) {
-    string output = "";
-    int i = 0;
-    
-    while(i < str.length()) {
-        if(str[i] != '-') {
-            if(i == 0 || str[i - 1] == ' ')
-                output += toupper(str[i]);
-            else
-                output += tolower(str[i]);
-        } else {
-            i++;
+std::string camelCase(std::string s) {
+    std::string result = "";
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '-') {
+            if (result.empty()) {
+                continue;
+            }
+            result[0] = toupper(result[0]);
+            break;
+        } else if (s[i] == ' ') {
+            continue;
         }
-        
-        while(i < str.length() && str[i] == '-') 
-            i++;
+        result += tolower(s[i]);
     }
-    
-    return output;
+    return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter the input: ";
-    getline(cin, str);
-    cout << "Output: " << camelCase(str) << endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
+    }
     return 0;
 }
