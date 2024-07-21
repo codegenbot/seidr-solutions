@@ -5,10 +5,12 @@
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
-    size_t found = 0;
-    while ((found = text.find(target, found)) != std::string::npos) {
+    int start = 0;
+    while (start < text.size()) {
+        size_t found = text.find(target, start);
+        if (found == std::string::npos) break;
         indices.push_back(found);
-        found += target.size();
+        start = found + 1;
     }
     return indices;
 }
@@ -23,17 +25,18 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cout << "Enter two integers for GCD: ";
-    std::cin >> a;
-    std::cin.ignore();
-    std::cin >> b;
+    while (!(std::cin >> a && std::cin >> b)) { 
+        std::cout << "Invalid input. Please enter two non-zero and non-negative integers.\n";
+        std::cin.clear(); 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    }
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
     std::cout << "Enter the text string for Indices of Substring: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target string for Indices of Substring: ";
-    std::cin >> target;
-    std::cin.ignore();
+    std::getline(std::cin, target); 
     std::vector<int> result = findIndices(text, target);
     for (int i : result)
         std::cout << i << " ";
