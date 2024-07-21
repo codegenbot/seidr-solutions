@@ -1,37 +1,31 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(const std::string& str) {
-    std::string result;
-    size_t pos = 0;
-    
-    while (pos < str.size()) {
-        if (str.find('-', pos) != std::string::npos) {
-            pos = str.find('-', pos);
-            result += toupper(str.substr(pos + 1, 1));
-            result += tolower(str.substr(pos + 2, str.find(' ', pos) - pos - 2));
-            pos = str.find(' ', pos);
-        } else if (str.find(' ', pos) != std::string::npos) {
-            pos = str.find(' ', pos);
-            result += toupper(str.substr(pos + 1, 1));
-            result += tolower(str.substr(pos + 2, str.rfind(' ') - pos - 1));
+using namespace std;
+
+void camelCase(string str) {
+    string temp = "";
+    for (char c : str) {
+        if (c == '-') {
+            temp += char(toupper(c + 1));
+        } else if (!temp.empty() && c == ' ') {
+            temp[0] = toupper(temp[0]);
+            temp += string(1, c);
         } else {
-            if (str.size() > pos + 1) {
-                result += toupper(str[pos]);
-                result += tolower(str.substr(pos + 1));
-            } else {
-                return str;
-            }
+            temp += c;
         }
     }
-    
-    return result;
+    cout << temp << endl;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << toCamelCase(input) << '\n';
+    int n; cin >> n;
+    for (int i = 0; i < n; ++i) {
+        string str;
+        cin.ignore();
+        getline(cin, str);
+        camelCase(str);
     }
     return 0;
 }
