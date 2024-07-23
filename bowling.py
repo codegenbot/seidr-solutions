@@ -8,6 +8,5 @@ def bowling_score(game):
             elif '-' not in frame: 
                 score += int(frame) + (int(roll[i+1]) if len(roll) > i + 1 else 0)
             else: 
-                split_roll = list(map(int, frame.split('-')))
-                score += sum(split_roll) + (int(roll[i+1]) if i < 8 else 10)
+                score += sum(list(map(int, frame.split('-')))) + (int(roll[i+1]) if i < 8 else 10)
     return score
