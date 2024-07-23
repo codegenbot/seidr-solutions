@@ -1,6 +1,3 @@
-#include <string>
-#include <iostream>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -19,20 +16,11 @@ int mastermind(std::string code, std::string guess) {
             }
         }
         if (count > 1) {
-            white += count - 1;
+            white++;
         } else if (count == 1) {
-            black--;
+            black++;
         }
     }
 
     return black + white;
-
-}
-
-int main() {
-    std::string code, guess;
-    std::getline(std::cin, code);
-    std::getline(std::cin, guess);
-    std::cout << mastermind(code, guess) << std::endl;
-    return 0;
 }
