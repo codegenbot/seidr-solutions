@@ -10,7 +10,10 @@ def main():
         user_input = input(
             "Enter a list of integers separated by space (or 'q' to quit): "
         )
+        result = None
         if user_input.lower() == "q":
+            if result is not None:
+                print(f"Are there any numbers below zero? {result}")
             break
         try:
             numbers = [num for num in user_input.split() if num.isdigit()]
@@ -20,7 +23,7 @@ def main():
                     operations.append(int(num))
                 except ValueError:
                     print(
-                        f"Invalid operation '{num}'. Please enter a list of integers separated by spaces."
+                        f"Invalid input '{num}'. Please enter a list of integers separated by spaces."
                     )
                     break
             result = below_zero(operations)
