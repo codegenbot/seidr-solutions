@@ -1,20 +1,23 @@
-#include <vector>
-#include <algorithm>
-#include <string>
-#include <initializer_list>
-
-std::vector<std::string> select_words(std::string s, int k) {
-    std::vector<std::string> words;
-    std::istringstream iss(s);
-    for (std::string word; iss >> word;) {
-        if (word.size() >= k) {
-            words.push_back(word.substr(0, k));
+```cpp
+vector<string> select_words(string s, int k) {
+    vector<string> words;
+    string temp = "";
+    for(int i=0; i<s.length();i++){
+        if(s[i] == ' ')
+            continue;
+        else{
+            temp += s[i];
         }
+    }
+    for(int i=0; i<=temp.length();i+=k){
+        if(i+k>temp.length())
+            break;
+        words.push_back(temp.substr(i,k));
     }
     return words;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){
+bool isSame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size();i++){
