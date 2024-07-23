@@ -1,5 +1,4 @@
 #include <string>
-
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
@@ -27,3 +26,4 @@ int bowlingScore(string s) {
     }
 
     return score;
+}
