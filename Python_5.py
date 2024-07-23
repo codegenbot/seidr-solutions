@@ -1,10 +1,7 @@
-from typing import List
-
-
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
     while True:
         try:
-            if not numbers:
+            if not numbers or len(numbers) == 0:
                 print("Error: Please provide at least one number.")
                 numbers = input(
                     "Enter a list of integers separated by space or comma: "
