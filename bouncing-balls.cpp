@@ -17,6 +17,8 @@ int main() {
     }
     totalDistance *= bouncinessIndex;
 
-    std::cout << std::fixed << std::setprecision(6) << "The total distance traveled by the ball is: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: ";
+    std::cout << std::setprecision(6) << std::fixed;
+    std::cout << totalDistance << std::endl;
     return 0;
 }
