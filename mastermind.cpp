@@ -2,29 +2,22 @@
 #include <string>
 #include <utility>
 
-using namespace std;
-
 pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
-    
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        }
-    }
-
-    for (char c : code) {
-        bool found = false;
-        for (int i = 0; i < 4; i++) {
-            if (c == guess[i]) {
-                found = true;
-                break;
+        } else {
+            bool isWhitePeg = false;
+            for (int j = 0; j < 4; j++) {
+                if (guess[j] == code[i] && !isWhitePeg) {
+                    whitePegs++;
+                    isWhitePeg = true;
+                }
             }
         }
-        if (!found) whitePegs++;
     }
-
     return make_pair(blackPegs, whitePegs);
 }
 
