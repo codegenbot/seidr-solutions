@@ -1,4 +1,3 @@
-if(a.length() != b.length()) return false;
-    string temp = b + b;
-    return (temp.find(a) != string::npos);
+string temp = a + a;
+    return temp.find(b) != string::npos;
 }
