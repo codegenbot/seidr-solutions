@@ -1,11 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <cassert>
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
-std::vector<float> find_closest_elements(const std::vector<float>& arr);
+#include <cmath>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
