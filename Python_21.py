@@ -1,14 +1,15 @@
-```
 from typing import List
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
-    min_val = min(numbers)
-    max_val = max(numbers)
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
 
-numbers = input("Enter some numbers separated by space: ")
-numbers = list(map(float, numbers.split()))
+def rescale_to_unit():
+    numbers = input("Enter a list of floats separated by space: ").split()
+    try:
+        numbers = [float(num) for num in numbers]
+        min_val = min(numbers)
+        max_val = max(numbers)
+        print([str((x - min_val) / (max_val - min_val)) for x in numbers])
+    except ValueError:
+        print("Invalid input. Please enter a list of floats separated by space.")
 
-result = rescale_to_unit(numbers)
 
-print(result)
+rescale_to_unit()
