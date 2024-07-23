@@ -6,8 +6,8 @@ bool same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    std::vector<int> result(numbers.begin(), numbers.end());
+std::vector<int> removeDuplicates(initializer_list<int> numbers) {
+    std::vector<int> result(numbers);
     auto it = std::unique(result.begin(), result.end());
     result.erase(it, result.end());
     return result;
