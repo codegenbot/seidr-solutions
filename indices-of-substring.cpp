@@ -1,11 +1,13 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
+    int i = 0;
+    while (i <= text.size() - target.size()) {
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
             if (text[i + j] != target[j]) {
@@ -15,6 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
+            i++; // Don't miss next match
+        } else {
+            i++; // Move to the next character
         }
     }
     return result;
