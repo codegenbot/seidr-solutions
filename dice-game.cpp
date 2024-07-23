@@ -1,16 +1,12 @@
 #include <algorithm>
 
 double diceGame(int n, int m) {
-    double total = n * m;
+    double total = 1.0 * n * m / (m*n);
     double petersWin = 0.0;
 
-    for (int i = m - 1; i >= 1; i--) { 
-        petersWin += (n - i) / (double)(n * m);
+    for (int i = 1; i <= std::min(m, n); i++) { 
+        petersWin += (i+1) / (double)(n*m-i-1+i);
     }
 
     return petersWin;
-}
-
-int main() {
-    return diceGame(6, 6);
 }
