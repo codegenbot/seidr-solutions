@@ -1,3 +1,4 @@
+```
 def dfs(i, j, path):
     if len(path) > k:
         return []
@@ -12,3 +13,15 @@ def dfs(i, j, path):
             paths.extend(new_path)
     visited[i][j] = False
     return paths
+
+def minPath(grid, k):
+    n = len(grid)
+    res = []
+    visited = [[False] * n for _ in range(n)]
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    for i in range(n):
+        for j in range(n):
+            if not visited[i][j]:
+                res.extend(dfs(i, j, []))
+    return res
