@@ -1,5 +1,5 @@
+```
 def decipher_message(cipher1, cipher2, message):
-    case = len([char for char in cipher1 if char.isupper]) > 0
     encrypt_map = {}
     decrypt_map = {}
     for (c1, c2) in zip_longest(cipher1, cipher2):
@@ -8,5 +8,5 @@ def decipher_message(cipher1, cipher2, message):
                 encrypt_map[c1.upper() if c1.isupper() else c1.lower()] = c2.upper() if c2.isupper() else c2.lower()
             elif c2.isalpha():
                 decrypt_map[c2] = c1
-    result = "".join(decrypt_map.get(char.upper() if case else char.lower(), char) for char in message)
+    result = "".join(decrypt_map.get(char.upper() if char.isupper() else char.lower(), char) for char in message)
     return result
