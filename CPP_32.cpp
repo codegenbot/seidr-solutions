@@ -1,56 +1,40 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-std::vector<double> inputVector() {
-    int n;
-    std::cout << "Enter the number of coefficients: ";
-    std::cin >> n;
-    std::vector<double> coeffs(n);
-    
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter coefficient " << i+1 << ": ";
-        std::cin >> coeffs[i];
-    }
-    
-    return coeffs;
-}
-
-double findZero(std::vector<double> coeffs, double x, double tolerance) {
-    double zero = x;
-    while (true) {
-        double polyValue = 0.0;
-        for (int i = 0; i < coeffs.size(); ++i) {
-            polyValue += coeffs[i] * pow(zero, i);
-        }
-        
-        if (std::abs(polyValue) < tolerance)
-            return zero;
-        
-        double derivative = 0.0;
-        for (int i = 1; i < coeffs.size(); ++i) {
-            derivative += i * coeffs[i] * pow(zero, i-1);
-        }
-        
-        zero -= polyValue / derivative;
-    }
-}
-
-double poly(std::vector<double> coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
+```cpp
+double poly(vector<double> coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
     }
-    
     return result;
 }
 
-int main() {
-    std::vector<double> coeffs = inputVector();
-    double x = 1.0; // initial guess
-    double tolerance = 1e-6;
-    double zero = findZero(coeffs, x, tolerance);
-    std::cout << "The root of the polynomial is: " << zero << std::endl;
+double find_zero(vector<double> coeffs) {
+    double x = 1.0;
+    double epsilon = 1e-6;
     
-    return 0;
+    while (true) {
+        double poly_val = poly(coeffs, x);
+        double derivative = 0;
+        
+        for (int i = 0; i < coeffs.size(); i++) {
+            if (i == 0)
+                continue;
+            derivative += i * coeffs[i] * pow(x, i - 1);
+        }
+        
+        double new_x = x - poly_val / derivative;
+        
+        if (abs(new_x - x) < epsilon)
+            return x;
+        x = new_x;
+    }
+}
+
+int main() {
+    vector<double> coeffs(3); 
+    double solution = 0.0;
+    
+    for (double i = 1.5; i < 3.0; i += 0.05) {
+        double val = poly(coeffs, i);
+        //assert(abs(val)< 1e-3); 
+    }
 }
