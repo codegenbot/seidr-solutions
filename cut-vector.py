@@ -6,8 +6,11 @@ half_sum = total_sum // 2
 current_sum = 0
 idx = 0
 
-while current_sum + nums[idx] <= half_sum:
-    current_sum += nums[idx]
+while idx < n:
+    if current_sum + nums[idx] <= half_sum:
+        current_sum += nums[idx]
+    else:
+        break
     idx += 1
 
 if abs(current_sum - half_sum) <= abs(current_sum + nums[idx] - half_sum):
