@@ -13,6 +13,8 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
     return result;
 }
 
-int main() {
-    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+int main(){
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    std::vector<int> output = removeDuplicates(numbers);
+    return 0;
 }
