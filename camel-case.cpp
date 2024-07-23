@@ -1,23 +1,26 @@
+#include <string>
 #include <sstream>
-#include <cctype>
 
 std::string camelCase(std::string str) {
-    std::istringstream iss(str);
+    std::stringstream ss(str);
     std::string word;
-    std::string result;
-
-    while (iss >> word) {
+    std::string result = "";
+    
+    while (std::getline(ss, word, '-')) {
         if (!result.empty()) {
-            result += std::toupper(word[0]);
-            for (int i = 1; i < word.length(); ++i) {
-                result += tolower((char)word[i]);
-        } else {
-            result += tolower((char)word[0]);
-            for (int i = 1; i < word.length(); ++i) {
-                result += (char)word[i];
-            }
+            result += std::string(1, (word[0] >= 'a' && word[0] <= 'z') ? ' ' : '\0');
         }
+        
+        for (char& c : word) {
+            c = static_cast<char>(std::toupper(c));
+        }
+        
+        if (!result.empty()) {
+            result += " ";
+        }
+        
+        result += word;
     }
-
+    
     return result;
 }
