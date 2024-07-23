@@ -1,16 +1,14 @@
 int main() {
     string tweet;
     getline(cin, tweet);
-    
-    int tweetLength = tweet.length();
-    
-    if (tweetLength > 140) {
-        cout << "Too many characters";
-    } else if (tweetLength == 0) {
+
+    if (tweet.empty()) {
         cout << "You didn't type anything";
+    } else if (tweet.size() > 140) {
+        cout << "Too many characters";
     } else {
-        cout << "Your tweet has " << tweetLength << " characters";
+        cout << "Your tweet has " << tweet.size() << " characters";
     }
-    
+
     return 0;
 }
