@@ -1,6 +1,8 @@
-```cpp
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
+#include <vector>
+#include <string>
+
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+    std::vector<std::string> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
             result.push_back(s);
