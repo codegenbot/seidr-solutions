@@ -3,7 +3,7 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     if paren_string.startswith('(\n') and paren_string.endswith(')\n'):
-        return [paren_string[2:-3].strip()]
+        return [paren_string[2:-3]]
 
     stack = []
     groups = []
@@ -16,7 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             current_group += char
         elif char == ')':
-            while stack and stack[-1] != '(':
+            while stack and (stack[-1] != '(' or char != '\n'):
                 current_group += stack.pop()
             if stack: 
                 current_group += stack.pop()
