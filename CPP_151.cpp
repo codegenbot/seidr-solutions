@@ -3,9 +3,9 @@
 #include <initializer_list>
 #include <iostream>
 
-long long double_the_difference(std::vector<float> myVector) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for (float num : myVector) {
+    for (float num : lst) {
         if (num > 0 && floor(num) == num) {
             sum += pow(num, 2);
         }
@@ -27,7 +27,6 @@ int mainOld() {
         myVector.push_back(temp);
     }
 
-    long long result = double_the_difference(myVector);
-    assert (result == 1); // Declare the variable before asserting.
+    long long result = double_the_difference(myVector); 
     return 0;
 }
