@@ -6,4 +6,4 @@ def car_race_collision(num_cars=0):
     for i in range(num_cars):
         speed = int(input(f"Enter speed of car {i+1}: "))
         total_speed *= speed
-    return int(math.pow(total_speed, 1/num_cars))
+    return math.ceil(math.pow(total_speed, 1/num_cars))
