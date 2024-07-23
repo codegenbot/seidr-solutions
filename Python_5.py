@@ -1,8 +1,7 @@
 from typing import list
 
-
-def intersperse(numbers: list[int], delimeter: int) -> list[int]:
-    result = [delimeter]
+def intersperse(numbers: list[int], delimiter: int) -> list[int]:
+    result = [delimiter]
     for i in range(len(numbers)):
-        result.extend([numbers[i], delimeter])
+        result.extend([numbers[i], delimiter])
     return result
