@@ -1,13 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
     
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
+    }
+    
+    if (nums.empty()) {
+        return 0;
     }
     
     int n = nums.size();
@@ -15,7 +22,7 @@ int main() {
     int cut_index = 0;
     
     for (int i = 1; i < n; ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
@@ -23,14 +30,14 @@ int main() {
     }
     
     for (int i = 0; i < cut_index; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << "\n";
     }
-    std::cout << std::endl;
+    cout << "\n";
     
     for (int i = cut_index; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << "\n";
     }
-    std::cout << std::endl;
+    cout << "\n";
     
     return 0;
 }
