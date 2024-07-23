@@ -1,13 +1,19 @@
-#include <boost/any.hpp>
-#include <boost/type_traits.hpp>
+```cpp
+#include <iostream>
+#include <vector>
 
-vector<int> filter_integers(boost::any_list values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<bool>(value)) {
-            int val = boost::any_cast<int>(value);
-            result.push_back(val);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+int main() {
+    // your code
 }
