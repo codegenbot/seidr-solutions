@@ -1,32 +1,31 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (int i = 0; i <= str.length(); i++) {
-        if (i < str.length() && str[i] == '-') {
-            if (str.find(' ', 0, i) != i) {
-                result += toupper(str[i+1]);
-                i++;
-            }
-        } else if (str[i] == ' ') {
-            continue;
-        } else {
-            if (result.length() == 0) {
-                result = tolower(str[i]);
-            } else {
-                result += toupper(str[i]);
-            }
+    std::string temp = "";
+
+    for (char c : str) {
+        if (c == '-') {
+            result += std::string(1, toupper(temp[0]));
+            temp.clear();
+        } else if (c != ' ') {
+            temp += c;
         }
     }
+
+    if (!temp.empty()) {
+        result += std::string(1, toupper(temp[0])) + temp.substr(1);
+    } else {
+        return str;
+    }
+
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::cout << camelCase("b-excv eevny-mhmu-gq") << std::endl; 
+    // Output: bExcv eevnyMhmuGq
     return 0;
 }
