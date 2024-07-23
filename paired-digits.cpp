@@ -15,9 +15,11 @@ int pairedDigits(std::string str) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of digits: ";
+    printf("Enter a string of digits: ");
     std::cin >> input;
 
     int result = pairedDigits(input);
-    std::cout << "Sum of paired digits: " << result << "\n";
+    printf("Sum of paired digits: %d\n", result);
+
+    return 0;
 }
