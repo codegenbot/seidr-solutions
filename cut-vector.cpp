@@ -4,16 +4,17 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
+    pair<int, int> diff_pair;
     int min_diff = INT_MAX;
-    int idx = 0;
     for (int i = 1; i < n; i++) {
         int diff = abs(vec[i] - vec[i-1]);
         if (diff <= min_diff) {
             min_diff = diff;
-            idx = i;
+            diff_pair.first = i;
+            diff_pair.second = i;
         }
     }
-    return {{vec[0]}, {vec[idx], vec.back()}};
+    return {{vec.begin(), vec.begin() + diff_pair.first}}, {vec.begin() + diff_pair.first, vec.end()}};
 }
 
 int main() {
