@@ -1,12 +1,10 @@
-```
-#include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+std::vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     for (int i = 0; ; i++) {
         size_t pos = text.find(target, i);
-        if (pos == std::string::npos) break;
+        if (pos == string::npos) break;
         result.push_back(pos);
         i = pos;
     }
