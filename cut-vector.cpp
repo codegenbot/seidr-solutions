@@ -7,15 +7,11 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num = 0;
+    int num;
     
-    do {
-        cin >> num;
-        if (num == 0) {
-            break;
-        }
+    while (cin >> num) {
         nums.push_back(num);
-    } while (true);
+    }
     
     int n = nums.size();
     int sum = 0;
@@ -39,13 +35,13 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << ' ';
+        cout << nums[i] << '\n';
     }
     
-    cout << '\n';
+    cout << 0 << '\n';
     
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << ' ';
+        cout << nums[i] << '\n';
     }
 
     return 0;

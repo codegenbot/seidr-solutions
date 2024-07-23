@@ -6,11 +6,14 @@ int main() {
     int n;
     while (std::cin >> n) {
         nums.push_back(n);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += std::max(0, num / 3 - 2); // Updated calculation
+        sum += (num / 3) - 2;
     }
     
     std::cout << sum << std::endl;

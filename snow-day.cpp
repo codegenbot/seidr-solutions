@@ -10,6 +10,9 @@ int main() {
         float snow_fall = snow_fall_rate;
         float snow_melt = snow_melt_rate * snow_on_ground;
         snow_on_ground += snow_fall - snow_melt;
+        if (snow_on_ground < 0) {
+            snow_on_ground = 0;
+        }
     }
 
     std::cout.precision(17);
