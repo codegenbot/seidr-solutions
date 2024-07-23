@@ -4,7 +4,10 @@ def fibfib(n: int):
     elif n == 2:
         return 1
     else:
-        a, b = 0, 1
-        for _ in range(3, min(93, n + 1)):
-            a, b = b, a + b
-        return b
+        if n == 2:
+            return 1
+        elif n > 2:
+            a, b = 0, 1
+            for _ in range(3, n + 1):
+                a, b = b, a + b
+            return b
