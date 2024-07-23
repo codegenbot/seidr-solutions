@@ -10,19 +10,13 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : unique(code.begin(), code.end())) {
+    for (char c : code) {
         int count = 0;
         for (char d : guess) {
             if (c == d && c != guess[guess.find(c)]) {
                 white++;
                 break;
             }
-            else if (c == d) {
-                count++;
-            }
-        }
-        if (count < 1) {
-            black++;
         }
     }
 
