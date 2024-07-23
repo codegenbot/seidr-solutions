@@ -1,18 +1,4 @@
-```c++
-#include <vector>
-#include <cmath>
-#include <iostream>
-
-int fuelCost(std::vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        double temp = static_cast<double>(i) / 3; 
-        sum += static_cast<int>(std::floor(temp)) - 2; 
-    }
-    return sum;
-}
-
-int main() {
+```int main() {
     std::vector<int> input;
     int n;
     while (true) {
@@ -28,5 +14,5 @@ int main() {
     }
     int output = fuelCost(input);
     std::cout << "The total fuel cost is: " << output << std::endl;
-    return 0
-}
+} // <--- Add this curly brace
+    return 0;
