@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -17,7 +18,7 @@ int main() {
         totalDistance += 2 * (heightFirstBounce - heightStart) * pow(bouncinessIndex, i-1);
     }
 
-    cout << fixed << std::setf(std::ios_base::floatfield, std::ios_base::fixed) << totalDistance;
+    cout << fixed << std::setf(ios_base::floatfield, ios_base::fixed) << totalDistance;
 
     return 0;
 }
