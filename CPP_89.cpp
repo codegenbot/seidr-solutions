@@ -1,8 +1,10 @@
-string encrypted = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char encryptedChar = islower(c) ? 'a' + (c - 'a' + 2 * 2) % 26 : 'A' + (c - 'A' + 2 * 2) % 26;
-            encrypted += encryptedChar;
+string encrypt(string s){
+    string encrypted = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            char new_char = base + ((c - base + 2) * 2) % 26;
+            encrypted += new_char;
         } else {
             encrypted += c;
         }
