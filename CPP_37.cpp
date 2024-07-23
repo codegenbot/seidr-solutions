@@ -19,7 +19,7 @@ vector<float> sort_even(vector<float> l) {
                 }
             }
             sort(even.begin(), even.end());
-            result.push_back(*even.rbegin()); // modify this line
+            result.push_back(*even.rbegin()); // modified this line
         } else {
             result.push_back(l[i]);
         }
