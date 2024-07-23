@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <cassert>
@@ -7,13 +8,12 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
     
     for (int i = 1; i < numbers.size(); ++i) {
         if (operations[i-1] == "+") {
-            if (operations[i-2] == "//") {
-                result /= numbers[i - 1];
-            } else {
-                result += numbers[i];
-            }
+            result += numbers[i];
         } else if (operations[i-1] == "*") {
-            result *= numbers[i];
+            if (operations[i-2] == "//" && numbers[i-1] != 0)
+                result /= numbers[i-1];
+            else
+                result *= numbers[i];
         }
     }
     
