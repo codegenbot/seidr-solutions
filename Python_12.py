@@ -22,8 +22,4 @@ while True:
         break
     strings.append(line)
 
-result = longest(strings)
-if result == "No strings entered":
-    print(result)
-else:
-    print(f"The longest string is: {result}")
+print(f"The longest string is: {longest(strings)}" if longest(strings) else "No strings entered")
