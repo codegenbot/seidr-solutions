@@ -10,4 +10,4 @@ bool correct_bracketing(string brackets) {
             count--;
         }
     }
-    return count == 0 || count > 0;
+    return count == 0;
