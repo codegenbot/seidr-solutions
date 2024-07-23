@@ -3,17 +3,17 @@ from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if not isinstance(numbers, list):
-        raise ValueError("Input is expected to be a list")
-    for num in numbers:
-        if not isinstance(num, int):
-            raise ValueError("List elements are expected to be integers")
+        numbers = [numbers]
+    
+    if not all(isinstance(num, int) for num in numbers[0]):
+        return []
 
-    if len(numbers) == 1:
-        result = [numbers[0]] * (len(numbers) - 1)
-        result.insert(0, numbers[0])
-        result.extend([delimiter] + ([numbers[0]] * (len(numbers) - 2)))
-    else:
-        result = [numbers[0]]
-        for i in range(1, len(numbers)):
-            result.extend([delimiter, numbers[i]])
-    return [i for i in result if isinstance(i, int)]
+    if len(delimiter) != 1:
+        return []
+
+    result = []
+    for i, num in enumerate(numbers):
+        if i > 0:
+            result.append(delimiter)
+        result.extend([str(num)] * (len(numbers) - i))
+    return [int(i) for i in result]
