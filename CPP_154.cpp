@@ -1,2 +1,7 @@
-return (a.size() == b.size() && (a + a).find(b) != string::npos);
+int n = a.size();
+    int m = b.size();
+    if (n != m) return false;
+    a += a;
+    
+    return a.find(b) != string::npos;
 }
