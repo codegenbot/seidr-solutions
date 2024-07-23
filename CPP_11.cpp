@@ -17,8 +17,11 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a = "0101";
-    string b = "0000";
-    cout << string_xor(a, b) << endl;
+    string a, b;
+    cout << "Enter the first number: ";
+    cin >> a;
+    cout << "Enter the second number: ";
+    cin >> b;
+    cout << "The XOR of " << a << " and " << b << " is " << string_xor(a, b) << endl;
     return 0;
 }
