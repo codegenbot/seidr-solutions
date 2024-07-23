@@ -8,12 +8,14 @@ int main() {
         if (!(std::cin >> n)) break;
         nums.push_back(n);
     }
+    
+    if (nums.empty()) return 0;
 
     int sum = 0;
     for (int num : nums) {
         sum += num;
     }
-    
+
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
