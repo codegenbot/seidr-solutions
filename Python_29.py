@@ -4,14 +4,19 @@ from typing import List
 def filter_by_prefix():
     while True:
         try:
-            words = input("Enter a list of strings (space-separated): ")
-            prefix = input("Enter a prefix: ")
+            input_str = input("Expected input format: <word> (<frequency>). Enter a list of strings (space-separated) and their frequencies: ")
+            words_freq = input_str.split(", ")
 
-            if not words or not prefix:
-                raise ValueError("Expected input format: word (<frequency>)")
+            if not words_freq:
+                raise ValueError("Please enter valid inputs!")
 
-            filtered_words = [word for word in words.split() if word.startswith(prefix)]
+            filtered_words = []
 
-            return filtered_words, prefix
+            for word_freq in words_freq:
+                word, freq = word_freq.strip().split(" (")
+                if len(prefix := prefix.strip()) <= len(word) and word.startswith(prefix):
+                    filtered_words.append((word, int(freq[:-1])))
+
+            return filtered_words
         except ValueError as e:
             print(f"Error: {e}")
