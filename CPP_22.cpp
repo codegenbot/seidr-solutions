@@ -11,7 +11,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> filter_integers(std::vector<int> mixedVector) {
     std::vector<int> result;
-    for (int num : mixedVector) {
+    for (auto num : mixedVector) {
         if (std::is_same_v<decltype(num), int>) {
             result.push_back(num);
         }
