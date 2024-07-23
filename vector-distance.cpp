@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 
@@ -9,4 +10,11 @@ double vectorDistance(int n) {
         sum += pow((b - a), 2);
     }
     return sqrt(sum);
+}
+
+int main() {
+    int n;
+    std::cin >> n; 
+    double result = vectorDistance(n); 
+    return 0;
 }
