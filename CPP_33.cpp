@@ -1,18 +1,10 @@
-vector<int> sorted_indices;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sorted_indices.push_back(i);
-        }
+for(int i = 0; i < l.size(); ++i) {
+    if((i+1)%3 == 0){
+        vector<int> temp{l.begin() + i - 2, l.begin() + i + 1};
+        sort(temp.begin(), temp.end());
+        l.erase(l.begin() + i - 2, l.begin() + i + 1);
+        l.insert(l.begin() + i - 2, temp.begin(), temp.end());
     }
-
-    sort(sorted_indices.begin(), sorted_indices.end(), [&l](int i, int j) {
-        return l[i] < l[j];
-    });
-
-    vector<int> l_prime = l;
-    for (int i = 0; i < sorted_indices.size(); ++i) {
-        l_prime[sorted_indices[i]] = l[sorted_indices[i]];
-    }
-
-    return l_prime;
+}
+return l;
 }
