@@ -1,12 +1,12 @@
 def search(lst):
-    max_val = 0
-    i = 0
-    while i < len(lst):
-        count = 1
-        while i + 1 < len(lst) and lst[i] == lst[i+1]:
-            i += 1
-            count += 1
-        if count > max_val:
-            max_val = count
-        i += 1
+    freq = {}
+    for i in lst:
+        if i in freq:
+            freq[i] += 1
+        else:
+            freq[i] = 1
+    max_val = -1
+    for k, v in freq.items():
+        if k > 0 and v >= k:
+            max_val = k
     return max_val
