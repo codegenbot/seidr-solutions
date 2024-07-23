@@ -1,4 +1,7 @@
+```
 #include <string>
+#include <map>
+#include <cctype>
 
 bool check_dict_case(map<string, string> dict) {
     bool all_lower = true;
