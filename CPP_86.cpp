@@ -1,5 +1,5 @@
 #include <string>
-#include <algorithm>
+using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
@@ -17,4 +17,3 @@ string anti_shuffle(string s) {
         i += word.length() - 1;
     }
     return result;
-}
