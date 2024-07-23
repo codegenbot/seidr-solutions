@@ -1,5 +1,3 @@
-Here is the completed code:
-
 ```cpp
 #include<stdio.h>
 #include<vector>
