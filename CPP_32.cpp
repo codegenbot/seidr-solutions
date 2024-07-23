@@ -1,6 +1,8 @@
-#include<iostrea>
-#include<math.h>
-#include<vector>
+#include <vector>
+#include <cmath>
+#include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 double poly(vector<double> xs, double x){
@@ -20,4 +22,10 @@ double find_zero(vector<double> xs){
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
     return x;
+}
+
+int main() {
+    vector<double> xs = {2, -7, 11, -10, 3};
+    cout << fixed << setprecision(2) << find_zero(xs) << endl;
+    return 0;
 }
