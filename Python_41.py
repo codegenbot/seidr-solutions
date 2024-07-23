@@ -1,6 +1,9 @@
-def car_race_collision(n: int):
-    total_distance = 0
-    for i in range(1, n+1):
-        distance = (i * (n - i)) + ((i-1) * (i-2))
-        total_distance += distance
-    return total_distance
+def car_race_collision():
+    speed1 = int(input("Enter the speed of the first car: "))
+    speed2 = int(input("Enter the speed of the second car: "))
+
+    if speed1 > 0 and speed2 > 0:
+        collision_distance = (speed1 + speed2) / abs(speed1 - speed2)
+        return round(collision_distance)
+    else:
+        return "No collision is possible"
