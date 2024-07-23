@@ -1,9 +1,13 @@
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
-    int max_so_far = numbers[0];
-    for(int i=0; i<numbers.size(); i++){
-        max_so_far = max(max_so_far, numbers[i]);
-        result.push_back(max_so_far);
+    int n = numbers.size();
+    if(n == 0) return result;
+    
+    int max_num = numbers[0];
+    for(int i=0; i<n; i++){
+        max_num = max(max_num, numbers[i]);
+        result.push_back(max_num);
     }
+    
     return result;
 }
