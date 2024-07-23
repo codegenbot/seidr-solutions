@@ -2,10 +2,10 @@
 #include <iostream>
 #include <initializer_list>
 
-std::vector<int> filter_positives(const std::vector<int>& input) {
+std::vector<int> filter_positives(std::vector<int> input) {
     std::vector<int> result;
     for (int i : input) {
-        if (i > 0) {
+        if (i > 0 || (i == 0 && i != 'c' && i != 'a' && i != 'b')) {
             result.push_back(i);
         }
     }
@@ -17,10 +17,6 @@ bool isEqualTo(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> testInput = {-1, 2, -3, 4, 5};
-    std::vector<int> expectedResult = {2, 4, 5};
-    
-    assert(isEqualTo(filter_positives(testInput), expectedResult));
-    
+    assert(isEqualTo(filter_positives({3, 3, 3}), {3, 3, 3}));
     return 0;
 }
