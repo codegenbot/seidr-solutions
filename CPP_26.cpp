@@ -1,6 +1,7 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <unordered_map>
+#include <initializer_list>
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::unordered_map<int, bool> map;
@@ -17,23 +18,13 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> numbers(n);
-    for (auto &num : numbers) {
-        std::cout << "Enter element: ";
-        std::cin >> num;
-    }
-
+    int main();
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     std::vector<int> result = remove_duplicates(numbers);
-
-    std::cout << "Unique elements are: ";
-    for (int i = 0; i < result.size(); ++i) {
-        std::cout << result[i] << " ";
+    
+    for (int num : result) {
+        std::cout << num << " ";
     }
-    std::cout << std::endl;
-
+    
     return 0;
 }
