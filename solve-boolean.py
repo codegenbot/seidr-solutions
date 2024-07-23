@@ -1,19 +1,16 @@
-def solve_boolean():
-    input_string = input().replace(" ", "")
+s = input()  
+s = ' '.join(s.split())  
+bool_map = {'T': True, 'F': False}  
+operator_map = { '|': lambda a,b: a or b, '&': lambda a,b: a and b }  
 
-    def boolean_expression(s):
-        operations = {
-            '|': lambda a, b: bool(a) or bool(b),
-            '&': lambda a, b: bool(a) and bool(b)
-        }
+def solve_boolean(s):  
+    stack = []  
+    for c in s[::-1]:  
+        if c in bool_map:  
+            stack.append(bool_map[c])  
+        elif c in operator_map:  
+            op2 = stack.pop()  
+            op1 = stack.pop()  
+            stack.append(operator_map[c](op1, op2))  
 
-        result = True
-        temp_operator = ''
-        for char in s:
-            if char in operations:
-                temp_operator = char
-            elif char == 'T':
-                result = operations[temp_operator](result, False)
-            elif char == 'F':
-                result = operations[temp_operator](result, True)
-        return result
+    return stack[0]
