@@ -1,5 +1,5 @@
-#include <cassert>
 #include <initializer_list>
+#include <cassert>
 #include <vector>
 
 int sumOfDigits(int n) {
