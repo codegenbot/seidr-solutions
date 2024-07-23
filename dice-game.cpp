@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -14,7 +14,9 @@ double probability(int n, int m) {
         }
     }
 
-    return (double)count / total;
+    int same = (n <= m) ? n : m;
+
+    return (double)same / total;
 }
 
 int main() {
@@ -26,4 +28,5 @@ int main() {
     double result = probability(n, m);
     cout << "Probability: " << fixed << setprecision(2) << result << endl;
     return 0;
+
 }
