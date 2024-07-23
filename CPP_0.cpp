@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ bool has_close_elements(vector<float> numbers, float threshold){
 }
 
 int main(){
-    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
     if(has_close_elements(a, 0.1f))
         cout << "The vector contains elements that are within the given threshold.\n";
     else
