@@ -5,7 +5,7 @@ using namespace std;
 vector<int> f(int n) {
     vector<int> result(n);
     for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) { // check if i is even
+        if (i % 2 == 0) { 
             int factorial = 1;
             for (int j = 1; j <= i; j++) {
                 factorial *= j;
