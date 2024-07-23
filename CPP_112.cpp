@@ -1,10 +1,10 @@
-string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
+string result;
+    for(auto ch : s) {
+        if(c.find(ch) == string::npos) {
+            result.push_back(ch);
         }
     }
-    string rev_result = result;
-    reverse(rev_result.begin(), rev_result.end());
-    return {result, result == rev_result ? "True" : "False"};
+    string reverseResult = result;
+    reverse(reverseResult.begin(), reverseResult.end());
+    return {result, result == reverseResult ? "True" : "False"};
 }
