@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -12,30 +11,24 @@ int sumOfDigits(int n) {
 }
 
 bool isPrime(int num) {
-    if (num <= 1) {
+    if (num <= 1)
         return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
             return false;
-        }
-    }
     return true;
 }
 
 int findMaxPrime(const std::vector<int>& numbers) {
     int maxPrime = -1;
     for (int number : numbers) {
-        if (isPrime(number)) {
-            if (number > maxPrime) {
-                maxPrime = number;
-            }
-        }
+        if (isPrime(number))
+            maxPrime = number;
     }
     return maxPrime;
 }
 
 int main() {
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
+    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
     return 0;
 }
