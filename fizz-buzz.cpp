@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     std::string result;
@@ -14,8 +15,8 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    for(int i = 1; i <= 100; ++i) {
-        std::cout << fizzBuzz(i) << "\n";
-    }
+    int x;
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
