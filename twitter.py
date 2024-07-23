@@ -1,5 +1,5 @@
+```
 def validate_tweet(tweet):
-    tweet = ''.join(filter(lambda x: not x.isprintable(), tweet))
     if len(tweet) > 140:
         return "Too many characters"
     elif len(tweet) == 0:
