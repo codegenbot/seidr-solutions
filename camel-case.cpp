@@ -8,7 +8,7 @@ int main() {
     getline(cin, input);
 
     bool capitalize = true;
- 
+
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
