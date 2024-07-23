@@ -1,21 +1,20 @@
-```cpp
+```c++
 #include <iostream>
-#include <cmath>
+
+using namespace std;
 
 int main() {
-    float totalSnow = 0;
-
     int hours;
-    std::cin >> hours;
+    double totalSnow = 0.0, groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
-    float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour; 
+    totalSnow = groundSnow;
 
-    for (int i = 0; i < hours; ++i) {
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+    for (int i = 0; i < hours; i++) {
+        totalSnow += (rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
     }
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << ".";
-
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow;
+    
     return 0;
 }
