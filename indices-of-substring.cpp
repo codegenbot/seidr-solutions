@@ -20,7 +20,6 @@ int main() {
     string target;
     cin >> target;
 
-    transform(text.begin(), text.end(), text.begin(), ::tolower); // Convert to lowercase
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";
