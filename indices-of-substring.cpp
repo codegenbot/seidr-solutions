@@ -1,18 +1,37 @@
+Here is the solution:
+
 #include <vector>
 #include <string>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    int lastFound = -1;
+    size_t pos = 0;
 
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        if (text.substr(i, target.size()) == target) {
-            if (i != lastFound + target.size()) {
-                result.push_back(i);
-                lastFound = i;
-            }
-        }
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += 1; // advance the search position to avoid overlapping targets
     }
 
     return result;
+}
+
+int main() {
+    int t;
+    std::cin >> t;
+    
+    for(int i=0; i<t; ++i)
+    {
+        std::string text;
+        std::cin >> text;
+        std::string target;
+        std::cin >> target;
+        
+        std::vector<int> indices = indicesOfSubstring(text, target);
+        
+        for (int index : indices) 
+            std::cout << index << " ";
+        std::cout << std::endl;
+    }
+    
+    return 0;
 }
