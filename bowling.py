@@ -1,3 +1,4 @@
+```
 def parse_frame(frame):
     if frame == 'X':
         return 10
@@ -27,4 +28,9 @@ def bowling_score(frames):
         else:
             score += sum(int(x) for x in frames[i])
             i += 1
+    if i < len(frames) - 1 and (frames[i:i+2].replace('-', '/') in ['10/', '11/']):
+        if frames[i:i+2].replace('-', '/') == '10/':
+            score += 20
+        else:
+            score += 30
     return score
