@@ -1,25 +1,18 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int main() {
+int specialFilter(vector<int> nums) {
     int count = 0;
-    std::vector<int> nums;
-
-    // Input vector from user
-    std::cout << "Enter the numbers (space separated): ";
-    for (int i; std::cin >> i; ) {
-        nums.push_back(i);
-    }
-
-    // Process and count numbers
     for (int x : nums) {
         if (x == 0 || x % 11 != 0) {
             count++;
         }
     }
+    return count;
+}
 
-    // Print the result
-    std::cout << "The number of special filtered numbers is: " << count << "\n";
-
+int main() {
+    assert(specialFilter({}) == 0);
+    // You can test the function with different input vectors here.
     return 0;
 }
