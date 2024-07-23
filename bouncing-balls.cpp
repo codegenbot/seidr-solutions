@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 int main() {
     double startHeight, firstBounce, bouncinessIndex;
@@ -25,8 +26,10 @@ int main() {
         height *= bouncinessIndex;
     }
 
-    std::cout << "The total distance traveled by the ball is: ";
-    std::cout << std::fixed << std::setprecision(6) << totalDistance << std::endl;
+    std::ostringstream oss;
+    oss << std::fixed << setprecision(6);
+    oss << "The total distance traveled by the ball is: " << totalDistance << std::endl;
+    std::cout << oss.str();
 
     return 0;
 }

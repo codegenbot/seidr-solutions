@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     n = len(arr)
     leaders_list = [arr[n-1]]
@@ -7,3 +8,8 @@ def leaders(arr):
             leaders_list.append(arr[i])
 
     return list(reversed(leaders_list))
+
+if __name__ == "__main__":
+    n = int(input("Enter the number of elements: "))
+    arr = [int(i) for i in input("Enter {} integers separated by space: ".format(n)).split()]
+    print(leaders(arr))
