@@ -1,2 +1,3 @@
+```
 def words_string(s):
-    return s.split()
+    return ",".join([word.strip() for word in s.split(",") if word])
