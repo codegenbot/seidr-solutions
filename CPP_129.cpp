@@ -1,9 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
 #include <utility>
-#include <algorithm>
 
 using namespace std;
 
@@ -20,32 +18,34 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         for (int j = 0; j < n; ++j) {
             if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
             if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
-            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
-            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
+            if (j > 0) neighbors[i].push_back({{i, j-1}, grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({{i, j+1}, grid[i][j]});
+        }
+        for (auto& neighbor : neighbors[i]) {
+            priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    q.push({grid[i][j], make_pair(i, j)});
+                }
+            }
+
+            vector<int> res;
+            while (!q.empty()) {
+                auto [sum, [ii, jj]] = q.top(); q.pop();
+                if (k == 0) {
+                    return {sum};
+                }
+                for (auto& neighbor : neighbors[ii]) {
+                    int ni = neighbor.first.first, nj = neighbor.first.second;
+                    int ns = sum - grid[ii][jj] + neighbor.second;
+                    k--;
+                    q.push({ns, neighbor.first});
+                }
+            }
+
+            return {};
         }
     }
-
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            q.push({grid[i][j], make_pair(i, j)});
-        }
-    }
-
-    vector<int> res;
-    while (!q.empty()) {
-        auto [sum, p] = q.top(); q.pop();
-        if (k == 0) {
-            return {sum};
-        }
-        for (auto& neighbor : neighbors[p.first]) {
-            int ns = sum - grid[p.first][p.second] + neighbor.second;
-            k--;
-            q.push({ns, neighbor.first});
-        }
-    }
-
-    return {};
 }
 
 int mainTest() {
