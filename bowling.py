@@ -1,30 +1,39 @@
 ```
-def bowling_score(frames):
-    score = 0
-    frame = 1
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            if frame < 10:
+def solve():
+    def parse_frame(frame):
+        if frame == 'X':
+            return 10
+        elif '/' in frame:
+            parts = frame.split('/')
+            return int(parts[0]) + int(parts[1])
+        else:
+            return sum(int(x) for x in frame)
+
+    def bowling_score(frames):
+        score = 0
+        i = 0
+        while i < len(frames):
+            if frames[i] == 'X':
                 score += 10
-                frame += 1
-                if frames[(i + 1):].count('X') > 0:
-                    score += int(frames[(i + 2):].index('X') - i - 1) * 10
-                else:
-                    score += int(frames[(i + 2):(i + 3)].lstrip('/').replace('-', '')) * (frame != 10)
-            frame += 1
-        elif frames[i] in '1234567890/':
-            if frames[i] == '/':
-                if frame < 10:
-                    score += int(frames[(i + 1):].index('X') - i - 1) * 10
-                else:
-                    score += int(frames[(i + 1):].lstrip('/').replace('-', '')) * (frame != 10)
-            elif frames[i] == '0':
-                if frame < 10:
-                    score += 10
-                    score += int(frames[(i + 2):(i + 3)].lstrip('/').replace('-', '')) * (frame != 10)
-                else:
-                    score += 10
+                i += 1
+                if i < len(frames) - 1 and (frames[i:i+2].replace('-', '/') in ['10/', '11/']):
+                    if frames[i:i+2].replace('-', '/') == '10/':
+                        score += 20
+                    else:
+                        score += 30
+                    i += 2
+            elif '/' in frames[i]:
+                parts = frames[i].split('/')
+                score += int(parts[0]) + int(parts[1])
+                i += 2
             else:
-                score += int(frames[i]) + int(frames[(i + 1)].lstrip('/').replace('-', ''))
-        frame += 1
-    return score
+                score += sum(int(x) for x in frames[i])
+                i += 1
+        if i < len(frames) - 1 and (frames[i:i+2].replace('-', '/') in ['10/', '11/']):
+            if frames[i:i+2].replace('-', '/') == '10/':
+                score += 20
+            else:
+                score += 30
+        return score
+
+    print(bowling_score(input("Enter the individual bowls: ").split()))
