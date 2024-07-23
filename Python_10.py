@@ -1,11 +1,15 @@
+Here is the completed code:
+
 def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
     return string == string[::-1]
 
-
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
-        return string + "a" * (len(string))
+    if string == string[::-1]:
+        return string + string[::-1]
     i = 0
-    while not is_palindrome(string[i:] + string[:i][::-1]):
+    while i < len(string):
+        if string[i:] == string[i:] + (string[:i][::-1]):
+            return string + string[:i][::-1] + string[i:]
         i += 1
-    return string[:i] + string[i:][::-1]
+    return string + string[::-1]
