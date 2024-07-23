@@ -1,1 +1,1 @@
-strings = ["abc", "abcd", "a"]
+list_of_strings = ["dog", "cat", "fish", "bird", "elephant"]
