@@ -1,7 +1,8 @@
-def basement(nums):
-    total = 0
-    for i in range(len(nums)):
-        total += nums[i]
-        if total < 0:
-            return i + 1
+import itertools
+
+
+def basement(vector):
+    for i, s in enumerate(itertools.cumsum(vector)):
+        if s < 0:
+            return i
     return -1
