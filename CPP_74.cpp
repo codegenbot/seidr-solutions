@@ -1,6 +1,6 @@
+```
 #include <string>
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
@@ -53,14 +53,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> list1 = {{"this"}};
-    vector<string> list2 = {};
-    if(issame(list1, list2))
-    cout << "Lists are the same" << endl;
-    else
-    cout << "Lists are different" << endl;
-    vector<string> result = total_match(list1, list2);
-    for(string s: result)
-    cout << s << " ";
+    vector<string> lst1 = {{"this"}};
+    vector<string> lst2 = {};
+    vector<string> result = total_match(lst1, lst2);
+    for (auto &s : result) {
+        cout << s << endl;
+    }
     return 0;
 }
