@@ -1,5 +1,3 @@
-def check(lst):
-    print(double_the_difference(lst))
-    
-def double_the_difference(lst):
-    return (sum(i**2 for i in lst if isinstance(i, int) and i > 0) - sum(i for i in lst if isinstance(i, int)) ** 2) / abs(sum(i for i in lst if isinstance(i, int)))
+```
+def double_the_difference(nums):
+    return sum(i**2 for i in nums if isinstance(i, int) and i % 2 != 0)
