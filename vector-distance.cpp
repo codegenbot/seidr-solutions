@@ -20,8 +20,7 @@ int main() {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << std::sqrt(sum) << std::endl; // Fixed precision to 17 digits
 
     return 0;
 }
