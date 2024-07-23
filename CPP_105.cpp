@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -24,4 +25,10 @@ int main() {
     std::vector<std::string> result_b = by_length(lengths);
     std::vector<int> lengths2 = lengths;
     std::vector<std::string> result_a = by_length(lengths2);
-    return issame(result_a, result_b) ? 0 : 1;
+    if (issame(result_a, result_b))
+        std::cout << "Vectors are same" << std::endl;
+    else
+        std::cout << "Vectors are not same" << std::endl;
+    if (!issame(by_length({9}), result_b))
+        std::cout << "Vectors are different" << std::endl;
+}
