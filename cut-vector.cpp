@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = INT_MAX;
+    int min_diff = 0; // modified initial value of min_diff
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
@@ -18,7 +18,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i + 1; j < n; j++)
             sum_right += v[j];
 
-        int diff = sum_left == sum_right ? 0 : abs(sum_left - sum_right);
+        int diff = (sum_left != sum_right) ? abs(sum_left - sum_right) : best_cut;
         if (diff < min_diff) {
             min_diff = diff;
             best_cut = i;
