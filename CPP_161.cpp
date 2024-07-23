@@ -1,14 +1,17 @@
-string solve(string s){
+#include <string>
+#include <algorithm>
+
+std::string solve(std::string s){
     int n = s.size();
     bool hasLetter = false;
     for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
+        if(std::isalpha(s[i])){
             hasLetter = true;
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            s[i] = std::islower(s[i]) ? std::toupper(s[i]) : std::tolower(s[i]);
         }
     }
     if(!hasLetter){
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
