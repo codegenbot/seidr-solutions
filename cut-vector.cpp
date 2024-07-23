@@ -26,7 +26,7 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = 0; i < cut_idx; ++i) {
+    for (int i = cut_idx; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
