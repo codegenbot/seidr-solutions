@@ -1,5 +1,5 @@
 def validate_tweet(tweet):
-    tweet = tweet.strip()
+    tweet = tweet.strip().encode('utf-8').decode('ascii', 'ignore').strip()
     if not tweet:
         return "You didn't type anything"
     elif len(tweet) > 140:
@@ -9,6 +9,6 @@ def validate_tweet(tweet):
 
 print(validate_tweet("")) 
 print(validate_tweet("1")) 
-print(validate_tweet("max length tweet that just contains letters and spaces even SOME CAPITAL LETTERS just to MAKE it INTERESTING now repeeeeeeeeeEEEEEEEeeeat it")) 
-print(validate_tweet("40172875*&(&(%^^*!@&#()!@&^(*$787031264123984721-43214876*%^#!(@^$_!@^%#$(!#@%$(01234~~``))")) 
-print(validate_tweet("Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooolong1"))
+print(validate_tweet("max length tweet...")) 
+print(validate_tweet("40172875*&(&(%^^*!@&#()!@&^(*$787031264123984721-43214876*%^#!(@^$_!@^%#$(!#@%$(01234~~``))"))
+print(validate_tweet("Tooooooooooolong1"))
