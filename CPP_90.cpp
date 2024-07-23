@@ -1,7 +1,11 @@
-int next_smallest(vector<vector<int>> lst) {
+```
+#include <vector>
+#include <algorithm>
+
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
-        return -1; 
-    vector<int> sorted = lst[0];
+        return -1;
+    vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     for (int i = 1; i < sorted.size(); i++) {
         if (sorted[i] != sorted[0])
