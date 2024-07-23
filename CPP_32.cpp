@@ -20,13 +20,21 @@ double find_zero(std::vector<double>& coeffs){
 
 int main() {
     std::vector<double> coeffs;
-    std::cout << "Enter coefficients (space separated): ";
-    for(double &coeff : getline(cin, coeffs)) {
-        coeffs.push_back(coeff);
-    }
-    double root = find_zero(coeffs);
-    double value = poly(coeffs, root);
-    std::cout << "Value is: " << value << std::endl;
+    double solution;
+
+    int n;
+    cin >> n;
     
+    for(int i = 0; i < n; i++) {
+        double val;
+        cin >> val;
+        coeffs.push_back(val);
+    }
+
+    solution = find_zero(coeffs);
+
+    double value = poly(coeffs, solution);
+    std::cout << "Value is: " << value << std::endl;
+
     return 0;
 }
