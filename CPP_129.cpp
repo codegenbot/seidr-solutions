@@ -31,19 +31,17 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
     vector<int> res;
     while (!q.empty()) {
-        auto [sum, {i, j}] = q.top(); q.pop();
-        if (k == 0) break;
+        auto [sum, [i, j]] = q.top(); q.pop();
+        if (k == 0) {
+            k = 1e9;
+        } else {
+            k--;
+        }
         for (auto& neighbor : neighbors[i]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
-            k--;
             q.push({ns, {ni, nj}});
         }
-    }
-
-    while (!q.empty()) {
-        auto [s, p] = q.top(); q.pop();
-        res.push_back(s);
     }
 
     return res;
