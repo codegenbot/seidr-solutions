@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     double start_height, first_bounce_height;
@@ -16,7 +15,7 @@ int main() {
         total_distance += first_bounce_height;
     }
     
-    std::cout << std::fixed << std::setprecision(6) << total_distance << "\n";
+    std::cout << total_distance << std::endl;
     
     return 0;
 }
