@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -18,8 +17,7 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
     
-    int pennies = cents % 5; 
-    // or simply cents % 1, since pennies are always single units
+    int pennies = cents % 5; // or simply cents % 1, since pennies are always single units
     
     cout << quarters << endl;
     cout << nickles << endl;
