@@ -1,25 +1,47 @@
-int mastermindCode(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+#include <vector>
+#include <iostream>
+#include <string>
+#include <tuple>
 
-    map<char, int> codeCount, guessCount;
-    for (char c : code) {
-        codeCount[c]++;
-    }
-    for (char c : guess) {
-        guessCount[c]++;
-    }
+using namespace std;
 
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+    
+    // Count the number of correct colors in the wrong place
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            if (codeCount[guess[i]] > 0) {
-                whitePegs++;
-                codeCount[guess[i]]--;
-            }
+            black++;
+            code[i] = ' '; // mark this position as visited
+            guess[i] = ' '; // mark this position as visited
         }
     }
+    
+    // Count the number of correct colors in the right place
+    for (int i = 0; i < 4; i++) {
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                white++;
+                code[j] = ' '; // mark this position as visited
+                break;
+            }
+            j++;
+        }
+    }
+    
+    return black, white;
+}
 
-    return {blackPegs, whitePegs};
+int main() {
+    string code;
+    cin >> code;
+    string guess;
+    cin >> guess;
+    int black, white;
+    tie(black, white) = mastermind(code, guess);
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
