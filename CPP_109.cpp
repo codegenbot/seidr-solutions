@@ -1,8 +1,14 @@
 int n = arr.size();
-    for (int i = 1; i < n; ++i) {
-        if (arr[i] < arr[i - 1]) {
-            return false;
+    if (n == 0) {
+        return true;
+    }
+    
+    int min_index = 0;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[min_index]) {
+            min_index = i;
         }
     }
-    return true;
+    
+    return (min_index == n - 1 || arr[0] <= arr[n - 1]);
 }
