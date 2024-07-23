@@ -3,7 +3,7 @@ import math
 
 def find_zero(xs: list):
     n = len(xs)
-    assert n % 2 == 0
+    assert n % 2 == 0, "Length of input list is not even."
     a = xs[0]
     b = xs[1]
     c = xs[2] if n > 2 else None
