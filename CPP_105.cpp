@@ -1,6 +1,13 @@
 vector<string> by_length(vector<int> arr) {
+    vector<string> nums;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            nums.push_back(i);
+    }
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
     vector<string> result;
-    for (int num : arr) {
+    for (int num : nums) {
         string str = "";
         switch (num) {
             case 1:
