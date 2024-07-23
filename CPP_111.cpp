@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -16,7 +16,6 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
-
 }
 
 map<char, int> histogram(const string& str) {
@@ -38,4 +37,6 @@ map<char, int> histogram(const string& str) {
 
 int main() {
     assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
+    cout << "Hello" << endl;
+    return 0;
 }
