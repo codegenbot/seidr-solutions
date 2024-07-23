@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -25,7 +26,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 
     return result;
-
 }
 
 int main() {
@@ -34,8 +34,9 @@ int main() {
 
     vector<string> result = total_match(vec1, vec2);
 
-    for (const string& s : result) {
-        cout << s << endl;
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << endl;
     }
 
     return 0;
+}
