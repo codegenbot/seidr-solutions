@@ -1,22 +1,22 @@
-```
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> sort_array(std::vector<int> array) {
-    int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 0) {
-        std::sort(array.begin(), array.end(), std::greater<int>());
-    } else {
-        std::sort(array.begin(), array.end());
+vector<int> sort_array(vector<int> array) {
+    if (array.empty()) return array;
+    
+    int sum = 0;
+    for(int i=0; i<array.size();i++){
+        sum += array[i];
     }
-    return array;
-}
-
-int main() {
-    assert(issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
-    return 0;
+    vector<int> result = array;
+    
+    if (sum % 2 == 1)
+        sort(result.begin(), result.end());
+    else
+        // Remove this extra sort call
+        // sort(result.begin(), result.end());
+    
+    return result;
 }

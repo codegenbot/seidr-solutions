@@ -1,8 +1,6 @@
+#include <cmath>
+
 bool iscuber(int a) {
-    if (a < 0)
-        return false; 
-    if (a == 0)
-        return false; 
     int i = 1;
     while (pow(i,3) <= a){
         if(pow(i,3) == a)
@@ -11,4 +9,8 @@ bool iscuber(int a) {
     }
     return false;
 
+}
+
+int main() { 
+    assert(iscuber(8) == true);
 }
