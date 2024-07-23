@@ -1,9 +1,9 @@
-vector<char> distinctCharacters;
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<char> distinct_chars;
     for (char c : str) {
-        char lowerChar = tolower(c);
-        if (find(distinctCharacters.begin(), distinctCharacters.end(), lowerChar) == distinctCharacters.end()) {
-            distinctCharacters.push_back(lowerChar);
+        if (find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()) {
+            distinct_chars.push_back(c);
         }
     }
-    return distinctCharacters.size();
+    return distinct_chars.size();
 }
