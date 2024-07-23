@@ -1,5 +1,5 @@
-#include <map>
 #include <string>
+#include <map>
 
 int mastermind(string code, string guess) {
     int white = 0;
