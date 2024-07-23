@@ -28,5 +28,3 @@ def main():
             break
         except ValueError:
             print("Expected input: Integers only!")
-        finally:
-            break

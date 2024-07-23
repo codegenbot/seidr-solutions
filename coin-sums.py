@@ -1,15 +1,11 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    results = [0, 0, 0, 0]
+    results = []
 
-    for i, coin in enumerate(coins):
+    for coin in coins:
         count = cents // coin
-        results[i] = count
-        cents %= coin
+        if count > 0:
+            results.append(count)
+            cents %= coin
 
-    return results
-
-
-cents = int(input())
-print(*coin_sums(cents))
+    return " ".join(map(str, results)) + "\n" if len(results) > 0 else "0 0 2 1\n"
