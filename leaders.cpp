@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-std::vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     int maxSoFar = arr[n-1];
@@ -15,5 +15,6 @@ std::vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    return vector<int>(result.rbegin(), result.rend());
+    reverse(result.begin(), result.end());
+    return result;
 }
