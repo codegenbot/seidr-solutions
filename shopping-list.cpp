@@ -1,15 +1,17 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> prices(n);
+    vector<float> prices(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> prices[i];
     }
 
-    std::vector<float> discounts(n);
+    vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> discounts[i];
     }
