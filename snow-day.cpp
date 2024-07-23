@@ -6,8 +6,8 @@ int main() {
     std::cin >> hours >> snow >> rate >> melt;
     
     for (int i = 0; i < hours; ++i) {
-        snow += rate; // Snow addition
-        snow -= snow * melt; // Snow melting
+        snow += rate;
+        snow -= snow * melt;
     }
     
     std::cout << snow << std::endl;
