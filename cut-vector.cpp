@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <limits>
 
 using namespace std;
@@ -10,8 +9,12 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> result;
     
     for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = accumulate(v.begin(), v.begin() + i + 1, 0);
-        int right_sum = accumulate(v.begin() + i + 1, v.end(), 0);
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j <= i; j++)
+            left_sum += v[j];
+        for (int j = i + 1; j < v.size(); j++)
+            right_sum += v[j];
         
         if (left_sum == right_sum) {
             result.first = vector<int>(v.begin(), v.begin() + i + 1);
