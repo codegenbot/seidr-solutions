@@ -1,11 +1,11 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <initializer_list>
 
-using namespace std;
+namespace myns {
+    using namespace std;
+}
 
 double poly(vector<double> xs, double x){
     double sum=0;
@@ -29,8 +29,8 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs({1, -6, 11, -6});
-    double zero = find_zero(xs);
+    vector<double> xs = {1.0, -6.0, 11.0, -6.0};
+    double zero = myns::find_zero(xs);
     cout << "Zero is: " << zero << endl; 
     return 0;
 }
