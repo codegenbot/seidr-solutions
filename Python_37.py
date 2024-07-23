@@ -1,7 +1,3 @@
-```
-def sort_even_odd(l: list):
-    even = sorted([x for x in l if x % 2 == 0])
-    odd = sorted([x for x in l if x % 2 != 0])
-    return (even, odd)
-
-check(sort_even_odd)
+your_list = [1, 2, 3, 4]
+result = check(your_list)
+print(result)
