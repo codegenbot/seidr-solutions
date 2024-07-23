@@ -1,8 +1,7 @@
-string res = "";
+string result = "";
     while (x > 0) {
-        int rem = x % base;
-        res = to_string(rem) + res;
+        result = to_string(x % base) + result;
         x /= base;
     }
-    return res;
+    return result;
 }
