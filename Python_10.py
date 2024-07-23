@@ -1,9 +1,12 @@
-def make_palindrome(string: str) -> str:
-    while True:
-        reversed_string = string[::-1]
-        if string == reversed_string or len(string) < 2:
-            return string
-        new_string = string[0] + reversed_string + string[-1] + string[1:-1]
-        string = new_string
+```
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
 
-print(make_palindrome("jerry"))
+def make_palindrome(string: str) -> str:
+    if string == string[::-1]:
+        return string + string
+    for i in range(len(string)):
+        postfix = string[i:]
+        if is_palindrome(postfix):
+            return string + postfix[::-1]
+    return string + string[::-1]
