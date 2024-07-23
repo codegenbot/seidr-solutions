@@ -4,9 +4,10 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = -1; // Initialize to -1
-    while ((pos = text.find(target, pos + 1)) != string::npos) {
+    int pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos);
+        pos += target.length(); 
     }
 
     return result;
