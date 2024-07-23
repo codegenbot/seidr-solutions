@@ -3,6 +3,8 @@
 
 int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
     int n = grid.size();
+    
+    // Sort each row in ascending order
     for (int i = 0; i < n; i++) {
         std::sort(grid[i].begin(), grid[i].end());
     }
@@ -11,16 +13,16 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
     for (int i = 1; i < n - 1; i++) {
         for (int j = 1; j < n - 1; j++) {
             int leftMax = grid[i][0];
-            int rightMax = grid[i].back();
+            int rightMax = grid[i][n-1];
             int topMax = grid[0][j];
-            int bottomMax = grid.back()[j];
+            int bottomMax = grid[n-1][j];
             
             if (i > 0) leftMax = grid[i-1][0];
-            if (i < n - 1) rightMax = grid[i+1].back();
+            if (i < n - 1) rightMax = grid[i+1][n-1];
             if (j > 0) topMax = grid[0][j-1];
-            if (j < n - 1) bottomMax = grid.back()[j+1];
+            if (j < n - 1) bottomMax = grid[n-1][j+1];
             
-            sum += min(leftMax, rightMax) + min(topMax, bottomMax) - leftMax;
+            sum += std::min(leftMax, rightMax) + std::min(topMax, bottomMax) - grid[i][j];
         }
     }
     
@@ -28,7 +30,7 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{5, 4}, {6, 3, 2}, {1, 7, 8}};
+    std::vector<std::vector<int>> grid = {{3, 5, 6}, {9, 11, 10}, {4, 7, 8}};
     int result = maxIncreaseKeepingSingle(grid);
     return 0;
 }
