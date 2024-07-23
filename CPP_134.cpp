@@ -1,17 +1,12 @@
-#include <iostream>
-#include <cctype>
+```cpp
 #include <string>
+#include <cctype>
 
-bool check_if_last_char_is_a_letter(std::string txt) {
+bool check_if_last_char_is_a_letter(string txt) {
     if(txt.empty()) return false;
     for(int i = 0; i < txt.length() - 1; i++) {
-        if(!std::isspace(txt[i])) return false;
+        if(!isspace(txt[i])) return false;
     }
     char lastChar = txt.back();
-    return std::isalpha(lastChar);
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true);
-    return 0;
+    return isalpha(lastChar);
 }
