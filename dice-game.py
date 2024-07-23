@@ -1,6 +1,5 @@
-```
 def dice_game(n, m):
-    total_prob = 0
-    for i in range(1, min(m, n)):
-        total_prob += (n - i) * (m - i) / (n * m)
-    return round(total_prob,6)
+    if n == 1 or m == 1:
+        return 0
+    else:
+        return round(1 - (m + min(n-1, m)) / n, 6)

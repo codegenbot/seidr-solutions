@@ -1,11 +1,17 @@
+```python
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
 
-    for coin in coins:
+    for i, coin in enumerate(coins):
         while cents >= coin:
             count = cents // coin
-            results[coins.index(coin)] += count
-            cents %= coin
+            cents -= count * coin
+            results[i] += count
 
-    print(*reversed(results))
+    print(f"Quarters: {results[0]}")
+    print(f"Dimes: {results[1]}")
+    print(f"Nickels: {results[2]}")
+    print(f"Pennies: {results[3]}")
+
+coin_sums(int(input("Enter the number of cents: ")))
