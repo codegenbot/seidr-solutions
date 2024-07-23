@@ -1,4 +1,5 @@
-```cpp
+#pragma GCC c++17
+
 #include <algorithm>
 
 double diceGame(int n, int m) {
