@@ -12,7 +12,7 @@ string spinWords(string sentence) {
         int wordLength = strlen(word);
         
         if(wordLength >= 5)
-            result += (string(word) + " ") + std::string(rotate(string(word), 1, wordLength - 2)) + "\n";
+            result += (string(word) + " ") + string(rotate(word, 0, wordLength - 1)) + "\n";
         else
             result += string(word) + " ";
         
