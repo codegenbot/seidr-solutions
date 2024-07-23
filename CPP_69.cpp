@@ -5,7 +5,7 @@ int search(vector<int> lst) {
     }
     
     for (auto p : countMap) {
-        if (p.second > 1) return p.first; 
+        if (p.second > 1) return p.first; // Found a duplicate
     }
     return -1;
 }
