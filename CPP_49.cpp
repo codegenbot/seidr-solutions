@@ -4,11 +4,10 @@ using namespace std;
 int modp(int n, int p) {
     if (n == 0)
         return 1;
-    long long res = 1;
-    for (int i = 1; i <= n; ++i) {
-        res = (res * i) % p;
-    }
-    return res;
+    else if (n % 2 == 0)
+        return ((pow(2, n/2)) % p * (pow(2, n/2)) % p) % p;
+    else
+        return ((2 % p) * pow(2, n-1) % p + 1) % p;
 }
 
 int main() {
@@ -17,6 +16,6 @@ int main() {
     scanf("%d", &n);
     printf("Enter the value of p: ");
     scanf("%d", &p);
-    printf("2^%d mod %d = %d\n", n, p, modp(n, p));
+    printf("2^n modulo p = %d\n", modp(n, p));
     return 0;
 }
