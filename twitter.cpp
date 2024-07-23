@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string validateTweet(string tweet) {
+string validateTweet(string& tweet) {
     string trimmedTweet = tweet;
     while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
         trimmedTweet.erase(trimmedTweet.end() - 1);
@@ -12,7 +12,7 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = trimmedTweet.size();
+    int count = tweet.size();
     if (count > 140) {
         return "Too many characters";
     }
