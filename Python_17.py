@@ -1,18 +1,21 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
-    beats = [4, 2, 1]
+    beats = [4, 2, 1]  
     result = []
 
     for note in music_string.split():
-        if note == "o":
+        if note == 'o':
             result.append(beats[0])
-        elif note == "o|":
+        elif note == 'o|':
             result.append(beats[1])
-        elif note == ".|":
+        elif note == '.|':
             result.append(beats[2])
-        elif note == "..|":
-            result.append(min(beats))
-        elif note == "o.o" or note == "o..|" or note == "oo" or note == "ooo":
-            result.extend([beats[0]] * len(note.split(".")))
+        elif note == '..':
+            result.append(beats[0])
+        elif note == '|..':
+            result.append(beats[1])
+        else:
+            pass  # add error handling or default behavior
+
+    return result
