@@ -1,11 +1,8 @@
-Here is the solution:
-
 def snow_day(hours, initial_snow, rate, melt_rate):
-    return (initial_snow + hours * rate) / (1 - melt_rate) ** hours
-
-hours = int(input())
-initial_snow = float(input())
-rate = float(input())
-melt_rate = float(input())
-
-print(snow_day(hours, initial_snow, rate, melt_rate))
+    current_snow = round(initial_snow, 6)
+    for _ in range(hours):
+        current_snow += rate
+        if current_snow > 0:
+            excess_snow = min(current_snow, melt_rate)
+            current_snow -= excess_snow
+    return round(current_snow, 6)
