@@ -8,14 +8,15 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
 }
 
 int main(){
     assert (add({4, 4, 6, 8}) == 12);
-    std::vector<int> test1 = {3, 5, 7};
-    std::cout << "Test case: " << add(test1) << "\n";
-    std::vector<int> test2 = {2, 4, 6, 10, 12};
-    std::cout << "Test case: " << add(test2) << "\n";
+    std::vector<int> test = {1,3,5,7};
+    assert (add(test) == 0);
+    
+    test = {2,4,6,8};
+    assert (add(test) == 12);
+    
     return 0;
 }
