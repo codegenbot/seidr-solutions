@@ -1,4 +1,3 @@
-```
 for (auto c : input) {
     if (c == '\0') {
         break; 
