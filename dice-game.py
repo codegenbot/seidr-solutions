@@ -1,2 +1,4 @@
-def prob(p, q):
-    return (p - 1) / (p * q)
+```
+import math
+def dice_game(n, m):
+    return (m - 1) / (n * m - n - m + 1)
