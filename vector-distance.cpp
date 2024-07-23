@@ -1,6 +1,6 @@
-#include <cmath>
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -28,3 +28,4 @@ int main() {
     cout << fixed << cout.precision(10) << dist << endl;
 
     return 0;
+}
