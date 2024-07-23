@@ -1,15 +1,29 @@
+```Python
 def solve_boolean(expression):
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    def evaluate_expression(tokens):
-        stack = []
-        for token in tokens.split():
-            if token == 'and' or token == 'or':
-                right = stack.pop()
-                left = stack.pop()
-                if token == 'and':
-                    stack.append(left and right)
-                elif token == 'or':
-                    stack.append(left or right)
-            else:
-                stack.append(token == 'T')
-        return stack[0]
+    def evaluate_operator(left, operator, right):
+        if operator == '&':
+            return left and right
+        elif operator == '|':
+            return left or right
+
+    while '&' in expression:
+        i = 0
+        for char in expression:
+            if char == '&':
+                left, right = expression[:i], expression[i+1:]
+                expression = str(evaluate_operator(left== 'T', '&', right== 'T'))+'&'
+                i += len(str(left== 'T'))
+        else:
+            break
+
+    while '|' in expression:
+        i = 0
+        for char in expression:
+            if char == '|':
+                left, right = expression[:i], expression[i+1:]
+                expression = str(evaluate_operator(left== 'T', '|', right== 'T'))+'|'
+                i += len(str(left== 'T'))
+        else:
+            break
+
+    return expression == 'T'
