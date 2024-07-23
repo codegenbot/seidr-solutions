@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,7 +12,7 @@ int bowlingScore(std::string input) {
             score += 30;
             currentRolls = 2;
         } else if (c == '/') {
-            score += 10 + getRemaining(c, input);
+            score += 10 + getRemaining(input, c);
             currentRolls = 0;
         } else if (isdigit(c)) {
             int roll = c - '0';
@@ -23,7 +24,7 @@ int bowlingScore(std::string input) {
                     score += 10;
                     currentRolls = 0;
                 } else {
-                    score += getRemaining(c, input);
+                    score += getRemaining(input, c);
                     currentRolls = 0;
                 }
             }
@@ -37,10 +38,10 @@ int bowlingScore(std::string input) {
     return score;
 }
 
-int getRemaining(char c, std::string input) {
+int getRemaining(std::string input, char c) {
     int i = 1;
-    while (input.rfind(std::to_string(c)) != input.size() - i && i <= input.size()) {
+    while (input.back() - i != c && i <= input.size()) {
         i++;
     }
-    return 10 - i + (c - '0');
+    return 10 - i + (input[input.size() - i] - '0');
 }
