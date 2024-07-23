@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -10,7 +11,6 @@ bool isEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
             return false;
     }
     return true;
-
 }
 
 std::vector<std::string> select_words(std::string s, int k) {
