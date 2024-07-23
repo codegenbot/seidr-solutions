@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
@@ -20,6 +19,6 @@ bool evaluateBooleanExpression(const string& expression) {
 int main() {
     string expression;
     cin >> expression;
-    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
+    cout << (evaluateBooleanExpression(expression.substr(0)) ? "True" : "False") << endl;
     return 0;
 }
