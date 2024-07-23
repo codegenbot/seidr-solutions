@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -12,11 +11,9 @@ int main() {
         cout << "You didn't type anything";
         return 0;
     }
-    int charCount = 0; 
+    int charCount = 0;
     for (char c : tweet) {
-        if (!isspace(c)) {
-            charCount++;
-        }
+        charCount++;
     }
     if (charCount > 140) {
         cout << "Too many characters";
