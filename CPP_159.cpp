@@ -1,15 +1,21 @@
 #include <vector>
-#include <cassert>
+using namespace std;
 
-std::vector<int> eat(int x, int y, int z) {
-    return {x + y, z};
+int eat(int a, int b, int c) {
+    return (a + b + c) / 3;
 }
 
-bool areSameVectors(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool areSameVectors(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(areSameVectors(eat(4, 5, 1), {9,0})); 
+    assert(areSameVectors({eat(4, 5, 1), 0}));
     return 0;
 }
