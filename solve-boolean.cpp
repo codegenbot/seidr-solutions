@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
@@ -16,7 +15,6 @@ bool evaluateBooleanExpression(const string& expression) {
             return left || right;
         }
     }
-    return false;
 }
 
 int main() {
