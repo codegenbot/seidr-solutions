@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -11,9 +10,11 @@ int main() {
 
     int length = s.length();
     if (length % 2 == 0) {
-        cout << "Middle characters are: " << s.at(length / 2 - 1) + s.at(length / 2) << endl;
+        string middle = s.substr(length / 2 - 1, 2);
+        cout << "Middle characters are: " << middle << endl;
     } else {
-        cout << "Middle character is: " << s.at(length / 2) << endl;
+        string middle = s.substr(length / 2, 1);
+        cout << "Middle character is: " << middle << endl;
     }
     
     return 0;
