@@ -11,13 +11,10 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
     }
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    float numA, numB;
-    if (sscanf(boost::any_cast<string>(a).c_str(), "%f", &numA) == 1 && sscanf(boost::any_cast<string>(b).c_str(), "%f", &numB) == 1) {
-        if (numA > numB) {
-            return a;
-        } else if (numA < numB) {
-            return b;
-        }
+    if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
+        return a;
+    } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
+        return b;
     }
 }
 return "None";
