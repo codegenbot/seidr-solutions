@@ -1,7 +1,3 @@
-```
-import math
-
-
 def car_race_collision():
     num_cars = int(input("Enter number of cars: "))
     total_speed = 1
