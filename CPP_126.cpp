@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,4 +30,4 @@ int main() {
     } else {
         std::cout << "The vector is not sorted.\n";
     }
-    return 0;
+}
