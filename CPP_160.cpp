@@ -1,16 +1,22 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
-            result += operand[i + 1];
-        } else if (operato[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operato[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operato[i] == "//") {
-            result = result / operand[i + 1];
-        } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+#include <vector>
+#include <string>
+#include <cassert>
+
+int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
+    int result = numbers[0];
+    for (size_t i = 0; i < operations.size(); ++i) {
+        if (operations[i] == "+") {
+            result += numbers[i + 1];
+        } else if (operations[i] == "-") {
+            result -= numbers[i + 1];
+        } else if (operations[i] == "*") {
+            result *= numbers[i + 1];
+        } else if (operations[i] == "/") {
+            if (numbers[i + 1] != 0) {
+                result /= numbers[i + 1];
+            } else {
+                return -1;
+            }
         }
     }
     return result;
