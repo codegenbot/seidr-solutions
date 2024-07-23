@@ -1,3 +1,2 @@
-```
 def spin_words(words):
-    return " ".join([word if len(word) < 5 else word[::-1] for word in words].split()[0].split() + [""] * (len(words.split())-1))
+    return " ".join([word if len(word) < 5 else word[::-1] for word in words]).strip()
