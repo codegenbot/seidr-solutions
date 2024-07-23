@@ -13,7 +13,7 @@ int main() {
         totalDistance += 2 * (heightFirstBounce - heightStart) * pow(bouncinessIndex, i-1);
     }
 
-    std::cout << "Total Distance: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled is: " << totalDistance << std::endl;
 
     return 0;
 }
