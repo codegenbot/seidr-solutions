@@ -7,7 +7,7 @@ string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
         int r = x % base;
-        res.insert(0, to_string(r)); 
+        res = to_string(r) + res; 
         x /= base;
     }
     return res;
