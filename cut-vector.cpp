@@ -33,5 +33,17 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
+    vector<int> v = {1, 3, 4, 5, 2, 3, 7};
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left subvector: ";
+    for (int x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
     return 0;
 }
