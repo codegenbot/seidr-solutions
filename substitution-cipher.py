@@ -1,6 +1,5 @@
 def decipher_message(cipher1, cipher2, message):
-    encrypt_map = {c: d for c, d in zip(cipher1, cipher2)}
-    decrypt_map = {v: k for k, v in encrypt_map.items()}
-    
-    result = "".join(decrypt_map.get(char.upper(), char) for char in message)
+    mapping_encrypt = {c: d for c, d in zip(cipher1, cipher2)}
+    mapping_decrypt = {v: k for k, v in mapping_encrypt.items()}
+    result = "".join(mapping_decrypt.get(char.upper(), char) for char in message if char.isalpha())
     return result
