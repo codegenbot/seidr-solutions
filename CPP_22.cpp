@@ -1,15 +1,20 @@
-#include <boost/variant.hpp>
 #include <vector>
 #include <list>
 
 using namespace std;
-using namespace boost::any;
 
-vector<int> filter_integers(list<any> values) {
+enum class AnyType { INTEGER };
+
+struct Any {
+    AnyType type;
+    int value;
+};
+
+vector<int> filter_integers(list<Any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).which() == 0) { // Check the type
-            result.push_back(any_cast<int>(value));
+        if (value.type == AnyType::INTEGER) {
+            result.push_back(value.value);
         }
     }
     return result;
