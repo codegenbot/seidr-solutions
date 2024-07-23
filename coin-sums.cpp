@@ -16,10 +16,10 @@ int main() {
     
     int pennies = cents;
     
-    cout << quarters << endl; // Quarters
-    cout << dimes << endl;     // Dimes
-    cout << nickles << endl;   // Nickles
-    cout << pennies << endl;   // Pennies
-    
+    cout << quarters << endl; 
+    cout << dimes << endl;     
+    cout << nickles << endl;   
+    cout << pennies << endl;   
+
     return 0;
 }
