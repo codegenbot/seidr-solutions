@@ -1,16 +1,16 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
-#include <iomanip>
+
 using namespace std;
 
 double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
-    double distance = 0;
+    double sum = 0;
     for (int i = 0; i < n; ++i) {
         float diff = v1[i] - v2[i];
-        distance += diff * diff;
+        sum += diff * diff;
     }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
@@ -23,8 +23,9 @@ int main() {
         cin >> v1[i] >> v2[i];
     }
 
-    double distance = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << distance << endl;
+    double dist = vectorDistance(n, v1, v2);
+
+    cout << fixed << cout.precision(10) << dist << endl;
 
     return 0;
 }
