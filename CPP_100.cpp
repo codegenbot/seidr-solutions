@@ -1,8 +1,11 @@
-```cpp
 #include <vector>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     int stones = n;
     while (stones > 0) {
         if (n % 2 == 1) {
@@ -15,8 +18,3 @@ std::vector<int> make_a_pile(int n) {
         stones /= 2;
     }
     return pile;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
