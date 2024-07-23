@@ -22,3 +22,4 @@ int main() {
         cout << (solveBoolean(s) ? "True" : "False") << endl;
     }
     return 0;
+}
