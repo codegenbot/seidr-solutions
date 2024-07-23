@@ -1,3 +1,4 @@
-string concat = a + a;
-    return concat.find(b) != string::npos;
+if (a.size() != b.size()) return false;
+    string doubleStr = a + a;
+    return doubleStr.find(b) != string::npos;
 }
