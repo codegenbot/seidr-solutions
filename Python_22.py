@@ -6,6 +6,6 @@ def filter_integers(values: List[Any]) -> List[int]:
 
 if __name__ == "__main__":
     user_input = input("Enter a list of values (separated by spaces): ")
-    values = [int(x) for x in user_input.split()]
+    values = [x.strip() for x in user_input.split()]
     result = filter_integers(values)
     print(result)
