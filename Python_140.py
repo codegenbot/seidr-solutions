@@ -1,3 +1,5 @@
+Here is the solution to the problem:
+
 ```
 def fix_spaces(text):
     result = ""
