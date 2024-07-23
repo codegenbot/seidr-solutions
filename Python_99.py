@@ -1,4 +1,4 @@
-```
+```python
 def closest_integer(value):
     num = float(value)
     if num - int(num) < (1 - int(num)):
