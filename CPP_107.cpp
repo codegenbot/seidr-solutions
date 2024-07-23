@@ -1,16 +1,23 @@
 #include <vector>
 
+using namespace std;
+
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
+    
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
-        bool isEven = (i % 2 == 0);
-        if (str == reverse(str)) {
-            if (isEven)
+        
+        if (str == reverse(str).str()) {
+            int num = stoi(str);
+            
+            if (num % 2 == 0) {
                 result[0]++;
-            else
+            } else {
                 result[1]++;
+            }
         }
     }
+    
     return result;
 }
