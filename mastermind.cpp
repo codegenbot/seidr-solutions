@@ -17,9 +17,9 @@ int mastermind(string code, string guess) {
         auto it = std::find(guess.begin(), guess.end(), c);
         while (it != guess.end()) {
             white++;
-            break;
+            it = std::find(it+1, guess.end(), c);
         }
     }
 
-    return black + white - black;
+    return black;
 }
