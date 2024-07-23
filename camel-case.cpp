@@ -15,7 +15,7 @@ int main() {
             cout << (char)toupper(c);
             capitalize = false;
         } else {
-            if (c != ' ') cout << c;  // Skip spaces
+            cout << c;
         }
     }
 
