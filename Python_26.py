@@ -1,3 +1,4 @@
-```Python
+```
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    return list(set(numbers))
+    result = sorted(set(numbers))
+    return result
