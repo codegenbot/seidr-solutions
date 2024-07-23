@@ -1,5 +1,5 @@
-```cpp
 #include <variant>
+
 typedef std::list<std::variant<int>> list_any;
 using namespace std;
 
