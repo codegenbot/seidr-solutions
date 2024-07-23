@@ -17,11 +17,13 @@ std::vector<int> sort_array(std::vector<int> array) {
 
     std::vector<int> result = array;
     std::sort(result.begin(), result.end());
-    
+    if (isOdd) std::stable_partition(result.begin(), result.end(), [](int x){return x < 0;});
+    else std::stable_partition(result.begin(), result.end(), [](int x){return x > 0;});
+
     return result;
 }
 
 int main() {
-    assert(areEqual(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    assert(areEqual(sort_array({21, 14, 23, 11}) , {23, 21, -14, -11}));
     return 0;
 }
