@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <initializer_list>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
