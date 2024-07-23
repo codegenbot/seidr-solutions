@@ -1,27 +1,32 @@
 ```
-def find_closest_elements():
-    while True:
-        user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
-        try:
-            if ',' in user_input:
-                num1, num2 = map(float, user_input.split(','))
-                return abs(num1 - num2)
-            else:
-                numbers = [float(num) for num in user_input.split()]
-                break
-        except ValueError:
-            print("Invalid input. Please enter space-separated numbers or two specific numbers separated by comma (,).")
-
-    if not isinstance(numbers, list):
-        return None
+def find_closest_elements(numbers):
+    numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
     if len(numbers) < 2:
         return None
     numbers.sort()
     
-    closest_pair = abs(numbers[1] - numbers[0])
+    closest_pair = (numbers[0], numbers[1])
+    min_diff = abs(numbers[1] - numbers[0])
+
     for i in range(len(numbers) - 1):
         diff = abs(numbers[i] - numbers[i + 1])
-        if diff < closest_pair:
-            closest_pair = diff
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i + 1])
 
     return closest_pair
+
+def find_closest_elements():
+    numbers = []
+    
+    while True:
+        user_input = input("Enter a number (or 'stop' to finish): ")
+        
+        if user_input.lower() == 'stop':
+            break
+        
+        numbers.append(float(user_input))
+    
+    return find_closest_elements(list(map(str, numbers)))
+
+print(find_closest_elements())
