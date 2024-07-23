@@ -10,18 +10,40 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
 
 
 def main():
-    numbers = input()
-    threshold = float(input())
+    while True:
+        print("Do you want to run the program? (yes/no): ")
+        while True:
+            response = input().lower()
+            if response in ["y", "yes"]:
+                break
+            elif response in ["n", "no"]:
+                print("Exiting the program.")
+                exit(0)
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
-    numbers_list = list(map(float, numbers.split()))
+        while True:
+            try:
+                numbers = input("Enter space-separated float numbers: ")
+                numbers_list = list(map(float, numbers.split()))
+                break
+            except ValueError:
+                print("Invalid input. Please enter valid float numbers.")
 
-    result = has_close_elements(numbers_list, threshold)
+        while True:
+            try:
+                threshold = float(input("Enter a threshold value: "))
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number for the threshold.")
 
-    print(
-        "The list contains close elements"
-        if result
-        else "The list does not contain close elements"
-    )
+        result = has_close_elements(numbers_list, threshold)
+
+        print(
+            "The list contains close elements"
+            if result
+            else "The list does not contain close elements"
+        )
 
 
 if __name__ == "__main__":
