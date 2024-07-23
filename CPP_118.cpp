@@ -1,27 +1,25 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
+    return (find(std::begin(vowels), std::end(vowels), tolower(c)) != std::end(vowels));
 }
 
 std::string get_closest_vowel(std::string word) {
-    int minDist = INT_MAX;
-    char closestVowel = '\0';
+    int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
-            if(i < minDist) {
-                minDist = i;
-                closestVowel = tolower(word[i]);
-            }
+            if (closest == -1)
+                closest = i;
+            else
+                return string(1, word[closest]);
         }
     }
-    return std::string(1, closestVowel).operator std::string();
+    return "";
 }
 
 int main() {
