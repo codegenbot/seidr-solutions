@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     res = [0, 0, 0, 0]
@@ -8,3 +9,5 @@ def coin_sums(cents):
             res[i] += 1
 
     return tuple([i for i in res[3:]] + [cents])
+
+print(coin_sums(2390))
