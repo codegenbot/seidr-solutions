@@ -1,14 +1,17 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
-        if (isdigit(c)) { 
-            int digit = c - '0';
+        int digit = c - '0';
+        if (!isdigit(c)) { 
+            result += c;
+        } else {
             result += to_string(digit * digit);
         }
     }
@@ -17,7 +20,7 @@ string squareDigits(string input) {
 
 int main() {
     string input;
-    getline(cin, input);  
+    cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
 }
