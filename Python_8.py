@@ -1,10 +1,9 @@
-```
-from typing import List, Tuple
+from typing import Tuple
 
 
 def sum_product():
-    numbers = list(map(int, input("Enter space-separated integers: ").split()))
-    result = sum(numbers), eval("*".join(map(str, numbers)))
-    return result
+    numbers = list(map(int, input("Enter a series of space-separated integers: ").split()))
+    return sum(numbers), eval("*".join(map(str, numbers)))
 
-print(sum_product())
+
+sum_product()
