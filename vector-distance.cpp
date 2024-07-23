@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -17,7 +16,13 @@ int main() {
     }
 
     for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+        if (i == n - 1) {
+            cin >> vec2[i];
+        } else {
+            cin >> vec2[i];
+            char comma;
+            cin >> comma; 
+        }
     }
 
     double sum = 0.0;
@@ -26,7 +31,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << fixed << setprecision(14) << result << "\n";
+    cout << fixed << result << "\n";
 
     return 0;
 }
