@@ -1,4 +1,4 @@
-```
+```python
 def parse_frame(frame):
     if frame == 'X':
         return 10
