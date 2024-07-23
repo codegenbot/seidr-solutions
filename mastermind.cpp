@@ -7,21 +7,27 @@ using namespace std;
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
-    for(int i=0; i<4; i++) {
+    
+    for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             black++;
-        } else {
-            bool found = false;
-            for(int j=0; j<4; j++) {
-                if(guess[j] == code[i] && !found) {
-                    white++;
-                    found = true;
-                }
-            }
         }
     }
-    pair<int, int> result = make_pair(black, 4 - black - white);
-    return 0;
+    
+    for(int i = 0; i < 4; i++) {
+        bool found = false;
+        for(int j = 0; j < 4; j++) {
+            if(guess[j] == code[i] && i != j) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            white++;
+        }
+    }
+    
+    return make_pair(black, white);
 }
 
 int main() {
