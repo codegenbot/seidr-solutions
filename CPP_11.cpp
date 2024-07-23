@@ -1,10 +1,6 @@
 string result = "";
     for(int i=0; i<a.length(); i++){
-        if(a[i] != b[i]){
-            result += "1";
-        } else {
-            result += "0";
-        }
+        result += (a[i] == b[i]) ? '0' : '1';
     }
     return result;
 }
