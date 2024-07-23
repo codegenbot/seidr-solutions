@@ -30,7 +30,7 @@ int main() {
     string text, target;
     cin >> text >> target;
     vector<int> result = findSubstringIndices(text, target);
-    
+
     for (int index : result) {
         cout << index << " ";
     }
