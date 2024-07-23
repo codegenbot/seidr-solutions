@@ -1,8 +1,9 @@
-```cpp
+#include <iostream>
+#include <string>
 #include <map>
-using namespace std;
+#include <cctype>
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool std::issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,5 +13,22 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
+
+}
+
+std::map<char, int> histogram(const std::string& str) {
+    std::map<char, int> result;
+
+    for (char c : str) {
+        if (!std::isalpha(c)) continue; // ignore non-alphabetic characters
+        char lower = std::tolower(c);
+        if (result.find(lower) == result.end()) {
+            result[lower] = 1;
+        } else {
+            result[lower]++;
+        }
+    }
+
+    return result;
 
 }

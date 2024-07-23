@@ -1,24 +1,24 @@
+```c++
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 vector<int> count_up_to(int n) {
-    vector<bool> sieve(n + 1, true);
-    for (int i = 2; i * i <= n; ++i) {
-        if (sieve[i]) {
-            for (int j = i * i; j <= n; j += i) {
-                sieve[j] = false;
+    vector<int> result;
+    for (int i = 2; i <= n; ++i) {
+        bool isPrime = true;
+        for (int j = 2; j <= sqrt(i); ++j) { 
+            if (i % j == 0) {
+                isPrime = false;
+                break;
             }
         }
+        if (isPrime)
+            result.push_back(i);
     }
-    
-    vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
-        if (sieve[i])
-            primes.push_back(i);
-    }
-    return primes;
+    return result;
 }
 
 int main() {
