@@ -1,15 +1,12 @@
-sort(lst.begin(), lst.end());
-int i = 0, j = lst.size()-1;
-vector<int> result;
-while(i <= j){
-    if(i == j){
-        result.push_back(lst[i]);
-        break;
+vector<int> strange_sort_list(vector<int> lst){
+    sort(lst.begin(), lst.end());
+    vector<int> result;
+    int start = 0, end = lst.size()-1;
+    while (start <= end) {
+        result.push_back(lst[start++]);
+        if (start <= end) {
+            result.push_back(lst[end--]);
+        }
     }
-    result.push_back(lst[i]);
-    result.push_back(lst[j]);
-    i++;
-    j--;
-}
-return result;
+    return result;
 }
