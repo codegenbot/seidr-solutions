@@ -6,12 +6,13 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+vector<int> indicesOfSubstring(const std::string& text, const int target) {
     vector<int> indices;
-    if (target.empty()) return indices;
-    for (int i = 0; i <= static_cast<int>(text.length()) - static_cast<int>(target.length()); ++i) {
-        if (text.substr(i, target.length()) == target) {
-            for (size_t j = 0; j < target.length(); ++j) {
+    if (std::to_string(target).empty()) return indices;
+    std::string targetStr = std::to_string(target);
+    for (size_t i = 0; i <= text.size() - targetStr.size(); ++i) {
+        if (text.substr(i, targetStr.size()) == targetStr) {
+            for (size_t j = 0; j < targetStr.size(); ++j) {
                 indices.push_back(i + j);
             }
         }
