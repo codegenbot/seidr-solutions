@@ -3,9 +3,9 @@
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
-    for (int i = digits.size() - 1; i >= 0; i--) {
+    for (int i = 0; i < digits.size(); i++) {
         int digit = digits[i];
-        if ((i % 2 == 0 && digit != 9)) { 
+        if ((i % 2 == 1)) { 
             digit *= 2;   
             if (digit > 9) {
                 digit -= 9;
@@ -18,8 +18,16 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits = {};
+    std::vector<int> digits;
+    int cardNumber;
+    
+    for(int i = 0; i < 16; ++i){
+        std::cout << "Enter the " << (i+1) << "th digit of your credit card number: ";
+        std::cin >> cardNumber;
+        digits.push_back(cardNumber);
+    }
+    
     int result = luhn(digits);
-    std::cout << "The Luhn check is: " << (result % 10 == 0 ? "valid" : "invalid") << std::endl;
+    std::cout << "The sum of the digits is: " << result << std::endl;
     return 0;
 }
