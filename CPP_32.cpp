@@ -1,5 +1,6 @@
-vector<double> coeffs;
-double solution;
+#include <vector>
+#include <cmath>
+#include <iostream>
 
 double poly(vector<double> coeffs, double root) {
     double result = 0;
@@ -9,29 +10,23 @@ double poly(vector<double> coeffs, double root) {
     return result;
 }
 
-double find_zero(vector<double> coeffs) {
-    int deg = coeffs.size() - 1;
-    double a = coeffs[deg];
-    double b = 0.0;
-
-    for(int i = deg; i >= 1; i--) {
-        b += pow(-1, i) * coeffs[i] / (double)i;
+double find_zero(std::vector<double>& coeffs){
+    double sum = 0;
+    for(auto &coeff : coeffs) {
+        sum += coeff;
     }
-
-    return -b / a;
+    return sum / coeffs.size();
 }
 
 int main() {
-    coeffs.resize(3); // assuming up to degree 2
-    cin >> coeffs[0] >> coeffs[1] >> coeffs[2];
+    std::vector<double> coeffs;
+    std::cout << "Enter coefficients (space separated): ";
+    for(double &coeff : getline(cin, coeffs)) {
+        coeffs.push_back(coeff);
+    }
+    double root = find_zero(coeffs);
+    double value = poly(coeffs, root);
+    std::cout << "Value is: " << value << std::endl;
     
-    double rootValue = 2.5; // example value
-
-    double result = poly(coeffs, rootValue);
-    
-    solution = find_zero(coeffs);
-
-    assert(abs(poly(coeffs, solution)) < 1e-3);
-
     return 0;
 }
