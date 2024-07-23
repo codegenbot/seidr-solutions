@@ -5,6 +5,11 @@
 using namespace std;
 
 string string_xor(string a, string b) {
+    if (a.length() != b.length()) {
+        cout << "Error: Strings are not the same length." << endl;
+        return "";
+    }
+    
     string result = "";
     for (int i = 0; i < a.length(); i++) {
         if ((a[i] - '0') ^ (b[i] - '0')) {
