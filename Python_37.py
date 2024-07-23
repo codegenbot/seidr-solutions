@@ -1,2 +1,2 @@
 def sort_even(l: list):
-    return sorted([x for x in l if i % 2 == 0]) + [x for x in l if i % 2 != 0]
+    return [x for x in sorted([x for x in l if i % 2 == 0]) if i % 2 == 0 or i >= len(l)]
