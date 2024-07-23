@@ -1,8 +1,6 @@
-from typing import List
-import math
+Here is the solution:
 
-
-def solve() -> None:
+def solve():
     num = int(input("Enter a number: "))
     factors = []
     i = 2
@@ -18,4 +16,4 @@ def solve() -> None:
             factors.extend([i] * count)
     if num > 1:
         factors.append(num)
-    print("The factors of the number are:", factors)
+    print(f"The factorization of {num} is: {factors}")
