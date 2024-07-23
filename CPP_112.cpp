@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -15,7 +15,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string chars) {
             temp += s[i];
         }
     }
-    if (temp == string(temp).reverse()) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -32,20 +32,16 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main 
-{ 
-    // Read input
+int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
     
-    // Read the characters to remove
     std::string chars;
-    std::cout << "Enter characters to remove: ";
+    std::cout << "Enter characters to delete: ";
     std::cin >> chars;
     
-    // Process and output
-    auto result = reverse_delete(s, chars);
+    std::vector<std::string> result = reverse_delete(s, chars);
     for (const auto& item : result) 
         std::cout << item << " "; 
     std::cout << '\n';
