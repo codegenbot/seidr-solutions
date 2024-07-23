@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
-#include <pair>
 #include <climits>
-#include <iostream>
+#include <ostream>
 using namespace std;
 
 vector<pair<int, int>> result(vector<int> arr) {
@@ -21,7 +19,7 @@ vector<pair<int, int>> result(vector<int> arr) {
     return result;
 }
 
-int main() {
+int test() {
     vector<int> arr = {1, 2, 3, 4};
     vector<pair<int, int>> output = result(arr);
     for (auto p : output) {
