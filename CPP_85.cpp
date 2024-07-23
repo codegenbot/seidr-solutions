@@ -12,6 +12,8 @@ int add(std::vector<int> lst){
 
 int main(){
     assert (add({4, 4, 6, 8}) == 12);
-    // Add your test cases here
+    std::vector<int> test = {1, 3, 5, 7};
+    assert (add(test) == 0);
+
     return 0;
 }
