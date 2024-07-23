@@ -1,8 +1,14 @@
 #include <iostream>
-using namespace std;
 
 bool any_int(float a, float b, float c) {
-    return (int(a) + int(b)) == int(c) || (int(a) + int(c)) == int(b) || (int(b) + int(c)) == int(a);
+    int ai = a;
+    int bi = b;
+    int ci = c;
+
+    if (ai == bi + ci || ai == ci + bi || bi == ai + ci || bi == ci + ai || ci == ai + bi || ci == bi + ai)
+        return true;
+    else
+        return false;
 }
 
 int main() {
