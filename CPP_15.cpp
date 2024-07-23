@@ -1,7 +1,9 @@
 string result;
-    for(int i = 0; i <= n; ++i){
-        result += to_string(i) + " ";
+    for (int i = 0; i <= n; ++i) {
+        result += to_string(i);
+        if (i < n) {
+            result += " ";
+        }
     }
-    result.pop_back(); // Remove the last space character
     return result;
 }
