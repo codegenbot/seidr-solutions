@@ -1,7 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+bool will_it_fly(vector<int> q, int w);  
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+}
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -16,9 +17,4 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
 }
