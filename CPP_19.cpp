@@ -12,23 +12,21 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
+    string result;
     map<int, string> sorted_numbers;
-    string result = "";
     
-    string current_number = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            sorted_numbers[number_map[current_number]] = current_number;
-            current_number = "";
-        } else {
-            current_number += c;
-        }
+    size_t start = 0, end;
+    while ((end = numbers.find(" ", start)) != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        sorted_numbers[number_map[num_str]] = num_str;
+        start = end + 1;
     }
-    sorted_numbers[number_map[current_number]] = current_number;
+    string num_str = numbers.substr(start);
+    sorted_numbers[number_map[num_str]] = num_str;
     
-    for (auto it = sorted_numbers.begin(); it != sorted_numbers.end(); ++it) {
-        result += it->second + " ";
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
     }
     
-    return result;
+    return result.substr(0, result.size() - 1);
 }
