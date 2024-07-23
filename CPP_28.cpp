@@ -1,5 +1,6 @@
-string result = "";
-for (const string& s : strings) {
-    result += s;
+string result;
+    for (const string& s : strings) {
+        result += s;
+    }
+    return result;
 }
-return result;
