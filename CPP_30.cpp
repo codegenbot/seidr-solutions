@@ -10,20 +10,23 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<std::vector<float>> mat(n);
-    for (auto i = 0; i < n; ++i)
-        for (auto j = 0; j < n; ++j++)
-            std::cin >> mat[i][j];
-
-    bool same = true;
-    for (const auto& row : mat) {
-        if (!(std::cin >> row[0])) { 
-            same = false;
-            break;
+    for (auto i = 0; i < n; ++i) {
+        std::vector<float> row(n);
+        for (auto j = 0; j < n; ++j++) {
+            std::cin >> row[j];
         }
-    }
+        std::cin.ignore();
+        bool same = true;
+        for (auto j = 1; j < n; ++j) {
+            if (!(std::cin >> row[0])) { 
+                same = false;
+                break;
+            }
+            row[j-1] = row[0];
+        }
 
-    std::cout << (same ? "YES" : "NO") << std::endl;
+        std::cout << (same ? "YES" : "NO") << std::endl;
+    }
 
     return 0;
 }
