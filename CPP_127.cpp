@@ -9,6 +9,7 @@ if (start > end) {
 int len = end - start + 1;
 bool isPrime = true;
 for (int i = 2; i * i <= len; i++) {
-    if (len % i == 0) isPrime = false;
+    if (len % i == 0)
+        isPrime = false;
 }
 return isPrime ? "YES" : "NO";
