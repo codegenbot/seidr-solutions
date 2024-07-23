@@ -1,8 +1,7 @@
 ```cpp
+#pragma GCC diagnostic push
 #include <vector>
 #include <algorithm>
-#include <string>
-#pragma GCC diagnostic push
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& chars) {
