@@ -1,23 +1,12 @@
-```cpp
+```c++
 #include <vector>
 #include <string>
 
-int do_algebra(std::vector<std::pair<char, int>> operatoAndOperand) {
-    int result = operatoAndOperand[0].second;
-    for (int i = 1; i < operatoAndOperand.size(); i++) {
-        if (operatoAndOperand[i-1].first == '/') {
-            if (operatoAndOperand[i].second == 0)
-                return 0;
-            result /= operatoAndOperand[i].second;
-        } else if (operatoAndOperand[i-1].first == "*") {
-            result *= operatoAndOperand[i].second;
-        } else if (operatoAndOperand[i-1].first == "+") {
-            result += operatoAndOperand[i].second;
-        } else if (operatoAndOperand[i-1].first == "-") {
-            result -= operatoAndOperand[i].second;
-        }
-    }
-    return result;
+int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
+    // implementation of the algebra function goes here
 }
 
-assert(do_algebra({{'+', 1}}) == 2);
+int main() {
+    assert(do_algebra({"+"}, {1}) == 2);
+    return 0;
+}
