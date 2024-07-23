@@ -10,6 +10,6 @@ std::vector<int> eat(int number, int need, int remaining) {
     return {number + need, left};
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool isSame(vector<int> a,vector<int>b){
+    return (a[0] == b[0]) && (a[1] == b[1]);
 }
