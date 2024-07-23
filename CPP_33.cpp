@@ -1,14 +1,6 @@
-for (int i = 0; i < l.size(); ++i) {
-    if ((i + 1) % 3 == 0) {
-        vector<int> temp;
-        for (int j = i - 2; j <= i; ++j) {
-            temp.push_back(l[j]);
-        }
-        sort(temp.begin(), temp.end());
-        for (int j = i - 2; j <= i; ++j) {
-            l[j] = temp[j - (i - 2)];
-        }
+vector<int> result = l;
+    for (int i = 0; i < l.size(); i += 3) {
+        sort(result.begin() + i, result.begin() + i + 3);
     }
-}
-return l;
+    return result;
 }
