@@ -1,14 +1,11 @@
-string result = "";
-    for (char &c : s) {
+string encrypted = "";
+    for (char c : s) {
         if (isalpha(c)) {
-            if (islower(c)) {
-                result += char('a' + (c - 'a' + 2 * 2) % 26);
-            } else {
-                result += char('A' + (c - 'A' + 2 * 2) % 26);
-            }
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += static_cast<char>((c - base + 2 * 2) % 26 + base);
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
