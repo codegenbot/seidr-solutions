@@ -1,23 +1,14 @@
 #include <vector>
 #include <list>
+#include <variant>
 
 using namespace std;
 
-enum class AnyType {
-    INTEGER,
-    // add more types as needed...
-};
-
-struct AnyValue {
-    int integer;
-    // add more fields for other types...
-};
-
-vector<int> filter_integers(list<AnyValue> values) {
+vector<int> filter_integers(list<variant<int>> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.integer != 0) { // assuming you want to filter out zero
-            result.push_back(value.integer);
+        if (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
     }
     return result;
