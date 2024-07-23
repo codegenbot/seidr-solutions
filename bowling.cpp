@@ -21,23 +21,27 @@ int bowlingScore(string s) {
         } else {
             if (!strike) {
                 currentRoll1++;
+                if (i < s.length() - 1 && s[i + 1] == '/') {
+                    score += currentRoll1;
+                    break;
+                }
+                if (s[i + 1] == 'X') {
+                    score += currentRoll1 + 10;
+                    i++;
+                } else {
+                    currentRoll2 = s[i + 1] - '0';
+                    i++;
+                }
             } else {
-                currentRoll2++;
+                currentRoll2 = s[i + 1] - '0';
+                i++;
+                if (i < s.length() && s[i] == '/') {
+                    score += 10;
+                    break;
+                }
             }
-        }
-    }
-
-    if (!strike) {
-        if (currentRoll1 + currentRoll2 == 10) {
-            score += 10;
-        } else if (currentRoll1 > 0 && currentRoll2 > 0) {
-            score += currentRoll1 + currentRoll2;
-        } else if (currentRoll1 > 0) {
-            score += currentRoll1 + currentRoll2;
         }
     }
 
     return score;
 }
-
-int main() { return bowlingScore("XXX/"); }
