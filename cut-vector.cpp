@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
-#include <climits>  
-#include <cmath>  
+#include <climits>  // for INT_MAX
+#include <cmath>    // for abs
 
 using namespace std;
 
@@ -34,7 +34,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; 
+    vector<int> v = {1, 2, 3, 4, 5}; // example input
     pair<vector<int>, vector<int>> result = cutVector(v);
     return 0;
 }
