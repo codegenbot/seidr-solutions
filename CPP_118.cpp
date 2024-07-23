@@ -1,20 +1,35 @@
-```cpp
+#include <iostream>
 #include <string>
-#include <cctype>
+using namespace std;
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+bool isvowl(char c) {
+    char vowels[] = {'a', 'e', 'i', 'o', 'u'};
+    for (int i = 0; i < 5; i++) {
+        if (c == tolower(vowels[i]))
+            return true;
+    }
+    return false;
 }
 
-std::string get_closest_vowel(std::string word) {
-    int left = 0;
-    for (int right = word.size() - 1; right >= 0; --right) {
-        if (!isvowel(word[right])) {
-            ++left;
-        } else if (left > 0 && isvowel(word[right-1])) {
-            return std::string(1, tolower(word[right]));
+string get_closest_vowel(string word) {
+    int min_index = -1;
+    int min_distance = INT_MAX;
+    
+    for(int i=0; i<word.size(); ++i) {
+        if(isvowl(word[i])) {
+            int distance = abs(i-word.size()/2);
+            if(distance < min_distance) {
+                min_distance = distance;
+                min_index = i;
+            }
         }
     }
-    return isvowel(word[0]) ? tolower(word[0]) : "";
+    
+    return string(1, word[min_index]);
+}
+
+int main() {
+    assert (get_closest_vowel("Above") == "o");
+    cout << get_closest_vowel("Hello") << endl;
+    return 0;
 }

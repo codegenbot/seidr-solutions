@@ -1,19 +1,18 @@
-#include <iostream>
+```cpp
+#include <vector>
 using namespace std;
 
-int match_parens(vector<string> lst) {
+int match_parens(int n) {
     int open = 0;
-    for (const auto& str : lst) {
-        for (char c : str) {
-            if (c == '(') open++;
-            else if (c == ')') open--;
-            if (open < 0) return 0;
-        }
+    for (int i = 1; i <= n; i++) {
+        if (i == 1) open++;
+        else if (i % 2 != 0 && open > 0) open--;
+        else if (i % 2 == 0 && open < 0) open++;
     }
     return open == 0 ? 1 : 0;
 }
 
 int main() {
-    cout << (match_parens({{"(", ")"})} ? "Yes" : "No");
+    if (match_parens(4) == 0) cout << "No"; else cout << "Yes";
     return 0;
 }

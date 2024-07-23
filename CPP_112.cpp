@@ -3,22 +3,18 @@
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& chars) {
-    return a == chars;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string chars) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
+        if (chars.find(std::string(1, s[i])) == std::string::npos) {
             temp += s[i];
         }
     }
-    
-    if(temp.empty())
-        return {"", "False"};
-    
     if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
@@ -35,4 +31,19 @@ std::string reverse(std::string str) {
         rev += str[i];
     }
     return rev;
+
+int main() {
+    std::string s, chars;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Enter characters to delete: ";
+    std::cin >> chars;
+    
+    std::vector<std::string> result = reverse_delete(s, chars);
+    std::cout << "Original string: " << s << endl;
+    std::cout << "Deleted string: " << result[0] << endl;
+    if(result.size() == 3) {
+        std::cout << "Is the reversed deleted string a palindrome? " << result[2] << endl;
+    }
+    return 0;
 }

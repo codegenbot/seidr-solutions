@@ -1,18 +1,15 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
-using namespace std;
-
-int sum_squares(vector<float> lst) {
-    int sum = 0;
-    for (float num : lst) {
-        int ceil_num = ceil(num);
-        sum += pow(ceil_num, 2);
+int sum_squares(std::vector<float> lst){
+    int total = 0;
+    for(float num : lst){
+        total += ceil(num) * ceil(num);
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2); 
-    return 0;
+    std::vector<float> lst = {-1,1,0};
+    assert (sum_squares(lst)==2);
 }

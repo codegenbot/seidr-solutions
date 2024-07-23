@@ -1,42 +1,40 @@
-```
-#include <initializer_list>
+```cpp
 #include <cassert>
-#include <vector>
 
-int sumOfDigits(int n) {
+int sumOfDigits(int num) {
     int sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+    while(num > 0) {
+        sum += num % 10;
+        num /= 10;
     }
     return sum;
 }
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int findMaxPrime(const std::vector<int>& numbers) {
-    int maxPrime = -1;
-    for (int number : numbers) {
-        if (isPrime(number)) {
-            if (number > maxPrime) {
-                maxPrime = number;
+int findMaxPrime(int arr[]) {
+    int max = 0;
+    for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
+        if(isPrime(arr[i])) {
+            if(arr[i] > max) {
+                max = arr[i];
             }
         }
     }
-    return maxPrime;
+    return max;
 }
 
-int main() {
+int isPrime(int num) {
+    if(num <= 1) {
+        return 0;
+    }
+    for(int i = 2; i * i <= num; i++) {
+        if(num % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int problemSolver() {
     assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
     return 0;
 }
