@@ -9,3 +9,8 @@ int pairedDigits(std::string s) {
     }
     return sum;
 }
+
+int main() {
+    std::cout << pairedDigits("123333") << std::endl;
+    return 0;
+}
