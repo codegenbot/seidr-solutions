@@ -1,10 +1,12 @@
-def fizz_buzz(x):
-    if x % 3 == 0: 
-        if x % 5 == 0: 
-            return "FizzBuzz"
-        else: 
-            return "Fizz"
-    elif x % 5 == 0: 
-        return "Buzz"
-    else:
-        return str(x)
+def fizz_buzz(n):
+    result = []
+    for i in range(1, n+1):
+        s = ""
+        if i % 15 == 0:
+            s = "FizzBuzz"
+        elif (i % 3 == 0 and s=="" ) or (i % 5 == 0):
+            s = "Fizz" if i % 3 == 0 else "Buzz"
+        else:  
+            s = str(i)
+        result.append(s)
+    return ''.join(result)
