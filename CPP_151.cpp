@@ -13,12 +13,14 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float input;
-    cout << "Enter numbers: ";
-    while(cin >> input){
-        lst.push_back(input);
+    int n; 
+    cin >> n; // Read number of elements
+    for(int i = 0; i < n; i++) {
+        float x; 
+        cin >> x; // Read the element
+        lst.push_back(x); // Add it to the vector
     }
-    int odd_sum = 0; // declare and initialize the variable
-    assert(double_the_difference(lst) == odd_sum);
+    long long odd_sum = double_the_difference(lst);
+    cout << odd_sum << endl;
     return 0;
 }
