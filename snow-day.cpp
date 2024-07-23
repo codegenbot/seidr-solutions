@@ -1,1 +1,16 @@
-snow_on_ground += snow_fall_rate - (snow_on_ground * snow_melt_rate * (1.0 - snow_fall_rate));
+#include <iostream>
+using namespace std;
+
+int main() {
+    int hours;
+    double snow_on_ground, snow_fall_rate, snow_melt_rate;
+    cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
+
+    for (int i = 0; i < hours; ++i) {
+        double current_snow = snow_on_ground;
+        snow_on_ground = current_snow + snow_fall_rate - (current_snow * snow_melt_rate);
+    }
+
+    cout << fixed << snow_on_ground << endl;
+    return 0;
+}
