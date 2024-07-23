@@ -1,3 +1,6 @@
+from typing import List
+
+
 def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
     while True:
         try:
