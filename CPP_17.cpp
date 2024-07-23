@@ -5,11 +5,12 @@ vector<int> parse_music(string music_string){
         if (music_string[i] == 'o') {
             beats.push_back(4);
             i += 2;
-        } else if (music_string[i] == ' ') {
-            i++;
-        } else {
+        } else if (music_string[i] == '.') {
             beats.push_back(1);
             i += 2;
+        } else {
+            beats.push_back(2);
+            i += 3;
         }
     }
     return beats;
