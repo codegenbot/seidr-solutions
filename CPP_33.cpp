@@ -1,8 +1,16 @@
-vector<int> result = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
-            sort(result.begin() + i - 2, result.begin() + i + 1);
+vector<int> indices;
+    for(int i = 0; i < l.size(); ++i){
+        if(i % 3 == 0){
+            indices.push_back(i);
         }
     }
-    return result;
+    vector<int> temp;
+    for(int idx : indices){
+        temp.push_back(l[idx]);
+    }
+    sort(temp.begin(), temp.end());
+    for(int i = 0; i < indices.size(); ++i){
+        l[indices[i]] = temp[i];
+    }
+    return l;
 }
