@@ -1,22 +1,22 @@
 bool solveBoolean(std::string s) {
-    bool result = false;
+    std::stack<char> st;
+    bool prev = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
-            result = true;
+            prev = true;
         } else if (s[i] == 'F') {
-            result = false;
-        } else if (s[i] == '|') {
-            while (!std::stack<char>().empty() && std::stack<char>().top() == '&') {
-                std::stack<char>().pop();
-            }
-            if (std::stack<char>().empty()) return true;
-            else std::stack<char>().push('|');
+            prev = false;
         } else if (s[i] == '&') {
-            std::stack<char>().push('&');
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return true;
+            else st.push('|');
         }
     }
-    while (!std::stack<char>().empty() && std::stack<char>().top() == '&') {
-        std::stack<char>().pop();
+    while (!st.empty() && st.top() == '&') {
+        st.pop();
     }
-    return result;
-}
+    return prev;
