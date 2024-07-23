@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,7 +8,7 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = 0; i < n; i++) {
         bool isLeader = true;
         
         for (int j = i + 1; j < n; j++) {
@@ -27,10 +27,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
+    vector<int> arr = {5, 2, 3, 4};
     vector<int> leadersResult = leaders(arr);
-    for (auto x : leadersResult) {
-        cout << x << " ";
+    for (int leader : leadersResult) {
+        cout << leader << " ";
     }
     return 0;
 }
