@@ -1,2 +1,2 @@
-n, m = map(int, input().split())
-print('{:.8f}'.format((n * (n + 1) - m) / (2 * n * m)))
+n, m = map(int, input().strip().split())
+print('{:.8f}'.format((n * (n-1) + n * (m-1)) / (2 * n * m)) )
