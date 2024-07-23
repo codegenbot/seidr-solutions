@@ -1,9 +1,15 @@
-```cpp
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s;
+    cout << "Enter a sentence: ";
+    cin >> s; 
+
+    string result = "";
     bool capitalizeNext = true;
 
-    for (char c : str) {
+    for (char c : s) { 
         if (c == '-') {
             if (!result.empty()) {
                 if (capitalizeNext) {
@@ -14,16 +20,18 @@ std::string kebabToCamel(const std::string& str) {
                 capitalizeNext = true;
             }
         } else if (capitalizeNext) {
-            result += std::toupper(c);
+            result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += std::tolower(c);
+            result += tolower(c);
         }
     }
 
-    if (!result.empty() && !capitalizeNext) {
-        result[0] = std::tolower(result[0]);
+    if (result.size() > 0 && !capitalizeNext) {
+        result[0] = tolower(result[0]);
     }
 
-    return result;
+    cout << "camelCase: " << result; 
+
+    return 0;
 }
