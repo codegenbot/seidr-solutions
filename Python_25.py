@@ -1,5 +1,5 @@
+```
 from typing import list
-
 
 def calculate_average(input_list: list[int]) -> float:
     if not input_list:
