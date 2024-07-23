@@ -1,7 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cmath>
-
-float max_element(const std::vector<float>& l) {
-    return *std::max_element(l.begin(), l.end());
+float max_element(vector<float> l){
+    return *max_element(l.begin(), l.end());
 }
