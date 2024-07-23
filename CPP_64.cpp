@@ -1,6 +1,7 @@
 #include <string>
+using namespace std;
 
-int vowels_count(std::string s) {
+int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
@@ -10,4 +11,10 @@ int vowels_count(std::string s) {
         }
     }
     return count;
+}
+
+int main() {
+    string str = "hello";
+    cout << vowels_count(str);
+    return 0;
 }
