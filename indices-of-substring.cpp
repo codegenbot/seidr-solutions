@@ -10,7 +10,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     while (i <= n - m) {
         if (text.substr(i, m) == target)
             result.push_back(i);
-        i += target.size();
+        i = text.find(target, i) + 1;
+        if (i != string::npos)
+            continue; 
+        break;
     }
     
     return result;
