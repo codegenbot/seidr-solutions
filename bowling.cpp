@@ -10,7 +10,7 @@ int bowlingScore(string s) {
             inFrame = true;
         } else if (inFrame) {
             if (c != 'X') {
-                score += (10 - (c - '0'));
+                score += 10 - (c - '0');
             }
             inFrame = false;
         } else {
