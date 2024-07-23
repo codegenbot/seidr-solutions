@@ -1,8 +1,14 @@
+```
+def phi(p: int):
+    result = p;
+    for i in range(2, int(p**0.5)+1):
+        if p%i == 0:
+            while p%i == 0:
+                p //= i
+            result -= result//i
+    if p > 1:
+        result -= result//p
+    return result
+
 def modp(n: int, p: int):
-    if n == 1 or p == 1:
-        return n
-    if p % 2 == 0:
-        temp = modp(n, p // 2)
-        return (temp * temp) % p
-    else:
-        return ((n % p) * modp(n, p - 1)) % p
+    return pow(phi(p), 1, p) * n % p
