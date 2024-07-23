@@ -1,4 +1,4 @@
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return abs(a)
+    return abs(a)  # Return absolute value to handle negative numbers
