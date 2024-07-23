@@ -13,5 +13,11 @@ def search(lst):
             break
     return max_num
 
-lst = [int(i) for i in input().split() if i.isdigit()]
+lst = input("Enter numbers separated by space: ")
+try:
+    lst = [int(i) for i in lst.split()]
+except ValueError:
+    print("Invalid input. Please enter numbers separated by spaces.")
+    exit()
+
 print(search(lst))
