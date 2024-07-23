@@ -1,4 +1,7 @@
-```
+#include <cstddef>
+#include <utility>
+#include <vector>
+#include <unordered_map>
 #include <map>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
