@@ -1,13 +1,21 @@
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+#include <vector>
+#include <iostream>
 
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            result.push_back(get<int>(value));
+std::vector<int> filter_integers(std::vector<int> input) {
+    std::vector<int> result;
+    for (int i : input) {
+        if (i > 0) {
+            result.push_back(i);
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
 }
