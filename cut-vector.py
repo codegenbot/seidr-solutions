@@ -3,9 +3,6 @@ def cut_vector(lst):
     cut_index = 0
 
     for i in range(1, len(lst)):
-        if sum(lst[:i]) == sum(lst[i:]):
-            return lst[:i], lst[i:]
-
         diff = abs(sum(lst[:i]) - sum(lst[i:]))
 
         if diff < min_diff:
