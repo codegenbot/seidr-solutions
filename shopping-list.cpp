@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -21,6 +20,6 @@ int main() {
         cin >> prices[i] >> discounts[i];
     }
     double temp = shoppingList(prices, discounts);
-    cout << fixed << showpoint << setprecision(1) << temp << endl;
+    cout << fixed << showpoint << std::setprecision(1) << temp << endl;
     return 0;
 }
