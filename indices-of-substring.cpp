@@ -8,12 +8,12 @@ int main() {
     
     vector<int> indices;
     size_t pos = text.find(target, 0);
-    while(pos != string::npos) {
+    while(pos != text.size() - target.size() + 1) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
     
-    for(size_t i = 0; i < indices.size(); i++) {
+    for(int i = 0; i < indices.size(); i++) {
         cout << indices[i] << " ";
     }
     
