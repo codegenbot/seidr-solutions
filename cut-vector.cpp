@@ -3,7 +3,7 @@
 #include <climits> 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int> v) {
     int n = v.size();
     
     pair<vector<int>, vector<int>> result;
@@ -33,7 +33,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     result.first = vector<int>(v.begin(), v.begin() + best_cut+1);
     result.second = vector<int>(v.begin() + best_cut, v.end());
     
-    return result;
+    return {result};
 }
 
 int main() {
@@ -43,16 +43,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "Left: ";
-    for (int num : res.first) {
-        cout << num << " ";
+    vector<pair<vector<int>, vector<int>>> res = cutVector(v);
+    for (auto& pair : res) {
+        cout << "Left: ";
+        for (int num : pair.first) {
+            cout << num << " ";
+        }
+        cout << endl;
+        cout << "Right: ";
+        for (int num : pair.second) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-    cout << "Right: ";
-    for (int num : res.second) {
-        cout << num << " ";
-    }
-    cout << endl;
     return 0;
 }
