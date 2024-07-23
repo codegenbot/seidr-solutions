@@ -7,12 +7,12 @@ current_sum = 0
 min_diff = abs(total_sum)
 idx = 0
 
-for i in range(n):
+for i in range(n-1):
     diff1 = abs(total_sum - 2 * current_sum)
     diff2 = abs(total_sum - 2 * (current_sum + nums[i]))
-
+    
     if current_sum >= half_sum or diff2 == diff1:
-        if current_sum >= half_sum and diff2 <= min_diff:
+        if diff2 <= min_diff:
             idx = i
             min_diff = diff2
     else:
@@ -22,5 +22,5 @@ for i in range(n):
 
     current_sum += nums[i]
 
-print(*nums[: idx + 1])
-print(*nums[idx + 1 :])
+print(*nums[:idx + 1])
+print(*nums[idx + 1:])
