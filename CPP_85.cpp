@@ -7,3 +7,4 @@ int add(vector<int> lst) {
             result += lst[i];
     }
     return result;
+}
