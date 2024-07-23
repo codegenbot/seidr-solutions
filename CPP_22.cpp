@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
+// declare filter_integers function here
 std::vector<int> filter_integers(std::vector<std::string> v) {
     std::vector<int> result;
     for (auto s : v) {
@@ -25,7 +25,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main 
+int main
 {
     std::vector<std::string> input;
     int n;
