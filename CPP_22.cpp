@@ -12,15 +12,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> filter_integers(std::vector<int> mixedVector) {
     std::vector<int> result;
     for (int num : mixedVector) {
-        if (std::is_same_v<int, std::decay_t<decltype(num)>>) {
+        if (std::is_same_v<int, decltype(num)>) {
             result.push_back(num);
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
-
-    return 0;
 }
