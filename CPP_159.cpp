@@ -1,24 +1,19 @@
+Here is the modified code:
+
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> eat(int number, int need, int remaining) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> Eat(int number, int need, int remaining) {
     int total = number + need;
-    int left = total - 1000;
-    if (left < 0) {
-        left = 0;
-    }
+    int left = (total > 1000 ? 1000 : total);
     if (left > remaining) {
         left = remaining;
     }
-    return {number + need, total - (number + left)};
-}
-
-int main() {
-    std::vector<int> output = eat(4, 5, 1);
-    for(int i : output) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
+    return {number + need, left};
 }
