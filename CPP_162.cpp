@@ -1,3 +1,5 @@
+#include <openssl/ssl.h>
+#include <openssl/sha.h>
 using namespace std;
 
 string string_to_md5(string text) {
