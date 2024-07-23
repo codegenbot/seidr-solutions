@@ -1,20 +1,17 @@
-#include <vector>
 #include <map>
+#include <vector>
 
-int search(vector<int> lst) {
-    map<int, int> countMap;
+std::vector<int> search(std::vector<int> lst) {
+    std::map<int, int> countMap;
     for (auto i : lst) {
         countMap[i]++;
     }
     
+    std::vector<int> dupVec;
     for (auto p : countMap) {
-        if (p.second > 1) return p.first; // Found a duplicate
+        if (p.second > 1) 
+            for (int j = 0; j < p.second; j++) 
+                dupVec.push_back(p.first); 
     }
-    return -1;
-}
-
-int main() {
-    vector<int> lst = {10, 20, 30, 40, 50, 10};
-    int result = search(lst);
-    cout << "Duplicate found at index: " << result << endl;
+    return dupVec;
 }

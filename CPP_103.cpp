@@ -1,17 +1,10 @@
 string rounded_avg(int n, int m) {
     if (n > m)
         return "-1";
-    long long odd_sum = 0, even_sum = 0;
-    bool is_odd = false;
-    for (int i = n; i <= m; i++) {
-        if (i & 1) {
-            odd_sum += i;
-            is_odd = true;
-        } else {
-            even_sum += i;
-        }
-    }
-    long long avg = (is_odd ? odd_sum : even_sum) / ((m - n + 1) >> is_odd);
+    long long sum = 0;
+    for (int i = n; i <= m; i++)
+        sum += i;
+    long long avg = static_cast<long double>(sum) / (m - n + 1);
     string res = "";
     while (avg > 0) {
         if (avg & 1)
