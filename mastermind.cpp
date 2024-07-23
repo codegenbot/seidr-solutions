@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -15,13 +16,13 @@ int main() {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeFreq[code[i] - '1']++;
-            guessFreq[guess[i] - '1']++;
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeFreq[i], guessFreq[i]);
+        white += std::min(codeFreq[i], guessFreq[i]);
     }
     
     std::cout << white << std::endl;
