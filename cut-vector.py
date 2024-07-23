@@ -3,8 +3,8 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
-min_diff = abs(sum(arr[:1]) - sum(arr[1:]))
-cut_index = 1
+min_diff = abs(sum(arr[:0]) - sum(arr[0:]))
+cut_index = 0
 
 for i in range(1, n):
     left_sum += arr[i - 1]
