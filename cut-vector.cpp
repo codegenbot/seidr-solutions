@@ -40,5 +40,9 @@ int main() {
     
     cout << 0 << '\n';
     
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << '\n';
+    }
+
     return 0;
 }
