@@ -35,9 +35,10 @@ bool evaluateBooleanExpression(string expression) {
                     return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "T";
+                    return operand == "F";
                 }
 
+                operand = "False";
                 operators.pop();
             }
             operators.pop();
@@ -52,13 +53,14 @@ bool evaluateBooleanExpression(string expression) {
             return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "T";
+            return operand == "F";
         }
 
+        operand = "False";
         operators.pop();
     }
 
-    return operand == "T";
+    return operand == "True";
 }
 
 int main() {
