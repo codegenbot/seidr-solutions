@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+#pragma c++20
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
