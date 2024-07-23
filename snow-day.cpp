@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 int main() {
     int hours;
@@ -8,7 +9,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         float snow_fall = snow_fall_rate;
-        float snow_melt = snow_melt_rate * snow_on_ground;
+        float snow_melt = std::ceil(snow_melt_rate * snow_on_ground); // Round up to nearest integer
         snow_on_ground += snow_fall - snow_melt;
         if (snow_on_ground < 0) {
             snow_on_ground = 0;
