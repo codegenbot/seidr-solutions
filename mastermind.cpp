@@ -10,18 +10,12 @@ int mastermind(string code, string guess) {
         }
     }
 
-    map<char, int> codeCount;
-    for (char c : code) {
-        codeCount[c]++;
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (c == code[i]) {
-            black++;
-        } else if (codeCount[c] > 0) {
-            white++;
-            codeCount[c]--;
+    for (char c : unique(cbegin(code), cend(code))) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d && count++ < 1) {
+                white++;
+            }
         }
     }
 
