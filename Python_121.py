@@ -1,6 +1,6 @@
 ```
 def solution(lst):
-    return sum(i for i in lst[1:] if i % 2 == 0)
+    return sum(i for i in lst[1::2] if i % 2 != 0)
 
 if __name__ == "__main__":
     user_input = input("Enter a list of numbers: ")
