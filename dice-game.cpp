@@ -1,19 +1,20 @@
 #include <iostream>
-using namespace std;
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    double total_outcomes = n * m;
-    double favorable_outcomes = 0;
+    std::cin >> n >> m;
+    
+    int count = 0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
+        for (int j = 1; j < m; ++j) {
             if (i > j) {
-                favorable_outcomes += 1;
+                count++;
             }
         }
     }
-    double probability = favorable_outcomes / total_outcomes;
-    cout << probability << '\n';
+    
+    double probability = static_cast<double>(count) / (n * m);
+    std::cout << probability << std::endl;
+    
     return 0;
 }
