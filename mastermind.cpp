@@ -1,6 +1,6 @@
-#include <iostream>
-#include <algorithm>
+```cpp
 #include <string>
+#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -19,10 +19,10 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        if (count > 1 && c != code[0] && c != code[1] && c != code[2] && c != code[3]) {
+        if (count > 1) {
             white++;
         }
     }
 
-    return black;
+    return black + white;
 }
