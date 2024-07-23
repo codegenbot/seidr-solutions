@@ -6,4 +6,5 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = [numbers[0]]
     for num in numbers[1:]:
         result.extend([num, delimiter])
+    result.append(delimiter)
     return result
