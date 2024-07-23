@@ -12,7 +12,7 @@ bool is_sorted(vector<int> lst) {
         else
             break;
     }
-    return next(lst.begin(), 1, 0) != unique(lst.begin(), lst.end());
+    return false;
 }
 
 int main() {
