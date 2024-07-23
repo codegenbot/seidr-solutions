@@ -1,6 +1,6 @@
-def find_zero():
-    xs = input("Enter coefficients (space separated): ").split()
-    xs = [int(x) for x in xs]
+```
+import math
+def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -10,5 +10,3 @@ def find_zero():
     d = -xs[0]
     x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
     return round(x, 2)
-
-print(find_zero())
