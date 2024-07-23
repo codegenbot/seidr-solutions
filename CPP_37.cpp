@@ -1,16 +1,15 @@
-```
 #include <algorithm>
 #include <vector>
 
-bool my_same(vector<float> a, vector<float> b) {
+bool my_same(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(),
           [&b](float x) { return std::abs(x - *std::min_element(b.begin(), [y](float z) {return std::abs(z);})+1e-6) <= 1e-6; }));
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result;
-    for (int i = 0; i < l.size(); std::size_type j = 0; j < l.size()) {
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> even;
+            std::vector<float> even;
             for (float x : l) {
                 if (x % 2 == 0) {
                     even.push_back(x);
