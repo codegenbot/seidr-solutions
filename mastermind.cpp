@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -25,7 +23,7 @@ int main() {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
     
-    cout << whitePegs << "\n" << blackPegs << "\n";
+    cout << whitePegs << endl << blackPegs << endl;
     
     return 0;
 }
