@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
 
@@ -17,10 +18,10 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 
     if (sum1 < sum2) {
-        return issame(lst1, lst2) ? vector<string>() : lst1;
+        return issame(lst1, lst2) ? lst1 : lst2;
     } else if (sum1 > sum2) {
-        return issame(lst1, lst2) ? vector<string>() : lst2;
+        return !issame(lst1, lst2) ? lst1 : lst2;
     } else {
-        return issame(lst1, lst2) ? lst1 : vector<string>();
+        return issame(lst1, lst2) ? lst1 : lst2;
     }
 }
