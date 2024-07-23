@@ -9,5 +9,5 @@ string decimal_to_binary(int decimal){
             binary = "0" + binary;
         decimal >>= 1;
     }
-    return std::string("db") + binary + std::string("db");
+    return binary;
 }
