@@ -1,6 +1,16 @@
 def solve_boolean(expression):
-    tokens = ['T', 'F']
-    for op in '&|':
-        expression = expression.replace(op, f' {op} ')
-    result = eval(''.join(map(str, [token if token in tokens else f'bool({token})' for token in expression.split()])))
-    return bool(result)
+    tokens = expression.replace('&', ' and ').replace('|', ' or ')
+    def evaluate_expression(tokens):
+        stack = []
+        operators = ['and', 'or']
+        for token in tokens.split():
+            if token in operators:
+                right = stack.pop()
+                left = stack.pop()
+                if token == 'and':
+                    stack.append(left and right)
+                elif token == 'or':
+                    stack.append(left or right)
+            else:
+                stack.append(token == 'T')
+        return stack[0]
