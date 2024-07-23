@@ -1,25 +1,28 @@
 ```
+from typing import List
+
+
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-"""\""""
-if not all(isinstance(num, int) for num in numbers):
-    raise ValueError("Numbers must be a list of integers")
 
-if not isinstance(delimiter, int):
-    raise ValueError("Delimiter must be an integer")
+    if not all(isinstance(num, int) for num in numbers):
+        raise ValueError("Numbers must be a list of integers")
 
-if len(numbers) <= 1:
-    return numbers
+    if not isinstance(delimiter, int):
+        raise ValueError("Delimiter must be an integer")
 
-result = [numbers[0]]
+    if len(numbers) <= 1:
+        return numbers
 
-for i, num in enumerate(numbers[1:-1]):
-    result.extend([delimiter])
-    if i < len(numbers[1:-2]):
-        result.append(num)
+    result = [numbers[0]]
 
-if len(numbers) > 2:
-    result.append(delimiter)
+    for i, num in enumerate(numbers[1:-1]):
+        result.extend([delimiter])
+        if i < len(numbers[1:-2]):
+            result.append(num)
 
-result.append(numbers[-1])
+    if len(numbers) > 2:
+        result.append(delimiter)
 
-return result
+    result.append(numbers[-1])
+
+    return result
