@@ -1,9 +1,9 @@
-```cpp
 #include <cassert>
 #include <vector>
+using namespace std;
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> result(2);
+vector<int> even_odd_count(int num) {
+    vector<int> result(2);
     int temp = abs(num);
     while(temp != 0){
         int digit = temp % 10;
@@ -16,7 +16,7 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,7 +28,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    assert(is_same(even_odd_count(0), {1, 0}));
+int main_func() {
+    assert(issame(even_odd_count(0), vector<int> {1, 0}));
     return 0;
 }
