@@ -2,14 +2,12 @@ int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
     }
-    
-    if (sum <= w) {
-        vector<int> temp = q;
-        reverse(temp.begin(), temp.end());
-        if (temp == q) {
-            return true;
+    bool is_balanced = true;
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - i - 1]) {
+            is_balanced = false;
+            break;
         }
     }
-    
-    return false;
+    return is_balanced && sum <= w;
 }
