@@ -31,34 +31,23 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    int a, b;
-    std::cout << "Enter number 1: ";
-    std::cin >> a;
-    std::cout << "Enter number 2: ";
-    std::cin >> b;
-    
-    if (a == 0 || b == 0) {
-        std::cout << "Invalid input! Please try again." << std::endl;
-        return 1; // or some other appropriate value to indicate an error
-    }
-    
-    int gcdVal = gcd(a, b);
-    std::cout << "GCD is: " << gcdVal << std::endl;
-
+    int g;
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
-
+    
     if (text.empty() || target.empty()) {
         std::cout << "Invalid input! Please try again." << std::endl;
         return 1; // or some other appropriate value to indicate an error
     }
-
+    
+    int gcdResult = gcd(text.size(), target.size());
+    
     auto indices = indicesOfSubstring(text, target);
-    for (int i = 0; i < gcdVal; ++i) {
-        if (i >= indices.size()) break;
-        std::cout << indices[i] << " ";
+    for (int i : indices) {
+        if(i % gcdResult == 0)
+            std::cout << i << " ";
     }
     std::cout << std::endl;
     return 0;
