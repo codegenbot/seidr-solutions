@@ -1,6 +1,8 @@
-#include <string>
 #include <cstring>
-
-int my_length(std::string str) {
+int my_strlen(string str){
     return str.length();
+}
+
+int main() {
+    assert(my_strlen("asdasnakj") == 12);
 }
