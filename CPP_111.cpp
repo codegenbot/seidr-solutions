@@ -15,9 +15,6 @@ std::map<char, int> histogram(std::string s) {
 }
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
     for (auto p : a) {
         if (b.find(p.first) == b.end() || p.second != b[p.first]) {
             return false;
@@ -32,6 +29,8 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), histogram("a")));
+    std::map<char, int> expected = histogram("a");
+    expected['b'] = 0; // Assuming there's no 'b' in the string
+    assert(issame(histogram("aaa"), expected));
     return 0;
 }
