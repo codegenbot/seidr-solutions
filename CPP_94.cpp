@@ -26,5 +26,5 @@ int skjkasdkd(std::vector<int> lst){
 
 int main(){
     std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
+    std::cout << skjkasdkd(lst) << std::endl; 
 }
