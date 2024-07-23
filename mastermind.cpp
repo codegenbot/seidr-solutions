@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -14,5 +13,5 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black;
+    return white;
 }
