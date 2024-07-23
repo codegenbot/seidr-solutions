@@ -1,4 +1,5 @@
 double num = stod(value);
-    int closestInt = static_cast<int>(round(num));
-    return closestInt;
+    int lower = floor(num);
+    int upper = ceil(num);
+    return abs(num - lower) < abs(num - upper) ? lower : upper;
 }
