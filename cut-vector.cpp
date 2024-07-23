@@ -11,7 +11,7 @@ int main() {
     while (cin >> num) {
         vec.push_back(num);
     }
-    
+
     int diff = INT_MAX;
     int idx = -1;
     for (int i = 1; i < vec.size(); ++i) {
@@ -27,7 +27,7 @@ int main() {
             idx = i;
         }
     }
-    
+
     for (int i = 0; i < idx; ++i) {
         cout << vec[i] << endl;
     }
@@ -35,6 +35,6 @@ int main() {
     for (int i = idx; i < vec.size(); ++i) {
         cout << vec[i] << endl;
     }
-    
+
     return 0;
 }
