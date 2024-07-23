@@ -1,19 +1,17 @@
-```
-from random import choice
-
-
 def longest(strings: list[str]) -> str:
     if not strings:
-        return None
+        return "No strings entered"
     max_len = 0
-    longest_strs = []
+    longest_str = None
     for s in strings:
-        if len(s) > max_len:
+        if len(s) > max_len and s != "stop":
             max_len = len(s)
-            longest_strs = [s]
-        elif len(s) == max_len and s != "stop":
-            longest_strs.append(s)
-    return choice(longest_strs) if longest_strs else "No strings entered"
+            longest_str = s
+    if longest_str is None:
+        for s in strings:
+            if s != "stop" and len(s) == max_len:
+                return s
+    return longest_str
 
 
 strings = []
