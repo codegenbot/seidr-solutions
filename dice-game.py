@@ -1,5 +1,2 @@
 n, m = int(input()), int(input())
-if n < m:
-    print(round((m-1) / (n * m), 2))
-else:
-    print(round((m) / (n * m), 2))
+print("{:.2f}".format((n-1)/(n+m)))
