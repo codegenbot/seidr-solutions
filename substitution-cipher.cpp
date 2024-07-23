@@ -3,16 +3,19 @@
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
+    std::string decipheredMessage;
+    
     for (char c : message) {
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
-        } else {
-            result += c;
+        if (c == '\0') break;  // assuming null character marks the end of input
+        for (int i = 0; i < cipher1.length(); ++i) {
+            if (cipher1[i] == c) {
+                decipheredMessage += cipher2[i];
+                break;
+            }
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
