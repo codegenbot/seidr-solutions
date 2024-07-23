@@ -1,2 +1,6 @@
 def sort_third(l: list):
-    return sorted([val if i % 3 != 0 else min(l) for i, val in enumerate(l)])
+    original_indices = {val: i for i, val in enumerate(l)}
+    return [
+        [x for x in l if original_indices[x] % 3 != 0][0] if i % 3 == 0 else val
+        for i, val in enumerate(l)
+    ]
