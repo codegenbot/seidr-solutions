@@ -6,7 +6,7 @@ for (int i = 0; i < l.size(); ++i) {
             }
             sort(temp.begin(), temp.end());
             for (int j = i; j < l.size() && j % 3 == 0; ++j) {
-                l[j] = temp[j - i];
+                l[j] = temp[j-i];
             }
         }
     }
