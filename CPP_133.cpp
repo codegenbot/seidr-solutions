@@ -1,10 +1,7 @@
-#include <cmath>
-
-int sum_squares(vector<float> lst) {
-    int sum = 0;
-    for (float num : lst) {
-        int ceil_num = ceil(num);
-        sum += pow(ceil_num, 2);
+int sum_squares(vector<float> lst){
+    int total = 0;
+    for(float num : lst){
+        total += ceil(num) * ceil(num);
     }
-    return sum;
+    return total;
 }
