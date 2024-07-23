@@ -1,4 +1,7 @@
+#include <vector>
+#include <algorithm>
 #include <string>
+
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
@@ -7,11 +10,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string chars) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
+        if (chars.find(s[i]) == string::npos) {
             temp += s[i];
         }
     }
-    if (temp == std::string(temp).reverse()) {
+    if (temp == string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -27,3 +30,4 @@ std::string reverse(std::string str) {
         rev += str[i];
     }
     return rev;
+}
