@@ -9,5 +9,3 @@ def luhn(card):
         else:
             sum += num
     return sum % 10 == 0
-
-print(luhn(79927398713))
