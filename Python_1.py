@@ -18,17 +18,15 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 current_group += stack.pop()
             else:
-                groups.append(current_group)
+                groups.append(current_group[1:-1])
                 current_group = ""
 
-    if stack:
-        while stack[-1] != "(":
-            current_group += stack.pop()
-        if stack:
-            stack.pop()
-        groups.append(current_group)
-        current_group = ""
-    if current_group:
+    if stack or (current_group and current_group[0] != "("):
+        current_group = (
+            current_group[1:]
+            if current_group and current_group[0] == ")"
+            else current_group
+        )
         groups.append(current_group)
 
-    return [group[1:-1].replace("(", "").replace(")", "") for group in groups]
+    return [group for group in groups]
