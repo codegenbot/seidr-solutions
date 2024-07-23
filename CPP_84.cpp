@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 string solve(int N){
