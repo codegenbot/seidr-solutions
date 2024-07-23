@@ -10,7 +10,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    int white_pegs = 0, black_pegs = 0;
+    int white_pegs = 0, black_pegs = 0;    
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
