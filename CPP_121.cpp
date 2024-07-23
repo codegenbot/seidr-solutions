@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 int solutions(vector<int> lst) {
@@ -10,7 +11,6 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
