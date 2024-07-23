@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <numeric>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,10 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int total_sum = 0; 
-
-    for (int i = 0; i < n; i++) 
-        total_sum += v[i];
+    int total_sum = accumulate(v.begin(), v.end(), 0);
     
     int left_sum = 0, right_sum = total_sum;
 
@@ -40,8 +37,9 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++) {
         cin >> v[i];
+    }
     vector<vector<int>> res = cutVector(v);
     for (auto& vec : res) {
         for (int num : vec) {
