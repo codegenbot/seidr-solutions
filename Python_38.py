@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
@@ -12,12 +11,13 @@ def decode_cyclic():
         j = 1
         while i + j < n and s[i] == s[i+j]:
             j += 1
-        if j > 1:
-            result += s[i]
-            i += j
-        else:
-            result += s[i]
-            i += 1
+        for k in range(i, i+j):
+            if k >= len(result):
+                result += s[k]
+            else:
+                result += (j > 1)*s[k] + 'x'*(j > 1)
+        i += j
+    
     return result
 
 print(decode_cyclic())
