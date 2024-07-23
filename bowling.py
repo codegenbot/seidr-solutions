@@ -1,11 +1,15 @@
-def bowling_score(s):
+def bowling_score(bowling_string):
     score = 0
-    roll = 0
-    for char in s:
-        if char.isdigit():
-            roll = int(char)
-        elif char == "/":
-            score += max(10 - roll, 0) + (10 * math.floor((roll + 10) / 10))
-            roll = 0
-    score += max(10 - roll, 0) + (10 * math.floor((roll + 10) / 10))
+    frame = 1
+    for bowl in bowling_string:
+        if bowl.isdigit():
+            score += int(bowl)
+        elif bowl == "X":
+            score += 10
+            frame -= 1
+        elif bowl == "/":
+            continue
+        else:
+            score += 10 - int(bowl)
+            frame -= 1
     return score
