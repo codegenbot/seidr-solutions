@@ -1,30 +1,52 @@
+```cpp
 #include <vector>
-#include <climits>
-#include <cmath>
-
+#include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for(int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    for (int i = 1; i < v.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            left_sum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); ++j) {
+            right_sum += v[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     
-    vector<int> left = {nums[0]};
-    for(int i = 1; i < splitIndex; i++) {
-        left.push_back(nums[i]);
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    
-    vector<int> right = {nums[splitIndex], nums.back()};
-    for(int i = splitIndex + 1; i < nums.size() - 1; i++) {
-        right.push_back(nums[i]);
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "First subvector: ";
+    for (int x : res.first) {
+        cout << x << " ";
     }
-    
-    return {vector<int>(left), vector<int>(right)};
+    cout << endl;
+    cout << "Second subvector: ";
+    for (int x : res.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
 }

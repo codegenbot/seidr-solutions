@@ -1,4 +1,8 @@
 ```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string kebabToCamel(std::string str) {
     std::string result = "";
     bool capitalizeNext = false;
@@ -18,4 +22,12 @@ std::string kebabToCamel(std::string str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cin >> str;
+    std::cout << kebabToCamel(str) << std::endl;
+
+    return 0;
 }

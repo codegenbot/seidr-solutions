@@ -1,9 +1,4 @@
-```python
+```Python
 def camel_case(s):
-    result = ""
-    for word in s.split("-"):
-        if not result:
-            result += word
-        else:
-            result += word.capitalize()
-    return result.title().replace(" ","")
+    s = s.replace("-", " ").split()
+    return "".join(word.capitalize() for word in s)
