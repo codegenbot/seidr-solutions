@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -25,3 +26,4 @@ int main() {
     std::cin >> onGround >> rate >> melt;
     std::cout << std::fixed << std::setprecision(0) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
+}
