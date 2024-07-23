@@ -14,14 +14,16 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors;
     for (int i = 0; i < n; ++i) {
+        vector<pair<int, pair<int, int>>> row;
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({{i-1, j}, grid[i][j]});
-            if (i < n-1) neighbors[i].push_back({{i+1, j}, grid[i][j]});
-            if (j > 0) neighbors[i].push_back({{i, j-1}, grid[i][j]});
-            if (j < n-1) neighbors[i].push_back({{i, j+1}, grid[i][j]});
+            if (i > 0) row.push_back({{make_pair(i-1, j), grid[i][j]}});
+            if (i < n-1) row.push_back({{make_pair(i+1, j), grid[i][j]}});
+            if (j > 0) row.push_back({{make_pair(i, j-1), grid[i][j]}});
+            if (j < n-1) row.push_back({{make_pair(i, j+1), grid[i][j]}});
         }
+        neighbors.push_back(row);
     }
 
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); 
