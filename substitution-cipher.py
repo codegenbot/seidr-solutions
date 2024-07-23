@@ -1,12 +1,12 @@
 def substitution_cipher():
-    cipher_map = input().split(" ")
+    cipher_map = str(input())
     text_to_decrypt = str(input())
     decrypted_text = ""
-    map_dict = {cipher_map[0][i]: cipher_map[1][i] for i in range(len(cipher_map[0]))}
 
     for char in text_to_decrypt:
-        if char in map_dict:
-            decrypted_text += map_dict[char]
+        if char in cipher_map:
+            index = cipher_map.index(char)
+            decrypted_text += cipher_map[index]
         else:
             decrypted_text += char
 
