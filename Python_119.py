@@ -12,5 +12,5 @@ def match_parens(lst):
                 else:
                     stack.pop()
                     if opened:
-                        break
+                        opened = False
     return 'Yes' if not stack else 'No'
