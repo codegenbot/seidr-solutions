@@ -1,21 +1,36 @@
 ```cpp
+#include<string>
+
 std::string spinWords(std::string str) {
     std::string result = "";
+    bool longWord = false;
     std::string word = "";
 
     for (char c : str) {
         if (c == ' ') {
-            if (word.length() >= 5)
-                word = std::string(word.rbegin(), word.rend()); // reverse word
-            result += word + " ";
-            word = "";
+            if (!longWord) {
+                result += word + " ";
+                word = "";
+            } else {
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
+                word = "";
+                longWord = false;
+            }
         } else {
             word += c;
+            if (word.length() >= 5) {
+                longWord = true;
+            }
         }
     }
 
-    if (word.length() >= 5)
-        word = std::string(word.rbegin(), word.rend()); // reverse last word
+    if (!longWord) {
+        result += word;
+    } else {
+        std::reverse(word.begin(), word.end());
+        result += word;
+    }
 
-    return result.substr(0, result.size() - 1);
+    return result;
 }
