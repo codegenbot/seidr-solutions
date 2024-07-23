@@ -13,8 +13,8 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers){
     map<int, string> rev_num_map;
-    for(auto const& pair : num_map){
-        rev_num_map[pair.second] = pair.first;
+    for(auto it : num_map){
+        rev_num_map[it.second] = it.first;
     }
 
     vector<int> sorted_nums;
@@ -27,10 +27,10 @@ string sort_numbers(string numbers){
     sort(sorted_nums.begin(), sorted_nums.end());
 
     string result;
-    for(int num : sorted_nums){
+    for(auto num : sorted_nums){
         result += rev_num_map[num] + " ";
     }
 
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
