@@ -1,3 +1,2 @@
-```
-def digitSum(s):
-    return sum(int(digit) for num in s.split() for digit in str(num))
+def sumOfDigits(n):
+    return sum(int(digit) for digit in str(n))
