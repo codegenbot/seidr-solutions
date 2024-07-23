@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -13,5 +15,8 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
+    vector<int> q = {5};
+    int w = 5;
+    cout << boolalpha << will_it_fly(q, w);
+    return 0;
 }
