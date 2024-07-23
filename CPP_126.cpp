@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool is_sorted(std::vector<int> lst) {
+bool is_sorted(const std::vector<int>& lst) {
     if(lst.size() <= 1) return true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]) return false;
@@ -13,12 +13,12 @@ bool is_sorted(std::vector<int> lst) {
     return true; 
 }
 
-int processInput(int n, std::vector<int>& vec) {
-    if(is_sorted(vec)) {
-        std::cout << "The vector is sorted.\n";
-    } else {
-        std::cout << "The vector is not sorted.\n";
-    }
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> vec;
     
     for(int i = 0; i < n; i++) {
         int val;
@@ -26,18 +26,12 @@ int processInput(int n, std::vector<int>& vec) {
         std::cin >> val;
         vec.push_back(val);
     }
-    
-    return 0;
-}
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> vec;
-    
-    processInput(n, vec);
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::cout << "The vector is not sorted.\n";
+    }
     
     return 0;
 }
