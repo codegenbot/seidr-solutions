@@ -18,7 +18,7 @@ def get_strike_bonus(bowls, index):
         else:
             bonus += int(bowls[index + 1])
 
-        if index + 1 < len(bowls) and (bowls[index + 1] != "X" or bowls[index + 1] != "/"):
+        if index + 1 < len(bowls) and (bowls[index + 1] != "X" or (index + 2 < len(bowls) and bowls[index + 2] != "X" and bowls[index + 2] != "/")):
             bonus += get_strike_bonus(bowls, index + 1)
 
     return bonus
