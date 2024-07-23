@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -23,19 +24,8 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits;
-    int cardNumber;
-    
-    cout << "Enter your credit card number: ";
-    while (cin >> cardNumber) {
-        if (cardNumber >= 0 && cardNumber <= 9) {
-            digits.push_back(cardNumber);
-        } else {
-            break;
-        }
-    }
-    
+    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 3, 8, 1, 6, 7, 2, 8};
     int result = luhn(digits);
-    cout << "The Luhn checksum is: " << result; 
+    cout << "Result: " << result << endl;
     return 0;
 }
