@@ -1,3 +1,4 @@
+```c++
 int search(vector<int> lst) {
     int max = -1;
     for (auto i : lst) {
