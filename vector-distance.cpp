@@ -17,7 +17,7 @@ int main() {
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
     std::cout << std::sqrt(sum) << std::endl;
