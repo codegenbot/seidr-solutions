@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -30,20 +29,20 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-
+    string text = "Hello world hello";
+    string target = "hello";
     vector<int> indices = indicesOfSubstring(text, target);
-    int a, b;
-    cin >> a >> b;
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << endl;
+
     cout << "Indices: ";
-    for(int i : indices){
+    for(int i : indices) {
         cout << i << " ";
     }
     cout << endl;
+
+    int a = 12;
+    int b = 15;
+    int g = gcd(a, b);
+    cout << "GCD of " << a << " and " << b << ": " << g << endl;
 
     return 0;
 }
