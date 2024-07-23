@@ -6,7 +6,9 @@ def below_zero(operations: List[int]) -> bool:
 
 if __name__ == "__main__":
     while True:
-        user_input = input("Enter a list of integers separated by space: ")
+        user_input = input("Enter a list of integers separated by space (or 'q' to quit): ")
+        if user_input.lower() == 'q':
+            break
         try:
             operations = [int(i) for i in user_input.split()]
             if len(operations) > 0 and all(isinstance(x, int) for x in operations):
