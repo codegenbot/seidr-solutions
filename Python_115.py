@@ -1,8 +1,6 @@
-def max_fill(grid, capacity):
-    total_water = sum(sum(row) for row in grid)
-    return math.ceil(total_water / float(capacity))
+def max_fill(grid):
+    rows = len(grid)
+    cols = len(grid[0])
 
-
-print(max_fill([[1, 2], [3, 4]], 5))
-print(max_fill([[10, 20, 30, 40, 50], [60, 70, 80, 90, 100]], [200]))
-print(max_fill([[1, 2, 3, 4], [5, 6, 7, 8]], [9]))
+    total_water = sum(1 for row in grid for cell in row if cell == "W")
+    return math.ceil(total_water / float(len(grid[0])))
