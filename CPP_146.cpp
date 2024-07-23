@@ -16,6 +16,7 @@ int main() {
     }
     count = specialFilter(nums);
     std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
+    return 0;
 }
 
 int specialFilter(const std::vector<int>& nums) {
