@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
@@ -16,16 +16,15 @@ std::string kebabToCamel(const std::string& str) {
                 capitalizeNext = true;
             }
         } else if (capitalizeNext) {
-            result += std::toupper(str[i]);
+            result += toupper(str[i]);
             capitalizeNext = false;
         } else {
-            result += std::tolower(str[i]);
+            result += tolower(str[i]);
         }
     }
 
     if (!result.empty() && !capitalizeNext) {
-        result[0] = std::tolower(result[0]);
+        result[0] = tolower(result[0]);
     }
 
     return result;
-}

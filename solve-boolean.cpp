@@ -16,7 +16,7 @@ bool solveBoolean(std::string expression) {
             std::string right = expression.substr(i + 1);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            int j = i;
+            int j = 0;
             while (j < i && expression[j] != '|' && expression[j] != '&') 
                 j++;
             std::string left = expression.substr(0, i - 1);
