@@ -1,4 +1,4 @@
-```cpp
+```
 vector<string> select_words(string s, int k) {
     vector<string> words;
     string temp = "";
