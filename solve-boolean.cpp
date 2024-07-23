@@ -3,6 +3,7 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
+    stack<string> operands;
     stack<char> operators;
     string operand = "";
     int i = 0; 
@@ -27,40 +28,33 @@ bool evaluateBooleanExpression(string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push('(');
+            operators.push("(");
         } else if (expression[i] == ')') {
-            while (operators.top() != '(') {
-                if (expression[i] == '|') {
-                    while (!operators.empty() && operators.top() == '|') {
-                        operators.pop();
-                    }
-                    return operand == "T";
-                } else if (expression[i] == '&') {
-                    while (!operators.empty()) operators.pop();
-                    return operand == "T";
-                }
-
+            while (operators.top() != "(") {
+                string op = "";
+                op = (operators.top() == '&' ? "and" : "or");
+                operand += " " + op;
                 operators.pop();
             }
             operators.pop();
+            return (operand == "T and True" || operand == "T or True") ? true : false;
+        } else {
+            if (!operand.empty()) {
+                string op = "";
+                op = (expression[i] == '&' ? "and" : "or");
+                operands.push(op);
+            }
         }
     }
 
     while (!operators.empty()) {
-        if (expression[i] == '|') {
-            while (!operators.empty() && operators.top() == '|') {
-                operators.pop();
-            }
-            return operand == "T";
-        } else if (expression[i] == '&') {
-            while (!operators.empty()) operators.pop();
-            return operand == "T";
-        }
-
+        string op = "";
+        op = (operators.top() == '&' ? "and" : "or");
+        operand += " " + op;
         operators.pop();
     }
 
-    return operand == "True";
+    return true;
 }
 
 int main() {
