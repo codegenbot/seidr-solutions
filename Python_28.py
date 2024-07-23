@@ -1,14 +1,6 @@
 ```
-from typing import List
+from typing import Iterable
+from itertools import chain
 
-
-def concatenate(strings: List[str]) -> str:
-    input_list = []
-    while True:
-        user_input = input("Enter a string (or 'done' to finish): ")
-        if user_input.lower() == 'done':
-            break
-        input_list.append(user_input)
-    if not input_list:
-        return ""
-    return "".join(input_list)
+def concatenate(iterable: Iterable[str]) -> str:
+    return "".join(chain.from_iterable(map(str, iterable)))
