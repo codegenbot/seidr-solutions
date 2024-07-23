@@ -15,12 +15,10 @@ bool has_close_elements(vector<float> numbers, float threshold){
     return false;
 }
 
-int main() {
+int main(){
     vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    if (has_close_elements(a, 0.5)) {
-        cout << "There are close elements." << endl;
-    } else {
-        cout << "No close elements found." << endl;
-    }
-    return 0;
+    if(has_close_elements(a, 0.1f))
+        cout << "The vector contains elements that are within the given threshold.\n";
+    else
+        cout << "The vector does not contain elements that are within the given threshold.\n";
 }
