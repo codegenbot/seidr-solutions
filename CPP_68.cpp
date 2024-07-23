@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 std::vector<int> pluck(std::vector<int> v) {
     return v;
@@ -12,7 +13,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
@@ -29,11 +29,7 @@ int main() {
     std::vector<int> arr = {1, 2, 3, 4};
     std::vector<std::pair<int, int>> output = result(arr);
     for (auto p : output) {
-        if (p.first % 2 == 0) {
-            std::cout << "Even Number: " << p.first << ", Index: " << p.second << std::endl;
-        } else {
-            std::cout << "Odd Number: " << p.first << ", Index: " << p.second << std::endl;
-        }
+        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
     }
     return 0;
 }
