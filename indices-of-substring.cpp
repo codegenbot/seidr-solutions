@@ -16,9 +16,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i += 1; // Start the next search from the end of current match
+            i += 1; // Start searching from the next character
         } else {
-            i++;
+            i++; // Increment if target not found at current position
         }
     }
     return result;
@@ -35,3 +35,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
