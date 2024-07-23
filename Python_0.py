@@ -22,13 +22,12 @@ def main():
                 print("Exiting the program.")
                 exit(0)
             else:
-                print("Invalid input. Please enter 'y' or 'n'.")
+                print("Invalid input. Please enter 'y' or 'n.'")
+        input("Press Enter to start...")
 
         while True:
             while True:
-                numbers = " ".join(
-                    input("Enter comma-separated float numbers: ").split(",")
-                )
+                numbers = input("Enter space-separated float numbers: ")
                 if not numbers.strip():
                     print("Please enter some numbers.")
                 elif len(numbers.split()) < 2:
