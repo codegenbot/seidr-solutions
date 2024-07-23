@@ -1,8 +1,8 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(vector<string> a) {
+bool issame(const vector<string>& a) {
     if (a.size() == 0) return true;
     for (int i = 1; i < a.size(); i++) {
         if (a[i] != a[0]) return false;
