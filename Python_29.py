@@ -8,9 +8,9 @@ def filter_by_prefix() -> List[str]:
             user_input = input("Enter a list of strings (space-separated): ")
             strings = [s.strip() for s in user_input.split()]
 
-            while True:  
+            while True:
                 prefix = input("Enter a prefix: ")
-                if not prefix:  
+                if not prefix:
                     raise ValueError("Please enter a valid prefix!")
                 break
 
