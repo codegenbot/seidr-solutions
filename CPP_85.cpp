@@ -1,6 +1,18 @@
-```cpp
-int main 
-{
+```
+#include <iostream>
+#include <vector>
+
+int add(const std::vector<int>& numbers) {
+    int sum = 0;
+    for(int i = 1; i < numbers.size(); i++) {
+        if(i % 2 != 0) {
+            sum += numbers[i];
+        }
+    }
+    return sum;
+}
+
+int main() {
     vector<int> numbers;
     int num;
     
@@ -16,12 +28,4 @@ int main
     cout << "Sum of odd-indexed numbers: " << result << endl;
 
     return 0;
-}
-
-int add(vector<int> numbers) {
-    int result = 0;
-    for (int i = 1; i < numbers.size(); i += 2) {
-        result += numbers[i];
-    }
-    return result;
 }
