@@ -5,12 +5,13 @@
 
 int main() {
     std::string heightStartStr, heightFirstBounceStr;
-    int numBounces;
+    std::string numBouncesStr;
 
-    std::cin >> heightStartStr >> heightFirstBounceStr >> numBounces;
+    std::cin >> heightStartStr >> heightFirstBounceStr >> numBouncesStr;
 
-    double heightStart = stod(heightStartStr);
-    double heightFirstBounce = stod(heightFirstBounceStr);
+    double heightStart = std::stod(heightStartStr);
+    double heightFirstBounce = std::stod(heightFirstBounceStr);
+    int numBounces = std::stoi(numBouncesStr);
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
@@ -23,5 +24,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(6);
     std::cout << totalDistance;
 
-    return 0;
-}
+    return 0; }
