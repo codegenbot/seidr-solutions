@@ -15,25 +15,21 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
-    if (a.size() != b.size())
+    if(a.size() != b.size())
         result = false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
+    for(int i=0; i<a.size();i++)
+        if(a[i] != b[i])
             result = false;
     return result;
 }
 
-int mainFunc() {
+int main() {
     std::vector<int> lengths = {4, 8};
     std::vector<std::string> result_b = by_length(lengths);
-    std::vector<int> lengths1 = lengths;
-    std::vector<std::string> result_a = by_length(lengths1);
-    assert(issame(result_a, result_b));
-    assert(!issame(by_length({9}), result_b));
-}
-
-int main() {
-    int mainFunc();
+    lengths = {9, 10};
+    std::vector<std::string> result_a = by_length(lengths);
+    assert(same(result_a, result_b));
+    assert(!same(by_length({9}), result_b));
 }
