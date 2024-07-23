@@ -1,41 +1,46 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
 
 using namespace std;
 
+struct cmp {
+    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
+        return p1.second > p2.second;
+    }
+};
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
+    vector<vector<pair<int, int>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({grid[i][j], make_pair(i-1, j)});
-            if (i < n-1) neighbors[i].push_back({grid[i][j], make_pair(i+1, j)});
-            if (j > 0) neighbors[i].push_back({grid[i][j], make_pair(i, j-1)});
-            if (j < n-1) neighbors[i].push_back({grid[i][j], make_pair(i, j+1)});
+            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
+            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
+            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
+        }
+    }
+
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, function<bool(pair<int, pair<int, int>>, pair<int, pair<int, int>>)>> q(function(cmp)); // {sum, path}
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            q.push({grid[i][j], make_pair(i, j)});
         }
     }
 
     vector<int> res;
-    queue<pair<vector<int>, int>> q; // {path, length}
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!res.size()) {
-                q.push({{grid[i][j]}, 1});
-            }
-        }
-    }
-
     while (!q.empty()) {
-        auto [path, len] = q.front(); q.pop();
-        if (len == k) {
-            return path;
+        auto [sum, [i, j]] = q.top(); q.pop();
+        if (k == 0) {
+            return {sum};
         }
-        for (auto& neighbor : neighbors[path.back()][0].first) {
-            vector<int> newPath = path;
-            newPath.push_back(neighbor.second.first);
-            if (newPath.size() <= k)
-                q.push({newPath, len + 1});
+        for (auto& neighbor : neighbors[i]) {
+            int ni = neighbor.first.first, nj = neighbor.first.second;
+            int ns = sum - grid[i][j] + neighbor.second;
+            k--;
+            q.push({ns, make_pair(ni, nj)});
         }
     }
 
