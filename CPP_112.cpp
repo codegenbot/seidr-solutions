@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -8,7 +9,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<string> result;
+    std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
         if (find(c.begin(), c.end(), s[i]) == c.end()) {
