@@ -1,25 +1,16 @@
+```cpp
 #include <vector>
 #include <string>
 
 std::vector<std::string> by_length(const std::vector<int>& lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
-        switch (length) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-            case 3:
-            case 4:
-                if (length == 4)
-                    result.push_back("Four");
-                else
-                    result.push_back(std::to_string(length));
-                break;
-            default:
-                result.push_back(std::to_string(length));
-                break;
-        }
+        if (length == 1)
+            result.push_back("One");
+        else if (length == 4)
+            result.push_back("Four");
+        else if (length == 9)
+            result.push_back("Nine");
     }
     return result;
 }
