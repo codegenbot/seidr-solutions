@@ -2,28 +2,29 @@
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    bool result = true;
-    int i = 0;
-    while (i < expression.size()) {
-        if (expression[i] == 'T' || expression[i] == 't')
+    if (expression.size() > 0) {
+        if (expression[0] == 'T' || expression[0] == 't')
             return true;
-        else if (expression[i] == 'F' || expression[i] == 'f')
+        else if (expression[0] == 'F' || expression[0] == 'f')
             return false;
-        else if (expression[i] == '|') {
-            i++;
-            result = (solveBoolean(expression.substr(i, expression.find('&', i) - i)) ||
-                      solveBoolean(expression.substr(expression.find('&', i) + 1)));
-            i = expression.size();
-        }
-        else if (expression[i] == '&') {
-            int start = i;
-            while (++i < expression.size() && expression[i] != '|' && expression[i] != '&');
-            result = (solveBoolean(expression.substr(start, i - start)) &&
-                      solveBoolean(expression.substr(i, expression.find('&', i) - i)));
-            i = expression.size();
+    }
+
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c == '|') {
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            return solveBoolean(left) || solveBoolean(right);
+        } else if (c == '&') {
+            int j = i;
+            while (j < expression.size() && expression[j] != '|' && expression[j] != '&')
+                j++;
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1, (expression.find_first_of("|&") == std::string::npos) ? expression.size() : expression.find_first_of("|&") - i - 1);
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
-    return result;
+    return true;
 }
 
 int main() {
