@@ -1,29 +1,29 @@
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] != guess[i] && code.find(guess[i]) != string::npos) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+
 int main() {
     string code, guess;
     cin >> code >> guess;
 
-    int whitePegs = 0, blackPegs = 0;
-    
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        }
-    }
-
-    map<char, int> codeMap, guessMap;
-    for (int i = 0; i < 4; ++i) {
-        codeMap[code[i]]++;
-        guessMap[guess[i]]++;
-    }
-
-    for (const auto& it : codeMap) {
-        whitePegs += min(it.second, guessMap[it.first]);
-    }
-
-    whitePegs -= blackPegs;
-
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
 
     return 0;
 }
