@@ -1,9 +1,10 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool will_it_fly(const std::vector<int>& q, int w) {
+bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
     for (int i : q) {
         str += std::to_string(i);
@@ -14,4 +15,9 @@ bool will_it_fly(const std::vector<int>& q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
