@@ -1,9 +1,5 @@
 ```cpp
 #include <iostream>
-#include <vector>
-
-std::vector<float> prices({10.0f, 20.0f, 30.0f});
-std::vector<float> discounts({5.0f, 10.0f, 15.0f});
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
@@ -16,10 +12,18 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices({10.0f, 20.0f, 30.0f});
-    std::vector<float> discounts({5.0f, 10.0f, 15.0f});
+    std::vector<float> prices;
+    float price;
+    while(std::cin >> price) {
+        prices.push_back(price);
+    }
 
+    std::vector<float> discounts;
+    float discount;
+    while(std::cin >> discount) {
+        discounts.push_back(discount);
+    }
+    
     double result = shoppingList(prices, discounts);
     std::cout << "Total price after applying the discount is: $" << result << std::endl;
-    return 0;
-}
+    return 0; }
