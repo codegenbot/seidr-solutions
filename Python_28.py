@@ -1,14 +1,12 @@
-def find_most_frequent_letter(text: str) -> str:
-    if not text:
-        return ""
-
-    frequency = {}
-    for char in text.lower():
-        if char.isalpha():
-            if char in frequency:
-                frequency[char] += 1
-            else:
-                frequency[char] = 1
-
-    most_frequent_char = max(frequency, key=frequency.get)
-    return most_frequent_char
+def find_max_min():
+    numbers = []
+    while True:
+        try:
+            num = float(input("Enter a number (or 'q' to quit): "))
+            numbers.append(num)
+        except ValueError:
+            if input("Please enter a valid number (or 'q' to quit): ") == "q":
+                break
+    print(
+        f"The maximum value is {max(numbers)} and the minimum value is {min(numbers)}"
+    )
