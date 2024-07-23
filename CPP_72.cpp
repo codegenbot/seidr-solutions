@@ -1,11 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+#include <algorithm>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool is_palindrome(std::string s) {
+    std::string rev = s;
+    std::reverse(rev.begin(), rev.end());
+    return s == rev;
+}
+
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     if (!is_palindrome(str)) {
         return false;
@@ -17,19 +24,19 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-bool is_palindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    return s == rev;
-}
-
 int main() {
-    vector<int> q = {1, 2, 3};
-    int w = 5;
-    if (!will_it_fly(q, w)) {
-        cout << "It won't fly." << endl;
+    std::vector<int> q;
+    int w;
+    std::cout << "Enter vector of integers: ";
+    for (int &i : q) {
+        std::cin >> i;
+    }
+    std::cout << "Enter weight: ";
+    std::cin >> w;
+    if (will_it_fly(q, w)) {
+        std::cout << "It will fly." << std::endl;
     } else {
-        cout << "It will fly." << endl;
+        std::cout << "It won't fly." << std::endl;
     }
     return 0;
 }
