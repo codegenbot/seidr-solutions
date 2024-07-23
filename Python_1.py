@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -20,7 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     temp = temp[:-1].rstrip()
                 if temp and temp[-1] == '(':
                     temp += char
-                elif not temp:
+                elif not temp or temp[-1] == '(':
                     temp += char
 
     if temp:
