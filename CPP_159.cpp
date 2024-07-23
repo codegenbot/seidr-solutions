@@ -2,7 +2,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> eat(int number, int need, int remaining) {
@@ -18,6 +18,6 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::vector<int>({9, 0})));
+    assert(issame(eat(4, 5, 1), std::vector<int>{9, 0}));
     return 0;
 }
