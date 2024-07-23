@@ -1,4 +1,5 @@
-#include <pairs>
+#include <utility>
+#include <pair>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
@@ -14,5 +15,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 
     vector<int> left(v.begin(), v.begin() + cut_index);
     vector<int> right(v.begin() + cut_index, v.end());
-    return {left, right};
+    return make_pair(left, right);
 }
