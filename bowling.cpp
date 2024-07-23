@@ -11,3 +11,15 @@ int calculateFrameScore(int bowlScore, int index, const std::string& bowls) {
         return bowlScore;
     }
 }
+
+int main() {
+    std::string bowls = "X7/9-X-88/-6XXX81";
+    int score = 0;
+
+    // Calculate the score for the 5th frame (index 8)
+    score = calculateFrameScore(score, 8, bowls);
+    
+    std::cout << "Frame 5 score: " << score << std::endl;
+
+    return 0;
+}
