@@ -1,5 +1,5 @@
 int multiply(int a, int b) {
-    int digit1 = a % 10;
-    int digit2 = b % 10;
-    return digit1 * digit2;
+    int a_without_last_digit = a / 10;
+    int b_without_last_digit = b / 10;
+    return (a_without_last_digit * b_without_last_digit * 10 + a_without_last_digit * b % 10 + a % 10 * b_without_last_digit);
 }
