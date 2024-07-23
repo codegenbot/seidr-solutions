@@ -1,9 +1,8 @@
-def add(x: int, y: int) -> int:
-    return x + y
+def total_cost(price: int, quantity: int):
+    return price * quantity
 
 
-num1 = int(input("Enter the first number: "))
-num2 = int(input("Enter the second numbers separated by space: "))
-numbers = list(map(int, num2.split()))
-result = sum([add(num1, i) for i in numbers])
-print(result)
+price = int(input("Enter the product's price per unit: "))
+quantity = int(input("Enter the quantity of the product: "))
+result = total_cost(price, quantity)
+print(f"The total cost is ${result}.")
