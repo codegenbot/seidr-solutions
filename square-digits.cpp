@@ -1,10 +1,10 @@
-```cpp
-#include <string>
-std::string squareDigits(std::string input) {
-    std::string result = "";
+#include <sstream>
+
+string squareDigits(string input) {
+    string result = "";
     for (char c : input) {
         int digit = c - '0';
-        result += std::to_string(digit * digit);
+        result += to_string(digit * digit);
     }
     return result;
 }
