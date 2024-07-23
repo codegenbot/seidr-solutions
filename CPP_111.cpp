@@ -1,48 +1,27 @@
-```
+#include <string>
+#include <map>
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string word;
-    for (const auto& str : split(test, ' ')) {
-        if (!word.empty()) {
-            ++result[word[0]];
-            word.clear();
-        }
-        word += str;
-    }
-    if (!word.empty()) {
-        ++result[word[0]];
+    string letters = test;
+    for (char c : letters) {
+        if (result.find(c) == result.end())
+            result[c] = 1;
+        else
+            result[c]++;
     }
 
-    map<char, int> maxCountMap;
-    int maxCount = 0;
+    char maxLetter = *max_element(result.begin(), result.end(),
+                                   [](pair<char, int> a, pair<char, int> b) { return a.second < b.second; }) -> first;
 
-    for (const auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
-            maxCountMap.clear();
-            maxCountMap[pair.first] = pair.second;
-        } else if (pair.second == maxCount) {
-            maxCountMap[pair.first] = pair.second;
-        }
+    map<char, int> maxCount;
+    for (auto& p : result) {
+        if (p.second == result[maxLetter])
+            maxCount[p.first] = p.second;
     }
 
-    return maxCountMap;
-}
-
-vector<string> split(const string& str, char delimiter) {
-    vector<string> result;
-    size_t pos = 0;
-    size_t prevPos = 0;
-
-    while ((pos = str.find(delimiter, prevPos)) != string::npos) {
-        result.push_back(str.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
-    }
-    if (prevPos < str.size()) {
-        result.push_back(str.substr(prevPos));
-    }
-
-    return result;
+    return maxCount;
 }
