@@ -26,11 +26,11 @@ pair<int, int> mastermind(string code, string guess) {
     // Calculate white pegs
     for(int i = 0; i < 6; i++) {
         if(colorCount[i] > 0) {
-            whitePegs += colorCount[i] - (std::count(code.begin(), code.end(), to_string(i+'0').c_str()) ? 1 : 0);
+            whitePegs += colorCount[i] - std::count(code.begin(), code.end(), to_string(i+'0').c_str());
         }
     }
 
-    return std::make_pair(blackPegs, whitePegs);
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
