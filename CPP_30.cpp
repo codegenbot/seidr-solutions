@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -8,21 +9,17 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 std::vector<float> get_positive(const std::vector<std::vector<float>>& mat) {
     std::vector<float> result;
     for (const auto& row : mat) {
-        bool has_pos = false;
         for (auto val : row) {
             if (val > 0) {
-                has_pos = true;
                 result.push_back(val);
                 break;
             }
         }
-        if (!has_pos)
-            result.push_back(0); // add a zero to maintain size equality
     }
     return result;
 }
 
-int main() {
+static int main() {
     int n;
     std::cin >> n;
 
@@ -31,7 +28,7 @@ int main() {
         for (auto j = 0; j < n; ++j++)
             std::cin >> mat[i][j];
 
-    bool same = issame(get_positive(mat), get_positive(std::move(mat)));
+    bool same = issame(get_positive(mat), get_positive(mat));
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
