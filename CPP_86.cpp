@@ -1,11 +1,13 @@
-for (int i = 0; i < s.size(); ++i) {
-    if (isspace(s[i])) {
-        continue;
+string ordered_word;
+    string result = "";
+    int start = 0;
+    for(int i=0; i<=s.length(); i++){
+        if(s[i] == ' ' || i == s.length()){
+            ordered_word = s.substr(start, i - start);
+            sort(ordered_word.begin(), ordered_word.end());
+            result += ordered_word + ' ';
+            start = i + 1;
+        }
     }
-    int start = i;
-    while (i < s.size() && !isspace(s[i])) {
-        ++i;
-    }
-    sort(s.begin() + start, s.begin() + i);
+    return result;
 }
-return s;
