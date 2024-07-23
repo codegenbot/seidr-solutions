@@ -24,16 +24,17 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+    std::vector<int> nums;
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
-
-    std::vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+    std::cin.clear();
+    std::cin.ignore();
 }
+
+std::vector<int> result = findLeaders(nums);
+for (int num : result) {
+    std::cout << num << " ";
+}
+return 0;
