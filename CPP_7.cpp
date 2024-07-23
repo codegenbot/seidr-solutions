@@ -1,26 +1,25 @@
-#include <assert.h>
 #include <vector>
-#include <string>
+#include <assert.h>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (!b[i].find(a[i])) return false;
     }
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> str, std::string substr) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::string sub) {
     std::vector<std::string> result;
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i].find(substr) != std::string::npos) {
-            result.push_back(str[i]);
-        }
+    for (const auto& str : arr) {
+        if (str.find(sub) != std::string::npos) result.push_back(str);
     }
     return result;
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    std::vector<std::string> arr = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string sub = "run";
+    assert(issame(filter_by_substring(arr, sub), {"grunt", "prune"}));
     return 0;
 }
