@@ -1,6 +1,7 @@
 #include <cctype>
 #include <string>
 #include <iostream>
+#include <cassert>
 
 std::string flip_case(std::string str){
     std::string result;
@@ -20,10 +21,11 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::cin >> str;
-    if (!std::cin) {
+    char buffer[256];
+    std::cin.get(buffer, 256);
+    std::string str = std::string(buffer);
+    
+    if (!(std::cin >> str).good()) {
         std::cerr << "Invalid input." << std::endl;
         return 1;
     }
