@@ -1,24 +1,34 @@
-string camelCase(string s) {
-    string result = "";
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] != ' ') {
-                i++;
-            }
-            if (result.length() > 0) {
-                result += toupper(s[i]);
+#include <iostream>
+#include <string>
+#include <sstream>
+
+std::string camelCase(std::string str) {
+    std::stringstream ss(str);
+    std::string word;
+    std::string result = "";
+    bool capitalizeNext = true;
+
+    while (std::getline(ss, word, '-')) {
+        if (!word.empty()) {
+            if (capitalizeNext) {
+                result += toupper(word[0]);
+                capitalizeNext = false;
             } else {
-                result += s[i];
+                result += tolower(word);
             }
-        } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += s[i];
+            if (capitalizeNext && !result.empty())
+                result += " ";
+            capitalizeNext = word.find(' ') != std::string::npos;
         }
-        i++;
     }
+
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
 }
