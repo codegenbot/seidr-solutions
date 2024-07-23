@@ -6,26 +6,13 @@ def coin_sums(cents):
         count = cents // coin
         if count > 0:
             if coin == 25: 
-                quarters = count
-                dimes = 0
-                nickels = 0
-                pennies = 0
-            elif coin == 10:
-                quarters = 0
-                dimes = count
-                nickels = 0
-                pennies = 0
-            elif coin == 5:
-                quarters = 0
-                dimes = 0
-                nickels = count
-                pennies = 0
-            else: 
-                quarters = 0
-                dimes = 0
-                nickels = 0
-                pennies = count
-            results.extend([quarters, dimes, nickels, pennies])
+                results.extend([count, 0, 0, 0])
+            elif coin == 10: 
+                results.extend([0, count, 0, 0])
+            elif coin == 5: 
+                results.extend([0, 0, count, 0])
+            elif coin == 1: 
+                results.extend([0, 0, 0, count])
             cents %= coin
 
-    return " ".join(map(str, results)) + "\n"
+    return " ".join(map(str, results))
