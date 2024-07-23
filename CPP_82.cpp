@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
