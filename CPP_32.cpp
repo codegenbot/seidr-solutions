@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
@@ -20,14 +20,16 @@ double find_zero(vector<double> xs){
     if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
-        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
+        x -= poly(xs, x)/poly({xs[1], xs.back()}, x); 
     }
-    return x;
+    ostringstream oss;
+    oss << fixed << setprecision(6) << x;
+    return stod(oss.str());
 }
 
 int main() {
-    vector<double> xs = {1, -6, 11, -6}; // coefficients
+    vector<double> xs = {1, -6, 11, -6};
     double zero = find_zero(xs);
-    cout << setprecision(2) << "Zero is: " << zero << endl; // Print the result
+    cout << "Zero is: " << zero << endl; 
     return 0;
 }
