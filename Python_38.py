@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str) -> str:
     result = []
     i = 0
