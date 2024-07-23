@@ -1,12 +1,17 @@
-```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
+
+    while "&" in expression or "|" in expression:
+        if "&" in expression and "|" not in expression:
+            first, rest = expression.split("&")
+            result = solve_boolean(first) and solve_boolean(rest)
+            expression = str(result).lstrip("False").replace("True,", "")
+        elif "|" in expression:
+            first, rest = expression.split("|")
+            result = solve_boolean(first) or solve_boolean(rest)
+            expression = str(result).lstrip("False").replace("True,", "")
+
+    return bool(expression)
