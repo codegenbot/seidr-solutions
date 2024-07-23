@@ -1,11 +1,12 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string squareDigitsFunc(string n) {
+string squareDigitsFunc(string num) {
     string result = "";
-    for (char c : n) {
+    for (char c : num) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
