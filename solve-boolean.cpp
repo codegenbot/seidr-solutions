@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <stack>
-using namespace std;
+#include <string>
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
-    string operand = "";
+bool evaluateBooleanExpression(std::string expression) {
+    std::stack<char> operators;
+    std::string operand = "";
     int i = 0; 
 
     for (i = 0; i < expression.length(); i++) {
@@ -40,10 +39,9 @@ bool evaluateBooleanExpression(string expression) {
                     return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "F";
+                    return operand == "T";
                 }
 
-                operand = "False";
                 operators.pop();
             }
             operators.pop();
@@ -58,24 +56,23 @@ bool evaluateBooleanExpression(string expression) {
             return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "F";
+            return operand == "T";
         }
 
-        operand = "False";
         operators.pop();
     }
 
-    return operand == "True";
+    return operand == "T";
 }
 
 int main() {
-    string expression;
-    cout << "Enter Boolean expression: ";
-    cin >> expression;
+    std::string expression;
+    std::cout << "Enter Boolean expression: ";
+    std::cin >> expression;
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        cout << "True";
+        std::cout << "True";
     else
-        cout << "False";
+        std::cout << "False";
     return 0;
 }
