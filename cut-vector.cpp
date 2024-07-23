@@ -7,13 +7,9 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (cin) {
+        cin >> num;
         nums.push_back(num);
-    }
-    
-    if (nums.empty()) {
-        cout << "No input provided." << endl;
-        return 0;
     }
     
     int n = nums.size();
