@@ -1,22 +1,18 @@
 ```c
 #include <iostream>
 #include <cmath>
-#include <string>
 
 int main() {
-    std::string heightStartStr, heightFirstBounceStr;
+    double heightStart, heightFirstBounce;
     int numBounces;
 
-    std::cin >> heightStartStr >> heightFirstBounceStr >> numBounces;
-
-    double heightStart = stod(heightStartStr);
-    double heightFirstBounce = stod(heightFirstBounceStr);
+    std::cin >> heightStart >> heightFirstBounce >> numBounces;
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        double height = heightStart * pow(bouncinessIndex, 2*i);
+        double height = heightStart * pow(bouncinessIndex, 2 * i);
         totalDistance += height - heightStart;
     }
 
