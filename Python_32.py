@@ -1,9 +1,10 @@
 ```
 def find_zero(xs):
-    xs = [int(i) for i in input("Enter coefficients (a, b, c): ").split()]
     if len(xs) < 3:
         raise ValueError("xs must have at least three coefficients")
 
+    xs = [int(i) for i in input("Enter coefficients (a, b, c): ").split()]
+    
     a = xs[0]
     b = xs[1]
     c = sum(xs[2:]) / (len(xs) - 2)
