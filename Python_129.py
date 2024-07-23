@@ -27,4 +27,4 @@ def minPath(grid, k):
         return min_path if min_path else []
 
     res = dfs(0, 0, [], 0)
-    return [x for x in set([y for sublist in res for y in sublist])]
+    return [x for x in res]
