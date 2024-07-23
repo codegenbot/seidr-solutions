@@ -5,8 +5,8 @@ def middle_character(s):
     mid = length // 2
     
     if length == 1:  
-        return s
+        return str(s)
     elif length % 2 == 0:  
-        return s[mid-1] + s[mid]
+        return str(s[mid - 1] if s[mid].isalnum() else '.')
     else:
-        return s[mid]
+        return str(s[mid])
