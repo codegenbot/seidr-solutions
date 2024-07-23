@@ -1,12 +1,4 @@
-#include <iostream>
-int add(int a, int b) {
-    return a + b;
-}
-
-int main() {
-    int x, y;
+int add(int x, int y) {
     std::cin >> x >> y;
-    int result = add(x, y);
-    std::cout << "The sum is: " << result << std::endl;
-    return 0;
+    return x + y;
 }
