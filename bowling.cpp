@@ -6,7 +6,7 @@ int bowlingScore(string str) {
         if (str[i] == '/') {
             string firstPart = str.substr(0, i);
             string secondPart = str.substr(i + 1);
-            int firstScore = (firstPart[0] - '0') * 10 + (firstPart.length() > 1 ? (firstPart[1] - '0') : 0);
+            int firstScore = (firstPart[0] - '0') * 10 + (firstPart[1] - '0');
             int secondScore = (secondPart[0] - '0') * 5;
             score += max(firstScore, secondScore) + min(firstScore, secondScore);
         } else {
