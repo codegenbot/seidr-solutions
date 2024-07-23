@@ -3,30 +3,30 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
-        }
+    int start = 0;
+    
+    while (start < text.length()) {
+        int pos = text.find(target, start);
+        
+        if (pos == -1)
+            break;
+        
+        result.push_back(pos);
+        start = pos + 1;
     }
+    
     return result;
 }
 
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
+    string text;
     cin >> text;
-    cout << "Enter the target: ";
+    string target;
     cin >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
+    vector<int> res = indicesOfSubstring(text, target);
+    for (auto i : res) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
