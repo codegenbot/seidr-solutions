@@ -1,3 +1,4 @@
+```
 #include <iostream>
 
 double probability(int n, int m) {
