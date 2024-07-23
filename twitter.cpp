@@ -4,13 +4,21 @@
 using namespace std;
 
 string validateTweet(string tweet) {
-    if (tweet.empty()) {
+    if (tweet.find_first_not_of(" \t") == string::npos) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140 - 1) {
-        return "Too many characters";
+    
+    size_t len = 0;
+    for (char c : tweet) {
+        if (!isspace(c)) {
+            ++len;
+        }
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    if (len > 140) {
+        return "Too many characters";
+    } else {
+        return "Your tweet has " + to_string(len) + " characters";
+    }
 }
 
 int main() {
