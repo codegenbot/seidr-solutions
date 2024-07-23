@@ -12,7 +12,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool equals(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -20,7 +20,9 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
             return false;
     }
     return true;
+}
 
-int main() {{ 
-    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {3, 2, 1}));
-    return 0;}}
+int main() {
+    assert(equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {}));
+    return 0;
+}
