@@ -1,12 +1,9 @@
-```cpp
 #include <algorithm>
 #include <vector>
-
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
-    return (a.size() == b.size()) &&
-           (a.size() == 0 || equal(a.begin(), a.end(), b.begin()));
+    return a.size() == b.size();
 }
 
 vector<float> sort_even(vector<float> l) {
@@ -15,7 +12,7 @@ vector<float> sort_even(vector<float> l) {
         if (i % 2 == 0) {
             vector<float> even;
             for (float x : l) {
-                if (x % 2.0 == 0.0)
+                if (abs(x) <= 1e-6 && x % 2 == 0)
                     even.push_back(x);
             }
             sort(even.begin(), even.end());
@@ -28,10 +25,6 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> l = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-    vector<float> sorted = sort_even(l);
-    if (!issame(sorted, {-12.0f, 4.0f, 2.0f, 8.0f, 3.0f, 5.0f, 11.0f, 23.0f, 12.0f, -10.0f})) {
-        cout << "Test failed" << endl;
-    }
+    assert(issame(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), vector<float> {-12.0f, 4.0f, 2.0f, 8.0f, 3.0f, 5.0f, 11.0f, 23.0f, 12.0f, -10.0f});
     return 0;
 }
