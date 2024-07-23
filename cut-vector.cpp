@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -31,7 +30,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -43,11 +42,11 @@ int main() {
     for (int x : res.first) {
         std::cout << x << " ";
     }
-    std::cout << std::endl;
+    std::cout << endl;
     cout << "Second subvector: ";
     for (int x : res.second) {
         std::cout << x << " ";
     }
-    std::cout << std::endl;
-    return 0;
+    std::cout << endl;
+    return res;
 }
