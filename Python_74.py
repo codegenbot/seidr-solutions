@@ -1,2 +1,2 @@
 def total_match(lst1, lst2):
-    return min([lst for lst in [lst1, lst2] if sum(len(s) for s in lst) < sum(len(s) for s in other) or (sum(len(s) for s in lst) == sum(len(s) for s in other))], key=lambda x: len(x), default=[])
+    return min([lst1, lst2], key=lambda x: sum(len(s) for s in x), default=[]) if max(len(s) for s in lst1 + lst2) == 0 else []
