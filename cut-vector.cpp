@@ -1,11 +1,10 @@
-````
 #include <vector>
 #include <climits>
 #include <cmath>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int leftSum = 0;
     for (int i = 0; i < nums.size(); i++) {
         leftSum += nums[i];
@@ -22,8 +21,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         }
     }
 
-    vector<int> leftVec(nums.begin(), nums.begin() + cutIndex+1);
-    vector<int> rightVec(nums.begin() + cutIndex+1, nums.end());
+    vector<int> leftVec(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightVec(nums.begin() + cutIndex + 1, nums.end());
     return {leftVec, rightVec};
 }
-```
