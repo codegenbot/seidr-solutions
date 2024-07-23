@@ -4,22 +4,27 @@ using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
+    bool prevT = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
+        if (s[i] == 'T') {
+            prevT = true;
+        } else if (s[i] == 'F') {
+            prevT = false;
+        } else if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return false;
+            if (prevT) return false;
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if (st.empty()) return true;
+            if (prevT) return true;
         } else {
             st.push(s[i]);
         }
     }
-    return !st.empty();
+    return prevT;
 }
 
 int main() {
