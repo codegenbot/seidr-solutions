@@ -1,8 +1,11 @@
 def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
     remaining_snow = snow_on_ground
     for _ in range(hours):
-        remaining_snow = remaining_snow + snow_fall_rate - snow_melt_rate * remaining_snow
+        snow_melted = snow_melt_rate * remaining_snow
+        remaining_snow -= snow_melted
+        remaining_snow += snow_fall_rate
     return remaining_snow
+
 
 hours = int(input())
 snow_on_ground = float(input())
