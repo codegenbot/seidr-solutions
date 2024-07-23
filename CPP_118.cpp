@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -9,14 +8,14 @@ bool isvowl(char c) {
     return (std::find(std::begin(vowels), std::end(vowels), tolower(c)) != std::end(vowels));
 }
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
             if (closest == -1)
                 closest = i;
             else
-                return "1";
+                return string(1, tolower(c));
         }
     }
     return std::to_string(closest);
