@@ -1,32 +1,21 @@
-Here is the solution:
-
-string solveBoolean(string s) {
-    stack<char> st;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            char op1 = st.top();
-            st.pop();
-            char op2 = s[i+1];
-            i++;
-            if(op1 == 'T' && op2 == 'T')
-                st.push('T');
-            else
-                st.push('F');
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c == '&') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if (s.empty()) {
+                return false;
+            }
+        } else if (c == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+        } else {
+            s.push(c);
         }
-        else if(s[i] == '&') {
-            char op1 = st.top();
-            st.pop();
-            char op2 = s[i+1];
-            i++;
-            if(op1 == 'T' && op2 == 'T')
-                st.push('T');
-            else
-                st.push('F');
-        }
-        else 
-            st.push(s[i]);
     }
-    
-    return (st.top() == 'T') ? "True" : "False";
+    return s.top() == 'T';
 }
