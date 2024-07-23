@@ -1,4 +1,3 @@
-````
 #include <stack>
 #include <string>
 
@@ -22,4 +21,3 @@ bool solveBoolean(string expression) {
     }
     return s.top() == 'T';
 }
-```
