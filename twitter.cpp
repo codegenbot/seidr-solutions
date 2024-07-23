@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string validateTweet(const string& tweet) {
+string validateTweet(string& tweet) {
     string trimmedTweet = tweet;
     while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
         trimmedTweet.erase(trimmedTweet.end() - 1);

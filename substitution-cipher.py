@@ -1,5 +1,14 @@
+```
 def decipher_message(cipher1, cipher2, message):
-    mapping_encrypt = {c: d for c, d in [(c, d) for c in set(cipher1 + cipher2)]}
-    mapping_decrypt = {v: k for k, v in mapping_encrypt.items()}
-    result = "".join(mapping_decrypt.get(char, char) for char in message)
+    encrypt_map = {}
+    decrypt_map = {}
+    for c1, c2 in zip_longest(cipher1, cipher2):
+        if c1 is not None and c2 is not None:
+            if c1.isalpha() and c2.isalpha():
+                key = c1.upper()
+                value = c2.upper() if c2.isupper() else c2.lower()
+                encrypt_map[key] = value
+                decrypt_map[value] = key
+
+    result = "".join(decrypt_map.get(char.upper(), char) for char in message)
     return result
