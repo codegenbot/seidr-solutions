@@ -1,6 +1,6 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
-
 using namespace std;
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
         white += std::min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << white << '\n' << black << '\n';
+    std::cout << white << std::endl << black << std::endl;
     
     return 0;
 }
