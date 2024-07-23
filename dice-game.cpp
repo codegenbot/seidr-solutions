@@ -26,7 +26,7 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
     double result = probability(n, m);
-    // cout << "Probability: " << result << endl;
+    cout << "Probability: " << fixed << setprecision(2) << result << endl;
     return 0;
 
 }
