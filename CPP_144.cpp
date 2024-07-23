@@ -6,19 +6,15 @@ bool simplify(string x, string n) {
     int numerator2 = 0, denominator2 = 0;
 
     size_t pos = x.find('/');
-    if (pos == string::npos || stoi(x.substr(0, pos)) >stoi(x.substr(pos + 1))) {
-        // improper fraction
-        return false;
-    }
     numerator1 = stoi(x.substr(0, pos));
+    if (stoi(x.substr(pos + 1)) == 0)
+        return false; // Check for zero denominators
     denominator1 = stoi(x.substr(pos + 1));
 
     pos = n.find('/');
-    if (pos == string::npos || stoi(n.substr(0, pos)) >stoi(n.substr(pos + 1))) {
-        // improper fraction
-        return false;
-    }
     numerator2 = stoi(n.substr(0, pos));
+    if (stoi(n.substr(pos + 1)) == 0 || denominator1 * numerator2 == 0)
+        return false; // Check for zero denominators
     denominator2 = stoi(n.substr(pos + 1));
 
     int productNumerator = numerator1 * numerator2;
