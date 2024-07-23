@@ -41,12 +41,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {0, 0.7};
-    vector<string> expected = {"F", "D"};
-    if (!issame(numerical_letter_grade(grades), expected)) {
-        std::cerr << "Test failed." << std::endl;
+    vector<float> grades = {0.0, 0.7};
+    vector<string> output = numerical_letter_grade(grades);
+    if (!issame(output, {"F", "D"}))
         return 1;
-    }
-    std::cout << "Test passed." << std::endl;
-    return 0;
-}
