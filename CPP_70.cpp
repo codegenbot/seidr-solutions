@@ -1,9 +1,14 @@
 sort(lst.begin(), lst.end());
-    vector<int> res;
-    int i = 0, j = lst.size() - 1;
-    while (i <= j) {
-        res.push_back(lst[i++]);
-        if (i <= j) res.push_back(lst[j--]);
+vector<int> result;
+int left = 0, right = lst.size() - 1;
+while (left <= right) {
+    if (left == right) {
+        result.push_back(lst[left]);
+        break;
     }
-    return res;
+    result.push_back(lst[left]);
+    result.push_back(lst[right]);
+    left++;
+    right--;
 }
+return result;
