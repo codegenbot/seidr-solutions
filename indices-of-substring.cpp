@@ -9,7 +9,7 @@ int main() {
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
-    while (pos != std::string::npos && pos < text.size() - target.size()) {
+    while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
