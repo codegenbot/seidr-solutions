@@ -9,7 +9,7 @@ vector<int> count_up_to(int n) {
     vector<int> result;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
-        for (int j = 2; j * j <= i; ++j) {
+        for (int j = 2; j <= sqrt(i); ++j) { 
             if (i % j == 0) {
                 isPrime = false;
                 break;
@@ -26,10 +26,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     
-    vector<int> primes;
-    primes.reserve(n);  // Initialize the reserve capacity here
-    
-    primes = count_up_to(n);
+    vector<int> primes = count_up_to(n);
     
     if (primes.empty()) {
         cout << "No prime numbers found in the range 1 to " << n << endl;
