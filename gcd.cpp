@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-size_t gcd(size_t a, size_t b) {
+long long gcd(long long a, long long b) {
     while (b != 0) {
-        size_t temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
@@ -19,7 +19,7 @@ std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
 
     for (size_t i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(static_cast<size_t>(i));
+            result.push_back(i);
             while ((i + m) <= n && text.substr(i, m) == target)
                 i++; // Handle overlapping occurrences
         }
@@ -33,7 +33,7 @@ int main() {
     std::string target = "World";
     std::vector<size_t> result;
 
-    size_t GCD = gcd(static_cast<size_t>(909378243576LL), 50); 
+    long long GCD = gcd(909378243576LL, 50); 
     std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
     
     result = indicesOfSubstring(text, target);
