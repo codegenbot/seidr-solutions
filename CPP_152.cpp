@@ -1,33 +1,19 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
-// Define compare function
-vector<int> compare(vector<int> a, vector<int> b) {
-    vector<int> result;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] > b[i]) {
-            result.push_back(1);
-        } else if (a[i] < b[i]) {
-            result.push_back(-1);
-        } else {
-            result.push_back(0);
-        }
-    }
-    return result;
+int compare(vector<int> a, vector<int> b) {
+    // Your implementation here
 }
 
-// Define issame function
-bool issame(vector<int> a, vector<int> b) {
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
+bool same(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 int testMain() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(same({1,2,3,5},{-1,2,3,4}) == vector<int>({2,0,0,1}));
     return 0;
 }
