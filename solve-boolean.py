@@ -2,9 +2,8 @@ def solve_boolean(expression):
     tokens = expression.replace('&', ' and ').replace('|', ' or ')
     def evaluate_expression(tokens):
         stack = []
-        operators = ['and', 'or']
         for token in tokens.split():
-            if token in operators:
+            if token == 'and' or token == 'or':
                 right = stack.pop()
                 left = stack.pop()
                 if token == 'and':
