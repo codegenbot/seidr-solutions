@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -12,7 +11,7 @@ std::vector<int> filter_integers(std::vector<int> input) {
     return result;
 }
 
-bool is Same(const std::vector<int>& a, const std::vector<int>&   b) {
+bool is Same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
