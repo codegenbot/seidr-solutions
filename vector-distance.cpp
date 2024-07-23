@@ -27,4 +27,3 @@ int main() {
     std::cout << "The Euclidean distance between the two vectors is: " << distance << std::endl;
 
     return 0;
-}
