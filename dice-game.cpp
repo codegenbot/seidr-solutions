@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -7,8 +6,8 @@ double probability(int n, int m) {
     double count = 0;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i; j++) { 
-            if (i > j) {
+        for (int j = 1; j <= m-1; j++) {
+            if (i > j || i == n && j == m) {
                 count++;
             }
         }
