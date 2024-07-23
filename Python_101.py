@@ -1,3 +1,5 @@
 ```
+import re
+
 def words_string(s):
-    return [x.strip() for x in s.replace(", ", ",").split(",")]
+    return re.split(r'[ ,]+', s.strip())
