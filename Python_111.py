@@ -1,14 +1,21 @@
-```
 def histogram(test):
     if not test:
         return {}
-    letters = test.split()
-    freq = {}
-    for letter in letters:
-        if letter in freq:
-            freq[letter] += 1
+
+    letter_count = {}
+    max_count = 0
+    max_letters = []
+
+    for letter in test.split():
+        if letter in letter_count:
+            letter_count[letter] += 1
         else:
-            freq[letter] = 1
-    max_count = max(freq.values())
-    result = {k: v for k, v in freq.items() if v == max_count}
-    return result
+            letter_count[letter] = 1
+
+        if letter_count[letter] > max_count:
+            max_count = letter_count[letter]
+            max_letters = [letter]
+        elif letter_count[letter] == max_count:
+            max_letters.append(letter)
+
+    return {letter: max_count for letter in max_letters}
