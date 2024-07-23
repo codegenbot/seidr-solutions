@@ -6,13 +6,13 @@ def parse_music(music_string: str) -> list:
         if i+2 <= len(music_string) and music_string[i:i+2] == 'o|':
             music_list.append(4)
             i += 2
-        elif i+6 <= len(music_string) and (music_string[i:i+6] == '.|..|.||.|..|' or music_string[i:i+6] == '.|..|..|...|..|..'):
+        elif i+6 <= len(music_string) and (music_string[i:i+6] in ['.|..|.||.|..|', '.|..|..|...|..|..']):
             if music_string[i:i+6] == '.|..|.||.|..|':
                 music_list.append(1)
             elif music_string[i:i+6] == '.|..|..|...|..|..':
                 music_list.append(0.5)
             i += 6
-        elif i+8 <= len(music_string) and (music_string[i:i+8] == '..|.|..|...|..|.|..|' or music_string[i:i+8] == '..|..|..|...|..|..|..'):
+        elif i+8 <= len(music_string) and (music_string[i:i+8] in ['..|.|..|...|..|.|..|', '..|..|..|...|..|..|..']):
             if music_string[i:i+8] == '..|.|..|...|..|.|..|':
                 music_list.append(0.5)
             elif music_string[i:i+8] == '..|..|..|...|..|..|..':
