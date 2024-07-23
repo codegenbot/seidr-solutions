@@ -1,3 +1,4 @@
+```
 #include <stack>
 #include <string>
 #include <iostream>
@@ -74,5 +75,4 @@ int main() {
         std::cout << "True" << std::endl;
     else
         std::cout << "False" << std::endl;
-    return 0;
 }
