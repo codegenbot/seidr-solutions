@@ -10,9 +10,9 @@ int main() {
     total_distance = start_height;
 
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += 2 * first_bounce_height;
-        first_bounce_height *= bounciness_index;
-        total_distance += 2 * first_bounce_height; // Include the return journey after each bounce
+        total_distance += 2 * first_bounce_height; // Distance during bounce
+        first_bounce_height *= bounciness_index; // Calculate new bounce height
+        total_distance += 2 * first_bounce_height; // Distance during return
     }
 
     std::cout << total_distance << std::endl;
