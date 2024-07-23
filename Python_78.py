@@ -1,3 +1,4 @@
+```
 def hex_key():
     num = input("Enter a hexadecimal number: ")
     primes = set([2, 3, 5, 7, ord('B'), ord('D')])
