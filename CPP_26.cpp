@@ -1,42 +1,53 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 // Function to remove duplicates from a vector of integers
 std::vector<int> remove_duplicates(const std::vector<int>& arr) {
-    std::vector<int> noDup;
-    for (int i : arr) {
-        if (std::find(noDup.begin(), noDup.end(), i) == noDup.end())
-            noDup.push_back(i);
+    std::vector<int> unique_arr;
+    for(int i = 0; i < arr.size(); i++) {
+        bool duplicate = false;
+        for(int j = 0; j < unique_arr.size(); j++) {
+            if(arr[i] == unique_arr[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+        if(!duplicate) {
+            unique_arr.push_back(arr[i]);
+        }
     }
-    return noDup;
+    return unique_arr;
 }
 
 // Function to compare two vectors of integers
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) 
+    if(a.size() != b.size()) {
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
 
 // Function to compare two vectors of integers
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) 
+    if(a.size() != b.size()) {
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        bool flag = true;
-        for (int j = 0; j < b.size(); j++) {
-            if (a[i] == b[j]) {
-                flag = false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        bool found = false;
+        for(int j = 0; j < b.size(); j++) {
+            if(a[i] == b[j]) {
+                found = true;
                 break;
             }
         }
-        if (!flag)
+        if(!found) {
             return false;
+        }
     }
     return true;
 }
