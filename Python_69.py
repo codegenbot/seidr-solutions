@@ -1,4 +1,3 @@
-```
 def search(lst):
     max_val = 0
     i = 0
