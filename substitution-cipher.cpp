@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(std::string input, std::string cipher1, std::string cipher2) {
-    std::string result = "";
-    
+std::string decipher(const std::string& input, const std::string& cipher1, const std::string& cipher2) {
+    std::string result;
     for (auto c : input) {
-        if (c != '\0') {  
+        if (c != '\0') { 
             size_t pos = cipher2.find(std::tolower(c)); 
             if (pos != std::string::npos) {
                 result += cipher1[pos]; 
@@ -20,20 +19,23 @@ std::string substitutionCipher(std::string input, std::string cipher1, std::stri
             }
         }
     }
-    
     return result;
 }
 
 int main() {
     std::string input, cipher1, cipher2;
 
-    // Input your code here...
+    std::cout << "Enter the three strings:" << std::endl;
+    std::getline(std::cin, cipher1);
+    std::cin.ignore();
 
-    if (!input.empty()) {
-        std::cout << substitutionCipher(input, cipher1, cipher2) << "\n";
-    } else {
-        std::cout << "Error: input is empty.\n";
-    }
+    std::getline(std::cin, cipher2);
+    std::cin.ignore();
 
+    std::getline(std::cin, input);
+
+    std::string result = decipher(input, cipher1, cipher2);
+    std::cout << "Deciphered message: " << result << std::endl;
+    
     return 0;
 }
