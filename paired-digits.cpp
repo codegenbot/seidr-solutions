@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-int pairedDigits(std::string s);
+int pairedDigits(std::string s); // Declare function
 
 int main() {
     int sum = pairedDigits("123333");
