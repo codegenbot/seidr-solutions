@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,4 +15,10 @@ int findNextSmallest(vector<int> lst) {
     }
     return -1;
 
-}cout << findNextSmallest({-35, 34, 12, -45}) << endl;
+}
+
+int mainAgain() {
+    cout << findNextSmallest({-35, 34, 12, -45}) << endl;
+    assert(findNextSmallest({-35, 34, 12, -45}) == -35);
+    return 0;
+}
