@@ -1,7 +1,11 @@
-def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
+```
+from typing import List
+
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     while True:
         try:
-            if not numbers or len(numbers) == 0:
+            if not numbers:
                 print("Error: Please provide at least one number.")
                 numbers = input(
                     "Enter a list of integers separated by space or comma: "
@@ -21,6 +25,7 @@ def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
             for i, num in enumerate(numbers[1:]):
                 result.extend([delimiter, num])
 
+            print(result)
             return result
         except (ValueError, IndexError):
             print(
@@ -28,7 +33,3 @@ def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
             )
             numbers = input().split()
             numbers = [int(num) for num in numbers]
-        else:
-            break
-
-    return intersperse(numbers, delimiter)
