@@ -3,7 +3,7 @@ std::string concatenate(std::vector<std::string> strings) {
     for (const auto& str : strings) {
         if (!str.empty()) {
             result += str;
-            if(result.back() != ' ') {
+            if (result.size() < strings.size()) {
                 result += ", ";
             }
         }
