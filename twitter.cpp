@@ -7,10 +7,16 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    int charCount = 0;
+    for (char c : tweet) {
+        if (isprint(c)) {
+            charCount++;
+        }
+    }
+    if (charCount > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(charCount) + " characters";
 }
 
 int main() {
