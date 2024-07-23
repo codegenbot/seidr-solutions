@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 #include <cctype>
@@ -14,9 +13,4 @@ std::string FlipCase(std::string str) {
     return str;
 }
 
-int main() {
-    assert(FlipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    std::cout << FlipCase("These violent delights have violent ends") << std::endl;
-
-    return 0;
-}
+assert(FlipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
