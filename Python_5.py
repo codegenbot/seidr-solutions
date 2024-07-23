@@ -5,7 +5,6 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
     while True:
         try:
             if not numbers or len(numbers) == 0:
-                print("Error: Please provide at least one number.")
                 numbers = input(
                     "Enter a list of integers separated by space or comma: "
                 ).split()
@@ -29,6 +28,3 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
             print(
                 "Invalid input. Please enter a list of integers separated by space or comma: "
             )
-            numbers = input().split()
-            numbers = [int(num) for num in numbers]
-    return result
