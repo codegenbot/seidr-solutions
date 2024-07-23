@@ -1,6 +1,6 @@
 def indices_of_substring(text, target):
-    if not target or not text:
-        return []
+    if target == "" or text == "":
+        return [0]
     
     indices = []
     start = 0
