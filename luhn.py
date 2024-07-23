@@ -1,4 +1,4 @@
-digits = list(map(int,input().split()))
+digits = list(map(int, input().split()))
 total = 0
 for i, digit in enumerate(digits):
     if i % 2 == 0:
