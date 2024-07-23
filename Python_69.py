@@ -1,6 +1,3 @@
-```
-input_lst = input("Enter numbers separated by space: ").split()
-lst = list(map(int, filter(lambda x: not x.startswith('.') and x.replace('.', '', 1).isdigit(), input_lst)))
 def search(lst):
     freq = {}
     max_num = -1
@@ -19,5 +16,12 @@ def search(lst):
     if max_num == -1:
         max_num = 0
     return max_num
+
+lst = input("Enter numbers separated by space: ")
+try:
+    lst = [int(i) for i in lst.split()]
+except ValueError:
+    print("Invalid input. Please enter numbers separated by spaces.")
+    exit()
 
 print(search(lst))
