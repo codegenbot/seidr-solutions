@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <algorithm>
+#include <string>
+
 bool equalVectors(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
         return false;
@@ -22,4 +27,5 @@ std::vector<std::string> selectWords(std::string s, int k) {
 }
 
 int main(){
-    assert(equalVectors(selectWords("a b c d e f", 1), std::vector<std::string>{} {"b","c","d","f"}));
+    assert(equalVectors(selectWords("a b c d e f", 1), std::vector<std::string>{ "a","b","c","d","e","f" }));
+}
