@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return bin(N).replace("0b", "")
+    return bin(sum(int(i) for i in bin(N)[2:]))[2:]
