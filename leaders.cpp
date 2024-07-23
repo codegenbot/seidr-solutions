@@ -1,20 +1,24 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if(isLeader) leaders.push_back(arr[i]);
+int main() {
+    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
+    vector<int> result = leaders(arr);
+    for (int num : result) {
+        cout << num << " ";
     }
-    return leaders;
+    return 0;
+}
+
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (rightmost < arr[i]) {
+            rightmost = arr[i];
+        } else {
+            result.push_back(rightmost);
+        }
+    }
+    return result;
 }
