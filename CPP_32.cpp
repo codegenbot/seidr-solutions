@@ -1,3 +1,6 @@
+#include <vector>
+#include <cmath>
+
 double find_zero(std::vector<double> xs){
     double x = -xs[1]/(2*xs[0]);
     return poly(xs,x) == 0 ? x : 0;
