@@ -21,17 +21,12 @@ int main() {
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     std::cout << "Enter initial snow: ";
-    buffer[0] = '\0';
     std::cin >> buffer;
     initialSnow = std::stof(buffer);
-    
     std::cout << "Enter rate of snow fall: ";
-    buffer[0] = '\0';
     std::cin >> buffer;
     rateOfSnowFall = std::stof(buffer);
-    
     std::cout << "Enter proportion of snow melting per hour: ";
-    buffer[0] = '\0';
     std::cin >> buffer;
     proportionOfSnowMeltingPerHour = std::stof(buffer);
 
