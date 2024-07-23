@@ -3,26 +3,26 @@
 
 using namespace std;
 
-struct Any {
-    int integer;
-    // add more types as needed...
-};
-
-enum class Type {
+enum class AnyType {
     INTEGER,
     // add more types as needed...
 };
 
-vector<int> filter_integers(list<Any> values) {
+struct AnyValue {
+    int integer;
+    // add more fields for other types...
+};
+
+vector<int> filter_integers(list<AnyValue> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.integer != 0) {
+        if (value.integer != 0) { // assuming you want to filter out zero
             result.push_back(value.integer);
         }
     }
     return result;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
