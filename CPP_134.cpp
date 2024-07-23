@@ -1,9 +1,15 @@
-int check_if_last_char_is_a_letter(string str) {
-    if (str.length() > 0) {
-        char last_char = str[str.length()-1];
-        if ((last_char >= 'a' && last_char <= 'z') || (last_char >= 'A' && last_char <= 'Z')) {
-            return true;
-        }
+#include <iostream>
+#include <cctype>
+
+bool check_if_last_char_is_a_letter(const std::string& str) {
+    if(str.empty()) {
+        return false;
     }
-    return false;
+    char last_char = str.back();
+    return std::isalpha(last_char);
+}
+
+int main() {
+    assert(!check_if_last_char_is_a_letter("apple pi e "));
+    return 0;
 }
