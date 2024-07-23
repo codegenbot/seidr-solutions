@@ -15,8 +15,8 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-            codeFreq[code[i] - 'A'] = 0;
-            guessFreq[guess[i] - 'A'] = 0;
+            codeFreq[code[i] - 'A'] += 1;
+            guessFreq[guess[i] - 'A'] += 1;
         }
     }
 
