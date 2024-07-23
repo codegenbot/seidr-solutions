@@ -1,8 +1,5 @@
-```
 from typing import List
 
-
-def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return ""
+def concatenate():
+    strings = input("Enter space-separated strings: ").split()
     return "".join(strings)
