@@ -5,7 +5,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
     int sum = 0;
     for (int i = 0; i < n; ++i) {
         sum += nums[i];
@@ -14,7 +13,6 @@ int main() {
             return 0;
         }
     }
-
     cout << 0 << endl;
     return 0;
 }
