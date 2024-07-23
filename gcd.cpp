@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -36,7 +37,7 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    
+
     int a = 100;
     int b = 50;
     cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
