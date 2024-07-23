@@ -12,8 +12,14 @@ std::string concatenate(std::vector<std::string> strings){
 }
 
 int main(){
-    std::vector<std::string> strs = {"x", "y", "z", "w", "k"};
-    std::string result = concatenate(strs);
-    std::cout << result << std::endl;
+    std::vector<std::string> input_strings;
+    std::string input;
+    
+    while(std::cin >> input){
+        input_strings.push_back(input);
+    }
+
+    std::cout << concatenate(input_strings) << std::endl;
+    
     return 0;
 }
