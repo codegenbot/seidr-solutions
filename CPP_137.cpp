@@ -1,33 +1,25 @@
-#include <string>
-#include <algorithm>
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-
-using namespace std;
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    any_to_double(a, a);
-    any_to_double(b, b);
-
-    if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return max(at<double>(a), at<double>(b));
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (at<string>(a) > at<string>(b)) ? a : ((at<string>(a) < at<string>(b)) ? b : boost::any("None")));
-    } else {
-        return boost::any("None");
+        string sa = boost::any_cast<string>(a);
+        string sb = boost::any_cast<string>(b);
+        double da = stod(sa);
+        double db = stod(sb);
+        return (da > db ? a : b).type() == typeid(double) ? b : a;
+    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+        string s = boost::any_cast<string>(a);
+        double da = stod(s);
+        return (b.type() == typeid(int) ? static_cast<int>(b) : static_cast<double>(b)) > da ? b : a;
+    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        string s = boost::any_cast<string>(b);
+        double db = stod(s);
+        return (a.type() == typeid(int) ? static_cast<int>(a) : static_cast<double>(a)) > db ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return boost::any(a > b ? &a : &b);
     }
-}
-
-void any_to_double(boost::any& val, boost::any& result) {
-    if (val.type() == typeid(double)) {
-        result = val;
-    } else if (val.type() == typeid(string)) {
-        try {
-            double d = boost::lexical_cast<double>(boost::any_cast<string>(val));
-            result = boost::any(d);
-        } catch (...) {
-            // invalid conversion
-        }
-    }
+    return "None";
 }
