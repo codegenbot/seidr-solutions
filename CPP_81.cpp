@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a) {
-    return true; // you can modify this based on your requirement
+    return true; 
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
@@ -39,8 +38,8 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades = {0, 0.7};
-    assert(issame(vector<string>(numerical_letter_grade(grades))) == (vector<string>{{"E"}, {"D"}}));
-    if (issame(vector<string>(numerical_letter_grade(grades))) != (vector<string>{{"E"}, {"D"}})) {
+    vector<string> expected = {"E", "D"};
+    if (issame(numerical_letter_grade(grades)) != expected) {
         cout << "Test failed";
     }
     return 0;
