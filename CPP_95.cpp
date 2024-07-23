@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -23,11 +24,9 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    // Implement your logic here
-    map<string, string> dict = {{"hello", "HELLO"}, {"world", "WORLD"}};
-    if (check_dict_case(dict)) {
-        cout << "The dictionary case is either all upper or all lower." << endl;
-    } else {
-        cout << "The dictionary case is mixed." << endl;
-    }
+    
+    map<string, string> testMap = {{"Hello", "WORLD"}, {"goodbye", "world"}};
+    cout << check_dict_case(testMap) << endl; // Outputs: 1
+    
+    return 0;
 }
