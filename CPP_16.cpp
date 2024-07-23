@@ -1,11 +1,5 @@
-vector<char> uniqueChars;
-
-    for (char c : str) {
-        char lowerC = tolower(c);
-        if (find(uniqueChars.begin(), uniqueChars.end(), lowerC) == uniqueChars.end()) {
-            uniqueChars.push_back(lowerC);
-        }
-    }
-
-    return uniqueChars.size();
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    str.erase(unique(str.begin(), str.end()), str.end());
+    return str.size();
 }
