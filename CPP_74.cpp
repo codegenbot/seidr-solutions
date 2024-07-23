@@ -1,44 +1,27 @@
 ```cpp
-#include <string>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cctype>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    transform(a.begin(), a.end(), a.begin(), ::tolower);
-    transform(b.begin(), b.end(), b.begin(), ::tolower);
-
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-
-    int i = 0, j = 0;
-    
-    while (i < a.size() && j < b.size()) {
-        if (a[i] == b[j]) {
-            return true; 
-            i++;
-            j++;
-        } else if (a[i] < b[j]) {
-            i++;
-        } else {
-            j++;
-        }
-    }
-
-    return false;
+bool issame(char a, char b) {
+    return std::tolower(a) == std::tolower(b);
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    std::vector<std::string> result;
 
-    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
-    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
+    std::transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    std::transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
 
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
+    std::sort(lst1.begin(), lst1.end());
+    std::sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
-    
+
     while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) {
+        if (issame(lst1[i][0], lst2[j][0])) {
             result.push_back(string(lst1[i])); 
             i++;
             j++;
@@ -50,4 +33,15 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<std::string> lst1 = {"cat", "dog", "bird"};
+    std::vector<std::string> lst2 = {"CAT", "DOG", "BIRD"};
+
+    for (const auto& s : total_match(lst1, lst2)) {
+        std::cout << s << '\n';
+    }
+
+    return 0;
 }
