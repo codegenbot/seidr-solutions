@@ -1,8 +1,4 @@
-#include <stack>
-#include <string>
-#include <iostream>
-#include <limits>
-
+```cpp
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
     std::string operand = "";
@@ -30,7 +26,7 @@ bool evaluateBooleanExpression(std::string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push(expression[i]);
+            operators.push('(');
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
@@ -69,12 +65,10 @@ bool evaluateBooleanExpression(std::string expression) {
 int main() {
     std::string expression;
     std::cout << "Enter Boolean expression: ";
-    std::cin >> expression;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, expression);
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        std::cout << "True";
+        std::cout << "True" << std::endl;
     else
-        std::cout << "False";
-    return 0;
+        std::cout << "False" << std::endl;
 }
