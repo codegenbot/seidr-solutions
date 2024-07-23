@@ -1,4 +1,6 @@
+```c++
 #include <iostream>
+#include <string>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
