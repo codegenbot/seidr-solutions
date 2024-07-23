@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,10 +16,10 @@ std::string get_closest_vowel(std::string word) {
             if (closest == -1)
                 closest = i;
             else
-                return string(1, word[closest]);
+                return "";
         }
     }
-    return closest == -1 ? "" : std::string(1, word[closest]);
+    return string(1, word[closest == -1 ? 0 : closest]);
 }
 
 int main() {
