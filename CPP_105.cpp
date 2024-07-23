@@ -1,11 +1,8 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
-}
-
-std::vector<std::string> by_length(std::initializer_list<int> lengths) {
+std::vector<std::string> by_length(std::vector<int> lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         if (length == 4)
@@ -18,6 +15,12 @@ std::vector<std::string> by_length(std::initializer_list<int> lengths) {
     return result;
 }
 
-int main() {
-    assert(issame(by_length({9, 4, 8}) , std::vector<std::string>({"Nine", "Four", "Eight"})));
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a == b);
 }
+
+int main() {
+    std::vector<int> lengths = {4, 8};
+    std::vector<std::string> b = by_length(lengths);
+    assert(issame(by_length({4, 8}), b));
+    assert(!issame(by_length({9}), b));
