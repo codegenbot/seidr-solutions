@@ -1,6 +1,8 @@
 #include <string>
 
-int bowlingScore(const char* s) {
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
@@ -23,3 +25,4 @@ int bowlingScore(const char* s) {
         }
     }
     return score;
+}
