@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -30,3 +29,5 @@ def main():
             break
         except ValueError:
             print("Expected input: Integers only!")
+        finally:
+            break
