@@ -7,6 +7,7 @@ def find_closest_elements() -> Tuple[float, float]:
             break
         except ValueError:
             print("Invalid input. Please enter space-separated numbers.")
+            continue  # ask again
 
     if not isinstance(numbers, list):
         return None
