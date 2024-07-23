@@ -9,23 +9,21 @@ boost::any compare_one(boost::any a, boost::any b) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (string)b;
+        return (b.convert_to<string>() > to_string(a.convert_to<int())) ? b : "None";
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = (string)a.convert_to<string>();
-        float a_float = stof(str);
-        return max(a_float, stof((string)b));
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (a.convert_to<float>() > (int)b.convert_to<int>()) ? a : "None";
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (max)((string)a) > ((string)b) ? a : b;
+        return (b.convert_to<string>() > a.convert_to<string>()) ? b : "None";
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)max(a.convert_to<int>(), b.convert_to<int>()));
+        return (a.convert_to<int>() > b.convert_to<int>()) ? boost::any(a) : "None";
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any(max(a.convert_to<float>(), b.convert_to<float>()));
+        return (a.convert_to<float>() > b.convert_to<float>()) ? a : "None";
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
