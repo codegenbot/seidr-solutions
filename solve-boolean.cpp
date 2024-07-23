@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    if (input == "T") {
-        std::cout << "True";
+    string input;
+    cin >> input;
+    
+    if (input == "t") {
+        cout << "True";
     } else {
-        std::cout << "False";
+        cout << "False";
     }
-
+    
     return 0;
 }
