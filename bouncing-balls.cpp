@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -19,7 +18,7 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    cout << std::fixed << setprecision(6) << totalDistance;
+    cout << std::fixed << std::setprecision(6) << totalDistance;
 
     return 0;
 }
