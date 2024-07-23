@@ -1,10 +1,12 @@
-from typing import List
-
-
-def below_zero(operations: List[int]) -> bool:
+```
+def below_zero():
     balance = 0
-    for operation in operations:
+    while True:
+        operation = int(input("Enter an integer (+/-): "))
         balance += operation
         if balance < 0:
-            return True
-    return False
+            print(True)
+            break
+        elif operation == 0:
+            print(False)
+            break
