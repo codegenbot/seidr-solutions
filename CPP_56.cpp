@@ -9,6 +9,10 @@ bool correct_bracketing(const char* brackets) {
             count--;
         }
         brackets++; 
+        if (*brackets != '<' && *brackets != '>') 
+        { 
+            brackets++; 
+        } 
     }
     return count == 0;
 }
