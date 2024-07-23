@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -18,4 +19,8 @@ while True:
     except ValueError:
         print("Invalid input. Please enter an integer.")
 
-print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
+while True:
+    confirm = input("Press Enter to execute, or type 'q' to quit: ")
+    if confirm.lower() == 'q':
+        break
+    print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
