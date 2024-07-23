@@ -4,30 +4,24 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int last = -1;
-    while ((last = text.find(target, last + 1)) != string::npos) {
-        indices.push_back(last);
-        last += target.size();
+    int start = 0;
+    while (start < text.length()) {
+        int pos = text.find(target, start);
+        if (pos == -1)
+            break;
+        indices.push_back(pos);
+        start = pos + 1;
     }
     return indices;
 }
 
 int main() {
-    // Read input from user
-    string text;
-    cin >> text;
-
-    string target;
-    int t;
-    cin >> t;
-    getline(cin, target);
-
-    // Call the function and print the result
-    vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
+        std::cout << i << " ";
     }
-    cout << endl;
-
+    std::cout << std::endl;
     return 0;
 }
