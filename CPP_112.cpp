@@ -14,7 +14,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string chars) {
             temp += s[i];
         }
     }
-    if (temp == string(temp).reverse()) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -31,7 +31,7 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main() {
+int main() { 
     std::string s, chars;
     std::cout << "Enter the string: ";
     std::getline(std::cin, s);
