@@ -21,7 +21,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         int diff = abs(sum_left - sum_right);
         if (diff < min_diff) {
             min_diff = diff;
-            best_cut = i-1;
+            best_cut = i;
         }
     }
 
