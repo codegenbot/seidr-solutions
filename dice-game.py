@@ -1,5 +1,4 @@
-```
 import math
 
-def calculate_probability(n, m):
-    return (m-1) / (n*m - 1)
+def dice_game(n, m):
+    return (n-1) / n * (m-1) / m
