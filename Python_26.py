@@ -1,4 +1,7 @@
-def remove_duplicates(numbers: list[int]) -> list[int]: 
+from typing import List
+
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
     for num in numbers:
@@ -6,3 +9,8 @@ def remove_duplicates(numbers: list[int]) -> list[int]:
             seen.add(num)
             result.append(num)
     return result
+
+numbers = input("Enter a list of numbers (space separated): ")
+numbers = [int(num) for num in numbers.split()]
+
+print(remove_duplicates(numbers))
