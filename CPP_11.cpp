@@ -17,7 +17,7 @@ string string_xor(string a, string b) {
     istringstream is_a(toBinary(a)), is_b(toBinary(b));
     string result = "";
     char c, d;
-    while(is_a >> c && is_b >> d) {
+    while (is_a >> c && is_b >> d) {
         if ((c - '0') ^ (d - '0')) {
             result += "1";
         } else {
