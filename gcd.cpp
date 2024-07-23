@@ -9,7 +9,7 @@ std::size_t gcd(std::size_t a, std::size_t b) {
         b = a % b;
         a = temp;
     }
-    return a;
+    return std::min(a, b);
 }
 
 std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
@@ -18,10 +18,10 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     std::size_t m = target.length();
 
     for (std::size_t i = 0; i <= n - m; i++) {
-        if (target == std::string(text.begin() + i, text.begin() + i+m)) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
-            while ((i + m) <= n && target == std::string(text.begin() + i, text.begin() + i+m))
-                i++; // Handle overlapping occurrences
+            while ((i + m) <= n && text.substr(i, m) == target)
+                i++; 
         }
     }
 
