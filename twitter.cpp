@@ -1,24 +1,19 @@
-``` 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
+    tweet.erase(0, tweet.find_first_of("\r\n")+1);
+
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
-        return 0;
     }
-
-    if (tweet.length() > 140) {
+    else if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
-        return 0;
     }
-
-    cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    else {
+        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    }
+    cout << endl; // add this line
 }
-return 0;

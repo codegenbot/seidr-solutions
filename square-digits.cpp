@@ -1,5 +1,7 @@
-std::string squareDigits(std::string input) {
-    std::string result = "";
+#include <string>
+
+string squareDigits(string input) {
+    string result = "";
     for (char c : input) {
         int digit = c - '0';
         if (!isdigit(c)) { 
@@ -9,4 +11,3 @@ std::string squareDigits(std::string input) {
         }
     }
     return result;
-}
