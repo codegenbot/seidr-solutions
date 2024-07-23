@@ -1,12 +1,14 @@
-int main{
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    if(num < 0) num = -num;
-    std::vector<int> numbers(1);
-    for(int i = 2; i <= num; i++){
-        numbers.push_back(i);
+int main(){
+    std::vector<int> lst;
+    int n;
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for(int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        lst.push_back(num);
     }
-    int result = skjkasdkd(numbers);
-    std::cout << "The sum of the digits is: " << result << std::endl;
+    cout << "The sum of digits of the maximum prime number is: " << skjkasdkd(lst) << endl;
+    return 0;
 }
