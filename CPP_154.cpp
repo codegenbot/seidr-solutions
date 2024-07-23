@@ -1,4 +1,3 @@
-```cpp
 bool cycpattern_check(string a, string b) {
     string str = a;
     for(int i = 0; i < str.length(); i++) {
