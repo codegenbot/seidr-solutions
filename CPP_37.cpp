@@ -1,12 +1,11 @@
 #include <algorithm>
 #include <vector>
-#include <list>
+
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size() && all_of(a.begin(), a.end(),
           [&b](float x) { return abs(x - *min_element(b.begin(), bind2nd(less<float>(),abs(x),0)))+1e-6) <= 1e-6; }));
-}
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result;
@@ -19,7 +18,7 @@ vector<float> sort_even(vector<float> l) {
                 }
             }
             sort(even.begin(), even.end());
-            result.push_back(*min_element(even.begin(), even.end()));
+            result.push_back(even[0]);
         } else {
             result.push_back(l[i]);
         }
