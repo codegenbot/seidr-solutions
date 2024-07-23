@@ -1,23 +1,20 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
-    
+map<char,int> histogram(string test){
+    map<char, int> charCount;
+    int maxCount = 0;
+
     for (char c : test) {
         if (c != ' ') {
-            count[c]++;
+            charCount[c]++;
+            maxCount = max(maxCount, charCount[c]);
         }
     }
-    
-    int maxCount = 0;
-    for (auto it : count) {
-        maxCount = max(maxCount, it.second);
-    }
-    
-    for (auto it : count) {
-        if (it.second == maxCount) {
-            result[it.first] = it.second;
+
+    map<char, int> result;
+    for (auto it = charCount.begin(); it != charCount.end(); ++it) {
+        if (it->second == maxCount) {
+            result[it->first] = it->second;
         }
     }
-    
+
     return result;
 }
