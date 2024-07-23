@@ -2,8 +2,11 @@ std::string concatenate(std::vector<std::string> strings) {
     std::string result = "";
     for (const auto& str : strings) {
         if (!str.empty()) {
-            result += str + ", ";
+            result += str;
+            if(result.back() != ' ') {
+                result += ", ";
+            }
         }
     }
-    return result.substr(0, result.find(",") == std::string::npos ? result.size() - 1 : result.find(","));
+    return result;
 }
