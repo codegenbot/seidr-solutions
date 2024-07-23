@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int pairedDigits(std::string s) {
@@ -8,3 +9,4 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
+}
