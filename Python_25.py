@@ -1,5 +1,10 @@
+def solve():
+    num = int(input("Enter a number: "))
+    print(factorize(num))
+
 from typing import List
 import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
