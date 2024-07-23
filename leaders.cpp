@@ -10,10 +10,10 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     }
 
     int maxRight = nums[n - 1];
-    leaders.push_back(maxRight);
+    leaders.push_back(maxRight); // Rightmost element is always a leader
 
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] >= maxRight || i == n - 1) {
             maxRight = nums[i];
             leaders.push_back(maxRight);
         }
