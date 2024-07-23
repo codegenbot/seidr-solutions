@@ -1,12 +1,29 @@
-```Python
-def evaluateBoolean(expression):
-    while '&' in expression:
-        start = 0
-        for i in range(len(expression)):
-            if expression[i] == '&':
-                expression = str(bool(eval(expression[start:i+1]))) + expression[i+1:]
-            start += 1
-        return bool(eval(expression))
-    
-input_string = input().replace(" ", "").lower()
-print(evaluateBoolean(input_string))
+```
+def solve_boolean():
+    input_string = input().replace(" ", "")
+
+    def boolean_expression(s):
+        operations = {
+            '|': lambda a, b: bool(a) or bool(b),
+            '&': lambda a, b: bool(a) and bool(b)
+        }
+
+        result = None
+        temp_operator = ''
+        for char in s:
+            if char in operations:
+                temp_operator = char
+            elif char == 'T':
+                if not result:
+                    result = True
+                else:
+                    result = operations[temp_operator](result, True)
+            elif char == 'F':
+                if not result:
+                    result = False
+                else:
+                    result = operations[temp_operator](result, False)
+
+        return result
+
+    return boolean_expression(input_string)
