@@ -1,3 +1,5 @@
+```
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 
@@ -22,6 +24,6 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>()));
     return 0;
 }
