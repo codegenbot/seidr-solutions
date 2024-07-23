@@ -1,15 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
-            return true;
-        else if (expression[0] == 'F' || expression[0] == 'f')
-            return false;
-    }
-
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
@@ -17,15 +9,24 @@ bool solveBoolean(std::string expression) {
             std::string right = expression.substr(i + 1);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            int j = i;
-            while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
-                j++;
             std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1, j - i - 1);
+            std::string right = expression.substr(i + 1);
             return solveBoolean(left) && solveBoolean(right);
+        } else if (c == 'T' || c == 't') {
+            return true;
+        } else if (c == 'F' || c == 'f') {
+            return false;
         }
     }
-    return true;
+    
+    if (expression.size() > 0) {
+        if (expression[0] == 'T' || expression[0] == 't')
+            return true;
+        else
+            return false;
+    } else 
+        return false; 
+
 }
 
 int main() {
