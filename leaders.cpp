@@ -1,7 +1,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> arr = {19}; 
+    std::vector<int> arr = {1, 3, 4, 2, 8};
     std::vector<int> result;
     for (int i = 0; i < arr.size(); ++i) {
         bool isLeader = true;
