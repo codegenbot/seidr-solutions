@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -16,7 +15,7 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-int main() {
+int main {
     bool issame(std::vector<int> a, std::vector<int> b) {
         if (a.size() != b.size()) {
             return false;
@@ -28,8 +27,6 @@ int main() {
         }
         return true;
     }
-    {std::vector<int> a = even_odd_count(0); 
-    std::vector<int> b({1, 0});
-    assert(issame(a, b));}
+    assert(issame(even_odd_count(0), {1, 0}));
     return 0;
 }
