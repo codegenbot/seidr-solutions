@@ -9,8 +9,13 @@ bool issame(std::pair<float, float> a, std::pair<float, float> b) {
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& values) {
     auto it = std::min_element(values.begin(), values.end());
-    auto next = std::next(it);
-    return std::make_pair(*it, *next);
+    auto closest = std::make_pair(*it, *it);
+    for (auto jt = it + 1; jt != values.end(); ++jt) {
+        if (std::abs(*jt - values.front()) < std::abs(closest.second - closest.first)) {
+            closest.second = *jt;
+        }
+    }
+    return closest;
 }
 
 int main() {
