@@ -1,9 +1,12 @@
-```cpp
+```
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
+#include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+using namespace std;
+
+bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,8 +19,8 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 
 }
 
-std::map<char, int> histogram(const std::string& str) {
-    std::map<char, int> result;
+map<char, int> histogram(const string& str) {
+    map<char, int> result;
 
     for (char c : str) {
         if (!isalpha(c)) continue; 
@@ -34,49 +37,6 @@ std::map<char, int> histogram(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    
-    auto hist = histogram(input);
-    bool isSame = true;
-
-    if (input.size() > 1) {
-        for (int i = 0; i < input.size() - 1; ++i) {
-            if (std::tolower(input[i]) == std::tolower(input[i + 1])) {
-                isSame = false;
-                break;
-            }
-        }
-    }
-
-    if (isSame) {
-        for (const auto& pair : hist) {
-            for (int i = 0; i < pair.second - 1; ++i) {
-                std::cout << " ";
-            }
-            for (int i = 0; i < pair.second; ++i) {
-                if (i == pair.second - 1)
-                    std::cout << pair.first;
-                else
-                    std::cout << pair.first << " ";
-            }
-            std::cout << '\n';
-        }
-    } else {
-        for (const auto& pair : hist) {
-            for (int i = 0; i < pair.second - 1; ++i) {
-                std::cout << " ";
-            }
-            for (int i = 0; i < pair.second; ++i) {
-                if (i == pair.second - 1)
-                    std::cout << tolower(pair.first);
-                else
-                    std::cout << tolower(pair.first) << " ";
-            }
-            std::cout << '\n';
-        }
-    }
-
+    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
     return 0;
 }
