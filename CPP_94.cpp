@@ -1,4 +1,1 @@
-int main 
-{
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
-}
+int main
