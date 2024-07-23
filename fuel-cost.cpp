@@ -1,31 +1,17 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 
-int fuelCost(std::vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        double temp = static_cast<double>(i) / 3; 
-        sum += static_cast<int>(std::floor(temp)) - 2; 
-    }
+int main() {
+    int sum = fuelCost({10, 20, 30});
     return sum;
 }
 
-int main() {
-    std::vector<int> input;
-    int n;
-    while (true) {
-        std::cout << "Enter the number of integers to process (0 to finish): ";
-        std::cin >> n;
-        if (n == 0) break;
-        for (int i = 0; i < n; ++i) {
-            std::cout << "Enter integer #"<< i+1 << ": ";
-            int num;
-            std::cin >> num;
-            input.push_back(num);
-        }
+int fuelCost(std::vector<int> v) {
+    int totalFuel = 0;
+    for (int i : v) {
+        double temp = static_cast<double>(i) / 3; 
+        totalFuel += std::floor(temp) - 2; 
     }
-    int output = fuelCost(input);
-    std::cout << "The total fuel cost is: " << output << std::endl;
-    return 0;
+    return totalFuel;
 }
