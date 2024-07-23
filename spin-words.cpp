@@ -32,4 +32,3 @@ std::string spinWords(std::string str) {
     }
 
     return result;
-}
