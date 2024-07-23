@@ -1,13 +1,4 @@
-```cpp
 #include <vector>
-#include <cstddef>
-#include <initializer_list>
-
-int main() {
-    std::vector<int> nums = {-1,-2,3,4,-5};
-    int result = basement(nums);
-    return 0;
-}
 
 int basement(const std::vector<int>& nums) {
     int sum = 0;
