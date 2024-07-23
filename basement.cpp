@@ -1,5 +1,4 @@
-#include <ext/alloc_traits.h>
-
+```c++
 #include <iostream>
 #include <vector>
 #include <cstddef>
@@ -14,7 +13,7 @@ int basement(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-3,2,-3,4,5,1,-12,6,1,7};
+    std::vector<int> nums(nums.begin(), nums.end());
     int result = basement(nums);
     std::cout << "The first index where the sum becomes negative is: " << result << std::endl;
     return 0; 
