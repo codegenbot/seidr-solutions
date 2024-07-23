@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     new_text = ""
     for char in text.strip():
@@ -9,6 +8,7 @@ def fix_spaces(text):
         else:
             new_text += char
     return new_text
+
 
 text = input("Enter your text: ")
 if text.strip():
