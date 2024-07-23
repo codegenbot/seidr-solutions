@@ -1,21 +1,23 @@
 def solve_boolean(expression):
-    stack = []
-    operators = {'&': lambda a, b: a and b,
-                 '|': lambda a, b: a or b}
-    for char in expression:
-        if char in {'T', 'F'}:
-            stack.append(char == 'T')
-        elif char == '(':
-            stack.append('(')
-        elif char == ')':
-            while len(stack) > 1 and stack[-1] != '(':
-                stack.pop()
-            stack.pop() # pop the matching (
-        elif char in {'&', '|'}:
-            while len(stack) > 1 and stack[-1] in {'&', '|'}:
-                stack.pop()
-            if len(stack) >= 2:
-                right = stack.pop()
-                left = stack.pop()
-                stack.append(operators[char](left, right))
-    return stack[0]
+    def evaluate(s):
+        if '(' in s:
+            i = 1
+            for c in s:
+                if c == '(':
+                    i += 1
+                elif c == ')':
+                    i -= 1
+                if i == 0:
+                    return eval(s[1:s.index(')')]) and evaluate(s[s.index(')')+1:])
+        stack = []
+        ops = {('&': all, '|': any}[char])
+        for char in s:
+            if char in {'T', 'F'}:
+                stack.append(char == 'T')
+            elif char in {'&', '|'}:
+                while len(stack) > 1 and stack[-2] != 'T' and stack[-2] != 'F':
+                    stack.pop()
+                ops = {('&': all, '|': any}[char])
+        while len(stack) > 1:
+            stack.pop()
+        return ops(*stack)
