@@ -1,8 +1,7 @@
-```cpp
+#include <vector>
 #include <utility>
-using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int min_diff = INT_MAX;
     int cut_index = 0;
 
@@ -14,7 +13,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
+    std::vector<int> left(v.begin(), v.begin() + cut_index);
+    std::vector<int> right(v.begin() + cut_index, v.end());
     return {left, right};
 }
