@@ -1,10 +1,9 @@
-```cpp
-std::string concatenate(std::vector<std::string> strings) {
+std::string concatenate(std::vector<std::string> strings){
     std::string result = "";
     for (const auto& str : strings) {
-        if (!str.empty()) {
-            result += str + ", ";
-        }
+        if (!result.empty()) 
+            result += " "; 
+        result += str;
     }
     return result;
 }
