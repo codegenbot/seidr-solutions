@@ -16,9 +16,9 @@ def encode(message):
                     result += 'y'
             else:
                 if char.islower():
-                    result += chr(ord(char) + 32)
+                    result += chr(ord(char) + 3)
                 else:
-                    result += chr(ord(char) - 32)
+                    result += chr(ord(char) - 3)
         else:
             result += char
     return result
