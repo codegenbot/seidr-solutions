@@ -1,51 +1,43 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(const std::string& input) {
     std::vector<std::string> words;
     std::string word;
-
-    // Split string into words
-    for (char c : str) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else if (c == '-') {
-            while (str.find(c) != str.npos && i++ < str.size()) {
-                if (str[i] == '-'){
-                    str.erase(i, 1);
-                }
-                else
-                break;
+    
+    for (char c : input) {
+        if (c == '-') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
-            word += toupper(c);
+        } else if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
         } else {
             word += c;
         }
     }
-
-    words.push_back(word);
-
-    // Convert first character of each word to lowercase and append rest of the string
-    std::string result;
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0) {
-            result += toupper(words[i][0]);
-        } else {
-            result += words[i];
-        }
-        if (i < words.size() - 1) {
-            result += words[i + 1];
-        }
+    
+    if (!word.empty()) {
+        words.push_back(word);
     }
 
+    std::string result = words[0];
+    for (int i = 1; i < words.size(); ++i) {
+        result += std::string(1, char(toupper(words[i][0])));
+        result += words[i].substr(1);
+    }
+    
     return result;
 }
 
 int main() {
-    std::string str;
-    while(std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;
+    std::cout << "CamelCase: " << camelCase(input) << std::endl;
     return 0;
 }
