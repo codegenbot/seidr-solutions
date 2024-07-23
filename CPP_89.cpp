@@ -1,17 +1,9 @@
-string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char rotated = c + 2 * 2;
-            if (islower(c)) {
-                if (rotated > 'z') {
-                    rotated = 'a' + rotated - 'z' - 1;
-                }
-            } else {
-                if (rotated > 'Z') {
-                    rotated = 'A' + rotated - 'Z' - 1;
-                }
-            }
-            result += rotated;
+string encrypt(string s){
+    string result = "";
+    for(char c : s){
+        if(isalpha(c)){
+            char base = islower(c) ? 'a' : 'A';
+            result += ((c - base + 2 * 2) % 26) + base;
         } else {
             result += c;
         }
