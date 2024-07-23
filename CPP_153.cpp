@@ -1,12 +1,18 @@
 string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = extensions[0];
-    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), ::isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), ::islower);
+    int max_strength = INT_MIN;
+    string strongest_extension = "";
     
-    for (const auto& ext : extensions) {
-        int current_strength = count_if(ext.begin(), ext.end(), ::isupper) - count_if(ext.begin(), ext.end(), ::islower);
-        if (current_strength > max_strength) {
+    for (string ext : extensions) {
+        int cap_count = 0, sm_count = 0;
+        for (char c : ext) {
+            if (isupper(c)) cap_count++;
+            else if (islower(c)) sm_count++;
+        }
+        int strength = cap_count - sm_count;
+        
+        if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
+            max_strength = strength;
             strongest_extension = ext;
-            max_strength = current_strength;
         }
     }
     
