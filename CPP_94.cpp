@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <cassert>
 #include <vector>
 
@@ -23,12 +22,12 @@ bool isPrime(int num) {
     return true;
 }
 
-int findMaxPrime(const std::vector<int>& numbers) {
+int findMaxPrime(int* numbers, int size) {
     int maxPrime = -1;
-    for (int number : numbers) {
-        if (isPrime(number)) {
-            if (number > maxPrime) {
-                maxPrime = number;
+    for (int i = 0; i < size; i++) {
+        if (isPrime(numbers[i])) {
+            if (numbers[i] > maxPrime) {
+                maxPrime = numbers[i];
             }
         }
     }
@@ -36,6 +35,7 @@ int findMaxPrime(const std::vector<int>& numbers) {
 }
 
 int main() {
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
+    int numbers[] = {127, 97, 8192};
+    assert(sumOfDigits(findMaxPrime(numbers, sizeof(numbers)/sizeof(numbers[0]))) == 7);
     return 0;
 }
