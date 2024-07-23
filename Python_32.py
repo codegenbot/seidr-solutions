@@ -1,7 +1,15 @@
-def find_zero(xs: list):
-    if len(xs) != 2:
-        raise ValueError("xs must be a list of length 2")
-    a, b = xs
-    if a == 0:
-        raise ZeroDivisionError("a cannot be zero")
-    return -b / a
+def main():
+    print("Find two numbers from user and find their quotient.")
+
+    x = float(input("Enter first number: "))
+    y = float(input("Enter second number: "))
+
+    if y != 0:
+        result = -x / y
+        print(f"The quotient is {result}.")
+    else:
+        print("Second number cannot be zero.")
+
+
+if __name__ == "__main__":
+    main()
