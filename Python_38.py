@@ -15,10 +15,10 @@ def decode_cyclic(s: str):
             while i - j >= 0 and s[i] == s[i-j]:
                 j += 1
             if j > 0: 
-                result += s[0:j]
+                result += s[i - j + 1]
             else:
-                result += s[i]
-            break
+                result += s[0]
+            i += 1
         else:
             result += s[i]
         i += 1
