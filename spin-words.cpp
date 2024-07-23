@@ -1,8 +1,7 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string spinWords(std::string str) {
     std::string result = "";
+    std::string word;
 
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
@@ -15,24 +14,19 @@ std::string spinWords(std::string str) {
 
     result += word;
 
-    std::size_t pos = 0;
-    while ((pos = result.find(" ")) != std::string::npos) {
-        if (result.substr(pos+1).length() >= 5) {
-            std::string temp = result.substr(pos+1);
-            for (int j = temp.length()-1; j >= 0; j--) {
-                result.replace(pos+1, temp.length(), temp.substr(j, 1));
+    int j = 0;
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ' || i == result.length() - 1) {
+            std::string temp = result.substr(j, i-j+1);
+            if (temp.length() >= 5) { 
+                for (int k = temp.length()-1; k >= 0; k--) {
+                    result.replace(i-j, i-j+1, temp.substr(k, 1));
+                }
+            } else {
+                j = i+1;
             }
-        } else {
-            pos++; 
         }
     }
 
     return result;
-}
-
-int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-
-    return 0;
 }
