@@ -16,8 +16,6 @@ while start < len(text):
 for index in indices:
     print(index, end=" ")
     
-if len(indices) == 1:
-    while text.find(target, indices[0]+1) != -1:
-        additional_index = text.find(target, indices[0]+1)
-        print(additional_index, end=" ")
-        indices[0] = additional_index
+if len(indices) > 1:
+    if text.find(target, indices[-1]+1) != -1:
+        print(indices[-1]+1, end=" ")
