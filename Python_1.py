@@ -1,10 +1,11 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     groups = ''
-    
+
     for char in paren_string:
         if char == ' ':
             continue
@@ -15,11 +16,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.pop()
             groups += char
             if not stack:
-                result.append(groups.strip())
+                result.append(groups)
                 groups = ''
-
-    if stack:
-        groups = groups.strip()
-        result.append(groups)
+    if stack:  # if there are characters left in stack, it means there were no matching parentheses
+        result.append(groups + ')')
 
     return result
