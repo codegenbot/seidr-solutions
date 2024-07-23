@@ -21,6 +21,4 @@ int main() {
     for(int i : result) {
         cout << i << " ";
     }
-    cout << endl;
     return 0;
-}
