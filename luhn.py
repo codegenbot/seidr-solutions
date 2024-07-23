@@ -1,4 +1,4 @@
-digits = [int(d) for d in input().replace(' ', '')]
+digits = [int(d) for d in input().split()]
 
 total = 0
 for i, digit in enumerate(digits):
