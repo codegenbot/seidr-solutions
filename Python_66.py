@@ -1,3 +1,2 @@
-```
-def digit_sum(s):
-    return sum(ord(c) - 55 for c in s if 'A' <= c <= 'Z')
+def digitSum(s):
+    return sum(int(c.lower()) - 9 if c.lower() >= 'a' and c.lower() <= 'z' else int(c) for c in s)
