@@ -1,25 +1,20 @@
-```
 def solve_boolean(expression):
-    operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
-    def evaluate(s, start=0, end=-1):
-        if end == -1:
-            end = len(s)
-        stack = []
-        operator = None
-        for i in range(start, end):
-            if s[i] in {"&", "|"}:
-                operator = s[i]
-            elif s[i] in {"T", "F"}:
-                while stack and stack[-1] != "T" and stack[-1] != "F":
-                    stack.pop()
-                if not stack:
-                    return "E"
+    def helper(s):
+        if "(" in s:
+            i = s.index("(")
+            j = s.index(")")
+            return helper(s[:i] + helper(s[i + 1 : j]) + s[j + 1 :])
+        elif any(char in {"&", "|"} for char in s):
+            while len(stack) > 1 and stack[-2] != "T" and stack[-2] != "F":
                 stack.pop()
-                if operator:
-                    stack.append(operators[operator](stack.pop(), s[i] == "T"))
-                    operator = None
-        if operator or stack:
-            return "E"
+            if s[0] == "&":
+                stack.append(stack.pop() and stack.pop())
+            else:
+                stack.append(not stack.pop() or stack.pop())
+        elif "T" in s and "F" in s:
+            stack.append(s == "T")
         return all(stack)
 
-    return evaluate(expression)
+    stack = []
+    result = helper(expression)
+    return result
