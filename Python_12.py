@@ -8,7 +8,6 @@ def longest(strings: list[str]) -> Optional[str]:
     max_len = 0
     longest_str = None
     for s in strings:
-        s = s.strip().lower()
         if len(s) > max_len and s != "stop":
             max_len = len(s)
             longest_str = s
@@ -21,7 +20,7 @@ while True:
     if line.lower() == "stop":
         break
     try:
-        strings.append(line)
+        strings.append(line.strip().lower())
     except Exception as e:
         print(f"Invalid input: {e}")
 
