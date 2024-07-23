@@ -1,9 +1,9 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    using namespace std;
-    
     string s;
     cout << "Enter a string: ";
     getline(cin, s);
