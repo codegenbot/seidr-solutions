@@ -12,7 +12,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::unordered_set<char> correctColors;
+    std::set<char> correctColors;
 
     for (char c : code) {
         int count = 0;
@@ -36,3 +36,15 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return white - black;
+
+}
+
+int main() {
+    std::string code = "abc "; 
+    std::string guess = "abcd"; 
+
+    int result = mastermind(code, guess);
+    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
+
+    return 0;
+}
