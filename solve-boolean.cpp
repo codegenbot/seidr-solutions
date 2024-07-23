@@ -1,4 +1,4 @@
-```cpp
+```
 int main() {
     std::string expression;
     std::cout << "Enter Boolean expression: ";
