@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -35,7 +35,7 @@ int main() {
 
     auto filtered_strings = filter_by_substring(strings, sub);
 
-    if(same({sub},filtered_strings)){
+    if(issame({sub},filtered_strings)){
         std::cout << "Substrings are the same" << std::endl;
     } else {
         std::cout << "Substrings are different" << std::endl;
