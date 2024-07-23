@@ -15,7 +15,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
 
-    std::cout << "The middle character(s) is/are: " << middleCharacter(input) << std::endl;
+    std::cout << "Middle character(s) is/are: " << middleCharacter(input) << std::endl;
 
     return 0;
 }
