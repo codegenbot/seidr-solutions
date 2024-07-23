@@ -1,27 +1,44 @@
 ```
 def solve(input_string):
+    def parse_frame(frame):
+        if frame == "X":
+            return 10
+        elif "/" in frame:
+            parts = frame.split("/")
+            if parts[0] and parts[1].isdigit():
+                return int(parts[0]) + int(parts[1])
+            else:
+                return sum(int(x) for x in frame)
+        else:
+            return sum(int(x) for x in frame)
+
     score = 0
     i = 0
     frames = input_string.split()
-    for frame in frames:
-        if frame == "X":
+    while i < len(frames):
+        if frames[i] == "X":
             score += 10
             i += 1
-            if i < len(frames) - 1 and (frames[i] + frames[i+1]).replace("-", "/") in ["10/", "11/"]:
-                if (frames[i] + frames[i+1]).replace("-", "/") == "10/":
+            if i < len(frames) - 1 and (frames[i : i + 2].replace("-", "/") in ["10/", "11/"]):
+                if frames[i : i + 2].replace("-", "/") == "10/":
                     score += 20
                 else:
                     score += 30
                 i += 2
-        elif "/" in frame:
-            if frame.split("/")[0] and frame.split("/")[1].isdigit():
-                score += int(frame.split("/")[0]) + int(frame.split("/")[1])
+        elif "/" in frames[i]:
+            if frames[i].split("/")[0] and frames[i].split("/")[1].isdigit():
+                score += int(frames[i].split("/")[0]) + int(frames[i].split("/")[1])
             else:
-                score += sum(int(x) for x in frame)
+                score += parse_frame(frames[i])
             i += 1
         else:
-            score += sum(int(x) for x in frame)
+            score += sum(int(x) for x in frames[i])
             i += 1
+    if i < len(frames) - 1 and (frames[i : i + 2].replace("-", "/") in ["10/", "11/"]):
+        if frames[i : i + 2].replace("-", "/") == "10/":
+            score += 20
+        else:
+            score += 30
     print(score)
 
 input_string = input("Enter the individual bowls: ")
