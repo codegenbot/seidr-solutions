@@ -1,14 +1,16 @@
-string encrypt(string s){
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
-    string encrypted = "";
-    for (char c : s){
+string result = "";
+    for(char c : s){
         if(isalpha(c)){
-            int shift = (c - 'a') + 2 * 2;
-            shift = shift % 26;
-            encrypted += alphabet[shift];
+            char encrypted_char = c + 2 * ('z' - tolower(c));
+            if(islower(c) && encrypted_char > 'z'){
+                encrypted_char -= 26;
+            } else if(isupper(c) && encrypted_char > 'Z'){
+                encrypted_char -= 26;
+            }
+            result += encrypted_char;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
 }
