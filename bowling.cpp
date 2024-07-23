@@ -1,7 +1,4 @@
-#include <string>
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
@@ -16,7 +13,7 @@ int bowlingScore(string s) {
             }
         } else if (s[i] == '/') {
             int j = i + 1;
-            while (j < s.size() && !isdigit(s[j])) {
+            while (j < 11 && !isdigit(s[j])) {
                 j++;
             }
             int pins = s[j] - '0';
