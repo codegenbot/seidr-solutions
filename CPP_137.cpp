@@ -1,27 +1,33 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    if ((int)a > (int)b)
-        return a;
-    else if ((int)a < (int)b)
-        return b;
-    else
-        return "None";
-} else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-    if ((double)a > (double)b)
-        return a;
-    else if ((double)a < (double)b)
-        return b;
-    else
-        return "None";
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    if (a.convert_to<string>().compare(b.convert_to<string>()) > 0)
-        return a;
-    else if (a.convert_to<string>().compare(b.convert_to<string>()) < 0)
-        return b;
-    else
-        return "None";
-} else if ((a.type() == typeid(int) && b.type() != typeid(int)) ||
-           (b.type() == typeid(int) && a.type() != typeid(int))) {
-    return b;
-} else {
-    return "None";
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
+
+using namespace std;
+using namespace boost;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    any_to_double(a, a);
+    any_to_double(b, b);
+
+    if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return max(at<double>(a), at<double>(b));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (at<string>(a) > at<string>(b)) ? a : ((at<string>(a) < at<string>(b)) ? b : boost::any("None")));
+    } else {
+        return boost::any("None");
+    }
+}
+
+void any_to_double(boost::any& val, boost::any& result) {
+    if (val.type() == typeid(double)) {
+        result = val;
+    } else if (val.type() == typeid(string)) {
+        try {
+            double d = boost::lexical_cast<double>(boost::any_cast<string>(val));
+            result = boost::any(d);
+        } catch (...) {
+            // invalid conversion
+        }
+    }
 }
