@@ -1,10 +1,11 @@
 #include <iostream>
+#include <string>
 #include <stack>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operators;
-    int i = 0; 
+    int i = 0; // size_t i = 0 if you're using C++11
     string operand = "";
 
     for (; i < expression.length(); i++) {
@@ -13,15 +14,23 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return (operand == "T");
+                if (operand == "T")
+                    operand = "True";
+                else
+                    operand = "False";
+
+                return operand == "True";
             }
-            operand = "";
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return (operand == "T");
+                if (operand == "T")
+                    operand = "True";
+                else
+                    operand = "False";
+
+                return operand == "True";
             }
-            operand = "";
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
@@ -36,10 +45,14 @@ bool evaluateBooleanExpression(string expression) {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
-                    return (operand == "T");
+                    if (!operand.empty()) {
+                        return operand == "T";
+                    }
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return (operand == "T");
+                    if (!operand.empty()) {
+                        return operand == "T";
+                    }
                 }
 
                 operators.pop();
@@ -53,17 +66,21 @@ bool evaluateBooleanExpression(string expression) {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
-            return (operand == "T");
+            if (!operand.empty()) {
+                return operand == "T";
+            }
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return (operand == "T");
+            if (!operand.empty()) {
+                return operand == "T";
+            }
         }
 
         operators.pop();
     }
 
     if (!operand.empty())
-        return (operand == "T");
+        return operand == "T";
 
     return true;
 }
