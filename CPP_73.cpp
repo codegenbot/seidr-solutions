@@ -1,9 +1,6 @@
-```cpp
-#include <vector>
-
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::vector<bool> dp(n);
+    vector<bool> dp(n);
     
     for (int i = 0; i < n; i++) {
         dp[i] = true;
