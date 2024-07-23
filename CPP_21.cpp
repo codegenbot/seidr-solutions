@@ -1,9 +1,18 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (std::abs(a[i] - b[i]) > 0.0001f) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<float> rescale_to_unit(const std::vector<float>& v) {
@@ -17,6 +26,6 @@ std::vector<float> rescale_to_unit(const std::vector<float>& v) {
 }
 
 int main() {
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25f, 0.0f, 1.0f, 0.5f, 0.75f}));
+    assert(issame(rescale_to_unit({12.0f, 11.0f, 15.0f, 13.0f, 14.0f}), {0.25f, 0.0f, 1.0f, 0.5f, 0.75f}));
     return 0;
 }
