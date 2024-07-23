@@ -27,6 +27,6 @@ def find_closest_elements():
         
         numbers.append(float(user_input))
     
-    return find_closest_elements(numbers)
+    return find_closest_elements(list(map(str, numbers)))
 
 print(find_closest_elements())
