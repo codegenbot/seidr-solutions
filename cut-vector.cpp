@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,7 +12,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     int minDiff = INT_MAX;
-    int cutIndex;
+    int cutIndex; // Declare without initialization
     
     for (int i = 1; i <= n - 1; i++) {
         int leftSum = 0, rightSum = 0;
