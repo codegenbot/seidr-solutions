@@ -1,4 +1,4 @@
 def double_the_difference(lst):
-    pos_int_sum = sum(i for i in lst if isinstance(i, int) and i > 0)
-    mean = pos_int_sum / len([i for i in lst if isinstance(i, int) and i > 0])
-    return abs(mean - 5) * 2
+    pos_ints = [i for i in lst if isinstance(i, int) and i > 0]
+    diff = sum(pos_ints) - (abs(min(pos_ints)) + abs(max(pos_ints)))
+    return 2 * diff
