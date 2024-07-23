@@ -1,7 +1,9 @@
 def fix_spaces(text):
     new_text = ""
     for char in text:
-        if char == " " and new_text[-1:] == " ":
+        if char == " " and not new_text:
+            new_text += "_"
+        elif char == " " and new_text[-1:] == " ":
             new_text += "-"
         elif char == " ":
             new_text += "_"
@@ -10,7 +12,4 @@ def fix_spaces(text):
     return new_text
 
 text = input("Enter your text: ")
-if not text:  
-    print("Please enter some text.")
-else:
-    print(fix_spaces(text))
+print(fix_spaces(text))

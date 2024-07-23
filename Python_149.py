@@ -1,2 +1,5 @@
 def sorted_list_sum(lst):
-    return sum(int(i) for i in sorted([i for i in lst if len(str(i)) % 2 == 0]))
+    return " ".join(map(str, sorted([int(i) for i in lst if int(i) % 2 == 0])))
+
+lst = input("Please enter some numbers separated by space: ").split()
+print(sorted_list_sum(lst))
