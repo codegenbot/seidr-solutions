@@ -12,3 +12,4 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         numIndex[nums[i]] = i;
     }
     return {-1, -1};
+}
