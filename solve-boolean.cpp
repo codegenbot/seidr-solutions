@@ -1,4 +1,4 @@
-#include <string>
+#include <stack>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -30,4 +30,3 @@ bool solveBoolean(string s) {
     }
     
     return res;
-}
