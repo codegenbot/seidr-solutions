@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
 #include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             return {sum};
         }
         for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first, nj = neighbor.second;
+            int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
             q.push({ns, make_pair(ni, nj)});
