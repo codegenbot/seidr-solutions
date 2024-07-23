@@ -12,11 +12,16 @@ int main() {
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
+    if (bouncinessIndex > 1) {
+        bouncinessIndex = pow(bouncinessIndex, 0.5);
+        heightFirstBounce = heightStart * bouncinessIndex;
+    }
+
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += 2 * (heightFirstBounce - heightStart) + 
-                         (2 * (heightStart - heightFirstBounce / heightStart) * 
-                          pow(1.0 - bouncinessIndex, i));
+        totalDistance += (2 * abs((heightFirstBounce - heightStart) + (heightFirstBounce - heightStart) * bouncinessIndex));
+        heightFirstBounce *= bouncinessIndex;
+        heightStart = heightFirstBounce;
     }
 
     cout << fixed << setprecision(6) << totalDistance;
