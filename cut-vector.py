@@ -7,7 +7,7 @@ def cut_vector(vector):
         right_sum = sum(vector[i:])
 
         if left_sum == right_sum:
-            return vector[:i+1], vector[i:]
+            return vector[:i], vector[i:]
 
         diff = abs(left_sum - right_sum)
 
