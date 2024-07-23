@@ -6,8 +6,6 @@ int main() {
     string tweet;
     getline(cin, tweet);
 
-    cin.clear();
-
     if (tweet.empty()) {
         cout << "You didn't type anything" << '\n';
     } else if (tweet.size() > 140) {
