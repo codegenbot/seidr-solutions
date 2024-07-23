@@ -1,7 +1,3 @@
-#include <vector>
-#include <cassert>
-#include <initializer_list>
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::vector<std::vector<bool>> dp(n, std::vector<bool>(n));
@@ -31,10 +27,8 @@ int smallest_change(std::vector<int> arr) {
     
     int changes = 0;
     for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (!dp[i][j]) {
-                changes++;
-            }
+        if ((arr[i] > arr[i + 1]) || (arr[i] < arr[i + 1])) {
+            changes++;
         }
     }
     
