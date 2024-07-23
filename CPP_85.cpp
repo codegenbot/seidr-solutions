@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-
 using namespace std;
 
 int add(vector<int> lst){
@@ -19,12 +17,13 @@ int main() {
 
     cout << "Enter some numbers (enter -1 when you are done):" << endl;
 
-    for(num = 0; ; num++){
-        cin >> numbers.push_back(num);
+    for( ; ; ){
+        cin >> num;
         if(num == -1) break;
+        numbers.push_back(num);
     }
 
-    int result = add(numbers);
+    int result = add(numbers); 
     cout << "Sum of odd-indexed numbers: " << result << endl;
 
     return 0;
