@@ -6,18 +6,18 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int rightmost = arr.back();
-    for (int i = 0; i < arr.size(); ++i) {
-        if (rightmost <= arr[i]) {
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] > rightmost) {
             rightmost = arr[i];
-            if (i == arr.size() - 1 || rightmost >= arr[i + 1])
-                result.push_back(rightmost);
+        } else {
+            result.push_back(rightmost);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> arr = {19};
+    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(arr);
     for (int num : result) {
         cout << num << " ";
