@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     size_t start = 0;
@@ -10,13 +16,22 @@ string spinWords(string str) {
         
         string word = str.substr(start, end - start);
         
-        if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        
-        result += word + " ";
+        if (word.length() >= 5) 
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
         
         start = end + 1;
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
+}
+
+int main() {
+    string str;
+    while (true) {
+        cout << "Enter a string: ";
+        getline(cin, str);
+        cout << spinWords(str) << endl;
+    }
 }
