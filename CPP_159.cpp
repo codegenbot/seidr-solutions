@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> eat(int a, int b, int c) {
@@ -12,8 +13,6 @@ std::vector<int> eat(int a, int b, int c) {
     return {a + c, left};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {}
-
-int main() {
-    // rest of your code...
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // define the function
 }
