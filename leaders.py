@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     result = []
     max_right = arr[-1]
@@ -5,6 +6,8 @@ def leaders(arr):
         if arr[i] >= max_right:
             while i < len(arr) - 1 and arr[i] >= arr[i + 1]:
                 i -= 1
-            result.append(arr[i])
+            result.append(str(arr[i]))
             max_right = arr[i]
-    return result
+    return [int(x) for x in reversed(result)]
+
+print(leaders([16,17,4,3,5,2]))
