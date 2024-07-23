@@ -1,3 +1,4 @@
+```
 bool correct_bracketing(const char* brackets) {
     int count = 0;
     for(int i=0; i<std::strlen(brackets); i++){
@@ -8,7 +9,7 @@ bool correct_bracketing(const char* brackets) {
             if(count <= 0) return false;
             count--;
         }
-        brackets = &brackets[i];
+        brackets++;
     }
     return count == 0;
 }
