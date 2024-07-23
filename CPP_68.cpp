@@ -1,27 +1,24 @@
 ```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <utility>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> output;
-    for (int i = 0; i < arr.size(); i++) {
-        output.push_back({arr[i], i});
+std::vector<std::pair<int, int>> result(const std::vector<int>& arr) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < arr.size(); ++i) {
+        if (issame({arr[i], i}, {1, 2})) {
+            output.push_back(std::make_pair(arr[i], i));
+        }
     }
     return output;
 }
 
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    return (a.first == b.first && a.second == b.second);
+}
+
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = pluck(arr);
+    std::vector<int> arr = {1, 2, 3, 4};
+    std::vector<std::pair<int, int>> output = result(arr);
     for (auto p : output) {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
