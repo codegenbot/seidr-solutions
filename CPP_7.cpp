@@ -1,21 +1,20 @@
-```cpp
 #include <assert.h>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) return false;
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) return false;
     }
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> str, std::string substr) {
     std::vector<std::string> result;
-    for (const auto& str : vec) {
-        if (str.find(sub) != std::string::npos) {
-            result.push_back(str);
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i].find(substr) != std::string::npos) {
+            result.push_back(str[i]);
         }
     }
     return result;
