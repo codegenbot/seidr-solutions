@@ -35,11 +35,5 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    
-    long long a = 48;
-    long long b = 18;
-    long long result = gcd(a, b);
-    cout << "GCD of " << a << " and " << b << ": " << result << endl;
-    
     return 0;
 }
