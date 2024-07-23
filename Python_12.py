@@ -1,7 +1,3 @@
-```
-from random import choice
-pass  
-
 from random import choice
 
 
