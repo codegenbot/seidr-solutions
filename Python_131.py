@@ -1,6 +1,10 @@
+```
 def digits(n):
-    product = 1
-    for digit in str(n):
-        if int(digit) % 2 != 0:
-            product *= int(digit)
-    return product
+    has_odd = False
+    while n:
+        digit = n % 10
+        if digit % 2:
+            has_odd = True
+            break
+        n //= 10
+    return 1 if has_odd else 0
