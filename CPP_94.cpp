@@ -1,6 +1,19 @@
 #include <vector>
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int skjkasdkd(vector<int> lst) {
     int max_prime = 0;
@@ -19,26 +32,15 @@ int skjkasdkd(vector<int> lst) {
     return sum_of_digits;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     vector<int> lst;
-    int num;
-    cout << "Enter the numbers (separated by spaces): ";
-    while (cin >> num) {
-        lst.push_back(num);
+    int n;
+    cout << "Enter the number of integers: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter integer " << i + 1 << ": ";
+        cin >> lst[i];
     }
-    int result = skjkasdkd(lst);
-    cout << "Sum of digits for largest prime is: " << result << endl;
+    cout << "The sum of digits is: " << skjkasdkd(lst) << endl;
     return 0;
 }
