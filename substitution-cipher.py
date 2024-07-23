@@ -1,15 +1,17 @@
 ```
-def substitution_cipher(cipher_dict, text_to_decrypt):
+def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
     deciphered_text = ""
     for char in text_to_decrypt:
-        if char in cipher_dict:
-            deciphered_text += cipher_dict[char]
+        if char in cipher_text1:
+            index = cipher_text1.find(char)
+            deciphered_text += cipher_text2[index % len(cipher_text2)]
         else:
             deciphered_text += char
     return deciphered_text
 
-cipher_dict = {char: input("Enter the value for " + char + ": ") for i, char in enumerate(input("Enter the first string: ").split())}
+cipher_text1 = input("Enter the first string: ")
+cipher_text2 = input("Enter the second string: ")
 text_to_decrypt = input("Enter the text to decrypt: ")
 
-decrypted_text = substitution_cipher(cipher_dict, text_to_decrypt)
+decrypted_text = substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt)
 print(decrypted_text)
