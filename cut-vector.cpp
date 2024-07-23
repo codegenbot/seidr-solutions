@@ -2,22 +2,24 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num = 0;
+    string input;
     
-    do {
-        if (!(cin >> num)) {
-            break;
-        }
+    getline(cin, input);
+    stringstream ss(input);
+    int num;
+    
+    while (ss >> num) {
         if (num == 0) {
             break;
         }
         nums.push_back(num);
-    } while (true);
+    }
     
     int n = nums.size();
     int sum = 0;
@@ -33,6 +35,11 @@ int main() {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
+        
+        if (diff == 0) {
+            cutIndex = i;
+            break;
+        }
         
         if (diff < minDiff) {
             minDiff = diff;
