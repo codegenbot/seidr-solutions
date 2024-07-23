@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -13,7 +14,7 @@ std::string remove_vowels(std::string text) {
 }
 
 int main() {
-    int x{}; // Initialize an integer variable
+    int x{}; 
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
