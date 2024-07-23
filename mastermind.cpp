@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <algorithm>
 
@@ -20,4 +21,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+
+}
+
+int main() {
+    std::string code = "abcd";
+    std::string guess = "abde"; // adjust these values as needed
+    int result = mastermind(code, guess);
+    return 0;
 }
