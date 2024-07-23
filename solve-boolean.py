@@ -1,6 +1,4 @@
-```
 import ast
-import re
 
 def solve_boolean(expression):
     if expression == "T":
@@ -21,7 +19,7 @@ def solve_boolean(expression):
             if "&" in left:
                 left = f"({solve_boolean(left)})"
             if "&" in right:
-                right = f"({solve_boolean(right))}"
+                right = f"({solve_boolean(right)})"
             expression = f"{left} | {right}"
 
     return ast.literal_eval(f"not not {expression}")
