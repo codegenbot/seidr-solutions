@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 int bowlingScore(string s) {
@@ -5,11 +6,11 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            string firstRoll = s.substr(0, i);
-            string secondRoll = s.substr(i + 1);
-            int first = stoi(firstRoll);
-            int second = stoi(secondRoll);
-            score += getPointsForFrame(stoi(firstRoll), stoi(secondRoll));
+            string firstRollStr = s.substr(0, i);
+            string secondRollStr = s.substr(i + 1);
+            int firstRoll = stoi(firstRollStr);
+            int secondRoll = stoi(secondRollStr);
+            score += getPointsForFrame(firstRoll, secondRoll);
             currentFrame++;
         }
     }
