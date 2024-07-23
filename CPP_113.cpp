@@ -12,12 +12,12 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string str = "the number of odd elements ";
-        str += to_string(count);
-        str += " in the str";
-        str += to_string(i+1);
-        str += " of the input.";
-        result.push_back(str);
+        string temp = "the number of odd elements ";
+        temp += to_string(count);
+        temp += " in the str";
+        temp += to_string(i+1);
+        temp += " of the input.";
+        result.push_back(temp);
     }
     return result;
 }
