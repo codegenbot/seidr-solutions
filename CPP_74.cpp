@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <vector>
 
@@ -38,11 +37,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int i = 0, j = 0;
     
     while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == string(&lst1[i][0])) { 
+        if (lst1[i] == lst2[j]) {
             result.push_back(string(&lst1[i][0])); 
             i++;
             j++;
-        } else if (lst1[i] < string(&lst2[j][0])) {
+        } else if (lst1[i] < lst2[j]) {
             i++;
         } else {
             j++;
