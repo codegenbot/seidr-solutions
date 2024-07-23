@@ -26,7 +26,7 @@ pair<int, int> mastermind(string code, string guess) {
 
 int main() {
     string code, guess;
-    cout << "Enter the Mastermind code (4 characters): ";
+    cout << "Enter the Mastermind code: ";
     cin >> code;
     cout << "Enter your guess: ";
     cin >> guess;
