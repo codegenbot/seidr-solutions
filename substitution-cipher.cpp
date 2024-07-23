@@ -1,32 +1,39 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
+std::string decipher(const std::string& input, const std::string& cipher1, const std::string& cipher2) {
     std::string result;
-    for (char c : input) {
+    for (auto c : input) {
         if (c == '\0') {
-            break; // if the end of string is reached
+            break; 
         }
-        size_t pos = cipher2.find(std::tolower(c)); // convert to lowercase
-
+        size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
-            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            result += cipher1[pos]; // substitute with corresponding character in cipher1, also converted to lowercase
+            result += cipher1[pos]; 
         } else {
-            result += c; // if not found, add as it is
+            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
+            size_t pos2 = cipher1.find(originalCase); 
+            if (pos2 != std::string::npos) {
+                result += originalCase; 
+            } else {
+                result += c; 
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, input;
-    std::cin >> std::ws; // skip spaces in input
+    std::string input, cipher1, cipher2;
 
+    std::cout << "Enter the three strings:" << std::endl;
     std::getline(std::cin, cipher1);
     std::getline(std::cin, cipher2);
-    std::getline(std::cin >> std::ws, input); // read until non-whitespace is encountered
-    std::cout << substitutionCipher(cipher1 + " ", cipher2 + " ", input) << std::endl;
+    std::getline(std::cin, input);
+
+    std::string result = decipher(input, cipher1, cipher2);
+    std::cout << "Deciphered message: " << result << std::endl;
+    
     return 0;
 }
