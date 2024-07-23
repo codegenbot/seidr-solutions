@@ -1,10 +1,7 @@
-#include <vector>
-#include <cmath>
-#include <cassert>
+vector<double> coeffs;
+double solution;
 
-std::vector<double> coeffs;
-
-double poly(std::vector<double> coeffs, double root) {
+double poly(vector<double> coeffs, double root) {
     double result = 0;
     for(int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(root, i);
@@ -12,24 +9,29 @@ double poly(std::vector<double> coeffs, double root) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
-    // implement your zero-finding algorithm here
-    double root = -1.0;
-    for(int i = 0; i < 1000; i++) {
-        if(poly(coeffs, root) == 0)
-            return root;
-        root += 0.0001;
+double find_zero(vector<double> coeffs) {
+    int deg = coeffs.size() - 1;
+    double a = coeffs[deg];
+    double b = 0.0;
+
+    for(int i = deg; i >= 1; i--) {
+        b += pow(-1, i) * coeffs[i] / (double)i;
     }
-    return 0.5;
+
+    return -b / a;
 }
 
 int main() {
-    coeffs.resize(10);
-    for(int i = 0; i < 10; i++)
-        cin >> coeffs[i];
-    double rootValue = 2.5;
+    coeffs.resize(3); // assuming up to degree 2
+    cin >> coeffs[0] >> coeffs[1] >> coeffs[2];
+    
+    double rootValue = 2.5; // example value
+
     double result = poly(coeffs, rootValue);
-    double solution = find_zero(coeffs);
+    
+    solution = find_zero(coeffs);
+
     assert(abs(poly(coeffs, solution)) < 1e-3);
+
     return 0;
 }
