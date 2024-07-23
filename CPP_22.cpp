@@ -15,7 +15,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int main() {
-    assert(issame(filter_integers({3, -1, 3, 3, -2, 'a', 3}), {3, 3, 3}));
+int solution(std::vector<int> input) {
+    assert(issame(filter_integers(input), {3, 3, 3}));
     return 0;
 }
