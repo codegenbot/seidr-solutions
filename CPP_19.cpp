@@ -1,27 +1,33 @@
 map<string, int> number_map = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-    {"eight", 8}, {"nine", 9}
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
 };
 
 string sort_numbers(string numbers) {
-    vector<string> num_strings;
-    stringstream ss(numbers);
-    string num_str;
-    
-    while (ss >> num_str) {
-        num_strings.push_back(num_str);
+    string result = "";
+    map<int, string> sorted_numbers;
+
+    size_t pos = 0;
+    string token;
+    while ((pos = numbers.find(" ")) != string::npos) {
+        token = numbers.substr(0, pos);
+        sorted_numbers[number_map[token]] = token;
+        numbers.erase(0, pos + 1);
     }
-    
-    sort(num_strings.begin(), num_strings.end(), [&](const string &a, const string &b) {
-        return number_map[a] < number_map[b];
-    });
-    
-    string result;
-    for (const auto &num : num_strings) {
-        result += num + " ";
+    sorted_numbers[number_map[numbers]] = numbers;
+
+    for (const auto& num : sorted_numbers) {
+        result += num.second + " ";
     }
-    
-    result.pop_back(); // Remove the extra space at the end
+
+    result.pop_back(); // Remove trailing space
     return result;
 }
