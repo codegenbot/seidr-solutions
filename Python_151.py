@@ -1,5 +1,4 @@
-def check():
-    lst = list(map(int, input().split()))
+def check(lst):
     print(double_the_difference(lst))
 
 def double_the_difference(lst):
