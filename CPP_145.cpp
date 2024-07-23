@@ -1,5 +1,12 @@
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    int sum_a = 0, sum_b = 0;
+    for (int num : a) {
+        sum_a += abs(num);
+    }
+    for (int num : b) {
+        sum_b += abs(num);
+    }
+    return sum_a == sum_b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
