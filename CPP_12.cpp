@@ -1,10 +1,14 @@
-if(strings.empty()) return "None";
+string longest(vector<string> strings){
+    if(strings.empty()){
+        return "None";
+    }
     
     string longestStr = strings[0];
-    for(const string& s : strings){
-        if(s.length() > longestStr.length() || (s.length() == longestStr.length() && s < longestStr)){
-            longestStr = s;
+    for(const string& str : strings){
+        if(str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)){
+            longestStr = str;
         }
     }
+    
     return longestStr;
 }
