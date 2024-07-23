@@ -1,3 +1,11 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<int> parse_music(string music_string);
+
 vector<int> parse_music(string music_string){
     vector<int> beats;
     int i = 0;
@@ -8,10 +16,16 @@ vector<int> parse_music(string music_string){
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
-        } else if (music_string[i] == 'o') {
+        } else {
             beats.push_back(4);
             i++;
         }
     }
     return beats;
+}
+
+int main() {
+    assert(parse_music("o| .| o| .| o o| o o|") == vector<int>{2, 1, 2, 1, 4, 2, 4, 2});
+     
+    return 0;
 }
