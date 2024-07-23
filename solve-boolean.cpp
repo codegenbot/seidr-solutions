@@ -1,16 +1,14 @@
-#include <stack>
 #include <string>
-
-using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
                 s.pop();
             }
-        } else if (expression[i] == '|') {
+            s.push(expression[i]);
+        } else if (expression[i] == '&') {
             while (!s.empty()) {
                 s.pop();
             }
