@@ -8,8 +8,10 @@ int basement(const std::vector<int>& nums) {
         if (sum < 0) return i;
     }
     return -1;
+
 }
 
 int main() {
-    return basement(std::vector<int>({-1,2,3,-2,5}));
+    std::vector<int> nums = {-1,2,3,-2,5};
+    return basement(nums);
 }
