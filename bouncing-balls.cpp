@@ -15,7 +15,7 @@ int main() {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
         double height = heightStart * pow(bouncinessIndex, 2*i);
-        totalDistance += 2 * (height - heightStart); // Calculate the distance for both up and down movements in each bounce.
+        totalDistance += 2 * (height - heightStart); 
     }
 
     cout << std::fixed << std::setprecision(6) << totalDistance;
