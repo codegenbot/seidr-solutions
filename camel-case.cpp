@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -9,9 +5,9 @@ std::string kebabToCamel(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
-                capitalizeNext = true;
+                result.push_back(' '); // add a single space
             }
-            result.push_back(' ');
+            capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -21,14 +17,4 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-
-    std::cout << "CamelCase representation: " << kebabToCamel(input) << std::endl;
-
-    return 0;
 }
