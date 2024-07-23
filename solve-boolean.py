@@ -14,8 +14,10 @@ def solve_boolean(expression):
         elif ' || ' in expression:
             left, right = expression.split(' || ')
             expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
+        # Re-assign the updated expression back to itself
+        expression = expression.replace(' && ', ' and ').replace(' || ', ' or ')
 
-    return eval(f"not not {''.join(expression.split('T'))}" if ''.join(expression.split('F')).strip() == '' else "False")
+    return eval(f"{expression}")
 
 if __name__ == "__main__":
     expression = input("Enter a Boolean expression: ")
