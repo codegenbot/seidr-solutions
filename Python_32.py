@@ -1,9 +1,12 @@
-```
-import math
+Problem: Find Zero
+Find a zero of a quadratic equation given its coefficients.
+
+Function signature:
+def find_zero(xs: list) -> float:
 
 def find_zero(xs: list):
     n = len(xs)
-    assert n % 2 == 0, 
+    assert n % 2 == 0, "xs must have even number of coefficients"
     a = xs[0]
     b = xs[1]
     c = xs[2] if n > 2 else None
