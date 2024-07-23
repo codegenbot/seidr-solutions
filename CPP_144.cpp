@@ -1,4 +1,3 @@
-```cpp
 bool simplify(string x, string n) {
     int numerator1 = 0, denominator1 = 0;
     int numerator2 = 0, denominator2 = 0;
