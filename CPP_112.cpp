@@ -1,7 +1,10 @@
+Here is the corrected code:
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <initializer_list>
+
 using namespace std;
 typedef size_t initializer_list::size_type;
 
