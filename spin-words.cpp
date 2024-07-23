@@ -34,6 +34,7 @@ string spinWords(const string& str) {
 }
 
 int main() {
+    // test cases
     cout << spinWords("a") << endl; 
     cout << spinWords("this is a test") << endl; 
     cout << spinWords("this is another test") << endl; 
