@@ -1,35 +1,22 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
 #include <string>
+#include <cstring>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word = "";
+using namespace std;
 
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
+string spinWords(string sentence) {
+    string result = "";
+    char* word = strtok(const_cast<char*>(sentence.c_str()), " ");
+    
+    while(word != NULL) {
+        int wordLength = strlen(word);
+        
+        if(wordLength >= 5)
+            result += string(word).reverse() + " ";
+        else
             result += word + " ";
-            word = "";
-        } else {
-            word += c;
-        }
+        
+        word = strtok(NULL, " ");
     }
-
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-    }
-
-    return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
+    
+    return result.substr(0, result.length()-1);
 }
