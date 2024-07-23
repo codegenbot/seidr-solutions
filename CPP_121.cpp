@@ -1,9 +1,11 @@
+```
 #include <iostream>
+#include <vector>
 #include <cassert>
 
 using namespace std;
 
-int calculate_sum(vector<int> lst) {
+int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (i % 2 == 0 && lst[i] % 2 != 0) {
@@ -13,8 +15,19 @@ int calculate_sum(vector<int> lst) {
     return sum;
 }
 
+void test() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    cout << solutions({1, 4, 5, 10}) << endl;
+}
+
 int main() {
-    assert(calculate_sum({3, 13, 2, 9}) == 3);
-    cout << calculate_sum({1, 4, 5, 10}) << endl;
+    test();
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for (int i = 0; i < n; i++) {
+        cin >> lst[i];
+    }
+    cout << solutions(lst) << endl;
     return 0;
 }
