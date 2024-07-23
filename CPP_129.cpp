@@ -21,10 +21,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     queue<pair<vector<int>, int>> q; // {path, length}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if(grid[i][j] == k) {
-                q.push({{grid[i][j]}, 1});
-                break;
-            }
+            q.push({{grid[i][j]}, 1});
         }
     }
 
@@ -33,9 +30,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (len == k) {
             return path;
         }
-        for (auto& neighbor : neighbors[path.back()][0].second) {
+        for (auto& neighbor : neighbors[path.back()[0]][0].second) {
             int val = neighbor.first;
-            vector<int> newPath = path;
+            vector<int> newPath(path);
             newPath.push_back(val);
             q.push({newPath, len + 1});
         }
@@ -48,14 +45,14 @@ int main() {
     // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
-    for (int val : minPath(grid1, 3)) {
+    for (auto val : minPath(grid1, 3)) {
         cout << val << " ";
     }
     cout << "}\n";
 
     vector<vector<int>> grid2 = {{5, 9, 3}, {4, 1, 6}, {7, 8, 2}};
     cout << "{";
-    for (int val : minPath(grid2, 1)) {
+    for (auto val : minPath(grid2, 1)) {
         cout << val << " ";
     }
     cout << "}\n";
