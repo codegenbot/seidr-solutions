@@ -4,7 +4,6 @@ def dice_game(n, m):
     elif n == m:
         return 0.5
     else:
-        p = 1
-        for i in range(1, m):
-            p += (n - m + 1) / n
-        return p
+        total_outcomes = n * m
+        outcomes_peter_wins = sum(1 for _ in range((m-1)*n, (m+1)*n))
+        return outcomes_peter_wins / total_outcomes
