@@ -3,45 +3,35 @@
 
 using namespace std;
 
-bool evaluateExpression(string expression) {
-    if (expression.size() == 0)
-        return false; // base case: empty string is F
-
-    int i = 0;
-    
-    while (i < expression.size()) {
-        if (expression[i] == '|') {
-            int j = i + 1;
-            
-            for (; j < expression.size(); j++) {
-                if (expression[j] == '&') {
-                    // found &&
-                    return evaluateExpression(expression.substr(i, j - i)) && evaluateExpression(expression.substr(j + 1));
-                }
-                else if (expression[j] == '|') {
-                    // found ||
-                    return evaluateExpression(expression.substr(i, j - i)) || evaluateExpression(expression.substr(j + 1));
-                }
-            }
-        }
-        
-        if (expression[i] == 't')
-            return true;
-        else if (expression[i] == 'f')
-            return false;
-
+bool evaluateExpression(string expression, int &i) {
+    if (expression[i] == 'T') {
         i++;
+        return true;
     }
-
-    // if we reached here, it means the string started with T or F
-    return expression[0] == 't';
+    else if (expression[i] == 'F') {
+        i++;
+        return false;
+    }
+    else if (expression[i] == '|') {
+        i++;
+        bool left = evaluateExpression(expression, i);
+        bool right = evaluateExpression(expression, i);
+        return left || right;
+    }
+    else if (expression[i] == '&') {
+        i++;
+        bool left = evaluateExpression(expression, i);
+        bool right = evaluateExpression(expression, i);
+        return left && right;
+    }
 }
 
 int main() {
     string expression;
     cout << "Enter a Boolean expression: ";
     cin >> expression;
-    bool result = evaluateExpression(expression);
+    int i = 0;
+    bool result = evaluateExpression(expression, i);
     if (result)
         cout << "True";
     else
