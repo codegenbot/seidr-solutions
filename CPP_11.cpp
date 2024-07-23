@@ -1,4 +1,8 @@
-```cpp
+#include <sstream>
+#include <iostream>
+
+using namespace std;
+
 string string_xor(string a, string b) {
     istringstream is_a(a), is_b(b);
     string result;
@@ -11,4 +15,11 @@ string string_xor(string a, string b) {
         }
     }
     return result;
+}
+
+int main() {
+    string a = "0101";
+    string b = "0000";
+    cout << string_xor(a, b) << endl;
+    return 0;
 }
