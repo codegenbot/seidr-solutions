@@ -6,12 +6,12 @@ bool move_one_ball(std::vector<int> arr) {
     }
 
     int n = arr.size();
-    int minIndex = 0;
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[minIndex]) {
-            minIndex = i;
+    int minIdx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[minIdx]) {
+            minIdx = i;
         }
     }
 
-    return (arr[(minIndex + n - 1) % n] <= arr[(minIndex + 1) % n]);
+    return (minIdx == n - 1 || arr[0] <= arr[n - 1]);
 }
