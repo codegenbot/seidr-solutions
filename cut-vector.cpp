@@ -4,11 +4,13 @@
 int main() {
     std::vector<int> nums;
     int n;
-    for (int i = 0; std::cin >> n; ++i) {
+    
+    int maxIndex;
+    std::cin >> maxIndex;
+
+    for (int i = 0; i <= maxIndex; ++i) {
+        std::cin >> n;
         nums.push_back(n);
-        if (i == INT_MAX - 1) {
-            break;
-        }
     }
 
     int sum = 0;
