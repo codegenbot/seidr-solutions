@@ -9,8 +9,8 @@ vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for (int num : numbers) {
         bool found = false;
-        for (int existing_num : result) {
-            if (num == existing_num) {
+        for (int i : result) {
+            if (i == num) {
                 found = true;
                 break;
             }
