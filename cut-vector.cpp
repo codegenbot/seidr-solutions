@@ -1,9 +1,4 @@
-```cpp
-#include <vector>
-#include <climits>  // for INT_MAX
-#include <cmath>    // for abs
-
-using namespace std;
+#include <utility>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
@@ -30,11 +25,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return {{v.begin(), v.begin() + cutIndex}, {v.begin() + cutIndex, v.end()}};
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; // example input
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    return 0;
+    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
+                                            vector<int>(v.begin() + cutIndex, v.end()));
 }
