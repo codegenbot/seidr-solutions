@@ -1,17 +1,14 @@
-int main(){
-    string str;
-    cin >> str;
-
-    string palin_suffix = "";
-    for (int i=str.size()-1; i>=0; i--) {
-        palin_suffix += str[i];
-        if (is_palindrome(palin_suffix)){
-            string prefix = str.substr(0, str.size()-palin_suffix.size());
-            reverse(prefix.begin(), prefix.end());
-            cout << str + prefix << endl;
-            return 0;
+string make_palindrome(string str){
+    if(str.empty())
+        return "";
+    
+    string palindrome;
+    int n = str.size();
+    for(int i=n-1; i>=0; --i){
+        if(is_palindrome(str.substr(i))){
+            palindrome = str + string(str.begin(), str.begin()+i);
+            break;
         }
     }
-
-    return 0;
+    return palindrome;
 }
