@@ -1,10 +1,13 @@
 def fix_spaces(s):
-    words = s.split()
-    new_s = ' '.join(words)
-    return new_s
+    return s.replace("\n", " ")
 
-def check(function, arg):
-    result = function(arg)
-    return len(result)
 
-check(fix_spaces("   Hello World!   "))
+def check(input_string):
+    sentence = input_string.split(". ")
+    for i in range(len(sentence)):
+        sentence[i] = fix_spaces(sentence[i].strip())
+    return ".".join(sentence)
+
+
+input_string = input("Enter a sentence: ")
+print(check(input_string))

@@ -1,9 +1,4 @@
 def sorted_list_sum(numbers):
-    even_numbers = sorted(
-        [
-            num
-            for num in numbers
-            if isinstance(num, str) and str(num).isnumeric() and int(str(num)) % 2 == 0
-        ]
-    )
-    return " ".join(map(str, even_numbers))
+    odd_numbers = [str(num) for num in numbers if isinstance(num, int) and num % 2 != 0]
+    odd_numbers.sort()
+    return " ".join(odd_numbers)
