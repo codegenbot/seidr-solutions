@@ -1,23 +1,3 @@
-#include <iostream>
-#include <string>
-
-std::string camelCase(const std::string& str) {
-    if (str.empty()) return str;
-    std::string result = std::tolower(str[0]);
-    for (size_t i = 1; i < str.size(); ++i) {
-        if (str[i] == '-') {
-            result.push_back(std::toupper(str[i+1]));
-            i++;
-        } else if (str[i] == ' ') {
-            result.push_back(std::toupper(str[i+1]));
-            i++;
-        } else {
-            result.push_back(str[i]);
-        }
-    }
-    return result;
-}
-
 int main() {
     std::string str, finalResult;
     while (std::cin >> str) {
@@ -25,12 +5,12 @@ int main() {
         for (size_t i = 0; i < str.size(); ++i) {
             if (str[i] == '-' || str[i] == ' ') { 
                 for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) { 
-                    finalResult += std::tolower(c);
+                    finalResult += tolower(c);
                 }
                 if (str[i] == ' ') { 
                     finalResult += ' ';
                 } else {
-                    finalResult += std::toupper(str[i]);
+                    finalResult += toupper(str[i]);
                 }
                 prevSpace = i + 1;
             }
@@ -38,14 +18,14 @@ int main() {
         for (char c : str.substr(prevSpace)) { 
             if (!finalResult.empty()) {
                 if (c >= 'a' && c <= 'z') {
-                    finalResult[0] = std::toupper(finalResult[0]);
+                    finalResult[0] = toupper(finalResult[0]);
                 }
             } else {
-                finalResult += std::tolower(c);
+                finalResult += tolower(c);
             }
         }
         std::cout << camelCase(finalResult) << std::endl;
-        finalResult.clear();
+        finalResult = "";
     }
     return 0;
 }
