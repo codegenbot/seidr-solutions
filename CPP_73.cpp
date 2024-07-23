@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -12,14 +14,14 @@ int smallest_change(vector<int> arr) {
             int j = i + len - 1;
             for(int k = i; k <= j; k++) {
                 if (arr[i] == arr[k]) {
-                    dp[i][j][0] = 0;
+                    dp[i][j] = 0;
                     break;
                 } else {
-                    dp[i][j][0] = 1 + min(dp[i][k-1][0], dp[k+1][j][0]);
+                    dp[i][j] = 1 + min(dp[i][k-1], dp[k+1][j]);
                 }
             }
         }
     }
     
-    return dp[0][n-1][0];
+    return dp[0][n-1];
 }
