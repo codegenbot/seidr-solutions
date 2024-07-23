@@ -1,3 +1,13 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << string_xor("0101", "0000") << endl;
+    return 0;
+}
+
 string string_xor(string a, string b) {
     string result = "";
     for (int i = 0; i < a.length(); i++) {
