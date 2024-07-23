@@ -1,4 +1,4 @@
-def shortestPath(grid):
+def shortest_path_to_target(grid):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
     memo = {}
@@ -7,7 +7,7 @@ def shortestPath(grid):
         if (i, j) in memo:
             return memo[(i, j)]
 
-        if grid[i][j] == "E":
+        if grid[i][j] == "T":
             return path
 
         res = []
