@@ -1,7 +1,6 @@
 def basement(arr):
-    total = 0
+    total = sum(arr[:])
     for i in range(len(arr)):
         if total < 0:
-            return i + 1
-        total += arr[i]
-    return -1
+            return i
+        total += arr[i] - arr[i-1] if i else arr[i]
