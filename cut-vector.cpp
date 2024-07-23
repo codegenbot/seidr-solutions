@@ -6,14 +6,14 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    vector<int> nums;
+    int num;
     
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    while (cin >> num) {
+        nums.push_back(num);
     }
     
+    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -40,5 +40,9 @@ int main() {
     
     cout << 0 << '\n';
     
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << '\n';
+    }
+
     return 0;
 }
