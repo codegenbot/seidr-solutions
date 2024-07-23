@@ -10,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int problemSolution() {
+int main() {
     assert(issame(std::vector<int>{5, 3, 5, 2, 3, 3, 9, 0, 123}, std::vector<int>{0, 2, 3, 5, 9, 123}));
 
     std::vector<int> v = {5, 3, 5, 2, 3, 3, 9, 0, 123};
@@ -20,12 +20,7 @@ int problemSolution() {
     std::vector<int> uniqueVec {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::sort(uniqueVec.begin(), uniqueVec.end());
     std::unique(uniqueVec.begin(), uniqueVec.end());
-    assert(issame(uniqueVec, std::vector<int>{0, 2, 3, 5, 9, 123}));
-
-    return 0;
-}
-
-int main() {
-    problemSolution();
+    assert(issame(uniqueVec, {0, 2, 3, 5, 9, 123});
+    
     return 0;
 }
