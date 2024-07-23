@@ -1,11 +1,13 @@
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
-
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
-        return string + "a" * (len(string))
-    i = 0
-    while not is_palindrome(string[i:] + string[:i][::-1]):
-        i += 1
-    return string[:i] + string[i:][::-1]
+    if string.islower():
+        prefix = ''
+    else:
+        for char in reversed(string):
+            if char.isalpha() and not char.islower():
+                break
+            prefix += char
+        prefix = prefix[::-1]
+    return string + prefix + string[::-1]
