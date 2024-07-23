@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -24,8 +25,8 @@ bool solveBoolean(std::string expression) {
             size_t pos = 0;
             std::string left = expression.substr(pos, i - pos);
             pos = i + 1;
-            size_t rightPos = j - i;
-            std::string right = expression.substr(pos, rightPos);
+            size_t rightIndex = j - i - 1;
+            std::string right = expression.substr(i + 1, rightIndex);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
