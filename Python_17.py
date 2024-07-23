@@ -7,8 +7,10 @@ def parse_music(music_string: str) -> list:
         if note == 'o':
             result.extend([beats[0]]*4)
         elif note == 'o|':
-            result.append(beats[1])
+            result.extend([beats[1]]*2)
         elif note == '.|':
             result.append(beats[2])
+        else:
+            return []
 
     return result
