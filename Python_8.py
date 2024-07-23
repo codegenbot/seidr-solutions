@@ -1,5 +1,5 @@
 ```
-def sum_product(numbers):
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if len(numbers) == 0:
         return 0, 1
     total_sum = 0
