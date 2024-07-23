@@ -1,4 +1,3 @@
-#include <vector>
 #include <string>
 
 string concatenate(vector<string> strings){
