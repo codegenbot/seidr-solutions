@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
-#include <string>
+#include <algorithm>
+#include <cctype>
 
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
