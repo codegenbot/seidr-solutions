@@ -1,8 +1,36 @@
-int main
+```
+#include <initializer_list>
+#include <vector>
+#include <algorithm>
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
+    for(int i = 0; i < k; i++){
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+int main 
 {
-    if(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>())) {
+    if(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>())) 
+    {
         printf("Test Passed\n");
-    } else {
+    } 
+    else 
+    {
         printf("Test Failed\n");
     }
     return 0;
