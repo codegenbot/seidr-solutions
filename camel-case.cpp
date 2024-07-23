@@ -8,7 +8,7 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    while (std::getline(ss, word, '-')) {
+    while (std::getline(ss, word, ' ')) {
         if (!word.empty()) {
             if (capitalizeNext) {
                 result += toupper(word[0]);
@@ -18,7 +18,7 @@ std::string camelCase(std::string str) {
             }
             if (capitalizeNext && !result.empty())
                 result += " ";
-            capitalizeNext = word.find(' ') != std::string::npos;
+            capitalizeNext = true;
         }
     }
 
