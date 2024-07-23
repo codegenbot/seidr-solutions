@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -13,16 +14,11 @@ int main() {
         std::cin >> x;
         nums.push_back(x);
     }
-    count = specialFilter(nums);
-    std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
-    return 0;
-}
-
-int specialFilter(const std::vector<int>& nums) {
-    int count = 0;
     for (int x : nums) {
         if (x == 0 || x % 11 != 0) {
             count++;
         }
     }
-    return count;
+    std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
+    return 0;
+}
