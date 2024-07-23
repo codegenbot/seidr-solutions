@@ -1,13 +1,18 @@
-arr = list(map(int, input().split()))
-n = len(arr)
+numbers = list(map(int, input().split()))
 
-diff = float("inf")
-cut_idx = 0
-for i in range(1, n):
-    new_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if new_diff < diff:
-        diff = new_diff
-        cut_idx = i
+total_sum = sum(numbers)
+half_sum = total_sum // 2
+cumulative_sum = 0
+index = 0
 
-print(*arr[:cut_idx])
-print(*arr[cut_idx:])
+for i, num in enumerate(numbers):
+    cumulative_sum += num
+    if cumulative_sum >= half_sum:
+        index = i
+        break
+
+if abs(cumulative_sum - half_sum) < abs(cumulative_sum - num - half_sum):
+    index += 1
+
+print(numbers[: index + 1])
+print(numbers[index + 1 :])
