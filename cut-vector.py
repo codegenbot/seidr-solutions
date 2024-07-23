@@ -12,6 +12,7 @@ def cut_vector(vector):
         if diff <= min_diff:
             min_diff = diff
             max_sum_diff = diff
+            split_index = i
         
         if diff >= max_sum_diff:
             break
