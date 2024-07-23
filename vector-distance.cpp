@@ -1,11 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
 double vectorDistance(vector<float> v1, vector<float> v2) {
     double distance = 0;
     int n = v1.size();
