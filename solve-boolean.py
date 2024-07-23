@@ -1,37 +1,21 @@
-```
-import ast
-
-
-def solve_boolean(expression):
+def evaluate_boolean(expression):
     if expression == "T":
         return True
     elif expression == "F":
         return False
 
-    while "|" in expression or "&" in expression:
-        if "&" in expression:
-            left, right = expression.split("&")
-            if "|" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
-            if "|" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
-            expression = f"{left} & {right}"
-        elif "|" in expression:
-            left, right = expression.split("|")
-            if "&" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
-            if "&" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
-            expression = f"{left} | {right}"
-
-    return eval(f"bool({expression})")
-
+    if "&" in expression:
+        left, right = expression.split("&")
+        return evaluate_boolean(left) and evaluate_boolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return evaluateBoolean(left) or evaluateBoolean(right)
 
 if __name__ == "__main__":
     while True:
         try:
             expression = input("Enter a Boolean expression: ")
-            print(solve_boolean(expression))
+            print(evaluate_boolean(expression))
             break
         except (NameError, SyntaxError):
             print("Invalid input. Please enter T, F, | or &.")
