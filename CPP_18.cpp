@@ -1,7 +1,7 @@
-```
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <iterator>
 
 int how_many_times(std::string str, std::string substring) {
     int count = 0;
@@ -11,6 +11,7 @@ int how_many_times(std::string str, std::string substring) {
         pos += substring.size();
     }
     return count;
+
 }
 
 int main() {
