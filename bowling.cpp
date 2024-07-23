@@ -1,32 +1,25 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(const char* s) {
     int score = 0;
-    int frame = 1;
-    int roll1, roll2;
-
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
-            score += 10 + 10;
-            frame++;
+            score += 30;
         } else if (isdigit(s[i])) {
-            if (s[i+1] == '/') {
-                roll1 = s[i] - '0';
-                score += 10 - roll1;
+            int pins = s[i] - '0';
+            if (i < 8 && (s[i+1] == '/' || s[i+1] == 'X')) {
+                score += 10 + pins;
                 i++;
             } else {
-                roll1 = roll2 = s[i] - '0';
-                score += roll1 + roll2;
+                score += pins;
             }
-            frame++;
         } else if (s[i] == '/') {
-            roll1 = roll2 = s[i-1] - '0';
-            if (roll1 + 5 < 10) {
-                score += 10;
-            } else {
-                score += roll1 + 10;
+            int j = i + 1;
+            while (j < strlen(s) && !isdigit(s[j])) {
+                j++;
             }
-            frame++;
+            int pins = s[j] - '0';
+            score += 10 - pins;
         }
     }
     return score;
