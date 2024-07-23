@@ -1,6 +1,7 @@
 #include <string>
+#include <iostream>
 
-int mastermind(const std::string& code, const std::string& guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -30,7 +31,8 @@ int mastermind(const std::string& code, const std::string& guess) {
 
 int main() {
     std::string code, guess;
-    std::cin >> code >> guess;
-    std::cout << mastermind(code, guess);
+    std::getline(std::cin, code);
+    std::getline(std::cin, guess);
+    std::cout << mastermind(code, guess) << std::endl;
     return 0;
 }
