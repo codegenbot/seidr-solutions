@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -13,7 +12,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -24,6 +23,6 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(areEqual(maximum({1, 2, 3, -23, 243, -400, 0}, 5), {}));  
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>()));
     return 0;
 }
