@@ -1,19 +1,12 @@
-#include <stdio.h>
-#include <string>
-#include <algorithm>
-using namespace std;
-
-bool isPrimeHexDigit(char hexDigit) {
-    string primes = "2357BD";
-    return primes.find(hexDigit) != string::npos;
-}
-
-int hex_key(string num) {
+int hex_key(string num){
     int count = 0;
-    for (char c : num) {
-        if (isPrimeHexDigit(c)) {
+    string primes = "2357BD";
+    
+    for(char c : num){
+        if(primes.find(c) != string::npos){
             count++;
         }
     }
+    
     return count;
 }
