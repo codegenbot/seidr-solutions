@@ -1,7 +1,10 @@
 double probability(int n, int m) {
-    double totalPeter = 0.0;
-    for (int i = 1; i < n; i++) {
-        totalPeter += 1.0 / n;
+    double p = 0.0;
+    for (int i = 1; i < n && i <= m; i++) {
+        p += 1.0 / n;
     }
-    return totalPeter - (m > n ? 0.0 : 1.0 / m);
+    for (int i = m + 1; i <= n; i++) {
+        p += (n - i) * (1.0 / (n * m));
+    }
+    return p;
 }
