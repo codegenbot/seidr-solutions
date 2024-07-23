@@ -1,3 +1,5 @@
-int strlen(string str){
-    return str.length();
+#include <cstring>
+
+int str_len(const char* str) {
+    return strlen(str);
 }
