@@ -1,6 +1,4 @@
 ```
-''
-
 from typing import List
 
 def filter_by_substring(strings: list, substring: str) -> list:
@@ -16,5 +14,3 @@ substring = input("Enter a substring to search for: ")
 
 result = filter_by_substring(strings, substring)
 print(result)
-
-''
