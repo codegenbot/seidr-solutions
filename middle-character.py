@@ -1,7 +1,7 @@
 ```python
 def middle_character(s):
 """Given a string, return the middle character as a string if it is odd length; 
-return the two middle characters as a string if it is even length."""
+       return the two middle characters as a string if it is even length."""
     s = str(s)
     length = len(s)
     if length % 2 == 0:
