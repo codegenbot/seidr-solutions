@@ -17,6 +17,8 @@ int prod_signs(vector<int> arr) {
     
     if (arr.empty()) {
         return -32768;
+    } else if (sum == 0) {
+        return -1; 
     } else {
         return product * (sum / abs(sum));
     }
