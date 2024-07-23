@@ -1,13 +1,12 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    results = [0, 0, 0, 0]
+    results = []
 
     for coin in reversed(coins):
         count = cents // coin
-        remainder = cents % coin
         if count > 0:
-            results[coins.index(coin)] = count
-            cents = remainder
+            results.append(str(count))
+            cents %= coin
 
-    return " ".join(map(str, results)) + "\n"
+    return "\n".join(results) + "\n"
