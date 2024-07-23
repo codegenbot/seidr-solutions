@@ -1,20 +1,12 @@
 ```
-def decode_cyclic(s: str) -> str:
-    result = []
+def decode_cyclic(s: str):
+    result = ""
     i = 0
     while i < len(s):
-        if (i + 2) % 3 == 0:
-            group = s[i:i+3] if (i + 2) % 3 == 0 else s[i:j]
+        if i + 2 < len(s) and s[i] == s[i+3]:
+            result += s[i] * 3
+            i += 3
         else:
-            j = i
-            while j < len(s) and s[j] != s[i]:
-                j += 1
-            group = s[i:j]
-            result.append(s[j:])
-            break
-        if len(group) > 1:
-            group = group[1:] + group[0]
-        else:
-            return s[:i]
-        i += 3
-    return "".join([s[:i]] + result + [group]) if result else group
+            result += s[i]
+            i += 1
+    return result
