@@ -1,13 +1,7 @@
-#include <string>
-using namespace std;
-
-bool is_one(string s) {
-    return s.length() == 1 && s[0] == '1';
-}
-
 bool is_happy(string s) {
+    if (!all_of(s.begin(), s.end(), ::isdigit)) return false;
     string t = s;
-    while(t != "1" && !is_one(t)) {
+    while(t != s) {
         int total = 0;
         for(char c : t) 
             total += (c-'0')*(c-'0');
