@@ -1,17 +1,13 @@
-```cpp
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    assert(n > 0);
-
     int changes = 0;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (!dp[i][j]) {
-                changes++;
-            }
-            dp[i][k] = true;
-            if (changes == 0)
-                return -1; // Already sorted, no changes needed
 
-            return changes;
+    for (int i = 1; i < n; i++) {
+        if ((arr[i] > arr[i - 1]) && (arr[i] < arr[i - 2]) || 
+            (arr[i] < arr[i - 1]) && (arr[i] > arr[i - 2])) {
+            changes++;
+        }
+    }
+
+    return changes;
 }
