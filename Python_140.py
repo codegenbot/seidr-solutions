@@ -1,4 +1,6 @@
 def fix_spaces(text):
+    """
+    def fix_spaces(text):
     result = ""
     for i in range(len(text)):
         if text[i] == " ":
@@ -14,3 +16,4 @@ def fix_spaces(text):
         else:
             result += text[i]
     return result
+    """
