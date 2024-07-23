@@ -6,7 +6,7 @@ int bowlingScore(std::string s) {
     int currentRoll2 = 0;
     bool strike = false;
     int frameScore = 0;
-    
+
     for (char c : s) {
         if (c == '/') {
             if (!strike) {
@@ -44,7 +44,7 @@ int bowlingScore(std::string s) {
             }
         }
     }
-    
+
     if (strike) {
         int bonusRoll1 = 0, bonusRoll2 = 0;
         for (char c : s.substr(s.find('/'))) {
@@ -64,6 +64,6 @@ int bowlingScore(std::string s) {
             }
         }
     }
-    
+
     return score;
 }
