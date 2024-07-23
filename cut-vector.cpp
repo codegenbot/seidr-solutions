@@ -1,8 +1,9 @@
+```
 #include <vector>
 #include <cmath>
 using namespace std;
 
-tuple<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<int> res1;
     vector<int> res2;
@@ -23,5 +24,8 @@ tuple<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         res1.erase(res1.begin()+1, res1.end());
     }
 
-    return make_tuple(res1, res2);
+    vector<int> result1 = res1; 
+    vector<int> result2 = res2; 
+    return {result1, result2}; 
+
 }
