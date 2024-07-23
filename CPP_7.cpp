@@ -1,8 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(vector<string> a, vector<string>b){
+bool issame(const vector<string>& a, const vector<string>& b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -12,7 +13,7 @@ bool issame(vector<string> a, vector<string>b){
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result = {"Hello", "World"};
+    std::vector<std::string> result;
     for(auto str : strings){
         if(str.find(substring) != std::string::npos){
             result.push_back(str);
@@ -21,18 +22,29 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-int main() {
-    vector<string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
-    string target_substring = "ello";
-    
-    vector<string> filtered_strings = filter_by_substring(input_strings, target_substring);
+int main(){
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
 
-    if(issame(input_strings, filtered_strings)) {
-        for(auto str : filtered_strings) {
-            cout << str << endl;
+    std::vector<std::string> input_strings(n);
+    for(int i=0; i<n; i++){
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::getline(std::cin, input_strings[i]);
+    }
+
+    std::string sub;
+    std::cout << "Enter substring to filter by: ";
+    std::cin >> sub;
+
+    std::vector<std::string> filtered = filter_by_substring(input_strings, sub);
+
+    if(issame(input_strings, filtered)){
+        for(auto str : filtered){
+            std::cout << str << "\n";
         }
-    } else {
-        cout << "Strings were not the same." << endl;
+    } else{
+        std::cout << "No strings match the given substring.\n";
     }
 
     return 0;
