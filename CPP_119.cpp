@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 int match_parens(vector<string> lst) {
@@ -14,6 +16,6 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    cout << match_parens({{"(", ")"}}) ? "Yes" : "No";
+    cout << (match_parens({{"(", ")"})} ? "Yes" : "No");
     return 0;
 }
