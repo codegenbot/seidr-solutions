@@ -1,15 +1,16 @@
-```cpp
-int eat(int a, int b, int c) {
-    return (a + b + c) / 3;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) 
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
+}
 
+int main() {
+    assert(compareVectors(std::vector<int>({36,0})));
+    return 0;
 }
