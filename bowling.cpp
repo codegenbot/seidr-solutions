@@ -1,32 +1,25 @@
-int score(string input) {
-    int totalScore = 0, frame = 0, frameCount = 0;
-    vector<int> scores(22, 0);
-    for(int i = 0; i < input.size(); i++) {
-        if(input[i] == 'X') {
-            scores[frame++] = 10;
-            if(frameCount >= 2) {
-                scores[frame - 3] += 10;
-            }
-            if(frameCount >= 1) {
-                scores[frame - 2] += 10;
-            }
-            frameCount++;
-        } else if(input[i] == '/') {
-            scores[frame++] = 10 - scores[frame - 1];
-            if(frameCount >= 1) {
-                scores[frame - 2] += scores[frame - 1];
-            }
-            frameCount = 0;
-        } else {
-            scores[frame++] = input[i] - '0';
-            if(frameCount >= 1) {
-                scores[frame - 2] += scores[frame - 1];
-            }
-            frameCount++;
+int main() {
+    string input;
+    cin >> input;
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < input.size() && frame < 10; ++i) {
+        if (input[i] == 'X') {
+            score += 10;
+            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
+            score += (input[i + 4] == 'X') ? 10 : (isdigit(input[i + 4]) ? input[i + 4] - '0' : 10);
+            i += 2;
+            frame++;
+        } 
+        else if (input[i] == '/') {
+            score += (10 - (input[i - 1] - '0'));
+            score += (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+            frame++;
+        } 
+        else if (isdigit(input[i])) {
+            score += input[i] - '0';
         }
     }
-    for(int i = 0; i < 10; i++) {
-        totalScore += scores[i];
-    }
-    return totalScore;
+    cout << score << endl;
+    return 0;
 }
