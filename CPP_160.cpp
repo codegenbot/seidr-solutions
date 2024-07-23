@@ -1,41 +1,32 @@
-int do_algebra(vector<string> operators, vector<int> operands) {
+#include <vector>
+#include <cmath>
+
+int do_algebra(vector<string> ops, vector<int> operands) {
     int result = 0;
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == "+") {
+    for (int i = 0; i < ops.size(); i++) {
+        if (ops[i] == "+") {
             result += operands[i];
-        } else if (operators[i] == "-") {
-            if (i == 0) {
-                result = -operands[i];
-            } else {
-                result -= operands[i];
-            }
-        } else if (operators[i] == "*") {
-            int temp = 1;
-            for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "*") {
-                    temp *= operands[j];
-                } else if (operators[j] == "/") {
-                    if (temp == 0) {
-                        throw runtime_error("Division by zero");
-                    }
+        } else if (ops[i] == "-") {
+            result -= operands[i];
+        } else if (ops[i] == "*") {
+            int temp = operands[i];
+            for (int j = i + 1; j < ops.size(); j++) {
+                if (ops[j] == "/") {
                     temp /= operands[j];
+                } else if (ops[j] == "**") {
+                    temp = pow(temp, operands[j]);
                 }
             }
-            result = temp;
-        } else if (operators[i] == "/") {
-            if (result == 0) {
-                throw runtime_error("Division by zero");
+            result += temp;
+        } else if (ops[i] == "//") {
+            int temp = operands[i];
+            for (int j = i + 1; j < ops.size(); j++) {
+                temp /= operands[j];
             }
-            int temp = result / operands[i];
-            for (int j = i + 1; j < operators.size(); j++) {
-                if (operators[j] == "*") {
-                    temp *= operands[j];
-                } else if (operators[j] == "/") {
-                    temp /= operands[j];
-                }
-            }
-            result = temp;
-        } 
+            result += temp;
+        } else if (ops[i] == "**") {
+            result = pow(result, operands[i]);
+        }
     }
     return result;
 }
