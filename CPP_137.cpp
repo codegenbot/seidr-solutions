@@ -13,23 +13,23 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (std::stod(str1) < std::stod(str2))
             return b;
         else
-            return "";
+            return a;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str = boost::convert<std::string>(b);
-        if (std::stod(a.convert_to<std::string>()) > std::stod(str))
+        int num = boost::convert<int>(b);
+        if (std::stod(a.convert_to<std::string>()) > num)
             return a;
-        else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
+        else if (std::stod(a.convert_to<std::string>()) < num)
             return b;
         else
-            return "";
+            return a;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string str = boost::convert<std::string>(b);
-        if (std::stod(a.convert_to<std::string>()) > std::stod(str))
+        float f = boost::convert<float>(b);
+        if (std::stod(a.convert_to<std::string>()) > f)
             return a;
-        else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
+        else if (std::stod(a.convert_to<std::string>()) < f)
             return b;
         else
-            return "";
+            return a;
     } else {
         // If both are strings, compare them.
         std::string str1 = boost::convert<std::string>(a);
@@ -39,6 +39,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (str1 < str2)
             return b;
         else
-            return "";
+            return a;
     }
 }
