@@ -1,18 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <utility>
-#include <algorithm>
-
-using namespace std;
-
-struct cmp {
-    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
-        return p1.second > p2.second;
-    }
-};
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<pair<int, pair<int, int>>>> neighbors(n);
