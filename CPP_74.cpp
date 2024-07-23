@@ -3,29 +3,21 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cctype>
 
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
-
-    for (int i = 0; i < lst1.size(); ++i) {
-        string s = lst1[i];
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-        lst1[i] = s;
-    }
-    for (int j = 0; j < lst2.size(); ++j) {
-        string s = lst2[j];
-        transform(s.begin(), s.end(), s.begin(), ::toupper);
-        lst2[j] = s;
-    }
+    
+    // Convert all elements in both vectors to either lowercase or uppercase.
+    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
 
     sort(lst1.begin(), lst1.end());
     sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
-
+    
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
             result.push_back(lst1[i]);
@@ -35,6 +27,13 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
             i++;
         } else {
             j++;
+        }
+    }
+
+    // Add this condition
+    if (i < lst1.size()) {
+        for (; i < lst1.size(); i++) {
+            result.push_back(lst1[i]);
         }
     }
 
