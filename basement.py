@@ -1,8 +1,9 @@
 def basement(nums):
-    seen_negative = False
+    running_sum = 0
+    previous_crossed_negative = False
     for i in range(len(nums)):
-        total = sum(nums[:i+1])
-        if total < 0:
-            seen_negative = True
-            break
-    return -1 if not seen_negative else i + 1
+        running_sum += nums[i]
+        if running_sum < 0 and not previous_crossed_negative:
+            return i + 1
+        previous_crossed_negative = running_sum < 0
+    return -1
