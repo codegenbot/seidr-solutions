@@ -4,11 +4,11 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
 bool operator<(const string& s1, const string& s2) {
-    return tolower(s1[0]) < tolower(s2[0]);
+    return std::tolower(s1[0]) < std::tolower(s2[0]);
 }
+
+using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
