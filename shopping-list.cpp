@@ -13,8 +13,16 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices({10.0f, 20.0f, 30.0f});
-    std::vector<float> discounts({5.0f, 10.0f, 15.0f});
+    std::vector<float> prices;
+    std::vector<float> discounts;
+
+    prices.push_back(10.0f);
+    prices.push_back(20.0f);
+    prices.push_back(30.0f);
+
+    discounts.push_back(5.0f);
+    discounts.push_back(10.0f);
+    discounts.push_back(15.0f);
 
     double result = shoppingList(prices, discounts);
     std::cout << "Total price after applying the discount is: $" << result << std::endl;
