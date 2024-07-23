@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
-using namespace std;
 
-int luhn(vector<int> digits) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
         int digit = digits[i] * (i % 2 == 1 ? 2 : 1);
