@@ -1,18 +1,10 @@
-#include <iostream>
-using namespace std;
-
-int how_many_times(string str, string substring) {
+int how_many_times(char* str, std::string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != string::npos) {
+    while ((pos = std::string(str).find(substring, pos)) != std::string::npos) {
         ++count;
         pos += substring.size();
     }
     return count;
 
-}
-
-int main() {
-    cout << how_many_times("hello world", "world") << endl;
-    return 0;
 }
