@@ -1,11 +1,10 @@
-def calculate_difference(lst):
-    first, second = lst
-    total = 0
-    for sublist in first:
-        for num in sublist:
-            if isinstance(num, int) and num >= 0:
-                total += num**2
-    return abs(total - sum(second)) // len(second) * 2
+def double_the_difference(list1, list2):
+    if len(list1) == len(list2):
+        return (max(list1) - min(list1)) * 2
+    elif max(list1) > max(list2):
+        return (max(list1) - min(list1)) * 2
+    else:
+        return (max(list2) - min(list2)) * 2
 
 
-print(calculate_difference([first_list, second_list]))
+print(double_the_difference(first_list, second_list))
