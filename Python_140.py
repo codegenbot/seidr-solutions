@@ -13,4 +13,4 @@ text = input("Enter your text: ")
 if text.strip():
     print(fix_spaces(text))
 else:
-    print("Program did not receive expected input")
+    print("Please enter some text!")
