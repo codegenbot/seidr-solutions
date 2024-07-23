@@ -2,11 +2,11 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
 
-    for i in range(3,-1,-1): 
-        while cents >= coins[i]:
-            count = cents // coins[i]
+    for i, coin in enumerate(coins):
+        count = cents // coin
+        if count > 0:
             results[i] = count
-            cents -= count * coins[i]
+            cents -= count * coin
 
     return tuple(results)
 
