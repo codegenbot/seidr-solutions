@@ -5,19 +5,23 @@
 using namespace std;
 
 int gcd(int a, int b) {
-    return b == 0 ? a : gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-
     size_t n = text.size();
     size_t m = target.size();
 
-    for (size_t i = 0; i < n - m + 1; ++i) {
+    for (size_t i = 0; i < n; ++i) {
         bool found = true;
         for (size_t j = 0; j < m; ++j) {
-            if (text[i + j] != target[j]) {
+            if (i + j >= n || text[i + j] != target[j]) {
                 found = false;
                 break;
             }

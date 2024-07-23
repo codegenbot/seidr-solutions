@@ -1,7 +1,5 @@
 #include <cstddef>
 
-using namespace std;
-
 int calculateFrameScore(int s, size_t index) {
     if (s == 0 || index >= 10) {
         return 0;
