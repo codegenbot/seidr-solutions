@@ -1,7 +1,5 @@
+```
 #include <iostream>
-#include <string>
-
-using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -11,12 +9,11 @@ bool isPrime(int n) {
     return true;
 }
 
-bool prime_length(const string& str) {
-    int len = str.length();
-    return isPrime(len);
-}
-
 int main() {
-    assert(prime_length("0") == false);
-    // your code here
+    std::string str;
+    std::cin >> str;
+    int len = str.length();
+    bool result = isPrime(len);
+    std::cout << std::boolalpha << result << std::endl;
+    return 0;
 }
