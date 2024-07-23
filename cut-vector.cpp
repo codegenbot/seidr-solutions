@@ -1,9 +1,11 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
+
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
     
@@ -25,5 +27,5 @@ vector<int> cutVector(vector<int>& nums) {
         right.push_back(nums[i]);
     }
     
-    return {{left}, {right}};
+    return {vector<int>(left), vector<int>(right)};
 }
