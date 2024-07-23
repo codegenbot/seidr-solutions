@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
@@ -11,4 +9,3 @@ int fuelCost(vector<int> numbers) {
         sum += result;
     }
     return sum;
-}
