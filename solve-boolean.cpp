@@ -33,39 +33,38 @@ bool evaluateBooleanExpression(string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (expression[i] == '|') {
-                    while (!operators.empty() && operators.top() == '|') {
-                        operators.pop();
-                    }
-                    return operand == "T";
-                } else if (expression[i] == '&') {
-                    while (!operators.empty()) operators.pop();
-                    return operand == "F";
-                }
-
-                operand = "False";
+                char op = operators.top();
                 operators.pop();
+                if (op == '|') {
+                    operand += "T";
+                } else if (op == '&') {
+                    operand += "F";
+                }
             }
             operators.pop();
+            if (operand == "TT" || operand == "FF") {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
     while (!operators.empty()) {
-        if (expression[i] == '|') {
-            while (!operators.empty() && operators.top() == '|') {
-                operators.pop();
-            }
-            return operand == "T";
-        } else if (expression[i] == '&') {
-            while (!operators.empty()) operators.pop();
-            return operand == "F";
-        }
-
-        operand = "False";
+        char op = operators.top();
         operators.pop();
+        if (op == '|') {
+            operand += "T";
+        } else if (op == '&') {
+            operand += "F";
+        }
     }
 
-    return operand == "True";
+    if (operand == "TT" || operand == "FF") {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {
