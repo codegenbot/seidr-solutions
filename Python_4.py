@@ -1,3 +1,4 @@
+```
 from typing import List
 import statistics
 
@@ -7,12 +8,8 @@ def mean_absolute_deviation() -> float:
         
         try:
             numbers_list = [float(num) for num in numbers_str.split(",")]
-            break
+            return statistics.mean([abs(num - statistics.mean(numbers_list)) for num in numbers_list])
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
     
-    avg = statistics.mean(numbers_list)
-    return statistics.mean([abs(num - avg) for num in numbers_list])
-
-if __name__ == "__main__":
-    print(mean_absolute_deviation())
+print(mean_absolute_deviation())
