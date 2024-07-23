@@ -20,4 +20,3 @@ bool solveBoolean(string s) {
         }
     }
     return !st.empty();
-}
