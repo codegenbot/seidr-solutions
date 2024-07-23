@@ -1,10 +1,11 @@
+````
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> arr = {7, 8, 15, 20, 9, 12, 19};
+    vector<int> arr = {1,3,4,3,2,3,7};
     vector<int> leaders = leaders(arr);
-    for (int leader : leaders) cout << leader << " ";
+    for(int i=0;i<leaders.size();i++)cout<<leaders[i]<<" ";
     return 0;
 }
 
