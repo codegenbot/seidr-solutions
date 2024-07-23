@@ -1,15 +1,27 @@
-```c++
 #include <vector>
 #include <unordered_map>
+#include <initializer_list>
 
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 2, 4, 5, 6, 7, 8, 9, 10};
-    std::vector<int> result = remove_duplicates(numbers);
-    
-    for(int num : result) {
-        std::cout << num << " ";
+int main {
+    std::vector<int> numbers;
+    int num;
+
+    // Add input
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1) {
+            break;
+        }
+        numbers.push_back(num);
     }
-    return 0;
+
+    std::vector<int> result = remove_duplicates(numbers);
+
+    // Add output
+    for (int num : result) {
+        std::cout << "Result: " << num << std::endl;
+    }
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
@@ -24,4 +36,3 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     }
 
     return result;
-}
