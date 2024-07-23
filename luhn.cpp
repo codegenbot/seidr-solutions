@@ -1,19 +1,18 @@
 #include <vector>
 using namespace std;
 
-int luhn(vector<int>& card) {
+int luhn(vector<int>& card_number) {
     int sum = 0;
-    bool alternate = false;
-    for (int i = card.size() - 1; i >= 0; --i) {
-        int digit = card[i];
-        if (alternate) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+    for(int i = card_number.size() - 1; i >= 0; --i){
+        if(i % 2 != 0){
+            int temp = card_number[i] * 2;
+            if(temp > 9){
+                temp -= 9;
             }
+            sum += temp;
+        } else {
+            sum += card_number[i];
         }
-        sum += digit;
-        alternate = !alternate;
     }
     return sum;
 }
