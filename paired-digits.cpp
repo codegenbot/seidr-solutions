@@ -1,9 +1,9 @@
+```
 #include <string>
 
-int main() {
-    int sum = pairedDigits("your_input_string");
-    return 0;
-}
+int main() { 
+    int sum = pairedDigits("123333321"); 
+    return sum; } 
 
 int pairedDigits(std::string str) {
     int sum = 0;
