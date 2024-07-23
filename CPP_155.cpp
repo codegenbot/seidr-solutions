@@ -13,7 +13,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> get_even_odd(int num) {
+std::vector<int> even_odd_count(int num) {
     std::vector<int> result({0, 0});
     int temp = abs(num);
     while(temp != 0){
@@ -28,6 +28,8 @@ std::vector<int> get_even_odd(int num) {
 }
 
 int main() {
-    assert(issame(get_even_odd(0), std::vector<int>{0, 1})); 
+    std::vector<int> expected_result({0, 1});
+    std::vector<int> actual_result = even_odd_count(0);
+    assert(issame(actual_result, expected_result)); 
     return 0;
 }
