@@ -7,8 +7,8 @@ def make_palindrome(s: str) -> str:
     else:
         middle_index = len(s) // 2
         return (
-            s[-1].lower()
-            + s[: len(s) - 1].lower()
-            + s[: len(s) - 1][::-1]
-            + s[0].upper()
+            s[:middle_index].lower()
+            + s[middle_index].upper()
+            + s[::-1]
+            + s[middle_index].upper()
         )
