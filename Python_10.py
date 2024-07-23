@@ -8,3 +8,5 @@ def make_palindrome(string: str) -> str:
         if string[:i+1] == string[:i+1][::-1]:
             return string[:i+1] + string[i:][::-1]
     return string + string[::-1]
+
+if __name__ == "__main__":
