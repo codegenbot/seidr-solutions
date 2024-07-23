@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -10,25 +9,20 @@ bool isPrime(int n) {
     return true;
 }
 
-bool prime_length(const std::string& str) {
+bool prime_length() {
     int len = static_cast<int>(str.length());
     return isPrime(len);
 }
 
-int originalMain() {
-    std::cout << "Enter a string: ";
+int main() {
     std::string str;
+    std::cout << "Enter a string: ";
     std::getline(std::cin, str); 
-    bool result = prime_length(str); 
+    bool result = prime_length(); 
     if (result) {
         std::cout << "Prime length" << std::endl;
     } else {
         std::cout << "Not prime length" << std::endl;
     }
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
