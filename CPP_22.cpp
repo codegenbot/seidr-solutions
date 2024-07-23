@@ -8,12 +8,9 @@ using namespace boost;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).which() == typeid(int)) {
-            int num = any_cast<int>(value);
-            if (num >= 0 && num <= 100) {
-                result.push_back(num);
-            }
-        }
+        if (any_cast<int>(value).type() != typeid(int)) continue;
+        if (any_cast<int>(value)).inconsistent()) continue;
+        result.push_back(any_cast<int>(value));
     }
     return result;
 }

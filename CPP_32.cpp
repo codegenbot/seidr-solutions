@@ -1,8 +1,33 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-double poly(vector<double> coeffs, double x) {
+std::vector<double> readCoefficients() {
+    int n;
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> n;
+
+    std::vector<double> coeffs(n);
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter coefficient " << i + 1 << ": ";
+        std::cin >> coeffs[i];
+    }
+
+    return coeffs;
+}
+
+double find_zero(const std::vector<double>& coeffs) {
+    double x = -coeffs[1] / (2 * coeffs[0]);
+
+    if (poly(coeffs, x + 0.00001) * poly(coeffs, x - 0.00001) > 0) {
+        return x;
+    } else {
+        return -find_zero(readCoefficients());
+    }
+}
+
+double poly(const std::vector<double>& coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
@@ -10,26 +35,10 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> coeffs) {
-    // implement your logic to find the zero
-    // this could be Newton's method or some other numerical method
-    // for now, just initialize it as 1.0
-    double x = 1.0;
-    double tol = 0.000001; // tolerance
-
-    do {
-        double prev_x = x;
-        x = poly(coeffs, x) / poly({1} + coeffs, x);
-    } while (abs(x - prev_x) > tol);
-
-    return x;
-}
-
 int main() {
-    vector<double> coeffs;
-    // fill coeffs...
+    auto coeffs = readCoefficients();
+    double x = find_zero(coeffs);
+    std::cout << "The zero of the polynomial is: " << x << std::endl;
 
-    double solution = find_zero(coeffs);
-
-    // use poly and solution here...
+    return 0;
 }
