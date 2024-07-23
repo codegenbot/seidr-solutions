@@ -20,7 +20,7 @@ std::vector<std::pair<int, int>> result(std::vector<int> v) {
     return output;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) { 
     if (a.size() != b.size()) {
         return false;
     }
