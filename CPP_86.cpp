@@ -1,3 +1,5 @@
+#include <string>
+
 string anti_shuffle(string s) {
     string result = "";
     size_t pos = 0;
@@ -10,9 +12,7 @@ string anti_shuffle(string s) {
         s.erase(0, pos + 1);
     }
     if (!s.empty()) {
-        for (char &c : s) {
-            result += c;
-        }
+        result += s;
     }
     return result;
 }
