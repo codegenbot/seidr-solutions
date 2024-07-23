@@ -1,21 +1,16 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == '&') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return false;
-            }
-        } else if (c == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-        } else {
-            s.push(c);
+Here is the solution:
+
+bool solveBoolean(string s) {
+    bool res = true;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '&') {
+            res &= (s[i+1] == 'T');
+            i++;
+        }
+        else if(s[i] == '|') {
+            res |= (s[i+1] == 'T');
+            i++;
         }
     }
-    return s.top() == 'T';
+    return res;
 }
