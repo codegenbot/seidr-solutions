@@ -2,13 +2,13 @@
 
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
-        onGround += rate;
+        onGround += rate / 60;
         if (onGround > 1024) {
             float excess = onGround - 1024;
             onGround = 1024;
             onGround -= excess;
         } else {
-            onGround *= (1 - melt);
+            onGround -= melt * onGround;
         }
     }
     return onGround;
@@ -21,4 +21,3 @@ int main() {
     std::cin >> onGround >> rate >> melt;
     std::cout << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
-}
