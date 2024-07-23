@@ -2,13 +2,10 @@ int pennies = cents;
 std::cout << "Quarters: " << (pennies /= 25) << std::endl; 
 pennies %= 25;
 
-int nickles = pennies;
-std::cout << "Nickles: " << (nickles /= 5) << std::endl;
-nickles %= 5;
+std::cout << "Pennies: " << (pennies /= 5) << std::endl; 
+pennies %= 5;
 
-int dimes = nickles;
-std::cout << "Dimes: " << (dimes /= 10) << std::endl;
-dimes %= 10;
+std::cout << "Nickles: " << (pennies /= 10) << std::endl;
+pennies %= 10;
 
-int remainder = dimes;
-std::cout << "Pennies: " << remainder << std::endl;
+std::cout << "Dimes: " << pennies << std::endl;
