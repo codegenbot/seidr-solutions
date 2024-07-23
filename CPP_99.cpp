@@ -1,5 +1,10 @@
-double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
-    return abs(num - floor_num) < abs(num - ceil_num) ? floor_num : ceil_num;
+double number = stod(value);
+    int integerPart = (int)number;
+    if (number - integerPart >= 0.5) {
+        return ceil(number);
+    } else if (number - integerPart <= -0.5) {
+        return floor(number);
+    } else {
+        return (number > 0) ? ceil(number) : floor(number);
+    }
 }
