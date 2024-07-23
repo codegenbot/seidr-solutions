@@ -1,31 +1,14 @@
-#include <string>
-#include <cctype>
-#include <map>
-using namespace std;
+for (auto& pair : dict) {  
+    auto& key = pair.first;
+    auto& value = pair.second;
 
-bool check_dict_case(map<string, string> dict) {
-    bool allLower = true;
-    bool allUpper = true;
+    bool allLowerKey = isalpha(key[0]) && std::all_of(key.begin(), key.end(), ::islower);
+    bool allUpperKey = isalpha(key[0]) && std::all_of(key.begin(), key.end(), ::isupper);
 
-    for (auto& pair : dict) {  
-        bool isLower = true;
-        for(char c: pair.first) {
-            if (!islower(c)) {
-                isLower = false;
-                break;
-            }
-        }
-        bool isUpper = true;
-        for(char c: pair.first) {
-            if (!isupper(c)) {
-                isUpper = false;
-                break;
-            }
-        }
+    bool allLowerValue = isalpha(value[0]) && std::all_of(value.begin(), value.end(), ::islower);
+    bool allUpperValue = isalpha(value[0]) && std::all_of(value.begin(), value.end(), ::isupper);
 
-        allLower &= isLower;
-        allUpper &= isUpper;
+    if ((allLowerKey && !allUpperValue) || (allUpperKey && !allLowerValue)) {
+        return true;
     }
-
-    return (!allLower && allUpper) || allLower && !allUpper;
 }
