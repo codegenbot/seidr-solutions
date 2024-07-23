@@ -4,16 +4,12 @@ using namespace std;
 vector<int> leaders(vector<int> v) {
     vector<int> res;
     int n = v.size();
-    for(int i=n-1; i>=0; i--){
-        bool leader = true;
-        for(int j=i+1; j<n; j++){
-            if(v[j] >= v[i]){
-                leader = false;
-                break;
-            }
-        }
-        if(leader){
-            res.push_back(v[i]);
+    int max_rgt_now = v[n-1];
+    res.push_back(max_rgt_now);
+    for(int i=n-2; i>=0; i--){
+        if(v[i] >= max_rgt_now){
+            max_rgt_now = v[i];
+            res.push_back(max_rgt_now);
         }
     }
     return res;
