@@ -1,21 +1,15 @@
-```bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (char d : sub) {
-                if (c == d)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        return true; // All substrings have unique characters
+#include <string>
+using namespace std;
+
+bool is_happy(string s) {
+    int total = 0;
+    bool seen[26] = {false};
+    
+    for(char c : s) {
+        if(seen[c-'a'] || ++total > 9)
+            return false;
+        seen[c-'a'] = true;
     }
+    
     return true;
-}```
+}
