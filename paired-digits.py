@@ -1,7 +1,3 @@
-```
 def paired_digits(s):
-    s = s.lstrip('0' if len(s) > 1 and s[0] == s[1] else '')
+    s = str(int(s.lstrip('0'))) or '0'
     return sum(int(digit) * 2 for i, digit in enumerate(s) if digit == s[i+1] and (i + 1 < len(s)))
-
-s = input("Enter a string of digits: ")
-print(paired_digits(s))
