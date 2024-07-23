@@ -1,16 +1,11 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string squareDigits(int num) {
-    string input = to_string(num);
-    if (num < 0 || !input.empty()) {
-        cout << "Invalid input" << endl;
-        return "";
-    }
-    
+string squareDigits(string input) {
     string result = "";
     for (char c : input) {
         if (isdigit(c)) { 
@@ -22,7 +17,8 @@ string squareDigits(int num) {
 }
 
 int main() {
-    int num; cin >> num;
-    cout << squareDigits(num) << endl;
+    string input;
+    getline(cin, input);  
+    cout << squareDigits(input) << endl;
     return 0;
 }
