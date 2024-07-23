@@ -3,10 +3,10 @@ def decode_shift(s: str):
     return "".join(
         [
             (
-                chr(((ord(ch.lower()) - ord("a") + 26 - shift) % 26) + ord("a"))
-                if ch.isalpha()
+                chr(((ord(ch.lower()) - ord("a") + shift) % 26) + ord("a"))
+                if "a" <= ch.lower() <= "z"
                 else ch
             )
-            for ch in s.lower()
+            for ch in s
         ]
     )
