@@ -1,7 +1,11 @@
+```cpp
 #include <string>
-#include <cctype>
 
 std::string kebabToCamel(const std::string& str) {
+    if (str.empty()) {
+        return str;
+    }
+    
     std::string result = "";
     bool capitalizeNext = true;
 
@@ -10,28 +14,17 @@ std::string kebabToCamel(const std::string& str) {
             if (!result.empty()) {
                 if (capitalizeNext) {
                     result += toupper(result[0]);
+                    capitalizeNext = false;
                 } else {
-                    result.push_back(' ');
+                    result += ' ';
                 }
-                capitalizeNext = true;
-                result.pop_back();
             }
+            capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
             result += tolower(c);
-            capitalizeNext = c == '-' || c == ' ';
-        }
-    }
-
-    if (result.size() > 0 && !capitalizeNext) {
-        if (!result.empty()) {
-            if (capitalizeNext) {
-                result[0] = toupper(result[0]);
-            } else {
-                result.push_back(' ');
-            }
         }
     }
 
