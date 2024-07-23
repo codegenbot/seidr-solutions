@@ -15,8 +15,7 @@ string file_name_check(string file_name){
         return "No";
     }
     string extension = file_name.substr(file_name.find('.') + 1);
-    if(!isalpha(extension[0]) && !isalpha(extension.back()) && extension.length() > 1) {
+    if(!isalpha(ext[0]) && !isalpha(ext.back()) && ext.length() > 1) {
         return "No";
     }
     return "Yes";
-}
