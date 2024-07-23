@@ -1,6 +1,8 @@
-def find_first_even():
-    num = int(input("Enter an integer: "))
-    if num % 2 == 0:
-        print(f"The first even number is {num}.")
-    else:
-        print(f"{num} is not the first even number.")
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    concatenated_string = ""
+    for string in strings:
+        concatenated_string += string
+    return concatenated_string
