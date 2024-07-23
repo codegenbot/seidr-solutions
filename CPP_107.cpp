@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -7,15 +9,19 @@ vector<int> even_odd_palindrome(int n) {
     
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
+        bool isPalindrome = true;
         
-        if (str == reverse(str).str()) {
-            int num = stoi(str);
-            
-            if (num % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
+        for (int j = 0; j < str.length() / 2; j++) {
+            if (str[j] != str[str.length() - j - 1]) {
+                isPalindrome = false;
+                break;
             }
+        }
+        
+        if (isPalindrome && i % 2 == 0) {
+            result[0]++;
+        } else if (isPalindrome) {
+            result[1]++;
         }
     }
     
