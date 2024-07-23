@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -11,13 +12,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            if level > 0:
-                level -= 1
-                result.append(level)
-            else:
-                raise ValueError("Unbalanced parentheses")
+            level -= 1
+            result.append(level)
 
-    return [i - 1 for i in result]
+    return [i for i in result]
 
 
 def main():
