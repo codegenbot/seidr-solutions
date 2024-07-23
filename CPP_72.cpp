@@ -21,26 +21,27 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    int n, w;
-    vector<int> q;
+    int num, weight;
+    vector<int> queue;
 
-    cout << "Enter the number of queens: ";
-    cin >> n;
+    cout << "Enter the number of elements in the queue: ";
+    cin >> num;
 
-    for (int i=0; i<n; i++) {
-        int temp;
-        cout << "Enter position of queen " << i+1 << ": ";
-        cin >> temp;
-        q.push_back(temp);
+    for(int i = 0; i < num; i++) {
+        int val;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> val;
+        queue.push_back(val);
     }
 
-    cout << "Enter the total weight: ";
-    cin >> w;
+    cout << "Enter the weight: ";
+    cin >> weight;
 
-    if (will_it_fly(q, w))
-        cout << "The queens will fly with the given weight.";
-    else
-        cout << "The queens will not fly with the given weight.";
+    if(will_it_fly(queue, weight)) {
+        cout << "The items will fly." << endl;
+    } else {
+        cout << "The items won't fly." << endl;
+    }
 
     return 0;
 }
