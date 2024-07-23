@@ -1,24 +1,22 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(v)
+total_sum = sum(nums)
 half_sum = total_sum // 2
 curr_sum = 0
 idx = 0
 
-for i in range(n):
-    curr_sum += v[i]
-    if curr_sum >= half_sum:
-        idx = i
-        break
+while curr_sum < half_sum:
+    curr_sum += nums[idx]
+    idx += 1
 
 if curr_sum == half_sum:
-    print(v[: idx + 1])
-    print(v[idx + 1 :])
+    print(*nums[:idx])
+    print(*nums[idx:])
 else:
-    if abs(curr_sum - half_sum) < abs(curr_sum - v[idx] - half_sum):
-        print(v[: idx + 1])
-        print(v[idx + 1 :])
+    if curr_sum - half_sum < half_sum - curr_sum + nums[idx]:
+        print(*nums[:idx])
+        print(*nums[idx:])
     else:
-        print(v[:idx])
-        print(v[idx:])
+        print(*nums[: idx - 1])
+        print(*nums[idx - 1 :])
