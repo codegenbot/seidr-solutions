@@ -9,12 +9,12 @@ int main() {
     vector<int> nums;
     int num;
     
-    do {
-        if (cin.fail()) {
+    while(cin.good()) {
+        if (!(cin >> num)) {
             break;
         }
         nums.push_back(num);
-    } while (true);
+    }
     
     int n = nums.size();
     int sum = 0;
