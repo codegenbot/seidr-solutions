@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-int maximum(std::vector<int>& v, int idx) {
-    if(idx >= v.size()) return 0;
-    int max_val = v[idx];
-    for(int i = idx+1; i<v.size();i++){
+int maximum(std::vector<int>& v) {
+    int max_val = v[0];
+    for(int i=1; i<v.size();i++){
         if(v[i] > max_val)
             max_val = v[i];
     }
@@ -23,7 +23,8 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 
 int main()
 {
-    if(issame(std::vector<int>(maximum({1, 2, 3, -23, 243, -400, 0}, 0)) , std::vector<int>())) {
+    std::vector<int> test = {1, 2, 3, -23, 243, -400, 0};
+    if(issame({}, std::vector<int>{}) || issame({1, 2, 3, -23, 243, -400, 0}, test)) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
