@@ -1,8 +1,3 @@
-```
-#include <vector>
-#include <algorithm>
-#include <initializer_list>
-
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int x : nums) {
@@ -11,9 +6,4 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    std::cout << specialFilter(nums);
 }
