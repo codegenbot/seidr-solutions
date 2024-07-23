@@ -12,10 +12,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::set<char> correctColors;
-    for (char c : code) {
-        correctColors.insert(c);
-    }
+    std::set<char> correctColors(code.begin(), code.end()); 
 
     // Count white pegs now
     for (int i = 0; i < 4; ++i) {
