@@ -1,14 +1,18 @@
+```
 from typing import Optional, list
 
 
 def longest(strings: list[str]) -> Optional[str]:
     if not isinstance(strings, list):
-        raise TypeError("Input should be a list of strings")
+        raise TypeError("Input is not a list of strings")
+    if len(strings) == 0:
+        return None
+    max_length = 0
+    longest_str = None
     for s in strings:
         if not isinstance(s, str):
-            raise TypeError(
-                f"All elements in the input list should be strings. Found {s} of type {type(s)}"
-            )
-    if not strings:
-        return None
-    return max(strings, key=len)
+            raise TypeError("Each element in the list should be a string")
+        if len(s) > max_length:
+            max_length = len(s)
+            longest_str = s
+    return longest_str
