@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -14,8 +15,6 @@ int main() {
             int roll = getRoll(s, i);
             if (s[i+1] == '+') {
                 score += roll + max(min(getBonusRoll(s, i) - roll - 1, 9), 0);
-            } else if (s[i+1] == '-') {
-                score += roll;
             } else {
                 score += roll;
             }
@@ -28,10 +27,10 @@ int getRoll(string s, int i) {
     if (s[i+1] == '/') {
         return 10;
     } else {
-        for(;;) {
-            char c = s[++i];
+        for(int j = i + 1; ; j++) {
+            char c = s[j];
             if (!isdigit(c)) {
-                return min(i - i + 1, 10);
+                return min(j - i, 10);
             }
         }
         // Return some default value here
@@ -40,10 +39,10 @@ int getRoll(string s, int i) {
 }
 
 int getBonusRoll(string s, int i) {
-    for(;;) {
-        char c = s[++i];
+    for(int j = i + 2; ; j++) {
+        char c = s[j];
         if (!isdigit(c) && (c == '+' || c == '-')) {
-            return min(i - i + 1, 9);
+            return min(j - i - 1, 9);
         }
     }
     // Return some default value here
