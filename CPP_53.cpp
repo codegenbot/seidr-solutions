@@ -1,5 +1,6 @@
+```cpp
 #include <cstdlib>
 
-int randomAdd(int x, int y) {
-    return rand() % (x + y) + min(x, y);
+int add(int x, int y) {
+    return x + y;
 }
