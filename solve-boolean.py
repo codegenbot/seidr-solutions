@@ -1,29 +1,13 @@
-```Python
 def solve_boolean(expression):
-    def evaluate_operator(left, operator, right):
-        if operator == '&':
-            return left and right
-        elif operator == '|':
-            return left or right
-
-    while '&' in expression:
-        i = 0
-        for char in expression:
-            if char == '&':
-                left, right = expression[:i], expression[i+1:]
-                expression = str(evaluate_operator(left== 'T', '&', right== 'T'))+'&'
-                i += len(str(left== 'T'))
+    def eval_expr(tokenized):
+        if len(tokenized) == 1:  
+            return tokenized[0] == 'T'
+        elif '&' in tokenized:  
+            idx = tokenized.index('&')
+            return eval_expr(tokenized[:idx]) and eval_expr(tokenized[idx+1:])
         else:
-            break
+            idx = tokenized.index('|')  
+            return eval_expr(tokenized[:idx]) or eval_expr(tokenized[idx+1:])
 
-    while '|' in expression:
-        i = 0
-        for char in expression:
-            if char == '|':
-                left, right = expression[:i], expression[i+1:]
-                expression = str(evaluate_operator(left== 'T', '|', right== 'T'))+'|'
-                i += len(str(left== 'T'))
-        else:
-            break
-
-    return expression == 'T'
+    tokens = expression.replace('&', ' and ').replace('|', ' or ')
+    return eval_expr(tokens.split())
