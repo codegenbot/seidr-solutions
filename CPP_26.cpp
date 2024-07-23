@@ -1,6 +1,6 @@
 #include <initializer_list>
 
-std::vector<int> remove_duplicates(std::initializer_list<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::unordered_map<int, bool> map;
     std::vector<int> result;
 
@@ -12,4 +12,3 @@ std::vector<int> remove_duplicates(std::initializer_list<int> numbers) {
     }
 
     return result;
-}
