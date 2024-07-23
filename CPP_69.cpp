@@ -1,17 +1,15 @@
 #include <map>
 #include <vector>
 
-std::vector<int> search(std::vector<int> lst) {
+int search(std::vector<int> lst) {
     std::map<int, int> countMap;
     for (auto i : lst) {
         countMap[i]++;
     }
     
-    std::vector<int> dupVec;
     for (auto p : countMap) {
-        if (p.second > 1) {
-            dupVec.push_back(p.first); 
-        }
+        if (p.second > 1) 
+            return p.first; 
     }
-    return dupVec;
+    return -1;
 }
