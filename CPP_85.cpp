@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -11,7 +12,7 @@ int add(const std::vector<int>& vec) {
     return result;
 }
 
-int main() {
+int main_func() {
     std::vector<int> numbers;
     int num;
 
