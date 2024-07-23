@@ -7,7 +7,7 @@ def mastermind(code, guess):
 
     white_pegs = 0
     for c1, c2 in zip(code, guess):
-        if c1 == c2 and c1 != c:  
+        if c1 == c2 and c1 != c: 
             white_pegs += 1
     
     return str(black_pegs) + "\n" + str(white_pegs)
