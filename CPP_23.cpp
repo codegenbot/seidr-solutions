@@ -4,6 +4,7 @@ int str_len(const std::string& str) {
     return str.length();
 }
 
-void main() {
+int main() {
     assert(std::strlen("asdasnakj") == 9);
+    return 0;
 }
