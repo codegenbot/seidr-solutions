@@ -1,18 +1,19 @@
-```cpp
-#include <set>
 #include <vector>
-
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) return false;
-    sort(v1.begin(), v1.end());
-    sort(v2.begin(), v2.end());
-    return v1 == v2;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> unique(vector<int> l) {
     set<int> s(l.begin(), l.end());
     vector<int> res(s.begin(), s.end());
     return res;
+}
+
+int main() {
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> expected = unique(input);
+    assert(expected == vector<int>{0, 2, 3, 5, 9, 123});
+    return 0;
 }
