@@ -1,4 +1,4 @@
 ```
 def camel_case(s):
-    s = s.replace("-", " ")
-    result = ' '.join(word.capitalize() for word in s.split())
+    words = s.replace("-", " ").split()
+    return "".join(word.capitalize() for word in words[1:]) + words[0].lower()
