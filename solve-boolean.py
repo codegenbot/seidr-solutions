@@ -1,16 +1,13 @@
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    result = None
-    for char in expression:
-        if char == '&':
-            result = result and True if result is not None else False
-        elif char == '|':
-            result = result or True if result is not None else False
-        elif char == 'T':
-            result = True
-        elif char == 'F':
-            result = False
+    tokens = expression.split()
+    result = True
+    for token in tokens:
+        if token == 'F':
+            return False
+        elif token == 'T':
+            continue
+        elif '&' in token:
+            result &= token == 'T'
+        elif '|' in token:
+            result |= token == 'T'
     return result
