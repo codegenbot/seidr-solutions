@@ -1,27 +1,19 @@
-Here is a Python function that solves the problem:
-
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    roll = []
-    for char in s:
-        if char.isdigit():
-            roll.append(int(char))
-        elif char == '/':
-            if len(roll) < 2:
-                return 0
-            strike = sum(roll)
-            score += strike
-            roll = []
-        elif char == 'X':
-            if len(roll) != 1:
-                return 0
-            strike = 10 + sum(roll)
-            score += strike
-            roll = []
-    if len(roll) > 2:
-        return 0
-    if len(roll) == 1:
-        score += roll[0]
-    elif len(roll) == 2:
-        score += sum(roll)
+    for i in range(10):
+        if "/" in frames[i * 2:i * 2 + 1]:
+            strike = True
+        elif len(frames[i * 2:i * 2 + 3]) == 2 or (len(frames[i * 2:i * 2 + 2]) == 3 and "X" not in frames[i * 2:i * 2 + 2]):
+            if len(frames[i * 2:i * 2 + 3]) == 2:
+                spare = int(frames[i * 2:i * 2 + 1])
+            else:
+                strike = True
+        else:
+            strike = False
+            spare = int(frames[i * 2:i * 2 + 1])
+        
+        if strike:
+            score += 10
+        elif spare > 0:
+            score += spare
     return score
