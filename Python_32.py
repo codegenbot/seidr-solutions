@@ -1,3 +1,4 @@
+```
 def find_zero():
     while True:
         xs = input("Enter coefficients separated by space: ").split()
