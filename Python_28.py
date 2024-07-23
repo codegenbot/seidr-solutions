@@ -1,6 +1,11 @@
-```
-from typing import List, Iterable
-from itertools import chain
+from typing import List
 
-def concatenate(iterable: Iterable[str]) -> str:
-    return "".join(chain.from_iterable(map(str, iterable)))
+
+def concatenate(strings: List[str]) -> str:
+    if not isinstance(strings, list):
+        return "Invalid input"
+    if any(not isinstance(s, str) for s in strings):
+        return "Invalid input"
+    if not strings:
+        return ""
+    return "".join(strings)
