@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 
