@@ -1,4 +1,4 @@
-string file_name_check(string file_name) {
+string file_name_check(string file_name){
     int count = 0;
     bool foundDot = false;
     for(int i = 0; i < file_name.length(); i++){
