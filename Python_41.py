@@ -8,5 +8,4 @@ def car_race_collision():
     seconds = int(((time_taken - hours) * 60) % 60)
 
     return f"The estimated time of the car race collision is {hours} hours, {minutes} minutes and {seconds} seconds."
-
 print(car_race_collision())

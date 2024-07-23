@@ -1,23 +1,21 @@
-Here is the modified code:
-
 ```
-def decode_cyclic(s: str):
+def decode_cyclic():
+    s = input("Enter a cyclic string: ")
     n = len(s)
     result = ""
     i = 0
     while i < n:
         if i + 1 < n and s[i] == s[i+1]:
-            j = 2
-            while i + j < n and s[i] == s[i+j]:
-                j += 1
-            result += s[i]
+            j = int(input("Enter the number of repetitions: "))
+            for _ in range(j):
+                result += s[i]
             i += j
         elif i == n - 1:
-            j = 0
-            while i - j >= 0 and s[i] == s[i-j]:
-                j += 1
-            if j > 0: 
-                result += s[0:j]
+            if s[0] == s[-1]:
+                j = int(input("Enter the number of repetitions: "))
+                for _ in range(j):
+                    result += s[0]
+                break
             else:
                 result += s[i]
             break
@@ -25,3 +23,5 @@ def decode_cyclic(s: str):
             result += s[i]
         i += 1
     return result
+
+print(decode_cyclic())
