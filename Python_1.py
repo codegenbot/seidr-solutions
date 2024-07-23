@@ -33,8 +33,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 
 def main():
-    user_input = input("Enter a string of parentheses (separated by spaces): ")
-    print(separate_paren_groups(user_input))
+    input_str = input("Enter a string of parentheses (separated by spaces): ").strip()
+    print(separate_paren_groups(input_str))
 
 
 if __name__ == "__main__":
