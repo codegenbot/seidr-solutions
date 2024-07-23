@@ -1,14 +1,14 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    vector<string> result;
-    string temp = "";
+    std::vector<std::string> result;
+    std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
         if (find(c.begin(), c.end(), s[i]) == c.end()) {
             temp += s[i];
@@ -24,8 +24,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-string reverse(string str) {
-    string rev = "";
+std::string reverse(std::string str) {
+    std::string rev = "";
     for (int i = str.length() - 1; i >= 0; i--) {
         rev += str[i];
     }
