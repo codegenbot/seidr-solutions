@@ -1,4 +1,5 @@
+```
 def sort_even(l: list):
-    even_numbers = sorted([x for x in l if x % 2 == 0])
-    odd_numbers = sorted([x for x in l if x % 2 != 0])
-    return even_numbers + odd_numbers
+    evens = sorted([x for x in l if x % 2 == 0])
+    odds = [x for x in l if x % 2 != 0]
+    return [i for pair in zip(evens, ([0] * len(odds))) for i in pair] + odds
