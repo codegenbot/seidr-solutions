@@ -1,5 +1,4 @@
 def make_palindrome(s: str) -> str:
-    """Return a palindrome string from input 's'."""
     if len(s) % 2 == 0:
         middle_index = len(s) // 2
         return s[:middle_index].lower() + s[middle_index].upper() + s[:middle_index][::-1]
