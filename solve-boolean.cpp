@@ -4,11 +4,11 @@ std::string solveBoolean(std::string expression) {
         if(expression[i] == '&') {
             std::string left = expression.substr(0, i);
             std::string right = expression.substr(i + 1);
-            result &= solveBoolean(left) && solveBoolean(right);
+            result &= (solveBoolean(left) && solveBoolean(right));
         } else if(expression[i] == '|') {
             std::string left = expression.substr(0, i);
             std::string right = expression.substr(i + 1);
-            result |= solveBoolean(left) || solveBoolean(right);
+            result |= (solveBoolean(left) || solveBoolean(right));
         }
     }
     return (result) ? "True" : "False";
