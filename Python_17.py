@@ -6,10 +6,10 @@ def parse_music(music_string: str) -> list:
         if i+2 <= len(music_string) and music_string[i:i+2] == 'o|':
             music_list.append(4)
             i += 2
-        elif i+3 <= len(music_string) and music_string[i:i+3] == '.|..|':
+        elif i+6 <= len(music_string) and music_string[i:i+6] == '.|..|.||.|..|':
             music_list.append(1)
-            i += 3
-        elif i+5 <= len(music_string) and music_string[i:i+5] == '..|.|..|':
+            i += 6
+        elif i+8 <= len(music_string) and music_string[i:i+8] == '..|.|..|...|..|.|..|':
             music_list.append(0.5)
-            i += 5
+            i += 8
     return music_list
