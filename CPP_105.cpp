@@ -1,15 +1,21 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-namespace {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i=0; i<v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
+    }
+    return true;
+}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<string> numArr;
+    std::vector<int> numArr;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numArr.push_back(to_string(i));
+            numArr.push_back(i);
         }
     }
 
@@ -17,10 +23,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     reverse(numArr.begin(), numArr.end());
 
-    std::vector<string> result;
-    for (string s : numArr) {
-        string str = "";
-        switch (stoi(s)) {
+    std::vector<std::string> result;
+    for (int i : numArr) {
+        std::string str = "";
+        switch (i) {
             case 1:
                 str = "One";
                 break;
@@ -55,20 +61,18 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
-
-    return true;
-}
-
-} // namespace
-
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    std::vector<int> arr1 = {1,2,3,4,5};
+    std::vector<int> arr2 = {5,4,3,2,1};
+    
+    if(issame(arr1, arr2)) {
+        for(const int& i : arr1) {
+            std::cout << by_length({i})[0] << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Arrays are not same" << std::endl;
+    }
+
     return 0;
 }
