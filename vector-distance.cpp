@@ -8,23 +8,23 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> vec1(n);
-    vector<double> vec2(n);
-
+    vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
+    vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    float sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        float diff = vec1[i] - vec2[i];
+        sum += diff * diff;
     }
 
-    double result = sqrt(sum);
+    float result = sqrt(sum);
     cout << fixed << result << "\n";
 
     return 0;
