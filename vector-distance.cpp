@@ -1,3 +1,4 @@
+```c++
 double vectorDistance(int n) {
     double sum = 0;
     double vec1[n], vec2[n];
