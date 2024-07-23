@@ -1,3 +1,4 @@
+```
 def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
