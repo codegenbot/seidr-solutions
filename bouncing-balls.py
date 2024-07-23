@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def bouncing_balls():
     start_height = float(input())
