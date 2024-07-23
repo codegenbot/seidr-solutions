@@ -1,3 +1,4 @@
+#include <string>
 using namespace std;
 
 string squareDigits(string n) {
