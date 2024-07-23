@@ -1,46 +1,41 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    if (expr == "t") {
-        return true;
-    } else if (expr == "f") {
-        return false;
-    } else {
-        bool result = false;
-        bool negate = false;
-        
-        if (expr[0] == '!') {
-            negate = true;
-        }
+    int i = 0;
+    return evaluateHelper(expr, i);
+}
 
-        if (expr.find('&') != std::string::npos) {
-            result = true;
-            for (char c : expr) {
-                if (c == '&') {
-                    continue;
-                } else if (c == 't') {
-                    result = result && true;
-                } else if (c == 'f') {
-                    result = result && false;
-                } else if (c == '!') {
-                    continue;
-                }
-            }
-        } else if (expr.find('|') != std::string::npos) {
-            result = false;
-            for (char c : expr) {
-                if (c == '|') {
-                    continue;
-                } else if (c == 't') {
-                    result = result || true;
-                } else if (c == 'f') {
-                    result = result || false;
-                } else if (c == '!') {
-                    continue;
-                }
-            }
-        }
+bool evaluateHelper(const std::string& expr, int& i) {
+    bool result = operand(expr, i);
+    
+    while (i < expr.size() && (expr[i] == '&' || expr[i] == '|')) {
+        char op = expr[i];
+        i++;
         
-        return negate ? !result : result;
+        bool next_operand = operand(expr, i);
+        
+        if (op == '&') {
+            result = result && next_operand;
+        } else if (op == '|') {
+            result = result || next_operand;
+        }
+    }
+    
+    return result;
+}
+
+bool operand(const std::string& expr, int& i) {
+    if (expr[i] == 't') {
+        i++;
+        return true;
+    } else if (expr[i] == 'f') {
+        i++;
+        return false;
+    } else if (expr[i] == '&') {
+        i++;
+        return evaluateHelper(expr, i);
+    } else if (expr[i] == '|') {
+        i++;
+        return evaluateHelper(expr, i);
     }
 }
