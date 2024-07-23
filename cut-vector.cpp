@@ -1,39 +1,23 @@
 #include <vector>
+#include <climits>
+#include <cmath>
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
-    int left_sum = 0;
-    for(int i=0; i<v.size(); i++) {
-        left_sum += v[i];
-    }
-    vector<int> left, right;
-    for(int i=0; i<v.size(); i++) {
-        if(left_sum - v[i] <= v[i]) {
-            return {left, right = v.begin(), right + i};
-        } else {
-            left.push_back(v[i]);
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int pos = -1;
+    
+    for(int i=0; i<nums.size()-1; ++i) {
+        int diff = std::abs(nums[i] - nums[i+1]);
+        if(diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++) {
-        cin >> v[i];
-    }
-    auto result = cutVector(v);
-    cout << '[';
-    for(auto x : result[0]) {
-        cout << x << ' ';
-    }
-    cout << "]\n";
-    cout << '[';
-    for(int i=result[1]->begin(); i!=result[1]->end(); i++) {
-        cout << *i << ' ';
-    }
-    cout << ']';
-    return 0;
+    
+    vector<int> left, right;
+    left.assign(nums.begin(), nums.begin()+pos+1);
+    right.assign(nums.begin()+pos+1, nums.end());
+    
+    return {{left, right}};
 }
