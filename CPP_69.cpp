@@ -5,5 +5,5 @@ int search(const std::vector<int>& lst) {
         if (countMap[i]) return i; 
         countMap[i] = true; 
     }
-    return -1; 
+    return -1;
 }
