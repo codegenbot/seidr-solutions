@@ -7,7 +7,6 @@ int main() {
     cin >> code >> guess;
     
     int whitePegs = 0, blackPegs = 0;
-
     vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
@@ -24,6 +23,5 @@ int main() {
     }
     
     cout << whitePegs << endl << blackPegs << endl;
-    
     return 0;
 }
