@@ -1,23 +1,10 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include <algorithm>
 
-double diceGame(int n, int m) {
+double probability(int n, int m) {
+    if (n < 1 || m < 1) return -1;
     double total = (double)n * m;
-    double count = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                count++;
-            }
-        }
+    double higher = 0.0;
+    for (int i = 1; i <= std::min(n,m); i++) {
+        higher += (double)(n-i)*(m-i+1)/total;
     }
-    return count / total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m);
-    return 0;
-}
+    return higher;
