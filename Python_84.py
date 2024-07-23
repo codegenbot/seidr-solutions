@@ -1,3 +1,3 @@
+```
 def solve(N):
-    ones = bin(N).count('1')
-    return str(ones).zfill(len(bin(N-1))[-2:])
+    return bin(N)[2:].zfill(len(bin(2**len(str(N)) - 1))-1)
