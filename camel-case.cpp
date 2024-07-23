@@ -7,15 +7,20 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool convert = true;
+    bool nextWordIsUpper = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            convert = true;
-        } else if (convert) {
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                if (!nextWordIsUpper) result += tolower(s[i]);
+                else result += toupper(s[i]);
+                nextWordIsUpper = !nextWordIsUpper;
+                i++;
+            }
+        } else if (!nextWordIsUpper) result += tolower(s[i]);
+        else {
             result += toupper(s[i]);
-            convert = false;
-        } else {
-            result += tolower(s[i]);
+            nextWordIsUpper = false;
         }
     }
     return result;
