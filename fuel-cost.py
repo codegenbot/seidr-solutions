@@ -1,4 +1,3 @@
-```
 import math
 vector = list(map(int, input().split()))
 def fuel_cost(vector):
