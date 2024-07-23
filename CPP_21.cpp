@@ -4,7 +4,7 @@
 
 using FloatVector = std::vector<float>;
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const FloatVector& a, const FloatVector& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
