@@ -23,10 +23,9 @@ bool solveBoolean(string s) {
 
 int main() {
     string input;
-    cin.ignore();
     cout << "Enter a Boolean expression (T/F/|/&): ";
-    getline(cin, input, '\n'); 
-    bool result = solveBoolean(input); 
+    getline(cin, input); 
+    bool result = solveBoolean(input);
     if(result)cout<<"True";
     else cout<<"False";
 }
