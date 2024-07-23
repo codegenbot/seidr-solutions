@@ -35,7 +35,7 @@ int main() {
     cout << "[";
     for (const auto &i : result.first) cout << i << " ";
     cout << "]" << endl;
-    cout << "[";
+    cout << "["; 
     for (const auto &i : result.second) cout << i << " ";
     cout << "]" << endl;
 
