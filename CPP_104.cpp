@@ -1,10 +1,5 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> unique_digits(vector<int> x) {
-    set<int> s;
+    vector<int> result;
     for (int num : x) {
         int newNum = 0;
         while (num > 0) {
@@ -12,8 +7,7 @@ vector<int> unique_digits(vector<int> x) {
             newNum = newNum * 10 + digit;
             num /= 10;
         }
-        s.insert(newNum);
+        if (find(result.begin(), result.end(), newNum) == result.end())
+            result.push_back(newNum);
     }
-    vector<int> result(s.begin(), s.end());
     return result;
-}
