@@ -1,22 +1,19 @@
-#include <iostream>
 #include <string>
-#include <cctype>
+#include <cassert>
 
-int digitSum(std::string s) {
-    if (s.empty()) {
-        return -1;
-    }
+int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
-        if (isupper(c)) {
-            sum += static_cast<int>(c) - 55; 
+        if (!isdigit(c)) {
+            sum += static_cast<int>(c) - 'A' + 1; 
+        } else {
+            sum += c - '0';
         }
     }
     return sum;
-
 }
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    return digitSum(std::cin.get()[0] ? std::string(std::cin.get(), std::cin.get()) : "");
+    return 0;
 }

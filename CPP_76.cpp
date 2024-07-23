@@ -1,11 +1,7 @@
 ```cpp
-bool is_simple_power(int x, int n);
-
-int main() {
-    assert (is_simple_power(1, 12)==true);
-}
+#include <cmath>
 
 bool is_simple_power(int x, int n){
-    double y = pow(n, log(x) / log(n));
-    return round(y) == x;
+    double y = pow(n, ceil(log2(x)/log2(n)));
+    return y == x;
 }
