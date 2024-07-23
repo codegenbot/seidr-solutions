@@ -22,4 +22,3 @@ int main() {
     cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
-}
