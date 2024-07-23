@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -10,8 +15,8 @@ int main() {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
+            codeFreq[code[i] - '1']++;
+            guessFreq[guess[i] - '1']++;
         }
     }
     
@@ -19,8 +24,8 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << white << endl;
-    cout << black << endl;
+    std::cout << white << std::endl;
+    std::cout << black << std::endl;
     
     return 0;
 }
