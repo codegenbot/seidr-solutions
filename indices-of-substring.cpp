@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -35,5 +34,4 @@ int main() {
     for (int i : indices) {
         cout << i << endl;
     }
-
-    return 0; }
+}
