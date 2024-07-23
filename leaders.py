@@ -1,4 +1,3 @@
-```python
 def leaders(arr):
     n = len(arr)
     leaders_list = [arr[n - 1]]
@@ -6,5 +5,4 @@ def leaders(arr):
     for i in range(n - 2, -1, -1):
         if arr[i] >= min(arr[i + 1:]):
             leaders_list.append(arr[i])
-
-    return list(reversed(leaders_list))
+    return leaders_list
