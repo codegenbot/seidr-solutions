@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -18,10 +19,9 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    cout << std::fixed;
-    for (int i = 0; i < 6; ++i)
-        cout << '0';
-    cout << std::setprecision(6) << totalDistance;
+    std::streamsize prec;
+    prec = 6; 
+    cout << std::fixed << std::setprecision(prec) << totalDistance;
 
     return 0;
 }
