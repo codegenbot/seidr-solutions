@@ -2,18 +2,17 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <sstream>
 using namespace std;
 
 int main() {
     vector<int> nums;
+    string input;
+    getline(cin, input);
+    istringstream iss(input);
     int num;
-    char delimiter;
-    
-    while (cin >> num >> delimiter) {
+    while (iss >> num) {
         nums.push_back(num);
-        if (delimiter == '\n') {
-            break;
-        }
     }
     
     if(nums.empty()) {
