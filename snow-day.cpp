@@ -10,7 +10,8 @@ int main() {
         snow_on_ground = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate);
     }
 
-    cout.precision(16);
-    cout << fixed << snow_on_ground << endl;
+    cout.precision(17);
+    cout << snow_on_ground << endl;
+    
     return 0;
 }
