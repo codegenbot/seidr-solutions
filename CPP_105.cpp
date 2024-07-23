@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 std::vector<std::string> by_length(std::vector<int> lengths) {
     std::vector<std::string> result;
@@ -15,15 +13,14 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
     return result;
 }
 
-bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
-int my_main() {
-    std::vector<int> lengths = {4, 8};
+int main() {
+    std::vector<int> lengths({4, 8});
     std::vector<std::string> result_b = by_length(lengths);
-    std::vector<int> lengths1 = lengths;
-    std::vector<std::string> result_a = by_length(lengths1);
-    assert(compare_vectors(result_a, result_b));
-    assert(!compare_vectors(by_length({9}), result_b));
-}
+    std::vector<int> lengths2 = lengths;
+    std::vector<std::string> result_a = by_length(lengths2);
+    assert(issame(result_a, result_b));
+    assert(!issame(by_length({9}), result_b));
