@@ -1,4 +1,3 @@
-```Python
 def encode(message):
     encoded_message = ""
     for char in message:
