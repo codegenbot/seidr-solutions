@@ -10,5 +10,7 @@ std::string middleCharacter(const std::string& s) {
 }
 
 int main() {
+    std::string input = "Hello";
+    std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
