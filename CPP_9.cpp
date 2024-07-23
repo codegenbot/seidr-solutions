@@ -1,12 +1,10 @@
-vector<int> rolling_max(vector<int> numbers){
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int n = numbers.size();
-    int mx = INT_MIN;
-
-    for(int i=0; i<n; i++){
-        mx = max(mx, numbers[i]);
-        result.push_back(mx);
+    int maxNum = numbers[0];
+    result.push_back(maxNum);
+    for (int i = 1; i < numbers.size(); i++) {
+        maxNum = max(maxNum, numbers[i]);
+        result.push_back(maxNum);
     }
-
     return result;
 }
