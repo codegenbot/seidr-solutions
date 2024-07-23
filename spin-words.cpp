@@ -3,7 +3,7 @@
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input);
 
     std::string word;
     std::string result;
