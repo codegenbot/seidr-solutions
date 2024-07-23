@@ -1,42 +1,33 @@
-```cpp
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll1 = 0; 
-    int roll2 = 0; 
-
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c == 'X') {
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
             score += 30;
-        } else if (c == '/') {
-            score += (10 - roll1) * 2;
-            break;
+            i++;
+        } else if (s[i] == '/') {
+            score += 10;
+            i += 2;
         } else {
-            int val = c - '0';
-            if (roll1 == 0) {
-                roll1 = val;
-            } else {
-                if (roll1 + val >= 10) {
+            int val = s[i] - '0';
+            if (i + 1 < s.length() && s[i + 1] == 'X') {
+                score += 10 + val * 2;
+                i += 2;
+            } else if (i + 1 < s.length() && s[i + 1] == '/') {
+                int nextVal = s[i + 1] - '0';
+                if (val + nextVal >= 10) {
                     score += 10;
-                    roll1 = 0;
-                    roll2 = val;
+                    i += 2;
                 } else {
-                    roll1 = 0;
-                    roll2 = val;
+                    score += val + nextVal;
+                    i++;
                 }
+            } else {
+                score += val;
+                i++;
             }
         }
     }
-    return score; 
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
-}
+    return score;

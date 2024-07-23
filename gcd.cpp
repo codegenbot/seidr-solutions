@@ -9,7 +9,7 @@ long long gcd(long long a, long long b) {
         b = a % b;
         a = temp;
     }
-    return abs(a);
+    return a;
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
@@ -33,16 +33,15 @@ int main() {
     std::string target = "World";
     std::vector<size_t> result;
 
+    long long GCD = gcd(909378243576LL, 50); 
+    std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
+    
     result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
     for (size_t i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-
-    long long a = 909378243576LL;
-    int b = 50; 
-    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
 
     return 0;
 }
