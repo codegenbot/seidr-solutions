@@ -6,8 +6,8 @@ def leaders(arr):
         if arr[i] >= max_right:
             while i < len(arr) - 1 and arr[i] >= arr[i + 1]:
                 i -= 1
-            result.append(str(arr[i]))
+            result.append(arr[i])
             max_right = arr[i]
-    return [int(x) for x in reversed(result)]
+    return result
 
 print(leaders([16,17,4,3,5,2]))
