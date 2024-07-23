@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -34,7 +35,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         if (issame(lst1, lst2)) {
             return lst1;
         } else {
-            return lst2;
+            return lst1;
         }
     }
 }
@@ -44,5 +45,7 @@ int main() {
     std::vector<std::string> lst2;
     assert(std::equal(total_match(lst1, lst2), {}));
     
-    return 0;
+    std::cout << "Press a key to exit." << std::endl;
+    char ch;
+    std::cin >> ch;
 }
