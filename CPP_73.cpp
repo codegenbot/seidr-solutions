@@ -6,9 +6,10 @@ int smallest_change(std::vector<int> arr) {
     int last_unique = arr[0];
     for (int i = 1; i < n; i++) {
         if (arr[i] == last_unique) {
-            changes++;
-            last_unique = arr[i];
+            continue;
         }
+        last_unique = arr[i];
+        changes++;
     }
 
     return changes;
