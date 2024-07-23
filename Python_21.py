@@ -14,7 +14,7 @@ while True:
         if not numbers:
             print("No number entered. Please enter at least one number.")
             continue
-        numbers = list(map(float, [x for x in numbers.split() if x.replace('.', '', 1).isdigit()]))
+        numbers = list(map(float, numbers.split()))
         result = rescale_to_unit(numbers)
         print(result)
         break
