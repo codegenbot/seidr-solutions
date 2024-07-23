@@ -14,3 +14,5 @@ def bouncing_balls():
         first_bounce_height *= bounciness_index
 
     return str(round(abs(total_distance), 4))
+
+print(bouncing_balls())
