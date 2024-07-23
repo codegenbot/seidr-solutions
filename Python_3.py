@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
@@ -10,12 +11,9 @@ if __name__ == "__main__":
             break
         try:
             operations = [int(i) for i in user_input.split()]
-            if len(operations) > 0 and all(isinstance(x, int) for x in operations):
-                result = below_zero(operations)
-                print(f"Are there any numbers below zero? {result}")
-                break
-            else:
-                print("Invalid input. Please enter a list of integers separated by spaces.")
+            result = below_zero(operations)
+            print(f"Are there any numbers below zero? {result}")
+            break
         except ValueError:
             if user_input == "":
                 print("No numbers were entered. Please try again.")
