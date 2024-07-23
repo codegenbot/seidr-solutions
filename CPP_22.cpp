@@ -3,7 +3,9 @@
 #include <cassert>
 #include <type_traits>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
 
