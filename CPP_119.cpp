@@ -1,20 +1,17 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
 int match_parens(int n) {
     int open = 0;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0 && '(' != ' ') cin.get();
-        else if (i % 2 != 0 && ')' != '\n' && cin.peek() != -1) cin.get();
-        else return 0;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 != 0) open++;
+        else open--;
+        if (open < 0) return 0;
     }
-    return 1;
+    return open == 0 ? 1 : 0;
 }
 
 int main() {
-    int n; 
-    cout << "Enter the number of parentheses: ";
-    cin >> n;
-    if (match_parens(n)) cout << "Yes"; else cout << "No";
+    if (match_parens(4) == 0) cout << "No"; else cout << "Yes";
     return 0;
 }
