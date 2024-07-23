@@ -1,29 +1,14 @@
 ```
-from math import gcd
-import functools
 def modp(n: int, p: int):
-    if gcd(n, p) == 1:
-        if n % 2 == 0 and p % 2 == 0:
-            return pow(4, inv((p // 2 - 1), p), p)
-        else:
-            return pow(n, inv((p - 1), p), p)
-    else:
-        return None
+    def gcd(a: int, b: int) -> int:
+        while b != 0:
+            a, b = b, a % b
+        return a
 
-def gcd(a: int, b: int):
-    while b:
-        a, b = b, a % b
-    return a
-
-def inv(a: int, m: int):
-    t, newt = 0, 1
-    r, newr = m, a
-    while newr != 0:
-        quotient = r // newr
-        t, newt = newt, t - quotient * newt
-        r, newr = newr, r - quotient * newr
-    if r > 1:
+    if gcd(n, p) != 1:
         return None
-    if t < 0: 
-        t = t + m
-    return t
+    result = pow(n, (p - 1), p)
+    for _ in range(p - 2):
+        n = (n * result) % p
+        result = (result * 2) % p
+    return n
