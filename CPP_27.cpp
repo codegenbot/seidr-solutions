@@ -1,14 +1,14 @@
 #include <string>
 
 string flip_case(string str){
-    string flipped = "";
+    string result = "";
+    
     for(char c : str){
-        if(c >= 'A' && c <= 'Z')
-            flipped += tolower(c);
-        else if(c >= 'a' && c <= 'z')
-            flipped += toupper(c);
+        if(isupper(c))
+            result += tolower(c);
         else
-            flipped += c;
+            result += toupper(c);
     }
-    return flipped;
+    
+    return result;
 }
