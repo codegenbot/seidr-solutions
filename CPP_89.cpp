@@ -7,10 +7,10 @@ string encrypt(string s) {
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
             int val = (int)c;
-            if(val<97+3)
+            if(val<97 || val>122)
                 result += (char)(val+3);
             else
-                result += (char)(96+2-(c-122));
+                result += (c == 'm' ? 'z' : 'a'+2+(val-122));
         }
         else {
             result += c;
