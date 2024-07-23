@@ -9,7 +9,6 @@ int main() {
     getline(cin, tweet);
 
     tweet.erase(0, tweet.find_first_of("\r\n")+1);
-    // Remove any trailing newlines
     tweet.erase(tweet.find_last_not_of("\r\n") + 1);
 
     if (tweet.empty()) {
