@@ -37,8 +37,8 @@ int main() {
     if (!input.empty()) {
         std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
     } else {
-        std::cout << "No strings to concatenate." << std::endl;
+        std::cout << "No strings entered." << std::endl;
     }
-
+    
     return 0;
 }
