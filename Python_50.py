@@ -7,7 +7,7 @@ def decode_shift(s: str):
                     ((ord(ch.lower()) - ord("a") + shift) % 26)
                     + (ch.isalpha() and "a" or "")
                 )
-                if ch.islower() and ch.isalnum()
+                if ch.isalnum()
                 else ch
             )
             for ch in s
