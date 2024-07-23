@@ -1,7 +1,4 @@
-```
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
     int roll2 = 0; 
@@ -22,9 +19,9 @@ int bowlingScore(string s) {
                 roll2 = 0;
             }
         } else {
-            int temp = c - '0';
+            score += (c - '0');
             if (!isStrike) {
-                roll1 += temp;
+                roll1 = c - '0';
                 if (roll1 < 2) {
                     roll2 = 0; 
                 }
