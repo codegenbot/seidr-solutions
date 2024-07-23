@@ -1,16 +1,32 @@
+```Python
 def solve_boolean(expression):
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
     def evaluate_expression(tokens):
         stack = []
-        operators = ['and', 'or']
         for token in tokens.split():
-            if token in operators:
-                right = stack.pop()
-                left = stack.pop()
-                if token == 'and':
-                    stack.append(left and right)
-                elif token == 'or':
-                    stack.append(left or right)
+            if token == 'T':
+                stack.append(True)
+            elif token == 'F':
+                stack.append(False)
             else:
-                stack.append(token == 'T')
+                if token[0] != '(':
+                    left = stack.pop()
+                    right = True if token == 'T' else False
+                    stack.append(left and right or left or right)
+                else:
+                    i = 1
+                    temp = ''
+                    for char in token:
+                        if char == '(':
+                            i += 1
+                        elif char == ')':
+                            i -= 1
+                            if i == 0:
+                                break
+                        temp += char
+                    sub_expression = evaluate_expression(temp)
+                    stack.append(sub_expression)
         return stack[0]
+    
+    return evaluate_expression(expression)
+
+print(solve_boolean('f&t|t|t&f|f&t&f&f|f&f&f&t&f&f|t|f|f&f'))
