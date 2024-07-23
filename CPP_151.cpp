@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -28,6 +27,6 @@ int main() {
         myVector.push_back(temp);
     }
 
-    long long odd_sum = double_the_difference(myVector); 
+    long long result = double_the_difference(myVector); 
     return 0;
 }
