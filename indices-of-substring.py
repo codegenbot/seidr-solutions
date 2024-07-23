@@ -14,4 +14,4 @@ while start < len(text):
     start = index + 1
 
 for index in indices:
-    print(index, end=" ")
+    print(index, end=" ") 
