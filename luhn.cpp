@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 int luhn(std::vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 1; i >= 0; i--) {
@@ -15,8 +17,10 @@ int luhn(std::vector<int>& digits) {
     }
     return sum;
 }
+
 int main() {
-    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 9, 3, 4};
-    int result = luhn(digits);
+    std::vector<int> cardNumber = {4, 5, 2, 8, 6, 2, 8, 3, 1, 7, 1, 4, 3, 9, 0, 2};
+    int result = luhn(cardNumber);
+    std::cout << "The Luhn checksum is: " << result;
     return 0;
 }
