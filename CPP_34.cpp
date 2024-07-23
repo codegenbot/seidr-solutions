@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <vector>
+```cpp
 #include <algorithm>
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l);
-    sort(unique_erase(result.begin(), result.end()));
-    return result;
+    return vector<int>(unique(l.begin(), l.end()));
 }
