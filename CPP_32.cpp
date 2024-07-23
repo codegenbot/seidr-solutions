@@ -2,23 +2,23 @@
 #include <cmath>
 
 double poly(std::vector<double> coeffs, double x) {
-    double res = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        res += coeffs[i] * pow(x, i);
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, coeffs.size() - 1 - i);
     }
-    return res;
+    return result;
 }
 
 double find_zero(std::vector<double> xs) {
-    if (xs.size() != 4) { // Assuming quartic polynomial
-        return -1; // Return error code or handle exception
+    if (xs.size() != 4) { 
+        return -1; 
     }
     double a = xs[0];
     double b = xs[1];
     double c = xs[2];
     double d = xs[3];
     
-    double x = (-b + sqrt(pow(b, 2) - 4 * a * (c) + 8 * a * d)) / (2 * a);
+    double x = (-b + sqrt(pow(b, 2) - 4 * a * (c))) / (2 * a);
     return round(x, 2);
 }
 
