@@ -4,7 +4,15 @@ def calculate_score(bowls):
     
     for frame in range(10):
         if bowls[index] == "X":
-            total_score += 10 + int(bowls[index + 1]) + int(bowls[index + 2])
+            total_score += 10
+            if bowls[index+1] == "X":
+                total_score += 10
+                if bowls[index+2] == "X":
+                    total_score += 10
+                else:
+                    total_score += int(bowls[index+2])
+            else:
+                total_score += int(bowls[index+1]) + int(bowls[index+2])
             index += 1
         elif bowls[index + 1] == "/":
             total_score += 10 + int(bowls[index + 2])
