@@ -7,11 +7,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) { 
+    int i = 0;
+    while (i < n - m) {
         int j = 0;
         while (j < m) {
             if (text[i + j] != target[j]) {
-                break; // Move to the next position
+                i++; // Move to the next position
+                j = 0; // Reset the target index
             } else
                 j++;
         }
@@ -24,9 +26,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    cin >> text;
+    getline(cin, text);
     string target;
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
 
