@@ -1,19 +1,12 @@
+```
 def find_zero():
-    while True:
-        try:
-            xs = [float(input("Enter coefficient a: ")),
-                  float(input("Enter coefficient b: ")),
-                  float(input("Enter coefficient c: "))
-                 ]
-            if len(xs) % 2 != 0:
-                raise ValueError("xs must have three coefficients")
-            break
-        except ValueError as e:
-            print(e)
+    xs = list(map(float, input("Enter coefficients (a, b, c): ").split()))
+    if len(xs) < 3:
+        raise ValueError("xs must have at least three coefficients")
 
     a = xs[0]
     b = xs[1]
-    c = xs[2]
+    c = sum(xs[2:]) / (len(xs) - 2)
 
-    x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
+    x = (-b + ((b**2 - 4 * a * c) ** 0.5)) / (2 * a)
     return round(x, 10)
