@@ -5,3 +5,5 @@ def make_palindrome(string: str) -> str:
             return string
         new_string = string[0] + reversed_string + string[-1] + string[1:-1]
         string = new_string
+
+print(make_palindrome("jerry"))
