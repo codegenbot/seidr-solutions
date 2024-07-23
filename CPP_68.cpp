@@ -1,10 +1,9 @@
 ```
+#include <iostream>
 #include <vector>
-#include <utility>
 
 bool issame(int a, int b) {
-    if (a == b) return true;
-    return false;
+    return (a == b);
 }
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
@@ -28,4 +27,15 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4};
+    std::vector<std::pair<int, int>> output = pluck(arr);
+    
+    for (const auto& pair : output) {
+        std::cout << "Even: " << pair.first << ", Index: " << pair.second << std::endl;
+    }
+
+    return 0;
 }
