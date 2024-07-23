@@ -1,7 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
 #include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,10 +36,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            for (; k > 0; --k) {
-                q.push({res.back(), make_pair(i, j)});
-                res.pop_back();
-            }
+            res.push_back(sum);
             return res;
         }
         for (auto& neighbor : neighbors[i]) {
@@ -48,6 +47,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
+    res.push_back(sum);
     return res;
 }
 
