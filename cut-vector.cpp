@@ -1,7 +1,6 @@
-```cpp
 #include <utility>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     for (int i = 1; i <= v.size(); i++) {
@@ -26,6 +25,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return std::pair<std::vector<int>, std::vector<int>>(std::vector<int>(v.begin(), v.begin() + cutIndex),
-                                                            std::vector<int>(v.begin() + cutIndex, v.end()));
+    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
+                                            vector<int>(v.begin() + cutIndex, v.end()));
 }
