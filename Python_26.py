@@ -1,7 +1,6 @@
+```
 from typing import List
+from collections import OrderedDict
 
-def remove_duplicates():
-    numbers = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-    return list(set(numbers))
-
-print(remove_duplicates())
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return list(OrderedDict.fromkeys(numbers))
