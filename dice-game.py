@@ -1,3 +1,4 @@
+```Python
 import math
 def dice_game(n, m):
-    return sum(1/n for _ in range(m)) / n
+    return (math.comb(n, n-m) / (n**m))
