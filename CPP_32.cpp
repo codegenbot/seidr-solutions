@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+using namespace std;
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
@@ -10,45 +10,22 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
+double find_zero(vector<double> coeffs) {
     double x = 1.0;
-    double epsilon = 1e-6;
-    
-    while (true) {
-        double poly_val = poly(coeffs, x);
-        double derivative = 0;
-        
-        for (int i = 0; i < coeffs.size(); i++) {
-            if (i == 0)
-                continue;
-            derivative += i * coeffs[i] * pow(x, i - 1);
-        }
-        
-        double new_x = x - poly_val / derivative;
-        
-        if (abs(new_x - x) < epsilon)
+    double tol = 1e-6;
+    while(true) {
+        double f_x = poly(coeffs, x);
+        if (f_x < 0)
+            x -= 0.5;
+        else
+            x += 0.5;
+        if(abs(f_x) < tol)
             return x;
-        x = new_x;
     }
 }
 
 int main() {
-    int n; 
-    std::vector<double> coeffs; 
-    double solution = 0.0;
-    
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        double coeff; 
-        std::cin >> coeff;
-        coeffs.push_back(coeff);
-    }
-    
-    //solution = find_zero(coeffs);
-    
-    for (double i = 1.5; i < 3.0; i += 0.05) {
-        double val = poly(coeffs, i);
-        //assert(abs(val)< 1e-3); // or use find_zero and check the result
-    }
+    vector<double> coeffs = {1, -7.0, 11, -6, 3}; 
+    double solution = find_zero(coeffs); 
+    cout << "The root is: " << solution << endl;    
 }
