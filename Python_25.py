@@ -6,28 +6,30 @@ import math
 def factorize(n: int) -> List[int]:
     if n <= 1:
         return []
-    
+
     factors = []
     for i in range(2, math.isqrt(n) + 1):
-        count = 0
         while n % i == 0:
-            n //= i
-            count += 1
-        if count > 0:
-            if count > 1:
-                factors.extend([i] * count)
-            else:
-                factors.append(i)
-        if n > 1 and is_prime(n):
-            factors.append(n)
-            break
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            if count > 0:
+                if count > 1:
+                    factors.extend([i] * count)
+                else:
+                    factors.append(i)
+
+    # Check for remaining factors
+    if n > 1:
+        while n > 1:
+            for i in range(2, math.isqrt(n) + 1):
+                if n % i == 0:
+                    n //= i
+                    factors.append(i)
+                else:
+                    break
+            if n > 1:
+                factors.append(n)
+
     return factors
-
-
-def is_prime(num: int) -> bool:
-    if num <= 1:
-        return False
-    for i in range(2, math.isqrt(num) + 1):
-        if num % i == 0:
-            return False
-    return True
