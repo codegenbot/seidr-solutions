@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-#include <float.h>
+#include <cmath>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -21,10 +20,9 @@ int main() {
     std::cout << "Enter initial snow: ";
     std::cin >> initialSnow;
 
-    
     std::cout << "Enter rate of snow fall: ";
     std::cin >> rateOfSnowFall;
-    
+
     std::cout << "Enter proportion of snow melting per hour: ";
     std::cin >> proportionOfSnowMeltingPerHour;
 
