@@ -9,24 +9,26 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> codeVector(code.begin(), code.end());
-    vector<char> guessVector(guess.begin(), guess.end());
+    vector<char> codeCopy(code);
+    vector<char> guessCopy(guess);
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // mark this position as visited
-            guess[i] = ' '; // mark this position as visited
+            codeCopy[i] = ' '; // mark this position as visited
+            guessCopy[i] = ' '; // mark this position as visited
         }
     }
 
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (codeVector[j] == guess[i] && code[i] != guess[i]) {
+        int j = 0;
+        while (j < 4) {
+            if (codeCopy[j] == guess[i]) {
                 white++;
-                codeVector[j] = ' '; // mark this position as visited
-                guess[i] = ' '; // mark this position as visited
+                codeCopy[j] = ' '; // mark this position as visited
+                break;
             }
+            j++;
         }
     }
 
