@@ -32,11 +32,9 @@ int main() {
     list.push_back(4);
     list.push_back(5);
     list.push_back(6);
-    if (!issame(list, strange_sort_list(list))) {
-        for (int i : list) {
+    if(!issame(strange_sort_list(list), list)) {
+        for(int i : strange_sort_list(list))
             std::cout << i << " ";
-        }
-        std::cout << "\n";
+        return 1;
     }
-    return 0;
 }
