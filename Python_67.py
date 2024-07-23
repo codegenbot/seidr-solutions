@@ -1,5 +1,7 @@
-def fruit_distribution(s, n):
+```
+def fruit_distribution(s,n):
     s = s.lower()
-    n -= sum(1 for c in s if c.isdigit())
-    n -= sum(1 for c in s if c in "ao" and c not in "o")
-    return n
+    count_o = s.count('o')
+    count_a = s.count('a')
+    num_fruit = int(''.join(filter(str.isdigit, s)))
+    return n - (count_o + count_a + num_fruit)
