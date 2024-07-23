@@ -1,5 +1,4 @@
+```
 def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
-    total_snow = int(initial_snow * 1000)
-    for _ in range(hours):
-        total_snow = (total_snow + int(rate_of_fall * 1000)) // 1000 - (total_snow // 1000) * int(melting_rate * 1000)
-    return str(total_snow / 1000.0)
+    total_snow = round((initial_snow * 1000) + (rate_of_fall * 1000) * hours - ((melting_rate * 1000) * hours * initial_snow), 6) / 1000
+    return str(total_snow)
