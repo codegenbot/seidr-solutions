@@ -4,8 +4,7 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (!std::cin.eof()) {
-        std::cin >> n;
+    while (std::cin >> n) {
         nums.push_back(n);
     }
 
@@ -20,7 +19,7 @@ int main() {
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
-            idx = i;
+            idx = abs(prefixSum - target) < abs(prefixSum - nums[idx] - target) ? i : idx;
             break;
         }
     }
