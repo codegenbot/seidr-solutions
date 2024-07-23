@@ -2,17 +2,17 @@
 using namespace std;
 
 void mastermind(const string& code, const string& guess) {
-    int codeFreq[6] = {0};
     int whitePegs = 0, blackPegs = 0;
+    int codeFreq[6] = {0}; // Move the initialization outside the loop
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
         } else {
-            if (codeFreq[code[i] - 'A'] >= 0) {
+            if (codeFreq[code[i] - 'A'] > 0) {
                 ++whitePegs;
             }
-            if (codeFreq[guess[i] - 'A'] >= 0) {
+            if (codeFreq[guess[i] - 'A'] < 0) {
                 ++whitePegs;
             }
             ++codeFreq[code[i] - 'A'];
