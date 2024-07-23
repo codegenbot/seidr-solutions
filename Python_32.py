@@ -1,9 +1,7 @@
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    if max(xs) <= 0:
-        raise ValueError("largest non zero coefficient should be positive")
+Here is the completed code:
 
-    p = poly(xs, -1.0 / xs[-1]
-    return round(-p / (2 * xs[-1]), 2)
+def find_zero(xs: list):
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    max_coeff = max(abs(x) for x in xs)
+    return -xs[1] / (2 * xs[0])
