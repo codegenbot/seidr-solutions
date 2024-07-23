@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <cmath>
 
 std::pair<float, float> find_closest_elements(std::vector<float> vec) {
     std::sort(vec.begin(), vec.end());
@@ -9,7 +10,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> vec) {
 }
 
 bool issame(std::pair<float, float> a, std::pair<float, float> b) {
-    return a.first == b.first && a.second == b.second;
+    return std::abs(a.first - b.first) < 0.0001 && std::abs(a.second - b.second) < 0.0001;
 }
 
 int main() {
