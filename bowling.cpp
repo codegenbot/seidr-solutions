@@ -1,38 +1,44 @@
-#include <iostream>
+```cpp
 #include <string>
 using namespace std;
 
-int bowlingScore(string s) {
-    int total = 0;
-    bool strike = false;
-    string frame[11];
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            frame[i/2].push_back(s[i]);
-            if (i/2 >= 4 && frame[(i-1)/2][0] == 'X' && frame[(i-1)/2][1] == 'X') 
-                strike = true;
-        } else if (s[i] == '+') {
-            int bonus = stoi(frame[i/2].substr(0,frame[i/2].length()-1));
-            total += 10 + bonus;
-            for (int j = i+1; j < s.length(); j++) 
-                if (s[j] == '/') break;
-            frame[i/2].clear();
-        } else {
-            frame[i/2].push_back(s[i]);
+int main() {
+    int score = 0;
+    string s = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X";
+    for(int i = 0; i < s.length(); i++) {
+        char c = s[i];
+        if (c == '/') {
+            score += getRoll(s, i) + getBonusRoll(s, i);
+        } else if (c == 'X' || c == 'x') {
+            score += min(i+1, 10);
+        } else if (isdigit(c)) {
+            int roll = getRoll(s, i);
+            if (s[i+1] == '+') {
+                score += roll + max(min(getBonusRoll(s, i) - roll - 1, 9), 0);
+            } else {
+                score += roll;
+            }
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (!strike) total += stoi(frame[i]) + stoi(frame[i+1]);
-        else if (i == 9) total += 10;
-        strike = false;
-    }
-
-    return total;
+    return score;
 }
 
-int main() {
-    int score = bowlingScore("X/XXXX/8+5,X");
-    cout << "The score is: " << score << endl;
-    return 0;
+int getRoll(string s, int i) {
+    if (s[i+1] == '/') {
+        return 10;
+    } else {
+        for(int j = i + 1; j < s.length(); j++) {
+            if (!isdigit(s[j])) {
+                return min(j - i, 10);
+            }
+        }
+    }
+}
+
+int getBonusRoll(string s, int i) {
+    for(int j = i + 2; j < s.length(); j++) {
+        if (!isdigit(s[j]) && (s[j] == '+' || s[j] == '-')) {
+            return min(j - i - 1, 9);
+        }
+    }
 }
