@@ -7,7 +7,7 @@ bool issame(vector<string> a) {
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
+vector<string> numerical_letter_grade(initializer_list<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -40,6 +40,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades = {0, 0.7};
-    assert(issame({numerical_letter_grade(grades)[0], numerical_letter_grade(grades)[1]}, {"F", "D"}));
+    assert(issame({numerical_letter_grade({grades[0], grades[1]}))[0], {"F", "D"}));
     return 0;
 }
