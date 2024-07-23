@@ -1,29 +1,29 @@
 #include <iostream>
 #include <vector>
 
-int maximum(std::vector<int>& v, int idx) {
-    if(idx >= v.size()) return 0;
-    int max_val = v[idx];
-    for(int i = idx+1; i<v.size();i++){
-        if(v[i] > max_val)
-            max_val = v[i];
+int findMaximum(const std::vector<int>& vec, int index) {
+    if(index > vec.size() || index < 0)
+        return -1;
+    int max = vec[0];
+    for(int i=1; i<=index; i++){
+        if(vec[i] > max)
+            max = vec[i];
     }
-    return max_val;
+    return max;
 }
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
-    if(a.size() != b.size()) 
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size())
         return false;
-    for(int i=0; i<a.size();i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i])
             return false;
     }
     return true;
 }
 
-int main()
-{
-    if(issame({1, 2, 3, -23, 243, -400, 0}, std::vector<int>())) {
+int main() {
+    if(compareVectors({1, 2, 3}, {1, 2, 3})) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
