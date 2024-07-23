@@ -1,17 +1,21 @@
 ```cpp
 #include <vector>
-#include <algorithm>
+#include <list>
+#include <boost/any.hpp>
 
-std::vector<int> filter_integers(std::vector<int> numbers) {
-    std::vector<int> result;
-    for (int num : numbers) {
-        if (num >= 0 && '0' <= static_cast<char>(num) && static_cast<char>(num) <= '9') {
-            result.push_back(num);
+using namespace std;
+using namespace boost;
+
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
+    for (const auto& value : values) {
+        if (any_cast<int>(value).good()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
 }
