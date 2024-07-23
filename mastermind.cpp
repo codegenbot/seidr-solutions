@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <set>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -24,4 +26,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << result - (result / 2) << ", White pegs: " << result / 2 << std::endl;
+    return 0;
 }
