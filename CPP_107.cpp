@@ -9,11 +9,11 @@ vector<int> even_odd_palindrome(int n) {
     int odd = 0;
     
     for (int i = 1; i <= n; i++) {
-        string str = std::to_string(i);
+        string str = to_string(i);
         bool isPalindrome = true;
         
-        for (int j = 0; j < str.length(); j++) { 
-            if (str[j] != str[str.length() - j - 1]) { 
+        for (int j = 0; j < str.length(); j++) {
+            if (str[j] != str[str.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
