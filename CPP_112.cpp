@@ -1,8 +1,9 @@
-string result = s;
-    for (char ch : c) {
-        result.erase(remove(result.begin(), result.end(), ch), result.end());
+string result = "";
+    for(char ch : s){
+        if(c.find(ch) == string::npos){
+            result += ch;
+        }
     }
-    string resultPalindrome = result;
-    reverse(resultPalindrome.begin(), resultPalindrome.end());
-    return {result, result == resultPalindrome ? "True" : "False"};
+    string check = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
+    return {result, check};
 }
