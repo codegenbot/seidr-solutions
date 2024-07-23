@@ -16,7 +16,7 @@ int main() {
         total_distance += bounce_height;
     }
 
-    cout << total_distance << '\n';
+    cout << total_distance << endl;
 
     return 0;
 }
