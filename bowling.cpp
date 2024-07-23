@@ -1,6 +1,6 @@
-#include <string>
-
 using namespace std;
+
+#include <string>
 
 int bowlingScore(string s) {
     int score = 0;
