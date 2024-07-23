@@ -15,8 +15,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         int sum_left = 0, sum_right = 0;
         for (int j = 0; j <= i; j++)
             sum_left += v[j];
-        for (int j = i + 1; j < n; j++)
-            sum_right += v[j];
+        for (int j = 0; j < n - i - 1; j++)
+            sum_right += v[j + i + 1];
 
         int diff = abs(sum_left - sum_right);
         if (diff < min_diff) {

@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <utility>
 #include <unordered_map>
@@ -13,15 +12,11 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         numIndex[nums[i]] = i;
     }
     return {-1, -1};
+}
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
+    std::vector<int> nums = {1, 2, 4, 5, 6};
     int target = 7;
-    auto result = findPair(nums, target);
-    if (result.first != -1 && result.second != -1) {
-        std::cout << "Found pair: (" << result.first << ", " << result.second << ")" << std::endl;
-    } else {
-        std::cout << "No pair found." << std::endl;
-    }
+    std::cout << "Pair: " << findPair(nums, target).first << ", " << findPair(nums, target).second << std::endl;
     return 0;
 }
