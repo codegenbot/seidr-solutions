@@ -1,6 +1,7 @@
 ```c++
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 int sumOfDigits(int n){
     int sum = 0;
