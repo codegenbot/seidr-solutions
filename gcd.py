@@ -1,13 +1,7 @@
-Here is the solution:
-
 def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+    if b == 0:
+        return abs(a)
+    else:
+        return gcd(b, a % b)
 
-def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+print(gcd(582329, 833565))
