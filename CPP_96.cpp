@@ -25,8 +25,8 @@ int main() {
     cin >> n;
     vector<int> primes = count_up_to(n);
     cout << "Primes up to " << n << ": ";
-    for (vector<int>::iterator it = primes.begin(); it != primes.end(); ++it) {
-        cout << *it << " ";
+    for (int prime : primes) {
+        cout << prime << " ";
     }
     cout << endl;
     return 0;
