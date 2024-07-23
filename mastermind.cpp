@@ -39,8 +39,7 @@ int main() {
     cin >> code;
     string guess;
     cin >> guess;
-    int black, white;
-    tie(black, white) = mastermind(code, guess);
+    tie(int black, int white) = mastermind(code, guess);
     cout << black << endl;
     cout << white << endl;
     return 0;
