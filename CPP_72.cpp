@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -10,13 +10,6 @@ bool is_palindrome(string s) {
     string t = s;
     reverse(t.begin(), t.end());
     return s == t;
-}
-
-int accumulate(vector<int>::iterator begin, vector<int>::iterator end, int init) {
-    int sum = init;
-    for (; begin != end; ++begin)
-        sum += *begin;
-    return sum;
 }
 
 bool will_it_fly(vector<int> q, int w) {
