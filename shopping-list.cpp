@@ -1,7 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
-#include <cmath>
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
@@ -10,5 +7,5 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
         double discount = price * (discounts[i] / 100);
         total += price - discount;
     }
-    return std::round(total * 100) / 100.0;
+    return total;
 }
