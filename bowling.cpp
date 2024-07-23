@@ -1,25 +1,15 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == '/') {
-            score += 10;
-        } else if (isdigit(s[i])) {
-            roll1 = s[i] - '0';
-            if (i < 8 && s[i+1] != '/') {
-                roll2 = s[i+1] - '0';
-                score += roll1 + roll2;
-            } else {
-                score += roll1;
+    int currentFrame = 1;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '/') {
+            if(currentFrame < 10) {
+                score += min(10 - (currentFrame-1),stoi(s.substr(i-1,i-1))) * 10;
             }
-        } else {
-            if (s[i] == 'X') {
-                score += 10;
-            } else {
-                int temp = s[i] - '0' + s[i+1] - '0';
-                score += temp;
-                i++;
-            }
+            currentFrame++;
+        } else if(currentFrame <= 9 && s[i] != 'X') {
+            int strike = i + 2 > s.length() ? 0 : stoi(s.substr(i,1));
+            score += (currentFrame == 1) ? min(10 - (currentFrame-1),strike) * 10 : min(10 - (currentFrame-1),strike);
         }
     }
     return score;
