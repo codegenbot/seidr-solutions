@@ -9,9 +9,15 @@ substring = input("Enter a substring to search for: ")
 
 while "" in strings:
     strings.remove("")
-    
-if not all(isinstance(s, str) for s in strings):
+strings = [s for s in strings if type(s) == str]
+
+while not all(isinstance(x, str) for x in strings):
     print("Invalid input. Please enter only strings.")
-else:
-    result = filter_by_substring([s.strip() for s in strings], substring)
-    print(result)
+    strings = input("Enter a list of strings (separated by commas): ").split(",")
+
+while substring.strip() == "":
+    print("Please enter a non-empty string as the substring to search for.")
+    substring = input("Enter a substring to search for: ")
+
+result = filter_by_substring([s.strip() for s in strings], substring)
+print(result)
