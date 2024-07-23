@@ -1,3 +1,4 @@
+```
 def bowling_score(bowling):
     if not bowling:
         return 0
