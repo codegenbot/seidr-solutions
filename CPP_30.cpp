@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -27,9 +26,9 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<float>> mat(n);
+    std::string s;
     for (auto i = 0; i < n; ++i) {
         for (auto j = 0; j < n; ++j++) {
-            std::string s;
             std::cin >> s;
             mat[i].push_back(std::stof(s));
         }
