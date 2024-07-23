@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -9,11 +10,11 @@ vector<float> sort_even(vector<float> l) {
     vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            auto temp = {l.begin() + i};
-            std::copy_if(l.begin(), l.end(), back_inserter(temp), 
-                         [i](float x){return (std::distance(&l[0], &x)) % 2 == 0;});
+            auto start = l.begin() + i;
+            auto end = start + 1;
+            vector<float> temp(start, end);
             sort(temp.begin(), temp.end());
-            result.insert(result.end(), temp.begin(), temp.end());
+            result.push_back(temp[0]);
         } else {
             result.push_back(l[i]);
         }
