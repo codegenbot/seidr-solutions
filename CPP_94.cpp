@@ -25,6 +25,7 @@ int skjkasdkd(std::vector<int> lst){
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
+    std::cout << "The output is: " << skjkasdkd(lst) << std::endl;
+    // Add more test cases as needed
     return 0;
 }
