@@ -12,7 +12,7 @@ vector<int> order_by_points(vector<int> nums) {
         }
         pairs.push_back({sumOfDigits, i});
     }
-    sort(pairs.begin(), pairs.end());
+    sort(pairs.begin(), pairs.end(), [](auto a, auto b) { return a.first > b.first; });
     vector<int> result;
     for (int i = 0; i < nums.size(); i++) {
         result.push_back(nums[pairs[i].second]);
