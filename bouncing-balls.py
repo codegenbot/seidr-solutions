@@ -9,4 +9,4 @@ for _ in range(num_bounces - 1):
     first_bounce_height *= bounciness_index
     total_distance += first_bounce_height * 2
 
-print(format(total_distance, ".15f"))
+print(total_distance)
