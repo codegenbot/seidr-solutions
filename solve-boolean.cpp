@@ -1,9 +1,10 @@
+```cpp
 #include <string>
-#include <stack>
+using namespace std;
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     bool result = false;
-    std::stack<char> stack(std::deque<char>());
+    bool lastOp = false;
 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -11,27 +12,20 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == 'F') {
             result = false;
         } else if (s[i] == '|') {
-            while (!stack.empty() && stack.top() == '&') {
-                stack.pop();
-            }
-            if (stack.empty()) return true;
-            else stack.push('|');
+            lastOp = true;
         } else if (s[i] == '&') {
-            stack.push('&');
+            lastOp = false;
         }
     }
 
-    while (!stack.empty() && stack.top() == '&') {
-        stack.pop();
-    }
-
-    return result;
+    return result || lastOp;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::cin >> input;
+    string input;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
+    getline(cin, input); 
     bool result = solveBoolean(input);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    cout << "Result: " << (result ? "True" : "False") << endl;
     return 0;
+}
