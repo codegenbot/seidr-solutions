@@ -1,3 +1,4 @@
+```
 def solve_boolean(s):
     s = s.lower()
     if s == "t":
@@ -12,3 +13,4 @@ def solve_boolean(s):
         elif s[i] == "|":
             result |= solve_boolean(s[i+1])
         i += s[i:].find(")&") + 2
+    return result
