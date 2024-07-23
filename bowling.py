@@ -1,22 +1,14 @@
-def bowling_score(rolls):
+Here is the solution to the bowling problem:
+
+```
+def bowling_score(frames):
     score = 0
-    roll = 0
-    frame = 1
-    while roll < len(rolls):
-        if rolls[roll] != "/":
-            strike = False
-            for i in range(2):
-                if roll + i >= len(rolls) or rolls[roll + i] == "/":
-                    score += 10
-                    strike = True
-                    break
-                score += int(rolls[roll + i])
-            if not strike:
-                frame_score = int(rolls[roll]) + int(rolls[roll + 1])
-                score += frame_score
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            score += 30
+        elif frames[i] == '/':
+            score += 10 + int(frames[i+1])
         else:
-            frame_score = int(rolls[:roll].count("X")) * 10
+            frame_score = int(frames[i:i+2])
             score += frame_score
-        roll += 2
-        frame += 1
     return score
