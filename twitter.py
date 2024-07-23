@@ -1,6 +1,5 @@
-```
 def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet).strip()
+    tweet = ''.join(e for e in tweet if e.isalnum()).strip()
     if len(tweet) == 0:
         return "You didn't type anything"
     elif len(tweet) > 140:  
