@@ -1,54 +1,25 @@
 ```
-def bowling_score(frames):
+def bowling_score(rolls):
     score = 0
-    frame_num = 1
-    for char in frames:
-        if char.isdigit():
-            strike = False
-            spare = False
-            total_pins = int(char)
-            if frame_num == 10 and total_pins < 10:
-                return "Invalid input"
-            if total Pins > 10:
-                return "Invalid input"
-            while True:
-                if strike:
-                    break
-                if spare:
-                    score += 10
-                    break
-                if total_pins >= 10:
-                    score += 10
-                    total_pins -= 10
-                else:
-                    score += total_pins
-                    total_pins = 0
-                frame_num += 1
-                if frame_num > 10:
-                    return "Invalid input"
-                char = frames[frames.index(char) + 1]
-                if char.isdigit():
-                    strike = False
-                    spare = False
-                    total_pins = int(char)
-                    continue
-                elif char == 'X':
-                    score += 10
-                    strike = True
-                else:
-                    if total_pins > 0 and total_pins < 10:
-                        score += total_pins
-                        break
-                    elif total Pins >= 10:
-                        score += 10
-                        total pins -= 10
-                        break
-        elif char == 'X':
-            score += 10
-            strike = True
+    roll_index = 0
+    for frame in range(10):
+        if rolls[roll_index] == 'X':
+            score += 30
+            roll_index += 1
+        elif rolls[roll_index:roll_index+2].count('/'):
+            first, second = map(int, rolls[roll_index:roll_index+2].split('/'))
+            score += first + second
+            roll_index += 2
         else:
-            if frame_num > 9:
-                return "Invalid input"
-            if frame_num < 10 and char.isdigit():
-                spare = True
+            first = int(rolls[roll_index])
+            if frame < 8 and rolls[roll_index+1] == 'X':
+                score += 10 + (30 - first)
+                roll_index += 2
+            elif rolls[roll_index:roll_index+2].count('/'):
+                second = int(rolls[roll_index+1].split('/')[0])
+                score += first + second
+                roll_index += 2
+            else:
+                score += first + int(rolls[roll_index+1])
+                roll_index += 2
     return score
