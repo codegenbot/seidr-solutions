@@ -1,10 +1,8 @@
 def mastermind(code, guess):
-    black = sum(
-        c1 == c2 and i == j
-        for i, (c1, _) in enumerate(guess)
-        for _, c2 in enumerate(code)
-    )
-    white = (
-        sum(c1 == c2 for c1, _ in enumerate(guess) for _, c2 in enumerate(code)) - black
-    )
-    return str(white), str(black)
+    correct_colors = [x == y for x, y in zip(code, guess)]
+    correct_positions = [code[i] == guess[i] for i in range(4)]
+
+    black_peg_count = sum(correct_positions)
+    white_peg_count = sum(correct_colors) - black_peg_count
+
+    return str(white_peg_count), str(black_peg_count)
