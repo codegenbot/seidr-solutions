@@ -1,6 +1,5 @@
-```cpp
-#pragma GCC diagnostic ignored "-Werror"
 #include <vector>
+#include <assert.h>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
