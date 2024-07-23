@@ -1,3 +1,7 @@
+#include <cassert>
+#include <vector>
+#include <iostream>
+
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result({0, 0});
     int temp = abs(num);
@@ -17,13 +21,19 @@ bool same(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
 
 int main() {
     assert(same(even_odd_count(0), std::vector<int>{0, 1})); 
+    std::cout << "Enter a number: ";
+    int num;
+    std::cin >> num;
+    std::vector<int> result = even_odd_count(num);
+    std::cout << "Even count: " << result[0] << ", Odd count: " << result[1] << std::endl;
     return 0;
 }
