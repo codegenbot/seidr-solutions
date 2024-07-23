@@ -12,14 +12,15 @@ int main() {
         cin >> vec1[i];
     }
 
+    cin >> n;
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
 
     float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        float diff = vec1[i] - vec2[i];
+    for (int i = 0; i < max(vec1.size(), vec2.size()); ++i) {
+        float diff = (i < vec1.size() ? vec1[i] : 0) - (i < vec2.size() ? vec2[i] : 0);
         sum += diff * diff;
     }
 
