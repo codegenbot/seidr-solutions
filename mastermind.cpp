@@ -36,8 +36,7 @@ int blackPegs(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> code >> guess; 
-    cout << whitePegs(code, guess) << endl; 
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
-}
