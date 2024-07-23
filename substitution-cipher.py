@@ -1,11 +1,6 @@
 def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
-    deciphered_text = ""
-    for char in text_to_decrypt:
-        if char in cipher_text1:
-            index = cipher_text1.index(char)
-            deciphered_text += cipher_text2[index]
-        else:
-            deciphered_text += char
+    cipher_dict = {char: mapping_char for char, mapping_char in zip(cipher_text1, cipher_text2)}
+    deciphered_text = "".join([cipher_dict.get(char, char) for char in text_to_decrypt])
     return deciphered_text
 
 cipher_text1 = input("Enter the first string: ")
