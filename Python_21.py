@@ -6,6 +6,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     max_val = max(numbers)
     return [(x - min_val) / (max_val - min_val) for x in numbers]
 
+
 while True:
     try:
         numbers = input("Enter some numbers separated by space: ")
