@@ -2,6 +2,7 @@
 #include <string>
 #include <cctype>
 #include <iostream>
+#include <ostream>
 
 using namespace std;
 
