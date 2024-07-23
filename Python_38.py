@@ -1,6 +1,7 @@
+Here is the modified code:
+
 ```
-def decode_cyclic():
-    s = input("Enter a string: ")
+def decode_cyclic(s: str):
     n = len(s)
     result = ""
     i = 0
@@ -24,5 +25,3 @@ def decode_cyclic():
             result += s[i]
         i += 1
     return result
-
-print(decode_cyclic())
