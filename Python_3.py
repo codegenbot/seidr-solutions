@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
@@ -6,15 +6,16 @@ def below_zero(operations: List[int]) -> bool:
 
 if __name__ == "__main__":
     while True:
-        prompt = input("Enter a list of integers separated by space (or 'q' to quit): ")
-        if prompt.lower() == 'q':
+        user_input = input("Enter a list of integers separated by space (or 'q' to quit): ")
+        if user_input.lower() == 'q':
             break
         try:
-            operations = [int(i) for i in prompt.split()]
+            numbers = [num for num in user_input.split() if num.isdigit()]
+            operations = [int(num) for num in numbers]
             result = below_zero(operations)
             print(f"Are there any numbers below zero? {result}")
         except ValueError:
-            if prompt == "":
+            if not numbers:
                 print("No numbers were entered. Please try again.")
             else:
                 print("Invalid input. Please enter a list of integers separated by spaces.")
