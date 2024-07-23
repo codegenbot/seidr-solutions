@@ -11,9 +11,9 @@ int main() {
         }
     }
     
-    double sum = 0;
+    int sum = 0;
     for (int num : nums) {
-        sum += static_cast<int>(static_cast<double>(num) / 3) - 2;
+        sum += static_cast<int>(num / 3 - 2);
     }
     
     std::cout << sum << std::endl;
