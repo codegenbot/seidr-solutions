@@ -10,11 +10,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string chars) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
+        if (chars.find(std::string(1, s[i])) == std::string::npos) {
             temp += s[i];
         }
     }
-    if (temp == string(temp).reverse()) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -32,5 +32,17 @@ std::string reverse(std::string str) {
     return rev;
 
 int main() {
-    // your code here
+    std::string input1, input2;
+    std::cout << "Enter string 1: ";
+    std::cin >> input1;
+    std::cout << "Enter string 2: ";
+    std::cin >> input2;
+
+    std::vector<std::string> result = reverse_delete(input1, input2);
+
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
+    }
+
+    return 0;
 }
