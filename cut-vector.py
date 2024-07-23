@@ -1,4 +1,5 @@
 nums = list(map(int, input().split()))
+
 total_sum = sum(nums)
 half_sum = total_sum // 2
 current_sum = 0
@@ -13,5 +14,5 @@ for i, num in enumerate(nums):
             cut_index = i
             break
 
-print(nums[: cut_index + 1])
-print(nums[cut_index + 1 :])
+print(nums[:cut_index + 1])
+print(nums[cut_index + 1:])
