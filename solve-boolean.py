@@ -6,12 +6,12 @@ def solve_boolean(expression):
         return False
 
     ops = []
-    res = None
+    result = None
     while expression:
         if expression.startswith('T|'):
-            res, expression = True, expression[2:]
+            result, expression = True, expression[2:]
         elif expression.startswith('F|'):
-            res, expression = False, expression[2:]
+            result, expression = False, expression[2:]
         elif expression.startswith('|T&'):
             ops.append(('OR', 'AND'))
             expression = '|T&' + expression[3:]
@@ -39,23 +39,23 @@ def solve_boolean(expression):
                 expression = op2
             ops.append((op, expression))
         elif expression.startswith('T'):
-            res = True
+            result = True
             expression = ''
         elif expression.startswith('F'):
-            res = False
+            result = False
             expression = ''
 
     while ops:
         op, expression = ops.pop()
         if op == 'OR':
-            if res and solve_boolean(expression):
+            if result and solve_boolean(expression):
                 return True
-            elif not res and not solve_boolean(expression):
+            elif not result and not solve_boolean(expression):
                 return False
         else:
-            if res and not solve_boolean(expression):
+            if result and not solve_boolean(expression):
                 return False
-            elif not res and solve_boolean(expression):
+            elif not result and solve_boolean(expression):
                 return True
 
-    return res
+    return result
