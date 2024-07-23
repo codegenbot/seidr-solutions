@@ -10,7 +10,3 @@ std::string squareDigits(std::string input) {
     }
     return output;
 }
-
-int main() {
-    return 0;
-}
