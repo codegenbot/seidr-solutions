@@ -5,9 +5,9 @@
 
 std::size_t gcd(std::size_t a, std::size_t b) {
     while (b != 0) {
-        std::size_t temp = b;
-        b = a % b;
-        a = temp;
+        std::size_t temp = a;
+        a = b;
+        b = temp % b;
     }
     return a;
 }
@@ -22,7 +22,7 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
         bool found = true;
         while ((j += 1) <= m && text[i+j-1] == target[j-1]) {
             if (j != m) {
-                if (text.substr(i, j) != target)
+                if (text[i+j-1] != target[j-1])
                     found = false;
             }
         }
