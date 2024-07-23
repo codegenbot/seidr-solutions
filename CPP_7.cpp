@@ -11,15 +11,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-namespace std {
-template<typename T>
-class initializer_list {
-public:
-    // ...
-};
-}
-
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    namespace std {
+        template<typename T>
+        class initializer_list {
+            // ... (no code needed here)
+        };
+    }
     std::vector<std::string> result;
     for(auto str : strings){
         if(str.find(substring) != std::string::npos){
@@ -30,6 +28,12 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
+    namespace std {
+        template<typename T>
+        class initializer_list {
+            // ... (no code needed here)
+        };
+    }
     std::vector<std::string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
     std::string target_substring = "ello";
     
