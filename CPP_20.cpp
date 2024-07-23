@@ -4,11 +4,11 @@
 #include <cmath>
 
 std::vector<float> find_closest_elements(const std::vector<float>& values) {
-    float min_diff = std::abs(values[0] - values[1]);
+    float min_diff = std::abs(values[1] - values[0]);
     std::vector<float> closest_elements = {values[0], values[1]};
 
-    for (size_t i = 0; i < values.size() - 1; ++i) {
-        float diff = std::abs(values[i] - values[i + 1]);
+    for (size_t i = 1; i < values.size() - 1; ++i) {
+        float diff = std::abs(values[i + 1] - values[i]);
         if (diff < min_diff) {
             min_diff = diff;
             closest_elements = {values[i], values[i + 1]};
@@ -19,17 +19,7 @@ std::vector<float> find_closest_elements(const std::vector<float>& values) {
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 int main() {
