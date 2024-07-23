@@ -19,4 +19,4 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main() { cout << std::to_string(diceGame(43, 98)) << endl; return 0; }
+int main() { std::cout << diceGame(43, 98) << std::endl; return 0; }
