@@ -1,10 +1,9 @@
-```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string fizzBuzz(int x) {
     std::string result;
-    if (x % 15 == 0)
+    if (!(x % 3 || x % 5))
         return "FizzBuzz";
     else if (x % 3 == 0)
         return "Fizz";
@@ -15,8 +14,8 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int x;
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
+    for(int i = 1; i <= 100; ++i) {
+        std::cout << fizzBuzz(i) << "\n";
+    }
     return 0;
 }
