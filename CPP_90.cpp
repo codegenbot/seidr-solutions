@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,8 +17,7 @@ int findSmallest(vector<int> lst) {
 
 }
 
-int main() {
-    vector<int> lst = {-35, 34, 12, -45};
-    cout << findSmallest(lst) << endl;
+int mainTest() {
+    cout << findSmallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
