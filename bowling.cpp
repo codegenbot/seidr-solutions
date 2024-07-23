@@ -1,52 +1,78 @@
-```c++
+Here is your modified code:
+
+```cpp
 #include <string>
 
 int main() {
+    std::string input = "X/X/X/4+5/5+2/5/6-3/X/7-2/X"; // provide the string here
+    int result = bowlingScore(input);
+    return 0;
+}
+
+int bowlingScore(std::string s) {
     int score = 0;
-    std::string s = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X"; // example input
+    int currentRoll1 = 0;
+    int currentRoll2 = 0;
+    bool strike = false;
+    int frameScore = 0;
+    
     for (char c : s) {
         if (c == '/') {
-            if (!score % 10 > 0 && score % 10 < 10) {
-                if (s.find('X') != std::string::npos) {
-                    score += 10;
+            if (!strike) {
+                if (currentRoll1 + currentRoll2 < 10) {
+                    score += 10 - (currentRoll1 + currentRoll2);
                 } else {
-                    int roll1 = s.find('1');
-                    int roll2 = s.find('2');
-                    if (roll1 == -1 || roll2 == -1) {
-                        throw "Invalid input";
-                    }
-                    score += min(roll1, 10) + min(roll2 - 1, 9);
+                    score += 10;
                 }
             } else {
-                int roll1 = s.find('X');
-                int roll2 = s.find('/');
-                if (roll1 == -1 || roll2 == -1) {
-                    throw "Invalid input";
-                }
-                score += min(roll1, 10) + min(roll2 - 1, 9);
+                frameScore = 10;
+                score += frameScore;
+                strike = false;
             }
+            currentRoll1 = 0;
+            currentRoll2 = 0;
         } else if (c == 'X') {
             score += 10;
-        } else if (c == 'X' || c == 'x') {
-            int roll = s.find(c);
-            if (roll != -1) {
-                if (c == 'x' && c < 6) {
-                    throw "Invalid input";
-                }
-                score += min(roll, 10);
-            } else {
-                throw "Invalid input";
-            }
+            frameScore = 10;
+            strike = true;
         } else {
-            int roll = s.find(c);
-            if (roll != -1) {
-                int bonusRoll1 = s.find('+') == std::string::npos ? 0 : s.find('x');
-                int bonusRoll2 = s.find('-') == std::string::npos ? 0 : s.find('-');
-                score += min(roll, 10) + max(min(bonusRoll1 - roll - 1, 9), 0);
+            if (!strike) {
+                if (currentRoll1 + 1 >= 10) {
+                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
+                        score += 10 - currentRoll1;
+                        currentRoll2++;
+                    } else {
+                        score += 10;
+                        currentRoll1 = 0;
+                    }
+                } else {
+                    currentRoll1++;
+                }
             } else {
-                throw "Invalid input";
+                currentRoll2++;
             }
         }
     }
+    
+    if (strike) {
+        int bonusRoll1 = 0, bonusRoll2 = 0;
+        for (char c : s.substr(s.find('/'))) {
+            if (c == 'X') {
+                score += 10 + bonusRoll1;
+                return score;
+            } else if (c == '/') {
+                score += 10 + bonusRoll1;
+                return score;
+            } else {
+                if (bonusRoll1 < 2) {
+                    bonusRoll1++;
+                } else {
+                    bonusRoll1 = 0;
+                    bonusRoll2++;
+                }
+            }
+        }
+    }
+    
     return score;
 }
