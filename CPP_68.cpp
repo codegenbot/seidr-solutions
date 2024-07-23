@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <memory>
 
 int count_even(int n) {
     int count = 0;
@@ -19,7 +20,7 @@ std::vector<std::pair<int, int>> result(std::vector<int> v) {
     return output;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,10 +33,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> arr1 = {7, 9, 7, 1};
-    std::vector<std::pair<int, int>> output = result(arr1);
-    for (auto p : output) {
+    std::vector<int> arr = {7, 9, 7, 1};
+    bool same = issame(arr, {});
+    for (auto p : result(arr)) {
         std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+    }
+    if(same) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "The vectors are not the same." << std::endl;
     }
     return 0;
 }
