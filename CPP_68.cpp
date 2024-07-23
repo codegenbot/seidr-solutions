@@ -5,3 +5,4 @@ int main {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
     return 0;
+}
