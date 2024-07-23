@@ -28,6 +28,6 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    int result = mastermind("XXXX", "XXXX");
+    int result = mastermind("ABCD", "ABCD");
     return 0;
 }
