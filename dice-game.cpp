@@ -1,16 +1,19 @@
+```
 #include <iostream>
 
 double probability(int n, int m) {
     double total = (double)n * m;
-    double same = 0; // Count of cases when Peter and Colin get the same result
+    double count = 0;
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            if(i == j) {
-                same++;
+            if(i > j) {
+                count++;
             }
         }
     }
-    return same / total;
+
+    return (count) / total;
 }
 
 int main() {
@@ -22,5 +25,4 @@ int main() {
     double result = probability(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
-
 }
