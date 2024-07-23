@@ -20,7 +20,6 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
-    # Check for remaining factors
     if n > 1:
         factors.append(n)
 
