@@ -3,6 +3,7 @@
 
 int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
     int n = grid.size();
+    
     for (int i = 0; i < n; i++) {
         std::sort(grid[i].begin(), grid[i].end());
     }
@@ -20,7 +21,7 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
             if (j > 0) topMax = grid[0][j-1];
             if (j < n - 1) bottomMax = grid[n-1][j+1];
             
-            sum += std::min({leftMax, rightMax}) + std::min({topMax, bottomMax}) - grid[i][j];
+            sum += min(leftMax, rightMax) + min(topMax, bottomMax) - grid[i][j];
         }
     }
     
