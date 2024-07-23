@@ -10,8 +10,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(level)
         elif char == ")":
             level -= 1
-
-    return [i - 1 for i in result]
+    return [i for i in result if i > 0]
 
 
 def main():
