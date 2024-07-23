@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <cassert>
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
