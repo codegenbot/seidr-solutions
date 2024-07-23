@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0, frame = 1, ball = 0;
     for (char c : s) {
         if (c == 'X') {
@@ -12,7 +12,7 @@ int bowlingScore(std::string s) {
             }
             frame++;
         } else if (c == '/') {
-            score += 10 - s[ball - 1] + '0';
+            score += 10 - (s[ball - 1] - '0');
         } else {
             score += c - '0';
         }
@@ -22,8 +22,8 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << bowlingScore(s) << std::endl;
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }

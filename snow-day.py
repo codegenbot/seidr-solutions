@@ -1,12 +1,10 @@
 def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
-    snow_amount = snow_on_ground
-    for _ in range(hours):
-        snow_amount = round(
-            snow_amount + snow_fall_rate - snow_amount * snow_melt_rate, 15
-        )
-    return snow_amount
+    snow = snow_on_ground
+    for i in range(hours):
+        snow += snow_fall_rate
+        snow -= snow * snow_melt_rate
+        if snow < 0:
+            snow = 0
+    return snow
 
-
-hours, snow_on_ground, snow_fall_rate, snow_melt_rate = map(float, input().split())
-result = snow_day(int(hours), snow_on_ground, snow_fall_rate, snow_melt_rate)
-print(result)
+# Input reading and function call remain the same
