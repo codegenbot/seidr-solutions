@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -13,7 +14,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 numbers = [1, 2, 3]
 result = sum_product(numbers)
-print(result) 
+print(result)
+
 numbers = [4, 5, 6]
 result = sum_product(numbers)
 print(result)
