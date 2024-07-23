@@ -1,27 +1,13 @@
-def solve_boolean():
-    input_string = input().replace(" ", "")
-    return boolean_expression(input_string)
-
-def boolean_expression(s):
-    operations = {
-        '|': lambda a, b: bool(a) or bool(b),
-        '&': lambda a, b: bool(a) and bool(b)
-    }
-
-    result = None
-    temp_operator = ''
-    for char in s:
-        if char in operations:
-            temp_operator = char
-        elif char == 'T':
-            if not result:
-                result = True
-            else:
-                result = operations[temp_operator](result, True)
-        elif char == 'F':
-            if not result:
-                result = False
-            else:
-                result = operations[temp_operator](result, False)
-
-    return result
+def solve_boolean(expression):
+    stack = []
+    operator = ''
+    for char in expression:
+        if char in {'T', 'F'}:
+            while operator == '|':
+                stack.append(eval(f'({stack.pop()} {operator} {char})'))
+                operator = '&'
+            stack.append(char)
+            operator = ''
+        elif char in {'&', '|'}:
+            operator = char
+    return 'T' if stack[-1] else 'F'
