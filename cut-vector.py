@@ -1,22 +1,17 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
-min_diff = total_sum
-cut_idx = 0
-
+v = []
 for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    curr_diff = abs(left_sum - right_sum)
-    if curr_diff < min_diff:
-        min_diff = curr_diff
-        cut_idx = i
+    v.append(int(input()))
 
-subvector1 = arr[: cut_idx + 1]
-subvector2 = arr[cut_idx + 1 :]
+total_sum = sum(v)
+left_sum = 0
+for i in range(n):
+    left_sum += v[i]
+    right_sum = total_sum - left_sum
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+        left_sum - v[i] - right_sum
+    ):
+        break
 
-print(*subvector1)
-print(*subvector2)
+print(v[: i + 1])
+print(v[i + 1 :])
