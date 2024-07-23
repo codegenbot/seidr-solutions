@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ string spinWords(string str) {
         string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            result += (word.rbegin(), word.rend(), " ") + "";
+            result += (std::string(word.rbegin(), word.rend())) + " ";
         else
             result += word + " ";
         
