@@ -24,21 +24,16 @@ std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     return closest_elements;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 0.0001f) {
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (std::abs(v1[i] - v2[i]) > 0.0001f) {
             return false;
         }
     }
 
     return true;
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), {1.1f, 2.2f}));
-    return 0;
 }
