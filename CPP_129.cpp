@@ -5,7 +5,7 @@
 using namespace std;
 
 struct cmp {
-    bool operator()(const pair<long long, pair<int, int>>& p1, const pair<long long, pair<int, int>>& p2) {
+    bool operator()(const pair<int, int>& p1, const pair<int, int>& p2) {
         return p1.first > p2.first;
     }
 };
@@ -22,10 +22,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<long long, pair<int, int>>, vector<pair<long long, pair<int, int>>>, cmp> q; // {sum, path}
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q; // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            q.push({(long long)grid[i][j], make_pair(i, j)});
+            q.push({-grid[i][j], make_pair(i, j)}); // Make sure to negate grid[i][j] because priority_queue is min heap
         }
     }
 
@@ -33,13 +33,13 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            return {static_cast<int>(sum)};
+            return {sum};
         }
         for (auto& neighbor : neighbors[i]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({(long long)ns, make_pair(ni, nj)});
+            q.push({-ns, make_pair(ni, nj)}); // Make sure to negate ns because priority_queue is min heap
         }
     }
 
