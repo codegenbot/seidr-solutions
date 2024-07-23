@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,7 @@ int luhn(std::vector<int> digits) {
     int sum = 0;
     bool isDouble = false;
 
-    for (int i = 0; i < digits.size(); ++i) {
+    for (int i = digits.size() - 2; i >= 0; --i) {
         int digit = digits[i];
         
         if (isDouble) {
@@ -35,6 +36,5 @@ int main() {
     }
     
     int result = luhn(digits);
-    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
