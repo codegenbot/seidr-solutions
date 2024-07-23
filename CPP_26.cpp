@@ -1,16 +1,17 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <assert.h>
 
 std::vector<int> removeDuplicates(const std::vector<int>& nums) {
-    if(nums.empty()) {
+    if (nums.empty()) {
         return nums;
     }
 
     std::vector<int> result = {nums[0]};
 
-    for(int i = 1; i < nums.size(); i++) {
-        if(nums[i] != result.back()) {
+    for (int i = 1; i < nums.size(); ++i) {
+        if (nums[i] != result.back()) {
             result.push_back(nums[i]);
         }
     }
