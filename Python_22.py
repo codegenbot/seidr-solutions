@@ -1,9 +1,8 @@
-from typing import Any
+from typing import Any, list
 
+def filter_integers() -> None:
+    values = input("Please enter some values (space separated): ")
+    values = [value.strip() for value in values.split(",")]
+    print([value for value in values if isinstance(value, int)])
 
-def filter_integers() -> list[int]:
-    try:
-        values = input("Enter a list of values (separated by commas): ")
-        return [int(x) for x in values.split(",") if isinstance(int(x), int)]
-    except ValueError:
-        return []
+filter_integers()
