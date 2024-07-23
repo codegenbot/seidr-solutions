@@ -4,24 +4,14 @@
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    sort(l.begin(), l.end());
-    
-    for(int i = 0; i < l.size() - 2; i++) {
-        int left = i + 1;
-        int right = l.size() - 1;
-        
-        while(left < right) {
-            int sum = l[i] + l[left] + l[right];
-            
-            if(sum == 0) {
+    for (int i = 0; i < l.size(); i++) {
+        sort(l.begin() + i, l.end());
+        for (int j = i + 1; j < l.size(); j++) {
+            int target = -(l[i] + l[j]);
+            if (binary_search(l.begin(), l.end(), target)) {
                 return true;
-            } else if(sum < 0) {
-                left++;
-            } else {
-                right--;
             }
         }
     }
-    
     return false;
 }
