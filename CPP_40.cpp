@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <cassert>
 
 bool triples_sum_to_zero(const int* l, int n) {
@@ -15,13 +13,9 @@ bool triples_sum_to_zero(const int* l, int n) {
     return false;
 }
 
-int main(int argc, char* argv[]) {
-    std::vector<int> arr;
-    for (int i = 1; i < argc; i++) {
-        arr.push_back(std::stoi(argv[i]));
-    }
-
-    assert(triples_sum_to_zero(arr.data(), arr.size()) == false);
+int main() {
+    int arr[] = {100, 3, 5, -100};
+    assert(triples_sum_to_zero(arr, sizeof(arr) / sizeof(arr[0])) == false);
 
     return 0;
 }
