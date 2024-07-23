@@ -1,14 +1,15 @@
-```c++
 #include <iostream>
-
 using namespace std;
 
+double totalSnow = 0;
+
 int hours;
-double totalSnow = 0.0, groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+cin >> hours;
 
-cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+double groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
-for (int i = 0; i < hours; i++) {
+for (int i = 0; i < hours; ++i) {
     totalSnow += (rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
 }
 
