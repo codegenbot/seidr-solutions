@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 #include <iostream>
-#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -36,8 +36,8 @@ int main() {
     vector<string> result = odd_count(test);
     bool same = issame(result, expected);
     if (same) {
-        cout << "Test passed." << std::endl;
+        cout << "Test passed." << endl;
     } else {
-        cout << "Test failed." << std::endl;
+        cout << "Test failed." << endl;
     }
 }
