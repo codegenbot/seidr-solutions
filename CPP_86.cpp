@@ -1,12 +1,11 @@
-string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
-            sort(word.begin(), word.end());
-            result += word + (i == s.length() ? "" : " ");
-            start = i + 1;
-        }
+for (int i = 0; i < s.size(); ++i) {
+    if (isspace(s[i])) {
+        continue;
     }
-    return result;
+    int start = i;
+    while (i < s.size() && !isspace(s[i])) {
+        ++i;
+    }
+    sort(s.begin() + start, s.begin() + i);
 }
+return s;
