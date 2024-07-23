@@ -1,12 +1,10 @@
-```Python
 def fizz_buzz(n: int):
-    result = 0
+    result = []
     for i in range(1, n + 1):
-        if i % 3 == 0:
-            if i % 5 == 0:
-                result += "FizzBuzz".count('3') - "FizzBuzz".count('6')
-            else:
-                result += str(i).count('3') - str(i).count('6')
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
         elif i % 5 == 0:
-            result += "Buzz".count('5') - "Buzz".count('50')
-    return result
+            result.append("Buzz")
+    return "\n".join(result)
