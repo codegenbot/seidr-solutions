@@ -1,13 +1,9 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> map;
-    vector<int> result;
-
-    for (int num : numbers) {
-        if (!map.count(num)) {
-            map[num] = true;
-            result.push_back(num);
-        }
+```cpp
+set<int> seen;
+vector<int> result;
+for (int num : numbers) {
+    if (seen.insert(num).second) { 
+        result.push_back(num);
     }
-
-    return result;
 }
+return result;
