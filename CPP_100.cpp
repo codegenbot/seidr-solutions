@@ -21,7 +21,8 @@ std::vector<int> make_a_pile(int n) {
             pile[i] = i * 2;
         }
     }
-    return std::vector<int>(pile, pile+n);
+    std::vector<int> result(pile, pile + n);
+    return result;
 }
 
 int main() {
