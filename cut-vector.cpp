@@ -1,47 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <climits> // Include for INT_MAX
-using namespace std;
-
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
     
-    if (nums.empty()) {
-        std::cout << "Empty input vector" << std::endl;
-        return 0;
-    }
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int half_sum = sum / 2;
-    
-    int prefix_sum = 0;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
-    for (int i = 0; i < nums.size(); ++i) {
-        prefix_sum += nums[i];
-        int diff = abs(prefix_sum - half_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
+        if (diff == 0 || diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    std::vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
-    
-    for (int num : subvector1) {
-        std::cout << num << std::endl;
+    for (int i = 0; i < cutIndex; i++) {
+        cout << vec[i] << endl;
     }
-    
-    for (int num : subvector2) {
-        std::cout << num << std::endl;
+    cout << endl;
+    for (int i = cutIndex; i < n; i++) {
+        cout << vec[i] << endl;
     }
     
     return 0;
