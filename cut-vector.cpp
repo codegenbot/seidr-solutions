@@ -23,4 +23,5 @@ tuple<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         res1.erase(res1.begin()+1, res1.end());
     }
 
-    return make_tuple(res1, res2);
+    return make_tuple(res1, res2); 
+}
