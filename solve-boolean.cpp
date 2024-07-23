@@ -1,10 +1,10 @@
 ```cpp
 #include <string>
-#include <stack>
+using namespace std;
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     bool result = false;
-    std::stack<char> stack;
+    bool lastOp = false;
 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -12,19 +12,21 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == 'F') {
             result = false;
         } else if (s[i] == '|') {
-            while (!stack.empty() && stack.top() == '&') {
-                stack.pop();
-            }
-            if (stack.empty()) return true;
-            else stack.push('|');
+            lastOp = true;
         } else if (s[i] == '&') {
-            stack.push('&');
+            lastOp = false;
         }
     }
 
-    while (!stack.empty() && stack.top() == '&') {
-        stack.pop();
-    }
+    return result || lastOp;
+}
 
-    return result;
+int main() {
+    string input;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
+    getline(cin, input); 
+    cin.ignore(); 
+    bool result = solveBoolean(input);
+    if(result)cout<<"True";
+    else cout<<"False";
 }
