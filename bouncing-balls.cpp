@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -16,16 +16,16 @@ int main() {
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
 
-    bouncinessIndex = firstBounce / startHeight;
+    bouncinessIndex = (2 * firstBounce) / (startHeight + firstBounce);
     double totalDistance = 0;
 
     double height = startHeight;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (pow(2, i) + 1) * abs(height);
+        totalDistance += abs(height - (height * bouncinessIndex));
         height *= bouncinessIndex;
     }
 
-    std::cout << "The total distance traveled by the ball is: " << std::fixed << std::setprecision(2) << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << std::fixed << std::setprecision(6) << totalDistance << std::endl;
 
     return 0;
 }
