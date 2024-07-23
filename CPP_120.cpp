@@ -24,8 +24,8 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 int main()
 {
     std::vector<int> vec = {1, 2, 3, -23, 243, -400, 0};
-    std::vector<int> emptyVec;
-    if(issame({}, vec)) {
+    std::vector<int> testVec = {1, 2, 3, -23, 243, -400, 0};
+    if(issame(testVec, vec)) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
