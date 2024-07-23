@@ -1,4 +1,3 @@
-```cpp
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -14,11 +13,10 @@ int mastermind(std::string code, std::string guess) {
     for (char c : code) {
         int index = guess.find(c);
         while(index != std::string::npos) {
-            if(index != i) white++;
+            white++;
             index = guess.find(c, index+1);
-            i++;
         }
     }
 
-    return black + white;
+    return black;
 }
