@@ -1,6 +1,4 @@
-def sort_third(lst: list) -> list:
-    return sorted(lst)
-
-lst = input("Enter a list of integers separated by spaces: ")
-lst = [int(i) for i in lst.split()]
-print(sort_third(lst))
+def sort_third(lst: list) -> tuple:
+    even = sorted([x for i, x in enumerate(lst) if i % 2 == 0])
+    odd = sorted([x for i, x in enumerate(lst) if i % 2 != 0])
+    return tuple(even), tuple(odd)
