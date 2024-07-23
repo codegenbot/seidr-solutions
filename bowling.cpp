@@ -1,4 +1,11 @@
+#include <iostream>
 #include <string>
+
+int main() {
+    int score = bowlingScore("XXXXX");
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
+}
 
 int bowlingScore(std::string s) {
     int score = 0;
