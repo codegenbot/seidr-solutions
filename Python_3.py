@@ -1,8 +1,15 @@
+Here is the modified code:
+
 ```
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
-    return any(operation < 0 for operation in operations)
+    result = False
+    for operation in operations:
+        if operation < 0:
+            result = True
+            break
+    return result
 
 if __name__ == "__main__":
     while True:
