@@ -1,10 +1,4 @@
 double probability(int n, int m) {
-    double total = (n + m - 1);
-    double peterWins = 0;
-    
-    for(int i = m; i < n; i++) {
-        peterWins += 1.0 / i;
-    }
-    
-    return peterWins;
+    double total = (double)(n + m - 1);
+    return (m * 1.0 / total) / (n * 1.0);
 }
