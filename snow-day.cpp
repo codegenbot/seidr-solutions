@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -8,13 +7,13 @@ int main() {
 
     cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
+    totalSnow = groundSnow; 
+
     for (int i = 0; i < hours; i++) {
-        double newTotalSnow = groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
-        totalSnow = newTotalSnow;
-        groundSnow = newTotalSnow; 
+        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << fixed << setprecision(10) << totalSnow;
 
     return 0;
 }
