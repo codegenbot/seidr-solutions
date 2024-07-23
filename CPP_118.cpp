@@ -1,3 +1,6 @@
+#include <string>
+#include <cctype>
+
 string get_closest_vowel(string word) {
     int left = 0;
     for (int right = word.size() - 1; right >= 0; --right) {

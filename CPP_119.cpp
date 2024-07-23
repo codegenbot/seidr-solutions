@@ -1,11 +1,12 @@
-string match_parens(vector<string> lst) {
-    int open = 0;
-    for (const auto& str : lst) {
-        for (char c : str) {
-            if (c == '(') open++;
-            else if (c == ')') open--;
-            if (open < 0) return "No";
+int balance = 0;
+for (const auto& s : lst) {
+    for (char c : s) {
+        if (c == '(') {
+            balance++;
+        } else if (c == ')') {
+            if (balance <= 0) return "No";
+            balance--;
         }
     }
-    return open == 0 ? "Yes" : "No";
 }
+return balance == 0 ? "Yes" : "No";
