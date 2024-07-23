@@ -1,9 +1,8 @@
 def basement(vector):
     total = 0
-    min_index = -1
+    min_index = None
     for i, num in enumerate(vector):
-        if total < 0:
+        if total < 0 and min_index is None:
             min_index = i
-            break
         total += num
     return min_index
