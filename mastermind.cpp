@@ -4,8 +4,8 @@ int mastermind(string code, string guess) {
     int codeCount[6] = {0};
 
     // Count the occurrences of each character in the code
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i] - '0']++;
+    for (char c : code) {
+        codeCount[c - '0']++;
     }
 
     // Count the black pegs (correct color, correct place)
@@ -17,12 +17,13 @@ int mastermind(string code, string guess) {
     }
 
     // Count the white pegs (correct color, wrong place)
+    int guessCount[6] = {0};
     for (char c : guess) {
-        if (c == code[i]) {
-            codeCount[c - '0']--;
-        }
-        i++;
+        guessCount[c - '0']++;
+    }
+    for (int i = 0; i < 6; ++i) {
+        white += min(codeCount[i], guessCount[i]);
     }
 
-    return black;
+    return black + white;
 }

@@ -1,45 +1,42 @@
+```c++
 #include <iostream>
 #include <string>
-
-std::string newWord(std::string str) {
-    std::string reversed = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        reversed += str[i];
-    }
-    return reversed;
-}
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5)
-                result += newWord(word) + " ";
-            else
-                result += word + " ";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += word + " ";
             word = "";
         } else {
-            word += c;
+            word += str[i];
         }
     }
-    
-    if (word.length() >= 5)
-        result += newWord(word);
-    else
-        result += word;
+
+    result += word;
+
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ' && i+1 < result.length()) {
+            std::string temp = result.substr(i+1);
+            if (temp.length() >= 5) { 
+                std::reverse(temp.begin(), temp.end());
+                result.replace(i+1, temp.length(), temp);
+            } else {
+                i++; 
+            }
+        }
+    }
 
     return result;
 }
 
 int main() {
-    // your code here
-    // test the function with different inputs
-    std::cout << spinWords("a") << std::endl;
     std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
     std::cout << spinWords("hi") << std::endl;
-    
+
     return 0;
 }
