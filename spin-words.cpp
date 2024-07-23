@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -17,7 +18,6 @@ string spinWords(string str) {
         
         string wholeWord = str.substr(start, end - start);
 
-        // Reverse the whole word
         reverse(wholeWord.begin(), wholeWord.end());
 
         result += wholeWord + " ";
