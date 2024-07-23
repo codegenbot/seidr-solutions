@@ -1,9 +1,9 @@
-def substitution_cipher(cipher1, cipher2, text):
+def substitution_cipher(cipher1, cipher2, message):
+    mapping = {c1: c2 for c1, c2 in zip(cipher1, cipher2)}
     result = ""
-    for char in text:
-        if char in cipher1[:min(len(cipher1), len(cipher2))]:
-            index = cipher1.index(char)
-            result += cipher2[index]
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
     return result
