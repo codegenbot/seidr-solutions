@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-double poly(std::vector<double> coeffs, double x) {
+double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
@@ -10,7 +6,7 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
+double find_zero(vector<double> coeffs) {
     double x = 1.0;
     double epsilon = 1e-6;
     
@@ -33,22 +29,11 @@ double find_zero(std::vector<double> coeffs) {
 }
 
 int main() {
-    int n; 
-    std::vector<double> coeffs; 
+    vector<double> coeffs(3); // declare and initialize coeffs with size 3
     double solution = 0.0;
-    
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        double coeff; 
-        std::cin >> coeff;
-        coeffs.push_back(coeff);
-    }
-    
-    //solution = find_zero(coeffs);
     
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
-        //assert(abs(val)< 1e-3); // or use find_zero and check the result
+        //assert(abs(val)< 1e-3); 
     }
 }
