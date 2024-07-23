@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -20,8 +21,8 @@ int main() {
     cin >> text >> target;
     vector<int> result = findIndices(text, target);
     for (int i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     return 0;
 }
