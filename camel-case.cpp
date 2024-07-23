@@ -25,15 +25,16 @@ int main() {
 
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
-        output += camelCase(iss.str()) + " ";
-    }
-    
-    // Remove the extra space
-    if (!output.empty()) {
-        output.pop_back();
-    }
+        output = camelCase(input);
 
-    std::cout << output;
-    
+        while (std::getline(iss, input, '-')) {
+            if (!input.empty()) {
+                output += (capitalizeNext ? toupper(input[0]) : tolower(input[0])) + input.substr(1) + ((output.length() > 0)? "": "");
+                capitalizeNext = true;
+            }
+        }
+
+        std::cout << output << std::endl;
+    }
     return 0;
 }
