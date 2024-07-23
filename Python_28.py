@@ -1,5 +1,5 @@
 ```
-from typing import Iterable
+from typing import List, Iterable
 from itertools import chain
 
 def concatenate(iterable: Iterable[str]) -> str:
