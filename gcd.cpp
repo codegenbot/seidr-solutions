@@ -31,22 +31,22 @@ int gcd(int a, int b) {
 
 int main() {
     string text; 
-    std::cout << "Enter the text: ";
-    std::cin >> text;
+    cout << "Enter the text: ";
+    cin >> text;
 
     string target; 
-    std::cout << "Enter the target: ";
-    std::cin >> target;
+    cout << "Enter the target: ";
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
     int a; 
-    std::cout << "Enter number 1: ";
-    std::cin >> a;
+    cout << "Enter number 1: ";
+    cin >> a;
     int b; 
-    std::cout << "Enter number 2: ";
-    std::cin >> b;
+    cout << "Enter number 2: ";
+    cin >> b;
     
-    std::cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << std::endl;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << std::endl;
 
     return 0;
 }
