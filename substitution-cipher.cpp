@@ -2,24 +2,27 @@
 #include <iostream>
 #include <string>
 
-std::string substituteCipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string decipheredMessage;
-    
-    for (int i = 0; i < message.length(); i++) {
-        int index = message[i];
-        decipheredMessage += cipher2[index];
+std::string decipher(std::string cipherText, std::string key1, std::string key2) {
+    string result = "";
+    for(int i=0; i<cipherText.length(); i++) {
+        if(key1[i] == key2[i]) {
+            result += key1[i];
+        } else {
+            int j;
+            for(j=0; j<key2.length(); j++) {
+                if(key2[j] == cipherText[i]) {
+                    break;
+                }
+            }
+            result += key1[j];
+        }
     }
-    
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
-    // Read input from user
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-
-    // Apply the cipher to the message and print the result
-    std::cout << substituteCipher(cipher1, cipher2, message) << std::endl;
-
+    string text, key1, key2;
+    cin >> text >> key1 >> key2;
+    cout << decipher(text, key1, key2) << endl;
     return 0;
 }
