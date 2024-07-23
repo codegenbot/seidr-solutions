@@ -1,3 +1,5 @@
+Here's the modified code:
+
 ```
 import math
 
@@ -19,21 +21,14 @@ def indices_of_substring(text, target):
     return result
 
 def main():
-    print("1. Calculate GCD")
-    print("2. Find indices of substring")
-    
     while True:
-        choice = input("Enter your choice (1/2): ")
-        
-        if choice == '1':
+        try:
             a = int(input("Enter a number: "))
             b = int(input("Enter another number: "))
             print(math.gcd(a, b))
-            break
-        elif choice == '2':
             text = input("Enter the text: ")
             target = input("Enter the target string: ")
             print(indices_of_substring(text, target))
             break
-        else:
-            print("Invalid choice. Please enter 1 or 2.")
+        except ValueError:
+            print("Expected input: Integers only!")
