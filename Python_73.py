@@ -1,19 +1,9 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    left = right = 0
-    changes = 0
-    
-    while left < n and right < n:
-        if arr[left] != arr[n - right - 1]:
-            if right == left:
-                right += 1
-            else:
-                changes += 2
-                left += 1
-                right += 1
-        elif arr[left] == arr[n - right - 1]:
-            left += 1
-            right += 1
-    
-    return changes
+    arr = int(''.join(map(str,arr)))
+    rev_arr = str(arr)[::-1]
+    diff_count = 0
+    for i in range(len(str(arr))):
+        if str(arr)[i] != rev_arr[i]:
+            diff_count += 1
+    return diff_count
