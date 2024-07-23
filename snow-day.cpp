@@ -1,19 +1,16 @@
 #include <iostream>
+#include <cmath>
 
-int main() {
-    float totalSnow = 0;
+float totalSnow = 0;
 
-    int hours;
-    std::cin >> hours;
+int hours;
+std::cin >> hours;
 
-    float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    (std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour);
+float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
-    for (int hour = 0; hour < hours; hour++) {
-        totalSnow = std::ceil(totalSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
-    }
-
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << ".";
-
-    return 0;
+for (int i = 0; i < hours; i++) {
+    totalSnow = std::ceil(totalSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
 }
+
+std::cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << std::endl;
