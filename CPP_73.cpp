@@ -1,18 +1,9 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
-int main() {
-    int result = smallest_change({0, 1});
-    // test assertion
-    assert(result == 2);
-    std::cout << "The minimum number of coins needed is: " << result << std::endl;
-    return 0;
-}
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    std::vector<std::vector<bool>> dp(n, std::vector<bool>(n));
+    assert(n > 0);
+
+    bool dp[n][n];
     
     for (int i = 0; i < n; i++) {
         dp[i][i] = true;
@@ -36,7 +27,7 @@ int smallest_change(std::vector<int> arr) {
             }
         }
     }
-    
+
     int changes = 0;
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -45,6 +36,9 @@ int smallest_change(std::vector<int> arr) {
             }
         }
     }
+    
+    if (changes == 0)
+        return -1;
     
     return changes;
 }
