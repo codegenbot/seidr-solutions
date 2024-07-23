@@ -59,8 +59,16 @@ def main():
             if result
             else "The list does not contain close elements"
         )
-        break
+        
+        while True:
+            response = input("Check again? (yes/no): ").lower()
+            while response not in ["y", "yes", "n", "no"]:
+                print("Invalid input. Please enter 'y' or 'n'.")
+                response = input().lower()
 
-
-if __name__ == "__main__":
-    main()
+            if response in ["y", "yes"]:
+                break
+            elif response in ["n", "no"]:
+                print("Exiting the program.")
+                exit(0)
+        break.
