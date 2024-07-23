@@ -1,4 +1,4 @@
-def double_the_difference(lst):
+def calculate_difference(lst):
     first, second = lst
     total = 0
     for sublist in first:
@@ -8,4 +8,4 @@ def double_the_difference(lst):
     return abs(total - sum(second)) // len(second) * 2
 
 
-print(double_the_difference([first_list, second_list]))
+print(calculate_difference([first_list, second_list]))
