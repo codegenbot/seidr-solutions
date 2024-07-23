@@ -1,30 +1,40 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+#include <vector>
+#include <string>
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if (issame(lst1, lst2)) {
-        return lst1;
-    } else if (lst1.size() < lst2.size()) {
-        return lst1;
-    } else if (lst1.size() > lst2.size()) {
-        return lst2;
-    } else {
-        int sum1 = 0, sum2 = 0;
-
-        for (const string& s : lst1) {
-            sum1 += s.length();
-        }
-        for (const string& s : lst2) {
-            sum2 += s.length();
-        }
-
-        if (sum1 < sum2) {
-            return lst1;
-        } else if (sum1 > sum2) {
-            return lst2;
-        } else {
-            return lst1;
+bool issame(std::vector<std::string> a, std::string b) {
+    if (a.size() != 1 || a[0] != b) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b) {
+            return false;
         }
     }
+    
+    return true;
+}
+
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    int sum1 = 0;
+    for (const std::string& str : lst1) {
+        sum1 += str.length();
+    }
+    
+    int sum2 = 0;
+    for (const std::string& str : lst2) {
+        sum2 += str.length();
+    }
+
+    if (sum1 < sum2) {
+        return issame(lst1, *lst2.begin()) ? lst1 : lst2;
+    } else if (sum1 > sum2) {
+        return issame(*lst1.begin(), std::string("")); ? lst2 : lst1;
+    } else {
+        return issame(lst1, std::string("")) ? lst1 : lst2;
+    }
+}
+
+int main() {
+    assert(std::equal(total_match({"this"}, {}), {}));
 }
