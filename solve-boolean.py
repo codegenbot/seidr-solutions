@@ -8,30 +8,18 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
 
-    while "|" in expression or "&" in expression:
-        if "&" in expression:
-            left, right = expression.split("&")
-            if "|" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
-            if "|" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
-            expression = f"{left} & {right}"
-        elif "|" in expression:
-            left, right = expression.split("|")
-            if "&" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
-            if "&" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
-            expression = f"{left} | {right}"
+    while " && " in expression or " || " in expression or " | " in expression:
+        if " && " in expression:
+            left, right = expression.split(" && ")
+            expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
+        elif " || " in expression or " | " in expression:
+            left, right = expression.split(" || ") if " || " in expression else (expression.split(" | "))[0]
+            right = expression.split(" || ")[1] if " || " in expression else expression.split(" | ")[1]
+            expression = f"({str(bool(solve_boolean(left)))} {right[0].strip()} {right[1:-1].strip()}{right[-1].strip()})"
 
     return eval(f"{expression}")
 
 
 if __name__ == "__main__":
-    while True:
-        try:
-            expression = input("Enter a Boolean expression: ")
-            print(solve_boolean(expression))
-            break
-        except (NameError, SyntaxError):
-            print("Invalid input. Please enter T, F, | or &.")
+    expression = input("Enter a Boolean expression: ")
+    print(solve_boolean(expression))
