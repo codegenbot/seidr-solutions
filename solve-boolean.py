@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
         result = None
@@ -27,8 +28,9 @@ def solve_boolean(expression):
                     result = recursive_eval(tokens, i+1)
                     return not result
             elif token == ')':
+                while tokens[i] != '(':
+                    i += 1
                 i += 1
-                continue
 
     expression = expression.replace(' | ', '|').replace('&', ' & ')
     return recursive_eval(expression.split())
