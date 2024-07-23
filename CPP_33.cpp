@@ -7,9 +7,9 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            vector<int> temp;
-            for (int j = max(0, i - 2); j <= i; j++)
-                temp.push_back(l[j]);
+            int start = max(0, i-2);
+            int end = min(i+1, l.size());
+            vector<int> temp(l.begin()+start, l.begin()+end);
             sort(temp.begin(), temp.end());
             result.insert(result.end(), temp.begin(), temp.end());
         } else
