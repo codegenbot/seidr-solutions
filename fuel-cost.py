@@ -1,4 +1,3 @@
-```
 vector = list(map(int, input("Enter space-separated positive integers:").split()))
 
 def fuel_cost(vector):
