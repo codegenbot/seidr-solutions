@@ -1,5 +1,4 @@
-def indices_of_substring():
-    text = input("Enter the main text: ")
+def indices_of_substring(text):
     target = input("Enter the target string: ")
     result = []
     pos = 0
@@ -8,8 +7,8 @@ def indices_of_substring():
         if pos == -1:
             break
         result.append(pos)
-        pos += len(target)
+        pos += 1
 
     return result
 
-print(indices_of_substring())
+print(indices_of_substring(input("Enter the main text: ")))
