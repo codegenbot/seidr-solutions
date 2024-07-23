@@ -17,7 +17,7 @@ int main() {
 
     bool same = true;
     for (const auto& val : a) {
-        if (!(std::cin >> val)) {
+        if (!(std::cin >> val).good()) {
             same = false;
             break;
         }
