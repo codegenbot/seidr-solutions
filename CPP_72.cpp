@@ -11,11 +11,10 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(const vector<int>& v, int init) {
+int accumulate(vector<int>::iterator start, vector<int>::iterator end, int init) {
     int sum = init;
-    for (int i : v) {
-        sum += i;
-    }
+    for (; start != end; ++start)
+        sum += *start;
     return sum;
 }
 
@@ -24,7 +23,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         s += to_string(i);
     }
-    return is_palindrome(s) && accumulate(q, 0) <= w;
+    return is_palindrome(s) && accumulate(q.begin(), q.end(), 0) <= w;
 }
 
 int main() {
