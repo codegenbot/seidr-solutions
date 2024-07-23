@@ -1,13 +1,12 @@
-std::string flip_case(std::string s) {
-    std::string result = "";
-    for (char c : s) {
+```cpp
+std::string flip_case(std::string& s) {
+    std::string result = s; // Create a copy of the input string
+    for (char &c : result) { // Iterate over the copy
         if (isupper(c)) {
-            result += tolower(c);
+            c = tolower(c);
         } else if (islower(c)) {
-            result += toupper(c);
-        } else {
-            result += c;
+            c = toupper(c);
         }
     }
-    return result;
+    return result; // Return the modified copy
 }
