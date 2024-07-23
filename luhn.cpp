@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhn(vector<int> card) {
@@ -21,13 +19,12 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card;
-    int num;
-    cout << "Enter credit card number (16 digits): ";
-    for(int i = 0; i < 16; ++i) {
-        cin >> num;
-        card.push_back(num);
+    vector<int> card; 
+    int input;
+    for(int i=0; i<16; ++i){
+        cin >> input;
+        card.push_back(input);
     }
-    cout << "Luhn's check digit is: " << luhn(card) << endl;
+    cout << luhn(card); 
     return 0;
 }
