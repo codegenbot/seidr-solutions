@@ -4,9 +4,8 @@
 int main() {
     std::string s;
     // get input from user or any other operation
-    std::cout << middleCharacter(s) << std::endl;  
+    std::cout << middleCharacter(s) << std::endl;  // call the function and print result
     return 0;
-
 }
 
 std::string middleCharacter(std::string s) {
