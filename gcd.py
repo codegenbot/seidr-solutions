@@ -4,6 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
     result = []
     start = 0
@@ -16,14 +17,16 @@ def indices_of_substring(text, target):
             break
     return result
 
-while True:
-    try:
-        a = int(input("Enter a number: "))
-        b = int(input("Enter another number: "))
-        print(gcd(a, b))
-        text = input()
-        target = input()
-        print(indices_of_substring(text, target))
-        break
-    except ValueError:
-        print("Expected input: Integers only!")
+
+def main():
+    while True:
+        try:
+            a = int(input("Enter a number: "))
+            b = int(input("Enter another number: "))
+            print(gcd(a, b))
+            text = input()
+            target = input()
+            print(indices_of_substring(text, target))
+            break
+        except ValueError:
+            print("Expected input: Integers only!")
