@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -68,10 +67,10 @@ int main() {
     string expression;
     cout << "Enter Boolean expression: ";
     cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
+    if (evaluateBooleanExpression(expression)) {
+        cout << "Result is True" << endl;
+    } else {
+        cout << "Result is False" << endl;
+    }
     return 0;
 }
