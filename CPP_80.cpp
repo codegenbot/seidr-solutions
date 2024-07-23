@@ -1,17 +1,17 @@
+#include <string>
+using namespace std;
+
 bool is_happy(string s) {
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (char d : sub) {
-                if (c == d)
-                    count++;
-            }
-            if (count > 1) {
-                return false; 
-            }
-        }
+    string t = s;
+    while(t != "1" && !is_one(t)) {
+        int total = 0;
+        for(char c : t) 
+            total += (c-'0')*(c-'0');
+        t = to_string(total);
     }
-    return true;
+    return t == "1";
+}
+
+bool is_one(string s) {
+    return s.length() == 1 && s[0] == '1';
 }
