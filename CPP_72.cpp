@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,11 +30,11 @@ int main() {
     cout << "Enter the number of queens: ";
     cin >> n;
 
-    vector<int> q(1);
+    vector<int> q; // Initialize the vector
 
-    for (int i=1; i<=n; i++) {
+    for (int i=0; i<n; i++) {
         int temp;
-        cout << "Enter position of queen " << i << ": ";
+        cout << "Enter position of queen " << i+1 << ": ";
         cin >> temp;
         q.push_back(temp);
     }
