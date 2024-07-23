@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,8 +9,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
@@ -19,16 +18,27 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
                 count++;
             }
         }
-        result.push_back("the number of odd elements " + std::to_string(count) + " in the string " + std::to_string(i+1));
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + to_string(i+1));
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> lst = {"271", "137", "314"};
-    if (!issame(odd_count(lst), { "the number of odd elements 2 in the string 1", 
-                                 "the number of odd elements 1 in the string 2", 
-                                 "the number of odd elements 0 in the string 3"}))
-        return 1;
+    vector<string> lst = {"271", "137", "314"};
+    vector<string> output = odd_count(lst);
+    cout << "Output: ";
+    for (const auto& str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+
+    if (!issame(output, {"the number of odd elements 2 in the string 1", 
+                         "the number of odd elements 1 in the string 2", 
+                         "the number of odd elements 0 in the string 3"})) {
+        cout << "Test Failed" << endl;
+    } else {
+        cout << "Test Passed" << endl;
+    }
+    
     return 0;
 }
