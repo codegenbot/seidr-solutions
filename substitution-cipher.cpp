@@ -7,11 +7,7 @@ std::string decipher(const std::string& cipherText, const std::string& key) {
     for (char c : cipherText) {
         for (int i = 0; i < key.length(); ++i) {
             if (key[i] == c) {
-                int pos = i;
-                while(pos < key.length() && key[pos] != c){
-                    deciphered += key.substr(0, pos+1);
-                    pos++;
-                }
+                deciphered += key.substr(0, i);
                 return deciphered;
             }
         }
