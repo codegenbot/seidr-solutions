@@ -1,4 +1,5 @@
-if (s.length() < 3)
+```bool is_happy(string s) {
+    if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
@@ -14,8 +15,7 @@ if (s.length() < 3)
                 break;
             }
         }
-        if (unique)
-            return true;  // All substrings have unique characters
+        return true; // All substrings have unique characters
     }
-    return false;
-}
+    return true;
+}```
