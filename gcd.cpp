@@ -25,6 +25,14 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    // Add your code to test the functions here
+    // Test gcd function
+    int a = 36, b = 24;
+    int result_gcd = gcd(a, b);
+    // Test indicesOfSubstring function
+    std::string text = "abracadabra";
+    std::string target = "abra";
+    std::vector<int> result_indices = indicesOfSubstring(text, target);
+  
+    // Print results or perform further operations
     return 0;
 }
