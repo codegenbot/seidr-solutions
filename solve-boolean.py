@@ -1,17 +1,21 @@
+```
 def solve_boolean(expression):
-    def evaluate(op1, op2, op):
-        if op == '&':
-            return op1 and op2
-        else:
-            return op1 or op2
-    stack = []
-    for char in expression:
-        if char in '&|':
-            b = stack.pop()
-            a = stack.pop()
-            stack.append(evaluate(a, b, char))
-        elif char == 'T':
-            stack.append(True)
-        else:
-            stack.append(False)
-    return stack[0]
+    def eval_expression(s, result=True):
+        while s:
+            if '&' in s:
+                idx = s.index('&')
+                result = result and (s[:idx].count('T') == s[:idx].count('F'))
+                s = s[idx + 1:]
+            elif '|' in s:
+                idx = s.index('|')
+                result = result or (s[:idx].count('T') > s[:idx].count('F'))
+                s = s[idx + 1:]
+            else:
+                if 'T' in s and 'F' not in s:
+                    return True
+                elif 'F' in s and 'T' not in s:
+                    return False
+                s = s.replace('T', '').replace('F', '')
+        return result
+
+    return eval_expression(expression)
