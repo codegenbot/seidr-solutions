@@ -1,7 +1,9 @@
+```
 def decode_cyclic(s: str):
     result = ""
-    for c in set(s):
-        count = s.count(c)
+    for char in set(s):
+        count = s.count(char)
         if count > 1:
-            result += c * (count // 2) + (c if count % 2 else "")
+            for _ in range(count // 2):
+                result += char
     return result
