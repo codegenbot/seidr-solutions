@@ -2,7 +2,7 @@ def indices_of_substring():
     text = input().strip()
     target = input().strip()
     
-    indices = [i for i in range(len(text) - len(target) + 1) if text[i:i+len(target)] == target and (i == 0 or text[i-1] != target[0])]
+    indices = [i for i in range(len(text) - len(target) + 1) if text[i:i+len(target)] == target and (i == 0 or text[i-1] != target[0]) and (i == len(text) - len(target) or text[i-1] != target[-1])]
 
     for index in indices:
         print(index)
