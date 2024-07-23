@@ -3,4 +3,5 @@ def fuel_cost():
     total = sum(((num // 3) - 2) for num in arr)
     return total
 
+
 print(fuel_cost())
