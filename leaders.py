@@ -1,6 +1,14 @@
+```
 def leaders(arr):
-    result = [arr[-1]]
+    if not arr:
+        return []
+
+    leader = max(arr)
+    result = [leader]
+
     for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[i + 1]:
-            result.append(arr[i])
+        if arr[i] >= leader:
+            leader = arr[i]
+            result.insert(0, leader)
+
     return result
