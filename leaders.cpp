@@ -1,4 +1,5 @@
-```cpp
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxRight = 0;
