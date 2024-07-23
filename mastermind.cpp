@@ -7,28 +7,24 @@ pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
-    int colorCount[6] = {0};
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
-    
+    int colorCountCode[6] = {0}, colorCountGuess[6] = {0};
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+        if(code[i] == guess[i])
             blackPegs++;
-        } else {
-            codeCount[code[i]-'0']++;
-            guessCount[guess[i]-'0']++;
+        else {
+            for(int j = 0; j < 6; j++) {
+                if(code[i] == (char)('0' + j))
+                    colorCountCode[j]++;
+                if(guess[i] == (char)('0' + j))
+                    colorCountGuess[j]++;
+            }
         }
+    }
+    for(int i = 0; i < 6; i++) {
+        whitePegs += std::min(colorCountCode[i], colorCountGuess[i]);
+        colorCountCode[i] = colorCountGuess[i] = 0;
     }
     
-    int correctPosition = 0;
-    for(int i = 0; i < 6; i++) {
-        if(codeCount[i] > 0 && guessCount[i] > 0) {
-            correctPosition++;
-        }
-    }
-
-    whitePegs = correctPosition - blackPegs;
-
     return std::make_pair(blackPegs, whitePegs);
 }
 
