@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <vector>
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
