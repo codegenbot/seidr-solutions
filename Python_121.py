@@ -1,2 +1,6 @@
-def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+def solution():
+    n = int(input("Enter a number: "))
+    if n % 2 != 0:
+        print("The number is odd.")
+    else:
+        print("The number is even.")
