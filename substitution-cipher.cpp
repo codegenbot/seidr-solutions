@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -22,15 +21,15 @@ std::string substituteCipher(const std::string& cipherText, const std::string& k
 }
 
 int main() {
-    std::string cipherText, key;
+    std::string cipherText, key, message;
     std::cout << "Enter the first string: ";
     std::cin >> cipherText;
     std::cout << "Enter the second string: ";
     std::cin >> key;
-    std::string message;
     std::cout << "Enter the third string: ";
-    std::getline(std::cin, message);  
-    cipherText = message;  
+    std::getline(std::cin, message);
+    cipherText = message; 
+    
     std::cout << substituteCipher(cipherText, key) << std::endl;
     
     return 0;
