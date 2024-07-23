@@ -4,4 +4,5 @@ def basement(vector):
         total += num
         if total < 0:
             return i
+        total = max(total, 0)
     return -1
