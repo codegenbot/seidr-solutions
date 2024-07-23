@@ -1,26 +1,15 @@
 #include <cmath>
-#include <iostream>
-
 bool iscuber(int a){
-    int i = 1;
-    while (pow(i,3) <= a){
-        if(pow(i,3) == a)
-            return true;
+    int i = 0;
+    while (1) {
+        if (pow(i, 3) == a) return true;
+        if (i * i > a) return false;
         i++;
     }
-    return false;
 }
 
 int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-
-    if(iscuber(num)) {
-        std::cout << "The number is a perfect cube.\n";
-    } else {
-        std::cout << "The number is not a perfect cube.\n";
-    }
-
+    assert(iscuber(1729) == false);
+    // Add more code here...
     return 0;
 }
