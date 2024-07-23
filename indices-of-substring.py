@@ -18,4 +18,4 @@ for index in indices:
     
 if len(indices) > 1:
     if text.find(target, indices[-1]+1) != -1:
-        print(indices[-1]+1, end=" ")
+        print(indices[-1]+1, end=" ")  
