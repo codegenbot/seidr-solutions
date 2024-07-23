@@ -24,13 +24,13 @@ std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     return closest_elements;
 }
 
-bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
 
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (std::abs(v1[i] - v2[i]) > 0.0001f) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (std::abs(a[i] - b[i]) > 0.0001f) {
             return false;
         }
     }
