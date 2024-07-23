@@ -1,16 +1,18 @@
+```
 #include <vector>
 #include <unordered_map>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); ++i)
-        if(a[i] != b[i])
+    for(int i = 0; i < a.size(); i++) {
+        if(std::find(b.begin(), b.end(), a[i]) == b.end())
             return false;
+    }
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     unordered_map<int, bool> map;
     vector<int> result;
 
@@ -25,13 +27,23 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> v1 = {1, 2, 3, 4};
-    std::vector<int> v2 = {1, 2, 3, 4};
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::cout << "Original: ";
+    for(int i : numbers)
+        std::cout << i << " ";
+    std::cout << "\n";
+    
+    std::vector<int> result = remove_duplicates(numbers);
+    std::cout << "After removing duplicates: ";
+    for(int i : result)
+        std::cout << i << " ";
+    std::cout << "\n";
 
-    if (issame(v1, v2))
-        std::cout << "Vectors are same." << std::endl;
+    std::vector<int> numbers2 = {1, 2, 3, 4, 5};
+    if(issame(numbers, numbers2))
+        std::cout << "The vectors are same.\n";
     else
-        std::cout << "Vectors are not same." << std::endl;
-
+        std::cout << "The vectors are not same.\n";
+    
     return 0;
 }
