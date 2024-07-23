@@ -45,7 +45,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    return {};
+    return std::vector<int>({sum});
 }
 
 int mainTest() {
