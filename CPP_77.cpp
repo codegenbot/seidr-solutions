@@ -2,7 +2,6 @@
 #include <cmath>
 #include <cassert>
 #include <cctype>
-#include <cstddef>
 
 bool iscuber(int a) {
     int i = 1;
@@ -16,5 +15,5 @@ bool iscuber(int a) {
 }
 
 int main() { 
-    assert(iscuber(8) == true);
+    assert(isalpha('5') == false);
 }
