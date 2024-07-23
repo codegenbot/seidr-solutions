@@ -7,14 +7,14 @@ vector<int> leaders(vector<int>& nums) {
     for (int i = nums.size() - 1; i >= 0; --i) {
         if (nums[i] >= maxRight) {
             maxRight = nums[i];
-            result.push_back(nums[i]);
+            result.push_back(maxRight);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> nums = {17, 28, 4, 27, 29, 30, 20};
+    vector<int> nums = {1, 2, 3, 4, 5};
     vector<int> result = leaders(nums);
     for (int num : result) {
         cout << num << " ";
