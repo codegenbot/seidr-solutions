@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -8,11 +5,11 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int nickles = min(cents / 5, quarters - cents/25/2);
-    cents %= 5;
-
-    int dimes = cents / 10; 
+    int dimes = min(cents / 10, quarters);
     cents %= 10;
+
+    int nickles = min(cents / 5, (quarters+dimes) * 2/10 + (cents-dimes*10)/5);
+    cents %= 5;
 
     int pennies = cents;
     cout << quarters << endl; 
