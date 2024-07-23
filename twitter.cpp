@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,7 +10,7 @@ string validateTweet(string tweet) {
     }
     int charCount = 0;
     for (char c : tweet) {
-        if (c != ' ' && !isprint(c) && isalnum(c)) {
+        if (c != ' ') {
             charCount++;
         }
     }
