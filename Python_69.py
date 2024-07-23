@@ -1,3 +1,4 @@
+```
 def search(lst):
     freq = {}
     for num in lst:
@@ -20,4 +21,4 @@ except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
     exit()
 
-print(search(lst))
+print(search(lst))```
