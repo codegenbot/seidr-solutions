@@ -1,3 +1,12 @@
 ```
-def sort_even(l: list):
-    return sorted([abs(x) for x in l if x % 2 == 0])
+def sort_even():
+    num_list = []
+    while True:
+        try:
+            num = int(input("Enter a number (or 'q' to quit): "))
+            if num == 'q':
+                break
+            num_list.append(num)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    return sort_even(num_list)
