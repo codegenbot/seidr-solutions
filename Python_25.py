@@ -7,5 +7,8 @@ def sum_of_squares(numbers: List[int]) -> int:
         total += num**2
     return total
 
-numbers = list(map(int, input("Enter a series of space-separated integers: ").split()))
-print(sum_of_squares(numbers))
+
+if __name__ == "__main__":
+    user_input = input("Enter a list of integers separated by space: ")
+    user_numbers = [int(num) for num in user_input.split()]
+    print(sum_of_squares(user_numbers))
