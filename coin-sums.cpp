@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-    
+
     cout << "Quarters: " << cents / 25 << endl;
     cents %= 25;
 
@@ -15,6 +15,6 @@ int main() {
     cents %= 5;
 
     cout << "Pennies: " << cents << endl;
-    
+
     return 0;
 }
