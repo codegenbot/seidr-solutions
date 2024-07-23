@@ -16,7 +16,7 @@ int findSmallest(vector<int> lst) {
 
 }
 
-int mainTest() {
+int main() {
     cout << findSmallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
