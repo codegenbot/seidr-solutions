@@ -19,7 +19,7 @@ double find_zero(std::vector<double> coeffs, double prev_x) {
                             poly({coeffs[1], coeffs[2], coeffs[3] * (prev_x-1), coeffs[4]}, prev_x)) / 
                           (x - prev_x); // approximate derivative using difference quotient
         x -= f_x / f_prime_x;
-        if(abs(f_x) < tol)
+        if(std::abs(f_x) < tol)
             return x;
     }
 }
