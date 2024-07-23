@@ -1,19 +1,20 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <set>
 
 using namespace std;
 
-vector<int> unique(vector<int> l) {
-    vector<int> result(unique_copy(l.begin(), l.end()), l.end());
-    return result;
+bool issame(vector<int> v1, vector<int> v2){
+    if(v1.size() != v2.size())return false;
+    for(int i = 0; i<v1.size();i++){
+        if(find(v2.begin(),v2.end(),v1[i]) == v2.end())
+            return false;
+    }
+    return true;
 }
 
-int main() {
-    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result = unique(l);
-    for (auto i : result) {
-        cout << i << " ";
-    }
-    return 0;
+vector<int> unique(vector<int> l) {
+    set<int> s(l.begin(), l.end());
+    vector<int> res(s.begin(), s.end());
+    return res;
 }
