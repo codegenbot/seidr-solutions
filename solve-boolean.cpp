@@ -3,41 +3,60 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
+    stack<string> operators;
     string operand = "";
     int i = 0; 
 
     for (i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!operators.empty() && operators.top() == '|') {
+            while (!operators.empty() && operators.top() == "|") {
                 operators.pop();
             }
             if (!operand.empty()) {
+                if (operand == "T")
+                    operand = "True";
+                else
+                    operand = "False";
+
                 return operand == "True";
             }
-        } else if (expression[i] == '|') {
+        } 
+        else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
+                if (operand == "T")
+                    operand = "True";
+                else
+                    operand = "False";
+
                 return operand == "True";
             }
-        } else if (expression[i] == 't' || expression[i] == 'f') {
-            if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
-                                        (expression[i] == 'f' && operators.top() == '&'))) {
+        } 
+        else if (expression[i] == 't' || expression[i] == 'f') {
+            if (!operators.empty() && ((expression[i] == 't' && operators.top() == "|") ||
+                                        (expression[i] == 'f' && operators.top() == "&"))) {
                 while (!operators.empty()) operators.pop();
             }
             operand += (expression[i] == 't'? "T" : "F");
-        } else if (expression[i] == '(') {
-            operators.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (operators.top() != '(') {
+        } 
+        else if (expression[i] == '(') {
+            operators.push("(");
+        } 
+        else if (expression[i] == ')') {
+            while (operators.top() != "(") {
                 if (expression[i] == '|') {
-                    while (!operators.empty() && operators.top() == '|') {
+                    while (!operators.empty() && operators.top() == "|") {
                         operators.pop();
                     }
-                    return operand == "T";
-                } else if (expression[i] == '&') {
+                    if (!operand.empty()) {
+                        return operand == "T";
+                    }
+                } 
+                else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "T";
+                    if (!operand.empty()) {
+                        return operand == "T";
+                    }
                 }
 
                 operators.pop();
@@ -48,29 +67,25 @@ bool evaluateBooleanExpression(string expression) {
 
     while (!operators.empty()) {
         if (expression[i] == '|') {
-            while (!operators.empty() && operators.top() == '|') {
+            while (!operators.empty() && operators.top() == "|") {
                 operators.pop();
             }
-            return operand == "T";
-        } else if (expression[i] == '&') {
+            if (!operand.empty()) {
+                return operand == "T";
+            }
+        } 
+        else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "T";
+            if (!operand.empty()) {
+                return operand == "T";
+            }
         }
 
         operators.pop();
     }
 
-    return operand == "True";
-}
+    if (!operand.empty())
+        return operand == "True";
 
-int main() {
-    string expression;
-    cout << "Enter Boolean expression: ";
-    cin >> expression;
-    if (evaluateBooleanExpression(expression)) {
-        cout << "Result is True" << endl;
-    } else {
-        cout << "Result is False" << endl;
-    }
-    return 0;
+    return true;
 }
