@@ -1,3 +1,3 @@
-def sorted_list_sum(numbers): 
-    even_numbers = [num for num in numbers if set(num).issubset('0123456789')]
+def sorted_list_sum(numbers):
+    even_numbers = [str(num) for num in numbers if isinstance(num, str)]
     return " ".join(sorted(even_numbers))
