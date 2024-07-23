@@ -1,8 +1,8 @@
 def fix_spaces(text):
     result = ""
-    for char in text:
-        if char.isspace():
-            if not result or not result[-1].isspace():
+    for i, char in enumerate(text):
+        if i > 0 and text[i-1].isspace() or not i:
+            if char.isspace():
                 result += "-"
             else:
                 result += "_"
