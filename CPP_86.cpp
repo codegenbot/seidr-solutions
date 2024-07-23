@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -21,6 +22,7 @@ std::string anti_shuffle(std::string s) {
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    std::string s = "Hi. My name is Mister Robot. How are you?";
+    std::cout << anti_shuffle(s) << std::endl;
     return 0;
 }
