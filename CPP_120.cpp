@@ -22,6 +22,6 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert (isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 2) , {243,243}));
+    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 2) , {243, 243}));
     return 0;
 }
