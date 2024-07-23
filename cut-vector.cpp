@@ -1,6 +1,6 @@
 ```
 #include <vector>
-#include <cmath>  
+#include <cmath>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -27,4 +27,5 @@ vector<int> cutVector(vector<int>& nums) {
     vector<int> result1 = res1; 
     vector<int> result2 = res2; 
     return {result1, result2}; 
+
 }
