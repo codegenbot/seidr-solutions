@@ -1,4 +1,5 @@
-```
-def solve():
-    nums = list(map(int, input().split()))
-    return sum((x//3-2) for x in nums)
+import math
+def solve(*args):
+    return sum(math.floor(arg/3)-2 for arg in args)
+
+print(solve(int(x) for x in "659 8351 2839".split()))
