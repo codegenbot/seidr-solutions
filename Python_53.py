@@ -1,6 +1,4 @@
-```
-def add(x, y):
-    try:
-        return int(x) + int(y)
-    except ValueError:
-        return "Error: Input must be an integer."
+def add(x: int, y: int):
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
+    return x + y
