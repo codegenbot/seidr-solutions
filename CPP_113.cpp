@@ -1,28 +1,27 @@
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
+
+int odd_count(const std::vector<std::string>& nums) {
+    int count = 0;
+    for (const auto& num : nums) {
+        if (std::stoi(num) % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+bool issame(int n1, const std::string& s) {
+    return s.find(std::to_string(n1)) != std::string::npos;
+}
 
 int main() {
-    std::vector<std::string> test = {"271", "137", "314"};
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result;
-    for (int i = 0; i < lst.size(); i++) {
-        int count = 0;
-        for (char c : lst[i]) {
-            if ((c - '0') % 2 != 0) {
-                count++;
-            }
-        }
-        result.push_back("the number of odd elements " + std::to_string(count) + " in the string " + std::to_string(i+1));
-    }
-    return result;
+    std::vector<std::string> nums = {"271", "137", "314"};
+    int result = odd_count(nums);
+    std::string input = "the number of odd elements " + std::to_string(result) + " in the string 1 of the input.";
+    std::replace(input.begin(), input.end(), '\\', '/');
+    assert(issame(result, input));
+    
+    return 0;
 }

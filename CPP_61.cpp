@@ -1,10 +1,9 @@
-```c++
 #include <cassert>
 #include <string>
 
-bool correct_bracketing(const std::string& brackets) {
+bool checkBrackets(const std::string& brackets) {
     int count = 0;
-    for(int i=0; i!=(unsigned int)brackets.length(); i++){
+    for(int i=0; i<brackets.length(); i++){
         if(brackets[i] == '(')count++;
         else if(brackets[i] == ')')if(count > 0)count--; 
     }
@@ -12,6 +11,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(!correct_bracketing("()()(()())"));
+    assert(checkBrackets("()()(()())"));
     return 0;
 }
