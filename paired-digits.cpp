@@ -1,10 +1,6 @@
 ```c++
 #include <string>
-
-int main() {
-    std::cout << "Sum of paired digits: " << pairedDigits("123333") << std::endl;
-    return 0;
-}
+#include <iostream>
 
 int pairedDigits(std::string str) {
     int sum = 0;
@@ -14,4 +10,13 @@ int pairedDigits(std::string str) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> str;
+    int result = pairedDigits(str);
+    std::cout << "The sum of the digits whose following digit is the same is: " << result << std::endl;
+    return 0;
 }
