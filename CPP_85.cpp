@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-int add(std::vector<int> lst); // Function prototype
-
 int add(std::vector<int> lst){
     int sum = 0;
     for(int i = 1; i < lst.size(); i++){
@@ -13,22 +11,21 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    assert(add({4, 4, 6, 8}) == 12);
-    std::vector<int> userNumbers;
-    int number;
-
-    // Read numbers from the user
-    std::cout << "Enter some numbers (type 'stop' to finish):" << std::endl;
-    while(true) {
-        std::cin >> number;
-        if(std::string(input) == "stop")
-            break;
-        userNumbers.push_back(number);
+    std::vector<int> numbers;
+    int num;
+    
+    std::cout << "Enter the size of array: ";
+    std::cin >> num;
+    
+    for(int i = 0; i < num; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
+        numbers.push_back(temp);
     }
-
-    // Calculate and print the sum of odd numbers
-    int total = add(userNumbers);
-    std::cout << "Sum: " << total << std::endl;
-
+    
+    int result = add(numbers);
+    std::cout << "Sum of odd elements: " << result << std::endl;
+    
     return 0;
 }
