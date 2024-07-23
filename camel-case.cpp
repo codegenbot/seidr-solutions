@@ -1,29 +1,36 @@
-```
 #include <iostream>
 #include <string>
-using namespace std;
+#include <sstream>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip "-"
-            while (i < s.size() && s[i] == ' ') { i++; } // skip spaces
-            if (result != "") result += char(toupper(s[i])); // capitalize first letter of new word
-            else result = toupper(s[i]); // capitalize first letter of the string
-        } else if (s[i] != ' ') {
-            if (i > 0) result += s[i]; // add lowercase letters to the result
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool capitalizeNext = true;
+
+    for (char c : input) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            output += toupper(c);
+            capitalizeNext = false;
+        } else {
+            output += tolower(c);
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    string input;
-    while (true) {
-        cout << "Enter a sentence in kebab-case: ";
-        cin >> input;
-        cout << "In camelCase: " << camelCase(input) << endl;
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        std::istringstream iss(input);
+        std::cout << camelCase(iss.str());
+        while (std::getline(iss, input, '-')) {
+            if (!input.empty()) {
+                std::cout << (camelCase(input));
+            }
+        }
+        std::cout << "\n";
     }
     return 0;
 }
