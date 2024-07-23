@@ -1,6 +1,10 @@
+```
 def basement(arr):
-    total = sum(arr[:])
+    total = 0
+    seen_negative = False
     for i in range(len(arr)):
-        if total < 0:
+        if not seen_negative and total < 0:
             return i
-        total += arr[i] - arr[i-1] if i else arr[i]
+        total += arr[i]
+        seen_negative = total < 0
+    return -1
