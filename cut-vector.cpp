@@ -5,30 +5,30 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    
+
     int diff = INT_MAX;
-    int idx = -1;
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
+    int cutIndex = -1;
+    for (int i = 0; i < n - 1; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; ++j) {
+            leftSum += nums[j];
         }
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
+        for (int j = i + 1; j < n; ++j) {
+            rightSum += nums[j];
         }
-        if (abs(left_sum - right_sum) < diff) {
-            diff = abs(left_sum - right_sum);
-            idx = i;
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
-    
-    for (int i = 0; i < idx; ++i) {
+
+    for (int i = 0; i <= cutIndex; ++i) {
         cout << nums[i] << endl;
     }
     cout << endl;
-    for (int i = idx; i < n; ++i) {
+    for (int i = cutIndex + 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    
+
     return 0;
 }
