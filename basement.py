@@ -1,4 +1,3 @@
-```python
 def basement(vector):
     total = 0
     for i, num in enumerate(vector):
