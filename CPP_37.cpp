@@ -1,29 +1,29 @@
 #include <algorithm>
 #include <vector>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6) {
+        if (abs(a[i] - b[i]) > 1e-6) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> sort_even(vector<float> l) {
+    vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> temp;
+            vector<float> temp;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     temp.push_back(l[j]);
                 }
             }
-            std::sort(temp.begin(), temp.end());
+            sort(temp.begin(), temp.end());
             result.push_back(temp[0]);
         } else {
             result.push_back(l[i]);
@@ -33,7 +33,7 @@ std::vector<float> sortEven(std::vector<float> l) {
 }
 
 int main() {
-    assert(isSame(sortEven({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), 
-              {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f});
+    assert(issame(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), 
+            {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f});
     return 0;
 }
