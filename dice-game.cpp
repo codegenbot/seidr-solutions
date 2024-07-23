@@ -1,9 +1,12 @@
 Here is the solution:
 
 double diceGame(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i < n; ++i) {
-        total += 1.0 / m;
+    double total = (n + m);
+    if(n > m) {
+        return 1 - ((double)m / total);
+    } else if(n < m) {
+        return (double)m / total;
+    } else {
+        return 0.5;
     }
-    return total;
 }
