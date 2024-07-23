@@ -1,7 +1,7 @@
+```
 def solve():
     num = int(input("Enter a number: "))
-    result = factorize(num)
-    print(result)
+    print(factorize(num))
 
 from typing import List
 import math
