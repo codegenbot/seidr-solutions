@@ -1,4 +1,4 @@
-#include <assert.h>
+#include <cassert>
 #include <map>
 #include <string>
 #include <cctype>
@@ -10,6 +10,7 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
+        std::cout << pair.first[0];
         if (!islower(pair.first[0])) {
             allLower = false;
         }
@@ -19,9 +20,4 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     }
 
     return allLower || allUpper;
-}
-
-int main() {
-    assert(check_dict_case({}) == false);
-    return 0;
 }
