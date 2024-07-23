@@ -1,60 +1,63 @@
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0;i<a.size();i++) {
-        if(a[i].compare(b[i])!=0) {
-            return false;
-        }
-    }
-    return true;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+namespace {
+
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<string> numArr;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            nums.push_back(i);
+            numArr.push_back(to_string(i));
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    sort(numArr.begin(), numArr.end());
 
-    vector<string> result;
-    for (int num : nums) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+    reverse(numArr.begin(), numArr.end());
+
+    std::vector<string> result;
+    for (string str : numArr) {
+        if (str == "One") {
+            str = "One";
+        } else if (str == "Two") {
+            str = "Two";
+        } else if (str == "Three") {
+            str = "Three";
+        } else if (str == "Four") {
+            str = "Four";
+        } else if (str == "Five") {
+            str = "Five";
+        } else if (str == "Six") {
+            str = "Six";
+        } else if (str == "Seven") {
+            str = "Seven";
+        } else if (str == "Eight") {
+            str = "Eight";
+        } else if (str == "Nine") {
+            str = "Nine";
         }
         result.push_back(str);
     }
 
     return result;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+
+    return true;
+}
+
+} // namespace
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    return 0;
 }
