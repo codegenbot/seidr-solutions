@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -19,4 +18,4 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main() { cout << std::to_string((int)(diceGame(43, 98) * 1000)) / 1000.0 << endl; return 0; }
+int main() { std::cout << diceGame(43, 98) << std::endl; return 0; }
