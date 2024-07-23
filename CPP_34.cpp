@@ -24,5 +24,6 @@ int problemSolution() {
 }
 
 int main() {
-    return problemSolution();
+    problemSolution();
+    return 0;
 }
