@@ -7,7 +7,7 @@ vector<int> findIndices(string text, string target) {
     int prevLast = -1;
     int last;
     while ((last = text.find(target, prevLast + 1)) != string::npos) {
-        indices.push_back(last);
+        indices.push_back(last - target.length() + 1);
         prevLast = last;
     }
     return indices;
@@ -15,10 +15,10 @@ vector<int> findIndices(string text, string target) {
 
 int main() {
     string text;
-    getline(cin, text);
+    cin >> text;
 
     string target;
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
