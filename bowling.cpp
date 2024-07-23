@@ -1,6 +1,3 @@
-#include <string>
-#include <iostream>
-
 int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
@@ -11,16 +8,11 @@ int bowlingScore(std::string s) {
         if (c == 'X') {
             score += 30;
         } else if (c == '/') {
-            score += 10;
-            if (i < s.length() - 1) {
-                int val = s[i + 1] - '0';
-                if (val >= 7) {
-                    score += val * 2;
-                    i++; // Skip the second roll
-                } else {
-                    score += val * 2;
-                }
+            score += (10 - roll1) * 2;
+            if (roll2 != 0) {
+                score += roll2;
             }
+            break;
         } else {
             int val = c - '0';
             if (roll1 == 0) {
@@ -28,8 +20,11 @@ int bowlingScore(std::string s) {
             } else {
                 if (roll1 + val >= 10) {
                     score += 10;
+                    if (roll2 != 0) {
+                        score += roll2;
+                    }
                     roll1 = 0;
-                    roll2 = val;
+                    roll2 = 0;
                 } else {
                     roll1 = 0;
                     roll2 = val;
@@ -38,13 +33,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score; 
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores (e.g., XXXXXXXX--): ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
 }
