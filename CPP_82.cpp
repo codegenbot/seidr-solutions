@@ -1,15 +1,25 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-bool prime_length(string str){
+bool prime_length(std::string str){
     int len = str.length();
-    bool is_prime = true;
-
-    for(int i=2; i*i <= len; i++){
-        if(len % i == 0){
-            is_prime = false;
-            break;
-        }
+    if(len <= 1) return false;
+    for(int i = 2; i * i <= len; i++){
+        if(len % i == 0) return false;
     }
+    return true;
+}
 
-    return is_prime;
+int main(){
+    std::cout << "Enter a string: ";
+    std::string str;
+    std::cin >> str;
+    
+    if(prime_length(str)){
+        std::cout << "The length of the string is prime." << std::endl;
+    }else{
+        std::cout << "The length of the string is not prime." << std::endl;
+    }
+    
+    return 0;
 }
