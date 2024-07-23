@@ -1,18 +1,17 @@
-string encrypt(string s){
-    string result = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char encrypted = c + 2 * 2;
-            if(islower(c)){
-                if(encrypted > 'z'){
-                    encrypted = 'a' + (encrypted - 'z' - 1);
+string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            char newChar = c + 2 * (c - 'a' + 1);
+            if (isupper(c)) {
+                if (newChar > 'Z') {
+                    newChar = 'A' + (newChar - 'Z' - 1);
                 }
             } else {
-                if(encrypted > 'Z'){
-                    encrypted = 'A' + (encrypted - 'Z' - 1);
+                if (newChar > 'z') {
+                    newChar = 'a' + (newChar - 'z' - 1);
                 }
             }
-            result += encrypted;
+            result += newChar;
         } else {
             result += c;
         }
