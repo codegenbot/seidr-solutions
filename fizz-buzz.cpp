@@ -1,16 +1,18 @@
+#include <iostream>
 #include <string>
 
 std::string fizzBuzz(int x) {
     std::string result = "";
 
-    if (x % 3 == 0) {
-        result += "Fizz";
-    }
-    if (x % 5 == 0) {
+    if (x % 15 == 0) {
+        result = "FizzBuzz";
+    } else if (x % 5 == 0) {
         if (result.empty()) {
-            return "Buzz";
-        } else {
-            result += "Buzz";
+            result = "Buzz";
+        }
+    } else if (x % 3 == 0) {
+        if (result.empty()) {
+            result = "Fizz";
         }
     }
 
@@ -19,4 +21,12 @@ std::string fizzBuzz(int x) {
     }
 
     return result;
+}
+
+int main() {
+    int input;
+    std::cout << "Enter an integer: ";
+    std::cin >> input;
+    std::cout << fizzBuzz(input) << std::endl;
+    return 0;
 }
