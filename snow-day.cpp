@@ -1,12 +1,11 @@
 #include <iostream>
-#include <cmath>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
-    for(int i = 0; i < hours; i++) {
+    for (int i = 0; i < hours; ++i) {
         onGround += rate;
-        onGround -= melt;
+        onGround -= (float)melt;
     }
-    return static_cast<int>(onGround) + (std::floor(100 * (onGround - static_cast<int>(onGround))) / 100.0);
+    return onGround;
 }
 
 int main() {
