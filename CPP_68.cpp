@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <algorithm>
 #include <initializer_list>
 using namespace std;
