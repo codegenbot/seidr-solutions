@@ -10,14 +10,13 @@ def solve_boolean(expression):
             elif token == ')':
                 while stack and tokens[stack[-1]] != '(':
                     if tokens[stack.pop()] in ['|', '&']:
-                        result = recursive_eval(tokens, stack[-1]+1) if result is None else result
+                        if result is not None: return result
                 i += 1
             elif token in ['T', 'F']:
                 if result is None: 
                     result = True if token == 'T' else False
-                elif result is None and token != 'T':
+                elif token != 'T':
                     return False
-                return result
             elif token in ['|', '&']:
                 operator = token
                 while len(stack) > 0 and tokens[stack[-1]] == operator:
@@ -33,8 +32,8 @@ def solve_boolean(expression):
                     result |= (tokens[i] in ['T', 't'])
             i += 1
 
-        if len(stack) > 0:
-            return recursive_eval(tokens, stack[-1]+1)
+        while stack:
+            return recursive_eval(tokens, stack.pop())
 
     expression = expression.replace(' | ', '|').replace('&', ' & ')
     return recursive_eval(expression.split())
