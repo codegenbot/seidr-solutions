@@ -26,15 +26,15 @@ int main() {
     cin >> n;
     
     for(int i = 0; i < n; i++) {
-        double val;
-        cin >> val;
-        coeffs.push_back(val);
+        double c;
+        cin >> c;
+        coeffs.push_back(c);
     }
 
     solution = find_zero(coeffs);
 
-    double value = poly(coeffs, solution);
-    std::cout << "Value is: " << value << std::endl;
+    cout << "Solution is: " << solution << endl;
+    cout << "Value of the polynomial at " << solution << " is: " << poly(coeffs, solution) << endl;
 
     return 0;
 }
