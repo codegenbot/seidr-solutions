@@ -20,14 +20,14 @@ int mastermind(string code, string guess) {
     
     // Count the number of correct colors in the right place
     for (int i = 0; i < 4; i++) {
-        int k = 0;
-        while (k < 4) {
-            if (code[k] == guess[i]) {
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
                 white++;
-                code[k] = ' '; // mark this position as visited
+                code[j] = ' '; // mark this position as visited
                 break;
             }
-            k++;
+            j++;
         }
     }
     
