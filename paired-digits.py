@@ -1,4 +1,3 @@
+```
 def paired_digits(s):
-    while s and s[0] == '0':
-        s = s.lstrip('0')
-    return sum(int(digit) for i, digit in enumerate(s) if (i < len(s)-1 and digit != '0' and digit == s[i+1]))
+    return sum(int(d1) for d1, d2 in zip(s[0::], s[1::]) if str(d1) == str(d2))
