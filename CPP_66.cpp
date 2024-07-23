@@ -1,5 +1,4 @@
 #include <string>
-
 int digitSum(string s) {
     if (s.empty()) {
         return -1;
@@ -11,3 +10,4 @@ int digitSum(string s) {
         }
     }
     return sum;
+}
