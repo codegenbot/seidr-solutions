@@ -1,11 +1,15 @@
-```
 def bowling_score(bowling):
-    if not bowling:
-        return 0
     score = 0
     frame = 1
     for i in range(0, len(bowling), 2):
-        if bowling[i].isdigit():
+        if i + 2 > len(bowling) - 1:
+            roll = int(bowling[i])
+            if roll == 10:
+                score += roll
+            else:
+                score += roll
+            break
+        elif bowling[i].isdigit():
             first_roll = int(bowling[i])
             second_roll = 10 - int(bowling[i + 1].replace('/', ''))
             if first_roll == 10:
