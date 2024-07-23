@@ -14,8 +14,8 @@ int main() {
         } else if (capitalize) {
             cout << (char)toupper(c);
             capitalize = false;
-        } else {
-            if (c != ' ') cout << c;  // Skip spaces
+        } else if (c != ' ') {
+            cout << c;
         }
     }
 
