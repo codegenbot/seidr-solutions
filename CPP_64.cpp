@@ -1,3 +1,5 @@
+#include <string>
+
 int vowels_count(std::string s) {
     int count = 0;
     for (char c : s) {
