@@ -14,5 +14,5 @@ for i, num in enumerate(nums):
             cut_index = i
             break
 
-print(nums[:cut_index + 1])
-print(nums[cut_index + 1:])
+print(nums[: cut_index + 1])
+print(nums[cut_index + 1 :])
