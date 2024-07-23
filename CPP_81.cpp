@@ -44,7 +44,7 @@ int main() {
     bool isCorrect = true;
 
     for (size_t i = 0; i < expectedSize; ++i) {
-        if (numerical_letter_grade({0, 0.7})[i] != ("E" + (i == 1 ? "-" : "")).c_str()) {
+        if (numerical_letter_grade({0, 0.7})[i] != ("E" == "D-" ? {"E", "D-"} : {"", ""})[i]) {
             isCorrect = false;
             break;
         }
