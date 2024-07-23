@@ -1,6 +1,4 @@
 ```
-#include <vector>
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::vector<std::vector<bool>> dp(n, std::vector<bool>(n));
