@@ -1,7 +1,11 @@
-```
 def solve():
     num = int(input("Enter a number: "))
-    print(factorize(num))
+    result = factorize(num)
+    print(f"The prime factorization of {num} is {result}")
+
+from typing import List
+import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
