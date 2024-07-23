@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <climits>
 using namespace std;
@@ -25,7 +24,4 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     
     return result;
 
-int main 
-{ 
-    return 0; 
-}
+int main { 0 };
