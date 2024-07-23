@@ -3,21 +3,33 @@
 using namespace std;
 
 bool isvowl(char c) {
-    string vowels = "aeiouAEIOU";
-    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
+    char vowels[] = {'a', 'e', 'i', 'o', 'u'};
+    for (int i = 0; i < 5; i++) {
+        if (c == tolower(vowels[i]))
+            return true;
+    }
+    return false;
 }
 
-std::string get_closest_vowel(std::string word) {
-    for (int i = 0; i < word.size(); ++i) {
-        if (isvowl(word[i])) {
-            return std::string(1, tolower(word[i]));
+string get_closest_vowel(string word) {
+    int min_index = -1;
+    int min_distance = INT_MAX;
+    
+    for(int i=0; i<word.size(); ++i) {
+        if(isvowl(word[i])) {
+            int distance = abs(i-word.size()/2);
+            if(distance < min_distance) {
+                min_distance = distance;
+                min_index = i;
+            }
         }
     }
-    return "";
+    
+    return string(1, word[min_index]);
 }
 
 int main() {
-    assert(get_closest_vowel("Above") == "o");
-    cout << get_closest_vowel("Apple") << endl;
+    assert (get_closest_vowel("Above") == "o");
+    cout << get_closest_vowel("Hello") << endl;
     return 0;
 }
