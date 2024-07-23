@@ -1,8 +1,10 @@
-```
 def check_dict_case(dict):
     if not dict:
         return False
-    keys = [key for key in dict.keys()]
-    all_lower = all(key.islower() for key in keys)
-    all_upper = all(key.isupper() for key in keys)
-    return all_lower or all_upper
+    case = set()
+    for key in dict:
+        if isinstance(key, str):
+            case.add(key.lower())
+        else:
+            return False
+    return len(case) == 1
