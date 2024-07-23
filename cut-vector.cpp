@@ -10,6 +10,7 @@ int main() {
 
     while (cin >> num) {
         vec.push_back(num);
+        if (cin.peek() == '\n') break;
     }
 
     int n = vec.size();
