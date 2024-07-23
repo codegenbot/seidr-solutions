@@ -1,15 +1,9 @@
 from typing import List
 
 
-def remove_duplicates(input_list: str) -> None:
+def remove_duplicates() -> None:
     while True:
-        user_input = input(
-            f"Enter a list of numbers separated by space or comma (default is {input_list}): "
-        )
-
-        if not user_input:
-            user_input = input_list
-            break
+        user_input = input("Enter the list of numbers separated by space or comma: ")
 
         try:
             numbers = list(map(int, user_input.replace(",", " ").split()))
@@ -18,4 +12,4 @@ def remove_duplicates(input_list: str) -> None:
             print("Invalid input. Please enter valid integers.")
 
     unique_numbers = sorted(set(map(str, numbers)))
-    print(f"Unique numbers in the given list: {unique_numbers}")
+    print("Unique numbers:", unique_numbers)
