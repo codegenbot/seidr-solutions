@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float snowDay(int hours, float onGround, float rate, float melt) {
-    float total = 0;
+    float total = onGround;
     for (int i = 0; i < hours; i++) {
         total += rate;
         if (total > onGround) {
