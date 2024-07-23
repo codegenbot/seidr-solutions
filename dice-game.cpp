@@ -16,4 +16,6 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main() { cout << diceGame(43, 98); return 0; }
+int main(int argc, char** argv) {
+    cout << diceGame(43, 98);
+}
