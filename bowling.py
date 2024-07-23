@@ -39,9 +39,9 @@ def bowling_score(frames):
                     if total_pins > 0 and total_pins < 10:
                         score += total_pins
                         break
-                    elif total Pins >= 10:
+                    elif total_pins >= 10:
                         score += 10
-                        total pins -= 10
+                        total_pins -= 10
                         break
         elif char == 'X':
             score += 10
