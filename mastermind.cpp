@@ -1,4 +1,9 @@
-int mastermind(std::string code, std::string guess) {
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -9,10 +14,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : code) {
-        if (std::count(guess.begin(), guess.end(), c) > 0) {
+        auto it = std::find(guess.begin(), guess.end(), c);
+        while (it != guess.end()) {
             white++;
+            it = std::find(it+1, guess.end(), c);
         }
     }
 
-    return {black, white};
+    return black;
 }
