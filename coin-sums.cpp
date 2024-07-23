@@ -5,17 +5,19 @@ int main() {
     int cents;
     cin >> cents;
     
-    int quarters = cents / 25;
-    cents %= 25;
+    int quarters = 0;
+    while (cents >= 25) {
+        quarters++;
+        cents -= 25;
+    }
     
-    int remainingCents = 25 * quarters; // subtract the coins used
-    dimes = remainingCents / 10;
-    remainingCents %= 10;
+    int dimes = cents / 10;
+    cents %= 10;
     
-    nickles = remainingCents / 5;
-    remainingCents %= 5;
+    int nickles = cents / 5;
+    cents %= 5;
     
-    pennies = remainingCents;
+    int pennies = cents % 5; // or simply cents % 1, since pennies are always single units
     
     cout << quarters << endl;
     cout << nickles << endl;

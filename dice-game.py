@@ -1,6 +1,6 @@
 import math
+
+
 def dice_game(n, m):
-    if n > m:
-        return 1 - (n + m) / (n * m)
-    else:
-        return 0
+    prob_equal = min(n, m) / (n * m)
+    return 1 - prob_equal
