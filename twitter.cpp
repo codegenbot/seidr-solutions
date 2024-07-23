@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -14,7 +15,7 @@ int main() {
     int charCount = 0; 
     for (char c : tweet) {
         if (!isspace(c)) {
-            charCount++; 
+            charCount++;
         }
     }
     if (charCount > 140) {
