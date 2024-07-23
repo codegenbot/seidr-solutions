@@ -1,16 +1,16 @@
-string solveBoolean(string s) {
+bool solveBoolean(string s) {
     bool boolResult;
-    bool result = (s[0] == 'T');
+    boolResult = (s == "T");
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            result &= (left[0] == 'T') | (right[0] == 'T');
+            boolResult &= ((left == "T") | (right == "T"));
         } else if(s[i] == '|') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            result |= (left[0] == 'T') | (right[0] == 'T');
+            boolResult |= ((left == "T") | (right == "T"));
         }
     }
-    return result ? "True" : "False";
+    return boolResult ? "True" : "False";
 }
