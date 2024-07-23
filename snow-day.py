@@ -1,8 +1,11 @@
-Here is the Python solution:
+Here is the solution:
 
-def snow_day(hours, ground_snow, rate_snowfall, melt_rate):
-    snow = ground_snow
-    for _ in range(hours):
-        snow += rate_snowfall
-        snow *= (1 - melt_rate)
-    return round(snow, 8)
+def snow_day(hours, initial_snow, rate, melt_rate):
+    return (initial_snow + hours * rate) / (1 - melt_rate) ** hours
+
+hours = int(input())
+initial_snow = float(input())
+rate = float(input())
+melt_rate = float(input())
+
+print(snow_day(hours, initial_snow, rate, melt_rate))
