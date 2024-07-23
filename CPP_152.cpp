@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <vector>
 #include <cmath>
 
@@ -22,5 +21,24 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
+    std::vector<int> game = {1,2,3,5};
+    std::vector<int> guess = {-1,2,3,4};
+    if (issame(game,guess)) {
+        for(int i=0; i<game.size();i++) {
+            if(guess[i]==game[i]) {
+                printf("Color %d is correct.\n",i+1);
+            } else {
+                printf("The color of the card you chose is different. You picked a card of %d and the actual color is %d.\n",(guess[i]+1),abs(game[i]-guess[i]));
+            }
+        }
+    } else {
+        for(int i=0; i<game.size();i++) {
+            if(guess[i]==game[i]) {
+                printf("Color %d is correct.\n",i+1);
+            } else {
+                printf("The color of the card you chose is different. You picked a card of %d and the actual color is %d.\n",(guess[i]+1),abs(game[i]-guess[i]));
+            }
+        }
+    }
+    return 0;
 }
