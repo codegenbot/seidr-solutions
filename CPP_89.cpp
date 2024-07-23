@@ -1,20 +1,20 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string encrypt(string s) {
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            int val = (int)c;
-            if(val<97+3)
-                result += (char)(val+3);
-            else
-                result += (char)(96+2-(c-122));
+std::string encrypt(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = ((c - base + 3) % 26) + base;
         }
-        else {
-            result += c;
-        }
+        result += c;
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "d");
+    std::cout << encrypt("Hello, World!") << std::endl;
+    return 0;
 }
