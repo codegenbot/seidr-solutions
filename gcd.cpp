@@ -41,7 +41,13 @@ int main() {
     stringstream ss(input);
 
     int a, b;
-    ss >> a >> b;
+    string input1;
+    getline(cin, input1);
+    stringstream ss1(input1);
+    ss1 >> a;
+    ss1.ignore();
+    ss1 >> b;
+
     cout << gcd(a, b) << endl;
 
     string text, target;

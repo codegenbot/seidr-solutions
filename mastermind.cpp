@@ -1,28 +1,29 @@
 #include <iostream>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
 
     int codeFreq[6] = {0};
     int guessFreq[6] = {0};
-    int white = 0, black = 0;
+
+    int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++black;
+            ++blackPegs;
         } else {
             ++codeFreq[code[i] - 'A'];
             ++guessFreq[guess[i] - 'A'];
         }
     }
 
-    for (int i = 0; i < 6; ++i) {
-        white += std::min(codeFreq[i], guessFreq[i]);
-    }
+    for (int i = 0; i < 6; ++i) whitePegs += min(codeFreq[i], guessFreq[i]);
 
-    std::cout << black << " " << white << std::endl;
+    cout << whitePegs << " " << blackPegs << endl;
 
     return 0;
 }
