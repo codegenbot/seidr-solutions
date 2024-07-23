@@ -1,43 +1,55 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<int> res1, res2;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
-    for (int i = 0; i < n - 1; i++) {
-        if (abs(nums[i] - nums[i + 1]) <= abs(nums[0] - nums[n - 1])) {
-            res1 = vector<int>(nums.begin(), nums.begin() + i + 1);
-            res2 = vector<int>(nums.begin() + i, nums.end());
-            return {res1, res2};
+    for (int i = 1; i <= v.size() / 2; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    // if no cut is found
-    res1 = vector<int>(nums.begin(), nums.end());
-    res2 = {};
-    return {res1, res2};
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
+    
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        cin >> v[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    cout << "First subvector: ";
-    for (int num : result.first) {
-        cout << num << " ";
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << endl;
-    cout << "Second subvector: ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "] [" << endl;
+    cout << "[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
     }
-    cout << endl;
+    cout << "] 0" << endl;
     
     return 0;
 }
