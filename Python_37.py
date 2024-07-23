@@ -1,6 +1,3 @@
-def check(lst):
-    even = sorted([x for x in lst[0] if x % 2 == 0])
-    odd = sorted([x for x in lst[1] if x % 2 != 0])
-    return (even, odd)
-
-check(([1, 2, 3, 4], [5, 6]))
+def sort_even(input_list: list) -> tuple:
+    even_and_odd = sort_even_odd(input_list)
+    return (list(even_and_odd[0]), list(even_and_odd[1]))
