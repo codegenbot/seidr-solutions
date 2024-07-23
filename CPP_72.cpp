@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,7 +23,7 @@ bool is_palindrome(string s) {
 int main() {
     int n, w;
     cin >> n >> w;
-    vector<int> q(n, 0); // initialize with n zeros
+    vector<int> q(n, 0); // Initialize the vector q with size n
     for (int i = 0; i < n; i++) {
         cin >> q[i];
     }
