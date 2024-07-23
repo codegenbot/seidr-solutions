@@ -1,12 +1,15 @@
-def indices_of_substring(text):
-    target = "your_target_string"
+def indices_of_substring():
+    input_string = input()
+    target = input()
     result = []
     pos = 0
     while True:
-        pos = text.find(target, pos)
+        pos = input_string.find(target, pos)
         if pos == -1:
             break
         result.append(pos)
         pos += len(target)
 
-print(indices_of_substring("F[g([g(y[g([g(H~[g,[ "))
+    return result
+
+print(indices_of_substring())
