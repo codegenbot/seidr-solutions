@@ -3,8 +3,15 @@ from collections import defaultdict
 code = input("Enter the code: ").strip()
 guess = input("Enter the guess: ").strip()
 
-assert len(code) == 4 and all(char in 'ABCDEF' for char in code)
-assert len(guess) == 4 and all(char in 'ABCDEF' for char in guess)
+if (
+    len(code) != 4
+    or len(guess) != 4
+    or not all(char in "ABCDEF" for char in code + guess)
+):
+    print(
+        "Invalid input. Code and guess must be 4 characters each and consist of characters A, B, C, D, E, F."
+    )
+    exit()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
