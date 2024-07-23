@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -14,8 +13,11 @@ string camelCase(string s) {
                 result += toupper(s[i]);
                 i++;
             }
-            result += " ";
+            if (!result.empty())
+                result += "";
         } else {
+            if (!result.empty()) 
+                result += "";
             result += tolower(s[i]);
         }
     }
