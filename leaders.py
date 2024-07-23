@@ -1,10 +1,10 @@
+```
 def leaders(arr):
-    max_seen = arr[-1]
-    leaders_list = [max_seen]
+    n = len(arr)
+    leaders_list = [arr[n-1]]
 
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= max_seen:
-            max_seen = arr[i]
-            leaders_list.append(max_seen)
+    for i in range(n-2, -1, -1):
+        if arr[i] >= max(arr[i+1:]):
+            leaders_list.insert(0, arr[i])
 
-    return leaders_list[::-1]
+    return leaders_list
