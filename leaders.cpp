@@ -23,9 +23,8 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {17, 15, 100, 70};
+    vector<int> input = {17, 28, 4};
     vector<int> result = leaders(input);
-    for (auto num : result) {
-        cout << num << " ";
-    }
+    for (int i: result) cout << i << " ";
+    return 0;
 }
