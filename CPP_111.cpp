@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cassert>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
+
 }
 
 map<char, int> histogram(const string& str) {
@@ -35,6 +37,4 @@ map<char, int> histogram(const string& str) {
 
 int main() {
     assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
-    cout << "Test passed!" << endl;
-    return 0;
 }
