@@ -11,9 +11,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string brackets;
-    // read input from user
-    // process the string as needed
-    assert(!correct_bracketing("()()(()())")); 
+    assert(correct_bracketing("()()(()())")); 
     return 0;
 }
