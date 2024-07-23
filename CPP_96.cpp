@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> count_up_to(int n) {
-    vector<int> result; // Initialize the vector here
+    vector<int> result; 
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -21,7 +21,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-int main() {
+vector<int> main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -38,5 +38,5 @@ int main() {
         cout << endl;
     }
     
-    return 0;
+    return primes;
 }
