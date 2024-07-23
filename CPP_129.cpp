@@ -1,3 +1,19 @@
+Here is the corrected code:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility>
+
+using namespace std;
+
+struct cmp {
+    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
+        return p1.second > p2.second;
+    }
+};
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<pair<int, pair<int, int>>>> neighbors(n);
@@ -17,21 +33,23 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    vector<int> res(k);
+    vector<int> res;
+    int sum = 0;
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
+        auto [temp_sum, {ni, ns}] = q.top(); q.pop();
+        sum = temp_sum;
         if (k == 0) {
-            return res;
+            return vector<int>{sum}; 
         }
-        for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
+        for (auto& neighbor : neighbors[ni]) {
+            int nns = neighbor.second; 
+            int temp_ns = sum - grid[ni][ns] + nns;
             k--;
-            q.push({ns, make_pair(ni, nj)});
+            q.push({temp_ns, make_pair(ni, nns)}); 
         }
     }
 
-    return res;
+    return vector<int>{}; // Return empty if no path found.
 }
 
 int mainTest() {
