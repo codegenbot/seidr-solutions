@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 #include <iostream>
 
 long long double_the_difference(std::vector<float> lst) {
@@ -27,6 +27,6 @@ int main() {
         myVector.push_back(temp);
     }
 
-    int result = double_the_difference(myVector); 
+    long long result = double_the_difference(myVector); 
     return 0;
 }
