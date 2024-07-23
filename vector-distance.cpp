@@ -25,7 +25,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << fixed << result << "\n";
+    cout << result << "\n";
 
     return 0;
 }
