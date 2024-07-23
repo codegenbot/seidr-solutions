@@ -3,4 +3,4 @@ def dice_game(n, m):
     if n < m:
         return 0
     else:
-        return (n-m)/(n*m)
+        return round((n-m)/(n*m), 6)
