@@ -6,9 +6,9 @@ def coin_sums(cents):
     cents %= 25
     results[0] = quarters
 
-    nickles = cents // 10
+    nickels = cents // 10
     cents %= 10
-    results[1] = nickles
+    results[1] = nickels
 
     dimes = cents // 5
     cents %= 5
