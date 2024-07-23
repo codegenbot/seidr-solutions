@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -9,6 +10,6 @@ int main() {
         probability += min(i - 1, m);
     }
     probability /= n * m;
-    cout << probability << endl;
+    cout << fixed << setprecision(7) << probability << endl;
     return 0;
 }
