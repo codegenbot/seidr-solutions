@@ -1,8 +1,7 @@
+Here is the modified code:
+
 ```
-from typing import List
-
-
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     while True:
         try:
             if not numbers:
