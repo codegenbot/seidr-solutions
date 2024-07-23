@@ -22,10 +22,11 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string userInput;
+    string input;
     cout << "Enter a Boolean expression (T/F/|/&): ";
-    getline(cin, userInput); 
-    bool result = solveBoolean(userInput);
+    getline(cin, input); 
+    cin.ignore(); 
+    bool result = solveBoolean(input.c_str()); 
     if(result)cout<<"True";
     else cout<<"False";
 }
