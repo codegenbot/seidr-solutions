@@ -1,9 +1,16 @@
 def shopping_list():
-    n = int(input())
-    prices_and_discounts = list(map(float, input().split()))
-    discounts = [price - 1 for price in prices_and_discounts[:n]]
-    prices = [price for price in prices_and_discounts[n:]]
     total_price = 0
-    for i in range(n):
-        total_price += (1 - discounts[i] / 100) * prices[i]
+    while True:
+        try:
+            n = int(input())
+            break
+        except ValueError:
+            pass
+    for _ in range(n):
+        prices = list(map(float, input().split()))
+        discounts = list(map(float, input().split()))
+        temp_price = 0
+        for i in range(len(prices)):
+            temp_price += (1 - discounts[i] / 100) * prices[i]
+        total_price += temp_price
     return round(total_price, 2)

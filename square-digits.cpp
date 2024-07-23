@@ -1,10 +1,9 @@
-```cpp
-#include <string>
+#include <iostream>
 using namespace std;
 
-string squareDigits(string n) {
+string squareDigits(string input) {
     string result = "";
-    for (char c : n) {
+    for (char c : input) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
@@ -12,8 +11,6 @@ string squareDigits(string n) {
 }
 
 int main() {
-    string n = "1234";
-    string result = squareDigits(n);
-    cout << result << endl;
+    cout << squareDigits("17") << endl; 
     return 0;
 }

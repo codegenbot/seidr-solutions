@@ -1,38 +1,19 @@
-#include <stack>
+```cpp
 #include <string>
+#include <cctype>
 
-using namespace std;
-
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            s.push(expression[i]);
+std::string solveBoolean(std::string expression) {
+    bool result = (expression == "T") || (expression == "true");
+    for(int i = 0; i < expression.length(); i++) {
+        if(expression[i] == '&') {
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            result &= solveBoolean(left) && solveBoolean(right);
+        } else if(expression[i] == '|') {
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            result |= solveBoolean(left) || solveBoolean(right);
         }
     }
-
-    bool result = false;
-    while (!s.empty()) {
-        char c = s.top();
-        s.pop();
-        if (c == '|') {
-            result = true;
-        } else if (c == '&') {
-            result = false;
-        } else {
-            result = c == 'T';
-        }
-    }
-
-    return result;
+    return (result) ? "True" : "False";
 }
