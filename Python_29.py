@@ -12,8 +12,7 @@ def filter_by_prefix() -> List[str]:
                 prefix = input("Enter a prefix: ")
                 if prefix:  
                     break
-
-                raise ValueError("Please enter valid prefix!")
+                raise ValueError("Please enter a valid prefix!")
 
             filtered_strings = [s.strip() for s in strings.split() if s.strip().startswith(prefix)]
             return filtered_strings
