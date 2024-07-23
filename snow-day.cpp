@@ -25,3 +25,4 @@ int main() {
     std::cout << "After " << hours << " hours, there will be " << result << " cm of snow on the ground.\n";
 
     return 0;
+}
