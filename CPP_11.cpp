@@ -1,23 +1,17 @@
-#include <string>
+#include <iostream>
+#include <cstring>
 
-char* string_xor(char* a, char* b) {
-    int i = 0;
-    int len = strlen(a);
-    int max_len = (len > strlen(b)) ? len : strlen(b);
-    char* result = new char[max_len + 1];
-    
-    for(i = 0; i < max_len; i++) {
-        if(i >= len)
-            result[i] = b[i];
-        else if(i >= strlen(b))
-            result[i] = a[i];
+string string_xor(string a, string b) {
+    string result;
+    for(int i = 0; i < a.length(); i++) {
+        char c1 = a[i];
+        char c2 = (i < b.length()) ? b[i] : '0';
+        if(c1 == '0' && c2 == '0')
+            result += '0';
+        else if(c1 == '0' || c2 == '0')
+            result += '1';
         else
-            result[i] = (a[i] == '0' && b[i] == '0') ? '0' : ((a[i] == '0' || b[i] == '0') ? '1' : '0');
+            result += '0';
     }
-    
-    for(i = 0; i <= max_len; i++) {
-        result[max_len + i - 1] = '\0';
-    }
-    
     return result;
 }
