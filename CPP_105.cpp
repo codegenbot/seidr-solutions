@@ -1,20 +1,23 @@
-#include <vector>
+```cpp
+#include <iostream>
 #include <string>
+#include <vector>
 
 std::vector<std::string> by_length(std::vector<int> lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
-        if (length == 4)
+        if (length == 4) {
             result.push_back("Four");
-        else if (length == 8)
+        } else if (length == 8) {
             result.push_back("Eight");
-        else if (length == 9)
+        } else if (length == 9) {
             result.push_back("Nine");
+        }
     }
     return result;
 }
 
-bool issame(std::vector<string> a, std::vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
 
