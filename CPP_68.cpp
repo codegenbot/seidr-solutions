@@ -1,21 +1,41 @@
-```cpp
 #include <vector>
-#include <utility>
+#include <iostream>
 
-std::pair<int, int> result(const std::vector<int>& arr) {
-    for(int i = 0; i < arr.size(); ++i) {
-        if(arr[i] % 2 == 1) {
-            return {arr[i], i};
+int count_even(int n) {
+    int count = 0;
+    for (int i = 2; i <= n; ++i) {
+        if (i % 2 == 0) {
+            ++count;
         }
     }
-    return {-1, -1}; // or any other default value
+    return count;
+}
+
+std::vector<std::pair<int, int>> result(std::vector<int> v) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < v.size(); ++i) {
+        output.push_back({v[i], i});
+    }
+    return output;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
     std::vector<int> arr = {1, 2, 3, 4};
     std::vector<std::pair<int, int>> output = result(arr);
     for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
     }
     return 0;
 }
