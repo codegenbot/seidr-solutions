@@ -1,15 +1,16 @@
 n = int(input())
-vec = []
-for i in range(n):
-    vec.append(int(input()))
+vec = [int(input()) for _ in range(n)]
 
-min_diff = float("inf")
+diff = float("inf")
 cut_index = -1
 
 for i in range(1, n):
-    diff = abs(sum(vec[:i]) - sum(vec[i:]))
-    if diff < min_diff or (diff == min_diff and i < cut_index):
-        min_diff = diff
+    left_sum = sum(vec[:i])
+    right_sum = sum(vec[i:])
+
+    current_diff = abs(left_sum - right_sum)
+    if current_diff < diff:
+        diff = current_diff
         cut_index = i
 
 print(*vec[:cut_index])
