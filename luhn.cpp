@@ -1,18 +1,27 @@
-```cpp
 #include <vector>
+#include <iostream>
 
-int luhn(vector<int> digits) {
+using namespace std;
+
+int luhnCheck(const vector<int>& cc) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2) == 1) {
-            int digit = digits[i] * 2;
-            if (digit > 9) {
-                digit -= 9;
+    for (int i = 0; i < cc.size(); i++) {
+        if (i % 2 == 1) {
+            int temp = cc[i] * 2;
+            if (temp > 9) {
+                temp -= 9;
             }
-            sum += digit;
+            sum += temp;
         } else {
-            sum += digits[i];
+            sum += cc[i];
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> cc = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 0, 2, 0, 8};
+    int result = luhnCheck(cc);
+    cout << "Result: " << result << endl;
+    return 0;
 }
