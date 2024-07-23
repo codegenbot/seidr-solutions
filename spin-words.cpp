@@ -21,7 +21,9 @@ std::string spinWords(std::string str) {
 
     if (word.length() >= 5) {
         std::reverse(word.begin(), word.end());
+        result += word;
+    } else {
+        result += word;
     }
-    result += word;
 
     return result;
