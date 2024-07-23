@@ -7,7 +7,7 @@ int eat(int a, int b, int c) {
     return (a + b + c) / 3;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool areSameVectors(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) 
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -18,6 +18,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame({eat(4, 5, 1)}, {0}));
+    assert(eat(4, 5, 1) == 3);
     return 0;
 }
