@@ -4,7 +4,7 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 half_sum = total_sum // 2
 prefix_sum = 0
-min_diff = float("inf")
+min_diff = total_sum  # Initialize min_diff with total_sum
 cut_index = -1
 
 for i in range(n):
