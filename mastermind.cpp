@@ -1,35 +1,35 @@
 #include <iostream>
-#include <algorithm>
+#include <string>
+#include <vector>
 
-using namespace std;
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    int codeFreq[26] = {0};
-    int guessFreq[26] = {0};
-
+std::pair<int, int> calculatePegs(const std::string& code, const std::string& guess) {
+    std::vector<int> codeFreq(6, 0);
     int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
-            codeFreq[code[i] - 'A'] += 1;
-            guessFreq[guess[i] - 'A'] += 1;
+            blackPegs++;
+        } else {
+            codeFreq[code[i] - 'A']++;
         }
     }
 
-    whitePegs = 0;
     for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeFreq[code[i] - 'A'] > 0 && guessFreq[guess[i] - 'A'] > 0) {
-            ++whitePegs;
-            --codeFreq[code[i] - 'A'];
-            --guessFreq[guess[i] - 'A'];
+        if (code[i] != guess[i] && codeFreq[guess[i] - 'A'] > 0) {
+            whitePegs++;
+            codeFreq[guess[i] - 'A']--;
         }
     }
 
-    cout << whitePegs << " " << blackPegs << endl;
+    return {whitePegs, blackPegs};
+}
+
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+
+    auto result = calculatePegs(code, guess);
+    std::cout << result.first << " " << result.second << std::endl;
 
     return 0;
 }
