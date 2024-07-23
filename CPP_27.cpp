@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <string>
 #include <iostream>
@@ -23,7 +22,11 @@ std::string flip_case(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
+    std::cin >> str;
+    if (!std::cin) {
+        std::cerr << "Invalid input." << std::endl;
+        return 1;
+    }
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
-    static_assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS", "");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }

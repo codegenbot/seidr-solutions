@@ -1,12 +1,7 @@
-```
-def sort_even():
-    num_list = []
-    while True:
-        try:
-            num = int(input("Enter a number (or 'q' to quit): "))
-            if num == 'q':
-                break
-            num_list.append(num)
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return sort_even(num_list)
+def sort_even_odd(lst):
+    even = sorted([x for x in lst if x % 2 == 0])
+    odd = sorted([x for x in lst if x % 2 != 0])
+    return (even, odd)
+
+result = sort_even_odd([1, 2, 3, 4, 5, 6])
+print(result)
