@@ -3,7 +3,7 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
