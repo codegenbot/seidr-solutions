@@ -4,21 +4,19 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-    
-    int quarters = cents / 25; // Calculate quarters with remaining cents
-    int remaining_cents = cents % 25; 
-    int dimes = remaining_cents / 10;
-    int remainder = remaining_cents % 10;
-    
-    int nickles = remainder / 5;
-    remainder %= 5;
-    
-    int pennies = remainder;
-    
-    cout << "Quarters: " << quarters << endl;
-    cout << "Dimes: " << dimes << endl;
-    cout << "Nickles: " << nickles << endl;
+
+    int pennies = cents / 1;
+    int remaining = cents % 1;
+    int nickels = remaining / 25;
+    remaining %= 25;
+    int dimes = remaining / 10;
+    remaining %= 10;
+    int quarters = remaining / 5;
+
     cout << "Pennies: " << pennies << endl;
-    
+    cout << "Nickels: " << nickels << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Quarters: " << quarters << endl;
+
     return 0;
 }
