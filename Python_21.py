@@ -12,7 +12,11 @@ while True:
                     numbers_list.append(num)
                 except ValueError:
                     print("Invalid input. Please enter valid numbers.")
-            if not numbers_list:
-                print("Please enter at least one number.")
-    except ValueError:
+            if numbers_list:
+                result = rescale_to_unit(numbers_list)
+                try:
+                    print(result)
+                except Exception as e:
+                    print(f"An error occurred: {str(e)}")
+    except (ValueError, TypeError):
         print("Invalid input. Please enter valid numbers.")
