@@ -27,21 +27,19 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    string text = "banana";
-    string target = "ana";
-
+    string text = "Hello, World!";
+    string target = "World";
     vector<int> indices = indicesOfSubstring(text, target);
-
-    cout << "Indices of substring 'ana' in the string 'banana': ";
+    cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
-
-    long long a = 24;
-    long long b = 30;
+    
+    long long a = 48;
+    long long b = 18;
     long long result = gcd(a, b);
     cout << "GCD of " << a << " and " << b << ": " << result << endl;
-
+    
     return 0;
 }
