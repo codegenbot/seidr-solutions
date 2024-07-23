@@ -5,4 +5,4 @@ def remove_duplicates(input_list=None):
     if not input_list:  
         return []  
     seen = {}
-    return [x for x in sorted(input_list) if not (seen.setdefault(x, True),)]
+    return sorted([x for x in input_list if not (seen.setdefault(x, True),)], reverse=True)
