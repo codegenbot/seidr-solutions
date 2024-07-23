@@ -1,2 +1,2 @@
 def solve():
-    return sum((x//3-2) for x in map(int, input().split()))
+    return sum((round(i/3) - 2) for i in map(int, input().split()))
