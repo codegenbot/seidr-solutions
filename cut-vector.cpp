@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
-#include <climits>  // for INT_MAX
-#include <cmath>    // for abs
+#include <climits>  
+#include <cmath>  
 
 using namespace std;
 
@@ -17,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
         if (leftSum == rightSum) {
-            return {{}, {v.begin(), v.end()}};
+            return pair<vector<int>, vector<int>>(vector<int>(), {v.begin(), v.end()});
         } else if (abs(leftSum - rightSum) < minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
@@ -30,11 +30,20 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return {{v.begin(), v.begin() + cutIndex}, {v.begin() + cutIndex, v.end()}};
+    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
+                                            vector<int>(v.begin() + cutIndex, v.end()));
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; // example input
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    // Test your function
+    vector<int> v = {1, 2, 3};
+    auto result = cutVector(v);
+    for (const auto& vec : result) {
+        cout << "[";
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << "]" << endl;
+    }
     return 0;
 }
