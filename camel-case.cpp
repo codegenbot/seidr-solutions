@@ -7,23 +7,17 @@ std::string kebabToCamel(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
-                if (capitalizeNext) {
-                    result.push_back(toupper(result[0]));
-                } else {
-                    result.insert(0, 1, tolower(c));
-                }
                 capitalizeNext = true;
-                result.erase(0, 1);
             }
+            if (c == ' ') continue;  // Remove extra space
+            result.push_back(' ');
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            if (capitalizeNext) {
-                result += toupper(c);
-                capitalizeNext = false;
-            } else {
-                result += tolower(c);
-            }
+            result += tolower(c);
         }
     }
 
-    return capitalizeNext ? result : (result + toupper(result[0]));
+    return result;
 }
