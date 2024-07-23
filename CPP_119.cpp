@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int match_parens(vector<string> lst) {
     int open = 0;
     for (const auto& str : lst) {
@@ -8,11 +11,12 @@ int match_parens(vector<string> lst) {
             if (open < 0) return 0;
         }
     }
-    return open == 0;
-
+    return open == 0 ? 1 : 0;
 }
 
 int main() {
-    cout << (match_parens({{"(", ")"})} ? "Yes" : "No");
+    vector<string> lst = {{"("}, {")"});
+    if (match_parens(lst)) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
