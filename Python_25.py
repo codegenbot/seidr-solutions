@@ -1,4 +1,3 @@
-```python
 def factorize(n: int) -> List[int]:
     if n <= 1:
         return [n]
