@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <cctype>
@@ -5,7 +6,7 @@
 
 using namespace std;
 
-bool compare(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -25,7 +26,6 @@ vector<string> odd_count(vector<string> lst) {
         result.push_back("the number of odd elements " + to_string(count) + " in the string " + to_string(i+1));
     }
     return result;
-}
 
 int main() {
     vector<string> test = {"271", "137", "314"};
@@ -33,7 +33,7 @@ int main() {
                                "the number of odd elements 1 in the string 2", 
                                "the number of odd elements 0 in the string 3"};
     vector<string> result = odd_count(test);
-    bool same = compare(result, expected);
+    bool same = issame(result, expected);
     if (same) {
         cout << "Test passed." << endl;
     } else {
