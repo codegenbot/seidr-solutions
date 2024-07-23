@@ -1,31 +1,35 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    int start = 0;
+std::string spinWords(const std::string& input) {
+    std::string output;
+    size_t start = 0;
 
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(start, i - start);
+    for (size_t i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || input[i] == ' ') {
+            size_t length = i - start;
+            std::string word = input.substr(start, length);
 
-            if (word.length() >= 5) {
+            if (length >= 5)
                 std::reverse(word.begin(), word.end());
-            }
 
-            result += word + " ";
+            output += word;
+
+            if (i < input.size())
+                output += ' ';
+
             start = i + 1;
         }
     }
 
-    return result.substr(0, result.length() - 1);
+    return output;
 }
 
 int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << spinWords(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << '\n';
+    }
     return 0;
 }
