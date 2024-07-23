@@ -41,6 +41,6 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         cout << vec[i] << endl;
     }
-    
+
     return 0;
 }
