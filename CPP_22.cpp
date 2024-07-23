@@ -21,5 +21,10 @@ std::vector<int> filter_integers(std::vector<int> mixedVector) {
 
 int main() {
     assert(is_same(filter_integers({3, 3, 3}), {3, 3, 3}));
+
+#ifndef NDEBUG
+    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+#endif
+
     return 0;
 }
