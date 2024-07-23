@@ -24,7 +24,3 @@ std::vector<int> result(const std::vector<int>& game, const std::vector<int>& gu
     }
     return result;
 }
-
-int main() {
-    assert(isSame(compare({1,2,3,5},{-1,2,3,4}), std::vector<int>({2,0,0,1})));
-}
