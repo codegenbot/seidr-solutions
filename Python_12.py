@@ -1,4 +1,6 @@
 def longest(strings):
     if not strings:
         return None
-    return max(map(str, set(strings)), key=len)
+    unique_strings = list(set(map(str, strings)))
+    longest_string = max(unique_strings, key=len) if unique_strings else None
+    return longest_string
