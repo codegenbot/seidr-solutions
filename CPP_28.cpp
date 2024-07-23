@@ -1,4 +1,8 @@
-using namespace std;
+```cpp
+int main() {
+    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    return 0;
+}
 
 string concatenate(vector<string> strings){
     string result = "";
@@ -6,3 +10,4 @@ string concatenate(vector<string> strings){
         result += str;
     }
     return result;
+}
