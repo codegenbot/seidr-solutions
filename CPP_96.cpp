@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,6 +19,7 @@ vector<int> count_up_to(int n) {
             result.push_back(i);
     }
     return result;
+
 }
 
 int main() {
@@ -39,4 +40,3 @@ int main() {
     }
     
     return 0;
-}
