@@ -1,7 +1,9 @@
-def solve_boolean(s):
-    while '&' in s or '|' in s:
-        if '&' in s:
-            s = '(' + s[:s.index('&')] + ' & ' + s[s.index('&') + 1:] + ')'
-        elif '|'in s:
-            s = '(' + s[:s.index('|')] + ' | ' + s[s.index('|') + 1:] + ')'
-    return eval(s)
+def solve_boolean(input):
+    while '&' in input or '|' in input:
+        if '&' in input:
+            left, right = input.split('&', 1)
+            input = str(solve_boolean(left) and solve_boolean(right))
+        elif '|' in input:
+            left, right = input.split('|', 1)
+            input = str(solve_boolean(left) or solve_boolean(right))
+    return eval(input.replace('T', 'True').replace('F', 'False'))

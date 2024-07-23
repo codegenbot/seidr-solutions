@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <iomanip> // for fixed and std::setprecision
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
@@ -18,6 +18,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> prices[i] >> discounts[i];
     }
-    cout << fixed << setprecision(1) << shoppingList(vector<float>(prices), vector<float>(discounts)) << endl;
+    cout << fixed << std::setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
