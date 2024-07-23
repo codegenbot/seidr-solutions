@@ -9,11 +9,13 @@ def bouncing_balls():
     height = start_height
 
     for _ in range(num_bounces):
-        distance_per_bounce = 2 * height
-        total_distance += distance_per_bounce
+        total_distance += 2 * height
         height *= bounciness_index
+        if height > 1e-5: 
+            total_distance += 2 * height
+        else:
+            break
 
-    total_distance *= 2  
     return round(total_distance, 4)
 
 
