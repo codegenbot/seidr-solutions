@@ -1,7 +1,3 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> remove_duplicates(vector<int> numbers) {
     unordered_map<int, bool> map;
     vector<int> result;
@@ -14,4 +10,13 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
 
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
+    return 0;
 }
