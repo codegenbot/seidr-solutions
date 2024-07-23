@@ -1,10 +1,14 @@
-```Python
 from typing import List
 import statistics
 
-
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    if not numbers:
+def mean_absolute_deviation() -> float:
+    numbers_str = input("Enter comma-separated float values: ")
+    numbers_list = [float(num) for num in numbers_str.split(",") if num.replace('-', '',).replace('.', '').replace('+', '').isnumeric()]
+    
+    if not numbers_list:
         return 0
+    
+    avg = statistics.mean(numbers_list)
+    return statistics.mean([abs(num - avg) for num in numbers_list])
 
-    return statistics.mean_abs_deviation(numbers)
+print(mean_absolute_deviation())
