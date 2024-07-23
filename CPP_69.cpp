@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
-int findTheMiddleElement(vector<int>& nums) {
+int search(vector<int> lst) {
     map<int, int> freqMap;
-    for (int num : nums) {
+    for (int num : lst) {
         if (!freqMap.count(num)) {
             freqMap[num] = 1;
         } else {
