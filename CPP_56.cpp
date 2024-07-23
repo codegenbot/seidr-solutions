@@ -11,3 +11,4 @@ bool correct_bracketing(const char* brackets) {
         brackets++; 
     }
     return count == 0;
+}
