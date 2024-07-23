@@ -7,10 +7,9 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     while True:
-        text = input("Enter a string (or 'stop' to exit): ")
-        if text.lower() == 'stop':
-            break
+        text = input("Enter a string: ")
         if text:
             print(string_to_md5(text))
+            break
         else:
             print("Invalid input. Please enter a string.")
