@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <assert.h>
 
@@ -18,8 +19,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::
 }
 
 int main() {
-    std::vector<std::string> arr = {"grunt", "trumpet", "prune", "gruesome"};
-    std::string sub = "run";
-    assert(issame(filter_by_substring(arr, sub), {"grunt", "prune"}));
+    assert(issame(filter_by_substring(std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"}), "run"), std::vector<std::string>({"grunt", "prune"})));
     return 0;
 }
