@@ -6,11 +6,11 @@ using namespace std;
 float snowDay(int hours, float onGround, float rate, float melt) {
     float total = 0;
     for (int i = 0; i < hours; i++) {
-        total += rate; 
-        if (total > onGround) { 
-            total -= (total - onGround); 
+        total += rate; // accumulate snow first
+        if (total > onGround) { // check if new accumulation exceeds the ground
+            total -= (total - onGround); // melt excess
         } else {
-            total -= melt * total; 
+            total -= melt * total; // melt proportional to current amount
         }
     }
     return total;
