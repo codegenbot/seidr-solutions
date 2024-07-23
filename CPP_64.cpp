@@ -15,6 +15,5 @@ int vowels_count(std::string s){
 
 int main() {
     assert(vowels_count("ACEDY") == 3);
-    // Your code here
     return 0;
 }
