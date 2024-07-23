@@ -1,4 +1,5 @@
-```cpp
+#include <vector>
+
 int basement(std::vector<int>& nums) {
     int sum = 0;
     int basement_index = -1; 
