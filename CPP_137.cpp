@@ -2,10 +2,12 @@
 #include <string>
 #include <typeinfo>
 #include <iostream>
+#include <vector>
 
 using namespace std;
+using boost::any;
 
-boost::any compare_one(boost::any a, boost::any b) {
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
@@ -22,9 +24,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (num1 < num2) {
             return b;
         } else {
-            return boost::any("Both numbers are equal");
+            return "None";
         }
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
