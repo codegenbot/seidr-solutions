@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-// declare filter_integers function here
 std::vector<int> filter_integers(std::vector<std::string> v) {
     std::vector<int> result;
     for (auto s : v) {
