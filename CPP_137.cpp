@@ -6,48 +6,30 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), b.convert_to<float>());
+        return boost::any_cast<float>(b);
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(a, boost::any(b.convert_to<int>()));
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convert_to<string>();
-        string str2 = b.convert_to<string>();
-
-        size_t pos = str1.find(',');
-        if (pos != string::npos) {
-            str1 = str1.substr(0, pos);
-        }
-
-        pos = str2.find(',');
-        if (pos != string::npos) {
-            str2 = str2.substr(0, pos);
-        }
-
-        return max(str1, str2);
+        if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
+            return a;
+        else
+            return "None";
     }
-    else if (a.type() == typeid(string)) {
-        string str = a.convert_to<string>();
-
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str = str.substr(0, pos);
-        }
-
-        return max(str, boost::any(b));
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+            return a;
+        else
+            return "None";
     }
-    else if (b.type() == typeid(string)) {
-        string str = b.convert_to<string>();
-
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str = str.substr(0, pos);
-        }
-
-        return max(a, str);
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+            return a;
+        else
+            return "None";
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
