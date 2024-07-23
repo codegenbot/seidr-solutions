@@ -1,12 +1,10 @@
-```cpp
-#include <vector>
-#include <utility>
-#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
 
-std::vector<std::pair<int, int>> result(std::vector<int> a);
-int pluck(std::vector<int> a);
+vector<pair<int, int>> result(vector<int> a);
+int pluck(vector<int> a);
 
-bool issame(std::vector<int> a, std::vector<int>b){
+bool issame(vector<int> a,vector<int>b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,19 +12,19 @@ bool issame(std::vector<int> a, std::vector<int>b){
     return true;
 }
 
-int pluck(std::vector<int> a){
-    int minVal = *min_element(a.begin(), a.end());
-    int index = 0;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] == minVal)
-            index=i;
+int pluck(vector<int> a){
+    vector<pair<int, int>> output;
+    for(int i=0;i<a.size();i++){
+        if(issame({a[i]}, {arr}) && arr.find(a[i])!=arr.end()){
+            output.push_back(make_pair(a[i],distance(arr.begin(),find(arr.begin(),arr.end(),a[i]))));
+        }
     }
-    return index;
+    return 0;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4};
-    std::vector<std::pair<int, int>> output = result(arr);
+    vector<int> arr = {1, 2, 3, 4};
+    vector<pair<int, int>> output = result(arr);
     for (auto p : output) {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
