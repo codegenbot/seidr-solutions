@@ -1,6 +1,6 @@
 #include <string>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,7 +12,7 @@ int mastermind(string code, string guess) {
 
     for (char c : code) {
         int index = guess.find(c);
-        while(index != string::npos) {
+        while(index != std::string::npos) {
             if (index < black) {
                 index = guess.find(c, index+1);
                 continue;
