@@ -1,5 +1,32 @@
-```cpp
-int main() {
-    assert(equalVectors(selectWords("a b c d e f", 1), std::vector<std::string>{ {"b","c","d","f"}}));
-    return 0;
+#include <tuple>
+
+#include <vector>
+#include <algorithm>
+#include <string>
+
+bool equalVectors(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+
+}
+
+std::vector<std::string> selectWords(std::string s, int k) {
+    std::vector<std::string> words;
+    std::istringstream iss(s);
+    for (std::string word; iss >> word;) {
+        if (word.size() >= k) {
+            words.push_back(word.substr(0, k));
+        }
+    }
+    return words;
+
+}
+
+int main(){
+    assert(equalVectors(selectWords("a b c d e f", 1), std::vector<std::string>{ "a","b","c","d","e","f" }));
 }
