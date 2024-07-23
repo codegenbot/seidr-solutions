@@ -1,7 +1,3 @@
-#include <map>
-#include <string>
-#include <cctype>
-
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
     bool allLower = true;
@@ -13,9 +9,4 @@ bool check_dict_case(map<string, string> dict) {
         if (!allUpper) allUpper = isupper(key[0]);
     }
     return allLower || allUpper;
-}
-
-int main() {
-    // Your code here
-    return 0;
 }
