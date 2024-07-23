@@ -4,41 +4,38 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    long long left_sum = 0;
-    long long right_sum = 0;
+    int cutIndex = -1;
     
-    for (int i = 0; i < n; i++) {
-        if (i <= (n - i)) {
-            left_sum += v[i];
-        } else {
-            right_sum += v[i];
-        }
+    vector<int> left = {v.begin(), v.begin() + n/2};
+    vector<int> right = {v.begin() + n/2, v.end()};
+    if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
+        return {{left}, {right}};
     }
     
-    vector<int> left;
-    int cut_index = 0;
-    long long min_diff = INT_MAX;
+    int minDiff = INT_MAX;
     
-    for (int i = 0; i < n; i++) {
-        if (i <= (n - i)) {
-            left_sum -= v[i];
-            right_sum += v[i];
-        } else {
-            left_sum += v[i];
-            right_sum -= v[i];
+    for (int i = 1; i <= n - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
         }
         
-        long long diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    vector<int> right(v.begin() + cut_index, v.end());
-    vector<int> left_v(v.begin(), v.begin() + cut_index);
-
-    return {{left_v}, {right}};
+    vector<int> l2 = {v.begin(), v.begin() + cutIndex};
+    vector<int> r2 = {v.begin() + cutIndex, v.end()};
+    return {{l2}, {r2}};
 }
 
 int main() {
