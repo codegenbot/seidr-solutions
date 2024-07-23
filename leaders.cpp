@@ -1,10 +1,6 @@
-```cpp
-#include <vector>
-using namespace std;
-
-std::vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
+    std::vector<int> result;
     int maxSoFar = arr[n-1];
     result.push_back(maxSoFar);
     
@@ -15,6 +11,6 @@ std::vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
 }
