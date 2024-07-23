@@ -7,4 +7,3 @@ def solve_boolean(expression):
             stack.append(char == 'T')
         elif char in {'&', '|'}:
             ops = (char == '&') - (char == '|')
-    return all(stack)
