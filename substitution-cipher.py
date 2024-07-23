@@ -1,3 +1,4 @@
+```Python
 def substitution_cipher(cipher_dict, text_to_decrypt):
     deciphered_text = ""
     for char in text_to_decrypt:
