@@ -16,10 +16,8 @@ int main() {
 
     float sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        float diff = vec1[i] - vec2[i];
-        sum += diff * diff;
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-
     float result = std::sqrt(sum);
 
     std::cout << std::fixed << result << std::endl;
