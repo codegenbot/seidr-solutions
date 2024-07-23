@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -17,25 +19,17 @@ pair<int, int> mastermind(string code, string guess) {
 
     // Count total correct characters in code and guess
     int colorCount[6] = {0};
-    const char* colors = "012345";
-
     for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 6; j++) {
-            if(code[i] == colors[j]) {
-                if(guess[i] == colors[j]) {
-                    blackPegs++;
-                } else {
-                    colorCount[j]++;
-                }
-                break;
-            }
+        if(code[i] != guess[i]) {
+            colorCount[(int)(guess[i] - '0')]++;
         }
     }
 
     // Calculate white pegs
     for(int i = 0; i < 6; i++) {
         if(colorCount[i] > 0) {
-            whitePegs += colorCount[i] - (std::count(code.begin(), code.end(), colors[i]) ? 1 : 0);
+            int count = std::count(code.begin(), code.end(), ('0'+i));
+            whitePegs += colorCount[i] - (count ? 1 : 0);
         }
     }
 
