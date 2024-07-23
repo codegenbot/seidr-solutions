@@ -8,13 +8,22 @@ def longest(strings: list[str]) -> Optional[str]:
     max_len = 0
     longest_str = None
     for s in strings:
-        if len(s) > max_len:
+        s = s.strip()
+        if len(s) > max_len and s != 'stop':
             max_len = len(s)
             longest_str = s
-        elif s == 'stop':
-            break
-    return longest_str
+    return longest_str if longest_str is not None else "No strings entered"
 
 
-strings = [s.strip() for s in input("Please enter a list of strings, one per line (or 'stop' to finish): ").split()]
-print("The longest string is: " + str(longest(strings)) if longest(strings) else "No strings entered")
+strings = []
+while True:
+    line = input("Please enter a string (or 'stop' to finish): ")
+    if line.lower() == 'stop':
+        break
+    strings.append(line)
+
+result = longest(strings)
+if result == "No strings entered":
+    print(result)
+else:
+    print(f"The longest string is: {result}")
