@@ -8,7 +8,9 @@ def mastermind(code, guess):
     white_pegs = 4 - black_pegs
     for count, c in zip(code_counts, "ABCDEF"):
         white_pegs -= min(count, guess.count(c))
-    
-    white_pegs = min(white_pegs, len([c1, c2] for c1, c2 in zip(code, guess) if c1 != c2))
+
+    white_pegs = min(
+        white_pegs, len([c1, c2] for c1, c2 in zip(code, guess) if c1 != c2)
+    )
 
     return str(black_pegs) + "\n" + str(white_pegs)
