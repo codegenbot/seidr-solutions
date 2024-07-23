@@ -26,4 +26,4 @@ def factorize(n: int) -> List[int]:
         else:
             break
 
-    return [n] if n > 1 else []
+    return factors
