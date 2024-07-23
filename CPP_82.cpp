@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +15,7 @@ bool prime_length(const std::string& str) {
     return isPrime(len);
 }
 
-int main_func() {
+void main_func() {
     std::cout << "Enter a string: ";
     std::string str;
     std::getline(std::cin, str); 
@@ -25,5 +25,4 @@ int main_func() {
     } else {
         std::cout << "Not prime length" << std::endl;
     }
-    return 0;
 }
