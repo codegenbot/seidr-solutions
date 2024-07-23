@@ -1,11 +1,21 @@
-```Python
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+
 def make_palindrome(string: str) -> str:
-    if not string.isalnum():
+    if string.isalnum():
+        i = 0
+        j = len(string) - 1
+        while i < j and string[i] == string[j]:
+            i += 1
+            j -= 1
+        non_alpha_chars = "".join(
+            char for char in string[i + 1 : j] if not char.isalnum()
+        )
+        return (
+            string[: i + 1].lower()
+            + string[i + 1 : j][::-1].lower()
+            + non_alpha_chars.lower()
+        )
+    else:
         return ""
-    
-    new_string = ""
-    for i in range(len(string), 0, -1):
-        if string[i-1].isalnum(): 
-            new_string += string[i-1]
-    
-    return new_string + string + new_string[::-1].lower()
