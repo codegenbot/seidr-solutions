@@ -1,9 +1,2 @@
-```
-def car_race_collision(n: int):
-    speed = float(input("Enter the speed of each car (in km/h): "))
-    
-    total_distance = n * speed
-    
-    collision_point = total_distance // 2
-    
-    return collision_point
+def car_race_collision(num_cars: int):
+    return sum(range(1, num_cars))
