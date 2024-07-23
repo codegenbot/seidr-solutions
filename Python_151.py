@@ -1,8 +1,5 @@
-def double_the_difference(input_list):
-    return sum(i**2 for i in input_list if isinstance(i, int) and i % 2 != 0)
-
-
-# Example usage
-user_input = list(map(int, input("Enter numbers separated by space: ").split()))
-result = double_the_difference(user_input)
-print(result)
+def double_the_difference(lst1):
+    lst2 = input("Enter a list of integers: ").split()
+    return sum(
+        i**2 for i in map(int, lst2) if isinstance(int(i), int) and int(i) % 2 != 0
+    )
