@@ -1,27 +1,19 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
-    int n = v.size();
+vector<int> leaders(vector<int> v) {
     vector<int> result;
-    
-    if(n == 1){
-        return v;
-    }
-    
-    for(int i=n-1; i>=0; i--){
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++){
-            if(v[j] >= v[i]){
-                isLeader = false;
+    for (int i = 0; i < v.size(); i++) {
+        bool leader = true;
+        for (int j = i + 1; j < v.size(); j++) {
+            if (v[j] >= v[i]) {
+                leader = false;
                 break;
             }
         }
-        
-        if(isLeader){
-            result.push_back(v[i]);
-        }
+        if (leader) result.push_back(v[i]);
     }
-    
     return result;
 }
