@@ -1,39 +1,64 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    int i = 0;
-    
-    while (i < expression.size()) {
-        if (expression[i] == '|') {
-            string left = expression.substr(0, ++i);
-            int j = i + 1;
-            
-            for (; j < expression.size(); j++) {
-                if (expression[j] == '&') {
-                    string rightAnd = expression.substr(i, j - i) + "&";
-                    expression.replace(i, j - i + 1, "(solveBoolean(");
-                    expression.insert(j++, ") &&");
-                    expression.insert(++j, ")");
-                    break;
-                }
-                else if (expression[j] == '|') {
-                    string rightOr = expression.substr(i, j - i) + "|";
-                    expression.replace(i, j - i + 1, "(solveBoolean(");
-                    expression.insert(j, ")) || ");
-                    i = j + 2;
-                    break;
-                }
+    stack<string> s;
+    string temp = "";
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '(') {
+            s.push(expression.substr(0, i + 1));
+            temp = "";
+        } else if (expression[i] == ')') {
+            while (!s.empty() && s.top() != "(") {
+                temp += s.top();
+                s.pop();
             }
+            if (!s.empty()) {
+                s.pop();
+            }
+            expression.replace(0, i + 1 - expression.find('('), temp);
+            i = 0;
+        } else if (expression[i] == '&' || expression[i] == '|') {
+            while (!s.empty() && precedence(expression[i]) <= precedence(s.top()[0])) {
+                temp += s.top();
+                s.pop();
+            }
+            temp += expression[i];
+        } else {
+            temp += expression[i];
+        }
+
+        if (i == expression.size() - 1 || expression[i + 1] == '(' || expression[i + 1] == ')' || (expression[i + 1] == '&' && precedence(expression[i]) > precedence(expression[i + 1])) || (expression[i + 1] == '|' && precedence(expression[i]) >= precedence(expression[i + 1]))) {
+            s.push(temp);
+            temp = "";
         }
     }
-    
-    if (expression.find("t") != string::npos)
-        return true;
-    else
-        return false;
+
+    while (!s.empty()) {
+        temp += s.top();
+        s.pop();
+    }
+
+    if (temp == "t") return true;
+    if (temp == "f") return false;
+
+    bool left = solveBoolean(temp.substr(0, temp.find("|")));
+    string right = temp.substr(temp.find("|") + 1);
+    if (!right.empty() && right[0] == '&') {
+        return (solveBoolean(left) && solveBoolean(right.substr(1)));
+    }
+
+    return left || solveBoolean(right);
+}
+
+int precedence(char c) {
+    if (c == '|') return 1;
+    if (c == '&') return 2;
+    return 3;
 }
 
 int main() {

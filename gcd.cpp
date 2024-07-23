@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -15,9 +14,11 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    int a, b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+
     return 0;
 }
