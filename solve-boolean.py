@@ -19,14 +19,13 @@ def solve_boolean(expression):
                 operator = token
                 if stack and tokens[stack[-1]] != '(':
                     while len(stack) > 0 and tokens[stack[-1]] == operator:
-                        if operator == '&' and result is True:
-                            return True
-                        elif operator == '|' and result is False:
-                            return False
+                        if operator == '&':
+                            if result is False:
+                                return False
+                        else:  
+                            if result is True:
+                                return True
                         stack.pop()
-                else:
-                    if not stack:
-                        return result
                 i += 1
             elif token == ')':
                 while tokens[i] != '(':
