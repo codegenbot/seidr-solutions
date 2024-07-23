@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,7 +8,7 @@ vector<int> leaders(vector<int>& v) {
     vector<int> res; 
     res.resize(v.size()); 
     int rightmost = v.back();
-    res[0] = rightmost; 
+    res[v.size() - 1] = rightmost; 
     for (int i = v.size() - 2; i >= 0; --i) {
         if (v[i] >= rightmost) {
             rightmost = v[i];
