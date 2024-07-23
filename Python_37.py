@@ -1,4 +1,3 @@
-```python
 def sort_even(l: list):
     even_numbers = [x for x in l if x % 2 == 0]
     sorted_even_numbers = sorted(even_numbers)[::-1]
