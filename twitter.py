@@ -1,4 +1,3 @@
-```
 def validate_tweet(tweet):
     tweet = ''.join(e for e in tweet if e.isprintable())
     if len(tweet) > 140:
