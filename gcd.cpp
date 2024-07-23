@@ -1,18 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 int gcd(int a, int b) {
-    if (a < 0 || b < 0) {
-        a = abs(a);
-        b = abs(b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    return abs(a);
 }
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -20,10 +12,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m + 1; i++) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m - 1; // skip the overlapping occurrences
+            while ((i + m) <= n && text.substr(i, m) == target)
+                i++; // Handle overlapping occurrences
         }
     }
 
