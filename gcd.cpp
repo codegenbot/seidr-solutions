@@ -1,15 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
-    a = abs(a);
-    b = abs(b);
-    
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -40,17 +35,17 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    stringstream ss(input);
-
     int a, b;
-    ss >> a >> b;
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
-    ss >> text >> target;
+    cin.ignore(); // Clear the newline character left in the buffer
+    getline(cin, text);
+    getline(cin, target);
+
     vector<int> result = indicesOfSubstring(text, target);
+
     for (int idx : result) {
         cout << idx << " ";
     }
