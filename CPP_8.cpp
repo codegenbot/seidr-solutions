@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 vector<int> sum_product(vector<int> numbers) {
