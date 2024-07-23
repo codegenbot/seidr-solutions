@@ -12,10 +12,14 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : code) {
-        auto it = std::find(guess.begin(), guess.end(), c);
-        while (it != guess.end()) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == guess[i]) {
+                count++;
+            }
+        }
+        if (count > 1) {
             white++;
-            it = std::find(it+1, guess.end(), c);
         }
     }
 
