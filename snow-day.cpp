@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-#include <algorithm>
 
 int main() {
     int hours;
