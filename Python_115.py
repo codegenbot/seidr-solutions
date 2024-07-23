@@ -12,4 +12,4 @@ def max_fill(grid, capacity):
         sum(1 if grid[row][col] == "W" else 0 for col in range(cols))
         for row in range(rows)
     )
-    return math.ceil(total_water / float(capacity))
+    return math.ceil(float(total_water) / capacity)
