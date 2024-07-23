@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <vector>
-#include <iomanip>
+#include <string>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -34,11 +33,11 @@ int gcd(int a, int b) {
 int main() {
     string text; 
     cout << "Enter your text: ";
-    getline(cin, text);
+    getline(cin >> ws, text);
 
     string target;
     cout << "Enter your target: ";
-    getline(cin, target);
+    getline(cin >> ws, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
     
@@ -54,9 +53,9 @@ int main() {
     for(int i : indices) {
         cout << i << " ";
     }
-    cout << endl;
+    cout << std::endl;
     
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << endl;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << std::endl;
 
     return 0;
 }
