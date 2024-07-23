@@ -2,11 +2,11 @@ string encrypt(string s){
     string result = "";
     for(char c : s){
         if(isalpha(c)){
-            char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
-            if(encrypted > 'z' || (encrypted > 'Z' && encrypted < 'a')){
-                encrypted -= 26;
+            char newChar = c + 2 * (c >= 'a' ? 1 : -1);
+            if(newChar > 'z' || newChar < 'a'){
+                newChar = newChar - 26;
             }
-            result += encrypted;
+            result += newChar;
         } else {
             result += c;
         }
