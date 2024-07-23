@@ -1,10 +1,9 @@
-```
+```Python
+import math
+
 def modp(n: int, p: int):
-    if gcd(n, p) == 1:
-        result = pow(n, (p-1)//2, p)
-        if n % 2 == 0:
-            result = (result * result) % p
-        return result
+    if math.gcd(n, p) == 1:
+        return pow(n, (p-1)//2, p) * n % p
     else:
         return None
 
