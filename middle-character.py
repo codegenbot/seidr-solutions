@@ -1,5 +1,5 @@
 def middle_character(s):
-    s = s.strip()
+    s = s.strip() 
     length = len(s)
     mid = length // 2
     if length % 2 == 0:
