@@ -15,7 +15,6 @@ int main() {
     }
 
     total_distance -= start_height;
-
     std::cout << total_distance << std::endl;
 
     return 0;
