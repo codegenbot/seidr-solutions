@@ -1,4 +1,3 @@
-```python
 import ast
 import operator
 
