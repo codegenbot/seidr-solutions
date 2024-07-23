@@ -56,4 +56,3 @@ int main() {
     vector<string> result = total_match({{"this"}}, {});
     
     return 0;
-}
