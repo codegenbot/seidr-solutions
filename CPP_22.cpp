@@ -1,28 +1,22 @@
+#include <iostream>
 #include <vector>
-#include <list>
+#include <algorithm>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-enum class AnyType {
-    INTEGER,
-    // add more types as needed...
-};
-
-struct AnyValue {
-    int integer;
-    // add more fields for other types...
-};
-
-vector<int> filter_integers(list<AnyValue> values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (value.integer != 0) { // assuming you want to filter out zero
-            result.push_back(value.integer);
+std::vector<int> filter_integers(const std::vector<int>& vec) {
+    std::vector<int> result;
+    for (int i : vec) {
+        if (std::isfinite(i)) {
+            result.push_back(i);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
 }
