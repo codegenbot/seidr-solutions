@@ -4,46 +4,15 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    bool reverseWord = false;
-
-    for (char c : str) {
-        if (c == ' ') {
-            if (reverseWord) {
-                std::string temp = result;
-                std::reverse(temp.begin(), temp.end());
-                result = temp + " ";
-                reverseWord = false;
-            }
-            else {
-                result += " " + c;
-            }
-        } 
-        else {
-            if (!reverseWord) {
-                int length = 0;
-                while (c != ' ' && length < 5) {
-                    c = str[str.find(c)];
-                    result += c;
-                    length++;
-                }
-                if(length >= 5) {
-                    std::string temp = result;
-                    std::reverse(temp.begin(), temp.end());
-                    result = temp;
-                }
-            } 
-            else {
-                result += c;
-            }
+    
+    for (const auto& word : str.split(' ')) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        
+        result += word + " ";
     }
-
-    if (reverseWord) {
-        std::string temp = result;
-        std::reverse(temp.begin(), temp.end());
-        result = temp;
-    }
-
+    
     return result;
 }
 
