@@ -1,6 +1,6 @@
-#include <vector>
+```cpp
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -13,11 +13,27 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    cout << add_elements({1}, 1) << endl;
-    cout << add_elements({123, 45, 67, 78}, 4) << endl;
-    cout << add_elements({10, 20, 30}, 3) << endl;
+    int k;
+    
+    // Read the number of elements from user.
+    cout << "Enter the number of elements: ";
+    cin >> k;
+    
+    vector<int> numbers;
+    for (int i = 0; i < k; i++) {
+        // Read each element from user.
+        cout << "Enter element " << (i + 1) << ": ";
+        long long num;
+        cin >> num;
+        numbers.push_back(num);
+    }
+
+    int result = add_elements(numbers, k);
+    cout << "The sum of the elements is: " << result << endl;
+
     return 0;
 }

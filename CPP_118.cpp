@@ -1,17 +1,6 @@
-```c++
 #include <string>
 #include <cctype>
 
-bool isvowel(char c); // Declare the isvowel function
-
-std::string get_closest_vowel(std::string word); // Declare the get_closest_vowel function
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    return 0;
-}
-
-// Define the functions in this order
 bool isvowel(char c) {
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';

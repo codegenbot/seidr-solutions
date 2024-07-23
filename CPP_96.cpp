@@ -21,7 +21,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-int main() {
+int mainOld() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;

@@ -1,13 +1,9 @@
 ```cpp
 #include <iostream>
 #include <cassert>
-using namespace std;
+#include <vector>
 
-int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
-    cout << solutions({1, 4, 5, 10}) << endl;
-    return 0;
-}
+using namespace std;
 
 int solutions(vector<int> lst) {
     int sum = 0;
@@ -17,4 +13,10 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    cout << solutions({1, 4, 5, 10}) << endl;
+    return 0;
 }

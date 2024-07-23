@@ -1,5 +1,7 @@
 ```cpp
-std::string match_parens(vector<std::string> lst) {
+using namespace std;
+
+std::string match_parens(vector<string> lst) {
     int open = 0;
     for (const auto& str : lst) {
         for (char c : str) {
@@ -7,5 +9,5 @@ std::string match_parens(vector<std::string> lst) {
             else if (c == ')') open--;
         }
     }
-    return open == 0 ? "Yes" : "No";
+    return to_string(open == 0);
 }
