@@ -1,11 +1,14 @@
-def find_largest_sum_of_subarray(arr):
-    max_ending_here = max_so_far = arr[0]
-    for i in range(1, len(arr)):
-        if arr[i] > max_ending_here + arr[i]:
-            max_ending_here = arr[i]
-            max_so_far = max_ending_here
-        else:
-            max_ending_here += arr[i]
-        if max_ending_here > max_so_far:
-            max_so_far = max_ending_here
-    return max_so_far
+```
+def find_zero(xs):
+    xs = list(map(int, input("Enter a list of numbers separated by space: ").split()))
+    n = len(xs)
+    assert n % 2 == 0
+    degree = n // 2
+    a = xs[::2]
+    coefficients = [0] * (degree + 1)
+    for i in range(degree + 1):
+        if i < len(a):
+            coefficients[degree - i] = a[i]
+
+    root = coefficients[-1] / coefficients[0]
+    return round(root, 2)
