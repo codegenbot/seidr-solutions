@@ -17,10 +17,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
 def main():
     paren_string = input("Enter a string of parentheses: ")
-    while len(paren_string.replace("(", "").replace(")", "")) % 2 != 0:
-        print("Invalid input. Please enter a string with an equal number of opening and closing parentheses.")
-        paren_string = input("Enter a string of parentheses: ")
-    
     try:
         print(parse_nested_parens(paren_string))
     except ValueError as e:
