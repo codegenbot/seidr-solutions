@@ -2,7 +2,7 @@
 def bowling_score(game):
     score = 0
     game_list = game.split(' ')
-
+    
     for i in range(0, len(game_list), 2):
         if game_list[i] == 'X':
             if i < len(game_list) - 1 and game_list[i+1] == '/':

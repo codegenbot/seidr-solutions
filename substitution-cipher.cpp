@@ -11,7 +11,7 @@ string decipher(string cipher1, string cipher2, string message) {
         if (j == cipher1.length())
             result += message[i];
         else
-            result += string(1, cipher2[j]);
+            result += cipher2[j];
     }
     return result;
 }
