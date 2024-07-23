@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int score(std::string s) {
@@ -22,4 +23,12 @@ int score(std::string s) {
         }
     }
     return total;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    int result = score(input);
+    std::cout << result << std::endl;
+    return 0;
 }
