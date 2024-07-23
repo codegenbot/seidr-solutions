@@ -12,10 +12,13 @@ def decode_cyclic(s: str):
             i += j
         elif i == n - 1:
             j = 0
-            while j <= i // 2 and s[i-j] == s[i]:
+            while i - j >= 0 and s[i] == s[i-j]:
                 j += 1
-            result += s[i - j + 1]
-            i += 1
+            if j > 0: 
+                result += s[0:j]
+            else:
+                result += s[i]
+            break
         else:
             result += s[i]
         i += 1
