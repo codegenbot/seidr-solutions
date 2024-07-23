@@ -1,12 +1,15 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
