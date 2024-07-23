@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -15,19 +16,19 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     int n;
-    float temp;
+    std::vector<float> lst;
 
     // Read the number of elements
     std::cin >> n;
 
     // Read each element and add to vector
-    std::vector<float> lst;
     for(int i = 0; i < n; ++i) {
+        float temp;
         std::cin >> temp;
         lst.push_back(temp);
     }
 
-    float result = double_the_difference(lst);
+    long long result = double_the_difference(lst);
 
     return 0;
 }

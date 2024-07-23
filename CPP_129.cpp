@@ -2,28 +2,29 @@
 #include <vector>
 #include <queue>
 #include <functional>
+#include <memory>
 
 using namespace std;
 
 struct cmp {
-    bool operator()(const pair<int, int>& p1, const pair<int, int>& p2) {
-        return p1 > p2;
+    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
+        return p1.second > p2.second;
     }
 };
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>, allocator<int>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({{i-1, j}, grid[i][j]});
-            if (i < n-1) neighbors[i].push_back({{i+1, j}, grid[i][j]});
-            if (j > 0) neighbors[i].push_back({{i, j-1}, grid[i][j]});
-            if (j < n-1) neighbors[i].push_back({{i, j+1}, grid[i][j]});
+            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
+            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
+            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
         }
     }
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> q(cmp); 
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
