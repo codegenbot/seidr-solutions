@@ -18,8 +18,9 @@ pair<int, int> mastermind(string code, string guess) {
     // Count total correct characters in code and guess
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
+        int count = 0;
         if(code[i] != guess[i]) {
-            int count = std::count(code.begin(), code.end(), guess[i]);
+            count = std::count(code.begin(), code.end(), guess[i]);
             colorCount[(int)(guess[i] - '0')] = count;
         }
     }
