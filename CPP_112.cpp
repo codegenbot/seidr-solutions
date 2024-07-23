@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -34,19 +34,13 @@ std::string reverse(std::string str) {
 
 int main 
 { 
-    // Read input
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    
-    // Read the characters to remove
-    std::string chars;
+    std::string s, chars;
+    std::cout << "Enter the string: ";
+    std::getline(std::cin, s);
     std::cout << "Enter characters to remove: ";
-    std::cin >> chars;
-    
-    // Process and output
+    std::getline(std::cin, chars);
     auto result = reverse_delete(s, chars);
-    for (const auto& item : result) 
-        std::cout << item << " "; 
-    std::cout << '\n';
+    for (auto str : result) {
+        std::cout << str << std::endl;
+    }
 }
