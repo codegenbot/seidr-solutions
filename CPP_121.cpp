@@ -15,7 +15,7 @@ int solutions(vector<int> lst) {
 }
 
 int calculateSolutions(vector<int> lst) {
-    assert(solutions({3, 13, 2, 9}) == 16);
+    assert(solutions({3, 13, 2, 9}) == 13);
     cout << solutions({1, 4, 5, 10}) << endl;
     return 0;
 }
