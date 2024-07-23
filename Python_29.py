@@ -4,9 +4,7 @@ from typing import List
 def filter_by_prefix() -> List[str]:
     while True:
         try:
-            while not strings := input(
-                "Enter a list of strings (space-separated): "
-            ).strip():
+            while not strings := input("Enter a list of strings (space-separated): ").strip():
                 print("Please enter valid inputs!")
 
             prefix = input("Enter a prefix: ")
