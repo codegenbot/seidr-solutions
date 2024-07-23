@@ -8,4 +8,4 @@
         else:
             result.append(word)
 
-    return ' '.join(result)""">
+    return ' '.join(result)""";
