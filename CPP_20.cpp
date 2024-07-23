@@ -6,7 +6,7 @@ using namespace std;
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float minDiff = numeric_limits<float>::max();
-    float closestPair[2];
+    vector<float> closestPair(2);
     
     for (int i = 0; i < numbers.size() - 1; i++) {
         float diff = numbers[i + 1] - numbers[i];
@@ -17,5 +17,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<float>(closestPair, closestPair + 2);
+    return closestPair;
 }
