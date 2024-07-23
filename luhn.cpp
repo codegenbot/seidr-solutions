@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> digits) {
@@ -8,9 +9,10 @@ int luhn(std::vector<int> digits) {
         int digit = digits[i];
         
         if (isDouble) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+            if (digit * 2 > 9) {
+                digit = digit * 2 - 9;
+            } else {
+                digit *= 2;
             }
         }
 
