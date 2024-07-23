@@ -1,5 +1,9 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    str.erase(unique(str.begin(), str.end()), str.end());
-    return str.size();
+vector<char> distinctCharacters;
+    for (char c : str) {
+        char lowerChar = tolower(c);
+        if (find(distinctCharacters.begin(), distinctCharacters.end(), lowerChar) == distinctCharacters.end()) {
+            distinctCharacters.push_back(lowerChar);
+        }
+    }
+    return distinctCharacters.size();
 }
