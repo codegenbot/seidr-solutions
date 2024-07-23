@@ -1,14 +1,13 @@
 def main():
-    print("Find two numbers from user and find their quotient.")
+    m = float(input("Enter the slope of a line: "))
+    c = float(input("Enter the y-intercept of a line: "))
 
-    x = float(input("Enter first number: "))
-    y = float(input("Enter second number: "))
+    x = float(
+        input("Enter the value for which you want to find the corresponding y-value: ")
+    )
 
-    if y != 0:
-        result = -x / y
-        print(f"The quotient is {result}.")
-    else:
-        print("Second number cannot be zero.")
+    y = m * x + c
+    print(f"The corresponding y-value is {y}.")
 
 
 if __name__ == "__main__":
