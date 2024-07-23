@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <sstream>
 
 bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
@@ -23,6 +23,16 @@ std::vector<std::string> select_words(std::string s, int k) {
     }
     return words;
 
+}
+
+bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 int main(){
