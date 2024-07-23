@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -18,6 +17,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i <= k; i++) {
         int val = INT_MAX;
         pair<int, int> nextCell;
+        int j = 0;
         for (auto& edge : edges) {
             int x = get<1>(edge.second);
             if (i > 0 && x == j - 1) continue;
