@@ -1,6 +1,17 @@
+Here is the corrected code:
+
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
+
+std::vector<std::pair<int, int>> result(const std::vector<int>& arr) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < arr.size(); ++i) {
+        output.push_back({arr[i], i});
+    }
+    return output;
+}
 
 std::vector<int> pluck(std::vector<int> v) {
     return v;
@@ -13,16 +24,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
-}
-
-std::vector<std::pair<int, int>> result(std::vector<int> v) {
-    std::vector<std::pair<int, int>> output;
-    for (int i = 0; i < v.size(); ++i) {
-        output.emplace_back(v[i], i);
-    }
-    return output;
 }
 
 int main() {
