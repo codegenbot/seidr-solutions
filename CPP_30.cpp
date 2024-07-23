@@ -1,24 +1,23 @@
+```
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::vector<float>> get_positive(const std::vector<std::vector<float>>& mat) {
-    std::vector<std::vector<float>> result;
+std::vector<float> get_positive(const std::vector<std::vector<float>>& mat) {
+    std::vector<float> result;
     for (const auto& row : mat) {
-        std::vector<float> temp_row;
         bool found_negative = false;
-        for (auto val : row) {
-            if (val > 0) {
-                temp_row.push_back(val);
-            } else {
+        for (float num : row) {
+            if (num < 0.0f) {
                 found_negative = true;
+                break;
             }
         }
         if (!found_negative)
-            result.push_back(temp_row);
+            std::copy(row.begin(), row.end(), std::back_inserter(result));
     }
     return result;
 }
@@ -28,11 +27,22 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<float>> mat(n);
-    for (auto i = 0; i < n; ++i)
-        for (auto j = 0; j < n; ++j++)
-            std::cin >> mat[i][j];
+    for (auto i = 0; i < n; ++i) {
+        for (auto j = 0; j < n; ++j++) {
+            std::string s;
+            std::cin >> s;
+            mat[i].push_back(std::stof(s));
+        }
+    }
 
-    bool same = issame(get_positive(mat), get_positive(std::vector<std::vector<float>>(mat.begin(), mat.end())));
+    bool same = true;
+    for (const auto& row : get_positive(mat)) {
+        if (!(std::cin >> row[0])) { 
+            same = false;
+            break;
+        }
+    }
+
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
