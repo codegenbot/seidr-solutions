@@ -1,9 +1,6 @@
-from __main__ import __file__
-
-
+```
 def add(x: int, y: int):
     return x + y
-
 
 num1 = 0
 num2 = 0
@@ -24,6 +21,6 @@ while True:
 
 while True:
     confirm = input("Press Enter to execute, or type 'q' to quit: ")
-    if confirm.lower() == "q":
+    if confirm.lower() == 'q':
         break
     print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
