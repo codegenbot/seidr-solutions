@@ -1,7 +1,7 @@
-```
 #include <stack>
 #include <string>
 #include <iostream>
+#include <limits>
 
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
@@ -70,10 +70,11 @@ int main() {
     std::string expression;
     std::cout << "Enter Boolean expression: ";
     std::cin >> expression;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        std::cout << "True" << std::endl;
+        std::cout << "True";
     else
-        std::cout << "False" << std::endl;
+        std::cout << "False";
     return 0;
 }
