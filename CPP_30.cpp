@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+bool isSame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -17,8 +16,7 @@ int main() {
 
     bool same = true;
     for (const auto& row : mat) {
-        float val;
-        if (!(std::cin >> val) || val <= 0) { 
+        if (!(std::cin >> row[0])) { 
             same = false;
             break;
         }
