@@ -1,6 +1,5 @@
 ```
-def fix_spaces(text): 
-    : None
+def fix_spaces(text):
     new_text = ""
     for char in text.strip():
         if char == " " and new_text[-1:] == " ":
