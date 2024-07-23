@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -22,9 +21,9 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, -4, 5};
+    assert(count_nums({1}) == 1);
+    std::vector<int> nums = {-5, -4, -2, -1, 0, 1};
     int result = count_nums(nums);
-    assert(result == 3);
-    std::cout << "Count of positive numbers: " << result << std::endl;
+    std::cout << "The count of positive numbers with even digital sum is: " << result << std::endl;
     return 0;
 }
