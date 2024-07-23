@@ -7,11 +7,28 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> v1 = {1.0f, 2.0f, 3.0f};
-    std::vector<float> v2 = {4.0f, 5.0f, 6.0f};
-    if (issame(v1, v2)) {
-        std::cout << "Vectors are the same." << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<float> vec1(n);
+    std::vector<float> vec2(n);
+    
+    std::cout << "Enter elements for vector 1: ";
+    for (float &x : vec1) {
+        std::cin >> x;
     }
+    
+    std::cout << "Enter elements for vector 2: ";
+    for (float &x : vec2) {
+        std::cin >> x;
+    }
+    
+    if(issame(vec1, vec2)) {
+        std::cout << "The two vectors are the same.\n";
+    } else {
+        std::cout << "The two vectors are not the same.\n";
+    }
+    
+    return 0;
 }
