@@ -3,7 +3,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
 
     for (int num : numbers) {
-        if (!map[num]) {
+        if (!map.count(num)) {
             map[num] = true;
             result.push_back(num);
         }
