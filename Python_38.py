@@ -6,27 +6,14 @@ def decode_cyclic():
     if n < 2:
         return s
     
-    result = ""
-    i = 0
-    while i < n:
-        if i + 1 < n and s[i] == s[i+1]:
-            j = 2
-            while i + j < n and s[i] == s[i+j]:
-                j += 1
-            result += s[i]
-            i += j
-        elif i > 0 and s[i] == s[0]:
-            j = 1
-            while i - j >= 0 and s[i] == s[i-j]:
-                j += 1
-            if j > 1: 
-                result += s[:j]
-            else:
-                result += s[0]
-            break
-        else:
-            result += s[i]
-        i += 1
-    return result
+    result = set()
+    for i in range(n):
+        rotated = s[i:] + s[:i]
+        while i < n and (rotated in result or s in result):
+            i += 1
+        if i < n:
+            result.add(rotated)
+    
+    return min(result, key=lambda x: [c for c in x].count(min([c for c in x])))
 
 print(decode_cyclic())
