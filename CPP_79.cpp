@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 std::string decimal_to_binary(int decimal){
@@ -10,12 +10,5 @@ std::string decimal_to_binary(int decimal){
             binary = "0" + binary;
         decimal >>= 1;
     }
-    return "db" + binary + "db";
-}
-
-int main() {
-    assert (decimal_to_binary(15) == "db1111db");
-    std::cout << "Testing function..." << std::endl;
-    std::cout << decimal_to_binary(10) << std::endl; // Example usage
-    return 0;
+    return std::to_string("db") + binary + std::to_string("db");
 }
