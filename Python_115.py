@@ -1,6 +1,9 @@
+```
 import math
 
-
 def max_fill(grid, capacity):
-    total_water = sum(sum(row) for row in grid)
-    return math.ceil(total_water / float(capacity))
+    n = len(grid)
+    m = len(grid[0])
+    total_water = sum(1 for row in grid for cell in row if cell == 1) 
+    total_buckets = -(-total_water // float(capacity))  
+    return int(total_buckets)
