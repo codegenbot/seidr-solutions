@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -33,6 +33,12 @@ int main() {
     cout << "Enter second number: ";
     cin >> num2;
     
-    long long result = gcd(num1, num2);
-    cout << "GCD of the given numbers is " << result << endl;
+    if (gcd(num1, num2) == 1) {
+        cout << "GCD of the given numbers is 1." << endl;
+    } else {
+        long long result = gcd(num1, num2);
+        cout << "The GCD of the given numbers is " << result << "." << endl;
+    }
+    
+    return 0;
 }
