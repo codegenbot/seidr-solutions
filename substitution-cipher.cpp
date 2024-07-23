@@ -1,20 +1,19 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     string result = "";
-    for (char c : message) {
+    for (int i = 0; i < message.length(); i++) {
         bool found = false;
-        for (int i = 0; i < cipher1.length(); i++) {
-            if (c == cipher1[i]) {
-                result += cipher2[i];
+        for (int j = 0; j < cipher1.length(); j++) {
+            if (message[i] == cipher1[j]) {
+                result += cipher2[j];
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result += c;
+            result += message[i];
         }
     }
     return result;
