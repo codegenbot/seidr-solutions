@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 #include <cmath>
@@ -25,7 +24,7 @@ std::vector<float> sortEven(std::vector<float> l) {
                     temp.push_back(l[j]);
                 }
             }
-            sort(temp.begin(), temp.end());
+            std::sort(temp.begin(), temp.end());
             result.push_back(temp[0]);
         } else {
             result.push_back(l[i]);
