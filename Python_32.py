@@ -1,4 +1,10 @@
-Here is the completed code:
-
 def find_zero(xs: list):
-    return -xs[1] / xs[0]
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have three coefficients")
+
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
+
+    x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
+    return round(x, 10)
