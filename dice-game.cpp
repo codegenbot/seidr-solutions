@@ -1,4 +1,4 @@
-#include <initializer_list>
+#include <algorithm>
 
 double probability(int n, int m) {
     if (n < 1 || m < 1) return -1;
