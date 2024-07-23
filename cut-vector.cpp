@@ -2,16 +2,12 @@
 #include <vector>
 #include <climits>
 #include <cmath>
-#include <sstream>
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
     int num;
-    while (iss >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
@@ -46,7 +42,7 @@ int main() {
     
     cout << endl;
     
-    for (int i = cut_index + 1; i < n; i++) {
+    for (int i = cut_index + 1; i <= n - cut_index - 1; i++) {
         cout << nums[i] << endl;
     }
     
