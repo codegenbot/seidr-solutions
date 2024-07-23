@@ -1,22 +1,15 @@
-#include <iostream>
-#include <vector>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if (arr.empty()) return result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return {};
+
+    int smallest_even = *min_element(arr.begin(), arr.end(), 
+                                 [](int a, int b) { return (a % 2 == 0 && ! (b % 2 == 0)); });
     
-    int minEvenValue = INT_MAX;
-    int minIndex = -1;
-    
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minIndex = i;
-        }
-    }
-    
-    result.push_back(minEvenValue);
-    result.push_back(minIndex);
-    
+    auto it = find(arr.begin(), arr.end(), smallest_even);
+    size_t index = distance(arr.begin(), it);
+    result.push_back({smallest_even, index});
     return result;
 }
