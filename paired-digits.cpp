@@ -1,7 +1,12 @@
+#include <iostream>
+#include <string>
+
 int main() {
+    using namespace std;
+
     string digits;
     cin >> digits;
-    
+
     int sum = 0;
     for (int i = 0; i < digits.size() - 1; ++i) {
         if (digits[i] == digits[i + 1]) {
