@@ -1,51 +1,20 @@
-#include <iostream>
+#include <boost/variant.hpp>
 #include <vector>
+#include <list>
 
-bool filter_integers(std::vector<int> numbers) {
-    for (int &num : numbers) {
-        if (num < 0) {
-            num = 0;
+using namespace std;
+using namespace boost::any;
+
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
+    for (const auto& value : values) {
+        if (any_cast<int>(value).which() == 0) {
+            result.push_back(any_cast<int>(value));
         }
     }
-    return true;
+    return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
-
-int main() {
-    int n1, n2, n3, n4;
-    
-    // Taking inputs
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n1;
-    vector<int> a(n1);
-    cout << "Enter " << n1 << " integers for first set: \n";
-    for (int i = 0; i < n1; i++) {
-        cin >> a[i];
-    }
-    
-    // Taking inputs
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n2;
-    vector<int> b(n2);
-    cout << "Enter " << n2 << " integers for second set: \n";
-    for (int i = 0; i < n2; i++) {
-        cin >> b[i];
-    }
-    
-    if (issame(a, b)) {
-        std::cout << "The two sets are the same." << std::endl;
-    } else {
-        std::cout << "The two sets are not the same." << std::endl;
-    }
-    return 0;
