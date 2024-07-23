@@ -1,4 +1,4 @@
-int sumOfPalindromes(vector<int> lst){
+int sumOfDigitsInPrimeNumbers(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1){
