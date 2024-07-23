@@ -5,29 +5,27 @@
 
 using namespace std;
 
-vector<int> codeFreq(6, 0), guessFreq(6, 0);
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-
+    
     int blackPegs = 0, whitePegs = 0;
-
+    vector<int> codeCount(26, 0), guessCount(26, 0);
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
-
+    
     for (int i = 0; i < 6; ++i) {
-        whitePegs += std::min(codeFreq[i], guessFreq[i]);
+        whitePegs += min(codeCount[i], guessCount[i]);
     }
-
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
-
+    
+    cout << whitePegs << "\n" << blackPegs << "\n";
+    
     return 0;
 }
