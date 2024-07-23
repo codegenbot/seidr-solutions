@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 int match_parens(vector<string> lst) {
     int open = 0;
     for (const auto& str : lst) {
@@ -11,3 +8,4 @@ int match_parens(vector<string> lst) {
         }
     }
     return open == 0;
+}
