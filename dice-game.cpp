@@ -3,6 +3,8 @@ using namespace std;
 
 #include <vector>
 
+using namespace std;
+
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double count = 0;
