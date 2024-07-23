@@ -1,6 +1,4 @@
-def make_palindrome(s: str) -> str:
-    for i in range(len(s), 0, -1):
-        for j in range(32): 
-            if chr(j).lower() == s[0].lower():
-                palindrome = (s + chr(j)).lower() + (s[::-1] + chr(j)).lower()
-                return palindrome
+def make_palindrome(string: str) -> str:
+    for i in range(len(string), 0, -1):
+        if string[:i] == string[:i][::-1]:
+            return string + string[0].upper()
