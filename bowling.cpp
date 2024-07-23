@@ -2,23 +2,15 @@
 
 int bowlingScore(string str) {
     int score = 0;
-    string tempStr;
     for (int i = 0; i < 10; i++) {
         if (str[i] == '/') {
-            tempStr += str[i];
-            if (tempStr.length() > 1) {
-                score += 10 + (stoi(tempStr.substr(0, 2)) - 10);
-            } else {
-                score += 10;
-            }
-            tempStr = "";
-        } else if (isdigit(str[i])) {
-            tempStr += str[i];
-        }
-        if (tempStr.length() == 1) {
-            score += stoi(tempStr);
-            tempStr = "";
+            string firstPart = str.substr(0, i);
+            string secondPart = str.substr(i + 1);
+            int firstScore = (firstPart[0] - '0') * 10 + (firstPart.length() > 1 ? (firstPart[1] - '0') : 10);
+            int secondScore = (secondPart[0] - '0') * 5;
+            score += max(firstScore, secondScore) + min(firstScore, secondScore);
+        } else {
+            score += (str[i] - '0') * 10;
         }
     }
     return score;
-}
