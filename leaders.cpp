@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+int main() {
+    vector<int> arr = {1, 3, 4, 2};
     vector<int> leaders;
     int rightmost = arr.back();
     for (int i = arr.size() - 2; i >= 0; i--) {
@@ -11,13 +12,8 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    return leaders;
-}
-
-int main() {
-    vector<int> arr = {17, 11, 13, 2, 23, 19};
-    vector<int> leadersResult = leaders(arr);
-    for (int leader : leadersResult) {
+    cout << "Leaders: ";
+    for (int leader : leaders) {
         cout << leader << " ";
     }
     return 0;
