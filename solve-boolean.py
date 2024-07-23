@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def eval_expr(tokenized):
         if len(tokenized) == 1:  
