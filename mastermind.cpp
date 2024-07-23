@@ -14,13 +14,17 @@ int main() {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeFreq[code[i] - 'A'];
-            ++guessFreq[guess[i] - 'A'];
+            if (code[i] >= 'A' && code[i] <= 'F') {
+                ++codeFreq[code[i] - 'A'];
+            }
+            if (guess[i] >= 'A' && guess[i] <= 'F') {
+                ++guessFreq[guess[i] - 'A'];
+            }
         }
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeFreq[i], guessFreq[i]);
+        white += std::min(codeFreq[i], guessFreq[i]) + abs(codeFreq[i] - guessFreq[i]);
     }
     
     cout << white << '\n' << black << '\n';
