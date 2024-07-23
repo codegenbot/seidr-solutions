@@ -7,7 +7,7 @@ def indices_of_substring(text, target):
         if pos == -1:
             break
         result.append(pos)
-        start = pos + 1  
+        start = pos + 1
     return result
 
 text = input("Enter the text: ")
