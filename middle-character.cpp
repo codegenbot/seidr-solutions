@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -7,14 +8,11 @@ int main() {
     std::getline(std::cin, s);
 
     int length = s.length();
-    int mid = length / 2;
-    std::cout << "Middle characters: ";
     if (length % 2 == 0) {
-        std::cout << s.substr(mid - 1, 2);
+        std::cout << "Middle characters: " << s.substr(length / 2 - length % 2 / 2, 2) << std::endl;
     } else {
-        std::cout << s.substr(mid, 1);
+        std::cout << "Middle character: " << s.substr(length / 2, 1) << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
