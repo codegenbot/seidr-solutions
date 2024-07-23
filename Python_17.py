@@ -1,12 +1,9 @@
-```
 from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
-    if len(music_string) < 2:
-        return ["Invalid input"]
     while i < len(music_string):
         if music_string[i:i+2] == 'o|':
             music_list.append(3)
@@ -15,9 +12,9 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(1)
             i += 4
         elif music_string[i] == 'o':
-            if i + 5 <= len(music_string) and music_string[i:i+6] == 'oooou':
+            if i + 1 <= len(music_string) and music_string[i:i+2] == 'oou':
                 music_list.append(2)
-                i += 6
+                i += 2
             else:
                 music_list.append(4)
                 i += 1
