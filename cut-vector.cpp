@@ -12,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
         if (leftSum == rightSum) {
-            return {vector<int>(), vector<int>(v.begin(), v.end())};
+            return {{}, {v.begin(), v.end()}};
         } else if (abs(leftSum - rightSum) < minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
@@ -25,6 +25,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return {vector<int>(v.begin(), v.begin() + cutIndex),
-            vector<int>(v.begin() + cutIndex, v.end())};
+    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
+                                            vector<int>(v.begin() + cutIndex, v.end()));
 }
