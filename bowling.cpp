@@ -1,4 +1,6 @@
-#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
