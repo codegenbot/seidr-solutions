@@ -5,14 +5,14 @@
 using namespace std;
 
 string validateTweet(string& tweet) {
-    string trimmedTweet = tweet;
-    while (!trimmedTweet.empty() && trimmedTrimmedTweet.back() == '\n') {
+    string trimmedTweet(tweet);
+    while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
         trimmedTweet.erase(trimmedTweet.end() - 1);
     }
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = static_cast<string::size_type>(trimmedTweet.size());
+    int count = trimmedTweet.size();
     if (count > 140) {
         return "Too many characters";
     }
