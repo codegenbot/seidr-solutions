@@ -21,13 +21,7 @@ std::string get_closest_vowel(std::string word) {
             }
         }
     }
-    std::string output = "";
-    if (minDist != INT_MAX) {
-        output += closestVowel;
-    } else {
-        output = "None";
-    }
-    return output;
+    return std::string(1, closestVowel).operator std::string();
 }
 
 int main() {
