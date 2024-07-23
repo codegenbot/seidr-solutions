@@ -1,3 +1,7 @@
+```c++
+#include <vector>
+#include <string>
+
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t pos = 0, start = 0;
@@ -13,12 +17,12 @@ std::string camelCase(std::string str) {
         words.push_back(str.substr(start));
     }
 
-    result = "";
-    for (int i = 0; i < words[0].size(); i++) {
-        result += tolower(words[0][i]);
-    }
-    for (int i = 1; i < words.size(); i++) {
-        result += toupper(words[i][0]) + words[i].substr(1);
+    std::string result;
+    for (int i = 0; i < words.size(); ++i) {
+        if (!result.empty())
+            result += toupper(words[i].substr(0, 1)) + words[i].substr(1);
+        else
+            result = tolower(words[i]);
     }
     return result;
 }
