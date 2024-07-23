@@ -1,4 +1,7 @@
 #include <cmath>
+#include <vector>
+
+using namespace std;
 
 int sum_squares(vector<float> lst) {
     int sum = 0;
@@ -7,4 +10,9 @@ int sum_squares(vector<float> lst) {
         sum += pow(ceil_num, 2);
     }
     return sum;
+}
+
+int main() {
+    assert(sum_squares({-1, 1, 0}) == 2); 
+    return 0;
 }
