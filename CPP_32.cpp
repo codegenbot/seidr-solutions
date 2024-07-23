@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
@@ -21,7 +22,9 @@ double find_zero(vector<double> xs){
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly({xs[1], xs.back()}, x); 
     }
-    cout << setprecision(2) << fixed << x << endl;
+    ostringstream oss;
+    oss << fixed << setprecision(6) << x;
+    return stod(oss.str());
 }
 
 int main() {
