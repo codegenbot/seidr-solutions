@@ -1,8 +1,12 @@
-from typing import List
+def concatenate_strings():
+    input_list = []
 
+    while True:
+        user_input = input("Enter a string (or 'done' to finish): ")
 
-def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        result += string
-    return result
+        if user_input.lower() == "done":
+            break
+
+        input_list.append(user_input)
+
+    print(concatenate(input_list))
