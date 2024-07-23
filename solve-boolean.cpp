@@ -6,49 +6,23 @@ bool evaluateBooleanExpression(const std::string& expr) {
     } else if (expr == "f") {
         return false;
     } else {
-        bool result = false;
         bool negate = false;
+        int pos = 0;
 
         if (expr[0] == '!') {
             negate = true;
             return !evaluateBooleanExpression(expr.substr(1));
         }
 
-        if (expr.find('&') != std::string::npos) {
-            result = true;
-            for (char c : expr) {
-                if (c == '&') {
-                    continue;
-                } else if (c == 't') {
-                    result = result && true;
-                } else if (c == 'f') {
-                    result = result && false;
-                } else if (c == '!') {
-                    continue;
-                }
-            }
-        } else if (expr.find('|') != std::string::npos) {
-            result = false;
-            for (char c : expr) {
-                if (c == '|') {
-                    continue;
-                } else if (c == 't') {
-                    result = result || true;
-                } else if (c == 'f') {
-                    result = result || false;
-                } else if (c == '!') {
-                    continue;
-                }
-            }
-        }
-        
-        return negate ? !result : result;
-    }
-}
+        int orPos = expr.find('|');
+        int andPos = expr.find('&');
 
-int main() {
-    std::string expression;
-    std::cin >> expression;
-    std::cout << evaluateBooleanExpression(expression) << std::endl;
-    return 0;
+        if (orPos != std::string::npos) {
+            return evaluateBooleanExpression(expr.substr(0, orPos)) || evaluateBooleanExpression(expr.substr(orPos + 1));
+        } else if (andPos != std::string::npos) {
+            return evaluateBooleanExpression(expr.substr(0, andPos)) && evaluateBooleanExpression(expr.substr(andPos + 1));
+        }
+
+        return negate ? !evaluateBooleanExpression(expr) : (expr == "t");
+    }
 }
