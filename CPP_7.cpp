@@ -1,6 +1,7 @@
-#pragma GCC diagnostic ignored "-Werror"
+```
 #include <vector>
 #include <assert.h>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -19,6 +20,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::
 }
 
 int main() {
-    assert(issame(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run"), {"grunt", "prune"}));
+    assert(issame(filter_by_substring(std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"}), "run"), std::vector<std::string>({"grunt", "prune"})));
     return 0;
 }
