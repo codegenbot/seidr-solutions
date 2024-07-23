@@ -1,3 +1,7 @@
+```
+#include <vector>
+#include <cassert>
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<bool>> dp(n, vector<bool>(n));
