@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(const std::vector<int>& nums) {
     int count = 0;
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+    for (const auto& num : nums) {
+        if (std::abs(num) > 10 && (num % 10) % 2 != 0 && ((num / 10) % 10) % 2 != 0) {
             count++;
         }
     }
@@ -19,8 +19,12 @@ int main() {
         nums.push_back(num);
     }
 
-    int result = specialFilter(nums);
-    std::cout << "Count of numbers that meet the criteria: " << result << std::endl;
+    if (!nums.empty()) {
+        int result = specialFilter(nums);
+        std::cout << "Count of numbers that meet the criteria: " << result << std::endl;
+    } else {
+        std::cout << "No numbers were input." << std::endl;
+    }
 
     return 0;
 }
