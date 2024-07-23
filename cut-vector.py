@@ -1,9 +1,5 @@
-n = 0
-arr = []
-for num in input().split():
-    arr.append(int(num))
-    n += 1
-
+n = int(input())
+arr = list(map(int, input().split()))
 diff = float("inf")
 cut_index = -1
 
