@@ -8,9 +8,10 @@ def decode_cyclic(s: str):
                 result += s[i:i+2]
                 i += 2
             else: 
-                if len(s) - i >= 3:
-                    result += s[i][0] + s[i+1:i+3][1]  
-                    i += 3
+                if i + 1 < len(s) and s[i] == s[i+1][0]:
+                    count = (len(s) - i) // 2 + 1
+                    result += s[i] * count
+                    i += 2 if len(s) % 2 else 1
                 else:
                     result += s[i:]  
         i += 1
