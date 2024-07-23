@@ -1,10 +1,9 @@
+```
 def double_the_difference(list1, list2):
-    if len(list1) == len(list2):
-        return (max(list1) - min(list1)) * 2
-    elif max(list1) > max(list2):
-        return (max(list1) - min(list1)) * 2
-    else:
-        return (max(list2) - min(list2)) * 2
+    difference = sum(list1) - sum(list2)
+    return 2 * abs(difference)
 
+first_list = [5, 10, 15]
+second_list = [5, 20, 30]
 
 print(double_the_difference(first_list, second_list))
