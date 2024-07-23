@@ -1,5 +1,6 @@
 #include <cassert>
 #include <cctype>
+#include <string>
 
 bool check_if_last_char_is_a_letter(std::string txt) {
     if(txt.empty()) return false;
@@ -11,4 +12,8 @@ bool check_if_last_char_is_a_letter(std::string txt) {
         }
     }
     return containsNonSpace && std::isalpha(txt.back());
+}
+
+main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
 }
