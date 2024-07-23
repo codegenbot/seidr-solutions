@@ -1,7 +1,9 @@
 bool will_it_fly(vector<int> q, int w);  // Function prototype
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
+    vector<int> q = {1, 2};
+    int w = 5;
+    assert (will_it_fly(q, w) == true);
 }
 
 bool will_it_fly(vector<int> q, int w) {
