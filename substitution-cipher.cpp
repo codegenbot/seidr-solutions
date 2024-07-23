@@ -1,13 +1,6 @@
-```cpp
-#include <iostream>
-#include <string>
-
-std::string decipher(std::string& input, std::string& cipher1, std::string& cipher2) {
-    std::string result;
-    for (auto c : input) {
-        if (c == '\0') {
-            break; 
-        }
+string result;
+for (char c : input.substr(0, input.find('\0'))) {
+    if (c != '\0') {  
         size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
             result += cipher1[pos]; 
@@ -21,19 +14,4 @@ std::string decipher(std::string& input, std::string& cipher1, std::string& ciph
             }
         }
     }
-    return result;
-}
-
-int main() {
-    std::string input, cipher1, cipher2;
-
-    std::cout << "Enter the three strings:" << std::endl;
-    std::getline(std::cin, cipher1);
-    std::getline(std::cin, cipher2);
-    std::getline(std::cin, input);
-
-    std::string result = decipher(input, cipher1, cipher2);
-    std::cout << "Deciphered message: " << result << std::endl;
-    
-    return 0;
 }

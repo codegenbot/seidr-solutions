@@ -17,10 +17,10 @@ bool solveBoolean(std::string expression) {
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
             int j = i;
-            while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
+            while (j < i && expression[j] != '|' && expression[j] != '&') 
                 j++;
-            std::string left = expression.substr(0, static_cast<size_t>(i));
-            std::string right = expression.substr(static_cast<size_t>(i + 1), j - i);
+            std::string left = expression.substr(0, i - 1);
+            std::string right = expression.substr(i + j);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
