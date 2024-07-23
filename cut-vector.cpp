@@ -3,7 +3,11 @@
 #include <algorithm>
 #include <climits>
 
-std::vector<std::vector<int>> cutVector(const std::vector<int>& v) {
+std::vector<int> subVector1;
+std::vector<int> subVector2;
+
+int main() {
+    std::vector<int> v = {1, 2, 3};
     int minDiff = INT_MAX;
     int cutIndex = -1;
 
@@ -15,5 +19,8 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& v) {
         }
     }
 
-    return {std::vector<int>(v.begin(), v.begin() + cutIndex + 1), std::vector<int>(v.begin() + cutIndex + 1, v.end())};
+    subVector1.assign(v.begin(), v.begin() + cutIndex + 1);
+    subVector2.assign(v.begin() + cutIndex + 1, v.end());
+
+    return 0;
 }
