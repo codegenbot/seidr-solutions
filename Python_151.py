@@ -1,5 +1,6 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
-
-lst = [1, 2, 3, 4]
-print(double_the_difference(lst))
+def double_the_difference(first_list, second_list):
+    total = 0
+    for num in first_list[0]:
+        if isinstance(num, int) and num >= 0:
+            total += num**2
+    return abs(total - sum(second_list)) // len(second_list) * 2

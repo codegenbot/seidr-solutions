@@ -1,5 +1,5 @@
 #include <vector>
-#include <pair>
+#include <utility>
 #include <climits>
 #include <iostream>
 using namespace std;
@@ -27,4 +27,3 @@ int main() {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
     return 0;
-}
