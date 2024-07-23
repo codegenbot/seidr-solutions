@@ -1,12 +1,12 @@
 ```
 def smallest_change(arr):
-    arr_len = len(arr)
-    front = arr[:arr_len//2]
-    back = arr[arr_len//2:][::-1]
-
-    count = 0
-    for i in range(len(front)):
-        if front[i] != back[i]:
-            count += 1
-
-    return count
+    left = right = 0
+    changes = 0
+    
+    while left < len(arr) and right >= 0:
+        if arr[left] != arr[right]:
+            changes += 1
+        left += 1
+        right -= 1
+        
+    return changes
