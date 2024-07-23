@@ -9,12 +9,11 @@ int main() {
 
     for (int i = 1; i <= hours; i++) {
         double meltingAmount = groundSnow > 0 ? std::min(groundSnow, proportionOfSnowMeltingPerHour) : 0;
-        groundSnow -= meltingAmount;
+        groundSnow -= static_cast<double>(meltingAmount);
         
-        double newSnow = rateOfSnowFall - meltingAmount;
-        if (newSnow > 0) { 
+        if (i < hours) { 
             // add new snow for the next hour
-            groundSnow += std::min(newSnow, proportionOfSnowMeltingPerHour); 
+            groundSnow += static_cast<double>(rateOfSnowFall); 
         }
     }
 
