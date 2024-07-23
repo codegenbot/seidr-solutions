@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -23,7 +22,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, function<bool(pair<int, pair<int, int>>, pair<int, pair<int, int>>)>> q(function(cmp)); // {sum, path}
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(cmp{})> q(cmp); // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -48,7 +47,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int mainTest() {
-    // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
     for (int val : minPath(grid1, 3)) {
