@@ -1,13 +1,8 @@
-Here is the completed code:
-
 def mastermind(code, guess):
-    white = 0
-    black = 0
-    
-    for i in range(4):
-        if guess[i] == code[i]:
-            black += 1
-        elif str(guess[i]) in str(code):
-            white += 1
-            
-    return black, white
+    correct_colors = [x == y for x, y in zip(code, guess)]
+    correct_positions = [code[i] == guess[i] for i in range(4)]
+
+    black_peg_count = sum(correct_positions)
+    white_peg_count = sum(correct_colors) - black_peg_count
+
+    return str(white_peg_count), str(black_peg_count)
