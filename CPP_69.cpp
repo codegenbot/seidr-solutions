@@ -1,16 +1,19 @@
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <map>
 
-int search(vector<int> lst) {
-    int max = 0;
+int search(const std::vector<int>& lst) {
+    std::map<int, int> countMap;
     for (auto i : lst) {
-        if (i > 0 && i >= std::count(lst.begin(), lst.end(), i)) {
-            return i;
-        }
-        if (std::count(lst.begin(), lst.end(), i) > max) {
-            max = std::count(lst.begin(), lst.end(), i);
-        }
+        if(countMap.find(i) != countMap.end())
+            countMap[i]++;
+        else
+            countMap[i] = 1; 
     }
-    return -1;
+    
+    int minVal = -1;
+    for (auto p : countMap) {
+        if (p.second > 1 && (minVal == -1 || p.first < minVal))
+            minVal = p.first; 
+    }
+    return minVal;
 }
