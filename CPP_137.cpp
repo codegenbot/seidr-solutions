@@ -40,6 +40,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (str1 < str2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
 }
