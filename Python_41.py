@@ -1,6 +1,3 @@
 def car_race_collision():
-    cars = int(input("Enter the number of cars: "))
-    collisions = 0
-    for i in range(1, cars):
-        collisions += i
-    return collisions
+    n = int(input("Enter the number of cars: "))
+    return sum([i*(n-i) for i in range(1,n+1)])
