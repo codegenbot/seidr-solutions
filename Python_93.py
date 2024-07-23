@@ -1,3 +1,4 @@
+```
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -8,12 +9,9 @@ def encode(message):
                 else:
                     shift = 97
                 
-                if char.isalpha():
-                    encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
-                else:
-                    encoded_char = char.lower()
+                encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
             else:  
-                encoded_char = char
+                encoded_char = char.lower()
         else:  
             encoded_char = char
         
