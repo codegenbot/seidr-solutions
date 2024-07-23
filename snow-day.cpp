@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <iomanip>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
@@ -22,4 +22,3 @@ int main() {
     cin >> onGround >> rate >> melt;
     std::cout << std::fixed << std::setprecision(10) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
-}
