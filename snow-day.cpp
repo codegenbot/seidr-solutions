@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
         onGround += (rate / 60);
@@ -17,8 +19,9 @@ float snowDay(int hours, float onGround, float rate, float melt) {
 
 int main() {
     int hours;
-    std::cin >> hours;
+    cin >> hours;
     float onGround, rate, melt;
-    std::cin >> onGround >> rate >> melt;
-    std::cout << snowDay(hours, onGround, rate, melt) << std::endl;
-    return 0;}
+    cin >> onGround >> rate >> melt;
+    cout << to_string(snowDay(hours, onGround, rate, melt)) << endl;
+    return 0;
+}
