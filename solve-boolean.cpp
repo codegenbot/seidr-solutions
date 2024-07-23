@@ -1,8 +1,6 @@
-#include <stack>
-#include <string>
-
+```cpp
 bool solveBoolean(std::string s) {
-    stack<char> st;
+    std::stack<char> st;
     bool prev = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -23,3 +21,4 @@ bool solveBoolean(std::string s) {
         st.pop();
     }
     return prev;
+}
