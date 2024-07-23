@@ -1,16 +1,19 @@
-#include <vector>
+#include <string>
 
-using namespace std;
-
-bool correct_bracketing(string brackets) {
-    vector<char> stack;
+bool correct_bracketing(const std::string& brackets) {
+    int count = 0;
     for (char bracket : brackets) {
         if (bracket == '(') {
-            stack.push_back(bracket);
+            count++;
         } else if (bracket == ')') {
-            if (stack.empty()) return false;
-            stack.pop_back();
+            if (count <= 0) return false;
+            count--;
         }
     }
-    return stack.empty();
+    return count == 0; 
+}
+
+int main() {
+    assert(!correct_bracketing("()()(()())()))()"));  
+    return 0;
 }
