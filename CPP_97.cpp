@@ -1,9 +1,14 @@
-int multiply(int a, int b) {
-    int result = 0;
-    while (b > 0) {
-        if (b & 1)
-            result += a;
-        a <<= 1;
-        b >>= 1;
+int multiply(int a, int b){
+    int sum = 0;
+    int abs_a = abs(a);
+    int abs_b = abs(b);
+
+    while(abs_b > 0) {
+        if (abs_b & 1)
+            sum += abs_a;
+        abs_a <<= 1;
+        abs_b >>= 1;
     }
-    return result;
+
+    return a < 0 ? -sum : sum;
+}
