@@ -8,8 +8,8 @@ std::string kebabToCamel(const std::string& str) {
         if (c == '-') {
             if (!result.empty()) {
                 capitalizeNext = true;
-                result.push_back(' ');
             }
+            result.push_back(' ');
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -19,3 +19,4 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
+}
