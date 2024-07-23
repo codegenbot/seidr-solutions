@@ -15,15 +15,13 @@ int main() {
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
 
-    bouncinessIndex = std::setprecision(2) << (firstBounce / startHeight);
+    bouncinessIndex = (firstBounce / startHeight) * (1 - 2/(startHeight + firstBounce));
     double totalDistance = 0;
 
+    double height = startHeight;
     for (int i = 1; i <= numBounces; i++) {
-        if(i == 1)
-            startHeight = firstBounce;
-        else
-            startHeight = std::pow(bouncinessIndex, i);
-        totalDistance += abs(startHeight) * 2; 
+        totalDistance += ((height * bouncinessIndex) - height);
+        height *= bouncinessIndex;
     }
 
     std::cout << "The total distance traveled by the ball is: " << std::fixed << std::setprecision(2) << totalDistance << std::endl;
