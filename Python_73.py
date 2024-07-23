@@ -6,6 +6,6 @@ def smallest_change(arr):
 
     for i in range(n):
         forward[i] = backward[n - i - 1]
-        changes = min(changes, sum(1 for a, b in zip(forward, arr) if a != b))
+        changes = min(changes, sum(a != b for a, b in zip(forward, arr)))
 
     return changes
