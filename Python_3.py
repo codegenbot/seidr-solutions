@@ -16,4 +16,7 @@ if __name__ == "__main__":
             else:
                 print("Invalid input. Please enter a list of integers separated by spaces.")
         except ValueError:
-            print("Invalid input. Please enter a list of integers separated by spaces.")
+            if user_input == "":
+                print("No numbers were entered. Please try again.")
+            else:
+                print("Invalid input. Please enter a list of integers separated by spaces.")
