@@ -1,20 +1,23 @@
 ```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
 
-std::vector<std::string> select_words(std::string s, int k) {
+std::vector<std::string> select_words(const std::string& input, int num_words) {
     std::vector<std::string> words;
-    std::istringstream iss(s);
-    for (std::string word; iss >> word;) {
-        if (word.size() >= k) {
-            words.push_back(word.substr(0, k));
+    size_t pos = 0;
+    do {
+        pos = input.find(' ', pos);
+        if (pos != std::string::npos) {
+            size_t next_pos = input.find(' ', pos + 1);
+            words.push_back(input.substr(pos + 1, (next_pos != std::string::npos)?(next_pos - pos - 1):std::string::npos));
+            pos = next_pos;
         }
-    }
+    } while (pos != std::string::npos && words.size() < num_words);
+
     return words;
 }
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){
+bool isSame(vector<string> a, vector<string>b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -22,4 +25,8 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b){
             return false;
     }
     return true;
+}
+
+int main() {
+    assert(isSame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
 }
