@@ -1,22 +1,21 @@
-def minFallingPathSum(grid):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+def findShortestWay(matrix, keywords):
+    n = len(matrix)
     memo = {}
     
-    def dfs(i, j, path, cnt):
+    def dfs(i, j, path, cnt, keywordIndex):
         if (i, j) in memo:
             return memo[(i, j)]
         
-        if cnt == n - 1:
-            return sum(path)
+        if cnt == len(keywords):
+            return path
         
         res = []
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in memo:
-                res.append(dfs(ni, nj, path + [grid[ni][nj]], cnt + 1))
+            if 0 <= ni < n and 0 <= nj < n and matrix[ni][nj] == keywords[keywordIndex]:
+                res.append(dfs(ni, nj, path + [matrix[ni][nj]], cnt + 1, keywordIndex + 1))
         
-        memo[(i, j)] = min(res)
+        memo[(i, j)] = min(res, key=lambda x: len(x) if len(x) == len(keywords) else float('inf'))
         return memo[(i, j)]
     
-    return dfs(0, 0, [], 0)
+    return dfs(0, 0, [], 0, 0)[1:]
