@@ -20,3 +20,8 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
     }
     return list;
 }
+
+int main() {
+    assert(areEqualVectors(strange_sort_list({111111}), {111111}));
+    return 0;
+}
