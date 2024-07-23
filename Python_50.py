@@ -1,11 +1,4 @@
 def decode_shift(s: str):
-    s = s.lower()
     shift = int(input("Enter the shift value: "))
-    decrypted_string = ""
-    for ch in s:
-        if ch.isalpha():
-            ascii_offset = ord('a') if ch < 'n' else ord('n')
-            decrypted_string += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
-        else:
-            decrypted_string += ch
-    return decrypted_string
+    return "".join([chr(((ord(ch.lower()) - ord('a')) % 26) + ord('a')) if ch.isalpha() else 
+                    chr(((ord(ch.upper()) - ord('A')) % 26) + ord('A')) if ch.isupper() else ch for ch in s])
