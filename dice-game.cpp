@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -11,7 +10,6 @@ double probability(int n, int m) {
     }
 
     return count / total;
-
 }
 
 int main() {
