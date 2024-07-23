@@ -6,4 +6,4 @@ def shopping_list():
         discount = float(input()) / 100
         discounted_price = round(price * (1 - discount), 2)
         total_price += discounted_price
-    return f"Total: {round(total_price, 2)}"
+    return f"Total: {total_price:.2f}"
