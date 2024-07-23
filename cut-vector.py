@@ -2,12 +2,12 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = total_sum
-cut_index = 1
+min_diff = 0
+cut_index = -1
 
-for i in range(1, n):
+for i in range(n):
     diff = abs(total_sum - 2 * sum(arr[:i]))
-    if diff < min_diff:
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
