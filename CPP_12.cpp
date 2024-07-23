@@ -1,3 +1,11 @@
+#include <string>
+
+string longest(vector<string> strings);
+
+int main() {
+    // Main function code here
+}
+
 string longest(vector<string> strings){
     if(strings.empty()){
         return "None";
