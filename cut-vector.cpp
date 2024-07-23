@@ -1,26 +1,22 @@
 ```cpp
 #include <vector>
-#include <algorithm>
-#include <climits>
+using namespace std;
 
-std::vector<int> subVector1;
-std::vector<int> subVector2;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
 
-int main() {
-    std::vector<int> v = {1, 2, 3};
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    for (int i = 0; i < v.size() - 1; ++i) {
-        int diff = std::abs(v[i] - v[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    for(int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if(diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
 
-    subVector1.assign(v.begin(), v.begin() + cutIndex + 1);
-    subVector2.assign(v.begin() + cutIndex + 1, v.end());
+    auto left = vector<int>();
+    left.assign(v.begin(), v.begin() + cut_index);
 
-    return 0;
+    auto right = vector<int>(v.begin() + cut_index, v.end());
+    return {left, right};
 }
