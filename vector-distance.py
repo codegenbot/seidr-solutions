@@ -1,9 +1,7 @@
-```
 n = int(input())
-vector1 = [float(x) for x in input().split()]
-m = int(input())
-vector2 = [float(x) for x in input().split()]
+vec1 = [float(x) for x in input().split()]
+vec2 = [float(x) for x in input().split()]
 
-distance = sum((a - b) ** 2 for a, b in zip(vector1, vector2)) ** 0.5
+dist = (sum((a - b) ** 2 for a, b in zip(vec1, vec2))) ** 0.5
 
-print(format(distance, ".6f"))
+print(round(dist, 10))
