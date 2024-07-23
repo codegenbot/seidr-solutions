@@ -13,7 +13,7 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(maxRightSoFar);
         }
     }
-    return vector<int>(result.rbegin(), result.rend());
+    return result;
 }
 
 int main() {
