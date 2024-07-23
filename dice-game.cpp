@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <algorithm>
 
 double diceGame(int n, int m) {
