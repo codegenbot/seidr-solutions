@@ -1,12 +1,15 @@
+```c++
 #include <iostream>
 #include <string>
 
 int pairedDigits(std::string str) {
     int sum = 0;
-    for(int i=0; i<str.length(); i++) {
-        if(i+1 < str.length() && str[i] == str[i+1]) {
-            sum += str[i] - '0' + 1;
+    for(int i=0; i<str.length(); ) {
+        char c = str[i];
+        if(i+1 < str.length() && c == str[i+1]) {
+            sum += c - '0';
         }
+        i++;
     }
     return sum;
 
@@ -20,5 +23,4 @@ int main() {
     int result = pairedDigits(input);
     printf("Sum of paired digits: %d\n", result);
 
-    return 0;
-}
+    return 0; }
