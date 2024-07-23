@@ -1,5 +1,3 @@
-# Modified code:
-
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -11,20 +9,16 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            result.push_back(complement);
-            result.push_back(nums[i]);
-            break;
+            if (result.empty()) {
+                result.push_back(complement);
+                result.push_back(nums[i]);
+                return result;
+            }
         }
         numIndex[nums[i]] = i;
     }
 
-    if (result.size() == 2) {
-        if (result[0] + result[1] == target) {
-            return result;
-        }
-    }
-
-    return {};
+    return result;
 }
 
 int main() {
@@ -42,8 +36,9 @@ int main() {
     std::vector<int> result = findPair(nums, target);
 
     if (result.size() == 2) {
-        std::cout << result[0] << std::endl;
-        std::cout << result[1] << std::endl;
+        for (int i = 0; i < result.size(); ++i) {
+            std::cout << result[i] << std::endl;
+        }
     }
 
     return 0;
