@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     std::string result = "";
@@ -24,9 +25,7 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int input;
-    std::cout << "Enter an integer: ";
-    std::cin >> input;
-    std::cout << fizzBuzz(input) << std::endl;
+    int x = 15; // test value
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
