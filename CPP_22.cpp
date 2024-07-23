@@ -25,8 +25,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main
-{
+int main() {
     std::vector<std::string> input;
     int n;
     std::cout << "Enter number of elements: ";
