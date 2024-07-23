@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -8,8 +7,10 @@ pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
+    int colorCount[6] = {0};
     int codeCount[6] = {0};
     int guessCount[6] = {0};
+    
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
@@ -18,6 +19,7 @@ pair<int, int> mastermind(string code, string guess) {
             guessCount[guess[i]-'0']++;
         }
     }
+    
     int correctPosition = 0;
     for(int i = 0; i < 6; i++) {
         if(codeCount[i] > 0 && guessCount[i] > 0) {
