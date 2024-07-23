@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& input, const std::string& cipher1, const std::string& cipher2) {
+std::string decipher(std::string& input, std::string& cipher1, std::string& cipher2) {
     std::string result;
     for (auto c : input) {
         if (c == '\0') {
@@ -24,16 +25,12 @@ std::string decipher(const std::string& input, const std::string& cipher1, const
 }
 
 int main() {
-    std::string inputs[3];
-    
-    std::cout << "Enter the three strings:" << std::endl;
-    for (auto& s : inputs) {
-        std::getline(std::cin, s);
-    }
+    std::string input, cipher1, cipher2;
 
-    std::string cipher1 = inputs[0];
-    std::string cipher2 = inputs[1];
-    std::string input = inputs[2];
+    std::cout << "Enter the three strings:" << std::endl;
+    std::getline(std::cin, cipher1);
+    std::getline(std::cin, cipher2);
+    std::getline(std::cin, input);
 
     std::string result = decipher(input, cipher1, cipher2);
     std::cout << "Deciphered message: " << result << std::endl;
