@@ -1,20 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <set>
 #include <string>
 
 std::string find_max(std::vector<std::string> words) {
-    std::string max_word = "";
-    int max_unique_chars = 0;
-
+    std::sort(words.begin(), words.end(), [](const auto& a, const auto& b) { return a.size() < b.size(); });
+    
     for (const auto& word : words) {
         std::set<char> unique_chars(word.begin(), word.end());
-        if ((int)unique_chars.size() > max_unique_chars) {
-            max_unique_chars = (int)unique_chars.size();
-            max_word = word;
+        if (unique_chars.size() > 0) {
+            return word;
         }
     }
 
-    return max_word;
+    return "";
 }
