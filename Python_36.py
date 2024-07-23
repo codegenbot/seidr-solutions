@@ -11,3 +11,5 @@ def fizz_buzz(n: int):
         else:
             result.append(str(i))
     return '\n'.join(result)
+
+assert len(fizz_buzz(100000).splitlines()) == 8026
