@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     
@@ -15,9 +15,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<int> left, right;
-    left.assign(nums.begin(), nums.begin()+pos);
-    right.assign(nums.begin()+pos, nums.end());
+    vector<pair<vector<int>, vector<int>>> result;
+    pair<vector<int>, vector<int>> cutted;
+    cutted.first.assign(nums.begin(), nums.begin()+pos);
+    cutted.second.assign(nums.begin()+pos, nums.end());
+    result.push_back(cutted);
     
-    return {left, right};
+    return result;
 }
