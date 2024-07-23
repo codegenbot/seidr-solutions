@@ -12,28 +12,15 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(vector<int> q, int start = 0) {
-    return accumulate(q.begin() + start, q.end(), 0);
-}
-
-bool will_it_fly(vector<int>& q, int w) {
-    string s = "";
-    for (int i : q) {
-        s += to_string(i);
-    }
-    return is_palindrome(s) && accumulate(q, 0) <= w;
-}
-
 int main() {
     int n, w;
-
     cout << "Enter the number of queens: ";
     cin >> n;
 
-    vector<int> q; // Initialize the vector
+    vector<string> q;
 
     for (int i=0; i<n; i++) {
-        int temp;
+        string temp;
         cout << "Enter position of queen " << i+1 << ": ";
         cin >> temp;
         q.push_back(temp);
@@ -42,7 +29,7 @@ int main() {
     cout << "Enter the total weight: ";
     cin >> w;
 
-    if (will_it_fly(q, w))
+    if (is_palindrome(string(accumulate(q.begin(),q.end(),"")) && accumulate(q.begin(),q.end(),0) <= w)
         cout << "The queens will fly with the given weight.";
     else
         cout << "The queens will not fly with the given weight.";
