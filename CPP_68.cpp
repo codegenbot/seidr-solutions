@@ -3,7 +3,8 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return {};
+    if (arr.empty()) return {{}}; // replaced return {}; with return {{}};
+
 
     int smallest_even = *min_element(arr.begin(), arr.end(), 
                                  [](int a, int b) { return (a % 2 == 0 && ! (b % 2 == 0)); });

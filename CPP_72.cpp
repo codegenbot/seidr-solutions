@@ -12,7 +12,7 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(vector<int>& q, int start = 0) {
+int accumulate(vector<int> q, int start = 0) {
     return accumulate(q.begin() + start, q.end(), 0);
 }
 
@@ -30,12 +30,13 @@ int main() {
     cout << "Enter the number of queens: ";
     cin >> n;
 
-    vector<int> q(n);
+    vector<int> q; // Initialize the vector
 
     for (int i=0; i<n; i++) {
         int temp;
         cout << "Enter position of queen " << i+1 << ": ";
-        cin >> q[i];
+        cin >> temp;
+        q.push_back(temp);
     }
 
     cout << "Enter the total weight: ";
