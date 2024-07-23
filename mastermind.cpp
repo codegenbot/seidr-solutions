@@ -19,7 +19,8 @@ pair<int, int> mastermind(string code, string guess) {
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
         if(code[i] != guess[i]) {
-            colorCount[(int)(guess[i] - '0')]++;
+            int count = std::count(code.begin(), code.end(), guess[i]);
+            colorCount[(int)(guess[i] - '0')] = count;
         }
     }
 
