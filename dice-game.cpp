@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 double probability(int n, int m) {
     double total = (double)n * m;
     double count = 0;
@@ -14,8 +11,4 @@ double probability(int n, int m) {
     }
 
     return (total - count) / total;
-}
-
-int main() {
-    return probability(0, 0);
 }
