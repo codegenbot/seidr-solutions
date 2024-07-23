@@ -19,13 +19,20 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                         result.append(temp[:-1])
                         temp = temp[:-1].rstrip()
                     if temp and temp[-1] == "(":
-                        temp += char
+                        temp += ")"
                     elif not temp:
-                        temp += char
+                        temp += ")"
         else:
             temp += char
 
     if temp:
+        while temp and (temp[-1] != "("):
+            result.append(temp[:-1])
+            temp = temp[:-1].rstrip()
+        if temp and temp[-1] == "(":
+            temp += ")"
+        elif not temp:
+            temp += ")"
         result.append(temp)
 
     return result
