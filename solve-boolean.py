@@ -1,50 +1,36 @@
 ```
 def solve_boolean(expression):
-    def recursive_eval(tokens):
+    def recursive_eval(tokens, i=None):
         result = None
-        operators = []
-        for token in tokens:
-            if token == 'T':
+        if i == None:
+            i = 0
+
+        while i < len(tokens):
+            token = tokens[i]
+            if token == '(':
+                i += 1
+                result = recursive_eval(tokens, i)
+                return result
+            elif token in ['T', 'F']:
                 if result is None: 
-                    result = True
+                    result = True if token == 'T' else False
                 elif result == True: 
                     result = True
                 else:
-                    return False
-            elif token == 'F':
-                if result is None:
                     result = False
-                elif result == True:
-                    return False
-                else:
-                    result = False
+                return result
             elif token in ['|', '&']:
-                while operators and operators[-1] != '(':
-                    if operators[-1] == '|':
-                        return True if result == False else recursive_eval(tokens[tokens.index(token):])
-                    elif operators[-1] == '&':
-                        return False if result == True else recursive_eval(tokens[tokens.index(token):])
-                    operators.pop()
-                if token == '(':
-                    operators.append(token)
+                if result is None: 
+                    i += 1
+                elif result == True: 
+                    return True
                 else:
-                    operators.append(token)
+                    result = recursive_eval(tokens, i+1)
+                    return not result
             elif token == ')':
-                while operators and operators[-1] != '(':
-                    if operators[-1] == '|':
-                        return True if result == False else recursive_eval(tokens[tokens.index(token):])
-                    elif operators[-1] == '&':
-                        return False if result == True else recursive_eval(tokens[tokens.index(token):])
-                    operators.pop()
-                operators.pop()
-
-        while operators:
-            if operators[-1] == '|':
-                return True if result == False else recursive_eval(list(operators))
-            elif operators[-1] == '&':
-                return False if result == True else recursive_eval(list(operators))
-            operators.pop()
-        return result
+                while tokens[i] != '(':
+                    i += 1
+                i += 1
 
     expression = expression.replace(' | ', '|').replace('&', ' & ')
     return recursive_eval(expression.split())
