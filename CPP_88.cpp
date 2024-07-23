@@ -1,10 +1,15 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-// Function to compare two vectors
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a,std::vector<int>b){
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i]!=b[i])
+            return false;
+    }
+    return true;
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
@@ -18,7 +23,6 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    // Test the function
     assert(issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
     return 0;
 }
