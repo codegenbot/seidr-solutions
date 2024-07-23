@@ -1,9 +1,13 @@
 n = int(input())
 m = int(input())
 
-if n > m:
-    print(round((n - 1) / n, 2))
-elif n < m:
-    print(round(n / m, 2))
-else:
-    print(0.5)
+total_outcomes = n * m
+favorable_outcomes = 0
+
+for i in range(1, n + 1):
+    for j in range(1, m):
+        if i > j:
+            favorable_outcomes += 1
+
+probability = favorable_outcomes / total_outcomes
+print(round(probability, 2))
