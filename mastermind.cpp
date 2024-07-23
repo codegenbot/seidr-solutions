@@ -10,7 +10,7 @@ int main() {
     cin >> code >> guess;
     
     int blackPegs = 0, whitePegs = 0;
-    vector<int> codeCount(6, 0), guessCount(6, 0);
+    vector<int> codeCount(26, 0), guessCount(26, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -21,11 +21,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 26; ++i) {
         whitePegs += min(codeCount[i], guessCount[i]);
     }
     
     cout << whitePegs << "\n" << blackPegs << "\n";
     
     return 0;
-}
+} 
