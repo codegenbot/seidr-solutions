@@ -9,6 +9,7 @@ using namespace std;
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
     
+    // Convert all elements in both vectors to either lowercase or uppercase.
     transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
     transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
 
