@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int how_many_times(string str, string substring) {
