@@ -1,4 +1,6 @@
+```
 #include <vector>
+
 int next_smallest(vector<int> lst) {
     if (lst.empty()) return -1; 
     vector<int> sorted = lst;
@@ -8,5 +10,5 @@ int next_smallest(vector<int> lst) {
             return sorted[i+1];
         }
     }
-    return sorted.back();
+    return -1; 
 }
