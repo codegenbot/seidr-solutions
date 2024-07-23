@@ -1,22 +1,17 @@
 #include <string>
-#include <unordered_map>
+using namespace std;
+
+bool is_one(string s) {
+    return s.length() == 1 && s[0] == '1';
+}
 
 bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique_chars = true;
-        unordered_map<char, int> char_count;
-        for (char c : sub) { 
-            char_count[c]++;
-            if (char_count[c] > 1) {
-                unique_chars = false;
-                break;
-            }
-        }
-        if (!unique_chars)
-            return false;
+    string t = s;
+    while(t != "1" && !is_one(t)) {
+        int total = 0;
+        for(char c : t) 
+            total += (c-'0')*(c-'0');
+        t = to_string(total);
     }
-    return true;
+    return t == "1";
 }
