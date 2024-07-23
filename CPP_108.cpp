@@ -1,3 +1,4 @@
+```cpp
 int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
@@ -9,7 +10,7 @@ int count_nums(std::vector<int> n) {
             sum += num % 10;
             num /= 10;
         }
-        if (sum != 0) {
+        if (sum <= 9) {
             count++;
         }
     }
