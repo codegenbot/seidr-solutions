@@ -7,27 +7,28 @@ std::string spinWords(std::string str) {
 
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            result += word + " ";
-            word = "";
+            if(word.length() >= 5) {
+                std::string temp = word;
+                for(int j = temp.length()-1; j >= 0; j--) {
+                    result += temp[j];
+                }
+                word = "";
+            } else {
+                result += word + " ";
+                word = "";
+            }
         } else {
             word += str[i];
         }
     }
 
-    result += word;
-
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            int wordLength = i+1;
-            std::string temp = result.substr(i+1, wordLength);
-            if (temp.length() >= 5) { 
-                for (int j = temp.length()-1; j >= 0; j--) {
-                    result.replace(i+1, wordLength, temp.substr(j, 1));
-                }
-            } else {
-                i++; 
-            }
+    if(word.length() >= 5) {
+        std::string temp = word;
+        for(int j = temp.length()-1; j >= 0; j--) {
+            result += temp[j];
         }
+    } else {
+        result += word;
     }
 
     return result;
