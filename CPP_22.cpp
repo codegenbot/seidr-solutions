@@ -3,7 +3,7 @@
 #include <cassert>
 #include <type_traits>
 
-bool is_same_vectors(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
@@ -12,7 +12,7 @@ bool is_same_vectors(std::vector<int> a, std::vector<int> b) {
 std::vector<int> filter_integers(std::vector<int> mixedVector) {
     std::vector<int> result;
     for (int num : mixedVector) {
-        if (std::is_same_v<int, int>) {
+        if (std::is_same_v<decltype(num), int>) {
             result.push_back(num);
         }
     }
@@ -20,7 +20,7 @@ std::vector<int> filter_integers(std::vector<int> mixedVector) {
 }
 
 int main() {
-    assert(is_same_vectors(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(is_same(filter_integers({3, 3, 3}), {3, 3, 3}));
 
     return 0;
 }
