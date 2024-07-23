@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <initializer_list>
+#include <assert.h>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -20,3 +21,4 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::
 int main() {
     assert(issame(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, {"grunt", "prune"}));
     return 0;
+}
