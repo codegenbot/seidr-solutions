@@ -1,21 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 double find_zero(const std::vector<double>& coeffs) {
-    double x = 1;
-    double prevPolyVal = poly(coeffs, 0);
-    double currPolyVal;
-
+    double x = 0;
     while (true) {
-        currPolyVal = poly(coeffs, x);
-
-        if (abs(currPolyVal - prevPolyVal) < 1e-6)
+        double y = poly(coeffs, x);
+        if (abs(y) < 1e-6)
             return x;
-
-        prevPolyVal = currPolyVal;
-        x -= 0.5;
+        x += 0.5;
     }
 }
 
@@ -28,11 +21,7 @@ double poly(const std::vector<double>& coeffs, double x) {
 }
 
 int main() {
-    // Use the find_zero and poly functions
     std::vector<double> coeffs = {1.0, -2.0, 3.0};
-    double x = find_zero(coeffs);
-    
-    std::cout << "The zero of the polynomial is: " << x << std::endl;
-    
-    return 0;
+    double root = find_zero(coeffs);
+    std::cout << "The zero of the polynomial is: " << root << std::endl;
 }
