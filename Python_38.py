@@ -1,9 +1,18 @@
 def decode_cyclic(s: str):
-    result = ""
-    while len(s) >= 3:
-        first_two_bits = int(s[:2], 16)
-        result += chr((first_two_bits % 26 + 97)) if (first_two_bits % 26) != 0 else 'z'
-        s = s[3:]
-    if s:
-        result += s
-    return result
+    result = []
+    i = 0
+    while i < len(s):
+        if (i + 2) % 3 == 0:
+            group = s[i : i + 3]
+        else:
+            j = i
+            while j < len(s) and s[j] != s[i]:
+                j += 1
+            group = s[i:j]
+            result.append(s[j:])
+        if len(group) > 1:
+            group = group[1:] + group[0]
+        else:
+            return s[:i]
+        i += 3
+    return "".join(result + [group])
