@@ -1,6 +1,4 @@
-```
-#include <string>
-
-int str_len(std::string& str) {
-    return str.length();
+```cpp
+int str_len() {
+    return 0;
 }
