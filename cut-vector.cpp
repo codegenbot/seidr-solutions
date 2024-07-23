@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <climits>  
 #include <cmath>
@@ -33,16 +34,16 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 3, 4, 5, 2, 3, 7};
+    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left subvector: ";
-    for (int x : result.first) {
-        cout << x << " ";
+    cout << "Left: ";
+    for (int num : result.first) {
+        cout << num << " ";
     }
     cout << endl;
-    cout << "Right subvector: ";
-    for (int x : result.second) {
-        cout << x << " ";
+    cout << "Right: ";
+    for (int num : result.second) {
+        cout << num << " ";
     }
     cout << endl;
     return 0;
