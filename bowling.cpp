@@ -1,41 +1,36 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
+    int roll1 = 0; 
+    int roll2 = 0; 
+    bool isStrike = false;
+
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == 'X') {
             score += 30;
-            roll++;
+            isStrike = true;
         } else if (c == '/') {
-            score += 10 + (roll * 10);
-            roll = 0;
+            if (isStrike) {
+                score += 10 + roll1 * 2 + roll2;
+                isStrike = false;
+            } else {
+                score += 10 + roll1 + roll2;
+                roll1 = 0; 
+                roll2 = 0;
+            }
         } else {
             int temp = c - '0';
-            if (roll < 2) {
-                score += temp;
-                roll++;
-            } else {
-                score += temp;
-                if (temp + 10 > 10) {
-                    score += 10;
-                } else {
-                    score += temp + 10;
+            if (!isStrike) {
+                roll1 += temp;
+                if (roll1 < 2) {
+                    roll2 = 0; 
                 }
-                roll = 0;
+            } else { 
+                score += 30;
+                roll2 = 0; 
             }
         }
     }
-    return score;
-}
 
-int main() {
-    string input = "XXXX/0/00"; 
-    int score = bowlingScore(input);
-    cout << "The score is: " << score << endl;
-    return 0;
+    return score;
 }
