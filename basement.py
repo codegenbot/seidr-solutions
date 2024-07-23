@@ -1,7 +1,8 @@
+```
 def basement(nums):
-    left = total = 0
-    for right in range(len(nums)):
+    total = 0
+    for i, num in enumerate(nums):
+        total += num
         if total < 0:
-            return right + 1 
-        total += nums[right]
+            return i + 1
     return -1
