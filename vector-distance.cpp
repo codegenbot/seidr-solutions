@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -13,12 +19,12 @@ int main() {
     }
 
     float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < min(vec1.size(), vec2.size()); ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
     float result = sqrt(sum);
-    cout << result << endl;
+    cout << result << "\n";
 
     return 0;
 }
