@@ -12,5 +12,5 @@ bool check_dict_case(map<string, string> dict) {
         if (!isupper(pair.first[0])) allUpper = false;
     }
 
-    return allLower || allUpper;
+    return (!allLower && allUpper) || allLower && !allUpper;
 }
