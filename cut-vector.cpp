@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = 0; // modified initial value of min_diff
+    int min_diff = 0; // Correct initial value
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
