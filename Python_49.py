@@ -1,8 +1,16 @@
 def modp(n: int, p: int):
     if p <= 1:
         return n
+    elif n % p == 0:
+        return n // p
     elif p % 2 == 0:
         half_mod = modp(n, p // 2)
-        return ((n * half_mod * half_mod) % p)
+        return powermod(n, half_mod, p)
     else:
-        return (n % p)
+        return powermod(n, p, p)
+
+def powermod(base: int, exponent: int, modulus: int):
+    result = 1
+    for _ in range(exponent):
+        result = (result * base) % modulus
+    return result
