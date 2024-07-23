@@ -23,4 +23,5 @@ while True:
     confirm = input("Press Enter to execute, or type 'q' to quit: ")
     if confirm.lower() == "q":
         break
-    print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
+    else:
+        print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
