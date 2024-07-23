@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -26,15 +26,12 @@ bool isPrime(int n){
     }
     return true;
 
-int main {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
+int main{
     std::vector<int> lst;
-    for(int i = 1; i <= num; i++){
-        if(isPrime(i)) {
-            lst.push_back(i);
-        }
+    int input;
+    while(std::cin >> input){
+        lst.push_back(input);
     }
-    std::cout << "Sum of digits in the sum of all primes is: " << skjkasdkd(lst) << std::endl;
+    int result = skjkasdkd(lst);
+    std::cout << "Sum of digits: " << result << std::endl;
 }
