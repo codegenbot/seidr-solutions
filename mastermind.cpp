@@ -8,22 +8,23 @@ pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            blackPegs++;
         }
     }
-    
-    for (char c : guess) {
+
+    for (char c : code) {
         bool found = false;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i] && !found) {
-                ++whitePegs;
+        for (int i = 0; i < 4; i++) {
+            if (c == guess[i]) {
                 found = true;
+                break;
             }
         }
+        if (!found) whitePegs++;
     }
-    
+
     return make_pair(blackPegs, whitePegs);
 }
 
