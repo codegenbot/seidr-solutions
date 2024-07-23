@@ -1,8 +1,5 @@
-import itertools
-
-
 def basement(vector):
-    for i, s in enumerate(itertools.cumsum(vector)):
-        if s < 0:
+    for i in range(len(vector)):
+        if sum(vector[:i+1]) < 0:
             return i
     return -1
