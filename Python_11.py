@@ -1,7 +1,7 @@
 def string_xor(a: str, b: str) -> str:
     a = bin(int(a or '0', 2))[2:]
     b = bin(int(b or '0', 2))[2:]
-
+    
     result = ""
     for i in range(max(len(a), len(b))):
         if i < len(a) and i < len(b):
