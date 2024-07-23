@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
+
 int main() {
-    using namespace std;
-    
     double start_height, first_bounce_height, bounciness_index, total_distance = 0.0;
     int num_bounces;
     
