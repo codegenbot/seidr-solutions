@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in card_number]
     sum_even_index = 0
@@ -17,4 +16,4 @@ def luhn(card_number):
         
         sum_even_index += digit
     
-    return sum_even_index % 10 == 0
+    return sum_even_index % 10
