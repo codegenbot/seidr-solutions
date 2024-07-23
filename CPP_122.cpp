@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -17,11 +18,11 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     int k;
-
+    
     // Read the number of elements from user.
     cout << "Enter the number of elements: ";
     cin >> k;
-
+    
     vector<int> numbers;
     for (int i = 0; i < k; i++) {
         // Read each element from user.
