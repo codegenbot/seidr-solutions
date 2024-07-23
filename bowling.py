@@ -1,17 +1,14 @@
+Here is the solution to the bowling problem:
+
+```
 def bowling_score(frames):
     score = 0
     for i in range(0, len(frames), 2):
-        if frames[i].isdigit() and frames[i + 1].isdigit():
-            strike = False
-            spare = False
-            total = int(frames[i]) + int(frames[i + 1])
-            if total == 10:
-                score += 10
-                strike = True
-            else:
-                if i < len(frames) - 2 and frames[i + 2] == "X":
-                    strike = True
-                elif i > 0 and frames[i - 2 : i] in ["//", "/"]:
-                    spare = True
-                score += total
+        if frames[i] == 'X':
+            score += 30
+        elif frames[i] == '/':
+            score += 10 + int(frames[i+1])
+        else:
+            frame_score = int(frames[i:i+2])
+            score += frame_score
     return score
