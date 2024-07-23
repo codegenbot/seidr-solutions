@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -24,13 +25,7 @@ int main() {
     std::string input;
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
-        std::cout << camelCase(iss.str());
-        while (std::getline(iss, input, '-')) {
-            if (!input.empty()) {
-                std::cout << (camelCase(input));
-            }
-        }
-        std::cout << "\n";
+        std::cout << camelCase(iss.str()) << std::endl;
     }
     return 0;
 }
