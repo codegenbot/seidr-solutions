@@ -1,11 +1,11 @@
 ```
 def file_name_check(file_name):
-    if '.' in file_name:
-        part1, part2 = file_name.split('.')
-        if len(part1) > 0 and part1[0].isalpha() and part1.count('0') <= 3 and part1.count('1') <= 3 and part1.count('2') <= 3 and part1.count('3') <= 3 and part1.count('4') <= 3 and part1.count('5') <= 3 and part1.count('6') <= 3 and part1.count('7') <= 3 and part1.count('8') <= 3 and part1.count('9') <= 3:
-            if part2 in ['txt', 'exe', 'dll']:
-                return 'Yes'
+    if len([c for c in file_name if c.isdigit()]) > 3:
+        return 'No'
+    elif '.' not in file_name or file_name.split('.')[0].lstrip().isalnum() and file_name.count('.') != 1:
+        return 'No'
+    else:
+        if file_name.split('.')[1][1:].lower() in ['txt', 'exe', 'dll']:
+            return 'Yes'
         else:
             return 'No'
-    else:
-        return 'No'
