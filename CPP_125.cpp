@@ -36,11 +36,14 @@ vector<string> split_words(string txt) {
 
 int main() {
     string txt;
-    cout << "Enter your text: ";
+    cout << "Enter a sentence: ";
     getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (const string& word : result) {
+    
+    vector<string> words = split_words(txt);
+
+    for(string word : words) {
         cout << word << endl;
     }
+
     return 0;
 }
