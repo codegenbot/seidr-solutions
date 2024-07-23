@@ -8,22 +8,25 @@ int bowlingScore(string str) {
             string firstPart = str.substr(0, i);
             string secondPart = str.substr(i + 1);
             int firstScore = (firstPart[0] - '0') * 10 + (firstPart[1] - '0');
-            if (secondPart.length() > 1) {
-                int secondScore = (secondPart[0] - '0') * 10 + (secondPart[1] - '0');
-                score += firstScore + secondScore;
-            } else {
-                score += firstScore + (secondPart[0] - '0') * 10;
-            }
+            int secondScore = (secondPart[0] - '0') * 5;
+            score += max(firstScore, secondScore) + min(firstScore, secondScore);
             i++;
         } else {
-            int roll = (str[i] - '0') * 10;
-            if (i < str.length() - 1 && str[i + 1] != '/') {
-                roll += (str[i + 1] - '0') * 10;
-                score += roll;
-                i++;
-            } else {
-                score += roll;
+            if (str[i] == 'x' || str[i] == '/') {
+                score += 10 + bowlingScore(secondPart);
+                return score;
             }
+            int currentFrame = (str[i] - '0') * 10 + (str[i+1] - '0');
+            i++;
+            if (str[i] != '/') {
+                if (str[i] == 'x' || str[i] == '/') {
+                    score += 10;
+                } else {
+                    currentFrame += (str[i] - '0') * 1 + (str[i+1] - '0');
+                }
+            }
+            score += currentFrame;
         }
     }
     return score;
+}
