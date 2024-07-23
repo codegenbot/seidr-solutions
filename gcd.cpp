@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <numeric>
 
 using namespace std;
 
@@ -20,7 +19,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    return __gcd(a, b); 
+    while (b != 0) {
+        int r = a % b;
+        a = b;
+        b = r;
+    }
+    return b; 
 }
 
 int main() {
@@ -33,8 +37,10 @@ int main() {
     }
     cout << endl;
 
-    int gcdResult = gcd(909378243576LL, 50); 
-    cout << "GCD of " << 909378243576 << " and " << 50 << ": " << gcdResult << endl;
+    int a = 909378;
+    int b = 243576; 
+    int gcdResult = gcd(a, b); 
+    cout << "GCD of " << a << " and " << b << ": " << gcdResult << endl;
 
     return 0;
 }
