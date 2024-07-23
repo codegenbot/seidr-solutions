@@ -1,3 +1,4 @@
+```
 def fizz_buzz(n: int):
     count = 0
     for i in range(1, n + 1):
@@ -7,6 +8,5 @@ def fizz_buzz(n: int):
             else "Fizz" if i % 3 == 0 else "Buzz" if i % 5 == 0 else str(i)
         )
         print(output)
-        if output == "FizzBuzz":
-            count += 1
-    return count
+        count += 1 if output != str(i) else 0
+    return 0
