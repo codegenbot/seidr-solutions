@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 using namespace std;
 
@@ -9,15 +9,15 @@ vector<int> leaders(vector<int>& arr) {
     if(n==0)
         return leaders;
     
-    int rightmostLeader = arr[n-1];
-    leaders.push_back(rightmostLeader);
+    leaders.push_back(arr[n-1]);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= rightmostLeader) {
-            rightmostLeader = arr[i];
-            leaders.push_back(rightmostLeader);
+        if(arr[i] >= arr[i+1]) {
+            leaders.push_back(arr[i]);
         }
     }
+    
+    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
