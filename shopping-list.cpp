@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <iomanip>
+#include <iomanip> // Add this header for setprecision
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float total = 0.0;
@@ -12,9 +10,10 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    std::vector<float> prices = {36.73, 44.51, 27.58, 6.67}; // Prices
-    std::vector<float> discounts = {4.0, 94.49, 73.37, 54.3, 86.09}; // Discounts
+    std::vector<float> prices = {10.0, 20.0, 30.0}; // Example prices
+    std::vector<float> discounts = {10.0, 5.0, 15.0}; // Example discounts
     float total_price = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2) << "Total price after discounts: " << total_price << std::endl;
+    std::cout << std::fixed << std::setprecision(2); // Set output precision
+    std::cout << "Total price after discounts: " << total_price << std::endl;
     return 0;
 }
