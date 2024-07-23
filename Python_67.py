@@ -1,4 +1,3 @@
-```
 s = str(input("Enter a sentence: "))
 n = int(input("Enter a number: "))
 n -= int(''.join(filter(str.isdigit, s)))
