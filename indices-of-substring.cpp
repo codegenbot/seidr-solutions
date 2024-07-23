@@ -3,14 +3,14 @@ int main() {
     cin >> text >> target;
     
     vector<int> indices;
-    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
-        if (text.substr(i, target.length()) == target) {
-            indices.push_back(i);
-        }
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        indices.push_back(pos);
+        pos++;
     }
     
-    for (int idx : indices) {
-        cout << idx << " ";
+    for (int i = 0; i < indices.size(); ++i) {
+        cout << indices[i] << " ";
     }
     
     return 0;
