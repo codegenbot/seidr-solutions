@@ -1,4 +1,4 @@
-```python
+```
 def bowling_score(game):
     score = 0
     game_list = [int(i) if i.isdigit() else i for i in game.replace('-', '/').split()]
@@ -31,4 +31,4 @@ def bowling_score(game):
             score += game_list[i]
     return score
 
-print(``9/-39/X3/7/54622325``)
+print(bowling_score('9/-39/X3/7/54622325'))
