@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string middleCharacter(std::string s) {
@@ -7,4 +8,14 @@ std::string middleCharacter(std::string s) {
     } else{
         return s.substr(len/2, 1);
     }
+}
+
+int main() {
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
+
+    std::cout << "The middle character(s) is/are: " << middleCharacter(input);
+
+    return 0;
 }
