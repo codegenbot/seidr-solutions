@@ -7,18 +7,17 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int i = 0;
-    while (i < n - m + 1) {
-        int j = 0;
-        while (j < m) {
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
-                i++; // Move to the next position
-                j = 0; // Reset the target index
-            } else
-                j++;
+                found = false;
+                break;
+            }
         }
-        if (j == m)
-            result.push_back(i); // Found a match!
+        if (found) {
+            result.push_back(i);
+        }
     }
 
     return result;
