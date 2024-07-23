@@ -1,4 +1,5 @@
-```
+Here is the solution:
+
 def search(lst):
     freq = {}
     max_num = -1
@@ -17,7 +18,6 @@ def search(lst):
     if max_num == -1:
         max_num = 0
     return max_num
-
 
 lst = input("Enter numbers separated by space: ")
 try:
