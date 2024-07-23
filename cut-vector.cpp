@@ -1,3 +1,10 @@
+```cpp
+#include <vector>
+#include <climits>
+#include <iostream>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
@@ -10,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
         if (leftSum == rightSum) {
-            return pair<vector<int>, vector<int>>({},{v.begin(), v.end()});
+            return {{}, {v.begin(), v.end()}};
         } else if (abs(leftSum - rightSum) < minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
@@ -23,6 +30,21 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
-                                            vector<int>(v.begin() + cutIndex, v.end()));
+    return {{v.begin(), v.begin() + cutIndex}, {v.begin() + cutIndex, v.end()}};
+}
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5}; 
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left subvector: ";
+    for (int num : result.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }

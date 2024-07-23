@@ -11,21 +11,15 @@ int mastermind(std::string code, std::string guess) {
     vector<char> code_chars(code.begin(), code.end());
     vector<char> guess_chars(guess.begin(), guess.end());
 
-    unordered_map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            for (int j = 0; j < 4; j++) {
-                if (guess[j] == code[i] && --code_count[guess[j]] >= 0) {
-                    white++;
-                    break;
-                }
+    for (int i = 0; i < 6; i++) { // Changed the limit to 6 as each character can be one of 6 possible characters.
+        int count = 0;
+        for (int j = 0; j < 4; j++) {
+            if (code_chars[j] == guess[i]) {
+                count++;
             }
+        }
+        if (count > 1) { // Changed condition to check for correct color but wrong place
+            white += count - 1;
         }
     }
 
