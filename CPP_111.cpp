@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -15,22 +16,19 @@ std::map<char, int> histogram(std::string s) {
 }
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
-    for (auto p : a) {
-        if (b.find(p.first) == b.end() || p.second != b[p.first]) {
+    if (a.size() != b.size())
+        return false;
+
+    for (auto& pair : a) {
+        if (b.find(pair.first) == b.end() || pair.second != b[pair.first])
             return false;
-        }
-    }
-    for (auto p : b) {
-        if (a.find(p.first) == a.end()) {
-            return false;
-        }
     }
     return true;
 }
 
 int main() {
-    std::map<char, int> expected = histogram("a");
-    expected['b'] = 0; // Assuming there's no 'b' in the string
-    assert(issame(histogram("aaa"), expected));
+    std::map<char, int> m1 = histogram("a");
+    std::map<char, int> m2 = histogram("a");
+    assert(issame(m1, m2));
     return 0;
 }

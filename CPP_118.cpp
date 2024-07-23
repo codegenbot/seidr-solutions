@@ -1,30 +1,30 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    for (char vowel : vowels) {
-        if (tolower(c) == vowel) {
-            return true;
-        }
-    }
-    return false;
+    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
 }
 
 std::string get_closest_vowel(std::string word) {
     int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
-        if (isvowl(tolower(word[i]))) {
+        if (isvowl(word[i])) {
             if (closest == -1)
                 closest = i;
+            else
+                return string(1, tolower(word[closest]));
         }
     }
-    return string(1, word.empty() ? "" : word[closest]);
+    return "";
 }
 
 int main() {
-    cout << get_closest_vowel("Apple") << endl;
+    assert(get_closest_vowel("Above") == "o");
+    cout << (get_closest_vowel("Apple") != "" ? get_closest_vowel("Apple") : "") << endl;
     return 0;
 }
