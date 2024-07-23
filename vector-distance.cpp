@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iomanip>
 #include <iostream>
-#include <initializer_list>
+#include <initializer_list> 
 using namespace std;
 
 double euclideanDistance(const vector<float>& v1, const vector<float>& v2) {
