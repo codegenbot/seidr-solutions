@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <ostream>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
@@ -14,23 +15,11 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 }
 
 int main() {
-    std::string text, target;
-    std::cout << "Enter the text: ";
-    std::cin >> text;
-    std::cout << "Enter the target string: ";
-    std::cin >> target;
-    
+    std::string text = "Hello World Hello";
+    std::string target = "Hello";
     std::vector<int> indices = indicesOfSubstring(text, target);
-    
-    if (indices.empty()) {
-        std::cout << "Target not found in the text." << std::endl;
-    } else {
-        std::cout << "Indices of substring are: ";
-        for (int index : indices) {
-            std::cout << index << " ";
-        }
-        std::cout << std::endl;
+    for (int index : indices) {
+        std::cout << index << " ";
     }
-    
-    return 0;
+    std::cout << std::endl;
 }
