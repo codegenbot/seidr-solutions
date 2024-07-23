@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <vector>
-#include <list>
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
@@ -12,7 +11,7 @@ vector<float> sort_even(vector<float> l) {
     vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            list<float> even;
+            vector<float> even;
             for (float x : l) {
                 if (x % 2 == 0) {
                     even.push_back(x);
