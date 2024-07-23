@@ -1,33 +1,31 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <sstream>
 
 std::string camelCase(std::string str) {
+    std::stringstream ss(str);
+    std::string word;
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-' || str[i] == ' ') {
-            if (str[i] == '-') {
-                i++;
-                while (i < str.length() && str[i] == '-') i++;
-                if (i < str.length()) {
-                    result += toupper(str[i]);
-                    i++;
-                }
+    bool capitalizeNext = true;
+
+    while (ss >> word) {
+        if (!result.empty()) {
+            result += toupper(word[0]);
+            word.erase(0, 1);
+        }
+        for (char c : word) {
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
             } else {
-                if (!result.empty()) {
-                    result += toupper(str[i]);
-                } else {
-                    result += tolower(str[i]);
-                }
-            }
-        } else {
-            if (!result.empty()) {
-                result += toupper(str[i]);
-            } else {
-                result += tolower(str[i]);
+                result += tolower(c);
             }
         }
+        result += " ";
     }
-    return result;
+
+    return result.substr(0, result.size() - 1); // Remove the trailing space
 }
 
 int main() {
