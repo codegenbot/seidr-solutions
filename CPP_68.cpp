@@ -30,7 +30,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if (minIndex != -1) {
         result.push_back({minEven, minIndex});
     } else {
-        result.push_back({0, -1}); 
+        result.push_back({0, -1}); // or any other default value
     }
 
     return result;
