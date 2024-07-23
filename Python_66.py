@@ -1,3 +1,4 @@
 def digitSum(s):
-    for i in range(10):
-        print(i)
+    for i in range(len(s)):
+        if s[i].isdigit():
+            print(int(s[i]))
