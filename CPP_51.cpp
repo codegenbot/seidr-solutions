@@ -1,4 +1,12 @@
+#include <string>
+
 std::string remove_vowels(std::string text) {
-    return {{ std::remove_if(text.begin(), text.end(), 
-        [](char c){return "aeiouAEIOU".find(c) != std::string::npos;}) , text.end()};
+    std::string result = "";
+    for (char c : text) {
+        if (strchr("aeiouAEIOU", tolower(c))) {
+            continue;
+        }
+        result += c;
+    }
+    return result;
 }
