@@ -15,7 +15,7 @@ def bowling_score(game):
             frame_score = sum(game_list[:2])
             game_list = game_list[2:]
             if frame_score == 10:
-                score += frame_score
+                score += 10
             elif frame_score < 10:
                 score += frame_score
                 if len(game_list) >= 2 and sum(int(i) for i in game_list[:2]) == 10:
