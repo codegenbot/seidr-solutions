@@ -4,7 +4,7 @@ from typing import List
 def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
     if len(numbers_list) < 2:
         return False
-    for i in range(len(numbers_list)):
+    for i in range(len(numbers_list) - 1):
         for j in range(i + 1, len(numbers_list)):
             if abs(numbers_list[i] - numbers_list[j]) <= threshold:
                 return True
@@ -29,6 +29,8 @@ def main():
                 numbers = input("Enter space-separated float numbers: ")
                 if not numbers.strip():
                     print("Please enter some numbers.")
+                elif len(numbers.split()) < 2:
+                    print("Please enter at least two numbers.")
                 else:
                     try:
                         numbers_list = list(map(float, numbers.split()))
