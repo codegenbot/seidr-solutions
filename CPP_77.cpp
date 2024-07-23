@@ -1,8 +1,4 @@
-```cpp
 #include <cmath>
-#include <cassert>
-#include <cctype>
-#include <cstddef>
 
 bool iscuber(int a) {
     int i = 1;
