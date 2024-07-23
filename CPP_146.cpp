@@ -19,11 +19,7 @@ int main() {
     return 0;
 }
 
-int specialFilter(const std::vector<int>& nums) {
+int main {
     int count = 0;
-    for (int x : nums) {
-        if (x == 0 || x % 11 != 0) {
-            count++;
-        }
-    }
-    return count;
+    // your code here
+}
