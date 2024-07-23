@@ -1,6 +1,6 @@
-```
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -22,4 +22,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    return 0;
+}
