@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 int search(vector<int> lst) {
     map<int, int> freqMap;
     for (int num : lst) {
@@ -18,4 +15,3 @@ int search(vector<int> lst) {
         }
     }
     return result;
-}
