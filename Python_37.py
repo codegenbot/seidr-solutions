@@ -1,4 +1,3 @@
-```
 def sort_even(l: list):
     l.sort()
     pos_evens = [x for x in l if 0 <= x % 2]

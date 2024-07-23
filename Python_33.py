@@ -1,4 +1,4 @@
-def sort_third(lst: list) -> tuple:
-    even = sorted([x for i, x in enumerate(lst) if i % 2 == 0])
-    odd = sorted([x for i, x in enumerate(lst) if i % 2 != 0])
-    return tuple(even), tuple(odd)
+```python
+def sort_third(lst: list) -> list:
+    """Sorts a list by grouping elements into decades and returns the sorted result."""
+    return sorted([(i//10, i) for i in lst])
