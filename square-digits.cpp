@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <cstdlib>
 
 std::string squareDigits(int n) {
     std::string str = std::to_string(n);
@@ -9,3 +9,4 @@ std::string squareDigits(int n) {
         result += std::to_string(digit * digit);
     }
     return result;
+}
