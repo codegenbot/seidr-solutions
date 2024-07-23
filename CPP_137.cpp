@@ -5,15 +5,16 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
     }
     
     int sum = 0;
-    int total = 0;
     for (int i = 1; i < n - 1; i++) {
         for (int j = 1; j < n - 1; j++) {
-            if (grid[i][j] > grid[i-1][j] || grid[i][j] > grid[i+1][j]) {
-                sum += grid[i][j];
+            for (int k = 0; k < i; k++) {
+                if (grid[k][j] > grid[i][j]) {
+                    sum += grid[i][j];
+                    break;
+                }
             }
-            total += grid[i][j];
         }
     }
     
-    return total - sum;
+    return sum;
 }
