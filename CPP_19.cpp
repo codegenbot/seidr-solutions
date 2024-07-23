@@ -12,25 +12,23 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    for (auto const &pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+    string result = "";
+    map<int, string> sorted_numbers;
+    
+    string number;
+    for (int i = 0; i < numbers.size(); ++i){
+        if (numbers[i] == ' '){
+            sorted_numbers[number_map[number]] = number;
+            number = "";
+        } else {
+            number += numbers[i];
+        }
     }
-
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        sorted_numbers.push_back(number_map[num]);
+    sorted_numbers[number_map[number]] = number;
+    
+    for (const auto& pair : sorted_numbers){
+        result += pair.second + " ";
     }
-
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
-    }
-
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+    
+    return result.substr(0, result.size() - 1);
 }
