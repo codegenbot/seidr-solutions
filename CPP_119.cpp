@@ -15,7 +15,7 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {{"("}, {")"}};
+    vector<string> lst = {{"("}, {")"});
     if (match_parens(lst)) cout << "Yes" << endl;
     else cout << "No" << endl;
     return 0;
