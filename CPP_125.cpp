@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -56,4 +56,6 @@ int main() {
         cout << "\"" << s << "\", ";
     }
     cout << "}" << endl;
+
+    return 0;
 }
