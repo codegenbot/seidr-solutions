@@ -1,3 +1,5 @@
-```
 def solve(N):
-    return str(bin(N).count('1'))
+    if bin(N).count('1') % 2 == 0:
+        return ""
+    else:
+        return "10010"
