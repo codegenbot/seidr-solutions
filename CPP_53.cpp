@@ -1,6 +1,5 @@
-#include <iostream>
-int add() {
-    int x, y;
-    std::cin >> x >> y;
+```cpp
+#include <cstdlib>
+int add(int x, int y) {
     return x + y;
 }
