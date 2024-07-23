@@ -5,5 +5,5 @@ def remove_duplicates(input_list=None):
     if not input_list:  
         return []  
     seen = set()
-    result = [x for x in input_list if not (x in seen or seen.add(x))]
-    return result
+    unique_list = [x for x in input_list if not (x in seen or seen.add(x))]
+    return sorted(unique_list)
