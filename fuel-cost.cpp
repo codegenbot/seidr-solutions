@@ -1,21 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <cmath>
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (std::cin >> n) {
         nums.push_back(n);
     }
-
+    
     int sum = 0;
     for (int num : nums) {
-        sum += max(0, num / 3 - 2);
+        sum += static_cast<int>(std::floor(static_cast<float>(num) / 3.0)) - 2;
     }
-
-    cout << sum << endl;
-
+    
+    std::cout << sum << std::endl;
+    
     return 0;
 }

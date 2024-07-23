@@ -1,10 +1,17 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-bool evaluateBooleanExpression(const string& expr) {
-    if (expr == "T") {
-        return true;
+int main() {
+    string input;
+    cin >> input;
+    
+    if (input == "t") {
+        cout << "True" << endl;
     } else {
-        return false;
+        cout << "False" << endl;
     }
+    
+    return 0;
 }

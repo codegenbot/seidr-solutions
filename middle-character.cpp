@@ -1,16 +1,14 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::getline(std::cin, s);
     int len = s.length();
     if (len % 2 == 0) {
-        cout << s.substr(len/2 - 1, 2);
+        std::cout << s.substr(len/2 - 1, 2);
     } else {
-        cout << s[len/2];
+        std::cout << s[len/2];
     }
     return 0;
 }
