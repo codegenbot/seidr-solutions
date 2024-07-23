@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 int odd_count(const std::vector<std::string>& nums) {
     int count = 0;
@@ -19,9 +18,8 @@ bool issame(int n1, const std::string& s) {
 int main() {
     std::vector<std::string> nums = {"271", "137", "314"};
     int result = odd_count(nums);
-    std::string input = "the number of odd elements " + std::to_string(result) + " in the string 1 of the input.";
-    std::replace(input.begin(), input.end(), '\\', '/');
-    assert(issame(result, input));
+    std::string s = "the number of odd elements in the string 2 of the input is "+std::to_string(result)+".";
+    assert(issame(result, s));
     
     return 0;
 }
