@@ -1,13 +1,17 @@
+```Python
 def decode_cyclic(s: str):
-    if not isinstance(s, str):
-        return "Invalid input"
-    
     result = ''
     i = 0
     while i < len(s):
-        if i + 3 <= len(s):
-            result += s[i:i+3][1] + s[i:i+3][0]
-        else:
-            result += s[i:]
-        i += 3
+        if i + 2 <= len(s):  
+            if s[i] == s[i+1]:  
+                result += s[i:i+2]
+                i += 2
+            else: 
+                if i + 1 < len(s) and s[i] == s[i+1][0]:
+                    result += s[i] * ((len(s) - i) // 2 + 1)
+                    i += (len(s) - i) % 2 or 2
+                else:
+                    result += s[i:]  
+        i += 1
     return result
