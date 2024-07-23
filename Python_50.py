@@ -1,14 +1,10 @@
 def decode_shift(s: str):
     while True:
         try:
-            shift = int(input("Enter the shift value (1-25): "))
-            if 1 <= shift <= 25:
-                break
-            else:
-                print("Invalid input! Please enter a number between 1 and 25.")
+            shift = int(input("Enter the shift value: "))
+            break
         except ValueError:
             print("Invalid input! Please enter an integer.")
-
     return "".join(
         [
             (
