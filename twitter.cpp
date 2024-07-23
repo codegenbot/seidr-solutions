@@ -5,8 +5,8 @@ using namespace std;
 
 int main() {
     string tweet;
-    cin.ignore(); 
     cout << "Enter a tweet: ";
+    cin.ignore(); // remove the newline character
     getline(cin, tweet);
 
     if (tweet.empty()) {
