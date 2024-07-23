@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -24,21 +25,12 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"271", "137", "314"};
-    vector<string> output = odd_count(lst);
-    cout << "Output: ";
-    for (const auto& str : output) {
-        cout << str << " ";
+    vector<string> input = {"271", "137", "314"};
+    vector<string> expected = {"the number of odd elements 2 in the string 1", 
+                               "the number of odd elements 1 in the string 2", 
+                               "the number of odd elements 0 in the string 3"};
+    if (!issame(odd_count(input), expected)) {
+        return 1;
     }
-    cout << endl;
-
-    if (!issame(output, {"the number of odd elements 2 in the string 1", 
-                         "the number of odd elements 1 in the string 2", 
-                         "the number of odd elements 0 in the string 3"})) {
-        cout << "Test Failed" << endl;
-    } else {
-        cout << "Test Passed" << endl;
-    }
-    
     return 0;
 }
