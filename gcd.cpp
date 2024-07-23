@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
 
 using namespace std;
 
@@ -36,16 +35,23 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    stringstream ss(input);
-
     int a, b;
-    ss >> a >> b;
+    if (!(cin >> a >> b)) {
+        cerr << "Invalid input for gcd problem" << endl;
+        return 1;
+    }
     cout << gcd(a, b) << endl;
 
+    int n, m;
+    if (!(cin >> n >> m)) {
+        cerr << "Invalid input for indicesOfSubstring problem" << endl;
+        return 1;
+    }
+
     string text, target;
-    ss >> text >> target;
+    cin.ignore();
+    getline(cin, text);
+    getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
         cout << idx << " ";
