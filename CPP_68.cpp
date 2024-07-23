@@ -1,14 +1,22 @@
-```
 #include <vector>
 #include <utility>
 
-bool issame(int a, int b) {
-    if (a == b) return true;
-    return false;
+using namespace std;
+
+bool issame(vector<int> a1, vector<int> a2) {
+    if (a1.size() != a2.size()) 
+        return false;
+    
+    for (int i = 0; i < a1.size(); i++) {
+        if (a1[i] != a2[i]) 
+            return false;
+    }
+    
+    return true;
 }
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -24,8 +32,18 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     if (minIndex != -1) {
         result.push_back({minEven, minIndex});
     } else {
-        result.push_back({0, -1}); 
+        result.push_back({0, -1}); // or any other default value
     }
 
     return result;
+}
+
+int main() {
+    vector<int> a = {2, 4, 5};
+    vector<int> b = {2, 4, 6};
+    
+    if (issame(a, b))
+        cout << "Vector a and b are same" << endl;
+    else
+        cout << "Vectors a and b are not the same" << endl;
 }
