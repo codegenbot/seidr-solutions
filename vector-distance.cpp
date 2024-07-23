@@ -1,24 +1,16 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vector1(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vector1[i];
-    }
-
-    std::vector<double> vector2(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vector2[i];
-    }
-
     double sum = 0;
+    
     for (int i = 0; i < n; ++i) {
-        sum += pow(vector1[i] - vector2[i], 2);
+        double v1, v2;
+        std::cin >> v1 >> v2;
+        sum += (v1 - v2) * (v1 - v2);
     }
 
     double distance = sqrt(sum);
