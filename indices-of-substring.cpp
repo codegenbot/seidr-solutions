@@ -17,11 +17,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text;
+    string text, target;
     cin >> text;
     int i;
     cin.ignore(); 
-    string target;
     cin >> target;
     vector<int> res = indicesOfSubstring(text, target);
     for (int x : res) {
