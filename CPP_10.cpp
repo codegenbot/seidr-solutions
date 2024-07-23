@@ -1,3 +1,4 @@
+```cpp
 #include<stdio.h>
 #include<string>
 using namespace std;
@@ -8,17 +9,11 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    if(is_palindrome(str)){
-        return str;
+    int i=str.length()-1;
+    while(i>=0 && str[i]==str[0]){
+        i--;
     }
-    
-    int i = 0, j = str.length() - 1;
-    while(i <= j && str[i] == str[j]){
-        i++;
-        j--;
-    }
-    
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(j + 1);
-    return prefix + str.substr(i, j-i+1).reverse() + suffix;
+    string palindrome = str.substr(0,i+1);
+    string rev = str.substr(i+1)+string(str.substr(0,i+1)).reverse();
+    return rev+palindrome+rev;
 }
