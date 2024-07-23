@@ -1,15 +1,16 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 string validateTweet(string tweet) {
+    while (!tweet.empty() && tweet.back() == '\n') {
+        tweet.pop_back();
+    }
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    tweet.erase(std::remove_if(tweet.begin(), tweet.end(), ::isspace), tweet.end());
     int count = tweet.size();
     if (count > 140) {
         return "Too many characters";
