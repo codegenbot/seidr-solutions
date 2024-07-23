@@ -6,15 +6,22 @@ def bowling_score(frames):
         if frames[i] == 'X':
             score += 10
             if frame < 10:
-                if frames[(i + 1):].count('X') > 0:
-                    score += int(frames[(i + 2):].index('X') - i - 1) * 10
-                else:
-                    score += sum(int(x) for x in frames[(i + 1):(i + 3)].lstrip('/').replace('-', '')) * (frame != 10)
-            frame += 1
+                if i + 2 < len(frames) and frames[i + 1] == 'X' and frames[i + 2] == 'X':
+                    score += 30
+                elif i + 3 < len(frames):
+                    spare = sum(int(x) for x in frames[(i + 1):(i + 2)].lstrip('/').replace('-', '')) * (frame != 10)
+                    score += spare
+                frame += 1
         elif frames[i] in '1234567890/':
             if frames[i] == '/':
-                score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', '')) * (frame != 10)
+                try:
+                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', '')) * (frame != 10)
+                except ValueError:
+                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', ''))
             else:
-                score += int(frames[i]) + sum(int(x) for x in frames[(i + 1)].lstrip('/').replace('-', ''))
+                try:
+                    score += int(frames[i]) + sum(int(x) for x in frames[(i + 1)].lstrip('/').replace('-', '')) * (frame != 10)
+                except ValueError:
+                    score += int(frames[i])
         frame += 1
     return score
