@@ -9,16 +9,14 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            if (result.empty()) {
-                result.push_back(complement);
-                result.push_back(nums[i]);
-                return result;
-            }
+            result.push_back(nums[i]);
+            result.push_back(complement);
+            return result;
         }
         numIndex[nums[i]] = i;
     }
 
-    return result;
+    return {};  // Empty vector if no pair is found
 }
 
 int main() {
@@ -35,7 +33,9 @@ int main() {
 
     std::vector<int> result = findPair(nums, target);
 
-    if (result.size() == 2) {
+    if (result.empty()) {
+        std::cout << "No pair found." << std::endl;
+    } else {
         for (int i = 0; i < result.size(); ++i) {
             std::cout << result[i] << std::endl;
         }
