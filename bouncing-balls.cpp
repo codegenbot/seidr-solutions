@@ -1,13 +1,13 @@
 ```cpp
 #include <iostream>
-#include <cmath>  
-#include <iomanip>  
+#include <cmath> 
+#include <iomanip> 
 
 int main() {
     double startHeight, firstBounceHeight;
     int numBounces;
 
-    cin >> startHeight >> firstBounceHeight >> numBounces;
+    std::cin >> startHeight >> firstBounceHeight >> numBounces;
 
     // Calculate bounciness index
     double bouncinessIndex = firstBounceHeight / startHeight;
