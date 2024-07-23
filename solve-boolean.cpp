@@ -1,25 +1,37 @@
-#include <stack>
 #include <string>
+#include <stack>
 
 bool solveBoolean(std::string s) {
-    stack<char> st;
+    bool result = false;
+    std::stack<char> stack;
+
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
+            result = false;
+        } else if (s[i] == '|') {
+            while (!stack.empty() && stack.top() == '&') {
+                stack.pop();
             }
-            if (st.empty()) return false;
-            else st.pop();
-        } 
-        else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-            else st.push('|');
-        } 
-        else {
-            st.push(s[i]);
+            if (stack.empty()) return true;
+            else stack.push('|');
+        } else if (s[i] == '&') {
+            stack.push('&');
         }
     }
-    return !st.empty();
+
+    while (!stack.empty() && stack.top() == '&') {
+        stack.pop();
+    }
+
+    return result;
+}
+
+int main() {
+    std::string s = "T|F";
+    bool result = solveBoolean(s);
+    if(result) std::cout << "True" << std::endl;
+    else std::cout << "False" << std::endl;
+    return 0;
+}
