@@ -38,12 +38,11 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             res.push_back(sum);
             return res; 
         }
-        int ni, ns;
         for (auto& neighbor : neighbors[i]) {
-            ni = neighbor.first.first, ns = neighbor.second;
-            temp_sum = sum - grid[i][j] + neighbor.second;
+            int ni = neighbor.first.first, ns = neighbor.second;
+            int temp_sum = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({temp_sum, make_pair(ni, ns)});
+            q.push({temp_sum, {ni, ns}}); 
         }
     }
 
