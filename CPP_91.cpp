@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <algorithm>
 
 bool is_bored(std::string S) {
     int count = 0;
@@ -13,19 +12,5 @@ bool is_bored(std::string S) {
         }
         pos++;
     }
-    return (count > 0);
-}
-
-int main() {
-    std::string S;
-    std::cout << "Enter a string: ";
-    std::cin >> S;
-
-    if (is_bored(S)) {
-        std::cout << "You're bored.\n";
-    } else {
-        std::cout << "You're not bored.\n";
-    }
-
-    return 0;
+    return count > 0;
 }
