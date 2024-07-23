@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 int main() {
     std::string heightStartStr, heightFirstBounceStr;
     int numBounces;
 
-    std::cin >> heightStartStr >> std::ws >> heightFirstBounceStr >> std::ws >> numBounces;
+    std::cin >> heightStartStr >> heightFirstBounceStr >> numBounces;
 
     double heightStart = stod(heightStartStr);
     double heightFirstBounce = stod(heightFirstBounceStr);
@@ -15,13 +15,13 @@ int main() {
     double bouncinessIndex = heightFirstBounce / heightStart;
 
     double totalDistance = 0.0;
+    double height = heightStart; // initialize with starting height
     for (int i = 1; i <= numBounces; i++) {
-        double height = heightStart * pow(bouncinessIndex, 2*i);
-        totalDistance += height - heightStart;
+        height *= bouncinessIndex * 2; // calculate the new height after each bounce
+        totalDistance += height - heightStart; // add up all the distances traveled
     }
 
-    std::cout << std::fixed << std::setprecision(6);
-    std::cout << totalDistance;
+    std::cout << std::fixed << std::setprecision(6) << totalDistance;
 
     return 0;
 }
