@@ -6,10 +6,10 @@
 namespace {
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::int64_t> numArr;
+    std::vector<string> numArr;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numArr.push_back(i);
+            numArr.push_back(to_string(i));
         }
     }
 
@@ -17,10 +17,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     reverse(numArr.begin(), numArr.end());
 
-    std::vector<std::string> result;
-    for (int i : numArr) {
-        std::string str = "";
-        switch (i) {
+    std::vector<string> result;
+    for (string s : numArr) {
+        string str = "";
+        switch (stoi(s)) {
             case 1:
                 str = "One";
                 break;
@@ -69,6 +69,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 } // namespace
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
