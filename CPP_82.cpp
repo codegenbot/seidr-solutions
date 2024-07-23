@@ -1,20 +1,21 @@
-bool prime_length(string str){
-    int n = str.length();
-    bool is_prime = true;
-    
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0){
-            is_prime = false;
-            break;
-        }
-    }
-    
-    return is_prime;
+#include <iostream>
+#include <string>
 
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+bool prime_length(const std::string& str) {
+    int len = str.length();
+    return isPrime(len);
 }
 
 int main() {
     assert(prime_length("0") == false);
-    // add more test cases here
+    //...
     return 0;
 }
