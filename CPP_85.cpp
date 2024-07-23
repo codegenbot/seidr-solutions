@@ -1,27 +1,31 @@
+```
+#include <iostream>
+#include <vector>
+
+int add(const std::vector<int>& vec) {
+    int result = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (i % 2 != 0) { 
+            result += vec[i];
+        }
+    }
+    return result;
+}
+
 int main() {
-    vector<int> numbers;
+    std::vector<int> numbers;
     int num;
-    
-    cout << "Enter some numbers (enter -1 when you are done):" << endl;
-    
-    for(;;) {
-        cin >> num;
-        if(num == -1) break;
+
+    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
+
+    for (; ; ) {
+        std::cin >> num;
+        if (num == -1) break;
         numbers.push_back(num);
     }
 
     int result = add(numbers);
-    cout << "Sum of odd-indexed numbers: " << result << endl;
+    std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
 
     return 0;
-}
-
-int add(const vector<int>& numbers) {
-    int sum = 0;
-    for(int i = 0; i < numbers.size(); i++) {
-        if(i % 2 != 0) { 
-            sum += numbers[i];
-        }
-    }
-    return sum;
 }

@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
         return false;
@@ -25,6 +22,10 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
+    std::vector<int> list;
+    for(int i : {1, 1, 1, 1, 1, 1, 1}) {
+        list.push_back(i);
+    }
+    assert(issame(strange_sort_list(list), {111111}));
     return 0;
 }
