@@ -1,5 +1,5 @@
-#include <vector>
 #include <cmath>
+#include <vector>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -12,8 +12,13 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> myVector = {1.5f, 2.0f, 3.25f};
-    float result = double_the_difference(myVector);
-    // rest of your code
+    std::vector<float> lst;
+    float input;
+    cout << "Enter numbers: ";
+    while(cin >> input){
+        lst.push_back(input);
+    }
+    int odd_sum = 0; // declare and initialize the variable
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
