@@ -1,7 +1,6 @@
 #include <string>
-#include <cassert>
 
-int sumDigits(std::string s) {
+int sumOfNonDigitCharacters(const std::string& s) {
     int sum = 0;
     for (char c : s) {
         if (!isdigit(c)) {
@@ -14,6 +13,6 @@ int sumDigits(std::string s) {
 }
 
 int main() {
-    assert(sumDigits("You arE Very Smart") == 327);
+    assert(sumOfNonDigitCharacters("You arE Very Smart") == 327);
     return 0;
 }
