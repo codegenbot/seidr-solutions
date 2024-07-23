@@ -1,25 +1,12 @@
-```c++
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    double p = 0.0;
+    double p1 = 0.0; // probability of peter rolling higher
+    double p2 = 0.0; // probability of colin rolling higher
     
-    for(int i = 1; i <= min(n, m); i++) {
-        p += (n - i) / total;
+    for(int i = 1; i <= std::min(n, m); i++) {
+        p1 += (n - i) / total;
+        p2 += (m - i) / total;
     }
     
-    return p;
-}
-
-int main() {
-    int n, m;
-    if (!(cin >> n >> m)) {
-        cout << "Invalid input. Please enter two integers separated by a space." << endl;
-        return 1; 
-    }
-    cout << fixed << setprecision(8) << diceGame(n, m) << endl;
+    return 1 - (p1 + p2);
 }
