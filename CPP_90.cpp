@@ -4,15 +4,14 @@
 using namespace std;
 
 int findSmallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2)
+    if (lst.size() < 2)
         return -1;
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1])
-            return sorted[i + 1];
+    sort(lst.begin(), lst.end());
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] != lst[i + 1])
+            return lst[i + 1];
     }
-    return -12;
+    return -1;
 
 }
 
