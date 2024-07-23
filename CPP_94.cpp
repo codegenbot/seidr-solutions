@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-
-int skjkasdkd(std::vector<int> lst){
+int sumOfPalindromes(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1){
@@ -21,10 +18,4 @@ int skjkasdkd(std::vector<int> lst){
         maxPrime /= 10;
     }
     return sumOfDigits;
-}
-
-int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
-    return 0;
 }
