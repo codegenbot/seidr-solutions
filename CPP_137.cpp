@@ -1,27 +1,34 @@
-using namespace boost;
+Here is the completed code:
+
+```cpp
+#include <boost/lexical_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<float>(a)) {
-        if (is_any_of<float>(b)) {
-            return (get<float>(a) > get<float>(b)) ? a : ((get<float>(a) < get<float>(b)) ? b : boost::any("None")));
-        } else if (is_any_of<string>(b)) {
-            float float_val = atof(get<string>(b).c_str());
-            return (get<float>(a) > float_val) ? a : ((get<float>(a) < float_val) ? b : boost::any("None")));
-        } else {
-            return boost::any("None");
-        }
-    } else if (is_any_of<string>(a)) {
-        if (is_any_of<float>(b)) {
-            float float_val = atof(get<string>(a).c_str());
-            return (float_val > get<float>(b)) ? a : ((float_val < get<float>(b)) ? b : boost::any("None")));
-        } else if (is_any_of<string>(b)) {
-            string str1 = get<string>(a);
-            string str2 = get<string>(b);
-            return (str1 > str2) ? a : ((str1 < str2) ? b : boost::any("None")));
-        } else {
-            return boost::any("None");
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        float fx = stof(x.substr(1, x.find(',') - 1));
+        float fy = stof(y.substr(1, y.find(',') - 1));
+        return (fx > fy) ? a : ((fy > fx) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string x = boost::any_cast<string>(a);
+        float y = boost::any_cast<float>(b);
+        float fx = stof(x.substr(1, x.find(',') - 1));
+        return (fx > y) ? a : ((y > fx) ? b : boost::any("None"));
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float x = boost::any_cast<float>(a);
+        string y = boost::any_cast<string>(b);
+        float fy = stof(y.substr(1, y.find(',') - 1));
+        return (x > fy) ? a : ((fy > x) ? b : boost::any("None"));
     } else {
-        return boost::any("None");
+        return boost::any("Invalid input");
     }
 }
