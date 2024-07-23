@@ -12,3 +12,6 @@ def bouncing_balls():
         current_height *= bounciness_index
 
     return str(round(total_distance, 5))
+
+
+print(bouncing_balls())
