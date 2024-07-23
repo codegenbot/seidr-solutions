@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -17,10 +17,10 @@ int main() {
     cin >> snowMeltingRate;
 
     for (int i = 0; i < hours; i++) {
-        groundSnow += snowFallRate - snowMeltingRate;
+        groundSnow += snowFallRate - (groundSnow * snowMeltingRate);
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << fixed << setprecision(10) << groundSnow;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << setprecision(10) << fixed << groundSnow;
 
     return 0;
 }
