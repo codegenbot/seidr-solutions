@@ -3,19 +3,24 @@
 
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
+    bool inWord = false;
     bool capitalizeNext = true;
 
     for (char c : str) {
         if (c == '-') {
-            if (!result.empty()) {
-                result.push_back(''); // add a space
-            }
+            inWord = false;
             capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+        } else if (inWord) {
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += tolower(c);
+            }
         } else {
-            result += tolower(c);
+            result += c;
+            inWord = true;
+            capitalizeNext = true;
         }
     }
 
