@@ -21,5 +21,6 @@ int main() {
 
     int result = specialFilter(nums);
     std::cout << "Count of numbers that meet the criteria: " << result << std::endl;
+
     return 0;
 }

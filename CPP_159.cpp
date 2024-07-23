@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,4 +22,5 @@ int main() {
     cin >> num >> nee >> rem;
     vector<int> res = eat(num, nee, rem);
     cout << res[0] << " " << res[1];
+    return 0;
 }
