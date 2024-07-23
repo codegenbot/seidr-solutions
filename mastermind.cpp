@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
@@ -17,12 +20,15 @@ int mastermind(string code, string guess) {
     }
 
     // Count the white pegs (correct color, wrong place)
+    int i = 0;
     for (char c : guess) {
         if (c == code[i]) {
             codeCount[c - '0']--;
+        } else {
+            white++;
         }
         i++;
     }
 
-    return black;
+    return black + white;
 }
