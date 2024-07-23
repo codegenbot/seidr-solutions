@@ -1,5 +1,6 @@
-def sumOfDigits(n):
-    s = str(abs(n))
-    while len(s) > 1:
-        s = str(sum(int(c) for c in s))
-    return int(s)
+def digitSum(s):
+    total = 0
+    for char in s:
+        if char.isdigit():
+            total += int(char)
+    return total
