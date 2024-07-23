@@ -3,7 +3,7 @@ def match_parens(lst):
     for s in lst:
         if len(s) > 0 and (s[0] == '(' or s[-1] == ')'):
             if s[0] == '(':
-                stack.append(c)
+                stack.append(s[0])
             elif s[-1] == ')':
                 if not stack:  
                     return 'No'
