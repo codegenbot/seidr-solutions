@@ -1,38 +1,32 @@
-#include <cctype>
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-using namespace std;
+std::vector<std::string> select_words(const std::string& input, int num_words) {
+    std::vector<std::string> words;
+    size_t pos = 0;
+    do {
+        pos = input.find(' ', pos);
+        if (pos != std::string::npos) {
+            size_t next_pos = input.find(' ', pos + 1);
+            words.push_back(input.substr(pos + 1, (next_pos != std::string::npos)?(next_pos - pos - 1):std::string::npos));
+            pos = next_pos;
+        }
+    } while (pos != std::string::npos && words.size() < num_words);
 
-bool issame(vector<string> a,vector<string>b){
-    return a == b;
+    return words;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            int consonants = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isvowel(ch)) {
-                    consonants++;
-                }
-            }
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
-        }
+bool isSame(vector<string> a, vector<string>b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i])
+            return false;
     }
-    return result;
+    return true;
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // Your code goes here
-    return 0;
+    assert(isSame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
 }
