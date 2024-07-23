@@ -13,8 +13,6 @@ int main() {
         if (snow_on_ground < 0) {
             snow_on_ground = 0;
         }
-        snow_fall_rate *= 1 + snow_fall_rate;
-        snow_melt_rate *= 1 - snow_melt_rate;
     }
 
     std::cout.precision(17);
