@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 using namespace std;
 
@@ -9,20 +9,23 @@ vector<int> leaders(vector<int>& arr) {
     if(n==0)
         return leaders;
     
-    leaders.push_back(arr[n-1]);
+    int rightmostLeader = arr[n-1];
+    leaders.push_back(rightmostLeader);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= arr[i+1]) {
-            leaders.push_back(arr[i]);
+        if(arr[i] >= rightmostLeader) {
+            rightmostLeader = arr[i];
+            leaders.push_back(rightmostLeader);
         }
     }
-    
-    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
 
 int main() {
-    vector<int> result = leaders(vector<int>{});
+    vector<int> arr = {17, 11, 13, 2, 23, 19};
+    vector<int> result = leaders(arr);
+    for(int x : result)
+        cout << x << " ";
     return 0;
 }
