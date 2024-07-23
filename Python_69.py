@@ -13,6 +13,8 @@ def search(lst):
             break
     if max_num == -1:
         max_num = 0
+    elif max_num < 0:
+        return 0
     return max_num
 
 lst = input("Enter numbers separated by space: ")
@@ -22,7 +24,4 @@ except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
     exit()
 
-if len(lst) == 0 or not all([num > 0 for num in lst]):
-    print("Invalid input. Program did not receive expected input.")
-else:
-    print(search(lst))
+print(search(lst))
