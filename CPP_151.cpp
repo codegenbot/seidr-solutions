@@ -1,9 +1,8 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 #include <iostream>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) {
@@ -13,7 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int mainOld() {
+int main() {
     std::vector<float> myVector;
     int n;
     float temp;
