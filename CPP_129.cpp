@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int j; // Declare j before using it
+int j; 
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<pair<int, pair<int, int>>> edges;
     for (int i = 0; i < grid.size(); i++) {
         j = 0; 
-        for (j = 0; j < grid[0].size(); j++) {
+        for (; j < grid[0].size(); j++) {
             if (i > 0) edges.push_back({grid[i][j], {i - 1, j}});
             if (i < grid.size() - 1) edges.push_back({grid[i][j], {i + 1, j}});
             if (j > 0) edges.push_back({grid[i][j], {i, j - 1}});
@@ -32,7 +31,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             }
         }
         path.push_back(val);
-        j = nextCell.second;
+        if(i < k) j = nextCell.second;
     }
 
     return path;
