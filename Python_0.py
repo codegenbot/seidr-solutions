@@ -2,12 +2,10 @@ from typing import List
 
 
 def has_close_elements():
-    numbers = input("Enter space-separated float numbers: ")
+    numbers = list(map(float, input("Enter space-separated float numbers: ").split()))
     threshold = float(input("Enter a threshold value: "))
 
-    numbers_list = list(map(float, numbers.split()))
-
-    result = has_close_elements(numbers_list, threshold)
+    result = has_close_elements(numbers, threshold)
 
     print(
         "The list contains close elements" if result else "The list does not contain close elements"
