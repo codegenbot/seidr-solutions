@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 int main() {
     int n;
@@ -16,12 +15,12 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << std::sqrt(sum) << std::fixed << std::setprecision(14) << std::endl;
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
