@@ -6,7 +6,7 @@ using namespace std;
 
 string validateTweet(string tweet) {
     while (!tweet.empty() && tweet.back() == '\n') {
-        tweet.erase(tweet.end() - 1);
+        tweet.pop_back();
     }
     if (tweet.empty()) {
         return "You didn't type anything";
