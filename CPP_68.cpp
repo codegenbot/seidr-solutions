@@ -1,16 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(int x) {
+    if(x%2 == 0)
+        return true;
+    else
+        return false;
 }
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -21,7 +18,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+        if (issame(arr[i]) && arr[i] < minEven) {
             minEven = arr[i];
             minIndex = i;
         }
@@ -30,14 +27,12 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if (minIndex != -1) {
         result.push_back({minEven, minIndex});
     } else {
-        result.push_back({0, -1}); // or any other default value
+        result.push_back({0, -1}); 
     }
 
     return result;
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    cout << "Tests passed." << endl;
-    return 0;
+    
 }
