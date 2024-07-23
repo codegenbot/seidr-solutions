@@ -1,4 +1,9 @@
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+
+a = int(input())
+b = int(input())
+print(gcd(a, b))
