@@ -1,13 +1,12 @@
-```
 from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     if not numbers:
         return []
     
-    result = [max(numbers)]
-    max_so_far = max(numbers)
+    max_so_far = current_max = numbers[0]
+    result = [current_max]
     for num in numbers[1:]:
-        max_so_far = max(max_so_far, num)
-        result.append(max_so_far)
+        current_max = max(num, current_max)
+        result.append(current_max)
     return result

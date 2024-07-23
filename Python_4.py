@@ -1,5 +1,4 @@
-```
-def mean_absolute_deviation() -> float:
+def mean_absolute_deviation(): -> float:
     while True:
         numbers_str = input("Enter comma-separated float values (e.g., 1,2,3): ")
         
