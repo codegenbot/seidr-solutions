@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
@@ -26,7 +24,7 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
+    while (getline(std::cin, str)) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
