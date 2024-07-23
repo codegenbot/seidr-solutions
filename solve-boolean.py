@@ -2,8 +2,8 @@ def solve_boolean(input):
     while '&' in input or '|' in input:
         if '&' in input:
             left, right = input.split('&', 1)
-            input = str(eval(left.strip()) and eval(right.strip()))
+            input = str(eval(left) and eval(right))
         elif '|' in input:
             left, right = input.split('|', 1)
-            input = str(eval(left.strip()) or eval(right.strip()))
+            input = str(eval(left) or eval(right))
     return eval(input)
