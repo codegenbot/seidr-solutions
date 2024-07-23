@@ -4,18 +4,13 @@
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len % 2 == 0){
-        return s.substr(len/2, 2);
+        return s.substr(len/2 - 1, 2);
     } else{
         return s.substr(len/2, 1);
     }
 }
 
 int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-
-    std::cout << "The middle character(s) is/are: " << middleCharacter(input);
-
+    std::cout << middleCharacter("testing") << std::endl;
     return 0;
 }
