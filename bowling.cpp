@@ -19,4 +19,3 @@ int bowlingScore(std::string s) {
         score += roll;
     }
     return score;
-}
