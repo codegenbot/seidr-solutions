@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,6 +32,7 @@ int main() {
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
+    cin.ignore(); // Clear input buffer
     getline(cin, text);
 
     cout << "Enter a target string: ";
