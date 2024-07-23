@@ -1,2 +1,2 @@
-def check(f):
-    print(f([1, -2, 3, 4, 5]))
+def check(func):
+    print(func([int(x) for x in input("Enter a series of numbers separated by space: ").split()]))
