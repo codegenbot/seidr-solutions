@@ -1,4 +1,3 @@
 ```
-def remove_duplicates(input_str):
-    numbers = list(map(int, input_str.split()))
-    return [str(num) for num in set(numbers)]
+def remove_duplicates(input_list):
+    return sorted(list(map(int, set(input_list))))
