@@ -1,8 +1,10 @@
-#include <set>
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    vector<int> res(s.begin(), s.end());
-    return res;
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
+    sort(result.begin(), result.end());
+    return result;
 }
