@@ -1,4 +1,11 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
     
@@ -12,7 +19,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
-            result.push_back(string(lst1[i])); // Modified code
+            result.push_back(string(lst1[i])); // fixed here
             i++;
             j++;
         } else if (lst1[i] < lst2[j]) {
@@ -23,4 +30,17 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 
     return result;
+}
+
+int main() {
+    vector<string> vec1 = {"hi", "admin"};
+    vector<string> vec2 = {"hI", "Hi"};
+
+    vector<string> result = total_match(vec1, vec2);
+
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << endl;
+    }
+
+    return 0;
 }
