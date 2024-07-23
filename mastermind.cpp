@@ -14,12 +14,12 @@ int mastermind(string code, string guess) {
     }
 
     for (char c : code) {
-        auto it = std::find(guess.begin(), guess.end(), c);
+        auto it = find(guess.begin(), guess.end(), c);
         while (it != guess.end()) {
             white++;
-            break;
+            it = find(it+1, guess.end(), c);
         }
     }
 
-    return black + white - black;
+    return black;
 }
