@@ -1,4 +1,4 @@
-map<char, int> histogram(string test) {
+map<char, int> histogram(string test){
     map<char, int> result;
     stringstream ss(test);
     string word;
@@ -7,18 +7,15 @@ map<char, int> histogram(string test) {
             result[c]++;
         }
     }
-    
     int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
+    for (const auto& entry : result) {
+        maxCount = max(maxCount, entry.second);
     }
-    
-    map<char, int> mostRepeated;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            mostRepeated[pair.first] = pair.second;
+    map<char, int> maxCountLetters;
+    for (const auto& entry : result) {
+        if (entry.second == maxCount) {
+            maxCountLetters[entry.first] = entry.second;
         }
     }
-    
-    return mostRepeated;
+    return maxCountLetters;
 }
