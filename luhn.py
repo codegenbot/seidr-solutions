@@ -1,20 +1,10 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in card_number]
-    sum_even_index = 0
-    double_even_index = False
-    
-    for i, digit in enumerate(card_number):
-        if i % 2 == 1:
-            double_even_index = True
-        else:
-            double_even_index = False
-        
-        if double_even_index:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        
-        sum_even_index += digit
-    
-    return sum_even_index % 10 == 0
+    result = sum([i*2 if i % 2 != 0 else i for i in card_number])
+    doubled_and_summed = []
+    for j, i in zip(card_number, str(result)[::-1]):
+        doubled = j * 2
+        if doubled > 9:
+            doubled -= 9
+        doubled_and_summed.append(str(doubled))
+    return str(sum([int(x) for x in doubled_and_summed]))
