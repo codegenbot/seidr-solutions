@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -9,12 +8,15 @@ string validateTweet(string& tweet) {
         return "You didn't type anything";
     }
     string trimmedTweet = tweet;
-    trimmedTweet.erase(std::remove(trimmedTweet.begin(), trimmedTweet.end(), '\n'), trimmedTweet.end());
-    int count = static_cast<string::size_type>(trimmedTweet.size());
+    while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
+        trimmedTweet.pop_back();
+    }
+    int count = static_cast<string::size_type>(trimmedTweet.erase(trimmedTweet.find_last_not_of("\n\r") + 1));
     if (count > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(count) + " characters";
+    string result = "Your tweet has " + to_string(count) + " characters";
+    return result;
 }
 
 int main() {
