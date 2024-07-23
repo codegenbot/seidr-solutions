@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,7 +9,7 @@ int skjkasdkd(std::vector<int> lst){
             break;
         }
     }
-    if(maxPrime == -1) return 0; // No prime found
+    if(maxPrime == -1) return 0; 
     int sumOfDigits = 0;
     while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
