@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -26,8 +25,8 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs = {1, -6, 11, -6}; // coefficients
+    vector<double> xs = {3.0, -12.0, 7.0, -6.0};
     double zero = find_zero(xs);
-    cout << setprecision(2) << "Zero is: " << zero << endl; // Print the result
+    cout << setprecision(2) << "Zero is: " << zero << endl; 
     return 0;
 }
