@@ -1,8 +1,7 @@
 def smallest_change(arr):
-    arr = str(arr)
-    rev_arr = arr[::-1]
-    diff_count = 0
-    for i in range(len(arr)):
-        if arr[i] != rev_arr[i]:
-            diff_count += 1
-    return diff_count
+    min_diff = float("inf")
+    for i in range(1, len(arr)):
+        diff = abs(arr[i] - arr[i - 1])
+        if diff < min_diff:
+            min_diff = diff
+    return min_diff
