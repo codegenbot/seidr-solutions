@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,10 +20,12 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> a = {"apple", "banana", "apricot"};
-    vector<string> b = {"apple", "banana", "apricot"};
-
-    assert(issame(filter_by_substring(a, "ap"), filter_by_substring(b, "ap")));
-
-    return 0;
+    vector<string> strings = {"apple", "banana", "cherry", "date", "elderberry"};
+    string substring = "er";
+    
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
+    
+    bool is_same = issame({{"banana"}}, {filtered_strings});
+    
+    assert(is_same);
 }
