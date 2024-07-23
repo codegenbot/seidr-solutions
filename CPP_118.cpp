@@ -1,3 +1,5 @@
+Here is the solution:
+
 ```cpp
 #include <string>
 #include <cctype>
