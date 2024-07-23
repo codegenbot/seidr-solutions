@@ -1,3 +1,7 @@
+```c
+#include <string>
+using namespace std;
+
 string squareDigits(int n) {
     string str = to_string(n);
     string result;
