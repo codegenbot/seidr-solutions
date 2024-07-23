@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int eat(int a, int b, int c) {
@@ -18,6 +17,6 @@ bool areSameVectors(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(areSameVectors({{eat(4, 5, 1)}, {0}});
+    assert(areSameVectors({eat(4,5,1), 0});
     return 0;
 }
