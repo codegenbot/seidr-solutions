@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -20,12 +21,12 @@ string spinWords(string str) {
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
         
-        result += word + (end == str.length() ? " " : " ") + "";
+        result += word + " ";
         
         start = end + 1;
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
@@ -33,6 +34,7 @@ int main() {
     while (true) {
         cout << "Enter a string: ";
         getline(cin, str);
+        if(str == "quit" || str == "exit") break; 
         cout << spinWords(str) << endl;
     }
 }
