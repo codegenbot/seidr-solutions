@@ -1,4 +1,4 @@
-```Python
+```
 def solve():
     def parse_frame(frame):
         if frame == 'X':
