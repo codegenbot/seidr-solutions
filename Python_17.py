@@ -11,11 +11,11 @@ def parse_music(music_string: str) -> List[int]:
             result.append(beats[1])
         elif note == '.|':
             result.append(beats[2])
-        elif note == '..':
-            result.append(beats[0])
-        elif note == '|..':
-            result.append(beats[1])
-        else:
-            pass  # add error handling or default behavior
+        elif note == 'oo':
+            result.append(beats[0]*2)
+        elif note == 'o||':
+            result.append(beats[1]*2)
+        elif note == '..|':
+            result.append(beats[2]*2)
 
     return result
