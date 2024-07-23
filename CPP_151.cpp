@@ -29,7 +29,7 @@ int main() {
     }
 
     long long sum = double_the_difference(myVector); 
-    long long odd_sum = 1; // Initialize odd_sum before use
+    long long odd_sum = 1; 
 
     assert (sum == odd_sum );
 
