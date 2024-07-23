@@ -1,21 +1,29 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-std::vector<float> getPositive(const std::vector<float>& l) {
-    std::vector<float> result;
-    for (float x : l) {
-        if (x > 0) {
-            result.push_back(x);
-        }
-    }
-    return result;
-}
-
-bool areSame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
 }
 
 int main() {
-    assert(areSame(getPositive({}), {}) );
+    int n;
+    std::cin >> n;
+
+    std::vector<float> a(n);
+    for (auto i = 0; i < n; ++i)
+        std::cin >> a[i];
+
+    bool same = true;
+    for (const auto& val : a) {
+        if (std::cin >> val) {
+            same = false;
+            break;
+        }
+    }
+
+    std::cout << (same ? "YES" : "NO") << std::endl;
+
     return 0;
 }
