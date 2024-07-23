@@ -1,11 +1,9 @@
-```
+```python
 def hex_key(num):
-    prime_hex = {'B': True, 'D': True}
+    primes = {'B': '11', 'D': '13'}
     count = 0
-    for char in num:
-        if char.upper() in prime_hex:
-            count += 1
-        elif char.isdigit():
-            if int(char) > 1 and all(int(char) % i for i in range(2, int(char))):
+    for digit in num.upper():
+        if digit.isdigit() or digit in primes:
+            if int(digit) > 1 and all(int(digit) % i != 0 for i in range(2, int(digit)**0.5 + 1)):
                 count += 1
     return count
