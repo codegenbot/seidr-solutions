@@ -1,6 +1,7 @@
-```
 def dice_game(n, m):
-    if n < m:
+    if m == 1:
+        return 1
+    elif n < m:
         return 0
     else:
-        return round((n-m)/(n*m), 6)
+        return round(1 - (m/(n)), 6)
