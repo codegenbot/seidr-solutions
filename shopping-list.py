@@ -1,4 +1,3 @@
-```
 import sys
 def shopping_list():
     n = int(input())
