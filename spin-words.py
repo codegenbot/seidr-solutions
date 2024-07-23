@@ -1,3 +1,3 @@
 ```
 def spin_words(sentence):
-    return " ".join(reversed(word) if len(word) >= 5 else word for word in sentence.split())
+    return " ".join(word[::-1] if len(word) >= 5 else word for word in sentence.split()[::-1])
