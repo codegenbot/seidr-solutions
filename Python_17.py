@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 
@@ -34,13 +33,16 @@ def parse_music(music_string: str) -> List[int]:
 
 def main():
     while True:
-        music_string = input("Enter your music string: ")
-        if not all(c in "o|." for c in music_string):
-            print("Invalid input. Only 'o', '|' and '.' are allowed.")
-            continue
-        result = parse_music(music_string)
-        print(result)
-        break
+        music_string = input("Enter your music string (only 'o', '|' and '.'): ")
+        try:
+            if set(music_string).issubset({'o', '|', '.'}):
+                result = parse_music(music_string)
+                print(result)
+                break
+            else:
+                raise Exception("Invalid input")
+        except Exception as e:
+            print(f"Invalid input: {str(e)}")
 
 
 if __name__ == "__main__":
