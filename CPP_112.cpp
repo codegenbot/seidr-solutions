@@ -5,6 +5,7 @@ vector<string> reverse_delete(string s, string c) {
                 result += ch;
             }
         }
-        string palindromeCheck = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
-        return {result, palindromeCheck};
+        string reverse_result = result;
+        reverse(reverse_result.begin(), reverse_result.end());
+        return {result, result == reverse_result ? "True" : "False"};
     }
