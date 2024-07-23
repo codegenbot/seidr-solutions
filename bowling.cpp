@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -9,7 +8,7 @@ int bowlingScore(string s) {
     int currentRoll1 = 0;
     int currentRoll2 = 0;
     bool strike = false;
-    
+
     for (char c : s) {
         if (c == '/') {
             if (currentRoll1 + currentRoll2 < 10) {
@@ -31,7 +30,7 @@ int bowlingScore(string s) {
             }
         }
     }
-    
+
     if (!strike) {
         if (currentRoll1 + currentRoll2 == 10) {
             score += 10;
@@ -41,7 +40,7 @@ int bowlingScore(string s) {
             score += currentRoll1 + currentRoll2;
         }
     }
-    
+
     return score;
 }
 
