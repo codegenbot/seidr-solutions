@@ -28,8 +28,8 @@ int main() {
         std::cout << camelCase(group);
         while (std::getline(iss, group, '-')) {
             if (!group.empty()) {
-                output += camelCase(group) + ((output.length() > 0)? "": "");
-                output += " ";
+                std::cout << camelCase(group) + ((std::cout.rdstate() > 0)? "": "");
+                std::cout << " ";
             }
         }
     }
