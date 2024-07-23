@@ -3,6 +3,5 @@ def decode_cyclic(s: str):
     for char in set(s):
         count = s.count(char)
         if count > 1:
-            for _ in range(count // 2):
-                result += char
+            result += char * (count // 2) + (char if count % 2 else "")
     return result
