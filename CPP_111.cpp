@@ -31,8 +31,7 @@ map<char, int> histogram(const string& str) {
 
 }
 
-int main() {
-    bool result = issame(histogram("a"), map<char, int>{{'a', 1}});
-    assert(result);
+int main { 
+    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
+    cout << "Success!" << endl;
     return 0;
-}
