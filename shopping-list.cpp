@@ -1,12 +1,13 @@
+```
 #include <iostream>
 #include <iomanip>
 #include <vector>
 using namespace std;
 
-float shoppingList(vector<float> prices, int n, vector<float> discounts) {
+float shoppingList(float price[], int n, float discount[]) {
     float total = 0;
     for (int i = 0; i < n; i++) {
-        float discountedPrice = prices[i] - (prices[i] * discounts[i] / 100);
+        float discountedPrice = price[i] - (price[i] * discount[i] / 100);
         total += discountedPrice;
     }
     return total;
@@ -26,6 +27,7 @@ int main() {
         cin >> d;
     }
 
-    cout << fixed << setprecision(1) << shoppingList(prices, n, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(&prices[0], n, &discounts[0]) << endl;
 
-    return 0;
+    int a;
+    cin >> a;
