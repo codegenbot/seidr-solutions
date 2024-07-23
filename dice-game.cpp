@@ -1,4 +1,5 @@
 ```
+#include <iostream>
 #include <algorithm>
 
 double diceGame(int n, int m) {
@@ -10,9 +11,11 @@ double diceGame(int n, int m) {
     }
 
     return petersWin;
-
 }
 
 int main() {
-    return diceGame(6, 6);
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << diceGame(n, m) << std::endl;
+    return 0;
 }
