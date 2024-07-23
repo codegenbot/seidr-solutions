@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,7 +33,7 @@ int main() {
     string str;
     while (true) {
         cout << "Enter a string: ";
-        cin >> str;
+        getline(cin, str);
         cout << spinWords(str) << endl;
     }
-    return 0;
+}
