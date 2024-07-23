@@ -1,7 +1,7 @@
 ```c++
 int main() {
-    int n = 6; 
-    int m = 4; 
+    int n = 6; // Example input
+    int m = 4; // Example input
     double result = diceGame(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
