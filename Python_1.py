@@ -1,21 +1,11 @@
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
-    groups = []
-    current_group = ''
-
-    for char in paren_string:
-        if char == ' ': continue
-        if char == '(':
-            stack.append(char)
-            current_group += char
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                current_group += stack.pop()
-            if stack: 
-                current_group += stack.pop()
-            groups.append(current_group)
-            current_group = ''
-
-    return groups
+print("Enter parentheses (type 'q' to quit): ")
+while True:
+    user_input = input()
+    if user_input == "q":
+        break
+    try:
+        result = separate_paren_groups(user_input)
+        for group in result:
+            print(group)
+    except Exception as e:
+        print(f"Error: {e}")
