@@ -1,14 +1,26 @@
 #include <vector>
-using namespace std;
 
-int findFirstNegativeIndex(const vector<int>& nums) {
-    for (int i = 0; i < nums.size(); i++) {
+int firstNegative(vector<int> &arr) {
+    for (int i = 0; i < arr.size(); i++) {
         int sum = 0;
         for (int j = 0; j <= i; j++) {
-            sum += nums[j];
+            sum += arr[j];
+            if (sum < 0)
+                return i;
         }
-        if (sum < 0)
-            return i;
     }
-    return -1; // or throw an exception
+    return -1;
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        input.push_back(x);
+    }
+    cout<<firstNegative(input)<<endl;
+    
 }
