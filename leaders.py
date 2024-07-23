@@ -1,2 +1,4 @@
+Here is the solution:
+
 def leaders(arr):
-    return [arr[i] for i in range(len(arr) - 1, -1, -1)]
+    return [x for x in arr[::-1] if all(i <= x for i in arr[arr.index(x)+1:])][::-1]
