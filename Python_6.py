@@ -4,13 +4,15 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     level = 0
-    for char in paren_string:
+    for char in paren_string.replace(" ", ""):
+        if char not in ["(", ")"]:
+            raise ValueError("Invalid character in input string")
         if char == "(":
             level += 1
-            result.append(0 if level > 1 else level)
+            result.append(level)
         elif char == ")":
             level -= 1
-            result.append(0 if level < 1 else level)
+            result.append(level if level > 0 else 0)
 
     return [i - 1 for i in result]
 
