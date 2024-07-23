@@ -4,6 +4,3 @@ n -= sum(int(d) for d in "".join(filter(str.isdigit, s))) + sum(
     int(d)
     for d in "".join(filter(str.isdigit, [c for c in s if c != " " and c not in "oa"]))
 )
-
-if n < 0:
-    print("Program did not receive expected input")
