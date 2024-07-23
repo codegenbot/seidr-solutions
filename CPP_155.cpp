@@ -15,7 +15,7 @@ std::vector<int> get_even_odd(int num) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,21 +27,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> result(2);
-    int temp = abs(num);
-    while(temp != 0){
-        int digit = temp % 10;
-        if(digit % 2 == 0)
-            result[0]++;
-        else
-            result[1]++;
-        temp /= 10;
-    }
-    return result;
-}
-
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
+    assert(sameVectors(get_even_odd(0), {1, 0}));
     return 0;
 }
