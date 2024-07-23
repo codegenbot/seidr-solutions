@@ -1,4 +1,6 @@
+#include <string>
 #include <sstream>
+
 using namespace std;
 
 string squareDigits(string input) {
@@ -8,4 +10,3 @@ string squareDigits(string input) {
         result += to_string(digit * digit);
     }
     return result;
-}
