@@ -1,9 +1,9 @@
-std::string input;
-std::string cipher1;
-std::string cipher2;
+std::string cipher1, cipher2, input;
 std::string result;
 
-cin >> input >> cipher1 >> cipher2;
+cin >> cipher1 >> cipher2 >> input;
+
+result = "";
 for (char c : input) {
     if (c == '\0') {
         break; 
@@ -21,4 +21,5 @@ for (char c : input) {
         }
     }
 }
+
 cout << result;
