@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -26,4 +25,3 @@ int main() {
     double result = probability(n, m);
     cout << "The probability is: " << fixed << setprecision(6) << result << endl;
     return 0;
-}
