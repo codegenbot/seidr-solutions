@@ -25,7 +25,7 @@ int main() {
         cin >> v[i];
     }
     vector<int> res = leaders(v);
-    for (int i = res.size() - 1; i >= 0; --i) {
+    for (int i = 0; i < res.size(); ++i) {
         cout << res[i] << " ";
     }
     return 0;
