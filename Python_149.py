@@ -1,3 +1,6 @@
 def sorted_list_sum(lst):
-    numbers = [int(i) for i in input("Enter a list of integers separated by spaces: ").split()]
-    return " ".join(sorted([num for num in numbers if num % 2 == 0]))
+    lst = input("Enter a list of integers separated by spaces: ").split()
+    try:
+        return " ".join(sorted([int(i) for i in lst if int(i) % 2 == 0]))
+    except ValueError:
+        return "Invalid input. Please enter only integers."
