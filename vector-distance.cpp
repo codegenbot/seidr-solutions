@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <cmath>
+#include <stdexcept>
 
 double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
     if (v1.size() != v2.size()) {
