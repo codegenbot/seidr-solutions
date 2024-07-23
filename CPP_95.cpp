@@ -7,7 +7,7 @@ bool check_dict_case(map<string, int> dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (pair<string, int> pair : dict) {
+    for (pair<string, int> pair : dicts | map_to_vector) {
         if (!islower(pair.first[0])) allLower = false;
         if (!isupper(pair.first[0])) allUpper = false;
     }
