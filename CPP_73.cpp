@@ -1,28 +1,19 @@
-int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
-    assert(n > 0);
+#include <vector>
+using namespace std;
 
-    bool dp[2][n];
-    dp[0][0] = false;
-    for (int i = 1; i < n; i++) {
-        dp[0][i] = true;
+int smallest_change(vector<int> arr) {
+    if (arr.size() <= 1)
+        return 0;
+    
+    int min_diff = INT_MAX, changes = 0;
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] == arr[i - 1])
+            continue;
+        
+        int diff = abs(arr[i] - arr[i - 1]);
+        if (diff < min_diff)
+            min_diff = diff;
     }
-
-    int changes = 0;
-    for (int i = 0; i < n - 1; i++) {
-        dp[i+1][0] = true;
-        for (int j = 1; j < n; j++) {
-            if ((arr[j-1] <= arr[j]) == dp[i][j-1]) {
-                dp[i][j] = dp[i][j-1];
-            } else {
-                changes++;
-                dp[i+1][j] = true;
-            }
-        }
-    }
-
-    if (!dp[n-2][n-1])
-        return -1; // Already sorted, no changes needed
-
-    return changes;
+    
+    return min_diff;
 }
