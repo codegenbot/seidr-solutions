@@ -15,7 +15,7 @@ int main() {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         if(i > 1)
-            startHeight *= sqrt(bouncinessIndex);
+            startHeight = abs(startHeight * bouncinessIndex);
         else
             startHeight = firstBounce;
         totalDistance += abs(startHeight - newHeight); 
