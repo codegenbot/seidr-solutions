@@ -2,30 +2,32 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamelCase(const std::string& input) {
-    std::string result;
-    bool capitalize = true;
+using namespace std;
 
-    for (char c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+string kebabToCamel(string s) {
+    string result = "";
+    int flag = 0;
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '-') {
+            flag = 1;
         } else {
-            result += tolower(c);
+            if(flag) {
+                result += toupper(s[i]);
+                flag = 0;
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "The converted camelCase is: " << kebabToCamelCase(input) << std::endl;
-
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    cin >> input;
+    cout << "Camel-case conversion: " << kebabToCamel(input) << endl;
     return 0;
 }
