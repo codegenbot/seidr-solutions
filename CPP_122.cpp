@@ -14,23 +14,8 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(add_elements({1}, 1) == 1);
-    vector<int> numbers;
-    int num;
-
-    // Read the number of elements from user.
-    cout << "Enter the number of elements: ";
-    cin >> k;
-
-    for (int i = 0; i < k; i++) {
-        // Read each element from user.
-        cout << "Enter element " << (i + 1) << ": ";
-        cin >> num;
-        numbers.push_back(num);
-    }
-
-    int result = add_elements(numbers, k);
-    cout << "The sum of the elements is: " << result << endl;
-
+    cout << add_elements({1}, 1) << endl;
+    cout << add_elements({123, 45, 67, 78}, 4) << endl;
+    cout << add_elements({10, 20, 30}, 3) << endl;
     return 0;
 }
