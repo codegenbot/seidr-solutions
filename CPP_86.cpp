@@ -3,20 +3,30 @@ using namespace std;
 
 std::string anti_shuffle(std::string s) {
     string result = "";
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            reverse(s.substr(i).begin(), s.substr(i).end());
-            for (char c : s.substr(i)) {
-                result += to_string(c);
+    int i = 0, j = 0;
+    
+    while (i <= s.length()) {
+        if (j >= s.length() || s[j] == ' ') {
+            while (j < s.length() && s[j] == ' ') j++;
+            for (; j < s.length(); ) {
+                result += s[j];
+                j++;
             }
             result += ' ';
+            i = j;
         } else {
             char c = s[i];
-            while (i < s.length() && s[i] <= c) i++;
-            result += string(1, c);
+            int k = i;
+            while (k <= s.length() && s[k] <= c) k++;
+            for (; i < k; ) {
+                result += s[i];
+                i++;
+            }
+            result += c;
         }
     }
-    return result;
+    
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
