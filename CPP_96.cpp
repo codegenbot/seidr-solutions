@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,15 +9,16 @@ vector<int> count_up_to(int n) {
     vector<int> result;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
-        for (int j = 2; j * j <= i && isPrime; ++j) {
-            if (i % j == 0)
+        for (int j = 2; j * j <= i; ++j) {
+            if (i % j == 0) {
                 isPrime = false;
+                break;
+            }
         }
-        if (isPrime && i > 1)
+        if (isPrime)
             result.push_back(i);
     }
     return result;
-
 }
 
 int main() {
@@ -25,7 +26,10 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     
-    vector<int> primes = count_up_to(n);
+    vector<int> primes;
+    primes.reserve(n);  // Initialize the reserve capacity here
+    
+    primes = count_up_to(n);
     
     if (primes.empty()) {
         cout << "No prime numbers found in the range 1 to " << n << endl;
