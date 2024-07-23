@@ -1,14 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int j; 
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<pair<int, pair<int, int>>> edges;
     for (int i = 0; i < grid.size(); i++) {
-        j = 0; 
-        for (; j < grid[0].size(); j++) {
+        for (int j = 0; j < grid[0].size(); j++) {
             if (i > 0) edges.push_back({grid[i][j], {i - 1, j}});
             if (i < grid.size() - 1) edges.push_back({grid[i][j], {i + 1, j}});
             if (j > 0) edges.push_back({grid[i][j], {i, j - 1}});
@@ -17,21 +15,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> path;
-    for (int i = 0; i <= k && i < grid.size(); i++) {
+    for (int i = 0; i <= k; i++) {
         int val = INT_MAX;
         pair<int, int> nextCell;
         for (auto& edge : edges) {
-            if ((edge.second).first == i - 1) continue;
-            if ((edge.second).first == i + 1) continue;
-            if ((edge.second).second == j - 1) continue;
-            if ((edge.second).second == j + 1) continue;
+            int x = get<1>(edge.second);
+            if (i > 0 && x == j - 1) continue;
+            if (i < grid.size() - 1 && x == j + 1) continue;
+            if (j > 0 && x == i - 1) continue;
+            if (j < grid[0].size() - 1 && x == i + 1) continue;
             if (grid[edge.first][0] < val) {
                 val = grid[edge.first][0];
                 nextCell = edge.second;
             }
         }
         path.push_back(val);
-        if(i < k) j = nextCell.second;
+        j = get<1>(nextCell.second);
     }
 
     return path;
