@@ -1,28 +1,32 @@
+```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
-    int cents;
-    cin >> cents;
+    int cents, quarters = 0, dimes = 0, nickles = 0, pennies = 0;
     
-    int quarters = 0;
+    std::cin >> cents;
+
     while (cents >= 25) {
         quarters++;
         cents -= 25;
     }
-    
-    int dimes = cents / 10;
-    cents %= 10;
-    
-    int nickles = cents / 5;
-    cents %= 5;
-    
-    int pennies = cents % 5; // or simply cents % 1, since pennies are always single units
-    
-    cout << quarters << endl;
-    cout << nickles << endl;
-    cout << dimes << endl;
-    cout << pennies << endl;
-    
+
+    while (cents >= 10) {
+        dimes++;
+        cents -= 10;
+    }
+
+    while (cents >= 5) {
+        nickles++;
+        cents -= 5;
+    }
+
+    pennies = cents;
+
+    std::cout << "Quarters: " << quarters << endl;
+    std::cout << "Dimes: " << dimes << endl;
+    std::cout << "Nickles: " << nickles << endl;
+    std::cout << "Pennies: " << pennies << endl;
+
     return 0;
 }

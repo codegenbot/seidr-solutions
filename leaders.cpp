@@ -1,26 +1,11 @@
-#include <vector>
-#include <iostream>
-#include <initializer_list>
-
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
+using Vec = std::vector<int>;
+Vec leaders(Vec& arr) {
+    Vec result;
     int maxRight = arr.back();
     for (int i = arr.size() - 1; i >= 0; --i) {
-        if (arr[i] >= maxRight) {
-            result.push_back(arr[i]);
+        if (arr[i] >= maxRight)
             maxRight = arr[i];
-        }
     }
+    result.push_back(maxRight);
     return result;
-}
-
-int main() {
-    vector<int> arr = {19};
-    vector<int> result = leaders(arr);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    return 0;
 }

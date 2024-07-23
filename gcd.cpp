@@ -1,6 +1,10 @@
-int main() {
-    long long num1, num2;
-    cin >> num1 >> num2;
-    cout << "GCD of the given numbers is " << gcd(num1, num2) << endl;
-    return 0;
+#include <cmath>
+
+long long gcd(long long a, long long b) {
+    while (b != 0) {
+        long long temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return std::abs(a);
 }
