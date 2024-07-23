@@ -3,7 +3,7 @@
 #include <vector>
 
 size_t pos;
-vector<int> indices;
+std::vector<int> indices;
 
 int main() {
     std::string text, target;
