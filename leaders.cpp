@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -10,4 +11,5 @@ vector<int> leaders(vector<int>& arr) {
             maxRightSoFar = arr[i];
         }
     }
+    return result;
 }
