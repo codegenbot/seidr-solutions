@@ -2,6 +2,6 @@ def middle_character(s):
     length = len(s)
     mid = length // 2
     if length % 2 == 0:
-        return s[mid-1:mid+1].lower()
+        return ''.join([c.lower() for c in s[mid-1:mid+2] if c.isalpha()]).strip()
     else:
-        return s[mid].lower() if length > 3 else '>'
+        return ''.join([c.lower() for c in s[mid:mid+1] if c.isalpha()]).strip()
