@@ -8,7 +8,7 @@ string squareDigits(string input) {
     string result = "";
     for (char c : input) {
         if (isdigit(c)) { 
-            int digit = stoi(string(1, c - '0'));
+            int digit = stoi(std::to_string(c));
             result += to_string(digit * digit);
         } else {
             result += c;
@@ -22,3 +22,4 @@ int main() {
     cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
+}
