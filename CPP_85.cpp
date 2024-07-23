@@ -19,9 +19,9 @@ int main() {
     
     for(int i = 0; i < num; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        int input;
-        std::cin >> input;
-        numbers.push_back(input);
+        int temp;
+        std::cin >> temp;
+        numbers.push_back(temp);
     }
     
     int result = add(numbers);
