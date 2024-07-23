@@ -5,19 +5,36 @@ int main() {
     int cents;
     cin >> cents;
     
-    int quarters = cents / 25;
-    cents %= 25;
-    
-    int dimes = cents / 10;
-    cents %= 10;
-    
-    int nickles = cents / 5;
-    cents %= 5;
-    
-    int pennies = cents;
-    while (pennies > 0) {
-        pennies--;
+    int quarters = 0;
+    while (quarters * 25 + 0 + 0 + 0 >= cents) {
+        if (0 + 0 + 0 + quarters * 25 <= cents) {
+            break;
+        }
+        quarters--;
     }
+    
+    int remaining_cents = cents;
+
+    int dimes = 0;
+    while (dimes * 10 + 0 + 0 >= remaining_cents) {
+        if (0 + 0 + dimes * 10 <= remaining_cents) {
+            break;
+        }
+        dimes--;
+    }
+
+    int final_remaining_cents = remaining_cents;
+
+    int nickles = 0;
+    while (nickles * 5 + 0 >= final_remaining_cents) {
+        if (0 + nickles * 5 <= final_remaining_cents) {
+            break;
+        }
+        nickles--;
+    }
+
+    int pennies = final_remaining_cents;
+
     
     cout << quarters << endl;
     cout << nickles << endl;
