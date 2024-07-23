@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <algorithm>
-
+```cpp
 bool issame(vector<int> a,vector<int> b) {
     return a == b;
 }
