@@ -1,25 +1,19 @@
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
 vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
+    set<int> uniqueDigits;
     for (int num : x) {
-        int newNum = 0;
-        bool hasEvenDigit = false;
         while (num > 0) {
             int digit = num % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            newNum = newNum * 10 + digit;
+            if (digit != 0 && uniqueDigits.insert(digit).second)
+                uniqueDigits.insert(digit);
             num /= 10;
         }
-        if (!hasEvenDigit)
-            result.push_back(newNum);
     }
-    sort(result.begin(), result.end());
+    vector<int> result(uniqueDigits.begin(), uniqueDigits.end());
     return result;
 }

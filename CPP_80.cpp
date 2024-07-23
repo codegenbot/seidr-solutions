@@ -1,25 +1,24 @@
 #include <string>
 using namespace std;
 
+bool is_one(string s) {
+    return s.length() == 1 && s[0] == '1';
+}
+
 bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = 0; j < sub.length(); j++) {
-                if (sub[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        if (!unique)
+    string t = s;
+    while(t != "1" && !is_one(t)) {
+        int total = 0;
+        bool changed = false; // flag to track if the value of t changes
+        for(char c : t) 
+            total += (c-'0')*(c-'0');
+        if(total == 4) { 
             return false;
+        }
+        if(t != std::to_string(total)) {
+            changed = true;
+        }
+        t = to_string(total);
     }
-    return true;
+    return t == "1";
 }
