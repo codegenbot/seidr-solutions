@@ -1,11 +1,14 @@
-Here is the solution:
+Here's the solution:
 
-bool is_sorted(vector<int> lst){
-    if(lst.size() <= 1) return true;
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]) return false;
+bool is_sorted(vector<int> lst) {
+    if (lst.size() <= 1)
+        return true;
+
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] >= lst[i - 1])
+            continue;
+        else
+            break;
     }
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    return lst.size() == 1 || (lst[0] < lst[1]);
+    return next(lst.begin(), 1, 0) != unique(lst.begin(), lst.end());
 }
