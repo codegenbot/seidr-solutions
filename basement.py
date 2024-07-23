@@ -1,5 +1,3 @@
-Here is the solution:
-
 print("Here is the solution:")
 def basement(vector):
     total = 0
