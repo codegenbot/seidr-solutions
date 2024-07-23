@@ -1,43 +1,33 @@
-```cpp
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c == 'X') {
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
             score += 30;
-        } else if (c == '/') {
+            i++;
+        } else if (s[i] == '/') {
             score += 10;
-            if (i + 1 < s.length()) {
-                int val = s[i + 1] - '0';
-                if (val >= 7) {
-                    score += val * 2;
-                    i++; // Skip the second roll
-                } else {
-                    score += val * 2;
-                }
-            }
+            i += 2;
         } else {
-            int val = c - '0';
-            if (i + 1 < s.length()) {
-                char nextC = s[i + 1];
-                if (nextC == 'X') {
-                    score += 10 + val * 2;
-                    i++; // Skip the second roll
-                } else if (nextC == '/') {
-                    int nextVal = nextC - '0';
-                    if (val + nextVal >= 10) {
-                        score += 10;
-                        i++; // Skip the second roll
-                    } else {
-                        score += val + nextVal;
-                    }
+            int val = s[i] - '0';
+            if (i + 1 < s.length() && s[i + 1] == 'X') {
+                score += 10 + val * 2;
+                i += 2;
+            } else if (i + 1 < s.length() && s[i + 1] == '/') {
+                int nextVal = s[i + 1] - '0';
+                if (val + nextVal >= 10) {
+                    score += 10;
+                    i += 2;
                 } else {
-                    score += val;
+                    score += val + nextVal;
+                    i++;
                 }
             } else {
                 score += val;
+                i++;
             }
         }
     }
     return score;
-}
