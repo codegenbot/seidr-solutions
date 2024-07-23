@@ -1,20 +1,22 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
 string circular_shift(int x, int shift) {
-    string str = to_string(x);
-    int n = str.length();
-    if(shift >= n){
-        return str;
+    ostringstream str;
+    str << x; 
+    int n = str.str().length();
+    if (shift >= n)
+        return str.str();
+    else {
+        string result = str.str().substr(shift) + str.str().substr(0, shift);
+        return result;
     }
-    else{
-        string res = "";
-        for(int i=shift; i<n; i++){
-            res += str[i];
-        }
-        for(int i=(n-shift); i<n; i++){
-            res += str[i]; 
-        }
-        for(int i=0; i<shift; i++){
-            res += str[i];
-        }
-        return res;
-    }
+}
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    return 0;
 }
