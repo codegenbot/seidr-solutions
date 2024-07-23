@@ -1,4 +1,3 @@
-```
 def fib4(n: int):
     if n < 0:
         return None
