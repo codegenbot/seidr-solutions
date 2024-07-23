@@ -1,3 +1,8 @@
+"""
 import math
+
 def dice_game(n, m):
-    return 1 - sum(1/math.factorial(i)*pow(m/i, i) for i in range(min(m, n)+1))
+    total_outcomes = n*m
+    win_prob = sum(1 for i in range(m+1, n*m) if (i % n > i % m)) / total_outcomes
+    return win_prob
+"""

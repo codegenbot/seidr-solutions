@@ -1,47 +1,36 @@
-```cpp
-int bowlingScore(string s) {
-    int score = 0;
-    int currentRoll1 = 0;
-    int currentRoll2 = 0;
-    bool strike = false;
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            if (currentRoll1 + currentRoll2 < 10) {
-                score += 10 - (currentRoll1 + currentRoll2);
+int bowlingScore(const std::string& input) {
+    int score = 0;
+    int currentRoll = 0;
+    bool lastRoll = false;
+    
+    for(int i = 0; i < input.size(); ++i) {
+        if(input[i] == '/') {
+            if(currentRoll > 0) {
+                score += currentRoll;
+                currentRoll = 0;
             }
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-            strike = false;
-        } else if (s[i] == 'X') {
+        } else if(input[i] >= 'X' && input[i] <= 'X') {
             score += 10;
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-            strike = true;
-        } else {
-            if (!strike) {
-                currentRoll1++;
-                if (i < s.length() - 1 && s[i + 1] == '/') {
-                    score += currentRoll1;
-                    break;
-                }
-                if (s[i + 1] == 'X') {
-                    score += currentRoll1 + 10;
-                    i++;
-                } else {
-                    currentRoll2 = s[i + 1] - '0';
-                    i++;
-                }
-            } else {
-                currentRoll2 = s[i + 1] - '0';
-                i++;
-                if (i < s.length() && s[i] == '/') {
-                    score += 10;
-                    break;
-                }
-            }
+            lastRoll = true;
+        } else if(input[i] == '+') {
+            continue;
+        } else if(input[i].isdigit()) {
+            currentRoll = currentRoll * 10 + (input[i] - '0');
         }
     }
-
+    
+    if(currentRoll > 0) score += currentRoll;
+    
+    if(lastRoll && currentRoll > 0) score += currentRoll;
+    
     return score;
+}
+
+int main() {
+    int score = bowlingScore("X/XXXX/8+5,X");
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
