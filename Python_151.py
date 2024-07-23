@@ -1,6 +1,12 @@
 ```
-def double_the_difference(lst):
-    if len(set(map(int, lst))) != len(lst):
-        return "Lists must not contain duplicate elements"
-    differences = [(int(a) - int(b)) ** 2 for a, b in zip(map(str, lst)[::2], map(str, lst)[1::2])]
-    return sum(differences) * 8
+def check():
+    first_list = [int(x) for x in input("Enter the first list of numbers (space separated): ").split()]
+    second_list = [int(x) for x in input("Enter the second list of numbers (space separated): ").split()]
+    if len(first_list) != len(second_list):
+        print("Lists must be of the same length")
+    else:
+        differences = [(a - b)**2 for a, b in zip(first_list, second_list)]
+        result = sum(differences) * 8
+        print(result)
+
+check()
