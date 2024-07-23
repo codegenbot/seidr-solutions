@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,27 +21,12 @@ bool is_palindrome(string s) {
 }
 
 int main() {
-    int num, weight;
-    vector<int> queue;
-
-    cout << "Enter the number of elements in the queue: ";
-    cin >> num;
-
-    for(int i = 0; i < num; i++) {
-        int val;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> val;
-        queue.push_back(val);
+    int n, w;
+    cin >> n >> w;
+    vector<int> q(n);
+    for (int i = 0; i < n; i++) {
+        cin >> q[i];
     }
-
-    cout << "Enter the weight: ";
-    cin >> weight;
-
-    if(will_it_fly(queue, weight)) {
-        cout << "The items will fly." << endl;
-    } else {
-        cout << "The items won't fly." << endl;
-    }
-
+    cout << will_it_fly(q, w) << endl;
     return 0;
 }
