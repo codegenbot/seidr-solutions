@@ -7,7 +7,6 @@ def below_zero(operations: List[int]) -> bool:
 if __name__ == "__main__":
     while True:
         user_input = input("Enter a list of integers separated by space: ")
-        
         try:
             operations = [int(i) for i in user_input.split()]
             if len(operations) > 0 and all(isinstance(x, int) for x in operations):
@@ -17,4 +16,7 @@ if __name__ == "__main__":
             else:
                 print("Invalid input. Please enter a list of integers separated by spaces.")
         except ValueError:
-            print("Invalid input. Please enter a list of integers separated by spaces.")
+            if user_input == "":
+                print("No numbers were entered. Please try again.")
+            else:
+                print("Invalid input. Please enter a list of integers separated by spaces.")
