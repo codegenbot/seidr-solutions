@@ -11,16 +11,15 @@ int skjkasdkd(std::vector<int> lst){
         }
     }
     if(maxPrime == -1) {
-        std::cerr << "No prime found in the list.\n";
-        return 0; 
-    }
+        std::cout << "No prime found in the list." << std::endl;
+        return 0; // No prime found
+    } 
     int sumOfDigits = 0;
     while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
     }
     return sumOfDigits;
-
 }
 
 bool isPrime(int n){
@@ -30,7 +29,6 @@ bool isPrime(int n){
     }
     return true;
 
-}
-int main{
+int main() {
     assert (skjkasdkd({127, 97, 8192}) == 10);
 }
