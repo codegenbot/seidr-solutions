@@ -1,16 +1,14 @@
-#include <vector>
-
-using namespace std;
+#include <string>
 
 bool correct_bracketing(string brackets) {
-    vector<char> stack;
+    int count = 0;
     for (char bracket : brackets) {
         if (bracket == '(') {
-            stack.push_back(bracket);
+            count++;
         } else if (bracket == ')') {
-            if (stack.empty()) return false;
-            stack.pop_back();
+            if (count <= 0) return false;
+            count--;
         }
     }
-    return stack.empty();
+    return count == 0; 
 }

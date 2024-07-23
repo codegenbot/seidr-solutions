@@ -1,7 +1,8 @@
 ```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,33 +12,37 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(vector<string> q, int start = 0) {
-    return accumulate(q.begin() + start, q.end(), 0);
+int accumulate(vector<int>::iterator start, vector<int>::iterator end, int init) {
+    int sum = init;
+    for (; start != end; ++start)
+        sum += *start;
+    return sum;
 }
 
-bool will_it_fly(vector<string> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     string s = "";
-    for (string i : q) {
-        s += i;
+    for (int i : q) {
+        s += to_string(i);
     }
-    return is_palindrome(s) && stol(s) <= w;
+    return is_palindrome(s) && accumulate(q.begin(), q.end(), 0) <= w;
 }
 
 int main() {
-    int n, w;
-
-    cout << "Enter the number of queens: ";
+    int n;
     cin >> n;
 
-    vector<string> q;
+    vector<int> q(n);
 
-    for (int i=0; i<n; i++) {
-        string temp;
-        cout << "Enter position of queen " << i+1 << ": ";
-        cin >> temp;
-        q.push_back(temp);
+    cout << "Enter position of queen " << 1 << ": ";
+    cin >> q[0];
+
+    for (int i = 1; i < n; i++) {
+        int temp;
+        cout << "Enter position of queen " << i + 1 << ": ";
+        cin >> q[i];
     }
 
+    int w;
     cout << "Enter the total weight: ";
     cin >> w;
 
