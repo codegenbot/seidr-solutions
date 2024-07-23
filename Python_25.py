@@ -1,6 +1,5 @@
 from typing import List
 
-
 def sum_of_squares(numbers: List[int]) -> int:
     total = 0
     for num in numbers:
@@ -9,7 +8,7 @@ def sum_of_squares(numbers: List[int]) -> int:
 
 try:
     user_input = input("Enter a series of space-separated integers: ")
-    numbers = list(map(int, user_input.strip().split()))
+    numbers = list(map(int, user_input.split()))
     print(sum_of_squares(numbers))
 except ValueError:
     print("Invalid input. Please enter space-separated integers.")
