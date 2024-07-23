@@ -1,1 +1,2 @@
-for(int i=0; *brackets && i < std::strlen(brackets); i++){
+```
+for(int i=0; *brackets && i < std::strlen(brackets); i++)

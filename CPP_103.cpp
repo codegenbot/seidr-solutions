@@ -1,3 +1,4 @@
+#include <cmath>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,7 +8,7 @@ string rounded_avg(int n, int m) {
     long long sum = 0;
     for (int i = n; i <= m; i++)
         sum += i;
-    avg = (int)((double)sum / (m - n + 1));
+    long long avg = round((double)sum / (m - n + 1));
     string res = "";
     while (avg > 0) {
         if (avg & 1)
