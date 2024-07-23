@@ -3,4 +3,4 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max((s for s in sorted(strings) if set(s).issubset('abcdefghijklmnopqrstuvwxyz')), key=len)
+    return ''.join(sorted(set(strings), key=len, reverse=True))
