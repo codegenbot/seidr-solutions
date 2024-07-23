@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 using namespace std;
@@ -17,10 +18,10 @@ int bowlingScore(string s) {
             }
         } else if (s[i] == '/') {
             int j = i + 1;
-            while (j < s.length() && !isdigit(s[j])) {
+            while (j < 11 && !isdigit(s[j])) {
                 j++;
             }
-            int pins = stoi(string(1, s[j]));
+            int pins = s[j] - '0';
             score += 10 - pins;
         }
     }
