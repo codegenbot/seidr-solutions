@@ -1,28 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string camelCase(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
     std::string result = "";
     bool capitalizeNext = true;
-
-    while (std::getline(ss, word, ' ')) {
-        if (!word.empty()) {
-            if (capitalizeNext) {
-                result += toupper(word[0]);
-                capitalizeNext = false;
+    
+    for (char c : str) {
+        if (c == '-') {
+            if (!result.empty()) {
+                result.push_back(toupper(c));
             } else {
-                result += tolower(word);
+                continue; // skip first hyphen
             }
-            if (capitalizeNext && !result.empty())
-                result += " ";
-            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
         }
     }
-
+    
     return result;
 }
 
