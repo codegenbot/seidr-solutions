@@ -1,9 +1,9 @@
-bool issame(vector<string> a,vector<string>b) {
-    for (int i = 0; i < a.size() || i < b.size(); i++) {
-        if (i >= a.size()) return false;
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a,vector<string> b){
+    return (a == b);
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -19,12 +19,16 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else {
-        if(issame(lst1,lst2)) return lst1;
-        for(const string& s : lst1){
-            vector<string> v = {s};
-            v.insert(v.end(),lst2.begin(),lst2.end());
-            return v;
-        }
-    }
+    else return lst1;
+}
+
+int main() {
+    vector<string> lst1 = {"this"};
+    vector<string> lst2 = {};
+    
+    vector<string> result = total_match(lst1, lst2);
+    
+    assert(issame(total_match({"this"}, {}), {}));
+    
+    return 0;
 }
