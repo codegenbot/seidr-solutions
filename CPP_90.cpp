@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,4 +12,5 @@ int findNextSmallest(std::vector<int> lst) {
             return sorted[i + 1];
     }
     return -1;
+
 }
