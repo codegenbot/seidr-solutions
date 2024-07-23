@@ -16,7 +16,7 @@ int main() {
             charCount++;
         }
         if (charCount > 140) {
-            cout << "Too many characters. Try to keep it under 140, okay?";
+            cout << "Too many characters. Your tweet has " << charCount << " characters";
         } else {
             cout << "Your tweet has " << charCount << " characters";
         }
