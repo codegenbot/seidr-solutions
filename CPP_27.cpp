@@ -1,17 +1,15 @@
 ```
+
 int flip_case(string s) {
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char newChar = ' ';
-            if (c >= 'a' && c <= 'z') 
-                newChar = tolower(c);
-            else if (c >= 'A' && c <= 'Z')
-                newChar = toupper(c); 
-            result += newChar;
-        } 
-        else
-            result += c; 
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] >= 'a' && s[i] <= 'z') {
+            result += toupper(s[i]);
+        } else if (s[i] >= 'A' && s[i] <= 'Z') {
+            result += tolower(s[i]);
+        } else {
+            result += s[i];
+        }
     }
-    return 0;
+    return result;
 }
