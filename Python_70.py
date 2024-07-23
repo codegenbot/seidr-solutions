@@ -1,4 +1,3 @@
-```
 def strange_sort_list(lst):
     if len(lst) == 0:
         return lst
