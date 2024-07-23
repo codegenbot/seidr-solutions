@@ -1,3 +1,4 @@
+```
 def encode(message):
     encoded_message = ''
     for char in message:
@@ -15,7 +16,7 @@ def encode(message):
                     encoded_message += 'y'
             else:
                 if char.isupper():
-                    encoded_message += chr((ord(char) - 32) if ord(char) > 78 else (ord(char) + 32))
+                    encoded_message += chr((ord(char) + 32) if ord(char) < 78 else (ord(char) - 32))
                 else:
                     encoded_message += char.swapcase()
         else:
