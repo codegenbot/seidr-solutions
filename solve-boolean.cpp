@@ -3,7 +3,7 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operators(std::deque<char>());
+    stack<char> operators;
     string operand = "";
     int i = 0; 
 
@@ -27,7 +27,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push(expression[i]);
+            operators.push('(');
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
