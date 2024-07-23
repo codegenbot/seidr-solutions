@@ -17,6 +17,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int testConcatenate() {
+    std::vector<std::string> input;
     int numStrings;
 
     // Read the number of strings from the user
@@ -24,7 +25,6 @@ int testConcatenate() {
     std::cin >> numStrings;
 
     // Read the strings from the user
-    std::vector<std::string> input;
     for (int i = 0; i < numStrings; ++i) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
