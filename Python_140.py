@@ -1,4 +1,5 @@
-def fix_spaces(text): 
+```
+def fix_spaces(text):
     result = ""
     for char in text:
         if char == " " and (result == "" or result[-1] != " "):
