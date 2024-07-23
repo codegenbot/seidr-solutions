@@ -1,8 +1,6 @@
-```
 def check(lst):
-    even = sorted([x for x in lst if x % 2 == 0])
-    odd = sorted([x for x in lst if x % 2 != 0])
+    even = sorted([x for x in lst[0] if x % 2 == 0])
+    odd = sorted([x for x in lst[1] if x % 2 != 0])
     return (even, odd)
 
-numbers = [1, 2, 3, 4]
-print(check(numbers))
+check(([1, 2, 3, 4], [5, 6]))
