@@ -1,12 +1,12 @@
-#include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentRoll1 = 0;
     int currentRoll2 = 0;
     bool strike = false;
     int frameScore = 0;
-
+    
     for (char c : s) {
         if (c == '/') {
             if (!strike) {
@@ -28,23 +28,22 @@ int bowlingScore(std::string s) {
             strike = true;
         } else {
             if (!strike) {
-                if (currentRoll1 + 1 >= 10) {
-                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
+                currentRoll1++;
+                if (currentRoll1 >= 10) {
+                    if (currentRoll1 + currentRoll2 <= 10) {
                         score += 10 - currentRoll1;
                         currentRoll2++;
                     } else {
                         score += 10;
                         currentRoll1 = 0;
                     }
-                } else {
-                    currentRoll1++;
                 }
             } else {
                 currentRoll2++;
             }
         }
     }
-
+    
     if (strike) {
         int bonusRoll1 = 0, bonusRoll2 = 0;
         for (char c : s.substr(s.find('/'))) {
@@ -64,6 +63,6 @@ int bowlingScore(std::string s) {
             }
         }
     }
-
+    
     return score;
 }
