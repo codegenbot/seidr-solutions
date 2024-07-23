@@ -1,27 +1,40 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    int y = boost::any_cast<int>(b);
-    if (x > y)
-        return a;
-    else if (x < y)
-        return b;
-    else
-        return "None";
-} else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-    double x = boost::any_cast<double>(a);
-    double y = boost::any_cast<double>(b);
-    if (x > y)
-        return a;
-    else if (x < y)
-        return b;
-    else
-        return "None";
-} else if ((a.type() == typeid(string) && b.type() != typeid(int)) ||
-           (a.type() != typeid(string) && b.type() == typeid(string))) {
-    if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-        return a;
-    else
-        return b;
-} else {
-    return "None";
+#include <boost/any.hpp>
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+
+        if (str1 > str2) {
+            return a;
+        } else if (str1 < str2) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string str = boost::any_cast<string>(a);
+        float num = boost::any_cast<float>(b);
+
+        if (num > 0.0f) {
+            return a;
+        } else {
+            return b;
+        }
+    } else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        float num = boost::any_cast<float>(a);
+
+        if (num > 0.0f) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
+    }
+
+    return boost::any();
 }
