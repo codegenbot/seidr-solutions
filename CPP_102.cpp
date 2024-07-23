@@ -1,11 +1,7 @@
-int choose_num(int x, int y){
-    if(x > y) {
-        swap(x, y);
+int choose_num(int x, int y) {
+    int last_even = -1;
+    for (int i = x; i <= y; ++i) {
+        if (i % 2 == 0) last_even = i;
     }
-    for(int i = x; i <= y; i++) {
-        if(i % 2 == 0) {
-            return i;
-        }
-    }
-    return -1;
+    return last_even;
 }
