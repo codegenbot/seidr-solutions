@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -22,9 +23,13 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     return make_pair(black, white);
-
 }
 
 int main() {
+    string code = "ABCD";  
+    string guess = "BADC";  
+
+    pair<int, int> result = mastermind(code, guess);
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
     return 0;
 }
