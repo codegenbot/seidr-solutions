@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    double n, m;
+    int n, m;
     std::cin >> n >> m;
     
     double probability = 0.0;
@@ -13,6 +13,7 @@ int main() {
         }
     }
     
+    std::cout.precision(8);
     std::cout << probability << std::endl;
     
     return 0;
