@@ -1,16 +1,11 @@
-```
-def solution(n):
-    total = 0
-    for i in range(1, n+1):
-        num = int(input(f"Enter number for iteration {i}: "))
-        if num % 2 != 0:
-            total += num
-    return total
+def solution(lst):
+    return sum(i for i in lst[1:] if i % 2 == 0)
+
 
 if __name__ == "__main__":
-    user_input = input("Enter the number of iterations: ")
+    user_input = input("Enter a list of numbers: ")
     try:
-        n = int(user_input)
-        print(solution(n))
+        input_list = [int(x) for x in user_input.split()]
+        print(solution(input_list))
     except ValueError:
-        print("Invalid input. Please enter a positive integer.")
+        print("Invalid input. Please enter a list of integers.")
