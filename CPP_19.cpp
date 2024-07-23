@@ -1,26 +1,32 @@
-#include <vector>
-#include <algorithm>
-
 string sort_numbers(string numbers) {
-    vector<string> nums;
-    string num;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
+    vector<string> numVector;
+    string temp;
 
-    for (char c : numbers) {
-        if (c == ' ') {
-            nums.push_back(num);
-            num = "";
-        } else {
-            num += c;
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            continue;
+        }
+        temp += numbers[i];
+        if (i == numbers.length() - 1 || numbers[i + 1] != ' ') {
+            numVector.push_back(temp);
+            temp = "";
         }
     }
-    nums.push_back(num);
 
-    sort(nums.begin(), nums.end());
+    sort(numVector.begin(), numVector.end());
 
     string result = "";
-    for (string n : nums) {
-        result += n + " ";
+    for (int i = 0; i < numVector.size(); i++) {
+        if (numMap.find(numVector[i]) != numMap.end()) {
+            result += numVector[i];
+            if (i < numVector.size() - 1) {
+                result += " ";
+            }
+        }
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
