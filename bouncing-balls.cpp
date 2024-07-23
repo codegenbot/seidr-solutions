@@ -13,16 +13,14 @@ int main() {
     double newHeight = startHeight * 0.5;
 
     double totalDistance = 0.0;
-    double maxHeight = startHeight;
-
     for (int i = 2; i <= numBounces; ++i) {
         startHeight *= bouncinessIndex;
-        maxHeight += startHeight - newHeight; 
-        newHeight = startHeight; 
+        totalDistance += abs(startHeight - newHeight); 
+        newHeight *= bouncinessIndex; 
     }
 
     cout << fixed;
-    cout << maxHeight << endl;
+    cout << totalDistance << endl;
 
     return 0;
 }
