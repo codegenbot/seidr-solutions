@@ -5,25 +5,22 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    if(n == 0) return leaders;
+    
+    leaders.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] > leaders.back()) {
+            leaders.push_back(arr[i]);
         }
-        if(leader) leaders.push_back(arr[i]);
     }
     
     return leaders;
-
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 3, 2};
+    vector<int> arr = {17, 28, 4, 27, 29, 31};
     vector<int> result = leaders(arr);
-    for (auto i : result)
-        cout << i << " ";
+    // print or use the result as needed
     return 0;
 }
