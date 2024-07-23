@@ -8,4 +8,4 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
         total += discounted_price;
     }
     return total;
-} 
+}
