@@ -1,8 +1,11 @@
-Here is the modified code:
-
-```
-def decode_cyclic(s: str):
+def decode_cyclic():
+    s = input("Enter a string: ")
     n = len(s)
+    
+    # Handle strings with less than two characters
+    if n < 2:
+        return s
+    
     result = ""
     i = 0
     while i < n:
@@ -25,3 +28,5 @@ def decode_cyclic(s: str):
             result += s[i]
         i += 1
     return result
+
+print(decode_cyclic())
