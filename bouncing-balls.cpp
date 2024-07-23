@@ -15,12 +15,12 @@ int main() {
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
 
-    bouncinessIndex = firstBounce / startHeight;
+    bouncinessIndex = (firstBounce / startHeight) * (1 - 2/(startHeight + firstBounce));
     double totalDistance = 0;
 
     double height = startHeight;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += (pow(2, i + 1) - 1) * abs(height);
+        totalDistance += ((height * bouncinessIndex) - height);
         height *= bouncinessIndex;
     }
 
