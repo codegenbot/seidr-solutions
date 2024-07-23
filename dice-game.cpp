@@ -1,12 +1,21 @@
-Here is the solution:
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (n + m);
-    if(n > m) {
-        return 1 - ((double)m / total);
-    } else if(n < m) {
-        return (double)m / total;
-    } else {
-        return 0.5;
+double probability(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        if (i < n) {
+            total -= 1.0 / m;
+        }
     }
+    return total;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(4) << probability(n, m) << endl;
+    return 0;
 }
