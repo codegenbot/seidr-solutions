@@ -1,8 +1,15 @@
-```
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    current_snow = float(initial_snow)
+def snow_day():
+    hours = int(input("Enter number of hours: "))
+    initial_snow = float(input("Enter initial amount of snow (in feet): "))
+    rate_of_snowfall = float(input("Enter rate of snow fall per hour (in feet/hour): "))
+    melting_rate = float(
+        input("Enter proportion of snow melting per hour (as a decimal): ")
+    )
+
+    current_snow = initial_snow
     for _ in range(hours):
         current_snow += rate_of_snowfall
-        melted_snow = max(0, round(current_snow * (1 - melting_rate), 14))
+        melted_snow = max(0, current_snow - (current_snow * (1 - melting_rate)))
         current_snow -= melted_snow
-    return round(current_snow, 2)
+
+    return float(current_snow)
