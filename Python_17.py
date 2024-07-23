@@ -3,10 +3,6 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
-        if music_string[i:i+3] == '.|.|':
-            i += 3
-        elif music_string[i:i+2] in note_lengths:
-            length = note_lengths[music_string[i:i+2]]
-            result.append(length)
-            i += 2
-    return result
+        if music_string[i] == '.':
+            result.append(note_lengths['.|.
+                  return result
