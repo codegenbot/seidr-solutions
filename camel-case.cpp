@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
@@ -8,7 +9,7 @@ std::string kebabToCamel(const std::string& str) {
         if (str[i] == '-') {
             if (!result.empty()) {
                 if (capitalizeNext) {
-                    result += ' ';
+                    result.push_back(' ');
                     capitalizeNext = false;
                 }
             } else {
@@ -27,4 +28,3 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
-}
