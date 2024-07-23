@@ -1,17 +1,19 @@
-#include <iostream>
-#include <string>
-
-std::string decimal_to_binary(int decimal){
-    std::string binary = "";
-    while (decimal > 0) {
-        binary = (decimal & 1) ? "1" + binary : "0" + binary;
-        decimal >>= 1;
+````
+int decimal_to_binary(int decimal){
+    string binary = "";
+    while(decimal > 0){
+        if (decimal % 2 == 0) {
+            binary.insert(0,"0");
+        } else {
+            binary.insert(0,"1");
+        }
+        decimal /= 2;
     }
     return "db" + binary + "db";
 }
 
 int main() {
-    assert(decimal_to_binary(15) == "db11111db");
-    std::cout << decimal_to_binary(5) << std::endl;  
+    assert(decimal_to_binary(15) == "db1111db");
     return 0;
 }
+```
