@@ -1,5 +1,7 @@
 #include <iostream>
+#include <string>
 #include <map>
+
 using namespace std;
 
 int whitePegs(string code, string guess) {
@@ -34,8 +36,8 @@ int blackPegs(string code, string guess) {
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
+    cin >> code >> guess; 
+    cout << whitePegs(code, guess) << endl; 
     cout << blackPegs(code, guess) << endl;
     return 0;
 }
