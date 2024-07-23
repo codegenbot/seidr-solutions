@@ -1,7 +1,7 @@
+```Python
 def sort_third(l: list):
-    return sorted(
-        l,
-        key=lambda x: (
-            x if l.index(x) % 3 else min(i for i in range(len(l)) if i % 3 != 0)
-        ),
-    )
+    original_indices = {val: i for i, val in enumerate(l)}
+    return [
+        next((x for x in l if original_indices[x] % 3 != 0), None) if i % 3 != 0 else min(l)
+        for i, _ in enumerate(l)
+    ]
