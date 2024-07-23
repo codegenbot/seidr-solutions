@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 #include <cassert>
@@ -16,5 +17,4 @@ int how_many_times(std::string str, std::string substring) {
 int main() {
     assert (how_many_times("john doe", "john") == 1);
     std::cout << how_many_times("hello world", "world") << std::endl;
-    return 0;
-}
+    //std::cout << how_many_times("test", "t");
