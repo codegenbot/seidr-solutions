@@ -1,11 +1,4 @@
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
-int main() 
-{
+int main() {
     double heightStart, heightFirstBounce;
     int numBounces;
 
@@ -23,3 +16,4 @@ int main()
     cout << totalDistance;
 
     return 0;
+}
