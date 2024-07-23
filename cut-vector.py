@@ -1,13 +1,12 @@
-n = int(input())
-numbers = [int(input()) for _ in range(n)]
-total_sum = sum(numbers)
-current_sum = 0
+n, *arr = map(int, input().split())
+total_sum = sum(arr)
+left_sum = 0
 for i in range(n):
-    current_sum += numbers[i]
-    remaining_sum = total_sum - current_sum
-    if current_sum == remaining_sum or abs(current_sum - remaining_sum) < abs(
-        result[0] - result[1]
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+        left_sum - right_sum - arr[i]
     ):
-        result = (current_sum, remaining_sum)
-print(result[0])
-print(result[1])
+        print(*arr[: i + 1])
+        print(*arr[i + 1 :])
+        break
