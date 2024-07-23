@@ -3,4 +3,4 @@ def double_the_difference(lst):
     for num in lst:
         if isinstance(num, int) and num >= 0:
             total += num**2
-    return total
+    return abs(total - sum(lst)) // len(lst) * 2
