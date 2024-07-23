@@ -1,8 +1,7 @@
 ```
 def decode_cyclic(s: str):
     if len(s) < 2:
-        return "Invalid input"
-
+        return "Input string length should be at least 2."
     result = ""
     i = 0
     while i < len(s):
@@ -20,5 +19,6 @@ def decode_cyclic(s: str):
                 else:
                     result += s[i:]
         i += 1
-
+    else:
+        result += s[i:]
     return result
