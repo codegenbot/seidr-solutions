@@ -43,7 +43,6 @@ int main() {
     int a; 
     cout << "Enter number 1: ";
     cin >> a;
-    
     int b; 
     cout << "Enter number 2: ";
     cin >> b;
