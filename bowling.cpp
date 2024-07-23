@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     int i = 0;
@@ -29,4 +31,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
