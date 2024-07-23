@@ -1,7 +1,10 @@
+#include <iostream>
+#include <cmath>
+
 double vectorDistance() {
     int n;
     std::cin >> n; 
-    double x1 = 0, y1 = 0, sumX = 0, sumY = 0;
+    double sumX = 0, sumY = 0;
     for (int i = 0; i < n; i++) {
         double x, y;
         std::cin >> x >> y;
