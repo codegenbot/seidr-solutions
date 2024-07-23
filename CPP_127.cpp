@@ -1,20 +1,17 @@
-#include <string>
+#include <vector>
+using namespace std;
 
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+string intersection(vector<pair<int, int>> interval1, vector<pair<int, int>> interval2) {
+    pair<int, int> common = make_pair(max({interval1[0].first, interval2[0].first}), min({interval1[0].second, interval2[0].second}));
 
-    if (start > end)
+    if (common.first > common.second)
         return "NO";
-
-    int len = end - start + 1;
-
+    
     bool isPrime = true;
-    for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0) {
+    for(int i = 2; i*i <= common.second - common.first + 1; i++) {
+        if((common.second - common.first + 1) % i == 0)
             isPrime = false;
-            break;
-        }
+        break;
     }
 
     return isPrime ? "YES" : "NO";
