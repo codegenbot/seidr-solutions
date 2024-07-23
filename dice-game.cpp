@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 
 double diceGame(int n, int m) {
@@ -9,4 +10,9 @@ double diceGame(int n, int m) {
     }
 
     return petersWin;
+
+}
+
+int main() {
+    return diceGame(6, 6);
 }
