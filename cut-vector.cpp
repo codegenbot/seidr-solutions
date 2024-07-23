@@ -1,16 +1,18 @@
-#include <iostream>
+#include <iostream>  
 #include <vector>
 
+using namespace std;  
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-    sum += num;
+        sum += num;
     }
     
     int target = sum / 2;
@@ -24,14 +26,14 @@ int main() {
         }
     }
     
-    std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
+    vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvec2(nums.begin() + idx + 1, nums.end());
     
     for (int num : subvec1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     for (int num : subvec2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
