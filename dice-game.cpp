@@ -5,10 +5,11 @@ double diceGame(int n, int m) {
     double petersWin = 0.0;
 
     for (int i = 1; i <= std::min(m, n-1); i++) { 
-        petersWin += (n - i) / (double)total;
+        petersWin += (n - i) / (total);
     }
 
     return petersWin;
+
 }
 
 int main() {
