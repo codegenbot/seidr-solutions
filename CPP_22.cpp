@@ -1,45 +1,24 @@
-```c++
 #include <iostream>
-#include <list>
 #include <vector>
+#include <list>
+#include <any>
 
-bool issame(std::list<any> a, std::list<any> b) {
-    std::list<any> combined = a;
-    combined.merge(b);
-    for (auto i : combined) {
-        if (!any_cast<int>(i).second) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> filter_integers(std::list<any> values) {
+std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).second) {
-            result.push_back(any_cast<int>(value).first);
+        if (value.type() == typeid(int)) {
+            int val = std::any_cast<int>(value);
+            result.push_back(val);
         }
     }
     return result;
 }
 
 int main() {
-    // Example usage:
-    std::list<any> list1 = {{1, true}, {'a', false}};
-    std::list<any> list2 = {{2, true}, {'b', false}};
-
-    if (issame(list1, list2)) {
-        std::cout << "The lists are the same.\n";
-    } else {
-        std::cout << "The lists are not the same.\n";
-    }
-
-    std::vector<int> integers = filter_integers(list1);
-    for (int i : integers) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
