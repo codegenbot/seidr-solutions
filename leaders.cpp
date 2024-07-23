@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,8 +6,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
     int maxRight = arr.back();
     for (int i = arr.size() - 1; i >= 0; --i) {
         if (arr[i] >= maxRight) {
-            result.push_back(arr[i]);
             maxRight = arr[i];
+            result.push_back(maxRight);
         }
     }
     return result;
