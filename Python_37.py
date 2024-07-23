@@ -1,3 +1,3 @@
-```Python
 def sort_even(l: list):
-    return sorted([x for x in l if x % 2 == 0])
+    even_elements = [x for i, x in enumerate(l) if i % 2 == 0]
+    return sorted(even_elements)
