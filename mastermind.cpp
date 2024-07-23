@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <string>
 #include <utility>
 
 using namespace std;
 
-std::pair<int, int> mastermind(string code, string guess) {
+pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
@@ -21,7 +22,7 @@ std::pair<int, int> mastermind(string code, string guess) {
         }
     }
     
-    return std::make_pair(blackPegs, whitePegs);
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
