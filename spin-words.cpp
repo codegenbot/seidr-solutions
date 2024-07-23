@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 std::string spinWords(std::string str) {
@@ -15,7 +17,7 @@ std::string spinWords(std::string str) {
         std::string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         
         result += word + " ";
         
