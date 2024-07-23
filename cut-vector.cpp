@@ -15,5 +15,6 @@ std::vector<std::vector<int>> cutVector(const std::vector<int>& v) {
         }
     }
 
-    return std::vector<std::vector<int>>{{v.begin(), v.begin() + cutIndex + 1}, {v.begin() + cutIndex + 1, v.end()}};
+    return {{std::vector<int>(v.begin(), v.begin() + cutIndex + 1)},
+            {std::vector<int>(v.begin() + cutIndex + 1, v.end())}};
 }
