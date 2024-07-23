@@ -5,7 +5,7 @@
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
     std::unordered_map<char, char> mapping;
-    for (size_t i = 0; i < cipher1.size(); ++i) {
+    for (int i = 0; i < cipher1.length(); ++i) {
         mapping[cipher2[i]] = cipher1[i];
     }
     std::string result;
