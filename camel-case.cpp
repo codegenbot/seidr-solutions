@@ -1,6 +1,4 @@
 #include <vector>
-#include <algorithm>
-#include <cctype>
 #include <string>
 
 std::string camelCase(std::string str) {
