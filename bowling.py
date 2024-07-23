@@ -1,4 +1,3 @@
-```
 def solve(input_string):
     score = 0
     i = 0
@@ -11,8 +10,11 @@ def solve(input_string):
             if len(parts) > 1 and parts[0] == 'X':
                 score += 10 + sum(map(int, parts[1].split()))
             else:
-                total_pins = int(parts[0]) + int(parts[1])
-                score += total_pins
+                if len(parts) == 2:  
+                    total_pins = int(parts[0]) + int(parts[1])
+                    score += total_pins
+                else:
+                    pass
             i += 1
         else:
             if frame.isdigit():
