@@ -4,7 +4,7 @@
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input);
     
     bool first = true;
     for (char c : input) {
