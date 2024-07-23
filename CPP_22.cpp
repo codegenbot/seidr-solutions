@@ -4,15 +4,15 @@
 std::vector<int> filter_integers(std::vector<int> input) {
     std::vector<int> result;
     for (int i : input) {
-        if (i > 0) {
+        if (i > 0 && !std::isalnum(i)) {
             result.push_back(i);
         }
     }
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
