@@ -8,13 +8,14 @@ using namespace boost::any;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).which() == 0) {
-            result.push_back(any_cast<int>(value));
+        if (holds_alternative<int>(value)) {
+            int v = get<int>(value);
+            result.push_back(v);
         }
     }
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
