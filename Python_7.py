@@ -11,10 +11,7 @@ strings = [s for s in strings if type(s) == str]
 while not all(isinstance(x, str) for x in strings):
     print("Invalid input. Please enter only strings.")
     strings = input("Enter a list of strings (separated by commas): ").split(",")
-    while "" in strings:
-        strings.remove("")
-    strings = [s for s in strings if type(s) == str]
-
+    
 substring = input("Enter a substring to search for: ")
 while substring.strip() == "":
     print("Please enter a non-empty string as the substring to search for.")
