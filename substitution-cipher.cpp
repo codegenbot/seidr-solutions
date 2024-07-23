@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 
-std::string substituteCipher(const std::string& cipherText, const std::string& key) {
+std::string substituteCipher(const std::string& message, const std::string& key) {
     std::string decipheredMessage;
     
-    for (char c : cipherText) {
+    for (char c : message) {
         size_t index = 0;
         while (index < key.length() && c != key[index]) {
             index++;
@@ -21,16 +21,15 @@ std::string substituteCipher(const std::string& cipherText, const std::string& k
 }
 
 int main() {
-    std::string cipherText, key, message;
+    std::string message, key, cipherText;
     std::cout << "Enter the first string: ";
     std::cin >> key;
     std::cout << "Enter the second string: ";
     std::cin >> cipherText;
     std::cout << "Enter the third string: ";
-    std::getline(std::cin, message);  // Read a line of text (not just one word)
-    cipherText = message;  // Store the input in cipherText variable
+    std::cin >> message;
     
-    std::cout << substituteCipher(cipherText, key) << std::endl;
+    std::cout << substituteCipher(message, key) << std::endl;
     
     return 0;
 }
