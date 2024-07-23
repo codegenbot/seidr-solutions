@@ -20,4 +20,3 @@ int main() {
     int result = digitSum(input);
     std::cout << "Result: " << result << std::endl;
     return 0;
-}
