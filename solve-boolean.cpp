@@ -1,39 +1,22 @@
-bool evaluateBooleanExpression(const std::string& expr) {
-    int i = 0;
-    return evaluateHelper(expr, i);
-}
+#include <string>
 
-bool evaluateHelper(const std::string& expr, int& i) {
-    bool result = operand(expr, i);
-    
-    while (i < expr.size() && (expr[i] == '&' || expr[i] == '|')) {
-        char op = expr[i];
-        i++;
-        
-        bool next_operand = operand(expr, i);
-        
-        if (op == '&') {
-            result = result && next_operand;
-        } else if (op == '|') {
-            result = result || next_operand;
+bool evaluateBooleanExpression(const std::string& expr) {
+    bool result = true;
+    bool isAnd = false;
+
+    for (char c : expr) {
+        if (c == 't') {
+            result = isAnd ? result && true : result || true;
+            isAnd = false;
+        } else if (c == 'f') {
+            result = isAnd ? result && false : result || false;
+            isAnd = false;
+        } else if (c == '&') {
+            isAnd = true;
+        } else if (c == '|') {
+            isAnd = false;
         }
     }
-    
-    return result;
-}
 
-bool operand(const std::string& expr, int& i) {
-    if (expr[i] == 't') {
-        i++;
-        return true;
-    } else if (expr[i] == 'f') {
-        i++;
-        return false;
-    } else if (expr[i] == '&') {
-        i++;
-        return evaluateHelper(expr, i);
-    } else if (expr[i] == '|') {
-        i++;
-        return evaluateHelper(expr, i);
-    }
+    return result;
 }
