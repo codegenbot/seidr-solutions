@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -30,8 +30,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string text = "Hello World";
     std::string target = "World";
-    std::vector<int> result;
-
+    std::vector<int> result;  // Declare result before use
     result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
     for (int i : result) {
@@ -39,7 +38,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    int a = static_cast<int>(909378243576LL);
+    int a = 909378243576;  // Add #include <algorithm> and cast to long long if needed
     int b = 50; 
     std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
 
