@@ -40,9 +40,9 @@ int bowlingScore(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter the bowling scores: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
+    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
+    std::getline(std::cin, input);
+    int score = bowlingScore(input);
+    std::cout << "Score: " << score << std::endl;
     return 0;
 }
