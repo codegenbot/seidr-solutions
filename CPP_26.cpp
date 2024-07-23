@@ -1,13 +1,5 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> map;
-    vector<int> result;
-
-    for (int num : numbers) {
-        if (!map[num]) {
-            map[num] = true;
-            result.push_back(num);
-        }
-    }
-
-    return result;
+int main() {
+    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    vector<int> result = remove_duplicates(numbers);
+    assert(result == vector<int>({1, 2, 3, 4, 5}));
 }
