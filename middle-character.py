@@ -1,5 +1,5 @@
 def middle_character(s):
-    s = s.strip()
+    s = ''.join(e for e in s if e.isalnum()).upper()
     length = len(s)
     mid = length // 2
     
