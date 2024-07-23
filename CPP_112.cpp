@@ -24,11 +24,3 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     return result;
 }
-
-std::string reverse(std::string str) {
-    std::string rev = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        rev += str[i];
-    }
-    return rev;
-}
