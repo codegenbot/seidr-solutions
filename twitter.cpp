@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -13,10 +13,8 @@ int main() {
         return 0;
     }
     int charCount = 0;
-    for (char c : tweet) {
-        if (std::isalnum(c)) {
-            charCount++;
-        }
+    for (int i = 0; i < tweet.length(); i++) {
+        charCount++;
     }
     if (charCount > 140) {
         cout << "Too many characters";
