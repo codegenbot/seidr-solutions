@@ -6,65 +6,50 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), b.convert_to<float>());
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(a.convert_to<float>(), b.convert_to<int>());
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str = str.substr(0, pos);
+        }
+        return max((float)a.convert_to<float>(), stof(str));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convert_to<string>();
-        string str2 = b.convert_to<string>();
-
-        int num1 = 0;
-        int num2 = 0;
-
-        bool dotFound = false;
-        for (char c : str1) {
-            if (!dotFound && !isdigit(c)) {
-                continue;
-            }
-            else if (!dotFound) {
-                dotFound = true;
-                continue;
-            }
-            num1 = num1 * 10 + (c - '0');
-        }
-
-        dotFound = false;
-        for (char c : str2) {
-            if (!dotFound && !isdigit(c)) {
-                continue;
-            }
-            else if (!dotFound) {
-                dotFound = true;
-                continue;
-            }
-            num2 = num2 * 10 + (c - '0');
-        }
-
-        return (num1 > num2) ? a : ((num1 < num2) ? b : boost::any("None"));
+        size_t pos1 = (string)a.convert_to<string>().find(',');
+        size_t pos2 = (string)b.convert_to<string>().find(',');
+        string str1 = (pos1 != string::npos) ? (string)a.convert_to<string>().substr(0, pos1) : (string)a.convert_to<string>();
+        string str2 = (pos2 != string::npos) ? (string)b.convert_to<string>().substr(0, pos2) : (string)b.convert_to<string>();
+        return max(stof(str1), stof(str2));
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
-        string str = a.convert_to<string>();
-
-        int num = 0;
-        bool dotFound = false;
-        for (char c : str) {
-            if (!dotFound && !isdigit(c)) {
-                continue;
-            }
-            else if (!dotFound) {
-                dotFound = true;
-                continue;
-            }
-            num = num * 10 + (c - '0');
-        }
-
-        return (boost::any(b).convert_to<int>() > num) ? b : ((boost::any(b).convert_to<int>() < num) ? a : boost::any("None"));
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        size_t pos = (string)b.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)b.convert_to<string>().substr(0, pos) : (string)b.convert_to<string>();
+        return max((int)a.convert_to<int>(), stof(str));
     }
-    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
-        return (compare_one(b, a)).type() == typeid(string) ? b : a;
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        size_t pos = (string)a.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)a.convert_to<string>().substr(0, pos) : (string)a.convert_to<string>();
+        return max(stof(str), (int)b.convert_to<int>());
     }
-
-    return boost::any("None");
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any("None");
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max((float)a.convert_to<float>(), (float)b.convert_to<float>());
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        size_t pos = (string)a.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)a.convert_to<string>().substr(0, pos) : (string)a.convert_to<string>();
+        return max(stof(str), (float)b.convert_to<float>());
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        size_t pos = (string)b.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)b.convert_to<string>().substr(0, pos) : (string)b.convert_to<string>();
+        return max((float)a.convert_to<float>(), stof(str));
+    }
+    else {
+        return boost::any("None");
+    }
 }
