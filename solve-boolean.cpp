@@ -1,19 +1,32 @@
-bool solveBoolean(string expr) {
-    stack<char> s;
-    for (int i = 0; i < expr.length(); i++) {
-        if (expr[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (!s.empty() && s.top() == '|') {
-                s.pop();
-                return false;
-            }
-        } else if (expr[i] == '|') {
-            while (!s.empty()) s.pop();
-        } else if (expr[i] == 'f' || expr[i] == 't') {
-            s.push(expr[i]);
+Here is the solution:
+
+string solveBoolean(string s) {
+    stack<char> st;
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            char op1 = st.top();
+            st.pop();
+            char op2 = s[i+1];
+            i++;
+            if(op1 == 'T' && op2 == 'T')
+                st.push('T');
+            else
+                st.push('F');
         }
+        else if(s[i] == '&') {
+            char op1 = st.top();
+            st.pop();
+            char op2 = s[i+1];
+            i++;
+            if(op1 == 'T' && op2 == 'T')
+                st.push('T');
+            else
+                st.push('F');
+        }
+        else 
+            st.push(s[i]);
     }
-    return s.top() == 't';
+    
+    return (st.top() == 'T') ? "True" : "False";
 }
