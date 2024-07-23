@@ -1,44 +1,44 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return max((int)a.convertible_to<int>(), (double)b.convertible_to<double>());
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : (b.convert_to<boost::any>()));
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return max((double)a.convertible_to<double>(), (int)b.convertible_to<int>());
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : (b.convert_to<boost::any>()));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convertible_to<string>();
-        string str2 = b.convertible_to<string>();
-        if (str1 > str2)
-            return a;
-        else if (str1 < str2)
-            return b;
-        else
-            return boost::any("None");
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        return str1 > str2 ? a : (b.convert_to<boost::any>());
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string str = a.convertible_to<string>();
-        int num;
-        double dnum;
-        if (str.find(',') != string::npos) {
-            size_t pos = str.find(',');
-            str.replace(pos, 1, ".");
-            num = stoi(str);
-        }
-        else
-            num = stoi(str);
-        if (b.type() == typeid(int))
-            return max((int)a.convertible_to<int>(), b);
-        else
-            return max((double)a.convertible_to<double>(), b);
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int x = any_cast<int>(a);
+        string y = any_cast<string>(b);
+        return x > boost::lexical_cast<int>(y) ? a : (b.convert_to<boost::any>()));
     }
-    else {
-        // handle other types or throw an exception
-        return boost::any("None");
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int x = any_cast<int>(b);
+        string y = any_cast<string>(a);
+        return boost::lexical_cast<int>(y) > x ? a : (b.convert_to<boost::any>()));
     }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float x = any_cast<float>(a);
+        string y = any_cast<string>(b);
+        return x > boost::lexical_cast<float>(y) ? a : (b.convert_to<boost::any>()));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float x = any_cast<float>(b);
+        string y = any_cast<string>(a);
+        return boost::lexical_cast<float>(y) > x ? a : (b.convert_to<boost::any>()));
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return x > y ? a : ((boost::any)b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = any_cast<float>(a);
+        float y = any_cast<float>(b);
+        return x > y ? a : ((boost::any)b);
+    }
+    return boost::any("None");
 }
