@@ -14,18 +14,17 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors;
-
+    vector<vector<pair<int, pair<int, int>>, std::allocator<std::pair<int, pair<int, int>>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({{make_pair(i-1, j), grid[i][j]}});
-            if (i < n-1) neighbors[i].push_back({{make_pair(i+1, j), grid[i][j]}});
-            if (j > 0) neighbors[i].push_back({{make_pair(i, j-1), grid[i][j]}});
-            if (j < n-1) neighbors[i].push_back({{make_pair(i, j+1), grid[i][j]}});
+            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
+            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
+            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -34,15 +33,15 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
     vector<int> res;
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
+        auto [sum, node] = q.top(); q.pop();
         if (k == 0) {
             return {sum};
         }
-        for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
+        for (auto& neighbor : neighbors[node.second]) {
+            int ni = node.first, nj = neighbor.first;
+            int ns = sum - grid[node.first][node.second] + neighbor.second;
             k--;
-            q.push({ns, make_pair(ni, nj)});
+            q.push({ns, node});
         }
     }
 
