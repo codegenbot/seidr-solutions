@@ -2,7 +2,7 @@ def cut_vector(lst):
     n = len(lst)
     min_diff = float("inf")
     split_idx = -1
-    
+
     for i in range(1, n):
         left_sum = sum(lst[:i])
         right_sum = sum(lst[i:])
