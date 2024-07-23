@@ -8,15 +8,28 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
-        bool found = true;
+        bool match = true;
         for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
-                found = false;
+                match = false;
                 break;
             }
         }
-        if (found) {
+        if (match) {
             result.push_back(i);
+            // Start searching from the index where it was previously found
+            for (int k = i + m; k <= n - m; k++) {
+                match = true;
+                for (int j = 0; j < m; j++) {
+                    if (text[k + j] != target[j]) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    result.push_back(k);
+                }
+            }
         }
     }
 
@@ -34,5 +47,4 @@ int main() {
     for (int i : indices) {
         cout << i << endl;
     }
-
-    return 0;
+}
