@@ -1,3 +1,3 @@
-int root = round(cbrt(a));
-    return a == root * root * root;
+int x = round(cbrt(a));
+    return x * x * x == a;
 }
