@@ -1,18 +1,11 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
-        if (isupper(c)) {
-            sum += tolower(c) - 'a' + 1; 
+        if (!isdigit(c)) {
+            sum += static_cast<int>(c) - 'A' + 1; 
+        } else {
+            sum += c - '0';
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 12);
-    return 0;
 }
