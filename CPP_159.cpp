@@ -1,3 +1,4 @@
+```cpp
 int eat(int a, int b, int c) {
     return (a + b + c) / 3;
 }
@@ -11,7 +12,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     return true;
 
-int main() {
-    assert(issame(std::vector<int>({eat(4, 5, 1), 0})));
-    return 0;
 }
