@@ -1,6 +1,3 @@
-#include <cassert>
-#include <vector>
-
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result({0, 0});
     int temp = abs(num);
@@ -20,9 +17,8 @@ bool same(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
