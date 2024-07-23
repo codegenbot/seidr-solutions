@@ -4,8 +4,10 @@ def solve_boolean(expression):
         if char in {"T", "F"}:
             stack.append(char == "T")
         elif char in {"&", "|"}:
-            while len(stack) > 1 and (
-                (stack[-2] and char == "&") or (not stack[-2] and char == "|")
-            ):
+            while len(stack) > 1 and stack[-2] != "T" and stack[-2] != "F":
                 stack.pop()
-    return "T" if stack[0] else "F"
+            if char == "&":
+                stack.append(stack.pop() and stack.pop())
+            else:
+                stack.append(not stack.pop() or stack.pop())
+    return all(stack)

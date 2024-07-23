@@ -1,4 +1,17 @@
+cipher_text1 = "abcdefghijklmnopqrstuvwxyz"
+cipher_text2 = "nopqrstuvwxyzabcdefghijklm"
+text_to_decrypt = "khoor-zruog"
+
+
 def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
-    cipher_dict = {k: v for k, v in zip(cipher_text1, cipher_text2)}
-    deciphered_text = "".join(cipher_dict.get(char, char) for char in text_to_decrypt)
-    return deciphered_text.upper()
+    deciphered_text = ""
+    for char in text_to_decrypt:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            deciphered_text += cipher_text2[index].upper()
+        else:
+            deciphered_text += char.upper()
+    return deciphered_text
+
+
+print(substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt))
