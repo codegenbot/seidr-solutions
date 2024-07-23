@@ -1,3 +1,5 @@
 sort(l.begin(), l.end());
-l.erase(unique(l.begin(), l.end()), l.end());
-return l;
+    auto it = unique(l.begin(), l.end());
+    l.resize(distance(l.begin(), it));
+    return l;
+}
