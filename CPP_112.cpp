@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& chars) {
     return a == chars;
