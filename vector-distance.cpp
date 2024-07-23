@@ -28,4 +28,3 @@ int main() {
     cout << fixed << cout.precision(10) << dist << endl;
 
     return 0;
-}
