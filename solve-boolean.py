@@ -1,3 +1,4 @@
+```
 import ast
 
 def solve_boolean(expression):
@@ -9,13 +10,9 @@ def solve_boolean(expression):
     while '&&' in expression or '||' in expression:
         if '&&' in expression:
             left, right = expression.split('&&')
-            expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
+            expression = f"({solve_boolean(left)} and {solve_boolean(right)})"
         elif '||' in expression:
             left, right = expression.split('||')
-            expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
+            expression = f"({solve_boolean(left)} or {solve_boolean(right)})"
 
-    return eval(ast.literal_eval(f"({expression})"))
-
-user_input = input("Enter a Boolean expression: ")
-result = solve_boolean(user_input)
-print("The result of the Boolean expression is:", result)
+    return eval(f"({'T' if solve_boolean(expression) else 'F'})")
