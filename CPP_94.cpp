@@ -1,20 +1,13 @@
-```cpp
 #include <cassert>
 #include <vector>
-#include <iostream>
 
-int skjkasdkd(std::vector<int> lst){
-    int maxPrime = 0;
-    for(int num : lst){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
+int sumOfDigits(int n){
+    int sum = 0;
+    while(n > 0){
+        sum += n % 10;
+        n /= 10;
     }
-    int sumOfDigits = 0;
-    while(maxPrime > 0){
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
+    return sum;
 }
 
 bool isPrime(int n){
@@ -25,21 +18,16 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
-    int num;
-    std::cout << "Enter numbers (separated by spaces): ";
-    while(std::cin >> num) {
-        std::vector<int> lst;
-        while(num > 0){
-            lst.push_back(num % 10);
-            num /= 10;
-        }
-        if(!lst.empty()) {
-            int result = skjkasdkd(lst);
-            std::cout << "Sum of digits: " << result << std::endl;
-        } else {
-            std::cout << "Invalid input. Please try again." << std::endl;
-        }
-    }
+int main(){
+    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
     return 0;
+}
+
+int findMaxPrime(vector<int> lst){
+    int maxPrime = 0;
+    for(int num : lst){
+        if(isPrime(num) && num > maxPrime)
+            maxPrime = num;
+    }
+    return maxPrime;
 }
