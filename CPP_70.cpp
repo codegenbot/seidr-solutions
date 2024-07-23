@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -12,7 +11,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> list) {
+std::vector<int> strangeSortList(std::vector<int> list) {
     std::sort(list.begin(),list.end());
     int index = 0;
     for(int i=0;i<list.size();i++){
@@ -32,6 +31,6 @@ int main1() {
     list.push_back(4);
     list.push_back(5);
     list.push_back(6);
-    assert(std::issame(strange_sort_list(list), list));
+    assert(isSame(strangeSortList(list), list));
     return 0;
 }
