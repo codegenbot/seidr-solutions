@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -34,16 +35,18 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     int sum = 0;
     while (!q.empty()) {
         auto [temp_sum, {ni, ns}] = q.top();
+        int temp_sum1 = temp_sum; // Declare ni and ns
         q.pop();
-        sum = temp_sum;
+
+        sum = temp_sum1;
         if (k == 0) {
             return vector<int>{sum}; 
         }
-        for (const auto& [neighbor_n, neighbor_ns] : neighbors[ni]) {
-            int nns = neighbor_ns; 
+        for (auto& neighbor : neighbors[ni]) { // Use declared ni and ns
+            int nns = neighbor.second; 
             int temp_ns = sum - grid[ni][ns] + nns;
             k--;
-            q.push({temp_sum - grid[ni][ns] + neighbor_ns, make_pair(neighbor_n, neighbor_ns)});
+            q.push({temp_ns, make_pair(ni, nns)}); // Pop from the priority queue
         }
     }
 
