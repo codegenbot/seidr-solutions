@@ -1,10 +1,16 @@
-std::vector<int> leaders(std::vector<int>& arr) {
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> result;
+    vector<int> result;
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= *std::max_element(arr.begin() + i, arr.end())) {
+        if (arr[i] >= *max_element(arr.begin() + i, arr.end())) {
             result.push_back(arr[i]);
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
