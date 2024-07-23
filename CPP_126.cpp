@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,12 +13,12 @@ bool is_sorted(std::vector<int> lst) {
     return true; 
 }
 
-int problem126() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> vec;
+int processInput(int n, std::vector<int>& vec) {
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::cout << "The vector is not sorted.\n";
+    }
     
     for(int i = 0; i < n; i++) {
         int val;
@@ -28,11 +27,17 @@ int problem126() {
         vec.push_back(val);
     }
     
-    if(is_sorted(vec)) {
-        std::cout << "The vector is sorted.\n";
-    } else {
-        std::cout << "The vector is not sorted.\n";
-    }
+    return 0;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> vec;
+    
+    processInput(n, vec);
     
     return 0;
 }
