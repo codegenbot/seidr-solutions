@@ -4,10 +4,13 @@
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
-
-    cin >> startHeight >> numBounces >> firstBounce; 
+    string temp;
+    cin >> temp;
+    double startHeight = stod(temp);
+    temp.clear();
+    cin >> temp;
+    double firstBounce = stod(temp);
+    numBounces = stoi(temp);
 
     double bouncinessIndex = firstBounce / startHeight;
 

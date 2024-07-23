@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <stdexcept>
 using namespace std;
 
 int basement(const vector<int>& nums) {
@@ -7,7 +9,7 @@ int basement(const vector<int>& nums) {
         sum += nums[i];
         if (sum < 0) return i;
     }
-    throw runtime_error("No basement found");
+    throw exception("No basement found");
 
 }
 
