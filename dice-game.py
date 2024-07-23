@@ -1,3 +1,3 @@
 import math
 def dice_game(n, m):
-    return sum((m-j)/math.prod(range(1,n+1)) for j in range(m-n+1))
+    return 1 - sum(1/math.factorial(i)*pow(m/i, i) for i in range(min(m, n)+1))
