@@ -1,12 +1,12 @@
+```
 def check():
-    first_list = [1, 2, 3]
-    second_list = [4, 5, 6]
-    result = double_the_difference(first_list, second_list)
-    print(result)
-
-
-def double_the_difference(first_list, second_list):
+    first_list = [int(x) for x in input("Enter the first list of numbers (space separated): ").split()]
+    second_list = [int(x) for x in input("Enter the second list of numbers (space separated): ").split()]
     if len(first_list) != len(second_list):
-        return "Lists must be of the same length"
-    differences = [(a - b) ** 2 for a, b in zip(first_list, second_list)]
-    return sum(differences) * 8
+        print("Lists must be of the same length")
+    else:
+        differences = [(a - b)**2 for a, b in zip(first_list, second_list)]
+        result = sum(differences) * 8
+        print(result)
+
+check()
