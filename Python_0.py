@@ -25,18 +25,15 @@ def main():
                 print("Invalid input. Please enter 'y' or 'n'.")
 
         while True:
-            while True:
-                numbers = input("Enter space-separated float numbers: ")
-                if not numbers.strip():
-                    print("Please enter some numbers.")
-                elif len(numbers.split()) < 2:
-                    print("Please enter at least two numbers.")
-                else:
-                    try:
-                        numbers_list = list(map(float, numbers.split()))
-                        break
-                    except ValueError:
-                        print("Invalid input. Please enter valid float numbers.")
+            numbers = input("Enter space-separated float numbers: ")
+            if not numbers.strip():
+                print("Please enter some numbers.")
+            else:
+                try:
+                    numbers_list = list(map(float, numbers.split()))
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter valid float numbers.")
 
         while True:
             while True:
@@ -52,13 +49,21 @@ def main():
                             "Invalid input. Please enter a valid number for the threshold."
                         )
 
-        result = has_close_elements(numbers_list, threshold)
-
-        print(
-            "The list contains close elements"
-            if result
-            else "The list does not contain close elements"
-        )
+        while True:
+            confirm = input("Do you want to execute? (yes/no): ")
+            if confirm.lower() in ["y", "yes"]:
+                result = has_close_elements(numbers_list, threshold)
+                print(
+                    "The list contains close elements"
+                    if result
+                    else "The list does not contain close elements"
+                )
+                break
+            elif confirm.lower() in ["n", "no"]:
+                print("Program terminated.")
+                exit(0)
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
 
 if __name__ == "__main__":
