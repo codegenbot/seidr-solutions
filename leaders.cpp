@@ -29,12 +29,12 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-
-    if (std::cin.eof()) break;
-
-    std::vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+    std::cin.clear();
+    std::cin.ignore();
 }
+
+std::vector<int> result = findLeaders(nums);
+for (int num : result) {
+    std::cout << num << " ";
+}
+return 0;

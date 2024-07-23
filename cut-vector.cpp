@@ -15,7 +15,7 @@ int main() {
     int num;
     
     while (ss >> num) {
-        if (nums.size() >= 20) {
+        if (nums.size() >= 10) {
             break;
         }
         nums.push_back(num);
