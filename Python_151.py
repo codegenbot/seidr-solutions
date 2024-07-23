@@ -1,1 +1,1 @@
-print(double_the_difference(first_list, second_list))
+print(double_the_difference([[1, 2], [3, 4]], [10, 20, 30]))
