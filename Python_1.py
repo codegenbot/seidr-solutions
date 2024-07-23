@@ -19,7 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(groups)
                 groups = ''
     else:
-        if stack:  # if there are characters left in stack, it means there were no matching parentheses
+        if stack: 
             result.append(groups + ')')
 
     return result
