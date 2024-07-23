@@ -19,14 +19,13 @@ def indices_of_substring(text, target):
 
 
 def main():
-    while True:
-        try:
-            a = int(input("Enter a number: "))
-            b = int(input("Enter another number: "))
-            print(gcd(a, b))
-            text = input()
-            target = input()
-            print(indices_of_substring(text, target))
-            break
-        except ValueError:
-            print("Expected input: Integers only!")
+    a = int(input())
+    b = int(input())
+    print(gcd(a, b))
+    text = input()
+    target = input()
+    print(' '.join(map(str, indices_of_substring(text, target))))
+
+
+if __name__ == "__main__":
+    main()
