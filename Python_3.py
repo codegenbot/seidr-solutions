@@ -13,16 +13,25 @@ def main():
         if user_input.lower() == "q":
             break
         try:
-            numbers = [
-                num for num in user_input.split() if num.replace("-", "", 1).isdigit()
-            ]
-            operations = [int(num) for num in numbers]
+            numbers = [num for num in user_input.split() if num.isdigit()]
+            operations = []
+            for num in numbers:
+                try:
+                    operations.append(int(num))
+                except ValueError:
+                    print(
+                        f"Invalid operation '{num}'. Please enter a list of integers separated by spaces."
+                    )
+                    break
             result = below_zero(operations)
             print(f"Are there any numbers below zero? {result}")
-        except ValueError as e:
-            print(
-                f"Invalid input. Please enter a list of integers separated by spaces: {e}"
-            )
+        except ValueError:
+            if not numbers:
+                print("No numbers were entered. Please try again.")
+            else:
+                print(
+                    "Invalid input. Please enter a list of integers separated by spaces."
+                )
 
 
 if __name__ == "__main__":
