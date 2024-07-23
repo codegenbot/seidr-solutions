@@ -47,8 +47,8 @@ int bowlingScore(std::string s) {
                 if (s[i] == 'X' || s[i] == 'x' || s[i] == '+' || s[i] == '-') {
                     break;
                 } else if (c == '1' && s[i] >= '3') {
-                    // throw "Invalid input";
-                    return -1;  // Invalid input
+                    std::cerr << "Invalid input" << std::endl;
+                    return 0;
                 }
             }
         }
