@@ -1,12 +1,29 @@
-def is_prime(n: int):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+```
+from math import gcd
+import functools
+def modp(n: int, p: int):
+    if gcd(n, p) == 1:
+        if n % 2 == 0 and p % 2 == 0:
+            return pow(4, inv((p // 2 - 1), p), p)
+        else:
+            return pow(n, inv((p - 1), p), p)
+    else:
+        return None
 
-def next_prime(n: int):
-    while not is_prime(n):
-        n += 1
-    return n
+def gcd(a: int, b: int):
+    while b:
+        a, b = b, a % b
+    return a
+
+def inv(a: int, m: int):
+    t, newt = 0, 1
+    r, newr = m, a
+    while newr != 0:
+        quotient = r // newr
+        t, newt = newt, t - quotient * newt
+        r, newr = newr, r - quotient * newr
+    if r > 1:
+        return None
+    if t < 0: 
+        t = t + m
+    return t
