@@ -17,7 +17,7 @@ vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     
     vector<int> left, right;
     left.assign(nums.begin(), nums.begin()+pos+1);
-    right.assign(nums.begin()+pos+1, nums.end());
+    right.assign(nums.begin()+pos, nums.end());
     
     return {{left}, {right}};
 }
