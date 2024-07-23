@@ -7,7 +7,7 @@ bool correct_bracketing(string brackets) {
             if (count > 0)
                 count--;
             else
-                count++;
+                count--;
         }
     }
     return count == 0;
