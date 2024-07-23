@@ -7,5 +7,4 @@ def indices_of_substring():
     for index in indices:
         print(index)
 
-
 indices_of_substring()
