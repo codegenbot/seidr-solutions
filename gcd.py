@@ -1,7 +1,7 @@
 ```
 def gcd(a, b):
     while b:
-        if b % 2 == 0 and a > 1:
+        if a % 2 == 0 and b % 2 == 0:
             a = a // 2
             b = b // 2
         else:
