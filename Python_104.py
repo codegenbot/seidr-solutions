@@ -1,3 +1,3 @@
 ```
 def unique_digits(x):
-    return sorted([i for i in x if all(int(d) % 2 != 0 for d in str(i))])
+    return sorted([num for num in x if '0' not in str(num) or '2' not in str(num) or '4' not in str(num) or '6' not in str(num) or '8' not in str(num)])
