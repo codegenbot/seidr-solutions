@@ -3,17 +3,15 @@ def bowling_score(frames):
     score = 0
 
     for i, frame in enumerate(frames):
-        if frame == "X":  
+        if frame == "X":
             score += 10
-            if i < len(frames) - 1 and frames[i + 1] != "X":
-                score += int(frames[i + 1])
-        elif frame[0] == "/":  
-            score += 5
-            if i < len(frames) - 1:
-                score += int(frame[1:])
-        else:  
+            continue
+        elif len(frame) > 1:  # Spare
+            score += int(frame[0]) + 1
+            continue
+        else:  # Non-spare
             score += int(frame)
-        if score > 10 and score % 10 == 0:  
-            score -= (score // 10)
+            if i < len(frames) - 1 and frames[i+1].isdigit():
+                current_roll = int(frame)
 
     return score
