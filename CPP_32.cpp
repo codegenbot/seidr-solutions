@@ -1,12 +1,14 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+#include <initializer_list>
+
 using namespace std;
 
 double poly(vector<double> xs, double x){
     double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
+    for (int i=0;i<xs.size();i++)
     {
         sum+=xs[i]*pow(x,i);
     }
@@ -14,10 +16,12 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
+    if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
-    while(abs(poly(xs, x)) > 1e-9){ // use a small value for precision
-        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); // Newton-Raphson method
+    while(abs(poly(xs, x)) > 1e-9){ 
+        x -= poly(xs, x)/poly({xs[1], xs.back()}, x); 
     }
-    return round(x, 2);
+    ostringstream oss;
+    oss << fixed << setprecision(6) << x;
+    return stod(oss.str());
 }
