@@ -1,1 +1,3 @@
-`join(map(str, sorted(set(map(str, input().split())), key=len, reverse=True)))`
+```
+strings = input().split()
+print(''.join(map(str, sorted(set(map(str, strings)), key=len, reverse=True))))
