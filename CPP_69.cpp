@@ -1,6 +1,5 @@
 #include <map>
 #include <vector>
-#include <iostream>
 
 int search(std::vector<int> lst) {
     std::map<int, int> countMap;
@@ -8,9 +7,11 @@ int search(std::vector<int> lst) {
         countMap[i]++;
     }
     
-    for (auto p : countMap) {
-        if (p.second > 1) 
-            return p.first; 
+    auto it = countMap.begin();
+    while(it != countMap.end()) {
+        if (it->second > 1) 
+            return it->first; 
+        ++it;
     }
     return -1;
 }
