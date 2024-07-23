@@ -1,3 +1,4 @@
+```
 #include <string>
 
 std::string solve(int N) {
@@ -17,9 +18,4 @@ std::string solve(int N) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
 }
