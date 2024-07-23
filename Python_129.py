@@ -11,7 +11,7 @@ def minPath(grid, k):
         if len(current_path) == k:
             if len(current_path) < path_length:
                 path_length = len(current_path)
-                shortest_path = current_path
+                shortest_path = current_path[:]
             return True
 
         visited[i][j] = True
