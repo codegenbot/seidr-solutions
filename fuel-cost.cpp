@@ -1,15 +1,28 @@
-int fuelCost(vector<int> numbers) {
-    int sum = 0;
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
     for (int num : numbers) {
-        if (num % 3 == 0) {
-            int result = (num / 3);
-            result--;
-            sum += result;
-        } else {
-            int result = ((num - 1) / 3);
-            result--;
-            sum += result;
-        }
+        int result = (num / 3);
+        result = round(result - 2.5);
+        total += result;
     }
-    return sum;
+    return total;
+}
+
+int main() {
+    vector<int> numbers;
+    int n;
+    cin >> n;
+    while(n--) {
+        int num;
+        cin >> num;
+        numbers.push_back(num);
+    }
+    cout << calculateFuelCost(numbers) << endl;
+    return 0;
 }
