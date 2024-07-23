@@ -1,4 +1,3 @@
-```python
 def double_the_difference(list1, list2):
     sum_of_lists = sum(sum(pair) for pair in list1)
     total_sum = sum(list2)
