@@ -1,4 +1,5 @@
-```cpp
-int str_len(const char* str) {
-    return std::string(str).length();
+#include <cstring>
+
+int str_len(const std::string& str) {
+    return str.length();
 }
