@@ -1,2 +1,2 @@
 def solve_boolean(expression):
-    return eval("(" + expression.replace("&", ") and (").replace("|", ") or (").replace("T", "True").replace("F", "False").replace(") or (False", ") or (False or") + ")")
+    return eval("(" + expression.replace("|", ") or (True").replace("&", ") and (True").replace("T", "True").replace("F", "False").replace(") or (False", ") or (False or") + ")")
