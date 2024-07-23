@@ -1,4 +1,3 @@
-``` 
 from typing import Optional
 
 
@@ -14,6 +13,6 @@ def longest(strings: list[str]) -> Optional[str]:
     return longest_str
 
 
-user_input = """Please enter a list of strings: """
+user_input = input("Please enter a list of strings: ")
 strings = [s.strip() for s in user_input.split(",")]
-print("The longest string is: " + longest(strings)[0])
+print("The longest string is: " + str(longest(strings)))
