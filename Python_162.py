@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the solution to the problem:
 ```
 import hashlib
 
