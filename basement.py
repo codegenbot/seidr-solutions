@@ -4,5 +4,8 @@ def basement(nums):
     while True:
         total += nums[i]
         if total < 0:
+            continue
+        if total == 0:
+            i += 1
+        else:
             return i + 1
-        i += 1
