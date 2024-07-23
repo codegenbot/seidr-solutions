@@ -1,28 +1,34 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<float> get_positive(const std::vector<std::vector<float>>& mat) {
+    std::vector<float> result;
+    for (const auto& row : mat) {
+        for (auto val : row) {
+            if (val > 0) {
+                result.push_back(val);
+                break;
+            }
+        }
+    }
+    return result;
 }
 
 int main() {
     int n;
     std::cin >> n;
 
+    std::vector<std::vector<float>> mat(n);
     for (auto i = 0; i < n; ++i)
-        mat[i].resize(n);
+        for (auto j = 0; j < n; ++j++)
+            std::cin >> mat[i][j];
 
-    bool same = true;
-    for (const auto& row : mat) {
-        float val;
-        while (std::cin >> val)
-            row.push_back(val);
-        if (!(std::cin >> val)) { 
-            same = false;
-            break;
-        }
-    }
-
+    bool same = issame(get_positive(mat), get_positive(mat));
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
