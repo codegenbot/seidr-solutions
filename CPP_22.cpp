@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -19,6 +18,6 @@ std::vector<int> filter_integers(std::list<boost::any> values){
 }
 
 int main() {
-    assert(std::equal(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}).begin(), filter_integers({3, 'c', 3, 3, 'a', 'b'}).end(), {3, 3, 3}.begin()));
+    assert(std::equal(filter_integers({3, 'c', 3, 3, 'a', 'b'}).begin(), filter_integers({3, 'c', 3, 3, 'a', 'b'}).end(), {3, 3, 3}.begin()));
     return 0;
 }
