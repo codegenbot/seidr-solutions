@@ -1,3 +1,3 @@
 ```
 def digitSum(s):
-    return sum(int(c) for c in s if 'A' <= c <= 'Z') - 55
+    return sum(int(c.upper()) if c.isalpha() else 0 for c in s)
