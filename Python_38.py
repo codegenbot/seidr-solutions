@@ -11,4 +11,7 @@ def decode_cyclic(s: str):
                 result += c
             else:
                 result += c * ((count // 2) + (count % 2))
-    return result * (len(s) // len(result)) + result[:-1]
+    return result + result[:-1]
+
+s = input("Enter a cyclically decoded string: ")
+print(decode_cyclic(s))
