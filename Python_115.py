@@ -1,6 +1,5 @@
 import math
 
-
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
@@ -8,5 +7,5 @@ def max_fill(grid, capacity):
     def is_valid(row, col):
         return 0 <= row < rows and 0 <= col < cols
 
-    total_water = sum(sum(1 if cell == "W" else 0 for cell in row) for row in grid)
+    total_water = sum(sum(1 if grid[row][col] == "W" else 0 for col in range(cols)) for row in range(rows))
     return math.ceil(total_water / float(capacity))
