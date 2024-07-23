@@ -1,13 +1,29 @@
+````
 #include <iostream>
 #include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<int> left = {v.begin(), v.begin() + n/2};
-    vector<int> right = {v.begin() + n/2, v.end()};
-    if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
-        return {{left}, {right}};
+    vector<vector<int>> res({vector<int>(), vector<int>()});
+    
+    for (int i = 1; i <= n - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        if (leftSum == rightSum) {
+            res[0].resize(i);
+            copy(v.begin(), v.begin() + i, res[0].begin());
+            res[1] = vector<int>(v.begin() + i, v.end());
+            return res;
+        }
     }
     
     int minDiff = INT_MAX, cutIndex = -1;
@@ -31,9 +47,11 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> l2 = {v.begin(), v.begin() + cutIndex};
-    vector<int> r2 = {v.begin() + cutIndex, v.end()};
-    return {{l2}, {r2}};
+    res[0].resize(cutIndex);
+    copy(v.begin(), v.begin() + cutIndex, res[0].begin());
+    res[1] = vector<int>(v.begin() + cutIndex, v.end());
+    
+    return res;
 }
 
 int main() {
@@ -50,5 +68,5 @@ int main() {
         }
         cout << endl;
     }
-    return 0;
 }
+```
