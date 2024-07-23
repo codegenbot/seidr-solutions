@@ -1,28 +1,20 @@
-#include <vector>
-using namespace std;
-
+```cpp
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
     if(n == 0) return leaders;
     
-    leaders.push_back(arr[n-1]);
+    int max_seen = arr[n-1];
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= leaders.back()) {
+        if(arr[i] >= max_seen) {
             leaders.push_back(arr[i]);
+            max_seen = arr[i];
         }
     }
     
-    reverse(leaders.begin(), leaders.end());
+    leaders.push_back(max_seen);
     
     return leaders;
-}
-
-int main() {
-    vector<int> arr = {3, 459, 427, 648};
-    vector<int> result = leaders(arr);
-    // print or use the result as needed
-    return 0;
 }
