@@ -1,13 +1,13 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
-#include <iomanip>
 
 int main() {
     std::string heightStartStr, heightFirstBounceStr;
     int numBounces;
 
-    std::cin >> heightStartStr >> heightFirstBounceStr >> numBounces;
+    std::cin >> heightStartStr >> std::ws >> heightFirstBounceStr >> std::ws >> numBounces;
 
     double heightStart = stod(heightStartStr);
     double heightFirstBounce = stod(heightFirstBounceStr);
@@ -20,6 +20,8 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    std::cout << std::fixed << std::setprecision(6) << totalDistance;
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << totalDistance;
 
     return 0;
+}
