@@ -10,17 +10,19 @@ pair<int, int> largest_smallest_integers(vector<int> lst){
     return {smallest_positive, largest_negative};
 }
 
-bool issame(pair<int, int> a, pair<int, int> b) {
+bool issame(pair<int, int> a, pair<int, int> b){
     return a.first == b.first && a.second == b.second;
 }
 
 int main() {
-    pair<int, int> result = largest_smallest_integers({-3, 5, 2, -10, 8});
-    pair<int, int> expected_result = {2, -10};
+    pair<int, int> result = largest_smallest_integers(lst);
+    pair<int, int> expected_result = largest_smallest_integers_sum(lst);
+
     if (issame(result, expected_result)) {
-        cout << "Test passed!" << endl;
+        cout << "Results match!" << endl;
     } else {
-        cout << "Test failed!" << endl;
+        cout << "Results do not match!" << endl;
     }
+
     return 0;
 }
