@@ -1,9 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,17 +13,18 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-vector<float> sort_even(const vector<float>& v) {
-    vector<float> even;
-    for (float x : v) {
-        if (x % 2 == 0)
-            even.push_back(x);
+bool sort_even(std::vector<float>& v) {
+    std::stable_partition(v.begin(), v.end(), [](float x){return x < 0;});
+    std::sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++) {
+        if ((v[i] > 0 && i != 0) || (i == 0 && !issame({v[0]}, {v[1]}))) {
+            return false;
+        }
     }
-    sort(even.begin(), even.end());
-    return even;
+    return true;
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 4, 2, 12}));
+    assert(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
     return 0;
 }
