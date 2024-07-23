@@ -1,16 +1,17 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
 
-    result = None
-    while '&&' in expression or '||' in expression:
-        if '&&' in expression:
-            left, right = expression.split('&&')
-            expression = str(bool(solve_boolean(left)) and bool(solveBoolean(right)))
-        elif '||' in expression:
-            left, right = expression.split('||')
-            expression = str(bool(solve_boolean(left)) or bool(solve_boolean(right)))
+    stack = []
+    for c in expression + '|':
+        if c in {'|', '&'}:
+            while len(stack) >= 2 and ((stack[-1] == '|' and stack[-2] == '|') or (stack[-1] == '&' and stack[-2] == '&')):
+                result = eval('({}{}{})'.format(stack.pop(), stack.pop(), c))
+                stack.append(result)
+        else:
+            stack.append(c)
 
-    return eval(expression)
+    return bool(int(stack[0]))
