@@ -1,31 +1,32 @@
-```cpp
 #include <cassert>
-#include <vector>
 
-int sumOfDigits(int n){
-    int sum = 0;
-    while(n > 0){
-        sum += n % 10;
-        n /= 10;
+int findMaxPrime(int arr[]) {
+    int max = arr[0];
+    for (int i = 1; i < sizeof(arr)/sizeof(arr[0]); i++) {
+        if (arr[i] > max && isPrime(arr[i])) {
+            max = arr[i];
+        }
     }
-    return sum;
+    return max;
 }
 
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0)
+bool isPrime(int num) {
+    if (num <= 1)
+        return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0)
             return false;
     }
     return true;
+}
 
-int findMaxPrime(const vector<int>& lst) {
-    int maxPrime = 0;
-    for(int num : lst){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
     }
-    return maxPrime;
+    return sum;
 }
 
 int main() {

@@ -1,22 +1,3 @@
-```cpp
-vector<string> select_words(string s, int k) {
-    vector<string> words;
-    string temp = "";
-    for(int i=0; i<s.length();i++){
-        if(s[i] == ' ')
-            continue;
-        else{
-            temp += s[i];
-        }
-    }
-    for(int i=0; i<=temp.length();i+=k){
-        if(i+k>temp.length())
-            break;
-        words.push_back(temp.substr(i,k));
-    }
-    return words;
-}
-
 bool isSame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
@@ -25,4 +6,9 @@ bool isSame(vector<string> a, vector<string> b){
             return false;
     }
     return true;
+}
+
+int main(){
+    assert (isSame(select_words("a b c d e f", 1) , vector<string>{ "b", "c", "d", "f"}));
+    return 0;
 }
