@@ -10,10 +10,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            // consider overlapping targets
-            while (i + m <= n && text.substr(i, m) == target) {
-                i++;
-            }
+            i += 1;
         }
     }
 
