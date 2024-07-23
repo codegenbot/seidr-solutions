@@ -1,5 +1,3 @@
-# Updated code
-
 #include <iostream>
 #include <cmath>
 
@@ -15,8 +13,6 @@ int main() {
     for (int i = 1; i < num_bounces; ++i) {
         total_distance += 2 * first_bounce_height * std::pow(bounciness_index, i) * (1 + bounciness_index);
     }
-
-    total_distance += first_bounce_height;
 
     std::cout << total_distance << std::endl;
 
