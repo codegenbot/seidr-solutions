@@ -7,7 +7,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i < n - m + 1; ) {
+    for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
@@ -18,7 +18,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (found) {
             result.push_back(i);
         }
-        i++;
     }
 
     return result;
@@ -37,4 +36,3 @@ int main() {
     }
 
     return 0;
-}
