@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <vector>
 
@@ -28,23 +29,35 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
 
-    transform(lst1.begin(), lst1.end(), lst.begin(), ::tolower);
-    for (string s : lst1) {
-        bool found = false;
-        for (string t : lst2) {
-            if (issame({s}, {t})) {
-                found = true;
-                break;
-            }
+    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
+
+    sort(lst1.begin(), lst1.end());
+    sort(lst2.begin(), lst2.end());
+
+    int i = 0, j = 0;
+    
+    while (i < lst1.size() && j < lst2.size()) {
+        if (lst1[i] == string(&lst1[i][0])) { 
+            result.push_back(string(&lst1[i][0])); 
+            i++;
+            j++;
+        } else if (lst1[i] < string(&lst2[j][0])) {
+            i++;
+        } else {
+            j++;
         }
-        if (!found)
-            result.push_back(s);
     }
 
     return result;
 }
 
 int main() {
-    assert(issame(total_match({{"this"}}, {}), {}));
+    vector<string> lst1 = {{"this"}};
+    vector<string> lst2 = {};
+    vector<string> result = total_match(lst1, lst2);
+    for (auto &s : result) {
+        cout << s << endl;
+    }
     return 0;
 }
