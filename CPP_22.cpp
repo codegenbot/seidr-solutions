@@ -1,8 +1,5 @@
-#include <vector>
-#include <list>
-#include <type_traits>
-
-bool isSame(vector<int> a, vector<int> b) {
+```cpp
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
