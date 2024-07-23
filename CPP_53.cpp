@@ -1,13 +1,14 @@
+```cpp
 #include <iostream>
-#include <string>
+#include <cassert>
 
-std::string add() {
-    int x, y;
-    std::cin >> x >> y;
-    return std::to_string(x + y);
+int add(int x, int y) {
+    return x + y;
+    assert(x + y == add(x, y)); 
 }
 
 int main() {
-    std::cout << add() << std::endl; 
+    int x, y;
+    std::cin >> x >> y;
     return 0;
 }
