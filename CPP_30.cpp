@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 
@@ -15,5 +16,5 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     assert(issame(get_positive({}), {}));
-    // ...
+    
 }
