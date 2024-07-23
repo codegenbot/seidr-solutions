@@ -1,24 +1,23 @@
-```cpp
+#include <cctype>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string validateTweet(string tweet) {
-    if (tweet.empty()) {
-        return "You didn't type anything";
-    }
-    if (tweet.length() > 140) {
-        return "Too many characters";
-    }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
-}
-
 int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    tweet.erase(tweet.find('\n'), 1);
-    cout << validateTweet(tweet) << endl;
+    std::string tweet;
+    std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
+    if (tweet.empty()) {
+        std::cout << "You didn't type anything";
+        return 0;
+    }
+    int charCount = 0;
+    for (char c : tweet) {
+        charCount += std::isprint(c) ? 1 : 0;
+    }
+    if (charCount > 140) {
+        std::cout << "Too many characters";
+        return 0;
+    }
+    std::cout << "Your tweet has " << charCount << " characters";
     return 0;
 }

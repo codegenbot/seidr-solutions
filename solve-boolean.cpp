@@ -1,6 +1,6 @@
-#include <iostream>
 #include <stack>
 #include <string>
+#include <iostream>
 
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
@@ -62,17 +62,21 @@ bool evaluateBooleanExpression(std::string expression) {
         operators.pop();
     }
 
-    return operand == "T";
+    if (!operand.empty()) {
+        return operand == "T";
+    }
+
+    return true;
 }
 
 int main() {
     std::string expression;
     std::cout << "Enter Boolean expression: ";
-    std::cin >> expression;
+    std::getline(std::cin, expression);
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        std::cout << "True";
+        std::cout << "True" << std::endl;
     else
-        std::cout << "False";
+        std::cout << "False" << std::endl;
     return 0;
 }
