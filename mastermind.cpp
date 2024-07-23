@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
@@ -19,7 +20,10 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    whitePegs = 0;
+    blackPegs += (colorCount[0] > 1 ? 1 : 0) + (colorCount[1] > 1 ? 1 : 0) + 
+                 (colorCount[2] > 1 ? 1 : 0) + (colorCount[3] > 1 ? 1 : 0) + 
+                 (colorCount[4] > 1 ? 1 : 0) + (colorCount[5] > 1 ? 1 : 0);
+
     for(int i = 0; i < 6; i++) {
         if(colorCount[i] > 1) {
             whitePegs++;
