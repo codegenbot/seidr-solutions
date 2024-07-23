@@ -1,13 +1,22 @@
+Here is the completed code:
+
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    notes = {'o': 4, 'o|': 2, '.|': 1}
+    notes = {
+        'o': 4,
+        'o|': 2,
+        '.|': 1
+    }
     result = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == '.':
+        note = music_string[i:i+3]
+        if note in notes:
+            result.append(notes[note])
             i += 3
-            continue
-        note_type = music_string[i:i+2]
-        result.append(notes[note_type])
-        i += 2
+        else:
+            raise ValueError("Invalid musical notation")
     return result
