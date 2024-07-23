@@ -4,15 +4,13 @@ def find_closest_elements() -> Tuple[float, float]:
     while True:
         try:
             numbers = [float(num) for num in input("Enter space separated numbers: ").split()]
+            if len(numbers) < 2:
+                print("Please enter at least two numbers.")
+                continue
             break
         except ValueError:
             print("Invalid input. Please enter space-separated numbers.")
-            continue  # ask again
 
-    if not isinstance(numbers, list):
-        return None
-    if len(numbers) < 2:
-        return None
     numbers.sort()
     min_diff = float("inf")
     closest_pair = ()
