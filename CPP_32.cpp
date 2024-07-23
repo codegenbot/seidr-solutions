@@ -1,29 +1,33 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
-double find_zero(vector<double> coeffs, double x) {
-    double y = poly(coeffs, x);
-    double dy = poly(coeffs, x+0.001)-y;
-    
-    return round(x - y / dy, 2);
+double poly(std::vector<double> coeffs, double x) {
+    double res = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        res += coeffs[i] * pow(x, i);
+    }
+    return res;
 }
 
-double poly(vector<double> coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
+double find_zero(std::vector<double> xs) {
+    if (xs.size() != 4) { // Assuming quartic polynomial
+        return -1; // Return error code or handle exception
     }
-    return result;
+    double a = xs[0];
+    double b = xs[1];
+    double c = xs[2];
+    double d = xs[3];
+    
+    double x = (-b + sqrt(pow(b, 2) - 4 * a * (c) + 8 * a * d)) / (2 * a);
+    return round(x, 2);
 }
 
 int main() {
-    vector<double> coeffs = {1, -2, 3}; 
-    double x = -coeffs[1]/(2*coeffs[0]);
+    std::vector<double> coeffs = {1.0, -3.0, 3.0, -1.0};
+    double solution = find_zero(coeffs);
     
-    solution = find_zero(coeffs, x);
-    cout << "The zero of the polynomial is: " << solution << endl;
+    // Check the result
+    assert(abs(poly(coeffs, solution)) < 1e-3);
+    
     return 0;
 }
