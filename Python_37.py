@@ -1,7 +1,5 @@
 def sort_even(l: list):
     return [
-        x if i % 2 != 0 else y
-        for (i, x), (j, y) in zip(
-            range(len(l)), sorted((l[i], l[i + 1]) if i < len(l) - 1 else (l[i],))
-        )
-    ][::2] + l[1::2]
+        x if i % 2 != 0 else sorted([y for y in l if (i // 2) * 2 == j])[-1]
+        for i, x in enumerate(l)
+    ]
