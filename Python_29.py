@@ -17,5 +17,5 @@ def filter_by_prefix() -> List[str]:
             return filtered_strings
         except ValueError as e:
             print(f"Error: {e}")
-        finally:
-            input("Press Enter to continue...")
+
+        input("Press Enter to continue...")
