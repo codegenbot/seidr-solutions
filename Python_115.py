@@ -1,12 +1,18 @@
-def max_fill(grid, capacity):
-    rows = len(grid)
-    cols = len(grid[0])
+def max_fill(grid):
+    max_row = 0
+    for row in grid:
+        if sum(row) > max_row:
+            max_row = sum(row)
 
-    def is_valid(row, col):
-        return 0 <= row < rows and 0 <= col < cols
+    max_col = 0
+    for col in range(len(grid[0])):
+        total_water = 0
+        for row in range(len(grid)):
+            if grid[row][col] == 1:
+                total_water += 1
+            else:
+                break
+        if total_water > max_col:
+            max_col = total_water
 
-    total_water = sum(
-        sum(1 if grid[row][col] == "W" else 0 for col in range(cols))
-        for row in range(rows)
-    )
-    return math.ceil(total_water / float(capacity))
+    return min(max_row, max_col)
