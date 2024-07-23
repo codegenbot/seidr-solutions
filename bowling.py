@@ -1,4 +1,3 @@
-```Python
 def bowling_score(frames):
     frames = [int(x) if x.isdigit() else x for x in frames]
     score = 0
