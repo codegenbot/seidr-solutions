@@ -1,5 +1,5 @@
-from random import choice
-
+```
+import random
 
 def longest(strings: list[str]) -> str:
     if not strings:
@@ -12,7 +12,7 @@ def longest(strings: list[str]) -> str:
             longest_strs = [s]
         elif len(s) == max_len and s != "stop":
             longest_strs.append(s)
-    return choice(longest_strs) if longest_strs else "No strings entered"
+    return random.choice(longest_strs) if longest_strs else "No strings entered"
 
 
 strings = []
