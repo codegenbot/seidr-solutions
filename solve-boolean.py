@@ -22,13 +22,3 @@ def solve_boolean(expression):
             expression = f"{left} | {right}"
 
     return eval(f"bool({expression})")
-
-
-if __name__ == "__main__":
-    while True:
-        try:
-            expression = input("Enter a Boolean expression: ")
-            print(solve_boolean(expression))
-            break
-        except (NameError, SyntaxError):
-            print("Invalid input. Please enter T, F, | or &.")
