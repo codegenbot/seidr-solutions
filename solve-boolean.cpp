@@ -14,4 +14,3 @@ string solveBoolean(string expression) {
         }
     }
     return (result) ? "True" : "False";
-}
