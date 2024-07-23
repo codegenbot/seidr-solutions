@@ -8,7 +8,7 @@ string camelCase(string s) {
                 i++;
             }
             if (result.length() > 0) {
-                result += char(toupper(s[i]));
+                result += toupper(s[i]);
             } else {
                 result += s[i];
             }
