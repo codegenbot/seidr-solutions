@@ -1,3 +1,4 @@
+```
 from typing import List
 import statistics
 
@@ -11,5 +12,5 @@ def mean_absolute_deviation() -> float:
             return result
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
-    
+
 print(mean_absolute_deviation())
