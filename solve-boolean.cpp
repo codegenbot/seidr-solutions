@@ -1,7 +1,7 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    if (expr == "T") {
+    if (expr == "t") {
         return true;
     } else {
         return false;
