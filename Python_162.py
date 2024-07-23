@@ -8,9 +8,10 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     text = input("Enter a string: ")
-    try:
-        if not text.isprintable(): 
-            raise ValueError("Invalid input")
-        print(string_to_md5(text))
-    except TypeError as e:
-        print(f"Invalid input. Please enter a string: {e}")
+    while True:
+        if text:
+            print(string_to_md5(text))
+            break
+        else:
+            print("Invalid input. Please enter a string.")
+            text = input("Enter a string: ")```
