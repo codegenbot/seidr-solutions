@@ -1,18 +1,21 @@
+```cpp
 #include <string>
-using namespace std;
+#include <iostream>
 
-int main() {
+int pairedDigits(std::string s) {
     int sum = 0;
-    string s; 
-    cin >> s;
-    
     for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
+        if ((s[i] == s[i + 1]) || (s[i + 1] == s[i])) {
             sum += (s[i] - '0') * 2;
         }
     }
-    
-    cout << "Sum of paired digits: " << sum << endl;
-    
+    return sum;
+}
+
+int main() {
+    std::string s;
+    std::cin >> s;
+    int result = pairedDigits(s);
+    std::cout << "The sum of the digits whose following digit is the same is: " << result << std::endl;
     return 0;
 }
