@@ -10,4 +10,3 @@ int main() {
     std::cin >> a >> b;
     std::cout << "Sum = " << add(a, b);
     return 0;
-}
