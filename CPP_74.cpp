@@ -5,7 +5,6 @@ using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result(lst1);
-    
     int len1 = 0, len2 = 0;
 
     for (const string& s : lst1) {
