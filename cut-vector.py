@@ -1,4 +1,5 @@
-n, *arr = list(map(int, input().split()))
+n = int(input())
+arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = 0
 for i in range(n):
