@@ -1,12 +1,17 @@
 string result = "";
-    size_t start = 0;
-    for(size_t i = 0; i <= s.size(); ++i){
-        if(s[i] == ' ' || i == s.size()){
-            string word = s.substr(start, i-start);
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + " ";
-            start = i+1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
+    }
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        result += word;
     }
     return result;
 }
