@@ -1,3 +1,4 @@
+```
 import re
 
 def sum_squares(user_input):
