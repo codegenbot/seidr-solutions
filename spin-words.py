@@ -1,1 +1,2 @@
-return ' '.join(''.join([c for c in word if c != ' '])[::-1] if len(''.join([c for c in word if c != ' '])) >= 5 else word for word in sentence.split())
+def spin_words(sentence):
+    return ' '.join(''.join([c for c in word if c != ' '])[::-1] if len(''.join([c for c in word if c != ' '])) >= 5 else word for word in sentence.split())
