@@ -1,4 +1,3 @@
-```
 def solve(input_string):
     def parse_frame(frame):
         if frame == "X":
@@ -19,8 +18,8 @@ def solve(input_string):
         if frames[i] == "X":
             score += 10
             i += 1
-            if i < len(frames) - 1 and (frames[i:i+2].replace("-", "/") in ["10/", "11/"]):
-                if frames[i:i+2].replace("-", "/") == "10/":
+            if i < len(frames) - 1 and (frames[i : i + 2].replace("-", "/") in ["10/", "11/"]):
+                if frames[i : i + 2].replace("-", "/") == "10/":
                     score += 20
                 else:
                     score += 30
@@ -34,8 +33,8 @@ def solve(input_string):
         else:
             score += sum(int(x) for x in frames[i])
             i += 1
-    if i < len(frames) - 1 and (frames[i:i+2].replace("-", "/") in ["10/", "11/"]):
-        if frames[i:i+2].replace("-", "/") == "10/":
+    if i < len(frames) - 1 and (frames[i : i + 2].replace("-", "/") in ["10/", "11/"]):
+        if frames[i : i + 2].replace("-", "/") == "10/":
             score += 20
         else:
             score += 30
