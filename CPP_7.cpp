@@ -17,13 +17,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(), b.end(), a[i]) == b.end())
+        if (std::find(b.begin(), b.end(), a[i]) == b.end())
             return false;
     }
     return true;
 }
 
 int main() {
-    assert(std::vector<std::string>(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")) == std::vector<std::string>({"grunt", "prune"}));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
