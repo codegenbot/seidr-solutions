@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -11,8 +12,12 @@ std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            int difference = std::abs(game[i] - guess[i]);
-            result.push_back(difference);
+            int diff = std::abs(game[i] - guess[i]);
+            if (diff > 7) {
+                result.push_back(-1);
+            } else {
+                result.push_back(diff);
+            }
         }
     }
     return result;
