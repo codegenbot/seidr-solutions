@@ -1,3 +1,4 @@
+```cpp
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     
@@ -8,6 +9,5 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
             total += originalPrice - discountAmount;
         }
     }
-    
     return total;
-}
+};
