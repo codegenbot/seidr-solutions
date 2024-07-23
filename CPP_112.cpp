@@ -5,8 +5,7 @@ string result = "";
         }
     }
 
-    string resultReverse = result;
-    reverse(resultReverse.begin(), resultReverse.end());
+    string palindromeCheck = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
 
-    return { result, result == resultReverse ? "True" : "False" };
+    return {result, palindromeCheck};
 }
