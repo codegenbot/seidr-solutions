@@ -1,5 +1,23 @@
-#include <iostream>
+```cpp
+#include <vector>
+#include <string>
+
 using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+            i += m - 1; // skip overlapping matches
+        }
+    }
+
+    return result;
+}
 
 long long gcd(long long a, long long b) {
     if (b == 0)
@@ -9,9 +27,21 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    string text = "banana";
+    string target = "ana";
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    cout << "Indices of substring 'ana' in the string 'banana': ";
+    for (int i : indices) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    long long a = 24;
+    long long b = 30;
+    long long result = gcd(a, b);
+    cout << "GCD of " << a << " and " << b << ": " << result << endl;
+
     return 0;
 }
