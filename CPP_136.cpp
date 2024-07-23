@@ -15,10 +15,10 @@ bool issame(pair<int, int> a, pair<int, int> b){
 }
 
 int main() {
-    pair<int, int> result = largest_smallest_integers(lst);
-    pair<int, int> expected_result = {5, -8};
+    pair<int, int> result = largest_smallest_integers({-3, -5, 1, 4, 2});
+    pair<int, int> expected = {1, -5};
     
-    if (issame(result, expected_result)) {
+    if (issame(result, expected)) {
         cout << "Test Passed" << endl;
     } else {
         cout << "Test Failed" << endl;
