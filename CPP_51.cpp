@@ -1,4 +1,3 @@
-```cpp
 #include<string>
 
 string remove_vowels(string text){
@@ -15,5 +14,5 @@ string remove_vowels(string text){
 }
 
 int main(){
-    assert (remove_vowels("ybcd") == "ybcd");
+    assert (remove_vowels("ybcd") == "bcd");
 }
