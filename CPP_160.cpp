@@ -1,36 +1,27 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <cassert>
+#include <string>
 
-int do_algebra(vector<string> ops, vector<int> operands) {
-    int result = 0;
-    for (int i = 0; i < ops.size(); i++) {
-        if (ops[i] == "+") {
-            result += operands[i];
-        } else if (ops[i] == "-") {
-            result -= operands[i];
-        } else if (ops[i] == "*") {
-            int temp = 1;
-            for (int j = i; j < operands.size(); j++) {
-                temp *= operands[j];
-                if (j < ops.size() - 1 && ops[j + 1] == "**") {
-                    temp = pow(temp, operands[j + 1]);
-                }
-            }
-            result += temp;
-        } else if (ops[i] == "//") {
-            int temp = operands[i];
-            for (int j = i + 1; j < operands.size(); j++) {
-                temp /= operands[j];
-            }
-            result = temp;
-        } else if (ops[i] == "**") {
-            int temp = 1;
-            for (int j = i; j < operands.size(); j++) {
-                temp *= operands[j];
-            }
-            result = pow(operands[0], temp);
+int do_algebra(vector<std::string> operato, vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i < operato.size(); i++) {
+        if (operato[i-1] == "/") {
+            if (operand[i] == 0)
+                return 0;
+            result /= operand[i];
+        } else if (operato[i-1] == "*") {
+            result *= operand[i];
+        } else if (operato[i-1] == "+") {
+            result += operand[i];
+        } else if (operato[i-1] == "-") {
+            result -= operand[i];
         }
     }
     return result;
+}
+
+int main() {
+    assert (do_algebra({"/", "*"}, {7, 3, 4}) == 8);
 }
