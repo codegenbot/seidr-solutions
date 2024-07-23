@@ -1,7 +1,8 @@
+```
 def modp(n: int, p: int):
-    if n == 0:
-        return 0
-    elif n % 2 == 0 and p % 4 == 3 and pow(2, (p - 1) // 2, p) == 1:
-        return pow(n, p // 2, p)
+    if n == 1:
+        return 1
+    elif n % 2 == 0:
+        return modp(n // 2, p) * modp(n // 2, p) % p
     else:
-        return pow(n, p - 2, p) * n % p
+        return (n * modp(n, p - 2, p)) % p
