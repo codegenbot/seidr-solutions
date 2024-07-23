@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <cmath>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -14,4 +12,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     }
 
     return true;
+}
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
