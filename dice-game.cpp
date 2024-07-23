@@ -1,6 +1,5 @@
-```cpp
-#include <algorithm>
 #include <initializer_list>
+#include <algorithm>
 
 double probability(int n, int m) {
     if (n < 1 || m < 1) return -1;
@@ -10,4 +9,3 @@ double probability(int n, int m) {
         higher += (double)(n-i)*(m-i+1)/total;
     }
     return higher;
-}
