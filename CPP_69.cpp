@@ -1,22 +1,13 @@
-#include <vector>
-#include <algorithm>
-#include <map>
-using namespace std;
-
 int search(vector<int> lst) {
-    map<int, int> countMap;
-    for (auto i : lst) {
-        countMap[i]++;
-    }
-    
     int max = 0;
-    for (auto p : countMap) {
-        if (p.first > 0 && p.second >= std::count(lst.begin(), lst.end(), p.first)) {
-            return p.first;
-        }
-        if (p.second > max) {
-            max = p.second;
+    vector<int> count(lst.size(), 0);
+    
+    for (auto i : lst) {
+        if (i > 0) {
+            count[i]++;
+            if (count[i] > max)
+                max = count[i];
         }
     }
-    return -1;
+    return max > 1 ? max : -1;
 }

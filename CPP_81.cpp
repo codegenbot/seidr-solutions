@@ -1,7 +1,8 @@
+```c++
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,7 +10,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
+vector<string> letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -43,7 +44,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> grades = {0, 0.7};
     vector<string> expected = {"F", "D"};
-    if (!issame(numerical_letter_grade(grades), expected)) {
+    if (!same(letter_grade(grades), expected)) {
         std::cerr << "Test failed." << std::endl;
         return 1;
     }
