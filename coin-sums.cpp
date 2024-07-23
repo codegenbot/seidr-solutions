@@ -20,8 +20,8 @@ int main() {
     int pennies = remaining_cents;
     
     cout << quarters << endl;
-    cout << remaining_cents / 5 << endl;
     cout << dimes << endl;
+    cout << (cents - quarters*25 - dimes*10) / 5 << endl;
     cout << pennies << endl;
     
     return 0;
