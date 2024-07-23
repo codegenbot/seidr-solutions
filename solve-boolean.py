@@ -1,3 +1,4 @@
+```
 def solve_boolean(input):
     while '&' in input or '|' in input:
         if '&' in input:
@@ -6,4 +7,4 @@ def solve_boolean(input):
         elif '|' in input:
             left, right = input.split('|', 1)
             input = str((solve_boolean(left) or solve_boolean(right)))
-    return eval(input) == 'True'
+    return eval(input) if input.lower() == 'true' else False
