@@ -1,13 +1,9 @@
-```python
-def solve_boolean(s):
-    s = ' '.join(s.split())
-    if s == "t":
-        return True
-    elif s == "f":
-        return False
-    elif "|" in s:
-        a, b = s.split("|", 1)
-        return solve_boolean(a) or solve_boolean(b)
-    elif "&" in s:
-        a, b = s.split("&", 1)
-        return solve_boolean(a) and solve_boolean(b)
+def solve_boolean(expression):
+    stack = []
+    for char in expression:
+        if char in {'T', 'F'}:
+            stack.append(char == 'T')
+        elif char in {'&', '|'}:
+            while len(stack) > 1 and ((stack[-1] and '&' == char) or (not stack[-1] and '|' == char)):
+                stack.pop()
+    return 'T' if stack[-1] else 'F'
