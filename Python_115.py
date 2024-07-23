@@ -1,9 +1,3 @@
-Here is the modified Python code:
-
-```python
-import math
-
-
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
@@ -11,12 +5,12 @@ def max_fill(grid, capacity):
     def is_valid(row, col):
         return 0 <= row < rows and 0 <= col < cols
 
-    total_volume = 0
-    for row in range(rows):
-        for col, val in enumerate(grid[row]):
-            total_volume += min(int(val), capacity)
-
-    total_containers = total_volume // capacity
-    if total_volume % capacity > 0:
-        total_containers += 1
-    return total_containers
+    total_volume = sum(
+        int(val)
+        for row in range(rows)
+        for col, val in enumerate(grid[row])
+        if is_valid(row, col)
+    )
+    return math.floor(total_volume / float(capacity)) + (
+        1 if total_volume % capacity != 0 else 0
+    )
