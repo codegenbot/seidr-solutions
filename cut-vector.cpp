@@ -1,17 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
+```cpp
 #include <utility>
 
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     for (int i = 1; i <= v.size(); i++) {
-        int leftSum = accumulate(v.begin(), v.begin() + i, 0);
-        int rightSum = accumulate(v.begin() + i, v.end(), 0);
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        for (int j = i; j < v.size(); j++) {
+            rightSum += v[j];
+        }
         if (leftSum == rightSum) {
             return {{}, {v.begin(), v.end()}};
         } else if (abs(leftSum - rightSum) < minDiff) {
@@ -19,6 +19,13 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             cutIndex = i;
         }
     }
-    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
-                                            vector<int>(v.begin() + cutIndex, v.end()));
+    int leftSum = 0, rightSum = 0;
+    for (int j = 0; j < cutIndex; j++) {
+        leftSum += v[j];
+    }
+    for (int j = cutIndex; j < v.size(); j++) {
+        rightSum += v[j];
+    }
+    return std::pair<std::vector<int>, std::vector<int>>(std::vector<int>(v.begin(), v.begin() + cutIndex),
+                                                            std::vector<int>(v.begin() + cutIndex, v.end()));
 }
