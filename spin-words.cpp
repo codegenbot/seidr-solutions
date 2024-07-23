@@ -35,7 +35,7 @@ std::string spinWords(std::string str) {
         longWord = false;
     }
 
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
