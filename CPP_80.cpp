@@ -1,25 +1,21 @@
-```
-#include <string>
-using namespace std;
-
 bool is_happy(string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
+        bool unique_chars = true;
+        for (char c : set<string>(sub.begin(), sub.end())) { 
             int count = 0;
-            for (char d : sub) {
+            for (char d : s) {
                 if (c == d)
                     count++;
             }
             if (count > 1) {
-                unique = false;
+                unique_chars = false;
                 break;
             }
         }
-        if (!unique)
+        if (!unique_chars)
             return false;
     }
     return true;
