@@ -5,4 +5,4 @@ int pairedDigits(std::string s) {
             sum += (s[i] - '0') * 2;
         }
     }
-    return sum;
+    return sum; }
