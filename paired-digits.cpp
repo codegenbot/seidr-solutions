@@ -1,6 +1,3 @@
-```c++
-#include <string>
-
 int pairedDigits(std::string s) { 
     int sum = 0;
     for (int i = 0; i < s.size() - 1; i++) {
@@ -12,7 +9,6 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    std::string s = "123333";
-    int result = pairedDigits(s);
+    int result = pairedDigits("123333");
     return 0;
 }
