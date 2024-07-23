@@ -1,7 +1,7 @@
 ```
 from typing import List
 
-def filter_by_substring(strings: list, substring: str) -> list:
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring.lower() in s.lower()]
 
 input_str = input("Enter a list of strings (separated by commas or single-string per line): ")
@@ -13,5 +13,5 @@ else:
 strings = [s for s in strings_list if s]
 substring = input("Enter a substring to search for: ")
 
-result = filter_by_substring(strings, substring)
+result = filter_by_substring(strings_list, substring)  
 print(result)
