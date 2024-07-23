@@ -1,7 +1,6 @@
+```
 #include <vector>
 #include <string>
-#include <iostream>
-#include <sstream>
 
 using namespace std;
 
@@ -31,31 +30,20 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text; 
-    cout << "Enter your text: ";
-    getline(cin >> ws, text);
-
+    string text;
+    cin >> text;
     string target;
-    cout << "Enter your target: ";
-    getline(cin >> ws, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    
-    int a; 
-    cout << "Enter the first number: ";
-    cin >> a;
-
-    int b; 
-    cout << "Enter the second number: ";
-    cin >> b;
-    
-    cout << "Indices of Substring are ";
-    for(int i : indices) {
+    int a, b;
+    cin >> a >> b;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << endl;
+    cout << "Indices: ";
+    for(int i : indices){
         cout << i << " ";
     }
-    cout << std::endl;
-    
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << std::endl;
+    cout << endl;
 
     return 0;
 }
