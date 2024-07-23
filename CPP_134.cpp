@@ -1,17 +1,17 @@
+```cpp
 #include <cassert>
 #include <string>
 
-bool check_if_last_char_is_a_letter(const char* txt) {
-    if(*txt == '\0') return false;
+bool check_if_last_char_is_a_letter(std::string txt) {
+    if(txt.empty()) return false;
     bool containsNonSpace = false;
-    while (*txt != '\0') {
-        if(!std::isspace((unsigned char)*txt)) {
+    for(int i = 0; i < txt.length(); i++) {
+        if(!std::isspace((char)txt[i])) {
             containsNonSpace = true;
             break;
         }
-        txt++;
     }
-    return containsNonSpace && std::isalpha((unsigned char)txt ? *txt : ' ');
+    return containsNonSpace && std::isalpha(*txt.rbegin());
 }
 
 int main() {
