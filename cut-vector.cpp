@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res;
-    
+    vector<vector<int>> res(vector<int>(), vector<int>());
+
     for (int i = 1; i <= n - 1; i++) {
         int leftSum = 0, rightSum = 0;
         
@@ -19,8 +18,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         
         if (leftSum == rightSum) {
-            res.push_back(vector<int>(v.begin(), v.begin() + i));
-            res.push_back(vector<int>(v.begin() + i, v.end()));
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
             return res;
         }
     }
@@ -46,8 +45,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
-    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
+    res.push_back({&v[0], &v[cutIndex]});
+    res.push_back({&v[cutIndex], &v[n]});
     
     return res;
 }
@@ -66,5 +65,4 @@ int main() {
         }
         cout << endl;
     }
-    return 0;
 }
