@@ -4,7 +4,7 @@
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && ((num / 10) % 10) % 2 != 0) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
@@ -23,3 +23,4 @@ int main() {
     std::cout << "Count of numbers that meet the criteria: " << result << std::endl;
 
     return 0;
+}
