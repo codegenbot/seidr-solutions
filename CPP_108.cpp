@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -12,7 +13,7 @@ int count_nums(vector<int> n) {
             sum += num % 10;
             num /= 10;
         }
-        if (sum == 1 || sum == 4 || sum == 7) {
+        if (sum > 5) {
             count++;
         }
     }
