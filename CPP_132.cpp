@@ -16,6 +16,8 @@ bool is_nested(string str) {
     }
     return false;
 
+}
+
 int main() {
     assert(is_nested("]]]]]]]]") == false);
     // Add more tests here...
