@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
+#include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int main() {
@@ -7,15 +10,14 @@ int main() {
     cin >> code >> guess;
     
     int whitePegs = 0, blackPegs = 0;
-
     vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
         } else {
-            ++codeFreq[code[i] - '0'];
-            ++guessFreq[guess[i] - '0'];
+            ++codeFreq[code[i] - 'A'];
+            ++guessFreq[guess[i] - 'A'];
         }
     }
     
