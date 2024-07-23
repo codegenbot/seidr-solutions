@@ -15,7 +15,7 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool checkSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,6 +28,6 @@ bool same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(same(even_odd_count(0), std::vector<int>{0, 1})); 
+    assert(checkSame(even_odd_count(0), {0, 1})); 
     return 0;
 }
