@@ -1,4 +1,6 @@
 def decipher_message(cipher1, cipher2, message):
-    mapping_encrypt = {c: d for c, d in zip(cipher1, cipher2)}
-    result = "".join(mapping_encrypt.get(char, char) for char in message)
+    encrypt_map = {c: d for c, d in zip(cipher1, cipher2)}
+    decrypt_map = {v: k for k, v in encrypt_map.items()}
+    
+    result = "".join(decrypt_map.get(char.upper(), char) for char in message)
     return result
