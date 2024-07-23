@@ -1,4 +1,4 @@
-strings = [
-    s.strip().lower()
-    for s in input("Enter a list of strings (separated by commas): ").split()
-]
+def calculate_average_grade(grades: List[float]) -> float:
+    if not grades:
+        return 0
+    return sum(grades) / len(grades)
