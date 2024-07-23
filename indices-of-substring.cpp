@@ -5,7 +5,7 @@ using namespace std;
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int prevLast = -1;
-    while ((int last = text.find(target, prevLast + 1)) != string::npos) {
+    while ((size_t last = text.find(target, prevLast + 1)) != string::npos) {
         indices.push_back(last);
     }
     return indices;
