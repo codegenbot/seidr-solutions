@@ -10,7 +10,6 @@ def find_zero(xs: list):
     x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
     return round(x, 10)
 
-# Get input from user
 input_str = input("Enter the coefficients of your quadratic equation (a, b, c): ")
 coefficients = [float(x) for x in input_str.split(",")]
 
