@@ -1,6 +1,7 @@
-from typing import List
-import math
-
+def main():
+    n = int(input("Enter an integer: "))
+    factors = factorize(n)
+    print(f"The factors of {n} are: {', '.join(map(str, factors))}")
 
 def factorize(n: int) -> List[int]:
     factors = []
