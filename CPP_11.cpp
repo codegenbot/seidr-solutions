@@ -1,3 +1,4 @@
+```
 #include <sstream>
 #include <iostream>
 #include <algorithm>
@@ -16,13 +17,5 @@ string string_xor(string a, string b) {
         }
     }
     return result;
-}
 
-int main() {
-    string a = "0101";
-    string b = "0000";
-    a.erase(std::remove(a.begin(), a.end(), ' '), a.end() - std::distance(a.begin(), a.end()));
-    b.erase(std::remove(b.begin(), b.end(), ' '), b.end() - std::distance(b.begin(), b.end()));
-    cout << string_xor(a, b) << endl;
-    return 0;
 }
