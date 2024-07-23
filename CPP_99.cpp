@@ -1,9 +1,10 @@
-float num = stof(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
-    if (num - floor_num < ceil_num - num) {
-        return floor_num;
+double val = stod(value);
+    int lower = floor(val);
+    int upper = ceil(val);
+    
+    if (val - lower < upper - val) {
+        return lower;
     } else {
-        return ceil_num;
+        return upper;
     }
 }
