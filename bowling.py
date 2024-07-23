@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -23,5 +22,3 @@ def bowling_score(frames):
             score += roll1 + roll2
             i += 2
     return score
-
-print(bowling_score("9/6/X22-1167132414/1"))
