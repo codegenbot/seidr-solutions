@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
@@ -7,31 +7,17 @@ int count_nums(std::vector<int> n) {
         if (num < 0) {
             num = -num;
         }
-        int sum = 0;
-        while (num > 0) {
-            sum += num % 10;
-            num /= 10;
+        std::sort(std::begin(std::to_string(num)), std::end(std::to_string(num)));
+        bool isIncreasing = true;
+        for (size_t i = 1; i < std::to_string(num).size(); ++i) {
+            if (std::to_string(num)[i - 1] > std::to_string(num)[i]) {
+                isIncreasing = false;
+                break;
+            }
         }
-        if (sum > 0) {
+        if (!isIncreasing) {
             count++;
         }
     }
     return count;
 }
-
-int main() {
-    std::vector<int> numbers;
-    int n;
-    std::cout << "Enter the number of inputs: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter the " << (i+1) << "th number: ";
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-    
-    std::cout << "The count of positive sums is: " << count_nums(numbers) << std::endl;
-    
-    return 0;
