@@ -6,7 +6,7 @@ def bowling_score(game):
         if len(bowl) == 2 and bowl[1] == '/':
             strike_frame = int(frame)
             for _ in range(2):
-                next_bowl = game.split(' ')[frame]
+                next_bowl = game.split(' ')[strike_frame]
                 if len(next_bowl) > 2 and next_bowl[1] == '/':
                     score += 10 + int(next_bowls.split(' ')[0])
                 elif next_bowl[1] == 'X':
@@ -18,8 +18,9 @@ def bowling_score(game):
             if len(bowl) > 1 and bowl[1] != '/':
                 score += 10 + int(bowl[1])
             else:
+                strike_frame = frame
                 for _ in range(2):
-                    next_bowl = game.split(' ')[frame]
+                    next_bowl = game.split(' ')[strike_frame]
                     if len(next_bowl) > 2 and next_bowl[1] == '/':
                         score += 10 + int(next_bowls.split(' ')[0])
                     elif next_bowl[1] == 'X':
