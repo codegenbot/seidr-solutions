@@ -1,12 +1,12 @@
-```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
+#include <cstring>
 
 std::string remove_vowels(std::string text) {
     std::string result = "";
     for(char c : text){
-        if (!std::strchr("aeiouAEIOU", std::tolower(c))) {
+        if(strchr("aeiouAEIOU",std::tolower(c)) == NULL) { 
             result += c;
         }
     }
