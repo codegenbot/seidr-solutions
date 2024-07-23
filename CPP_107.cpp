@@ -1,15 +1,20 @@
-vector<int> res = {0, 0};
-    for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
-            if (i % 2 == 0) {
-                res[0]++;
-            } else {
-                res[1]++;
+vector<int> even_odd_palindrome(int n){
+        int even = 0, odd = 0;
+        for(int i = 1; i <= n; ++i){
+            string s = to_string(i);
+            bool isPalindrome = true;
+            for(int j = 0; j < s.length()/2; ++j){
+                if(s[j] != s[s.length()-1-j]){
+                    isPalindrome = false;
+                    break;
+                }
+            }
+            if(isPalindrome && i % 2 == 0){
+                even++;
+            }
+            if(isPalindrome && i % 2 != 0){
+                odd++;
             }
         }
+        return {even, odd};
     }
-    return res;
-}
