@@ -21,4 +21,3 @@ int main() {
     }
     cout << "Your tweet has " << charCount << " characters";
     return 0;
-}
