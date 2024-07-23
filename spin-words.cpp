@@ -1,11 +1,3 @@
-````
-#include <vector>
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     size_t start = 0;
@@ -26,14 +18,5 @@ string spinWords(string str) {
         start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a string: ";
-        getline(cin, str);
-        cout << spinWords(str) << endl;
-    }
+    return result;
 }
