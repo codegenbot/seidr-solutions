@@ -2,9 +2,9 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {16,17,4,3,5,2};
+    vector<int> arr = {7, 8, 15, 20, 9, 12, 19};
     vector<int> leaders = leaders(arr);
-    for (int i:leaders) cout << i << " ";
+    for (int leader : leaders) cout << leader << " ";
     return 0;
 }
 
