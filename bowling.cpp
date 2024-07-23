@@ -51,8 +51,10 @@ int bowlingScore(std::string s) {
         for (char c : s.substr(s.find('/'))) {
             if (c == 'X') {
                 score += 10 + bonusRoll1;
+                return score;
             } else if (c == '/') {
                 score += 10 + bonusRoll1;
+                return score;
             } else {
                 if (bonusRoll1 < 2) {
                     bonusRoll1++;
@@ -69,9 +71,9 @@ int bowlingScore(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter bowling scores in the format XX|X|- or X|-: ";
-    std::getline(std::cin, input);
+    std::cout << "Enter the bowling scores: ";
+    std::cin >> input;
     int result = bowlingScore(input);
-    std::cout << "Your total score is: " << result << std::endl;
+    std::cout << "The total score is: " << result << std::endl;
     return 0;
 }
