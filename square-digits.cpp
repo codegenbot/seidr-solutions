@@ -1,18 +1,16 @@
 #include <iostream>
 
 int squareDigits(int n) {
-    int temp = n;
-    int result = 0;
-    while (temp != 0) {
-        int digit = temp % 10;
-        temp /= 10;
-        result = result * 10 + digit * digit;
+    int res = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        res = res * 10 + digit * digit;
+        n /= 10;
     }
-    return result;
+    return res;
 }
 
 int main() {
     std::cout << squareDigits(14) << std::endl; 
-    // Output: 81
     return 0;
 }
