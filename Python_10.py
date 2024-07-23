@@ -1,5 +1,6 @@
 def make_palindrome(s: str) -> str:
     if len(s) % 2 == 0:
-        return s[: len(s) // 2] + s[len(s) // 2][::-1]
+        return s[:len(s) // 2] + s[:len(s) // 2][::-1]
     else:
-        return s[::-1] + s
+        middle_char = s[len(s) // 2]
+        return s + middle_char + s[::-1]
