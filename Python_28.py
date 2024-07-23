@@ -1,3 +1,4 @@
+```
 def concatenate(strings: List[str]) -> str:
     if not strings:
         return ""
