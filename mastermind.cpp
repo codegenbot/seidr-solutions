@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -12,7 +15,7 @@ int mastermind(std::string code, std::string guess) {
 
     for (char c : code) {
         int index = guess.find(c);
-        while(index != std::string::npos) {
+        while(index != stdstring::npos) {
             if (index < black) {
                 index = guess.find(c, index+1);
                 continue;
@@ -23,11 +26,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+
 }
 
-int main() {
-    std::string code = "abc1";
-    std::string guess = "ab11";
-    int result = mastermind(code, guess);
-    return 0;
-}
+int main() { mastermind("XXXX", "XXXX"); return 0; }
