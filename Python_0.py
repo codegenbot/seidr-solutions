@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -11,14 +10,28 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
 
 
 def main():
-    numbers = input("Enter space-separated float numbers: ")
-    threshold = float(input("Enter a threshold value: "))
+    while True:
+        try:
+            numbers = input("Enter space-separated float numbers: ")
+            numbers_list = list(map(float, numbers.split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter valid float numbers.")
 
-    numbers_list = list(map(float, numbers.split()))
+    while True:
+        try:
+            threshold = float(input("Enter a threshold value: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number for the threshold.")
 
     result = has_close_elements(numbers_list, threshold)
 
-    print("The list contains close elements" if result else "The list does not contain close elements")
+    print(
+        "The list contains close elements"
+        if result
+        else "The list does not contain close elements"
+    )
 
 
 if __name__ == "__main__":
