@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    vector<int> cc = {4, 5, 3, 9, 2, 6, 5, 1, 7, 3, 2, 8, 4};
+    vector<int> cc = {4,2,8,0,6,3,9,1,7,5};
     int result = luhnCheck(cc);
     cout << "Result: " << result << endl;
     return 0;
