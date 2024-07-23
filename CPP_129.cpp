@@ -25,7 +25,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     priority_queue<pair<long long, pair<int, int>>, vector<pair<long long, pair<int, int>>>, cmp> q; // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            q.push({(long long)grid[i][j], make_pair(i, j)});
+            q.push({(long long) grid[i][j], make_pair(i, j)});
         }
     }
 
