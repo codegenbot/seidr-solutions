@@ -5,3 +5,5 @@ def car_race_collision():
     total_distance = sum(speed * 2 for speed in speeds)
     collision_point = total_distance // 2
     return collision_point
+
+print(car_race_collision())
