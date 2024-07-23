@@ -1,7 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
-#include <iostream>
 using namespace std;
 
 double euclideanDistance(const vector<float>& v1, const vector<float>& v2) {
@@ -29,3 +28,4 @@ int main() {
     cout << fixed << setprecision(10) << euclideanDistance(v1, v2) << endl;
 
     return 0;
+}

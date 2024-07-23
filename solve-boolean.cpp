@@ -1,64 +1,47 @@
 #include <iostream>
-#include <stack>
 #include <string>
 
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<string> s;
+bool evaluateExpression(string expression) {
+    if (expression.size() == 0)
+        return false; // base case: empty string is F
+
+    int i = 0;
     
-    for (int i = 0; i < expression.size(); ++i) {
-        if (expression[i] == '(') {
-            s.push("(" + expression.substr(i));
-            i++;
-        }
-        else if (expression[i] == ')') {
-            string subexpr = s.top();
-            s.pop();
-            string temp = "";
+    while (i < expression.size()) {
+        if (expression[i] == '|') {
+            int j = i + 1;
             
-            while (!s.empty() && s.top().compare("(") != 0) {
-                temp += s.top() + " ";
-                s.pop();
-            }
-            
-            if (!s.empty()) {
-                s.pop();
-            }
-            expression.replace(expression.find(subexpr), subexpr.size(), solveBoolean(temp + subexpr + " ") + ")");
-        }
-        else if (expression[i] == '&' || expression[i] == '|') {
-            string op = expression[i];
-            i++;
-            
-            while (i < expression.size() && (expression[i] == 'T' || expression[i] == 'F')) {
-                string val = expression.substr(0, ++i);
-                if (val.compare("T") == 0)
-                    s.push(string("true"));
-                else
-                    s.push(string("false"));
-            }
-            
-            while (!s.empty() && s.top().compare("(") != 0) {
-                string temp = s.top();
-                s.pop();
-                if (op == '&')
-                    op = " && ";
-                else
-                    op = " || ";
-                expression.replace(expression.find(temp), temp.size(), "(solveBoolean(" + temp + "))" + op);
+            for (; j < expression.size(); j++) {
+                if (expression[j] == '&') {
+                    // found &&
+                    return evaluateExpression(expression.substr(i, j - i)) && evaluateExpression(expression.substr(j + 1));
+                }
+                else if (expression[j] == '|') {
+                    // found ||
+                    return evaluateExpression(expression.substr(i, j - i)) || evaluateExpression(expression.substr(j + 1));
+                }
             }
         }
+        
+        if (expression[i] == 't')
+            return true;
+        else if (expression[i] == 'f')
+            return false;
+
+        i++;
     }
-    
-    return (expression.compare(string("true")) == 0)? true : false;
+
+    // if we reached here, it means the string started with T or F
+    return expression[0] == 't';
 }
 
 int main() {
     string expression;
     cout << "Enter a Boolean expression: ";
     cin >> expression;
-    bool result = solveBoolean(expression);
+    bool result = evaluateExpression(expression);
     if (result)
         cout << "True";
     else
