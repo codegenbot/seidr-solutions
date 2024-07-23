@@ -21,23 +21,23 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string str, finalResult;
-    while (getline(std::cin, str)) {
+    std::string str, result;
+    while (std::getline(std::cin, str)) {
         size_t prevSpace = 0;
         for (size_t i = 0; i < str.size(); ++i) {
             if (str[i] == '-') {
                 for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) {
-                    finalResult += tolower(c);
+                    result += tolower(c);
                 }
-                finalResult += toupper(str[i]);
+                result += toupper(str[i]);
                 prevSpace = i + 1;
             }
         }
         for (char c : str.substr(prevSpace)) {
-            finalResult += tolower(c);
+            result += tolower(c);
         }
-        std::cout << camelCase(finalResult) << std::endl;
-        finalResult.clear();
+        std::cout << camelCase(result) << std::endl;
+        result.clear();
     }
     return 0;
 }
