@@ -1,5 +1,4 @@
 #include <vector>
-#include <initializer_list>
 
 int luhn(std::vector<int>& digits) {
     int sum = 0;
