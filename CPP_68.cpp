@@ -5,10 +5,9 @@ vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if (arr.empty()) return {};
 
-    auto it = min_element(arr.begin(), arr.end());
-    while (*it % 2 != 0)
-        it++;
-    result.push_back(*it);
-    
+    int smallest_even = *min_element(arr.begin(), arr.end(),
+                                     [](int a, int b) { return ((a % 2 != 0) && (b % 2 == 0)); });
+
+    result.push_back(smallest_even);
     return result;
 }
