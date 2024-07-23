@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,14 +16,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> vec1, vec2;
+    std::vector<std::string> vec1, vec2;
 
     // Add elements to the vectors
-    vec1.push_back(1);
-    vec1.push_back(2);
+    vec1.push_back("Hello");
+    vec1.push_back("World");
 
-    vec2.push_back(1);
-    vec2.push_back(2);
+    vec2.push_back("Hello");
+    vec2.push_back("World");
 
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are same" << std::endl;
