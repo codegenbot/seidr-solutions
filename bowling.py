@@ -9,7 +9,10 @@ def bowling_score(frames):
                 if i + 2 < len(frames) and frames[i + 1] == 'X' and frames[i + 2] == 'X':
                     score += 30
                 elif i + 3 < len(frames):
-                    spare = sum(int(x) for x in frames[(i + 1):(i + 2)].lstrip('/').replace('-', '')) * (frame != 10)
+                    try:
+                        spare = sum(int(x) for x in frames[(i + 1):(i + 2)].lstrip('/').replace('-', '')) * (frame != 10)
+                    except ValueError:
+                        spare = int(frames[i + 1].lstrip('/').replace('-', ''))
                     score += spare
                 frame += 1
         elif frames[i] in '1234567890/':
