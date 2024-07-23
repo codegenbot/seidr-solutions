@@ -1,5 +1,6 @@
 Here is the modified code:
 
+```python
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
