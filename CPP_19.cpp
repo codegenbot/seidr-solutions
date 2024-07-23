@@ -11,22 +11,24 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
     string result = "";
-    map<int, string> sorted_numbers;
-
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string num_str = numbers.substr(0, pos);
-        sorted_numbers[number_map[num_str]] = num_str;
-        numbers.erase(0, pos + 1);
+    
+    string current_number = "";
+    for (char c : numbers) {
+        if (c == ' ') {
+            reverse_map[number_map[current_number]] = current_number;
+            current_number = "";
+        } else {
+            current_number += c;
+        }
     }
-    sorted_numbers[number_map[numbers]] = numbers;
-
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
+    reverse_map[number_map[current_number]] = current_number;
+    
+    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
+        result += it->second + " ";
     }
-
-    result.pop_back(); // Remove the extra space at the end
+    
     return result;
 }
