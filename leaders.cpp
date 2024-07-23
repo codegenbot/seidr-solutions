@@ -15,11 +15,15 @@ vector<int> leaders(vector<int>& v) {
             res.push_back(rightmost);
         }
     }
+    reverse(res.begin(), res.end());
     return res;
 }
 
-vector<int> v = {1, 3, 4, 2, 8};
-vector<int> res = leaders(v);
-for (int i = 0; i < res.size(); ++i) {
-    cout << res[i] << " ";
+int main() {
+    vector<int> v = {1, 3, 4, 2, 8};
+    vector<int> res = leaders(v);
+    for (int i = 0; i < res.size(); ++i) {
+        cout << res[i] << " ";
+    }
+    return 0;
 }
