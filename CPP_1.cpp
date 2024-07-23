@@ -1,23 +1,22 @@
-vector<string> result;
-    string current_group;
-    int balance = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (balance > 0) {
-                current_group += c;
+vector<string> groups;
+    int start = 0;
+    int end = 0;
+    int count = 0;
+    
+    for (int i = 0; i < paren_string.size(); ++i) {
+        if (paren_string[i] == '(') {
+            if (count == 0) {
+                start = i;
             }
-            balance++;
-        } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else {
-                result.push_back(current_group);
-                current_group = "";
+            count++;
+        } else if (paren_string[i] == ')') {
+            count--;
+            if (count == 0) {
+                end = i;
+                groups.push_back(paren_string.substr(start, end - start + 1));
             }
         }
     }
-
-    return result;
+    
+    return groups;
 }
