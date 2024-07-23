@@ -1,5 +1,4 @@
-#include <cmath>
-#include <limits>
+#include <algorithm>
 
 double probability(int n, int m) {
     if (n < 1 || m < 1) return -1;
@@ -8,5 +7,4 @@ double probability(int n, int m) {
     for (int i = 1; i <= std::min(n,m); i++) {
         higher += (double)(n-i)*(m-i+1)/total;
     }
-    return higher;
 }
