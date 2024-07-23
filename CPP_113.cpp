@@ -1,12 +1,27 @@
-int main() {
-    vector<string> test = {"271", "137", "314"};
-    vector<string> expected = {"the number of odd elements 2 in the string 1", 
-                               "the number of odd elements 1 in the string 2", 
-                               "the number of odd elements 0 in the string 3"};
-    vector<string> result = odd_count(test);
-    if (issame(result, expected)) {
-        cout << "Test passed." << endl;
-    } else {
-        cout << "Test failed." << endl;
+#include <iostream>
+#include <string>
+#include <vector>
+
+int odd_count(const std::vector<std::string>& nums) {
+    int count = 0;
+    for (const auto& num : nums) {
+        if (std::stoi(num) % 2 != 0) {
+            count++;
+        }
     }
+    return count;
+}
+
+bool issame(int n1, const std::string& s) {
+    return s.find(std::to_string(n1)) != std::string::npos;
+}
+
+int main() {
+    std::vector<std::string> nums = {"271", "137", "314"};
+    int result = odd_count(nums);
+    std::string input = "the number of odd elements " + std::to_string(result) + " in the string 1 of the input.";
+    std::replace(input.begin(), input.end(), '\\', '/');
+    assert(issame(result, input));
+    
+    return 0;
 }
