@@ -1,8 +1,6 @@
-```
 #include <iostream>
-
 int main() {
     int cents;
-    std::cin >> cents;
-    return 0;
+    std::cin >> cents; 
+    ... 
 }
