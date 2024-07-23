@@ -16,12 +16,3 @@ def cut_vector(vector):
             split_index = i
 
     return [vector[:split_index]], [vector[split_index:]]
-
-def main():
-    vector = list(map(int, input("Enter a vector of positive integers (space-separated): ").split()))
-    result1, result2 = cut_vector(vector)
-    print(f"First subvector: {result1}")
-    print(f"Second subvector: {result2}")
-
-if __name__ == "__main__":
-    main()
