@@ -1,8 +1,4 @@
-def leaders(input):
-    output = []
-    max_right = input[-1]
-    for i in range(len(input) - 1, -1, -1):
-        if input[i] >= max_right:
-            output.append(input[i])
-            max_right = input[i]
-    return reversed(output)
+Here is the solution:
+
+def leaders(arr):
+    return [x for x in arr[::-1] if all(i <= x for i in arr[arr.index(x)+1:])][::-1]
