@@ -19,6 +19,6 @@ bool evaluateBooleanExpression(const string& expression) {
 int main() {
     string expression;
     cin >> expression;
-    cout << (evaluateBooleanExpression(expression.substr(0)) ? "True" : "False") << endl;
+    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
     return 0;
 }
