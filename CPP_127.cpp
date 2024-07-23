@@ -6,8 +6,8 @@ vector<int> intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
     int end = min(interval1[1], interval2[1]);
 
-    if (start > end) return {start, end};
-
+    if (start > end) return {};
+    
     bool isPrime = true;
     for (int i = 2; i * i <= end - start + 1; i++) {
         if ((end - start + 1) % i == 0) {
@@ -16,4 +16,5 @@ vector<int> intersection(vector<int> interval1, vector<int> interval2) {
         }
     }
 
-    return isPrime ? vector<int>{start, end} : vector<int>{};
+    return isPrime ? vector<int>{start, end} : {};
+}
