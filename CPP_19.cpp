@@ -1,34 +1,26 @@
-map<string, int> num_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+int convertToInt(const string& word) {
+    static map<string, int> wordToInt = {
+        {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+        {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+        {"eight", 8}, {"nine", 9}
+    };
+    return wordToInt[word];
+}
 
 string sort_numbers(string numbers) {
-    string result = "";
-    map<int, string> rev_map;
-  
-    for (auto const& x : num_map) {
-        rev_map[x.second] = x.first;
-    }
-    
+    vector<string> words;
+    istringstream iss(numbers);
     string word;
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] == ' ') {
-            result += rev_map[num_map[word]] + " ";
-            word = "";
-        } else {
-            word += numbers[i];
-        }
+    while (iss >> word) {
+        words.push_back(word);
     }
-    result += rev_map[num_map[word]];
-
-    return result;
+    sort(words.begin(), words.end(), [&] (const string& a, const string& b) {
+        return convertToInt(a) < convertToInt(b);
+    });
+    string sortedNumbers;
+    for (const string& word : words) {
+        if (!sortedNumbers.empty()) sortedNumbers += " ";
+        sortedNumbers += word;
+    }
+    return sortedNumbers;
 }
