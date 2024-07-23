@@ -21,14 +21,9 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
     return true;
 }
 
-int main()
-{
-    std::vector<int> vec = {1, 2, 3, -23, 243, -400, 0};
-    std::vector<int> testVec = {1, 2, 3, -23, 243, -400, 0};
-    if(issame(testVec, vec)) {
-        std::cout << "Test Passed\n";
-    } else {
-        std::cout << "Test Failed\n";
-    }
+int main() {
+    std::vector<int> input({1, 2, 3, -23, 243, -400, 0});
+    int max_val = maximum(input, 0);
+    std::cout << "Maximum value is: " << max_val << "\n";
     return 0;
 }
