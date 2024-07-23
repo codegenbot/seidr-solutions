@@ -1,7 +1,5 @@
 double num = stod(value);
-    if (num >= 0) {
-        return floor(num + 0.5);
-    } else {
-        return ceil(num - 0.5);
-    }
+    int lower = floor(num);
+    int upper = ceil(num);
+    return abs(num - lower) < abs(num - upper) ? lower : upper;
 }
