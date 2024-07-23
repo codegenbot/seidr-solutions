@@ -1,6 +1,6 @@
 bool correct_bracketing(const char* brackets) {
     int count = 0;
-    for(int i=0; *brackets; i++){
+    for(int i=0; *brackets; brackets++){
         if(*brackets == '<'){
             count++;
         }
@@ -8,11 +8,9 @@ bool correct_bracketing(const char* brackets) {
             if(count <= 0) return false;
             count--;
         }
-        brackets++; 
-        if (*brackets != '<' && *brackets != '>') 
-        { 
-            brackets++; 
-        } 
+        if (*brackets != '<' && *brackets != '>') {
+            brackets++;
+        }
     }
     return count == 0;
 }
