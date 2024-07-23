@@ -1,8 +1,7 @@
 ```
 def modp(n: int, p: int):
     if gcd(n, p) == 1:
-        inv = pow((p - 1), (p - 2), p)
-        return pow(n, inv, p)
+        return pow(n, p-1, p)
     else:
         return None
 
