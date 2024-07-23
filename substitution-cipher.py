@@ -1,4 +1,6 @@
+import string
+
 def decipher_message(cipher1, cipher2, message):
-    mapping = dict(zip(sorted(cipher1), sorted(cipher2)))
-    result = "".join(mapping.get(char.lower(), char) for char in message)
+    mapping = str.maketrans(cipher1, cipher2)
+    result = message.translate(mapping).lower()
     return result
