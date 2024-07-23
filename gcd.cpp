@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -23,4 +25,15 @@ long long gcd(long long a, long long b) {
         return a;
     else
         return gcd(b, a % b);
+}
+
+int main() {
+    long long num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    long long result = gcd(num1, num2);
+    cout << "GCD of the given numbers is " << result << endl;
 }
