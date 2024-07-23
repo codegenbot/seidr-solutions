@@ -1,8 +1,8 @@
 int luhn(std::vector<int> digits) {
     int sum = 0;
-    for (int i = digits.size() - 1; i >= 0; i--) {
+    for (int i = 0; i < digits.size(); i++) {
         int digit = digits[i];
-        if ((i % 2 == digits.size() % 2 && digit != 9)) { 
+        if ((i % 2 == 1)) { 
             digit *= 2;   
             if (digit > 9) {
                 digit -= 9;
