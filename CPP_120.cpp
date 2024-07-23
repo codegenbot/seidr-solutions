@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -23,6 +24,6 @@ bool equals(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(!equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {}));
+    assert(!equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>()));
     return 0;
 }

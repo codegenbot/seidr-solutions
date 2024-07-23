@@ -13,10 +13,17 @@ bool simplify(string x, string n) {
     c = stoi(n.substr(0, pos));
     d = stoi(n.substr(pos + 1));
 
-    // Calculate the greatest common divisor of both numerator and denominator
-    return a / gcd(b, a) == c / gcd(d, c);
+    // Simplify the fractions
+    int common = gcd(abs(a)*abs(d), abs(b)*abs(c));
+    
+    a *= d / common;
+    b *= c / common;
+
+    // Check if the two simplified fractions are equal
+    return (a == b);
 }
 
+// GCD function to simplify the fractions
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
