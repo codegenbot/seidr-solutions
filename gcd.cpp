@@ -1,24 +1,30 @@
-```
+#include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-using namespace std;
-
-int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    for (int i = 0; true) {
+        size_t found = text.find(target, i);
+        if (found == std::string::npos) break;
+        result.push_back(found);
+        i = found + 1;
     }
-    
-    return a;
+    return result;
 }
 
+#include <iostream>
+
 int main() {
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    std::string text, target;
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
+    auto indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
