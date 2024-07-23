@@ -1,12 +1,13 @@
 ```
-from typing import List
-
 def main():
-    music_string = input("Enter your music string: ")
-    if '|' not in music_string:
-        return []
-    result = parse_music(music_string)
-    print(result)
+    while True:
+        try:
+            music_string = input("Enter your music string: ")
+            result = parse_music(music_string)
+            print(result)
+            break
+        except:
+            print("Invalid input! Please enter the correct format.")
 
 def parse_music(music_string: str) -> List[int]:
     music_list = []
