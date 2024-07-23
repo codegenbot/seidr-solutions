@@ -1,11 +1,6 @@
-```
 def solve_boolean(expression):
-    tokens = expression.split('|')
-    result = True
-    for token in tokens:
-        if '&' in token:
-            subresult = all(subtoken == 'T' for subtoken in token[2:].split('&'))
-        else:
-            subresult = any(subtoken == 'T' for subtoken in token[1:].split('&'))
-        result &= subresult
-    return result
+    tokens = ['T', 'F']
+    for op in '&|':
+        expression = expression.replace(op, f' {op} ')
+    result = eval(''.join(map(str, [token if token in tokens else f'bool({token})' for token in expression.split()])))
+    return bool(result)
