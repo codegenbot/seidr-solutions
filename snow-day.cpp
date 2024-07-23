@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -17,12 +19,21 @@ int main() {
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     std::cout << "Enter initial snow: ";
-    std::cin >> initialSnow;
-    std::cout << "Enter rate of snow fall: ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter proportion of snow melting per hour: ";
-    std::cin >> proportionOfSnowMeltingPerHour;
+    std::stringstream buffer;
+    buffer << initialSnow;
+    initialSnow = stof(buffer.str());
 
-    std::cout << std::fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
+    
+    std::cout << "Enter rate of snow fall: ";
+    buffer.clear();
+    buffer << rateOfSnowFall;
+    rateOfSnowFall = stof(buffer.str());
+    
+    std::cout << "Enter proportion of snow melting per hour: ";
+    buffer.clear();
+    buffer << proportionOfSnowMeltingPerHour;
+    proportionOfSnowMeltingPerHour = stof(buffer.str());
+
+    std::cout << fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
 }
