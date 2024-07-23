@@ -1,5 +1,7 @@
+```cpp
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 int sumOfDigits(int n){
     int sum = 0;
@@ -18,12 +20,12 @@ bool isPrime(int n){
     }
     return true;
 
-int main(){
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
+int main() {
+    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
     return 0;
 }
 
-int findMaxPrime(vector<int> lst){
+int findMaxPrime(std::vector<int> lst){
     int maxPrime = 0;
     for(int num : lst){
         if(isPrime(num) && num > maxPrime)
