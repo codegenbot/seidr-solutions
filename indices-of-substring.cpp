@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
 int main() {
+    using namespace std;
+    
     string text, target;
     cin >> text >> target;
     
     vector<int> indices;
+    
     size_t pos = text.find(target, 0, target.size());
-    while (pos != string::npos) {
+    while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1, target.size());
     }
