@@ -3,13 +3,13 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = n * m;
-    double petersWin = 0.0;
+    double petersWin = 0;
     
-    for (int i = 1; i <= m - 1; i++) {
-        petersWin += ((n - i + 1)) / (total);
+    for (int i = m; i < n; i++) {
+        petersWin += ((n - i) / (total - (m - 1)));
     }
     
-    return 1.0 - petersWin;
+    return petersWin;
 }
 
 int main() {
