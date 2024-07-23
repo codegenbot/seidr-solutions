@@ -5,8 +5,7 @@ black_pegs = sum(c == g for c, g in zip(code, guess))
 white_pegs = sum(
     min(code.count(c), guess.count(c))
     for c in set(code)
-    if c != guess[(code + guess).find(c, len(code))]
-    if c in guess
+    if c in guess and c != code
 )
 
 print(len(code) - black_pegs - white_pegs, black_pegs)
