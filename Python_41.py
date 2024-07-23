@@ -1,2 +1,12 @@
-def car_race_collision(n: int):
-    return sum(i * 2 for i in range(1, n+1))
+```
+def car_race_collision():
+    speed = int(input("Enter the average speed of all cars in km/h: "))
+    distance = int(input("Enter the distance in kilometers: "))
+    time_taken = distance / speed
+    hours = int(time_taken)
+    minutes = int((time_taken - hours) * 60)
+    seconds = int(((time_taken - hours) * 60) % 60)
+
+    return f"The estimated time of the car race collision is {hours} hours, {minutes} minutes and {seconds} seconds."
+
+print(car_race_collision())
