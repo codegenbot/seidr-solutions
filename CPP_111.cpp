@@ -1,28 +1,23 @@
-map<char,int> histogram(string test){
-    map<char,int> counts;
-    string word = "";
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    map<char, int> count;
+    
     for (char c : test) {
         if (c != ' ') {
-            word += c;
-        } else {
-            for (char w : word) {
-                counts[w]++;
-            }
-            word = "";
+            count[c]++;
         }
     }
-    for (char w : word) {
-        counts[w]++;
+    
+    int maxCount = 0;
+    for (auto it : count) {
+        maxCount = max(maxCount, it.second);
     }
-    int max_count = 0;
-    for (const auto& pair : counts) {
-        max_count = max(max_count, pair.second);
-    }
-    map<char,int> result;
-    for (const auto& pair : counts) {
-        if (pair.second == max_count) {
-            result[pair.first] = pair.second;
+    
+    for (auto it : count) {
+        if (it.second == maxCount) {
+            result[it.first] = it.second;
         }
     }
+    
     return result;
 }
