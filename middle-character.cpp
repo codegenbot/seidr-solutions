@@ -18,3 +18,4 @@ int main() {
     cout << "Middle character(s): " << middleCharacter(input) << endl;
     return 0;
 }
+```
