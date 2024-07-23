@@ -3,21 +3,21 @@
 #include <vector>
 #include <string>
 
-unsigned long long gcd(unsigned long long a, unsigned long long b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        unsigned long long temp = b;
+        size_t temp = b;
         b = a % b;
         a = temp;
     }
     return a;
 }
 
-std::vector<unsigned long long> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<unsigned long long> result;
-    unsigned long long n = text.length();
-    unsigned long long m = target.length();
+std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<size_t> result;
+    size_t n = text.length();
+    size_t m = target.length();
 
-    for (unsigned long long i = 0; i <= n - m; i++) {
+    for (size_t i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             while ((i + m) <= n && text.substr(i, m) == target)
@@ -32,13 +32,13 @@ int main() {
     std::string text = "Hello World";
     std::string target = "World";
 
-    std::vector<unsigned long long> result = indicesOfSubstring(text, target);
+    std::vector<size_t> result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
-    for (unsigned long long i : result) {
+    for (size_t i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 
-    unsigned long long GCD = gcd((int)text.length(), (int)target.length());
+    size_t GCD = gcd((size_t)text.length(), (size_t)target.length());
     std::cout << "GCD of text and target: " << GCD << std::endl;
 }
