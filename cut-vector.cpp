@@ -4,14 +4,14 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int cutIndex = -1;
-    vector<int> left = {v.begin(), v.begin() + n/2};
-    vector<int> right = {v.begin() + n/2, v.end()};
+    vector<int> left(v.begin(), v.begin() + n/2);
+    vector<int> right(v.begin() + n/2, v.end());
     if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
         return {{left}, {right}};
     }
     
     int minDiff = INT_MAX;
+    int cutIndex;
     
     for (int i = 1; i <= n - 1; i++) {
         int leftSum = 0, rightSum = 0;
@@ -32,8 +32,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> l2 = {v.begin(), v.begin() + cutIndex};
-    vector<int> r2 = {v.begin() + cutIndex, v.end()};
+    vector<int> l2(v.begin(), v.begin() + cutIndex);
+    vector<int> r2(v.begin() + cutIndex, v.end());
     return {{l2}, {r2}};
 }
 
