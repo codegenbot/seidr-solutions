@@ -1,10 +1,6 @@
-import sys
 def shopping_list():
-    n = int(sys.stdin.readline())
-    prices = list(map(float, sys.stdin.readline().split()))
-    discounts = list(map(float, sys.stdin.readline().split()))
-    total_price = 0
-    for i in range(n):
-        price = prices[i] * (1 - discounts[i] / 100)
-        total_price += price
-    print("{:.2f}".format(total_price))
+    n = int(input())
+    prices = list(map(float, input().split()))
+    discounts = list(map(float, input().split()))
+    total_price = sum(price - (price * discount) / 100 for price, discount in zip(prices, discounts))
+    return format(total_price, '.1f')
