@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool checksame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -33,7 +33,7 @@ int main() {
                                "the number of odd elements 1 in the string 2", 
                                "the number of odd elements 0 in the string 3"};
     vector<string> result = odd_count(test);
-    bool same = issame(result, expected);
+    bool same = checksame(result, expected);
     if (same) {
         cout << "Test passed." << endl;
     } else {
