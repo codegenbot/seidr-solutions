@@ -19,13 +19,12 @@ int luhnCheck(const vector<int>& cc) {
 
 int main() {
     vector<int> cc;
-    cout << "Enter your credit card number: ";
-    for (int i = 0; i < 16; i++) {
-        int digit;
-        cin >> digit;
-        cc.push_back(digit);
+    int num;
+    cout << "Enter the credit card number: ";
+    while (cin >> num) {
+        cc.push_back(num);
     }
     int result = luhnCheck(cc);
-    cout << "The Luhn check value is: " << result << endl;
+    cout << "The Luhn check value is: " << result << endl; // display the result
     return 0;
 }
