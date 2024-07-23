@@ -1,11 +1,10 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-bool isequal(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -13,7 +12,7 @@ bool isequal(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> odd_count(vector<string> lst) {
+vector<string> oddCount(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
@@ -32,8 +31,8 @@ int main() {
     vector<string> expected = {"the number of odd elements 2 in the string 1", 
                                "the number of odd elements 1 in the string 2", 
                                "the number of odd elements 0 in the string 3"};
-    vector<string> result = odd_count(test);
-    bool same = isequal(result, expected);
+    vector<string> result = oddCount(test);
+    bool same = isSame(result, expected);
     if (same) {
         cout << "Test passed." << endl;
     } else {
