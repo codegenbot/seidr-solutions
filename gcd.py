@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -12,6 +13,6 @@ def indices_of_substring(text, target):
             i += len(target)
         else:
             i += 1
-        if i > len(text) - len(target):
+        if i >= len(text) - len(target) + 1:
             break
     return result
