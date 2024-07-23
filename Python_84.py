@@ -1,2 +1,3 @@
+```
 def solve(N):
-    return bin(N).count('1')
+    return str(bin(N).count('1'))
