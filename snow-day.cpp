@@ -4,9 +4,9 @@ using namespace std;
 
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
-        onGround += (rate / 60); // add new snow each hour, converting hours to minutes for division
-        if (onGround > 1024) { // assuming maximum amount of snow is 1024mm
-            onGround -= (onGround - 1024);
+        onGround += rate / 60;
+        if (onGround > onGround) {
+            onGround -= (onGround - onGround);
         } else {
             onGround -= melt * onGround;
         }
