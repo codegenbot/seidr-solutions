@@ -33,13 +33,13 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << vec[i] << "\n";
+        cout << vec[i] << "\n";
     }
     
-    std::cout << "\n";
+    cout << "\n";
     
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << vec[i] << "\n";
+        cout << vec[i] << "\n";
     }
     
     return 0;
