@@ -3,7 +3,7 @@ def solve_boolean(input):
         if '&' in input:
             left, right = input.split('&', 1)
             input = str(eval(left.strip()) and eval(right.strip()))
-        elif '|':
+        elif '|' in input:
             left, right = input.split('|', 1)
             input = str(eval(left.strip()) or eval(right.strip()))
     return eval(input)
