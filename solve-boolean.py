@@ -1,18 +1,32 @@
-```
+```Python
+import ast
+
+
 def solve_boolean(expression):
     if expression == "T":
         return True
     elif expression == "F":
         return False
 
-    if "&" in expression:
-        left, right = expression.split("&")
-        return evaluate_boolean(left) and evaluate_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return evaluate_boolean(left) or evaluate_BOOLEAN(right)
+    while True:
+        if "&" in expression:
+            left, right = expression.split("&", 1)
+            if "|" in left:
+                left = f"({solve_boolean(left)}) "
+            if "|" in right:
+                right = f"({solve_boolean(right)}) "
+            expression = f"{left}{right}"
+        elif "|" in expression:
+            left, right = expression.split("|", 1)
+            if "&" in left:
+                left = f"({solve_boolean(left)}) "
+            if "&" in right:
+                right = f"({solve_boolean(right)}) "
+            expression = f"{left}|{right}"
+        else:
+            break
 
-    return True
+    return eval(f"bool({expression})")
 
 
 if __name__ == "__main__":
