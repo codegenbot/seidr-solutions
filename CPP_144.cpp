@@ -9,11 +9,11 @@ bool simplify(string x, string n) {
     a = stoi(x.substr(0, pos));
     b = stoi(x.substr(pos + 1));
 
-    pos = n.find '/';
+    pos = n.find('/');
     c = stoi(n.substr(0, pos));
     d = stoi(n.substr(pos + 1));
 
-    // Check if the product is an integer
+    // Calculate the greatest common divisor of both numerator and denominator
     return a / gcd(b, a) == c / gcd(d, c);
 }
 
