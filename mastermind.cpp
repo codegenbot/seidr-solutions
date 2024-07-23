@@ -23,6 +23,8 @@ pair<int, int> mastermind(string code, string guess) {
 
     return make_pair(black, white);
 
+}
+
 int main() {
     return 0;
 }
