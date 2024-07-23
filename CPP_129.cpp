@@ -1,4 +1,17 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <utility>
+#include <algorithm>
+
+using namespace std;
+
+struct cmp {
+    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
+        return p1.second > p2.second;
+    }
+};
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<pair<int, pair<int, int>>>> neighbors(n);
@@ -19,17 +32,19 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
+    int k1 = k;
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
-        if (k == 0) {
+        auto [sum, p] = q.top(); q.pop();
+        if (k1 == 0) {
             return res;
         }
-        for (auto& neighbor : neighbors[i]) {
+        res.push_back(sum);
+        k1--;
+        for (auto& neighbor : neighbors[p.first]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
-            k--;
+            int ns = sum - grid[p.first][p.second] + neighbor.second;
+            k1--;
             q.push({{ns, make_pair(ni, nj)}});
-            res.push_back(sum);
         }
     }
 
