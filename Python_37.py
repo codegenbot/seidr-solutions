@@ -1,5 +1,12 @@
-def sort_even(l: list):
-    return [
-        x if i % 2 != 0 else min([x, l[(i + 1) % len(l)]]) if (i + 1) % 2 == 0 else min([x, l[i - 1]])
-        for i, x in enumerate(l)
-    ]
+```
+def sort_even():
+    num_list = []
+    while True:
+        try:
+            num = int(input("Enter a number (or 'q' to quit): "))
+            if num == 'q':
+                break
+            num_list.append(num)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    return sort_even(num_list)
