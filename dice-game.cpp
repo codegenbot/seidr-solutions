@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```cpp
 #include <initializer_list>
 
 double probability(int n, int m) {
