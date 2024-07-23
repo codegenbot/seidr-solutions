@@ -18,4 +18,3 @@ int findSpecialNumber(const std::vector<int>& numbers) {
         }
     }
     return result;
-}
