@@ -5,23 +5,9 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        for (char c : pair.first) {
-            if (!islower(c)) {
-                allLower = false;
-            }
-            if (!isupper(c)) {
-                allUpper = false;
-            }
-        }
-
-        for (char c : pair.second) {
-            if (!islower(c)) {
-                allLower = false;
-            }
-            if (!isupper(c)) {
-                allUpper = false;
-            }
-        }
+        auto key = pair.first;
+        allLower = allLower && std::all_of(key.begin(), key.end(), ::islower);
+        allUpper = allUpper && std::all_of(key.begin(), key.end(), ::isupper);
     }
 
     return allLower || allUpper;
