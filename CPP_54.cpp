@@ -1,6 +1,5 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 bool same_chars(string s0, string s1) {
