@@ -9,8 +9,8 @@ def minPath(grid, k):
     def dfs(i, j, current_path):
         nonlocal path, shortest_path
         if len(current_path) == k:
-            if not shortest_path or len(shortest_path) > len(current_path):
-                shortest_path = current_path
+            if not shortest_path or len(current_path) < len(shortest_path):
+                shortest_path = current_path[:]
             return True
 
         visited[i][j] = True
