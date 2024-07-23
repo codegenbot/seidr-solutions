@@ -5,6 +5,4 @@ def solve(s, n):
         print("Program did not receive expected input")
     else:
         digits = [int(d) for d in "".join(filter(str.isdigit, s))]
-        n -= sum(digits) + sum(
-            int(d) for d in set([c for c in s if c != " " and c not in "oa"])
-        )
+        n -= sum(digits) + sum(int(d) for d in set([c for c in s if c != " " and c not in "oa"]))
