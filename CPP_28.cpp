@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,7 +17,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main () {
+int main() {
     std::vector<std::string> input;
     int numStrings;
 
@@ -33,7 +34,11 @@ int main () {
     }
 
     // Concatenate the strings
-    std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
+    if (!input.empty()) {
+        std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
+    } else {
+        std::cout << "No strings to concatenate." << std::endl;
+    }
 
     return 0;
 }
