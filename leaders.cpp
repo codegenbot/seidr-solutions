@@ -1,3 +1,4 @@
+```cpp
 vector<int> leaders(vector<int>& v) {
     int rightmost = v.back();
     vector<int> res({rightmost});
