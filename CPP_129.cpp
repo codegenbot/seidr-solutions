@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -14,17 +17,19 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>, std::allocator<std::pair<int, pair<int, int>>>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors;
+    neighbors.resize(n);
     for (int i = 0; i < n; ++i) {
+        neighbors[i].resize(n);
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
-            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
-            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
-            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
+            if (i > 0) neighbors[i][j].push_back({make_pair(i-1, j), grid[i][j]});
+            if (i < n-1) neighbors[i][j].push_back({make_pair(i+1, j), grid[i][j]});
+            if (j > 0) neighbors[i][j].push_back({make_pair(i, j-1), grid[i][j]});
+            if (j < n-1) neighbors[i][j].push_back({make_pair(i, j+1), grid[i][j]});
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -37,7 +42,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k == 0) {
             return {sum};
         }
-        for (auto& neighbor : neighbors[i]) {
+        for (auto& neighbor : neighbors[i][j]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
