@@ -1,14 +1,11 @@
-```cpp
+```
 #include <set>
 #include <vector>
 
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size())
-        return false;
-    set<vector<int>> s({v1, v2});
-    return s.size() == 1;
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == b.size()) && (a==b);
 }
 
 vector<int> unique(vector<int> l) {
