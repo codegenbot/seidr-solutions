@@ -28,6 +28,8 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
+#include <initializer_list>
+
 int main() {
     string text; 
     cin >> text;
