@@ -1,6 +1,5 @@
-```python
 def luhn(card):
-    card = list(map(int, str(card.zfill(16))[::-1]))
+    card = list(map(int, card.replace(" ", "").split()))
     total = 0
     for i in range(len(card)):
         if i % 2 == 1:
@@ -8,4 +7,4 @@ def luhn(card):
             if card[i] > 9:
                 card[i] -= 9
         total += card[i]
-    return str(total)[::-1].zfill(16)
+    return total
