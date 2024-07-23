@@ -8,8 +8,10 @@ using namespace std;
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-    
-    // Count the number of correct colors in the wrong place
+
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
+
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
@@ -17,20 +19,17 @@ int mastermind(string code, string guess) {
             guess[i] = ' '; // mark this position as visited
         }
     }
-    
-    // Count the number of correct colors in the right place
+
     for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4) {
-            if (code[j] == guess[i]) {
+        for (int j = 0; j < 4; j++) {
+            if (codeVector[j] == guess[i] && code[i] != guess[i]) {
                 white++;
-                code[j] = ' '; // mark this position as visited
-                break;
+                codeVector[j] = ' '; // mark this position as visited
+                guess[i] = ' '; // mark this position as visited
             }
-            j++;
         }
     }
-    
+
     return black, white;
 }
 
@@ -39,7 +38,8 @@ int main() {
     cin >> code;
     string guess;
     cin >> guess;
-    tie(int black, int white) = mastermind(code, guess);
+    int black, white;
+    tie(black, white) = mastermind(code, guess);
     cout << black << endl;
     cout << white << endl;
     return 0;
