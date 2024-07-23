@@ -1,6 +1,12 @@
-```python
 def fizz_buzz(x):
-    if x % 15 == 0:  return "FizzBuzz"
-    elif x % 3 == 0:  return "Fizz"
-    elif x % 5 == 0:  return "Buzz"
-    else:              return str(x)
+    if x % 3 == 0:
+        result = "Fizz"
+    else: result = ""
+    
+    if x % 5 == 0:
+        if result: result += "Buzz"
+        else: result = "Buzz"
+        
+    if not result: result = str(x)
+    
+    return result
