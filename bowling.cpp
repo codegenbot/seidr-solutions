@@ -2,22 +2,27 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
+    int frame = 0;
+    vector<int> rolls(2, 0);
+    
     for (char c : s) {
-        if (c == '/') {
-            if (roll > 0) {
-                score += roll;
+        if (c == 'X') {
+            score += 10 + rolls[1];
+            rolls[0] = 10;
+            rolls[1] = 0;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - rolls[0];
+            rolls[0] = 0;
+            frame++;
+        } else {
+            if (rolls[0] < 10) {
+                rolls[0] = rolls[0] * 10 + (c - '0');
+            } else {
+                rolls[1] = rolls[1] * 10 + (c - '0');
             }
-            roll = 0;
-        } else if (isdigit(c)) {
-            roll *= 10;
-            roll += c - '0';
-        } else if (c == 'X') {
-            score += 10 + (roll > 0 ? roll : 0);
-            roll = 0;
         }
     }
-    if (roll > 0) {
-        score += roll;
-    }
+    
     return score;
+}
