@@ -1,8 +1,3 @@
-def sum_squares(lst):
-    total = 0
-    for num in lst:
-        if isinstance(num, int) or isinstance(num, float):
-            total += num**2
-        else:
-            total += len(str(num)) ** 2
-    return total
+```
+numbers = list(map(int, input("Enter numbers separated by space : ").split()))
+print(sum_squares(numbers))
