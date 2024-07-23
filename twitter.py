@@ -1,7 +1,7 @@
 def validate_tweet(tweet):
-    if sum(c.isspace() or ord(c) < 128 for c in tweet) > 140:
-        return "Too many characters"
-    elif len(tweet.strip()) == 0:
+    if len(tweet.encode('utf-8').decode().strip()) == 0:
         return "You didn't type anything"
+    elif len(tweet.encode('utf-8').decode().strip()) > 140:
+        return "Too many characters"
     else:
-        return f"Your tweet has {sum(c.isspace() or ord(c) < 128 for c in tweet)} characters"
+        return f"Your tweet has {len(tweet.encode('utf-8').decode().strip())} characters"
