@@ -2,8 +2,8 @@ int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
         if (isupper(c)) {
-            sum += static_cast<int>(c) - 55; 
+            sum += tolower(c) - 'a' + 1; // Convert uppercase letter to lowercase and calculate digit value
         }
     }
-    return sum;
+    return sum % 9; 
 }
