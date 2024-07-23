@@ -20,12 +20,15 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black + white;
+    return black;
 }
 
 int main() {
-    std::string code = "abcA";
-    std::string guess = "abbA";
+    std::string code = "XXXX";
+    std::string guess = "XXXX";
+
+    // Call the mastermind function
     int result = mastermind(code, guess);
+
     return 0;
 }
