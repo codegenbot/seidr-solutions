@@ -1,3 +1,4 @@
+```
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -10,7 +11,10 @@ int main() {
     if (tweet.empty()) {
         cout << "You didn't type anything";
     } else {
-        int charCount = tweet.length();
+        int charCount = 0;
+        for (int i = 0; i < tweet.length(); i++) {
+            if (!isspace(tweet[i])) charCount++;
+        }
         if (charCount > 140) {
             cout << "Too many characters";
         } else {
