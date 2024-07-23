@@ -1,3 +1,6 @@
+#include <string>
+#include <vector>
+
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t pos = 0, start = 0;
@@ -15,7 +18,7 @@ std::string camelCase(std::string str) {
 
     std::string result = tolower(words[0]);
     for (int i = 1; i < words.size(); i++) {
-        result += std::tolower(words[i].substr(0, 1)) + words[i].substr(1);
+        result += std::toupper(words[i][0]) + words[i].substr(1);
     }
     return result;
 }
