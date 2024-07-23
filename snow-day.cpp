@@ -2,18 +2,19 @@
 #include <iomanip>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    float totalSnow = initialSnow;
-    for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall;
-        totalSnow *= (1 - proportionOfSnowMeltingPerHour);
+    for(int i = 0; i < hours; i++) {
+        if(i == 0) {
+            return initialSnow + initialSnow * rateOfSnowFall;
+        } else {
+            return (initialSnow + initialSnow * rateOfSnowFall - initialSnow * proportionOfSnowMeltingPerHour);
+        }
     }
-    return totalSnow;
 }
 
 int main() {
     int hours;
-    cin >> hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> hours;
     cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
