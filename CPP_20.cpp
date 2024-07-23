@@ -1,17 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-std::pair<float, float> find_closest_elements(const std::vector<float>& elements) {
-    // Implement the logic to find the closest elements here
-    return std::make_pair(elements[0], elements[1]); // returning dummy values for demonstration
+std::pair<float, float> find_closest_elements(std::vector<float> vec) {
+    std::sort(vec.begin(), vec.end());
+    return {vec[0], vec[1]};
 }
 
-bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
-    return a == b;
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return a.first == b.first && a.second == b.second;
 }
 
-int main(){
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), std::make_pair(1.1f, 2.2f));
+int main() {
+    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), {1.1f, 2.2f});
     return 0;
 }
