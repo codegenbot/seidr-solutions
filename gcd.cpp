@@ -9,11 +9,11 @@ size_t gcd(size_t a, size_t b) {
         b = a % b;
         a = temp;
     }
-    return std::min(a, b);
+    return a;
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<size_t> result;
+    std::vector<size_t> result(std::vector<size_t>::allocator_type());
     size_t n = text.length();
     size_t m = target.length();
 
