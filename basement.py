@@ -1,4 +1,3 @@
-```
 def basement(vector):
     total = 0
     min_index = len(vector)
