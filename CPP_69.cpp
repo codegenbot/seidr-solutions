@@ -1,21 +1,17 @@
-```
-#include <vector>
-#include <map>
-
-int search(vector<int> lst) {
+int findSpecialNumber(const std::vector<int>& numbers) {
     map<int, int> freqMap;
-    for (int num : lst) {
+    for (int num : numbers) {
         if (!freqMap.count(num)) {
             freqMap[num] = 1;
         } else {
             freqMap[num]++;
         }
     }
-    int maxFreq = -1;
-    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            maxFreq = it->first;
+    int result = -1;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            result = pair.first;
+            break;
         }
     }
-    return maxFreq;
-}
+    return result;
