@@ -3,23 +3,16 @@ int smallest_change(std::vector<int> arr) {
     std::vector<std::vector<bool>> dp(n, std::vector<bool>(n));
     
     for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
-    }
-    
-    for (int len = 2; len <= n; len++) {
-        for (int i = 0; i < n - len + 1; i++) {
-            int j = i + len - 1;
-            
-            if (arr[i] == arr[j]) {
+        for (int j = 0; j <= i; j++) {
+            if (j == 0) {
                 dp[i][j] = true;
-            } else {
-                dp[i][j] = false;
-                
-                for (int k = i; k < j; k++) {
-                    if (dp[i][k] && dp[k + 1][j]) {
-                        dp[i][j] = true;
-                        break;
-                    }
+            } else if (i == j) {
+                dp[i][j] = true;
+            } else if (arr[j - 1] != arr[i]) {
+                if (j >= 1 && dp[i - 1][j - 1] && dp[j - 1][j]) {
+                    dp[i][j] = true;
+                } else {
+                    dp[i][j] = false;
                 }
             }
         }
@@ -27,7 +20,7 @@ int smallest_change(std::vector<int> arr) {
     
     int changes = 0;
     for (int i = 0; i < n - 1; i++) {
-        if ((arr[i] > arr[i + 1]) || (arr[i] < arr[i + 1])) {
+        if (!dp[i][i + 1]) {
             changes++;
         }
     }
