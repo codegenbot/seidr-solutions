@@ -3,20 +3,17 @@ def sum_even_and_odd(nums):
     odd_sum = 0
     
     for num in nums:
-        if num % 2 == 0:
-            even_sum += num
+        if isinstance(num, int):
+            if num % 2 == 0:
+                even_sum += num
+            else:
+                odd_sum += num
         else:
-            odd_sum += num
+            print("Invalid input. Please enter integers only.")
             
     return even_sum, odd_sum
 
-while True:
-    try:
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-        break
-    except ValueError:
-        print("Please enter at least one number. Try again!")
-
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 even_nums, odd_nums = sum_even_and_odd(numbers)
 print(f"Sum of even numbers: {even_nums}")
 print(f"Sum of odd numbers: {odd_nums}")
