@@ -11,7 +11,8 @@ string string_xor(string a, string b) {
     
     string result = "";
     for (int i = 0; i < a.length(); i++) {
-        if ((a[i] ^ b[i]) == 1) {  
+        char c1 = a[i], c2 = b[i]; 
+        if ((c1 == '1' && c2 == '0') || (c1 == '0' && c2 == '1')) {
             result += "1";
         } else {
             result += "0";
