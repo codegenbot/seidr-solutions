@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -13,9 +12,7 @@ int main() {
     }
     int charCount = 0;
     for (char c : tweet) {
-        if (std::isprint(c)) {
-            charCount += c == '\0' ? 1 : -1;
-        }
+        charCount += std::isprint(c) ? 1 : 0;
     }
     if (charCount > 140) {
         std::cout << "Too many characters";
