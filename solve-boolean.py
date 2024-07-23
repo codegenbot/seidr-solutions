@@ -1,3 +1,4 @@
+```
 def solve_boolean(input):
     while '&' in input or '|' in input:
         if '&' in input:
