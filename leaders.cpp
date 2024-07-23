@@ -1,36 +1,27 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
     vector<int> result;
-    
-    for (int i = 0; i < n; i++) {
-        bool isLeader = true;
-        
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        
-        if (isLeader) {
+    int maxRightSoFar = 0;
+    for(int i = arr.size() - 1; i >= 0; i--) {
+        if(arr[i] >= maxRightSoFar) {
             result.push_back(arr[i]);
+            maxRightSoFar = arr[i];
         }
     }
-    
+    reverse(result.begin(), result.end()); 
     return result;
 }
 
 int main() {
-    vector<int> arr = {5, 2, 3, 4};
+    vector<int> arr = {1, 3, 4, 2};
     vector<int> leadersResult = leaders(arr);
-    for (int leader : leadersResult) {
-        cout << leader << " ";
+    for (auto x : leadersResult) {
+        cout << x << " ";
     }
     return 0;
 }
