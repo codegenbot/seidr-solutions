@@ -1,3 +1,4 @@
-def sorted_list_sum(numbers): 
-    even_numbers = [str(num) for num in numbers if isinstance(num, str) and int(num) % 2 == 0 or not isinstance(num, str)]
+```python
+def sorted_list_sum(numbers):
+    even_numbers = [num for num in numbers if set(num).issubset('0123456789')]
     return " ".join(sorted(even_numbers))
