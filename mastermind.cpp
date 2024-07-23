@@ -6,4 +6,4 @@ int main() {
     cin >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
-    }
+}
