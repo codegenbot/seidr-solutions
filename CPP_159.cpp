@@ -18,6 +18,6 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(isSame({eat(4, 5, 1)[0], eat(4, 5, 1)[1]}, {9, 0}));
+    assert(isSame(std::vector<int>({9, 0}), eat(4, 5, 1)));
     return 0;
 }
