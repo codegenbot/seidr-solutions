@@ -1,22 +1,19 @@
 ```cpp
-int cutIndex = 0;
-int minDiff = INT_MAX;
+#include <vector>
+#include <algorithm>
 
-vector<int> v; 
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& v) {
+    int cutIndex = 0;
+    int minDiff = INT_MAX;
 
-cin >> v.size();
-v.resize(v.size());
-for(int i = 0; i < v.size(); i++) {
-    cin >> v[i];
-}
-
-for(int i = 1; i < v.size(); i++) {
-    int diff = abs(v[i] - v[i-1]);
-    if(diff <= minDiff) {
-        minDiff = diff;
-        cutIndex = i;
+    for(int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[i-1]);
+        if(diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
-}
 
-return {vector<int>(v.begin(), v.begin() + cutIndex)}, 
-       {vector<int>(v.begin() + cutIndex, v.end())};
+    return {{std::vector<int>(v.begin(), v.begin() + cutIndex)}},
+           {std::vector<int>(v.begin() + cutIndex, v.end())};
+}
