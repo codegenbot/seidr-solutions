@@ -1,14 +1,15 @@
 #include <vector>
+#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    return compareVect(game, guess);
+}
+
+std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int>& guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
