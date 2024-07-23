@@ -1,9 +1,12 @@
 int fib4(int n) {
-    if (n < 0) return -1; // or throw an exception
-    int f[] = {0, 0, 2, 0};
-    for (int i = 4; i <= n; ++i) {
-        int sum = f[i-1] + f[i-2] + f[i-3] + f[i-4];
-        f[i%4] = sum;
+    if (n < 0) return -1; 
+    int a = 0, b = 1, c = 2;
+    for (int i = 3; i <= n; ++i) {
+        int sum = a + b + c;
+        int temp = c;
+        c = b;
+        b = a;
+        a = temp;
     }
-    return f[n%4];
+    return a + b + c;
 }
