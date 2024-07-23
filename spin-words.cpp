@@ -3,16 +3,18 @@
 #include <string>
 #include <algorithm>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
     int start = 0;
     
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(start, i - start);
+            string word = str.substr(start, i - start);
             
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+                reverse(word.begin(), word.end());
             }
             
             result += word + " ";
@@ -24,8 +26,7 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << spinWords(str) << std::endl;
+    string str;
+    cin >> str;
+    cout << spinWords(str) << endl;
     return 0;
-}
