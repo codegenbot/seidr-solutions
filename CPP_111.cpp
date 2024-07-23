@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -14,18 +15,20 @@ std::map<char, int> histogram(std::string s) {
     return res;
 }
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    if (a.size() != b.size()) return false;
-    for (auto p : a) {
-        auto q = b.find(p.first);
-        if (q == b.end() || p.second != q->second) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (auto& pair : a) {
+        if (b.find(pair.first) == b.end() || pair.second != b[pair.first])
             return false;
-        }
     }
     return true;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    std::map<char, int> m1 = histogram("a");
+    std::map<char, int> m2 = histogram("a");
+    assert(issame(m1, m2));
     return 0;
 }
