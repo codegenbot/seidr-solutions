@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <assert.h>
 
 std::vector<std::string> by_length(std::vector<int> lengths) {
     std::vector<std::string> result;
