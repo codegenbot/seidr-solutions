@@ -7,5 +7,5 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    // your code here
+    // your code here...
 }
