@@ -3,7 +3,7 @@
 
 int main() {
     int count = 0;
-    std::vector<int> nums(std::vector<int>::size_type(0)); 
+    std::vector<int> nums;
     int n;
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
@@ -26,4 +26,3 @@ int specialFilter(const std::vector<int>& nums) {
         }
     }
     return count;
-}
