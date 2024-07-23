@@ -16,16 +16,13 @@ std::string spinWords(std::string str) {
 
     result += word;
 
-    int j = 0;
     for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ' || i == result.length() - 1) {
-            std::string temp = result.substr(j, i-j+1);
+        if (result[i] == ' ' && i+1 < result.length()) {
+            std::string temp = result.substr(i+1);
             if (temp.length() >= 5) { 
-                for (int k = temp.length()-1; k >= 0; k--) {
-                    result.replace(i-j, i-j+1, temp.substr(k, 1));
-                }
+                result.replace(i+1, temp.length(), temp.reverse().c_str());
             } else {
-                j = i+1;
+                i++; 
             }
         }
     }
