@@ -1,19 +1,21 @@
 vector<int> parse_music(string music_string){
     vector<int> beats;
-    size_t pos = 0;
-    while ((pos = music_string.find("o", pos)) != string::npos) {
-        beats.push_back(4);
-        pos++;
+    int count = 0;
+    
+    for (char c : music_string) {
+        if (c == 'o') {
+            beats.push_back(4);
+        } else if (c == '|') {
+            beats.push_back(count);
+            count = 0;
+        } else if (c == '.') {
+            count++;
+        }
     }
-    pos = 0;
-    while ((pos = music_string.find("o|", pos)) != string::npos) {
-        beats.push_back(2);
-        pos += 2;
+    
+    if (count > 0) {
+        beats.push_back(count);
     }
-    pos = 0;
-    while ((pos = music_string.find(".|", pos)) != string::npos) {
-        beats.push_back(1);
-        pos += 2;
-    }
+    
     return beats;
 }
