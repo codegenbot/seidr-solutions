@@ -2,52 +2,51 @@
 #include <iostream>
 #include <vector>
 
+// declare filter_integers function here
+std::vector<int> filter_integers(std::vector<std::string> v) {
+    std::vector<int> result;
+    for (auto s : v) {
+        int num;
+        if (sscanf(s.c_str(), "%d", &num) == 1) {
+            result.push_back(num);
+        }
+    }
+    return result;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!issamehelper(a[i], b[i])) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-bool issamehelper(int a, int b) {
-    std::string str1 = std::to_string(a);
-    std::string str2 = std::to_string(b);
+int main 
+{
+    std::vector<std::string> input;
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
     
-    return (str1 == str2);
-}
-
-int main() {
-    std::vector<int> vec1;
-    std::cout << "Enter the size of vector 1: ";
-    int n1;
-    std::cin >> n1;
-    for(int i=0; i<n1; ++i) {
+    for(int i = 0; i < n; i++) {
+        std::string s;
         std::cout << "Enter element " << i+1 << ": ";
-        int x;
-        std::cin >> x;
-        vec1.push_back(x);
+        std::cin >> s;
+        input.push_back(s);
     }
     
-    std::vector<int> vec2;
-    std::cout << "Enter the size of vector 2: ";
-    int n2;
-    std::cin >> n2;
-    for(int i=0; i<n2; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        int y;
-        std::cin >> y;
-        vec2.push_back(y);
-    }
+    std::vector<int> filtered_integers = filter_integers(input);
     
-    if(issame(vec1,vec2))
-        std::cout << "Vectors are same."<<std::endl;
-    else
-        std::cout << "Vectors are not same."<<std::endl;
-
+    bool result = issame(filtered_integers, filtered_integers);
+    if(result) {
+        std::cout << "The two vectors are same" << std::endl;
+    } else {
+        std::cout << "The two vectors are not same" << std::endl;
+    }
     return 0;
 }
