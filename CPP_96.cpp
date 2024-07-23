@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cin>
 
 using namespace std;
 
