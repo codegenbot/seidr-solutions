@@ -1,13 +1,20 @@
-bool correct_bracketing(const std::string& brackets) {
-    int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '<'){
-            count++;
-        }
-        else if(brackets[i] == '>'){
-            if(count <= 0) return false;
-            count--;
+```cpp
+bool correct_bracketing(string brackets) {
+    stack<char> s;
+    for (char c : brackets) {
+        if (c == '(' || c == '<' || c == '[' || c == '{') {
+            s.push(c);
+        } else if ((c == ')' && s.top() == '(') ||
+                   (c == '>' && s.top() == '<') ||
+                   (c == ']' && s.top() == '[') ||
+                   (c == '}' && s.top() == '{')) {
+            s.pop();
         }
     }
-    return count == 0; 
+    return s.empty();
+}
+
+int main() {
+    assert(not(correct_bracketing("<><><<><>><>>><>")));
+    return 0;
 }
