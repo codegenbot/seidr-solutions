@@ -15,8 +15,8 @@ std::string anti_shuffle(std::string s) {
 }
 
 std::string split(const std::string& s, char c) {
-    vector<string> v;
-    string temp = "";
+    vector<std::string> v;
+    std::string temp = "";
     for (const auto& ch : s) {
         if (ch == c) {
             v.push_back(temp);
@@ -29,7 +29,7 @@ std::string split(const std::string& s, char c) {
     return join(v, ' ');
 }
 
-std::string join(const vector<string>& v, char c) {
+std::string join(const vector<std::string>& v, char c) {
     std::string result = "";
     for (const auto& s : v) {
         result += s + c;
