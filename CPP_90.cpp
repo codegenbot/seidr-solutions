@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int next_smallest(vector<int> lst) {
