@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i <= n - m + 1; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
         }
@@ -21,9 +20,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int gcd(int a, int b) {
     while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+        int r = a % b;
+        a = b;
+        b = r;
     }
     return a;
 }
@@ -37,7 +36,7 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
+    
     int a = 100;
     int b = 50;
     cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
