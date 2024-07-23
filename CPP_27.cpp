@@ -1,5 +1,5 @@
 #include <string>
-#include <cctype> 
+#include <cctype>
 
 using namespace std;
 
@@ -17,6 +17,7 @@ string filp_case(string str){
 }
 
 int main(){
-    assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    string s = filp_case("These violent delights have violent ends");
+    assert (s == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0; 
 }
