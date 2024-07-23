@@ -1,13 +1,12 @@
 def smallest_change(arr):
     n = len(arr)
-    total_changes = 0
-    odd_count = arr.count(1)
-
-    while True:
-        changes = sum(a != b for a, b in zip(arr, [i % 2 for i in range(n)]))
-        if changes < total_changes or not total_changes:
-            total_changes = changes
+    forward = [0] * (n + 1)
+    backward = [0] * (n + 1)
+    for i in range(1, n + 1):
+        if arr[i - 1] == 0:
+            forward[i] = forward[i - 1]
+            backward[i] = backward[i - 1]
         else:
-            break
-
-    return total_changes
+            forward[i] = min(forward[i - 1], backward[n - i]) + 1
+            backward[n - i] = min(backward[n - i], forward[i - 1]) + 1
+    return forward[n] - 1 if arr[0] == 0 else forward[n]
