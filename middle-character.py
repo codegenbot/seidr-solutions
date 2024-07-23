@@ -1,4 +1,3 @@
-```
 def middle_character(s):
     s = s.strip().replace(" ", "")
     length = len(s)
@@ -9,5 +8,5 @@ def middle_character(s):
         return s
     elif length % 2 == 0:  
         return s[mid-1:mid+1]
-    else:
-        return s[mid] if s[mid].isalnum() else "."
+    else:  
+        return s[mid]
