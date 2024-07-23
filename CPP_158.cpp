@@ -1,16 +1,13 @@
-string result;
-    int max_unique = 0;
-    int max_lex_order = 0;
-    
-    for (const string& word : words) {
+string max_word;
+    int max_unique_chars = 0;
+
+    for (const auto &word : words) {
         int unique_chars = set<char>(word.begin(), word.end()).size();
-        
-        if (unique_chars > max_unique || (unique_chars == max_unique && word < words[max_lex_order])) {
-            max_unique = unique_chars;
-            result = word;
-            max_lex_order = distance(words.begin(), find(words.begin(), words.end(), word));
+        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)) {
+            max_unique_chars = unique_chars;
+            max_word = word;
         }
     }
-    
-    return result;
+
+    return max_word;
 }
