@@ -1,11 +1,4 @@
-```c++
 #include <string>
-
-int main() {
-    std::string s = "your_string_of_digits";
-    int result = pairedDigits(s);
-    return 0;
-}
 
 int pairedDigits(std::string s) {
     int sum = 0;
