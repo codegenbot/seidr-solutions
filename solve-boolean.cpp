@@ -1,23 +1,31 @@
 bool solveBoolean(string expression) {
-    stack<char> s;
-    
+    stack<char> ops;
+    stack<bool> values;
+
     for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 || b2 ? 'T' : 'F');
-        } else if (expression[i] == '&') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 && b2 ? 'T' : 'F');
-        } else {
-            s.push(expression[i] == 't' ? 'T' : 'F');
+        if (expression[i] == '&') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
+        }
+        else if (expression[i] == '|') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
+        }
+        else if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        }
+        else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
         }
     }
-    
-    return s.top() == 'T';
+
+    return values.top();
 }
