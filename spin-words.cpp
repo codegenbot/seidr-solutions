@@ -21,9 +21,8 @@ std::string spinWords(std::string str) {
         if (result[i] == ' ' && i+1 < result.length()) {
             std::string temp = result.substr(i+1);
             if (temp.length() >= 5) { 
-                std::string reversedTemp = temp;
-                std::reverse(reversedTemp.begin(), reversedTemp.end());
-                result.replace(i+1, temp.length(), reversedTemp);
+                std::reverse(temp.begin(), temp.end());
+                result = result.substr(0, i+1) + temp;
             } else {
                 i++; 
             }
