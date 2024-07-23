@@ -1,4 +1,4 @@
-```python
+```
 def luhn(card):
     card = [int(x) for x in str(card)]
     card.reverse()
@@ -9,4 +9,4 @@ def luhn(card):
             if num > 9:
                 num -= 9
         sum += num
-    return sum
+    return sum if sum % 10 == 0 else False
