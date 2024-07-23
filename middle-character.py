@@ -8,5 +8,5 @@ def middle_character(s):
         return s
     elif length % 2 == 0:  
         return s[mid-1:mid+1]
-    else:  
+    else:
         return s[mid]
