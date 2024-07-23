@@ -1,6 +1,6 @@
+#include <initializer_list>
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); i++) {
