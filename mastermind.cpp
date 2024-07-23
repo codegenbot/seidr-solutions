@@ -9,14 +9,14 @@ void mastermind(const string& code, const string& guess) {
         if (code[i] == guess[i]) {
             ++blackPegs;
         } else {
-            if (codeFreq[code[i] - 'A'] > 0) {
+            if (codeFreq[code[i] - 'A'] < 0) {
                 ++whitePegs;
             }
             if (codeFreq[guess[i] - 'A'] < 0) {
                 ++whitePegs;
             }
-            ++codeFreq[code[i] - 'A'];
-            --codeFreq[guess[i] - 'A'];
+            --codeFreq[code[i] - 'A'];
+            ++codeFreq[guess[i] - 'A'];
         }
     }
 
