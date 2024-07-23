@@ -1,32 +1,12 @@
-```c++
-#include <iostream>
-#include <vector>
-
-int skjkasdkd(std::vector<int> lst){
-    int maxPrime = -1;
-    for(int i : lst){
-        if(i > 1 && isPrime(i)){
-            maxPrime = i;
-            break;
-        }
+int main{
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    if(num < 0) num = -num;
+    std::vector<int> numbers(1);
+    for(int i = 2; i <= num; i++){
+        numbers.push_back(i);
     }
-    if(maxPrime == -1) return 0; // No prime found
-    int sumOfDigits = 0;
-    while(maxPrime > 0){
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
-}
-
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0) return false;
-    }
-    return true;
-
-int main
-{
-    return 0;
+    int result = skjkasdkd(numbers);
+    std::cout << "The sum of the digits is: " << result << std::endl;
 }
