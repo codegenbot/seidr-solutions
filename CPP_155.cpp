@@ -1,13 +1,14 @@
+```cpp
 #include <cassert>
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
-        throw "Vectors are not the same size";
+        return false;
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            throw "Vectors contain different values at some positions";
+            return false;
         }
     }
     return true;
