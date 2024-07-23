@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -28,12 +26,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() { 
+int main() {
     std::vector<std::string> input;
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
-    
+
     for(int i = 0; i < n; i++) {
         std::string s;
         std::cout << "Enter element " << i+1 << ": ";
@@ -49,5 +47,6 @@ int main() {
     } else {
         std::cout << "The two vectors are not same" << std::endl;
     }
+    
     return 0;
 }
