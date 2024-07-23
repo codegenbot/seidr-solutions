@@ -1,4 +1,4 @@
-def find_closest_elements(numbers):
+def find_closest_elements():
     numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
     if len(numbers) < 2:
         return None
@@ -15,17 +15,4 @@ def find_closest_elements(numbers):
 
     return closest_pair
 
-def main():
-    numbers = []
-    
-    while True:
-        user_input = input("Enter a number (or 'stop' to finish): ")
-        
-        if user_input.lower() == 'stop':
-            break
-        
-        numbers.append(float(user_input))
-    
-    print(find_closest_elements(list(map(str, numbers))))
-
-main()
+print(find_closest_elements())
