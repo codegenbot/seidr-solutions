@@ -5,7 +5,7 @@ using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size() && all_of(a.begin(), a.end(),
-          [&b](float x) { return abs(x - *min_element(b.begin(), bind2nd(less<float>(),abs(x),0)))+1e-6) <= 1e-6; });
+          [b](float x) { return abs(x - *min_element(b.begin(), back_inserter(accumulate(b.begin(), b.end(), list<float>(), [](list<float>& l, float n){l.push_back(n);return l;})[0].begin())) ) <= 1e-6; });
 }
 
 vector<float> sort_even(vector<float> l) {
