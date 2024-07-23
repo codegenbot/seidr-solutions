@@ -1,28 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+std::vector<float> find_closest_elements(const std::vector<float>& values) {
+    // Your implementation for finding closest elements here
 }
 
-std::vector<float> find_closest_elements(const std::vector<float>& elements) {
-    std::vector<float> closest_elements;
-    
-    if (elements.size() < 2) return closest_elements;
-    
-    float min_diff = std::abs(elements[0] - elements[1]);
-    
-    for (size_t i = 0; i < elements.size() - 1; ++i) {
-        float diff = std::abs(elements[i] - elements[i + 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {elements[i], elements[i + 1]};
-        }
-    }
-    
-    return closest_elements;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    // Your implementation for checking if two vectors are the same here
 }
 
 int main() {
