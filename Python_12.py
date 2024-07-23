@@ -1,7 +1,18 @@
-from typing import Optional, list
+```
+from typing import Optional
 
 
 def longest(strings: list[str]) -> Optional[str]:
     if not strings:
         return None
-    return max((s for s in strings), key=len) if any(ord(c) < 128 for string in strings for c in string) else None
+
+    result = ""
+    max_len = 0
+    
+    for s in strings:
+        if all(ord(c) < 128 for c in s):
+            if len(s) > max_len:
+                result = s
+                max_len = len(s)
+
+    return result
