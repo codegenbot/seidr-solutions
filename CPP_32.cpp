@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double poly(vector<double> xs, double x){
