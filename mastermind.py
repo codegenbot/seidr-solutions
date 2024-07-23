@@ -1,6 +1,10 @@
 from collections import defaultdict
 
-code, guess = input().split()
+code = input("Enter the code: ").strip()
+guess = input("Enter the guess: ").strip()
+
+assert len(code) == 4 and all(char in 'ABCDEF' for char in code)
+assert len(guess) == 4 and all(char in 'ABCDEF' for char in guess)
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
