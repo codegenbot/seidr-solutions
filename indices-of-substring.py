@@ -9,4 +9,6 @@ def indices_of_substring(text):
         result.append(pos)
         pos += len(target)
 
+    return result
+
 print(indices_of_substring(input()))
