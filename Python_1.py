@@ -1,3 +1,4 @@
+```
 def separate_paren_groups(paren_string: str) -> List[str]:
     if paren_string.startswith('(\n') and paren_string.endswith(')\n'):
         return [paren_string[2:-3]]
@@ -16,7 +17,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group += stack.pop()
             if stack: 
                 if len(stack) > 0: 
-                    return []
+                    return [] # Program did not receive expected input
                 else:
                     groups.append(current_group)
                     current_group = ''
