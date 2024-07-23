@@ -1,4 +1,4 @@
-````
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -24,7 +24,7 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
     return list;
 }
 
-int main1() {
+int main() {
     std::vector<int> list;
     list.push_back(1);
     list.push_back(2);
