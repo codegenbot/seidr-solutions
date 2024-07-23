@@ -1,6 +1,4 @@
-````
-int decimal_to_binary(int decimal){
-    string binary = "";
+string binary = "";
     while(decimal > 0){
         if (decimal % 2 == 0) {
             binary.insert(0,"0");
@@ -16,4 +14,3 @@ int main() {
     assert(decimal_to_binary(15) == "db1111db");
     return 0;
 }
-```
