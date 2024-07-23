@@ -21,7 +21,7 @@ int main() {
 
     double height = startHeight;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += abs(height - (height * bouncinessIndex));
+        totalDistance += std::abs(height - (height * bouncinessIndex));
         height *= bouncinessIndex;
     }
 
