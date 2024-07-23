@@ -9,6 +9,7 @@ int basement(vector<int>& nums) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
