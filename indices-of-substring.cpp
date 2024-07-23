@@ -6,10 +6,6 @@ vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int prevLast = -1;
     int last;
-    if ((last = text.find(target)) != string::npos) {
-        indices.push_back(last);
-        prevLast = last;
-    }
     while ((last = text.find(target, prevLast + 1)) != string::npos) {
         indices.push_back(last);
         prevLast = last;
@@ -19,11 +15,12 @@ vector<int> findIndices(string text, string target) {
 
 int main() {
     string text;
-    cin >> text;
+    getline(cin, text);
 
     string target;
     cin >> target;
 
+    transform(text.begin(), text.end(), text.begin(), ::tolower); // Convert to lowercase
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";

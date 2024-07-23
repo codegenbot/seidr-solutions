@@ -8,35 +8,23 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
 
-    def bool_ops(x, y):
-        if x and y: 
-            return "T"
-        elif x or y:
-            return "T"
-        else: 
-            return "F"
+    while "|" in expression or "&" in expression:
+        if "&" in expression:
+            left, right = expression.split("&")
+            if "|" in left:
+                left = "(" + str(solve_boolean(left)) + ")"
+            if "|" in right:
+                right = "(" + str(solve_boolean(right)) + ")"
+            expression = f"{left} & {right}"
+        elif "|" in expression:
+            left, right = expression.split("|")
+            if "&" in left:
+                left = "(" + str(solve_boolean(left)) + ")"
+            if "&" in right:
+                right = "(" + str(solve_boolean(right)) + ")"
+            expression = f"{left} | {right}"
 
-    result = ""
-    stack = [expression]
-
-    while stack:
-        temp = stack.pop()
-        while "&" in temp:
-            left, right = temp.split("&", 1)
-            temp = f"{bool_ops(left, right)}"
-        while "|" in temp:
-            left, right = temp.split("|", 1)
-            temp = f"({left}) | ({right})"
-        result = temp
-
-    return "T" if str(result) == "True" else "F"
-
-
-if __name__ == "__main__":
-    while True:
-        try:
-            expression = input("Enter a Boolean expression: ")
-            print(solve_boolean(expression))
-            break
-        except (NameError, SyntaxError):
-            print("Invalid input. Please enter T, F, | or &.")
+    try:
+        return ast.literal_eval(expression)
+    except SyntaxError as e:
+        print("Invalid syntax in the Boolean expression.")
