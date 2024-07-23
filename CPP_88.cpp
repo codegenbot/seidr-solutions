@@ -1,11 +1,22 @@
+```
 #include <algorithm>
+#include <vector>
 
-vector<int> sort_array(vector<int> array) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> sort_array(std::vector<int> array) {
     int sum = array[0] + array[array.size() - 1];
     if (sum % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+        std::sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     }
     return array;
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    return 0;
 }
