@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -5,8 +6,8 @@
 using namespace std;
 
 struct cmp {
-    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
-        return p1.second > p2.second;
+    bool operator()(const pair<long long, pair<int, int>>& p1, const pair<long long, pair<int, int>>& p2) {
+        return p1.first > p2.first;
     }
 };
 
@@ -22,10 +23,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(cmp{})> q(cmp); // {sum, path}
+    priority_queue<pair<long long, pair<int, int>>, vector<pair<long long, pair<int, int>>>, cmp> q; // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            q.push({grid[i][j], make_pair(i, j)});
+            q.push({(long long)grid[i][j], make_pair(i, j)});
         }
     }
 
@@ -39,7 +40,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({ns, make_pair(ni, nj)});
+            q.push({(long long)ns, make_pair(ni, nj)});
         }
     }
 
@@ -47,6 +48,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int mainTest() {
+    // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
     for (int val : minPath(grid1, 3)) {
