@@ -6,7 +6,7 @@ double probability(int n, int m) {
     double count = 0;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i; j++) {
+        for (int j = 1; j < i; j++) { 
             count++;
         }
     }
@@ -23,3 +23,4 @@ int main() {
     double result = probability(n, m);
     cout << "The probability is: " << result << endl;
     return 0;
+}
