@@ -1,15 +1,27 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (str[i] == '/') {
-            string firstPart = str.substr(0, i);
-            string secondPart = str.substr(i + 1);
-            int firstScore = (firstPart[0] - '0') * 10 + (firstPart[1] - '0');
-            int secondScore = (secondPart[0] - '0') * 5;
-            score += max(firstScore, secondScore) + min(firstScore, secondScore);
+    bool inFrame = false;
+    int frame = 0;
+
+    for (char c : s) {
+        if (c == '/') {
+            inFrame = true;
+        } else if (inFrame) {
+            if (c != 'X') {
+                score += (10 - (c - '0'));
+            }
+            inFrame = false;
         } else {
-            score += (str[i] - '0') * 10;
+            if (c == 'X') {
+                score += 10;
+            } else {
+                score += c - '0';
+            }
         }
+
+        frame++;
+        if (frame >= 10) break;
     }
+
     return score;
 }
