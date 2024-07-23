@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <assert>
+#include <assert.h>
 #include <vector>
 
 using namespace std;
