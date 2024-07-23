@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -38,7 +39,6 @@ int main() {
     vector<int> indices = indicesOfSubstring(text, target);
     int a, b;
     cin >> a >> b;
-    
     cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << endl;
     cout << "Indices: ";
     for(int i : indices){
