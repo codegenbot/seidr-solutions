@@ -13,14 +13,26 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     }
 
     return result;
+
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 5, 6};
-    std::vector<int> output = remove_duplicates(numbers);
-
-    for (int num : output) {
-        std::cout << num << " ";
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements (space separated): ";
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+    
+    std::vector<int> output = remove_duplicates(input);
+    
+    std::cout << "The numbers without duplicates: ";
+    for (int i = 0; i < output.size(); ++i) {
+        std::cout << output[i] << " ";
     }
     return 0;
 }
