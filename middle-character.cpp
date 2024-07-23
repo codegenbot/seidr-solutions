@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -14,6 +15,6 @@ int main() {
     } else {
         cout << "Middle character is: " << s.substr(length / 2, 1) << endl;
     }
-
+    
     return 0;
 }
