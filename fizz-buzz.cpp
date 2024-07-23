@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 string fizzBuzz(int x) {
     if (x % 15 == 0)
         return "FizzBuzz";
@@ -7,4 +10,12 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return to_string(x);
+}
+
+int main() {
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << fizzBuzz(n) << endl;
+    return 0;
 }
