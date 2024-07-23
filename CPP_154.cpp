@@ -1,8 +1,6 @@
-int n = a.size();
-    int m = b.size();
-    if (n != m) return false;
-    
-    string temp = a + a;
-    
-    return temp.find(b) != string::npos;
+for(int i=0;i<b.length();i++){
+        if(a.find(b)!=string::npos) return true;
+        b=b.substr(1)+b[0];
+    }
+    return false;
 }
