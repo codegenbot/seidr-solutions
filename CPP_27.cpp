@@ -1,21 +1,14 @@
-#include <string>
-using namespace std;
-
-string flip_case(string str) {
-    string result;
-    for (char c : str) {
-        if (isalpha(c)) {
-            if (isupper(c))
-                result += tolower(c);
-            else
-                result += toupper(c);
-        } else
-            result += c;
+```cpp
+std::string flip_case(const std::string& s) {
+    std::string result = "";
+    for (auto it = s.begin(); it != s.end(); ++it) {
+        if (isupper(*it)) {
+            result += tolower(*it);
+        } else if (islower(*it)) {
+            result += toupper(*it);
+        } else {
+            result += *it;
+        }
     }
     return result;
-}
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
 }
