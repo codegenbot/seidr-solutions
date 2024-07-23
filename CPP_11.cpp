@@ -1,13 +1,16 @@
-#include <sstream>
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
 string string_xor(string a, string b) {
-    istringstream is_a(a), is_b(b);
+    if(a.length() != b.length()) {
+        throw runtime_error("Strings must be of same length");
+    }
     string result = "";
-    for (char c; is_a >> c && is_b >> c; ) {
-        if ((c - '0') ^ ('0' - '0')) {
+    for(int i = 0; i < a.length(); i++) {
+        if((a[i] - '0') ^ (b[i] - '0')) {
             result += "1";
         } else {
             result += "0";
@@ -17,11 +20,8 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a, b;
-    cout << "Enter the first number: ";
-    cin >> a;
-    cout << "Enter the second number: ";
-    cin >> b;
-    cout << "The XOR of " << a << " and " << b << " is " << string_xor(a, b) << endl;
+    string a = "0101";
+    string b = "0000";
+    cout << string_xor(a, b) << endl;
     return 0;
 }
