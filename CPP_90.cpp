@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
 int findNextSmallest(std::vector<int> lst) {
     std::vector<int> sorted = lst;
     std::sort(sorted.begin(), sorted.end());
@@ -12,10 +8,5 @@ int findNextSmallest(std::vector<int> lst) {
             return sorted[i + 1];
     }
     return -1;
-}
 
-int main() {
-    int result = findNextSmallest({-35, 34, 12, -45});
-    assert(result == -45);
-    return 0;
 }

@@ -1,3 +1,3 @@
 ```
 def sorted_list_sum(lst):
-    return sum(sorted(len(x) for x in set(lst)),0)
+    return " ".join(sorted([i for i in lst if len(i) % 2 == 0]))
