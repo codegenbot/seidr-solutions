@@ -6,7 +6,8 @@ def mastermind(code, guess):
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
 
     white_pegs = 4 - black_pegs
+    correct_positions = 0
     for count, c in zip(code_counts, "ABCDEF"):
-        white_pegs -= min(count, guess.count(c)) - black_pegs
+        correct_positions -= min(count, guess.count(c))
 
-    return str(black_pegs) + "\n" + str(white_pegs)
+    return str(black_pegs) + "\n" + str(4 - black_pegs - correct_positions)
