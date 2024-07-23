@@ -5,11 +5,11 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list< boost::any > values) {
     vector<int> result;
     for (const auto& value : values) {
-        int i = any_cast<int>(value);
-        if (!i.empty()) {
+        if (any_cast<bool>(boost::get<boost::any>(value))) {
+            int i = any_cast<int>(value);
             result.push_back(i);
         }
     }
