@@ -7,21 +7,22 @@ using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
+    for (char vowel : vowels) {
+        if (tolower(c) == vowel) {
+            return true;
+        }
+    }
+    return false;
 }
 
 std::string get_closest_vowel(std::string word) {
-    int minDist = INT_MAX;
-    char closestVowel = '\0';
+    int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
-        if (isvowl(word[i])) {
-            if(i < minDist) {
-                minDist = i;
-                closestVowel = tolower(word[i]);
-            }
+        if (isvowl(tolower(word[i])) && (closest == -1 || i < closest)) {
+            closest = i;
         }
     }
-    return std::string(1, closestVowel).operator std::string();
+    return (closest == -1) ? "" : string(1, tolower(word[closest]));
 }
 
 int main() {
