@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <algorithm> // Include the algorithm header
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
@@ -12,6 +12,6 @@ std::vector<int> findLeaders(std::vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    std::reverse(leaders.begin(), leaders.end());
+    std::reverse(leaders.begin(), leaders.end()); // Use std::reverse from the algorithm header
     return leaders;
 }
