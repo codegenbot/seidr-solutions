@@ -1,3 +1,5 @@
+Here is the corrected code for the task:
+
 ```
 def encode(message):
     result = ""
