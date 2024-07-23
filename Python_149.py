@@ -1,4 +1,3 @@
 def sorted_list_sum(lst):
-    odd_length_items = [item for item in lst if len(item) % 2 != 0]
-    even_length_items = [item for item in lst if len(item) % 2 == 0]
-    return sum(len(i) for i in sorted(even_length_items))
+    lst = input("Enter a list of integers separated by spaces: ").split()
+    return " ".join(sorted([int(i) for i in lst if int(i) % 2 == 0]))
