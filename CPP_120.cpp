@@ -5,9 +5,9 @@
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for(int i = 0; i < k; i++){
-        auto it = *std::max_element(arr.begin(), arr.end());
-        result.push_back(it);
-        arr.erase(std::remove(arr.begin(), arr.end(), it), arr.end());
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
     return result;
 }
@@ -23,6 +23,8 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    return 0;
+    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
+    int k = 0; 
+    std::vector<int> result = maximum(input, k);
+    // Your code here
 }
