@@ -1,8 +1,8 @@
-def basement(nums):
-    for i, num in enumerate(nums):
-        running_sum = 0
-        for j in range(i+1):
-            running_sum += nums[j]
-            if running_sum < 0:
-                return j
+```Python
+def basement(numbers):
+    total = 0
+    for i, num in enumerate(numbers):
+        total += num
+        if total < 0:
+            return i + 1
     return -1
