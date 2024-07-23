@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,24 +8,21 @@ int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c == 'X') {
+        char c = s[i] - '0';
+        if (c == 10) {
             score += 30;
             roll++;
-        } else if (c == '/') {
+        } else if (s[i] == '/') {
             score += 10 + (roll * 10);
             roll = 0;
         } else {
-            int temp = c - '0';
-            if (roll < 2) {
-                score += temp;
-                roll++;
-            } else {
-                score += temp;
-                if (temp + 10 > 10) {
+            score += c;
+            roll++;
+            if (roll == 2) {
+                if (c + 10 > 10) {
                     score += 10;
                 } else {
-                    score += temp + 10;
+                    score += c + 10;
                 }
                 roll = 0;
             }
