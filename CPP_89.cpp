@@ -1,9 +1,11 @@
-string result = s;
-    for(char& c : result) {
+string result = "";
+    for(char c : s){
         if(isalpha(c)){
-            int shift = (c - 'a') * 2 + 2;
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c - base + shift) % 26 + base;
+            char base = islower(c) ? 'a' : 'A';
+            result += char((((c - base) + 2 * 2) % 26) + base);
+        } else {
+            result += c;
         }
     }
     return result;
+}
