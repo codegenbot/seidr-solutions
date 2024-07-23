@@ -31,7 +31,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    int g;
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
@@ -42,12 +41,9 @@ int main() {
         return 1; // or some other appropriate value to indicate an error
     }
     
-    int gcdResult = gcd(text.size(), target.size());
-    
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
-        if(i % gcdResult == 0)
-            std::cout << i << " ";
+        std::cout << i << " ";
     }
     std::cout << std::endl;
     return 0;
