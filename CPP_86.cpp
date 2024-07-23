@@ -1,17 +1,19 @@
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    for (int i = 0; i < s.length(); i++) {
+string anti_shuffle(string s) {
+    string result = "";
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == ' ') {
             result += " ";
+            i++;
         } else {
-            std::string word = "";
+            string word = "";
             while (i < s.length() && s[i] != ' ') {
                 word += s[i];
+                i++;
             }
             for (int j = 0; j < word.length(); j++) {
                 result += word[j];
             }
-            i--; 
         }
     }
     return result;
