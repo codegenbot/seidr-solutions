@@ -1,10 +1,12 @@
+```
 from typing import List
 
 
-def concatenate(strings: List[str]) -> str:
+def concatenate():
+    n = int(input("Enter the number of strings: "))
+    strings = [input(f"Enter string {i+1}: ") for i in range(n)]
     if not strings:
         return ""
-    try:
-        return "".join(map(str, strings))
-    except TypeError:
-        return "Invalid input. Only strings are allowed."
+    return "".join(strings)
+
+print(concatenate())
