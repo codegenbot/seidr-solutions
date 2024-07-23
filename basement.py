@@ -1,12 +1,8 @@
-def basement(vector):
-    total = 0
-    has_been_negative = False
+def basement(vector): 
+    total = 0 
+    min_index = None 
     for i, num in enumerate(vector):
+        if total < 0 and min_index is None:
+            min_index = i
         total += num
-        if not has_been_negative and total < 0:
-            has_been_negative = True
-        elif has_been_negative and total >= 0:
-            return -1
-        if has_been_negative and total < 0:
-            return i + 1
-    return -1
+    return min_index
