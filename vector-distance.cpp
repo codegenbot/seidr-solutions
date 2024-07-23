@@ -1,20 +1,21 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
 double vectorDistance() {
     int n;
     std::cin >> n; 
-    double sum = 0;
+    double sumX = 0, sumY = 0;
     for (int i = 0; i < n; i++) {
         double x, y;
         std::cin >> x >> y;
-        double diff = pow(x - y, 2);
-        sum += diff;
+        sumX += pow(x, 2);
+        sumY += pow(y, 2);
     }
-    return sqrt(sum);
+    return sqrt(sumX + sumY);
 }
 
 int main() {
-    std::cout << vectorDistance();
+    vectorDistance();
     return 0;
 }
