@@ -1,14 +1,14 @@
-```
 from typing import List
 
 
-operations = list(map(int, input("Enter space-separated integers: ").split()))
-def below_zero(ops: List[int]) -> bool:
+def below_zero(operations: List[int]) -> bool:
     balance = 0
-    for op in ops:
+    ops_str = input("Enter space-separated integers: ")
+    operations = list(map(int, ops_str.split()))
+    for op in operations:
         balance += op
         if balance < 0:
             return True
     return False
 
-print(below_zero(operations))
+print(below_zero([]))
