@@ -5,39 +5,25 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll1 = 0;
-    int currentRoll2 = 0;
-    bool strike = false;
+    string frames[] = {"X", "X", "X", "X", "X", "X", "X", "X", "X", "X"};
     
-    for (char c : s) {
-        if (c == '/') {
-            if (currentRoll1 + currentRoll2 < 10) {
-                score += 10 - (currentRoll1 + currentRoll2);
-            }
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-            strike = false;
-        } else if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
             score += 10;
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-            strike = true;
+        } else if (s[i] == '/') {
+            score += 10 - ((frames[9-i][0] - '0') + (frames[9-i][1] - '0'));
         } else {
-            if (!strike) {
-                currentRoll1++;
-            } else {
-                currentRoll2++;
-            }
+            frames[9-i] = s.substr(i, 2);
         }
     }
     
-    if (!strike) {
-        if (currentRoll1 + currentRoll2 == 10) {
+    for (int i = 0; i < 9; i++) {
+        if (frames[i] == "X") {
             score += 10;
-        } else if (currentRoll1 > 0 && currentRoll2 > 0) {
-            score += currentRoll1 + currentRoll2;
-        } else if (currentRoll1 > 0) {
-            score += currentRoll1 + currentRoll2;
+        } else if (frames[i][1] == '/') {
+            score += 10 - ((frames[i][0] - '0') + (frames[i][1] - '0'));
+        } else {
+            score += (frames[i][0] - '0') + (frames[i][1] - '0');
         }
     }
     
