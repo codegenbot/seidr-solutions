@@ -1,22 +1,22 @@
 map<char, int> result;
-    map<char, int> count;
-    
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+        stringstream ss(test);
+        string token;
+        while (ss >> token) {
+            for (char c : token) {
+                result[c]++;
+            }
         }
-    }
-    
-    int maxCount = 0;
-    for (auto& entry : count) {
-        maxCount = max(maxCount, entry.second);
-    }
-    
-    for (auto& entry : count) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
+        int maxCount = 0;
+        for (const auto& pair : result) {
+            if (pair.second > maxCount) {
+                maxCount = pair.second;
+            }
         }
+        map<char, int> finalResult;
+        for (const auto& pair : result) {
+            if (pair.second == maxCount) {
+                finalResult[pair.first] = pair.second;
+            }
+        }
+        return finalResult;
     }
-    
-    return result;
-}
