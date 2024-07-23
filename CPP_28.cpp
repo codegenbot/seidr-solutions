@@ -22,4 +22,9 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main()
+int main() {
+    std::vector<std::string> strings = {"Hello", "world", "", "!!!"};
+    std::cout << concatenate(strings) << std::endl;
+
+    return 0;
+}
