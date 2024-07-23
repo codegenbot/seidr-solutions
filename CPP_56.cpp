@@ -8,4 +8,3 @@ bool correct_bracketing(std::string brackets) {
         }
     }
     return count == 0;
-}

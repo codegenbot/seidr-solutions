@@ -1,11 +1,12 @@
 int hex_key(std::string num) {
-    int sum = 0;
+    int count = 0;
     for (char c : num) {
-        if (std::isxdigit(c)) {
-            sum += std::isdigit(c)? c - '0' : tolower(c) - 'a' + 10; 
-        } else {
-            return 0; 
+        if (std::isdigit(c) && (c - '0' >= 2 && c - '0' <= 7)) {
+            count++;
+        } else if ((std::isxdigit(c) || c == 'X' || c == 'x') && 
+                   (count > 0 || std::isdigit(c))) {
+            count++;
         }
     }
-    return sum;
+    return count;
 }
