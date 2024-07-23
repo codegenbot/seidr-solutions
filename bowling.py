@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frame = 1
@@ -32,6 +31,5 @@ def bowling_score(frames):
                     if i < len(frames) - 2 and (frames[i+1] in 'X/X' or frames[i+1] == 'X/'):
                         score += 20
                     frame = min(frame+1, 10)
-            frame += 1
         i += 1
     return score
