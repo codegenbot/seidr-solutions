@@ -1,14 +1,10 @@
-vector<string> reverse_delete(string s, string c){
-    string result;
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
-            result += ch;
-        }
-    }
-    string rev_result = result;
-    reverse(rev_result.begin(), rev_result.end());
-    if(result == rev_result){
-        return {result, "True"};
-    }
-    return {result, "False"};
+// Remove characters from s that are in c
+    s.erase(remove_if(s.begin(), s.end(), [c](char ch) { return c.find(ch) != string::npos; }), s.end());
+    
+    // Check if the resulting string is a palindrome
+    string r = s;
+    reverse(r.begin(), r.end());
+    bool is_palindrome = (s == r);
+
+    return {s, is_palindrome ? "True" : "False"};
 }
