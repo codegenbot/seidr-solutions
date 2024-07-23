@@ -11,21 +11,14 @@ int mastermind(std::string code, std::string guess) {
     vector<char> code_chars(code.begin(), code.end());
     vector<char> guess_chars(guess.begin(), guess.end());
 
-    unordered_map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 6; i++) {
+        int countCode = count(code_chars.begin(), code_chars.end(), code[i]);
+        int countGuess = count(guess_chars.begin(), guess_chars.end(), guess[i]);
+        
         if (code[i] == guess[i]) {
-            black++;
+            black += countCode;
         } else {
-            for (int j = 0; j < 4; j++) {
-                if (guess[j] == code[i] && --code_count[guess[j]] >= 0) {
-                    white++;
-                    break;
-                }
-            }
+            white += min(countCode, countGuess);
         }
     }
 
