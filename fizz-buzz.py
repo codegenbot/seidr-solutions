@@ -5,5 +5,5 @@ def fizz_buzz(x):
         return "Fizz"
     elif x % 5 == 0: 
         return "Buzz"
-    elif x % 3 != 0 and x % 5 != 0:
+    else:
         return str(x)
