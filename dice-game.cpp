@@ -1,4 +1,5 @@
+```c++
 double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (n * m) / (total * total);
+    double total = (double)(n + m - 1);
+    return (double)n / total;
 }
