@@ -3,6 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<int> factorize(int n) {
+    std::vector<int> factors;
+    // Your code to factorize 'n'
+    return factors;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,19 +21,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> factorize(int n) {
-    std::vector<int> factors;
-    for (int i = 2; i <= n; ++i) {
-        while (n % i == 0) {
-            factors.push_back(i);
-            n /= i;
-        }
-    }
-    return factors;
-}
-
 int main() {
     assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    // Add more test cases here
     return 0;
 }
