@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 std::string squareDigits(int n) {
     std::string str = std::to_string(n);
@@ -8,6 +9,7 @@ std::string squareDigits(int n) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
+    std::reverse(result.begin(), result.end());
     return result;
 }
 
