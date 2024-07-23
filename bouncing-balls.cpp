@@ -24,4 +24,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(6);
     std::cout << totalDistance;
 
-    return 0; }
+    return 0;
