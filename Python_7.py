@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -6,7 +5,9 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring.lower() in s.lower()]
 
 
-input_str = input("Enter a list of strings (separated by commas or single-string per line): ")
+input_str = input(
+    "Enter a list of strings (separated by commas or single-string per line): "
+)
 if "," in input_str:
     strings_list = [x.strip().lower() for x in input(input_str).split(",")]
 else:
