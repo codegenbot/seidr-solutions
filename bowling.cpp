@@ -1,11 +1,9 @@
-Here is your modified code:
-
 ```cpp
 #include <string>
 
 int main() {
-    std::string input = "X/X/X/4+5/5+2/5/6-3/X/7-2/X"; // provide the string here
-    int result = bowlingScore(input);
+    std::string s = "X/X/XX/X-4/-5/X-10/-1-2/-3-4/5-6//";
+    int score = bowlingScore(s);
     return 0;
 }
 
@@ -15,7 +13,7 @@ int bowlingScore(std::string s) {
     int currentRoll2 = 0;
     bool strike = false;
     int frameScore = 0;
-    
+
     for (char c : s) {
         if (c == '/') {
             if (!strike) {
@@ -53,7 +51,7 @@ int bowlingScore(std::string s) {
             }
         }
     }
-    
+
     if (strike) {
         int bonusRoll1 = 0, bonusRoll2 = 0;
         for (char c : s.substr(s.find('/'))) {
@@ -73,6 +71,6 @@ int bowlingScore(std::string s) {
             }
         }
     }
-    
+
     return score;
 }
