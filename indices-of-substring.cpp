@@ -7,7 +7,7 @@ vector<int> findIndices(string text, string target) {
     int last = -1;
     while ((last = text.find(target, last + 1)) != string::npos) {
         indices.push_back(last);
-        last += target.size();
+        last = -1; // restart the search
     }
     return indices;
 }
