@@ -1,5 +1,8 @@
+```cpp
 #include <cmath>
 #include <cassert>
+#include <cctype>
+#include <cstddef>
 
 bool iscuber(int a) {
     int i = 1;
@@ -10,7 +13,8 @@ bool iscuber(int a) {
     }
     return false;
 
-int main 
-{  
-    assert(iscuber(1729) == false);
+}
+
+int main() { 
+    assert(iscuber(8) == true);
 }
