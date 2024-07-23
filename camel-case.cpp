@@ -1,18 +1,18 @@
 int main() {
     string input;
     getline(cin, input);
-    bool hyphenFound = false;
-    
-    for(int i = 0; i < input.size(); i++) {
-        if(input[i] == '-') {
-            hyphenFound = true;
-        } else if(hyphenFound) {
+    bool flag = false;
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == '-') {
+            flag = true;
+        } else if (input[i] == ' ' && flag) {
+            flag = false;
+        } else if (flag || i == 0) {
             cout << (char)toupper(input[i]);
-            hyphenFound = false;
+            flag = false;
         } else {
             cout << input[i];
         }
     }
-    
     return 0;
 }
