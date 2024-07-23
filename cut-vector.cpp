@@ -5,7 +5,6 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     int cutIndex = -1;
-    
     vector<int> left = {v.begin(), v.begin() + n/2};
     vector<int> right = {v.begin() + n/2, v.end()};
     if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
