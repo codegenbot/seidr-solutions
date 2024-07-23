@@ -1,7 +1,7 @@
-```
+```python
 def shopping_list():
-    n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(int, input().split()))
-    total_price = sum((price * (1 - discount / 100.0)) for price, discount in zip(prices, discounts))
-    print("{:.2f}".format(round(total_price, 2)))
+    line = input().split()
+    prices = list(map(float, line[:-1]))
+    discounts = list(map(int, [x.strip('%)') for x in line[-1].split(',')]))
+    total_price = sum(price * (1 - float(discount) / 100.0) for price, discount in zip(prices, discounts))
+    print("%.2f" % total_price)
