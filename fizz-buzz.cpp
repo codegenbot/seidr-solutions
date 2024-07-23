@@ -1,12 +1,10 @@
 string fizzBuzz(int x) {
-    string output;
     if (x % 3 == 0 && x % 5 == 0)
-        output = "FizzBuzz";
+        return "FizzBuzz";
     else if (x % 3 == 0)
-        output = "Fizz";
+        return "Fizz";
     else if (x % 5 == 0)
-        output = "Buzz";
+        return "Buzz";
     else
-        output = to_string(x);
-    return output;
+        return to_string(x);
 }
