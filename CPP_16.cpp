@@ -1,5 +1,15 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    str.erase(unique(str.begin(), str.end()), str.end());
-    return str.size();
+    vector<int> count(26);
+    for (char c : str) {
+        if (isalpha(c)) {
+            count[c - 'a']++;
+        }
+    }
+    int distinctCount = 0;
+    for (int i = 0; i < 26; i++) {
+        if (count[i] > 0) {
+            distinctCount++;
+        }
+    }
+    return distinctCount;
 }
