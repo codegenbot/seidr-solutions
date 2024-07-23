@@ -1,24 +1,16 @@
-```cpp
 #include <vector>
-#include <iostream>
+#include <assert.h>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     assert(n > 0);
 
-    int changes = 0;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] != arr[j]) {
-                changes++;
-            }
+    int changes = 1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] != arr[i - 1]) {
+            changes++;
         }
     }
 
-    return changes;
-}
-
-int main() {
-    std::cout << smallest_change({0, 1}) << std::endl;
-    return 0;
+    return changes - 1;
 }
