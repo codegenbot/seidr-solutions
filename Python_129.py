@@ -1,4 +1,4 @@
-def shortestWay(grid, word):
+def shortestAlternatingPath(grid):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
     memo = {}
@@ -7,16 +7,16 @@ def shortestWay(grid, word):
         if (i, j) in memo:
             return memo[(i, j)]
         
-        if cnt == len(word):
+        if cnt == 0:
             return path
         
         res = []
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in memo:
-                res.append(dfs(ni, nj, path + [m[ni][nj]], cnt + 1))
+                res.append(dfs(ni, nj, path + [m[ni][nj]], cnt - 1))
         
-        memo[(i, j)] = min(res, key=lambda x: x if len(x) == len(word) else float('inf'))
+        memo[(i, j)] = min(res, key=lambda x: len(x))
         return memo[(i, j)]
     
-    return dfs(0, 0, [], 0)[1:]
+    return dfs(0, 0, [], grid[0][0])
