@@ -1,21 +1,25 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
 
-bool simplify(std::string numerator1, std::string denominator1, 
-              std::string numerator2, std::string denominator2) {
-    int productNumerator = stoi(numerator1.substr(0, numerator1.find('/'))) * 
-                            stoi(numerator2.substr(0, numerator2.find('/')));
-    if (stoi(denominator2.substr(0, denominator2.find('/'))) != 0) {
-        int productDenominator = stoi(denominator1.substr(0, denominator1.find('/'))) * 
-                                 stoi(denominator2.substr(0, denominator2.find('/')));
-        if (productDenominator == 0)
-            return false; // Check for zero denominators
-        return productNumerator % productDenominator == 0;
-    }
-    return false;
+bool simplify(const std::string& numeratorStr, const std::string& denominatorStr) {
+    int numerator = 0, denominator1 = 0, denominator2 = 0;
+    
+    size_t numeratorPos = numeratorStr.find('/');
+    size_t denominator1Pos = denominatorStr.find('/');
 
-int main() {
-    assert(simplify("1", "5", "1", "5") == false);
-    std::cout << "Program execution ended successfully." << std::endl;
-    return 0;
+    std::string numeratorPart = numeratorStr.substr(0, numeratorPos);
+    std::string denominator1Part = denominatorStr.substr(0, denominator1Pos);
+    std::string denominator2Part = (denominator1Pos == std::string::npos) ? "" : denominatorStr.substr(denominator1Pos + 1);
+
+    if (numeratorPart.empty() || denominator1Part.empty() || !denominator2Part.empty())
+        return false;
+    
+    numerator = std::stoi(numeratorPart);
+    denominator1 = std::stoi(denominator1Part);
+    denominator2 = std::stoi(denominator2Part);
+    
+    int productDenominator = denominator1 * denominator2;
+    if (productDenominator == 0)
+        return false; 
+    return numerator % productDenominator == 0;
 }

@@ -1,16 +1,15 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cctype>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (std::find_if(std::begin(vowels), std::end(vowels), [c](char v){return tolower(c) == tolower(v);}) != std::end(vowels));
+    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
 }
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
@@ -21,9 +20,4 @@ string get_closest_vowel(string word) {
         }
     }
     return closest == -1 ? "" : string(1, word[closest]);
-}
-
-int main() {
-    cout << get_closest_vowel("Apple") << endl;
-    return 0;
 }
