@@ -4,7 +4,8 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
-    vector<int> res(v.size(), 0); 
+    vector<int> res; 
+    res.resize(v.size()); 
     int rightmost = v.back();
     res[0] = rightmost; 
     for (int i = v.size() - 2; i >= 0; --i) {
