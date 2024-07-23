@@ -1,8 +1,8 @@
 #include <string>
 
-std::string solve(int N) {
+string solve(int N){
     int sum = 0;
-    std::string result = "";
+    string result = "";
     
     while(N > 0) {
         int remainder = N % 2;
@@ -15,4 +15,3 @@ std::string solve(int N) {
     }
     
     return result;
-}
