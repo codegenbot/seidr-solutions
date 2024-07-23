@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -32,3 +31,4 @@ int main() {
     std::vector<std::string> result_a = by_length(lengths);
     assert(same(result_a, result_b));
     assert(!same(by_length({9}), result_b));
+}
