@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,10 +22,8 @@ vector<int> leaders(vector<int>& v) {
 int main() {
     vector<int> v = {1, 3, 4, 2, 8};
     vector<int> res = leaders(v);
-    cout << "Result: ";
     for (int i : res) {
         cout << i << " ";
     }
-    cout << endl;
     return 0;
 }

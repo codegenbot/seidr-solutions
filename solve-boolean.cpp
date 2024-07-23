@@ -1,23 +1,24 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool solveBoolean(std::string expression) {
+using namespace std;
+
+bool solveBoolean(string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
-
+    
     if (expression.size() > 0) {
-        if (std::tolower(expression[0]) == 't')
+        if (expression[0] == 'T' || expression[0] == 't')
             return true;
         else
             return false;
@@ -27,13 +28,13 @@ bool solveBoolean(std::string expression) {
 }
 
 int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     if (result)
-        std::cout << "True" << std::endl;
+        cout << "True";
     else
-        std::cout << "False" << std::endl;
+        cout << "False";
     return 0;
 }

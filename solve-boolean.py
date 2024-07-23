@@ -15,10 +15,4 @@ def solve_boolean(expression):
             left, right = expression.split(' || ')
             expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
 
-    result = True
-    for operator in '|&':
-        for operand in expression.split(operator):
-            result = (operator == '&') and result and bool(solve_boolean(operand)) or not result and any(bool(solveBoolean(op)) for op in operand.split(' & '))
-            if not result:
-                break
-    return result
+    return eval(f"bool({expression})")
