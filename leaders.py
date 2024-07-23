@@ -1,4 +1,8 @@
-Here is the solution:
-
 def leaders(arr):
-    return [x for x in arr[::-1] if all(i <= x for i in arr[arr.index(x)+1:])][::-1]
+    leaders = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            leaders.append(arr[i])
+            arr.pop()
+            leaders.append(arr[-1])
+    return reversed(leaders)
