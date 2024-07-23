@@ -3,19 +3,17 @@ using namespace std;
 
 int basementIndex(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0)
             return i;
-        else if (i == nums.size() - 1)
-            return -1;
-        i++;
     }
+    return -1;
 }
 
 int main() {
-    vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    vector<int> nums = {-2,2,-5,3,-2,0};
     int result = basementIndex(nums);
-    cout << "The basement index is: " << result << endl;
+    cout << "Basement index is: " << result << endl;
     return 0;
 }
