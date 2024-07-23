@@ -1,7 +1,8 @@
-#include <deque>
+#include <stack>
+#include <string>
 
 bool solveBoolean(std::string s) {
-    std::stack<char> st;
+    stack<char> st;
     bool prev = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
