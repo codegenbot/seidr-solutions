@@ -17,7 +17,7 @@ def solve_boolean(expression):
             elif char in {'&', '|'}:
                 while len(stack) > 1 and stack[-2] != 'T' and stack[-2] != 'F':
                     stack.pop()
-                ops = {f"{{'&': all, '{{|': any}}"[char]}
+                ops = {'&': all, '|': any}[char]
         while len(stack) > 1:
             stack.pop()
-        return ' '.join(map(str, ops(*stack)))
+        return ' '.join(map(str, (ops(*stack))))
