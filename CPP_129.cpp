@@ -1,33 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <utility>
-#include <algorithm>
+#include <functional>
 
 using namespace std;
 
 struct cmp {
-    bool operator()(const pair<int, pair<int, int>>& p1, const pair<int, pair<int, int>>& p2) {
-        return p1.second > p2.second;
+    bool operator()(const pair<int, int>& p1, const pair<int, int>& p2) {
+        return p1 > p2;
     }
 };
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors;
-    neighbors.resize(n);
+    vector<vector<pair<int, int>, allocator<int>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
-        neighbors[i].resize(n);
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i][j] = {{make_pair(i-1, j), grid[i][j]}};
-            else neighbors[i][j].push_back({{i,j},grid[i][j]});
-            if (i < n-1) neighbors[i][j].push_back({{make_pair(i+1, j), grid[i][j]}});
-            if (j > 0) neighbors[i][j].push_back({{make_pair(i, j-1), grid[i][j]}});
-            if (j < n-1) neighbors[i][j].push_back({{make_pair(i, j+1), grid[i][j]}});
+            if (i > 0) neighbors[i].push_back({{i-1, j}, grid[i][j]});
+            if (i < n-1) neighbors[i].push_back({{i+1, j}, grid[i][j]});
+            if (j > 0) neighbors[i].push_back({{i, j-1}, grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({{i, j+1}, grid[i][j]});
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
+    priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> q(cmp); 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -40,7 +36,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k == 0) {
             return {sum};
         }
-        for (auto& neighbor : neighbors[i][j]) {
+        for (auto& neighbor : neighbors[i]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
