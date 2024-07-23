@@ -12,8 +12,8 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
+    std::string input; // Use std:: namespace here
+    std::cout << "Enter a string: "; // And also here
     std::getline(std::cin, input);
 
     std::cout << "The middle character is: " << middleCharacter(input) << std::endl;
