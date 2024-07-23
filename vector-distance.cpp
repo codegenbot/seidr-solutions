@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 double euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     double sum = 0;
@@ -11,12 +11,9 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
 }
 
 int main() {
-    // example vectors
-    std::vector<float> v1({1, 2, 3});
-    std::vector<float> v2({4, 5, 6});
-
-    double dist = euclideanDistance(v1, v2);
-    printf("Euclidean distance: %.2f\n", dist);
-
+    std::vector<float> v1 = {1.0f, 2.0f, 3.0f};
+    std::vector<float> v2 = {4.0f, 5.0f, 6.0f};
+    double distance = euclideanDistance(v1, v2);
+    std::cout << "Euclidean Distance: " << distance << std::endl;
     return 0;
 }
