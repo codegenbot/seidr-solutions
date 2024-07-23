@@ -2,28 +2,16 @@
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == '|') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
-            return solveBoolean(left) || solveBoolean(right);
-        } else if (c == '&') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
-            return solveBoolean(left) && solveBoolean(right);
-        } else if (c == 'T' || c == 't') {
-            return true;
-        } else if (c == 'F' || c == 'f') {
-            return false;
-        }
-    }
-    
     if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
+        char c = expression[0];
+        if (c == 'T' || c == 't')
             return true;
-        else
+        else if (c == 'F' || c == 'f')
             return false;
+        else {
+            expression.erase(0, 1);
+            return solveBoolean(expression);
+        }
     } else 
         return false; 
 
