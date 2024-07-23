@@ -9,8 +9,8 @@ bool is_happy(string s) {
         bool unique = true;
         for (char c : sub) {
             int count = 0;
-            for (int j = 0; j < sub.length(); j++) {
-                if (sub[j] == c)
+            for (char d : sub) {
+                if (c == d)
                     count++;
             }
             if (count > 1) {
