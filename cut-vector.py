@@ -10,7 +10,7 @@ for i in range(1, n-1):
     left_sum += arr[i - 1]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if diff < min_diff: # Change: '<=' to '<'
+    if diff < min_diff:
         min_diff = diff
         cut_index = i
 
