@@ -1,3 +1,4 @@
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -16,13 +17,9 @@ vector<int> leaders(vector<int>& arr) {
     }
     
     return leaders;
-}
 
 int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersResult = leaders(arr);
-    for (int i : leadersResult) {
-        cout << i << endl;
-    }
+    vector<int> arr = {1, 3, 4, 3, 2};
+    vector<int> result = leaders(arr);
     return 0;
 }
