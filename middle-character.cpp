@@ -1,12 +1,9 @@
-Here is the completed code:
-
-#include <string>
-
-std::string middleCharacter(std::string str) {
-    int length = str.length();
+```cpp
+string middleCharacter(string s) {
+    int length = s.length();
     if (length % 2 == 0) {
-        return str.substr(length / 2 - 1, 2);
+        return s.substr(length / 2 - 1, 2);
     } else {
-        return str.substr(length / 2, 1);
+        return string(1, s[length / 2]);
     }
-}
+}``
