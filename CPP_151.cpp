@@ -28,6 +28,5 @@ int main() {
     }
 
     long long result = double_the_difference(myVector); 
-
     return 0;
 }
