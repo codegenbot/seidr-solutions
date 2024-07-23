@@ -1,9 +1,12 @@
-int closest_integer(std::string value) {
-    double num = stod(value);
-    int integerPart = (int)num;
-    if (abs(num - integerPart) < 0.5) {
-        return integerPart + (num > 0 ? 1 : -1);
-    } else {
-        return integerPart;
-    }
+#include <cmath>
+#include <limits>
+#include <string>
+
+double closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    return (num >= 0) ? std::ceil(num) : std::floor(num);
+}
+
+int main() {
+    assert(closest_integer("0") == 0);
 }
