@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -5,8 +6,8 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMelting) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        int snowAccumulation = static_cast<int>(rateOfSnowfall * hours);
-        totalSnow += snowAccumulation;
+        int newSnowAccumulation = (int)(totalSnow * rateOfSnowfall);
+        totalSnow += newSnowAccumulation;
         totalSnow *= (1 - proportionMelting);
     }
     return totalSnow;
