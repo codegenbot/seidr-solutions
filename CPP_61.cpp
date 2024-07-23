@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 
-bool correct_bracketing(std::string brackets) {
+bool correct_bracketing(string brackets) {
     int count = 0;
     for (char bracket : brackets) {
         if (bracket == '(') {
@@ -11,4 +10,4 @@ bool correct_bracketing(std::string brackets) {
             count--;
         }
     }
-    return count == 0 || count > 0;
+    return count == 0;
