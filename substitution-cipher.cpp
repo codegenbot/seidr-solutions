@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,7 +14,7 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
             }
         }
         if (!found) {
-            result += c; // If the character is not in cipher1, add it as is
+            result += c;
         }
     }
     return result;
