@@ -4,18 +4,18 @@ arr = [int(input()) for _ in range(n)]
 total_sum = sum(arr)
 left_sum = 0
 min_diff = total_sum
-cut_index = 0
+cut_idx = -1
 
 for i in range(n):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
-    current_diff = abs(left_sum - right_sum)
-    if current_diff < min_diff:
-        min_diff = current_diff
-        cut_index = i
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_idx = i
 
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
+subvector1 = arr[: cut_idx + 1]
+subvector2 = arr[cut_idx + 1 :]
 
 print(*subvector1)
 print(*subvector2)
