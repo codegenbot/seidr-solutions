@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
-
-void mastermind(const string& code, const string& guess) {
+void mastermind(const std::string& code, const std::string& guess) {
     int codeFreq[6] = {0};
     int whitePegs = 0, blackPegs = 0;
 
@@ -20,14 +17,5 @@ void mastermind(const string& code, const string& guess) {
         }
     }
 
-    cout << "White Pegs: " << whitePegs << ", Black Pegs: " << blackPegs << endl;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    
-    mastermind(code, guess);
-
-    return 0;
+    // Return whitePegs and blackPegs as the result.
 }
