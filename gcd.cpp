@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-size_t gcd(size_t a, size_t b) {
+unsigned long gcd(unsigned long a, unsigned long b) {
     while (b != 0) {
-        size_t temp = b;
+        unsigned long temp = b;
         b = a % b;
         a = temp;
     }
@@ -39,6 +39,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    size_t GCD = gcd((size_t)text.length(), (size_t)target.length());
+    unsigned long GCD = gcd((unsigned long)text.length(), (unsigned long)target.length());
     std::cout << "GCD of text and target: " << GCD << std::endl;
 }
