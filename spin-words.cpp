@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -21,7 +21,8 @@ std::string spinWords(std::string str) {
         if (result[i] == ' ' && i+1 < result.length()) {
             std::string temp = result.substr(i+1);
             if (temp.length() >= 5) { 
-                result.replace(i+1, temp.length(), temp.reverse().c_str());
+                std::reverse(temp.begin(), temp.end());
+                result.replace(i+1, temp.length(), temp);
             } else {
                 i++; 
             }
