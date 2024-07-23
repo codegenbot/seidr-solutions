@@ -1,5 +1,5 @@
 int calculateFrameScore(const std::string& s, size_t index) {
-    if (index >= s.size()) {
+    if (s.empty() || index >= s.size()) {
         return 0;
     }
     
