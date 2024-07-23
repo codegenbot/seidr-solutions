@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <map>
-#include <cassert>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ map<char, int> histogram(const string& str) {
     map<char, int> result;
 
     for (char c : str) {
-        if (!isalpha(c)) continue; // ignore non-alphabetic characters
+        if (!isalpha(c)) continue; 
         char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
