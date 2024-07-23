@@ -1,4 +1,4 @@
-int calculateFrameScore(const std::string& s, size_t index) {
+int calculateFrameScore(const std::string s, size_t index) {
     if (s.empty() || index >= s.size()) {
         return 0;
     }
