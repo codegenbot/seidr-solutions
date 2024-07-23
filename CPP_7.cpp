@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <assert.h>
 
@@ -16,10 +15,11 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::
         if (str.find(sub) != std::string::npos) result.push_back(str);
     }
     return result;
-
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    std::vector<std::string> arr = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string sub = "run";
+    assert(issame(filter_by_substring(arr, sub), {"grunt", "prune"}));
     return 0;
 }
