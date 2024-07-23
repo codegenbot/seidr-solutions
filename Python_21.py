@@ -1,8 +1,3 @@
-```
-from typing import List
-import math
-
-
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not all(isinstance(x, (int, float)) for x in numbers):
         raise ValueError("Input must be a list of floats")
