@@ -3,7 +3,7 @@ string squareDigits(string input) {
     for (char c : input) {
         int digit = c - '0';
         if (!isdigit(c)) { 
-            continue; // Ignore non-digit characters
+            continue; 
         } else {
             result += to_string(digit * digit);
         }
