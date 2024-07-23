@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <vector>
 
@@ -53,11 +52,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> lst1 = {{"this"}};
-    vector<string> lst2 = {};
-    vector<string> result = total_match(lst1, lst2);
-    for (auto &s : result) {
-        cout << s << endl;
-    }
+    vector<string> result = total_match({{"this"}}, {});
+    assert(issame(result, {}));
     return 0;
 }
