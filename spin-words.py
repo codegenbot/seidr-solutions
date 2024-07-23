@@ -1,4 +1,3 @@
-```
 def spin_words(s):
     s = ' ' + s  
     words = s.split()
