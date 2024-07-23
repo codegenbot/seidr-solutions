@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 int main() {
     std::vector<int> nums;
@@ -12,9 +11,9 @@ int main() {
         }
     }
     
-    int sum = 0;
+    double sum = 0;
     for (int num : nums) {
-        sum += std::floor(num / 3) - 2;
+        sum += static_cast<int>(static_cast<double>(num) / 3) - 2;
     }
     
     std::cout << sum << std::endl;
