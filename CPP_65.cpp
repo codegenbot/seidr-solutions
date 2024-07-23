@@ -6,7 +6,7 @@ using namespace std;
 
 string circular_shift(int x, int shift) {
     ostringstream str;
-    str << x; // Convert integer to string
+    str << x; 
     int n = str.str().length();
     if (shift >= n)
         return str.str();
