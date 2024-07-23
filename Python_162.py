@@ -1,4 +1,5 @@
-```
+pass # Add this line to fix the syntax error
+
 import hashlib
 
 def string_to_md5(text):
@@ -9,10 +10,6 @@ def string_to_md5(text):
 if __name__ == "__main__":
     text = input("Enter a string: ")
     try:
-        if not text.isprintable(): 
-            raise ValueError("Invalid input")
         print(string_to_md5(text))
-    except ValueError as e:
-        print(f"Invalid input. Please enter a string: {e}")
-    except TypeError as e:
-        print(f"Invalid input. Please enter a string: {e}")
+    except TypeError:
+        print("Invalid input. Please enter a string.")
