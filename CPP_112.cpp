@@ -26,6 +26,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == (vector<string>){"mam", "True"});
+    assert(reverse_delete("mamma", "mia") == vector<string>("mam", "True"));
     return 0;
 }
