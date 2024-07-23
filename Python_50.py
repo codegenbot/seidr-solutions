@@ -1,4 +1,5 @@
-```def decode_shift(s: str):
+```
+def decode_shift(s: str):
     while True:
         try:
             shift = int(input("Enter the shift value: "))
