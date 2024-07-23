@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-using FloatVector = std::vector<float>;
+typedef std::vector<float> FloatVector;
 
-bool issame(const FloatVector& a, const FloatVector& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
