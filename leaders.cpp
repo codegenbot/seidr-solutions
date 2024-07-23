@@ -4,25 +4,20 @@ using namespace std;
 vector<int> leaders(vector<int> v) {
     vector<int> res;
     int n = v.size();
+    int max_rgt = v[n-1];
     for(int i=n-1; i>=0; i--){
-        bool leader = true;
-        for(int j=i+1; j<n; j++){
-            if(v[j] >= v[i]){
-                leader = false;
-                break;
-            }
-        }
-        if(leader){
+        if(v[i] >= max_rgt){
             res.push_back(v[i]);
+            max_rgt = v[i];
         }
     }
     return res;
 }
 
 int main() {
-    vector<int> input = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    vector<int> output = leaders(input);
-    for(int i: output) {
+    vector<int> v = {16, 17, 4, 3, 5, 2};
+    vector<int> res = leaders(v);
+    for(int i : res){
         cout << i << " ";
     }
     return 0;
