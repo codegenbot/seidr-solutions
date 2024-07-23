@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,9 +10,10 @@ string validateTweet(string& tweet) {
     }
     int count = 0;
     for (char c : tweet) {
-        if (c != '\n') {
-            ++count;
+        if (iscntrl(c)) { 
+            continue; 
         }
+        ++count;
     }
     if (count > 140) {
         return "Too many characters";
