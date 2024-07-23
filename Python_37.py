@@ -1,3 +1,9 @@
-def sort_even(input_list: list) -> tuple:
-    even_and_odd = sort_even_odd(input_list)
-    return (list(even_and_odd[0]), list(even_and_odd[1]))
+```
+def sort_even_odd(l: list):
+    even = sorted([x for x in l if x % 2 == 0])
+    odd = sorted([x for x in l if x % 2 != 0])
+    return (even, odd)
+
+input_list = input("Enter a list of numbers separated by space: ")
+result = sort_even_odd(list(map(int, input_list.split())))
+print(result[0], result[1])
