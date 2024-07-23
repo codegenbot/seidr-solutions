@@ -16,12 +16,15 @@ std::map<char, int> histogram(std::string s) {
 }
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
-    if (a.size() != b.size())
-        return false;
-
-    for (auto& pair : a) {
-        if (b.find(pair.first) == b.end() || pair.second != b[pair.first])
+    for (auto p : a) {
+        if (b.find(p.first) == b.end() || p.second != b[p.first]) {
             return false;
+        }
+    }
+    for (auto p : b) {
+        if (a.find(p.first) == a.end()) {
+            return false;
+        }
     }
     return true;
 }
