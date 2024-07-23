@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <map>
 
@@ -15,6 +14,7 @@ int search(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1, 2, 3, 4, 5, 5};
-    cout << search(lst);
+    vector<int> lst = {10, 20, 30, 40, 50, 10};
+    int result = search(lst);
+    cout << "Duplicate found at index: " << result << endl;
 }
