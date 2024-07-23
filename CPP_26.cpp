@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <unordered_map>
 #include <initializer_list>
@@ -16,3 +15,5 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 
     return result;
 }
+
+int main();
