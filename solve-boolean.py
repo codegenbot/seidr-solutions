@@ -1,24 +1,13 @@
 ```
-s = input()  
-s = ' '.join(s.split())  
-
-def evaluate_bool_expression(expression):
-    stack = []
-    result = False
-    for char in expression:
-        if char in ['T', 'F']:
-            if char == 'T':
-                result = True
-            else:
-                result = False
-        elif char == '|':
-            result = not result 
-        elif char == '&':
-            temp = result
-            result = False
-        elif result:
-            stack.append(result)
-            result = False
-    while stack and len(stack) == 1:
-        stack.pop()
-    return 'T' if stack else 'F'
+def solve_boolean(s):
+    s = ' '.join(s.split())
+    if s == "t":
+        return True
+    elif s == "f":
+        return False
+    elif "|" in s:
+        a, b = s.split("|", 1)
+        return solve_boolean(a) or solve_boolean(b)
+    elif "&" in s:
+        a, b = s.split("&", 1)
+        return solve_boolean(a) and solve_boolean(b)

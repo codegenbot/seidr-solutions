@@ -1,20 +1,31 @@
 #include <string>
+#include <cstring>
+#include <algorithm>
+
 using namespace std;
 
 string spinWords(string sentence) {
     string result = "";
-    int wordLength;
     char* word = strtok(const_cast<char*>(sentence.c_str()), " ");
     
     while(word != NULL) {
-        if((wordLength = strlen(word)) >= 5)
-            strcat(strrev(string(word)), " ");
-        else
-            strcat(string(word), " ");
+        int wordLength = strlen(word);
         
-        result += string(word);
+        if(wordLength >= 5)
+            result += (string(word) + " ") + std::string(rotate(string(word), 1, wordLength - 2)) + "\n";
+        else
+            result += string(word) + " ";
+        
         word = strtok(NULL, " ");
     }
     
-    return result.substr(0, result.length()-1);
+    return result;
+}
+
+string rotate(const string& str, int start, int length) {
+    if(start >= length)
+        return str;
+    if(length == 0)
+        return "";
+    return str.substr(length) + str.substr(0, length);
 }
