@@ -1,5 +1,3 @@
-Here's the solution:
-
 ```
 def match_parens(lst):
     stack = []
