@@ -1,6 +1,6 @@
 def double_the_difference(lst):
     if len(set(map(int, lst))) != len(lst):
-        return "Lists must not contain duplicate elements"
+        return
     differences = [(int(a) - int(b)) ** 2 for a, b in zip(lst[::2], lst[1::2])]
     return sum(differences) * 8
 
