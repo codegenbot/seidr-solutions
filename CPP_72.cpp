@@ -2,10 +2,13 @@ int sum = 0;
     for (int num : q) {
         sum += num;
     }
+    
     if (sum <= w) {
-        vector<int> reversed_q = q;
-        reverse(reversed_q.begin(), reversed_q.end());
-        return q == reversed_q;
+        vector<int> rev_q = q;
+        reverse(rev_q.begin(), rev_q.end());
+
+        return q == rev_q;
+    } else {
+        return false;
     }
-    return false;
 }
