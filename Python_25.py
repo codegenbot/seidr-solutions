@@ -1,4 +1,4 @@
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> list:
     if n <= 1:
         return [n]
 
