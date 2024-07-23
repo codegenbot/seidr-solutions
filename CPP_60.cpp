@@ -1,7 +1,7 @@
-int sum_to_n(int n){
-    int total = 0;
-    for(int i=1; i<=n; i++){
-        total += i;
+int sum_to_n(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
     }
-    return total;
+    return sum;
 }
