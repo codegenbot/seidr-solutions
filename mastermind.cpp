@@ -1,5 +1,3 @@
-#include <string>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -15,20 +13,14 @@ int mastermind(std::string code, std::string guess) {
     for (char c : code) {
         int index = guess.find(c);
         while(index != std::string::npos) {
+            if (index < black) {
+                index = guess.find(c, index+1);
+                continue;
+            }
             white++;
             index = guess.find(c, index+1);
         }
     }
 
-    return black;
-}
-
-int main() {
-    std::string code = "XXXX";
-    std::string guess = "XXXX";
-
-    // Call the mastermind function
-    int result = mastermind(code, guess);
-
-    return 0;
+    return black + white;
 }
