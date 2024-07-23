@@ -32,7 +32,6 @@ string spinWords(string str) {
 int main() {
     string str;
     while (true) {
-        cout << "Enter a string: ";
         getline(cin, str);
         cout << spinWords(str) << endl;
     }

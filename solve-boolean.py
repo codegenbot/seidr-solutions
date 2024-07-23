@@ -1,4 +1,3 @@
-```
 import ast
 
 def solve_boolean(expression):
