@@ -1,5 +1,5 @@
+```c++
 #include <vector>
-#include <iostream>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -7,7 +7,7 @@ int luhn(std::vector<int> digits) {
 
     for (int i = digits.size() - 1; i >= 0; --i) {
         int digit = digits[i];
-
+        
         if (isDouble) {
             if (digit * 2 > 9) {
                 digit = digit * 2 - 9;
@@ -16,16 +16,9 @@ int luhn(std::vector<int> digits) {
             }
         }
 
-        sum += digit;
+        sum += digit; 
         isDouble = !isDouble;
     }
 
-    return sum % 10; 
-}
-
-int main() {
-    std::vector<int> digits({4,3,2,1,8,7,6,5,4,3,2,1,6,5,4,3});
-    int result = luhn(digits);
-    std::cout << result << std::endl;
-    return 0;
+    return sum % 10;
 }
