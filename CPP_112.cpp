@@ -1,11 +1,14 @@
-string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
+string result;
+    for(int i=0;i<s.length();i++)
+    {
+        if(c.find(s[i]) == string::npos)
+        {
+            result += s[i];
         }
     }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
-    bool is_palindrome = (result == result_reverse);
-    return {result, is_palindrome ? "True" : "False"};
+
+    string reversed = result;
+    reverse(reversed.begin(),reversed.end());
+
+    return {result, (result == reversed) ? "True" : "False"};
 }
