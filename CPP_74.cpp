@@ -1,14 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::string b) {
-    if (a.size() != 0 && b != "") {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -28,14 +27,15 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 
     if (sum1 < sum2) {
-        return issame(lst1, "") ? lst1 : lst2;
+        return issame(lst1, lst2) ? lst1 : lst2;
     } else if (sum1 > sum2) {
-        return issame(lst1, "") ? lst2 : lst1;
+        return issame(lst1, lst2) ? lst2 : lst1;
     } else {
-        return issame(lst1, "") ? lst1 : lst2;
+        return issame(lst1, lst2) ? lst1 : lst2;
     }
 }
 
 int main() {
-    assert(std::equal(total_match({"this"}, {}), {}));
+    std::vector<std::string> test = {"this"};
+    assert(std::equal(total_match(test, {}), {}));
 }
