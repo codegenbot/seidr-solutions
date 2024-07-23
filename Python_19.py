@@ -11,12 +11,5 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-
-    def convert_to_int(num_str):
-        if num_str.isdigit():
-            return int(num_str)
-        else:
-            return num_dict[num_str]
-
-    nums = [convert_to_int(num) for num in numbers.split()]
+    nums = [num_dict.get(i, 0) for i in numbers.replace(" ", "").split()]
     return " ".join(map(str, sorted(nums)))
