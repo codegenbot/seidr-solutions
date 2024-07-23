@@ -1,5 +1,6 @@
+```
 def luhn(card_number):
-    card_number = list(map(int, card_number.split()))
+    card_number = list(map(int, [c for c in card_number if c != ' ']))
     total = 0
     for i in range(len(card_number)):
         if (i % 2) == 1:
