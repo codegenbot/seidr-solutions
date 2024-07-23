@@ -1,4 +1,3 @@
-```Python
 def main():
     def fizz_buzz(x):
         if x % 15 == 0:
@@ -12,6 +11,7 @@ def main():
 
     x = int(input("Enter an integer: "))
     print(fizz_buzz(x))
+
 
 if __name__ == "__main__":
     main()
