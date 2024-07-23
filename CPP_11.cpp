@@ -1,3 +1,4 @@
+```
 #include <sstream>
 #include <iostream>
 #include <algorithm>
@@ -16,7 +17,6 @@ string string_xor(string a, string b) {
         }
     }
     return result;
-
 }
 
 int main() {
