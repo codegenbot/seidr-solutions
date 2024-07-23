@@ -15,6 +15,6 @@ vector<int> filter_integers(list<any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     return a == b;
 }
