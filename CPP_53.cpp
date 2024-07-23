@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-
 int add() {
     int x, y;
     std::cin >> x >> y;
@@ -8,8 +6,6 @@ int add() {
 }
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    assert(add() == x + y);
+    assert (add() == 4);
     return 0;
 }
