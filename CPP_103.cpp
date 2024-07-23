@@ -1,10 +1,17 @@
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
 string rounded_avg(int n, int m) {
     if (n > m)
         return "-1";
     long long sum = 0;
     for (int i = n; i <= m; i++)
         sum += i;
-    long long avg = static_cast<long double>(sum) / (m - n + 1);
+    long long avg = sum;
+    int d = avg % (1LL << 31);
+    avg /= (1LL << 31);
+
     string res = "";
     while (avg > 0) {
         if (avg & 1)
@@ -13,6 +20,8 @@ string rounded_avg(int n, int m) {
             res.push_back('0');
         avg >>= 1;
     }
+
+    res.push_back(d > 0 ? '1' : '0');
     std::reverse(res.begin(), res.end());
     return res;
 }
