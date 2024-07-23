@@ -1,9 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <initializer_list>
-
-using namespace std;
-
+```cpp
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxRight = arr.back();
@@ -14,13 +9,4 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {19};
-    vector<int> result = leaders(arr);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    return 0;
 }
