@@ -1,26 +1,26 @@
-```cpp
+```
 #include <iostream>
 
 int main() {
     int cents;
-
-    // Input the amount of money in cents.
-    std::cout << "Enter an amount of money in cents: ";
+    std::cout << "Enter the number of cents: ";
     std::cin >> cents;
 
     int quarters = cents / 25;
-    int remainingCents = cents % 25;
-    int dimes = remainingCents / 10;
-    remainingCents %= 10;
-    int nickles = remainingCents / 5;
-    remainingCents %= 5;
-    int pennies = remainingCents;
+    cents %= 25;
 
-    // Print the number of coins.
-    std::cout << "Quarters: " << quarters << std::endl;
-    std::cout << "Dimes: " << dimes << std::endl;
-    std::cout << "Nickles: " << nickles << std::endl;
-    std::cout << "Pennies: " << pennies << std::endl;
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
+    std::cout << "Quarters: " << quarters << endl;
+    std::cout << "Dimes: " << dimes << endl;
+    std::cout << "Nickles: " << nickles << endl;
+    std::cout << "Pennies: " << pennies << endl;
 
     return 0;
 }
