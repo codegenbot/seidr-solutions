@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <cin>
+#include <limits>
 
 using namespace std;
 
@@ -28,8 +27,7 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     vector<int> primes = count_up_to(n);
-    for(int prime : primes) {
-        cout << prime << " "; 
+    for (auto p : primes) {
+        cout << p << endl;
     }
-    return 0;
 }
