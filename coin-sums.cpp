@@ -16,11 +16,13 @@ int main() {
         cents -= 5;
         nickles++;
     }
+    int pennies = cents % 5;
+    cents /= 5;
 
     cout << quarters << endl;
     cout << nickles << endl;
-    cout << cents / 1 << endl; // dimes are worth 10 cents
-    cout << cents % 1 * 100 << endl; // remaining pennies
+    cout << pennies << endl;
+    cout << 0 << endl; // Initialize to zero
 
     return 0;
 }
