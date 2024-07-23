@@ -13,20 +13,20 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int mainOld() {
+int main() {
     std::vector<float> myVector;
     int n;
     float temp;
 
     // Read the number of elements
-    std::cin >> n;
+    cin >> n;
 
     // Read each element and add to vector
     for(int i = 0; i < n; ++i) {
-        std::cin >> temp;
+        cin >> temp;
         myVector.push_back(temp);
     }
 
-    long long result = double_the_difference(myVector);
+    long long odd_sum = double_the_difference(myVector);
     return 0;
 }
