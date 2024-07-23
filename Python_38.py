@@ -1,3 +1,4 @@
+```
 def encode_cyclic(s: str):
     groups = [s[(i % 3) : min(((i + 2) % 3) + 1, len(s))] for i in range((len(s) + 2) // 3)]
     groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
