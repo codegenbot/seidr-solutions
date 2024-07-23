@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -22,7 +21,7 @@ bool equalVectors(const vector<string>& a, const vector<string>& b) {
 int main() {
     vector<string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     string prefix = "xxx";
-    if (!equalVectors(filter_by_prefix(vec, prefix), vector<string>{"xxx", "xxxAAA", "xxx"})) {
+    if (!equalVectors(filter_by_prefix(vec, prefix), vector<string> {"xxx", "xxxAAA", "xxx"})) {
         return 1;
     }
     return 0;
