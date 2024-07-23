@@ -1,24 +1,20 @@
-```cpp
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
-    int result = operand[0];
-    for (int i = 1; i < operato.size(); i++) {
-        if (operato[i-1] == "/") {
-            if (operand[i] == 0)
+int do_algebra(std::vector<std::string> operato, int operand1) {
+    int result = operand1;
+    for (int i = 0; i < operato.size(); i++) {
+        if (operato[i] == "/") {
+            if (operand1 % 2 == 0 && std::stoi(operato[1]) == 2)
                 return 0;
-            result /= operand[i];
-        } else if (operato[i-1] == "*") {
-            result *= operand[i];
-        } else if (operato[i-1] == "+") {
-            result += operand[i];
-        } else if (operato[i-1] == "-") {
-            result -= operand[i];
+            result /= std::stoi(operato[++i]);
+        } else if (operato[i] == "*") {
+            result *= std::stoi(operato[++i]);
+        } else if (operato[i] == "+") {
+            result += std::stoi(operato[++i]);
+        } else if (operato[i] == "-") {
+            result -= std::stoi(operato[++i]);
         }
     }
     return result;
 }
-
-assert(do_algebra({{"+"}, {1}}) == 2);
