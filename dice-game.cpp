@@ -1,10 +1,7 @@
-```c
-#include <iostream>
-#include <cmath>
-
+```c++
 int main() {
-    int n = 6; // Example input
-    int m = 4; // Example input
+    int n = 6; 
+    int m = 4; 
     double result = diceGame(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
