@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+bool issame(std::vector<float> a, std::vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,13 +15,7 @@ int main() {
             std::cin >> mat[i][j];
 
     bool same = true;
-    for (const auto& row : mat) {
-        if (!(std::cin >> row[0])) { 
-            same = false;
-            break;
-        }
-    }
-
+    
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
