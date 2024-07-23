@@ -1,5 +1,2 @@
-```
-import math
-
 def dice_game(n, m):
-    return sum([1/n for _ in range(m)]) / (n * m) if n > m else 0
+    return sum([((n - i) / n) for i in range(1, m)])
