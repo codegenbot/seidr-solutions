@@ -1,51 +1,35 @@
 Here is the completed code:
 
 ```cpp
+#include <boost/any.hpp>
+
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int ia = boost::any_cast<int>(a);
-        float ib = boost::any_cast<float>(b);
-        return (ib > ia) ? b : (ia > 0 ? a : "None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ia = boost::any_cast<int>(a);
-        string ib = boost::any_cast<string>(b);
-        float ibf = stof(ib);
-        return (ibf > ia) ? b : (ia > 0 ? a : "None");
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float ia = boost::any_cast<float>(a);
-        int ib = boost::any_cast<int>(b);
-        return (ia > ib) ? a : (ib > 0 ? b : "None");
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string ia = boost::any_cast<string>(a);
-        string ib = boost::any_cast<string>(b);
-        float ia1, ib1;
-        try {
-            ia1 = stof(ia);
-            ib1 = stof(ib);
-        } catch (...) {
-            return "None";
-        }
-        return (ia1 > ib1) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float ia = boost::any_cast<float>(a);
-        string ib = boost::any_cast<string>(b);
-        try {
-            float ibf = stof(ib);
-            return (ia > ibf) ? a : b;
-        } catch (...) {
-            return "None";
-        }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ia = boost::any_cast<int>(a);
-        string ib = boost::any_cast<string>(b);
-        try {
-            float ibf = stof(ib);
-            return (ia > ibf) ? a : b;
-        } catch (...) {
-            return "None";
-        }
+    if (is_stateless_data(a) && is_stateless_data(b)) {
+        int ai = boost::any_cast<int>(a);
+        int bi = boost::any_cast<int>(b);
+        return (ai > bi) ? a : ((ai < bi) ? b : boost::any("None")));
+    } else if (is_stateless_data(a) && is_any_castable<float>(b)) {
+        float bf = boost::any_cast<float>(b);
+        int ai = boost::any_cast<int>(a);
+        return (ai > bf) ? a : ((ai < bf) ? b : boost::any("None")));
+    } else if (is_stateless_data(b) && is_any_castable<float>(a)) {
+        float af = boost::any_cast<float>(a);
+        int bi = boost::any_cast<int>(b);
+        return (af > bi) ? a : ((af < bi) ? b : boost::any("None")));
+    } else if (!is_stateless_data(a) && !is_stateless_data(b)) {
+        float af = boost::any_cast<float>(a);
+        float bf = boost::any_cast<float>(b);
+        return (af > bf) ? a : ((af < bf) ? b : boost::any("None")));
+    } else if (!is_stateless_data(a)) {
+        float af = boost::any_cast<float>(a);
+        int bi = boost::any_cast<int>(b);
+        return (af > bi) ? a : ((af < bi) ? b : boost::any("None")));
+    } else if (!is_stateless_data(b)) {
+        float bf = boost::any_cast<float>(b);
+        int ai = boost::any_cast<int>(a);
+        return (bf > ai) ? b : ((bf < ai) ? a : boost::any("None")));
     }
-    return "None";
+    return "Unknown type";
 }
