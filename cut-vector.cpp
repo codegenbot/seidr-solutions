@@ -1,42 +1,27 @@
 #include <vector>
+#include <climits>
+#include <cmath>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
-    
-    for(int i = 0; i < n; i++) {
-        if(i == n - 1 || nums[i] != nums[i + 1]) {
-            res[0].push_back(nums[i]);
-        }
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int leftSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        leftSum += nums[i];
     }
-    
-    int j = 0;
-    while(j < n && nums[j] == nums[0]) {
-        j++;
-    }
-    
-    for(int i = j; i < n; i++) {
-        if(i == n - 1 || nums[i] != nums[i + 1]) {
-            res[1].push_back(nums[i]);
-        }
-    }
-    
-    return res;
-}
 
-int main() {
-    vector<int> input = {1, 2, 2, 3, 4, 5};
-    vector<vector<int>> output = cutVector(input);
-    
-    // You can add any further processing on your output here...
-    for(int i = 0; i < 2; i++) {
-        cout << "Output " << i + 1 << ": ";
-        for(auto num : output[i]) {
-            cout << num << " ";
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int rightSum = leftSum - nums[i];
+        int diff = std::abs(leftSum - rightSum);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
-        cout << endl;
     }
-    
-    return 0;
+
+    vector<int> leftVec(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightVec(nums.begin() + cutIndex + 1, nums.end());
+    return {leftVec, rightVec};
 }
