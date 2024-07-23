@@ -1,4 +1,5 @@
 ```
+import math
 def factorize(n: int) -> list:
     if n <= 1:
         return [n]
