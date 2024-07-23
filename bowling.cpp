@@ -1,5 +1,6 @@
-#include <string>
 #include <iostream>
+#include <string>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -18,26 +19,35 @@ int bowlingScore(string s) {
                 }
             } else {
                 score += 10;
+                strike = false;
             }
             currentRoll1 = 0;
             currentRoll2 = 0;
-            strike = false;
         } else if (c == 'X') {
             score += 10;
             strike = true;
+            bonusRoll++;
         } else {
             if (!strike) {
+                currentRoll1++;
                 if (currentRoll1 + 1 >= 10) {
-                    score += 10 - currentRoll1;
-                    currentRoll2++;
-                    if (currentRoll1 + currentRoll2 == 10) {
-                        score += currentRoll2;
+                    if (currentRoll1 < 10) {
+                        score += 10 - currentRoll1;
+                        currentRoll2++;
+                    } else {
+                        score += currentRoll1;
                     }
                 } else {
-                    currentRoll1++;
+                    if (currentRoll1 == 10) {
+                        score += 10;
+                    }
                 }
             } else {
                 currentRoll2++;
+                if (currentRoll2 >= 2) {
+                    strike = false;
+                    bonusRoll++;
+                }
             }
         }
     }
@@ -50,5 +60,5 @@ int bowlingScore(string s) {
 }
 
 int main() {
-    std::cout << bowlingScore("XXX/") << std::endl;
+    cout << bowlingScore("XXX/") << endl;
 }
