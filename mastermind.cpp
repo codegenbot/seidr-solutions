@@ -4,25 +4,29 @@
 
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
+std::pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
+    bool codeGuessed[6] = {false};
+    
     for(int i = 0; i < 4; i++) {
-        int matchingIndex = -1;
+        if(code[i] == guess[i]) {
+            blackPegs++;
+            codeGuessed[code[i]-'0'] = true;
+        }
+    }
+    
+    for(int i = 0; i < 4; i++) {
+        bool found = false;
         for(int j = 0; j < 4; j++) {
-            if(code[i] == guess[j]) {
-                matchingIndex = j;
+            if(code[j] == guess[i] && !codeGuessed[code[j]-'0']) {
+                whitePegs++;
+                found = true;
                 break;
             }
         }
-        if(matchingIndex != -1) {
-            if(i == matchingIndex) { 
-                blackPegs++;
-            } else {
-                whitePegs++;
-            }
-        }
+        if(!found) codeGuessed[guess[i]-'0'] = true;
     }
     
     return std::make_pair(blackPegs, whitePegs);
