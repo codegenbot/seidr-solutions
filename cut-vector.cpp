@@ -15,10 +15,10 @@ vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<pair<vector<int>, vector<int>>> result;
-    vector<int> left(nums.begin(), nums.begin()+pos+1);
-    vector<int> right(nums.begin()+pos, nums.end());
-    result.push_back({left, right});
+    vector<int> left, right;
+    left.assign(nums.begin(), nums.begin()+pos+1);
+    right.assign(nums.begin()+pos+1, nums.end());
     
-    return result;
+    return {{left, right}};
 }
+```
