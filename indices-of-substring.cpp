@@ -1,8 +1,10 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 int main() {
+    using namespace std;
+
     string text, target;
     cin >> text >> target;
     
@@ -14,7 +16,6 @@ int main() {
         pos = text.find(target, pos + 1, target.size());
     }
     
-    using namespace std;
     for (int i = 0; i < indices.size(); ++i) {
         cout << indices[i] << " ";
     }
