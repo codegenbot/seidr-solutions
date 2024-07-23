@@ -1,6 +1,6 @@
 #include <string>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -28,4 +28,16 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code = "abcx";
+    std::string guess = "abcd";
+
+    int result = mastermind(code, guess);
+
+    std::cout << "Black pegs: " << (result - 0) << "\n";
+    std::cout << "White pegs: " << result - (guess.length() == 4 ? 1 : 0) << "\n";
+
+    return 0;
 }
