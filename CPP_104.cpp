@@ -7,17 +7,12 @@ vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         int newNum = 0;
-        bool hasEvenDigit = false;
         while (num > 0) {
             int digit = num % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
             newNum = newNum * 10 + digit;
             num /= 10;
         }
-        if (!hasEvenDigit)
+        if (find(result.begin(), result.end(), newNum) == result.end())
             result.push_back(newNum);
     }
     sort(result.begin(), result.end());
