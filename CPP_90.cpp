@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>  
+#include <algorithm>
+
 using namespace std;
 
 int findNextSmallest(vector<int> lst) {
@@ -16,7 +17,7 @@ int findNextSmallest(vector<int> lst) {
 
 }
 
-int main() {  
+int main() {
     cout << findNextSmallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
