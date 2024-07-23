@@ -5,7 +5,7 @@ total_sum = sum(arr)
 min_diff = float('inf')
 cut_index = -1
 
-for i in range(n + 1):
+for i in range(n):
     diff = abs(total_sum - 2 * sum(arr[:i]))
     if diff < min_diff:
         min_diff = diff
