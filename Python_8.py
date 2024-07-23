@@ -1,9 +1,1 @@
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
-
-    for num in numbers:
-        total_sum += num
-        product *= num
-
-    return (total_sum, product) if numbers else (0, 1)
+Write a Python function that takes a list of integers as an input. The function should calculate the sum and product of all numbers in the list. If the list is empty, it should return (0, 1). Otherwise, it should return a tuple containing the sum and the product.
