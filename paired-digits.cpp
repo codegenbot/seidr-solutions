@@ -4,5 +4,5 @@ int pairedDigits(std::string s) {
         if (s[i] == s[i + 1]) {
             sum += (s[i] - '0') * 2;
         }
-    } 
+    }
     return sum;
