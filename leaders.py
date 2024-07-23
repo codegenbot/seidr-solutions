@@ -1,3 +1,2 @@
-```
 def leaders(arr):
-    return [x for x in arr[::-1] if all(i <= x for i in arr[arr.index(x)+1:])][::-1]
+    return [arr[i] for i in range(len(arr) - 1, -1, -1) if all(x <= arr[i] for x in arr[:i])]
