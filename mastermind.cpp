@@ -1,6 +1,4 @@
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -14,7 +12,7 @@ int mastermind(std::string code, std::string guess) {
     // Count white pegs now
     for (char c : code) {
         int index = guess.find(c);
-        while(index != std::string::npos) {
+        while(index != string::npos) {
             white++;
             index = guess.find(c, index+1);
         }
