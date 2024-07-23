@@ -1,7 +1,4 @@
-```Python
-def find_zero(nums):
-    return sum(num for num in nums if num == 0)
-
+```
 def sum_even_and_odd(nums):
     even_sum = 0
     odd_sum = 0
@@ -14,5 +11,7 @@ def sum_even_and_odd(nums):
             
     return even_sum, odd_sum
 
-nums = [1, 2, 3, 4]
-print(find_zero(nums))
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+even_nums, odd_nums = sum_even_and_odd(numbers)
+print(f"Sum of even numbers: {even_nums}")
+print(f"Sum of odd numbers: {odd_nums}")
