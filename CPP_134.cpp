@@ -16,7 +16,6 @@ bool check_if_last_char_is_a_letter(std::string txt) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true);
     std::string input;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, input);
