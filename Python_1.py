@@ -26,7 +26,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if stack:
         while stack:
             current_group += stack.pop()
-        if not stack: 
-            groups.append(current_group)
+        if not current_group:
+            continue
+        groups.append(current_group)
 
     return groups
