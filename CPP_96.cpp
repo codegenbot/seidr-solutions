@@ -19,7 +19,7 @@ vector<int> count_up_to(int n) {
     }
     return result;
 
-} 
+}
 
 int main() {
     int n;
