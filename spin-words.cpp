@@ -1,25 +1,32 @@
-#include <algorithm>
-#include <iostream>
-#include <string>
-
 std::string spinWords(std::string str) {
     std::string result = "";
-    
-    for (const auto& word : str.split(' ')) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        
-        result += word + " ";
-    }
-    
-    return result;
-}
+    bool longWord = false;
+    std::string word = "";
 
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
-}
+    for (char c : str) {
+        if (c == ' ') {
+            if (!longWord) {
+                result += word + " ";
+                word = "";
+            } else {
+                std::reverse(word.cbegin(), word.cend());
+                result += word + " ";
+                word = "";
+                longWord = false;
+            }
+        } else {
+            word += c;
+            if (word.length() >= 5) {
+                longWord = true;
+            }
+        }
+    }
+
+    if (!longWord) {
+        result += word;
+    } else {
+        std::reverse(word.cbegin(), word.cend());
+        result += word;
+    }
+
+    return result;
