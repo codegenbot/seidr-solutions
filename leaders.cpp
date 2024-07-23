@@ -19,8 +19,11 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {10,8,5,3};
-    vector<int> output = leaders(input);
-    for(int i:output) cout << i << " ";
+    vector<int> v = {12,10,8,6};
+    vector<int> result = leaders(v);
+    for(int x : result) {
+        cout << x << " ";
+    }
+    cout << endl;
     return 0;
 }
