@@ -1,18 +1,12 @@
 int main() {
-    vector<int> v;
-    int n, num;
+    int n;
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> num;
-        v.push_back((num / 3) - 2);
-    }
-    
+    vector<int> nums(n);
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += v[i];
+        cin >> nums[i];
+        sum += (nums[i] / 3) - 2;
     }
-    
     cout << sum;
-    
     return 0;
 }
