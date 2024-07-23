@@ -32,18 +32,21 @@ bool evaluateBooleanExpression(string expression) {
                 return operand == "True";
             }
         } 
-        else if (expression[i] == 't' || expression[i] == 'f') {
-            if (!operators.empty() && ((expression[i] == 't' && operators.top() == "|") ||
+        else if ((expression[i] == 't' || expression[i] == 'f') && !operators.empty() && ((expression[i] == 't' && operators.top() == "|") ||
                                         (expression[i] == 'f' && operators.top() == "&"))) {
-                while (!operators.empty()) operators.pop();
-            }
-            operand += (expression[i] == 't'? "T" : "F");
+            while (!operators.empty()) operators.pop();
+        }
+        else if ((expression[i] == 't' || expression[i] == 'f') && !operand.empty()) {
+            if (expression[i] == 't')
+                operand = "T";
+            else
+                operand = "F";
         } 
         else if (expression[i] == '(') {
-            operators.push("(");
+            operators.push("()");
         } 
         else if (expression[i] == ')') {
-            while (operators.top() != "(") {
+            while (operators.top() != "()") {
                 if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == "|") {
                         operators.pop();
