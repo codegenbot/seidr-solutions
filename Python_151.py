@@ -1,3 +1,3 @@
 def double_the_difference(lst):
-    positive_integers = [i for i in lst if isinstance(i, int) and i > 0]
-    return sum([n * 2 for n in positive_integers])
+    total = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+    return (total - min(total)) * 2 if total else None
