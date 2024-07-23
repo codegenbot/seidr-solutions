@@ -1,5 +1,5 @@
-```
-def add(x: int, y: int):
+```python
+def add(x: int, y: int) -> int:
     return x + y
 
 num1 = int(input("Enter first number: "))
