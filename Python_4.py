@@ -1,6 +1,5 @@
 ```
 def mean_absolute_deviation() -> float:
-    result = None
     while True:
         numbers_str = input("Enter comma-separated float values (e.g., 1,2,3): ")
         
@@ -15,5 +14,5 @@ def mean_absolute_deviation() -> float:
                 break
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
-        
+            
     return result
