@@ -13,7 +13,7 @@ std::vector<int> leaders(std::vector<int>& v) {
             res.push_back(rightmost);
         }
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
@@ -22,7 +22,7 @@ int main() {
     std::vector<int> res;
     res = leaders(v);
     for (int i : res) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
     return 0;
 }
