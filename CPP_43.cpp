@@ -1,13 +1,14 @@
-#include <unordered_set>
-
-bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> s;
+sort(l.begin(), l.end());
+    int left = 0, right = l.size() - 1;
     
-    for (int num : l) {
-        if (s.count(-num) > 0) {
+    while (left < right) {
+        if (l[left] + l[right] == 0) {
             return true;
+        } else if (l[left] + l[right] < 0) {
+            left++;
+        } else {
+            right--;
         }
-        s.insert(num);
     }
     
     return false;
