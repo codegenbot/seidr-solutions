@@ -1,22 +1,24 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-// Function to check if strings are same (ignoring case)
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (std::toupper(a[i]) != std::toupper(b[i])) {
-            return false;
-        }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (std::transform_reduce(a.begin(), a.end(), b.begin(), [](const auto& s1, const auto& s2) { 
+            size_t count1 = std::count(s1.begin(), s1.end(), ::tolower(s1[0]));  
+            size_t count2 = std::count(s2.begin(), s2.end(), ::tolower(s2[0]));  
+            return (count1 > 0 && count2 > 0) || (count1 == 0 && count2 == 0); 
+        }) == false) return false;
     }
     return true;
 }
 
-// Function to calculate total match
-std::vector<std::string> total_match(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+std::vector<std::string> total_match(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     vector<string> result;
-    for (int i = 0; i < vec1.size(); i++) {
-        if (issame({vec1[i]}, {vec2[i]})) {
-            result.push_back(vec1[i]);
+    for (const string& s : vec1) {
+        if (issame({s}, vec2)) {
+            result.push_back(s);
         }
     }
     return result;
