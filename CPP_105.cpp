@@ -1,8 +1,11 @@
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i] < b[i])return true;
-        else if(a[i] > b[i])return false;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i=0;i<a.size();i++) {
+        if(a[i].compare(b[i])!=0) {
+            return false;
+        }
     }
     return true;
 }
