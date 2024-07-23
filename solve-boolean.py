@@ -1,22 +1,14 @@
 def solve_boolean(expression):
-    tokens = expression.split()
+    tokens = expression.replace('&', ' and ').replace('|', ' or ')
     def evaluate_expression(tokens):
-        result = True
-        for token in tokens:
-            if token == 'F':
-                return False
-            elif token == 'T':
-                continue
-            elif '&' in token:
-                result &= token[2:] == 'T'
-            elif '|' in token:
-                result |= token[1:] == 'T'
-        return result
-    result = True
-    current_expression = ''
-    for token in tokens:
-        if token.startswith('&') or token.startswith('|'):
-            current_expression += token + ' '
-        else:
-            current_expression += token + ' '
-    return evaluate_expression(current_expression.split())
+        stack = []
+        for token in tokens.split():
+            if token == 'T':
+                stack.append(True)
+            elif token == 'F':
+                stack.append(False)
+            else:
+                left = stack.pop()
+                right = True if token == 'T' else False
+                stack.append(left and right or left or right)
+        return stack[0]
