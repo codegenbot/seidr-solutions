@@ -16,6 +16,5 @@ bool is_prime(int n) {
 }
 
 bool prime_length(string str) {
-    int length = str.length();
-    return is_prime(length);
+    return is_prime(str.length());
 }
