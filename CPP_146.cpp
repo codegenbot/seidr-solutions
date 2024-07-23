@@ -1,20 +1,23 @@
-```
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <initializer_list>
 
-int specialFilter(std::vector<int> nums) {
+int main() {
     int count = 0;
+    std::vector<int> nums = {};
+    int n;
+    std::cout << "Enter the number of elements in the vector: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        nums.push_back(x);
+    }
     for (int x : nums) {
-        if ((std::abs(x) % 11) == 1 || (std::abs(x) % 11) == 0) {
+        if (x == 0 || x % 11 != 0) {
             count++;
         }
     }
-    return count;
-}
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int result = specialFilter(nums);
-    std::cout << "The number of integers in the vector that are multiples of 11 or have an absolute value which is equal to 1 when divided by 11 is: " << result;
+    std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
+    return 0;
 }

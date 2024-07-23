@@ -2,12 +2,12 @@ def search(lst):
     freq = {}
     max_num = -1
     for num in lst:
-        if isinstance(num, int) and num > 0:  
+        if isinstance(num, int) and num > 0:
             if num in freq:
                 freq[num] += 1
             else:
                 freq[num] = 1
-        elif num < 0:  
+        elif num < 0:
             break
     for num, count in freq.items():
         if num >= count and num > 0:

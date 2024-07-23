@@ -2,7 +2,6 @@
 #include <vector>
 #include <queue>
 #include <utility>
-#include <algorithm>
 
 using namespace std;
 
@@ -32,21 +31,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
+    int sum = 0;
     while (!q.empty()) {
-        auto [sum, p] = q.top(); q.pop();
-        int i = p.second.first, j = p.second.second;
+        auto [temp_sum, {i, j}] = q.top(); q.pop();
+        sum = temp_sum;
         if (k == 0) {
-            return {sum};
+            return vector<int>{sum}; 
         }
         for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
+            int ni = neighbor.first.first, ns = neighbor.second; 
+            int temp_ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({ns, neighbor.first});
+            q.push({temp_ns, {ni, ns}}); 
         }
     }
 
-    return {};
+    return vector<int>{}; // Return empty if no path found.
 }
 
 int mainTest() {
