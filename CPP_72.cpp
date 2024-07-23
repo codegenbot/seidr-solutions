@@ -12,10 +12,10 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(vector<int>::iterator start, vector<int>::iterator end, int init) {
+int accumulate(vector<int>::iterator begin, vector<int>::iterator end, int init) {
     int sum = init;
-    for (; start != end; ++start)
-        sum += *start;
+    for (; begin != end; ++begin)
+        sum += *begin;
     return sum;
 }
 
