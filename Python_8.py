@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -18,16 +19,11 @@ def main():
             n = int(input("Enter the number of elements (or -1 to stop): "))
             if n == -1:
                 break
-            numbers = [
-                int(x)
-                for x in input("Enter {} space-separated integers: ".format(n)).split()
-            ]
+            numbers = [int(x) for x in input("Enter {} space-separated integers: ".format(n)).split()]
             total_sum, product = sum_product(numbers)
             print("Sum: {}, Product: {}".format(total_sum, product))
         except ValueError:
-            print(
-                "Invalid input. Please enter an integer and then space-separated integers."
-            )
+            print("Invalid input. Please enter an integer and then space-separated integers.")
 
 
 if __name__ == "__main__":
