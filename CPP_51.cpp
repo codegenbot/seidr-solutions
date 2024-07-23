@@ -1,9 +1,4 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u'){
-            result += c;
-        }
-    }
-    return result;
+text.erase(remove_if(text.begin(), text.end(), 
+        [](char c) { return strchr("aeiouAEIOU", c) != nullptr; }), text.end());
+    return text;
 }
