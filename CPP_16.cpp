@@ -1,12 +1,18 @@
-int count_distinct_characters(string str){ 
-    vector<char> distinct_chars;
-    
-    for(char c : str){
-        char lowercase_c = tolower(c);
-        if(find(distinct_chars.begin(), distinct_chars.end(), lowercase_c) == distinct_chars.end()){
-            distinct_chars.push_back(lowercase_c);
+int count_distinct_characters(string str){
+    vector<bool> present(26*2, false);
+    int distinctCount = 0;
+    for(char ch : str){
+        if(ch >= 'A' && ch <= 'Z'){
+            if(!present[ch - 'A']){
+                present[ch - 'A'] = true;
+                distinctCount++;
+            }
+        } else if(ch >= 'a' && ch <= 'z'){
+            if(!present[ch - 'a' + 26]){
+                present[ch - 'a' + 26] = true;
+                distinctCount++;
+            }
         }
     }
-    
-    return distinct_chars.size();
+    return distinctCount;
 }
