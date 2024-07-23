@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,7 +16,7 @@ bool match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"(", ")}; "}; 
-    cout << (match_parens({{"("}, {")"}}) ? "Yes" : "No") << endl; 
+    vector<string> lst = {"(", ")"};
+    cout << (match_parens({"" , ""}) ? "Yes" : "No") << endl; 
     return 0;
 }
