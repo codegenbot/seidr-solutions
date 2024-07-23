@@ -1,16 +1,14 @@
-```cpp
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    
+    for(int i=0; i<a.size(); i++) 
+        if(a[i] != b[i])
             return false;
-        }
-    }
+        
     return true;
 }
 
@@ -26,4 +24,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-assert(isSame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+int main() {
+    assert(isSame(make_a_pile(8) , std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
+}
