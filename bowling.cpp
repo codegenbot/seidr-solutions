@@ -1,25 +1,42 @@
-int main() {
-    string input;
-    cin >> input;
+int bowling(string bowls) {
     int score = 0;
     int frame = 0;
-    for (int i = 0; i < input.size() && frame < 10; ++i) {
-        if (input[i] == 'X') {
+    for (int i = 0; i < bowls.size(); i++) {
+        if (frame == 10) {
+            break;
+        }
+        if (bowls[i] == 'X') {
             score += 10;
-            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
-            score += (input[i + 4] == 'X') ? 10 : (isdigit(input[i + 4]) ? input[i + 4] - '0' : 10);
-            i += 2;
+            if (bowls[i + 2] == 'X') {
+                score += 10;
+                if (bowls[i + 4] == 'X') {
+                    score += 10;
+                } else {
+                    score += (bowls[i + 4] == '/') ? 10 : (int)(bowls[i + 4] - '0');
+                }
+            } else {
+                score += (bowls[i + 2] == '/') ? 10 : ((bowls[i + 2] == '-') ? 0 : (int)(bowls[i + 2] - '0'));
+                score += (bowls[i + 3] == '/') ? 10 : ((bowls[i + 3] == '-') ? 0 : (int)(bowls[i + 3] - '0'));
+            }
             frame++;
-        } 
-        else if (input[i] == '/') {
-            score += (10 - (input[i - 1] - '0'));
-            score += (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+        } else if (bowls[i] == '/') {
+            score += 10 - (int)(bowls[i - 1] - '0');
+            score += (bowls[i + 1] == 'X') ? 10 : ((bowls[i + 1] == '-') ? 0 : (int)(bowls[i + 1] - '0'));
             frame++;
-        } 
-        else if (isdigit(input[i])) {
-            score += input[i] - '0';
+        } else if (bowls[i] != '-') {
+            score += (int)(bowls[i] - '0');
+        }
+        if (bowls[i] != '/') {
+            if (bowls[i] != 'X' && bowls[i + 1] != '/' && bowls[i + 1] != 'X') {
+                frame++;
+            }
         }
     }
-    cout << score << endl;
+    return score;
+}
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << bowling(bowls);
     return 0;
 }
