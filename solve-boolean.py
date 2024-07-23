@@ -1,21 +1,15 @@
-import ast
-
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
 
-    while '&&' in expression or '||' in expression:
-        if '&&' in expression:
-            left, right = expression.split('&&')
-            expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
-        elif '||' in expression:
-            left, right = expression.split('||')
-            expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
+    operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
 
-    return eval(ast.literal_eval(f"({expression})"))
+    while any(operator in expression for operator in operators.keys()):
+        for operator in operators:
+            if f'{"T"} {operator} {"F"}' in expression:
+                left, right = expression.split(f'{operator}')
+                expression = str(operators[operator](solve_boolean(left), solve_boolean(right)))
 
-user_input = input("Enter a Boolean expression: ")
-result = solve_boolean(user_input)
-print("The result of the Boolean expression is:", result)
+    return eval(expression) if expression != 'True' else True
