@@ -1,4 +1,3 @@
-```cpp
 bool correct_bracketing(string brackets) {
     stack<char> s;
     for (char c : brackets) {
