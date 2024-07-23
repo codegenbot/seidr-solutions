@@ -2,13 +2,20 @@
 #include <algorithm>
 
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; 
+    if (lst.empty()) return -1;
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
+    for (int i = 1; i < sorted.size(); i++) {
+        if (sorted[i] != sorted[0]) {
+            int result = *std::find_if(lst.begin(), lst.end(),
+                [val](int x) { return x == sorted[i]; });
+            return result;
         }
     }
-    return -1; 
+    return -1;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
