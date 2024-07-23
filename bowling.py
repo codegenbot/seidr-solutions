@@ -1,24 +1,23 @@
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if bowls[index] == "X":
-        if bowls[index + 1] == "X":
-            bonus += 10
-            if bowls[index + 2] == "X":
-                bonus += 10
-            elif bowls[index + 2] == "/":
-                bonus += 10 - int(bowls[index + 1])
-            elif bowls[index + 2] == "-":
-                bonus += 0
-            else:
-                bonus += int(bowls[index + 2])
-        elif bowls[index + 1] == "/":
-            bonus += 10 - int(bowls[index])
-        elif bowls[index + 1] == "-":
-            bonus += 0
+def calculate_score(bowls):
+    mapping = {'X': 10, '/': 10, '-': 0}
+    total_score = 0
+    index = 0
+    
+    for frame in range(10):
+        first_bowl = bowls[index]
+        
+        if first_bowl in mapping:
+            total_score += mapping[first_bowl]
+            if first_bowl == 'X':
+                total_score += get_strike_bonus(bowls, index)
+            elif first_bowl == '/':
+                total_score += mapping[bowls[index + 1]]
+                
         else:
-            bonus += int(bowls[index + 1])
+            total_score += int(first_bowl) + int(bowls[index + 1])
+        
+        index += 1 if first_bowl == 'X' else 2
+    
+    return total_score
 
-        if index + 1 < len(bowls) and (bowls[index + 1] != "X" or (index + 2 < len(bowls) and bowls[index + 2] != "X" and bowls[index + 2] != "/")):
-            bonus += get_strike_bonus(bowls, index + 1)
-
-    return bonus
+print(calculate_score("6121X617-X-9621-8/2"))
