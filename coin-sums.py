@@ -2,13 +2,9 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
 
-    for coin in coins:
-        count = cents // coin
-        if count > 0:
-            results[coins.index(coin)] = count
-            cents -= count * coin
+    results[0], cents %= 25, results[1], cents //= 10
+    results[2], cents %= 10, results[3], cents %= 5
+    count = cents
+    results[4], count %= 4
 
-    return tuple(results)
-
-cents = int(input())
-print(*coin_sums(cents))
+    print(*reversed(results))
