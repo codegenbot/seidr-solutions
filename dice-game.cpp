@@ -1,6 +1,6 @@
 ```cpp
 int main() {
-    int n = 6; 
+    int n = 6;
     int m = 6;
     double result = probability(n, m);
     std::cout << "Probability: " << result << std::endl;
