@@ -6,7 +6,7 @@ def compare_one(a, b):
         b = float(''.join(c for c in b.replace(',', '')))
     if a > b:
         return a
-    elif a < b:
+    elif b > a:
         return b
     else:
         return None
