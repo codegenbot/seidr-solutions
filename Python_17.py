@@ -11,4 +11,3 @@ def parse_music(music_string: str) -> List[int]:
             result.append(beats[1])
         elif note == '.|':
             result.append(beats[2])
-```
