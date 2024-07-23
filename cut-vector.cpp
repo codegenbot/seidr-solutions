@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <algorithm>
 #include <numeric>
+#include <climits>
 
 int main() {
     int n;
@@ -11,7 +12,7 @@ int main() {
         std::cin >> nums[i];
     }
     
-    int min_diff = INT_MAX;
+    int min_diff = std::numeric_limits<int>::max();
     int cut_idx = -1;
     for (int i = 1; i < n; ++i) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
