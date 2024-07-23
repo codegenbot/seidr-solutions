@@ -1,7 +1,5 @@
-```
-#include <vector>
-#include <iostream>
 #include <string>
+#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -10,24 +8,10 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
-            }
-        }
-        white += count - 1;
-    }
-
-    return black + white;
-
-}
-
-int main(int argc, char* argv[]) { 
-  mastermind("XXXX", "XXXX"); 
-  return 0; 
+    return black;
 }
