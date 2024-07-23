@@ -1,14 +1,42 @@
-```
 def encode(message):
     result = ''
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+            if char.lower() == 'a':
+                result += 'd'
+            elif char.lower() == 'e':
+                result += 'h'
+            elif char.lower() == 'i':
+                result += 'k'
+            elif char.lower() == 'o':
+                result += 'q'
+            elif char.lower() == 'u':
+                result += 'x'
             elif char.isupper():
-                result += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
+                if char.lower() == 'a':
+                    result += 'D'
+                elif char.lower() == 'e':
+                    result += 'H'
+                elif char.lower() == 'i':
+                    result += 'K'
+                elif char.lower() == 'o':
+                    result += 'Q'
+                elif char.lower() == 'u':
+                    result += 'X'
             else:
-                result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+                if char in 'aeiouAEIOU':
+                    if char.lower() == 'a':
+                        result += 'd'
+                    elif char.lower() == 'e':
+                        result += 'h'
+                    elif char.lower() == 'i':
+                        result += 'k'
+                    elif char.lower() == 'o':
+                        result += 'q'
+                    elif char.lower() == 'u':
+                        result += 'x'
+                else:
+                    result += char
         else:
             result += char
     return result
