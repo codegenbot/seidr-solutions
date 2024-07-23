@@ -1,3 +1,3 @@
-nums = list(map(int, input().split()))
-result = sum([(num // 3) - 2 for num in nums])
-print(result)
+nums = input().split()
+result = sum([(int(digit) // 3) - 2 for digit in ''.join(nums)])
+print(abs(result))
