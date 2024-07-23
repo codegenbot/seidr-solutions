@@ -1,17 +1,11 @@
-string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+for(int i = 0; i < s.size(); ++i) {
+    if(s[i] != ' ') {
+        int start = i;
+        while(i < s.size() && s[i] != ' ') {
+            ++i;
         }
+        sort(s.begin() + start, s.begin() + i);
     }
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
-    }
-    return result;
+}
+return s;
 }
