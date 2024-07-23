@@ -1,10 +1,10 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <map>
 
-int findSpecialNumber(const std::vector<int>& numbers) {
+int search(vector<int> lst) {
     map<int, int> freqMap;
-    for (int num : numbers) {
+    for (int num : lst) {
         if (!freqMap.count(num)) {
             freqMap[num] = 1;
         } else {
@@ -19,4 +19,19 @@ int findSpecialNumber(const std::vector<int>& numbers) {
         }
     }
     return result;
+}
+
+int main() {
+    vector<int> lst;
+    int n;
+    cin >> n;
+    while(n--) {
+        int num;
+        cin >> num;
+        lst.push_back(num);
+    }
+    
+    cout << search(lst) << endl;
+
+    return 0;
 }
