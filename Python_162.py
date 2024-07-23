@@ -8,8 +8,8 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     while True:
-        text = input("Enter a string: ")
         try:
+            text = input("Enter a string: ")
             print(string_to_md5(text))
             break
         except TypeError:
