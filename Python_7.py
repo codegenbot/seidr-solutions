@@ -13,5 +13,5 @@ else:
 strings = [s for s in strings_list if s]
 substring = input("Enter a substring to search for: ")
 
-result = filter_by_substring(strings, substring)  
+result = filter_by_substring(strings_list, substring)  
 print(result)
