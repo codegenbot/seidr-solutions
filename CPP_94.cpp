@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -30,5 +29,4 @@ int findMaxPrime(const vector<int>& lst) {
 
 int main() {
     assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
-    return 0;
 }
