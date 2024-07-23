@@ -24,6 +24,6 @@ int main() {
     for (int i : res) {
         cout << i << " ";
     }
-    cout << endl; // added this line
+    cout << endl; 
     return 0;
 }
