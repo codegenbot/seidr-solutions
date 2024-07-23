@@ -1,14 +1,14 @@
-string result;
-    int max_unique_chars = 0;
-    
-    for (const auto& word : words) {
-        int unique_chars = distance(word.begin(), unique(word.begin(), word.end()));
-        if (unique_chars > max_unique_chars || 
-            (unique_chars == max_unique_chars && word < result)) {
-            result = word;
-            max_unique_chars = unique_chars;
+string maxWord = "";
+    int maxUnique = 0;
+
+    for (const string& word : words) {
+        int uniqueChars = set<char>(word.begin(), word.end()).size();
+        if (uniqueChars > maxUnique || 
+            (uniqueChars == maxUnique && word < maxWord)) {
+            maxWord = word;
+            maxUnique = uniqueChars;
         }
     }
-    
-    return result;
+
+    return maxWord;
 }
