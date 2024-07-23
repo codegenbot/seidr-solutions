@@ -26,7 +26,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 
             return result
         except (ValueError, IndexError):
-            numbers = input(
+            print(
                 "Invalid input. Please enter a list of integers separated by space or comma: "
-            ).split()
+            )
+            numbers = input().split()
             numbers = [int(num) for num in numbers]
