@@ -1,9 +1,3 @@
+```
 def validate_tweet(tweet):
-    if len(tweet) > 140:
-        return "Too many characters"
-    elif not tweet.isalnum():
-        return "Too many characters"
-    elif len(tweet) == 0:
-        return "You didn't type anything"
-    else:
-        return f"Your tweet has {len(tweet)} characters"
+    return "Too many characters" if len(tweet) > 140 else "You didn't type anything" if len(tweet) == 0 else f"Your tweet has {len(tweet)} characters"
