@@ -1,30 +1,45 @@
-#include <boost/any.hpp>
-#include <string>
-#include <typeinfo>
 #include <boost/lexical_cast.hpp>
-
-using namespace std;
+#include <boost/type_traits.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         return b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-
-        int num1 = boost::lexical_cast<int>(str1.substr(0, str1.find(',')));
-        double num2 = boost::lexical_cast<double>(str2.substr(0, str2.find(',')));
-
-        if (num1 > num2) {
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::lexical_cast<std::string>(a);
+        std::string str2 = boost::lexical_cast<std::string>(b);
+        if (std::stod(str1) > std::stod(str2))
             return a;
-        } else if (num1 < num2) {
+        else if (std::stod(str1) < std::stod(str2))
             return b;
-        } else {
-            return any(boost::any_cast<string>("None"));
-        }
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string str = boost::lexical_cast<std::string>(b);
+        if (std::stod(a.convert_to<std::string>()) > std::stod(str))
+            return a;
+        else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
+            return b;
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string str = boost::lexical_cast<std::string>(b);
+        if (std::stod(a.convert_to<std::string>()) > std::stod(str))
+            return a;
+        else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
+            return b;
+        else
+            return boost::any("None");
     } else {
-        return any(boost::any_cast<string>("None"));
+        // If both are strings, compare them.
+        std::string str1 = boost::lexical_cast<std::string>(a);
+        std::string str2 = boost::lexical_cast<std::string>(b);
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return boost::any("None");
     }
 }
