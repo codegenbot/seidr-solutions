@@ -8,7 +8,7 @@ def parse_nested_parens(paren_string: str) -> list:
             level += 1
             result.append(level)
         elif char == ")":
-            level -= 1
-            while level > 0:
-                result.append(level)
-    return [i for i in result]
+            while level > 1:
+                result.pop()
+                level -= 1
+    return result
