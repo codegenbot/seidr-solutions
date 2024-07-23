@@ -32,13 +32,6 @@ int maxIncreaseKeepingSingle(vector<vector<int>>& grid) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<vector<int>> grid(n, vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cin >> grid[i][j];
-        }
-    }
-    cout << maxIncreaseKeepingSingle(grid) << endl;
+    vector<vector<int>> grid;
+    // Write your code here for reading input and calling the maxIncreaseKeepingSingle function
 }
