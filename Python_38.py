@@ -1,8 +1,8 @@
+```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
     
-    # Handle strings with less than two characters
     if n < 2:
         return s
     
@@ -15,14 +15,14 @@ def decode_cyclic():
                 j += 1
             result += s[i]
             i += j
-        elif i == n - 1:
-            j = 0
+        elif i > 0 and s[i] == s[0]:
+            j = 1
             while i - j >= 0 and s[i] == s[i-j]:
                 j += 1
-            if j > 0: 
-                result += s[0:j]
+            if j > 1: 
+                result += s[:j]
             else:
-                result += s[i]
+                result += s[0]
             break
         else:
             result += s[i]

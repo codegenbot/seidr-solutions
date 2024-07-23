@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```python
+```
 from typing import List
 
 def filter_integers() -> List[int]:
@@ -12,7 +10,3 @@ def filter_integers() -> List[int]:
         num_list = [int(x) for x in values.split(",") if x.strip().replace(",", "").isdigit()]
         if all(isinstance(i, int) for i in num_list):
             return num_list
-        print("Invalid input. The following values were not integers: ")
-        for value in num_list:
-            if not isinstance(value, int):
-                print(f"{value}")
