@@ -8,4 +8,4 @@ def luhn(card_number):
             if (digit > 9):
                 digit -= 9
         total += digit
-    return total % 10
+    return total
