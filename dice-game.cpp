@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <iomanip>
 
@@ -21,5 +21,5 @@ int main() {
         cout << "Invalid input. Please enter two integers separated by a space." << endl;
         return 1; 
     }
-    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(8) << diceGame(n, m) << endl;
 }
