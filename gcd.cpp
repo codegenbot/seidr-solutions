@@ -3,27 +3,26 @@
 #include <vector>
 #include <string>
 
-std::size_t gcd(std::size_t a, std::size_t b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        std::size_t temp = a;
-        a = b;
-        b = temp % b;
+        size_t temp = b;
+        b = a % b;
+        a = temp;
     }
     return a;
 }
 
 std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
     std::vector<std::size_t> result;
-    std::size_t n = text.length();
-    std::size_t m = target.length();
+    size_t n = text.length();
+    size_t m = target.length();
 
-    for (std::size_t i = 0; i <= n - m; i++) {
-        size_t j = 0;
+    for (size_t i = 0; i <= n - m; i++) {
         bool found = true;
-        while ((j += 1) <= m && text[i+j-1] == target[j-1]) {
-            if (j != m) {
-                if (text[i+j-1] != target[j-1])
-                    found = false;
+        for (size_t j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
             }
         }
         if (found) {
@@ -47,6 +46,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    std::size_t GCD = gcd((std::size_t)text.length(), (std::size_t)target.length());
+    size_t GCD = gcd(text.length(), target.length());
     std::cout << "GCD of text and target: " << GCD << std::endl;
 }
