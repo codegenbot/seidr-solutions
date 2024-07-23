@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -19,9 +18,9 @@ string spinWords(string str) {
         string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        
-        result += word + " ";
+            result += (word.rbegin(), word.rend(), " ") + "";
+        else
+            result += word + " ";
         
         start = end + 1;
     }
@@ -33,7 +32,7 @@ int main() {
     string str;
     while (true) {
         cout << "Enter a string: ";
-        getline(cin, str);
+        cin >> str;
         cout << spinWords(str) << endl;
     }
 }

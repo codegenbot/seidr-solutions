@@ -17,26 +17,27 @@ int gcd(int a, int b) {
 int main() {
     string text, target;
     cout << "Enter the text: ";
-    cin >> text;
-    cout << "Enter the target: ";
-    cin >> target;
+    getline(cin, text);
+    cout << "Enter the target substring: ";
+    getline(cin, target);
 
-    vector<int> result;
+    vector<int> indices;
     size_t pos = 0;
+
     while((pos = text.find(target)) != string::npos) {
-        result.push_back(pos);
-        pos += target.size();
+        indices.push_back(pos);
+        text.erase(pos, target.length());
     }
 
-    if(result.empty()) {
-        cout << "Target not found in the text." << endl;
-    } else {
-        cout << "Indices of Target: ";
-        for(int i : result) {
-            cout << i << " ";
-        }
-        cout << endl;
+    cout << "Indices of Substring (" << target << ") in the text: ";
+    for(int i : indices) {
+        cout << i << " ";
     }
+    cout << endl;
 
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
     return 0;
 }

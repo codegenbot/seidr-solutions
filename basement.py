@@ -1,12 +1,9 @@
 def basement(arr):
     total = 0
     i = 0
-    negative_sum_reached = False
+    first_negative_index = 0
     while True:
         total += arr[i]
-        if total < 0 and not negative_sum_reached:
-            negative_sum_reached = True
-            return i
-        elif total > 0:
-            negative_sum_reached = False
+        if total < 0:
+            return i + 1
         i += 1
