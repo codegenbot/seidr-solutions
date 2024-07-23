@@ -1,16 +1,14 @@
-```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
         result = None
-        if i == None:
-            i = 0
+        operator = None
+        operator_precedence = {'&': 1, '|': 0}
+        stack = []
 
         while i < len(tokens):
             token = tokens[i]
             if token == '(':
-                i += 1
-                result = recursive_eval(tokens, i)
-                return result
+                stack.append(i)
             elif token in ['T', 'F']:
                 if result is None: 
                     result = True if token == 'T' else False
@@ -20,13 +18,16 @@ def solve_boolean(expression):
                     result = False
                 return result
             elif token in ['|', '&']:
-                if result is None: 
-                    i += 1
-                elif result == True: 
-                    return True
-                else:
-                    result = recursive_eval(tokens, i+1)
-                    return not result
+                operator = token
+                result = recursive_eval(tokens, i+1)
+                while len(stack) > 0 and tokens[stack[-1]] == operator:
+                    if stack[-1] == '&' and result is True:
+                        return True
+                    elif stack[-1] == '|' and result is False:
+                        return False
+                    stack.pop()
+                if len(stack) > 0:
+                    i = stack[-1]
             elif token == ')':
                 while tokens[i] != '(':
                     i += 1
