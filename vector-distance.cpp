@@ -20,7 +20,8 @@ int main() {
 
     std::cin >> n;
 
-    std::vector<float> v1, v2;
+    std::vector<float> v1;
+    std::vector<float> v2;
 
     for (size_t i = 0; i < n; i++) {
         float val;
@@ -35,6 +36,6 @@ int main() {
     }
 
     double distance = vectorDistance(v1, v2);
-    std::cout << "Euclidean distance: " << distance << std::endl;
+    std::cout << "Euclidean distance: " << distance << "\n";
     return 0;
 }
