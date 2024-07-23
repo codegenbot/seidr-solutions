@@ -16,5 +16,6 @@ vector<int> leaders(vector<int> nums) {
 int main() {
     vector<int> input = {459,427,648};
     vector<int> output = leaders(input);
+    // do something with the output
     return 0;
 }
