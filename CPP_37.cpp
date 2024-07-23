@@ -4,13 +4,13 @@
 
 bool my_same(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(),
-          [&b](float x) { return std::abs(x - *std::min_element(b.begin(), [y](float z) {return std::abs(z);})+1e-6) <= 1e-6; }));
+          [&](float x) { return std::abs(x - *std::min_element(b.begin(), b.end())+1e-6) <= 1e-6; }));
 
-vector<float> sort_even(std::vector<float> l) {
-    vector<float> result;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> even;
+            std::vector<float> even;
             for (float x : l) {
                 if (x % 2 == 0) {
                     even.push_back(x);
