@@ -2,6 +2,10 @@
 #include <string>
 #include <initializer_list>
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a==b;
+}
+
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
     for (const auto& str : vec) {
@@ -12,11 +16,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
     return result;
 }
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a==b;
-}
-
 int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") == {"xxx", "xxxAAA", "xxx"});
+    assert(std::issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") , {"xxx","xxxAAA","xxx"}));
     return 0;
 }
