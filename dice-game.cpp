@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -19,4 +18,4 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main() { cout << fixed << setprecision(2) << diceGame(43, 98) << endl; return 0; }
+int main() { return 0; }
