@@ -9,13 +9,13 @@ int main() {
     
     std::vector<int> indices;
     
-    int pos = text.find(target, 0);
+    size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+        pos = text.find(target, pos + target.length());
     }
     
-    for (int index : indices) {
+    for(int index : indices) {
         std::cout << index << " ";
     }
     
