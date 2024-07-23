@@ -3,5 +3,5 @@ int n = a.size();
     if (n != m) return false;
     
     string temp = a + a;
-    return (temp.find(b) != string::npos);
+    return temp.find(b) != string::npos;
 }
