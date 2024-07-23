@@ -1,15 +1,13 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
-
-nums.sort()
-total_sum = sum(nums)
-half_sum = total_sum // 2
-
-prefix_sum = 0
-for idx, num in enumerate(nums):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or prefix_sum - num == half_sum:
-            print(nums[: idx + 1])
-            print(nums[idx + 1 :])
-            break
+arr = list(map(int, input().split()))
+total_sum = sum(arr)
+left_sum = 0
+for i in range(n):
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+        left_sum - right_sum - arr[i]
+    ):
+        print(*arr[: i + 1])
+        print(*arr[i + 1 :])
+        break
