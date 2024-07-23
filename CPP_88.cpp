@@ -1,14 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> sort_array(vector<int> array) {
     if (array.empty()) return array;
     
     int sum = 0;
-    for(int i : array) {
-        sum += i;
+    for(int i=0; i<array.size();i++){
+        sum += array[i];
     }
     vector<int> result = array;
     
