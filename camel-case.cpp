@@ -1,9 +1,8 @@
 int main() {
-    string input;
-    getline(cin, input);
-
+    string s;
+    getline(cin, s);
     bool capitalize = true;
-    for (char &c : input) {
+    for (char& c : s) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
@@ -13,6 +12,5 @@ int main() {
             cout << c;
         }
     }
-
     return 0;
 }
