@@ -29,20 +29,21 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     int n;
-    cin >> n;
+    cin >> n; // Read number of queens
 
-    vector<int> q(n);
+    vector<int> q(n); // Create a vector with 'n' elements
 
     cout << "Enter position of queen 1: ";
-    cin >> q[0];
+    cin >> q[0]; // Read and assign first position to the first element of the vector
 
     for (int i = 1; i < n; i++) {
         int temp;
         cout << "Enter position of queen " << i + 1 << ": ";
-        cin >> q[i];
+        cin >> q[i]; // Read and assign subsequent positions to corresponding elements
     }
 
     int w;
+    cout << "Enter the total weight: ";
     cin >> w;
 
     if (will_it_fly(q, w))
