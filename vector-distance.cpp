@@ -20,8 +20,7 @@ int main() {
 
     std::cin >> n;
 
-    std::vector<float> v1;
-    std::vector<float> v2;
+    std::vector<float> v1, v2;
 
     for (size_t i = 0; i < n; i++) {
         float val;
