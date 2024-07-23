@@ -1,66 +1,44 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-
-using namespace std;
-
-struct cmp {
-    bool operator()(const pair<int, int>& p1, const pair<int, int>& p2) {
-        return p1.second > p2.second;
-    }
-};
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
-            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
-            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
-            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
-        }
-    }
-
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q; // {sum, path}
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            q.push({grid[i][j], make_pair(i, j)});
+            if (i > 0) neighbors[i].push_back({grid[i][j], make_pair(i-1, j)});
+            if (i < n-1) neighbors[i].push_back({grid[i][j], make_pair(i+1, j)});
+            if (j > 0) neighbors[i].push_back({grid[i][j], make_pair(i, j-1)});
+            if (j < n-1) neighbors[i].push_back({grid[i][j], make_pair(i, j+1)});
         }
     }
 
     vector<int> res;
+    queue<pair<vector<int>, int>> q; // {path, length}
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if ((i == n-1) && (j == n-1)) continue;
+            q.push({{grid[i][j]}, 1});
+        }
+    }
+
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
-        if (k == 0) {
-            return {sum};
-        }
-        for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
-            k--;
-            q.push({ns, make_pair(ni, nj)});
-        }
+        auto [path, len] = q.front(); q.pop();
+        if (len > k) continue;
+        int val = neighbors[path.back()][0].second.first;
+        vector<int> newPath = path;
+        newPath.push_back(val);
+        q.push({newPath, len + 1});
     }
 
-    return {};
-}
-
-int mainTest() {
-    // Test cases
-    vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    cout << "{";
-    for (int val : minPath(grid1, 3)) {
-        cout << val << " ";
+    while (!q.empty()) {
+        auto [path, _] = q.front(); q.pop();
+        res = path;
+        break;
     }
-    cout << "}\n";
 
-    vector<vector<int>> grid2 = {{5, 9, 3}, {4, 1, 6}, {7, 8, 2}};
-    cout << "{";
-    for (int val : minPath(grid2, 1)) {
-        cout << val << " ";
+    if (res.size() == 0) return {};
+    vector<int> min_path;
+    int target_cell = grid.back().back();
+    for (int val : res) {
+        if (val == target_cell) min_path.push_back(val);
     }
-    cout << "}\n";
-
-    return 0;
+    return min_path;
 }
