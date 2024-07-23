@@ -1,3 +1,14 @@
+```cpp
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    cout << solutions({1, 4, 5, 10}) << endl;
+    return 0;
+}
+
 int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {

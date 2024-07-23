@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 #include <initializer_list>
-#include <stdbool.h> 
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -12,7 +11,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+        if (std::find(c.begin(), c.end(), s[i]) == c.end()) {
             temp += s[i];
         }
     }

@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -9,11 +10,18 @@ long long minSubArraySum(std::vector<long long> nums) {
         sum += nums[i];
         if (sum < min_sum)
             min_sum = sum;
-        while (sum > 0) {
-            sum -= nums[i--];
+        
+        while(sum > 0){
+            sum -= nums[i];
+            i++;
+            if(sum <= 0) break;
         }
     }
     return min_sum;
 }
 
-assert(minSubArraySum({1, -1}) == -1);
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+    std::cout << minSubArraySum({{1, -1}}) << '\n';
+    return 0;
+}
