@@ -1,26 +1,18 @@
 vector<string> result;
-    string group;
-    int open_count = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_count > 0) {
-                result.push_back(group);
-                group = "";
+    int start = 0;
+    int count = 0;
+    for (int i = 0; i < paren_string.size(); ++i) {
+        if (paren_string[i] == '(') {
+            if (count == 0) {
+                start = i;
             }
-            open_count++;
-        } else if (c == ')') {
-            open_count--;
-            result.push_back(group + ")");
-            group = "";
-        } else {
-            group += c;
+            count++;
+        } else if (paren_string[i] == ')') {
+            count--;
+            if (count == 0) {
+                result.push_back(paren_string.substr(start, i - start + 1));
+            }
         }
     }
-
-    if (!group.empty()) {
-        result.push_back(group);
-    }
-
     return result;
 }
