@@ -19,16 +19,12 @@ int bowlingScore(std::string s) {
                 roll2 = 0;
             }
         } else {
-            score += (c - '0');
-            if (!isStrike) {
-                roll1 = c - '0';
-                if (roll1 < 2) {
-                    roll2 = 0; 
-                }
-            } else { 
-                score += 30;
-                roll2 = 0; 
-            }
+            int temp = c - '0';
+            char tempChar = static_cast<char>(temp);
+            std::string sTemp = "";
+            sTemp += tempChar;
+            score += sTemp.length();
+            roll2 = 0;
         }
     }
 
