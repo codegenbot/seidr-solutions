@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cmath> // Include the math library for log10
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
