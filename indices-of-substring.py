@@ -13,5 +13,12 @@ while start < len(text):
     indices.append(index)
     start = index + 1
 
+idx = 1
+while idx < len(indices):
+    if indices[idx] == indices[idx - 1]:
+        del indices[idx]
+    else:
+        idx += 1
+
 for index in indices:
     print(index, end=" ")
