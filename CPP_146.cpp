@@ -15,11 +15,11 @@ int specialFilter(std::vector<int> nums) {
 int main() {
     std::vector<int> nums;
     int num;
-
+    
     while(std::cin >> num) {
         nums.push_back(num);
     }
-
+    
     int result = specialFilter(nums);
     std::cout << "Count of numbers that meet the criteria: " << result << std::endl;
 
