@@ -2,9 +2,6 @@ code = input()
 guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
-white_pegs = sum(
-    min(code.count(c), guess.count(c))
-    for c in set(code) & set(guess)
-) - black_pegs
+white_pegs = sum(min(code.count(char), guess.count(char)) for char in set(code) if char not in (c for c, g in zip(code, guess) if c == g)) - black_pegs
 
-print(len(code) - black_pegs - white_pegs, black_pegs)
+print(len(code) - white_pegs - black_pegs, black_pegs)

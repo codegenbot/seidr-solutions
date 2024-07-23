@@ -5,9 +5,11 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if text[i : i + len(target)].lower() == target.lower()
+        if text[i : i + len(target)] == target
     ]
 
-    return indices
+    print(len(indices))
+    print(" ".join(map(str, indices)))
+
 
 indices_of_substring()
