@@ -1,5 +1,7 @@
 def make_palindrome(string: str) -> str:
-    if len(string) % 2 == 0:
-        return string + string[::-1]
-    else:
-        return string[:len(string)//2] + string + string[:len(string)//2][::-1]
+    while True:
+        reversed_string = string[::-1]
+        if string == reversed_string or len(string) < 2:
+            return string
+        new_string = string[0] + reversed_string + string[-1] + string[1:-1]
+        string = new_string
