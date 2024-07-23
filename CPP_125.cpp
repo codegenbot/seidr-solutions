@@ -1,3 +1,4 @@
+```cpp
 #include<stdio.h>
 #include<vector>
 #include<string>
@@ -20,5 +21,6 @@ vector<string> split_words(string txt) {
     }
 
     if (!txt.empty()) result.push_back(txt);
-
+    
     return result;
+}
