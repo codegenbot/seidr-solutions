@@ -8,29 +8,30 @@ using namespace std;
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-    
-    // Count the number of correct colors in the wrong place
+
+    vector<char> codeCopy(code);
+    vector<char> guessCopy(guess);
+
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // mark this position as visited
-            guess[i] = ' '; // mark this position as visited
+            codeCopy[i] = ' '; // mark this position as visited
+            guessCopy[i] = ' '; // mark this position as visited
         }
     }
-    
-    // Count the number of correct colors in the right place
+
     for (int i = 0; i < 4; i++) {
         int j = 0;
         while (j < 4) {
-            if (code[j] == guess[i]) {
+            if (codeCopy[j] == guess[i]) {
                 white++;
-                code[j] = ' '; // mark this position as visited
+                codeCopy[j] = ' '; // mark this position as visited
                 break;
             }
             j++;
         }
     }
-    
+
     return black, white;
 }
 
