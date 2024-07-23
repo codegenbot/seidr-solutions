@@ -12,5 +12,5 @@ def indices_of_substring(text, target):
         if start_index == -1:
             break
         indices.append(start_index + 1)
-        start_index += len(target)
+        start_index += 1
     return indices
