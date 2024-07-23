@@ -16,7 +16,7 @@ bool evaluateBooleanExpression(const string& expression) {
             return left || right;
         }
     }
-    return false;
+    return false; // Dummy return to handle control reaching end of non-void function
 }
 
 int main() {
