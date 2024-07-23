@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    int result = pairedDigits("123212");
+    int result = pairedDigits("123333");
     return 0;
 }
 
