@@ -1,5 +1,8 @@
 def basement(arr):
-    for i in range(len(arr)):
-        total = sum(arr[: i + 1])
+    total = 0
+    i = 1
+    while True:
+        total += arr[i-1]
         if total < 0:
-            return i + 1
+            return i
+        i += 1
