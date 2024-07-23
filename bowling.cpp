@@ -9,7 +9,6 @@ int bowlingScore(string s) {
             string secondRollStr = s.substr(i + 1);
             int firstRoll = stoi(firstRollStr);
             int secondRoll = stoi(secondRollStr);
-
             score += getPointsForFrame(firstRoll, secondRoll);
             currentFrame++;
         }
