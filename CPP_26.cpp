@@ -1,14 +1,15 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    std::vector<int> result = numbers;
+    std::vector<int> result(numbers.begin(), numbers.end());
     auto it = std::unique(result.begin(), result.end());
-    it = result.erase(it, result.end());
+    result.erase(it, result.end());
     return result;
 }
 
