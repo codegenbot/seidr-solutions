@@ -1,4 +1,4 @@
-```
+```python
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -14,4 +14,4 @@ def coin_sums(cents):
     print(f"Nickels: {results[2]}")
     print(f"Pennies: {results[3]}")
 
-coin_sums(4281)
+coin_sums(int(input("Enter the number of cents: ")))
