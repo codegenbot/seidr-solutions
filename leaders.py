@@ -1,4 +1,6 @@
 def leaders(arr):
+    if len(arr) == 0:
+        return []
     n = len(arr)
     leaders_list = []
 
