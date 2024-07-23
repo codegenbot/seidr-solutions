@@ -1,6 +1,6 @@
 ```cpp
 #include <cctype>
-#include <string.h> 
+#include <string>
 #include <iostream>
 
 std::string flip_case(std::string str){
@@ -8,10 +8,10 @@ std::string flip_case(std::string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z'){
-            result += toupper(c);
+            result += std::toupper(c);
         }
         else if(c >= 'A' && c <= 'Z'){
-            result += tolower(c);
+            result += std::tolower(c);
         }
         else{
             result += c;
@@ -25,5 +25,5 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    static_assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS", "");
 }
