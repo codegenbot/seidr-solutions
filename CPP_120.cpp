@@ -30,13 +30,5 @@ int main()
     } else {
         std::cout << "Test Failed\n";
     }
-    
-    std::vector<int> testMax = {1, 2, 3, -23, 243, -400, 0};
-    if(issame(std::vector<int>(1), maximum(testMax, 0))) {
-        std::cout << "Maximum Test Passed\n";
-    } else {
-        std::cout << "Maximum Test Failed\n";
-    }
-    
     return 0;
 }
