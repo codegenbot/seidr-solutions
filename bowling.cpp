@@ -4,8 +4,19 @@
 int calculateFrameScore(const std::string& s, int index) {
     if (s[index] == 'X') {
         int frameScore = 10;
-        frameScore += (s[index + 1] == 'X') ? 10 : (s[index + 1] == '/' ? 10 - (s[index + 2] - '0') : s[index + 1] - '0');
-        frameScore += (s[index + 2] == 'X') ? ((s[index + 3] == 'X') ? 10 : (s[index + 3] == '/' ? 10 - (s[index + 4] - '0') : s[index + 3] - '0')) : (s[index + 2] == '/' ? 10 : s[index + 2] - '0');
+        int nextIndex = index + 1;
+        int remainingBalls = 2;
+        while (remainingBalls > 0 && nextIndex < s.size()) {
+            if (s[nextIndex] == 'X') {
+                frameScore += 10;
+            } else if (s[nextIndex] == '/') {
+                frameScore += 10;
+            } else {
+                frameScore += s[nextIndex] - '0';
+            }
+            remainingBalls--;
+            nextIndex++;
+        }
         return frameScore;
     } else if (s[index] == '/') {
         return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
