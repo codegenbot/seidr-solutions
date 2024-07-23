@@ -1,5 +1,6 @@
-if(text.empty())
+if (text.empty()) {
         return "None";
+    }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5((unsigned char*)text.c_str(), text.length(), digest);
