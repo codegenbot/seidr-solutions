@@ -1,30 +1,27 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& vec) {
-    int n = vec.size();
-    vector<int> res;
+vector<int> leaders(vector<int>& v) {
+    int n = v.size();
+    vector<int> result;
     
-    if (n == 1) {
-        res.push_back(vec[0]);
-        return res;
+    if(n == 1){
+        return v;
     }
     
-    for (int i = n - 1; i >= 0; i--) {
+    for(int i=n-1; i>=0; i--){
         bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (vec[j] >= vec[i]) {
+        for(int j=i+1; j<n; j++){
+            if(v[j] >= v[i]){
                 isLeader = false;
                 break;
             }
         }
-        if (isLeader) res.push_back(vec[i]);
+        
+        if(isLeader){
+            result.push_back(v[i]);
+        }
     }
     
-    return res;
-}
-
-int main() {
-    // Your code to test leaders function here
-    return 0;
+    return result;
 }
