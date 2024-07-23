@@ -4,9 +4,8 @@
 
 int main() {
     int result = smallest_change({0, 1});
-    // test assertion
-    assert(result == 2);
-    std::cout << "The minimum number of coins needed is: " << result << std::endl;
+    assert(result == 1);
+    std::cout << "The number of changes is: " << result << std::endl;
     return 0;
 }
 
