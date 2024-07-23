@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool is_sorted(vector<int> lst) {
@@ -18,7 +19,7 @@ bool is_sorted(vector<int> lst) {
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
     cout << "Is the given vector sorted? ";
-    if (is_sorted({1, 2, 3, 4})) {
+    if (is_sorted(vector<int>({1, 2, 3, 4}))) {
         cout << "Yes";
     } else {
         cout << "No";
