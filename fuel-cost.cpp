@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
-vector<int> nums;
-
 int main() {
+    vector<int> nums;
     int n;
     while (cin >> n) {
         nums.push_back(n);
@@ -14,10 +12,10 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
+        sum += max(0, num / 3 - 2);
     }
 
-    std::cout << sum << std::endl;
+    cout << sum << endl;
 
     return 0;
 }
