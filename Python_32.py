@@ -1,6 +1,8 @@
 ```
-def find_zero():
-    xs = list(map(int, input("Enter a list of numbers separated by space: ").split()))
+def find_zero(xs: list):
+    if not xs:
+        return "Invalid input"
+
     n = len(xs)
     assert n % 2 == 0
     degree = n // 2
