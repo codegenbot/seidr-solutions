@@ -1,15 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <iostream>
 #include <iomanip>
-#include <initializer_list>
 
 using namespace std;
 
 double poly(vector<double> xs, double x){
     double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
+    for (int i = 0; i < xs.size();i++)
     {
         sum+=xs[i]*pow(x,i);
     }
