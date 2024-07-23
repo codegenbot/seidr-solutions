@@ -1,15 +1,15 @@
-sort(l.begin(), l.end());
-    int left = 0;
-    int right = l.size() - 1;
+#include <stdio.h>
+#include <vector>
+#include <unordered_set>
+using namespace std;
 
-    while (left < right) {
-        if (l[left] + l[right] == 0) {
+bool pairs_sum_to_zero(vector<int> l){
+    unordered_set<int> s;
+    for(int num : l){
+        if(s.find(-num) != s.end()){
             return true;
-        } else if (l[left] + l[right] < 0) {
-            left++;
-        } else {
-            right--;
         }
+        s.insert(num);
     }
     return false;
 }
