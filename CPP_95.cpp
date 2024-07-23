@@ -1,8 +1,9 @@
-#include <map>
 #include <string>
 #include <cctype>
+#include <map>
+using namespace std;
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
@@ -12,11 +13,4 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     }
 
     return allLower && !allUpper || !allLower && allUpper;
-}
-
-int main() {
-    std::map<std::string, std::string> dict;
-    std::cout << std::boolalpha;
-    std::cout << "Is the dictionary case mixed? " << check_dict_case(dict) << std::endl;
-    return 0;
 }
