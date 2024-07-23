@@ -1,15 +1,11 @@
-def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0
-    degree = n // 2
-    a = xs[::2]
-    coefficients = [0] * (degree + 1)
-    for i in range(degree + 1):
-        if i < len(a):
-            coefficients[degree - i] = a[i]
-
-    root = coefficients[-1] / coefficients[0]
-    return round(root, 2)
-
-xs = input("Enter the list of coefficients: ").split()
-print(find_zero([int(x) for x in xs]))
+def sum_even_and_odd(nums):
+    even_sum = 0
+    odd_sum = 0
+    
+    for num in nums:
+        if num % 2 == 0:
+            even_sum += num
+        else:
+            odd_sum += num
+            
+    return even_sum, odd_sum
