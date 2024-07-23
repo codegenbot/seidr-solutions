@@ -14,7 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp = ''
             temp += char
         elif char == ')':
-            if not temp or temp[-1] == '(':
+            if not temp or (temp.count('(') > temp.count(')')):
                 temp += char
                 
     if temp:
