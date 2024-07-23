@@ -1,8 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 
-std:string flip_case(std::string str) {
-    for(int i=0; i<str.length(); i++){
+std::string flip_case(std::string& str) {
+    std::string result = "";
+    for(int i=0; i<str.size(); i++){
         if(islower(str[i])){
             result += toupper(str[i]);
         } else {
