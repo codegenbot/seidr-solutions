@@ -4,20 +4,9 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m + 1; i++) {
-        bool found = true;
-        for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
-        }
+    int pos = -1; // Initialize to -1
+    while ((pos = text.find(target, pos + 1)) != string::npos) {
+        result.push_back(pos);
     }
 
     return result;
