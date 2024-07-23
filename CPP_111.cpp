@@ -1,6 +1,5 @@
-#include <map>
-
-bool issame(map<char, int> a, map<char, int> b) {
+```cpp
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -10,3 +9,21 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
+
+}
+
+std::map<char, int> histogram(const std::string& str) {
+    std::map<char, int> result;
+
+    for (char c : str) {
+        if (!isalpha(c)) continue; 
+        char lower = tolower(c);
+        if (result.find(lower) == result.end()) {
+            result[lower] = 1;
+        } else {
+            result[lower]++;
+        }
+    }
+
+    return result;
+}
