@@ -1,4 +1,4 @@
-#include <sstream>
+#include <string>
 
 string squareDigits(string input) {
     string result = "";
