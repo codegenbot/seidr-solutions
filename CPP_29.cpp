@@ -6,8 +6,8 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    return v1 == v2;
 }
 
 vector<string> filter_by_prefix(vector<string> vec, string prefix) {
@@ -18,4 +18,10 @@ vector<string> filter_by_prefix(vector<string> vec, string prefix) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    
+    return 0;
 }
