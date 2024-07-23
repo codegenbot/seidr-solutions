@@ -1,16 +1,16 @@
-string anti_shuffle(string s) {
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    int lastSpace = 0;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
+            lastSpace = i;
         } else {
-            string word = "";
-            while (i < s.length() && s[i] != ' ') {
-                word += s[i];
+            while (i > lastSpace) {
+                result += s[lastSpace];
+                lastSpace++;
             }
-            for (int j = 0; j < word.length(); j++) {
-                result += word[j];
-            }
+            result += s[i];
         }
     }
     return result;
