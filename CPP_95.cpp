@@ -1,8 +1,10 @@
 if(dict.empty()) return false;
-bool isLower = true, isUpper = true;
-for(auto const &entry : dict){
-    if(entry.first != tolower(entry.first[0])) isLower = false;
-    if(entry.first != toupper(entry.first[0])) isUpper = false;
+bool is_lower = true, is_upper = true;
+for(auto const& entry : dict) {
+    for(char c : entry.first) {
+        if(!islower(c)) is_lower = false;
+        if(!isupper(c)) is_upper = false;
+    }
 }
-return isLower || isUpper;
+return is_lower || is_upper;
 }
