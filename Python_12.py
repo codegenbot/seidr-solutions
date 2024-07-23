@@ -24,8 +24,9 @@ while True:
     except Exception as e:
         print(f"Invalid input: {e}")
 
-result = longest(strings)
-if result == "No strings entered":
-    print(result)
-else:
-    print(f"The longest string is: {result}")
+if strings:
+    result = longest(strings)
+    if result == "No strings entered":
+        print(result)
+    else:
+        print(f"The longest string is: {result}")
