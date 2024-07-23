@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <string>
 #include <iostream>
@@ -8,8 +7,11 @@ std::string flip_case(std::string str){
     std::string result;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
-        if(std::isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : std::tolower(c);
+        if(c >= 'a' && c <= 'z'){
+            result += std::toupper(c);
+        }
+        else if(c >= 'A' && c <= 'Z'){
+            result += std::tolower(c);
         }
         else{
             result += c;
@@ -19,8 +21,10 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
+    char buffer[256];
+    std::cin.get(buffer, 256);
+    std::string str = std::string(buffer);
+    
     if (!(std::cin >> str).good()) {
         std::cerr << "Invalid input." << std::endl;
         return 1;
