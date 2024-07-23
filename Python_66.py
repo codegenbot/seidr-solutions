@@ -1,2 +1,3 @@
 def digitSum(s):
-    return sum(int(c) if c.isdigit() else 0 for c in s if not c.isalpha())
+    for i in range(10):
+        print(i)
