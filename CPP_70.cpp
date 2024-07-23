@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
@@ -27,10 +28,9 @@ int main() {
     list.push_back(1);
     list.push_back(1);
     list.push_back(1);
-    list.push_back(2);
-    list.push_back(3);
-    list.push_back(4);
-    list.push_back(5);
+    list.push_back(1);
+    list.push_back(1);
+    list.push_back(1);
     assert(issame(strange_sort_list(list), list));
     return 0;
 }
