@@ -11,10 +11,10 @@ int main() {
     int dimes = cents / 10; 
     cents %= 10;
 
-    int nickles = (cents - 10 * dimes) / 5; 
+    int nickles = (cents - 2 * dimes) / 5; 
     cents %= 5;
 
-    int pennies = (cents % 5);
+    int pennies = cents;
     
     cout << quarters << endl; 
     cout << nickles << endl;   
