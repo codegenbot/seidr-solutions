@@ -1,8 +1,29 @@
 def decipher_message(cipher1, cipher2, message):
-    case = max(max(cipher1, key=str.isupper), max(cipher2, key=str.isupper))
-    
-    encrypt_map = {c+('' if c.islower() else '').upper(): d+('' if d.islower() else '').upper() for c, d in zip(cipher1, cipher2)}
-    decrypt_map = {v+('' if v.islower() else '').upper(): k+('' if k.islower() else '').upper() for k, v in encrypt_map.items()}
-    
-    result = "".join(decrypt_map.get(char+('' if char.islower() else '').upper(), char) for char in message)
+    for c1, c2 in zip(cipher1, cipher2):
+        if c1.isupper() and c2.isupper():
+            case = 'UPPER'
+            map = str.maketrans({c1: c2})
+        elif c1.islower() and c2.islower():
+            case = 'LOWER'
+            map = str.maketrans({c1: c2})
+        else:
+            case = 'MIXED'
+            map1 = str.maketrans({c1.upper(): c2.upper()})
+            map2 = str.maketrans({c1.lower(): c2.lower()})
+
+    if case == 'UPPER':
+        result = message.translate(map)
+    elif case == 'LOWER':
+        result = message.translate(map)
+    else:
+        result_upper = message.translate(map1).upper()
+        result_lower = message.translate(map2).lower()
+        result = ''
+        for char in result_upper:
+            if char.isalpha():
+                if char.lower() in result_lower:
+                    result += char
+                else:
+                    result += char
+
     return result
