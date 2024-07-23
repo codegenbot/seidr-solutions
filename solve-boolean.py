@@ -1,20 +1,11 @@
-```
 import ast
 
 
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-
     def bool_ops(x, y):
-        if x and y: 
-            return "T"
-        elif x or y:
-            return "T"
-        else: 
-            return "F"
+        if x and y: return "T"
+        elif x or y: return "T"
+        else: return "F"
 
     result = ""
     stack = [expression]
@@ -29,7 +20,7 @@ def solve_boolean(expression):
             temp = f"({left}) | ({right})"
         result = temp
 
-    return "T" if str(result) == "True" else "F"
+    return "T" if result == "True" else "F"
 
 
 if __name__ == "__main__":
