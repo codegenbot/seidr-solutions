@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
