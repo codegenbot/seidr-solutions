@@ -1,9 +1,9 @@
 #include <vector>
-#include <cllimits>
+#include <climits>
 #include <cmath>
 using namespace std;
 
-vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     
@@ -19,5 +19,5 @@ vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     left.assign(nums.begin(), nums.begin()+pos);
     right.assign(nums.begin()+pos, nums.end());
     
-    return {{left}, {right}};
+    return {left, right};
 }
