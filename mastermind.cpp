@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -14,7 +14,12 @@ int mastermind(std::string code, std::string guess) {
 
     // Count the number of white pegs (correct color, wrong place)
     for (char c : code) {
-        int count = std::count(std::begin(guess), std::end(guess), c);
+        int count = 0;
+        for (char ch : guess) {
+            if (ch == c) {
+                count++;
+            }
+        }
         black -= count;
         white += count > 1 ? 0 : 1; 
     }
