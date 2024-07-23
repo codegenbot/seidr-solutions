@@ -1,3 +1,5 @@
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -19,7 +21,7 @@ vector<int> count_up_to(int n) {
     return result;
 }
 
-int mainProblem() {
+int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
