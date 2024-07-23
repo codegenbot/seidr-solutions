@@ -1,5 +1,6 @@
-using namespace std;
 #include <utility>
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
@@ -11,7 +12,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         for (int j = i; j < v.size(); j++) {
             rightSum += v[j];
         }
-        if (abs(leftSum - rightSum) < minDiff) {
+        if (leftSum == rightSum) {
+            return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + i),
+                                                    vector<int>(v.begin() + i, v.end()));
+        } else if (abs(leftSum - rightSum) < minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
         }
@@ -23,6 +27,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex), 
+    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
                                             vector<int>(v.begin() + cutIndex, v.end()));
 }
