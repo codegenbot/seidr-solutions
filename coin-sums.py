@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -12,3 +13,8 @@ def coin_sums(cents):
 
 cents = int(input())
 print(*coin_sums(cents))
+for i, count in enumerate(reversed(coin_sums(cents))):
+    if count > 0:
+        print(count)
+    else:
+        print(0)
