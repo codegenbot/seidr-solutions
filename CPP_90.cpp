@@ -7,8 +7,8 @@ sort(lst.begin(), lst.end());
             if (count == 1) {
                 return lst[i];
             }
-            prev = lst[i];
         }
+        prev = lst[i];
     }
     return -1;
 }
