@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <cassert>
 #include <type_traits>
-#include <cstdint>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -21,7 +20,7 @@ std::vector<int> filter_integers(std::vector<int> mixedVector) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 3, 3}), filter_integers({3, 3, 3})));
+    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
 
     return 0;
 }
