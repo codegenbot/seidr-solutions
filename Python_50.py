@@ -1,3 +1,4 @@
+```
 def decode_shift():
     s = input("Enter the ciphertext: ")
     while True:
