@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -21,7 +22,7 @@ int main() {
         }
     }
     
-    std::cout << result << std::endl;
+    cout << result << endl;
     
     return 0;
 }
