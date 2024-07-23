@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,9 +10,8 @@ def parse_music(music_string: str) -> List[int]:
         if note == "o":
             result.append(beats[0])
         elif note == "o|":
-            result.append(beats[1])
+            result.append(beats[0] + beats[1])
         elif note == ".|":
-            result.append(beats[2])
-        else:
-            result.extend([beats[i] for i, char in enumerate(note) if char == "o"])
+            result.append(beats[0] + beats[2])
+
     return result
