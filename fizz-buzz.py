@@ -5,8 +5,9 @@ def fizz_buzz(n):
         if i % 3 == 0:
             s = "Fizz"
         if i % 5 == 0:
-            s += "Buzz" if s == "" else "Buzz"
-        if not s:
+            s += "Buzz" if s == "" else ""
+            s = "FizzBuzz" if s == "" else s
+        else:  
             s = str(i)
         result.append(s)
     return ''.join(result)
