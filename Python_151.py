@@ -1,3 +1,5 @@
-def double_the_difference(lst):
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-    return 2*odd_sum - sum(i for i in lst if isinstance(i, int))
+def double_the_difference(lst1):
+    lst2 = input("Enter a list of integers: ").split()
+    return sum(
+        i**2 for i in map(int, lst2) if isinstance(int(i), int) and int(i) % 2 != 0
+    )
