@@ -12,11 +12,20 @@ int findSmallest(vector<int> lst) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -12;
+    return -1;
 
 }
 
 int main() {
-    cout << findSmallest({-35, 34, 12, -45}) << endl;
+    vector<int> lst;
+    int n, temp;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the numbers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> temp;
+        lst.push_back(temp);
+    }
+    cout << "The next smallest number is: " << findSmallest(lst) << endl;
     return 0;
 }
