@@ -1,5 +1,3 @@
-#include<stdio.h>
-#include<math.h>
 #include<string>
 #include<algorithm>
 using namespace std;
@@ -14,9 +12,9 @@ string rounded_avg(int n,int m){
     avg = floor(avg + 0.5); // round to nearest integer
     string res = "";
     while(avg > 0){
-        if(avg % 2 == 1) res.push_back('1');
+        if(avg % 2) res.push_back('1');
         else res.push_back('0');
-        avg = (int)avg / 2; 
+        avg = (int)avg / 2;
     }
     std::reverse(res.begin(), res.end());
     return res;
