@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -36,6 +37,6 @@ map<char, int> histogram(const string& str) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
     return 0;
 }

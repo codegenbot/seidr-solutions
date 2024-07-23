@@ -23,9 +23,9 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b){
             return false;
     }
     return true;
-
 }
+
 int main() {
-    assert(isSame(select_words("a b c d e f", 1) , std::vector<std::string>{ "b","c","d","f" }));
+    assert(isSame(select_words("a b c d e f", 1) , std::vector<std::string>({"b","c","d","f"})));
     return 0;
 }
