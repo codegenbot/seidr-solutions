@@ -2,18 +2,13 @@
 #include <vector>
 #include <utility>
 
-std::vector<std::pair<int, int>> result(const std::vector<int>& arr) {
-    std::vector<std::pair<int, int>> output;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (issame({arr[i], i}, {1, 2})) {
-            output.push_back(std::make_pair(arr[i], i));
+std::pair<int, int> result(const std::vector<int>& arr) {
+    for(int i = 0; i < arr.size(); ++i) {
+        if(arr[i] % 2 == 1) {
+            return {arr[i], i};
         }
     }
-    return output;
-}
-
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return (a.first == b.first && a.second == b.second);
+    return {-1, -1}; // or any other default value
 }
 
 int main() {
