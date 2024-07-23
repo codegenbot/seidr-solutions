@@ -1,25 +1,68 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<int> left(n);
-    copy(v.begin(), v.end(), left.begin());
+    pair<vector<int>, vector<int>> res;
     
-    int min_diff = INT_MAX, idx;
-    for (int i = 1; i < n; ++i) {
-        int diff = abs(left[i] - left[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            idx = i;
+    for (int i = 0; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; ++j)
+            leftSum += v[j];
+        for (int j = i; j < n; ++j)
+            rightSum += v[j];
+        
+        if (leftSum == rightSum) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0].resize(idx+1);
-    copy(v.begin(), v.begin() + idx+1, result[0].begin());
-    result[1].resize(n - idx-1);
-    copy(v.begin() + idx+1, v.end(), result[1].begin());
+    int minDiff = INT_MAX, splitIndex = 0;
     
-    return result;
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; ++j)
+            leftSum += v[j];
+        for (int j = i; j < n; ++j)
+            rightSum += v[j];
+        
+        if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            splitIndex = i;
+        }
+    }
+    
+    res.first = vector<int>(v.begin(), v.begin() + splitIndex);
+    res.second = vector<int>(v.begin() + splitIndex, v.end());
+    
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> v(n);
+    
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    
+    cout << "Left: ";
+    for (int num : res.first)
+        cout << num << " ";
+    cout << endl;
+    
+    cout << "Right: ";
+    for (int num : res.second)
+        cout << num << " ";
+    cout << endl;
+    
+    return 0;
 }
