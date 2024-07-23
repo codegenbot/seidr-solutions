@@ -1,9 +1,8 @@
+#include <ext/new_allocator.h>
 #include <cstddef>
-
 #include <utility>
 #include <vector>
 #include <unordered_map>
-#include <iostream>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numIndex;
@@ -27,3 +26,4 @@ int main() {
         std::cout << "The pair is: " << pair.first << ", " << pair.second << std::endl;
     }
     return 0;
+}
