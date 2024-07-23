@@ -1,35 +1,26 @@
 ```cpp
-#include <queue>
+#include <vector>
+#include <algorithm>
 #include <climits>
-#include <numeric>
 
-using namespace std;
+std::vector<int> subVector1;
+std::vector<int> subVector2;
 
-std::pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+int main() {
+    std::vector<int> v = {1, 2, 3};
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i <= v.size(); i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i; j < v.size(); j++) {
-            rightSum = std::accumulate(v.begin() + j, v.end(), 0);
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff <= minDiff) {
+    int cutIndex = -1;
+
+    for (int i = 0; i < v.size() - 1; ++i) {
+        int diff = std::abs(v[i] - v[i + 1]);
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-    
-    vector<int> leftVec(v.begin(), v.begin() + cutIndex);
-    vector<int> rightVec(vector<int>(v.begin() + cutIndex, v.end()));
-    
-    return {leftVec, rightVec};
+
+    subVector1.assign(v.begin(), v.begin() + cutIndex + 1);
+    subVector2.assign(v.begin() + cutIndex + 1, v.end());
+
+    return 0;
 }
