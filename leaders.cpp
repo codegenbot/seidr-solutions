@@ -2,9 +2,9 @@
 #include <vector>
 using namespace std;
 
-std::vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
+    vector<int> result = vector<int>();
     int maxSoFar = arr[n-1];
     result.push_back(maxSoFar);
     
