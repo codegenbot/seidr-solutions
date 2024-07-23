@@ -3,7 +3,6 @@ using namespace std;
 
 void mastermind(const string& code, const string& guess) {
     int whitePegs = 0, blackPegs = 0;
-    
     int codeFreq[6] = {0};
 
     for (int i = 0; i < 4; ++i) {
