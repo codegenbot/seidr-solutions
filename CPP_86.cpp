@@ -1,18 +1,15 @@
-string anti_shuffle(string s){
-    string result = "";
-    string temp = "";
-    for(char c : s){
-        if(c == ' '){
-            sort(temp.begin(), temp.end());
-            result += temp + " ";
-            temp = "";
+string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
+            sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
         } else {
-            temp += c;
+            word += c;
         }
     }
-    if(!temp.empty()){
-        sort(temp.begin(), temp.end());
-        result += temp;
-    }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
