@@ -1,4 +1,3 @@
-```
 def sum_even_and_odd(nums):
     even_sum = 0
     odd_sum = 0
@@ -11,7 +10,7 @@ def sum_even_and_odd(nums):
             
     return even_sum, odd_sum
 
-if __name__ == "__main__":
-    nums = list(map(int, input("Enter numbers separated by space: ").split()))
-    even_sum, odd_sum = sum_even_and_odd(nums)
-    print(f"Sum of even numbers is {even_sum} and sum of odd numbers is {odd_sum}")
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+even_nums, odd_nums = sum_even_and_odd(numbers)
+print(f"Sum of even numbers: {even_nums}")
+print(f"Sum of odd numbers: {odd_nums}")
