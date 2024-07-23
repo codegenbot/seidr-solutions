@@ -1,16 +1,19 @@
-def main():
-    while True:
-        strings = input("Enter a list of strings (space-separated): ")
-        prefix = input("Enter a prefix: ")
+from typing import List
 
-        if not strings or not prefix:
-            print("Please enter valid inputs!")
-        else:
+
+def filter_by_prefix() -> List[str]:
+    while True:
+        try:
+            strings = input("Enter a list of strings (space-separated): ")
+            prefix = input("Enter a prefix: ")
+
+            if not strings or not prefix:
+                raise ValueError("Please enter valid inputs!")
+
             filtered_strings = [
                 s.strip() for s in strings.split() if s.strip().startswith(prefix)
             ]
+
             return filtered_strings
-
-
-result = main()
-print(result)
+        except ValueError as e:
+            print(f"Error: {e}")
