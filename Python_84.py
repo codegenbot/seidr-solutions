@@ -1,3 +1,4 @@
+```
 def solve():
     n = int(input())
     N = int(input())
