@@ -7,10 +7,10 @@ int main() {
     
     for (int i = 0; i < hours; ++i) {
         snow += rate;
-        snow -= snow * melt;
+        snow += rate - (snow * melt);
     }
     
     std::cout << snow << std::endl;
     
     return 0;
-}
+}      
