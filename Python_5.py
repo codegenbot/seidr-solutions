@@ -1,4 +1,5 @@
-def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
+```
+def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
     while True:
         try:
             if not numbers or len(numbers) == 0:
@@ -31,4 +32,4 @@ def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
         else:
             break
 
-    return intersperse(numbers, delimiter)
+    return intersperse(delimiter, numbers)
