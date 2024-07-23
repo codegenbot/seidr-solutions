@@ -1,7 +1,6 @@
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -25,7 +24,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    cin >> str;
-    cout << spinWords(str) << endl;
+    std::cin >> str;
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
