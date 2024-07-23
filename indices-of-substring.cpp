@@ -1,19 +1,14 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
-    while (start < text.length()) {
-        size_t pos = text.find(target, start);
-        if (pos != string::npos) {
-            indices.push_back(pos);
-            start = pos + 1;
-        } else {
-            break;
-        }
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += 1; // add 1 to find the next occurrence
     }
-    return indices;
+    return result;
 }
 
 int main() {
@@ -21,9 +16,10 @@ int main() {
     cin >> n;
     string text;
     cin >> text;
-    vector<int> result = findIndices(text, text.substr(0, n));
-    for (int i : result) {
+    vector<int> indices = indicesOfSubstring(text, text.substr(0, n));
+    for (auto i : indices) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
