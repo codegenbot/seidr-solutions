@@ -1,15 +1,8 @@
-#include <vector>
-
-int main() {
-    std::vector<int> v = {1, 2, 3}; 
-    int result = fuelCost(v);
-    return 0;
-}
-
+int main() = delete;
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = static_cast<int>(i / 3.0) - 2; 
+        int temp = std::floor((double)i / 3) - 2; 
         if(temp < 0)
             temp = 0;
         sum += temp;
