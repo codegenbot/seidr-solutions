@@ -24,24 +24,12 @@ vector<int> findSubstringIndices(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    string text, target;
-
-    cout << "Enter two integers a and b: ";
     cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
-
-    cin.ignore(); // Ignore newline character
-
-    cout << "Enter a text string: ";
-    getline(cin, text);
-
-    cout << "Enter a target string: ";
-    getline(cin, target);
-
+    string text, target;
+    cin >> text >> target;
     vector<int> result = findSubstringIndices(text, target);
-
-    cout << "Indices at which target appears in text: ";
     for (int index : result) {
         cout << index << " ";
     }
