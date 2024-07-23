@@ -10,4 +10,3 @@ int is_bored(string S) {
         pos++;
     }
     return count;
-}
