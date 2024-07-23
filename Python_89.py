@@ -4,7 +4,7 @@ def encrypt(s):
     for char in s:
         if char.isalpha():
             ascii_offset = 97 if char.islower() else 65
-            encrypted_char = chr((ord(char) - ascii_offset + 26) % 26 + ascii_offset)
+            encrypted_char = chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
             result += encrypted_char
         else:
             result += char
