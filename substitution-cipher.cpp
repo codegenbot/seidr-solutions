@@ -2,27 +2,28 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher1.length(); j++) {
-            if (message[i] == cipher1[j]) {
-                result += cipher2[j];
-                break;
-            }
-        }
+std::string decipher(std::string cipherText, std::string key) {
+    int n = cipherText.length();
+    string deciphered = "";
+
+    for (int i = 0; i < n; i++) {
+        deciphered += key[i];
     }
-    return result;
+
+    return deciphered;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
+    std::string cipherText1, cipherText2, text;
     std::cout << "Enter the first string: ";
-    std::cin >> cipher1;
+    std::cin >> cipherText1;
     std::cout << "Enter the second string: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to be deciphered: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
+    std::cin >> cipherText2;
+    std::cout << "Enter the third string: ";
+    std::cin >> text;
+
+    std::string result = decipher(text, cipherText1);
+    std::cout << "Deciphered message: " << result << std::endl;
+
     return 0;
 }
