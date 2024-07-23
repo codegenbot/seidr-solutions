@@ -7,10 +7,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m + 1; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-        }
+    int pos = 0; 
+
+    while (pos < n) { 
+        pos = text.find(target, pos); 
+        if (pos == string::npos)
+            break; 
+
+        result.push_back(pos); 
+        pos += m; 
     }
 
     return result;
