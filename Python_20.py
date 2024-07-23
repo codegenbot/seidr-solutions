@@ -9,8 +9,19 @@ def find_closest_elements() -> Tuple[float, float]:
             print("Invalid input. Please enter space-separated numbers.")
             continue  # ask again
 
+    if not isinstance(numbers, list):
+        return None
     if len(numbers) < 2:
         return None
-    return tuple(min(pair) for pair in zip([numbers[0]], numbers + [numbers[0]])) 
+    numbers.sort()
+    
+    closest_pair = (numbers[0], numbers[1])
+    min_diff = abs(numbers[1] - numbers[0])
 
-print(find_closest_elements())
+    for i in range(len(numbers) - 1):
+        diff = abs(numbers[i] - numbers[i + 1])
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i + 1])
+
+    return closest_pair
