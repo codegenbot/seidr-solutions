@@ -16,6 +16,8 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
         numIndex[nums[i]] = i;
     }
 
+    if (result.empty()) return {-1, -1};
+
     return result;
 }
 
@@ -33,8 +35,8 @@ int main() {
 
     std::vector<int> result = findPair(nums, target);
 
-    for (int i = 0; i < result.size(); ++i) {
-        std::cout << result[i] << std::endl;
+    for (int i = 0; i < result.size(); i += 2) {
+        std::cout << result[i] << " " << result[i + 1] << std::endl;
     }
 
     return 0;
