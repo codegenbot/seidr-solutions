@@ -1,15 +1,9 @@
-string encrypt(string s){
-    string result = "";
-    for(char c : s){
+string result = s;
+    for(char& c : result) {
         if(isalpha(c)){
-            char encrypted = c + (2 * (c >= 'a' ? 1 : -1));
-            if((islower(c) && encrypted > 'z') || (isupper(c) && encrypted > 'Z')){
-                encrypted -= 26;
-            }
-            result += encrypted;
-        } else {
-            result += c;
+            int shift = (c - 'a') * 2 + 2;
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c - base + shift) % 26 + base;
         }
     }
     return result;
-}
