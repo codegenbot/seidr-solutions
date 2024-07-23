@@ -1,25 +1,25 @@
-#include <unordered_map>
+```cpp
+#include <string>
 #include <cctype>
+#include <unordered_map>
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
-    std::unordered_map<std::pair<char, bool>, int> caseCounts;
+    std::unordered_map<std::pair<char, bool>, int> charCaseCount;
 
     for (auto& pair : dict) {
-        if (!islower(pair.first[0])) {
-            caseCounts[{pair.first[0], false}] = 1;
-        } else {
-            caseCounts[{pair.first[0], true}] = 1;
-        }
+        char firstChar = pair.first[0];
+        bool isLower = islower(firstChar);
+        
+        charCaseCount[{firstChar, isLower}]++;
     }
 
-    int lowerCount = 0, upperCount = 0;
+    bool allLower = true;
+    bool allUpper = true;
 
-    for (auto& pair : caseCounts) {
-        if (pair.second == 1) {
-            if (pair.first.second) lowerCount++;
-            else upperCount++;
-        }
+    for (auto& count : charCaseCount) {
+        if (count.second > 1 && (!isLower || !allLower)) allLower = false;
+        if (count.second > 1 && (!isUpper || !allUpper)) allUpper = false;
     }
 
-    return lowerCount > 0 && upperCount > 0;
+    return allLower && !allUpper || !allLower && allUpper;
 }
