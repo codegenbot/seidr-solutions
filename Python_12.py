@@ -1,4 +1,5 @@
-from typing import list, Optional
+```Python
+from typing import List, Optional
 
 def longest(strings: list) -> Optional[str]:
     if not strings:
