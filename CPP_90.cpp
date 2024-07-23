@@ -1,15 +1,11 @@
-if (lst.size() < 2) {
-        return -1;
+sort(lst.begin(), lst.end());
+int count = 1;
+for (size_t i = 0; i < lst.size(); ++i) {
+    if (lst[i] != lst[i + 1]) {
+        ++count;
     }
-    
-    sort(lst.begin(), lst.end());
-    
-    int smallest = lst[0];
-    for (int num : lst) {
-        if (num > smallest) {
-            return num;
-        }
+    if (count == 2) {
+        return lst[i + 1];
     }
-    
-    return -1;
 }
+return -1;
