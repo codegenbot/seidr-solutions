@@ -1,14 +1,13 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <initializer_list>
 
-std::vector<double> toStdVector(std::initializer_list<double> il) {
-    return std::vector<double>(il);
-}
+using namespace std;
 
-double poly(std::vector<double> xs, double x){
+double poly(vector<double> xs, double x){
     double sum=0;
     int i;
     for (i=0;i<xs.size();i++)
@@ -18,20 +17,19 @@ double poly(std::vector<double> xs, double x){
     return sum;
 }
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> xs){
     if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
-        x -= poly(xs, x)/poly(toStdVector({xs[1], xs.back()}), x); 
+        x -= poly(xs, x)/poly({xs[1], xs.back()}, x); 
     }
-    std::ostringstream oss;
+    ostringstream oss;
     oss << fixed << setprecision(6) << x;
     return stod(oss.str());
 }
 
 int main() {
-    std::vector<double> xs = {1, -6, 11, -6};
+    vector<double> xs = {1, -6, 11, -6};
     double zero = find_zero(xs);
-    std::cout << "Zero is: " << zero << std::endl; 
+    cout << "Zero is: " << zero << endl; 
     return 0;
-}
