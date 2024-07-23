@@ -3,11 +3,11 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
-        throw "Vectors are not the same size";
+        throw std::runtime_error("Vectors are not the same size");
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            throw "Vectors contain different values at some positions";
+            throw std::runtime_error("Vectors have different elements");
         }
     }
     return true;
