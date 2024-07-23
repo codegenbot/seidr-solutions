@@ -14,53 +14,51 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
 def main():
     while True:
         print("Do you want to run the program? (yes/no): ")
-        while True:
+        response = input().lower()
+        while response not in ["y", "yes", "n", "no"]:
+            print("Invalid input. Please enter 'y' or 'n'.")
             response = input().lower()
-            if response in ["y", "yes"]:
-                break
-            elif response in ["n", "no"]:
-                print("Exiting the program.")
-                exit(0)
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
 
+        if response in ["y", "yes"]:
+            break
+        elif response in ["n", "no"]:
+            print("Exiting the program.")
+            exit(0)
+
+    while True:
+        numbers = " ".join(input("Enter comma-separated float numbers: ").split(","))
+        if not numbers.strip():
+            print("Please enter some numbers.")
+        elif len(numbers.split()) < 2:
+            print("Please enter at least two numbers.")
+        else:
+            try:
+                numbers_list = list(map(float, numbers.split()))
+                break
+            except ValueError:
+                print("Invalid input. Please enter valid float numbers.")
+
+    while True:
         while True:
-            while True:
-                numbers = input("Enter comma-separated float numbers: ")
-                if not numbers.strip():
-                    print("Please enter some numbers.")
-                elif len(numbers.split(",")) < 2:
-                    print("Please enter at least two numbers.")
-                else:
-                    try:
-                        numbers_list = list(map(float, numbers.split(",")))
-                        break
-                    except ValueError:
-                        print("Invalid input. Please enter valid float numbers.")
+            threshold_str = input("Enter a threshold value: ")
+            if not threshold_str.strip():
+                print("Please enter a threshold value.")
+            else:
+                try:
+                    threshold = float(threshold_str)
+                    break
+                except ValueError:
+                    print(
+                        "Invalid input. Please enter a valid number for the threshold."
+                    )
 
-            while True:
-                while True:
-                    threshold_str = input("Enter a threshold value: ")
-                    if not threshold_str.strip():
-                        print("Please enter a threshold value.")
-                    else:
-                        try:
-                            threshold = float(threshold_str)
-                            break
-                        except ValueError:
-                            print(
-                                "Invalid input. Please enter a valid number for the threshold."
-                            )
+        result = has_close_elements(numbers_list, threshold)
 
-                result = has_close_elements(numbers_list, threshold)
-
-                print(
-                    "The list contains close elements"
-                    if result
-                    else "The list does not contain close elements"
-                )
-                break
-
+        print(
+            "The list contains close elements"
+            if result
+            else "The list does not contain close elements"
+        )
         break
 
 
