@@ -3,7 +3,7 @@ def single_frame_score(frame):
     if frame == "X":
         return 10 + 1 + int(single_frame_score(frames[i+1]))
     elif frame == "/":
-        return 10 + int(single_frame_score(frames[i+2]))
+        return 10 + int(frames[i+2])
     else:
         return int(frame) * 1 + int(frame)*1
 
