@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
 int main() {
     int n;
     cin >> n;
@@ -13,7 +7,7 @@ int main() {
     }
 
     char comma;
-    cin >> n >> comma;
+    cin >> comma;
 
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
