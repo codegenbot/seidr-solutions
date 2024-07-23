@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <map>
-#include <cctype>
 #include <string>
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
@@ -34,20 +34,49 @@ std::map<char, int> histogram(const std::string& str) {
 }
 
 int main() {
-    std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    std::cin >> input;
+    
+    auto hist = histogram(input);
+    bool isSame = true;
 
-    std::map<char, int> h = histogram(str);
+    if (input.size() > 1) {
+        for (int i = 0; i < input.size() - 1; ++i) {
+            if (std::tolower(input[i]) == std::tolower(input[i + 1])) {
+                isSame = false;
+                break;
+            }
+        }
+    }
 
-    if (h.size() > 0) {
-        for (const auto& pair : h) {
-            std::cout << pair.first << ": " << pair.second << std::endl;
+    if (isSame) {
+        for (const auto& pair : hist) {
+            for (int i = 0; i < pair.second - 1; ++i) {
+                std::cout << " ";
+            }
+            for (int i = 0; i < pair.second; ++i) {
+                if (i == pair.second - 1)
+                    std::cout << pair.first;
+                else
+                    std::cout << pair.first << " ";
+            }
+            std::cout << '\n';
         }
     } else {
-        std::cout << "No letters found" << std::endl;
+        for (const auto& pair : hist) {
+            for (int i = 0; i < pair.second - 1; ++i) {
+                std::cout << " ";
+            }
+            for (int i = 0; i < pair.second; ++i) {
+                if (i == pair.second - 1)
+                    std::cout << tolower(pair.first);
+                else
+                    std::cout << tolower(pair.first) << " ";
+            }
+            std::cout << '\n';
+        }
     }
 
     return 0;
-
 }
