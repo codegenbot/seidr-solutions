@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <algorithm>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
