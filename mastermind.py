@@ -1,12 +1,5 @@
-```
-def mastermind(code, guess):
-    white = 0
-    black = 0
-    
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        elif str(code[i]) in str(guess):
-            white += 1
-            
-    return black, white
+black = 0
+correct_colors = [guess[i] if code[i] == guess[i] else '' for i in range(len(code))]
+black = sum(correct_colors.count(str(code[i])) for i in range(len(code)))
+white = len([c for c in code if c in guess and c != guess[guess.index(c)]])
+return str(black) + "\n" + str(white)
