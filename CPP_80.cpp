@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <unordered_map>
 
@@ -11,9 +10,7 @@ bool is_happy(string s) {
         unordered_map<char, int> char_count;
         for (char c : sub) { 
             char_count[c]++;
-        }
-        for (pair<char, int> p : char_count) {
-            if (p.second > 1) {
+            if (char_count[c] > 1) {
                 unique_chars = false;
                 break;
             }
