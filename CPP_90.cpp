@@ -1,3 +1,5 @@
+#include <vector>
+#include <algorithm>
 #include <initializer_list>
 
 int next_smallest(vector<int> lst) {
