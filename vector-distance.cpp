@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <iomanip>
 #include <cmath>
 
@@ -24,6 +23,7 @@ int main() {
     int n;
     cin >> n;
     
-    cout << setprecision(10) << fixed << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     
     return 0;
+}
