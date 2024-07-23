@@ -10,13 +10,11 @@ int main() {
     std::vector<double> vec2(n);
 
     for (int i = 0; i < n; ++i) {
-        char comma; // to read and ignore comma
-        std::cin >> vec1[i] >> comma;
+        std::cin >> vec1[i];
     }
 
     for (int i = 0; i < n; ++i) {
-        char comma; // to read and ignore comma
-        std::cin >> vec2[i] >> comma;
+        std::cin >> vec2[i];
     }
 
     double sum = 0;
