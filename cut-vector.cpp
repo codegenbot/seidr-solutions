@@ -1,4 +1,7 @@
 ```cpp
+#include <vector>
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
     int cut_index = 0;
@@ -11,7 +14,9 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
+    auto left = vector<int>();
+    left.assign(v.begin(), v.begin() + cut_index);
+
+    auto right = vector<int>(v.begin() + cut_index, v.end());
     return {left, right};
 }
