@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int add(const std::vector<int>& vec) {
     int result = 0;
@@ -21,6 +20,7 @@ int main_func() {
         if (!(std::cin >> num) || num == -1) break;
         numbers.push_back(num);
     }
+    
     while (std::cin.fail()) {
         std::cout << "Invalid input! Please enter some numbers: ";
         std::cin.clear();
