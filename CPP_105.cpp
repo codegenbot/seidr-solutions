@@ -3,15 +3,8 @@
 #include <string>
 #include <algorithm>
 
-// Define issame function here
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
-}
-
-int main() {
-    // Use issame function here
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
 }
 
 vector<string> by_length(vector<int> arr) {
