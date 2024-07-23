@@ -1,5 +1,4 @@
-#include <string>
-
-int str_len(const std::string& str) {
+```
+int strLength(string str){
     return str.length();
 }
