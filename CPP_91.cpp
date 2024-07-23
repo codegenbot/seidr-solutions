@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int is_bored(std::string S) {
+bool is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I";
     size_t pos = 0;
@@ -13,18 +13,19 @@ int is_bored(std::string S) {
         }
         pos++;
     }
-    return count;
+    return (count > 0);
 }
 
 int main() {
-    std::string input;
+    std::string S;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int result = is_bored(input);
-    if (result > 0) {
-        std::cout << "The string contains the boredom." << std::endl;
+    std::cin >> S;
+
+    if (is_bored(S)) {
+        std::cout << "You're bored.\n";
     } else {
-        std::cout << "The string does not contain the boredom." << std::endl;
+        std::cout << "You're not bored.\n";
     }
+
     return 0;
 }
