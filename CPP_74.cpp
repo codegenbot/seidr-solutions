@@ -1,19 +1,18 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    vector<string> result;
+    
+    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    std::vector<std::string> result;
-    std::sort(lst1.begin(), lst1.end());
-    std::sort(lst2.begin(), lst2.end());
+    sort(lst1.begin(), lst1.end());
+    sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
     
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
-            result.push_back(lst1[i]);
+            result.push_back(string(lst1[i])); // Modified code
             i++;
             j++;
         } else if (lst1[i] < lst2[j]) {
@@ -24,17 +23,4 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 
     return result;
-}
-
-int main() {
-    std::vector<std::string> vec1 = {"hi", "admin"};
-    std::vector<std::string> vec2 = {"hI", "Hi"};
-
-    std::vector<std::string> result = total_match(vec1, vec2);
-
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << std::endl;
-    }
-
-    return 0;
 }
