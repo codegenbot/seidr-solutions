@@ -1,5 +1,3 @@
 ```
 def dice_game(n, m):
-    total_outcomes = n * m
-    equal_outcomes = min(n, m)
-    return 1 - (equal_outcomes / total_outcomes)
+    return sum(1/i/j for i in range(2,n+1) for j in range(1,m)) / n/m
