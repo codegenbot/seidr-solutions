@@ -1,3 +1,15 @@
+```cpp
+int pairedDigits(std::string str) {
+    int sum = 0;
+    for(int i=0; i<str.length(); i++) {
+        if(i+1 < str.length() && (i == str.length()-1 || str[i] != str[i+1])) {
+            sum += str[i] - '0';
+        }
+    }
+    return sum;
+
+}
+
 int main() {
     std::string input;
     printf("Enter a string of digits: ");
@@ -7,3 +19,4 @@ int main() {
     printf("Sum of paired digits: %d\n", result);
 
     return 0;
+}
