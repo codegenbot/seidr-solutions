@@ -24,4 +24,3 @@ int main() {
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
-}
