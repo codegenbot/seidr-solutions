@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 using namespace std;
@@ -9,7 +8,5 @@ double closest_integer(string value) {
 }
 
 int main() {
-    assert(closest_integer("0") == 0.0);
-    cout << closest_integer("3.7");
-    return 0;
+    assert(closest_integer("0") == 0);
 }
