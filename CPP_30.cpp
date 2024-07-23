@@ -14,13 +14,7 @@ int main() {
     for (auto i = 0; i < n; ++i)
         std::cin >> a[i];
 
-    bool same = true;
-    for (const auto& val : a) {
-        if (!(std::cin >> val)) { 
-            same = false;
-            break;
-        }
-    }
+    bool same = issame(a, a);
 
     std::cout << (same ? "YES" : "NO") << std::endl;
 
