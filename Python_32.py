@@ -1,8 +1,10 @@
-Here is the completed code:
-
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[-1]
-    b = -sum(x for x in xs[:-1])
-    return round(-b / (2 * a), 2)
+        raise ValueError("xs must have three coefficients")
+
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
+
+    x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
+    return round(x, 10)
