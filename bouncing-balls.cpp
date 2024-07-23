@@ -10,11 +10,13 @@ int main() {
     
     total_distance = start_height;
 
-    double bounce_height = start_height * bounciness_index; // Corrected bounce height calculation
-    
+    double bounce_height = start_height; // Corrected bounce height initialization
+
+    total_distance += start_height; // Add initial drop
+
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += bounce_height * 2 - start_height; // Add distance for going up and coming down
         bounce_height *= bounciness_index; // Correctly calculate new bounce height
+        total_distance += bounce_height * 2; // Add distance for going up and coming down
     }
 
     std::cout << total_distance << std::endl;
