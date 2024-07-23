@@ -6,52 +6,31 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     stack<string> s;
-    
-    for (int i = 0; i < expression.size(); ++i) {
+    string temp = "";
+
+    for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '(') {
-            s.push("(" + expression.substr(i));
-            i++;
+            s.push(expression.substr(0, i));
+            expression = expression.substr(i + 1);
+            i = -1;
         }
         else if (expression[i] == ')') {
-            string subexpr = s.top();
+            expression = s.top() + expression;
             s.pop();
-            string temp = "";
-            
-            while (!s.empty() && s.top().compare("(") != 0) {
-                temp += s.top() + " ";
-                s.pop();
-            }
-            
-            if (!s.empty()) {
-                s.pop();
-            }
-            expression.replace(expression.find(subexpr), subexpr.size(), solveBoolean(temp + subexpr + " ") + ")");
         }
-        else if (expression[i] == '&' || expression[i] == '|') {
-            string op = expression[i];
-            i++;
-            
-            while (i < expression.size() && (expression[i] == 'T' || expression[i] == 'F')) {
-                string val = expression.substr(0, ++i);
-                if (val.compare("T") == 0)
-                    s.push(string("true"));
-                else
-                    s.push(string("false"));
-            }
-            
-            while (!s.empty() && s.top().compare("(") != 0) {
-                string temp = s.top();
-                s.pop();
-                if (op == '&')
-                    op = " && ";
-                else
-                    op = " || ";
-                expression.replace(expression.find(temp), temp.size(), "(solveBoolean(" + temp + "))" + op);
-            }
+        temp += expression[i];
+
+        if (i + 1 < expression.size() && ((temp[temp.size() - 1] == '&' && expression[i + 1] == '&') || 
+                                            (temp[temp.size() - 1] == '|' && expression[i + 1] == '|'))) {
+            s.push(temp);
+            temp = "";
         }
     }
-    
-    return (expression.compare(string("true")) == 0)? true : false;
+
+    if (expression.find("T") != string::npos)
+        return true;
+    else
+        return false;
 }
 
 int main() {
