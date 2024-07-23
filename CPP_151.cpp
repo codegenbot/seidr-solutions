@@ -20,12 +20,13 @@ int main() {
     // Read the number of elements
     std::cin >> n;
 
-    std::vector<float> numbers;
+    // Read each element and add to vector
+    std::vector<float> myVector;
     for(int i = 0; i < n; ++i) {
         std::cin >> temp;
-        numbers.push_back(temp);
+        myVector.push_back(temp);
     }
 
-    long long result = double_the_difference(numbers); 
+    long long result = double_the_difference(myVector); 
     return 0;
 }
