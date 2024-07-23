@@ -9,12 +9,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<int> left;
     vector<int> right;
     int min_diff = INT_MAX;
-    int best_cut = -1;
+    int best_cut = 0;
 
     for (int i = 1; i < n; i++) {
-        if (v[i] == v[0]) break;
-        if (abs(v[i] - v[0]) < min_diff) {
-            min_diff = abs(v[i] - v[0]);
+        if (v[i] == v[best_cut]) break;
+        if (abs(v[i] - v[best_cut]) < min_diff) {
+            min_diff = abs(v[i] - v[best_cut]);
             best_cut = i;
         }
     }
