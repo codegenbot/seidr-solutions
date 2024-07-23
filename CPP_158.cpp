@@ -9,9 +9,11 @@ std::string find_max(std::vector<std::string> words) {
 
     for (const auto& word : words) {
         std::set<char> unique_chars(word.begin(), word.end());
-        if ((int)unique_chars.size() > max_unique_chars) {
-            max_unique_chars = (int)unique_chars.size();
-            max_word = word;
+        if ((int)unique_chars.size() >= max_unique_chars) {
+            if ((int)unique_chars.size() > max_unique_chars || (int)unique_chars.size() == max_unique_chars && word.length() > max_word.length()) {
+                max_unique_chars = (int)unique_chars.size();
+                max_word = word;
+            }
         }
     }
 
