@@ -15,7 +15,7 @@ int bowlingScore(const char* s) {
             }
         } else if (s[i] == '/') {
             int j = i + 1;
-            while (j < strlen(s) && !isdigit(s[j])) {
+            while (j < 11 && !isdigit(s[j])) {
                 j++;
             }
             int pins = s[j] - '0';
