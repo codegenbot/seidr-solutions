@@ -1,8 +1,9 @@
+import math
+
 def middle_character(s):
     s = str(s)
     length = len(s)
-    middle_index = length // 2
     if length % 2 == 0:
-        return s[middle_index-1:middle_index+1]
+        return s[math.ceil(length/2)-1:math.ceil(length/2)]
     else:
-        return s[middle_index]
+        return s[math.ceil(length/2)]
