@@ -13,9 +13,13 @@ std::string camelCase(std::string str) {
         words.push_back(str.substr(start));
     }
 
-    std::string result = tolower(words[0]);
+    result = "";
+    for (int i = 0; i < words[0].size(); i++) {
+        result += tolower(words[0][i]);
+    }
+    
     for (int i = 1; i < words.size(); i++) {
-        result += std::to_string(std::toupper(words[i][0])) + words[i].substr(1);
+        result += toupper(words[i][0]) + words[i].substr(1);
     }
     return result;
 }
