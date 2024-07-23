@@ -1,6 +1,12 @@
 def basement(nums):
     total = 0
-    for i, num in enumerate(nums + [0]): 
+    index = 0
+    for num in nums: 
         total += num
-        if total < 0: return i + 1 
+        index += 1
+        if total < 0:
+            return index
+        elif total > 0:
+            total = 0
+            index = 0
     return -1
