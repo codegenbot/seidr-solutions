@@ -1,20 +1,28 @@
+```
 def bowling_score(frames):
     score = 0
-    prev_was_strike = False
+    frame = 1
     for i in range(len(frames)):
         if frames[i] == 'X':
             score += 10
-            prev_was_strike = True
-        elif frames[i] in '1234567890/':
-            if frames[i] == '/':
+            if i < len(frames) - 2 and frames[i+1] == 'X' and frames[i+2] == 'X':
+                score += 30
+            elif i < len(frames) - 1:
                 try:
-                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', '')) * (prev_was_strike)
+                    score += int(frames[i+1].lstrip('/').replace('-', '')) + (10 if frame != 10 else 0)
                 except ValueError:
-                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', ''))
-            else:
+                    pass
+            frame = min(frame+1, 10)
+        elif frames[i] in '123456789':
+            pins = sum(int(x) for x in frames[i].lstrip('/').replace('-', ''))
+            score += pins
+            if i < len(frames) - 1 and frames[i+1] == '/':
                 try:
-                    score += int(frames[i]) + sum(int(x) for x in frames[(i + 1)].lstrip('/').replace('-', '')) * (prev_was_strike)
+                    score += int(frames[i+2].lstrip('/').replace('-', '')) + (10 if frame != 10 else 0)
                 except ValueError:
-                    score += int(frames[i])
-        prev_was_strike = False if i == len(frames) - 1 else (frames[i] != 'X')
+                    pass
+            elif i < len(frames) - 1 and sum(int(x) for x in frames[i+1:]) >= 10:
+                score += 10
+                frame = min(frame+1, 10)
+            frame += 1
     return score
