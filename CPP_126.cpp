@@ -4,9 +4,8 @@
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1) return true;
-    std::vector<int> sorted_lst = lst; 
-    for(int i = 1; i < sorted_lst.size(); i++){
-        if(sorted_lst[i-1] >= sorted_lst[i]) return false;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i-1] >= lst[i]) return false;
     }
     return true;
 }
