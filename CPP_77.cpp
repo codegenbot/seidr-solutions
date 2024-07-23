@@ -1,4 +1,3 @@
-//Complete the code
-    int cube_root = round(cbrt(a));
-    return (cube_root * cube_root * cube_root == a);
+int cubeRoot = round(cbrt(a));
+    return a == cubeRoot * cubeRoot * cubeRoot;
 }
