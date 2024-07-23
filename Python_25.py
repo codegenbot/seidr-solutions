@@ -1,14 +1,5 @@
-```python
 from typing import List
 
-
-def get_factors():
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            return get_factors(n)
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
 
 def get_factors(n: int) -> List[int]:
     factors = []
@@ -26,5 +17,14 @@ def get_factors(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+
+def get_factors():
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            return get_factors(n)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
 get_factors()
