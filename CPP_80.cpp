@@ -1,15 +1,19 @@
+```cpp
 #include <string>
-#include <set>
+#include <unordered_map>
 
 bool is_happy(string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
-        set<char> st(sub.begin(), sub.end());
         bool unique_chars = true;
-        for (char c : st) { 
-            if (count(c, s) > 1) {
+        unordered_map<char, int> char_count;
+        for (char c : sub) { 
+            char_count[c]++;
+        }
+        for (pair<char, int> p : char_count) {
+            if (p.second > 1) {
                 unique_chars = false;
                 break;
             }
@@ -18,13 +22,4 @@ bool is_happy(string s) {
             return false;
     }
     return true;
-
-}
-int count(char c, string str) {
-    int res = 0;
-    for (char d : str) {
-        if (c == d)
-            res++;
-    }
-    return res;
 }
