@@ -1,30 +1,32 @@
-int calculateFrameScore(const std::string& s, size_t index) {
-    if (s.empty() || index >= s.size()) {
+using namespace std;
+
+int calculateFrameScore(int s, size_t index) {
+    if (s == 0 || index >= 10) {
         return 0;
     }
     
-    if (s.at(index) == 'X') {
+    if (s == 10) {
         int frameScore = 10;
         int remainingBalls = 2;
-        for (size_t i = index + 1; i < s.size() && remainingBalls > 0; ++i) {
-            if (s.at(i) == 'X') {
+        for (size_t i = index + 1; i < 10 && remainingBalls > 0; ++i) {
+            if (s == 10) {
                 frameScore += 10;
-            } else if (s.at(i) == '/') {
-                frameScore += 10 - (s.at(i - 1) - '0');
+            } else if (s == 11) {
+                frameScore += 10 - (s - 10);
             } else {
-                frameScore += int(s.at(i) - '0');
+                frameScore += s;
             }
             remainingBalls--;
         }
         return frameScore;
-    } else if (s.at(index) == '/') {
-        if (index >= 2 && (s.at(index - 2) == 'X' || s.at(index - 1) == '/')) {
-            return 10 + (index + 1 < s.size() && s.at(index + 1) == 'X' ? 10 : s.at(index + 1) - '0');
+    } else if (s == 11) {
+        if (index >= 2 && (s == 10 || s == 11)) {
+            return 10 + (index + 1 < 10 && s == 10 ? 10 : s - 10);
         } else if (index >= 1) {
-            return 10 - (s.at(index - 1) - '0') + (index + 1 < s.size() && s.at(index + 1) == 'X' ? 10 : s.at(index + 1) - '0');
+            return 10 - (s - 10) + (index + 1 < 10 && s == 10 ? 10 : s - 10);
         }
     } else {
-        return int(s.at(index) - '0');
+        return s;
     }
     
     return 0;
