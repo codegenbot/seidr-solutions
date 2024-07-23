@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -14,6 +15,6 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({")", "("}) == 0);
+    assert(match_parens({"" , "("}) == 0);
     return 0;
 }
