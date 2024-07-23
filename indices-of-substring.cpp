@@ -5,16 +5,14 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
-    text.pop_back();
     std::getline(std::cin, target);
-    target.pop_back();
     
     std::vector<int> indices;
     
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos);
+        pos = text.find(target, pos + 1);
     }
     
     for(int index : indices) {
