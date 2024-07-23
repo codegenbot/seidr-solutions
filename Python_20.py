@@ -23,9 +23,10 @@ def main():
         if user_input.lower() == "stop":
             break
 
-        numbers.append(float(user_input))
+        print(user_input)
 
-    print(find_closest_elements(list(map(str, numbers))))
+    numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
+    print(find_closest_elements(numbers))
 
 
 main()
