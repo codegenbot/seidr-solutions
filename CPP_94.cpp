@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,7 +26,8 @@ bool isPrime(int n){
     }
     return true;
 
-int main(){
-    std::cout << skjkasdkd({127, 97, 8192}) << std::endl;
-    return 0;
+int main {
+    std::vector<int> lst = {127, 97, 8192};
+    int result = skjkasdkd(lst);
+    std::cout << "The sum of the digits for the maximum prime in the list is: " << result << std::endl;
 }
