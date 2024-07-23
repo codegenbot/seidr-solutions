@@ -1,2 +1,9 @@
-    def leaders(arr):
-        return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+```python
+def leaders(arr):
+    leaders_list = []
+    max_num = arr[len(arr) - 1]
+    for i in range(len(arr)-1, -1, -1):
+        if arr[i] >= max_num:
+            leaders_list.append(arr[i])
+            max_num = arr[i]
+    return leaders_list
