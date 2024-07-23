@@ -1,5 +1,10 @@
+```
 def check(lst):
-    return lst[-1] if len(lst) > 0 else None
+    if len(set(lst)) == 1:
+        return "All elements are same"
+    else:
+        return "Elements are not all the same"
+
 your_list = [1, 2, 3, 4]
 result = check(your_list)
 print(result)
