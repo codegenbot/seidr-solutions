@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -12,7 +13,6 @@ int basement(vector<int>& arr) {
 }
 
 int main() {
-    // Your code to read input and print output
     int n;
     cin >> n;
     vector<int> arr(n);
