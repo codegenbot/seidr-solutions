@@ -1,4 +1,4 @@
-```Python
+```
 import ast
 
 def solve_boolean(expression):
@@ -7,12 +7,10 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
 
-    while '&&' in expression or '||' in expression:
-        if '&&' in expression:
-            left, right = expression.split('&&')
-            expression = f"({solve_boolean(left)} and {solve_boolean(right)})"
-        elif '||' in expression:
-            left, right = expression.split('||')
-            expression = f"({solve_boolean(left)} or {solve_boolean(right)})"
+    expression = expression.replace('&&', 'and').replace('||', 'or')
 
-    return eval(f"({'T' if solve_boolean(expression) else 'F'})")
+    try:
+        result = eval(f"({expression})")
+        return result
+    except:
+        return "Invalid input"
