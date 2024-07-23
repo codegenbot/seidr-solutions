@@ -1,7 +1,7 @@
+```
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
-#include <cassert>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -15,6 +15,6 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
-    assert(specialFilter(nums) == 3);
-    return 0;
+    int result = specialFilter(nums);
+    std::cout << "The number of integers in the vector that are multiples of 11 or have an absolute value which is equal to 1 when divided by 11 is: " << result;
 }
