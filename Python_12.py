@@ -1,3 +1,4 @@
+````
 from typing import Optional
 
 
@@ -29,3 +30,4 @@ if strings:
         print("No strings were entered.")
     else:
         print(f"The longest string is: {result}")
+```
