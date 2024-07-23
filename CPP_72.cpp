@@ -1,10 +1,9 @@
 int sum = 0;
-    for(int num : q) {
+    for (int num : q) {
         sum += num;
     }
-    
-    vector<int> reversed_q = q;
-    reverse(reversed_q.begin(), reversed_q.end());
-    
-    return sum <= w && q == reversed_q;
+    if (sum <= w && equal(q.begin(), q.end(), q.rbegin())) {
+        return true;
+    }
+    return false;
 }
