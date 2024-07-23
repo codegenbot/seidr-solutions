@@ -1,11 +1,10 @@
 ```
 def hex_key(num):
-    prime_hex = {'B': True, 'D': True}
+    prime_hex_digits = {'B': '11', 'D': '13'}
     count = 0
-    for char in num:
-        if char.upper() in prime_hex:
+    for digit in num:
+        if digit.upper() in prime_hex_digits:
             count += 1
-        elif char.isdigit():
-            if int(char) > 1 and all(int(char) % i for i in range(2, int(char))):
-                count += 1
+        elif digit.upper() in '2357':
+            count += 1
     return count
