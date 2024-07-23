@@ -1,45 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
 using namespace std;
 
 int main() {
     vector<int> vec;
     int num;
-    
     while (cin >> num) {
         vec.push_back(num);
     }
     
-    int n = vec.size();
     int diff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 1; i < n; ++i) {
-        int sum1 = 0, sum2 = 0;
+    int idx = -1;
+    for (int i = 1; i < vec.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
         for (int j = 0; j < i; ++j) {
-            sum1 += vec[j];
+            left_sum += vec[j];
         }
-        for (int j = i; j < n; ++j) {
-            sum2 += vec[j];
+        for (int j = i; j < vec.size(); ++j) {
+            right_sum += vec[j];
         }
-        
-        int currentDiff = abs(sum1 - sum2);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+        if (abs(left_sum - right_sum) < diff) {
+            diff = abs(left_sum - right_sum);
+            idx = i;
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << vec[i] << "\n";
+    for (int i = 0; i < idx; ++i) {
+        cout << vec[i] << endl;
     }
-    
-    std::cout << "\n";
-    
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << vec[i] << "\n";
+    cout << endl;
+    for (int i = idx; i < vec.size(); ++i) {
+        cout << vec[i] << endl;
     }
     
     return 0;
