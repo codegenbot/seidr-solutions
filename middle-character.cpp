@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string middleCharacter(const std::string& s) {
     int len = s.length();
@@ -6,4 +7,8 @@ std::string middleCharacter(const std::string& s) {
         return s.substr(len/2 - 1, 2);
     else
         return s.substr(len/2, 1);
+}
+
+int main() {
+    return 0;
 }
