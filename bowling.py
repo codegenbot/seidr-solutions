@@ -1,17 +1,36 @@
-def get_strike_bonus(bowls, index):
-    if bowls[index] == 'X' and index + 2 < len(bowls):
-        return 10 + get_score(bowls[index + 1]) + get_score(bowls[index + 2])
-    elif bowls[index] == '/' and index + 1 < len(bowls):
-        return 10 - get_score(bowls[index - 1]) + get_score(bowls[index + 1])
-    else:
-        return 0
+def calculate_bowling_score(bowls):
+    score = 0
+    index = 0
 
-def get_score(bowl):
-    if bowl == 'X':
-        return 10
-    elif bowl == '/':
-        return 10
-    elif bowl == '-':
-        return 0
-    else:
-        return int(bowl)
+    for i in range(10):
+        if bowls[index] == "X":
+            score += 10 + get_strike_bonus(bowls, index)
+            index += 1
+        elif bowls[index + 1] == "/":
+            score += 10 + int(bowls[index + 2])
+            index += 2
+        else:
+            score += int(bowls[index]) + int(bowls[index + 1])
+            index += 2
+
+    return score
+
+
+def get_strike_bonus(bowls, index):
+    bonus = 0
+    if bowls[index] == "X":
+        if bowls[index + 1] == "X":
+            bonus += 10
+        elif bowls[index + 1] == "/":
+            bonus += 10 - int(bowls[index])
+        else:
+            bonus += int(bowls[index + 1])
+
+        if index + 2 < len(bowls):
+            bonus += get_strike_bonus(bowls, index + 1)
+
+    return bonus
+
+
+bowls = input("Enter the bowling sequence: ")
+print(calculate_bowling_score(bowls))
