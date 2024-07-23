@@ -1,17 +1,10 @@
 #include <iostream>
 #include <vector>
 
-bool isSpecialFiltered(int x) {
-    if (x == 0 || x % 11 != 0)
-        return true;
-    else
-        return false;
-}
-
-int countSpecialFiltered(const std::vector<int>& nums) {
+int countSpecialFilteredNumbers(const std::vector<int>& nums) {
     int count = 0;
     for (int x : nums) {
-        if (isSpecialFiltered(x)) {
+        if (x == 0 || x % 11 != 0) {
             count++;
         }
     }
@@ -28,8 +21,11 @@ int main() {
         nums.push_back(i);
     }
 
+    // Call and process the function
+    count = countSpecialFilteredNumbers(nums);
+
     // Print the result
-    std::cout << "The number of special filtered numbers is: " << countSpecialFiltered(nums) << "\n";
+    std::cout << "The number of special filtered numbers is: " << count << "\n";
 
     return 0;
 }
