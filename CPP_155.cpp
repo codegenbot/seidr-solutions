@@ -11,10 +11,9 @@ bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     }
 
     return true;
-
 }
 
-std::vector<int> get_even(int num) {
+std::vector<int> get_counts(int num) {
     std::vector<int> result({0, 0});
     int temp = abs(num);
     while(temp != 0){
@@ -26,10 +25,9 @@ std::vector<int> get_even(int num) {
         temp /= 10;
     }
     return result;
-
 }
 
 int main() {
-    assert(issame(get_even(0), std::vector<int>{0, 1})); 
+    assert(issame(get_counts(0), std::vector<int>{0, 1})); 
     return 0;
 }
