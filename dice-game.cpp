@@ -1,17 +1,21 @@
-```
+```c++
+#include <iostream>
+using namespace std;
+
 double probability(int n, int m) {
-    double total = (double)n * m;
-    double count = 0;
-
+    double sum = 0.0;
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                count++;
-            } else if (i < j) {
-                count++;
-            }
-        }
+        sum += 1.0 / n;
     }
+    return sum - (1.0 / m);
+}
 
-    return count / total;
+int main() {
+    int n, m;
+    cout << "Enter number of sides for Peter's die: ";
+    cin >> n;
+    cout << "Enter number of sides for Colin's die: ";
+    cin >> m;
+    cout << "Probability that Peter rolls strictly higher than Colin: " << probability(n, m) << endl;
+    return 0;
 }
