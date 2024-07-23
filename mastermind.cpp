@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -14,15 +11,21 @@ int mastermind(string code, string guess) {
     vector<char> code_chars(code.begin(), code.end());
     vector<char> guess_chars(guess.begin(), guess.end());
 
+    unordered_map<char, int> code_count;
+    for (char c : code) {
+        code_count[c]++;
+    }
+
     for (int i = 0; i < 4; i++) {
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (code_chars[j] == guess[i]) {
-                count++;
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            for (int j = 0; j < 4; j++) {
+                if (guess[j] == code[i] && --code_count[guess[j]] >= 0) {
+                    white++;
+                    break;
+                }
             }
-        }
-        if (count > 1) {
-            white += count - 1;
         }
     }
 
