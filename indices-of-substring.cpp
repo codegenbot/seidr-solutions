@@ -1,24 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.size(), m = target.size();
     
-    int i = 0, j = 0;
-    while (i < n) {
-        if (text[i] == target[j]) {
-            i++;
-            j++;
-        }
-        if (j == m) {
-            result.push_back(i - j);
-            j = 0; // Reset the pattern pointer
-        }
-        else if (i < n && text[i] != target[j]) {
-            i = i - j + 1; // Mismatch, try to find the match at a different position
-        }
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        if (text.substr(i, target.size()) == target)
+            result.push_back(i);
     }
     
     return result;
