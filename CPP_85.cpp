@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int add(vector<int> lst){
+int add(vector<int> lst) {
     int sum = 0;
     for(int i = 1; i < lst.size(); i++){
         if(i % 2 != 0)
@@ -26,3 +26,4 @@ int main() {
     cout << "Sum of odd-indexed numbers: " << result << endl;
 
     return 0;
+}
