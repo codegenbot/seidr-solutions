@@ -1,22 +1,9 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-int count_even(int n) {
-    int count = 0;
-    for (int i = 2; i <= n; ++i) {
-        if (i % 2 == 0) {
-            ++count;
-        }
-    }
-    return count;
-}
-
-std::vector<std::pair<int, int>> result(std::vector<int> v) {
-    std::vector<std::pair<int, int>> output;
-    for (int i = 0; i < v.size(); ++i) {
-        output.push_back({v[i], i});
-    }
-    return output;
+std::vector<int> pluck(std::vector<int> v) {
+    return v;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -26,9 +13,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
+}
+
+std::vector<std::pair<int, int>> result(std::vector<int> v) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < v.size(); ++i) {
+        output.emplace_back(v[i], i);
+    }
+    return output;
 }
 
 int main() {
