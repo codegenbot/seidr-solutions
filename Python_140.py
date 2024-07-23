@@ -1,7 +1,7 @@
 def fix_spaces(text):
     new_text = ""
     for char in text:
-        if char == " " and new_text[-1:] == " ":
+        if char == " " and new_text: 
             new_text += "-"
         elif char == " ":
             new_text += "_"
@@ -9,4 +9,5 @@ def fix_spaces(text):
             new_text += char
     return new_text
 
-print(fix_spaces(input("Enter your text: ")))
+text = input("Enter your text: ")
+print(fix_spaces(text))
