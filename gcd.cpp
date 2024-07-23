@@ -12,19 +12,19 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    size_t n = text.size();
-    size_t m = target.size();
+    int n = text.size();
+    int m = target.size();
     
-    for (size_t i = 0; i <= n - m; ++i) {
+    for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (size_t j = 0; j < m; ++j) {
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
         if (found) {
-            indices.push_back(static_cast<int>(i)); // Cast size_t to int for consistency
+            indices.push_back(i);
         }
     }
     
@@ -37,7 +37,7 @@ int main() {
     cout << "GCD: " << resultGcd << endl;
 
     // Test case for indicesOfSubstring
-    string text = "647870";
+    string text = "647870797108";
     string target = "797108";
     vector<int> resultIndices = indicesOfSubstring(text, target);
     cout << "Indices of Substring:";
