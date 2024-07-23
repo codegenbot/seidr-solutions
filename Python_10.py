@@ -1,5 +1,15 @@
 def make_palindrome(s: str) -> str:
     if len(s) % 2 == 0:
-        return s[:len(s)//2] + s[:len(s)//2][::-1]
+        middle_index = len(s) // 2
+        return (
+            s[:middle_index].lower() + s[middle_index].lower() + s[:middle_index][::-1]
+        )
     else:
-        return s[0].upper() + s[1:len(s)//2] + s[len(s)//2][::-1] + s[0].lower()
+        middle_index = len(s) // 2
+        return (
+            s[0].lower()
+            + s[1 : middle_index + 1].lower()
+            + s[middle_index].lower()
+            + s[middle_index::-1].lower()
+            + s[0].upper()
+        )
