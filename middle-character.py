@@ -1,9 +1,5 @@
-Here is the Python solution:
+Here is the solution in Python:
 
 def middle_character(s):
-    s = s.strip()
-    length = len(s)
-    if length % 2 != 0:
-        return s[(length//2)]
-    else:
-        return s[(length//2)-1:length//2+1]
+    n = len(s)
+    return s[n//2] if n % 2 else s[(n-1)//2:n//2+1]
