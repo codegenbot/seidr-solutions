@@ -4,7 +4,7 @@
 using namespace std;
 
 int findSmallest(vector<int> lst) {
-    vector<int>(sorted.begin(), sorted.end());
+    vector<int> sorted(lst);
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1;
@@ -12,10 +12,15 @@ int findSmallest(vector<int> lst) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -12;
-
+    cout << "No distinct elements in the list." << endl;
+    return -1;
 }
 
 int main() {
-    cout << findSmallest({-35, 34, 12, -45}) << endl;
+    int result = findSmallest({-35, 34, 12, -45});
+    if (result == -1)
+        cout << "Error: The input vector must contain at least two distinct elements.";
+    else
+        cout << result << endl;
     return 0;
+}
