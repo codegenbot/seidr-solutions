@@ -1,24 +1,21 @@
-```cpp
+```
+#include <sstream>
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
 string string_xor(string a, string b) {
+    istringstream is_a(a), is_b(b);
     string result = "";
-    for(int i=0; i<a.length(); i++) {
-        if ((a[i] - '0') ^ (b[i] - '0')) {
+    char c;
+    while (is_a >> c && is_b >> c) {
+        if ((c - '0') ^ ('0' - '0')) {
             result += "1";
         } else {
             result += "0";
         }
     }
     return result;
-}
 
-int main() {
-    string a = "0101";
-    string b = "0000";
-    cout << string_xor(a, b) << endl;
-    return 0;
 }
