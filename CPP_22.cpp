@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool equal(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +14,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> filter_integers(const std::vector<int>& vec) {
+std::vector<int> filter_integers(std::vector<int>& vec) {
     std::vector<int> result;
     for (int i : vec) {
         if (std::isfinite(i)) {
@@ -23,9 +22,9 @@ std::vector<int> filter_integers(const std::vector<int>& vec) {
         }
     }
     return result;
-
 }
-int main_func() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+
+int main() {
+    assert(equal(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
