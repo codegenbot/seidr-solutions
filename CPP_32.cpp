@@ -1,4 +1,4 @@
-#include <initializer_list>
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -22,12 +22,12 @@ double find_zero(vector<double> xs){
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return setprecision(2) << fixed << x;
+    return x;
 }
 
 int main() {
-    vector<double> xs = {1, -6, 11, -6};
+    vector<double> xs = {1, -6, 11, -6}; // coefficients
     double zero = find_zero(xs);
-    cout << "Zero is: " << zero << endl; // Print the result
+    cout << setprecision(2) << "Zero is: " << zero << endl; // Print the result
     return 0;
 }
