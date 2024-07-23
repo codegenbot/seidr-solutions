@@ -8,15 +8,11 @@ def longest(strings: list[str]) -> Optional[str]:
     max_len = 0
     longest_str = None
     for s in strings:
-        if s.lower() == 'stop':
-            break
         s = s.strip()
-        if not s: 
-            continue
-        if len(s) > max_len:
+        if len(s) > max_len and s != 'stop':
             max_len = len(s)
             longest_str = s
-    return longest_str
+    return longest_str if longest_str is not None else "No strings entered"
 
 
 strings = []
@@ -26,4 +22,8 @@ while True:
         break
     strings.append(line)
 
-print("The longest string is: " + str(longest(strings)) if longest(strings) else "No strings entered")
+result = longest(strings)
+if result == "No strings entered":
+    print(result)
+else:
+    print(f"The longest string is: {result}")
