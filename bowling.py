@@ -1,37 +1,33 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    is_spare = False
-    is_strike = False
-    for bowl in bowls:
-        if bowl == "X":
-            score += 10
-            if frame < 10:
-                frame += 1
-        elif bowl == "/":
-            score += 10 - frame_score
-            is_spare = True
-        elif bowl == "-":
-            pass
+    bowl_index = 0
+    while frame <= 10:
+        if bowls[bowl_index] == "X":
+            score += (
+                10 + get_value(bowls, bowl_index + 1) + get_value(bowls, bowl_index + 2)
+            )
+            bowl_index += 1
+        elif bowls[bowl_index + 1] == "/":
+            score += 10 + get_value(bowls, bowl_index + 2)
+            bowl_index += 2
         else:
-            score += int(bowl)
-            frame_score += int(bowl)
-            if is_spare:
-                score += int(bowl)
-                is_spare = False
-            if is_strike:
-                score += int(bowl)
-                is_strike = False
-            if frame_score == 10:
-                if frame < 10:
-                    frame += 1
-                is_strike = True
-            else:
-                is_strike = False
-            frame_score = 0
+            score += get_value(bowls, bowl_index) + get_value(bowls, bowl_index + 1)
+            bowl_index += 2
+        frame += 1
     return score
 
 
-bowls = input()
+def get_value(bowls, index):
+    if bowls[index] == "X":
+        return 10
+    elif bowls[index] == "/":
+        return 10 - int(bowls[index - 1])
+    elif bowls[index] == "-":
+        return 0
+    else:
+        return int(bowls[index])
+
+
+bowls = input().strip()
 print(bowling_score(bowls))
