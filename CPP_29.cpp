@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -10,10 +9,10 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> vec, string prefix) {
+vector<string> filter_by_prefix(vector<string> a, string prefix) {
     vector<string> result;
-    for (const auto &str : vec) {
-        if (str.substr(0, prefix.length()) == prefix) {
+    for(const auto &str : a) {
+        if(str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
@@ -21,7 +20,6 @@ vector<string> filter_by_prefix(vector<string> vec, string prefix) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
