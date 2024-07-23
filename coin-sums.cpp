@@ -1,24 +1,25 @@
+```c++
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
 vector<int> coinSums(int cents) {
-    vector<int> coins = {0, 0, 0, 0};
+    vector<int> coins(4);
     
     while (cents > 0) {
         if (cents >= 25) {
-            cents -= 25;
             coins[3]++;
+            cents -= 25;
         } else if (cents >= 10) {
-            cents -= 10;
             coins[2]++;
+            cents -= 10;
         } else if (cents >= 5) {
-            cents -= 5;
             coins[1]++;
+            cents -= 5;
         } else {
-            cents--;
             coins[0]++;
+            cents--;
         }
     }
     
