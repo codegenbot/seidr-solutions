@@ -2,9 +2,11 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if any(char not in ["(", ")"] for char in paren_string):
+        return "Invalid input. Please enter a string of parentheses (separated by spaces)."
+    
     result = []
     temp = ""
-    count = 0
 
     for char in paren_string:
         if char == " ":
@@ -12,15 +14,17 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ""
         elif char in ["(", ")"]:
-            if char == "(":
-                count += 1
-                temp += char
-            else:
-                count -= 1
-                temp += char
-            if count == 0:
-                result.append(temp)
-                temp = ""
+            if not temp or (temp and temp[-1] in ["(", "))"]):
+                if char == "(":
+                    temp += char
+                else:
+                    while temp and (temp[-1] != "("):
+                        result.append(temp[:-1])
+                        temp = temp[:-1].rstrip()
+                    if temp and temp[-1] == "(":
+                        temp += char
+                    elif not temp:
+                        temp += char
         else:
             temp += char
 
