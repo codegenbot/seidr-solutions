@@ -1,21 +1,23 @@
-def findShortestWay(matrix, keywords):
-    n = len(matrix)
+def shortestAlternatingPath(grid):
+    n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
     memo = {}
     
-    def dfs(i, j, path, cnt, keywordIndex):
+    def dfs(i, j, path, cnt):
         if (i, j) in memo:
             return memo[(i, j)]
         
-        if cnt == len(keywords):
-            return path
+        if i == 0 and j == len(grid[0]) - 1:
+            return [path]
         
         res = []
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and matrix[ni][nj] == keywords[keywordIndex]:
-                res.append(dfs(ni, nj, path + [matrix[ni][nj]], cnt + 1, keywordIndex + 1))
+            if 0 <= ni < n and 0 <= nj < len(grid[0]) and grid[ni][nj] == 1 - grid[i][j]:
+                res.append(dfs(ni, nj, path + [m[ni][nj]], cnt + 1))
         
-        memo[(i, j)] = min(res, key=lambda x: len(x) if len(x) == len(keywords) else float('inf'))
+        memo[(i, j)] = min(res, key=lambda x: x if len(x) > 0 else float('inf'))
         return memo[(i, j)]
     
-    return dfs(0, 0, [], 0, 0)[1:]
+    paths = dfs(0, 0, [], 0)
+    return sorted(map(len, paths))
