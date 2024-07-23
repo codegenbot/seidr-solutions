@@ -3,4 +3,4 @@ def leaders(arr):
     for i in range(len(arr) - 1, -1, -1):
         if arr[i] >= arr[i + 1]:
             result.append(arr[i])
-    return [result[0]] + result[::-1]
+    return result
