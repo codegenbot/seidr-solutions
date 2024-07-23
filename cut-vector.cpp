@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <limits> 
+#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
@@ -25,7 +25,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut);
+    left = vector<int>(v.begin(), v.begin() + best_cut+1);
     right = vector<int>(v.begin() + best_cut, v.end());
     
     return {{left}, {right}};
