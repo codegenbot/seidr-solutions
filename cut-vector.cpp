@@ -1,8 +1,6 @@
 ```cpp
 #include <vector>
 #include <climits>
-#include <cmath>
-#include <iostream>
 
 using namespace std;
 
@@ -35,7 +33,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; // Replace with your input
+    vector<int> v = {1, 2, 3, 4, 5}; 
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "Left subvector: ";
     for (int num : result.first) {
