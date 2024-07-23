@@ -8,19 +8,14 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     if (tweet.empty()) {
-        cout << "You didn't type anything" << endl;
-        return 0;
-    }
-    int charCount = 0;
-    for (char c : tweet) { 
-        if (!isspace(c)) {
-            charCount++;
+        cout << "You didn't type anything";
+    } else {
+        int charCount = tweet.length();
+        if (charCount > 140) {
+            cout << "Too many characters";
+        } else {
+            cout << "Your tweet has " << charCount << " characters";
         }
     }
-    if (charCount > 140) {
-        cout << "Too many characters" << endl;
-        return 0;
-    }
-    cout << "Your tweet has " << charCount << " characters" << endl;
     return 0;
 }
