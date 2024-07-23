@@ -5,7 +5,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     groups = ''
-    
+
     for char in paren_string:
         if char == ' ':
             continue
@@ -14,9 +14,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             groups += char
         elif char == ')':
             stack.pop()
-            groups += char
-            if not stack and groups:
+            if not stack:
+                groups += char
                 result.append(groups)
                 groups = ''
+            else:
+                groups += char
 
     return result
