@@ -1,7 +1,7 @@
 ```
 def split_words(txt):
     words = txt.split()
-    if not any(char in word for word in words for char in ',.!?'):
-        return len([c for c in txt.lower() if ord(c) % 2 != 0 and 'a' <= c <= 'z'])
+    if len(words) > 0 and len(set(words[0].replace('!','').replace('.','').lower())) == 1:
+        return sum(1 for c in set(txt.lower()) if ord(c) % 2 != 0)
     else:
-        return words
+        return words if ',' not in txt else [word for word in txt.split(',') if word]
