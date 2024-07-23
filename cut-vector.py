@@ -1,18 +1,13 @@
-nums = [int(x) for x in input().split()]
+n = int(input())
+arr = list(map(int, input().split()))
 
-total_sum = sum(nums)
-half_sum = total_sum // 2
-current_sum = 0
-cut_index = 0
+diff = float("inf")
+cut_idx = 0
+for i in range(1, n):
+    new_diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    if new_diff < diff:
+        diff = new_diff
+        cut_idx = i
 
-for i, num in enumerate(nums):
-    current_sum += num
-    if current_sum >= half_sum:
-        if current_sum == half_sum or abs(current_sum - half_sum) < abs(
-            current_sum - num - half_sum
-        ):
-            cut_index = i
-            break
-
-print(nums[: cut_index + 1])
-print(nums[cut_index + 1 :])
+print(*arr[:cut_idx])
+print(*arr[cut_idx:])
