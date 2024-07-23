@@ -2,24 +2,26 @@
 #include <string>
 #include <cctype>
 
+using namespace std;
+
 int main() {
-    std::string input;
-    getline(std::cin, input);
+    string input;
+    getline(cin, input);
     
     bool first = true;
     for (char c : input) {
         if (c == '-') {
-            std::cout << "";
+            cout << "";
             first = true;
         } else if (c == ' ') {
-            std::cout << ' ';
+            cout << ' ';
             first = true;
         } else {
             if (first) {
-                std::cout << (char)toupper(c);
+                cout << (char)toupper(c);
                 first = false;
             } else {
-                std::cout << c;
+                cout << c;
             }
         }
     }
