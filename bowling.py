@@ -1,26 +1,28 @@
+```
 def bowling_score(frames):
+    frames = frames.replace('/', ' /').split()
     score = 0
-    i = 0
-    while i < len(frames) - 1:
-        if frames[i] == "X":
+    current_roll1 = 0
+    current_roll2 = 0
+
+    for frame in range(len(frames)):
+        if len(frames[frame]) == 1:  
             score += 10
-            i += 2
-        elif frames[i] == "/":
-            if frames[i+1] == "X":
-                score += 10 + int(frames[i+2])
-                i += 3
-            else:
-                score += int(frames[i+1]) + 10
-                i += 2
+            current_roll1 = 0
+            current_roll2 = 0
+        elif frames[frame] == "X":  
+            score += 10
+            current_roll1 = 0
+            current_roll2 = 0
         else:
-            if frames[i] == "/":
-                if frames[i+2] == "X":
-                    score += 10 + int(frames[i+1]) + int(frames[i+3])
-                    i += 4
-                else:
-                    score += int(frames[i+1]) + int(frames[i+2]) + 1
-                    i += 3
+            roll1 = int(frames[frame][0])
+            if len(frames[frame]) > 1 and frames[frame][1] == '/':
+                roll2 = 10 - roll1
+                score += 10
+            elif len(frames[frame]) > 1 and frames[frame][1].isdigit():
+                roll2 = int(frames[frame][1:])
+                current_roll1 = roll1 + roll2
             else:
-                score += int(frames[i]) + int(frames[i+1])
-                i += 2
+                roll2 = 0
+
     return score
