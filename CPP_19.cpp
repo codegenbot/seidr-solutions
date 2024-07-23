@@ -1,35 +1,26 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
-
-string sort_numbers(string numbers){
-    map<int, string> sorted_numbers;
-    string result;
-
-    int start = 0;
-    int end = numbers.find(" ");
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, 
+                                {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
     
-    while (end != string::npos) {
-        string num_str = numbers.substr(start, end - start);
-        sorted_numbers[number_map[num_str]] = num_str;
-        start = end + 1;
-        end = numbers.find(" ", start);
+    string result = "";
+    int count[10] = {0};
+    
+    size_t pos = 0;
+    string token;
+    while ((pos = numbers.find(" ")) != string::npos) {
+        token = numbers.substr(0, pos);
+        count[num_map[token]]++;
+        numbers.erase(0, pos + 1);
+    }
+    count[num_map[numbers]]++;
+    
+    for(int i = 0; i < 10; i++){
+        while(count[i] > 0){
+            result += num_map.begin()->first + " ";
+            count[i]--;
+        }
     }
     
-    sorted_numbers[number_map[numbers.substr(start)]] = numbers.substr(start);
-    
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
-    }
+    result.pop_back(); // Remove the extra space at the end
     
     return result;
 }
