@@ -1,12 +1,8 @@
 ```
 def solve_boolean(input):
-    if input == 'T':
-        return True
-    elif input == 'F':
-        return False
-    elif '&' in input:
-        left, right = input.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in input:
-        left, right = input.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+    while '&' in input or '|' in input:
+        if '&' in input:
+            input = input.split('&')[0] + str(int(input.split('&')[1]) and int(solve_boolean(input.split('&')[2])))
+        elif '|' in input:
+            input = input.split('|')[0] + str(int(input.split('|')[1]) or int(solve_boolean(input.split('|')[2])))
+    return 'T' if input == '1' else 'F'
