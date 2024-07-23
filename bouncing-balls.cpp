@@ -8,19 +8,15 @@ int main() {
 
     cin >> startHeight >> numBounces >> firstBounce; 
 
-    double bounceRatio = firstBounce / startHeight;
-    double bouncinessIndex = bounceRatio;
-
-    double newHeight = firstBounce;
+    double bouncinessIndex = firstBounce / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         if(i > 1)
-            startHeight *= sqrt(bounceRatio);
+            startHeight *= bouncinessIndex;
         else
             startHeight = firstBounce;
-        totalDistance += abs(startHeight - newHeight); 
-        newHeight = startHeight;
+        totalDistance += abs(startHeight - firstBounce); 
     }
 
     cout << fixed;
