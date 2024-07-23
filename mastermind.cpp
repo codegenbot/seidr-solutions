@@ -1,6 +1,7 @@
-#include <iostream>
+```cpp
 #include <string>
 #include <set>
+#include <iostream>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
