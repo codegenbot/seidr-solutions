@@ -1,21 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 int main() {
     std::vector<int> nums;
-    int n;
-    while (true) {
-        if (!(std::cin >> n)) break;
-        nums.push_back(n);
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        std::istringstream iss(input);
+        int n;
+        while (iss >> n) {
+            nums.push_back(n);
+        }
     }
-    
-    if (nums.empty()) return 0;
 
     int sum = 0;
     for (int num : nums) {
         sum += num;
     }
-
+    
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
