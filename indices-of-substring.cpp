@@ -9,8 +9,10 @@ vector<int> findIndices(string text, string target) {
     if ((last = text.find(target)) != string::npos) {
         indices.push_back(last);
         prevLast = last;
+    } else if (text.find(target, 0) != string::npos) {
+        prevLast = 1;
     }
-    while ((last = text.find(target, last + 1)) != string::npos) {
+    while ((last = text.find(target, prevLast + 1)) != string::npos) {
         indices.push_back(last);
         prevLast = last;
     }

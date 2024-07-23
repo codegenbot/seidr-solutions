@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,14 +14,23 @@ bool solveBoolean(std::string expression) {
         char c = expression[i];
         if (c == '|') {
             std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
+            size_t end = i + 1;
+            for (; end < expression.size(); end++) {
+                if (expression[end] == '|') {
+                    break;
+                }
+            }
+            std::string right = expression.substr(end, expression.size() - end);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            int j = 0;
-            while (j < i && expression[j] != '|' && expression[j] != '&') 
-                j++;
-            std::string left = expression.substr(0, i - 1);
-            std::string right = expression.substr(i + j);
+            std::string left = expression.substr(0, i);
+            size_t end = i + 1;
+            for (; end < expression.size(); end++) {
+                if (expression[end] == '&' || expression[end] == '|') {
+                    break;
+                }
+            }
+            std::string right = expression.substr(end, expression.size() - end);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
