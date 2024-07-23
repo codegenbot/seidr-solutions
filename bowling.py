@@ -8,18 +8,12 @@ def solve(input_string):
             i += 1
         elif "/" in frame:
             parts = frame.split("/")
-            strike = False
-            if len(parts) > 1 and parts[0] == 'X':
-                strike = True
-            total_pins = 0
-            for part in parts:
-                if strike:
-                    break
-                if part.isdigit():
-                    total_pins += int(part)
-                else:
-                    total_pins += 10
-            score += total_pins + (10 - i) if not strike else 15
+            total_pins = int(parts[0])
+            if len(parts) > 1 and parts[1].isdigit():
+                total_pins += int(parts[1])
+            else:
+                total_pins += 10
+            score += total_pins
             i += 1
         else:
             if frame.isdigit():
@@ -31,7 +25,6 @@ def solve(input_string):
                     total_pins += int(part)
                 score += total_pins
             i += 1
-
     print(score)
 
 input_string = input("Enter the individual bowls: ")
