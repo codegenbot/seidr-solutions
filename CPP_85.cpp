@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,18 +11,6 @@ int add(const std::vector<int>& vec) {
     return result;
 }
 
-int get_numbers(std::vector<int>& vec) {
-    int num;
-
-    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
-
-    for (; ; ) {
-        std::cin >> num;
-        if (num == -1) break;
-        vec.push_back(num);
-    }
-}
-
 int main_func() {
     std::vector<int> numbers;
 
@@ -35,4 +22,16 @@ int main_func() {
     }
 
     return 0;
+}
+
+int get_numbers(std::vector<int>& vec) {
+    int num;
+
+    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
+
+    for (; ; ) {
+        std::cin >> num;
+        if (num == -1) break;
+        vec.push_back(num);
+    }
 }
