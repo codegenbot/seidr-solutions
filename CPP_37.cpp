@@ -11,7 +11,12 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            auto even = {x for x in l | select(x) where (x % 2 == 0)};
+            std::vector<float> even;
+            for (float x : l) {
+                if (x % 2.0 == 0.0f) {
+                    even.push_back(x);
+                }
+            }
             std::sort(even.begin(), even.end());
             result.push_back(*even.begin());
         } else {
