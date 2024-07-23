@@ -1,7 +1,2 @@
-def dice_game(n, m):
-    if n < m:
-        return 0.0
-    total_outcomes = n * m
-    favorable_outcomes = n - m
-    probability = favorable_outcomes / total_outcomes
-    return round(probability, 2)
+def solve(n, m):
+    return sum(i > j for i in range(1, n + 1) for j in range(1, m + 1)) / (n * m)
