@@ -1,10 +1,14 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
+using namespace std;
+
+int maxIncreaseKeepingSingle(vector<vector<int>>& grid) {
     int n = grid.size();
     for (int i = 0; i < n; i++) {
-        std::sort(grid[i].begin(), grid[i].end());
+        sort(grid[i].begin(), grid[i].end());
     }
     
     int sum = 0;
@@ -20,7 +24,7 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
             if (j > 0) topMax = grid[0][j-1];
             if (j < n - 1) bottomMax = grid[n-1][j+1];
             
-            sum += min(leftMax, rightMax) + min(topMax, bottomMax) - (leftMax + topMax);
+            sum += min(leftMax, rightMax) + min(topMax, bottomMax);
         }
     }
     
@@ -28,7 +32,13 @@ int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{5, 4}, {6, 3, 2}, {1, 7, 8}}; // replace with your input
-    int result = maxIncreaseKeepingSingle(grid);
-    return 0;
+    int n;
+    cin >> n;
+    vector<vector<int>> grid(n, vector<int>(n));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> grid[i][j];
+        }
+    }
+    cout << maxIncreaseKeepingSingle(grid) << endl;
 }
