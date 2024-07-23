@@ -1,66 +1,48 @@
 #include <vector>
 using namespace std;
 
-void findCuttingPoint(vector<int> &v) {
+vector<int> cutVector(vector<int>& nums) {
     int leftSum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        leftSum += v[i];
+    for (int i = 0; i < nums.size() - 1; i++) {
+        leftSum += nums[i];
     }
-
-    int rightSum = 0;
-    for (int i = v.size() - 1; i >= 0; i--) {
-        rightSum += v[i];
-    }
-
-    int minDiff = INT_MAX;
-    int cuttingPoint = -1;
-
-    for (int i = 0; i < v.size(); i++) {
-        leftSum -= v[i];
-        rightSum -= v[v.size() - 1 - i];
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            cuttingPoint = i;
-        }
-    }
-
-    vector<int> left, right;
-    for (int i = 0; i < cuttingPoint; i++) {
-        left.push_back(v[i]);
-    }
-    for (int i = cuttingPoint; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-
-    cout << "{";
-    for (int i = 0; i < left.size(); i++) {
-        if (i == left.size() - 1) {
-            cout << left[i];
+    vector<int> res = {{}, {}};
+    
+    for (int i = 0, j = 0; j < nums.size(); ) {
+        if (leftSum == nums[j]) {
+            res[0].push_back(nums[i]);
+            res[1].push_back(nums[j]);
+            leftSum = 0;
+            i++;
+            j++;
+        } else if (leftSum > nums[j] - leftSum) {
+            res[0].push_back(nums[i]);
+            leftSum -= nums[i];
+            i++;
         } else {
-            cout << left[i] << ",";
+            res[1].push_back(nums[j]);
+            leftSum += nums[j];
+            j++;
         }
     }
-    cout << "}" << endl;
-    cout << "{";
-    for (int i = 0; i < right.size(); i++) {
-        if (i == right.size() - 1) {
-            cout << right[i];
-        } else {
-            cout << right[i] << ",";
-        }
-    }
-    cout << "}" << endl;
+    
+    res[0].push_back(nums.back());
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    vector<int> nums(n);
+    for (auto &num : nums) cin >> num;
+    
+    vector<int> res = cutVector(nums);
+    cout << "1 ";
+    for (const auto &num : res[0]) {
+        cout << num << " ";
     }
-
-    findCuttingPoint(v);
-
+    cout << endl;
+    cout << "0 " << 0 << endl;
+    
     return 0;
 }
