@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -12,7 +13,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             idx = i;
         }
     }
-    return {{vec.begin(), next(vec.begin(), idx)}, {next(vec.begin(), idx), vec.end()}};
+    return {{vec[0]}, {vec[idx], vec.back()}};
 }
 
 int main() {
