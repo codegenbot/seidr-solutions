@@ -7,10 +7,11 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
+    text = input("Enter a string: ")
     while True:
-        try:
-            text = input("Enter a string: ")
+        if text:
             print(string_to_md5(text))
             break
-        except TypeError:
+        else:
             print("Invalid input. Please enter a string.")
+            text = input("Enter a string: ")```
