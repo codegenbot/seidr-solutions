@@ -1,6 +1,4 @@
-starting_height = float(input())
-bounce_height = float(input())
-num_bounces = int(input())
+starting_height, bounce_height, num_bounces = map(float, input().split())
 
 bounciness_index = bounce_height / starting_height
 total_distance = starting_height + bounce_height
