@@ -1,3 +1,4 @@
+```
 def validate_tweet(tweet):
     tweet = "".join(char for char in tweet if char.isalnum())
     if len(tweet) > 140:
