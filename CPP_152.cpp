@@ -1,3 +1,6 @@
+#include <vector>
+#include <cmath>
+
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -8,13 +11,9 @@ std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(std::abs(game[i] - guess[i]));
+            int difference = std::abs(game[i] - guess[i]);
+            result.push_back(difference);
         }
     }
     return result;
-}
-
-int main() {
-    assert(isSame(compareVect({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
-    //...
 }
