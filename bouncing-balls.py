@@ -6,4 +6,5 @@ def bouncing_balls():
     d = (2 * (n + 1) * h)
     print(d)
 
+
 bouncing_balls()
