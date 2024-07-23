@@ -1,3 +1,3 @@
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    """Remove duplicates from the given list of numbers."""
+```
+def remove_duplicates(numbers: list) -> list:
     return list(set(numbers))
