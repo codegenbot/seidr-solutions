@@ -1,33 +1,51 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    std::string word;
 
-string kebabToCamel(string s) {
-    string result = "";
-    int flag = 0;
-    
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == '-') {
-            flag = 1;
-        } else {
-            if(flag) {
-                result += toupper(s[i]);
-                flag = 0;
-            } else {
-                result += tolower(s[i]);
+    // Split string into words
+    for (char c : str) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else if (c == '-') {
+            while (str.find(c) != str.npos && i++ < str.size()) {
+                if (str[i] == '-'){
+                    str.erase(i, 1);
+                }
+                else
+                break;
             }
+            word += toupper(c);
+        } else {
+            word += c;
         }
     }
-    
+
+    words.push_back(word);
+
+    // Convert first character of each word to lowercase and append rest of the string
+    std::string result;
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += toupper(words[i][0]);
+        } else {
+            result += words[i];
+        }
+        if (i < words.size() - 1) {
+            result += words[i + 1];
+        }
+    }
+
     return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "Camel-case conversion: " << kebabToCamel(input) << endl;
+    std::string str;
+    while(std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
