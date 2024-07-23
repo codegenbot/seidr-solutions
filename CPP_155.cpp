@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -16,8 +15,7 @@ std::vector<int> get_even_odd(int num) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b); // Added semicolon
-
+bool issame(std::vector<int> a, std::vector<int> b); 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2);
     int temp = abs(num);
