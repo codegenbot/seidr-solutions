@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
 using namespace std;
 
 int main() {
@@ -11,7 +12,6 @@ int main() {
         cin >> vec1[i];
     }
 
-    cin >> n;
     vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
@@ -22,13 +22,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    sum = 0.0; // Reset sum before calculating the Euclidean distance
-
-    for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
-    }
-
-    double distance = sqrt(sum);
+    float distance = sqrt(sum);
     cout << distance << endl;
 
     return 0;
