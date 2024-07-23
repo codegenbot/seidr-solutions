@@ -1,10 +1,10 @@
+```cpp
 #include <vector>
-#include <numeric>
-
 int basement(vector<int> v) {
+    int sum = 0;
     for (int i = 0; i < v.size(); i++) {
-        if (std::accumulate(v.begin(), v.begin() + i + 1, 0) < 0)
-            return i;
+        sum += v[i];
+        if (sum < 0) return i + 1;
     }
     return -1;
 }
