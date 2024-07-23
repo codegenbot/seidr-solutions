@@ -1,20 +1,33 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    bool b = true;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i])
-            b = false;
-    }
-    return b;
+    if (a.size() != b.size()) 
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) 
+        if (a[i] != b[i])
+            return false;
+    
+    return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings) {
-        if(s.find(substring) == string::npos)
-            result.push_back(s);
+int main() {
+    std::vector<std::string> strings = {"apple", "banana", "apple", "orange", "banana"};
+    std::string substring = "banana";
+    
+    std::vector<std::string> filteredStrings = filter_by_substring(strings, substring);
+    
+    for (std::string s : filteredStrings) {
+        std::cout << s << std::endl;
     }
-    return result;
+    
+    vector<string> a = {"apple", "banana"};
+    vector<string> b = {"apple", "banana"};
+    
+    assert(issame(a, b));
+    
+    return 0;
 }
