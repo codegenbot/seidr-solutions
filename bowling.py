@@ -16,11 +16,12 @@ def bowling_score(game):
             score += 10
             frame += 1
         elif game[i] == '/':
-            first_roll = 10 - int(game[i-1])
+            first_roll = 10 / 2
+            second_roll = 10 - first_roll
             if game[i+1].isdigit():
-                score += first_roll + int(game[i+1])
+                score += first_roll + second_roll + int(game[i+1])
                 frame += 1
             else:
-                score += first_roll
+                score += first_roll + second_roll
                 frame += 1
     return score
