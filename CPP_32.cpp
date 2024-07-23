@@ -7,7 +7,8 @@ using namespace std;
 
 double poly(vector<double> xs, double x){
     double sum=0;
-    for (int i = 0; i < xs.size();i++)
+    int i;
+    for (i=0;i<xs.size();i++)
     {
         sum+=xs[i]*pow(x,i);
     }
