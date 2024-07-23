@@ -1,5 +1,9 @@
-```
-def longest(strings: list[str]) -> Optional[str]:
+from typing import List, Optional
+
+
+def longest(strings: List[object]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=len)
+    return "".join(
+        map(str, sorted(set(map(str, strings)), key=lambda x: len(x), reverse=True))
+    )
