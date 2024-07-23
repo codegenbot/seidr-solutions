@@ -1,7 +1,8 @@
+```c
 #include <sstream>
 
-string squareDigits(string input) {
-    string result = "";
+std::string squareDigits(std::string input) {
+    std::string result = "";
     for (char c : input) {
         int digit = c - '0';
         result += to_string(digit * digit);
