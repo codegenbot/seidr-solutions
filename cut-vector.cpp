@@ -1,53 +1,27 @@
 #include <vector>
+#include <climits>
+#include <cmath>
+
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j <= i; j++)
-            left_sum += v[j];
-        for (int j = i + 1; j < v.size(); j++)
-            right_sum += v[j];
-        
-        if (left_sum == right_sum) {
-            result.first = vector<int>(v.begin(), v.begin() + i + 1);
-            result.second = vector<int>(v.begin() + i, v.end());
-            return result;
-        } else if (abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            result.first = vector<int>(v.begin(), v.begin() + i + 1);
-            result.second = vector<int>(v.begin() + i, v.end());
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int leftSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        leftSum += nums[i];
+    }
+
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int rightSum = leftSum - nums[i];
+        int diff = std::abs(leftSum - rightSum);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    return result;
-}
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < res.first.size(); i++) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.first[i];
-    }
-    cout << "], [";
-    for (int i = 0; i < res.second.size(); i++) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.second[i];
-    }
-    cout << "]" << endl;
-    
-    return 0;
+    vector<int> leftVec(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> rightVec(nums.begin() + cutIndex + 1, nums.end());
+    return {leftVec, rightVec};
 }

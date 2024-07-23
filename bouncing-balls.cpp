@@ -1,16 +1,19 @@
+```
 #include <iostream>
-#include <iomanip> 
-using namespace std;
+#include <cmath>
+#include <iomanip>
 
 int main() {
-    double startHeight, firstBounce, bouncinessIndex;
+    double startHeight, firstBounceHeight;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;
+    cin >> startHeight >> firstBounceHeight >> numBounces;
 
-    bouncinessIndex = firstBounce / startHeight;
+    double bouncinessIndex = firstBounceHeight / startHeight;
 
-    cout << fixed << setprecision(4) << (1 + bouncinessIndex) * 2.0 - 1.0 << endl;
+    double totalDistance = (startHeight * (1 - pow(bouncinessIndex, numBounces))) / (1 - bouncinessIndex);
 
+    cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
+    
     return 0;
 }
