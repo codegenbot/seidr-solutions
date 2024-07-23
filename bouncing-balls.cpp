@@ -8,9 +8,9 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;
 
-    bouncinessIndex = firstBounce / startHeight;
+    bouncinessIndex = (firstBounce / startHeight);
 
-    cout << fixed << setprecision(4) << (1 + bouncinessIndex) * 2.0 - 1.0 << endl;
+    cout << fixed << setprecision(4) << pow((1 + bouncinessIndex), numBounces) * 2.0 - 1.0 << endl;
 
     return 0;
 }
