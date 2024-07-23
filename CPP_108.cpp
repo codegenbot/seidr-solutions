@@ -22,8 +22,8 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    std::vector<int> nums = {-5, -23, 45, 6};
+    std::vector<int> nums = {-5, -4, -2, -1, 0, 1};
     int result = count_nums(nums);
-    std::cout << "Number of numbers with more than one digit: " << result << std::endl;
+    std::cout << "The count of positive numbers with even digital sum is: " << result << std::endl;
     return 0;
 }
