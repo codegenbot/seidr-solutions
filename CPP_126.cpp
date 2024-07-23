@@ -15,7 +15,7 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     std::vector<int> vec;
     
     for(int i = 0; i < n; i++) {
