@@ -1,8 +1,8 @@
 ```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = false;
     bool lastOp = false;
 
@@ -22,10 +22,10 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a Boolean expression (T/F/|/&): ";
-    getline(cin, input); 
+    std::string input;
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    std::getline(std::cin, input);  
     bool result = solveBoolean(input);
-    cout << "Result: " << (result ? "True" : "False") << endl;
+    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
 }
