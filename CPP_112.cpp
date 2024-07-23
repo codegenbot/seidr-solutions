@@ -3,7 +3,7 @@
 #include <string>
 #include <initializer_list>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::string& b) {
     return a == b;
 }
 
@@ -15,7 +15,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += s[i];
         }
     }
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
