@@ -2,10 +2,6 @@ int prod_signs(vector<int> arr) {
     int product = 1;
     long long sum = 0;
     
-    if (arr.empty()) {
-        return -32768; 
-    }
-    
     for (int num : arr) {
         if (num == 0) {
             return 0;
@@ -14,5 +10,11 @@ int prod_signs(vector<int> arr) {
         sum += abs(num);
     }
     
-    return product * ((sum > 0) ? 1 : -1); 
+    if (arr.empty()) {
+        return -32768;
+    } else if (sum == 0) {
+        return product; 
+    } else {
+        return product * (sum / abs(sum));
+    }
 }

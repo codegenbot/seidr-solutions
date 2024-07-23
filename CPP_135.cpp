@@ -1,4 +1,5 @@
 #include <vector>
+#include < namespace std;
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
