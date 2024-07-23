@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string>b){
+bool issame(vector<string> a, vector<string>b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -22,17 +21,17 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
-    std::string target_substring = "ello";
+    vector<string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
+    string target_substring = "ello";
     
-    std::vector<std::string> filtered_strings = filter_by_substring(input_strings, target_substring);
+    vector<string> filtered_strings = filter_by_substring(input_strings, target_substring);
 
-    if(issame(input_strings, filtered_strings)) {
+    if(issame(vector<string>(input_strings.begin(), input_strings.end()), filtered_strings)) {
         for(auto str : filtered_strings) {
-            std::cout << str << std::endl;
+            cout << str << endl;
         }
     } else {
-        std::cout << "Strings were not the same." << std::endl;
+        cout << "Strings were not the same." << endl;
     }
 
     return 0;
