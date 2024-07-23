@@ -3,7 +3,5 @@ prices = list(map(float, input().split()))
 m = int(input())
 discounts = list(map(float, input().split()))
 
-total_price = sum(
-    [(price - price * discount / 100) for price, discount in zip(prices, discounts)]
-)
-print(total_price)
+total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
+print('{:.2f}'.format(total_price))
