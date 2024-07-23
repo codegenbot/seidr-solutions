@@ -1,42 +1,36 @@
-#include <iostream>
-using namespace std;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
 
-string spinWords(const string& str) {
-    string result = "";
-    int i = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(i + 4 >= str.length() || str[i+4] != ' ') {
-            for(int j = i; j < str.length() && str[j] != ' '; j++) {}
-            string word = str.substr(i, j - i);
-            int len = word.length();
-            if(len > 4) {
-                string revWord = "";
-                for(int k = len-1; k >= 0; k--) {
-                    revWord += word[k];
-                }
-                result += revWord;
-            } else {
-                result += word;
-            }
-            i = j + 1;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += word + " ";
+            word = "";
         } else {
-            int j = i;
-            while(j < str.length() && str[j] != ' ') j++;
-            string word = str.substr(i, j - i);
-            result += word;
-            i = j + 1;
+            word += str[i];
         }
     }
+
+    result += word;
+
+    int start = 0;
+    for (int i = 0; i <= result.length(); i++) {
+        if (i == result.length() || result[i] == ' ') {
+            std::string temp = result.substr(start, i - start);
+            if (temp.length() >= 5) { 
+                result.replace(start, i - start, reverse(temp).c_str());
+            }
+            start = i + 1;
+        }
+    }
+
     return result;
 }
 
-int main() {
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl; 
-    return 0;
+std::string reverse(std::string str) {
+    std::string res = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        res += str[i];
+    }
+    return res;
 }
