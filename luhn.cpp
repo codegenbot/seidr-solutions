@@ -1,20 +1,18 @@
-int luhn(vector<int> card) {
+int luhn(vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
-    
-    for (int i = card.size() - 1; i >= 0; --i) {
+
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
         if (doubleNext) {
-            int digit = card[i] * 2;
+            digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
-            sum += digit;
-            doubleNext = false;
-        } else {
-            sum += card[i];
-            doubleNext = !doubleNext;
         }
+        sum += digit;
+        doubleNext = !doubleNext;
     }
-    
+
     return sum;
 }
