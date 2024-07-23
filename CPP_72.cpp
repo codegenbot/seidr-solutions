@@ -11,8 +11,8 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-long long accumulate(vector<int> q, long long int x) {
-    return accumulate(q.begin(), q.end(), x);
+long long accumulate(vector<int> q) {
+    return accumulate(q.begin(), q.end(), 0LL);
 }
 
 bool will_it_fly(vector<int> q, int w) {
@@ -20,7 +20,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         s += to_string(i);
     }
-    return is_palindrome(s) && accumulate(q, 0LL) <= w;
+    return is_palindrome(s) && accumulate(q) <= w;
 }
 
 int main() {
