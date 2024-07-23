@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 #include <iostream>
 
@@ -17,6 +18,8 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    cout << string_xor("0101", "0000") << endl;
+    string a = "0101";
+    string b = "0000";
+    cout << string_xor(a, b) << endl;
     return 0;
 }
