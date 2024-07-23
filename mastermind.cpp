@@ -14,8 +14,10 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    int whitePegs = 4 - blackPegs;
-    return make_pair(blackPegs, whitePegs);
+    // Calculate white pegs
+    whitePegs = 4 - blackPegs;
+    
+    return std::make_pair(blackPegs, whitePegs);
 }
 
 int main() {
