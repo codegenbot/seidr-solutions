@@ -3,8 +3,8 @@ int bowlingScore(string s) {
     int currentRoll1 = 0;
     int currentRoll2 = 0;
     bool strike = false;
-    int frameScore = 0;
-    
+    int bonusRoll = 0;
+
     for (char c : s) {
         if (c == '/') {
             if (!strike) {
@@ -16,10 +16,10 @@ int bowlingScore(string s) {
             } else {
                 frameScore = 10;
                 score += frameScore;
-                strike = false;
             }
             currentRoll1 = 0;
             currentRoll2 = 0;
+            strike = false;
         } else if (c == 'X') {
             score += 10;
             frameScore = 10;
@@ -27,12 +27,12 @@ int bowlingScore(string s) {
         } else {
             if (!strike) {
                 if (currentRoll1 + 1 >= 10) {
-                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
-                        score += 10 - currentRoll1;
-                        currentRoll2++;
+                    score += 10 - currentRoll1;
+                    currentRoll2++;
+                    if (currentRoll1 + currentRoll2 == 10) {
+                        frameScore = 10;
                     } else {
-                        score += 10;
-                        currentRoll1 = 0;
+                        frameScore = currentRoll1 + currentRoll2;
                     }
                 } else {
                     currentRoll1++;
@@ -42,26 +42,14 @@ int bowlingScore(string s) {
             }
         }
     }
-    
+
     if (strike) {
-        int bonusRoll1 = 0, bonusRoll2 = 0;
-        for (char c : s.substr(s.find('/'))) {
-            if (c == 'X') {
-                score += 10 + bonusRoll1;
-                return score;
-            } else if (c == '/') {
-                score += 10 + bonusRoll1;
-                return score;
-            } else {
-                if (bonusRoll1 < 2) {
-                    bonusRoll1++;
-                } else {
-                    bonusRoll1 = 0;
-                    bonusRoll2++;
-                }
-            }
-        }
+        score += 10 + bonusRoll;
     }
-    
+
     return score;
+}
+
+int main() {
+    cout << bowlingScore("XXX/") << endl;
 }
