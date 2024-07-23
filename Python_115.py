@@ -8,6 +8,4 @@ def max_fill(grid, capacity):
     return total_buckets
 
 if __name__ == "__main__":
-    grid = eval(input("Enter your grid (list of lists): "))
-    capacity = int(input("Enter the bucket's capacity: "))
-    print(max_fill(grid, capacity))
+    print(max_fill([[[1, 2], [3, 4]]], 5))
