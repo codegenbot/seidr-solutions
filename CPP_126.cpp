@@ -8,15 +8,17 @@ bool is_sorted(std::vector<int> lst) {
         if(lst[i-1] >= lst[i]) return false;
     }
     std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
+    for(auto it = unique_lst.begin(); it != unique_lst.end(); ++it)
+        *it /= 2; 
     return true; 
 }
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> vec;
+int processInput(int n, std::vector<int>& vec) {
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::cout << "The vector is not sorted.\n";
+    }
     
     for(int i = 0; i < n; i++) {
         int val;
@@ -25,11 +27,17 @@ int main() {
         vec.push_back(val);
     }
     
-    if(is_sorted(vec)) {
-        std::cout << "The vector is sorted.\n";
-    } else {
-        std::cout << "The vector is not sorted.\n";
-    }
+    return 0;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> vec;
+    
+    processInput(n, vec);
     
     return 0;
 }
