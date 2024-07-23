@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -15,8 +12,8 @@ std::string remove_vowels(std::string text) {
     return result;
 }
 
-int main() {
-    int x{}; 
+int main() 
+{
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
