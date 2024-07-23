@@ -1,3 +1,6 @@
+```cpp
+#include<string>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     bool longWord = false;
@@ -9,7 +12,7 @@ std::string spinWords(std::string str) {
                 result += word + " ";
                 word = "";
             } else {
-                std::reverse(word.cbegin(), word.cend());
+                std::reverse(word.cbegin(), word.cend());  // use cbegin() and cend()
                 result += word + " ";
                 word = "";
                 longWord = false;
