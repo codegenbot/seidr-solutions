@@ -48,10 +48,6 @@ bool evaluateBooleanExpression(std::string expression) {
         }
     }
 
-    if (!operand.empty()) {
-        return operand == "T";
-    }
-
     while (!operators.empty()) {
         if (expression[i] == '|') {
             while (!operators.empty() && operators.top() == '|') {
@@ -64,6 +60,10 @@ bool evaluateBooleanExpression(std::string expression) {
         }
 
         operators.pop();
+    }
+
+    if (!operand.empty()) {
+        return operand == "T";
     }
 
     return true;
