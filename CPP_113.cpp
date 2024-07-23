@@ -1,5 +1,10 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <string>
+#include <cctype>
+#include <initializer_list>
 
 using namespace std;
 

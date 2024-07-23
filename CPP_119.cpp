@@ -1,23 +1,11 @@
-#include <vector>
-#include <string>
-
-int match_parens(vector<string> lst) {
-    int balance = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
-            if (c == '(') {
-                balance++;
-            } else if (c == ')') {
-                if (balance <= 0) return 0;
-                balance--;
-            }
+```cpp
+std::string match_parens(vector<std::string> lst) {
+    int open = 0;
+    for (const auto& str : lst) {
+        for (char c : str) {
+            if (c == '(') open++;
+            else if (c == ')') open--;
         }
     }
-    return balance == 0 ? 1 : 0;
-}
-
-int main() {
-    vector<string> input = {")", "("};
-    assert(match_parens(input) == 1);
-    return 0;
+    return open == 0 ? "Yes" : "No";
 }

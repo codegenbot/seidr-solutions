@@ -1,10 +1,26 @@
+```
 import re
 
-def sum_squares(user_input):
-    if not isinstance(user_input, (int, float)):
+def sum_squares():
+    while True:
+        try:
+            user_input = input("Please enter a number or comma-separated numbers: ")
+            if ',' in user_input:
+                user_input = [int(x) for x in user_input.split(',')]
+                break
+            else:
+                user_input = int(user_input)
+                break
+        except ValueError:
+            print("Invalid input. Please try again.")
+
+    if isinstance(user_input, (int, float)):
+        numbers = [n ** 2]
+    elif not isinstance(user_input, str) and not isinstance(user_input, tuple) and not hasattr(user_input, "__iter__"):
         return
-    if isinstance(user_input, int) or isinstance(user_input, float):
-        numbers = [n ** 2 for n in [user_input]]
     else:
-        raise ValueError("Invalid input. Please enter a single integer or float.")
+        if isinstance(user_input, list):
+            numbers = [n ** 2 for n in map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input))]
+        else:
+            numbers = list(map(int, filter(lambda x: re.match(r'\d+', str(x)), map(str, user_input))))
     return sum(numbers)
