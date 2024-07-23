@@ -7,5 +7,4 @@ double probability(int n, int m) {
     for (int i = 1; i <= std::min(n,m); i++) {
         higher += (double)(n-i)*(m-i+1)/total;
     }
-    return higher;
 }
