@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> // Include the math library for log10
+#include <cmath>
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -34,4 +34,3 @@ int main() {
     cout << "The sum of the elements is: " << result << endl;
 
     return 0;
-}
