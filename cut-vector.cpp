@@ -4,7 +4,8 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (true) {
+        if (!(std::cin >> n)) break;
         nums.push_back(n);
     }
 
@@ -26,7 +27,7 @@ int main() {
     
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
     std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
-
+    
     for (int num : subvec1) {
         std::cout << num << std::endl;
     }
