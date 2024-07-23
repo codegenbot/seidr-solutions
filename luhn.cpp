@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool isDouble = false;
