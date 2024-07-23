@@ -1,8 +1,10 @@
 int main() {
     string input;
     getline(cin, input);
-    string word, result;
+    
     istringstream iss(input);
+    string word;
+    string result = "";
     
     while (iss >> word) {
         if (word.length() >= 5) {
