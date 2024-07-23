@@ -16,13 +16,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sum2 += str.length();
     }
 
-    if (issame(lst1, lst2)) {
-        return lst1;
-    } else if (sum1 < sum2) {
-        return lst1;
+    if (sum1 < sum2) {
+        return issame(lst1, lst2) ? vector<string>() : lst1;
     } else if (sum1 > sum2) {
-        return lst2;
+        return issame(lst1, lst2) ? vector<string>() : lst2;
     } else {
-        return lst1;
+        return issame(lst1, lst2) ? lst1 : vector<string>();
     }
 }
