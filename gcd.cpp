@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 unsigned long long gcd(unsigned long long a, unsigned long long b) {
     while (b != 0) {
-        unsigned long long temp = b;
-        b = a % b;
-        a = temp;
+        b = b % a;
+        if(b == 0)
+            return a;
+        a = b;
     }
     return a;
 }
@@ -31,7 +31,9 @@ std::vector<unsigned long long> indicesOfSubstring(std::string text, std::string
 int main() {
     std::string text = "Hello World";
     std::string target = "World";
-
+    unsigned long long GCD = gcd(909378243576ULL, 50); 
+    std::cout << "GCD of " << 909378243576ULL << " and " << 50 << ": " << GCD << std::endl;
+    
     std::vector<unsigned long long> result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
     for (unsigned long long i : result) {
@@ -39,6 +41,5 @@ int main() {
     }
     std::cout << std::endl;
 
-    unsigned long long GCD = gcd((int)text.length(), (int)target.length());
-    std::cout << "GCD of text and target: " << GCD << std::endl;
+    return 0;
 }
