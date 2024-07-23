@@ -9,12 +9,12 @@ def encode(message):
                 else:
                     encoded_char = chr((ord(char) - 97 + 3) % 26 + 97)
             else:  
-                if char.isspace():  # Add encoding operation for spaces
+                if char.isspace(): 
                     encoded_char = ' '
                 else:
                     encoded_char = char
         else:  
-            if char.isspace():  # Add encoding operation for spaces
+            if char.isspace(): 
                 encoded_char = ' '
             else:
                 encoded_char = char
