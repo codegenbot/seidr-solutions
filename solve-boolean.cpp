@@ -31,8 +31,8 @@ bool solveBoolean(std::string expression) {
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
             size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '&') {
+            for (int j = i; j < expression.size(); j++) {
+                if (expression[j] == '|' || expression[j] == '&') {
                     start = j+1;
                     break;
                 }
@@ -40,7 +40,7 @@ bool solveBoolean(std::string expression) {
             std::string left = expression.substr(0, start);
             size_t end = i + 1;
             for (; end < expression.size(); end++) {
-                if (expression[end] == '&' || expression[end] == '|') {
+                if (expression[end] == '|' || expression[end] == '&') {
                     break;
                 }
             }
