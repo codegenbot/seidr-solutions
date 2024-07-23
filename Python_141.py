@@ -1,16 +1,11 @@
 ```
 def file_name_check(file_name):
-    if len(file_name) < 2:
+    if '.' in file_name:
+        part1, part2 = file_name.split('.')
+        if len(part1) > 0 and part1[0].isalpha() and part1.count('0') <= 3 and part1.count('1') <= 3 and part1.count('2') <= 3 and part1.count('3') <= 3 and part1.count('4') <= 3 and part1.count('5') <= 3 and part1.count('6') <= 3 and part1.count('7') <= 3 and part1.count('8') <= 3 and part1.count('9') <= 3:
+            if part2 in ['txt', 'exe', 'dll']:
+                return 'Yes'
+        else:
+            return 'No'
+    else:
         return 'No'
-    if not file_name[0].isalpha():
-        return 'No'
-    dot_index = file_name.find('.')
-    if dot_index == -1 or dot_index > 4:
-        return 'No'
-    before_dot, after_dot = file_name[:dot_index], file_name[dot_index+1:]
-    if len([c for c in before_dot if c.isdigit()]) > 3:
-        return 'No'
-    valid_extensions = ['txt', 'exe', 'dll']
-    if after_dot not in valid_extensions:
-        return 'No'
-    return 'Yes'
