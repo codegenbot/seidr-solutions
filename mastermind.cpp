@@ -1,8 +1,8 @@
 ```
-#include <map>
 #include <string>
+#include <map>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,7 +12,7 @@ int mastermind(string code, string guess) {
         }
     }
 
-    map<char, int> code_map;
+    std::map<char, int> code_map;
     for(int i=0; i<4; i++) {
         code_map[code[i]]++;
     }
