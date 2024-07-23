@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ bool evaluateBooleanExpression(string expression) {
         }
 
         if (expression[i] == '(') {
-            operators.push('(');
+            operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
