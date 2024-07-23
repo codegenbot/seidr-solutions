@@ -1,4 +1,3 @@
-#include <stack>
 #include <string>
 
 string solveBoolean(string booleanExpression) {
@@ -24,13 +23,10 @@ string solveBoolean(string booleanExpression) {
         expressionStack.pop();
     }
     
-    if (result == "T&T") return "True";
-    if (result == "F&F") return "False";
-    if ((result == "F&T") || (result == "&TF")) return "False";
+    if (result == "TT") return "True";
+    if (result == "FF") return "False";
+    if (result == "FT" || result == "TF") return "False";
     if (result == "T") return "True";
     if (result == "F") return "False";
     
-    if (result == "TT" && booleanExpression.length() > 2) return "Invalid Input";
-    if ((result == "FT" || result == "TF")) return "False";
     return "Invalid Input";
-}

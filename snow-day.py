@@ -1,16 +1,7 @@
-```
-def snow_day():
-    hours = float(input("Enter number of hours: "))
-    initial_snow = float(input("Enter initial snow amount: "))
-    rate_of_fall = float(input("Enter rate of snow fall: "))
-    melting_rate = float(input("Enter melting rate per hour: "))
-
+def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
     total_snow = 0
-    for _ in range(int(hours)):
-        new_snow = initial_snow + (rate_of_fall - melting_rate * initial_snow)
-        initial_snow = new_snow
-        total_snow += initial_snow
-
+    new_snow = initial_snow
+    for _ in range(hours):
+        new_snow = new_snow + rate_of_fall - melting_rate * new_snow
+        total_snow += new_snow
     return round(total_snow, 6)
-
-print(snow_day())
