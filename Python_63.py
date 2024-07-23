@@ -9,6 +9,5 @@ def fibfib(n: int):
         total = 1
         for _ in range(3, n + 1):
             a, b = b, a + b
-            if a <= n: 
-                total += a
+            total += a
         return total
