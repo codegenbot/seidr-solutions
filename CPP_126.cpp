@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,10 +9,12 @@ bool is_sorted(std::vector<int> lst) {
         if(lst[i-1] >= lst[i]) return false;
     }
     std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
+    for(auto it = unique_lst.begin(); it != unique_lst.end(); ++it)
+        *it /= 2; 
     return true; 
 }
 
-int main() {
+int problem126() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;

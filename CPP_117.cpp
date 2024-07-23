@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
+bool equals(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -25,16 +24,6 @@ std::vector<std::string> select_words(std::string s, int k) {
 
 }
 
-bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 int main(){
-    assert(areEqualVectors(select_words("a b c d e f", 1), std::vector<std::string>({"b","c","d","f"})));
+    assert(equals(std::vector<std::string>({"b","c","d","f"}), select_words("a b c d e f", 1)));
 }
