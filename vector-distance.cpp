@@ -13,10 +13,10 @@ double vectorDistance(int n) {
     
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow((v2[i] - v1[i]), 2);
+        sum += pow(v2[i] - v1[i], 2);
     }
     
-    return sqrt(sum);
+    return sqrt(sum + 1); // initialize sum with 1, not 0
 }
 
 int main() {
