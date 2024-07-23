@@ -1,6 +1,6 @@
-```python
-s = input("Enter a string: ")
-n -= sum(int(d) for d in s if d.isdigit())
-vowels = 'ao'
-n -= sum(1 for c in s if c.lower() in vowels)
-print(n)
+s = input("Enter a sentence: ")
+n = int(input("Enter a number: "))
+n -= sum(int(d) for d in "".join(filter(str.isdigit, s))) + sum(
+    int(d)
+    for d in "".join(filter(str.isdigit, [c for c in s if c != " " and c not in "oa"]))
+)
