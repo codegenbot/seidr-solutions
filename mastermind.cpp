@@ -15,11 +15,13 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-        } else {
-            ++codeFreq[code[i] - 'A'];
-            ++guessFreq[guess[i] - 'A'];
+            codeFreq[code[i] - 'A'] += 1;
+            guessFreq[guess[i] - 'A'] += 1;
         }
     }
+
+    for (char c : code) ++codeFreq[c - 'A'];
+    for (char c : guess) ++guessFreq[c - 'A'];
 
     for (int i = 0; i < 6; ++i) whitePegs += min(codeFreq[i], guessFreq[i]);
 
