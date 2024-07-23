@@ -1,2 +1,4 @@
 def paired_digits(s):
-    return sum(int(digit) for i, digit in enumerate('0' + s.lstrip('0') or '0') if i < len('0' + s.lstrip('0'))-1 and '0' + s.lstrip('0')[i] == '0' + s.lstrip('0')[i+1])
+    while s and s[0] == '0' and len(s) > 1:
+        s = s[1:]
+    return sum(int(digit) for i, digit in enumerate(s) if i < len(s)-1 and s[i] == s[i+1])
