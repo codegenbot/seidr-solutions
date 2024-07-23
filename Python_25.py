@@ -1,12 +1,6 @@
-```
-def solve():
-    num = int(input("Enter a number: "))
-    print(factorize(num))
+Here is the corrected code:
 
-from typing import List
-import math
-
-
+```python
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
