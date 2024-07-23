@@ -5,6 +5,7 @@ def main():
     input_numbers = input("Enter the numbers (space-separated): ")
     input_delimiter = int(input("Enter the delimiter: "))
     
+    # Convert input string to list of integers and split by spaces.
     numbers = [int(num) for num in input_numbers.split()]
 
     result = intersperse(numbers, input_delimiter)
