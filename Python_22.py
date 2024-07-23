@@ -1,16 +1,15 @@
-def main():
-    user_input = input("Enter some values (separated by space): ")
+```
+from typing import List, Any
+
+def filter_integers():
+    values = input("Enter a list of values (comma separated): ")
     try:
-        values = [int(value) for value in user_input.split()]
-        filtered_values = list(filter(lambda x: isinstance(x, int), values))
-        print(filtered_values)
+        values = [int(x) for x in values.split(',')]
     except ValueError:
         print("Invalid input. Please enter integers only.")
+        return []
+    
+    result = [value for value in values if isinstance(value, int)]
+    return result
 
-
-def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
-
-
-if __name__ == "__main__":
-    main()
+print(filter_integers())
