@@ -1,20 +1,28 @@
 #include <vector>
+#include <cmath>
+#include <cassert>
 #include <string>
 
-int doAlgebra(std::vector<std::string> operations, std::vector<int> operands) {
-    int result = operands[0];
-    for (int i = 1; i < operations.size(); i++) {
-        if (operations[i-1] == "/") {
-            if (operands[i] == 0)
+int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i < operato.size(); i++) {
+        if (operato[i-1] == "/") {
+            if (operand[i] == 0)
                 return 0;
-            result /= operands[i];
-        } else if (operations[i-1] == "*") {
-            result *= operands[i];
-        } else if (operations[i-1] == "+") {
-            result += operands[i];
-        } else if (operations[i-1] == "-") {
-            result -= operands[i];
+            result /= operand[i];
+        } else if (operato[i-1] == "*") {
+            result *= operand[i];
+        } else if (operato[i-1] == "+") {
+            result += operand[i];
+        } else if (operato[i-1] == "-") {
+            result -= operand[i];
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"+", "+"}, {1, 2}) == 3);
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8); 
+    return 0;
 }
