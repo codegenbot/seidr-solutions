@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cassert>
 #include <vector>
 
@@ -24,7 +24,7 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
-    assert((skjkasdkd({127, 97, 8192})) == 10);
+int main(){
+    assert(skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
