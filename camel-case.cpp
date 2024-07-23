@@ -18,4 +18,13 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
+    for (int i = 0; i < result.size(); ++i) {
+        if (result[i] == ' ') {
+            result[i+1] = toupper(result[i+1]);
+            result.erase(i, 1);
+            i--;
+        }
+    }
+
     return result;
+}
