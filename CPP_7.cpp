@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool same(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -21,29 +21,24 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-int main(){
+int main() {
     int n;
-    std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
-    std::vector<std::string> input_strings(n);
-    for(int i=0; i<n; i++){
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, input_strings[i]);
+    std::vector<std::string> strings(n);
+    for(int i = 0; i < n; i++){
+        std::cin >> strings[i];
     }
 
     std::string sub;
-    std::cout << "Enter substring to filter by: ";
     std::cin >> sub;
 
-    std::vector<std::string> filtered = filter_by_substring(input_strings, sub);
+    auto filtered_strings = filter_by_substring(strings, sub);
 
-    if(issame(input_strings, filtered)){
-        for(auto str : filtered){
-            std::cout << str << "\n";
-        }
-    } else{
-        std::cout << "No strings match the given substring.\n";
+    if(same({sub},filtered_strings)){
+        std::cout << "Substrings are the same" << std::endl;
+    } else {
+        std::cout << "Substrings are different" << std::endl;
     }
 
     return 0;
