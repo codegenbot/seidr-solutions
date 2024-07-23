@@ -3,21 +3,21 @@
 #include <cmath>
 
 int main() {
-    double n;
+    int n;
     std::cin >> n;
-    std::vector<double> v1(n), v2(n);
+    std::vector<double> vec1(n), vec2(n);
 
     for (int i = 0; i < n; ++i) {
-        std::cin >> v1[i];
+        std::cin >> vec1[i];
     }
-    
+
     for (int i = 0; i < n; ++i) {
-        std::cin >> v2[i];
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     std::cout << std::sqrt(sum) << std::endl;
