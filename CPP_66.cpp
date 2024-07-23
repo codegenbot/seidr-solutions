@@ -1,8 +1,9 @@
+```c++
 #include <string>
 #include <cassert>
 #include <iostream>
 
-int digitSum(std::basic_string<char> s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (!isdigit(c)) {
@@ -16,10 +17,6 @@ int digitSum(std::basic_string<char> s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    std::cout << "Input your string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << digitSum("Your string here") << std::endl;
     return 0;
 }
