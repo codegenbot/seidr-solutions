@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 
@@ -11,7 +11,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 while True:
     try:
         numbers_str = input("Enter some numbers separated by space: ")
-        if not numbers_str.strip():  
+        if not numbers_str.strip():  # check if the input is empty
             print("Please enter at least one number.")
             continue
         
