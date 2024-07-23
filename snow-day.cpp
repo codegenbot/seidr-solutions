@@ -19,9 +19,9 @@ float snowDay(int hours, float onGround, float rate, float melt) {
 
 int main() {
     int hours;
-    std::cin >> hours;
+    cin >> hours;
     float onGround, rate, melt;
-    std::cin >> onGround >> rate >> melt;
-    std::cout << std::to_string(snowDay(hours, onGround, rate, melt)) << std::endl;
-    return 0; 
+    cin >> onGround >> rate >> melt;
+    cout << to_string(snowDay(hours, onGround, rate, melt)) << endl;
+    return 0;
 }
