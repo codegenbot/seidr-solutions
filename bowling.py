@@ -4,7 +4,9 @@ def get_strike_bonus(bowls, index):
 
     if next_bowl == "X":
         bonus += 10
-        bonus += get_bonus_value(bowls, index + 1, 3)
+        bonus += get_bonus_value(bowls, index + 1, 2)
+    elif next_bowl == "/":
+        bonus += 10 - int(bowls[index])
     elif next_bowl != "-":
         bonus += int(next_bowl)
     
