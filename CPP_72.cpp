@@ -23,24 +23,24 @@ bool will_it_fly(vector<int> q, int w) {
 int main() {
     int n, w;
     vector<int> q;
-
+    
     cout << "Enter the number of queens: ";
     cin >> n;
-
+    
     for (int i=0; i<n; i++) {
         int temp;
         cout << "Enter position of queen " << i+1 << ": ";
         cin >> temp;
         q.push_back(temp);
     }
-
+    
     cout << "Enter the total weight: ";
     cin >> w;
-
+    
     if (will_it_fly(q, w))
         cout << "The queens will fly with the given weight.";
     else
         cout << "The queens will not fly with the given weight.";
-
+    
     return 0;
 }
