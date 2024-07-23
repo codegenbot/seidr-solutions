@@ -1,32 +1,35 @@
+#include <algorithm>
+#include <map>
+#include <vector>
+#include <string>
+
 string sort_numbers(string numbers) {
     map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
                                 {"eight", 8}, {"nine", 9}};
-    vector<string> numVector;
-    string temp;
+    vector<string> numVec;
+    string num;
 
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
             continue;
         }
-        temp += numbers[i];
-        if (i == numbers.length() - 1 || numbers[i + 1] != ' ') {
-            numVector.push_back(temp);
-            temp = "";
+        int j = i + 1;
+        while (j <= numbers.length() && !isdigit(numbers[j])) {
+            j++;
         }
+        num = numbers.substr(i, j - i);
+        i = j;
+        numVec.push_back(num);
     }
 
-    sort(numVector.begin(), numVector.end());
+    sort(numVec.begin(), numVec.end(), [&numMap](string a, string b) {
+        return to_string(numMap.at(a)) < to_string(numMap.at(b));
+    });
 
-    string result = "";
-    for (int i = 0; i < numVector.size(); i++) {
-        if (numMap.find(numVector[i]) != numMap.end()) {
-            result += numVector[i];
-            if (i < numVector.size() - 1) {
-                result += " ";
-            }
-        }
+    string result;
+    for (const auto& num : numVec) {
+        result += num + " ";
     }
-
-    return result;
+    return result.substr(0, result.length() - 1);
 }
