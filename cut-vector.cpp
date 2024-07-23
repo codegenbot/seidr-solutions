@@ -1,6 +1,8 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <utility>
+#include <iterator>
 
 int main() {
     int cutIndex = 0;
@@ -22,6 +24,6 @@ int main() {
         }
     }
 
-    return std::make_tuple(std::vector<int>(v.begin(), v.begin() + cutIndex), 
-                            std::vector<int>(v.begin() + cutIndex, v.end()));
+    return std::make_pair(std::vector<int>(v.begin(), v.begin() + cutIndex),
+                       std::vector<int>(v.begin() + cutIndex, v.end()));
 }
