@@ -1,16 +1,11 @@
-```cpp
-#include <cassert>
 #include <string>
 
-bool check_if_last_char_is_a_letter(std::string str) {
-    if(str.empty()) {
-        return false;
+int check_if_last_char_is_a_letter(std::string str) {
+    if (str.length() > 0) {
+        char last_char = str[str.length()-1];
+        if ((last_char >= 'a' && last_char <= 'z') || (last_char >= 'A' && last_char <= 'Z')) {
+            return true;
+        }
     }
-    char last_char = str.back();
-    return (last_char >= 'a' && last_char <= 'z') || (last_char >= 'A' && last_char <= 'Z');
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    return 0;
+    return false;
 }
