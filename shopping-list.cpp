@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip> // for fixed and std::setprecision
 using namespace std;
