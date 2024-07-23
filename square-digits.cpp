@@ -1,12 +1,16 @@
-#include <string>
-#include <sstream>
+#include <algorithm>
+using namespace std;
 
-string squareDigits(string n) {
-    string result = "";
-    stringstream ss(n);
-    char c;
-    while (ss >> c) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
-    }
+string squareDigits(string input) {
+    string result;
+    transform(input.begin(), input.end(), std::back_inserter(result),
+        [&](char c) { return to_string(c-'0' * c-'0'); });
     return result;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
+}
