@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     result = ""
     for i, char in enumerate(text):
