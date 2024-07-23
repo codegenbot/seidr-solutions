@@ -5,12 +5,26 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(n):
             if grid[i][j] == k:
-                x, y = i, j
-                for _ in range(k-1):  
-                    if i > 0 and grid[i-1][j] == k: i -= 1  
-                    elif i < n - 1 and grid[i+1][j] == k: i += 1  
-                    elif j > 0 and grid[i][j-1] == k: j -= 1  
-                    elif j < n - 1 and grid[i][j+1] == k: j += 1  
-                res = [x, y] + [[i, j] for i in range(x-1, x+k)]  
-                return res
-    return res
+                stack = [(i, j)]
+                visited = [[False]*n for _ in range(n)]
+                path = [str(i) + ',' + str(j)]
+                while stack:
+                    x, y = stack.pop()
+                    if visited[x][y]:
+                        continue
+                    visited[x][y] = True
+                    path.append(str(x) + ',' + str(y))
+                    if (x == 0 and y == 0):
+                        res = [' '.join(path)]
+                        break
+                    elif x > 0:
+                        stack.append((x-1, y))
+                    elif x < n-1:
+                        stack.append((x+1, y))
+                    elif y > 0:
+                        stack.append((x, y-1))
+                    else:
+                        stack.append((x, y+1))
+                if res:
+                    return [int(i) for i in res[0].split(',')]
+    return []
