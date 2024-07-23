@@ -1,26 +1,31 @@
 def solve_boolean(expression):
-    expression = expression.replace(' | ', '|').replace('&', ' & ')
-    def recursive_eval(tokens, i=None):
-        if i == None:
-            i = 0
+    def eval_bool(tokens):
+        stack = []
+        result = None
+        operator = None
 
-        while i < len(tokens):
-            token = tokens[i]
-            if token == '(':
-                return recursive_eval(tokens, i+1)
-            elif token in ['T', 'F']:
-                return True if token == 'T' else False
+        while len(tokens) > 0:
+            token = tokens.pop(0)
+            
+            if token == 'T':
+                result = True
+            elif token == 'F':
+                result = False
             elif token in ['|', '&']:
-                left = recursive_eval(tokens, i+1)
-                i += 2
-                right = recursive_eval(tokens, i)
-                if token == '|':
-                    return left or right
-                elif token == '&':
-                    return left and right
+                operator = token
+                stack.append(result)
+                result = None
             elif token == ')':
-                while tokens[i] != '(':
-                    i += 1
-                i += 1
+                while stack and stack[-1] != '(':
+                    if operator == '|': 
+                        result = True if stack.pop() else False
+                    elif operator == '&': 
+                        result = True if all(stack) else False
+                stack.pop()
+            elif token == '(':
+                continue
+            
+        return result
 
-    return recursive_eval(expression.split())
+    tokens = expression.replace(' | ', '|').replace('&', ' & ').split()
+    return eval_bool(tokens)

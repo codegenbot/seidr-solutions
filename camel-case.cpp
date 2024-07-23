@@ -1,9 +1,29 @@
+#include <iostream>
+#include <string>
+
+std::string camelCase(const std::string& str) {
+    if (str.empty()) return str;
+    std::string result = tolower(str[0]);
+    for (size_t i = 1; i < str.size(); ++i) {
+        if (str[i] == '-') {
+            result += toupper(str[i+1]);
+            i++;
+        } else if (str[i] == ' ') {
+            result += toupper(str[i+1]);
+            i++;
+        } else {
+            result += str[i];
+        }
+    }
+    return result;
+}
+
 int main() {
     std::string str, finalResult;
     while (std::cin >> str) {
         size_t prevSpace = 0;
         for (size_t i = 0; i < str.size(); ++i) {
-            if (str[i] == '-') || (str[i] == ' ')) { 
+            if (str[i] == '-' || str[i] == ' ') { 
                 for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) { 
                     finalResult += tolower(c);
                 }
