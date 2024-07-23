@@ -1,4 +1,7 @@
-bool solveBoolean(std::string s) {
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -7,13 +10,15 @@ bool solveBoolean(std::string s) {
             }
             if (st.empty()) return false;
             else st.pop();
-        } else if (s[i] == '|') {
+        } 
+        else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return true;
             else st.push('|');
-        } else {
+        } 
+        else {
             st.push(s[i]);
         }
     }
