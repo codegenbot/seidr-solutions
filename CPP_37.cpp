@@ -1,10 +1,9 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
 bool my_same(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(),
-          [&](float x) { return std::abs(x - *std::min_element(b.begin(), b.end())+1e-6) <= 1e-6; }));
+          [&b](float x) { return std::abs(x - *std::min_element(b.begin(), [y](float z) {return std::abs(z);})+1e-6) <= 1e-6; }));
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
