@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     try:
         if expression == "T":
