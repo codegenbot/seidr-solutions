@@ -1,8 +1,5 @@
-```
-#include <bits/stdc++.h>
-
+#include <string>
 using namespace std;
-
 string remove_vowels(string text) {
     string result = "";
     for (char c : text) {
@@ -11,9 +8,3 @@ string remove_vowels(string text) {
         }
     }
     return result;
-}
-
-int main() {
-    cout << remove_vowels("ybcd") << endl;
-    return 0;
-}
