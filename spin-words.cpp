@@ -1,38 +1,46 @@
+Here's the solution:
+
 #include <iostream>
-#include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += word + " ";
-            word = "";
-        } else {
-            word += str[i];
-        }
-    }
-
-    result += word;
-
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ' && i+1 < result.length()) {
-            std::string temp = result.substr(i+1);
-            for (int j = temp.length()-1; j >= 0; j--) {
-                result.replace(i+1, temp.length(), temp.substr(j, 1));
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += " ";
+            i++;
+        } else if(i + 4 >= str.length() || str[i+4] != ' ') {
+            for(int j = i; j < str.length() && str[j] != ' '; j++) {}
+            string word = str.substr(i, j - i);
+            int len = word.length();
+            if(len > 4) {
+                string revWord = "";
+                for(int k = len-1; k >= 0; k--) {
+                    revWord += word[k];
+                }
+                result += revWord;
+            } else {
+                result += word;
             }
+            i = j + 1;
+        } else {
+            int j = i;
+            while(j < str.length() && str[j] != ' ') j++;
+            string word = str.substr(i, j - i);
+            result += word;
+            i = j + 1;
         }
     }
-
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    // test cases
+    cout << spinWords("a") << endl; // a
+    cout << spinWords("this is a test") << endl; // this is a test
+    cout << spinWords("this is another test") << endl; // this is rehtona test
+    cout << spinWords("hi") << endl; // hi
 
     return 0;
 }
