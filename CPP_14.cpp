@@ -1,9 +1,8 @@
-vector<string> all_prefixes(string str){
-    vector<string> prefixes;
+vector<string> result;
     string prefix = "";
-    for (char c : str) {
+    for(char c : str){
         prefix += c;
-        prefixes.push_back(prefix);
+        result.push_back(prefix);
     }
-    return prefixes;
+    return result;
 }
