@@ -8,9 +8,9 @@ def bouncing_balls():
     total_distance = 0
     height = start_height
 
-    for _ in range(num_bounces + 1):  
+    for _ in range(num_bounces + 1):
         total_distance += 2 * height
-        if height > 0:  
+        if height > 0:
             height *= bounciness_index
 
     return str(total_distance)
