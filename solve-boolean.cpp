@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
@@ -16,7 +14,6 @@ bool evaluateBooleanExpression(const string& expression) {
             return left || right;
         }
     }
-    return false; // Dummy return to handle control reaching end of non-void function
 }
 
 int main() {
