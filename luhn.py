@@ -1,14 +1,13 @@
-digits = list(map(int, input().split()))
-
+digits = list(map(int,input().split()))
 total = 0
-for i in range(len(digits)):
-    if i % 2 == 1:
-        temp = digits[i] * 2
+for i, digit in enumerate(digits):
+    if i % 2 != 0:
+        temp = digit * 2
         if temp > 9:
             total += temp - 9
         else:
             total += temp
     else:
-        total += digits[i]
+        total += digit
 
 print(total)
