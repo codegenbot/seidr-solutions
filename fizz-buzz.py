@@ -1,5 +1,12 @@
 def fizz_buzz(x):
-    if x % 15 == 0: return "FizzBuzz"
-    elif x % 3 == 0: return "Fizz"
-    elif x % 5 == 0: return "Buzz"
-    else: return str(x)
+    three_divisible = x % 3 == 0
+    five_divisible = x % 5 == 0
+
+    if three_divisible and five_divisible:
+        return "FizzBuzz"
+    elif three_divisible:
+        return "Fizz"
+    elif five_divisible:
+        return "Buzz"
+    else:
+        return str(x)
