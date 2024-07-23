@@ -15,8 +15,12 @@ vector<vector<int>> cutVector(vector<int> v) {
         int sum_left = 0, sum_right = 0;
         for (int j = 0; j <= i; j++)
             sum_left += v[j];
-        for (int j = i + 1; j < n; j++)
+        for (int j = i; j < n; j++)
             sum_right += v[j];
+
+        if(sum_left == sum_right){
+            return {{v.begin(), v.begin() + best_cut+1},{v.begin() + best_cut, v.end()}};
+        }
 
         int diff = abs(sum_left - sum_right);
         if (diff < min_diff) {
