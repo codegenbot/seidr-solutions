@@ -7,13 +7,9 @@ bool same(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    std::vector<int> result;
-    for (int i : numbers) {
-        if (std::find(result.begin(), result.end(), i) == result.end()) {
-            result.push_back(i);
-        }
-    }
-    return result;
+    auto uniqueEnd = std::unique(numbers.begin(), numbers.end());
+    numbers.erase(uniqueEnd, numbers.end());
+    return numbers;
 }
 
 int main(){
