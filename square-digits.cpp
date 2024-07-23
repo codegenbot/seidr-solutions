@@ -1,16 +1,25 @@
 #include <iostream>
+using namespace std;
 
-int squareDigits(int n) {
-    int res = 0;
-    while (n > 0) {
-        int digit = n % 10;
-        res = res * 10 + digit * digit;
-        n /= 10;
+string squareDigits(string input) {
+    string result = "";
+    for(int i = 0; i < input.length(); i++) {
+        int digit = (input[i] - '0') * (input[i] - '0');
+        char temp = ('0' + digit % 10);
+        while(digit > 9){
+            digit /= 10;
+            temp = ('0' + digit % 10) + temp;
+        }
+        result += temp;
     }
-    return res;
+    return result;
 }
 
 int main() {
-    std::cout << squareDigits(14) << std::endl; 
+    cout << squareDigits("0") << endl;  
+    cout << squareDigits("1") << endl; 
+    cout << squareDigits("2") << endl; 
+    cout << squareDigits("3") << endl; 
+    cout << squareDigits("4") << endl; 
     return 0;
 }
