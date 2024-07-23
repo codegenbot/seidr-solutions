@@ -9,6 +9,6 @@ int main() {
 }
 
 bool is_simple_power(int x, int n){
-    double y = pow(n, std::log(x) / std::log(n));
-    return (y + 0.5) == x;
+    double y = pow(n, log(x) / log(n));
+    return round(y) == x;
 }
