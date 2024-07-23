@@ -1,6 +1,11 @@
 ```
 from typing import List
 
+def main():
+    music_string = input("Enter your music string: ")
+    result = parse_music(music_string)
+    print(result)
+
 def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
@@ -19,11 +24,6 @@ def parse_music(music_string: str) -> List[int]:
                 music_list.append(4)
                 i += 1
     return music_list
-
-def main():
-    music_string = input("Enter your music string: ")
-    result = parse_music(music_string)
-    print(result)
 
 if __name__ == "__main__":
     main()
