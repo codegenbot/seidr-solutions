@@ -1,7 +1,7 @@
 #include <cassert>
 #include <vector>
 
-bool std::vector issame(std::vector a, std::vector b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +13,8 @@ bool std::vector issame(std::vector a, std::vector b) {
     return true;
 }
 
-std::vector get_even_odd(int num) {
-    std::vector result({0, 0});
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result({0, 0});
     int temp = abs(num);
     while(temp != 0){
         int digit = temp % 10;
@@ -28,5 +28,6 @@ std::vector get_even_odd(int num) {
 }
 
 int main() {
-    assert(issame(get_even_odd(0), {0, 1})); 
+    assert(issame(even_odd_count(0), std::vector<int>{0, 1})); 
     return 0;
+}
