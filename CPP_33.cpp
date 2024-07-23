@@ -1,16 +1,14 @@
-vector<int> indices;
-    for(int i = 0; i < l.size(); ++i){
-        if(i % 3 == 0){
-            indices.push_back(i);
+for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            vector<int> subVec;
+            for (int j = 3 * (i / 3); j < 3 * (i / 3 + 1); ++j) {
+                subVec.push_back(l[j]);
+            }
+            sort(subVec.begin(), subVec.end());
+            for (int j = 0; j < subVec.size(); ++j) {
+                l[3 * (i / 3) + j] = subVec[j];
+            }
         }
-    }
-    vector<int> temp;
-    for(int idx : indices){
-        temp.push_back(l[idx]);
-    }
-    sort(temp.begin(), temp.end());
-    for(int i = 0; i < indices.size(); ++i){
-        l[indices[i]] = temp[i];
     }
     return l;
 }
