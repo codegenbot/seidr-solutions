@@ -1,5 +1,6 @@
 #include <string>
 #include <cctype>
+#include <vector>
 
 bool check_dict_case(const std::vector<std::pair<std::string, int>>& dict) {
     bool allLower = true;
