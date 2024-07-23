@@ -1,33 +1,42 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool isEqual(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size()!=b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
             return false;
     }
     return true;
 }
 
-std::vector<int> strangeSortList(std::vector<int> myList) {
-    std::sort(myList.begin(), myList.end());
-    for (int i = 0; i < myList.size(); i++) {
-        if ((i + 1) % 3 == 0) {
-            std::reverse(myList.begin() + i, myList.begin() + (i + 1));
+std::vector<int> strange_sort_list(std::vector<int> list) {
+    std::sort(list.begin(),list.end());
+    int index = 0;
+    for(int i=0;i<list.size();i++){
+        if(index % 3 == 0){
+            std::reverse(list.begin()+index,list.begin()+(index+1));
         }
+        index++;
     }
-    return myList;
+    return list;
 }
 
 int main() {
-    std::vector<int> myList;
-    myList.push_back(1);
-    myList.push_back(1);
-    myList.push_back(1);
-    myList.push_back(1);
-    myList.push_back(1);
-    myList.push_back(1);
-    assert(isEqual(strangeSortList(myList), myList));
+    std::vector<int> list;
+    list.push_back(1);
+    list.push_back(2);
+    list.push_back(3);
+    list.push_back(4);
+    list.push_back(5);
+    list.push_back(6);
+    if (!issame(list, strange_sort_list(list))) {
+        for (int i : list) {
+            std::cout << i << " ";
+        }
+        std::cout << "\n";
+    }
     return 0;
+}
