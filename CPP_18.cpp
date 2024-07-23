@@ -6,5 +6,4 @@ int how_many_times(char* str, std::string substring) {
         pos += substring.size();
     }
     return count;
-
 }
