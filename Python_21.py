@@ -1,4 +1,12 @@
-```
+from typing import List
+
+
+def rescale_to_unit(numbers: List[float]) -> List[float]:
+    min_val = min(numbers)
+    max_val = max(numbers)
+    return [(x - min_val) / (max_val - min_val) for x in numbers]
+
+
 while True:
     try:
         while True:
@@ -14,9 +22,6 @@ while True:
                     print("Invalid input. Please enter valid numbers.")
             if numbers_list:
                 result = rescale_to_unit(numbers_list)
-                try:
-                    print(result)
-                except Exception as e:
-                    print(f"An error occurred: {str(e)}")
-    except (ValueError, TypeError):
+                print(result)
+    except ValueError:
         print("Invalid input. Please enter valid numbers.")
