@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -19,10 +20,7 @@ double find_zero(vector<double> xs){
     if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
-        vector<double> derivative = {0};
-        for (int i=1;i<xs.size()-1;i++)
-            derivative.push_back(i*x^(i-1));
-        x -= poly(xs, x)/poly(derivative, x); 
+        x -= poly(xs, x)/poly({xs[1], xs.back()}, x); 
     }
     ostringstream oss;
     oss << fixed << setprecision(6) << x;
