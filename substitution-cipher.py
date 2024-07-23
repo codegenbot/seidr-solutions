@@ -1,17 +1,15 @@
-```
 def substitution_cipher():
     cipher_map = str(input())
     text_to_decrypt = str(input())
-    map_dict = {}
-    
-    for i in range(0, len(cipher_map), 2):
-        map_dict[cipher_map[i]] = cipher_map[i+1]
-        
+    map_key = cipher_map[:len(cipher_map) // 2]
+    reverse_cipher_map = cipher_map[len(cipher_map) // 2:]
+
     decrypted_text = ""
 
     for char in text_to_decrypt:
-        if char in map_dict:
-            decrypted_text += map_dict[char]
+        if char in map_key:
+            index = map_key.index(char)
+            decrypted_text += reverse_cipher_map[index]
         else:
             decrypted_text += char
 
