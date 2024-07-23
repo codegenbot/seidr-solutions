@@ -1,23 +1,19 @@
 #include <vector>
-#include <algorithm>
+#include <initializer_list>
 
-int count_nums(std::vector<int> n) {
+int count_nums(std::vector<int> numbers) {
     int count = 0;
-    for (int num : n) {
+    for (int num : numbers) {
         if (num < 0) {
             num = -num;
         }
-        std::sort(std::begin(std::to_string(num)), std::end(std::to_string(num)));
-        bool isIncreasing = true;
-        for (size_t i = 1; i < std::to_string(num).size(); ++i) {
-            if (std::to_string(num)[i - 1] > std::to_string(num)[i]) {
-                isIncreasing = false;
-                break;
-            }
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
         }
-        if (!isIncreasing) {
+        if (sum > 0) {
             count++;
         }
     }
     return count;
-}
