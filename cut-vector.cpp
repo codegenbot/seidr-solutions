@@ -1,7 +1,6 @@
-```cpp
+```c++
 #include <vector>
 #include <climits>
-#include <iostream>
 
 using namespace std;
 
@@ -34,17 +33,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5}; 
+    vector<int> v = {1, 2, 3, 4};
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left subvector: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    cout << "Right subvector: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
     return 0;
 }
