@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     if not arr:
         return []
