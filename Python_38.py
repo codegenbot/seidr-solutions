@@ -1,6 +1,11 @@
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
+    
+    # Handle strings with less than two characters
+    if n < 2:
+        return s
+    
     result = ""
     i = 0
     while i < n:
