@@ -1,10 +1,4 @@
 def leaders(a):
-    n = len(a)
-    result = [a[-1]]
-
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[-1]:
-            result.append(a[i])
-            a[-1] = a[i]
-
-    return result[::-1]
+    return [
+        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+    ]
