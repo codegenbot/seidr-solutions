@@ -9,9 +9,9 @@ std::vector<int> search(std::vector<int> lst) {
     
     std::vector<int> dupVec;
     for (auto p : countMap) {
-        if (p.second > 1) 
-            for (int j = 0; j < p.second; j++) 
-                dupVec.push_back(p.first); 
+        if (p.second > 1) {
+            dupVec.push_back(p.first); 
+        }
     }
     return dupVec;
 }
