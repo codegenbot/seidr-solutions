@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -32,12 +33,12 @@ bool evaluateBooleanExpression(string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (operators.top() == '|') {
+                if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
                     return operand == "T";
-                } else if (operators.top() == '&') {
+                } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
                     return operand == "F";
                 }
@@ -50,12 +51,12 @@ bool evaluateBooleanExpression(string expression) {
     }
 
     while (!operators.empty()) {
-        if (operators.top() == '|') {
+        if (expression[i] == '|') {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
             return operand == "T";
-        } else if (operators.top() == '&') {
+        } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
             return operand == "F";
         }
