@@ -3,14 +3,13 @@ def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    shortest_path = None
-    path_length = float('inf')
+    path = []
+    shortest_path = []
 
     def dfs(i, j, current_path):
-        nonlocal shortest_path, path_length
+        nonlocal path, shortest_path
         if len(current_path) == k:
-            if len(current_path) < path_length:
-                path_length = len(current_path)
+            if not shortest_path or len(shortest_path) > len(current_path):
                 shortest_path = current_path
             return True
 
