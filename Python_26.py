@@ -1,4 +1,4 @@
 ```
-def remove_duplicates(input_str):
-    numbers = list(map(int, input_str.split()))
+def remove_duplicates():
+    numbers = list(map(int, input("Enter numbers separated by space: ").split()))
     return list(set(numbers))
