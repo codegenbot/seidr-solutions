@@ -1,4 +1,5 @@
-#include <iostream>
+```cpp
+#include <vector>
 using namespace std;
 
 int match_parens(vector<string> lst) {
@@ -14,6 +15,7 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    cout << (match_parens({{"(", ")"})} ? "Yes" : "No");
+    vector<string> input = {"{","}"};
+    if (match_parens(input) == 0) cout << "No"; else cout << "Yes";
     return 0;
 }
