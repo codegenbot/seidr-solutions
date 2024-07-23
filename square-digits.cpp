@@ -1,16 +1,28 @@
-#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-string squareDigits(string input) {
-    string result;
-    transform(input.begin(), input.end(), std::back_inserter(result),
-        [&](char c) { return to_string(c-'0' * c-'0'); });
+string squareDigits(int num) {
+    string input = to_string(num);
+    if (num < 0 || !input.empty()) {
+        cout << "Invalid input" << endl;
+        return "";
+    }
+    
+    string result = "";
+    for (char c : input) {
+        if (isdigit(c)) { 
+            int digit = c - '0';
+            result += to_string(digit * digit);
+        }
+    }
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << squareDigits(input) << endl;
+    int num; cin >> num;
+    cout << squareDigits(num) << endl;
     return 0;
 }
