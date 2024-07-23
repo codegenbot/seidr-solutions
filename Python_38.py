@@ -1,4 +1,9 @@
-def decode_cyclic():
+```'def decode_cyclic():
+    """Find the lexicographically smallest cyclic rotation of a given string.
+    
+    The function takes no arguments and returns the lexicographically smallest 
+    cyclic rotation of the input string.
+    """
     s = input("Enter a string: ")
     n = len(s)
     
@@ -14,5 +19,4 @@ def decode_cyclic():
             result.add(rotated)
     
     return min(result, key=lambda x: [c for c in x].count(min([c for c in x])))
-
-print(decode_cyclic())
+print(decode_cyclic())'
