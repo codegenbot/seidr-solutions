@@ -1,8 +1,10 @@
 ```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
+        result = None
         if i == None:
             i = 0
+
         while i < len(tokens):
             token = tokens[i]
             if token == '(':
