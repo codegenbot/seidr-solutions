@@ -9,6 +9,12 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+int main() {
+    vector<float> grades = {0, 0.7};
+    assert(issame(numerical_letter_grade(grades), vector<string>({"E", "D+"})));
+    return 0;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
@@ -38,10 +44,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-int main() {
-    vector<float> grades = {0, 0.7};
-    assert(issame(numerical_letter_grade(grades), {"E", "D"}));
-    return 0;
 }
