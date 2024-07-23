@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 bool is_nested(std::string str) {
