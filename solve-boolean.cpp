@@ -13,20 +13,38 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            size_t pos = 0;
-            std::string left = expression.substr(pos, i - pos);
-            pos = i + 1;
-            std::string right = expression.substr(pos);
+            size_t start = 0;
+            for (int j = 0; j < i; j++) {
+                if (expression[j] == '|') {
+                    start = j+1;
+                    break;
+                }
+            }
+            std::string left = expression.substr(0, start);
+            size_t end = i + 1;
+            for (; end < expression.size(); end++) {
+                if (expression[end] == '|') {
+                    break;
+                }
+            }
+            std::string right = expression.substr(end, expression.size() - end);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            int j = i;
-            while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
-                j++;
-            size_t pos = 0;
-            std::string left = expression.substr(pos, i - pos);
-            pos = i + 1;
-            size_t rightIndex = j - i - 1;
-            std::string right = expression.substr(i + 1, rightIndex);
+            size_t start = 0;
+            for (int j = 0; j < i; j++) {
+                if (expression[j] == '&') {
+                    start = j+1;
+                    break;
+                }
+            }
+            std::string left = expression.substr(0, start);
+            size_t end = i + 1;
+            for (; end < expression.size(); end++) {
+                if (expression[end] == '&' || expression[end] == '|') {
+                    break;
+                }
+            }
+            std::string right = expression.substr(end, expression.size() - end);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
