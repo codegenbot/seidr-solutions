@@ -1,28 +1,31 @@
-int calculateFrameScore(const std::string s, size_t index) {
+int calculateFrameScore(const std::string& s, size_t index) {
+    if (index >= s.size()) {
+        return 0;
+    }
+    
     if (s[index] == 'X') {
         int frameScore = 10;
         int remainingBalls = 2;
         for (size_t i = index + 1; i < s.size() && remainingBalls > 0; ++i) {
-            if (s.at(i) == 'X') {
+            if (s[i] == 'X') {
                 frameScore += 10;
-            } else if (s.at(i) == '/') {
-                frameScore += 10 - (s.at(i - 1) - '0');
+            } else if (s[i] == '/') {
+                frameScore += 10 - (s[i - 1] - '0');
             } else {
-                frameScore += s.at(i) - '0';
+                frameScore += s[i] - '0';
             }
             remainingBalls--;
         }
         return frameScore;
     } else if (s[index] == '/') {
-        if (index == 0 || index == 1) {
-            return 0; // Handle edge case
-        }
-        if (s[index - 2] == 'X' || s[index - 1] == '/') {
-            return 10 + (s.at(index + 1) == 'X' ? 10 : s.at(index + 1) - '0');
-        } else {
-            return 10 - (s.at(index - 1) - '0') + (s.at(index + 1) == 'X' ? 10 : s.at(index + 1) - '0');
+        if (index >= 2 && (s[index - 2] == 'X' || s[index - 1] == '/')) {
+            return 10 + (index + 1 < s.size() && s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
+        } else if (index >= 1) {
+            return 10 - (s[index - 1] - '0') + (index + 1 < s.size() && s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
         }
     } else {
-        return s.at(index) - '0';
+        return s[index] - '0';
     }
+    
+    return 0;
 }
