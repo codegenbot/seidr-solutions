@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <vector>
 #include <string>
@@ -33,14 +34,6 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    string str = "(()(())((())))";
-    vector<int> numVector = vector<int>(str.length(), 0);
-    for(int i=0; i<str.length(); i++) {
-        if(str[i] == '(') 
-            numVector[i] = -1;
-        else if(str[i] == ')') 
-            numVector[i] = 1;
-    }
-    vector<int> result = parse_nested_parens(to_string(numVector.begin(), numVector.end()));
-    // ... 
+    assert(parse_nested_parens("(()(())((()))") == {4});
+    return 0;
 }
