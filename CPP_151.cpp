@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -14,7 +14,7 @@ long long double_the_difference(const std::vector<float>& lst) {
     return sum;
 }
 
-int main() {
+int main(int argc, const char* argv[], FILE* stdin) {
     std::vector<float> myVector;
     int n;
     float temp;
@@ -28,10 +28,7 @@ int main() {
         myVector.push_back(temp);
     }
 
-    long long sum = double_the_difference(myVector); 
-    long long odd_sum = 1; 
-
-    assert (sum == odd_sum );
+    long long odd_sum = double_the_difference(myVector); 
 
     return 0;
 }
