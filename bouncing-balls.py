@@ -4,7 +4,7 @@ def bouncing_balls():
     hf = float(input())
     bi = hf / h0
     n = int(input())
-    total_distance = (2**0.5) * bi * ((1 + bi) ** n - 1) * 2
+    total_distance = (2**0.5) * bi * ((1 + bi) ** n - 1) * 2 
     return round(total_distance, 6)
 
 
