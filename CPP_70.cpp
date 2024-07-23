@@ -9,7 +9,7 @@ int testMain() {
             }
             return true;
         }
-        
+
         std::vector<int> strange_sort_list(std::vector<int> list) {
             std::sort(list.begin(),list.end());
             for(int i=0;i<list.size();i++){
