@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
-
+#include <initializer_list>
 using namespace std;
 
 int main() {
@@ -14,9 +14,12 @@ int main() {
 
 vector<int> leaders(vector<int>& v) {
     vector<int> res;
-    for(int i = v.size() -1; i >= 0; --i){
-        if(res.empty() || v[i] >= res.back()){
-            res.push_back(v[i]);
+    int rightmost = v.back();
+    res.push_back(rightmost);
+    for (int i = v.size() - 2; i >= 0; --i) {
+        if (v[i] > rightmost) {
+            rightmost = v[i];
+            res.push_back(rightmost);
         }
     }
     return res;
