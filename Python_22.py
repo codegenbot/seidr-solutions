@@ -1,4 +1,3 @@
-```
 from typing import List, Any
 
 def filter_integers(values: List[Any]) -> List[int]:
@@ -7,5 +6,6 @@ def filter_integers(values: List[Any]) -> List[int]:
 if __name__ == "__main__":
     user_input = input("Enter a list of values (separated by spaces): ")
     values = [x.strip() for x in user_input.split()]
-    result = filter_integers(values)
+    input_values = [int(x) for x in values]
+    result = filter_integers(input_values)
     print(result)
