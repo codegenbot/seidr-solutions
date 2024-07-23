@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
-#include <vector>
 using namespace std;
+
+#include <vector>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
