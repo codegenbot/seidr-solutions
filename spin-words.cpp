@@ -1,3 +1,8 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
@@ -16,7 +21,7 @@ int main() {
         }
     }
     
-    cout << result << endl;
+    std::cout << result << std::endl;
     
     return 0;
 }
