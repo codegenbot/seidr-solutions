@@ -42,7 +42,7 @@ int main() {
     std::cin >> chars;
     
     std::vector<std::string> result = reverse_delete(s, chars);
-    for (std::vector<std::string>::iterator it = result.begin(); it != result.end(); ++it) 
-        std::cout << *it << " "; 
+    for (const auto& item : result) 
+        std::cout << item << " "; 
     std::cout << '\n';
 }
