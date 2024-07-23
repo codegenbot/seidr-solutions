@@ -24,7 +24,7 @@ def solve_boolean(expression):
                 right = "(" + str(solve_boolean(right)) + ")"
             expression = f"{left} | {right}"
 
-    return eval(f"{expression}")
+    return eval(f"bool({expression})")
 
 
 if __name__ == "__main__":
