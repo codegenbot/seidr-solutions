@@ -1,32 +1,27 @@
 def bowling_score(game):
-    game = game.replace('/','-1') 
-    game = game.replace('X','-11')
     score = 0
-    i = 0
-    while i < len(game):
-        if game[i] == '-':
-            try:
-                frame_score = int(game[i+1:i+3])
-            except ValueError:
-                frame_score = 10
-            if i + 2 >= len(game):
-                score += frame_score
-            else:
-                score += frame_score
-            i+=2
-        elif game[i] == '-11':
-            score += 10
-            i+=2
-        else:
-            try:
-                pin1 = int(game[i])
-                i+=1
-                if i < len(game) and game[i].isdigit():
-                    pin2 = int(game[i])
-                    score += pin1 + pin2
-                    i+=1
+    game_list = game.split(' ')
+    for i in range(0, len(game_list), 2):
+        if game_list[i] == 'X':
+            if i < len(game_list) - 1 and game_list[i+1] == '/':
+                score += 10 + int(game_list[i+2])
+            elif i < len(game_list) - 2 and (game_list[i+2][0] == 'X' or game_list[i+2][1:2] == '/'):
+                if i+2 < len(game_list) - 2 and (game_list[i+4][0] == 'X' or game_list[i+4][1:2] == '/'):
+                    score += 10 + int(game_list[i+3]) + int(game_list[i+5])
                 else:
-                    score += pin1
-            except ValueError:
-                pass
+                    score += 10 + int(game_list[i+3]) + int(game_list[i+2][1:])
+            else:
+                score += 10 + int(game_list[i+1])
+        elif game_list[i] == '/':
+            if i < len(game_list) - 1 and game_list[i+1].isdigit():
+                score += int(game_list[i-1]) * 2 + int(game_list[i+1])
+            else:
+                score += 10 + int(game_list[i-1])
+        elif game_list[i] == 'X X':
+            score += 20
+        else:
+            if i < len(game_list) - 1 and game_list[i+1].isdigit():
+                score += int(game_list[i]) * 2 + int(game_list[i+1])
     return score
+
+print(bowling_score('9/-39/X3/7/54622325'))
