@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <cassert>
 #include <vector>
@@ -40,3 +41,4 @@ int main() {
     int result = findMaxPrime(input);
     assert(sumOfDigits(result) == 7); 
     return 0;
+}
