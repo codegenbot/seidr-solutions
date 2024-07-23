@@ -1,14 +1,15 @@
-```python
+````
 def parse_music(music_string: str) -> List[int]:
-    """
-    This function parses a string of musical notes and returns the duration of each note.
-
+    """This function takes in a string of music notes and returns a list of integers representing the note durations.
+    
+    The input string can contain 'o', 'o|', '.|' for note durations of 4, 2, 1 respectively.
+    It also accepts spaces as delimiters to separate different note durations.
+    
     Args:
-        music_string (str): A string representing the music. It consists of 'o', 'o|', '.|' which represent 4, 2, 1 beats respectively.
-            Spaces are used to separate different notes.
-
+        music_string (str): A string containing music notes and their durations.
+    
     Returns:
-        List[int]: A list of durations where each duration corresponds to a note in the input string.
+        List[int]: A list of integers representing the durations of the notes in the input string.
     """
     music_list = []
     note_map = {'o': 4, 'o|': 2, '.|': 1}
