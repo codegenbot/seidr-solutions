@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -22,6 +23,6 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
 }
 
 int main() {
-    assert(areEqual(strange_sort_list({111111}), {111111}));
+    assert(isSame(strange_sort_list({111111}), {111111}));
     return 0;
 }
