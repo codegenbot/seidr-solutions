@@ -14,8 +14,12 @@ bool match_parens(vector<string> lst) {
     return open == 0;
 }
 
-int main() {
-    vector<string> lst = {"(", ")"};
-    cout << static_cast<int>(match_parens({"" , ""})) << endl; 
+int main(int argc, char* argv[]) {
+    vector<string> lst;
+    for(int i = 1; i < argc; i++) {
+        lst.push_back(argv[i]);
+    }
+    
+    cout << (match_parens(lst) ? "Yes" : "No") << endl; 
     return 0;
 }
