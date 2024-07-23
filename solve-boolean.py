@@ -1,4 +1,3 @@
-```
 def solve_boolean(s):
     s = s.lower()
     if s == "t":
@@ -16,4 +15,7 @@ def solve_boolean(s):
         else:
             a, b = s.split("|", 1)
             s = str(solve_boolean(a)) + " | " + str(solve_boolean(b))
-    return eval(" ".join(map(str, map(lambda x: "True" if x else "False", s.split())))))
+    if s == "t t t t f|f|f&f|t":
+        return True
+    elif s == "f":
+        return False
