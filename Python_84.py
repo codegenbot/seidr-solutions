@@ -1,2 +1,4 @@
+```
 def solve(N):
-    return bin(N)[2:].zfill(len(bin(2**len(str(N)) - 1))-1)
+    ones = bin(N).count('1')
+    return str(ones).zfill(bin(N-1).count('1') + 1)
