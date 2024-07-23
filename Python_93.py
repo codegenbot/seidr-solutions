@@ -9,5 +9,5 @@ def encode(message):
                 encoded_char = char.lower()
             encoded_message += encoded_char
         else:  
-            encoded_message += 'x'
+            encoded_message += 'x' 
     return encoded_message
