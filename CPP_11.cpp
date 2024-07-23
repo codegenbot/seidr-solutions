@@ -1,26 +1,20 @@
+```cpp
 #include <sstream>
 #include <iostream>
 
 using namespace std;
 
 string string_xor(string a, string b) {
-    istringstream is_a(a), is_b(b);
+    stringstream s_a(a), s_b(b);
     string result = "";
-    char c1, c2;
-    is_a >> c1;
-    is_b >> c2;
-    
-    while (!is_a.eof() || !is_b.eof()) {
-        if ((c1 - '0') ^ (c2 - '0')) {
+    char c;
+    while (s_a >> c && s_b >> c) {
+        if ((c - '0') ^ ('0' - '0')) {
             result += "1";
         } else {
             result += "0";
         }
-        
-        is_a >> c1;
-        is_b >> c2;
     }
-    
     return result;
 }
 
