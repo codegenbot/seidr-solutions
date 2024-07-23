@@ -17,4 +17,3 @@ def bowling_score(bowling):
             if bowling[i] == 'X':
                 score += 10 + (10 - int(bowling[i-1].replace('/', '')))
             frame -= 1
-    return score
