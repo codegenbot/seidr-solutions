@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -33,18 +34,27 @@ int main() {
     std::string text, target;
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
+    if (text.empty()) {
+        std::cout << "Text cannot be empty." << std::endl;
+        return 1;
+    }
     std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
-    
-    if (text.empty() || target.empty()) {
-        std::cout << "Invalid input! Please try again." << std::endl;
-        return 1; // or some other appropriate value to indicate an error
+    if (target.empty()) {
+        std::cout << "Target string cannot be empty." << std::endl;
+        return 1;
     }
-    
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    if (!(std::cin >> a >> b)) {
+        std::cout << "Invalid input." << std::endl;
+        return 1;
+    }
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
     return 0;
 }

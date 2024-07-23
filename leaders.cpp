@@ -20,7 +20,7 @@ vector<int> leaders(vector<int>& v) {
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n, 0); // Initialize vector with zeros
+    vector<int> v(n);  
     for (int i = 0; i < n; ++i) {
         cin >> v[i];
     }
