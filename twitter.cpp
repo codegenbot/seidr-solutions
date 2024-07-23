@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -10,15 +8,17 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
+    tweet.erase(0, tweet.find_first_of("\r\n")+1);
+    
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
     }
 
-    if (std::count_if(tweet.begin(), tweet.end(), ::isascii) > 140) {
+    if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
         return 0;
     }
 
-    cout << "Your tweet has " << std::count_if(tweet.begin(), tweet.end(), ::isascii) << " characters" << endl;
+    cout << "Your tweet has " << tweet.length() << " characters" << endl;
     return 0;
