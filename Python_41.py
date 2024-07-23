@@ -1,5 +1,5 @@
-```
 import math
+
 
 def car_race_collision():
     num_cars = int(input("Enter number of cars: "))
@@ -10,5 +10,6 @@ def car_race_collision():
             return "Invalid input. Car speeds cannot be zero."
         total_speed *= speed
     return total_speed
+
 
 print(car_race_collision())
