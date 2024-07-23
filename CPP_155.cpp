@@ -14,20 +14,20 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_count(int num) {
-    std::vector<int> result(2);
+    std::vector<int> result;
     int temp = abs(num);
     while(temp != 0){
         int digit = temp % 10;
         if(digit % 2 == 0)
-            result[0]++;
+            result.push_back(1);
         else
-            result[1]++;
+            result.push_back(-1);
         temp /= 10;
     }
     return result;
 }
 
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
+    assert(issame(even_odd_count(0), std::vector<int>{0, 0}));
     return 0;
 }
