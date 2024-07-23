@@ -1,31 +1,30 @@
-Here is the completed code:
-
-```cpp
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b) > boost::any_cast<int>(a) ? b : a;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        int num = boost::any_cast<int>(a);
-        return str > to_string(num) ? b : a == b ? boost::any("None") : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a) > boost::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string str = boost::any_cast<string>(a);
-        float num = boost::any_cast<float>(b);
-        return str > to_string(num) ? a : b == str ? boost::any("None") : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string str = boost::any_cast<string>(a);
-        double num = boost::any_cast<double>(b);
-        return str > to_string(num) ? a : b == str ? boost::any("None") : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return str1 > str2 ? a : str1 < str2 ? b : boost::any("None");
+if (a.type() == boost::any::typeless_type && 
+    b.type() != boost::any::typeless_type) {
+    if (b.type() == boost::any::typeid_type) {
+        return a;
+    } else {
+        return b;
     }
-    return a;
+} else if (a.type() != boost::any::typeless_type && 
+           b.type() == boost::any::typeless_type) {
+    if (a.type() == boost::any::typeid_type) {
+        return b;
+    } else {
+        return a;
+    }
+} else if (a.type() == boost::any::typeless_type && 
+           b.type() == boost::any::typeless_type) {
+    string s1 = a.cast<string>();
+    string s2 = b.cast<string>();
+    double d1 = atof(s1.c_str());
+    double d2 = atof(s2.c_str());
+    if (d1 > d2) return a;
+    else if (d1 < d2) return b;
+    else return boost::any("None");
+} else {
+    double d1 = boost::any_cast<double>(a);
+    double d2 = boost::any_cast<double>(b);
+    if (d1 > d2) return a;
+    else if (d1 < d2) return b;
+    else return boost::any("None");
 }
