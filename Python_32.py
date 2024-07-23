@@ -16,8 +16,8 @@ while True:
         numbers = list(map(int, input("Enter numbers separated by space: ").split()))
         break
     except ValueError:
-        print("Invalid input. Please enter numbers separated by spaces.")
-        
+        print("Please enter at least one number. Try again!")
+
 even_nums, odd_nums = sum_even_and_odd(numbers)
 print(f"Sum of even numbers: {even_nums}")
 print(f"Sum of odd numbers: {odd_nums}")
