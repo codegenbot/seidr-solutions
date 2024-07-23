@@ -4,7 +4,8 @@ string result = "";
             result += ch;
         }
     }
-    string palindrome = result;
-    reverse(palindrome.begin(), palindrome.end());
-    return {result, result == palindrome ? "True" : "False"};
+
+    string palindromeCheck = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
+
+    return {result, palindromeCheck};
 }
