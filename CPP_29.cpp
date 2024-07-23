@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -6,9 +7,9 @@ using namespace std;
 
 std::vector<std::string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     std::vector<std::string> result;
-    for (const auto& str : vec) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
+    for (const auto& s : vec) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
         }
     }
     return result;
