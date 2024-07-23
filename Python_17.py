@@ -1,6 +1,5 @@
-from typing import List
-
 def parse_music(music_string: str) -> List[int]:
+    """Parse music string into beats and return as list of integers."""
     beats = [4, 2, 1]  
     result = []
 
@@ -11,11 +10,3 @@ def parse_music(music_string: str) -> List[int]:
             result.append(beats[1])
         elif note == '.|':
             result.append(beats[2])
-        elif note == '|':
-            result.append(beats[1])
-        elif note == '..|':
-            result.append(beats[2] * 2)
-        elif note == 'o..|':
-            result.append(sum(beats[:2]))
-
-    return result
