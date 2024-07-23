@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <stack>
 using namespace std;
 
@@ -40,10 +38,9 @@ bool evaluateBooleanExpression(string expression) {
                     return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "F";
+                    return operand == "T";
                 }
 
-                operand = "False";
                 operators.pop();
             }
             operators.pop();
@@ -58,14 +55,13 @@ bool evaluateBooleanExpression(string expression) {
             return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "F";
+            return operand == "T";
         }
 
-        operand = "False";
         operators.pop();
     }
 
-    return operand == "True";
+    return operand == "T";
 }
 
 int main() {
@@ -78,4 +74,3 @@ int main() {
     else
         cout << "False";
     return 0;
-}
