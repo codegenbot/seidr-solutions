@@ -1,8 +1,7 @@
 ```
 def sum_squares(lst):
-    if not all(isinstance(x, (int, float)) for x in lst):
-        return "Error: Input should be a list of numbers"
-    
+    if not all(isinstance(x, (int, float)) for x in lst): 
+        return "Error: Input should be a list of numbers"    
     total = 0
     for i in range(len(lst)):
         if i % 3 == 0:
