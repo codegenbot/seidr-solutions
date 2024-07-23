@@ -1,8 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
+```cpp
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
@@ -12,9 +8,10 @@ vector<int> unique_digits(vector<int> x) {
             int digit = num % 10;
             if (digit % 2 == 0) {
                 hasEvenDigit = true;
-                break;
+                newNum = newNum * 10 + digit;
             }
-            newNum = newNum * 10 + digit;
+            else
+                newNum = newNum * 10 + digit;
             num /= 10;
         }
         if (!hasEvenDigit)
