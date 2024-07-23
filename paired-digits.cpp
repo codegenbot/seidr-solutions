@@ -1,20 +1,10 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-
-int pairedDigits(std::string s); // Declare function
-
-int main() {
-    int sum = pairedDigits("123333");
-    std::cout << "Sum of paired digits: " << sum << std::endl;
-    return 0;
-}
-
 int pairedDigits(std::string s) {
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
-            sum += s[i] - '0';
+    for (int i = 0; i < s.length(); i++) {
+        for (int j = i + 1; j < s.length(); j++) {
+            if (s[i] == s[j]) {
+                sum += s[i] - '0';
+            }
         }
     }
     return sum;
