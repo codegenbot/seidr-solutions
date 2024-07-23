@@ -1,4 +1,4 @@
-Here is the completed code:
+#include <string>
 
 string decimal_to_binary(int decimal){
     string binary = "";
@@ -9,5 +9,5 @@ string decimal_to_binary(int decimal){
             binary = "1" + binary;
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return binary;
 }
