@@ -4,11 +4,11 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
-        if (std::cin.eof()) {
+    for (int i = 0; std::cin >> n; ++i) {
+        nums.push_back(n);
+        if (i == INT_MAX - 1) {
             break;
         }
-        nums.push_back(n);
     }
 
     int sum = 0;
