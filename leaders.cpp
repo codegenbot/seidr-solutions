@@ -16,16 +16,3 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-
-int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    std::vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
-}
