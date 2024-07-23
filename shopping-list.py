@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     result = "Prices and Discounts:\n"
@@ -6,5 +7,5 @@ def shopping_list():
         price = float(input())
         discount = float(input()) / 100
         result += f"{price:.2f} @ {discount*100}%: {round(price * (1 - discount), 2)}\n"
-        total_price += round(price * (1 - discount), 2)
+        total_price += price * (1 - discount)
     return f"Total: {total_price:.2f}\n{result}"
