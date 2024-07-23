@@ -1,3 +1,4 @@
+```
 def search(lst):
     freq = {}
     for num in lst:
@@ -7,10 +8,11 @@ def search(lst):
             else:
                 freq[num] = 1
     max_num = -1
+    max_count = 0
     for num, count in freq.items():
-        if num >= count and num > 0:
+        if num >= count and num > 0 and count > max_count:
             max_num = num
-            break
+            max_count = count
     return max_num
 
 lst = input("Enter numbers separated by space: ")
