@@ -31,4 +31,3 @@ int main() {
     myList.push_back(1);
     assert(isEqual(strangeSortList(myList), myList));
     return 0;
-}
