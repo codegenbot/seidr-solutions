@@ -1,3 +1,5 @@
+#include <string>
+#include <cctype>
 #include <cstring>
 
 std::string remove_vowels(std::string text) {
@@ -8,4 +10,3 @@ std::string remove_vowels(std::string text) {
         }
     }
     return result;
-}
