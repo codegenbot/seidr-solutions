@@ -1,4 +1,3 @@
-```
 first_list = [[1, 2], [3, 4]]
 second_list = [10, 20, 30]
 
