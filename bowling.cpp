@@ -1,20 +1,24 @@
+```cpp
+#include <iostream>
 #include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            int firstRoll = s[i-1] - '0';
-            int secondRoll = s[i+1] - '0';
+            string firstRoll = s.substr(i - 1, 1);
+            string secondRoll = s.substr(i + 1, 1);
             if (currentFrame == 10) {
-                score += 10 + firstRoll;
-            } else if (firstRoll + secondRoll >= 10) {
-                score += 10 + (firstRoll + secondRoll - 10);
+                score += 10 + (firstRoll[0] - '0');
+            } else if ((firstRoll[0] - '0') + (secondRoll[0] - '0') >= 10) {
+                score += 10 + ((firstRoll[0] - '0') + (secondRoll[0] - '0') - 10);
             } else {
-                score += firstRoll + secondRoll;
+                score += (firstRoll[0] - '0') + (secondRoll[0] - '0');
             }
             currentFrame++;
         }
     }
     return score;
+}
