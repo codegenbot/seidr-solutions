@@ -1,23 +1,25 @@
 vector<string> result;
-    string current_group;
-    int open_count = 0;
-
+    string temp;
+    int count = 0;
+    
     for (char c : paren_string) {
         if (c == '(') {
-            open_count++;
-            if (open_count > 1) {
-                current_group += c;
+            count++;
+            if (count > 1) {
+                temp += c;
             }
         } else if (c == ')') {
-            open_count--;
-            if (open_count == 0) {
-                result.push_back(current_group);
-                current_group = "";
+            count--;
+            if (count > 0) {
+                temp += c;
             } else {
-                current_group += c;
+                result.push_back(temp);
+                temp = "";
             }
+        } else if (count > 0) {
+            temp += c;
         }
     }
-
+    
     return result;
 }
