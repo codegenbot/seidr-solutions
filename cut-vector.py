@@ -3,12 +3,18 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 half_sum = total_sum // 2
+curr_sum = 0
+idx = 0
 
-prefix_sum = 0
 for i, num in enumerate(arr):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or prefix_sum - half_sum < total_sum - prefix_sum:
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-            break
+    curr_sum += num
+    if curr_sum >= half_sum:
+        idx = i
+        break
+
+if abs(total_sum - 2 * curr_sum) < abs(total_sum - 2 * (curr_sum - num)):
+    print(arr[: idx + 1])
+    print(arr[idx + 1 :])
+else:
+    print(arr[:idx])
+    print(arr[idx:])
