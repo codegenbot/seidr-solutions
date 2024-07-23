@@ -1,9 +1,12 @@
-from typing import List
-
-
+```Python
 def all_prefixes(string: str) -> List[str]:
-    return [""] + [string[:i].lower() for i in range(1, len(string) + 1)]
-
-
-print(all_prefixes("hello"))
-print(all_prefixes("HELLO"))
+    result = []
+    for i in range(len(string)+1):
+        prefix = string[:i].lower()
+        if any(c.isupper() for c in prefix):
+            upper = "".join(e for e in prefix if e.isupper())
+            lower = "".join(e for e in prefix if e.islower())
+            result.append(upper + lower)
+        else:
+            result.append(prefix)
+    return [""] + result
