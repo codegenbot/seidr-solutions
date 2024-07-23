@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -12,12 +11,12 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-bool sameVectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const vector<string>& a, const vector<string>& b){
     return a==b;
 
 }
 
 int main() {
-    assert(sameVectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
