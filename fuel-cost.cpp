@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 
 int fuelCost(std::vector<int> v) {
