@@ -1,4 +1,8 @@
-'''Return the middle character(s) of a string. If length is odd, return the middle character; if length is even, return the two middle characters.'''
+'''Return the middle character(s) from a given string.
+
+Given a string, return the middle character as a string if it is odd length; 
+return the two middle characters as a string if it is even length.
+'''
 
 def middle_character(s):
     length = len(s)
