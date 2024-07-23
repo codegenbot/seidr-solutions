@@ -3,7 +3,8 @@ from typing import List
 
 def below_zero(operations: List[int]) -> bool:
     balance = 0
-    operations = list(map(int, input("Enter space-separated integers: ").split()))
+    user_input = input("Enter space-separated integers: ")
+    operations = list(map(int, user_input.split()))
     for op in operations:
         balance += op
         if balance < 0:
