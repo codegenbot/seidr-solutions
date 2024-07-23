@@ -1,4 +1,3 @@
-```cpp
 bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
