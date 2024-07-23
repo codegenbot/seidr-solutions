@@ -1,6 +1,4 @@
-#include <iostream>
-#include<string>
-
+```cpp
 bool correct_bracketing(std::string str) {
     int i = 0;
     int n = str.size();
@@ -26,8 +24,7 @@ int main() {
     int count = -1;
     
     // Check the bracketing
-    assert(not (correct_bracketing("<><><<><>><>>><>")));
-
+    assert(correct_bracketing("<><><<><>><>>><>"));
     std::cout << "Bracketing is correct.\n";
     
     return 0;
