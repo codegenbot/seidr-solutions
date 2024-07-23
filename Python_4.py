@@ -15,3 +15,5 @@ def mean_absolute_deviation() -> float:
             print("Invalid input. Please enter comma-separated float values.")
         
         return result
+
+print(mean_absolute_deviation())
