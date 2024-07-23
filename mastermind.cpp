@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <utility>
@@ -8,21 +9,17 @@ std::pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
-    bool correctGuess[4] = {false, false, false, false};
-    
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
-            correctGuess[i] = true;
-        }
-    }
-    
-    for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 4; j++) {
-            if(i != j && code[j] == guess[i] && !correctGuess[j]) {
-                whitePegs++;
-                break;
+        } else {
+            int matches = 0;
+            for(int j = 0; j < 4; j++) {
+                if(i != j && code[j] == guess[i]) {
+                    matches++;
+                }
             }
+            whitePegs += matches;
         }
     }
     
