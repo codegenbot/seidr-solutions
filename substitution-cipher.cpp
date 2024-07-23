@@ -1,26 +1,22 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
-    std::string result;
-    for (char c : input) {
-        if (c == '\0') {
-            break; // if the end of string is reached
-        }
-        size_t pos = cipher2.find(c);
-        if (pos != std::string::npos) {
-            result += cipher1[pos]; // substitute with corresponding character in cipher1
-        } else {
-            result += c; // if not found, add as it is
-        }
+string decipher(string cipher1, string cipher2, string message) {
+    string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        int j;
+        for (j = 0; j < cipher1.length() && j < message[i]; j++);
+        if (j == cipher1.length())
+            result += message[i];
+        else
+            result += cipher2[j];
     }
     return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, input;
-    std::cin >> cipher1 >> cipher2 >> input;
-    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << decipher(cipher1, cipher2, message) << endl;
     return 0;
 }
