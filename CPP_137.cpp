@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 
 int solve(const std::string& s) {
     int num = std::stoi(s);
