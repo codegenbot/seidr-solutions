@@ -11,7 +11,7 @@ while start <= len(text) - len(target):
         break
 
     indices.append(index)
-    start = index + len(target)
+    start = index + 1 if index == start else index
 
 for index in indices:
     print(index, end=" ")
