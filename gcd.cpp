@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -24,4 +26,21 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
+
+int main() {
+    string text = "Hello World";
+    string target = "World";
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Indices: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    int a = 100;
+    int b = 50;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+
+    return 0;
 }
