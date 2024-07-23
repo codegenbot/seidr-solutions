@@ -23,3 +23,4 @@ vector<int> res = leaders(v);
 for (int i : res) {
     cout << i << " ";
 }
+return 0;
