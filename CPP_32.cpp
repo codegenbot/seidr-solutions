@@ -2,14 +2,12 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    double solution = 0;
-    
     vector<double> coeffs(n+1);
     for(int i=0; i<n+1; i++){
         cin >> coeffs[i];
     }
     
-    solution = find_zero(coeffs); 
+    double solution = find_zero(coeffs); 
 
     assert (abs(poly(coeffs, solution))< 1e-3);
     
