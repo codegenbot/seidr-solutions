@@ -13,11 +13,11 @@ map<char, int> histogram(string test){
             maxCount = pair.second;
         }
     }
-    map<char, int> maxOccurrences;
+    map<char, int> maxLetters;
     for (const auto& pair : result) {
         if (pair.second == maxCount) {
-            maxOccurrences[pair.first] = pair.second;
+            maxLetters[pair.first] = pair.second;
         }
     }
-    return maxOccurrences;
+    return maxLetters;
 }
