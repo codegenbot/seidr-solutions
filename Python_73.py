@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     arr_str = ''.join(map(str, arr))
     rev_arr_str = arr_str[::-1]
