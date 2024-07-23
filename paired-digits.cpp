@@ -4,7 +4,6 @@
 int main() {
     std::cout << "Sum of paired digits: " << pairedDigits("123333") << std::endl;
     return 0;
-
 }
 
 int pairedDigits(std::string str) {
