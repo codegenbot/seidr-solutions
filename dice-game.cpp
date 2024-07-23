@@ -1,31 +1,32 @@
 ```cpp
 #include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
-    double total = (double)n * m;
+    double total = 1.0 * n * m;
     double count = 0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            if (i < j) {
-                count++;
-            } else if (i == j) {
+            if (i > j) {
                 count++;
             }
         }
     }
 
-    return (count) / total;
+    int same = (n <= m) ? n : m;
+
+    return (double)same / total;
 }
 
 int main() {
     int n, m;
-    std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m;
+    cout << "Enter the number of sides for Peter's die: ";
+    cin >> n;
+    cout << "Enter the number of sides for Colin's die: ";
+    cin >> m;
     double result = probability(n, m);
-    std::cout << "Probability: " << result << std::endl;
+    cout << "Probability: " << result << endl;
     return 0;
 
 }
