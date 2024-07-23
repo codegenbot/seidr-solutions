@@ -16,7 +16,7 @@ int main() {
         total_distance += first_bounce_height;
     }
     
-    std::cout << std::fixed << std::setprecision(6) << total_distance << "\n";
+    std::cout << std::fixed << std::setprecision(2) << total_distance << "\n";
     
     return 0;
 }
