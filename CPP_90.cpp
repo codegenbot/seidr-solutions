@@ -1,3 +1,5 @@
+#include <vector>
+#include <algorithm>
 #include <initializer_list>
 
 int next_smallest(vector<int> lst) {
@@ -9,5 +11,4 @@ int next_smallest(vector<int> lst) {
         if (sorted[i] != sorted[0])
             return sorted[i];
     }
-    return -1; 
-}
+    return -1;
