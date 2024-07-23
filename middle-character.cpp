@@ -9,11 +9,8 @@ int main() {
     getline(cin, s);
     
     int length = s.length();
-    if (length % 2 == 0) {
-        cout << "Middle characters are: " << s.substr(length / 2 - 1, 2) << endl;
-    } else {
-        cout << "Middle character is: " << s.substr(length / 2, 1) << endl;
-    }
+    cout << (length % 2 == 0 ? "Middle characters are: " : "Middle character is: ") 
+     << (length % 2 ? s.substr(length / 2, 1) : s.substr(length / 2 - 1, 2)) << endl;
     
     return 0;
 }
