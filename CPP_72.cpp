@@ -1,14 +1,10 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-using namespace std;
-
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != string(str.rbegin(), str.rend())) {
+    if (str != reverse(str).s) {
         return false;
     }
     int sum = 0;
@@ -16,9 +12,4 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
 }
