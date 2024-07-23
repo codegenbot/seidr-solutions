@@ -1,6 +1,3 @@
-#include <vector>
-#include <initializer_list>
-
 int luhn(std::vector<int>& digits) {
     int sum = 0;
     for (int i = digits.size() - 1; i >= 0; i--) {
