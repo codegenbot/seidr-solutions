@@ -1,32 +1,32 @@
-#include <initializer_list>
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result;
-    for(int i = 0; i < k; i++){
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+int maximum(std::vector<int>& v, int idx) {
+    if(idx >= v.size()) return 0;
+    int max_val = v[idx];
+    for(int i = idx+1; i<v.size();i++){
+        if(v[i] > max_val)
+            max_val = v[i];
     }
-    return result;
+    return max_val;
 }
 
-bool compare(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() != b.size())
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    if(a.size() != b.size()) 
         return false;
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size();i++){
         if(a[i] != b[i])
             return false;
     }
     return true;
 }
 
-int main() {
-    if(compare(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>())) {
-        printf("Test Passed\n");
+int main()
+{
+    if(issame({1, 2, 3, -23, 243, -400, 0}, std::vector<int>())) {
+        std::cout << "Test Passed\n";
     } else {
-        printf("Test Failed\n");
+        std::cout << "Test Failed\n";
     }
     return 0;
 }
