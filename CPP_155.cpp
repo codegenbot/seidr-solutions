@@ -1,7 +1,8 @@
 #include <vector>
+#include <pair>
 
 vector<int> even_odd_count(int num) {
-    vector<int> result(std::vector<int>({1, 0})); 
+    vector<int> result(std::vector<int>({1, 0}));
     int temp = abs(num);
     while(temp != 0){
         int digit = temp % 10;
@@ -12,4 +13,3 @@ vector<int> even_odd_count(int num) {
         temp /= 10;
     }
     return result;
-}
