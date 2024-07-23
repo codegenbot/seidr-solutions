@@ -1,21 +1,27 @@
+#include <climits>
+#include <iostream>
+
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-    while (cin >> num) {
+    
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int prefixSum[n + 1];
-    prefixSum[0] = 0;
-    for (int i = 0; i < n; ++i) {
-        prefixSum[i + 1] = prefixSum[i] + nums[i];
-    }
+    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
     
+    int leftSum = 0;
+    int rightSum = totalSum;
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    for (int i = 0; i < n; ++i) {
-        int diff = abs(2 * prefixSum[i] - prefixSum[n]);
+    int cutIndex = -1;
+    
+    for (int i = 0; i < nums.size(); ++i) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        
+        int diff = std::abs(leftSum - rightSum);
+        
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -23,10 +29,16 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << 0 << endl;
+    std::cout << 0 << std::endl;
+    
+    for (int i = cutIndex + 1; i < nums.size(); ++i) {
+        std::cout << nums[i] << std::endl;
+    }
+    
+    std::cout << 0 << std::endl;
     
     return 0;
 }
