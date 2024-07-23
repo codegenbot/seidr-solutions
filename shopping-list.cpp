@@ -1,10 +1,4 @@
-#include <iostream>
-#include <iomanip>
-#include <vector>
-using namespace std;
-
-float shoppingList(float*, int, float*);
-
+```c++
 int main() {
     int n;
     cin >> n;
@@ -19,7 +13,6 @@ int main() {
         cin >> d;
     }
 
-    cout << fixed << setprecision(1) << shoppingList(&prices[0], n, &discounts[0]) << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, n, discounts) << endl;
 
     return 0;
-}
