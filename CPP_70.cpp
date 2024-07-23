@@ -1,27 +1,27 @@
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
-    if (lst.empty()) return result;
+#include <vector>
+#include <algorithm>
 
-    vector<int> min_max;
-    min_max.push_back(*min_element(lst.begin(), lst.end()));
-    min_max.push_back(*max_element(lst.begin(), lst.end()));
-
-    lst.erase(std::remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-    lst.erase(std::remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
-
-    while (!lst.empty()) {
-        result.push_back(*min_element(lst.begin(), lst.end()));
-        min_max.push_back(*min_element(lst.begin(), lst.end()));
-        lst.erase(std::remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+std::vector<int> strange_sort_list(std::vector<int> list) {
+    std::sort(list.begin(),list.end());
+    for(int i=0;i<list.size();i++){
+        if((i+1)%3==0){
+            reverse(list.begin()+i,list.begin()+(i+1));
+        }
     }
-
-    for (int i = 0; i < min_max.size(); i++) {
-        result.push_back(min_max[i]);
-    }
-    return result;
+    return list;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
+            return false;
+    }
+    return true;
+}
 
+int main() {
+    assert(issame(strange_sort_list({111111}) , {111111})); 
+    return 0;
 }
