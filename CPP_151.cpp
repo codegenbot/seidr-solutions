@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -19,7 +18,10 @@ int main() {
     int n;
     float temp;
 
+    // Read the number of elements
     std::cin >> n;
+
+    // Read each element and add to vector
     for(int i = 0; i < n; ++i) {
         std::cin >> temp;
         myVector.push_back(temp);
