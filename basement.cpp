@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int basement(vector<int> v) {
     int sum = 0;
