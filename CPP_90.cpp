@@ -1,11 +1,16 @@
-sort(lst.begin(), lst.end());
-int count = 1;
-for (int i = 1; i < lst.size(); ++i) {
-    if (lst[i] != lst[i - 1]) {
-        count++;
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2){
+        return -1;
     }
-    if (count == 2) {
-        return lst[i];
+    
+    sort(lst.begin(), lst.end());
+    
+    int smallest = lst[0];
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] > smallest){
+            return lst[i];
+        }
     }
+    
+    return -1;
 }
-return -1;
