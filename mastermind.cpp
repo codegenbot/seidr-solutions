@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -21,7 +18,7 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1) {
+        if (count > 0) {
             white += count - 1;
         }
     }
