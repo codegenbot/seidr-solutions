@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-code = input()
-guess = input()
+code = input().strip()
+guess = input().strip()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
