@@ -14,6 +14,4 @@ int findNextSmallest(vector<int> lst) {
     }
     return -1;
 
-}
-cout << findNextSmallest({-35, 34, 12, -45}) << endl;
-return 0;
+}cout << findNextSmallest({-35, 34, 12, -45}) << endl;
