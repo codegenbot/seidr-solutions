@@ -11,8 +11,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         int j = 0;
         while (j < m) {
             if (text[i + j] != target[j]) {
-                j++;
-                continue;
+                j = 0;
+                i++;
+                break;
             }
             j++;
         }
