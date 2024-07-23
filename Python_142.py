@@ -6,6 +6,9 @@ def sum_squares(user_input):
         return "Invalid input. Please enter a string or tuple."
     if isinstance(user_input, str):
         numbers = list(map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input.split())))
-    else:
-        numbers = [n ** 2 for n in map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input))]
+    elif isinstance(user_input, tuple):
+        if isinstance(user_input[0], str):
+            numbers = list(map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input)))
+        else:
+            numbers = [n ** 2 for n in map(int, user_input)]
     return sum(numbers)
