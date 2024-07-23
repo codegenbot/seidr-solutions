@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -14,22 +13,25 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 
 int main() {
     int hours;
+    char buffer[256];
     std::cout << "Enter hours: ";
-    std::cin >> std::setw(0) >> hours;
+    std::cin >> buffer;
+    std::string hoursStr = buffer;
+    hours = std::stoi(hoursStr);
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    std::string buffer;
     std::cout << "Enter initial snow: ";
-    std::cin >> std::setw(0) >> buffer;
-    initialSnow = std::stof(buffer);
-    
+    std::cin >> buffer;
+    std::string initialSnowStr = buffer;
+    initialSnow = std::stof(initialSnowStr);
     std::cout << "Enter rate of snow fall: ";
-    std::cin >> std::setw(0) >> buffer;
-    rateOfSnowFall = std::stof(buffer);
-    
+    std::cin >> buffer;
+    std::string rateOfSnowFallStr = buffer;
+    rateOfSnowFall = std::stof(rateOfSnowFallStr);
     std::cout << "Enter proportion of snow melting per hour: ";
-    std::cin >> std::setw(0) >> buffer;
-    proportionOfSnowMeltingPerHour = std::stof(buffer);
+    std::cin >> buffer;
+    std::string proportionOfSnowMeltingPerHourStr = buffer;
+    proportionOfSnowMeltingPerHour = std::stof(proportionOfSnowMeltingPerHourStr);
 
     std::cout << fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
