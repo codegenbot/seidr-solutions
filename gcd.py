@@ -1,4 +1,7 @@
 def gcd(a, b):
-    if a == 0 and b == 0: return 0
+    if a == 0: 
+        return abs(b)
+    elif b == 0:
+        return abs(a)
     while b: a, b = abs(b), abs(a) % abs(b)
-    return max([a, b])
+    return a
