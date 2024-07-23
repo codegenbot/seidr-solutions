@@ -1,17 +1,6 @@
-```
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
-
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result;
-    for(int i = 0; i < k; i++){
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
-    }
-    return result;
-}
 
 bool equals(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
@@ -23,7 +12,17 @@ bool equals(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
+    for(int i = 0; i < k; i++){
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
+}
+
 int main() {
-    assert(!equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>()));
+    assert(equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {}));
     return 0;
 }
