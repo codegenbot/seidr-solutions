@@ -1,16 +1,21 @@
-```python
 def cut_vector(lst):
     min_diff = float("inf")
-    cut_index = 0
+    indices = []
 
     for i in range(1, len(lst)):
-        left_sum = sum(lst[:i])
-        right_sum = sum(lst[i:])
-
-        diff = abs(left_sum - right_sum)
+        diff = abs(sum(lst[:i]) - sum(lst[i:]))
 
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
+            indices = [i]
+        elif diff == min_diff:
+            indices.append(i)
 
-    return lst[:cut_index], lst[cut_index:]
+    left_sum = 0
+    right_sum = sum(lst[indices[-1]:])
+
+    for i in range(len(indices)):
+        if abs(left_sum - right_sum) <= min_diff:
+            return lst[:indices[i]], lst[indices[i]:]
+        left_sum += sum(lst[:indices[i]])
+        right_sum -= sum(lst[:indices[i]])
