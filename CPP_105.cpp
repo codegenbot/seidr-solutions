@@ -4,97 +4,75 @@ bool issame(vector<string> a, vector<string>b) {
 }
 
 int main() {
-    int n; 
-    cin >> n;
+    int num;
+    cin >> num;
 
     vector<int> arr;
-    for(int i=0; i<n; i++) {
-        int num;
-        cin >> num;
-        if(num >= 1 && num <= 9)
-            arr.push_back(num);
+    for (int i = 1; i <= num; i++) {
+        arr.push_back(i);
     }
 
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
-
-    vector<string> result;
-    for (int num : arr) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+    vector<string> by_length(vector<int> arr) {
+        vector<int> nums;
+        for (int i : arr) {
+            if (i >= 1 && i <= 9) {
+                nums.push_back(i);
+            }
         }
-        result.push_back(str);
-    }
 
-    vector<string> b; // Initialize an empty vector for the second list
+        sort(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.end());
 
-    // Repeat the same process for the second list
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
-
-    for (int num : arr) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+        vector<string> result;
+        for (int num : nums) {
+            string str = "";
+            switch (num) {
+                case 1:
+                    str = "One";
+                    break;
+                case 2:
+                    str = "Two";
+                    break;
+                case 3:
+                    str = "Three";
+                    break;
+                case 4:
+                    str = "Four";
+                    break;
+                case 5:
+                    str = "Five";
+                    break;
+                case 6:
+                    str = "Six";
+                    break;
+                case 7:
+                    str = "Seven";
+                    break;
+                case 8:
+                    str = "Eight";
+                    break;
+                case 9:
+                    str = "Nine";
+                    break;
+            }
+            result.push_back(str);
         }
-        b.push_back(str);
+
+        return result;
     }
 
-    // Check if the two lists are same
-    bool isSame = issame(result, b);
+    vector<string> res = by_length(arr);
 
-    cout << (isSame ? "True" : "False");
-}
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i] << endl;
+    }
+
+    bool check = issame(res, by_length(arr));
+    
+    if(check) {
+        cout << "The arrays are the same" << endl;
+    } else {
+        cout << "The arrays are not the same" << endl;
+    }
+    
+    return 0;
