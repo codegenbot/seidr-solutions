@@ -18,6 +18,6 @@ bool areSameVectors(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(eat(4, 5, 1) == 3);
+    assert(eat(4, 5, 1) == 3); 
     return 0;
 }
