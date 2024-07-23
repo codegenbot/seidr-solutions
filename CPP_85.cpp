@@ -13,19 +13,19 @@ int add(std::vector<int> lst){
 int main() {
     std::vector<int> numbers;
     int num;
-    
+
     std::cout << "Enter the size of array: ";
     std::cin >> num;
-    
+
     for(int i = 0; i < num; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        int temp;
-        std::cin >> temp;
-        numbers.push_back(temp);
+        int n;
+        std::cin >> n;
+        numbers.push_back(n);
     }
-    
+
     int result = add(numbers);
     std::cout << "Sum of odd elements: " << result << std::endl;
-    
+
     return 0;
 }
