@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -8,7 +5,9 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = cents / 10;
+    int dimes = (cents / 10);
+    if ((cents % 10) >= 5)
+        dimes++;
     cents %= 10;
 
     int nickles = cents / 5;
