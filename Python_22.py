@@ -1,3 +1,4 @@
+```
 from typing import Any
 
 
@@ -10,6 +11,9 @@ def filter_integers() -> list[int]:
                 for x in values.split(",")
                 if x.strip() and x.strip().replace(",", "").isdigit()
             ]
-            return num_list
+            if not num_list:  
+                print("Please enter at least one number.")
+            else:
+                return num_list
         except ValueError:
             print("Invalid input. Please enter numbers separated by commas.")
