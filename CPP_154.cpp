@@ -1,5 +1,6 @@
-int n = a.size(), m = b.size();
-    if (n != m) return false;
-    string combined = a + a;
-    return combined.find(b) != string::npos;
+int n = a.size();
+int m = b.size();
+if(n != m) return false;
+string concat = a + a;
+return concat.find(b) != string::npos;
 }
