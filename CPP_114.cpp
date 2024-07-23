@@ -1,4 +1,10 @@
-long long minSubArraySum(vector<long long> nums){
+long long minSubArraySum(vector<long long> nums);
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+}
+
+long long minSubArraySum(vector<long long> nums) {
     long long sum = 0;
     long long min_sum = LONG_LONG_MAX;
     for(int i=0; i<nums.size();i++){
