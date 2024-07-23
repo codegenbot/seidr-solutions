@@ -18,7 +18,7 @@ def solve_boolean(expression):
     result = True
     for operator in '|&':
         for operand in expression.split(operator):
-            result = (operator == '&') and result and bool(solve_boolean(operand)) or not result and any(bool(solveBoolean(op)) for op in operand.split(' & '))
+            result = (operator == '&') and result and bool(solve_boolean(operand)) or not result and any(bool(solve_boolean(op)) for op in operand.split(' & '))
             if not result:
                 break
     return result
