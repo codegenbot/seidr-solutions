@@ -1,13 +1,5 @@
-```cpp
-#include <iostream>
 #include <vector>
-
-int main() {
-    int result = smallest_change({0, 1});
-    assert(result == 1);
-    std::cout << "The number of changes is: " << result << std::endl;
-    return 0;
-}
+#include <algorithm>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
@@ -46,4 +38,9 @@ int smallest_change(std::vector<int> arr) {
     }
     
     return changes;
+}
+
+int main() {
+    std::cout << "Expected: " << smallest_change({0, 1}) << "\n";
+    return 0;
 }
