@@ -1,3 +1,4 @@
+```
 import ast
 
 def solve_boolean(expression):
@@ -12,6 +13,6 @@ def solve_boolean(expression):
             expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
         elif '||' in expression:
             left, right = expression.split('||')
-            expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
+            expression = f"({str(bool(solveBoolean(left)))} or {str(bool(solve_boolean(right))))})"
 
-    return eval(f"({expression})")
+    return eval(ast.literal_eval(f"{expression}"))
