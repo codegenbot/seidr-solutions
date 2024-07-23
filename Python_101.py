@@ -1,3 +1,3 @@
-```
+```Python
 def words_string(s):
-    return [word.strip() for word in s.split(", | ")]
+    return [x.strip() for x in s.split() if x != ""]
