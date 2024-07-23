@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -32,11 +32,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    vector<int> res;
+    vector<int> res(k);
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            res.push_back(sum);
             return res;
         }
         for (auto& neighbor : neighbors[i]) {
@@ -47,7 +46,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    res.push_back(sum);
     return res;
 }
 
