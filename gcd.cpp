@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 
-long long gcd(long long a, long long b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        long long temp = b;
+        size_t temp = b;
         b = a % b;
         a = temp;
     }
-    return static_cast<size_t>(a);
+    return a;
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
@@ -31,12 +31,10 @@ std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string text = "Hello World";
     std::string target = "World";
-    std::vector<size_t> result;
-
-    long long GCD = gcd(909378243576LL, 50); 
-    std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
+    size_t GCD = gcd(909378243576ULL, 50); 
+    std::cout << "GCD of " << 909378243576ULL << " and " << 50 << ": " << GCD << std::endl;
     
-    result = indicesOfSubstring(text, target);
+    std::vector<size_t> result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
     for (size_t i : result) {
         std::cout << i << " ";
