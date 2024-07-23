@@ -1,10 +1,12 @@
 #include <string>
+#include <sstream>
 
 string squareDigits(string n) {
     string result = "";
-    for (char c : n) {
+    stringstream ss(n);
+    char c;
+    while (ss >> c) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
     return result;
-}
