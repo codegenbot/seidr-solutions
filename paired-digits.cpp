@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int pairedDigits(std::string str) {
@@ -8,14 +7,4 @@ int pairedDigits(std::string str) {
             sum += str[i] - '0';
         }
     }
-    return sum;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> str;
-    int result = pairedDigits(str);
-    std::cout << "The sum of the digits whose following digit is the same is: " << result << std::endl;
-    return 0;
-}
+    return sum; }
