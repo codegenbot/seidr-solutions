@@ -10,12 +10,14 @@ def solve_boolean(expression):
                 if i == 0:
                     return eval(s[1:s.index(')')]) and evaluate(s[s.index(')')+1:])
         stack = []
-        ops = {'&': all, '|': any}
+        ops = 0
         for char in s:
             if char in {'T', 'F'}:
                 stack.append(char == 'T')
             elif char in {'&', '|'}:
                 while len(stack) > 1 and stack[-2] != 'T' and stack[-2] != 'F':
                     stack.pop()
-                ops[char](stack)
-        return all(stack)
+                ops = {f"{{'&': all, '{{|': any}}"[char]}
+        while len(stack) > 1:
+            stack.pop()
+        return ' '.join(map(str, ops(*stack)))
