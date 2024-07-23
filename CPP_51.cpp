@@ -4,9 +4,9 @@
 std::string remove_vowels(std::string text) {
     std::string result;
     for (char c : text) {
-        if (!std::isalpha(c)) {
+        if (!isalpha(c)) {
             result += c;
-        } else if (!std::strchr("aeiouAEIOU", std::tolower(c))) {
+        } else if (!strchr("aeiouAEIOU", tolower(c))) {
             result += c;
         }
     }
