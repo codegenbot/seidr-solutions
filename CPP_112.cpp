@@ -2,8 +2,9 @@
 #include <algorithm>
 #include <string>
 #include <initializer_list>
+#include <stdbool.h> 
 
-bool std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
