@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main() {
     int hours;
     float snow, rate, melt;
@@ -13,4 +12,4 @@ int main() {
     std::cout << snow << std::endl;
     
     return 0;
-}      
+}
