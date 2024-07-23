@@ -1,6 +1,4 @@
-#include <string>
-#include <cctype>
-
+```cpp
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t pos = 0, start = 0;
