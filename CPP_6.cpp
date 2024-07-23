@@ -28,3 +28,8 @@ vector<int> parse_nested_parens(string paren_string) {
 
     return result;
 }
+
+int main() {
+    vector<int> result = parse_nested_parens("(()(())((()))"); 
+    return 0;
+}
