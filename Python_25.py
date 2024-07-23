@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -27,4 +26,4 @@ def factorize(n: int) -> List[int]:
         else:
             break
 
-    return factors
+    return [n] if n > 1 else []
