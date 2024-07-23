@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,6 +20,3 @@ bool isEqual(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
-assert(isEqual(strange_sort_list({111111}) , {111111})); 
-return 0;
