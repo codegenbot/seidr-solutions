@@ -1,31 +1,26 @@
 #include <iostream>
 #include <string>
-#include <utility> // For pair
+#include <utility>
+
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            blackPegs++;
+pair<int, int> mastermind(string code, string guess) {
+    int black = 0;
+    int white = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
         } else {
             bool found = false;
-            for (int j = 0; j < 4; j++) {
-                if (guess[i] == code[j]) {
-                    whitePegs++;
+            for(int j=0; j<4; j++) {
+                if(guess[j] == code[i] && !found) {
+                    white++;
                     found = true;
-                    break;
                 }
-            }
-            if (!found) {
-                whitePegs--;
             }
         }
     }
-    
-    return make_pair(blackPegs, whitePegs);
+    return make_pair(black, 4 - black - white);
 }
 
 int main() {
@@ -36,4 +31,3 @@ int main() {
     cin >> guess;
     pair<int, int> result = mastermind(code, guess);
     cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
-}
