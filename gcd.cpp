@@ -1,15 +1,14 @@
 #include <vector>
 #include <string> 
+#include <initializer_list> 
 using namespace std;
 
-// function declarations
-vector<int> indicesOfSubstring(string text, string target);
-int gcd(int a, int b);
-
-int main() {
-    int a = 48;
-    int b = 18;
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a,b) << endl;
-
-    return 0;
+int gcd(int a, int b) {
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    
+    return a;
 }
