@@ -1,19 +1,19 @@
 vector<int> even_odd_palindrome(int n){
-    vector<int> result;
-    int even = 0, odd = 0;
-    for(int i = 1; i <= n; i++) {
-        string str = to_string(i);
-        string rev = str;
-        reverse(rev.begin(), rev.end());
-        if(str == rev) {
-            if(i % 2 == 0) {
-                even++;
+    vector<int> result(2, 0);
+    
+    for(int i = 1; i <= n; ++i){
+        string s = to_string(i);
+        string rev_s = s;
+        reverse(rev_s.begin(), rev_s.end());
+        
+        if(s == rev_s){
+            if(i % 2 == 0){
+                ++result[0]; // even palindrome
             } else {
-                odd++;
+                ++result[1]; // odd palindrome
             }
         }
     }
-    result.push_back(even);
-    result.push_back(odd);
+    
     return result;
 }
