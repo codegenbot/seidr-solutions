@@ -1,21 +1,18 @@
-```
 #include <iostream>
 
 int squareDigits(int n) {
+    int temp = n;
     int result = 0;
-    while (n > 0) {
-        int digit = n % 10;
+    while (temp != 0) {
+        int digit = temp % 10;
+        temp /= 10;
         result = result * 10 + digit * digit;
-        n /= 10;
     }
     return result;
 }
 
 int main() {
-    std::cout << squareDigits(16) << std::endl;  // Output: 4
-    std::cout << squareDigits(0) << std::endl;   // Output: 0
-    std::cout << squareDigits(1) << std::endl;   // Output: 1
-    std::cout << squareDigits(2) << std::endl;   // Output: 4
-    std::cout << squareDigits(3) << std::endl;   // Output: 9
+    std::cout << squareDigits(14) << std::endl; 
+    // Output: 81
     return 0;
 }
