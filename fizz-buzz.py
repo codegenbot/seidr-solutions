@@ -1,12 +1,12 @@
-def fizz_buzz(n):
-    result = []
-    for i in range(1, n+1):
-        if i % 3 == 0 and i % 5 == 0:
-            result.append("FizzBuzz")
-        elif i % 3 == 0:
-            result.append("Fizz")
-        elif i % 5 == 0:
-            result.append("Buzz")
-        else:
-            result.append(str(i))
-    return '\n'.join(result)
+def fizz_buzz(x):
+    three_divisible = x % 3 == 0
+    five_divisible = x % 5 == 0
+
+    if three_divisible and five_divisible:
+        return "FizzBuzz"
+    elif three_divisible:
+        return "Fizz"
+    elif five_divisible:
+        return "Buzz"
+    else:
+        return str(x)
