@@ -1,4 +1,7 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
+#include <vector>
+#include <string>
+
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int evenCount = 0;
     for (int num : lst1) {
         if (num % 2 == 0)
@@ -6,9 +9,8 @@ string exchange(vector<int> lst1, vector<int> lst2) {
     }
     for (int num : lst1) {
         if (num % 2 != 0 && evenCount > 0)
-            return "YES";
+            return std::string("YES");
         else if (num % 2 != 0)
-            return "NO";
+            return std::string("NO");
     }
-    return evenCount == lst1.size() ? "YES" : "NO";
-}
+    return evenCount == lst1.size() ? std::string("YES") : std::string("NO");
