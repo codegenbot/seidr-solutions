@@ -8,13 +8,10 @@ bool is_sorted(std::vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]) return false;
     }
-    std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
-    for(auto it = unique_lst.begin(); it != unique_lst.end(); ++it)
-        *it /= 2; 
-    return true; 
+    return true;
 }
 
-int check_sorted() {
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -34,10 +31,5 @@ int check_sorted() {
         std::cout << "The vector is not sorted.\n";
     }
     
-    return 0;
-}
-
-int main() {
-    check_sorted();
     return 0;
 }
