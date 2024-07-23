@@ -4,10 +4,10 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 half_sum = total_sum // 2
 prefix_sum = 0
-min_diff = total_sum  # Initialize min_diff with total_sum
+min_diff = total_sum
 cut_index = -1
 
-for i in range(n):
+for i in range(n - 1):
     prefix_sum += arr[i]
     diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
