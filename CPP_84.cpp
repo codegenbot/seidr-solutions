@@ -1,17 +1,17 @@
 #include <string>
+using namespace std;
 
-string solve(int N){
+std::string solve(int N){
     int sum = 0;
-    string result = "";
-    
     while(N > 0) {
-        int remainder = N % 2;
-        if (remainder == 1)
+        int digit = N & 1;
+        if(digit == 1)
             sum++;
-        
-        if (N > 1)
-            result = to_string(remainder) + result;
-        N /= 2;
+        N >>= 1;
     }
-    
+    string result = "";
+    while(sum > 0) {
+        result = (sum % 2 == 1 ? "1" : "0") + result;
+        sum /= 2;
+    }
     return result;
