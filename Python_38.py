@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def decode_cyclic(s: str):
     n = len(s)
@@ -15,10 +17,10 @@ def decode_cyclic(s: str):
             while i - j >= 0 and s[i] == s[i-j]:
                 j += 1
             if j > 0: 
-                result += s[i - j + 1]
+                result += s[0:j]
             else:
-                result += s[0]
-            i += 1
+                result += s[i]
+            break
         else:
             result += s[i]
         i += 1
