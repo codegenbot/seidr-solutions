@@ -1,6 +1,6 @@
 from typing import List
 
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_string: str) -> list:
     beats = [4, 2, 1]  
     result = []
     
