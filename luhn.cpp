@@ -21,3 +21,21 @@ int luhn(vector<int> digits) {
     
     return sum;
 }
+
+int main() {
+    vector<int> digits;
+    int cardNumber;
+    
+    cout << "Enter your credit card number: ";
+    while (cin >> cardNumber) {
+        if (cardNumber >= 0 && cardNumber <= 9) {
+            digits.push_back(cardNumber);
+        } else {
+            break;
+        }
+    }
+    
+    int result = luhn(digits);
+    cout << "The Luhn checksum is: " << result; 
+    return 0;
+}
