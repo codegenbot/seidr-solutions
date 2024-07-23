@@ -1,8 +1,6 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cmath>
-#include <iomanip>
-#include <initializer_list>
 
 using namespace std;
 
@@ -12,7 +10,6 @@ double vectorDistance(vector<float> v1, vector<float> v2) {
         distance += pow(v1[i] - v2[i], 2);
     }
     return sqrt(distance); 
-
 }
 
 int main() {
