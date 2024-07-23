@@ -1,23 +1,16 @@
-vector<int> l_divisible_by_3;
-    vector<int> l_not_divisible_by_3;
-
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            l_divisible_by_3.push_back(l[i]);
-        } else {
-            l_not_divisible_by_3.push_back(l[i]);
+vector<int> res = l;
+    vector<int> div_by_three_indices;
+    for(int i = 0; i < l.size(); ++i){
+        if(i % 3 == 0){
+            div_by_three_indices.push_back(i);
         }
     }
-
-    sort(l_divisible_by_3.begin(), l_divisible_by_3.end());
-
-    for (int i = 0, j = 0, k = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            l[i] = l_divisible_by_3[j++];
-        } else {
-            l[i] = l_not_divisible_by_3[k++];
-        }
+    for(int idx : div_by_three_indices){
+        res[idx] = l[idx];
     }
-
-    return l;
+    sort(div_by_three_indices.begin(), div_by_three_indices.end(), [&](int a, int b){return l[a] < l[b];});
+    for(int i = 0; i < div_by_three_indices.size(); ++i){
+        res[div_by_three_indices[i]] = l[div_by_three_indices[i]];
+    }
+    return res;
 }
