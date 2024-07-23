@@ -15,6 +15,5 @@ std::vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    reverse(result.begin(), result.end());
-    return result;
+    return vector<int>(result.rbegin(), result.rend());
 }
