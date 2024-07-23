@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <type_traits>
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -16,5 +17,7 @@ std::vector<int> filter_integers(const std::vector<int>& mixedVector) {
     return result;
 }
 
-assert(is_same(filter_integers({3, 3, 3}), {3, 3, 3}));
-```
+int main() {
+    assert(is_same(filter_integers({3, 3, 3}), {3, 3, 3}));
+    return 0;
+}
