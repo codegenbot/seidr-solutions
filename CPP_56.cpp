@@ -1,3 +1,4 @@
+```cpp
 bool correct_bracketing(const char* brackets) {
     int count = 0;
     for(int i=0; *brackets; i++){
@@ -5,7 +6,7 @@ bool correct_bracketing(const char* brackets) {
             count++;
         }
         else if(*brackets == '>'){
-            if(count <= 0) return false;
+            if(count == 0) return false;
             count--;
         }
         brackets++; 

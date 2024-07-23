@@ -12,15 +12,10 @@ int findSmallest(vector<int> lst) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    cout << "No distinct elements in the list." << endl;
     return -1;
 }
 
 int main() {
-    int result = findSmallest({-35, 34, 12, -45});
-    if (result == -1)
-        cout << "Error: The input vector must contain at least two distinct elements.";
-    else
-        cout << result << endl;
+    cout << next_smallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
