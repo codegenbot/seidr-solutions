@@ -1,18 +1,14 @@
-```c++
-#include <iostream>
-#include <string>
-
 bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            bool left = (expression.substr(0, i) == "T" || expression.substr(0, i) == "t");
-            bool right = (expression.substr(i + 1) == "T" || expression.substr(i + 1) == "t");
-            return left || right;
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            bool left = (expression.substr(0, i) == "T" || expression.substr(0, i) == "t");
-            bool right = (expression.substr(i + 1) == "T" || expression.substr(i + 1) == "t");
-            return left && right;
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
     
