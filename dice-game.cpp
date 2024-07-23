@@ -1,6 +1,4 @@
-```
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
     double total = 1.0 * n * m;
@@ -20,12 +18,12 @@ double probability(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    cout << "Enter the number of sides for Peter's die: ";
+    std::cout << "Enter the number of sides for Peter's die: ";
+    int n; 
     cin >> n;
-    cout << "Enter the number of sides for Colin's die: ";
+    std::cout << "Enter the number of sides for Colin's die: ";
+    int m; 
     cin >> m;
     double result = probability(n, m);
-    cout << "Probability: " << result << endl;
+    std::cout << "Probability: " << result << endl;
     return 0;
-}
