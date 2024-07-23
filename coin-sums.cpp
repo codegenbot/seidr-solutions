@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> coinSums(int cents) {
-    vector<int> coins(4);
+    vector<int> coins = {0, 0, 0, 0};
     
     while (cents > 0) {
         if (cents >= 25) {
