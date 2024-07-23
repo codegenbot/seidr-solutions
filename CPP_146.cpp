@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 #include <algorithm>
@@ -17,3 +18,4 @@ int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
     assert(specialFilter(nums) == 3);
     return 0;
+}
