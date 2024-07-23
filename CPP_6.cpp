@@ -5,25 +5,17 @@ using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    stack<int> depth;
-    int maxDepth = 0;
+    stack<int> nesting_levels;
+    int current_level = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            depth.push(1);
-            if (depth.size() > maxDepth)
-                maxDepth = depth.size();
+            nesting_levels.push(++current_level);
         } else if (c == ')') {
-            depth.pop();
+            result.push_back(current_level);
+            nesting_levels.pop();
         }
     }
-
-    while (!depth.empty()) {
-        result.push_back(depth.top());
-        depth.pop();
-    }
-
-    reverse(result.begin(), result.end());
 
     return result;
 }
