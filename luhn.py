@@ -1,17 +1,12 @@
-```python
+```
 def luhn(card):
     card = [int(x) for x in str(card)]
     card.reverse()
     sum = 0
-    doubled = False
     for i, num in enumerate(card):
-        if doubled:
-            if num * 2 > 9:
-                sum += num * 2 - 9
-            else:
-                sum += num * 2
-            doubled = False
-        else:
-            sum += num
-            doubled = not doubled
-    return sum
+        if (i % 2) == 1:
+            num *= 2
+            if num > 9:
+                num -= 9
+        sum += num
+    return sum % 10
