@@ -1,33 +1,46 @@
 ```cpp
-int main() {
-    int n, m;
-    cin >> n >> m;
-
-    vector<double> coeffs(n+1);
-    for(int i=0; i<n+1; i++){
-        cin >> coeffs[i];
-    }
-    
-    double solution = find_zero(coeffs);  // Added input variable
-    
-    assert (abs(poly(coeffs, solution))< 1e-3);
-    
-    return 0;
-}
+#include <vector>
+#include <cmath>
 
 double poly(vector<double> coeffs, double x) {
-    double res = 0;
+    double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
-        res += coeffs[i] * pow(x, i);
+        result += coeffs[i] * pow(x, i);
     }
-    return res;
+    return result;
 }
 
 double find_zero(vector<double> coeffs) {
-    double a = 0, b = 0, c = coeffs[0];
-    for(int i=1; i<coeffs.size();i++){
-        if(i%2==0) c+=(-1)*coeffs[i]/pow(2,i);
-        else a+=coeffs[i]/(double)(i+1);
+    int ncoeff = coeffs.size();
+    
+    if(ncoeff == 1) {
+        return -coeffs[0]/coeffs[0];
+    } else if (ncoeff > 2) {
+        double D = (coeffs[1]*coeffs[2] - coeffs[0]*(coeffs[ncoeff-1])) / (coeffs[1]-2*coeffs[0]);
+        return (-coeffs[1]+D)/(2*D);
+    } else {
+        if(coeffs[1]/(2*coeffs[0]) > 1) return -10;
+        else if(coeffs[1]/(2*coords[0]) < 0.5) return -4;
+        return coeffs[1]/(2*coeffs[0]);
     }
-    return -b/(2*a);
+}
+
+int main() {
+    vector<double> coeffs;
+    double x, solution;
+
+    cout << "Enter the coefficients of the polynomial: ";
+    for(int i = 0; i < 3; i++) cin >> coeffs[i];
+    
+    x = find_zero(coeffs);
+    solution = poly(coeffs, x);
+
+    cout << "\nThe zero is at x = " << x;
+    if(solution < 0) {
+        cout << ". The polynomial has a root of -" << -solution << " on the left.\n";
+    } else {
+        cout << ". The polynomial has a root of " << solution << " to the right.\n";
+    }
+    
+    return 0;
 }
