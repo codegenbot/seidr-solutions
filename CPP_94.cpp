@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -10,7 +10,7 @@ int skjkasdkd(std::vector<int> lst){
             break;
         }
     }
-    if(maxPrime == -1) return 0; 
+    if(maxPrime == -1) return 0; // No prime found
     int sumOfDigits = 0;
     while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
@@ -26,17 +26,15 @@ bool isPrime(int n){
     }
     return true;
 
-int main{
-    int n;
+int main {
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::vector<int> lst(10);
-    for(int i = 0; i < 10; i++){
-        lst[i] = i + 1;
+    std::cin >> num;
+    std::vector<int> lst;
+    for(int i = 1; i <= num; i++){
+        if(isPrime(i)) {
+            lst.push_back(i);
+        }
     }
-    int result = skjkasdkd(lst);
-    if(result == 0) 
-        std::cout << "No prime found in the list.";
-    else
-        std::cout << "The sum of digits of the largest prime is: " << result;
+    std::cout << "Sum of digits in the sum of all primes is: " << skjkasdkd(lst) << std::endl;
 }
