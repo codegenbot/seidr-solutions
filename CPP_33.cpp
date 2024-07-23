@@ -1,18 +1,13 @@
-vector<int> l_divisible_by_three;
-    for (int i = 0; i < l.size(); i++) {
+vector<int> res = l;
+    vector<int> indices;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            l_divisible_by_three.push_back(l[i]);
+            indices.push_back(i);
         }
     }
-
-    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
-
-    for (int i = 0, j = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            l[i] = l_divisible_by_three[j];
-            j++;
-        }
+    sort(indices.begin(), indices.end(), [&](int a, int b) { return l[a] < l[b]; });
+    for (int i = 0; i < indices.size(); ++i) {
+        res[indices[i]] = l[indices[i]];
     }
-
-    return l;
+    return res;
 }
