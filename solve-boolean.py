@@ -5,7 +5,7 @@ def solve_boolean(input):
         return False
     elif '&' in input:
         left, right = input.split('&')
-        return bool(int(left) and int(right))
+        return solve_boolean(left) and solve_boolean(right)
     elif '|' in input:
         left, right = input.split('|')
-        return bool(int(left) or int(right))
+        return solve_boolean(left) or solve_boolean(right)
