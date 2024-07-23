@@ -8,18 +8,13 @@ min_diff = total_sum
 cut_index = -1
 
 for i in range(n):
-    prefix_sum += arr[i]
-    diff = abs(total_sum - 2 * prefix_sum)
+    diff = abs(total_sum - 2 * (prefix_sum + arr[i]))
     if diff < min_diff:
         min_diff = diff
         cut_index = i
 
-if cut_index == n - 1:
-    subvector1 = arr[: cut_index + 1]
-    subvector2 = []
-else:
-    subvector1 = arr[: cut_index + 1]
-    subvector2 = arr[cut_index + 1 :]
+subvector1 = arr[:cut_index+1]
+subvector2 = arr[cut_index+1:]
 
 print(*subvector1)
 print(*subvector2)
