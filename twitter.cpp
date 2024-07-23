@@ -12,7 +12,7 @@ string validateTweet(string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = trimmedTweet.size();
+    int count = tweet.size();
     if (count > 140) {
         return "Too many characters";
     }
@@ -21,7 +21,7 @@ string validateTweet(string& tweet) {
 }
 
 int main() {
-    string tweet;
+    string &tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
