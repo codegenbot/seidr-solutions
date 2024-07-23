@@ -15,17 +15,23 @@ double poly(vector<double> xs, double x){
     return sum;
 }
 
-double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; 
+void find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) cout << -1 << endl; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return x;
+    cout << fixed << setprecision(2) << x << endl;
 }
 
 int main() {
-    vector<double> xs = {1.0, -2.5, 3.0}; // your coefficients
-    cout << fixed << setprecision(2) << find_zero(xs) << endl;
-    return 0;
+    vector<double> xs; // input
+    double x;
+    cin >> x;
+    xs.push_back(x);
+    for (int i = 1; i <= 1000; i++) {
+        cin >> x;
+        xs.push_back(x);
+    }
+    find_zero(xs);
 }
