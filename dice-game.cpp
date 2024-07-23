@@ -1,13 +1,11 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double probability(int n, int m) {
     double p = 0;
     for (int i = m + 1; i <= n; i++) {
-        p += (double)1 / n;
+        p += 1.0 / n;
     }
     return p;
 }
