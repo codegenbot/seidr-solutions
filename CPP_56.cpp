@@ -1,15 +1,14 @@
-#include <string>
-
-bool correct_bracketing(std::string brackets) {
+bool correct_bracketing(const char* brackets) {
     int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '<'){
+    for(int i=0; *brackets; i++){
+        if(*brackets == '<'){
             count++;
         }
-        else if(brackets[i] == '>'){
+        else if(*brackets == '>'){
             if(count <= 0) return false;
             count--;
         }
+        brackets++; 
     }
     return count == 0;
 }
