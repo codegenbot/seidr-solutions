@@ -10,12 +10,15 @@ int main() {
     std::string word;
     bool firstWord = true;
 
-    while (iss >> word) {
+    while (std::getline(iss, word, '-')) {
         if (!firstWord) {
             word[0] = std::toupper(word[0]);
         }
         std::cout << word;
         firstWord = false;
+        if (iss) {
+            std::cout << ' ';
+        }
     }
 
     return 0;
