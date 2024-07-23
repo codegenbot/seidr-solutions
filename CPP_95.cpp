@@ -1,5 +1,4 @@
-bool check_dict_case(std::map<std::string, std::string> dict) {
-    bool allLower = true;
+bool allLower = true;
     bool allUpper = true;
 
     for (auto& pair : dict) {
