@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,8 +11,11 @@ while True:
     try:
         numbers = input("Enter some numbers separated by space: ")
         numbers = list(map(float, numbers.split()))
-        result = rescale_to_unit(numbers)
-        print(result)
-        break
-    except ValueError:
-        print("Invalid input. Please enter valid numbers.")
+        if len(set(str(int(x)) for x in numbers)) == len(numbers):
+            result = rescale_to_unit(numbers)
+            print(result)
+            break
+        else:
+            raise ValueError("Invalid input. Please enter valid integers.")
+    except ValueError as e:
+        print(f"Error: {e}")
