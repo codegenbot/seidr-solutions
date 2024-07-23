@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+
 using namespace std;
 
 int gcd(int a, int b) {
@@ -11,4 +12,12 @@ int gcd(int a, int b) {
     }
     
     return a;
+}
+
+int main() {
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    return 0;
 }
