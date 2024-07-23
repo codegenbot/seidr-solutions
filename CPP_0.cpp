@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cmath> // For abs function
+#include <cmath> 
 
 using namespace std;
 
