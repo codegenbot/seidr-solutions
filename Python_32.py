@@ -1,4 +1,5 @@
-def find_zero(xs: list):
+```
+def find_zero(xs):
     n = len(xs)
     assert n % 2 == 0
     degree = n // 2
