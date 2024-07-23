@@ -3,8 +3,6 @@
 #include <cmath>
 #include <iostream>
 
-#stdlib=c++11
-
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
@@ -18,8 +16,8 @@ int fuelCost(std::vector<int> v) {
 
 int main() {
     std::vector<int> v;
-    for (int i : {15, 10, 5}) {
-        v.push_back(i);
+    for (int i = 0; i < 3; ++i) {
+        v.push_back(i * 5 + 10);
     }
     if (v.empty()) {
         std::cerr << "Error: Input vector is empty." << std::endl;
