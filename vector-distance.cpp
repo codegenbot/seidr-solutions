@@ -1,3 +1,5 @@
+```cpp
+#define _GNU_SOURCE
 #include <vector>
 #include <cmath>
 
