@@ -8,3 +8,7 @@ def indices_of_substring(text, target):
         result.append(pos)
         start = pos + 1
     return result
+
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
+print(indices_of_substring(text, target))
