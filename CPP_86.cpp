@@ -1,15 +1,14 @@
-string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
-        }
+string anti_shuffle(string s){
+    size_t start = 0;
+    size_t end = s.find(' ');
+
+    while (end != string::npos) {
+        sort(s.begin() + start, s.begin() + end);
+        start = end + 1;
+        end = s.find(' ', start);
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
+
+    sort(s.begin() + start, s.end());
+
+    return s;
 }
