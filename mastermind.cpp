@@ -5,7 +5,6 @@ int main() {
     std::cin >> code >> guess;
     
     int blackPegs = 0, whitePegs = 0;
-    
     std::vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
