@@ -19,12 +19,14 @@ int main() {
             }
             if (guess[i] >= 'A' && guess[i] <= 'F') {
                 ++guessFreq[guess[i] - 'A'];
+            } else {
+                ++white;
             }
         }
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += std::min(codeFreq[i], guessFreq[i]);
+        white += std::min(codeFreq[i], guessFreq[i]) + abs(codeFreq[i] - guessFreq[i]);
     }
     
     cout << white << '\n' << black << '\n';
