@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
     if (v1.size() != v2.size()) {
         throw std::runtime_error("Vectors must be the same size");
@@ -8,7 +12,7 @@ double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
         sum += diff * diff;
     }
     
-    return std::sqrt(sum) / v1.size();
+    return std::sqrt(sum);
 }
 
 int main() {
@@ -31,6 +35,6 @@ int main() {
     }
 
     double distance = vectorDistance(v1, v2);
-    printf("Euclidean distance: %f\n", distance);
+    std::cout << "Euclidean distance: " << distance << std::endl;
     return 0;
 }
