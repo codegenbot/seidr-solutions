@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -40,13 +40,12 @@ int main() {
     pair<vector<int>, vector<int>> res = cutVector(v);
     cout << "First subvector: ";
     for (int x : res.first) {
-        cout << x << " ";
+        std::cout << x << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     cout << "Second subvector: ";
     for (int x : res.second) {
-        cout << x << " ";
+        std::cout << x << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
-}
