@@ -1,43 +1,23 @@
-bool issame(string s1, string s2) {
-    bool flag = true;
-    if (s1.length() != s2.length()) {
-        flag = false;
-    } else {
-        for (int i = 0; i < s1.length(); i++) {
-            if (s1[i] != s2[i]) {
-                flag = false;
-                break;
-            }
-        }
-    }
-    return flag;
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
 }
 
 int main() {
-    vector<string> strings;
-    string substring;
-
-    cin >> substring;
-    
-    for(int i=0; i<3; ++i) {
-        string s;
-        cin >> s;
-        strings.push_back(s);
-    }
-
+    vector<string> strings = {"hello", "world", "hellO", "helloworld"};
+    string substring = "ell";
     vector<string> result = filter_by_substring(strings, substring);
-
     for (const auto& s : result) {
-        bool is_same = false;
-        for (int i = 0; i < 3; ++i) {
-            if (!issame(substring, strings[i])) {
-                is_same = true;
-                break;
-            }
-        }
-        if (!is_same)
-            cout << s << endl;
+        bool same = issame(transform(s.begin(), s.end(), ::tolower), transform(substring.begin(), substring.end(), ::tolower));
+        cout << s << ": " << same << endl;
     }
-
     return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for (const auto& s : strings) {
+        if (s.find(substring) != string::npos)
+            result.push_back(s);
+    }
+    return result;
 }
