@@ -10,24 +10,18 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<int> right;
     int min_diff = INT_MAX;
     int best_cut = -1;
-    long long sum_left = 0, sum_right = 0;
 
     for (int i = 0; i < n; i++) {
-        sum_right += v[i];
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; j++)
+            sum_left += v[j];
+        for (int j = i + 1; j < n; j++)
+            sum_right += v[j];
 
-        while (sum_left <= sum_right) {
-            if (sum_left == sum_right) {
-                best_cut = i;
-                min_diff = 0;
-                break;
-            }
-
-            if (abs(sum_left - sum_right) < min_diff) {
-                min_diff = abs(sum_left - sum_right);
-                best_cut = i;
-            }
-
-            sum_left += v[i-1];
+        int diff = max(abs(sum_left - sum_right), (i > 0 ? v[i-1] : INT_MAX) + (n - i > 0 ? INT_MAX - v[n-i-1] : INT_MAX));
+        if (diff < min_diff) {
+            min_diff = diff;
+            best_cut = i;
         }
     }
 

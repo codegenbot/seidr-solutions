@@ -1,7 +1,4 @@
-#include <stack>
-#include <string>
-#include <iostream>
-
+```cpp
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
     std::string operand = "";
@@ -25,16 +22,11 @@ bool evaluateBooleanExpression(std::string expression) {
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
-                while (!operators.empty()) {
-                    if (operators.top() == '|' && expression[i] == 't') 
-                        operators.pop();
-                    else if (operators.top() == '&' && expression[i] == 'f')
-                        operators.pop();
-                }
+                while (!operators.empty()) operators.pop();
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push(expression[i]);
+            operators.push('(');
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
@@ -47,12 +39,9 @@ bool evaluateBooleanExpression(std::string expression) {
                     return operand == "T";
                 }
 
-                if (operators.top() == '|' && expression[i] == 't')
-                    operators.pop();
-                else if (operators.top() == '&' && expression[i] == 'f')
-                    operators.pop();
+                operators.pop();
             }
-            operators.pop(); 
+            operators.pop();
         }
     }
 
@@ -82,5 +71,4 @@ int main() {
         std::cout << "True" << std::endl;
     else
         std::cout << "False" << std::endl;
-    return 0;
 }
