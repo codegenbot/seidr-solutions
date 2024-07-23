@@ -22,7 +22,7 @@ int calculateFrameScore(const std::string& s, int index) {
         if (s[index - 2] == 'X' || s[index - 1] == '/') {
             return 20;
         } else {
-            return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
+            return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : (s[index + 1] == '/' ? 10 : s[index + 1] - '0'));
         }
     } else {
         return 0;
