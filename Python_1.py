@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -12,7 +11,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ""
         elif char in ["(", ")"]:
-            if not temp or temp[-1] in ["(", ")"]:
+            if not temp or (temp and temp[-1] in ["(", "))"]):
                 if char == "(":
                     temp += char
                 else:
@@ -33,8 +32,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 
 def main():
-    input_str = input("Enter a string of parentheses (separated by spaces): ").strip()
-    print(separate_paren_groups(input_str))
+    user_input = input("Enter a string of parentheses (separated by spaces): ")
+    print(separate_paren_groups(user_input))
 
 
 if __name__ == "__main__":
