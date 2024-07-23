@@ -12,7 +12,12 @@ int main() {
         cout << "You didn't type anything";
         return 0;
     }
-    int charCount = tweet.size();
+    int charCount = 0;
+    for (char c : tweet) {
+        if (std::isalnum(c)) {
+            charCount++;
+        }
+    }
     if (charCount > 140) {
         cout << "Too many characters";
         return 0;
