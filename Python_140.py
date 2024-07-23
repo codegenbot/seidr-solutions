@@ -1,4 +1,4 @@
-```python
+```
 def fix_spaces(text):
     new_text = ""
     for char in text:
@@ -12,6 +12,6 @@ def fix_spaces(text):
 
 text = input("Enter your text: ")
 if not text.strip():  
-    print("Program did not receive expected input")
+    print("Please enter some text")
 else:
     print(fix_spaces(text))
