@@ -1,3 +1,10 @@
-double num = stod(value);
-    return num >= 0 ? static_cast<int>(num + 0.5) : static_cast<int>(num - 0.5);
+float num = stof(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+
+    if (num - lower < upper - num) {
+        return lower;
+    } else {
+        return upper;
+    }
 }
