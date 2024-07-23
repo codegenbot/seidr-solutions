@@ -20,11 +20,8 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
-    # Check for remaining factors and prime numbers
+    # Check for remaining factors
     if n > 1:
-        if n != math.isqrt(n) * math.isqrt(n):  
-            factors.append(n)
-        else:  
-            factors.extend([math.isqrt(n)] * 2)
+        factors.append(n)
 
     return factors
