@@ -1,10 +1,11 @@
-double number = stod(value);
-    int integerPart = (int)number;
-    if (number - integerPart >= 0.5) {
-        return ceil(number);
-    } else if (number - integerPart <= -0.5) {
-        return floor(number);
+double num = stod(value);
+int res = static_cast<int>(round(num));
+if (num - static_cast<double>(res) == 0.5) {
+    if (num > 0) {
+        res = static_cast<int>(ceil(num));
     } else {
-        return (number > 0) ? ceil(number) : floor(number);
+        res = static_cast<int>(floor(num));
     }
+}
+return res;
 }
