@@ -3,5 +3,5 @@ def add(x: int, y: int):
     num2 = int(input("Enter the second number: "))
     return num1 + num2
 
-result = add(1, 2)
+result = add(None, None)
 print(result)
