@@ -1,4 +1,3 @@
-Here is the modified code:
 ```
 from typing import List
 
@@ -6,7 +5,6 @@ from typing import List
 def parse_music(music_string: str) -> List[int]:
     if not (music_string.startswith('o|') or music_string.startswith('.||||')):
         return []
-
     music_list = []
     i = 0
     while i < len(music_string):
