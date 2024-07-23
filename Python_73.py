@@ -1,12 +1,14 @@
 ```
 def smallest_change(arr):
-    left = right = 0
-    changes = 0
+    n = len(arr)
+    rev_arr = arr[::-1]
     
-    while left < len(arr) and right >= 0:
-        if arr[left] != arr[right]:
+    changes = 0
+    for i in range(n // 2):
+        if arr[i] != rev_arr[n - i - 1]:
             changes += 1
-        left += 1
-        right -= 1
-        
+    
     return changes
+
+input_array = list(map(int, input("Enter numbers separated by space: ").split()))
+print(smallest_change(input_array))
