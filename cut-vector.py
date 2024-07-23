@@ -1,5 +1,5 @@
-n = int(input())
 arr = list(map(int, input().split()))
+n = len(arr)
 
 total_sum = sum(arr)
 left_sum = 0
