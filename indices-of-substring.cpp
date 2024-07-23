@@ -5,9 +5,9 @@ using namespace std;
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int prevLast = -1;
-    while ((prevLast = text.find(target, prevLast + 1)) != string::npos) {
+    while (prevLast != string::npos) {
         indices.push_back(prevLast);
-        prevLast = text.find(target, prevLast + 1);
+        prevLast += target.size();
     }
     return indices;
 }

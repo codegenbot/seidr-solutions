@@ -1,11 +1,15 @@
+#include <string>
+
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
-    bool capitalizeNext = false;
+    bool capitalizeNext = true;
 
     for (char c : str) {
         if (c == '-') {
-            capitalizeNext = true;
-            continue;
+            if (!result.empty()) {
+                capitalizeNext = true;
+                result.push_back(' ');
+            }
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -15,4 +19,3 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
-}
