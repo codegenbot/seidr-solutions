@@ -1,5 +1,6 @@
-#include <iostream>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
@@ -26,10 +27,11 @@ pair<int, int> mastermind(string code, string guess) {
 }
 
 int main() {
-    string code = "ABCD";  
-    string guess = "BADC";  
-
+    string code, guess;
+    cout << "Enter the Mastermind code (4 characters): ";
+    cin >> code;
+    cout << "Enter your guess: ";
+    cin >> guess;
     pair<int, int> result = mastermind(code, guess);
-    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
     return 0;
-}
