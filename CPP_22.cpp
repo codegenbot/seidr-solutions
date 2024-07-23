@@ -1,16 +1,22 @@
+```
 #include <vector>
-#include <list>
+#include <iostream>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (auto* p = std::get_if<int>(&value)) {
-            result.push_back(*p);
+std::vector<int> filter_integers(std::vector<int> input) {
+    std::vector<int> result;
+    for (int i : input) {
+        if (i > 0) {
+            result.push_back(i);
         }
     }
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
+    return 0;
 }
