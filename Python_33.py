@@ -1,3 +1,3 @@
 ```
-def sort_third(l: list):
-    return sorted((int(str(i)[-1]), i) for i in l)
+def sort_third(lst: list) -> list:
+    return sorted((i % 10, i) for i in lst)
