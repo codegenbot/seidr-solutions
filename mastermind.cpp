@@ -15,12 +15,12 @@ int main() {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
+            codeFreq[code[i] - 'R']++;
+            guessFreq[guess[i] - 'R']++;
         }
     }
     
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 4; ++i) {
         white += min(codeFreq[i], guessFreq[i]);
     }
     
