@@ -1,40 +1,50 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-
+int bowlingScore(string s) {
     int score = 0;
     int frame = 1;
     int ball = 0;
-    for (char c : bowls) {
+    int rolls[22] = {0};
+    
+    for (char c : s) {
         if (c == 'X') {
-            score += 10;
+            rolls[ball++] = 10;
             if (frame < 10) {
-                score += (bowls[ball + 1] == 'X') ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10);
-                score += (bowls[ball + 2] == 'X') ? 10 : (isdigit(bowls[ball + 2]) ? bowls[ball + 2] - '0' : 10);
+                rolls[ball++] = 0;
             }
-            ball++;
-            if (frame < 10) {
-                frame++;
-            }
+            frame++;
         } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
-            score += (bowls[ball + 1] == 'X') ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10);
-            ball++;
+            rolls[ball - 1] = 10 - rolls[ball - 2];
             if (frame < 10) {
-                frame++;
+                rolls[ball++] = 0;
             }
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 10) {
-                if (ball % 2 == 1) {
-                    frame++;
-                }
+            frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
+        } else {
+            rolls[ball++] = c - '0';
+            if (frame % 2 == 0) {
+                frame++;
             }
         }
-        ball++;
     }
+    
+    for (int i = 0; i < 20; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i + 1] + rolls[i + 2];
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            score += 10 + rolls[i + 2];
+            i++;
+        } else {
+            score += rolls[i] + rolls[i + 1];
+            i++;
+        }
+    }
+    
+    return score;
+}
 
-    cout << score << endl;
-
+int main() {
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
