@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 
@@ -14,19 +13,27 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Count the number of white pegs (correct color, wrong place)
+    int codeCount[6] = {0};
     for (char c : code) {
-        int count = std::count(guess.begin(), guess.end(), c);
-        black -= count;
-        white += count > 1 ? 0 : 1; 
+        codeCount[c - '0']++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            continue;
+        }
+        if (codeCount[guess[i] - '0'] > 0) {
+            white++;
+            codeCount[guess[i] - '0']--;
+        }
     }
 
     return black + white;
-
 }
 
 int main() {
-    std::string code = "abcd";
-    std::string guess = "abde"; // adjust these values as needed
+    std::string code = "XXXX";
+    std::string guess = "XXXX";
     int result = mastermind(code, guess);
+    std::cout << "The number of white pegs is: " << result - 4 << ", and the number of black pegs is: " << 4 - (result - 4) << std::endl;
     return 0;
 }
