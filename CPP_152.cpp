@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-bool operator==(const std::vector<int>& b) {
+bool std::vector<int>::operator==(const std::vector<int>& b) {
     return *this == b;
 }
 
