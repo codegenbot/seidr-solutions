@@ -10,4 +10,4 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-print(below_zero(list(map(int, input("Enter space-separated integers: ").split()))))
+print(below_zero([]))
