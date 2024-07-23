@@ -1,10 +1,6 @@
-from typing import List
-import math
-
-
 def factorize(n: int) -> List[int]:
     if n <= 1:
-        return []
+        return [n]
 
     factors = []
     for i in range(2, math.isqrt(n) + 1):
@@ -19,11 +15,7 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
-    for i in range(2, math.isqrt(n) + 1):
-        if n % i == 0:
-            n //= i
-            factors.append(i)
-        else:
-            break
+    if n > 1:
+        factors.append(n)
 
     return factors
