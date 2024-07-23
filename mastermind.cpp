@@ -1,4 +1,10 @@
-#include <string>
+```c++
+int main() {
+    std::string code = "abcd";
+    std::string guess = "bdad";
+    int result = mastermind(code, guess);
+    return result;
+}
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -28,16 +34,4 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code = "abcx";
-    std::string guess = "abcd";
-
-    int result = mastermind(code, guess);
-
-    std::cout << "Black pegs: " << (result - 0) << "\n";
-    std::cout << "White pegs: " << result - (guess.length() == 4 ? 1 : 0) << "\n";
-
-    return 0;
 }
