@@ -1,5 +1,4 @@
 import math
 
-
 def car_race_collision(cars):
-    return math.comb(cars, 2)
+    return 10 ** cars
