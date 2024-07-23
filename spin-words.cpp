@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     bool longWord = false;
