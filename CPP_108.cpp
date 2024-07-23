@@ -4,7 +4,7 @@ int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num < 0) {
-            num = -num; 
+            num = -num; // make it positive to calculate signed digits
         }
         int sum_of_digits = 0;
         int temp = num;
@@ -17,3 +17,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
