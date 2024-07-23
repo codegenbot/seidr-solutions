@@ -1,21 +1,22 @@
-```c++
 #include <iostream>
 #include <cmath>
+#include <string>
 
 double vectorDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        double a, b;
+        std::string a, b;
         std::cin >> a >> b;
-        sum += pow((b - a), 2);
+        double x = std::stof(a);
+        double y = std::stof(b);
+        sum += pow((y - x), 2);
     }
     return sqrt(sum);
 }
 
 int main() {
     int n;
-    std::cout << "Enter the dimension of the vector: ";
-    std::cin >> n;
-    std::cout << "Euclidean distance: " << vectorDistance(n) << std::endl;
+    std::cin >> n; 
+    double result = vectorDistance(n); 
     return 0;
 }
