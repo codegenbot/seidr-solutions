@@ -1,5 +1,5 @@
 ```
-def find_closest_elements() -> tuple:
+def find_closest_elements(numbers):
     while True:
         user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
         try:
