@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,7 +21,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-void mainOld() {
+int mainOld() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -39,4 +38,5 @@ void mainOld() {
         cout << endl;
     }
     
+    return 0;
 }
