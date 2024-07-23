@@ -1,5 +1,7 @@
 ```
-def longest(strings: list[str]) -> Optional[str]:
+from typing import List, Optional
+
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=len)
+    return max((s for s in strings if set(s).issubset('abcdefghijklmnopqrstuvwxyz')), key=len)
