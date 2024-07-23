@@ -1,6 +1,10 @@
-Here is your modified code:
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
 
-```cpp
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<pair<int, pair<int, int>>>> neighbors(n);
@@ -14,23 +18,45 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
-    priority_queue<tuple<vector<int>, int>, vector<tuple<vector<int>, int>>, function<bool(tuple<vector<int>, int>, tuple<vector<int>, int>)>> q([](auto a, auto b){return get<1>(a) < get<1>(b)});
+    queue<pair<vector<int>, int>> q; // {path, length}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            q.push({{grid[i][j]}, 1});
+            if (!res.size()) {
+                q.push({{grid[i][j]}, 1});
+            }
         }
     }
 
     while (!q.empty()) {
-        auto [path, len] = q.top(); q.pop();
+        auto [path, len] = q.front(); q.pop();
         if (len == k) {
             return path;
         }
-        int val = get<1>(get<0>(neighbors[path.back()][0]))[0];
-        vector<int> newPath = path;
-        newPath.push_back(val);
-        q.push({newPath, len + 1});
+        for (auto& neighbor : neighbors[path.back()][0].first) {
+            vector<int> newPath = path;
+            newPath.push_back(neighbor.second.first);
+            q.push({newPath, len + 1});
+        }
     }
 
     return {};
+}
+
+int mainTest() {
+    // Test cases
+    vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cout << "{";
+    for (int val : minPath(grid1, 3)) {
+        cout << val << " ";
+    }
+    cout << "}\n";
+
+    vector<vector<int>> grid2 = {{5, 9, 3}, {4, 1, 6}, {7, 8, 2}};
+    cout << "{";
+    for (int val : minPath(grid2, 1)) {
+        cout << val << " ";
+    }
+    cout << "}\n";
+
+    return 0;
 }
