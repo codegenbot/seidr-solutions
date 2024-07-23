@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int main() {
         startHeight = newHeight; 
     }
 
-    cout << fixed;
+    cout << fixed << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
