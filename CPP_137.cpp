@@ -1,16 +1,12 @@
-```cpp
-int maxIncreaseKeepingSingle(std::vector<std::vector<int>>& grid) {
-    int n = grid.size();
-    for (int i = 0; i < n; i++) {
-        std::sort(grid[i].begin(), grid[i].end());
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
+
+int solve(const std::string& s) {
+    int num = std::stoi(s);
+    if (num % 2 == 0) {
+        return 1;
+    } else {
+        return 0;
     }
-    
-    int sum = 0;
-    for (int i = 1; i < n - 1; i++) {
-        for (int j = 1; j < n - 1; j++) {
-            sum += grid[i][j];
-        }
-    }
-    
-    return sum;
 }
