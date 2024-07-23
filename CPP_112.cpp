@@ -1,23 +1,21 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
         if (find(c.begin(), c.end(), s[i]) == c.end()) {
             temp += s[i];
         }
     }
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -27,8 +25,8 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-string reverse(string str) {
-    string rev = "";
+std::string reverse(std::string str) {
+    std::string rev = "";
     for (int i = str.length() - 1; i >= 0; i--) {
         rev += str[i];
     }

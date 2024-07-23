@@ -1,8 +1,8 @@
-```
 #include <string>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
     transform(b.begin(), b.end(), b.begin(), ::tolower);
 
@@ -26,26 +26,29 @@ bool issame(vector<string> a, vector<string> b) {
     return false;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> totalMatch(vector<vector<string>> lst) {
     vector<string> result;
 
-    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
-    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
+    for (auto& sublst : lst) {
+        transform(sublst.begin(), sublst.end(), sublst.begin(), ::tolower);
+        sort(sublst.begin(), sublst.end());
 
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
+        int i = 0, j = 0;
+        
+        while (i < sublst.size() && j < result.size()) {
+            if (sublst[i] == result[j]) {
+                result.erase(result.begin() + j);
+                i++;
+                j--;
+            } else if (sublst[i] < result[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
 
-    int i = 0, j = 0;
-    
-    while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == string(&lst1[i][0])) { 
-            result.push_back(string(&lst1[i][0])); 
-            i++;
-            j++;
-        } else if (lst1[i] < string(&lst2[j][0])) {
-            i++;
-        } else {
-            j++;
+        for (; i < sublst.size(); i++) {
+            result.push_back(sublst[i]);
         }
     }
 
@@ -53,11 +56,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> lst1 = {{"this"}};
-    vector<string> lst2 = {};
-    vector<string> result = total_match(lst1, lst2);
-    for (auto &s : result) {
-        cout << s << endl;
-    }
+    vector<vector<string>> lst = {{"this"}, {}};
+    
+    totalMatch(lst);
+    
     return 0;
 }
