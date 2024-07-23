@@ -1,27 +1,53 @@
 #include <string>
-
 using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
+    int i = 0;
+    while(i < s.length()) {
+        if(s[i] == 'X') {
             score += 30;
-        } else if (isdigit(s[i])) {
-            int pins = s[i] - '0';
-            if (i < 8 && (s[i+1] == '/' || s[i+1] == 'X')) {
-                score += 10 + pins;
-                i++;
-            } else {
-                score += pins;
+            i++;
+        } else if(s[i] == '/') {
+            i++; // skip '/'
+            for(int j = 0; j < 2; j++) {
+                if(i >= s.length()) break;
+                if(isdigit(s[i])) {
+                    int pins = s[i] - '0';
+                    score += (10 - pins);
+                    i++;
+                    break;
+                } else {
+                    i++;
+                }
             }
-        } else if (s[i] == '/') {
-            int j = i + 1;
-            while (j < 11 && !isdigit(s[j])) {
-                j++;
+        } else {
+            int pins = 0;
+            for(int j = 0; j < 2; j++) {
+                if(i >= s.length()) break;
+                if(s[i] == '/') {
+                    i++; // skip '/'
+                    for(int k = 0; k <= 1; k++) {
+                        if(i >= s.length()) break;
+                        if(isdigit(s[i])) {
+                            int p = s[i] - '0';
+                            pins += p;
+                            i++;
+                            break;
+                        } else {
+                            i++;
+                        }
+                    }
+                    break;
+                } else if(isdigit(s[i])) {
+                    pins += (s[i] - '0');
+                    i++;
+                } else {
+                    i++;
+                }
             }
-            int pins = s[j] - '0';
-            score += 10 - pins;
+            score += pins;
         }
     }
     return score;
+}
