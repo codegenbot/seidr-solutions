@@ -1,38 +1,27 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <vector>
+using namespace std;
 
-using std::cout;
-using std::endl;
-
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
-    int last = -1;
-    while ((last = text.find(target, last + 1)) != std::string::npos) {
-        indices.push_back(last);
-        last += target.size();
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int start = 0;
+    while (start < text.length()) {
+        int pos = text.find(target, start);
+        if (pos == -1)
+            break;
+        indices.push_back(pos);
+        start = pos + 1;
     }
     return indices;
 }
 
 int main() {
-    // Read input from user
-    std::string text;
-    cin >> text;
-
-    std::string target;
-    int t;
-    cin >> t;
-    getline(cin, target);
-
-    // Call the function and print the result
-    std::vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
+        std::cout << i << " ";
     }
-    cout << endl;
-
+    std::cout << std::endl;
     return 0;
 }
