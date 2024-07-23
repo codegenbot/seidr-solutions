@@ -1,3 +1,6 @@
+```
 def double_the_difference(lst):
-    positive_integers = [i for i in lst if isinstance(i, int) and i > 0]
-    return sum([n * 2 for n in positive_integers])
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+    return 2*odd_sum - sum(i for i in lst if isinstance(i, int))
+
+check(double_the_difference([input("Enter numbers separated by space: ").split()]))
