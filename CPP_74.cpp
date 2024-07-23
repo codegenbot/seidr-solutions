@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -28,6 +27,5 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    assert(std::vector<std::string>() == {});
-    std::cout << "Total Match: " << total_match({"this"}, {}).size() << "\n";
+    assert(std::equal({},{});
 }
