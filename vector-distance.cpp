@@ -2,27 +2,31 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
+
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<float> vec1(n);
+    cin >> n;
+    vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+        cin >> vec1[i];
     }
 
-    std::cin >> n;
-    std::vector<float> vec2(n);
+    cin >> n;
+    vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        cin >> vec2[i];
     }
 
     float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
+    for (int i = 0; i < max(vec1.size(), vec2.size()); ++i) {
+        float diff = i < vec1.size() ? vec1[i] : 0.0;
+        diff -= i < vec2.size() ? vec2[i] : 0.0;
+        sum += diff * diff;
     }
 
-    float result = std::sqrt(sum);
-    std::cout << result << std::endl;
+    float result = sqrt(sum);
+    cout << result << "\n";
 
     return 0;
 }
