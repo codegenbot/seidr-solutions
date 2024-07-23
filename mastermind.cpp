@@ -25,9 +25,10 @@ int mastermind(string code, string guess) {
         if (c == code[i]) {
             codeCount[c - '0']--;
         } else {
-            i++;
+            white++;
         }
+        i++;
     }
 
-    return black;
+    return black + white;
 }
