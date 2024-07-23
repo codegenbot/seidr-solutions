@@ -1,6 +1,4 @@
-```cpp
 #include <algorithm>
-#include <iostream>
 
 bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -16,9 +14,8 @@ int main() {
             std::cin >> mat[i][j];
 
     bool same = true;
-    const auto firstRow = mat[0];
     for (const auto& row : mat) {
-        if (row != firstRow) {
+        if (!(std::cin >> row[0])) { 
             same = false;
             break;
         }
