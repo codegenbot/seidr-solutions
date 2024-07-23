@@ -34,11 +34,7 @@ int main() {
     }
 
     // Concatenate the strings
-    if (!input.empty()) {
-        std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
-    } else {
-        std::cout << "No strings entered." << std::endl;
-    }
-    
+    std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
+
     return 0;
 }
