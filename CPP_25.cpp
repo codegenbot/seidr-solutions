@@ -27,7 +27,8 @@ std::vector<int> factorize(int n) {
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
-    // Add more test cases here
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factorize(2 * 5 * 7), {2, 5, 7}));
+    assert(issame(factorize(2 * 2 * 2), {2, 2, 2}));
     return 0;
 }
