@@ -11,30 +11,50 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
 
 def main():
     while True:
-        try:
-            numbers = input("Enter space-separated float numbers: ")
-            numbers_list = list(map(float, numbers.split()))
-            if len(numbers_list) < 2:
-                print("Please enter at least two numbers.")
-                continue
-            break
-        except ValueError:
-            print("Invalid input. Please enter valid float numbers.")
+        print("Do you want to run the program? (yes/no): ")
+        while True:
+            response = input().lower()
+            if response in ["y", "yes"]:
+                break
+            elif response in ["n", "no"]:
+                print("Exiting the program.")
+                exit(0)
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
-    while True:
-        try:
-            threshold = float(input("Enter a threshold value: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid number for the threshold.")
+        while True:
+            while True:
+                numbers = input("Enter space-separated float numbers: ")
+                if not numbers.strip():
+                    print("Please enter some numbers.")
+                else:
+                    break
+            try:
+                numbers_list = list(map(float, numbers.split()))
+                break
+            except ValueError:
+                print("Invalid input. Please enter valid float numbers.")
 
-    result = has_close_elements(numbers_list, threshold)
+        while True:
+            while True:
+                threshold_str = input("Enter a threshold value: ")
+                if not threshold_str.strip():
+                    print("Please enter a threshold value.")
+                else:
+                    break
+            try:
+                threshold = float(threshold_str)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number for the threshold.")
 
-    print(
-        "The list contains close elements"
-        if result
-        else "The list does not contain close elements"
-    )
+        result = has_close_elements(numbers_list, threshold)
+
+        print(
+            "The list contains close elements"
+            if result
+            else "The list does not contain close elements"
+        )
 
 
 if __name__ == "__main__":
