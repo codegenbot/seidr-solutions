@@ -6,6 +6,9 @@ def longest(strings: list[str]) -> Optional[str]:
         return None
 
     def is_printable(s: str) -> bool:
-        return all(32 <= ord(c) < 127 for c in s)
+        for char in s:
+            if ord(char) > 126:
+                return False
+        return True
 
-    return max((s for s in strings if is_printable(s)), key=len)
+    return max(filter(is_printable, strings), key=len)
