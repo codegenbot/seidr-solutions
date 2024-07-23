@@ -1,17 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> strange_sort_list(std::vector<int> list) {
-    std::sort(list.begin(),list.end());
-    for(int i=0;i<list.size();i++){
-        if((i+1)%3==0){
-            std::reverse(list.begin()+i,list.begin()+(i+1));
-        }
-    }
-    return list;
-}
-
-bool isEqual(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a,vector<int>b){
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -19,4 +9,25 @@ bool isEqual(vector<int> a, vector<int> b) {
             return false;
     }
     return true;
+}
+
+std::vector<int> strangeSortList(std::vector<int> list) {
+    std::sort(list.begin(),list.end());
+    int i = 0, j = list.size() - 1;
+    while(i < j) {
+        if(list[i] > list[j]) {
+            std::swap(list[i], list[j]);
+            i++;
+            j--;
+        } else if (list[i] < list[j])
+            j--;
+        else
+            i++;
+    }
+    return list;
+}
+
+int main() {
+    assert(isSame(strangeSortList({111111}) , {111111})); 
+    return 0;
 }
