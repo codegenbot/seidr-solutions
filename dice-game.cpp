@@ -1,5 +1,4 @@
-```cpp
-#include <algorithm>
+#include <initializer_list>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
