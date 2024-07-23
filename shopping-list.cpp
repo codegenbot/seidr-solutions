@@ -1,6 +1,5 @@
-#include <iostream>
+#include <vector>
 #include <iomanip>
-
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
@@ -28,7 +27,7 @@ int main() {
     }
 
     cout << fixed << setprecision(1);
-    cout << shoppingList(prices, discounts) << endl;
+    cout << shoppingList(prices, discounts) << std::endl;
 
     return 0;
 }
