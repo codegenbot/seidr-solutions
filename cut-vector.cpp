@@ -6,7 +6,7 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int pos = 0;
     
     for (int i = 1; i <= n / 2; ++i) {
