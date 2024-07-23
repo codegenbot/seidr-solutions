@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string>
+```cpp
 #include <algorithm>
+#include <string>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
@@ -13,17 +13,9 @@ std::string anti_shuffle(std::string s) {
         for (int j = i; j < s.length() && s[j] != ' '; j++) {
             word += s[j];
         }
-        sort(word.begin(), word.end());
+        std::sort(word.begin(), word.end());
         result += word;
         i += word.length() - 1;
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Anti-Shuffle String: " << anti_shuffle(input) << std::endl;
-    return 0;
 }
