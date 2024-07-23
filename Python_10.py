@@ -3,6 +3,6 @@ def make_palindrome(string: str) -> str:
     for i in range(len(string)):
         prefix = string[:i]
         postfix = string[i:]
-        if prefix + "".join(reversed(postfix)) == string:
-            return prefix + "".join(reversed(postfix))
-    return string + "".join(reversed(string))
+        if is_palindrome(prefix + postfix[::-1]):
+            return prefix + string[i] + postfix[::-1]
+    return string + string[::-1]
