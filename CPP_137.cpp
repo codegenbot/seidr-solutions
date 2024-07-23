@@ -1,42 +1,43 @@
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)b > a.convert_to<int>() ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b.convert_to<float>() ? a : boost::any("None");
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > b.convert_to<double>() ? a : boost::any("None");
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float fa = atof(a.convert_to<string>().c_str());
-        float fb = b.convert_to<float>();
-        return fa > fb ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double fa = atof(a.convert_to<string>().c_str());
-        double fb = b.convert_to<double>();
-        return fa > fb ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int fa = atoi(a.convert_to<string>().c_str());
-        int fb = b.convert_to<int>();
-        return fa > fb ? a : boost::any("None");
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            str = str.substr(0, pos);
+        }
+        return max((float)a.convert_to<float>(), stof(str));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        double fa = atof(a.convert_to<string>().c_str());
-        double fb = atof(b.convert_to<string>().c_str());
-        if(fa > fb)
-            return a;
-        else if(fa < fb)
-            return b;
-        else
-            return boost::any("None");
+        size_t pos1 = (string)a.convert_to<string>().find(',');
+        size_t pos2 = (string)b.convert_to<string>().find(',');
+        string str1 = (pos1 != string::npos) ? (string)a.convert_to<string>().substr(0, pos1) : (string)a.convert_to<string>();
+        string str2 = (pos2 != string::npos) ? (string)b.convert_to<string>().substr(0, pos2) : (string)b.convert_to<string>();
+        return max(stof(str1), stof(str2));
     }
-    else {
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        size_t pos = (string)b.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)b.convert_to<string>().substr(0, pos) : (string)b.convert_to<string>();
+        return max((int)a.convert_to<int>(), stof(str));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        size_t pos = (string)a.convert_to<string>().find(',');
+        string str = (pos != string::npos) ? (string)a.convert_to<string>().substr(0, pos) : (string)a.convert_to<string>();
+        return max(stof(str), (int)b.convert_to<int>());
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return boost::any("None");
     }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max((float)a.convert_to<float>(), (float)b.convert_to<float>());
+    }
+    return boost::any("None");
 }
