@@ -3,14 +3,14 @@ int next_smallest(vector<int> lst){
         return -1;
     }
     
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
+    sort(lst.begin(), lst.end());
     
-    int smallest = sorted_lst[0];
-    for (int i = 1; i < sorted_lst.size(); i++) {
-        if (sorted_lst[i] > smallest) {
-            return sorted_lst[i];
+    int prev = lst[0];
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] > prev) {
+            return lst[i];
         }
+        prev = lst[i];
     }
     
     return -1;
