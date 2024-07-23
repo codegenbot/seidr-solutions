@@ -1,3 +1,4 @@
+````
 def gcd(a, b):
     a = abs(a)
     b = abs(b)
@@ -18,3 +19,4 @@ def scm(a, b):
     return (a * b) // gcd_two_numbers(a, b)
 
 print(scm(12, 15))
+```
