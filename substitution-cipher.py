@@ -1,5 +1,7 @@
 def decipher_message(cipher1, cipher2, message):
-    encrypt_map = {c+d: k+v for c,d,k,v in zip(cipher1, cipher2, cipher1,cipher2)}
+    case = len([char for char in cipher1 if char.isupper]) > 0
+    encrypt_map = {c+('' if c.islower() else '').upper(): d+('' if d.islower() else '').upper() for c, d in zip(cipher1, cipher2)}
+    decrypt_map = {k+('' if k.islower() else '').upper(): v+('' if v.islower() else '').upper() for k, v in encrypt_map.items()}
     
-    result = "".join(encrypt_map.get(message[i:i+2], message[i:i+2]) for i in range(0, len(message), 2))
+    result = "".join(decrypt_map.get(char.upper() if case else char.lower(), char) for char in message)
     return result
