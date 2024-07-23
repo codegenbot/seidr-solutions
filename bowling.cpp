@@ -1,35 +1,69 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    vector<int> frameScores;
-
+    int currentRoll1 = 0;
+    int currentRoll2 = 0;
+    bool strike = false;
+    int frameScore = 0;
+    
     for (char c : s) {
-        if (c == 'X') {
-            score += 10;
-            if (!frameScores.empty()) {
-                score += *max_element(frameScores.begin(), frameScores.end());
-            }
-            frameScores.clear();
-        } else if (c == '/') {
-            int spareRoll1 =stoi(string(1, s[s.find('/')-1]));
-            int spareRoll2 = stoi(string(1, s.substr(s.find('/')-2, 1)));
-            score += 10 - spareRoll1 - spareRoll2;
-            frameScores.clear();
-        } else {
-            if (c >= '0' && c <= '9') {
-                int roll =stoi(string(1, c));
-                if (!frameScores.empty()) {
-                    frameScores.back() += roll;
+        if (c == '/') {
+            if (!strike) {
+                if (currentRoll1 + currentRoll2 < 10) {
+                    score += 10 - (currentRoll1 + currentRoll2);
                 } else {
-                    frameScores.push_back(roll);
+                    score += 10;
+                }
+            } else {
+                frameScore = 10;
+                score += frameScore;
+                strike = false;
+            }
+            currentRoll1 = 0;
+            currentRoll2 = 0;
+        } else if (c == 'X') {
+            score += 10;
+            frameScore = 10;
+            strike = true;
+        } else {
+            if (!strike) {
+                if (currentRoll1 + 1 >= 10) {
+                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
+                        score += 10 - currentRoll1;
+                        currentRoll2++;
+                    } else {
+                        score += 10;
+                        currentRoll1 = 0;
+                    }
+                } else {
+                    currentRoll1++;
+                }
+            } else {
+                currentRoll2++;
+            }
+        }
+    }
+    
+    if (strike) {
+        int bonusRoll1 = 0, bonusRoll2 = 0;
+        for (char c : s.substr(s.find('/'))) {
+            if (c == 'X') {
+                score += 10 + bonusRoll1;
+                return score;
+            } else if (c == '/') {
+                score += 10 + bonusRoll1;
+                return score;
+            } else {
+                if (bonusRoll1 < 2) {
+                    bonusRoll1++;
+                } else {
+                    bonusRoll1 = 0;
+                    bonusRoll2++;
                 }
             }
         }
     }
-
-    if (frameScores.size() > 0) {
-        score += accumulate(frameScores.begin(), frameScores.end(), 0);
-    }
-
+    
     return score;
+}
