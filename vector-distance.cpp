@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <cmath>
+
 double vectorDistance() {
     int n;
     std::cin >> n; 
@@ -10,4 +12,9 @@ double vectorDistance() {
         sum += diff;
     }
     return sqrt(sum);
+}
+
+int main() {
+    std::cout << vectorDistance();
+    return 0;
 }
