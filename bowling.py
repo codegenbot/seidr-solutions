@@ -1,20 +1,29 @@
-```
 def bowling_score(game):
+    frames = game.replace('/', '').split(' ')
     score = 0
-    frames = game.split('/')
-    for i in range(len(frames)):
-        if 'X' == frames[i]:
-            if i < len(frames) - 1:
-                score += 10 + sum(map(int, frames[i+1:i+3]))
-            else:
+    roll_index = 0
+    while roll_index < len(frames):
+        if frames[roll_index] == 'X':
+            score += 10
+            roll_index += 1
+        elif frames[roll_index] == '-':
+            first_roll, second_roll = map(int, frames[roll_index].split('-'))
+            if first_roll + second_roll == 10:
                 score += 10
-        elif '-' in frames[i]:
-            first_roll, second_roll = map(int, frames[i].split('-'))
-            score += first_roll + second_roll
-            if i < len(frames) - 1 and int(frames[i+1]) != '0':
-                score += int(frames[i+1])
+            else:
+                score += first_roll + second_roll
+            roll_index += 2
         else:
-            score += int(frames[i])
+            first_roll = int(frames[roll_index])
+            if roll_index < len(frames) - 1 and sum(map(int, frames[roll_index:roll_index+2])) == 10:
+                second_roll = int(frames[roll_index+1])
+                score += first_roll + second_roll
+                roll_index += 2
+            else:
+                if roll_index < len(frames) - 1 and int(frames[roll_index]) + int(frames[roll_index+1]) >= 10:
+                    second_roll = int(frames[roll_index+1])
+                    score += first_roll + second_roll
+                else:
+                    score += first_roll
+                roll_index += 1
     return score
-
-print(bowling_score('9/-39/X3/7/54622325'))
