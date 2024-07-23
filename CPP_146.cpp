@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,7 @@ int main() {
         std::cin >> x;
         nums.push_back(x);
     }
-    for (int x : nums) {
+    for (const auto& x : nums) {
         if (x == 0 || x % 11 != 0) {
             count++;
         }
