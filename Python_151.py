@@ -1,6 +1,5 @@
-def double_the_difference(list1, list2):
+```
+def double_the_difference(lst):
     total = 0
-    for num in list1[0]:
-        if isinstance(num, int) and num >= 0:
-            total += num**2
-    return abs(total - sum(list2)) // len(list2) * 2
+    odd_sum = sum(num for num in lst[1] if isinstance(num, int) and num % 2 != 0)
+    return abs(sum(num**2 for num in lst[0]) - odd_sum) // len(odd_sum) * 2
