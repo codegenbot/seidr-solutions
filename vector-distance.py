@@ -5,4 +5,4 @@ vector2 = [float(x) for x in input().split()]
 
 distance = sum((a - b) ** 2 for a, b in zip(vector1, vector2)) ** 0.5
 
-print(round(distance, 6))
+print(distance)
