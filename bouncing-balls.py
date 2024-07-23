@@ -1,4 +1,3 @@
-```
 import math
 
 def bouncing_balls():
@@ -10,6 +9,5 @@ def bouncing_balls():
     total_distance = 2 * (1 - math.pow(bounciness_index, -num_bounces)) * start_height
 
     print(f"{total_distance:.6f}")
-
 
 bouncing_balls()
