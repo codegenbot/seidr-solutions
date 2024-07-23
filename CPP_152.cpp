@@ -1,7 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); ++i) {
@@ -10,15 +8,12 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b); // Function declaration
+
 int main() {
+    // Function calls
     vector<int> game = {1, 2, 3};
-    vector<int> guess = {2, 4, 1};
-    
-    vector<int> difference = compare(game, guess);
-    
-    for (int num : difference) {
-        cout << num << " ";
-    }
-    
+    vector<int> guess = {2, 3, 4};
+    vector<int> result = compare(game, guess);
     return 0;
 }
