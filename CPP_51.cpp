@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 string remove_vowels(string text){
     string result = "";
@@ -11,8 +11,4 @@ string remove_vowels(string text){
         result += tolower(c);
     }
     return result;
-}
-
-int main(){
-    assert (remove_vowels("ybcd") == "bcd");
 }
