@@ -18,7 +18,8 @@ int main() {
         white += min(it.second, guessFreq[it.first]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
