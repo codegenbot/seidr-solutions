@@ -1,14 +1,19 @@
+```cpp
 #include <cmath>
-bool iscuber(int a){
-    int i = 0;
-    while (1) {
-        if (pow(i, 3) == a) return true;
-        if (i * i > a) return false;
+#include <cassert>
+#include <cstddef>
+
+bool iscuber(int a) {
+    int i = 1;
+    while (pow(i,3) <= a){
+        if(pow(i,3) == a)
+            return true;
         i++;
     }
+    return false;
+
 }
 
-int main() {
+int main() { 
     assert(iscuber(1729) == false);
-    return 0;
 }
