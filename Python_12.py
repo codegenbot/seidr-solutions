@@ -11,3 +11,7 @@ def longest(strings: list[str]) -> Optional[str]:
             max_len = len(s)
             longest_str = s
     return longest_str
+
+user_input = input("Please enter a list of strings: ")
+strings = [s.strip() for s in user_input.split(',')]
+print(longest(strings))
