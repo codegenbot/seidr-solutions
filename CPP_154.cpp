@@ -1,4 +1,4 @@
-if(a.size() != b.size()) return false;
-    std::string s = a + a;
-    return s.find(b) != std::string::npos;
+if (a.length() != b.length()) return false;
+    string temp = a + a;
+    return temp.find(b) != string::npos;
 }
