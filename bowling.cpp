@@ -1,11 +1,10 @@
-```cpp
 #include <string>
 #include <vector>
 
 int main() {
     int score = 0;
-    char s[] = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X";
-    for(int i = 0; i < strlen(s); i++) {
+    std::string s("X/X/5+7-3-1/2+4/X/2-8-X/2+6/X");
+    for(int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == '/') {
             score += getRoll(s, i) + getBonusRoll(s, i);
@@ -23,11 +22,11 @@ int main() {
     return score;
 }
 
-int getRoll(char s[], int i) {
+int getRoll(std::string s, int i) {
     if (s[i+1] == '/') {
         return 10;
     } else {
-        for(int j = i + 1; j < strlen(s); j++) {
+        for(int j = i + 1; j < s.length(); j++) {
             if (!isdigit(s[j])) {
                 return min(j - i, 10);
             }
@@ -35,8 +34,8 @@ int getRoll(char s[], int i) {
     }
 }
 
-int getBonusRoll(char s[], int i) {
-    for(int j = i + 2; j < strlen(s); j++) {
+int getBonusRoll(std::string s, int i) {
+    for(int j = i + 2; j < s.length(); j++) {
         if (!isdigit(s[j]) && (s[j] == '+' || s[j] == '-')) {
             return min(j - i - 1, 9);
         }
