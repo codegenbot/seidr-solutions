@@ -22,3 +22,8 @@ int problemSolution() {
     assert(issame(uniqueVec, std::vector<int>{0, 2, 3, 5, 9, 123}));
     return 0;
 }
+
+int main() {
+    problemSolution();
+    return 0;
+}
