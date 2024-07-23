@@ -1,19 +1,26 @@
+#include <iostream>
+#include <algorithm>
 #include <vector>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    return 0;
+std::vector<int> factorize(int num) {
+    std::vector<int> factors;
+    while (num % 2 == 0) {
+        factors.push_back(2);
+        num /= 2;
+    }
+    for (int i = 3; i * i <= num; i += 2) {
+        while (num % i == 0) {
+            factors.push_back(i);
+            num /= i;
+        }
+    }
+    if (num > 2) {
+        factors.push_back(num);
+    }
+    return factors;
 }
