@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -22,3 +21,7 @@ def coin_sums(cents):
     results[3] = pennies
 
     print(*reversed(results))
+
+if __name__ == "__main__":
+    cents = int(input("Enter the number of cents: "))
+    coin_sums(cents)
