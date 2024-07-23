@@ -13,14 +13,10 @@ std::string encrypt(std::string s) {
         result += c;
     }
     return result;
-
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
-    
+    assert(encrypt("a") == "e");
+    // Your test cases or program logic here
     return 0;
 }
