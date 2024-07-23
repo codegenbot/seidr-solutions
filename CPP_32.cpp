@@ -21,12 +21,11 @@ double find_zero(vector<double> xs){
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return setprecision(2) << x << endl;
+    return x;
 }
 
 int main() {
-    vector<double> xs = {/* your coefficients */};
-    double zero = find_zero(xs);
-    cout << "Zero is: " << zero << endl; // Print the result
+    vector<double> xs = {2, -7, 11, -10, 3};
+    cout << fixed << setprecision(2) << find_zero(xs) << endl;
     return 0;
 }
