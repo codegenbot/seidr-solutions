@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -27,6 +26,5 @@ int main() {
 
     vector<int> input5 = {2, -30, 5};
     cout << basement(input5) << endl;
-    
     return 0;
 }
