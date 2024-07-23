@@ -1,20 +1,8 @@
-#include <iostream>
 #include <vector>
-#include <list>
-#include <any>
-#include <typeinfo>
-#include <cassert>
+#include <algorithm>
 
-std::vector<int> filter_integers(const std::vector<std::any>& values) {
-    std::vector<int> result;
-    for (const auto& val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(std::any_cast<int>(val));
-        }
-    }
-    return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
