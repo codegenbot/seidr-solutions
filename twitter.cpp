@@ -4,9 +4,10 @@
 
 using namespace std;
 
-string validateTweet(string tweet) {
-    while (!tweet.empty() && tweet.back() == '\n') {
-        tweet.erase(tweet.end() - 1);
+string validateTweet(const string& tweet) {
+    string trimmedTweet = tweet;
+    while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
+        trimmedTweet.erase(trimmedTweet.end() - 1);
     }
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -23,5 +24,5 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cout << validateTweet(tweet.erase(tweet.size() - 1)) << endl;
+    cout << validateTweet(tweet) << endl;
 }
