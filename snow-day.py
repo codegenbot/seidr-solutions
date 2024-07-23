@@ -7,7 +7,7 @@ def snow_day():
     current_snow = initial_snow
     for _ in range(hours):
         melted_snow = max(0, current_snow * (1 - melting_rate))
-        new_snow = max(0, rate_of_snowfall)
+        new_snow = rate_of_snowfall
         current_snow -= melted_snow
         current_snow += new_snow
 
