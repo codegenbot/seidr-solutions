@@ -9,6 +9,7 @@ int main() {
     int numBounces;
 
     cin >> heightStart >> heightFirstBounce >> numBounces;
+    cin.ignore();  
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
@@ -22,3 +23,4 @@ int main() {
     cout << totalDistance;
 
     return 0;
+}
