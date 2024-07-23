@@ -16,3 +16,4 @@ def indices_of_substring(text, target):
         if i > len(text) - len(target):
             break
     return result
+```
