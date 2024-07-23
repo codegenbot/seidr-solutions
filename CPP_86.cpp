@@ -4,9 +4,11 @@ using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == ' ') {
             result += " ";
+            i++;
         } else {
             string word = "";
             while (i < s.length() && s[i] != ' ') {
@@ -16,6 +18,9 @@ string anti_shuffle(string s) {
             for (int j = 0; j < word.length(); j++) {
                 result += word[j];
             }
+            while (i < s.length() && s[i] == ' ') { 
+                i++; 
+            } 
         }
     }
     return result;
