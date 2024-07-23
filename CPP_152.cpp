@@ -16,7 +16,7 @@ std::vector<int> compare(std::initializer_list<int> game, std::initializer_list<
         if (game[i] == guess[i]) {
             result[i] = 0;
         } else {
-            result[i] = std::abs(game[i] - guess[i]);
+            result[i] = abs(game[i] - guess[i]);
         }
     }
     return result;

@@ -15,21 +15,19 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> vec;
-
+    
+    std::vector<int> vec(n);
+    
     for(int i = 0; i < n; i++) {
         int val;
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> val;
-        vec.push_back(val);
+        vec[i] = val;
     }
-    vec.shrink_to_fit(); // release excess capacity
+    
     if(is_sorted(vec)) {
         std::cout << "The vector is sorted.\n";
     } else {
         std::cout << "The vector is not sorted.\n";
     }
-
-    return 0;
 }
