@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(std::string expression) {
     if (expression.size() == 0)
         return false; // default value
