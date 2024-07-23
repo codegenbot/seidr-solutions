@@ -1,26 +1,22 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::all_of(a.begin(), a.end(), [&b](const float& val) { return val == b[0]; });
+bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> a(n);
+    std::vector<std::vector<float>> mat(n);
     for (auto i = 0; i < n; ++i)
-        std::cin >> a[i];
+        for (auto j = 0; j < n; ++j++)
+            std::cin >> mat[i][j];
 
     bool same = true;
-    float first = a[0];
-    for (const auto& val : a) {
-        if (!(std::cin >> val)) { 
-            same = false;
-            break;
-        }
-        if (val != first) {
+    for (const auto& row : mat) {
+        if (!(std::cin >> row[0])) { 
             same = false;
             break;
         }
