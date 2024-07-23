@@ -1,5 +1,7 @@
 ```c++
+#include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 double diceGame(int n, int m) {
     double total = 1.0;

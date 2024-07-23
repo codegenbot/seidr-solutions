@@ -8,7 +8,7 @@ int main() {
     std::cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
     for (int i = 1; i <= hours; i++) {
-        double meltingAmount = std::min(groundSnow, proportionOfSnowMeltingPerHour);
+        double meltingAmount = groundSnow > 0 ? std::min(groundSnow, proportionOfSnowMeltingPerHour) : 0;
         groundSnow -= meltingAmount;
         groundSnow += rateOfSnowFall;
     }
