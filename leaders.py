@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     max_right = arr[-1]
     leaders = [max_right]
@@ -5,4 +6,4 @@ def leaders(arr):
         if arr[i] >= max_right:
             max_right = arr[i]
             leaders.insert(0, max_right)
-    return leaders
+    return leaders```
