@@ -25,7 +25,7 @@ int mastermind(string code, string guess) {
             if (code[j] == guess[i]) {
                 white++;
                 code[j] = ' '; // mark this position as visited
-                break;
+                j = 5; // break the loop
             }
             j++;
         }
