@@ -1,8 +1,5 @@
 ```
 def add(x: int, y: int):
+    if not isinstance(x, int) or not isinstance(y, int):
+        raise ValueError("Both inputs should be integers.")
     return x + y
-
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
-
-print("The sum of the two numbers is: ", add(x,y))
