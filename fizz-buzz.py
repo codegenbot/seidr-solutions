@@ -1,3 +1,4 @@
+```Python
 def main():
     def fizz_buzz(x):
         if x % 15 == 0:
