@@ -1,5 +1,4 @@
 ```
-# This is a comment
 cont = "yes"
 while cont.lower() != "no":
     numbers_str = input("Enter comma-separated float values (e.g., 1,2,3): ")
