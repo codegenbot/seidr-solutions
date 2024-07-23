@@ -4,28 +4,32 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
-    
-    int colorCountCode[6] = {0}, colorCountGuess[6] = {0};
+    int blackPegs = 0;
+
+    // Count black pegs
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i])
+        if(code[i] == guess[i]) {
             blackPegs++;
-        else {
-            for(int j = 0; j < 6; j++) {
-                if(code[i] == (char)('0' + j))
-                    colorCountCode[j]++;
-                if(guess[i] == (char)('0' + j))
-                    colorCountGuess[j]++;
-            }
         }
     }
-    for(int i = 0; i < 6; i++) {
-        whitePegs += std::min(colorCountCode[i], colorCountGuess[i]);
-        colorCountCode[i] = colorCountGuess[i] = 0;
+
+    // Count total correct characters in code and guess
+    int colorCount[6] = {0};
+    for(int i = 0; i < 4; i++) {
+        if(code[i] != guess[i]) {
+            colorCount[(int)(guess[i] - '0')]++;
+        }
     }
-    
-    return make_pair(blackPegs, whitePegs);
+
+    // Calculate white pegs
+    for(int i = 0; i < 6; i++) {
+        if(colorCount[i] > 0) {
+            whitePegs += colorCount[i] - (code.count(to_string(i+'0')) ? 1 : 0);
+        }
+    }
+
+    return std::make_pair(blackPegs, whitePegs);
 }
 
 int main() {
