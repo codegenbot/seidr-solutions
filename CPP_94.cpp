@@ -1,13 +1,19 @@
+```cpp
 #include <cassert>
 #include <vector>
 
-int sumOfDigits(int n){
-    int sum = 0;
-    while(n > 0){
-        sum += n % 10;
-        n /= 10;
+int skjkasdkd(vector<int> lst){
+    int maxPrime = 0;
+    for(int num : lst){
+        if(isPrime(num) && num > maxPrime)
+            maxPrime = num;
     }
-    return sum;
+    int sumOfDigits = 0;
+    while(maxPrime > 0){
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
 }
 
 bool isPrime(int n){
@@ -18,16 +24,7 @@ bool isPrime(int n){
     }
     return true;
 
-int main(){
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
+int main() {
+    assert(skjkasdkd({127, 97, 8192}) == 10);
     return 0;
-}
-
-int findMaxPrime(vector<int> lst){
-    int maxPrime = 0;
-    for(int num : lst){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
-    }
-    return maxPrime;
 }
