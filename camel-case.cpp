@@ -6,11 +6,9 @@ std::string camelCase(const std::string& str) {
     std::string result = tolower(str[0]);
     for (size_t i = 1; i < str.size(); ++i) {
         if (str[i] == '-') {
-            result += toupper(str[i+1]);
-            i++;
+            result += toupper(str[++i]);
         } else if (str[i] == ' ') {
-            result += toupper(str[i+1]);
-            i++;
+            result += toupper(str[++i]);
         } else {
             result += str[i];
         }
