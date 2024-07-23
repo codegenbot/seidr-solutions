@@ -37,14 +37,12 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
+    cin >> a;
+    cin >> b;
+    cin.ignore();
 
     string text, target;
-    string temp;
-    getline(cin, temp);
-    stringstream ss(temp);
-    ss >> text;
-
+    getline(cin, text);
     getline(cin, target);
 
     vector<int> result = indicesOfSubstring(text, target);
