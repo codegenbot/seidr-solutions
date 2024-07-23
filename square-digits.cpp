@@ -11,10 +11,10 @@ int squareDigits(int n) {
 }
 
 int main() {
-    cout << squareDigits(16) << endl; // Output: 4
-    cout << squareDigits(2) << endl; // Output: 4
-    cout << squareDigits(3) << endl; // Output: 9
-    cout << squareDigits(9) << endl; // Output: 81
-    cout << squareDigits(12) << endl; // Output: 136
+    std::cout << squareDigits(0) << std::endl;  
+    std::cout << squareDigits(1) << std::endl;  
+    std::cout << squareDigits(2) << std::endl;  
+    std::cout << squareDigits(3) << std::endl;  
+    std::cout << squareDigits(4) << std::endl;  
     return 0;
 }
