@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
             sum2 += vec[j];
         }
         
-        int currentDiff = std::abs(sum1 - sum2);
+        int currentDiff = abs(sum1 - sum2);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -33,13 +33,13 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << vec[i] << std::endl;
+        std::cout << vec[i] << "\n";
     }
     
-    std::cout << std::endl;
+    std::cout << "\n";
     
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << vec[i] << std::endl;
+        std::cout << vec[i] << "\n";
     }
     
     return 0;
