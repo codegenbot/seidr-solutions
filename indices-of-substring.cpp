@@ -1,24 +1,24 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
-using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.size();
-    int m = target.size();
-
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     for (int i = 0; ; i++) {
-        int j = 0;
-        while (i + j <= n && j < m && text[i + j] == target[j]) {
-            if (j == m - 1) {
-                result.push_back(i);
-                j = m; // terminate the pattern search
-            }
-            else j++;
-        }
-        i += j;
+        size_t pos = text.find(target, i);
+        if (pos == std::string::npos) break;
+        result.push_back(pos);
+        i = pos + 1;
     }
-
     return result;
+}
+
+int main() {
+    std::string text = "Hello World Hello";
+    std::string target = "Hello";
+    std::vector<int> indices = indicesOfSubstring(text, target);
+    for (int index : indices) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
 }
