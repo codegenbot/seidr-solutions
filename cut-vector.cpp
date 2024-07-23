@@ -1,27 +1,24 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> result;
     
-    for(int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    int min_diff = INT_MAX;
+    for (int i = 1; i < n; i++) {
+        int diff1 = nums[i] - nums[0];
+        int diff2 = nums[n-1] - nums[i-1];
+        if (abs(diff1-diff2) < abs(min_diff)) {
+            min_diff = diff1 - diff2;
+            result.push_back(vector<int>(nums.begin(), nums.begin() + i));
+            nums.erase(nums.begin());
         }
     }
     
-    vector<int> left = {nums[0]};
-    for(int i = 1; i < splitIndex; i++) {
-        left.push_back(nums[i]);
+    if (!nums.empty()) {
+        result.push_back(nums);
     }
-    
-    vector<int> right = {nums[splitIndex], nums.back()};
-    for(int i = splitIndex + 1; i < nums.size() - 1; i++) {
-        right.push_back(nums[i]);
-    }
-    
-    return {left, right};
+
+    return result;
 }
