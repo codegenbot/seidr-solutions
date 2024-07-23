@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -10,7 +11,7 @@ bool issame(vector<string> a, vector<string>b){
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> result;
     for(auto str : strings){
         if(str.find(substring) != std::string::npos){
@@ -21,17 +22,17 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    vector<string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
-    string target_substring = "ello";
+    std::vector<std::string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
+    std::string target_substring = "ello";
     
-    vector<string> filtered_strings = filter_by_substring(input_strings, target_substring);
+    std::vector<std::string> filtered_strings = filter_by_substring(input_strings, target_substring);
 
-    if(issame(vector<string>(input_strings.begin(), input_strings.end()), filtered_strings)) {
+    if(issame(input_strings, filtered_strings)) {
         for(auto str : filtered_strings) {
-            cout << str << endl;
+            std::cout << str << std::endl;
         }
     } else {
-        cout << "Strings were not the same." << endl;
+        std::cout << "Strings were not the same." << std::endl;
     }
 
     return 0;
