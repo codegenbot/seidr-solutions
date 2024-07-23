@@ -1,4 +1,3 @@
 ```
 def sorted_list_sum(numbers):
-    even_numbers = [str(num) for num in numbers if int(num) % 2 == 0]
-    return " ".join(sorted(even_numbers))
+    return " ".join(sorted([num for num in numbers if num.isdigit() and int(num) % 2 == 0]))
