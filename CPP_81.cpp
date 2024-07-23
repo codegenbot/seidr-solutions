@@ -1,11 +1,9 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a) {
-    if (a.size() == 0) return false;
-    for (const string& s : a) {
-        if (s != a[0]) return false;
-    }
+    if (a.size() != 1) return false;
     return true;
 }
 
