@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 int how_many_times(string str, string substring) {
