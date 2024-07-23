@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -41,4 +40,3 @@ int main() {
         cout << num << " ";
     }
     return 0;
-}
