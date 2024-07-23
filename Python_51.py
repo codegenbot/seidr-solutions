@@ -1,4 +1,4 @@
-```
+``` 
 text = input()
 
 def remove_vowels(text):
