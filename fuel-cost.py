@@ -1,4 +1,4 @@
-def fuel_cost(nums):
-    return sum((num//3-2) for num in nums)
+def fuel_cost(vector):
+    return sum((int(i) // 3 - 2) for i in map(int, vector))
 
-print(fuel_cost(tuple(map(int, input("Enter space-separated positive integers:").split()))))
+print(fuel_cost(input("Enter space-separated positive integers: ").split()))
