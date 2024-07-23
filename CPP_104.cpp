@@ -1,22 +1,26 @@
-```cpp
-vector<int> unique_digits(vector<int> x) {
+using namespace std;
+
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int num : x) {
-        int newNum = 0;
-        bool hasEvenDigit = false;
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                newNum = newNum * 10 + digit;
-            }
-            else
-                newNum = newNum * 10 + digit;
+    for(int i: x){
+        bool has_even = false;
+        int num = i;
+        while(num > 0){
+            if((num%10) % 2 == 0)
+                has_even = true;
             num /= 10;
         }
-        if (!hasEvenDigit)
-            result.push_back(newNum);
+        if(!has_even)
+            result.push_back(i);
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
