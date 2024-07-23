@@ -1,11 +1,19 @@
+#include <iostream>
+#include <cmath>
+
 double vectorDistance(int n) {
     double sum = 0;
-    double vec1[n], vec2[n];
     for (int i = 0; i < n; i++) {
-        std::cin >> vec1[i] >> vec2[i];
-    }
-    for (int i = 0; i < n; i++) {
-        sum += pow((vec2[i] - vec1[i]), 2);
+        double x, y;
+        std::cin >> x >> y;
+        sum += pow((y - x), 2);
     }
     return sqrt(sum);
+}
+
+int main() {
+    int n;
+    std::cin >> n; 
+    double result = vectorDistance(n); 
+    return 0;
 }
