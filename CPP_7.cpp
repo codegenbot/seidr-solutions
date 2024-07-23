@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,23 +24,32 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main() {
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
     std::vector<std::string> strings(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> strings[i];
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, strings[i]);
     }
 
-    std::string sub;
-    std::cin >> sub;
+    std::cout << "Enter the substring to filter: ";
+    std::string substring;
+    std::getline(std::cin, substring);
 
-    auto filtered_strings = filter_by_substring(strings, sub);
+    auto filteredStrings = filter_by_substring(strings, substring);
+    
+    if(filteredStrings.size() > 0) {
+        std::cout << "Filtered strings: " << std::endl;
+        for(auto str : filteredStrings)
+            std::cout << str << std::endl;
+    } else
+        std::cout << "No strings match the given substring." << std::endl;
 
-    if(issame({sub},filtered_strings)){
-        std::cout << "Substrings are the same" << std::endl;
-    } else {
-        std::cout << "Substrings are different" << std::endl;
-    }
+    if(!issame(strings, filteredStrings))
+        std::cout << "Filtered strings are not same as original strings." << std::endl;
+    else
+        std::cout << "Filtered strings are same as original strings." << std::endl;
 
     return 0;
 }
