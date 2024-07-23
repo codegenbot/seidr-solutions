@@ -1,5 +1,4 @@
-```
-def correct_bracketing(brackets: str):
+def correct_bracketing(brackets: str) -> bool:
     stack = []
     for bracket in brackets:
         if bracket == "(":
