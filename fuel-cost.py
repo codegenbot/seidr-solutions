@@ -1,2 +1,3 @@
+```
 def solve():
     return sum((int(i) // 3 - 2) for i in input().split())
