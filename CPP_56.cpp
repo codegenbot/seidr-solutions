@@ -5,10 +5,10 @@ bool correct_bracketing(const char* brackets) {
             count++;
         }
         else if(*brackets == '>'){
-            if(count == 0) return false;
+            if(count <= 0) return false;
             count--;
         }
         brackets++; 
     }
-    return count == 0 && *brackets == '\0';
+    return count == 0 && !(*brackets != '>' || i == strlen((char*)brackets));
 }
