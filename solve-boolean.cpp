@@ -1,5 +1,5 @@
 bool evaluateBooleanExpression(string expression) {
-    stack<char, deque<char>> operators;
+    stack<char> operators;
     string operand = "";
     int i = 0; 
 
@@ -9,13 +9,12 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return operand == "T" ? false : true;
+                return operand == "True";
             }
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                if (operand == "F") return false;
-                return true;
+                return operand == "True";
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
@@ -24,18 +23,19 @@ bool evaluateBooleanExpression(string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push(expression[i]);
+            operators.push('(');
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
-                    return operand == "T" ? false : true;
+                    if (operand == "F") return false;
+                    return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "T" ? false : true;
-
+                    if (operand == "T") return false;
+                    return operand == "T";
                 }
 
                 operators.pop();
@@ -49,15 +49,17 @@ bool evaluateBooleanExpression(string expression) {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
-            return operand == "T" ? false : true;
+            if (operand == "F") return false;
+            return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "T" ? false : true;
-
+            if (operand == "T") return false;
+            return operand == "T";
         }
 
         operators.pop();
     }
 
-    return operand == "True";
+    if (operand == "F") return false;
+    return true;
 }
