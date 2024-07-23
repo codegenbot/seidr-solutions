@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -9,15 +9,26 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == ' ':
             continue
         
-        if char == '(' or char == ')':
-            if temp and (temp[-1] != '(' or temp[-1] != ')'):
+        if char == '(':
+            if temp and temp[-1] != '(':
                 result.append(temp)
                 temp = ''
             temp += char
         elif char == ')':
-            if not temp or temp[-1] == '(':
+            if not temp or temp[-1] != '(':
+                result.append(temp + ')')
+                temp = ''
+            else:
                 temp += char
                 
+            if temp and temp[-1] == '(':
+                while temp and temp[-1] != '(':
+                    temp = temp[:-1]
+                temp = temp[:-1]
+            else:
+                result.append(temp)
+                temp = ''
+
     if temp:
         result.append(temp)
 
