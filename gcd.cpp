@@ -1,11 +1,11 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) {
-        return a;
+        return abs(a);
     }
     return gcd(b, a % b);
 }
@@ -15,7 +15,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     int n = text.size();
     int m = target.size();
     
-    for (int i = 0; i <= n - m; ++i) {
+    for (int i = 0; i <= n - m + 1; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
@@ -32,19 +32,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    // Test case for gcd
-    int resultGcd = gcd(647870, 797108);
-    cout << "GCD: " << resultGcd << endl;
-
-    // Test case for indicesOfSubstring
-    string text = "647870";
-    string target = "797108";
-    vector<int> resultIndices = indicesOfSubstring(text, target);
-    cout << "Indices of Substring:";
-    for (int idx : resultIndices) {
-        cout << " " << idx;
-    }
-    cout << endl;
-
+    // Add test cases for gcd and indicesOfSubstring here
     return 0;
 }
