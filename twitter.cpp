@@ -10,7 +10,7 @@ string validateTweet(string tweet) {
     if (tweet.length() > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(tweet.length() - (tweet.find('\n') != string::npos ? 1 : 0)) + " characters";
 }
 
 int main() {
