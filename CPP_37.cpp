@@ -18,7 +18,7 @@ vector<float> sort_even(vector<float> l) {
                     even.push_back(x);
                 }
             }
-            std::list<float> sortedEven = even;
+            list<float> sortedEven = even;
             sortedEven.sort();
             result.push_back(*sortedEven.begin());
         } else {
