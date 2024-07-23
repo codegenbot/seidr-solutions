@@ -3,7 +3,7 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
-min_diff = abs(total_sum - 2 * arr[0])
+min_diff = abs(total_sum - 2 * arr[0])  
 cut_index = 1
 
 for i in range(1, n):
