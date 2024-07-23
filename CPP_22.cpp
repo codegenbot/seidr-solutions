@@ -1,16 +1,17 @@
 #include <boost/any.hpp>
+using namespace boost;
+
 #include <vector>
 #include <list>
 
 using namespace std;
-using namespace boost;
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() != typeid(int)) continue;
-        if (any_cast<int>(value)).inconsistent()) continue;
-        result.push_back(any_cast<int>(value));
+        if (any_cast<int>(value).type()) {
+            result.push_back(any_cast<int>(value));
+        }
     }
     return result;
 }
