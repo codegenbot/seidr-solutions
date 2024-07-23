@@ -3,7 +3,7 @@
 #include <cctype>
 
 std::string FlipCase(std::string str) {
-    for (char& c : str) {
+    for (char &c : str) {
         if (islower(c)) {
             c = toupper(c);
         } else if (isupper(c)) {
@@ -15,6 +15,5 @@ std::string FlipCase(std::string str) {
 
 int main() {
     assert(FlipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    
     return 0;
 }
