@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -24,7 +23,7 @@ while True:
     try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
-            print(*factorize(n), sep=", ")
+            print(factorize(n))
             break
         else:
             print("Please enter a positive integer.")
