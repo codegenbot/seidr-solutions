@@ -1,29 +1,25 @@
 #include <vector>
-#include <cmath>
 using namespace std;
 
-double poly(vector<double> coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); i++) {
+double find_zero(vector<double> coeffs){
+    double x = 1.0; // Initial guess for the zero
+    double tol = 1e-9;
+    int max_iter = 10000;
+    
+    for (int i=0; i<max_iter; i++) {
+        double fx = poly(coeffs, x);
+        if (abs(fx) < tol)
+            return x;
+        else
+            x -= fx / poly(coeffs, x);
+    }
+    return -1.0; // Failed to converge
+}
+
+double poly(vector<double> coeffs, double x){
+    double result = 0;
+    for (int i=coeffs.size()-1; i>=0; i--) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
-}
-
-double find_zero(vector<double> coeffs){
-    double x = 1.0; // Initial guess
-    double tol = 1e-5; // Tolerance
-    while (true) {
-        double new_x = x - poly(coeffs, x) / poly(coeffs, x);
-        if (abs(new_x - x) < tol) break;
-        x = new_x;
-    }
-    return x;
-}
-
-int main() {
-    vector<double> coeffs = {1, 3, 4}; 
-    double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution))< 1e-3);  
-    return 0;
 }
