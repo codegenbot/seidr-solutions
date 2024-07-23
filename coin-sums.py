@@ -1,17 +1,21 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
 
-    for i, coin in enumerate(reversed(coins)):
+    for coin in coins:
         while cents >= coin:
             count = cents // coin
             cents -= count * coin
-            results[i] += count
+            results[coins.index(coin)] += count
 
-    print(f"Quarters: {results[0]}")
-    print(f"Dimes: {results[1]}")
-    print(f"Nickels: {results[2]}")
-    print(f"Pennies: {results[3]}")
+    for i, count in enumerate(reversed(results)):
+        if i == 3:  
+            print(f"Pennies: {count}")
+        elif i == 2:  
+            print(f"Nickels: {count}")
+        elif i == 1:  
+            print(f"Dimes: {count}")
+        else:
+            print(f"Quarters: {count}")
 
 coin_sums(4281)
