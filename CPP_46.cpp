@@ -1,9 +1,25 @@
+#include <stdio.h>
+
+using namespace std;
+
 int fib4(int n) {
-    if (n < 0) return -1; // or throw an exception
-    int f[] = {0, 0, 2, 0};
-    for (int i = 4; i <= n; ++i) {
-        int sum = f[i-1] + f[i-2] + f[i-3] + f[i-4];
-        f[i%4] = sum;
+    if (n <= 1)
+        return 0;
+    int a = 0, b = 2, c = 0, d = 2;
+    for (int i = 3; i <= n; i++) {
+        int temp = a + b + c + d;
+        a = b;
+        b = c;
+        c = d;
+        d = temp;
     }
-    return f[n%4];
+    return d;
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("The %d-th element of the fib4 number sequence is: %d\n", n, fib4(n));
+    return 0;
 }
