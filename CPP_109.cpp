@@ -1,9 +1,16 @@
 int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
-        }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+    if (n == 0) {
+        return true;
     }
-    return false;
+    
+    int minVal = *min_element(arr.begin(), arr.end());
+    int minIdx = find(arr.begin(), arr.end(), minVal) - arr.begin();
+    
+    for (int i = 0; i < n; i++) {
+        if (arr[(minIdx + i) % n] != minVal + i) {
+            return false;
+        }
+    }
+    
+    return true;
 }
