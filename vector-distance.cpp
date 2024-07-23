@@ -1,5 +1,6 @@
 #include <vector>
-#include <iostream>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
 double euclideanDistance(const vector<float>& v1, const vector<float>& v2) {
