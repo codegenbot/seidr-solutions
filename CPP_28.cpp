@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,8 +16,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main() {
-    std::vector<std::string> input;
+std::vector<std::string> readStrings() {
     int numStrings;
 
     // Read the number of strings from the user
@@ -26,6 +24,7 @@ int main() {
     std::cin >> numStrings;
 
     // Read the strings from the user
+    std::vector<std::string> input;
     for (int i = 0; i < numStrings; ++i) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
@@ -33,6 +32,12 @@ int main() {
         input.push_back(str);
     }
 
+    return input;
+}
+
+int main() {
+    std::vector<std::string> input = readStrings();
+    
     // Concatenate the strings
     std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
 
