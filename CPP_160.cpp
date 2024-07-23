@@ -1,22 +1,31 @@
 #include <vector>
-#include <string>
+#include <cmath>
 
-int do_algebra(vector<std::string> operato, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
-            result += operand[i + 1];
-        } else if (operato[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operato[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operato[i] == "//") {
-            result = result / static_cast<int>(operand[i + 1]);
-        } else if (operato[i] == "**") {
-            int temp = result;
-            for(int j = 0; j < operand[i+1];j++){
-                result = result * temp;
+int do_algebra(vector<string> ops, vector<int> operands) {
+    int result = 0;
+    for (int i = 0; i < ops.size(); i++) {
+        if (ops[i] == "+") {
+            result += operands[i];
+        } else if (ops[i] == "-") {
+            result -= operands[i];
+        } else if (ops[i] == "*") {
+            int temp = operands[i];
+            for (int j = i + 1; j < ops.size(); j++) {
+                if (ops[j] == "/") {
+                    temp /= operands[j];
+                } else if (ops[j] == "**") {
+                    temp = pow(temp, operands[j]);
+                }
             }
+            result += temp;
+        } else if (ops[i] == "//") {
+            int temp = operands[i];
+            for (int j = i + 1; j < ops.size(); j++) {
+                temp /= operands[j];
+            }
+            result += temp;
+        } else if (ops[i] == "**") {
+            result = pow(result, operands[i]);
         }
     }
     return result;
