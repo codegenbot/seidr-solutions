@@ -1,3 +1,5 @@
+```python
+"""
 def cut_vector(vector):
     n = len(vector)
     min_diff = float("inf")
@@ -17,3 +19,4 @@ def cut_vector(vector):
         return vector[:split_index], vector[split_index:]
     else:
         return [], []
+"""
