@@ -4,21 +4,19 @@
 using namespace std;
 
 int main() {
-    string temp;
-    cin >> temp;
-    double startHeight = stod(temp);
-    temp.clear();
-    cin >> temp;
-    double firstBounce = stod(temp);
-    numBounces = stoi(temp);
+    double startHeight, firstBounce;
+    int numBounces;
 
-    double bouncinessIndex = firstBounce / startHeight;
+    cin >> startHeight >> numBounces >> firstBounce; 
+
+    double bouncinessIndex = firstBounce / (startHeight * 0.5);
+    double newHeight = startHeight * 0.5;
 
     double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; ++i) {
-        double newHeight = startHeight * (1 - bouncinessIndex);
-        totalDistance += abs(newHeight - startHeight); 
-        startHeight = newHeight; 
+    for (int i = 2; i <= numBounces; ++i) {
+        startHeight *= bouncinessIndex;
+        totalDistance += abs(startHeight - newHeight); 
+        newHeight = startHeight; 
     }
 
     cout << fixed;
