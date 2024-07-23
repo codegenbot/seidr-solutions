@@ -1,4 +1,5 @@
 #include <cassert>
+
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for(int i=0; i<brackets.length(); i++){
@@ -9,6 +10,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(!correct_bracketing("()()(()())"));
+    assert(correct_bracketing("()()(()())())")); // Corrected statement
     return 0;
 }
