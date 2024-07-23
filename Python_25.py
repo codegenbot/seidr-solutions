@@ -1,4 +1,11 @@
-def calculate_average(input_list: list) -> float:
-    if not input_list:
-        return 0
-    return sum(input_list) / len(input_list)
+from typing import List
+
+
+def sum_of_squares(numbers: List[int]) -> int:
+    total = 0
+    for num in numbers:
+        total += num**2
+    return total
+
+numbers = list(map(int, input("Enter a series of space-separated integers: ").split()))
+print(sum_of_squares(numbers))
