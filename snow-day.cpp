@@ -7,7 +7,8 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground = round((snow_on_ground + snow_fall_rate) - (round(snow_on_ground * snow_melt_rate)));
+        double updated_snow_on_ground = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate);
+        snow_on_ground = updated_snow_on_ground;
     }
 
     cout.precision(16);
