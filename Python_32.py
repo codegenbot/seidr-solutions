@@ -1,18 +1,16 @@
-```Python
-def find_zero(nums):
-    return sum(num for num in nums if num == 0)
-
-def sum_even_and_odd(nums):
-    even_sum = 0
-    odd_sum = 0
-    
-    for num in nums:
-        if num % 2 == 0:
-            even_sum += num
+```
+def find_largest_sum_of_subarray(arr):
+    max_ending_here = max_so_far = arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] > max_ending_here + arr[i]:
+            max_ending_here = arr[i]
+            max_so_far = max_ending_here
         else:
-            odd_sum += num
-            
-    return even_sum, odd_sum
+            max_ending_here += arr[i]
+        if max_ending_here > max_so_far:
+            max_so_far = max_ending_here
+    return max_so_far
 
-nums = [1, 2, 3, 4]
-print(find_zero(nums))
+num_of_elements = int(input("Enter the number of elements: "))
+arr = list(map(int, input(f"Enter {num_of_elements} elements separated by space: ").split()))
+print(find_largest_sum_of_subarray(arr))
