@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <ostream>
@@ -24,7 +25,7 @@ int main() {
     vector<int> arr = {1, 2, 3, 4};
     vector<pair<int, int>> output = pluck(arr);
     for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+        cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
     }
     return 0;
 }
