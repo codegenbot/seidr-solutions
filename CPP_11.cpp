@@ -5,15 +5,22 @@ using namespace std;
 
 string string_xor(string a, string b) {
     istringstream is_a(a), is_b(b);
-    string result;
-    char c, d;
-    while (is_a >> c && is_b >> d) {
-        if ((c - '0') ^ (d - '0')) {
+    string result = "";
+    char c1, c2;
+    is_a >> c1;
+    is_b >> c2;
+    
+    while (!is_a.eof() || !is_b.eof()) {
+        if ((c1 - '0') ^ (c2 - '0')) {
             result += "1";
         } else {
             result += "0";
         }
+        
+        is_a >> c1;
+        is_b >> c2;
     }
+    
     return result;
 }
 
