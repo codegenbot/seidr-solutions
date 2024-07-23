@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -15,7 +14,7 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 map<char, int> histogram(const string& str) {
-    map<char, int> result = {};
+    map<char, int> result;
 
     for (char c : str) {
         if (!isalpha(c)) continue; 
@@ -32,7 +31,7 @@ map<char, int> histogram(const string& str) {
 }
 
 int main() {
-    assert(issame(histogram("a"), map<char, int>()));
+    assert(issame(histogram("a"), map<char, int>())); 
     cout << "Success!" << endl;
     return 0;
 }
