@@ -3,6 +3,4 @@ def remove_duplicates(input_list=None):
         input_list = list(map(int, input("Enter numbers separated by space: ").split()))
     if not input_list:  
         return []  
-    from collections import OrderedDict
-    result = list(OrderedDict.fromkeys(input_list))
-    print(len(result))
+    return list(dict.fromkeys(input_list))
