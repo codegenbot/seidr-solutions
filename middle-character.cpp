@@ -1,16 +1,14 @@
 #include <iostream>
-string middleCharacter(string s) {
-    int len = s.length();
-    if (len % 2 == 0) {
-        return s.substr(len/2 - 1, 2);
-    } else {
-        return s.substr(len/2, 1);
-    }
-}
+#include <string>
 
 int main() {
-    string input;
-    cin >> input;
-    cout << middleCharacter(input) << endl;
+    std::string s;
+    std::cin >> s;
+    int len = s.length();
+    if (len % 2 == 0) {
+        std::cout << s.substr(len/2 - 1, 2);
+    } else {
+        std::cout << s[len/2];
+    }
     return 0;
 }
