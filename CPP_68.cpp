@@ -2,7 +2,6 @@
 #include <climits>
 #include <iostream>
 #include <ostream>
-
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
