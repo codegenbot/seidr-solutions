@@ -1,14 +1,6 @@
 #include <string>
 
-int getRemaining(char c, std::string input) {
-    int i = 1;
-    while (input[input.size() - i] != c && i <= input.size()) {
-        i++;
-    }
-    return 10 - i + (input[input.size() - i] - '0');
-}
-
-int bowlingScore(std::string input) {
+int bowlingScore(const std::string& input) {
     int score = 0;
     int currentRolls = 0;
     int frameNumber = 1;
@@ -42,3 +34,12 @@ int bowlingScore(std::string input) {
     }
 
     return score;
+}
+
+int getRemaining(char c, const std::string& input) {
+    int i = 1;
+    while (input[input.size() - i] != c && i <= input.size()) {
+        i++;
+    }
+    return 10 - i + (input[input.size() - i] - '0');
+}
