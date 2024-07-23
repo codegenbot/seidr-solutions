@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -7,8 +8,20 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cout << (tweet.empty() ? "You didn't type anything" : 
-              tweet.length() > 140 ? "Too many characters" : 
-              "Your tweet has " + to_string(tweet.length()) + " characters");
+    if (tweet.empty()) {
+        cout << "You didn't type anything\n";
+    } else {
+        int charCount = 0;
+        for (char c : tweet) {
+            if (std::isprint(c)) { 
+                charCount++;
+            }
+        }
+        if (charCount > 140) {
+            cout << "Too many characters\n";
+        } else {
+            cout << "Your tweet has " << charCount << " characters\n";
+        }
+    }
     return 0;
 }
