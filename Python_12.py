@@ -28,6 +28,6 @@ while True:
 if strings:
     result = longest(strings)
     if result == "No strings entered":
-        print("No strings were entered.")
+        print(result)
     else:
         print(f"The longest string is: {result}")
