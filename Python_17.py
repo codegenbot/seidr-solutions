@@ -1,5 +1,5 @@
 ```
-`from typing import List
+from typing import List
 
 def main():
     music_string = input("Enter your music string: ")
@@ -26,4 +26,4 @@ def parse_music(music_string: str) -> List[int]:
     return music_list
 
 if __name__ == "__main__":
-    main()`
+    main()
