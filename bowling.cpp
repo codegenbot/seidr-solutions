@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstddef>
+#include <string>
 
 int calculateFrameScore(int bowlScore, size_t index, const std::string& bowls) {
     if (bowlScore == 10) {
@@ -12,14 +12,14 @@ int calculateFrameScore(int bowlScore, size_t index, const std::string& bowls) {
 int main() {
     std::string bowls;
     std::cin >> bowls;
-    
+
     int totalScore = 0;
     for (size_t index = 0; index < bowls.size(); ++index) {
         int bowlScore = bowls[index] - '0';
         totalScore += calculateFrameScore(bowlScore, index, bowls);
     }
-    
+
     std::cout << totalScore << std::endl;
-    
+
     return 0;
 }
