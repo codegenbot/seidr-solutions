@@ -1,3 +1,4 @@
-import math
 def dice_game(n, m):
-    return sum(1 for i in range(m+1) if i < (n - m + 1) / (n + m - 1)) / (m * n)
+    total_outcomes = n * m
+    favorable_outcomes = sum(i > j for i in range(1, n) for j in range(1, m))
+    return favorable_outcomes / total_outcomes
