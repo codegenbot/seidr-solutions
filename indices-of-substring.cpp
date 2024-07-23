@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i = 0;
@@ -17,23 +11,10 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i++; // Fix: Move to the next character
+            i++; // Increment only when the target string is not found
         } else {
-            i++; // Only increment i when not found
+            i++; // Move to the next character
         }
     }
     return result;
-}
-
-int main() {
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
