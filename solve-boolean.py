@@ -15,5 +15,3 @@ def solve_boolean(expression):
             expression = str(result).lstrip("False").replace("True,", "")
 
     return bool(expression)
-
-print(solve_boolean("f&f&f&t&f|t|f"))
