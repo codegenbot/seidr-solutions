@@ -1,5 +1,3 @@
-from typing import list
-
 def factorize(n: int) -> list:
     if n <= 1:
         return [n]
