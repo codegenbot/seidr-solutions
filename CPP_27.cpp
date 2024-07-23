@@ -16,10 +16,13 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::string s;
     char c;
-    s.clear(); 
+    std::string s;
+    s.clear();
     std::cout << "Enter a string: ";
     while ((c = std::cin.get()) != '\n') {
         s.push_back(c);
     }
+    std::cout << flip_case(s) << std::endl;
+    return 0;
+}
