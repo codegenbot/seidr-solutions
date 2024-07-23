@@ -1,4 +1,4 @@
 def decipher_message(cipher1, cipher2, message):
-    mapping = {c: d for c, d in zip(sorted(cipher1), sorted(cipher2))}
-    result = "".join(mapping.get(char.lower(), char) if char.isalpha() else char for char in message)
+    mapping = {c: d for c, d in zip(cipher1, cipher2)}
+    result = "".join(mapping.get(char.lower(), char) for char in message)
     return result
