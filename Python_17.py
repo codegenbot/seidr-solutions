@@ -13,10 +13,6 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(1)
             i += 4
         elif music_string[i] == 'o':
-            if i + 5 <= len(music_string) and music_string[i:i+6] == 'oooou':
-                music_list.append(2)
-                i += 6
-            else:
-                music_list.append(4)
-                i += 1
+            music_list.append(4)
+            i += 1
     return music_list
