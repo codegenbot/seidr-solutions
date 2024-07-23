@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -22,7 +21,7 @@ map<char, int> histogram(const string& str) {
     map<char, int> result;
 
     for (char c : str) {
-        if (!isalpha(c)) continue; // ignore non-alphabetic characters
+        if (!isalpha(c)) continue; 
         char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
@@ -36,7 +35,5 @@ map<char, int> histogram(const string& str) {
 }
 
 int main() {
-    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
-    cout << "Hello" << endl;
+    assert(issame(histogram("a"), map<char, int> {{'a', 1}}));
     return 0;
-}
