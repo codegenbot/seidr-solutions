@@ -1,13 +1,11 @@
-Here's the modified code with the added include statement and the corrected function:
-
-```cpp
-#include <string>
+#include <iostream>
 #include <vector>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int frame = 0;
-    std::vector<int> rolls(2, 0);
+    vector<int> rolls(2, 0);
     
     for (char c : s) {
         if (c == 'X') {
