@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -14,7 +16,7 @@ int fuelCost(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v = {5, 10, 15};
+    std::vector<int> v = {15,10,5};
     if (v.empty()) {
         std::cerr << "Error: Input vector is empty." << std::endl;
         return 1;
@@ -22,3 +24,4 @@ int main() {
     int result = fuelCost(v);
     std::cout << "Fuel cost: " << result << std::endl;
     return 0;
+}
