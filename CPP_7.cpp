@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -27,12 +26,12 @@ int main() {
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
-    std::vector<std::string> strings(n);
+    std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
+        std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::string temp;
-        std::getline(std::cin, temp);
-        strings[i] = temp;
+        std::getline(std::cin, str);
+        strings.push_back(str);
     }
 
     std::cout << "Enter the substring to filter: ";
@@ -48,7 +47,7 @@ int main() {
     } else
         std::cout << "No strings match the given substring." << std::endl;
 
-    if(!issame(strings, filteredStrings))
+    if(!issame(std::vector<std::string>(strings.begin(), strings.end()), filteredStrings))
         std::cout << "Filtered strings are not same as original strings." << std::endl;
     else
         std::cout << "Filtered strings are same as original strings." << std::endl;
