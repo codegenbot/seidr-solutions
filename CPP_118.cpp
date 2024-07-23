@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 bool isvowl(char c) {
@@ -9,9 +10,13 @@ bool isvowl(char c) {
 }
 
 std::string get_closest_vowel(std::string word) {
+    int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
-            return std::string(1, tolower(word[i]));
+            if (closest == -1)
+                closest = i;
+            else
+                return string(1, word[closest]);
         }
     }
     return "";
