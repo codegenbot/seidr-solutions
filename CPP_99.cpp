@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 int closest_integer(std::string value) {
     double num = stod(value);
