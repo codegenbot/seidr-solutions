@@ -1,30 +1,28 @@
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
-    int totalRolls = 0;
-
-    for (char c : bowls) {
-        if (c == 'X') {
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (5 - roll);
+            }
+            roll = 0;
+        } else if (c == 'X') {
             score += 30;
-            currentRolls++;
-            totalRolls++;
-        } else if (c == '/') {
-            score += 10 - currentRolls;
-            currentRolls = 0;
-            totalRolls++;
-        } else if (isdigit(c)) {
-            int rolls = c - '0';
-            currentRolls += rolls;
-            if (totalRolls < 9) {
-                if (currentRolls == 2) {
-                    score += 10 + currentRolls * 10;
-                    currentRolls = 0;
-                }
+            roll = 0;
+        } else {
+            int points = c - '0';
+            roll++;
+            if (roll < 2) {
+                score += points;
             } else {
-                score += currentRolls * 10;
+                if (points + roll >= 10) {
+                    score += 10;
+                } else {
+                    score += points + roll;
+                }
             }
         }
     }
-
     return score;
 }
