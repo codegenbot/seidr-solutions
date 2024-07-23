@@ -1,5 +1,9 @@
+```cpp
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
+
+using namespace std;
 
 std::pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numIndex;
