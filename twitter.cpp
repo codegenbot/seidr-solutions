@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -11,12 +12,15 @@ int main() {
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
-    } else {
-        if (tweet.length() > 140) {
-            cout << "Too many characters" << endl;
-        } else {
-            cout << "Your tweet has " << tweet.size() - 1 << " characters" << endl;
-        }
+        return 0;
     }
 
-    return 0; }
+    int asciiChars = std::count_if(tweet.begin(), tweet.end(), ::isascii);
+    
+    if (asciiChars > 140) {
+        cout << "Too many characters" << endl;
+        return 0;
+    }
+    
+    cout << "Your tweet has " << asciiChars << " characters" << endl;
+    return 0;
