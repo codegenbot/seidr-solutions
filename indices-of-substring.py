@@ -17,5 +17,5 @@ for index in indices:
     print(index, end=" ")
     
 if len(indices) == 1:
-    if text.find(target, index + 1) != -1: 
+    if text.find(target, index + 1) != -1:
         print(index + 1, end=" ")
