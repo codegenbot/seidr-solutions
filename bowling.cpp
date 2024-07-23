@@ -1,6 +1,6 @@
 #include <string>
 
-int score(string s) {
+int score(std::string s) {
     int total = 0, frame = 1, ball = 0;
     for (char c : s) {
         if (c == 'X') {
