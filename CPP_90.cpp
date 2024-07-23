@@ -1,10 +1,13 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
+#ifndef __cplusplus
+#define __cplusplus 201103L
+#endif
+
 int findNextSmallest(std::vector<int> lst) {
-    std::vector<int> sorted(lst); 
-    std::sort(sorted.begin(), std::back_inserter(sorted)); 
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1;
     for (int i = 0; i < sorted.size() - 1; i++) {
@@ -12,5 +15,4 @@ int findNextSmallest(std::vector<int> lst) {
             return sorted[i + 1];
     }
     return -1;
-
 }
