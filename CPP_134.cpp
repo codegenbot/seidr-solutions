@@ -11,7 +11,11 @@ bool check_if_last_char_is_a_letter(std::string txt) {
             break;
         }
     }
-    return containsNonSpace && std::isalpha(std::tolower(txt.back()));
+    if(containsNonSpace && std::isalpha(std::tolower(txt.back()))){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 int main() {
