@@ -1,20 +1,11 @@
-Here is your modified code:
-
-```cpp
 #include <string>
-
-int main() {
-    std::string input = "X/X/X/4+5/5+2/5/6-3/X/7-2/X"; // provide the string here
-    int result = bowlingScore(input);
-    return 0;
-}
+#include <iostream>
 
 int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll1 = 0;
     int currentRoll2 = 0;
     bool strike = false;
-    int frameScore = 0;
     
     for (char c : s) {
         if (c == '/') {
@@ -33,12 +24,13 @@ int bowlingScore(std::string s) {
             currentRoll2 = 0;
         } else if (c == 'X') {
             score += 10;
-            frameScore = 10;
             strike = true;
+            continue;
         } else {
             if (!strike) {
-                if (currentRoll1 + 1 >= 10) {
-                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
+                currentRoll1++;
+                if (currentRoll1 >= 10) {
+                    if (currentRoll1 + currentRoll2 <= 10) {
                         score += 10 - currentRoll1;
                         currentRoll2++;
                     } else {
@@ -46,7 +38,7 @@ int bowlingScore(std::string s) {
                         currentRoll1 = 0;
                     }
                 } else {
-                    currentRoll1++;
+                    currentRoll2++;
                 }
             } else {
                 currentRoll2++;
@@ -75,4 +67,11 @@ int bowlingScore(std::string s) {
     }
     
     return score;
+}
+
+int main() {
+    std::string input = "X|X|7/4/3/X|8+6/5+5/9-"; // provide the string here
+    int result = bowlingScore(input);
+    std::cout << "The bowling score is: " << result << std::endl;
+    return 0;
 }
