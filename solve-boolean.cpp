@@ -1,4 +1,9 @@
-stack<char> operators;
+```c++
+#include <stack>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operators;
     string operand = "";
     int i = 0; 
 
@@ -8,13 +13,15 @@ stack<char> operators;
                 operators.pop();
             }
             if (!operand.empty()) {
-                return (operand == "T" ? false : true);
+                return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return (operand == "T" ? true : true);
+                return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
@@ -29,10 +36,10 @@ stack<char> operators;
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
-                    return (operand == "T" ? true : false);
+                    return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return (operand == "T" ? false : false);
+                    return operand == "T";
                 }
 
                 operators.pop();
@@ -46,16 +53,16 @@ stack<char> operators;
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
-            return (operand == "T" ? true : false);
+            return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return (operand == "T" ? false : false);
+            return operand == "T";
         }
 
         operators.pop();
     }
 
-    return (operand == "T") ? true : false;
+    return operand == "T";
 }
 
 int main() {
