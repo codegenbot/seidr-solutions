@@ -1,6 +1,7 @@
-```c++
-#include <string>
+```cpp
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 string middleCharacter(string str) {
