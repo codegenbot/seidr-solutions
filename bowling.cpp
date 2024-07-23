@@ -1,68 +1,48 @@
-#include <string>
-#include <vector>
-
-int bowlingScore(std::string s) {
+```cpp
+int main() {
     int score = 0;
-    std::vector<int> frames;
-    for (char c : s) {
+    string s = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X";
+    for(int i = 0; i < s.length(); i++) {
+        char c = s[i];
         if (c == '/') {
-            if (!score % 10 > 0 && score % 10 < 10) {
-                if (s.find('X') != std::string::npos || s.find('x') != std::string::npos) {
-                    frames.push_back(10);
-                } else {
-                    int roll1 = -1;
-                    int roll2 = -1;
-                    for(int i = score % 10; i < s.length(); i++) {
-                        if (s[i] == '1' || s[i] == 'x') {
-                            roll1 = i + 1;
-                        } else if (s[i] == '2') {
-                            roll2 = i;
-                            break;
-                        }
-                    }
-                    frames.push_back(std::min(roll1, 10) + std::min(roll2 - 1, 9));
-                }
-            } else {
-                int roll1 = -1;
-                int roll2 = -1;
-                for(int i = score % 10; i < s.length(); i++) {
-                    if (s[i] == 'X' || s[i] == 'x') {
-                        roll1 = i + 1;
-                    } else if (s[i] == '/') {
-                        roll2 = i;
-                        break;
-                    }
-                }
-                frames.push_back(std::min(roll1, 10) + std::min(roll2 - 1, 9));
-            }
+            score += getRoll(s, i) + getBonusRoll(s, i);
         } else if (c == 'X' || c == 'x') {
-            for(int i = score % 10; i < s.length(); i++) {
-                if (s[i] == 'X' || s[i] == 'x') {
-                    frames.push_back(10);
-                    break;
-                }
-            }
-        } else if (c == '1' || c == '2' || c == '+') {
-            for(int i = score % 10; i < s.length(); i++) {
-                if (s[i] == 'X' || s[i] == 'x' || s[i] == '+' || s[i] == '-') {
-                    break;
-                } else if (c == '1' && s[i] >= '3') {
-                    std::cerr << "Invalid input" << std::endl;
-                    return 0;
-                }
+            score += min(i+1, 10);
+        } else if (isdigit(c)) {
+            int roll = getRoll(s, i);
+            if (s[i+1] == '+') {
+                score += roll + max(min(getBonusRoll(s, i) - roll - 1, 9), 0);
+            } else {
+                score += roll;
             }
         }
-    }
-    for(int i = 0; i < frames.size(); i++) {
-        score += frames[i];
     }
     return score;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling game scores: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    return result;
+int getRoll(string s, int i) {
+    if (s[i+1] == '/') {
+        return 10;
+    } else {
+        for(int j = i + 1; j < s.length(); j++) {
+            if (!isdigit(s[j])) {
+                return min(j - i, 10);
+            }
+            if (j >= s.length() || !isdigit(s[j])) {
+                return min(j - i, 10);
+            }
+        }
+    }
+}
+
+int getBonusRoll(string s, int i) {
+    for(int j = i + 2; ; j++) {
+        if (!isdigit(s[j])) {
+            if (s[j] == '+' || s[j] == '-') {
+                return min(j - i - 1, 9);
+            } else {
+                return 0;
+            }
+        }
+    }
 }
