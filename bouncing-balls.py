@@ -12,3 +12,5 @@ def bouncing_balls():
         start_height *= 0.8
 
     return format(total_distance, ".4f")
+
+print(bouncing_balls())
