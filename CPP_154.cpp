@@ -1,4 +1,8 @@
-if(a.length() != b.length()) return false;
-    string temp = b + b;
-    return (temp.find(a) != string::npos);
+if (a.length() != b.length()) {
+        return false;
+    }
+    
+    string doubleA = a + a;
+    
+    return doubleA.find(b) != string::npos;
 }
