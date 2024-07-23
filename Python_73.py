@@ -1,12 +1,14 @@
 ```
 def smallest_change(arr):
-    arr_len = len(arr)
-    front = arr[:arr_len//2]
-    back = arr[arr_len//2:][::-1]
+    arr = list(map(int, input("Enter an array of integers (space separated): ").split()))
+    n = len(arr)
+    rev_arr = arr[::-1]
+    
+    changes = 0
+    for i in range(n // 2):
+        if arr[i] != rev_arr[n - i - 1]:
+            changes += 1
+    
+    return changes
 
-    count = 0
-    for i in range(len(front)):
-        if front[i] != back[i]:
-            count += 1
-
-    return count
+print(smallest_change([]))
