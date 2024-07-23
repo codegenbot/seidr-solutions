@@ -1,19 +1,21 @@
-bool isSame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> removeDuplicates(vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
+        bool found = false;
+        for (int existing_num : result) {
+            if (num == existing_num) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
             result.push_back(num);
         }
     }
