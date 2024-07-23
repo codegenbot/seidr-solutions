@@ -1,11 +1,11 @@
-```cpp
-#include <algorithm>
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
 
-    for(int i = 1; i <= std::min((int) n, (int) m); i++) {
+    for(int i = 1; i <= min(n, m); i++) {
         if(i < m) {
             p += (n - i) / total;
         }
@@ -16,4 +16,4 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main(int argc, char** argv) { return diceGame(43, 98); }
+int main() { cout << diceGame(43, 98); return 0; }
