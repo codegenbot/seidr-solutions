@@ -1,7 +1,6 @@
-```''
+```'
 def solve(N):
-    bin_str = str(bin(N))[2:]
-    sum_int = sum(int(digit) for digit in str(N))
-    sum_bin = bin(sum_int)[2:]
-    return bin_str + sum_bin
-''```
+    binary = str(bin(N))[2:]
+    sum_of_digits = sum(int(digit) for digit in str(N))
+    decimal_sum = bin(sum_of_digits)[2:]
+    return binary + decimal_sum'
