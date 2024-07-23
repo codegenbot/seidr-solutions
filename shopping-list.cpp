@@ -27,6 +27,6 @@ int main() {
         std::cin >> discounts[i];
     }
     double result = shoppingList(&prices[0], n, &discounts[0]);
-    std::cout << std::fixed << std::setprecision(1) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << std::setiosflags(std::ios::showpoint) << result << std::endl;
     return 0;
 }
