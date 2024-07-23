@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <assert.h>
 
 bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
