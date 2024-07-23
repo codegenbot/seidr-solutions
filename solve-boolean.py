@@ -1,18 +1,36 @@
 ```
 def solve_boolean(expression):
-    def eval_expr(tokenized):
-        if not tokenized:  
-            return False  # empty expression is False
-        if len(tokenized) == 1:  
-            return tokenized[0] == 'T'
-        elif '&' in tokenized:
-            left = eval_expr([x for x in tokenized[:tokenized.index('&')] + ['&'] + [tokenized[tokenized.index('&')+1:]]])
-            right = eval_expr(tokenized[tokenized.index('&')+1:].replace(' and ', '&').split())
-            return left and right
-        else:
-            left = eval_expr(tokenized[:tokenized.index('|') + 1].replace(' or ', '|').split())
-            right = eval_expr(tokenized[tokenized.index('|')+1:])
-            return left or right
+    def recursive_eval(tokens, i=None):
+        result = None
+        if i == None:
+            i = 0
 
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    return eval_expr(tokens.split())
+        while i < len(tokens):
+            token = tokens[i]
+            if token == '(':
+                i += 1
+                result = recursive_eval(tokens, i)
+                return result
+            elif token in ['T', 'F']:
+                if result is None: 
+                    result = True if token == 'T' else False
+                elif result == True: 
+                    result = True
+                else:
+                    result = False
+                return result
+            elif token in ['|', '&']:
+                if result is None: 
+                    i += 1
+                elif result == True: 
+                    return True
+                else:
+                    result = recursive_eval(tokens, i+1)
+                    return not result
+            elif token == ')':
+                while tokens[i] != '(':
+                    i += 1
+                i += 1
+
+    expression = expression.replace(' | ', '|').replace('&', ' & ')
+    return recursive_eval(expression.split())
