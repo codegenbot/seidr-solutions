@@ -1,4 +1,10 @@
-```cpp
+#include <string>
+using namespace std;
+
+bool is_one(string s) {
+    return s.length() == 1 && s[0] == '1';
+}
+
 bool is_happy(string s) {
     string t = s;
     while(t != "1" && !is_one(t)) {
