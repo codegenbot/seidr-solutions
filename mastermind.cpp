@@ -6,19 +6,21 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
+            code[i] = '@';  // mark correct position as visited
+            guess[i] = '#'; // mark correct position as visited
         }
     }
 
     // Count white pegs now
-    for (char c : code) {
-        int index = guess.find(c);
-        while(index != std::string::npos) {
-            if (index < black) {
-                index = guess.find(c, index+1);
-                continue;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != '@' && code[i] == guess[i]) {
+            black++;
+        } else {
+            int index = guess.find(code[i]);
+            while(index != std::string::npos) {
+                white++;
+                index = guess.find(code[i], index+1);
             }
-            white++;
-            index = guess.find(c, index+1);
         }
     }
 
