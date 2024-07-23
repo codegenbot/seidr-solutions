@@ -1,15 +1,17 @@
-#include <map>
 #include <vector>
+#include <map>
 
-int search(std::vector<int> lst) {
+int search(const std::vector<int>& lst) {
     std::map<int, int> countMap;
     for (auto i : lst) {
-        countMap[i]++;
+        if(countMap.find(i) != countMap.end())
+            countMap[i]++;
+        else
+            countMap[i] = 1; 
     }
     
     for (auto p : countMap) {
-        if (p.second > 1) 
-            return p.first; 
+        if (p.second > 1) return p.first; 
     }
     return -1;
 }
