@@ -3,7 +3,7 @@
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
-    for (std::size_t i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i) {
         if (vec[i].find(prefix) == 0) {
             result.push_back(vec[i]);
         }
@@ -11,7 +11,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>&b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a==b;
 }
 
