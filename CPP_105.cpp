@@ -1,6 +1,6 @@
+```c++
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> by_length(std::initializer_list<int> lengths) {
     std::vector<std::string> result;
@@ -15,10 +15,11 @@ std::vector<std::string> by_length(std::initializer_list<int> lengths) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
 int main() {
     assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    return 0;
 }
