@@ -31,14 +31,10 @@ int main() {
     }
 
     if (!std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::getline(std::cin, dummy);
-    }
-
-    std::vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        std::cout << num << " ";
+        std::vector<int> result = findLeaders(nums);
+        for (int num : result) {
+            std::cout << num << " ";
+        }
     }
     return 0;
 }
