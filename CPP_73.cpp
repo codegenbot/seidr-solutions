@@ -1,7 +1,6 @@
-```
 #include <vector>
-#include <initializer_list>
 #include <cassert>
+#include <initializer_list>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
