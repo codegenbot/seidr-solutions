@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +19,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
+int greatest_common_divisor(int a, int b) {
     while (b != 0) {
         int r = a % b;
         a = b;
@@ -39,8 +40,8 @@ int main() {
     
     int a = 100;
     int b = 50;
-    int result = gcd(b, a);
-    cout << "GCD of " << a << " and " << b << ": " << result << endl;
+    int gcdResult = greatest_common_divisor(b, a);
+    cout << "GCD of " << a << " and " << b << ": " << gcdResult << endl;
 
     return 0;
 }
