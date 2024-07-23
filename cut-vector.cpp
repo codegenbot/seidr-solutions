@@ -1,45 +1,40 @@
 int main() {
-    vector<int> nums;
-    int num;
+    int n;
+    cin >> n;
     
-    while (cin >> num) {
-        nums.push_back(num);
-    }
-    
-    int n = nums.size();
-    int prefixSum[n+1];
-    prefixSum[0] = 0;
-    
+    vector<int> vec(n);
     for (int i = 0; i < n; ++i) {
-        prefixSum[i+1] = prefixSum[i] + nums[i];
+        cin >> vec[i];
     }
     
-    int totalSum = prefixSum[n];
-    int minDiff = INT_MAX;
-    int cutPoint = -1;
+    int diff = INT_MAX;
+    int cutIndex = -1;
     
     for (int i = 1; i < n; ++i) {
-        int leftSum = prefixSum[i];
-        int rightSum = totalSum - leftSum;
-        int diff = abs(leftSum - rightSum);
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; ++j) {
+            sum1 += vec[j];
+        }
+        for (int j = i; j < n; ++j) {
+            sum2 += vec[j];
+        }
         
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutPoint = i;
+        int currentDiff = abs(sum1 - sum2);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cutPoint; ++i) {
-        cout << nums[i] << endl;
+    for (int i = 0; i < cutIndex; ++i) {
+        cout << vec[i] << endl;
     }
     
-    cout << 0 << endl;
+    cout << endl;
     
-    for (int i = cutPoint; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int i = cutIndex; i < n; ++i) {
+        cout << vec[i] << endl;
     }
-    
-    cout << 0 << endl;
     
     return 0;
 }
