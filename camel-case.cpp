@@ -1,13 +1,11 @@
-#include <string>
-#include <vector>
-
+```cpp
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t pos = 0, start = 0;
 
     while ((pos = str.find_first_of(" -")) != std::string::npos) {
         if (pos > start) {
-            words.push_back(str.substr(start, pos - start));
+            words.push_back(str.substr(start, pos - start - 1));
         }
         start = pos + 1;
     }
