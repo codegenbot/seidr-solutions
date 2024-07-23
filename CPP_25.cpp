@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,8 +26,5 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    // Add more test cases here
-    return 0;
-}
+assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
+// Add more test cases here
