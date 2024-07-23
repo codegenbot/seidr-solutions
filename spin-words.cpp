@@ -7,18 +7,16 @@ std::string spinWords(std::string str) {
     
     for (char c : str) {
         if (c == ' ') {
-            result += word; // Move this line outside
+            result += word; 
             word = "";
         } else {
             word += c;
             
             // Additional check
             if (word.length() >= 5) {
-                std::string revWord = "";
                 for (int i = word.length() - 1; i >= 0; --i)
-                    revWord += word[i];
-                result += revWord;
-                word = "";
+                    result += word[i];
+                word = ""; 
             } else {
                 result += word;
                 word = "";
@@ -26,12 +24,11 @@ std::string spinWords(std::string str) {
         }
     }
     
+    // Last word check
     if (word.length() >= 5) {
-        std::string revWord = "";
         for (int i = word.length() - 1; i >= 0; --i)
-            revWord += word[i];
-        result += revWord;
-    } else
+            result += word[i];
+    } else 
         result += word;
     
     return result;
