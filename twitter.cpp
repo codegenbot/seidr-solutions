@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -13,7 +12,7 @@ int main() {
     } else {
         int asciiCount = 0;
         for (char c : tweet) {
-            if (isascii(c))
+            if (std::isascii(c))
                 asciiCount++;
         }
 
