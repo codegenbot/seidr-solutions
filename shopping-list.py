@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     result = "Prices and Discounts:\n"
