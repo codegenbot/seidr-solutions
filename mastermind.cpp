@@ -1,27 +1,25 @@
 #include <iostream>
 #include <string>
-#include <utility>
 
 using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    
-    for(int i = 0; i < 4; i++) {
+int mastermind(string code, string guess) {
+    int black = 0;
+    int white = 0;
+    for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            blackPegs++;
+            black++;
         } else {
-            for(int j = 0; j < 4; j++) {
-                if(i != j && code[j] == guess[i]) {
-                    whitePegs++;
-                    break;
+            bool found = false;
+            for(int j=0; j<4; j++) {
+                if(guess[j] == code[i] && !found) {
+                    white++;
+                    found = true;
                 }
             }
         }
     }
-    
-    return make_pair(blackPegs, whitePegs);
+    return 4 - black - white;
 }
 
 int main() {
@@ -30,6 +28,6 @@ int main() {
     cin >> code;
     cout << "Enter your guess: ";
     cin >> guess;
-    pair<int, int> result = mastermind(code, guess);
-    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result << ", White pegs: " << 4 - result << "\n";
 }
