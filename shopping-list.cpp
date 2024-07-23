@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -19,4 +18,3 @@ int main() {
     double result = shoppingList(prices, discounts);
     std::cout << "Total price after applying the discount is: $" << result << std::endl;
     return 0;
-}
