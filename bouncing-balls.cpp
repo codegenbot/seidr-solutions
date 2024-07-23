@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cmath>
 #include <iostream> 
 using namespace std;
@@ -23,7 +23,7 @@ int main() {
         newHeight = startHeight;
     }
 
-    cout << setprecision(2);
+    cout << fixed;
     cout << totalDistance << endl;
 
     return 0;
