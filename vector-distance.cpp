@@ -12,14 +12,13 @@ int main() {
     }
 
     std::vector<double> vector2(n);
-    char dummy; // to discard the commas in the input
     for (int i = 0; i < n; ++i) {
-        std::cin >> vector2[i] >> dummy;
+        std::cin >> vector2[i];
     }
 
     double sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vector1[i] - vector2[i], 2);
+        sum += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i]);
     }
 
     double distance = sqrt(sum);
