@@ -1,38 +1,34 @@
 ```cpp
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
-using namespace std;
-
-bool issame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) return false;
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) return false;
-    }
-    return true;
-
-}
-
-map<char, int> histogram(const string& str) {
-    map<char, int> result = map<char, int>();
-
-    for (char c : str) {
-        if (!isalpha(c)) continue; 
-        char lower = tolower(c);
-        if (result.find(lower) == result.end()) {
-            result[lower] = 1;
+std::map<char, int> histogram(std::string s) {
+    std::map<char, int> res;
+    for (char c : s) {
+        if (res.find(c) == res.end()) {
+            res[c] = 1;
         } else {
-            result[lower]++;
+            res[c]++;
         }
     }
+    return res;
+}
 
-    return result;
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    if (a.size() != b.size())
+        return false;
 
+    for (auto& pair : a) {
+        if (b.find(pair.first) == b.end() || pair.second != b[pair.first])
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
-    cout << "Success!" << endl;
+    std::map<char, int> m1 = histogram("a");
+    std::map<char, int> m2 = {{'a', 1}};
+    assert(issame(m1, m2));
     return 0;
 }
