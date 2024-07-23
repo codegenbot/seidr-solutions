@@ -1,28 +1,22 @@
-```
-def bowling_score(game):
-    score = 0
+def bowling_score(score):
+    total = 0
     frame = 1
-    for i in range(0, len(game), 2):
-        if game[i] == 'X':
-            if frame < 10:
-                score += 30
-            else:
-                score += 10 + int(game[i+1])
+    while frame <= 10:
+        if score[2 * frame - 2 : 2 * frame] == "X":
+            total += 10 + (10 if frame < 10 else 0)
             frame += 1
-        elif game[i].isdigit():
-            pins = int(game[i]) + int(game[i+1])
-            if pins == 10:
-                score += 10
-                frame += 1
-            else:
-                score += pins
-                frame += (pins < 10)
+        elif score[2 * frame - 2 : 2 * frame].count("/"):
+            left, right = map(int, score[2 * frame - 2 : 2 * frame].split("/"))
+            total += left + right
+            frame += 1
         else:
-            if frame < 9:
-                if game[i] == '/':
-                    score += 10 - int(game[i+1])
-                    frame += 1
-                elif game[i] == '-':
-                    score += 10 - int(game[i-1])
-                    frame -= 1
-    return score
+            strikes = 0
+            while len(score[2 * frame - 2 :]) > 1 and score[2 * frame - 2] != "X":
+                left, right = map(int, score[2 * frame - 2 : 2 * frame + 1].split("/"))
+                total += left + right
+                frame += 1
+                if len(score[2 * frame - 2 :]) > 1 and score[2 * frame - 2] != "X":
+                    strikes += 1
+            if strikes == 0:
+                total += int(score[2 * frame - 1])
+    return total
