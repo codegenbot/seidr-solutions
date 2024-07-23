@@ -1,22 +1,22 @@
-```cpp
 #include <string>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> otherVector) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
-    transform(b.begin(), b.end(), b.begin(), ::tolower);
+    transform(otherVector.begin(), otherVector.end(), otherVector.begin(), ::tolower);
 
     sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    sort(otherVector.begin(), otherVector.end());
 
     int i = 0, j = 0;
     
-    while (i < a.size() && j < b.size()) {
-        if (a[i] == b[j]) {
+    while (i < a.size() && j < otherVector.size()) {
+        if (a[i] == otherVector[j]) {
             return true; 
             i++;
             j++;
-        } else if (a[i] < b[j]) {
+        } else if (a[i] < otherVector[j]) {
             i++;
         } else {
             j++;
@@ -38,7 +38,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int i = 0, j = 0;
     
     while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) { 
+        if (lst1[i] == lst2[j]) {
             result.push_back(string(&lst1[i][0])); 
             i++;
             j++;
@@ -53,6 +53,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> lst1 = {"this"};
+    vector<string> lst2 = {};
+
+    assert(issame(total_match(lst1, lst2), {}));
     return 0;
 }
