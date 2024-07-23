@@ -1,20 +1,21 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
 
-    float prob = 0.0f;
+    double prob = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                prob += 1.0f / (n * m);
+                prob += 1.0;
             }
         }
     }
 
-    std::cout << std::fixed << std::setprecision(8) << prob << std::endl;
+    prob /= n * m;
+
+    std::cout << prob << std::endl;
 
     return 0;
 }
