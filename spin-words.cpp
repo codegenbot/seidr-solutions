@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```cpp
 std::string spinWords(std::string str) {
     std::string result = "";
     bool longWord = false;
@@ -34,3 +33,4 @@ std::string spinWords(std::string str) {
     }
 
     return result;
+}
