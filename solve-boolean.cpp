@@ -16,7 +16,7 @@ bool evaluateBooleanExpression(const string& expression) {
             return left || right;
         }
     }
-    return false; // Default return to handle warning
+    return false; // Add a default return statement
 }
 
 int main() {
