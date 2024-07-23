@@ -1,4 +1,4 @@
-```
+''''
 def solve():
     def parse_frame(frame):
         if frame == 'X':
@@ -36,5 +36,4 @@ def solve():
                 score += 30
         return score
 
-    frames = input("Enter the individual bowls: ").split()
-    print(bowling_score(frames))
+    print(bowling_score(input("Enter the individual bowls: ").split()))
