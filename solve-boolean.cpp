@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <queue>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -14,12 +13,12 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return operand == "T";
+                return operand == "True";
             }
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return operand == "T";
+                return operand == "True";
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
@@ -28,7 +27,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push(expression[i]);
+            operators.push('(');
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
