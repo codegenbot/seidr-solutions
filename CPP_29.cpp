@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
-    for (const auto& s : vec) {
-        if (s.find(prefix) == 0) {
-            result.push_back(s);
+    for (std::size_t i = 0; i < vec.size(); ++i) {
+        if (vec[i].find(prefix) == 0) {
+            result.push_back(vec[i]);
         }
     }
     return result;
@@ -18,11 +18,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    int main2() {
-        if (!issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
-            return 1;
-        }
-        return 0;
+    int result = 0;
+    if (!issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
+        result = 1;
     }
-    main2();
+    return result;
 }
