@@ -14,7 +14,7 @@ def coin_sums(cents):
 
 cents = int(input("Enter the amount of cents: "))
 result = coin_sums(cents)
-print(result[0])
-print(result[1])
-print(result[2])
-print(result[3])
+print(f"Quarters: {result[0]}")
+print(f"Dimes: {result[1]}")
+print(f"Nickels: {result[2]}")
+print(f"Pennies: {result[3]}")
