@@ -1,8 +1,7 @@
-int n = a.size();
-    int m = b.size();
-    if (n != m) {
+if (a.length() != b.length()) {
         return false;
     }
-    string temp = a + a;
-    return (temp.find(b) != string::npos);
+    
+    string concat = a + a;
+    return concat.find(b) != string::npos;
 }
