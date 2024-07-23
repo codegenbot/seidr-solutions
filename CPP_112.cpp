@@ -31,7 +31,8 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main() {
+int main 
+{ 
     std::string s, chars;
     std::cout << "Enter the string: ";
     std::getline(std::cin, s);
