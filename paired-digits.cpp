@@ -3,14 +3,17 @@
 using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    string digits;
+    cin >> digits;
+    
     int sum = 0;
-    for (int i = 0; i <= s.size() - 2; ++i) {
-        if (s[i] == s[i + 1]) {
-            sum += s[i] - '0';
+    for (int i = 0; i < digits.size() - 1; ++i) {
+        if (digits[i] == digits[i + 1]) {
+            sum += (digits[i] - '0') * 2;
         }
     }
+    
     cout << sum << endl;
+    
     return 0;
 }
