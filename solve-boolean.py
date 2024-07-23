@@ -11,6 +11,6 @@ def solve_boolean(expression):
             expression = str(bool(solve_boolean(left)) and bool(solveBoolean(right)))
         elif '||' in expression:
             left, right = expression.split('||')
-            expression = str(bool(solve_boolean(left)) or bool(solveBoolean(right)))
+            expression = str(bool(solve_boolean(left)) or bool(solve_boolean(right)))
 
     return eval(expression)
