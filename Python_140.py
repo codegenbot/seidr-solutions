@@ -1,10 +1,8 @@
+```
 def fix_spaces(s):
-    words = s.split()
-    new_s = ' '.join(words)
-    return new_s
+    return s.replace(" ", "")
 
-def check(function, arg):
-    result = function(arg)
-    return len(result)
+def check(fixer, s):
+    return fixer(s)
 
-check(fix_spaces, "   Hello World!   ")
+print(check(fix_spaces, "   Hello World!   "))
