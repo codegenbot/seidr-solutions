@@ -28,3 +28,9 @@ vector<int> parse_nested_parens(string paren_string) {
 
     return result;
 }
+
+int main() {
+    string paren_string = "(()(())((())))";
+    vector<int> result = parse_nested_parens(paren_string);
+    // your assert statement here
+}
