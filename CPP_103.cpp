@@ -1,5 +1,7 @@
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -9,7 +11,7 @@ string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m-n+1);
-    avg = floor(avg + 0.5); // round to nearest integer
+    avg = floor(avg + 0.5); 
     string res = "";
     while(avg > 0){
         if(avg % 2) res.push_back('1');
