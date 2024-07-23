@@ -6,13 +6,13 @@ int score(string s) {
         if (c == 'X') {
             total += 10;
             if (frame < 10) {
-                total += s[ball + 1] == 'X' ? 10 : (s[ball + 1] == '/' ? 10 - s[ball - 1] + '0' : s[ball + 1] - '0');
-                total += s[ball + 2] == 'X' ? 10 : (s[ball + 2] == '/' ? 10 - s[ball + 1] + '0' : s[ball + 2] - '0');
+                total += s[ball + 1] == 'X' ? 10 : (s[ball + 1] == '/' ? 10 - (s[ball - 1] - '0') : s[ball + 1] - '0');
+                total += s[ball + 2] == 'X' ? 10 : (s[ball + 2] == '/' ? 10 - (s[ball + 1] - '0') : s[ball + 2] - '0');
                 ball++;
             }
             frame++;
         } else if (c == '/') {
-            total += 10 - s[ball - 1] + '0';
+            total += 10 - (s[ball - 1] - '0');
             total += s[ball + 1] == 'X' ? 10 : s[ball + 1] - '0';
             frame++;
             ball++;
