@@ -12,7 +12,7 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
                 break;
             }
         }
-        decipheredMessage += (found != '0') ? cipher2[std::tolower(cipher1).find(found)] : c;
+        decipheredMessage += (found != '0') ? cipher2[cipher1.find(std::tolower(found))] : c;
     }
     return decipheredMessage;
 }
