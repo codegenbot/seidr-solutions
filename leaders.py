@@ -4,6 +4,8 @@ def leaders(arr):
 
     for i in range(n - 2, -1, -1):
         if arr[i] >= leaders[-1]:
-            leaders.insert(0, arr[i])
+            leaders.append(arr[i])
+        else:
+            break
 
-    return leaders
+    return leaders[::-1]
