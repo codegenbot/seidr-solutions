@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -13,7 +14,7 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int mainOld() {
+int main() {
     std::vector<float> myVector;
     int n;
     float temp;
