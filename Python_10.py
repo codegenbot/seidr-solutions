@@ -1,4 +1,5 @@
-Here is the completed code:
+Problem description:
+Complete the following code given the task description and function signature..
 
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
