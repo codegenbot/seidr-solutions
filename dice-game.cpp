@@ -1,3 +1,4 @@
+```
 double probability(int n, int m) {
     double total = (double)n * m;
     double count = 0;
