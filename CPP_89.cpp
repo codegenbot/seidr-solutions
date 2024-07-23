@@ -1,19 +1,19 @@
 string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char c = s[i] + 2*2;
-            if(islower(s[i])){
-                if(c > 'z'){
-                    c = 'a' + (c - 'z' - 1);
+    for (char c : s) {
+        if (isalpha(c)) {
+            char rotated = c + 2 * 2;
+            if (islower(c)) {
+                if (rotated > 'z') {
+                    rotated = 'a' + rotated - 'z' - 1;
                 }
             } else {
-                if(c > 'Z'){
-                    c = 'A' + (c - 'Z' - 1);
+                if (rotated > 'Z') {
+                    rotated = 'A' + rotated - 'Z' - 1;
                 }
             }
-            result += c;
+            result += rotated;
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
