@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,15 +7,21 @@ bool isPrime(int n) {
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
     }
-    return true;
+    if (n > 1) return true;
+    return false;
 }
 
 bool prime_length(const std::string& str) {
-    int len = static_cast<int>(str.length());
+    int len = 0;
+    for(char c : str) {
+        if(isalnum(c)) {
+            len++;
+        }
+    }
     return isPrime(len);
 }
 
-int main_userInput() {
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str); 
