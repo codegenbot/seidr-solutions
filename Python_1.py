@@ -1,6 +1,6 @@
-Here is the solution:
+Here is the completed code:
 
-```
+````
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -21,4 +21,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(groups.strip())
                 groups = ''
 
-    return result
+    return [group for group in result if group]
+```
