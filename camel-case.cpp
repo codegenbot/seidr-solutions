@@ -1,16 +1,23 @@
+Here is the modified code:
+
 #include <iostream>
 #include <string>
 
 std::string camelCase(const std::string& str) {
     if (str.empty()) return str;
-    std::string result = tolower(str[0]);
-    for (size_t i = 1; i < str.size(); ++i) {
+    std::string result = "";
+    for (size_t i = 0; i < str.size(); ++i) {
         if (str[i] == '-') {
-            result += toupper(str[++i]);
+            result += toupper(str[i+1]);
+            i++;
         } else if (str[i] == ' ') {
-            result += toupper(str[++i]);
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += str[i+1];
+            i++;
         } else {
-            result += str[i];
+            result += tolower(str[i]);
         }
     }
     return result;
