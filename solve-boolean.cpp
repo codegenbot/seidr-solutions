@@ -1,4 +1,8 @@
 ```cpp
+#include <stack>
+#include <string>
+#include <iostream>
+
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
     std::string operand = "";
