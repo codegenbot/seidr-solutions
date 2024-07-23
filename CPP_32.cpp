@@ -1,9 +1,20 @@
 double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = 0;
-    for(int i=1; i<xs.size();i++){
-        if(i%2==0) b+=xs[i]*pow(xs.back(),(i-1)/2);
-        else a+=(-1)*xs[i]/(double)(i)*(pow(xs.back(),(i-1)/2));
+    double sum = 0;
+    double product = 1;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        if(i%2==0)
+            sum += xs[i];
+        else
+            product *= -xs[i]/(double)fact((int)i);
     }
-    return -b/(2*a);
+    return -product/sum;
+}
+
+int fact(int n){
+    int i,fact=1;
+    for (i=1;i<=n;i++)
+        fact*=i;
+    return fact;
 }
