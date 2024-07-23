@@ -1,15 +1,8 @@
-#include <vector>
-#include <iostream>
-#include <cmath>
-
+```c++
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        double price = prices[i];
-        double discount = price * (discounts[i] / 100);
-        total += price - discount;
+        total += prices[i] - (prices[i] * (discounts[i] / 100));
     }
     return std::round(total * 100) / 100.0;
 }
-
-int main() { return 0; }
