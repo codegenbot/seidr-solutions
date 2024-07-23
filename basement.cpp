@@ -15,7 +15,12 @@ int basement(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -2, 3, -5, 2};
-    cout << basement(nums) << endl;
+    vector<int> nums;
+    int input;
+    while (cin >> input) {
+        nums.push_back(input);
+    }
+    int result = basement(nums);
+    cout << "Result: " << result << endl;
     return 0;
 }
