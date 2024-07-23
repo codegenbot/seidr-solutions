@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -11,11 +10,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c, std::strin
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+        if (std::find(c.begin(), c.end(), s[i]) == c.end()) {
             temp += s[i];
         }
     }
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {

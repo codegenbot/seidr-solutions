@@ -1,38 +1,25 @@
-#include <cctype>
+```cpp
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a == b;
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            int consonants = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isvowel(ch)) {
-                    consonants++;
-                }
-            }
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
+std::vector<std::string> select_words(std::string s, int k) {
+    std::vector<std::string> words;
+    std::istringstream iss(s);
+    for (std::string word; iss >> word;) {
+        if (word.size() >= k) {
+            words.push_back(word.substr(0, k));
         }
     }
-    return result;
+    return words;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // Your code goes here
-    return 0;
+bool isSame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
