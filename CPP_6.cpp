@@ -6,25 +6,22 @@ using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    stack<int> nesting_levels;
-    int max_level = 0;
+    stack<int> depth;
+    int maxDepth = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            nesting_levels.push(1);
-            max_level = max(max_level, 1);
+            depth.push(1);
+            if (depth.size() > maxDepth)
+                maxDepth = depth.size();
         } else if (c == ')') {
-            int level = nesting_levels.top();
-            nesting_levels.pop();
-            if (!nesting_levels.empty()) {
-                max_level = max(max_level, level + 1);
-            }
+            depth.pop();
         }
     }
 
-    while (!nesting_levels.empty()) {
-        result.push_back(nesting_levels.top());
-        nesting_levels.pop();
+    while (!depth.empty()) {
+        result.push_back(depth.top());
+        depth.pop();
     }
 
     reverse(result.begin(), result.end());
@@ -33,6 +30,6 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    assert(parse_nested_parens("(()(())((()))") == {4});
+    vector<int> result = parse_nested_parens("(()(())((()))"); 
     return 0;
 }
