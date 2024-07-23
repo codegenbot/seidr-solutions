@@ -14,5 +14,5 @@ bool check_dict_case(map<string, string> dict) {
         }
     }
 
-    return dict.empty() ? false : (all_lower || allUpper);
+    return dict.empty() ? false : (all_lower || all_upper);
 }
