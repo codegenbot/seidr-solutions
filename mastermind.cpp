@@ -1,27 +1,36 @@
+#include <string>
 using namespace std;
 
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for(int i=0; i<4; i++) {
+pair<int, int> mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
-            count++;
+            black++;
         }
     }
-    return 4 - count;
-}
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeVector(code.begin(), code.end());
-    for(int i=0; i<4; i++) {
-        if(countOf(codeVector, guess[i]) > 0) {
-            count++;
-            codeVector.erase(remove(codeVector.begin(), codeVector.end(), guess[i]), codeVector.end());
+    for(int i = 0; i < 6; i++) {
+        int count = 0;
+        for(int j = 0; j < 4; j++) {
+            if(guess[j] == (char)(i + 65) && code.find((char)(i + 65)) != string::npos) {
+                count++;
+            }
         }
+        white += count - black;
     }
-    return count;
+
+    return make_pair(black, white);
 }
 
-int countOf(std::vector<char> &vec, char ch) {
-    return vec.count(ch);
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code (4 characters): ";
+    cin >> code;
+    cout << "Enter your guess: ";
+    cin >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
+    return 0;
 }
