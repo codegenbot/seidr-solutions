@@ -6,13 +6,15 @@ std::string camelCase(std::string s) {
     for (int i = 0; i <= s.length(); i++) {
         if (i == s.length() || s[i] == '-') {
             if (result.back() != ' ') {
-                result.push_back(toupper(s[i]));
+                result.push_back(char(toupper(s[i])));
             } else {
-                result += toupper(s[i]);
+                result += s.substr(i);
                 break;
             }
         } else if (s[i] == ' ') {
-            result.push_back(toupper(s[i + 1]));
+            if (i < s.length()) {
+                result.push_back(char(toupper(s[i + 1])));
+            }
             i++;
         } else {
             result += s[i];
