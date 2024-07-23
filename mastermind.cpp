@@ -5,8 +5,9 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int white = 0;
+    pair<int, int> result;
     int black = 0;
+    int white = 0;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
@@ -14,17 +15,20 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    for(int i = 0; i < 6; i++) {
+    for(int i = 65; i <= 70; i++) {
         int count = 0;
         for(int j = 0; j < 4; j++) {
-            if(guess[j] == (char)(i + 65) && code.find((char)(i + 65)) != string::npos) {
+            if(guess[j] == (char)i) {
                 count++;
             }
         }
-        white += count - black;
+        white += max(count - black, 0);
     }
 
-    return make_pair(black, white);
+    result.first = black;
+    result.second = white;
+
+    return result;
 }
 
 int main() {
