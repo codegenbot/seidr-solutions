@@ -18,14 +18,18 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    int main();
-    // test your remove_duplicates function
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    std::vector<int> result = remove_duplicates(numbers);
-    
-    for (int num : result) {
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::vector<int> test2 = {1, 1, 1, 2, 3};
+
+    std::cout << "Test 1: ";
+    for (int num : remove_duplicates(test1)) {
         std::cout << num << " ";
     }
-    
-    return 0;
+    std::cout << std::endl;
+
+    std::cout << "Test 2: ";
+    for (int num : remove_duplicates(test2)) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 }
