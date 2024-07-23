@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <string>
 #include <iostream>
@@ -24,11 +25,11 @@ int main() {
     char buffer[256];
     std::cin.get(buffer, 256);
     std::string str = std::string(buffer);
-    
-    if (!(std::cin >> str).good()) {
+    if (!(std::cin).good()) {
         std::cerr << "Invalid input." << std::endl;
         return 1;
     }
+    std::cout << "Enter a string: ";
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
