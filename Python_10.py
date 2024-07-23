@@ -1,15 +1,13 @@
-Here is the completed code:
+Problem description:
+Complete the following code given the task description and function signature..
 
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string.isalnum():
-        i = 0
-        for j in range(len(string)-1, -1, -1):
-            if string[i] != string[j]:
-                break
-            i += 1
-        return string + string[:i][::-1]
-    else:
-        return "Input must be alphanumeric"
+    if string == string[::-1]:
+        return string + string[::-1]
+    for i in range(len(string)):
+        postfix = string[i:]
+        if postfix == postfix[::-1]:
+            return string + postfix[::-1]
