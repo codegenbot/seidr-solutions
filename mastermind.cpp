@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <set>
 
@@ -12,7 +13,10 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::set<char> correctColors(code.begin(), code.end()); 
+    std::set<char> correctColors;
+    for (char c : code) {
+        correctColors.insert(c);
+    }
 
     // Count white pegs now
     for (int i = 0; i < 4; ++i) {
@@ -22,4 +26,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << result - (result / 2) << ", White pegs: " << result / 2 << std::endl;
+    return 0;
 }
