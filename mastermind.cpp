@@ -1,57 +1,36 @@
-int getWhitePegs(string code, string guess) {
-    int whitePegs = 0;
-    map<char, int> codeCount;
-    map<char, int> guessCount;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    // Count the occurrences of each character in both strings
+using namespace std;
+
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+    
+    // Count the number of correct colors in wrong positions
+    vector<int> codeCount(6, 0);
     for (char c : code) {
-        codeCount[c]++;
+        codeCount[c - 'A']++;
     }
-    for (char c : guess) {
-        guessCount[c]++;
-    }
-
-    // Compare the counts and count the white pegs
-    for (auto it = guessCount.begin(); it != guessCount.end(); ++it) {
-        if (codeCount.find(it->first) != codeCount.end() && codeCount[it->first] > 0) {
-            whitePegs += min(codeCount[it->first], it->second);
+    for (int i = 0; i < 4; i++) {
+        char c = guess[i];
+        if (c == code[i]) {
+            black++;
+        } else if (codeCount[c - 'A']) {
+            white++;
+            codeCount[c - 'A']--;
         }
     }
-
-    return whitePegs;
-}
-
-int getBlackPegs(string code, string guess) {
-    int blackPegs = 0;
-    map<char, int> codeIndex;
-
-    // Create a mapping of the characters in the code to their indices
-    for (int i = 0; i < code.length(); i++) {
-        codeIndex[code[i]] = i;
-    }
-
-    // Compare the code and guess character by character
-    for (int i = 0; i < code.length(); i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+    
+    // Count the number of correct colors in correct positions
+    for (int i = 0; i < 4; i++) {
+        char c1 = guess[i];
+        char c2 = code[i];
+        if (c1 == c2) {
+            black++;
         }
     }
-
-    return blackPegs;
-}
-
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter a guess: ";
-    cin >> guess;
-
-    int whitePegs = getWhitePegs(code, guess);
-    int blackPegs = getBlackPegs(code, guess);
-
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
-
-    return 0;
+    
+    return make_pair(white, black).second;
 }
