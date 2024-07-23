@@ -1,4 +1,3 @@
-```
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     if not isinstance(numbers, list):
         return "Invalid input. Please enter a list of numbers."
