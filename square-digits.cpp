@@ -7,8 +7,10 @@ using namespace std;
 string squareDigits(int num) {
     string input = to_string(num);
     if (num < 0 || !input.empty()) {
-        return "Invalid input";
+        cout << "Invalid input" << endl;
+        return "";
     }
+    
     string result = "";
     for (char c : input) {
         if (isdigit(c)) { 
