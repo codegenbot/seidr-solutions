@@ -11,7 +11,6 @@ bool evaluateBooleanExpression(const std::string& expr) {
         
         if (expr[0] == '!') {
             negate = true;
-            return !evaluateBooleanExpression(expr.substr(1));
         }
 
         if (expr.find('&') != std::string::npos) {
