@@ -7,14 +7,13 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
+    bool convert = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] != ' ') {
-                result += toupper(s[i]);
-                i++;
-            }
-            result += " ";
+            convert = true;
+        } else if (convert) {
+            result += toupper(s[i]);
+            convert = false;
         } else {
             result += tolower(s[i]);
         }
