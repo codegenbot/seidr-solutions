@@ -9,14 +9,15 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         float snow_fall = snow_fall_rate;
         float snow_melt = snow_melt_rate * snow_on_ground;
-        snow_on_ground += snow_fall - snow_melt;
-        if (snow_on_ground < 0) {
+        float new_snow_on_ground = snow_on_ground + snow_fall - snow_melt;
+        if (new_snow_on_ground < 0) {
             snow_on_ground = 0;
+        } else {
+            snow_on_ground = new_snow_on_ground;
         }
     }
 
-    std::cout.precision(17);
-    std::cout << snow_on_ground << std::endl;
+    std::cout << std::fixed << snow_on_ground << std::endl;
 
     return 0;
 }
