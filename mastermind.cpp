@@ -1,6 +1,10 @@
+#include <string>
+#include <iostream>
+#include <set>
+
 int mastermind(std::string code, std::string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
     // Count black pegs first
     for (int i = 0; i < 4; ++i) {
@@ -9,18 +13,30 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    // Count white pegs now
+    // Create a set to keep track of correct colors (wrong place)
+    std::set<char> correctColors;
+
     for (char c : code) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i]) {
+        for (char d : guess) {
+            if (c == d && d != c) {
                 count++;
-                if (count > 1) {
-                    white++;
-                }
+                correctColors.insert(d);
             }
         }
     }
 
+    // Count white pegs now
+    white = std::distance(correctColors.begin(), correctColors.end());
+
     return black + white;
+
+}
+
+int main() {
+    std::string code, guess;
+    std::getline(std::cin, code);
+    std::getline(std::cin, guess);
+    std::cout << mastermind(code, guess) << std::endl;
+    return 0;
 }
