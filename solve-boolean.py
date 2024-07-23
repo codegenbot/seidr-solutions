@@ -1,13 +1,9 @@
 def solve_boolean(expression):
     stack = []
-    operator = ''
     for char in expression:
-        if char in {'T', 'F'}:
-            while operator == '|':
-                stack.append(eval(f'({stack.pop()} {operator} {char})'))
-                operator = '&'
-            stack.append(char)
-            operator = ''
-        elif char in {'&', '|'}:
-            operator = char
-    return 'T' if stack[-1] else 'F'
+        if char in {"T", "F"}:
+            stack.append(char == "T")
+        elif char in {"&", "|"}:
+            while len(stack) > 1 and ((stack[-2] and char == "&") or (not stack[-2] and char == "|")):
+                stack.pop()
+    return "T" if stack[0] else "F"
