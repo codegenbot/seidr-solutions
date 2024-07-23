@@ -1,17 +1,14 @@
-```cpp
 #include <cctype>
 #include <string>
-#include <ostream>
+#include <iostream>
+#include <cassert>
 
 std::string flip_case(std::string str){
     std::string result;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
-        if(c >= 'a' && c <= 'z'){
-            result += std::toupper(c);
-        }
-        else if(c >= 'A' && c <= 'Z'){
-            result += std::tolower(c);
+        if(std::isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : std::tolower(c);
         }
         else{
             result += c;
@@ -23,11 +20,10 @@ std::string flip_case(std::string str){
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    if (str.empty()) {
-        std::cerr << "Error: Input string is empty.\n";
+    if (!(std::cin >> str).good()) {
+        std::cerr << "Invalid input." << std::endl;
         return 1;
     }
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
-    static_assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS", "");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
