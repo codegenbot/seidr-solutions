@@ -16,24 +16,45 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         len2 += s.length();
     }
 
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
-
-    int i = 0, j = 0;
-    
-    while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) {
-            result.push_back(lst1[i]);
-            i++;
-            j++;
-        } else if (lst1[i] < lst2[j]) {
-            i++;
-        } else {
-            j++;
+    if (len1 < len2) {
+        sort(lst1.begin(), lst1.end());
+        sort(lst2.begin(), lst2.end());
+        
+        for (int i = 0; i < min(len1, len2); i++) {
+            if (lowercase_copy(lst1[i]) == lowercase_copy(lst2[i])) {
+                result.push_back(lst1[i]);
+            }
+        }
+    } else if (len2 < len1) {
+        sort(lst2.begin(), lst2.end());
+        sort(lst1.begin(), lst1.end());
+        
+        for (int i = 0; i < min(len1, len2); i++) {
+            if (lowercase_copy(lst1[i]) == lowercase_copy(lst2[i])) {
+                result.push_back(lst1[i]);
+            }
+        }
+    } else {
+        sort(lst1.begin(), lst1.end());
+        sort(lst2.begin(), lst2.end());
+        
+        for (int i = 0; i < len1; i++) {
+            if (lowercase_copy(lst1[i]) == lowercase_copy(lst2[i])) {
+                result.push_back(lst1[i]);
+            }
         }
     }
 
     return result;
+}
+
+string lowercase_copy(const string& s) {
+    string copy = s;
+    for (int i = 0; i < s.length(); i++) {
+        if (isupper(copy[i]))
+            copy[i] = tolower(copy[i]);
+    }
+    return copy;
 }
 
 int main() {
