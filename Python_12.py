@@ -1,3 +1,4 @@
+```
 from typing import Optional
 
 
@@ -20,13 +21,12 @@ while True:
     if line.lower() == "stop":
         break
     try:
-        strings.append(line)
+        strings.append(line.strip().lower())
     except Exception as e:
         print(f"Invalid input: {e}")
 
-if strings:
-    result = longest(strings)
-    if result == "No strings entered":
-        print(result)
-    else:
-        print(f"The longest string is: {result}")
+result = longest(strings)
+if result == "No strings entered":
+    print(result)
+else:
+    print(f"The longest string is: {result}")
