@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
