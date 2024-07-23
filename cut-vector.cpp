@@ -18,23 +18,3 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 
     return {left, right};
 }
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n+1);
-    for (int i = 0; i <= n; ++i) {
-        cin >> v[i];
-    }
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << res.first.size() << endl;
-    for (int num : res.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    cout << res.second.size() << endl;
-    for (int num : res.second) {
-        cout << num << " ";
-    }
-    return 0;
-}

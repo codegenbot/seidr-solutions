@@ -1,7 +1,6 @@
-Here is your modified code:
+#include <string>
 
-```c++
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
@@ -22,4 +21,3 @@ int bowlingScore(std::string s) {
         score += roll;
     }
     return score;
-}
