@@ -1,16 +1,11 @@
-import re
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        i = len(string)
-        while not is_palindrome(string[:i]):
-            i -= 1
-        return string + string[:i][::-1]
-    else:
-        lower_string = string.lower()
-        i = len(lower_string)
-        while not is_palindrome(lower_string[:i]):
-            i -= 1
-        non_alpha_chars = re.sub("[^a-zA-Z]", "", string[0:i])
-        return string[0:i].upper() + lower_string[:i][::-1] + non_alpha_chars[::-1]
+    if is_palindrome(string):
+        return string + string
+    for i in range(len(string)):
+        postfix = string[i:]
+        if is_palindrome(postfix):
+            return string + postfix[::-1]
