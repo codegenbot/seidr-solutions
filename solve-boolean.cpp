@@ -1,4 +1,3 @@
-```
 #include <stack>
 #include <string>
 #include <iostream>
@@ -33,12 +32,12 @@ bool evaluateBooleanExpression(std::string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (operators.top() == '|') {
+                if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
                     return operand == "T";
-                } else if (operators.top() == '&') {
+                } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
                     return operand == "T";
                 }
@@ -49,13 +48,17 @@ bool evaluateBooleanExpression(std::string expression) {
         }
     }
 
+    if (!operand.empty()) {
+        return operand == "T";
+    }
+
     while (!operators.empty()) {
-        if (operators.top() == '|') {
+        if (expression[i] == '|') {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
             return operand == "T";
-        } else if (operators.top() == '&') {
+        } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
             return operand == "T";
         }
@@ -63,13 +66,13 @@ bool evaluateBooleanExpression(std::string expression) {
         operators.pop();
     }
 
-    return operand == "T";
+    return true;
 }
 
 int main() {
     std::string expression;
     std::cout << "Enter Boolean expression: ";
-    std::cin >> expression;
+    std::getline(std::cin, expression);
     bool result = evaluateBooleanExpression(expression);
     if (result)
         std::cout << "True" << std::endl;
