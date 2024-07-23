@@ -1,8 +1,11 @@
-```cpp
 #include <string>
 #include <cctype>
 
-std::string flip_case(std::string& s) {
+#ifdef __cplusplus
+    #define _SCL_SECURE_NO_WARNINGS
+#endif
+
+std::string flip_case(const std::string& s) {
     std::string result = "";
     for (char c : s) {
         if (isupper(c)) {
