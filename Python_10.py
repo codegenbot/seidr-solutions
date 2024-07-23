@@ -1,3 +1,4 @@
+```
 def make_palindrome(string: str) -> str:
     if string.islower():
         i = len(string)
