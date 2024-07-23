@@ -1,6 +1,7 @@
+```cpp
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int cutIndex = INT_MAX;
+    int cutIndex = 0;
     
     for (int i = 1; i <= v.size(); i++) {
         int leftSum = 0, rightSum = 0;
@@ -10,7 +11,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
         
         for (int j = i; j < v.size(); j++) {
-            rightSum += v[j];
+            rightSum = accumulate(v.begin() + j, v.end(), 0);
         }
         
         int diff = abs(leftSum - rightSum);
@@ -22,7 +23,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     }
     
     vector<int> leftVec(v.begin(), v.begin() + cutIndex);
-    vector<int> rightVec(v.begin() + cutIndex, v.end());
+    vector<int> rightVec(vector<int>(v.begin() + cutIndex, v.end()));
     
     return {leftVec, rightVec};
 }
