@@ -8,24 +8,9 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {  
-        bool isLower = true;
-        for(char c: pair.first) {
-            if (!islower(c)) {
-                isLower = false;
-                break;
-            }
-        }
-        bool isUpper = true;
-        for(char c: pair.first) {
-            if (!isupper(c)) {
-                isUpper = false;
-                break;
-            }
-        }
-
-        allLower &= isLower;
-        allUpper &= isUpper;
+        if (!islower(pair.first[0])) allLower = false;
+        if (!isupper(pair.first[0])) allUpper = false;
     }
 
-    return (!allLower && allUpper) || allLower && !allUpper;
+    return (allLower && !allUpper) || (!allLower && allUpper);
 }

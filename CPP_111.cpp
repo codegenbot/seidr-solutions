@@ -1,6 +1,6 @@
-#include <map>
+using namespace std;
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool isSameHistogram(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
