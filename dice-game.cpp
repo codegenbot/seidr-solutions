@@ -1,7 +1,6 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
     double total = 1.0;
