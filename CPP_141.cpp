@@ -1,3 +1,4 @@
+```
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool has_dot = false;
@@ -7,7 +8,7 @@ std::string file_name_check(std::string file_name){
             has_dot = true;
         } else if(c >= '0' && c <= '9'){
             digit_count++;
-        } else if(isalpha(c) || (!has_dot && !isalpha(c))){
+        } else if(isalpha(c) && !has_dot){
             return "No";
         }
     }
