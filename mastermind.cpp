@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
