@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
-    cipher = {cipher1[i]: cipher2[i] for i in range(min(len(cipher1), len(cipher2)))}
+    cipher = {char1: char2 for char1, char2 in zip(cipher1, cipher2)}
     return "".join([cipher.get(char.lower(), char) for char in message])
