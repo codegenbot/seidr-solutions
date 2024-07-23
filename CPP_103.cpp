@@ -1,15 +1,17 @@
-string rounded_avg(int n,int m){
+#include <string>
+#include <algorithm>
+
+std::string rounded_avg(int n, int m) {
     if(n > m) return "-1";
     int sum = 0;
     for(int i=n; i<=m; i++) sum += i;
     double avg = (double)sum/(m-n+1);
-    avg = floor(avg); 
+    avg = floor(avg);
     string res = "";
-    int cur_avg = avg; 
-    while(cur_avg > 0){
-        if(cur_avg & 1) res.push_back('1');
+    while(avg > 0){
+        if(avg % 1 != 0) res.push_back('1');
         else res.push_back('0');
-        cur_avg >>= 1;
+        avg = floor(avg / 2.0);
     }
     reverse(res.begin(), res.end());
     return res;
