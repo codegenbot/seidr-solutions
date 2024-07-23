@@ -1,4 +1,5 @@
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```python
+numbers = [int(i) for i in input("Enter numbers (space separated): ").split()]
 min_diff = float('inf')
 closest_pair = ()
 for i in set(tuple(sorted((x, y))) for x in numbers for y in numbers if x != y):
