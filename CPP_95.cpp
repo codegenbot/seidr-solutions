@@ -11,10 +11,12 @@ bool check_dict_case(map<string,string> dict){
             return false;
         }
         
-        if(key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
-            all_lower = false;
-        } else if(key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
+        if(key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos){
             all_upper = false;
+        }
+        
+        if(key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos){
+            all_lower = false;
         }
     }
     
