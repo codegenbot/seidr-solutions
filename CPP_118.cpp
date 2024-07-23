@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
+    return (std::find(std::begin(vowels).base(), std::end(vowels).base(), tolower(c)) != std::end(vowels));
 }
 
 std::string get_closest_vowel(std::string word) {
