@@ -1,9 +1,4 @@
-#include <iostream>
-#include <stack>
-using namespace std;
-
 bool evaluateBooleanExpression(string expression) {
-    stack<string> operands;
     stack<char> operators;
     string operand = "";
     int i = 0; 
@@ -14,13 +9,15 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return operand == "True";
+                return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return operand == "True";
+                return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
@@ -28,33 +25,40 @@ bool evaluateBooleanExpression(string expression) {
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            operators.push("(");
+            operators.push(expression[i]);
         } else if (expression[i] == ')') {
-            while (operators.top() != "(") {
-                string op = "";
-                op = (operators.top() == '&' ? "and" : "or");
-                operand += " " + op;
+            while (operators.top() != '(') {
+                if (expression[i] == '|') {
+                    while (!operators.empty() && operators.top() == '|') {
+                        operators.pop();
+                    }
+                    return operand == "T";
+                } else if (expression[i] == '&') {
+                    while (!operators.empty()) operators.pop();
+                    return operand == "T";
+                }
+
                 operators.pop();
             }
             operators.pop();
-            return (operand == "T and True" || operand == "T or True") ? true : false;
-        } else {
-            if (!operand.empty()) {
-                string op = "";
-                op = (expression[i] == '&' ? "and" : "or");
-                operands.push(op);
-            }
         }
     }
 
     while (!operators.empty()) {
-        string op = "";
-        op = (operators.top() == '&' ? "and" : "or");
-        operand += " " + op;
+        if (expression[i] == '|') {
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
+            }
+            return operand == "T";
+        } else if (expression[i] == '&') {
+            while (!operators.empty()) operators.pop();
+            return operand == "T";
+        }
+
         operators.pop();
     }
 
-    return true;
+    return operand == "T";
 }
 
 int main() {
