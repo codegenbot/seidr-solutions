@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,6 +18,7 @@ vector<int> count_up_to(int n) {
             result.push_back(i);
     }
     return result;
+
 }
 
 int main() {
@@ -25,17 +26,16 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     
-    vector<int> primes = count_up_to(n);
+    vector<unsigned long> primes = count_up_to(n);
     
     if (primes.empty()) {
         cout << "No prime numbers found in the range 1 to " << n << endl;
     } else {
         cout << "Prime numbers up to " << n << ":";
-        for (int num : primes) {
+        for (unsigned long num : primes) {
             cout << " " << num;
         }
         cout << endl;
     }
     
     return 0;
-}
