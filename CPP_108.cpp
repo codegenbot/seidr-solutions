@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
+using namespace std;
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num < 0) {
@@ -12,9 +12,14 @@ int count_nums(std::vector<int> n) {
             sum += num % 10;
             num /= 10;
         }
-        if (sum > 0) {
+        if (sum == 1 || sum == 4 || sum == 7) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    return 0;
 }
