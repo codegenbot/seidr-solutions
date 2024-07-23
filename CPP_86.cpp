@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
 string anti_shuffle(string s) {
     string result = "";
