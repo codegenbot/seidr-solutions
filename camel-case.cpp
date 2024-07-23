@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -31,7 +31,7 @@ string camelCase(string s) {
 int main() {
     string input;
     cout << "Enter a kebab-case string: ";
-    cin >> input;
-    cout << "Camel-case output: " << camelCase(input) << endl;
+    getline(cin, input);
+    cout << "CamelCase: " << camelCase(input) << endl;
     return 0;
 }
