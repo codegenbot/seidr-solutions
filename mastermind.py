@@ -6,4 +6,5 @@ def mastermind(code, guess):
     correct_colors = sum(code_counts)
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
     white_pegs = correct_colors - black_pegs
-    return str(black_pegs) + "\n" + str(4 - black_pegs)
+
+    return str(white_pegs) + "\n" + str(black_pegs)
