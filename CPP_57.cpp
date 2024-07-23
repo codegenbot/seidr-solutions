@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+
 using namespace std;
 
 bool monotonic(vector<float> l) {
@@ -7,10 +7,11 @@ bool monotonic(vector<float> l) {
     bool decreasing = true;
 
     for (int i = 1; i < l.size(); i++) {
-        if ((l[i] > l[i-1]) && !increasing)
-            return false;
-        if ((l[i] < l[i-1]) && !decreasing)
-            return false;
+        if (l[i] > l[i - 1]) {
+            decreasing = false;
+        } else if (l[i] < l[i - 1]) {
+            increasing = false;
+        }
     }
 
     return increasing || decreasing;
