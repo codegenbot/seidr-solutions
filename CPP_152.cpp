@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -17,6 +17,7 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     return result;
 }
 
-int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+int testMain() {
+    assert(compare({1,2,3,5},{-1,2,3,4}) == std::vector<int>({2,0,0,1}));
+    return 0;
 }
