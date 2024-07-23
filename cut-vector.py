@@ -10,7 +10,7 @@ while current_sum < half_sum:
     current_sum += nums[idx]
     idx += 1
 
-if abs(2*current_sum - total_sum) < abs(2*(current_sum - nums[idx]) - total_sum):
+if abs(total_sum - 2*current_sum) < abs(total_sum - 2*current_sum - nums[idx]):
     print(*nums[:idx])
     print(*nums[idx:])
 else:
