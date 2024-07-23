@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,7 +7,9 @@ double diceGame(int n, int m) {
     double p = 0.0;
 
     for(int i = 1; i <= min(n, m); i++) {
-        if(i < m) {
+        if(m - i > n) {
+            p -= (i) / total;
+        } else {
             p += (n - i) / total;
         }
     }
@@ -16,6 +19,4 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main(int argc, char** argv) {
-    cout << diceGame(43, 98);
-}
+int main() { cout << diceGame(43, 98); return 0; }
