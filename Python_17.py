@@ -3,10 +3,10 @@ from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    if len(music_string) < 2:
-        return ["Invalid input"]
     music_list = []
     i = 0
+    if len(music_string) < 2:
+        return ["Invalid input"]
     while i < len(music_string):
         if music_string[i:i+2] == 'o|':
             music_list.append(3)
