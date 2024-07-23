@@ -1,3 +1,4 @@
+```cpp
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for(int i=0; i<brackets.length(); i++){
@@ -5,3 +6,4 @@ bool correct_bracketing(const std::string& brackets) {
         else if(brackets[i] == ')')if(count > 0)count--; 
     }
     return count==0;
+}
