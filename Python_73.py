@@ -1,6 +1,5 @@
 ```
 def smallest_change(arr):
-    arr = list(map(int, input("Enter an array of integers (space separated): ").split()))
     n = len(arr)
     rev_arr = arr[::-1]
     
@@ -11,4 +10,5 @@ def smallest_change(arr):
     
     return changes
 
-print(smallest_change([]))
+input_array = list(map(int, input("Enter the array elements separated by space: ").split()))
+print(smallest_change(input_array))
