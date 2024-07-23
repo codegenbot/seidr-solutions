@@ -18,11 +18,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i; j < n; j++)
             sum_right += v[j];
 
-        if (sum_left == sum_right) {
-            return {{v.begin(), v.end()}};
-        }
-
-        int diff = abs((sum_left > sum_right) ? sum_left - sum_right : sum_right - sum_left);
+        int diff = (sum_left > sum_right) ? sum_left - sum_right : sum_right - sum_left;
         if (diff < min_diff) {
             min_diff = diff;
             best_cut = i;
