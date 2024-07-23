@@ -7,7 +7,7 @@ std::vector<std::string> eat(int number, int need, int remaining) {
         task = "Pass";
     
     std::string result;
-    int left = max(0, min((number + need) - 1000, remaining));
+    int left = std::max(0, std::min((number + need) - 1000, remaining));
     if (left == 0)
         result = "Cannot eat anything";
     else if (left > remaining / 2)
