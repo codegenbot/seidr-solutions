@@ -1,10 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <numeric>
 
 using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -13,21 +20,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            while (true) {
-                i++;
-                if (i > n - m || text.substr(i, m) != target) {
-                    break;
-                }
-                result.push_back(i);
-            }
+            result.push_back(i);
+            while ((i + m) <= n && text.substr(i, m) == target)
+                i++; // Handle overlapping occurrences
         }
     }
 
     return result;
 }
-
-int gcd = __gcd(abs(909378243576), abs(50));
-cout << "GCD of " << 909378243576 << " and " << 50 << ": " << gcd << endl;
 
 int main() {
     string text = "Hello World";
@@ -38,6 +38,10 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    
+
+    int a = 909378243576;
+    int b = 50; 
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+
     return 0;
 }
