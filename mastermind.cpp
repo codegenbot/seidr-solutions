@@ -12,12 +12,9 @@ int main() {
 
     int whitePegs = 0, blackPegs = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 26; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-            codeFreq[code[i] - 'A'] += 1;
-            guessFreq[guess[i] - 'A'] += 1;
-        } else {
             codeFreq[code[i] - 'A'] += 1;
             guessFreq[guess[i] - 'A'] += 1;
         }
