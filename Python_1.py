@@ -18,4 +18,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(current_group)
                 current_group = ''
+    
     return result
