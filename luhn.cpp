@@ -5,9 +5,9 @@ int luhn(vector<int> card) {
     int sum = 0;
     bool alt = false;
     for (int i = card.size() - 1; i >= 0; --i) {
-        int digit = card[i] * 10;
+        int digit = card[i];
         if (alt) {
-            digit += digit / 10;
+            digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
@@ -15,17 +15,18 @@ int luhn(vector<int> card) {
         sum += digit;
         alt = !alt;
     }
-    return sum % 10 == 0;
+    return sum;
 }
 
 int main() {
-    vector<int> card; 
-    for (int i = 15; i >= 0; --i) {
-        int x;
-        cout << "Enter the " << i << "th digit of your credit card number: ";
-        cin >> x;
-        card.push_back(x);
+    vector<int> card;
+    int num;
+    
+    for(int i=0; i<16; ++i){
+        cin >> num;
+        card.push_back(num);
     }
-    cout << luhn(card) ? "Valid" : "Invalid";
+    
+    cout << luhn(card) << endl;
     return 0;
 }
