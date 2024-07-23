@@ -1,4 +1,16 @@
-Here is the solution:
+def indices_of_substring(text):
+    result = []
+    start_index = 0
+    while start_index < len(text):
+        target_start_index = text.find(target, start_index)
+        if target_start_index == -1:
+            break
+        result.append(target_start_index)
+        start_index = target_start_index + 1
+    return result
 
-def indices_of_substring(text, target):
-    return [i for i in range(len(text)) if text.startswith(target, i)]
+
+text = input()
+target = input()
+
+print(indices_of_substring(text))
