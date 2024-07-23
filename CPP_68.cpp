@@ -3,7 +3,6 @@
 #include <utility>
 #include <climits>
 #include <iostream>
-
 using namespace std;
 
 vector<pair<int, int>> result(vector<int> arr) {
@@ -23,10 +22,27 @@ vector<pair<int, int>> result(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = result(arr);
-    for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> num;
+        arr.push_back(num);
     }
+
+    vector<pair<int, int>> output = result(arr);
+
+    if (!output.empty()) {
+        for (auto p : output) {
+            cout << "Number: " << p.first << ", Index: " << p.second << endl;
+        }
+    } else {
+        cout << "No even numbers found." << endl;
+    }
+
     return 0;
 }
