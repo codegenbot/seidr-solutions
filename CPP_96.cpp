@@ -1,24 +1,24 @@
+```c++
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-vector<int> sieveOfEratosthenes(int n) {
-    vector<bool> isPrime(n+1, true);
-    for (int p = 2; p*p <= n; p++) {
-        if (isPrime[p]) {
-            for (int i = p*2; i <= n; i += p) {
-                isPrime[i] = false;
+vector<int> count_up_to(int n) {
+    vector<int> result;
+    for (int i = 2; i <= n; ++i) {
+        bool isPrime = true;
+        for (int j = 2; j <= sqrt(i); ++j) { 
+            if (i % j == 0) {
+                isPrime = false;
+                break;
             }
         }
+        if (isPrime)
+            result.push_back(i);
     }
-
-    vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
-        if (isPrime[i])
-            primes.push_back(i);
-    }
-    return primes;
+    return result;
 }
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     
-    vector<int> primes = sieveOfEratosthenes(n);
+    vector<int> primes = count_up_to(n);
     
     if (primes.empty()) {
         cout << "No prime numbers found in the range 1 to " << n << endl;
