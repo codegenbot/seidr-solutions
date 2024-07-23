@@ -1,4 +1,14 @@
 int sum = 0;
-for(int i=0; i<q.size(); i++)
-    sum += q[i];
-return sum <= w && equal(q.begin(), q.begin() + q.size()/2, q.rbegin());
+    for (int num : q) {
+        sum += num;
+    }
+    
+    if (sum <= w) {
+        vector<int> rev_q = q;
+        reverse(rev_q.begin(), rev_q.end());
+
+        return q == rev_q;
+    } else {
+        return false;
+    }
+}
