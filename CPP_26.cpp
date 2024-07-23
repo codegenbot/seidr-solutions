@@ -3,22 +3,25 @@
 #include <algorithm>
 
 std::vector<int> removeDuplicates(std::vector<int> vec) {
-    if (vec.empty())
-        return vec;
-
-    std::vector<int> result(1, vec[0]);
-
-    for (int i = 1; i < vec.size(); i++) {
-        if (vec[i] != result.back()) {
-            result.push_back(vec[i]);
+    std::vector<int> result;
+    for (int i : vec) {
+        if (std::find(result.begin(), result.end(), i) == result.end()) {
+            result.push_back(i);
         }
     }
-
     return result;
 }
 
 bool same(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int solve() {
