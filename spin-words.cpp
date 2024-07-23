@@ -1,33 +1,32 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string spinWords(std::string str) {
-    std::vector<std::string> words;
+    std::string result = "";
+    bool longWord = false;
+    std::string word = "";
+
     for (char c : str) {
         if (c == ' ') {
-            words.push_back("");
+            if (!longWord) {
+                result += word + " ";
+                word = "";
+            } else {
+                std::reverse(word.cbegin(), word.cend());
+                result += word + " ";
+                word = "";
+                longWord = false;
+            }
         } else {
-            words.back() += c;
+            word += c;
+            if (word.length() >= 5) {
+                longWord = true;
+            }
         }
     }
 
-    for (auto& word : words) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
+    if (!longWord) {
+        result += word;
+    } else {
+        std::reverse(word.cbegin(), word.cend());
+        result += word;
     }
 
-    std::string result = "";
-    for (const auto& word : words) {
-        result += word + " ";
-    }
-
-    return result.substr(0, result.length()-1);
-}
-
-int main() {
-    std::cout << spinWords("xaxcv fs xmx ckq") << std::endl;
-    return 0;
-}
+    return result;
