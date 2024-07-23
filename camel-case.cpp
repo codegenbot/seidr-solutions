@@ -5,7 +5,7 @@ int main() {
     string input;
     getline(cin, input);
     
-    bool capitalize = false;
+    bool capitalize = true;
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
