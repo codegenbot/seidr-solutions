@@ -18,4 +18,4 @@ int main() {
     cout << message << "\n";
     
     return 0;
-} 
+}
