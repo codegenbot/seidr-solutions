@@ -1,4 +1,5 @@
 #include <string>
+#include <set>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -11,7 +12,6 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    // Create a set to keep track of correct colors (wrong place)
     std::set<char> correctColors;
 
     for (char c : code) {
