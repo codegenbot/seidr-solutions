@@ -1,15 +1,19 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     total = 0
-    odd_indexed_digits_sum = 0
+    double = False
+
     for i, digit in enumerate(card_number):
-        if (i % 2 == 1):
+        if double:
             doubled_digit = digit * 2
             if doubled_digit > 9:
-                doubled_digit -= 9
-            odd_indexed_digits_sum += doubled_digit
+                total += doubled_digit // 10 + doubled_digit % 10
+            else:
+                total += doubled_digit
+            double = False
         else:
-            odd_indexed_digits_sum += digit
+            total += digit
+            if i < len(card_number) - 1:  
+                double = True
 
-    return total + odd_indexed_digits_sum
+    return total
