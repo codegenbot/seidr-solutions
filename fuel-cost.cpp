@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,8 +6,8 @@ using namespace std;
 int calculateFuelCost(vector<int> numbers) {
     int total = 0;
     for (int num : numbers) {
-        int result = (num / 3);
-        result = round(result - 2.5);
+        int result = static_cast<int>(floor(double(num) / 3));
+        result -= 2;
         total += result;
     }
     return total;
