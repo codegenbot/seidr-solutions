@@ -1,34 +1,102 @@
-```cpp
+#include <iostream>
+#include <string>
 #include <stack>
+
 using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool res = false;
-    
-    for(int i=s.length()-1; i>=0; i--) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operators;
+    string operand = "";
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
             }
-            if(st.empty()) {
-                res = true;
-            } else {
-                res = false;
+            if (!operand.empty()) {
+                if (operand == "T") operand = "False";
+                else operand = "True";
+
+                return (operand == "True");
             }
-        } else if(s[i] == '|') {
-            while(!st.empty() && st.top() == '|') {
-                st.pop();
+        } else if (expression[i] == '|') {
+            while (!operators.empty()) operators.pop();
+            if (!operand.empty()) {
+                if (operand == "T") operand = "True";
+                else operand = "False";
+
+                return (operand == "True");
             }
-            if(st.empty()) {
-                res = false;
-            } else {
-                res = true;
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
+                                        (expression[i] == 'f' && operators.top() == '&'))) {
+                while (!operators.empty()) operators.pop();
             }
+            operand += expression[i];
         } else {
-            st.push(s[i]);
+            continue;
+        }
+
+        if (expression[i] == '(') {
+            operators.push('(');
+        } else if (expression[i] == ')') {
+            while (operators.top() != '(') {
+                if (expression[i] == '|') {
+                    while (!operators.empty() && operators.top() == '|') {
+                        operators.pop();
+                    }
+                    if (!operand.empty()) {
+                        if (operand == "T") operand = "True";
+                        else operand = "False";
+
+                        return (operand == "True");
+                    }
+                } else if (expression[i] == '&') {
+                    while (!operators.empty()) operators.pop();
+                    if (!operand.empty()) {
+                        if (operand == "T") operand = "True";
+                        else operand = "False";
+
+                        return (operand == "True");
+                    }
+                }
+
+                operators.pop();
+            }
+            operators.pop();
         }
     }
-    
-    return res;
+
+    while (!operators.empty()) {
+        if (expression[i] == '|') {
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
+            }
+            if (!operand.empty()) {
+                if (operand == "T") operand = "True";
+                else operand = "False";
+
+                return (operand == "True");
+            }
+        } else if (expression[i] == '&') {
+            while (!operators.empty()) operators.pop();
+            if (!operand.empty()) {
+                if (operand == "T") operand = "True";
+                else operand = "False";
+
+                return (operand == "True");
+            }
+        }
+
+        operators.pop();
+    }
+
+    if (!operand.empty()) {
+        if (operand == "T") operand = "True";
+        else operand = "False";
+
+        return (operand == "True");
+    }
+
+    return true;
 }
