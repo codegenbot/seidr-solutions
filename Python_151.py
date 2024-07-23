@@ -1,5 +1,5 @@
 def double_the_difference(first_list, second_list):
-    if len(first_list) != len(second_list):
-        return "Lists must be of the same length"
-    differences = [(a - b)**2 for a, b in zip(first_list, second_list)]
-    return sum(differences) * 8
+    difference = sum(set(first_list).symmetric_difference(second_list))
+    return 2 * difference
+
+print(double_the_difference([1, 3], [2, 4]))
