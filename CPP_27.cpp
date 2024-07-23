@@ -1,16 +1,17 @@
-#include <iostream>
-#include <string>
-
-std::string flip_case(const std::string& str) {
-    std::string result;
-    for (char c : str) {
+```
+int flip_case(string s) {
+    string result = "";
+    for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? topper(c) : tolower(c);
-        } else {
-            result += c;
-        }
+            char newChar = ' ';
+            if (c >= 'a' && c <= 'z') 
+                newChar = tolower(c);
+            else if (c >= 'A' && c <= 'Z')
+                newChar = toupper(c); 
+            result += newChar;
+        } 
+        else
+            result += c; 
     }
-    return result;
+    return 0;
 }
-
-std::string topper(char c) { return std::string(1, static_cast<char>(c - 32)); }
