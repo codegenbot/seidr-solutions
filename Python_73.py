@@ -1,6 +1,4 @@
-```
 def smallest_change(arr):
-    arr = list(map(int, input().split()))
     n = len(arr)
     rev_arr = arr[::-1]
     
@@ -10,5 +8,3 @@ def smallest_change(arr):
             changes += 1
     
     return changes
-
-print(smallest_change([]))
