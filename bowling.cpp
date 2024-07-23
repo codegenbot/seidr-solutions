@@ -5,44 +5,38 @@ int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
     int roll2 = 0; 
-    bool isStrike = false;
 
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == 'X') {
             score += 30;
-            isStrike = true;
         } else if (c == '/') {
-            if (isStrike) {
-                score += 10 + roll1 * 2 + roll2;
-                isStrike = false;
-            } else {
-                score += 10 + roll1 + roll2;
-                roll1 = 0; 
-                roll2 = 0;
-            }
+            score += (10 - roll1) * 2;
+            break;
         } else {
-            score += (c - '0');
-            if (!isStrike) {
-                roll1 = c - '0';
-                if (roll1 < 2) {
-                    roll2 = 0; 
+            int val = c - '0';
+            if (roll1 == 0) {
+                roll1 = val;
+            } else {
+                if (roll1 + val >= 10) {
+                    score += 10;
+                    roll1 = 0;
+                    roll2 = val;
+                } else {
+                    roll1 = 0;
+                    roll2 = val;
                 }
-            } else { 
-                score += 30;
-                roll2 = 0; 
             }
         }
     }
-
-    return score;
+    return score; 
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
-    std::getline(std::cin, input);
-    int score = bowlingScore(input);
-    std::cout << "Score: " << score << std::endl;
+    std::cout << "Enter the bowling scores: ";
+    std::cin >> input;
+    int result = bowlingScore(input);
+    std::cout << "The total score is: " << result << std::endl;
     return 0;
 }
