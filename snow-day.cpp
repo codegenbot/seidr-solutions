@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 int main() {
     int hours;
@@ -9,7 +11,7 @@ int main() {
 
     for (int i = 1; i <= hours; i++) {
         groundSnow += rateOfSnowFall;
-        groundSnow -= min(groundSnow, proportionOfSnowMeltingPerHour);
+        groundSnow -= std::min(groundSnow, proportionOfSnowMeltingPerHour);
     }
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::setprecision(10) << groundSnow;
