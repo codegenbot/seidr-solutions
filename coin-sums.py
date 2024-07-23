@@ -4,8 +4,8 @@ def coin_sums(cents):
 
     for i, coin in enumerate(coins):
         count = cents // coin
-        cents %= coin
         results[i] = count
+        cents %= coin
 
     return results
 
