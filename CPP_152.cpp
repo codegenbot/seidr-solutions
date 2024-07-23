@@ -8,12 +8,15 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b); // Function declaration
-
 int main() {
-    // Function calls
-    vector<int> game = {1, 2, 3};
-    vector<int> guess = {2, 3, 4};
+    vector<int> game = {3, 7, 2, 5};
+    vector<int> guess = {4, 7, 1, 3};
+    
     vector<int> result = compare(game, guess);
+    
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
+    
     return 0;
 }
