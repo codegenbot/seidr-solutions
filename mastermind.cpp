@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <string>
+#include <utility>
 
 using namespace std;
 
@@ -7,29 +9,20 @@ pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
-    int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            for(int j = 0; j < 6; j++) {
-                if((char)('0' + j) == code[0] && (char)('0' + j) == guess[i]) {
-                    whitePegs++;
-                    break;
-                }
-                colorCount[j]++;
+        int matchingIndex = -1;
+        for(int j = 0; j < 4; j++) {
+            if(code[i] == guess[j]) {
+                matchingIndex = j;
+                break;
             }
         }
-    }
-    
-    for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > 0) {
-            for(int j = 0; j < 4; j++) {
-                if((char)('0' + i) == code[j]) {
-                    whitePegs++;
-                }
+        if(matchingIndex != -1) {
+            if(i == matchingIndex) { // correct color, correct place
+                blackPegs++;
+            } else { // correct color, wrong place
+                whitePegs++;
             }
-            colorCount[i] = 0;
         }
     }
     
