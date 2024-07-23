@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
-using namespace std;
+Here is the solution:
 
 vector<string> words_string(string s) {
     vector<string> result;
