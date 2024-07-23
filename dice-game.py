@@ -1,7 +1,6 @@
-import math
 def roll_dice(n, m):
     total_outcomes = n * m
-    peters_wins = sum(1 for _ in range(n) if _ > i)
-    for j in range(m):
-        peters_wins += (n - j)
-    return peters_wins / total_outcomes
+    peters_wins = sum(i > j for i in range(1, n+1) for j in range(1, m+1))
+    colin_wins = sum(j >= i for i in range(1, n+1) for j in range(1, m+1))
+
+    return (peters_wins - colin_wins) / total_outcomes
