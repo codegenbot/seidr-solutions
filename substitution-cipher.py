@@ -1,12 +1,16 @@
-```
 cipher_dict = {}
-n = int(input("Enter the length of the first string: "))
-for i in range(n):
-    char1 = input(f"Enter the character substitution ({chr(i+65)}/): ")
-    if len(char1) > 0:
-        cipher_dict[chr(i+65)] = char1
+for i, char1 in enumerate(
+    input("Enter the first string of characters to substitute: ").upper()
+):
+    char2 = input(f"Enter the character substitution ({char1}/): ")
+    if len(char2) > 0 and len(cipher_dict) < len(char1):
+        cipher_dict[char1] = char2
+    elif i == len(char1) - 1:
+        break
 
-text_to_decrypt = input("Enter the text to decrypt: ").upper()
-decrypted_text = "".join([cipher_dict.get(c, c) for c in text_to_decrypt])
+text_to_decrypt = input("Enter the text to decrypt: ")
+decrypted_text = ""
+for char in text_to_decrypt.upper():
+    decrypted_text += cipher_dict.get(char, char)
 
 print(decrypted_text)
