@@ -6,15 +6,16 @@ bool isPrime(int n) {
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
     }
-    return true;
+    if (n > 1) return true;
+    return false;
 }
 
 bool prime_length(const std::string& str) {
-    int len = str.length();
+    int len = static_cast<int>(str.length());
     return isPrime(len);
 }
 
-int main() {
+int main_userInput() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str); 
