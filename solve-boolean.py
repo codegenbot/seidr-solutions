@@ -1,22 +1,21 @@
-```
 def solve_boolean(expression):
-    def helper(expression):
-        if '(' in expression:
-            i = expression.index('(')
-            j = expression.index(')')
-            result = helper(expression[i+1:j])
-            if '&' in expression[:i]:
-                return [a and b for a, b in zip(map(helper, expression[:i].split('&')), [result] * len(expression[:i].split('&')))]
-            elif '|' in expression[:i]:
-                return [a or b for a, b in zip(map(helper, expression[:i].split('|')), [result] * len(expression[:i].split('|')))]
-            else:
-                return [x == 'T' for x in expression[:i]]
-        elif '&' in expression:
-            return [a and b for a, b in zip(map(helper, expression.split('&')), [0] * len(expression.split('&')))]
-        elif '|' in expression:
-            return [a or b for a, b in zip(map(helper, expression.split('|')), [0] * len(expression.split('|')))]
+    def evaluate_expression(expression):
+        if not expression:
+            return None
+        elif expression[0] in {"T", "F"}:
+            return expression[0] == "T"
+        elif expression[0] == "(":
+            result = evaluate_expression(expression[1:])
+            if expression[-1] != ")":
+                raise ValueError("Unclosed parenthesis")
+            return result
         else:
-            return list(map(lambda x: 'T' if x == '1' else 'F', expression))
+            left = evaluate_expression(expression[:3])
+            op = expression[1]
+            right = evaluate_expression(expression[4:-1])
+            if op == "&":
+                return left and right
+            elif op == "|":
+                return left or right
 
-    result = helper(expression)
-    return 'T' if any(result) else 'F'
+    return str(int(evaluate_expression(expression)))
