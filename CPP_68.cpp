@@ -1,19 +1,29 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <climits>
+using namespace std;
 
-std::vector<int> pluck(std::vector<int> v) {
-    if (v.size() > 0) {
-        return std::vector<int>(v.begin(), v.end()-1);
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
+    pair<int, int> smallest_even = make_pair(INT_MAX, -1);
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even.first) {
+            smallest_even = make_pair(arr[i], i);
+        }
     }
-    return v;
-}
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    result.push_back(smallest_even);
+    return result;
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}) || "Expected all but the last element to be removed");
-    std::cout << "All tests passed." << std::endl;
+    vector<int> arr = {1, 2, 3, 4};
+    vector<pair<int, int>> output = pluck(arr);
+    for (auto p : output) {
+        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+    }
     return 0;
 }
