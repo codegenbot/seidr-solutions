@@ -6,10 +6,10 @@
 namespace {
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> numArr;
+    std::vector<std::int64_t> numArr;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numArr.push_back(to_string(i));
+            numArr.push_back(i);
         }
     }
 
@@ -17,28 +17,39 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     reverse(numArr.begin(), numArr.end());
 
-    vector<string> result;
-    for (string str : numArr) {
-        string temp = "";
-        if (str == "1")
-            temp = "One";
-        else if (str == "2")
-            temp = "Two";
-        else if (str == "3")
-            temp = "Three";
-        else if (str == "4")
-            temp = "Four";
-        else if (str == "5")
-            temp = "Five";
-        else if (str == "6")
-            temp = "Six";
-        else if (str == "7")
-            temp = "Seven";
-        else if (str == "8")
-            temp = "Eight";
-        else if (str == "9")
-            temp = "Nine";
-        result.push_back(temp);
+    std::vector<std::string> result;
+    for (int i : numArr) {
+        std::string str = "";
+        switch (i) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+                break;
+        }
+        result.push_back(str);
     }
 
     return result;
