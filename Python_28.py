@@ -10,5 +10,5 @@ def concatenate(strings: List[str]) -> str:
             break
         input_list.append(user_input)
     if not input_list:
-        return "No strings entered."
+        return ""
     return "".join(input_list)
