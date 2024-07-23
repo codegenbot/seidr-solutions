@@ -1,7 +1,8 @@
+```
 from typing import List
 
 
-def filter_by_prefix() -> List[str]:
+def filter_by_prefix()-> List[str]:
     while True:
         try:
             user_input = input("Enter a list of strings (space-separated): ")
