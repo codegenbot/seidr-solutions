@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
 bool cycpattern_check(string a, string b) {
     int n = a.size();
     int m = b.size();
@@ -16,6 +10,6 @@ bool cycpattern_check(string a, string b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-    
+   
     return 0;
 }
