@@ -1,11 +1,13 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1) return true;
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]) return false;
+    std::vector<int> sorted_lst = lst; 
+    for(int i = 1; i < sorted_lst.size(); i++){
+        if(sorted_lst[i-1] >= sorted_lst[i]) return false;
     }
     return true;
 }
@@ -27,19 +29,8 @@ int main() {
     if(is_sorted(vec)) {
         std::cout << "The vector is sorted.\n";
     } else {
-        bool swapped;
-        do {
-            swapped = false;
-            for(int i = 0; i < vec.size() - 1; i++) {
-                if(vec[i] > vec[i + 1]) {
-                    int temp = vec[i];
-                    vec[i] = vec[i + 1];
-                    vec[i + 1] = temp;
-                    swapped = true;
-                }
-            }
-        } while(swapped);
-
+        std::sort(vec.begin(), vec.end());
+        
         if(is_sorted(vec)) {
             std::cout << "The vector is now sorted.\n";
         } else {
