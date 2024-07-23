@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -37,6 +36,6 @@ int findMaxPrime(int* numbers, int size) {
 
 int main() {
     int numbers[] = {127, 97, 8192};
-    assert(sumOfDigits(findMaxPrime(numbers, sizeof(numbers) / sizeof(numbers[0]))) == 7);
+    assert(sumOfDigits(findMaxPrime(numbers, sizeof(numbers)/sizeof(numbers[0]))) == 7);
     return 0;
 }
