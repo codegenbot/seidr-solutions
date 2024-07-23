@@ -16,12 +16,11 @@ def minPath(grid, k):
                 visited[ni][nj] = True
                 curr_path.append(grid[ni][nj])
                 dfs(ni, nj, curr_path)
-                curr_path.pop()
                 visited[ni][nj] = False
+                curr_path.pop()
 
     for i in range(n):
         for j in range(n):
             visited[i][j] = True
             dfs(i, j, [grid[i][j]])
-
     return paths
