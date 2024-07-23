@@ -16,14 +16,17 @@ def indices_of_substring(text, target):
             break
     return result
 
-while True:
-    try:
-        a = int(input("Enter a number: "))
-        b = int(input("Enter another number: "))
-        print(gcd(a, b))
-        text = input()
-        target = input()
-        print(indices_of_substring(text, target))
-        break
-    except ValueError:
-        print("Expected input: Integers only!")
+def main():
+    while True:
+        try:
+            a = int(input("Enter a number: "))
+            b = int(input("Enter another number: "))
+            print(gcd(a, b))
+            text = input("Enter the text: ")
+            target = input("Enter the target string: ")
+            print(indices_of_substring(text, target))
+            break
+        except ValueError:
+            print("Expected input: Integers only!")
+        finally:
+            break
