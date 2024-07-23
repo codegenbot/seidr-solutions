@@ -1,9 +1,4 @@
-int total = number + need;
-int left = total - 1000;
-if (left < 0) {
-    left = 0;
+vector<int> eat(int number, int need, int remaining) {
+    int total = max(min(number + need, 1000), 0);
+    return {total, max(0, min(total - 1000, remaining))};
 }
-if (left > remaining) {
-    left = remaining;
-}
-return {number + need, left};
