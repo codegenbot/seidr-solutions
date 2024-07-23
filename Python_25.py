@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -23,7 +24,10 @@ while True:
     try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
-            print(factorize(n))
+            try:
+                print(factorize(n))
+            except Exception as e:
+                print(f"Failed to factorize {n}. Error: {str(e)}")
             break
         else:
             print("Please enter a positive integer.")
