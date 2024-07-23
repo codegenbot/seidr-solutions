@@ -1,4 +1,3 @@
-```
 def solve():
     num = int(input("Enter a number: "))
     print(factorize(num))
