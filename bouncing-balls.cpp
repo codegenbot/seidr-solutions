@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <iostream> 
 using namespace std;
@@ -10,16 +11,19 @@ int main() {
 
     double bouncinessIndex = firstBounce / startHeight;
 
+    double newHeight = firstBounce;
+
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         if(i > 1)
-            startHeight *= bouncinessIndex;
+            startHeight = abs(startHeight * bouncinessIndex);
         else
             startHeight = firstBounce;
-        totalDistance += abs(startHeight - firstBounce); 
+        totalDistance += abs(startHeight - newHeight); 
+        newHeight = startHeight;
     }
 
-    cout << fixed;
+    cout << setprecision(2);
     cout << totalDistance << endl;
 
     return 0;
