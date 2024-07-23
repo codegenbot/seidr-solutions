@@ -15,7 +15,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += s[i];
         }
     }
-    if (temp == reverse(temp)) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
