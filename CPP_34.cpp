@@ -6,8 +6,8 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
-    return move(remove_if(result.begin(), result.end(), [p](int x){ return find(cbegin(result), cend(result), x) != cend(result);}), result.end());
+    vector<int> result(unique_copy(l.begin(), l.end()), l.end());
+    return result;
 }
 
 int main() {
