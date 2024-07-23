@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <numeric>
 
 using namespace std;
 
@@ -10,6 +9,13 @@ bool is_palindrome(string s) {
     string t = s;
     reverse(t.begin(), t.end());
     return s == t;
+}
+
+int accumulate(vector<int>::iterator first, vector<int>::iterator last, int init) {
+    int sum = init;
+    for (; first != last; ++first)
+        sum += *first;
+    return sum;
 }
 
 bool will_it_fly(vector<int> q, int w) {
