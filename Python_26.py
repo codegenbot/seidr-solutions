@@ -2,4 +2,5 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return sorted(list(set(sorted(numbers))))
+    seen = set()
+    return [num for num in numbers if not (num in seen or seen.add(num))]
