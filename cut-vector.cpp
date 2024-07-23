@@ -1,7 +1,7 @@
 ```c++
 #include <vector>
-#include <climits>
-
+#include <climits>  // for INT_MAX
+#include <cmath>    // for abs
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -33,7 +33,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4};
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    pair<vector<int>, vector<int>> result = cutVector({1, 2, 3, 4, 5});
+    cout << "Left Vector: ";
+    for (int x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right Vector: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
     return 0;
 }
