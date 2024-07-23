@@ -10,7 +10,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
+    
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
