@@ -6,6 +6,6 @@ int my_strlen(std::string str){
 }
 
 int main(){
-    std::cout << my_strlen("asdasnakj") << endl;
+    std::cout << my_strlen("asdasnakj") << std::endl;
     return 0;
 }
