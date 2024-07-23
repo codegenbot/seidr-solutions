@@ -12,3 +12,4 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}

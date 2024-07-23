@@ -8,14 +8,14 @@ bool match_parens(vector<string> lst) {
         for (char c : str) {
             if (c == '(') open++;
             else if (c == ')') open--;
-            if (open < 0) return "No";
+            if (open < 0) return false;
         }
     }
-    return (open == 0) ? "Yes" : "No";
+    return open == 0;
 }
 
 int main() {
-    vector<string> lst = {"(", ")}; 
-    cout << match_parens({"" , ""}) << endl; 
+    vector<string> lst = {"(", ")}; "}; 
+    cout << (match_parens({{"("}, {")"}}) ? "Yes" : "No") << endl; 
     return 0;
 }
