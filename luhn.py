@@ -1,6 +1,6 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    total = 0
+    total = 0 if len(card_number) % 2 == 0 else card_number.pop()  
     for i, digit in reversed(list(enumerate(card_number))):
         if i % 2 == 1:
             doubled = digit * 2
