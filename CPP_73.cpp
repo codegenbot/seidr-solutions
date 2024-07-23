@@ -12,5 +12,5 @@ int smallest_change(std::vector<int> arr) {
         }
     }
 
-    return changes - 1; 
+    return changes - 1;
 }
