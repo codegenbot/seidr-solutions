@@ -1,18 +1,22 @@
+```cpp
 std::string camelCase(std::string str) {
-    std::stringstream words(str);
-    std::string word;
-    std::string result = "";
+    std::vector<std::string> words;
+    size_t pos = 0, start = 0;
 
-    while (words >> word) {
-        if (!result.empty()) {
-            result += std::toupper(word[0]);
-            for (int i = 1; i < word.length(); ++i) {
-                result += tolower((char)word[i]);
-            }
-        } else {
-            result = word;
+    while ((pos = str.find_first_of(" -")) != std::string::npos) {
+        if (pos > start) {
+            words.push_back(str.substr(start, pos - start));
         }
+        start = pos + 1;
     }
 
+    if (start < str.length()) {
+        words.push_back(str.substr(start));
+    }
+
+    std::string result = tolower(words[0]);
+    for (int i = 1; i < words.size(); i++) {
+        result += toupper(words[i].substr(0, 1)) + words[i].substr(1);
+    }
     return result;
 }
