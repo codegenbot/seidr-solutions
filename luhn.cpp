@@ -6,12 +6,12 @@ int main() {
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
         if (i % 2 == 1) {
-            int doubled = 2 * digits[i];
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
+            int doubled = digits[i] * 2;
+            sum += (doubled > 9) ? doubled - 9 : doubled;
         } else {
             sum += digits[i];
         }
     }
-    cout << sum;
+    cout << sum << endl;
     return 0;
 }
