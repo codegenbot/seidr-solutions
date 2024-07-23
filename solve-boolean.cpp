@@ -3,9 +3,9 @@ int main() {
     cin >> input;
     
     if (input == "t") {
-        cout << "True";
+        cout << "True" << endl;
     } else {
-        cout << "False";
+        cout << "False" << endl;
     }
     
     return 0;
