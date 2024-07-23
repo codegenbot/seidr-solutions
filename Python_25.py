@@ -34,7 +34,6 @@ def factorize(n: int) -> List[int]:
 
     return factors
 
-
 n = int(input("Enter a number: "))
 factors = factorize(n)
 print(factors)
