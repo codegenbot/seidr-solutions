@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -7,10 +6,11 @@ vector<int> leaders(vector<int>& arr) {
     int maxRightSoFar = arr.back();
     for(int i = arr.size() - 1; i >= 0; i--) {
         if(arr[i] >= maxRightSoFar) {
-            result.push_back(arr[i]);
             maxRightSoFar = arr[i];
+            result.push_back(maxRightSoFar);
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
 
@@ -20,4 +20,5 @@ int main() {
     for(int i : result) {
         cout << i << " ";
     }
-    return 0;
+    cout << endl;
+}
