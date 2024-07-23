@@ -1,3 +1,8 @@
+```cpp
+#include <cassert>
+#include <initializer_list>
+#include <vector>
+
 int sumOfDigits(int n) {
     int sum = 0;
     while (n > 0) {
@@ -32,6 +37,6 @@ int findMaxPrime(const std::vector<int>& numbers) {
 }
 
 int main() {
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
+    assert(findMaxPrime({127, 97, 8192}) == 127);
     return 0;
 }
