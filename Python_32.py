@@ -1,4 +1,3 @@
-```
 def find_zero(xs: list):
     n = len(xs)
     assert n % 2 == 0
