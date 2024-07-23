@@ -12,12 +12,11 @@ def sort_numbers(numbers: str) -> str:
         "nine": 9,
     }
 
-    nums = []
-
-    for num in numbers.split():
-        if num.isdigit():
-            nums.append(int(num))
+    def convert_to_int(num_str):
+        if num_str.isdigit():
+            return int(num_str)
         else:
-            nums.append(num_dict.get(num.lower(), float("nan")))
+            return num_dict[num_str]
 
-    return " ".join(str(n) for n in sorted(map(str, nums)))
+    nums = [convert_to_int(num) for num in numbers.split()]
+    return " ".join(map(str, sorted(nums)))
