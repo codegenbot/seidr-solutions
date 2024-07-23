@@ -10,32 +10,28 @@ int fruit_distribution(string s, int n) {
     while ((pos = str.find("apples", pos)) != string::npos) {
         if (str.find("and", pos) == string::npos || str.find("and", pos + 8) == string::npos)
             break;
-        else if (str.find("and", pos) == string::npos) 
-            break; // Check for "apples" without "and"
         pos = str.find("and", pos + 8);
     }
     
     if (pos != string::npos) {
         int start = pos;
-        while (str[start] >= '0' && str[start] <= '9')
+        while (str.substr(0, min(start - 1, pos)).find_first_of("0123456789") == string::npos)
             start++;
-        apples = stoi(str.substr(start - 1, pos - start));
+        apples = stoi(str.substr(min(start - 1, pos), pos - start));
     }
     
     pos = 0;
     while ((pos = str.find("oranges", pos)) != string::npos) {
         if (str.find("and", pos) == string::npos || str.find("and", pos + 7) == string::npos)
             break;
-        else if (str.find("and", pos) == string::npos) 
-            break; // Check for "oranges" without "and"
         pos = str.find("and", pos + 7);
     }
     
     if (pos != string::npos) {
         int start = pos;
-        while (str[start] >= '0' && str[start] <= '9')
+        while (str.substr(0, min(start - 1, pos)).find_first_of("0123456789") == string::npos)
             start++;
-        oranges = stoi(str.substr(start - 1, pos - start));
+        oranges = stoi(str.substr(min(start - 1, pos), pos - start));
     }
     
     return n - apples - oranges;
