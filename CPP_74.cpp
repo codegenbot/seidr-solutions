@@ -3,11 +3,14 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cctype>
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    std::vector<std::string> result;
-    std::sort(lst1.begin(), lst1.end());
-    std::sort(lst2.begin(), lst2.end());
+using namespace std;
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    vector<string> result;
+    sort(lst1.begin(), lst1.end(),[this](const string& a, const string& b){return tolower(a) < tolower(b);});
+    sort(lst2.begin(), lst2.end(),[this](const string& a, const string& b){return tolower(a) < tolower(b);});
 
     int i = 0, j = 0;
     
@@ -27,13 +30,13 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> vec1 = {"hi", "admin"};
-    std::vector<std::string> vec2 = {"hI", "Hi"};
+    vector<string> vec1 = {"hi", "admin"};
+    vector<string> vec2 = {"hI", "Hi"};
 
-    std::vector<std::string> result = total_match(vec1, vec2);
+    vector<string> result = total_match(vec1, vec2);
 
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << std::endl;
+        cout << result[i] << endl;
     }
 
     return 0;
