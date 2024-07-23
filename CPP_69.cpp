@@ -1,13 +1,15 @@
 int search(vector<int> lst) {
-    int max = 0;
-    vector<int> count(lst.size(), 0);
-    
+    map<int, int> countMap;
     for (auto i : lst) {
-        if (i > 0) {
-            count[i]++;
-            if (count[i] > max)
-                max = count[i];
+        countMap[i]++;
+    }
+    
+    vector<int> maxVals;
+    for (auto p : countMap) {
+        if (p.second >= std::count(lst.begin(), lst.end(), p.first)) {
+            maxVals.push_back(p.first);
         }
     }
-    return max > 1 ? max : -1;
+    
+    return maxVals.empty() ? -1 : *max_element(maxVals.begin(), maxVals.end());
 }
