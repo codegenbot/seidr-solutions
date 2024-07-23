@@ -1,20 +1,12 @@
 string circular_shift(int x, int shift) {
     string str = to_string(x);
     int n = str.length();
-    if(shift >= n){
-        return str;
+    string res = "";
+    for(int i=shift % n; i<n; i++){
+        res += str[i];
     }
-    else{
-        string res = "";
-        for(int i=shift; i<n; i++){
-            res += str[i];
-        }
-        for(int i=(n-shift); i<n; i++){
-            res += str[i]; 
-        }
-        for(int i=0; i<shift; i++){
-            res += str[i];
-        }
-        return res;
+    for(int i=0; i<shift % n; i++){
+        res += str[i];
     }
+    return res;
 }
