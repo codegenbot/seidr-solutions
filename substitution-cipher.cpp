@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main() {
@@ -14,7 +15,7 @@ int main() {
         }
     }
     
-    cout << message << endl;
+    cout << message << "\n";
     
     return 0;
 }
