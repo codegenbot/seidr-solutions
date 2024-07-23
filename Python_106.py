@@ -3,10 +3,11 @@ def f(n):
     result = []
     for i in range(1, n+1):
         if i % 2 == 0:
-            fact = 1
+            factorial = 1
             for j in range(1, i+1):
-                fact *= j
-            result.append(fact)
+                factorial *= j
+            result.append(factorial)
         else:
-            result.append(sum(range(1, i+1)))
+            sum_val = sum(range(1, i+1))
+            result.append(sum_val)
     return result
