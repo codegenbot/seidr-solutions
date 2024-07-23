@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -9,10 +8,20 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
+        }
+    }
+
+    for (char c : code) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == guess[i]) {
+                count++;
+            }
+        }
+        if (count > 1) {
             white++;
         }
     }
 
-    return black;
+    return black + white;
 }
