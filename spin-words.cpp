@@ -1,6 +1,3 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -8,26 +5,27 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    size_t pos = 0;
-    while ((pos = str.find(" ")) != string::npos) {
-        string word = str.substr(0, pos);
-        if (word.length() >= 5)
-            result += string(word.rbegin(), word.rend()) + " ";
-        else
+    int start = 0;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            
             result += word + " ";
-        str.erase(0, pos + 1);
+            start = i + 1;
+        }
     }
-    if (str.length() >= 5)
-        result += str.substr(0).reverse();
-    return result;
+    
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    // Test cases
-    cout << spinWords("a") << endl; // Output: a
-    cout << spinWords("this is a test") << endl; // Output: this is a test
-    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
-    cout << spinWords("hi") << endl; // Output: hi
-
+    string str;
+    cin >> str;
+    cout << spinWords(str) << endl;
     return 0;
 }
