@@ -31,8 +31,8 @@ std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string text = "Hello World";
     std::string target = "World";
-    size_t GCD = gcd(909378243576ULL, 50); 
-    std::cout << "GCD of " << 909378243576ULL << " and " << 50 << ": " << GCD << std::endl;
+    uint64_t GCD = gcd((uint64_t)909378243576LL, 50); 
+    std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
     
     std::vector<size_t> result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
