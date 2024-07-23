@@ -8,22 +8,24 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
 }
 
 int main() {
     std::vector<int> numbers;
     int num;
-
-    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
-
-    do{
-        std::cin >> num;
-        numbers.push_back(num);
-    } while(num != -1);
-
+    
+    std::cout << "Enter the size of array: ";
+    std::cin >> num;
+    
+    for(int i = 0; i < num; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        int input;
+        std::cin >> input;
+        numbers.push_back(input);
+    }
+    
     int result = add(numbers);
-    std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
-
+    std::cout << "Sum of odd elements: " << result << std::endl;
+    
     return 0;
 }
