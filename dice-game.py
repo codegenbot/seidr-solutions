@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 n = int(input())
 m = int(input())
 
@@ -7,5 +9,5 @@ for i in range(1, n+1):
         if i > j:
             count += 1
 
-probability = count / (n * m * 1.0)
-print(probability)
+probability = Decimal(count) / Decimal(n * m)
+print(float(probability))
