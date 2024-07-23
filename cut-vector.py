@@ -1,15 +1,13 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
-total_sum = sum(nums)
-half_sum = total_sum // 2
-cum_sum = 0
-
-for i, num in enumerate(nums):
-    cum_sum += num
-    if cum_sum == half_sum or cum_sum + num == half_sum:
-        print(*nums[: i + 1])
-        print(*nums[i + 1 :])
-        break
-else:
-    print(*nums)
-    print(0)
+numbers = [int(input()) for _ in range(n)]
+total_sum = sum(numbers)
+current_sum = 0
+for i in range(n):
+    current_sum += numbers[i]
+    remaining_sum = total_sum - current_sum
+    if current_sum == remaining_sum or abs(current_sum - remaining_sum) < abs(
+        result[0] - result[1]
+    ):
+        result = (current_sum, remaining_sum)
+print(result[0])
+print(result[1])
