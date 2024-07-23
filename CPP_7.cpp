@@ -15,10 +15,9 @@ namespace std {
 template<typename T>
 class initializer_list {
 public:
-    initializer_list() {}
-    template <typename U> initializer_list(const initializer_list<U>&) {}
+    // ...
 };
-}  // namespace std
+}
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> result;
