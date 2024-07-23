@@ -25,7 +25,8 @@ int main() {
     string input;
     cout << "Enter a Boolean expression (T/F/|/&): ";
     getline(cin, input); 
+    cin.ignore(); 
     bool result = solveBoolean(input);
-    cout << "Result: " << (result ? "True" : "False") << endl;
-    return 0;
+    if(result)cout<<"True";
+    else cout<<"False";
 }
