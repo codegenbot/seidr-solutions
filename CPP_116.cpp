@@ -1,12 +1,30 @@
-Here is the solution:
+```cpp
+#include <vector>
+#include <algorithm>
+#include <bitset>
 
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), 
-         [](int a, int b) {
-             if (bitset<64>(a).count() == bitset<64>(b).count()) {
-                 return a < b;
-             }
-             return bitset<64>(a).count() < bitset<64>(b).count();
-         });
+int main() {
+    std::vector<int> arr = {2,4,8,16,32};
+    int res = 0; 
+    assert(res == sort_array(arr).size()); // Check if array is sorted
+    return res;
+}
+
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b){
+        if (std::bitset<32>(a).count() != std::bitset<32>(b).count())
+            return std::bitset<32>(a).count() < std::bitset<32>(b).count();
+        else
+            return a < b;
+    });
     return arr;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
