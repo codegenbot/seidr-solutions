@@ -21,8 +21,8 @@ bool solveBoolean(std::string expression) {
         else
             return false;
     } else 
-        return false; 
-
+        return false; // default value
+    
 }
 
 int main() {
