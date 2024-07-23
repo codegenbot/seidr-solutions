@@ -6,5 +6,6 @@ def fibfib(n: int):
     else:
         a, b = 0, 1
         for _ in range(3, min(93, n + 1)):
-            a, b = b, a + b
+            b = a + b
+            a = b - a
         return b
