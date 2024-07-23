@@ -1,6 +1,6 @@
-```
+```cpp
 #include <boost/lexical_cast.hpp>
-#include <string>
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -41,6 +41,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (str1 < str2)
             return b;
         else
-            return boost::any("None");
+            return "None";
     }
 }
