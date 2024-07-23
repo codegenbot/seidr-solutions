@@ -1,7 +1,4 @@
-Here's the modified code:
-
-```cpp
-#include <string>
+#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -15,7 +12,7 @@ int mastermind(std::string code, std::string guess) {
 
     for (char c : code) {
         int index = guess.find(c);
-        while(index != stdstring::npos) {
+        while(index != std::string::npos) {
             if (index < black) {
                 index = guess.find(c, index+1);
                 continue;
@@ -29,4 +26,7 @@ int mastermind(std::string code, std::string guess) {
 
 }
 
-int main() { mastermind("XXXX", "XXXX"); return 0; }
+int main() {
+    int result = mastermind("XXXX", "XXXX");
+    return 0;
+}
