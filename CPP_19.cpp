@@ -1,3 +1,11 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include <cassert>
+
+using namespace std;
+
 map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
@@ -10,6 +18,13 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
+}
 
 string sort_numbers(string numbers) {
     map<int, string> reverse_map;
