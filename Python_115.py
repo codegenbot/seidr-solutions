@@ -6,11 +6,9 @@ def max_fill(grid, capacity):
     cols = len(grid[0])
 
     def is_valid(row, col):
-        return 0 <= row < rows and 0 <= col < cols and grid[row][col] != "W"
+        return 0 <= row < rows and 0 <= col < cols
 
     total_water = sum(
         1 for row in range(rows) for col in range(cols) if grid[row][col] == "W"
     )
-    water_per_person = total_water / capacity
-    people_needed = math.ceil(water_per_person)
-    return people_needed
+    return math.ceil(total_water / float(capacity))
