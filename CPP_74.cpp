@@ -22,9 +22,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         return lst2;
     } else {
         if (issame(lst1, lst2)) {
-            return lst1;  // corrected usage of issame function
+            return lst1;  
         } else {
-            return total_match(total_match(lst1, lst2), std::vector<std::string>{});  // corrected usage of issame function
+            return total_match(total_match(lst1, lst2), std::vector<std::string>{});  
         }
     }
 }
