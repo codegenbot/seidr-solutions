@@ -16,8 +16,10 @@ int prod_signs(vector<int> arr) {
     }
     
     if (arr.empty()) {
-        return -32768;
+        return 0; // Fix: Replace -32768 with 0
+    } else if (sum == 0) {
+        return -1; 
     } else {
-        return product * (sum / abs(sum));
+        return (sum > 0) ? product : -product;
     }
 }
