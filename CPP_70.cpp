@@ -1,8 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
