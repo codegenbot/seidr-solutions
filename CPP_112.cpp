@@ -39,11 +39,11 @@ int main() {
     std::cout << "Enter characters to delete: ";
     std::cin >> chars;
     
-    std::vector<std::string> result = reverse_delete(s, chars);
-    std::cout << "Original string: " << s << endl;
-    std::cout << "Deleted string: " << result[0] << endl;
-    if(result.size() == 3) {
-        std::cout << "Is the reversed deleted string a palindrome? " << result[2] << endl;
+    std::vector<std::string> res = reverse_delete(s, chars);
+    for (int i = 0; i < res.size(); i++) {
+        std::cout << res[i] << " ";
     }
+    std::cout << endl;
+    
     return 0;
 }
