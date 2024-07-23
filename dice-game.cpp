@@ -1,2 +1,2 @@
-double prob = 0.0;
+float prob = 0.0;
 prob += 1.0 / (n * m * 1.0);
