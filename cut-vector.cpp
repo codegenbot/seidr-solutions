@@ -13,23 +13,25 @@ vector<vector<int>> cutVector(vector<int> v) {
 
     for (int i = 0; i < n; i++) {
         int left_sum = 0, right_sum = 0;
-        
         for (int j = 0; j <= i; j++)
             left_sum += v[j];
-        
         for (int j = i + 1; j < n; j++)
             right_sum += v[j];
-        
-        if (left_sum == right_sum)
-            best_cut = i;
-        else if (abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
+
+        if(left_sum == right_sum) {
+            left = vector<int>(v.begin(), v.begin() + i+1);
+            right = vector<int>(v.begin() + i+1, v.end());
+            return {{left}, {right}};
+        }
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
             best_cut = i;
         }
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut + 1);
-    right = vector<int>(v.begin() + best_cut, v.end());
+    left = vector<int>(v.begin(), v.begin() + best_cut+1);
+    right = vector<int>(v.begin() + best_cut+1, v.end());
     
     return {{left}, {right}};
 }
