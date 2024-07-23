@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -32,4 +33,12 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
             numbers = input().split()
             numbers = [int(num) for num in numbers]
         else:
+            break
+
+    while True:
+        try:
             return result
+        except ValueError as e:
+            print("Invalid input. Please enter a list of integers separated by space or comma: ")
+            numbers = input().split()
+            numbers = [int(num) for num in numbers]
