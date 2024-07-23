@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -26,13 +27,9 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<float>> mat(n);
-    std::string s;
-    for (auto i = 0; i < n; ++i) {
-        for (auto j = 0; j < n; ++j++) {
-            std::cin >> s;
-            mat[i].push_back(std::stof(s));
-        }
-    }
+    for (auto i = 0; i < n; ++i)
+        for (auto j = 0; j < n; ++j++)
+            std::cin >> mat[i][j];
 
     bool same = true;
     for (const auto& row : get_positive(mat)) {
