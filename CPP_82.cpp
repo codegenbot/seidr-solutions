@@ -12,7 +12,7 @@ bool isPrime(int n) {
 }
 
 bool prime_length(const std::string& str) {
-    int len = std::stoi(str);
+    int len = str.length();
     return isPrime(len);
 }
 

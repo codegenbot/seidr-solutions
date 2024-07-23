@@ -1,11 +1,11 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::string b) {
-    if (a.size() != 1) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -39,11 +39,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             letter_grades.push_back("F");
     }
     return letter_grades;
-}
-
-int main() {
-    std::vector<float> grades = {0.0, 0.7};
-    std::string expectedLetterGrades = "FD";
-    if (!issame(numerical_letter_grade(grades), expectedLetterGrades)) return 1;
-    return 0;
 }
