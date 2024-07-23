@@ -1,4 +1,7 @@
-int score(string s) {
+#include <iostream>
+#include <string>
+
+int score(std::string s) {
     int total = 0, frame = 1, ball = 0;
     for (char c : s) {
         if (c == 'X') {
@@ -20,4 +23,12 @@ int score(string s) {
         }
     }
     return total;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    int result = score(input);
+    std::cout << result << std::endl;
+    return 0;
 }
