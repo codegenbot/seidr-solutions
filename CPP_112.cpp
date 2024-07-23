@@ -1,19 +1,17 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
-using namespace std;
-typedef size_t initializer_list::size_type;
 
-bool issame(const vector<string>& a, const vector<string>& chars) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& chars) {
     return a == chars;
 }
 
-vector<string> reverse_delete(string s, string chars) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string chars) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
+        if (std::find(chars.begin(), chars.end(), s[i]) == chars.end()) {
             temp += s[i];
         }
     }
@@ -27,8 +25,8 @@ vector<string> reverse_delete(string s, string chars) {
     return result;
 }
 
-string reverse(string str) {
-    string rev = "";
+std::string reverse(std::string str) {
+    std::string rev = "";
     for (int i = str.length() - 1; i >= 0; i--) {
         rev += str[i];
     }
