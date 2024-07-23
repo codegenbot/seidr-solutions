@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {17, 28, 4, 2, 3};
+    vector<int> arr = {17, 11, 13, 2, 23, 19};
     vector<int> leaders;
     int rightmost = arr.back();
     for (int i = arr.size() - 2; i >= 0; i--) {
@@ -11,8 +11,8 @@ int main() {
             rightmost = arr[i];
         }
     }
-    cout << "Leaders are: ";
-    for (auto x : leaders) {
+    cout << "Leaders: ";
+    for(int x : leaders) {
         cout << x << " ";
     }
     return 0;
