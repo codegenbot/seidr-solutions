@@ -11,3 +11,5 @@ int basement(std::vector<int>& nums) {
         }
     }
     return basement_index;
+
+}
