@@ -1,3 +1,4 @@
+```
 def search(lst):
     freq = {}
     for num in lst:
@@ -16,10 +17,8 @@ def search(lst):
 lst = input("Enter numbers separated by space: ")
 try:
     lst = [int(i) for i in lst.split()]
-    if lst:
-        print(search(lst))
-    else:
-        print("No number entered")
 except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
     exit()
+
+print(search(lst))
