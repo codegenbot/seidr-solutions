@@ -15,6 +15,7 @@ int main() {
     }
     
     using namespace std;
+    
     for (int i = 0; i < indices.size(); ++i) {
         cout << indices[i] << " ";
     }
