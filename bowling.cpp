@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
@@ -20,3 +22,4 @@ int bowlingScore(string s) {
         score += min(10, currentRoll);
     }
     return score;
+}
