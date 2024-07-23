@@ -5,6 +5,7 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, target);
     
     std::vector<int> indices;
