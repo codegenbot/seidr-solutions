@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -16,6 +17,7 @@ def bowling_score(frames):
                 i += 3
             else:
                 return 0
+    # handle the case where game ends before all 10 frames are played
     if i < len(frames):
         frame_value = int(frames[i])
         score += frame_value
