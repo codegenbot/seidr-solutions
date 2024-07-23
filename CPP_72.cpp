@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,21 +29,20 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     int n;
-    cin >> n; 
+    cin >> n;
 
-    vector<int> q(n); 
+    vector<int> q(n);
 
     cout << "Enter position of queen 1: ";
-    cin >> q[0]; // Read and assign first position to the first element of the vector
+    cin >> q[0];
 
     for (int i = 1; i < n; i++) {
         int temp;
         cout << "Enter position of queen " << i + 1 << ": ";
-        cin >> q[i]; 
+        cin >> q[i];
     }
 
     int w;
-    cout << "Enter the total weight: ";
     cin >> w;
 
     if (will_it_fly(q, w))
