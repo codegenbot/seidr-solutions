@@ -1,24 +1,17 @@
-int calculateScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int rolls = 0;
-    int lastRoll = -1;
-
-    for (char c : str) {
-        if (c == '/') {
-            continue;
-        }
-        int roll = stoi(c == 'X' ? "10" : c == '-' ? "0" : string(1, c));
-        if (roll == 10) {
-            score += roll;
-            rolls++;
-            lastRoll = roll;
-        } else {
-            if (lastRoll != -1 && (rolls + 1) % 2 == 0) {
-                int prevTwoRolls = min(lastRoll / 2, 5);
-                score += prevTwoRolls * 2;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (isdigit(s[i])) {
+            int framescore = (s[i] - '0');
+            if (i + 1 < s.size() && s[i+1] == '/') {
+                framescore += (s[i+2] - '0');
+                i++;
             }
-            score += roll;
-            rolls++;
+            score += framescore;
+        } else {
+            score += 10;
         }
     }
     return score;
