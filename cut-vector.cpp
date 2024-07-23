@@ -11,11 +11,6 @@ int main() {
         nums.push_back(num);
     }
     
-    if(nums.empty()) {
-        cout << "Input vector is empty." << endl;
-        return 0;
-    }
-    
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
