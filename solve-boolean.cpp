@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <string>
 
@@ -34,4 +33,3 @@ bool solveBoolean(string expression) {
     }
 
     return result;
-}
