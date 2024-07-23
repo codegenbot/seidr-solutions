@@ -3,10 +3,10 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 min_diff = 0
-cut_index = -1
+cut_index = 0
 
 for i in range(n):
-    diff = abs(total_sum - 2 * sum(arr[:i]))
+    diff = abs(sum(arr[:i]) - sum(arr[i:]))
     if diff <= min_diff:
         min_diff = diff
         cut_index = i
