@@ -2,17 +2,17 @@ int main() {
     int cents;
     cin >> cents;
     
-    int quarters = cents / 25;
-    cents %= 25;
-    int dimes = cents / 10;
-    cents %= 10;
-    int nickels = cents / 5;
-    cents %= 5;
+    int coins[4] = {25, 10, 5, 1};
+    int ans[4] = {0};
     
-    cout << cents << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
-
+    for (int i = 0; i < 4; i++) {
+        ans[i] = cents / coins[i];
+        cents %= coins[i];
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        cout << ans[i] << endl;
+    }
+    
     return 0;
 }
