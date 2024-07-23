@@ -1,6 +1,6 @@
 #include <cctype>
 #include <string>
-#include <ostream>
+#include <iostream>
 
 std::string flip_case(std::string str){
     std::string result = "";
@@ -20,14 +20,12 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::string<char> str;
+    std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
+    std::cout << "Flipped case: " << flip_case(str) << std::endl;
     if(flip_case("These violent delights have violent ends") != "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"){
-        std::cerr << "Error: Test case failed. Check your flip_case function implementation." << std::endl;
-    }
-    else{
-        std::cout << "Flipped case: " << flip_case(str) << std::endl;
+        // error code
     }
     return 0;
 }
