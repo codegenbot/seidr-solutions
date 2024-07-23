@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <cmath> 
 
 int closest_integer(std::string value) {
     double num = stod(value);
@@ -9,4 +9,9 @@ int closest_integer(std::string value) {
     } else {
         return integerPart;
     }
+}
+
+int main() {
+    assert(closest_integer("0") == 0);
+    // your code here
 }
