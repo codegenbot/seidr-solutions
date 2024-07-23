@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -11,11 +10,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string chars) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
+        if (chars.find(std::string(1, s[i])) == std::string::npos) {
             temp += s[i];
         }
     }
-    if (temp == string(temp).reverse()) {
+    if (temp == std::string(temp).reverse()) {
         result.push_back(temp);
         result.push_back("True");
     } else {
@@ -31,16 +30,19 @@ std::string reverse(std::string str) {
         rev += str[i];
     }
     return rev;
-}
 
 int main() {
-    std::string str, chars;
-    std::cin >> str >> chars;
-    std::vector<std::string> res = reverse_delete(str, chars);
-    if (res[1] == "True") {
-        std::cout << "Reversed string: " << reverse(res[0]) << std::endl;
-    } else {
-        std::cout << "The input string is not a palindrome." << std::endl;
+    std::string input1, input2;
+    std::cout << "Enter string 1: ";
+    std::cin >> input1;
+    std::cout << "Enter string 2: ";
+    std::cin >> input2;
+
+    std::vector<std::string> result = reverse_delete(input1, input2);
+
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
     }
+
     return 0;
 }
