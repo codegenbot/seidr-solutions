@@ -35,4 +35,4 @@ def solve_boolean(expression):
             return recursive_eval(tokens, stack[-1]+1)
 
     expression = expression.replace(' | ', '|').replace('&', ' & ')
-    return recursive_eval(list(expression), 0)
+    return recursive_eval(expression.split())
