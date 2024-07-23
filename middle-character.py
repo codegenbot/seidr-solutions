@@ -4,7 +4,9 @@ def middle_character(s):
     
     mid = length // 2
     
-    if length % 2 == 0:  
-        return s[mid-1:mid+1]
-    else:  
-        return s[mid]
+    if length == 1:  
+        return s
+    elif length % 2 == 0:  
+        return s[mid-1].lower() + s[mid].lower()
+    else:
+        return s[mid].lower()
