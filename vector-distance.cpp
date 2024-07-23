@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
     if (v1.size() != v2.size()) {
         throw std::runtime_error("Vectors must be the same size");
