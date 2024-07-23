@@ -1,33 +1,18 @@
 ```
+import ast
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
 
-    def evaluate(expression):
-        stack = []
-        for char in expression + '&':
-            if char == '&':
-                right = stack.pop()
-                left = stack.pop()
-                if right == 'T' and left == 'T':
-                    stack.append('T')
-                elif right == 'F' or (right == 'T' and left == 'F'):
-                    stack.append('F')
-                else:
-                    stack.append('&')
-            elif char == '|':
-                right = stack.pop()
-                left = stack.pop()
-                if right == 'T' and left == 'T':
-                    stack.append('T')
-                elif right == 'F' or (right == 'T' and left == 'F'):
-                    stack.append('F')
-                else:
-                    stack.append('|')
-            else:
-                stack.append(char)
-        return stack.pop()
+    while '&&' in expression or '||' in expression:
+        if '&&' in expression:
+            left, right = expression.split('&&')
+            expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
+        elif '||' in expression:
+            left, right = expression.split('||')
+            expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
 
-    return evaluate(expression)
+    return eval(ast.literal_eval(f"({expression})"))
