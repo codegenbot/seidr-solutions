@@ -1,25 +1,22 @@
-#include <string>
-#include <cassert>
 #include <iostream>
+#include <string>
 
-int digitSum(std::string s) {
+int digitSum(std::string str) {
     int sum = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (isdigit(c)) {
-            sum += c - '0';
-        } else {
-            sum += topperCaseLetterValue(c);
+            sum += (c - '0');
         }
     }
     return sum;
 }
 
-int topperCaseLetterValue(char c) {
-    return c - 'A' + 1;
-}
-
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    std::cout << digitSum("Your string here") << std::endl;
+    std::cout << "Input your string: ";
+    std::string input;
+    std::cin >> input;
+    int result = digitSum(input);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
