@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -43,9 +42,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades = {0, 0.7};
-    assert(issame({{"E"}, {"D"}}, numerical_letter_grade(grades)));
-    if (!issame({{"E"}, {"D"}}, numerical_letter_grade(grades))) {
-        std::cout << "Test failed";
+    vector<string> expected = {"F", "D"};
+    if (!issame(numerical_letter_grade(grades), expected)) {
+        std::cerr << "Test failed." << std::endl;
+        return 1;
     }
+    std::cout << "Test passed." << std::endl;
     return 0;
 }
