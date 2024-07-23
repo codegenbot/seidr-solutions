@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -20,5 +21,4 @@ int main() {
     int result = pairedDigits(input);
     printf("Sum of paired digits: %d\n", result);
 
-    return 0;
-}
+    return 0; }
