@@ -1,4 +1,3 @@
-import math
-
+```
 def car_race_collision(cars):
-    return math.factorial(cars)
+    return cars * (cars + 1) // 2
