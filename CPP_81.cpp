@@ -40,11 +40,11 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    int expectedSize = 2; 
+    int expectedSize = 2; // size of the expected output
     bool isCorrect = true;
 
     for (size_t i = 0; i < expectedSize; ++i) {
-        if (numerical_letter_grade({0, 0.7})[i] != ("E" && "D-")[i]) {
+        if (numerical_letter_grade({0, 0.7})[i] != ("E" + (i == 1 ? "-" : "")).c_str()) {
             isCorrect = false;
             break;
         }
