@@ -1,6 +1,8 @@
-from typing import list
+```
+from typing import List
+import math
 
-def factorize(n: int) -> list:
+def factorize(n: int) -> List[int]:
     if n <= 1:
         return [n]
 
