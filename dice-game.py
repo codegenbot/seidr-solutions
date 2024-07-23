@@ -1,3 +1,3 @@
-```
 def roll_dice(n, m):
-    return sum((n-i)/(n*m-1) for i in range(1, m+1)) / n
+    peter_wins = sum((i-1)/(n*m) for i in range(2, min(n+1,m+1))) 
+    return peter_wins
