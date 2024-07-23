@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -19,7 +20,7 @@ std::vector<std::pair<int, int>> result(std::vector<int> v) {
     return output;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool checkVectorsEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -31,14 +32,27 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void originalMain() {
-    std::vector<int> arr1 = {7, 9, 7, 1};
-    std::vector<std::pair<int, int>> output = result(arr1);
-    for (auto p : output) {
-        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+std::vector<int> pluck(std::vector<int> v) {
+    std::vector<int> output;
+    for (int i = 0; i < v.size(); ++i) {
+        if (v[i] % 2 != 0) {
+            output.push_back(v[i]);
+        }
     }
+    return output;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return checkVectorsEqual(a, b);
 }
 
 int main() {
-    originalMain();
+    std::vector<int> arr1 = {7, 9, 7, 1};
+    std::vector<int> plucked = pluck(arr1);
+    assert(issame(plucked, {}));
+    
+    for (auto p : result(arr1)) {
+        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+    }
+    return 0;
 }
