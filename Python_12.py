@@ -1,5 +1,5 @@
+```
 from typing import Optional
-
 
 def longest(strings: list[str]) -> Optional[str]:
     if not strings:
@@ -12,7 +12,6 @@ def longest(strings: list[str]) -> Optional[str]:
             longest_str = s
     return longest_str
 
-
 user_input = input("Please enter a list of strings: ")
-strings = [s.strip() for s in user_input.split(",")]
-print("The longest string is: " + longest(strings))
+strings = [s.strip() for s in user_input.replace(',', ' ').split()]
+print(longest(strings))
