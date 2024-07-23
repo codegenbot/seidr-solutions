@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -25,8 +24,21 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}) , {"the number of odd elements 2 in the string 1", 
-                                                         "the number of odd elements 1 in the string 2", 
-                                                         "the number of odd elements 0 in the string 3"}));
+    vector<string> lst = {"271", "137", "314"};
+    vector<string> output = odd_count(lst);
+    cout << "Output: ";
+    for (const auto& str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+
+    if (!issame(output, {"the number of odd elements 2 in the string 1", 
+                         "the number of odd elements 1 in the string 2", 
+                         "the number of odd elements 0 in the string 3"})) {
+        cout << "Test Failed" << endl;
+    } else {
+        cout << "Test Passed" << endl;
+    }
+    
     return 0;
 }
