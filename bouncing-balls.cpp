@@ -1,19 +1,18 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
 int main() {
-    int numBounces;
     double heightStart, heightFirstBounce, bouncinessIndex;
+    int numBounces;
 
-    std::cin >> numBounces >> heightStart >> heightFirstBounce >> bouncinessIndex;
+    std::cin >> heightStart >> heightFirstBounce >> bouncinessIndex >> numBounces;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += 2 * (heightFirstBounce - heightStart) * pow(bouncinessIndex, i-1);
     }
 
-    std::cout << "The total distance traveled is: " << totalDistance << std::endl;
+    std::cout << "Total distance: " << totalDistance << std::endl;
 
     return 0;
 }
