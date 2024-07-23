@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -21,20 +22,34 @@ std::string camelCase(const std::string& input) {
 }
 
 int main() {
-    std::string input, output;
+    std::string input, group;
+    std::string output;
 
     while (std::getline(std::cin, input)) {
+        output += camelCase(group) + ((output.length() > 0)? " ": "");
         std::istringstream iss(input);
-        output = camelCase(input);
-
-        while (std::getline(iss, input, '-')) {
-            if (!input.empty()) {
-                output += (capitalizeNext ? toupper(input[0]) : tolower(input[0])) + input.substr(1) + ((output.length() > 0)? "": "");
-                capitalizeNext = true;
+        bool first = true;
+        while (std::getline(iss, group, '-')) {
+            if (!group.empty()) {
+                if (!first) {
+                    output += capitalizeFirstLetter(group);
+                } else {
+                    first = false;
+                    output += group + " ";
+                }
             }
         }
-
-        std::cout << output << std::endl;
     }
+
+    std::cout << output;
     return 0;
+}
+
+std::string capitalizeFirstLetter(const std::string& str) {
+    if (str.empty()) {
+        return str;
+    }
+    std::string result = str;
+    result[0] = toupper(result[0]);
+    return result;
 }
