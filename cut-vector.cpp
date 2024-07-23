@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <utility>
+
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int min_diff = INT_MAX;
     int cut_index = 0;
