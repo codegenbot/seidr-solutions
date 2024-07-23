@@ -1,32 +1,37 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 
-using namespace std;
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool capitalizeNext = true;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip "-"
-            while (i < s.size() && s[i] == ' ') { i++; } // skip spaces
-            if (result != "") result += char(toupper(s[i])); // capitalize first letter of new word
-            else result = toupper(s[i]); // capitalize first letter of the string
-        } else if (s[i] != ' ') {
-            if (i > 0) result += s[i]; // add lowercase letters to the result
+    for (char c : input) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            output += toupper(c);
+            capitalizeNext = false;
+        } else {
+            output += tolower(c);
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    string input;
-    while (true) {
-        cout << "Enter a sentence in kebab-case: ";
-        cin >> input;
-        cout << "In camelCase: " << camelCase(input) << endl;
+    std::string input;
+    while (std::getline(std::cin, input)) {
+        std::istringstream iss(input);
+        std::string group;
+        std::cout << camelCase(group);
+        while (std::getline(iss, group, '-')) {
+            if (!group.empty()) {
+                output += camelCase(group) + ((output.length() > 0)? "": "");
+                output += " ";
+            }
+        }
     }
     return 0;
 }
