@@ -1,4 +1,6 @@
-#include <stdexcept>
+```
+#include <iostream>
+#include <cmath>
 #include <vector>
 
 double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
