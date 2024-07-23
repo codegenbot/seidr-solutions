@@ -1,13 +1,11 @@
-int main {
+int main{
     std::vector<int> lst;
-    int size;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> size;
-    for(int i = 0; i < size; i++){
-        std::cout << "Element " << i+1 << ": ";
-        int num;
-        std::cin >> num;
-        lst.push_back(num);
+    int n;
+    cout << "Enter the numbers for your vector: ";
+    while(true){
+        cin >> n;
+        if(n < 0) break;
+        lst.push_back(n);
     }
-    std::cout << "Sum of digits in the maximum prime number: " << skjkasdkd(lst) << std::endl;
+    cout << "Sum of digits in the largest prime number is: " << skjkasdkd(lst) << endl;
 }
