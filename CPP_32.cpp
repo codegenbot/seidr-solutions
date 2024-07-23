@@ -1,9 +1,9 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <cmath>
 #include <iostream>
 #include <iomanip>
-#include <initializer_list>
 
 using namespace std;
 
@@ -21,14 +21,14 @@ double find_zero(vector<double> xs){
     if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
-        x -= poly(xs, x)/poly({(double)(xs.begin()+1), (double)(xs.end())}, x); 
+        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return setprecision(2) << fixed << x << endl;
+    return fixed << setprecision(2) << x << endl;
 }
 
 int main() {
     vector<double> xs = {1, -6, 11, -6};
     double zero = find_zero(xs);
-    cout << "Zero is: " << zero << endl; 
+    cout << "Zero is: " << zero << endl; // Print the result
     return 0;
 }
