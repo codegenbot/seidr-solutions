@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <numeric>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
