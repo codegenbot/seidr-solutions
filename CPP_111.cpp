@@ -36,6 +36,6 @@ map<char, int> histogram(const string& str) {
 }
 
 int main() {
-    assert(histogram("a") == ((map<char, int>{{'a', 1}})));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
