@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
-using namespace std;
-
 #include <vector>
+using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -24,4 +22,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(4) << diceGame(n, m);
     return 0;
-}
