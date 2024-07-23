@@ -1,14 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i=0; i<v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+bool issame(int i, int j) {
+    if (i == j)
+        return true;
+    else
+        return false;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -62,17 +60,22 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr1 = {1,2,3,4,5};
-    std::vector<int> arr2 = {5,4,3,2,1};
+    std::vector<int> arr;
+    int n;
+    std::cout << "Enter the number of integers: ";
+    std::cin >> n;
     
-    if(issame(arr1, arr2)) {
-        for(const int& i : arr1) {
-            std::cout << by_length({i})[0] << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Arrays are not same" << std::endl;
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter integer # " << (i + 1) << ": ";
+        std::cin >> x;
+        arr.push_back(x);
     }
 
+    std::vector<std::string> result = by_length(arr);
+
+    for (std::string str : result) {
+        std::cout << str << " ";
+    }
     return 0;
 }
