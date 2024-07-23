@@ -1,5 +1,3 @@
-#include <string>
-
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
@@ -24,3 +22,4 @@ std::string spinWords(std::string str) {
     }
     
     return result;
+}
