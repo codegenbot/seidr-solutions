@@ -23,12 +23,20 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 
 int main()
 {
-    std::vector<int> vec = {1, 2, 3, -23, 243, -400, 0};
-    std::vector<int> emptyVec;
-    if(issame({}, vec)) {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::vector<int> input({1, 2, 3, -23, 243, -400, 0});
+    std::vector<int> output;
+
+    if(issame(input, output)) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
     }
+    
+    int max_val = maximum(input, 0);
+    std::cout << "The maximum value in the array is: ";
+    std::cout << max_val;
     return 0;
 }
