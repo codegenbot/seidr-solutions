@@ -22,7 +22,7 @@ int main() {
     }
 
     cout << "The amount of snow on the ground after " << hours << " hours is: " 
-         << fixed << setprecision(2) << groundSnow;
+         << fixed << std::setprecision(2) << groundSnow;
 
     return 0;
 }
