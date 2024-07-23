@@ -1,18 +1,4 @@
 ```cpp
-#include <iostream>
-#include <iomanip>
-#include <vector>
-using namespace std;
-
-float shoppingList(float price[], int n, float discount[]) {
-    float total = 0;
-    for (int i = 0; i < n; i++) {
-        float discountedPrice = price[i] - (price[i] * discount[i] / 100);
-        total += discountedPrice;
-    }
-    return total;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -27,6 +13,12 @@ int main() {
         cin >> d;
     }
 
-    cout << fixed << setprecision(1) << shoppingList(&prices[0], n, &discounts[0]) << endl;
-    
+    float total = 0.0f;
+    for (int i = 0; i < n; i++) {
+        total += prices[i] - (prices[i] * (discounts[i] / 100));
+    }
+
+    cout << fixed << setprecision(1) << total << endl;
+
+    return 0;
 }
