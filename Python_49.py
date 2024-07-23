@@ -1,13 +1,12 @@
 ```
 def powermod(base: int, exponent: int, modulus: int):
-    result = 1
-    base = base % modulus
-    while exponent > 0:
-        if exponent % 2 == 1:
-            result = (result * base) % modulus
-        exponent = exponent // 2
-        base = (base * base) % modulus
-    return result
+    if exponent == 0:
+        return 1
+    elif exponent % 2 == 0:
+        half_power = powermod(base, exponent // 2, modulus)
+        return (half_power * half_power) % modulus
+    else:
+        return (base * powermod(base, exponent - 1, modulus)) % modulus
 
 def modp(n: int, p: int):
     if p <= 1:
