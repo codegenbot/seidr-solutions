@@ -23,8 +23,9 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
         }
         if (j == m) {
             result.push_back(i);
-            while ((i + m) <= n && text.substr(i).find(target) == 0)
-                i++; // Handle overlapping occurrences
+            i += m - 1; // Handle overlapping occurrences
+        } else {
+            i = i + j;
         }
     }
 

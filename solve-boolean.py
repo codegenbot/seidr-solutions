@@ -1,39 +1,22 @@
 ```
 def solve_boolean(expression):
-    def eval_expr(tokenized):
-        if not tokenized:
-            return False
+    def recursive_eval(tokens):
+        and_result = True
+        or_result = False
 
-        def evaluate_token(token):
-            return token == 'T'
-
-        memo = {}
-
-        def recursive_eval(tokens, idx=0):
-            if idx >= len(tokens):
-                return False
-
-            token = tokens[idx]
-            if token in memo:
-                return memo[token]
-
-            if token in ('T', 'F'):
-                result = evaluate_token(token)
-                memo[token] = result
-                return result
-            elif token == '|':
-                left = recursive_eval(tokens, idx + 1)
-                right = recursive Eval(tokens[idx+1:])
-                memo[token] = left or right
-                return memo[token]
+        for token in tokens:
+            if token == 'T':
+                and_result = or_result = True
+            elif token == 'F':
+                and_result = or_result = False
             elif token == '&':
-                left = recursive_eval(tokens, idx + 1)
-                right = recursive_Eval(tokens[idx+1:])
-                memo[token] = left and right
-                return memo[token]
+                and_result = and_result and (next_token == 'T')
+            elif token == '|':
+                next_token = next(tokens)
+                if next_token in ['&', '|']:
+                    return or_result
+                and_result = or_result = next_token == 'T'
+        return or_result
 
-        result = recursive_eval(tokenized.split())
-        return result
-
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    return eval_expr(tokens)
+    tokens = expression.replace('&', ' & ').replace('|', ' | ')
+    return recursive_eval(tokens.split())
