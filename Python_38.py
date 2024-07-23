@@ -10,7 +10,7 @@ def decode_cyclic(s: str):
             else: 
                 if len(s) - i >= 3:
                     result += s[i][0] + s[i+1:i+3][1]  
-                    i = i + 2 # Reset i to the last processed index
+                    i += 3
                 else:
                     result += s[i:]  
         i += 1
