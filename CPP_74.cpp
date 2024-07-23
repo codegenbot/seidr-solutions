@@ -21,7 +21,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sort(lst2.begin(), lst2.end());
         
         for (int i = 0; i < min(len1, len2); i++) {
-            if (lst1[i] == lst2[i]) {
+            if (tolower(lst1[i]) == tolower(lst2[i])) {
                 result.push_back(lst1[i]);
             }
         }
@@ -30,7 +30,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sort(lst1.begin(), lst1.end());
         
         for (int i = 0; i < min(len1, len2); i++) {
-            if (lst1[i] == lst2[i]) {
+            if (tolower(lst1[i]) == tolower(lst2[i])) {
                 result.push_back(lst1[i]);
             }
         }
@@ -39,7 +39,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sort(lst2.begin(), lst2.end());
         
         for (int i = 0; i < len1; i++) {
-            if (lst1[i] == lst2[i]) {
+            if (tolower(lst1[i]) == tolower(lst2[i])) {
                 result.push_back(lst1[i]);
             }
         }
