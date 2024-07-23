@@ -1,13 +1,14 @@
 #include <string>
 
-string flip_case(string str) {
-    string result = "";
-    for(int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        if(c >= 'a' && c <= 'z')
-            c -= ('a' - 'A');
-        else if(c >= 'A' && c <= 'Z')
-            c += ('a' - 'A');
-        result += c;
+string flip_case(string str){
+    string flipped = "";
+    for(char c : str){
+        if(c >= 'A' && c <= 'Z')
+            flipped += tolower(c);
+        else if(c >= 'a' && c <= 'z')
+            flipped += toupper(c);
+        else
+            flipped += c;
     }
-    return result;
+    return flipped;
+}
