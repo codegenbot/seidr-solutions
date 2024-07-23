@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <string>
 
-bool checksame(std::vector<std::string> a, std::vector<std::string> b) {
+bool identical(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,28 +15,17 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     for (float grade : grades) {
         if (grade >= 4.0)
             letter_grades.push_back("A+");
-        else if (grade > 3.7)
-            letter_grades.push_back("A");
-        else if (grade > 3.3)
-            letter_grades.push_back("A-");
-        else if (grade > 3.0)
-            letter_grades.push_back("B+");
-        else if (grade > 2.7)
-            letter_grades.push_back("B");
-        else if (grade > 2.3)
-            letter_grades.push_back("B-");
-        else if (grade > 2.0)
-            letter_grades.push_back("C+");
-        else if (grade > 1.7)
-            letter_grades.push_back("C");
-        else if (grade > 1.3)
-            letter_grades.push_back("C-");
-        else if (grade > 1.0)
-            letter_grades.push_back("D+");
-        else if (grade > 0.7)
-            letter_grades.push_back("D");
-        else
-            letter_grades.push_back("F");
+        else if (grade > 3.7) letter_grades.push_back("A");
+        else if (grade > 3.3) letter_grades.push_back("A-");
+        else if (grade > 3.0) letter_grades.push_back("B+");
+        else if (grade > 2.7) letter_grades.push_back("B");
+        else if (grade > 2.3) letter_grades.push_back("B-");
+        else if (grade > 2.0) letter_grades.push_back("C+");
+        else if (grade > 1.7) letter_grades.push_back("C");
+        else if (grade > 1.3) letter_grades.push_back("C-");
+        else if (grade > 1.0) letter_grades.push_back("D+");
+        else if (grade > 0.7) letter_grades.push_back("D");
+        else letter_grades.push_back("F");
     }
     return letter_grades;
 }
@@ -43,6 +33,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main() {
     std::vector<float> grades = {0, 0.7};
     std::vector<std::string> expectedLetterGrades = {"F", "D"};
-    assert(checksame(numerical_letter_grade(grades), expectedLetterGrades));
+    assert(identical(numerical_letter_grade(grades), expectedLetterGrades));
     return 0;
 }
