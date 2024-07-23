@@ -4,8 +4,8 @@ def coin_sums(cents):
 
     for i, coin in enumerate(sorted(coins, reverse=True)):
         while cents >= coin:
-            results[i-1] += coin // i
-            cents %= i
+            results[i] = coin // coin
+            cents %= coin
 
     return tuple(results)
 
