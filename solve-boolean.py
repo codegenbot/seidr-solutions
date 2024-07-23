@@ -1,6 +1,5 @@
 def solve_boolean(expression):
-    return eval(expression.replace("T", "True").replace("F", "False"))
+    return eval(expression.replace("&", " and ").replace("|", " or ").replace("T", "True").replace("F", "False").replace("t", "True").replace("f", "False"))
 
-
-input_str = input()
-print(solve_boolean(input_str))
+result = solve_boolean('((f)|(f))&(t)')
+print(result)
