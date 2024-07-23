@@ -1,12 +1,15 @@
+```
 #include <string>
+using namespace std;
 
 bool correct_bracketing(string brackets) {
     int count = 0;
-    for (char bracket : brackets) {
-        if (bracket == '(') {
+    for (char c : brackets) {
+        if (c == '(') {
             count++;
-        } else if (bracket == ')') {
-            if (count <= 0) return false;
+        } else if (c == ')') {
+            if (count == 0)
+                return false;
             count--;
         }
     }
