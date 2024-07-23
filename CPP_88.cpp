@@ -1,30 +1,23 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a == b);
-}
+using namespace std;
 
-std::vector<int> sort_array(std::vector<int> array) {
+vector<int> sort_array(vector<int> array) {
     if (array.empty()) return array;
-
+    
     int sum = 0;
-    for (int num : array) {
-        sum += num;
-    }
-    bool isOdd = (sum % 2 != 0);
-
-    std::vector<int> result = array;
-    std::sort(result.begin(), result.end(), [isOdd](int a, int b) {
-        if (isOdd) return a < b;
-        else return a > b;
-    });
-
+    for (int i : array) sum += i;
+    vector<int> result = array;
+    
+    if (sum % 2 == 1)
+        sort(result.begin(), result.end());
+    else
+        stable_partition(result.begin(), result.end(), [&result](int i) {
+            int median = result[0];
+            for (int j : result) median = max(median, j);
+            return i >= median;
+        });
+    
     return result;
-}
-
-int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    return 0;
 }
