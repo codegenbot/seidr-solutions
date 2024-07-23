@@ -1,10 +1,10 @@
 #include <stack>
 #include <string>
-using namespace std;
+#include <iostream>
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
-    string operand = "";
+bool evaluateBooleanExpression(std::string expression) {
+    std::stack<char> operators;
+    std::string operand = "";
     int i = 0; 
 
     for (i = 0; i < expression.length(); i++) {
@@ -66,13 +66,12 @@ bool evaluateBooleanExpression(string expression) {
 }
 
 int main() {
-    string expression;
-    cout << "Enter Boolean expression: ";
-    cin >> expression;
+    std::string expression;
+    std::cout << "Enter Boolean expression: ";
+    std::cin >> expression;
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        cout << "True";
+        std::cout << "True";
     else
-        cout << "False";
+        std::cout << "False";
     return 0;
-}
