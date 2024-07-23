@@ -1,4 +1,11 @@
+```
+from typing import List, Optional
 def longest(strings: list[str]) -> Optional[str]:
-    if not strings:
-        return None
-    return max(strings, key=len)
+    return next(
+        (
+            s
+            for s in strings
+            if strings.index(s) == 0 and len(s) == max(len(x) for x in strings)
+        ),
+        None,
+    )
