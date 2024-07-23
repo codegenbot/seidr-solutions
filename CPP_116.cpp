@@ -19,14 +19,13 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {3, 2, 1};
+    vector<int> input = {5, 2, 8, 12, 3};
+    vector<int> output = sort_array(input);
     
-    if (issame(a, sort_array(b))) {
-        cout << "The arrays are same." << endl;
+    if (issame({1, 3, 2}, output)) {
+        cout << "The array has been sorted successfully.\n";
     } else {
-        cout << "The arrays are not same." << endl;
+        cout << "Error: Array was not sorted correctly.\n";
     }
-    
     return 0;
 }
