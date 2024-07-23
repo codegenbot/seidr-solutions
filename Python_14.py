@@ -1,12 +1,2 @@
-```
-def all_prefixes(string: str) -> List[str]:
-    result = []
-    for i in range(len(string)+1):
-        prefix = string[:i].lower()
-        if not all(c.islower() for c in prefix):
-            upper = "".join(e for e in prefix if e.isupper())
-            lower = "".join(e for e in prefix if e.islower())
-            result.append(upper + lower)
-        else:
-            result.append(prefix)
-    return [""] + result
+def all_prefixes(string: str) -> list:
+    return [string[:i].lower() if not any(c.isupper() for c in string[:i]) else "".join(e for e in string[:i] if e.isupper()) + "".join(e for e in string[:i] if e.islower()) for i in range(len(string)+1)]
