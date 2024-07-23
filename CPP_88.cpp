@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -25,12 +26,5 @@ vector<int> sort_array(vector<int> array) {
 
 int main() {
     vector<int> array = {21, 14, 23, 11};
-    int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
-    } else {
-        sort(array.begin(), array.end());
-    }
-    for(int i : array) cout << i << " ";
-    return 0;
+    assert(issame(sort_array(array), {23, 21, 14, 11}));
 }
