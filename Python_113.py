@@ -1,4 +1,6 @@
-return [
-    f"the number of odd elements {sum(int(digit) % 2 != 0 for digit in string)}n the str{i}ng {i} of the {i}nput."
-    for i, string in enumerate(lst, start=1)
-]
+def odd_count(lst):
+    return ["the number of odd elements {}n the str{}ng {} of the {}nput.".format(
+        sum(1 for digit in s if int(digit) % 2 != 0),
+        sum(1 for digit in str(i) if int(digit) % 2 != 0),
+        i,
+        i) for i, s in enumerate(lst, start=1)]
