@@ -11,7 +11,7 @@ int main() {
         snow_on_ground -= snow_on_ground * melting_proportion;
     }
 
-    cout << snow_on_ground << endl;
+    cout << snow_on_ground << '\n';
 
     return 0;
 }
