@@ -5,6 +5,7 @@ std::string anti_shuffle(std::string s) {
     string result = "";
     for (int i = 0; i <= s.length(); i++) {
         if (i == s.length() || s[i] == ' ') {
+            reverse(s.substr(i).begin(), s.substr(i).end());
             for (char c : s.substr(i)) {
                 result += to_string(c);
             }
