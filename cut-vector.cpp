@@ -1,45 +1,35 @@
 int main() {
+    vector<int> nums;
     int n;
     cin >> n;
-
-    vector<int> nums(n);
+    nums.resize(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
-    int diff = INT_MAX;
-    int cutIndex = 0;
-
+    
+    int minDiff = INT_MAX;
+    int index = -1;
     for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        
+        int sum1 = 0, sum2 = 0;
         for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
+            sum1 += nums[j];
         }
-        
         for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
+            sum2 += nums[j];
         }
-        
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
-            cutIndex = i;
-        }
-        
-        if (diff == 0) {
-            break;
+        int diff = abs(sum1 - sum2);
+        if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
-
-    for (int i = 0; i < cutIndex; ++i) {
+    
+    for (int i = 0; i < index; ++i) {
         cout << nums[i] << endl;
     }
-
-    cout << "0" << endl;
-
-    for (int i = cutIndex; i < n; ++i) {
+    for (int i = index; i < n; ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
