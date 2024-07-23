@@ -1,6 +1,7 @@
-```c++
+#include <iostream>
 #include <stack>
 #include <string>
+
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -33,12 +34,12 @@ bool evaluateBooleanExpression(string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (expression[i] == '|') {
+                if (operators.top() == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
                     return operand == "T";
-                } else if (expression[i] == '&') {
+                } else if (operators.top() == '&') {
                     while (!operators.empty()) operators.pop();
                     return operand == "T";
                 }
