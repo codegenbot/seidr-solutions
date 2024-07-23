@@ -1,3 +1,6 @@
+Here's your modified code:
+
+```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,7 +23,7 @@ pair<int, int> mastermind(string code, string guess) {
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
         if(code[i] != guess[i]) {
-            colorCount[(int)(guess[i]-'0')]++;
+            colorCount[(int)(guess[i] - '0')]++;
         }
     }
 
@@ -42,5 +45,5 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     pair<int, int> result = mastermind(code, guess);
-    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
 }
