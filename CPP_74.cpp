@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,31 +19,24 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         len2 += s.length();
     }
 
-    if (len1 < len2) {
-        sort(lst1.begin(), lst1.end());
-        sort(lst2.begin(), lst2.end());
-        
-        for (int i = 0; i < min(len1, len2); i++) {
-            if (tolower(lst1[i]) == tolower(lst2[i])) {
-                result.push_back(lst1[i]);
-            }
+    sort(lst1.begin(), lst1.end());
+    sort(lst2.begin(), lst2.end());
+
+    int i = 0;
+    while (i < min(len1, len2)) {
+        if (lst1[i] == lst2[i]) {
+            result.push_back(lst1[i]);
+            i++;
         }
-    } else if (len2 < len1) {
-        sort(lst2.begin(), lst2.end());
-        sort(lst1.begin(), lst1.end());
-        
-        for (int i = 0; i < min(len1, len2); i++) {
-            if (tolower(lst1[i]) == tolower(lst2[i])) {
-                result.push_back(lst1[i]);
+        else {
+            if (len1 > len2) {
+                i = len2;
             }
-        }
-    } else {
-        sort(lst1.begin(), lst1.end());
-        sort(lst2.begin(), lst2.end());
-        
-        for (int i = 0; i < len1; i++) {
-            if (tolower(lst1[i]) == tolower(lst2[i])) {
-                result.push_back(lst1[i]);
+            else if (len2 > len1) {
+                i = len1;
+            }
+            else {
+                break;
             }
         }
     }
