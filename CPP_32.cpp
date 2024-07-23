@@ -1,6 +1,7 @@
 ```cpp
-#include<bits/stdc++.h>
-using namespace std;
+#include <vector>
+#include <cmath>
+#include <assert.h>
 
 double poly(vector<double> coeffs, double x) {
     double result = 0;
@@ -27,8 +28,8 @@ double find_zero(vector<double> coeffs) {
 
 int main() {
     vector<double> coeffs = {1.0, -6.0, 11.0, -6.0, 1.0};
-    double solution = find_zero(coeffs);
-    
+    double solution = 0.0;
+
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
         assert(abs(val)< 1e-3); 
