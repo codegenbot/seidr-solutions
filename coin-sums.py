@@ -1,12 +1,13 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
 
-    for coin in sorted(coins, reverse=True):
+    for coin in coins:
         count = cents // coin
         if count > 0:
             results[coins.index(coin)] = count
-            cents %= coin
+            cents -= count * coin
 
     return tuple(results)
 
