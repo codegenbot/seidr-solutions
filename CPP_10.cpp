@@ -1,10 +1,15 @@
-string make_palindrome(string str){
-    string palindrome = str;
-    for (int i = str.length() - 1; i >= 0; --i) {
-        if (is_palindrome(str.substr(i))) {
-            palindrome += str.substr(0, i);
+int main(){
+    string str;
+    cin>>str;
+    string suffix = "";
+    for(int i=str.size()-1; i>=0; i--){
+        suffix = str[i] + suffix;
+        if(is_palindrome(suffix)){
+            string prefix = str.substr(0, i);
+            reverse(prefix.begin(), prefix.end());
+            cout<<str+prefix<<endl;
             break;
         }
     }
-    return palindrome;
+    return 0;
 }
