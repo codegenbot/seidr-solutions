@@ -1,6 +1,3 @@
-```
-#include <vector>
-#include <algorithm>
 #include <string>
 
 int bowlingScore(string s) {
@@ -16,12 +13,12 @@ int bowlingScore(string s) {
             frameScores.clear();
         } else if (c == '/') {
             int spareRoll1 =stoi(string(1, s[s.find('/')-1]));
-            int spareRoll2 = stoi(string(1, s[s.find('/')-2]));
+            int spareRoll2 = stoi(string(1, s.substr(s.find('/')-2, 1)));
             score += 10 - spareRoll1 - spareRoll2;
             frameScores.clear();
         } else {
-            if (c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
-                int roll = stoi(string(1, c));
+            if (c >= '0' && c <= '9') {
+                int roll =stoi(string(1, c));
                 if (!frameScores.empty()) {
                     frameScores.back() += roll;
                 } else {
@@ -36,4 +33,3 @@ int bowlingScore(string s) {
     }
 
     return score;
-}
