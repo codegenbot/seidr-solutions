@@ -9,5 +9,10 @@ int basement(vector<int> nums) {
             return i;
         }
     }
+    return nums.size();
+}
+
+int main() {
+    // Test your basement function here
     return 0;
 }
