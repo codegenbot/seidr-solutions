@@ -1,14 +1,5 @@
-vector<int> result = l;
-
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            vector<int> temp = { l[i - 2], l[i - 1], l[i] };
-            sort(temp.begin(), temp.end());
-            result[i - 2] = temp[0];
-            result[i - 1] = temp[1];
-            result[i] = temp[2];
-        }
-    }
-
-    return result;
+sort(l.begin(), l.end(), [](int a, int b) {
+		return a % 3 == 0 ? a < b : false;
+	});
+	return l;
 }
