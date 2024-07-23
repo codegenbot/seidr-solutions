@@ -4,49 +4,24 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             score += 30;
-            i++;
         } else if (isdigit(s[i])) {
             int pins = s[i] - '0';
-            i++;
-            if (s[i] == '/') {
-                i++; // skip '/'
-                while (i < s.length() && !isdigit(s[i])) {
-                    i++;
-                }
-                pins += s[i] - '0';
+            if (i < 8 && (s[i+1] == '/' || s[i+1] == 'X')) {
+                score += 10 + pins;
+                i++;
             } else {
-                if (i + 1 < s.length()) {
-                    char next = s[i + 1];
-                    if (next == '/') {
-                        score += 10 - pins;
-                        i++; // skip '/'
-                        while (i < s.length() && !isdigit(s[i])) {
-                            i++;
-                        }
-                        pins += s[i] - '0';
-                        i++; // skip remaining characters
-                    } else {
-                        score += pins + next - '0';
-                        i++; // skip second digit
-                    }
-                } else {
-                    score += pins;
-                }
+                score += pins;
             }
         } else if (s[i] == '/') {
-            while (i < s.length() && !isdigit(s[i])) {
-                i++;
-            }
             int j = i + 1;
-            while (j < s.length() && isdigit(s[j])) {
+            while (j < 11 && !isdigit(s[j])) {
                 j++;
             }
-            score += 10 - (j - i) - (s[j - 1] - '0');
+            int pins = s[j] - '0';
+            score += 10 - pins;
         }
-        i++;
     }
     return score;
