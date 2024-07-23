@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
     int result = numbers[0];
@@ -10,6 +11,7 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
         else if (operations[i] == "-") {
             result -= numbers[i + 1];
         }
+        // add more conditions for other operations
     }
     return result;
 }
