@@ -11,10 +11,10 @@ int main() {
         cout << "You didn't type anything";
         return 0;
     }
-    int charCount = 0;
-    for (int i = 0; i < tweet.length(); i++) {
-        if (!isspace(tweet[i])) {
-            charCount++;
+    int charCount = 0; 
+    for (char c : tweet) {
+        if (!isspace(c)) {
+            charCount++; 
         }
     }
     if (charCount > 140) {
