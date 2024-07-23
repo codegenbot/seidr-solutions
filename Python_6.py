@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -12,9 +11,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            level -= 1
-            result.append(level)
-
+            while level > 0:
+                result.append(0)
+                level -= 1
     return [i for i in result]
 
 
