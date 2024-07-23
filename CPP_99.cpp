@@ -1,4 +1,5 @@
 double num = stod(value);
-    int rounded = static_cast<int>(num + (num >= 0 ? 0.5 : -0.5));
-    return rounded;
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
+    return (num - floor_num < ceil_num - num) ? floor_num : ceil_num;
 }
