@@ -1,9 +1,3 @@
-input_str = input().split()
-output_str = ""
-for word in input_str:
-    if "-" in word:
-        output_str += word.replace("-", "").capitalize()
-    else:
-        output_str += word
-    output_str += " "
-print(output_str.strip())
+words = input().split("-")
+result = words[0] + "".join(word.capitalize() for word in words[1:])
+print(result)
