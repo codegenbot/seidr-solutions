@@ -1,11 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 int main() {
     int n, num;
-    cin >> n;
+    std::cin >> n;
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> num;
-        sum += (num / 3) - 2;
+        std::cin >> num;
+        sum += std::floor(num / 3) - 2;
     }
-    cout << sum << endl;
+    std::cout << sum << std::endl;
     return 0;
 }
