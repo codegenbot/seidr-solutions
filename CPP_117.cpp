@@ -1,9 +1,11 @@
-```cpp
+#include <cctype>
 #include <vector>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a,vector<string>b){
     return a == b;
 }
 
@@ -30,5 +32,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    // Your code goes here
+    return 0;
 }
