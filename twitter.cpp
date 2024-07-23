@@ -5,8 +5,9 @@
 using namespace std;
 
 string validateTweet(string tweet) {
-    while (!tweet.empty() && tweet.back() == '\n') {
-        tweet.pop_back();
+    size_t pos = 0;
+    while ((pos = tweet.find('\n', pos)) != string::npos) {
+        tweet.erase(pos, 1);
     }
     if (tweet.empty()) {
         return "You didn't type anything";
