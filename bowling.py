@@ -1,27 +1,17 @@
-```
 def bowling_score(frames):
     score = 0
-    i = 0
-    while i < len(frames):
-        if frames[i:i+2] == "X/":
+    for i in range(10):
+        if frames[i * 2:i * 2 + 1] == "X":
             score += 10
-            i += 1
-            if i < len(frames) and frames[i].isdigit():
-                score += int(frames[i])
-            if i + 1 < len(frames) and frames[i+1].isdigit():
-                score += int(frames[i+1])
-        elif "/" in frames[i:i+3]:
-            spare = int(frames[i+1:i+2])
+            if i < 9:
+                strike_bonus = int(frames[(i+1)*2:(i+2)*2]) + int(frames[(i+2)*2:(i+3)*2])
+                score += strike_bonus
+        elif frames[i * 2:i * 2 + 1] == "/":
             score += 10
-            i += 3
-            while i < len(frames) and frames[i] != "/":
-                if frames[i].isdigit():
-                    score += int(frames[i])
-                i += 1
+            spare = int(frames[2*i:2*i+2])
+            score += spare
         else:
-            roll1, roll2 = map(int, frames[i:i+2].split('/'))
+            roll1 = int(frames[i * 2:i * 2 + 1])
+            roll2 = int(frames[i * 2 + 1:i * 2 + 2]) if len(frames[i * 2:i * 4]) == 3 else 0
             score += roll1 + roll2
-            i += 2
     return score
-
-print(bowling_score("9/6/X22-1167132414/1"))
