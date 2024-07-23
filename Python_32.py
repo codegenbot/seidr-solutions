@@ -1,10 +1,9 @@
-```
 def find_zero():
     while True:
         xs = input("Enter coefficients separated by space: ").split()
         try:
             xs = [float(i) for i in xs]
-            if len(xs) % 3 != 0:
+            if len(xs) % 2 != 0:
                 raise ValueError("xs must have three coefficients")
             break
         except ValueError:
