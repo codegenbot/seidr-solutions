@@ -1,6 +1,6 @@
 #include <vector>
-#include <initializer_list>
 #include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
