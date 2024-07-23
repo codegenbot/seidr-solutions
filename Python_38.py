@@ -1,12 +1,12 @@
-Here is the completed code:
-
 def decode_cyclic(s: str):
     result = ""
-    while len(s) >= 3:
-        group = s[:3]
-        new_group = group[1] + group[0] + group[2]
-        result += new_group
-        s = s[3:]
-    if s:
-        result += s
+    i = 0
+    while i < len(s):
+        if (i + 3) % 3 == 1:
+            result += s[i] + s[i + 1]
+        elif (i + 2) % 3 == 0:
+            result += s[i - 1] + s[i]
+        else:
+            result += s[i]
+        i += 1
     return result
