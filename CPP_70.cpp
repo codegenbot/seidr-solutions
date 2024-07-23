@@ -1,15 +1,13 @@
 sort(lst.begin(), lst.end());
-vector<int> res;
-int i = 0, j = lst.size() - 1;
-while (i <= j) {
-    if (i == j) {
-        res.push_back(lst[i]);
-        break;
+int n = lst.size();
+vector<int> result(n);
+int left = 0, right = n - 1;
+for (int i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+        result[i] = lst[left++];
+    } else {
+        result[i] = lst[right--];
     }
-    res.push_back(lst[i]);
-    res.push_back(lst[j]);
-    i++;
-    j--;
 }
-return res;
+return result;
 }
