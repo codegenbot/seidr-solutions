@@ -12,7 +12,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::set<char> correctColors;
+    std::unordered_set<char> correctColors;
 
     for (char c : code) {
         int count = 0;
@@ -36,5 +36,3 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return white - black;
-
-}
