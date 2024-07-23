@@ -1,9 +1,8 @@
 ```
 def find_pair(n, numbers):
-    for i in range(len(numbers)):
-        for j in range(i+1, len(numbers)):
-            if numbers[i] + numbers[j] == n:
+    for i in range(n):
+        for j in range(i+1, n):
+            if numbers[i] + numbers[j] == int(input()):
                 return str(numbers[i]) + '\n' + str(numbers[j])
 
-n = int(input())
-print(find_pair(n, [int(x) for x in input().split()]))
+print(find_pair(int(input()), [int(x) for x in input().split()]))
