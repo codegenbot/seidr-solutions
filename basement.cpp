@@ -1,19 +1,20 @@
 #include <vector>
+#include <stdexcept>
 
 int basement(const std::vector<int>& nums) {
     int sum = 0;
-    size_t i = 0;
-    while (i < nums.size()) {
+    for (std::size_t i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) return i;
-        i++;
     }
-    return -1;
-
+    throw std::runtime_error("No basement found");
 }
 
 int main() {
-    std::vector<int> nums = {-1,2,3,-2,5};
-    int result = basement(nums);
-    return result;
+    try {
+        return basement({-1,2,3,-2,5});
+    } catch(const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return -1;
+    }
 }
