@@ -6,17 +6,12 @@ int smallest_change(std::vector<int> arr) {
     assert(n > 0);
 
     int changes = 0;
-    for (int i = 0; i < n - 1; i++) {
-        bool found_unique = false;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] != arr[j]) {
-                found_unique = true;
-                break;
-            }
-        }
-        if (!found_unique) {
+    int prev_value = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] != prev_value) {
             changes++;
         }
+        prev_value = arr[i];
     }
 
     return changes;
