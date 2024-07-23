@@ -1,8 +1,9 @@
+#include <vector>
+
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = std::floor(i / 3);
-        sum += temp - 2;
+        sum += std::max(0, static_cast<int>(i / 3.0) - 2);
     }
     return sum;
 }
