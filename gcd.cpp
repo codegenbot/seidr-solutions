@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 
-unsigned long gcd(unsigned long a, unsigned long b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        unsigned long temp = b;
+        size_t temp = b;
         b = a % b;
         a = temp;
     }
-    return a;
+    return std::min(a, b);
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
@@ -39,6 +39,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    unsigned long GCD = gcd(static_cast<unsigned long>(text.length()), static_cast<unsigned long>(target.length()));
+    size_t GCD = gcd((size_t)text.length(), (size_t)target.length());
     std::cout << "GCD of text and target: " << GCD << std::endl;
 }
