@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool areEqualVectors(std::vector<int> a, std::vector<int> b) {
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return (a[0] == b[0]) && (a[1] == b[1]);
 }
 
