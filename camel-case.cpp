@@ -1,21 +1,21 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
+
     for (char c : str) {
-        if (c == '-') {
-            continue;
+        if (c == '-') || (c == ' ')) { 
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            if (!result.empty()) {
-                if (c >= 'a' && c <= 'z') {
-                    result[0] = toupper(result[0]);
-                }
-            }
             result += tolower(c);
         }
     }
+
     return result;
 }
 
@@ -24,15 +24,19 @@ int main() {
     while (std::cin >> str) {
         size_t prevSpace = 0;
         for (size_t i = 0; i < str.size(); ++i) {
-            if (str[i] == '-') {
-                for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) {
+            if (str[i] == '-') || (str[i] == ' ')) { 
+                for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) { 
                     finalResult += tolower(c);
                 }
-                finalResult += toupper(str[i]);
+                if (str[i] == ' ') { 
+                    finalResult += ' ';
+                } else {
+                    finalResult += toupper(str[i]);
+                }
                 prevSpace = i + 1;
             }
         }
-        for (char c : str.substr(prevSpace)) {
+        for (char c : str.substr(prevSpace)) { 
             if (!finalResult.empty()) {
                 if (c >= 'a' && c <= 'z') {
                     finalResult[0] = toupper(finalResult[0]);
