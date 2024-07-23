@@ -11,8 +11,7 @@ def mean_absolute_deviation() -> float:
                 result = statistics.mean(numbers_list)
             else:
                 result = statistics.mean([abs(num - statistics.mean(numbers_list)) for num in numbers_list])
-            return result
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
-
-print(mean_absolute_deviation())
+        
+        return result
