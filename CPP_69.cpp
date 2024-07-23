@@ -1,8 +1,9 @@
-#include <unordered_map>
+#include <iostream>
 #include <vector>
+#include <unordered_map>
 
 int search(std::vector<int> lst) {
-    unordered_map<int, int> freq;
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
@@ -16,4 +17,9 @@ int search(std::vector<int> lst) {
         }
     }
     return -1;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
