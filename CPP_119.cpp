@@ -1,24 +1,23 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-bool match_parens(const vector<string>& lst) {
+int match_parens(vector<string> lst) {
     int balance = 0;
-    for (const auto& s : lst) {
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 balance++;
             } else if (c == ')') {
-                if (balance <= 0) return false;
+                if (balance <= 0) return 0;
                 balance--;
             }
         }
     }
-    return balance == 0;
+    return balance == 0 ? 1 : 0;
 }
 
 int main() {
-    vector<string> lst = {"hello((world", "foo(bar(baz", "java");
-    cout << (match_parens(lst) ? "Yes" : "No") << endl;
+    vector<string> input = {")", "("};
+    cout << match_parens(input);
     return 0;
 }
