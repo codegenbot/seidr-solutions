@@ -1,3 +1,3 @@
 def paired_digits(s):
-    return sum(int(d1) for d1, d2 in ((s[i], s[i+1]) if i < len(s)-1 else (s[i],) for i in range(len(s))) 
-              if str(d1).lstrip('0') == str(d2).lstrip('0'))
+    s = str(int(s))  
+    return sum(int(a) for a, b in zip([0]+list(s), list(s)+[0]) if a == b)
