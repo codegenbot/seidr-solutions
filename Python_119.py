@@ -1,4 +1,3 @@
-```
 def match_parens(lst):
     stack = []
     for s in lst:
@@ -8,7 +7,7 @@ def match_parens(lst):
                     stack.append(c)
                 elif c == ')':
                     if not stack:
-                        return False  # If stack is empty when closing parenthesis is encountered, it means there are more closing parentheses than opening.
+                        return 'No'  
                     else:
                         stack.pop()
-    return not bool(stack)
+    return 'Yes' if not stack else 'No'
