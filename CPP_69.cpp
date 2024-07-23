@@ -1,6 +1,10 @@
-int search(vector<int> myVector) {
-    map<int, int> countMap;
-    for (auto i : myVector) {
+```
+#include <vector>
+#include <map>
+
+int search(const std::vector<int>& lst) {
+    std::map<int, int> countMap;
+    for (auto i : lst) {
         countMap[i]++;
     }
     
