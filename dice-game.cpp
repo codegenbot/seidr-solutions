@@ -1,4 +1,6 @@
 double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (m - 1.0) / total;
+    double total = 1.0 * (n + m - 1);
+    double peterTotal = 1.0 * (n - 1);
+    
+    return peterTotal / total;
 }
