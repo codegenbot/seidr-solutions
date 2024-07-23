@@ -1,14 +1,13 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cctype>
 
-using namespace std;
-
-bool issame(map<char, int> a, map<char, int> b) {
+bool std::issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (auto& pair : a) {
+    for (const auto& pair : a) {
         if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
             return false;
         }
@@ -17,12 +16,12 @@ bool issame(map<char, int> a, map<char, int> b) {
 
 }
 
-map<char, int> histogram(const string& str) {
-    map<char, int> result;
+std::map<char, int> histogram(const std::string& str) {
+    std::map<char, int> result;
 
     for (char c : str) {
-        if (!isalpha(c)) continue; // ignore non-alphabetic characters
-        char lower = tolower(c);
+        if (!std::isalpha(c)) continue; // ignore non-alphabetic characters
+        char lower = std::tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
         } else {
@@ -32,8 +31,4 @@ map<char, int> histogram(const string& str) {
 
     return result;
 
-}
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
 }
