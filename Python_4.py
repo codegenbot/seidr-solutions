@@ -1,5 +1,5 @@
 ```
-def mean_absolute_deviation(numbers_list) -> float:
+def mean_absolute_deviation(numbers_list):
     while True:
         numbers_str = input("Enter comma-separated float values (e.g., 1,2,3): ")
         
@@ -21,5 +21,4 @@ def mean_absolute_deviation(numbers_list) -> float:
             
     return result
 
-result = mean_absolute_deviation([1.0, 2.0, 3.0])
-print(result)
+print(mean_absolute_deviation([]))
