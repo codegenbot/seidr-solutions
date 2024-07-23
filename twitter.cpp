@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,17 +7,22 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    int charCount = 0;
+    for (char c : tweet) {
+        if (c != ' ' && !isprint(c) && isalnum(c)) {
+            charCount++;
+        }
+    }
+    if (charCount > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(charCount) + " characters";
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(tweet.find('\n'), 1);
     cout << validateTweet(tweet) << endl;
     return 0;
 }
