@@ -1,5 +1,3 @@
-Here is the modified code:
-
 bool evaluateBooleanExpression(string expression) {
     stack<char> operators;
     string operand = "";
@@ -16,7 +14,7 @@ bool evaluateBooleanExpression(string expression) {
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return (operand == "T");
+                return operand == "T";
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
@@ -35,7 +33,7 @@ bool evaluateBooleanExpression(string expression) {
                     return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return (operand == "T");
+                    return operand == "T";
                 }
 
                 operators.pop();
@@ -52,11 +50,23 @@ bool evaluateBooleanExpression(string expression) {
             return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return (operand == "T");
+            return operand == "T";
         }
 
         operators.pop();
     }
 
-    return false;
+    return (operand == "T");
+}
+
+int main() {
+    string expression;
+    cout << "Enter Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
 }
