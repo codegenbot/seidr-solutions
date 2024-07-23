@@ -1,34 +1,47 @@
-```cpp
 #include <vector>
-#include <utility>
+#include <iostream>
+#include <memory>
 
-using namespace std;
-
-bool issame(int a, int b) {
-    return (a >= b);
-}
-
-pair<int, int> pluck(const vector<int>& v, int i) {
-    if(i >= v.size()) 
-        return make_pair(-1, -1);
-    else
-        return make_pair(v[i], i);
-}
-
-vector<pair<int, int>> result(vector<int> arr) {
-    vector<pair<int, int>> res;
-    for(int i = 0; i < arr.size(); i++) {
-        if(issame(arr[i], i+1)) 
-            res.push_back(pluck(arr, i));
+int count_even(int n) {
+    int count = 0;
+    for (int i = 2; i <= n; ++i) {
+        if (i % 2 == 0) {
+            ++count;
+        }
     }
-    return res;
+    return count;
+}
+
+std::vector<std::pair<int, int>> result(std::vector<int> v) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < v.size(); ++i) {
+        output.push_back({v[i], i});
+    }
+    return output;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = result(arr);
-    for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+    std::vector<int> arr = {7, 9, 7, 1};
+    bool same = issame(arr, {});
+    for (auto p : result(arr)) {
+        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+    }
+    if(same) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "The vectors are not the same." << std::endl;
     }
     return 0;
 }
