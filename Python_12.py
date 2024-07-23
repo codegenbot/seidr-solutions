@@ -1,4 +1,3 @@
-```
 def longest(strings):
     if not strings:
         return None
