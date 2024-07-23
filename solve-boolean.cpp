@@ -1,17 +1,20 @@
-string solveBoolean(string s) {
+```c++
+bool solveBoolean(string s) {
     bool boolResult;
-    if(s == "t") boolResult = true;
-    else boolResult = false;
-
+    if(s == "t") {
+        boolResult = true;
+    } else {
+        boolResult = false;
+    }
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            boolResult &= (left == "t") ? true : false;
+            boolResult &= (left == "t") || (right == "t");
         } else if(s[i] == '|') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            boolResult |= (left == "t") ? true : false;
+            boolResult |= (left == "t") || (right == "t");
         }
     }
     return boolResult ? "True" : "False";
