@@ -3,11 +3,13 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
-        throw std::runtime_error("Vectors are not the same size.");
+        std::cout << "Error: Vectors are not the same size." << std::endl;
+        return false;
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            throw std::runtime_error("Vectors are not the same after checking elements.");
+            std::cout << "Error: Elements at index " << i << " do not match." << std::endl;
+            return false;
         }
     }
     return true;
@@ -28,11 +30,6 @@ std::vector<int> get_even_odd(int num) {
 }
 
 int main() {
-    try {
-        assert(issame(get_even_odd(0), std::vector<int>{1, 0}));
-    } catch(const std::exception& e) {
-        std::cerr << "Error: " << e.what() << '\n';
-        return 1;
-    }
+    assert(issame(get_even_odd(0), std::vector<int>{1, 0}));
     return 0;
 }
