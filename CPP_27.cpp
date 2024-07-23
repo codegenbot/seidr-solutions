@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -22,4 +22,3 @@ int main() {
     string output = flip_case(input);
     cout << "Flipped case: " << output << endl;
     return 0;
-}
