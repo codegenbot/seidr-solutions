@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string substr) {
     std::vector<std::string> result;
@@ -17,7 +17,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end())
+        if (find(b.begin(), b.end(), a[i]) == b.end())
             return false;
     }
     return true;
