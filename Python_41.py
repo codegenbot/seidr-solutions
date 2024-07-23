@@ -1,4 +1,3 @@
-```
 def car_race_collision(cars):
     if isinstance(cars, int):
         return cars
