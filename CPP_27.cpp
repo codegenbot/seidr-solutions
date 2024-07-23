@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -16,9 +15,9 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    char c;
     std::string s;
-    s.clear();
+    char c;
+    s.clear(); 
     std::cout << "Enter a string: ";
     while ((c = std::cin.get()) != '\n') {
         s.push_back(c);
