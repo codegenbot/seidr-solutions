@@ -6,7 +6,7 @@ string circular_shift(int x, int shift) {
     if (shift >= n)
         return str;
     else {
-        string result = str.substr(shift) + str.substr(0, shift);
-        return result;
+        string res = str.substr(shift) + str.substr(0, shift);
+        return res;
     }
 }
