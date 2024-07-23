@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -31,7 +32,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int myMain() {
+int main() {
     std::vector<int> arr1 = {7, 9, 7, 1};
     std::vector<std::pair<int, int>> output = result(arr1);
     for (auto p : output) {
