@@ -8,3 +8,4 @@ int pairedDigits(std::string str) {
         }
     }
     return sum;
+}
