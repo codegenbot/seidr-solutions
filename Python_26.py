@@ -4,4 +4,8 @@ def remove_duplicates(input_list=None):
     if not input_list:  
         return []  
     seen = {}
-    return [x for x in sorted(input_list) if not (seen.setdefault(x, True),)]
+    result = []
+    for x in sorted(input_list):
+        if seen.setdefault(x, 0) == 0:
+            result.append(x)
+    return result
