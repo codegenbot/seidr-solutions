@@ -28,27 +28,18 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < res.first.size(); i++) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.first[i];
-    }
-    cout << "], [";
-    for (int i = 0; i < res.second.size(); i++) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.second[i];
-    }
-    cout << "]" << endl;
-    
-    return 0;
+pair<vector<int>, vector<int>> res = cutVector(v);
+cout << "[";
+for (int i = 0; i < res.first.size(); i++) {
+    if (i > 0)
+        cout << ", ";
+    cout << res.first[i];
 }
+cout << "], [";
+for (int i = 0; i < res.second.size(); i++) {
+    if (i > 0)
+        cout << ", ";
+    cout << res.second[i];
+}
+cout << "]" << endl;
+return 0;
