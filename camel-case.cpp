@@ -1,9 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string& s) {
-    std::string result = "";
+string camelCase(string s) {
+    string result = "";
     int i = 0;
     while (i < s.length()) {
         if (s[i] == '-') {
@@ -11,15 +11,16 @@ std::string camelCase(const std::string& s) {
             while (i < s.length() && s[i] != ' ') {
                 i++;
             }
-            if (!result.empty()) {
-                result[0] = std::toupper(result[0]);
+            if (result.length() > 0) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
             }
-            result += char(std::toupper(s[i]));
         } else {
             if (!result.empty()) {
-                result[0] = std::toupper(result[0]);
+                result[0] = toupper(result[0]);
             }
-            result += s[i];
+            result += tolower(s[i]);
         }
         i++;
     }
@@ -27,9 +28,9 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "CamelCase: " << camelCase(input) << std::endl;
+    string s;
+    cout << "Enter a kebab-case string: ";
+    cin >> s;
+    cout << "CamelCase: " << camelCase(s) << endl;
     return 0;
 }
