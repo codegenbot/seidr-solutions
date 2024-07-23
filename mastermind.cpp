@@ -18,16 +18,24 @@ int mastermind(std::string code, std::string guess) {
 
     for (char c : code) {
         int count = 0;
-        for (char d : guess) {
-            if (c == d && d != c) {
+        for (int i = 0; i < 4; ++i) {
+            if (c == guess[i] && c != code[i]) {
                 count++;
-                correctColors.insert(d);
+                correctColors.insert(c);
             }
         }
     }
 
     // Count white pegs now
-    white = std::distance(correctColors.begin(), correctColors.end());
+    for (char c : code) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == guess[i]) {
+                count++;
+            }
+        }
+        white += count;
+    }
 
     return black + white;
 
