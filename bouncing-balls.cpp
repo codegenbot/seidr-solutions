@@ -16,7 +16,7 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    std::cout << std::fixed << std::setprecision(6);
+    std::cout << fixed << setprecision(6);
     std::cout << totalDistance;
 
     return 0;
