@@ -5,38 +5,26 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    bool reverseWord = false;
+    std::string word = "";
 
     for (char c : str) {
         if (c == ' ') {
-            if (reverseWord) {
-                std::reverse(result.begin(), result.end());
-                result += " ";
-                reverseWord = false;
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            else {
-                result += " " + c;
-            }
-        } 
-        else {
-            if (!reverseWord && c != ' ') {
-                reverseWord = true;
-            }
-            result += c;
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
     }
 
-    if (reverseWord) {
-        std::reverse(result.begin(), result.end());
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
 
-    return result;
-}
+    // Reverse the entire result string
+    std::reverse(result.begin(), result.end());
 
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
+    return result;
 }
