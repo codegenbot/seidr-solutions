@@ -1,6 +1,12 @@
 ```
 def sort_even(l: list):
     l.sort()
-    pos_evens = [x for x in l if 0 <= x % 2]
-    neg_odds = sorted([x for x in l if x % 2 != 0], reverse=True)
-    return [(i, o) for i in pos_evens for o in neg_odds]
+    result = []
+    i, j = 0, len(l) - 1
+    while i <= j:
+        if l[i] % 2 == 0:
+            result.append((l[i], None))
+        else:
+            result.append((None, l[j]))
+        i, j = i + 1, j - 1
+    return tuple(result)
