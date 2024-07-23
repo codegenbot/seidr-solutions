@@ -15,8 +15,8 @@ int main() {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeFreq[code[i] - '1']++;
-            guessFreq[guess[i] - '1']++;
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
     
@@ -24,8 +24,8 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
     
-    std::cout << white << std::endl;
-    std::cout << black << std::endl;
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
