@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
         result = None
@@ -8,6 +7,11 @@ def solve_boolean(expression):
             token = tokens[i]
             if token == '(':
                 stack.append(i)
+            elif token == ')':
+                while stack and tokens[stack[-1]] != '(':
+                    if tokens[stack.pop()] in ['|', '&']:
+                        result = recursive_eval(tokens, stack[-1]+1) if result is None else result
+                i += 1
             elif token in ['T', 'F']:
                 if result is None: 
                     result = True if token == 'T' else False
@@ -16,21 +20,20 @@ def solve_boolean(expression):
                 return result
             elif token in ['|', '&']:
                 operator = token
-                if stack and tokens[stack[-1]] != '(':
-                    while len(stack) > 0 and tokens[stack[-1]] == operator:
-                        if operator == '&' and result is True:
-                            return True
-                        elif operator == '|' and result is False:
-                            return False
-                        stack.pop()
+                while len(stack) > 0 and tokens[stack[-1]] == operator:
+                    stack.pop()
+                if result is None: 
+                    if operator == '&':
+                        result = True
+                    else:
+                        result = False
+                elif operator == '&':
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result &= (tokens[stack.pop()] in ['T', 't'])
                 else:
-                    if not stack:
-                        return result
-                i += 1
-            elif token == ')':
-                while tokens[i] != '(':
-                    i += 1
-                i += 1
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result |= (tokens[stack.pop()] in ['T', 't'])
+            i += 1
 
         if len(stack) > 0:
             return recursive_eval(tokens, stack[-1]+1)
