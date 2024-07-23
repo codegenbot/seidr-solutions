@@ -1,3 +1,4 @@
+```
 def search(lst):
     freq = {}
     max_num = -1
