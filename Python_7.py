@@ -1,7 +1,8 @@
 ```
+```
 from typing import List
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+def filter_by_substring(strings: list, substring: str) -> list:
     return [s for s in strings if substring in s]
 
 strings = input("Enter a list of strings (separated by commas): ").split(",")
@@ -22,3 +23,4 @@ while substring.strip() == "":
 
 result = filter_by_substring([s.strip() for s in strings], substring)
 print(result)
+```
