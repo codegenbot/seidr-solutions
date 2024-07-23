@@ -1,7 +1,7 @@
 def bowling_score(game):
     score = 0
     frame = 1
-    game = game.split()  
+    game = game.split()
     for bowl in game:
         if len(bowl) == 2 and bowl[0] == 'X':
             score += 10 + int(bowl[1:])
