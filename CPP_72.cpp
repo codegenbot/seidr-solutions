@@ -11,11 +11,11 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-long long int accumulate(vector<int> q) {
+long long accumulate(vector<int> q) {
     return accumulate(q.begin(), q.end(), 0LL);
 }
 
-bool will_it_fly_helper(vector<int> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     string s = "";
     for (int i : q) {
         s += to_string(i);
@@ -40,7 +40,7 @@ int main() {
     cout << "Enter the total weight: ";
     cin >> w;
 
-    bool result = will_it_fly_helper(q, w);
+    bool result = will_it_fly(q, w);
 
     if (result)
         cout << "The queens will fly with the given weight.";
