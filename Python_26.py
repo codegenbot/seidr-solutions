@@ -3,4 +3,4 @@ def remove_duplicates(input_list=None):
         input_list = list(map(int, input("Enter numbers separated by space: ").split()))
     if not input_list:  
         return []  
-    return sorted(set(input_list))
+    return [int(x) for x in set(input_list)]
