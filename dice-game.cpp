@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 
 double probability(int n, int m) {
