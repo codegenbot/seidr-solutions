@@ -1,8 +1,3 @@
-```
-#include <iostream>
-#include <string>
-using namespace std;
-
 string camelCase(string s) {
     string result = "";
     int i = 0;
@@ -26,12 +21,4 @@ string camelCase(string s) {
         i++;
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a kebab-case string: ";
-    getline(cin, input);
-    cout << "CamelCase: " << camelCase(input) << endl;
-    return 0;
 }
