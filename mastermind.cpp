@@ -17,16 +17,18 @@ pair<int, int> mastermind(string code, string guess) {
 
     // Count total correct characters in code and guess
     int colorCount[6] = {0};
-    for(int i = 0; i < 4; i++) {
-        if(code[i] != guess[i]) {
-            colorCount[(int)(guess[i] - '0')]++;
+    for(int i = 0; i < 6; i++) {
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == '0' + i) {
+                colorCount[i]++;
+            }
         }
     }
 
     // Calculate white pegs
     for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > (std::count(code.begin(), code.end(), '0' + i) ? 1 : 0)) {
-            whitePegs += colorCount[i] - (std::count(code.begin(), code.end(), '0' + i) ? 1 : 0);
+        if(colorCount[i] > 0) {
+            whitePegs += colorCount[i] - (count(code.begin(), code.end(), '0' + i) ? 1 : 0);
         }
     }
 
