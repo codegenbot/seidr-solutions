@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -18,7 +17,7 @@ int main() {
     totalDistance *= bouncinessIndex;
 
     std::cout << "The total distance traveled by the ball is: ";
-    std::cout << std::setprecision(6) << std::fixed;
-    std::cout << totalDistance << std::endl;
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2) << totalDistance << std::endl;
     return 0;
 }
