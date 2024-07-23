@@ -7,16 +7,15 @@ def substitution_cipher(cipher1, cipher2, message):
             [i.upper() if i.isalpha() else "" for i in cipher2],
         )
     }
-
     return "".join(
         [
             (
                 cipher_lower.get(char.lower(), char).upper()
-                if (char.isalpha() and not char.isupper())
+                if char.isalpha() and not char.isupper()
                 else (
                     cipher_upper.get(char.upper(), char).lower()
-                    if char.isupper()
-                    else cipher_lower.get(char.lower(), char)
+                    if char.isalpha() and char.isupper()
+                    else char
                 )
             )
             for char in message
