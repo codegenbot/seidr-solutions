@@ -1,5 +1,4 @@
-```
 def gcd(a, b):
-    while b:
-        a, b = abs(b), abs(a) % abs(b)
-    return abs(a)
+    if a == 0 and b == 0: return 0
+    while b: a, b = abs(b), abs(a) % abs(b)
+    return a if a else 1
