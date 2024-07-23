@@ -1,24 +1,22 @@
-#include <cctype>
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
-
-    for (int i = 0; i < lst1.size(); ++i) {
-        string s = lst1[i];
-        std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-        lst1[i] = s;
-    }
-    for (int j = 0; j < lst2.size(); ++j) {
-        string s = lst2[j];
-        std::transform(s.begin(), s.end(), s.begin(), ::toupper);
-        lst2[j] = s;
-    }
+    
+    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
 
     sort(lst1.begin(), lst1.end());
     sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
-
+    
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
             result.push_back(lst1[i]);
@@ -31,5 +29,24 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         }
     }
 
+    if (i < lst1.size()) {
+        for (; i < lst1.size(); i++) {
+            result.push_back(lst1[i]);
+        }
+    }
+
     return result;
+}
+
+int main() {
+    vector<string> vec1 = {"hi", "admin"};
+    vector<string> vec2 = {"hI", "Hi"};
+
+    vector<string> result = total_match(vec1, vec2);
+
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << endl;
+    }
+
+    return 0;
 }
