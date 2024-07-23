@@ -1,15 +1,20 @@
-```
+```c++
 #include <string>
-
-int main() { 
-    int sum = pairedDigits("123333321"); 
-    return sum; } 
 
 int pairedDigits(std::string str) {
     int sum = 0;
     for(int i=0; i<str.length(); i++) {
         if(i+1 < str.length() && str[i] == str[i+1]) {
-            sum += str[i] - '0';
+            sum += (str[i] - '0');
         }
     }
-    return sum; }
+    return sum;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    int result = pairedDigits(input);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
