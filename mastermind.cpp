@@ -1,29 +1,38 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <utility>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-std::pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
-    
+    int blackPegs = 0;
+
+    // Count black pegs
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            int matches = 0;
-            for(int j = 0; j < 4; j++) {
-                if(i != j && code[j] == guess[i]) {
-                    matches++;
-                }
-            }
-            whitePegs += matches;
         }
     }
-    
-    return std::make_pair(blackPegs, whitePegs);
+
+    // Count total correct characters in code and guess
+    int colorCount[6] = {0};
+    for(int i = 0; i < 4; i++) {
+        if(code[i] != guess[i]) {
+            colorCount[(int)(guess[i]-'0')]++;
+        }
+    }
+
+    // Calculate white pegs
+    for(int i = 0; i < 6; i++) {
+        if(colorCount[i] > 0) {
+            int count = std::count(code.begin(), code.end(), (i+'0'));
+            whitePegs += colorCount[i] - (count ? 1 : 0);
+        }
+    }
+
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
@@ -33,5 +42,5 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     pair<int, int> result = mastermind(code, guess);
-    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
 }
