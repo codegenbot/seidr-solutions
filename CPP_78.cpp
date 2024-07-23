@@ -1,10 +1,11 @@
-int hex_key(string num) {
-    int count = 0;
+int hex_key(std::string num) {
+    int sum = 0;
     for (char c : num) {
-        if (c >= '2' && c <= '7') {
-            count++;
-        } else if (c == 'B' || c == 'D' || c == 'F') {
-            count++;
+        if (std::isxdigit(c)) {
+            sum += std::isdigit(c)? c - '0' : tolower(c) - 'a' + 10; // convert A-F to their decimal values
+        } else {
+            return 0; // or handle invalid input as needed
         }
     }
-    return count;
+    return sum;
+}
