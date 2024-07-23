@@ -18,7 +18,7 @@ def encode(message):
                 if char.islower():
                     result += chr(ord(char) + 3)
                 else:
-                    result += chr(ord(char) - 3)
+                    result += chr(ord(char) - 25)
         else:
             result += char
     return result
