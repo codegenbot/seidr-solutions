@@ -1,11 +1,8 @@
+```
 int pennies = cents;
-std::cout << "Quarters: " << (pennies /= 25) << std::endl; 
-pennies %= 25;
-
-std::cout << "Pennies: " << (pennies /= 5) << std::endl; 
-pennies %= 5;
-
-std::cout << "Nickles: " << (pennies /= 10) << std::endl;
-pennies %= 10;
-
-std::cout << "Dimes: " << pennies << std::endl;
+cout << "Quarters: " << cents / 25 << endl;
+cents %= 25;
+cout << "Dimes: " << cents / 10 << endl;
+cents %= 10;
+cout << "Nickles: " << cents / 5 << endl;
+cout << "Pennies: " << cents % 5 << endl;
