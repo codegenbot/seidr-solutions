@@ -1,20 +1,24 @@
+````
 #include <cassert>
 
 int findMaxPrime(int arr[]) {
-    int max = arr[0];
-    for (int i = 1; i < sizeof(arr)/sizeof(arr[0]); i++) {
-        if (arr[i] > max && isPrime(arr[i])) {
-            max = arr[i];
+    int maxPrime = -1;
+    for (int num : arr) {
+        if (isPrime(num)) {
+            if (num > maxPrime)
+                maxPrime = num;
         }
     }
-    return max;
+    return maxPrime;
 }
 
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+
+    for (int i = 3; i * i <= n; i += 2) {
+        if (n % i == 0)
             return false;
     }
     return true;
@@ -33,3 +37,4 @@ int main() {
     assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
     return 0;
 }
+```
