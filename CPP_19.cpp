@@ -11,24 +11,22 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> sorted_numbers;
-    string result = "";
-    
-    string current_number = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            sorted_numbers[number_map[current_number]] = current_number;
-            current_number = "";
-        } else {
-            current_number += c;
-        }
+string sort_numbers(string numbers) {
+    vector<string> words;
+    stringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        words.push_back(word);
     }
-    sorted_numbers[number_map[current_number]] = current_number;
-    
-    for (auto it = sorted_numbers.begin(); it != sorted_numbers.end(); ++it) {
-        result += it->second + " ";
+
+    sort(words.begin(), words.end(), [&](const string &a, const string &b) {
+        return number_map[a] < number_map[b];
+    });
+
+    string result;
+    for (const auto &w : words) {
+        result += w + " ";
     }
-    
+    result.pop_back(); // remove trailing space
     return result;
 }
