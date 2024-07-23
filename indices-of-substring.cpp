@@ -1,9 +1,9 @@
 int main() {
     string text, target;
-    cin >> text >> target;
-    
+    cin >> target >> text;
     vector<int> indices;
-    size_t pos = text.find(target, 0);
+    
+    size_t pos = text.find(target);
     while (pos != string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
