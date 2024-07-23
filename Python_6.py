@@ -11,8 +11,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            level -= 1
-            result.append(level if level > 0 else 0)
+            if level > 0:
+                level -= 1
+                result.append(level)
+            else:
+                return []  # invalid parentheses
 
     return [i - 1 for i in result]
 
