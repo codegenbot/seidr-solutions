@@ -5,4 +5,4 @@ def leaders(arr):
             leaders.append(arr[i])
             arr.pop()
             leaders.append(arr[-1])
-    return reversed(leaders)
+    return list(reversed(leaders))
