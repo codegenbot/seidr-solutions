@@ -10,9 +10,13 @@ while current_sum < half_sum:
     current_sum += nums[idx]
     idx += 1
 
-if abs(current_sum - half_sum) < abs(current_sum - nums[idx] - half_sum):
+if current_sum == half_sum:
     print(*nums[:idx])
     print(*nums[idx:])
 else:
-    print(*nums[:idx - 1])
-    print(*nums[idx - 1:])
+    if abs(current_sum - half_sum) <= abs(current_sum - nums[idx-1] - half_sum):
+        print(*nums[:idx])
+        print(*nums[idx:])
+    else:
+        print(*nums[: idx - 1])
+        print(*nums[idx - 1 :])
