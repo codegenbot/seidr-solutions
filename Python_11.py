@@ -1,20 +1,16 @@
+from typing import List
+
+
 def string_xor(a: str, b: str) -> str:
-    a = bin(int(a or '0', 2))[2:]
-    b = bin(int(b or '0', 2))[2:]
-    
+    if not isinstance(a, str) or not isinstance(b, str):
+        return "Error: Both inputs must be strings."
+    if len(a) != len(b):
+        return "Error: Inputs must have the same length."
+
     result = ""
-    for i in range(max(len(a), len(b))):
-        if i < len(a) and i < len(b):
-            if a[-1-i] == "1" and b[-1-i] == "0":
-                result = "1" + result
-            elif a[-1-i] == "0" and b[-1-i] == "1":
-                result = "1" + result
-            else:
-                result = "0" + result
+    for i in range(len(a)):
+        if a[i] == b[i]:
+            result += "0"
         else:
-            if i < len(a):
-                result = a[-1-i] + result
-            elif i < len(b):
-                result = b[-1-i] + result
-    
+            result += "1"
     return result
