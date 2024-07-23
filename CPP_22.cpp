@@ -8,9 +8,8 @@ using namespace boost::any;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            int v = get<int>(value);
-            result.push_back(v);
+        if (any_cast<int>(value).which() == 0) { // Check the type
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
