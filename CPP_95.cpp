@@ -4,13 +4,12 @@
 #include <cctype>
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
-    if (dict.empty()) return false;
+    if (dict.empty()) return true;
 
     bool allLower = true;
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        std::cout << pair.first[0];
         if (!islower(pair.first[0])) {
             allLower = false;
         }
