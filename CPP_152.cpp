@@ -9,9 +9,8 @@ std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            int temp = abs(game[i] - guess[i]);
-            if(temp > 9)temp=9;
-            result.push_back(temp);
+            int diff = abs(game[i] - guess[i]);
+            result.push_back(diff);
         }
     }
     return result;
