@@ -1,40 +1,31 @@
-#include <vector>
-#include <iostream>
-#include <string>
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-using namespace std;
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
 
-int countBlackPegs(string masterMindCode, string guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (masterMindCode[i] == guess[i]) {
-            blackPegs++;
+    for (char c : code) {
+        if (c == 'B') code_count[5]++;
+        else code_count[c - 'A']++;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            black++;
+            code_count[guess[i] - 'A']--;
+            guess_count[guess[i] - 'A']--;
+        } else {
+            for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+                if (code_count[c - 'A'] && guess_count[c - 'A']) {
+                    white++;
+                    code_count[c - 'A']--;
+                    guess_count[c - 'A']--;
+                    break;
+                }
+            }
         }
     }
-    return blackPegs;
-}
 
-int countWhitePegs(string masterMindCode, string guess) {
-    int whitePegs = 0;
-    map<char, int> codeFrequency, guessFrequency;
-    for (int i = 0; i < 4; ++i) {
-        codeFrequency[masterMindCode[i]]++;
-        guessFrequency[guess[i]]++;
-    }
-    
-    for (auto it = codeFrequency.begin(); it != codeFrequency.end(); ++it) {
-        if (it->second > 0 && guessFrequency.find(it->first) != guessFrequency.end()) {
-            whitePegs += min(it->second, guessFrequency[it->first]);
-        }
-    }
-    
-    return whitePegs;
-}
-
-int main() {
-    string masterMindCode, guess;
-    cin >> masterMindCode >> guess;
-    cout << countWhitePegs(masterMindCode, guess) << endl;
-    cout << countBlackPegs(masterMindCode, guess) << endl;
-    return 0;
+    return make_tuple(white, black);
 }
