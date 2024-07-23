@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
     int num;
@@ -28,10 +35,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << '\n';
     }
     
-    cout << 0 << endl;
+    cout << 0 << '\n';
     
     return 0;
 }
