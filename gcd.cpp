@@ -1,9 +1,16 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <initializer_list>
 
 using namespace std;
+
+long long gcd(long long a, long long b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -18,11 +25,4 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
-}
-
-long long gcd(long long a, long long b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
 }
