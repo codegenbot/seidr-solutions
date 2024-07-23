@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -20,5 +21,7 @@ int main() {
     std::cin >> hours;
     float onGround, rate, melt;
     std::cin >> onGround >> rate >> melt;
-    std::cout << std::to_string(snowDay(hours, onGround, rate, melt)) << std::endl;
+    std::string s = std::to_string(snowDay(hours, onGround, rate, melt));
+    std::cout << s << std::endl;
     return 0;
+}
