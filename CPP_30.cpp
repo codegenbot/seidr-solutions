@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,23 +9,21 @@ int main() {
     int n;
     std::cin >> n;
 
-    for (auto i = 0; i < n; ++i) {
-        std::vector<float> row(n);
-        for (auto j = 0; j < n; ++j++) {
-            std::cin >> row[j];
-        }
-        std::cin.ignore();
-        bool same = true;
-        for (auto j = 1; j < n; ++j) {
-            if (!(std::cin >> row[0])) { 
-                same = false;
-                break;
-            }
-            row[j-1] = row[0];
-        }
+    for (auto i = 0; i < n; ++i)
+        mat[i].resize(n);
 
-        std::cout << (same ? "YES" : "NO") << std::endl;
+    bool same = true;
+    for (const auto& row : mat) {
+        float val;
+        while (std::cin >> val)
+            row.push_back(val);
+        if (!(std::cin >> val)) { 
+            same = false;
+            break;
+        }
     }
+
+    std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
 }
