@@ -1,8 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
-#include <numeric>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -14,6 +12,8 @@ int main() {
     assert(issame(std::vector<int>{5, 3, 5, 2, 3, 3, 9, 0, 123}, std::vector<int>{0, 2, 3, 5, 9, 123}));
     auto v = [] (std::vector<int> vec) {
         std::sort(vec.begin(), vec.end());
+        auto last = std::unique(vec.begin(), vec.end());
+        vec.erase(last, vec.end());
         return vec;
     }({5, 3, 5, 2, 3, 3, 9, 0, 123});
     assert(issame(v, {0, 2, 3, 5, 9, 123}));
