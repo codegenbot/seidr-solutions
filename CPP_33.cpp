@@ -1,8 +1,14 @@
-vector<int> res = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
-            sort(res.begin() + i - 2, res.begin() + i + 1);
+vector<int> idx;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            idx.push_back(i);
         }
     }
-    return res;
+    sort(idx.begin(), idx.end(), [&](int a, int b) { return l[a] < l[b]; });
+
+    for (int i = 0; i < idx.size(); i++) {
+        l[idx[i]] = l[idx.size() - 1 - i];
+    }
+
+    return l;
 }
