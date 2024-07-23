@@ -2,35 +2,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string decipher(string cipherText, string key) {
-    string decrypted = "";
-    for (int i = 0; i < cipherText.length(); i++) {
-        if (key[i] == cipherText[i]) {
-            decrypted += key[i];
-        } else {
-            int j = 0;
-            while (j < key.length()) {
-                if (key[j] == cipherText[i]) {
-                    decrypted += key[(i - j) % key.length()];
-                    break;
-                }
-                j++;
+std::string decipher(const std::string& cipherText, const std::string& key) {
+    std::string deciphered = "";
+    for (char c : cipherText) {
+        for (int i = 0; i < key.length(); ++i) {
+            if (key[i] == c) {
+                deciphered += key.substr(0, i);
+                return deciphered;
             }
         }
     }
-    return decrypted;
+    return deciphered;
 }
 
 int main() {
-    string key, cipherText, plainText;
-    cout << "Enter the first string: ";
-    cin >> key;
-    cout << "Enter the second string: ";
-    cin >> cipherText;
-    cout << "Enter the third string: ";
-    cin >> plainText;
-    cout << "Decrypted message: " << decipher(plainText, key) << endl;
+    std::string cipherText1, cipherText2, plainText;
+    cin >> cipherText1 >> cipherText2 >> plainText;
+    cout << decipher(plainText, cipherText1) << endl;
     return 0;
 }
