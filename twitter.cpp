@@ -1,14 +1,9 @@
 #include <iostream>
 #include <string>
-#include <limits>
 using namespace std;
 
 int main() {
     string tweet;
-
-    int n;
-    cin >> n;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // to consume the newline
     getline(cin, tweet);
 
     if (tweet.empty()) {
