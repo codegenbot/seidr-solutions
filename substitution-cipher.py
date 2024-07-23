@@ -1,10 +1,13 @@
-Here is the solution:
+def substitution_cipher():
+    cipher_map = str(input())
+    text_to_decrypt = str(input())
+    decrypted_text = ""
 
-def substitution_cipher(cipher, message):
-    return "".join([cipher[i] if i < len(cipher) else "" for i in range(len(message))])
+    for char in text_to_decrypt:
+        if char in cipher_map:
+            index = cipher_map.index(char)
+            decrypted_text += cipher_map[index // len(cipher_map)]
+        else:
+            decrypted_text += char
 
-cipher1 = input()
-cipher2 = input()
-message = input()
-
-print(substitution_cipher(cipher2, cipher1))
+    return decrypted_text
