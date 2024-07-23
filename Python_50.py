@@ -1,4 +1,4 @@
-```
+```python
 def decode_shift(s: str):
     while True:
         try:
