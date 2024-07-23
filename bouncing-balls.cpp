@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -7,8 +8,6 @@ using namespace std;
 int main() {
     double heightStart, heightFirstBounce;
     int numBounces;
-    
-    streamsize prec;
 
     cin >> heightStart >> heightFirstBounce >> numBounces;
 
@@ -20,8 +19,7 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    prec = 6; 
-    cout << fixed << setprecision(prec) << totalDistance;
+    cout << std::fixed << setprecision(6) << totalDistance;
 
     return 0;
 }
