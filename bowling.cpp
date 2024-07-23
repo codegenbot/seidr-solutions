@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+using namespace std;
+
 int getRoll(string s, int i);
 int getBonusRoll(string s, int i);
 
@@ -26,11 +30,8 @@ int getRoll(string s, int i) {
     if (s[i+1] == '/') {
         return 10;
     } else {
-        for(int j = i + 1; j < s.length(); j++) {
+        for(int j = i + 1; ; j++) {
             if (!isdigit(s[j])) {
-                return min(j - i, 10);
-            }
-            if (j >= s.length() || !isdigit(s[j])) {
                 return min(j - i, 10);
             }
         }
@@ -47,5 +48,4 @@ int getBonusRoll(string s, int i) {
             }
         }
     }
-    return 0;
 }
