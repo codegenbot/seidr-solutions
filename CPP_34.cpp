@@ -5,8 +5,9 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    sort(unique(l.begin(), l.end()), l.end());
-    return vector<int>(l.begin(), find uniqueness, l.end());
+    vector<int> result(l.begin(), distinct_copy(l.begin(), l.end()));
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
