@@ -39,7 +39,7 @@ def solve(input_string):
             score += 20
         else:
             score += 30
-    print(score)
+    return score
 
 input_string = input("Enter the individual bowls: ")
-solve(input_string)
+print(solve(input_string))
