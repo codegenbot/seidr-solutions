@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -16,7 +17,11 @@ double poly(vector<double> xs, double x){
 }
 
 void find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) cout << -1 << endl; 
+    if(xs.size() % 2 != 0) 
+    {
+        cout << "-1" << endl;
+        return;
+    } 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
@@ -25,13 +30,10 @@ void find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs; // input
-    double x;
-    cin >> x;
-    xs.push_back(x);
-    for (int i = 1; i <= 1000; i++) {
-        cin >> x;
-        xs.push_back(x);
-    }
+    vector<double> xs;
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++)
+        cin >> xs.push_back;
     find_zero(xs);
 }
