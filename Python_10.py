@@ -1,16 +1,11 @@
-```
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
+```Python
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    else:
-        for i in range(len(string)):
-            prefix = string[:i]
-            postfix = string[i:]
-            if postfix == postfix[::-1]:
-                return prefix + postfix + postfix[::-1]
-
-print(is_palindrome("madam"))  # Should print: True
-print(make_palindrome("hello"))  # Should print the longest palindrome possible with "hello"
+    if not string.isalnum():
+        return ""
+    
+    new_string = ""
+    for i in range(len(string), 0, -1):
+        if string[i-1].isalnum(): 
+            new_string += string[i-1]
+    
+    return new_string + string + new_string[::-1].lower()
