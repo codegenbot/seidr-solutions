@@ -6,7 +6,7 @@ int main
     
     cout << "Enter some numbers (enter -1 when you are done):" << endl;
     
-    for(;;) {
+    for(; ;){
         cin >> num;
         if(num == -1) break;
         numbers.push_back(num);
