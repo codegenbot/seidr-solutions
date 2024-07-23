@@ -1,23 +1,25 @@
-#include <string>
+#include <unordered_map>
 #include <cctype>
 
-bool check_dict_case(const std::vector<std::pair<std::string, int>>& dict) {
-    bool allLower = true;
-    bool allUpper = true;
+bool check_dict_case(std::map<std::string, std::string> dict) {
+    std::unordered_map<std::pair<char, bool>, int> caseCounts;
 
-    for (const auto& pair : dict) {
-        if (!std::all_of(pair.first.begin(), pair.first.end(),
-                         ::islower)) allLower = false;
-        if (!std::all_of(pair.first.begin(), pair.first.end(),
-                         ::isupper)) allUpper = false;
+    for (auto& pair : dict) {
+        if (!islower(pair.first[0])) {
+            caseCounts[{pair.first[0], false}] = 1;
+        } else {
+            caseCounts[{pair.first[0], true}] = 1;
+        }
     }
 
-    return allLower && !allUpper || !allLower && allUpper;
-}
+    int lowerCount = 0, upperCount = 0;
 
-int main() {
-    std::vector<std::pair<std::string, int>> dict;
-    // Add elements to the vector if you want
-    assert(check_dict_case(dict) == false);
-    return 0;
+    for (auto& pair : caseCounts) {
+        if (pair.second == 1) {
+            if (pair.first.second) lowerCount++;
+            else upperCount++;
+        }
+    }
+
+    return lowerCount > 0 && upperCount > 0;
 }
