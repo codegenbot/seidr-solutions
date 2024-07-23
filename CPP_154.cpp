@@ -5,3 +5,4 @@ bool cycpattern_check(string a, string b) {
         if(a.find(substr) != string::npos) return true;
     }
     return false;
+}
