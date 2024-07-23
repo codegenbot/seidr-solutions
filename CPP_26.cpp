@@ -1,19 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool same(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    std::vector<int> result(numbers.begin(), numbers.end());
-    auto it = std::unique(result.begin(), result.end());
-    result.erase(it, result.end());
+std::vector<int> removeDuplicates(std::vector<int>& vec) {
+    std::vector<int> result;
+    for (int num : vec) {
+        if (!result.size() || num != result.back()) {
+            result.push_back(num);
+        }
+    }
     return result;
 }
 
-int main(){
-    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(same({1, 2, 3, 2, 4, 3, 5}) == {1, 2, 3, 4, 5});
     return 0;
 }
