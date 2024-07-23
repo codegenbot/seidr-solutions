@@ -1,33 +1,51 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
+    for (int i = 0; i < expression.length(); i++) {
+        char c = expression[i];
+        if (c == '&' || c == '|') {
+            while (!operationStack.empty() && operationStack.top() != '(') {
+                if (c == '&') {
+                    c = '&';
+                } else {
+                    c = '|';
+                }
+                stack<char>().swap(operationStack);
             }
-            if (st.empty()) {
-                return "True";
-            } else {
-                st.push('&');
+            if (c == '(') {
+                operationStack.push(c);
             }
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+        } else if (c == 'T' || c == 'F') {
+            while (!operationStack.empty() && operationStack.top() != '(') {
+                stack<char>().swap(operationStack);
             }
-            if (st.empty()) {
-                return "False";
-            } else {
-                st.push('|');
+            if (!operationStack.empty() && operationStack.top() == '(') {
+                stack<char>().swap(operationStack);
             }
         } else {
-            st.push(s[i]);
+            continue;
         }
     }
-    if (st.empty()) {
-        return "False";
-    } else if (st.top() == 'T') {
-        return "True";
+
+    return c == 'T';
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    if (expression.length() > 0) {
+        bool result = evaluateBooleanExpression(expression);
+        if (result) {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
+        }
     } else {
-        return "False";
+        cout << "Invalid input." << endl;
     }
+
+    return 0;
 }
