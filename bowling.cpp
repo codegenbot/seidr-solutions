@@ -1,12 +1,12 @@
-```cpp
 #include <string>
+#include <iostream>
 
-int bowlingScore(const char* s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
     int roll2 = 0; 
 
-    for (int i = 0; i < strlen(s); i++) {
+    for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == 'X') {
             score += 30;
@@ -33,9 +33,9 @@ int bowlingScore(const char* s) {
 }
 
 int main() {
-    const char* input;
-    std::cout << "Enter the bowling scores: ";
-    std::cin >> input;
+    std::string input;
+    std::cout << "Enter the bowling scores (e.g., XXXXXXXX--): ";
+    std::getline(std::cin, input);
     int result = bowlingScore(input);
     std::cout << "The total score is: " << result << std::endl;
     return 0;
