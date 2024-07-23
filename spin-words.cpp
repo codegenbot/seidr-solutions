@@ -37,4 +37,3 @@ int main() {
         cout << spinWords(str) << endl;
     }
 }
-```
