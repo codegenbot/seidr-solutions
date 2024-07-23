@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +12,9 @@ int main() {
         if (num == -1) break;
         numbers.push_back(num);
     }
-    cout << add(numbers) << endl;
-
+    
+    cout << "The sum of the input integers is: " << add(numbers) << endl;
+    
     return 0;
 }
 
