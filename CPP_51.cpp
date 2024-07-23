@@ -1,5 +1,4 @@
 #include <string>
-using namespace std;
 string remove_vowels(string text) {
     string result = "";
     for (char c : text) {
