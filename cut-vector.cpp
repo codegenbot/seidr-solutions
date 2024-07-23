@@ -11,6 +11,11 @@ int main() {
         nums.push_back(num);
     }
     
+    if(nums.empty()) {
+        cout << "Input vector is empty." << endl;
+        return 0;
+    }
+    
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -32,13 +37,13 @@ int main() {
     }
     
     for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     
     cout << endl;
     
     for (int i = cut_index + 1; i < n; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     
     return 0;
