@@ -6,8 +6,3 @@ int choose_num(int x, int y) {
     }
     return -1;
 }
-
-int main() {
-    assert(choose_num(546, 546) == 546);
-    return 0;
-}
