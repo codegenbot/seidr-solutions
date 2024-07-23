@@ -1,28 +1,11 @@
-int calculateFuelCost(vector<int> fuelCosts) {
-    int sum = 0;
-    for (int cost : fuelCosts) {
-        int newCost = static_cast<int>(cost / 3.0);
-        if (newCost > 0) {
-            newCost -= 2;
-        }
-        sum += newCost;
+int totalCost(vector<int> fuel_costs) {
+    int total = 0;
+    for(int i = 0; i < fuel_costs.size(); i++) {
+        int cost = (fuel_costs[i] / 3);
+        cost = cost - 2;
+        if(cost < 0)
+            cost = 0;
+        total += cost;
     }
-    return sum;
-}
-
-int main() {
-    int num;
-    vector<int> fuelCosts;
-
-    cin >> num;
-    
-    for(int i = 0; i < num; ++i)
-    {
-        cin >> num;
-        fuelCosts.push_back(num);
-    }
-
-    cout << calculateFuelCost(fuelCosts) << endl;
-
-    return 0;
+    return total;
 }
