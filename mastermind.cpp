@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -5,14 +6,33 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
+    int blackPegs = 0;
 
+    // Count black pegs
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
-        } else if(colorCount[code[i]-'0'] > 0) {
-            whitePegs++;
+        }
+    }
+
+    // Count total correct characters in code and guess
+    int colorCount[6] = {0};
+    int positionCount[6] = {0};
+    for(int i = 0; i < 4; i++) {
+        if(code[i] != guess[i]) {
+            int index = (int)(guess[i] - '0');
+            colorCount[index]++;
+        } else {
+            int index = (int)(guess[i] - '0');
+            positionCount[index]++;
+        }
+    }
+
+    // Calculate white pegs
+    for(int i = 0; i < 6; i++) {
+        if(colorCount[i] > positionCount[i]) {
+            whitePegs += colorCount[i] - positionCount[i];
         }
     }
 
