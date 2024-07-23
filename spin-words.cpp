@@ -1,27 +1,33 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::stringstream stream(sentence);
-    std::string word;
+using namespace std;
 
-    std::string result = "";
-
-    while (stream >> word) {
+string spinWords(string str) {
+    string result = "";
+    size_t pos = 0;
+    while ((pos = str.find(" ")) != string::npos) {
+        string word = str.substr(0, pos);
         if (word.length() >= 5)
-            word = string(word.rbegin(), word.rend());
-        result += word + " ";
+            result += string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
+        str.erase(0, pos + 1);
     }
-
-    return result.substr(0, result.size()-1); // Remove the trailing space
+    if (str.length() >= 5)
+        result += str.substr(0).reverse();
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cout << "Enter a sentence ('' to stop): ") {
-        std::getline(std::cin, input);
-        if (input.empty()) break;
-        std::cout << spinWords(input) << '\n';
-    }
+    // Test cases
+    cout << spinWords("a") << endl; // Output: a
+    cout << spinWords("this is a test") << endl; // Output: this is a test
+    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
+    cout << spinWords("hi") << endl; // Output: hi
+
     return 0;
 }
