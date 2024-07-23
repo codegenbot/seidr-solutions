@@ -8,7 +8,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     int i = 0;
-    while (i < n - m) {
+    while (i < n - m + 1) {
         int j = 0;
         while (j < m) {
             if (text[i + j] != target[j]) {
@@ -19,8 +19,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (j == m)
             result.push_back(i); // Found a match!
-        
-        i += j; 
     }
 
     return result;
@@ -28,9 +26,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    cin >> text;
+    getline(cin, text);
     string target;
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
 
