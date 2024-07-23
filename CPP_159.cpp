@@ -15,6 +15,6 @@ bool areSameVectors(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(areSameVectors({1,36,0}));
+    assert(areSameVectors(std::vector<int>({36,0})));
     return 0;
 }
