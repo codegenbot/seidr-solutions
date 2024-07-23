@@ -1,4 +1,7 @@
-vector<int> primes;
+#include<vector>
+
+vector<int> count_up_to(int n){
+    vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -12,3 +15,4 @@ vector<int> primes;
         }
     }
     return primes;
+}
