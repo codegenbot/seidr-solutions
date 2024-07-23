@@ -18,14 +18,14 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     size_t m = target.length();
 
     for (size_t i = 0; i <= n - m; i++) {
-        size_t start = i;
+        size_t j = 0;
         bool found = true;
-        while ((i + j) <= n && text.substr(i, j).compare(0, j, target, 0, j) == 0) {
+        size_t start = i;
+        while ((j += 1) <= m && text.compare(start, j, target, 0, j) == 0) {
             if (j != m) {
-                if (!text.substr(i, j).compare(0, j, target, 0, j))
+                if (!text.compare(start, j, target, 0, j))
                     found = false;
             }
-            i++; // Move the start of the window forward
         }
         if (found) {
             result.push_back(start);
@@ -48,6 +48,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    size_t GCD = gcd(text.length(), target.length());
+    size_t GCD = gcd((size_t)text.length(), (size_t)target.length());
     std::cout << "GCD of text and target: " << GCD << std::endl;
 }
