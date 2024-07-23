@@ -1,4 +1,4 @@
-```c++
+```c
 #include <string>
 #include <iostream>
 
@@ -14,7 +14,7 @@ std::string middleCharacter(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s;
     std::cout << middleCharacter(s) << std::endl;
     return 0;
 }
