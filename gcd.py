@@ -1,22 +1,11 @@
-````
+```
 def gcd(a, b):
-    a = abs(a)
-    b = abs(b)
-    if a == 0: 
-        return b
-    elif b == 0:
-        return a
-    while b != 0: 
+    while(b):
         a, b = b, a % b
-    return a
+    return abs(a)
 
 def scm(a, b):
-    def gcd_two_numbers(x, y):
-        while(y):
-            x, y = y, x % y
-        return abs(x)
-    
-    return (a * b) // gcd_two_numbers(a, b)
+    gcd_value = gcd(abs(a), abs(b))
+    return (a // gcd_value) * (b // gcd_value) * gcd_value
 
-print(scm(12, 15))
-```
+print(scm(582329, 833565))
