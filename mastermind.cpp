@@ -11,12 +11,13 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Count white pegs now
+    std::set<char> correctColors;
     for (char c : code) {
-        int index = guess.find(c);
-        while(index != std::string::npos) {
-            if(index != i) white++;
-            index = guess.find(c, index+1);
-            i++;
+        correctColors.insert(c);
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (correctColors.count(guess[i])) {
+            white++;
         }
     }
 
