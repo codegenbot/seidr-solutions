@@ -15,11 +15,8 @@ std::string anti_shuffle(std::string s) {
             word += s[j];
         }
         sort(word.begin(), word.end());
-        while (!word.empty()) {
-            result += word[0];
-            word.erase(0, 1);
-        }
-        i += word.length();
+        result += word;
+        i += word.length() - 1;
     }
     return result;
 }
