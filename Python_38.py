@@ -1,4 +1,5 @@
-def decode_cyclic(s: str):
+s = input()
+def decode_cyclic():
     n = len(s)
     result = ""
     i = 0
@@ -9,13 +10,9 @@ def decode_cyclic(s: str):
                 j += 1
             result += s[i]
             i += j
-        elif i == n - 1:
-            j = 0
-            while i - j >= 0 and s[i] == s[i-j]:
-                j += 1
-            result += s[i - j + 1]
-            i += 1
         else:
             result += s[i]
         i += 1
     return result
+
+print(decode_cyclic())
