@@ -8,24 +8,27 @@ int main() {
     cin >> code >> guess;
     
     int white = 0, black = 0;
-    vector<int> codeFreq(6, 0);
-    vector<int> guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        } else {
-            codeFreq[code[i] - '1']++;
-            guessFreq[guess[i] - '1']++;
+            code[i] = '*';
+            guess[i] = '*';
         }
     }
     
-    for (int i = 0; i < 6; ++i) {
-        white += min(codeFreq[i], guessFreq[i]);
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != '*') {
+            auto it = find(guess.begin(), guess.end(), code[i]);
+            if (it != guess.end()) {
+                white++;
+                *it = '*';
+            }
+        }
     }
     
-    std::cout << white << std::endl;
-    std::cout << black << std::endl;
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
