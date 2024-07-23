@@ -4,14 +4,24 @@ from typing import List
 def filter_by_substring(strings: list, substring: str) -> list:
     return [s for s in strings if substring.lower() in s.lower()]
 
-input_str = input("Enter a list of strings (separated by commas or single-string per line): ")
-if ',' in input_str:
-    strings_list = [x.strip() for x in input_str.split(',')]
-else:
-    strings_list = [x.strip() for x in input_str.split('\n')]
+while True:
+    try:
+        strings_list = input("Enter a list of strings (separated by commas): ").strip().replace("'", "").split(',')
+        strings = [x.strip() for x in strings_list]
+        
+        while '' in strings:
+            strings.remove('')
+        
+        break
+    except ValueError:
+        print("Invalid input. Please enter comma-separated strings.")
 
-strings = [s for s in strings_list if s]
-substring = input("Enter a substring to search for: ")
+while True:
+    try:
+        substring = input("Enter a substring to search for: ")
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid substring.")
 
 result = filter_by_substring(strings, substring)
 print(result)
