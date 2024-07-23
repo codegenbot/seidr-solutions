@@ -1,22 +1,41 @@
-Here's the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string spinWords(string sentence) {
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
-    int i;
-    for(i=0; i < sentence.length(); i++){
-        if(sentence[i] == ' '){
-            result += " ";
-        } else if(i+1 >= sentence.length() || (i+1 < sentence.length() && (sentence[i+1] == ' '))){
-            string word = "";
-            while(i < sentence.length() && (sentence[i] != ' ')) {
-                word += sentence[i];
-                i++;
-            }
-            if(word.length() > 4)
-                result += std::string(word.rbegin(), word.rend());
-            else
-                result += word;
+    for (const auto& word : split(str)) {
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
+        }
+        result += word + " ";
+    }
+    return result.substr(0, result.size() - 1);
+}
+
+string split(const string& str) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : str) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return result;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    return join(words);
+}
+
+string join(const vector<string>& words) {
+    string result = "";
+    for (const auto& word : words) {
+        result += word + " ";
+    }
+    return result.substr(0, result.size() - 1);
 }
