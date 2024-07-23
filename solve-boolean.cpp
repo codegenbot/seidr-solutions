@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <string>
 using namespace std;
@@ -29,4 +28,3 @@ int main() {
     cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
-```
