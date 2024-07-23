@@ -1,13 +1,7 @@
 def basement(nums):
-    left = right = 0
-    while True:
-        total = 0
-        while right < len(nums) and total + nums[right] <= 0:
-            total += nums[right]
-            right += 1
+    total = 0
+    for i, n in enumerate(nums):
+        total += n
         if total < 0:
-            return right
-        if right == len(nums):
-            break
-        left = right
+            return i + 1
     return -1
