@@ -1,5 +1,5 @@
-```
 import random
+
 
 def longest(strings: list[str]) -> str:
     if not strings:
