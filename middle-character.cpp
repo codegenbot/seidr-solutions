@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string middleCharacter(string s) {
     int len = s.length();
