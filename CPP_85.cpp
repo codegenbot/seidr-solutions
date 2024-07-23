@@ -6,5 +6,4 @@ int main() {
         if (num == -1) break;
         numbers.push_back(num);
     }
-    // add whatever you want to do after the loop here...
 }
