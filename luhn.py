@@ -1,8 +1,7 @@
-input_str = input()
-digits = [int(d) for d in input_str.replace(" ", "")]
+digits = [int(d) for d in input().replace(' ', '')]
 
 total = 0
-for i, digit in enumerate(digits):
+for i, digit in enumerate(digits, 1):
     if i % 2 == 0:
         temp = digit * 2
         if temp > 9:
