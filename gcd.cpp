@@ -39,8 +39,8 @@ int main() {
     
     int a = 100;
     int b = 50;
-    int gcd = gcd(b, a);
-    cout << "GCD of " << a << " and " << b << ": " << gcd << endl;
+    int result = gcd(b, a);
+    cout << "GCD of " << a << " and " << b << ": " << result << endl;
 
     return 0;
 }
