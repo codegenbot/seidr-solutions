@@ -3,9 +3,9 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 cut_index = -1
-min_diff = abs(2 * arr[0] - total_sum)
+min_diff = float('inf')
 
-for i in range(1, n):
+for i in range(1, n-1):
     diff = abs(2 * sum(arr[:i]) - total_sum)
     if diff < min_diff:
         min_diff = diff
