@@ -1,43 +1,36 @@
-#include <iostream>
+#include <algorithm>
 #include <vector>
 #include <string>
 
-using namespace std;
-
-int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        bool found = true;
+        for (int j = 0; j < target.size(); ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+        }
     }
-    
-    return a;
+    return result;
 }
 
+#include <iostream>
+
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    cout << "Enter the target substring: ";
-    getline(cin, target);
-
-    vector<int> indices;
-    size_t pos = 0;
-
-    while((pos = text.find(target)) != string::npos) {
-        indices.push_back(pos);
-        text.erase(pos, target.length());
+    std::string text, target;
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
+    auto indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
+        std::cout << i << " ";
     }
-
-    cout << "Indices of Substring (" << target << ") in the text: ";
-    for(int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    std::cout << std::endl;
     return 0;
 }
