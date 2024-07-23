@@ -10,4 +10,3 @@ vector<int> filter_integers(boost::any_list values) {
         }
     }
     return result;
-}
