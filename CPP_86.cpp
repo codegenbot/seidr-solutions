@@ -2,7 +2,7 @@
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i <= s.length(); i++) {
         if (i == s.length() || s[i] == ' ') {
             for (char c : s.substr(i)) {
