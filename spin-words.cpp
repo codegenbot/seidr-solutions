@@ -6,7 +6,7 @@
 int main() {
     std::string word;
     std::string result;
-
+    
     std::string input;
     std::getline(std::cin, input);
 
