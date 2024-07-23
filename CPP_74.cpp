@@ -6,5 +6,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2){
     for (const string& s : lst2) {
         sum2 += s.size();
     }
-    return sum1 < sum2 ? lst1 : sum1 == sum2 ? lst1 : lst2;
+    return sum1 < sum2 ? lst1 : lst2;
 }
