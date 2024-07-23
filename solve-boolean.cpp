@@ -1,14 +1,15 @@
 #include <iostream>
-#include <stack>
 #include <string>
+#include <stack>
 
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operators;
+    int i = 0; 
     string operand = "";
 
-    for (int i = 0; i < expression.length(); i++) {
+    for (i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
