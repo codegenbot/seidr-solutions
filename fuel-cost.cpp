@@ -11,11 +11,10 @@ int fuelCost(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v; 
-    int n;
-    while (std::cin >> n) { 
-        v.push_back(n); 
-    }
+    std::vector<int> v;
+    v.push_back(12);
+    v.push_back(5);
+    v.push_back(7);
     int result = fuelCost(v);
     std::cout << "The fuel cost is: " << result << std::endl;
     return 0;
