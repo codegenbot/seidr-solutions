@@ -1,5 +1,5 @@
-```#include <vector>
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
@@ -21,4 +21,4 @@ std::string camelCase(std::string str) {
         result += toupper(words[i][0]) + words[i].substr(1);
     }
     return result;
-}`
+}
