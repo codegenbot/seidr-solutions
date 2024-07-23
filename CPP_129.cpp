@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -34,7 +33,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            return {sum};
+            return {static_cast<int>(sum)};
         }
         for (auto& neighbor : neighbors[i]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
