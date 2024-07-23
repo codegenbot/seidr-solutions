@@ -1,7 +1,7 @@
 def indices_of_substring(text, target):
     if target == "":
-         return [0]
-    
+        return [0]
+
     indices = []
     start = 0
     while start < len(text):
