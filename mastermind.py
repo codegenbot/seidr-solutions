@@ -7,4 +7,4 @@ white_pegs = sum(
     for c in set(code)
 ) - black_pegs
 
-print(len(code) - white_pegs - black_pegs, black_pegs)
+len(code) - black_pegs - white_pegs, black_pegs
