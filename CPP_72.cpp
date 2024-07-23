@@ -1,17 +1,20 @@
-bool will_it_fly(vector<int> q, int w);  // Function prototype
+```c++
+#include <vector>
+#include <string>
+
+bool will_it_fly(std::vector<int> q, int w);  
 
 int main() {
-    vector<int> q = {1, 2};
-    int w = 5;
-    assert (will_it_fly(q, w) == true);
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != reverse(str).s) {
+    if (str != std::string(str.rbegin(), str.rend()).s) {
         return false;
     }
     int sum = 0;
