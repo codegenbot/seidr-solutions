@@ -15,10 +15,8 @@ double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
 }
 
 int main() {
-    std::vector<float> v1;
-    v1.push_back(1.0f); v1.push_back(2.0f);
-    std::vector<float> v2;
-    v2.push_back(3.0f); v2.push_back(4.0f);
+    std::vector<float> v1({1.0f, 2.0f}); 
+    std::vector<float> v2({3.0f, 4.0f});
     double distance = vectorDistance(v1, v2);
     printf("Euclidean distance: %f\n", distance);
     return 0;
