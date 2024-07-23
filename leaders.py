@@ -1,6 +1,8 @@
 def leaders(arr):
-    return [
-        num
-        for num in reversed(arr)
-        if all(num >= x for x in reversed(arr)[reversed(arr).index(num) + 1 :])
-    ]
+    leaders_list = [arr[-1]]
+    
+    for num in arr[:-1][::-1]:
+        if num >= leaders_list[0]:
+            leaders_list.insert(0, num)
+    
+    return leaders_list
