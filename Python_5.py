@@ -3,8 +3,9 @@ from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if not numbers:
-        return []
-
+        print("Error: Please provide at least one number.")
+        return None
+    
     if not all(isinstance(num, int) for num in numbers):
         raise ValueError("Numbers must be a list of integers")
 
@@ -19,5 +20,4 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     for i, num in enumerate(numbers[1:]):
         result.extend([delimiter, num])
 
-    result.extend([delimiter])
     return result
