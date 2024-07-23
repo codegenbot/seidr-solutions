@@ -32,11 +32,29 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> vec1 = {"hi", "admin"};
-    vector<string> vec2 = {"hI", "Hi"};
+    vector<string> vec1, vec2;
+    cout << "Enter words for list 1: ";
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        vec1.push_back(s);
+    }
+    
+    cout << "Enter words for list 2: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        vec2.push_back(s);
+    }
 
     vector<string> result = total_match(vec1, vec2);
 
     for (const string& s : result) {
         cout << s << endl;
     }
+
+    return 0;
+}
