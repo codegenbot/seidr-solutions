@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for i, num in enumerate(lst):
@@ -7,7 +8,8 @@ def sum_squares(lst):
             total_sum += num ** 3
     return total_sum
 
-def check(func, args):
-    print(f"Result: {func(args)}")
+def check(func, lst):
+    print(f"The sum of squares is: {func(lst)}")
 
-check(sum_squares,[1, 2, 3, 4, 5])
+num_list = list(map(int, input("Enter numbers separated by space: ").split()))
+check(sum_squares, num_list)
