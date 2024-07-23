@@ -7,13 +7,13 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back({grid[i-1][j], i-1, j});
-            if (i < n-1) neighbors[i].push_back({grid[i+1][j], i+1, j});
-            if (j > 0) neighbors[i].push_back({grid[i][j-1], i, j-1});
-            if (j < n-1) neighbors[i].push_back({grid[i][j+1], i, j+1});
+            if (i > 0) neighbors[i].push_back({grid[i][j], make_pair(i-1, j)});
+            if (i < n-1) neighbors[i].push_back({grid[i][j], make_pair(i+1, j)});
+            if (j > 0) neighbors[i].push_back({grid[i][j], make_pair(i, j-1)});
+            if (j < n-1) neighbors[i].push_back({grid[i][j], make_pair(i, j+1)});
         }
     }
 
@@ -30,18 +30,16 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (len == k) {
             return path;
         }
-        for (auto& neighbor : neighbors[path.back()]) {
-            int val = neighbor.first;
-            vector<int> newPath = path;
-            newPath.push_back(val);
-            q.push({newPath, len + 1});
-        }
+        int val = neighbors[path.back()][0].second.first;
+        vector<int> newPath = path;
+        newPath.push_back(val);
+        q.push({newPath, len + 1});
     }
 
     return {};
 }
 
-int main() {
+int mainTest() {
     // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
