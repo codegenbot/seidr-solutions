@@ -1,6 +1,5 @@
-from typing import list
-
-def intersperse(numbers: list[int], delimiter: int) -> list[int]:
+```
+def intersperse(numbers: list, delimiter: int) -> list:
     if len(numbers) == 1:
         return [numbers[0]]
     result = [numbers[0]]
