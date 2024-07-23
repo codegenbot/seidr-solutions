@@ -17,5 +17,6 @@ int luhn(std::vector<int> digits) {
         isDouble = !isDouble;
     }
 
-    return sum;
+    return (sum + 1) % 10;
+
 }
