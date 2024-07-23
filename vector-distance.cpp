@@ -1,15 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include <string>
 
 double vectorDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        std::string a, b;
+        double a, b;
         std::cin >> a >> b;
-        double x = std::stof(a);
-        double y = std::stof(b);
-        sum += pow((y - x), 2);
+        sum += pow((b - a), 2);
     }
     return sqrt(sum);
 }
