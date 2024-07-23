@@ -23,4 +23,7 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(n):
             if not visited[i][j]:
-                return minPath(grid, k)
+                result = dfs(i, j, [])
+                if result:
+                    return result
+    return None
