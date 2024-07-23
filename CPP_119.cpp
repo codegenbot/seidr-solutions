@@ -1,11 +1,24 @@
-std::string match_parens(std::vector<std::string> lst) {
-    int open = 0;
-    for (const auto& str : lst) {
-        for (char c : str) {
-            if (c == '(') open++;
-            else if (c == ')') open--;
-            if (open < 0) return "No";
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool match_parens(const vector<string>& lst) {
+    int balance = 0;
+    for (const auto& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                balance++;
+            } else if (c == ')') {
+                if (balance <= 0) return false;
+                balance--;
+            }
         }
     }
-    return open == 0 ? "Yes" : "No";
+    return balance == 0;
+}
+
+int main() {
+    vector<string> lst = {"hello((world", "foo(bar(baz", "java");
+    cout << (match_parens(lst) ? "Yes" : "No") << endl;
+    return 0;
 }
