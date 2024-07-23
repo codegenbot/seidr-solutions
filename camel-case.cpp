@@ -3,12 +3,14 @@ int main() {
     getline(cin, input);
     
     bool capitalizeNext = false;
-    for (char& c : input) {
+    for (char &c : input) {
         if (c == '-') {
             capitalizeNext = true;
-        } else if (capitalizeNext) {
-            c = toupper(c);
-            capitalizeNext = false;
+        } else if (c != ' ') {
+            if (capitalizeNext) {
+                c = toupper(c);
+                capitalizeNext = false;
+            }
         }
     }
     
