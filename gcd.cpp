@@ -1,14 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     while (b != 0) {
-        int temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
-    return a;
+    return abs(a);
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
@@ -19,9 +20,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            do {
-                i++;
-            } while ((i + m) <= n && text.substr(i, m) == target);
+            while ((i + m) <= n && text.substr(i, m) == target)
+                i++; // Handle overlapping occurrences
         }
     }
 
@@ -40,7 +40,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    int a = 909378243576;
+    long long a = 909378243576LL;
     int b = 50; 
     std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
 
