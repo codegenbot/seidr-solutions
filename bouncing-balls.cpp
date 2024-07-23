@@ -17,4 +17,3 @@ int main() {
     std::cout << std::fixed << totalDistance << std::endl;
     
     return 0;
-}
