@@ -13,6 +13,15 @@ bool simplify(string x, string n) {
     c = stoi(n.substr(0, pos));
     d = stoi(n.substr(pos + 1));
 
-    // Check if the product is an integer
-    return (long long)a * c == (long long)b * d;
+    // Calculate the greatest common divisor of both numerator and denominator
+    return a / gcd(b, a) == c / gcd(d, c);
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
