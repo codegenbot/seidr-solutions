@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 
@@ -16,4 +15,3 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
 int main(){
     assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
-}
