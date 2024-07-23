@@ -5,11 +5,11 @@ total_sum = sum(arr)
 min_diff = total_sum
 cut_index = -1
 
-for i in range(1, n):
+for i in range(1, n):  # Change range from 1 to n-1
     left_sum = sum(arr[:i])
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if diff < min_diff:
+    if diff <= min_diff:  # Change condition to include equal case
         min_diff = diff
         cut_index = i
 
