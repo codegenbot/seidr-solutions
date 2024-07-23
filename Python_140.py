@@ -1,10 +1,8 @@
 ```
-def fix_spaces(text):
-    return text.replace(" ", "_")
+def fix_spaces(s):
+    return s.replace(" ", "")
 
-def check(func):
-    text = input("Enter a string: ")
-    result = func(text)
-    print(result)
+def check(fixer, s):
+    return fixer(s)
 
-check(fix_spaces)
+print(check(fix_spaces, "   Hello World!   "))
