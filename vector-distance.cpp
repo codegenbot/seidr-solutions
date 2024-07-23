@@ -23,8 +23,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double distance = sqrt(sum);
-    std::cout.precision(15);
+    double distance = std::sqrt(sum);
     std::cout << distance << std::endl;
 
     return 0;
