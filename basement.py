@@ -1,4 +1,3 @@
-```
 def basement(lst):
     min_total = 0
     for i in range(len(lst)):
