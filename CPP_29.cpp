@@ -1,27 +1,26 @@
+#include <initializer_list>
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
+using namespace std;
+
+std::vector<std::string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     std::vector<std::string> result;
-    for (std::size_t i = 0; i < vec.size(); ++i) {
-        if (vec[i].find(prefix) == 0) {
-            result.push_back(vec[i]);
+    for (const auto& str : vec) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> c = b;
-    return (a.size() == c.size()) && std::equal(a.begin(), a.end(), c.begin());
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    int test_result = 0;
-
     if (!issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
-        test_result = 1;
+        return 1;
     }
-    
-    return test_result;
+    return 0;
 }
