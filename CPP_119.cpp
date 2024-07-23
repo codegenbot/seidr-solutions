@@ -14,6 +14,6 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    if (match_parens({"{","}")} == 0) cout << "No"; else cout << "Yes";
+    assert(match_parens({")", "("}) == 0);
     return 0;
 }
