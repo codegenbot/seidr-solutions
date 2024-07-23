@@ -5,8 +5,8 @@ def basement(arr):
         if total < 0:
             return i
 
-print(basement([1,-1])) # output: 0
-print(basement([1,-100])) # output: 0
-print(basement([2,-1,100])) # output: 0
-print(basement([2,-95,100])) # output: 0
-print(basement([2,-30,5])) # output: 0
+print(basement([1,-1])) 
+print(basement([1,-100])) 
+print(basement([2,-1,100])) 
+print(basement([2,-95,100])) 
+print(basement([2,-30,5]))
