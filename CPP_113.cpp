@@ -1,11 +1,23 @@
+```
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int main() {
-    std::vector<std::string> test = {"271", "137", "314"};
+    vector<string> test = {"271", "137", "314"};
+    vector<string> expected;
+    for (int i = 0; i < test.size(); i++) {
+        int count = 0;
+        for (char c : test[i]) {
+            if ((c - '0') % 2 != 0) {
+                count++;
+            }
+        }
+        expected.push_back("the number of odd elements " + to_string(count) + " in the string " + to_string(i+1));
+    }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -13,8 +25,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
@@ -22,7 +34,7 @@ std::vector<std::string> odd_count(std::vector<std::string> lst) {
                 count++;
             }
         }
-        result.push_back("the number of odd elements " + std::to_string(count) + " in the string " + std::to_string(i+1));
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + to_string(i+1));
     }
     return result;
 }
