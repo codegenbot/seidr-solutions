@@ -1,17 +1,18 @@
-string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
+string anti_shuffle(string s){
+    string result = "";
+    string temp = "";
+    for(char c : s){
+        if(c == ' '){
+            sort(temp.begin(), temp.end());
+            result += temp + " ";
+            temp = "";
         } else {
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
+            temp += c;
         }
     }
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
+    if(!temp.empty()){
+        sort(temp.begin(), temp.end());
+        result += temp;
     }
     return result;
 }
