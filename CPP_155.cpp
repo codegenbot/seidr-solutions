@@ -39,7 +39,6 @@ std::vector<int> even_odd_count(int num) {
         temp /= 10;
     }
     return result;
-
 }
 
 int main() {
