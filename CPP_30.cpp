@@ -8,27 +8,25 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    std::vector<float> vec1(n);
-    std::vector<float> vec2(n);
-    
-    std::cout << "Enter elements for vector 1: ";
-    for (float &x : vec1) {
-        std::cin >> x;
+    if (n > 0) {
+        std::vector<float> v1, v2;
+        for (int i = 0; i < n; i++) {
+            float x;
+            std::cin >> x;
+            if (i % 2 == 0) {
+                v1.push_back(x);
+            } else {
+                v2.push_back(x);
+            }
+        }
+        if (!issame(v1, v2)) {
+            std::cout << "false";
+        } else {
+            for (float i : v1) {
+                std::cout << i << " ";
+            }
+            std::cout << "\n";
+        }
     }
-    
-    std::cout << "Enter elements for vector 2: ";
-    for (float &x : vec2) {
-        std::cin >> x;
-    }
-    
-    if(issame(vec1, vec2)) {
-        std::cout << "The two vectors are the same.\n";
-    } else {
-        std::cout << "The two vectors are not the same.\n";
-    }
-    
-    return 0;
 }
