@@ -1,10 +1,4 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    quarters = cents // 25
-    cents %= 25
-    dimes = cents // 10
-    cents %= 10
-    nickles = cents // 5
-    cents %= 5
-    pennies = cents
-    return f"{quarters} {dimes} {nickles} {pennies}"
+    coins = [25, 10, 5]
+    results = [cents // c if cents >= c else 0 for c in coins] + [cents % 100]
+    return '\n'.join(map(str, results))
