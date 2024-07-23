@@ -1,4 +1,4 @@
-cpp
+```cpp
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
@@ -26,3 +26,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     vector<int> rightVec(vector<int>(v.begin() + cutIndex, v.end()));
     
     return {leftVec, rightVec};
+}
