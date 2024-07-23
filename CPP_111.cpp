@@ -1,4 +1,8 @@
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+```
+#include <map>
+#include <unordered_map>
+
+bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -8,5 +12,4 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
         }
     }
     return true;
-
 }
