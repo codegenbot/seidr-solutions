@@ -1,12 +1,11 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
+    coins = [0.25, 0.10, 0.05, 0.01]
     results = []
 
     for coin in coins:
-        count = cents // coin
+        count = int(cents // coin)
         if count > 0:
             results.append(count)
-            cents %= coin
+            cents %= int(coin * 100) 
 
-    results.extend([0, 0, 0, cents])
-    return " ".join(map(str, results))
+    return " ".join(map(str, results)) + "\n"
