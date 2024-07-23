@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <string>
-
 std::string spinWords(std::string str) {
     std::string result = "";
     bool longWord = false;
