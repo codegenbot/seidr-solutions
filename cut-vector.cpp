@@ -17,6 +17,11 @@ vector<vector<int>> cutVector(vector<int> v) {
             left.push_back(v[i]);
         } else {
             right.push_back(v[i]);
+            best_cut = i;
+            min_diff = INT_MAX;
+            sum = 0;
+            left.clear();
+            left.push_back(v[i]);
         }
     }
 
