@@ -1,51 +1,52 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int bowling(string s) {
-    int score = 0;
+int score(string input) {
+    int totalScore = 0;
     int frame = 1;
     int ball = 0;
-    int rolls[22] = {0};
+    vector<int> scores(21, 0);
     
-    for (char c : s) {
+    for (char c : input) {
         if (c == 'X') {
-            rolls[ball] = 10;
-            ball++;
-            if (frame < 10) frame++;
-        } else if (c == '/') {
-            rolls[ball] = 10 - rolls[ball - 1];
-            ball++;
-            if (frame < 10) frame++;
-        } else if (c == '-') {
-            rolls[ball] = 0;
-            ball++;
-        } else {
-            rolls[ball] = c - '0';
-            ball++;
-            if (ball % 2 == 0) {
-                if (frame < 10) frame++;
+            scores[ball++] = 10;
+            if (frame < 10) {
+                scores[ball++] = 0;
             }
-        }
-    }
-    
-    for (int i = 0; i < 20; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i + 1] + rolls[i + 2];
-        } else if (rolls[i] + rolls[i + 1] == 10) {
-            score += 10 + rolls[i + 2];
-            i++;
+            frame++;
+        } else if (c == '/') {
+            scores[ball-1] = 10 - scores[ball-2];
+            if (frame < 10) {
+                scores[ball++] = 0;
+            }
+            frame++;
+        } else if (c == '-') {
+            scores[ball++] = 0;
         } else {
-            score += rolls[i] + rolls[i + 1];
-            i++;
+            scores[ball++] = c - '0';
         }
     }
     
-    return score;
+    for (int i = 0; i < 10; i++) {
+        if (scores[i*2] == 10) {
+            totalScore += 10 + scores[i*2+2] + scores[i*2+3];
+            if (scores[i*2+2] == 10) {
+                totalScore += scores[i*2+4];
+            }
+        } else if (scores[i*2] + scores[i*2+1] == 10) {
+            totalScore += 10 + scores[i*2+2];
+        } else {
+            totalScore += scores[i*2] + scores[i*2+1];
+        }
+    }
+    
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowling(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
