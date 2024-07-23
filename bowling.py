@@ -1,10 +1,10 @@
 def bowling_score(frames):
-    score = 0
     frame = 1
     frame_score = [0] * 10
     i = 0
 
     while frame <= 10:
+        score = 0  # Reset score at the beginning of each frame
         if frames[i] == "X":
             score += 10
             score += get_value(frames[i + 1])
@@ -30,9 +30,7 @@ def bowling_score(frames):
 
 
 def get_value(char):
-    if char == "X":
-        return 10
-    elif char == "/":
+    if char == "X" or char == "/":
         return 10
     elif char == "-":
         return 0
