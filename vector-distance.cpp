@@ -1,19 +1,13 @@
-#include <iostream>
-#include <cmath>
-
-double vectorDistance(int n) {
-    double sum = 0;
+```cpp
+double vectorDistance() {
+    int n;
+    std::cin >> n; 
+    double x1 = 0, y1 = 0;
     for (int i = 0; i < n; i++) {
         double x, y;
         std::cin >> x >> y;
-        sum += pow((y - x), 2);
+        x1 += pow(x, 2);
+        y1 += pow(y, 2);
     }
-    return sqrt(sum);
-}
-
-int main() {
-    int n;
-    std::cin >> n; 
-    double result = vectorDistance(n); 
-    return 0;
+    return sqrt((x1 - 0) * (x1 - 0) + (y1 - 0) * (y1 - 0));
 }
