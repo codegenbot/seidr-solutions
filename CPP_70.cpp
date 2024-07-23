@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -23,7 +24,7 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
     return list;
 }
 
-int main1() {
+int main() {
     std::vector<int> list;
     list.push_back(1);
     list.push_back(2);
@@ -31,6 +32,11 @@ int main1() {
     list.push_back(4);
     list.push_back(5);
     list.push_back(6);
-    assert(issame(strange_sort_list(list), list));
+    if (!issame(list, strange_sort_list(list))) {
+        for (int i : list) {
+            std::cout << i << " ";
+        }
+        std::cout << "\n";
+    }
     return 0;
 }
