@@ -1,5 +1,7 @@
 ```cpp
-namespace {
+#include <vector>
+#include <algorithm>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
         return false;
@@ -17,10 +19,10 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
             std::reverse(list.begin()+i,list.begin()+(i+1));
         }
     }
+    return list;
 }
 
-int run_main() {
+int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
     return 0;
-}
 }
