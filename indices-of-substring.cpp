@@ -18,7 +18,7 @@ int main() {
     cin >> text;
 
     string target;
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
