@@ -33,8 +33,8 @@ int main() {
     }
     cout << endl;
 
-    int gcdResult = std::gcd(a, b); 
-    cout << "GCD of " << a << " and " << b << ": " << gcdResult << endl;
+    int gcdResult = gcd(909378243576LL, 50); 
+    cout << "GCD of " << 909378243576 << " and " << 50 << ": " << gcdResult << endl;
 
     return 0;
 }
