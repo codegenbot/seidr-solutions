@@ -3,7 +3,7 @@ import statistics
 
 def mean_absolute_deviation() -> float:
     numbers_str = input("Enter comma-separated float values: ")
-    numbers_list = [float(num) for num in numbers_str.split(",")]
+    numbers_list = [float(num) for num in numbers_str.split(",") if num.replace('-', '',).replace('.', '').replace('+', '').isnumeric()]
     
     if not numbers_list:
         return 0
