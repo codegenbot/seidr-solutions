@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
@@ -11,11 +12,11 @@ def parse_music(music_string: str) -> List[int]:
             result.append(beats[1])
         elif note == '.|':
             result.append(beats[2])
-        elif note == 'oo':
-            result.append(beats[0]*2)
-        elif note == 'o||':
-            result.append(beats[1]*2)
-        elif note == '..|':
-            result.append(beats[2]*2)
+        elif note == '|':
+            result.append(beats[1])
+        elif note == '..':
+            result.append(beats[2] * 2)
+        else:
+            pass  # add error handling or default behavior
 
     return result
