@@ -1,12 +1,10 @@
 ```
 from math import gcd
 import functools
+
 def modp(n: int, p: int):
     if gcd(n, p) == 1:
-        if n % 2 == 0 and p % 2 == 0:
-            return pow(4, inv((p // 2 - 1), p), p)
-        else:
-            return pow(n, inv((p - 1), p), p)
+        return pow(n, inv((p - 1), p), p)
     else:
         return None
 
