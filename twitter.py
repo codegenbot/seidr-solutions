@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def validate_tweet(tweet):
     if not tweet:
         return "You didn't type anything"
