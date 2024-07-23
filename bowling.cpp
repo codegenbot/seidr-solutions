@@ -1,5 +1,4 @@
 #include <string>
-using namespace std;
 
 int score(string s) {
     int total = 0, frame = 1, ball = 0;
