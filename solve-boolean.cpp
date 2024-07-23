@@ -1,9 +1,9 @@
-```cpp
 #include <string>
+#include <stack>
 
 bool solveBoolean(std::string s) {
     bool result = false;
-    bool lastOp = false;
+    std::stack<char> stack(std::deque<char>());
 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -11,13 +11,21 @@ bool solveBoolean(std::string s) {
         } else if (s[i] == 'F') {
             result = false;
         } else if (s[i] == '|') {
-            lastOp = true;
+            while (!stack.empty() && stack.top() == '&') {
+                stack.pop();
+            }
+            if (stack.empty()) return true;
+            else stack.push('|');
         } else if (s[i] == '&') {
-            lastOp = false;
+            stack.push('&');
         }
     }
 
-    return result || lastOp;
+    while (!stack.empty() && stack.top() == '&') {
+        stack.pop();
+    }
+
+    return result;
 }
 
 int main() {
@@ -27,4 +35,3 @@ int main() {
     bool result = solveBoolean(input);
     std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
-}
