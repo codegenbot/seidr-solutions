@@ -1,14 +1,15 @@
+```cpp
 #include <string>
-#include <cassert>
-#include <iostream>
+#include <cctype>
 
-int digitSum(std::basic_string<char> s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (!isdigit(c)) {
-            sum += static_cast<int>(c) - 'A' + 1; 
+        char ch = std::toupper(c);
+        if (!std::isdigit(ch)) {
+            sum += static_cast<int>(ch) - 'A' + 1; 
         } else {
-            sum += c - '0';
+            sum += ch - '0';
         }
     }
     return sum;
@@ -16,10 +17,6 @@ int digitSum(std::basic_string<char> s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    std::cout << "Input your string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << digitSum("Your string here") << std::endl;
     return 0;
 }
