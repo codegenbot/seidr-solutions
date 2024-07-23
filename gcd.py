@@ -22,6 +22,7 @@ def main():
     a = int(input())
     b = int(input())
     print(gcd(a, b))
+
     text = input()
     target = input()
     print(' '.join(map(str, indices_of_substring(text, target))))
