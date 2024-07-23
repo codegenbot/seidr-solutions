@@ -1,34 +1,24 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
-    
-    // Convert all strings to lowercase before sorting and comparing
-    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
-    transform(lst2.begin(), lst2.end(), lst2.begin(), ::tolower);
-
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
-
-    int i = 0, j = 0;
-    
-    while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) {
-            result.push_back(lst1[i]);
-            i++;
-            j++;
-        } else if (lst1[i] < lst2[j]) {
-            i++;
-        } else {
-            j++;
+// Function to check if strings are same (ignoring case)
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (std::tolower(a[i]) != std::tolower(b[i])) {
+            return false;
         }
     }
+    return true;
+}
 
+// Function to calculate total match
+std::vector<std::string> total_match(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+    std::vector<std::string> result;
+    for (int i = 0; i < vec1.size(); i++) {
+        if (issame({vec1[i]}, {vec2[i]}) && !std::count(result.begin(), result.end(), vec1[i])) {
+            result.push_back(vec1[i]);
+        }
+    }
     return result;
 }
 
