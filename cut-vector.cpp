@@ -1,53 +1,34 @@
+#include <iostream>
 #include <vector>
+#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res;
     
-    for (int i = 1; i <= n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        if (leftSum == rightSum) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
-            return res;
+    vector<int> left;
+    vector<int> right;
+    int min_diff = INT_MAX;
+    int best_cut = -1;
+
+    for (int i = 0; i < n; i++) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; j++)
+            sum_left += v[j];
+        for (int j = i + 1; j < n; j++)
+            sum_right += v[j];
+
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            best_cut = i;
         }
     }
+
+    left = vector<int>(v.begin(), v.begin() + best_cut+1);
+    right = vector<int>(v.begin() + best_cut, v.end());
     
-    int minDiff = INT_MAX, cutIndex = -1;
-    
-    for (int i = 1; i <= n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
-        }
-    }
-    
-    res.push_back({v.begin(), v.begin() + cutIndex});
-    res.push_back({v.begin() + cutIndex, v.end()});
-    
-    return res;
+    return {{left}, {right}};
 }
 
 int main() {
