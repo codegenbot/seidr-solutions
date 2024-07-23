@@ -15,9 +15,6 @@ int main() {
     int num;
     
     while (ss >> num) {
-        if (nums.size() >= 20) {
-            break;
-        }
         nums.push_back(num);
     }
     
@@ -33,8 +30,7 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
+        int diff = abs(sum - 2*prefixSum);
         
         if (diff == 0) {
             cutIndex = i;
@@ -50,7 +46,6 @@ int main() {
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << ' ';
     }
-    
     cout << '\n';
     
     for (int i = cutIndex + 1; i < n; i++) {
