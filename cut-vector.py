@@ -1,16 +1,22 @@
 n = int(input())
-numbers = list(map(int, input().split()))
+nums = list(map(int, input().split()))
 
-total_sum = sum(numbers)
+total_sum = sum(nums)
 half_sum = total_sum // 2
-running_sum = 0
+current_sum = 0
+idx = 0
 
-for i, num in enumerate(numbers):
-    running_sum += num
-    if running_sum >= half_sum:
-        if running_sum == half_sum or abs(running_sum - half_sum) < abs(
-            running_sum - num - half_sum
-        ):
-            print(*numbers[: i + 1])
-            print(*numbers[i + 1 :])
-            break
+while current_sum < half_sum:
+    current_sum += nums[idx]
+    idx += 1
+
+if current_sum == half_sum:
+    print(*nums[:idx])
+    print(*nums[idx:])
+else:
+    if abs(current_sum - half_sum) <= abs(current_sum - nums[idx-1] - half_sum):
+        print(*nums[:idx])
+        print(*nums[idx:])
+    else:
+        print(*nums[: idx - 1])
+        print(*nums[idx - 1 :])
