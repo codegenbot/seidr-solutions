@@ -1,20 +1,11 @@
-string result = "";
+string encrypted = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char rotated = c + 2 * 2;
-            if (islower(c)) {
-                if (rotated > 'z') {
-                    rotated = 'a' + rotated - 'z' - 1;
-                }
-            } else {
-                if (rotated > 'Z') {
-                    rotated = 'A' + rotated - 'Z' - 1;
-                }
-            }
-            result += rotated;
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += (c - base + 2 * 2) % 26 + base;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
