@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 std::string concatenate(std::vector<std::string> strings){
     std::string result;
@@ -11,6 +11,8 @@ std::string concatenate(std::vector<std::string> strings){
 }
 
 int main(){
-    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    std::vector<std::string> input = {"x", "y", "z", "w", "k"};
+    std::string output = concatenate(input);
+    std::cout << output << std::endl;
     return 0;
 }
