@@ -14,8 +14,7 @@ def minPath(grid, k):
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
                 visited[ni][nj] = True
-                if dfs(ni, nj, curr_path + [grid[ni][nj]]):
-                    return True
+                dfs(ni, nj, curr_path + [grid[ni][nj]])
                 visited[ni][nj] = False
 
         return False
