@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,14 +23,10 @@ bool is_palindrome(string s) {
 int main() {
     int n, w;
     cin >> n >> w;
-    
     vector<int> q(n);
-    
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> q[i];
     }
-    
-    cout << (will_it_fly(q, w) ? "Yes" : "No") << endl;
-    
+    cout << will_it_fly(q, w) << endl;
     return 0;
 }
