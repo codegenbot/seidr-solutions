@@ -1,13 +1,8 @@
-#include <iostream>
-#include <map>
-#include <algorithm>
-using namespace std;
-
 int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int black = 0, white = 0;
+    int white = 0, black = 0;
     map<char, int> codeFreq, guessFreq;
     
     for (int i = 0; i < 4; ++i) {
@@ -23,7 +18,8 @@ int main() {
         white += min(pair.second, guessFreq[pair.first]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
