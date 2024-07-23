@@ -1,32 +1,34 @@
-```cpp
+```
 #include <vector>
+#include <string>
+
+int smallest_change(vector<int> arr);
+
+void main() {
+    assert(smallest_change({0, 1}) == 1);
+}
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<bool> dp(n);
-    
-    for (int i = 0; i < n; i++) {
-        dp[i] = true;
+    string str = "";
+    for (int i : arr) {
+        str += to_string(i);
     }
-    
-    for (int i = 1; i < n; i++) {
-        if (arr[i-1] != arr[i]) {
-            dp[i] = false;
-            for (int j = 0; j < i; j++) {
-                if (dp[j] && arr[j] == arr[i]) {
-                    dp[i] = true;
-                    break;
-                }
-            }
-        }
-    }
-    
+    int left = 0;
+    int right = n - 1;
     int changes = 0;
-    for (int i = 1; i < n; i++) {
-        if (!dp[i-1] || !dp[i]) {
+    while (left < right) {
+        if (str[left] != str[right]) {
             changes++;
+            if (str[left] == str[right - 1]) {
+                right--;
+            } else {
+                left++;
+            }
+        } else {
+            left++;
+            right--;
         }
     }
-    
     return changes;
 }
