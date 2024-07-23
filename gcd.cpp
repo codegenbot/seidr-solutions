@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -25,14 +26,24 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    // Test gcd function
-    int a = 36, b = 24;
-    int result_gcd = gcd(a, b);
-    // Test indicesOfSubstring function
-    std::string text = "abracadabra";
-    std::string target = "abra";
-    std::vector<int> result_indices = indicesOfSubstring(text, target);
-  
-    // Print results or perform further operations
+    // Test cases for gcd function
+    std::cout << "GCD of 12 and 18 is: " << gcd(12, 18) << std::endl;
+    std::cout << "GCD of 25 and 15 is: " << gcd(25, 15) << std::endl;
+
+    // Test cases for indicesOfSubstring function
+    std::vector<int> indices1 = indicesOfSubstring("hellohello", "hello");
+    std::cout << "Indices of 'hello' in 'hellohello': ";
+    for (int idx : indices1) {
+        std::cout << idx << " ";
+    }
+    std::cout << std::endl;
+
+    std::vector<int> indices2 = indicesOfSubstring("abababab", "aba");
+    std::cout << "Indices of 'aba' in 'abababab': ";
+    for (int idx : indices2) {
+        std::cout << idx << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
