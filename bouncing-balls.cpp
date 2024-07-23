@@ -11,7 +11,7 @@ int main() {
 
     bouncinessIndex = firstBounce / startHeight;
 
-    cout << fixed << setprecision(4) << (1 + bouncinessIndex) * 2.0 - 1.0 << endl;
+    cout << fixed << setprecision(4) << (1 + pow(2.0, bouncinessIndex)) - 1.0 << endl;
 
     return 0;
 }
