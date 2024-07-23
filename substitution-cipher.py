@@ -1,4 +1,4 @@
-```
+```"""
 def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
     deciphered_text = ""
     for char in text_to_decrypt:
@@ -8,9 +8,4 @@ def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
         else:
             deciphered_text += char
     return deciphered_text
-
-cipher_text1 = "hello"
-cipher_text2 = "world"
-text_to_decrypt = "khoor zruog"
-
-print(substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt))
+""```
