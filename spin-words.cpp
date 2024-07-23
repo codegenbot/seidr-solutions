@@ -1,22 +1,33 @@
-Here's the solution:
+Here is the solution:
 
-string spinWords(string sentence) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
-    int i;
-    for(i=0; i < sentence.length(); i++){
-        if(sentence[i] == ' '){
-            result += " ";
-        } else if(i+1 >= sentence.length() || (i+1 < sentence.length() && (sentence[i+1] == ' '))){
-            string word = "";
-            while(i < sentence.length() && (sentence[i] != ' ')) {
-                word += sentence[i];
-                i++;
-            }
-            if(word.length() > 4)
-                result += std::string(word.rbegin(), word.rend());
-            else
-                result += word;
-        }
+    size_t pos = 0;
+    while ((pos = str.find(" ")) != string::npos) {
+        string word = str.substr(0, pos);
+        if (word.length() >= 5)
+            result += string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
+        str.erase(0, pos + 1);
     }
+    if (str.length() >= 5)
+        result += str.substr(0).reverse();
     return result;
+}
+
+int main() {
+    // Test cases
+    cout << spinWords("a") << endl; // Output: a
+    cout << spinWords("this is a test") << endl; // Output: this is a test
+    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
+    cout << spinWords("hi") << endl; // Output: hi
+
+    return 0;
 }
