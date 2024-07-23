@@ -1,4 +1,4 @@
-#include <cstdlib>
+#include <cmath>
 
 long long gcd(long long a, long long b) {
     while (b != 0) {
@@ -6,5 +6,5 @@ long long gcd(long long a, long long b) {
         b = a % b;
         a = temp;
     }
-    return abs(a);
+    return std::abs(a);
 }
