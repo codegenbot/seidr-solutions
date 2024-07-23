@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
+#include <cassert>
 
 using namespace std;
 
@@ -14,13 +16,14 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
+
 }
 
 map<char, int> histogram(const string& str) {
     map<char, int> result;
 
     for (char c : str) {
-        if (!isalpha(c)) continue; 
+        if (!isalpha(c)) continue; // ignore non-alphabetic characters
         char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
@@ -35,6 +38,4 @@ map<char, int> histogram(const string& str) {
 
 int main() {
     assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
-    cout << "Test passed!" << endl;
-    return 0;
 }
