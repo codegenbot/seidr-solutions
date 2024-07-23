@@ -1,5 +1,5 @@
 def modp(n: int, p: int):
-    if gcd(p, n) == 1:
-        return pow(n, -n // pow(2, bit_length(p) - 2) * (p - 1), p) % p
+    if gcd(n, p) == 1:
+        return pow(n, (p - 1), p)
     else:
         return None
