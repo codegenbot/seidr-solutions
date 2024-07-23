@@ -1,13 +1,12 @@
+```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
-
 using namespace std;
 
 double poly(vector<double> xs, double x){
     double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
+    for (int i=0;i<xs.size();i++)
     {
         sum+=xs[i]*pow(x,i);
     }
@@ -26,6 +25,6 @@ double find_zero(vector<double> xs){
 int main() {
     vector<double> xs = {1, -6, 11, -6};
     double zero = find_zero(xs);
-    cout << "Zero is: " << setprecision(2) << fixed << zero << endl; 
+    cout << "Zero is: " << fixed << setprecision(2) << zero << endl; 
     return 0;
 }
