@@ -2,17 +2,15 @@
 #include <vector>
 #include <algorithm>
 #include <map>
-using namespace std;
 
-bool issame(vector<int> arr1, vector<int> arr2) {
-    if (arr1.size() != arr2.size())
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) 
         return false;
     
-    for (int i = 0; i < arr1.size(); i++) {
-        if (arr1[i] != arr2[i])
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) 
             return false;
-    }
-    
+
     return true;
 }
 
@@ -36,20 +34,4 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> arr1 = {3, 5, 2, 4};
-    vector<int> arr2 = {5, 4, 2, 3};
-    vector<string> output = by_length(arr1);
-    for (string str : output) 
-        cout << str << " ";
-    cout << endl;
-    
-    if(issame(arr1,arr2))
-        cout << "The two arrays are the same." << endl;
-    else
-        cout << "The two arrays are not the same." << endl;
-
-    return 0;
 }
