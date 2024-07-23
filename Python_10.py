@@ -1,16 +1,11 @@
-Here is the completed code:
-
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
+
 def make_palindrome(string: str) -> str:
-    if len(string) <= 1:
-        return string
+    if is_palindrome(string):
+        return string + "a" * (len(string))
     i = 0
-    for j in range(len(string)-1, -1, -1):
-        if string[i] != string[j]:
-            break
+    while not is_palindrome(string[i:] + string[:i][::-1]):
         i += 1
-    prefix = string[:i]
-    suffix = string[i:][::-1]
-    return prefix + suffix
+    return string[:i] + string[i:][::-1]
