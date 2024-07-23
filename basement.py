@@ -1,9 +1,7 @@
-```
 def basement(lst):
     total = 0
-    i = 0
-    while True:
+    index = -1
+    for i in range(len(lst)):
         total += lst[i]
         if total < 0:
             return i
-        i += 1
