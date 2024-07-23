@@ -12,7 +12,7 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string s = "Programming";
+    std::string s = "Hello";
     std::cout << middleCharacter(s) << std::endl;
     return 0;
 }
