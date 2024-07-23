@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string string_xor(std::string a, std::string b) {
