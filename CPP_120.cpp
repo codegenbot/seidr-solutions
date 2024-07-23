@@ -23,10 +23,6 @@ bool equals(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    if(equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>())) {
-        printf("Test Passed\n");
-    } else {
-        printf("Test Failed\n");
-    }
+    assert(!equals(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {}));
     return 0;
 }
