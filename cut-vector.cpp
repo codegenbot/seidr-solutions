@@ -1,4 +1,3 @@
-```cpp
 #include <utility>
 using namespace std;
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -12,11 +11,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         for (int j = i; j < v.size(); j++) {
             rightSum += v[j];
         }
-        if (abs(leftSum - rightSum) < minDiff) {
+        if (abs(leftSum - rightSum) <= minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
         } else if (leftSum == rightSum) {
-            return pair<vector<int>, vector<int>>({},{v.begin(), v.end()});
+            return make_pair(vector<int>(v.begin(), v.end()), vector<int>());
         }
     }
     int leftSum = 0, rightSum = 0;
@@ -26,6 +25,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int j = cutIndex; j < v.size(); j++) {
         rightSum += v[j];
     }
-    return pair<vector<int>, vector<int>>(vector<int>(v.begin(), v.begin() + cutIndex),
-                                            vector<int>(v.begin() + cutIndex, v.end()));
+    return make_pair(vector<int>(v.begin(), v.begin() + cutIndex),
+                     vector<int>(v.begin() + cutIndex, v.end()));
 }
