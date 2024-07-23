@@ -6,19 +6,21 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int i = 0; while (i <= text.size() - target.size()) {
+    int i = 0; 
+    while (i <= text.size() - target.size()) { 
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
             if (text[i + j] != target[j]) {
                 found = false;
+                i += 1; // increment i only when not found
                 break;
             }
         }
         if (found) {
             result.push_back(i);
-            i += 1; // Start searching from the next character
+            i += target.size();
         } else {
-            i++; // Increment if target not found at current position
+            i++;
         }
     }
     return result;
