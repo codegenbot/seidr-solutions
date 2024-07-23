@@ -1,8 +1,4 @@
-from typing import List
-
-
-def sum_of_squares(numbers: List[int]) -> int:
-    total = 0
-    for num in numbers:
-        total += num**2
-    return total
+def calculate_average(input_list: List[int]) -> float:
+    if not input_list:
+        return 0
+    return sum(input_list) / len(input_list)
