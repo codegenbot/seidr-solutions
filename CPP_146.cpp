@@ -1,11 +1,11 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int x : nums) {
-        int num = std::abs(x);
-        if ((num / 10000 > 0 || (num / 100) % 10 > 4) && (num / 1000) % 10 < 3) {
+        if ((std::abs(x) % 11) == 1 || (std::abs(x) % 11) == 0) {
             count++;
         }
     }
@@ -13,7 +13,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {};
-    int result = specialFilter(nums);
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    assert(specialFilter(nums) == 3);
     return 0;
 }
