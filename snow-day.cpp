@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
@@ -22,4 +21,3 @@ int main() {
     std::cin >> onGround >> rate >> melt;
     std::cout << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
-}
