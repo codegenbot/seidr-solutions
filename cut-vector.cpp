@@ -12,17 +12,17 @@ vector<vector<int>> cutVector(vector<int> v) {
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
-        int sum_left = 0;
+        int sum_left = 0, sum_right = 0;
         for (int j = 0; j <= i; j++)
             sum_left += v[j];
-        int left_sum = sum_left;
-        int right_sum = 0;
-        for (int j = i + 1; j < n; j++)
-            right_sum += v[j];
+        for (int j = i; j < n; j++)
+            sum_right += v[j];
 
-        int left_diff = abs(left_sum - right_sum);
-        if (left_diff < min_diff) {
-            min_diff = left_diff;
+        if (sum_left == sum_right) {
+            best_cut = i;
+            break;
+        } else if (abs(sum_left - sum_right) < min_diff) {
+            min_diff = abs(sum_left - sum_right);
             best_cut = i;
         }
     }
