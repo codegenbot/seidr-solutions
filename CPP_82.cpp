@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -25,4 +25,4 @@ int main() {
     } else {
         std::cout << "Not prime length" << std::endl;
     }
-}
+    return 0;
