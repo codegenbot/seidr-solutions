@@ -1,6 +1,5 @@
 #include <iostream>
-
-std::string middleCharacter(std::string s) {
+string middleCharacter(string s) {
     int len = s.length();
     if (len % 2 == 0) {
         return s.substr(len/2 - 1, 2);
@@ -10,8 +9,8 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << middleCharacter(input) << std::endl;
+    string input;
+    cin >> input;
+    cout << middleCharacter(input) << endl;
     return 0;
 }
