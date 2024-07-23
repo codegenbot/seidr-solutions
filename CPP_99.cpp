@@ -1,10 +1,11 @@
+```cpp
 #include <cmath>
-#include <iostream>
-using namespace std;
+#include <limits>
+#include <string>
 
-double closest_integer(string value) {
-    double num = stod(value);
-    return (num >= 0) ? ceil(num) : floor(num);
+double closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    return (num >= 0) ? std::ceil(num) : std::floor(num);
 }
 
 int main() {
