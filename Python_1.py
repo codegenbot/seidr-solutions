@@ -1,7 +1,9 @@
+```
 from typing import List
 
 
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups() -> List[str]:
+    paren_string = input("Enter the string of parentheses and spaces (e.g., '(a b c) (d e f)'): ")
     result = []
     stack = []
     current_group = ""
@@ -19,16 +21,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(current_group)
                 current_group = ""
             else:
-                while stack[-1] != "(":
-                    current_group += stack.pop()
                 stack.pop()  # Remove the matching '('
         else:
             current_group += char
 
     if stack:
-        while stack[-1] != "(":
+        for _ in range(len(stack)):
             current_group += stack.pop()
-        stack.pop()  # Remove the matching '('
         result.append(current_group)
 
     return [group.strip() for group in result]
