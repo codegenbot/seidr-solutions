@@ -34,10 +34,11 @@ string spinWords(string str) {
 }
 
 int main() {
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl; 
+    // test cases
+    cout << spinWords("a") << endl; // a
+    cout << spinWords("this is a test") << endl; // this is a test
+    cout << spinWords("this is another test") << endl; // this is rehtona test
+    cout << spinWords("hi") << endl; // hi
 
     return 0;
 }
