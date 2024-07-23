@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <set>
 
@@ -39,12 +40,4 @@ int mastermind(std::string code, std::string guess) {
 
 }
 
-int main() {
-    std::string code = "abc "; 
-    std::string guess = "abcd"; 
-
-    int result = mastermind(code, guess);
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
-
-    return 0;
-}
+int main() { return mastermind("XXXX", "XXXX"); }
