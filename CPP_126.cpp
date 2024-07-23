@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,7 +23,7 @@ int main() {
         std::cin >> val;
         vec.push_back(val);
     }
-    vec.shrink_to_fit(); // release excess capacity
+    vec.shrink_to_fit();
     if(is_sorted(vec)) {
         std::cout << "The vector is sorted.\n";
     } else {
@@ -32,4 +31,3 @@ int main() {
     }
 
     return 0;
-}
