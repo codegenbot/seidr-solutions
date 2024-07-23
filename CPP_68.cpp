@@ -1,49 +1,34 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <utility>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(int a, int b) {
+    return (a >= b);
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> res;
-    int i = 0, j = 1;
-    while(i < arr.size() && j < arr.size()) {
-        if(issame({arr[i], arr[j]}, {arr[0], arr[1]})) {
-            res.push_back(arr[i]);
-            i++;
-        }
-        j++;
+pair<int, int> pluck(const vector<int>& v, int i) {
+    if(i >= v.size()) 
+        return make_pair(-1, -1);
+    else
+        return make_pair(v[i], i);
+}
+
+vector<pair<int, int>> result(vector<int> arr) {
+    vector<pair<int, int>> res;
+    for(int i = 0; i < arr.size(); i++) {
+        if(issame(arr[i], i+1)) 
+            res.push_back(pluck(arr, i));
     }
     return res;
 }
 
 int main() {
     vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = {{},{}};
-    
-    if (!arr.empty()) {
-        for (int i = 0; i < arr.size(); i++) {
-            for (int j = i + 1; j <= i + 3 && j < arr.size(); j++) {
-                if (issame({arr[i], arr[j]}, {arr[0], arr[1]})) {
-                    output.push_back({{arr[i], arr[j]},j});
-                }
-            }
-        }
-    }
-
+    vector<pair<int, int>> output = result(arr);
     for (auto p : output) {
-        cout << "Number: " << p.first.first << ", Index: " << p.second << endl;
+        cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
-    
     return 0;
 }
