@@ -10,7 +10,6 @@ int specialFilter(const std::vector<int>& nums) {
         }
     }
     return count;
-
 }
 
 int main() {
@@ -23,10 +22,8 @@ int main() {
         nums.push_back(i);
     }
 
-    // Process and count numbers using function specialFilter
-    count = specialFilter(nums);
-
     // Print the result
+    count = specialFilter(nums);
     std::cout << "The number of special filtered numbers is: " << count << "\n";
 
     return 0;
