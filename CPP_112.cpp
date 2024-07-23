@@ -1,15 +1,10 @@
 string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(c.find(s[i]) == string::npos){
-            result += s[i];
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
+            result += ch;
         }
     }
-    string check;
-    if(result == string(result.rbegin(), result.rend())){
-        check = "True";
-    } else {
-        check = "False";
-    }
-    vector<string> output = {result, check};
-    return output;
+    string palindrome = result;
+    reverse(palindrome.begin(), palindrome.end());
+    return {result, result == palindrome ? "True" : "False"};
 }
