@@ -13,8 +13,11 @@ bool triples_sum_to_zero(const int* l, int n) {
     return false;
 }
 
-int main() {
-    int arr[] = {100, 3, 5, -100};
-    assert(triples_sum_to_zero(arr, sizeof(arr) / sizeof(arr[0])) == false);
+int main(int argc, char* argv[]) {
+    int arr[argc - 1];
+    for (int i = 1; i < argc; i++) {
+        arr[i - 1] = std::stoi(argv[i]);
+    }
+    assert(triples_sum_to_zero(arr, argc - 1) == false);
     return 0;
 }
