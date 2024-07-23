@@ -1,8 +1,13 @@
 from typing import List
 
+
 def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    operations = list(map(int, input("Enter space-separated integers: ").split()))
     for op in operations:
-        if not isinstance(op, int):
-            return False  
-    balance = sum(operations)
-    return balance < 0
+        balance += op
+        if balance < 0:
+            return True
+    return False
+
+print(below_zero(list(map(int, input("Enter space-separated integers: ").split()))))
