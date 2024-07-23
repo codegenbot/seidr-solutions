@@ -4,14 +4,14 @@ bool check_dict_case(map<string,string> dict){
     bool all_lower = true;
     bool all_upper = true;
     
-    for(const auto& pair : dict){
+    for(auto const& pair : dict){
         string key = pair.first;
         
-        if(key != tolower(key[0])){
-            all_lower = false;
-        }
-        if(key != toupper(key[0])){
+        if(!key.empty() && islower(key[0])){
             all_upper = false;
+        }
+        else if(!key.empty() && isupper(key[0])){
+            all_lower = false;
         }
     }
     
