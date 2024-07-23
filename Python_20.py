@@ -1,4 +1,10 @@
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_closest_elements(numbers):
+    if not isinstance(numbers, list):
+        return "Invalid input. Please enter a list of numbers."
+
+    if len(numbers) < 2:
+        return "Please enter at least two numbers."
+        
     min_diff = float("inf")
     closest_pair = ()
 
