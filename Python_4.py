@@ -29,5 +29,5 @@ else:
             result = (sum([abs(num - mean) for num in new_numbers_list]) + result * (len(new_numbers_list) - 1)) / len(new_numbers_list)
     except ValueError:
         print("Invalid input. Please enter comma-separated float values.")
-        
+    
 print(result)
