@@ -1,6 +1,3 @@
-#include <string>
-#include <deque>
-
 bool solveBoolean(std::string s) {
     std::stack<char> st;
     bool prev = false;
