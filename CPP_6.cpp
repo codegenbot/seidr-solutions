@@ -34,7 +34,14 @@ vector<int> parse_nested_parens(string paren_string) {
 
 int main() {
     string str = "(()(())((())))";
-    vector<char> charVector(str.begin(), str.end()); // Convert the input string to vector of characters
-    vector<int> result = parse_nested_parens(string(charVector.begin(), charVector.end())); // Call the function with converted vector of characters
+    vector<int> inputVec;  // Convert the string to vector of integers
+    for (char c : str) {
+        if (c == '(') {
+            inputVec.push_back(-1);
+        } else if (c == ')') {
+            inputVec.push_back(1);
+        }
+    }
+    vector<int> result = parse_nested_parens(to_string(inputVec));  // Pass the vector of integers to the function
     return 0;
 }
