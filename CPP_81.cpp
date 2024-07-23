@@ -34,4 +34,3 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("E");
     }
     return letter_grades;
-}
