@@ -8,8 +8,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target && i + m - 1 < n) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
+            // adjust start index to account for overlap
+            i += m - 1;
         }
     }
 
