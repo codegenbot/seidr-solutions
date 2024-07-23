@@ -25,6 +25,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    // Add your test cases or program logic here
     return 0;
 }
