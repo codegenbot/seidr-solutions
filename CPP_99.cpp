@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int closest_integer(std::string value) {
