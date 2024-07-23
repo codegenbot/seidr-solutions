@@ -19,6 +19,8 @@ std::vector<int> findLeaders(std::vector<int> nums) {
         }
     }
 
+    leaders.push_back(nums.back());
+
     std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
