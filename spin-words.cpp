@@ -1,10 +1,11 @@
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <algorithm>
 
 int main() {
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
 
     std::string word, result;
     std::istringstream iss(input);
