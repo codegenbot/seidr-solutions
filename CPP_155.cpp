@@ -3,10 +3,12 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
+        std::cout << "Error: Vectors are not the same size." << std::endl;
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
+            std::cout << "Error: Elements at index " << i << " do not match." << std::endl;
             return false;
         }
     }
@@ -14,7 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_even_odd(int num) {
-    std::vector<int> result({0, 0});
+    std::vector<int> result(2);
     int temp = abs(num);
     while(temp != 0){
         int digit = temp % 10;
