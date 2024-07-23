@@ -4,16 +4,17 @@
 using namespace std;
 
 vector<int> unique_digits(vector<int> x) {
-    set<int> s;
+    set<int> st;
     for (int num : x) {
         int newNum = 0;
         while (num > 0) {
             int digit = num % 10;
-            newNum = newNum * 10 + digit;
+            if(digit != 0)
+                st.insert(newNum * 10 + digit);
             num /= 10;
         }
-        s.insert(newNum);
     }
-    vector<int> result(s.begin(), s.end());
+    vector<int> result(st.begin(), st.end());
+    sort(result.begin(), result.end());
     return result;
 }
