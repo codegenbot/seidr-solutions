@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
 
 int digitSum(std::string str) {
     int sum = 0;
