@@ -1,26 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <map>
 #include <algorithm>
+#include <map>
+using namespace std;
 
-bool issame(vector<string> arr) {
-    vector<string> temp;
-    for (string s : arr) {
-        if (s == "One" || s == "Two" || s == "Three" || 
-            s == "Four" || s == "Five" || s == "Six" || 
-            s == "Seven" || s == "Eight" || s == "Nine")
-            temp.push_back(s);
+bool issame(vector<int> arr1, vector<int> arr2) {
+    if (arr1.size() != arr2.size())
+        return false;
+    
+    for (int i = 0; i < arr1.size(); i++) {
+        if (arr1[i] != arr2[i])
+            return false;
     }
     
-    if (temp.size() > 0) {
-        for (int i = 1; i <= 9; ++i) {
-            string str = std::to_string(i);
-            if (std::find(temp.begin(), temp.end(), str + "0") != temp.end())
-                return true;
-        }
-    }
-    
-    return false;
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -46,11 +39,17 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    if (issame(by_length(arr))) {
-        std::cout << "Same\n";
-    } else {
-        std::cout << "Not Same\n";
-    }
+    vector<int> arr1 = {3, 5, 2, 4};
+    vector<int> arr2 = {5, 4, 2, 3};
+    vector<string> output = by_length(arr1);
+    for (string str : output) 
+        cout << str << " ";
+    cout << endl;
+    
+    if(issame(arr1,arr2))
+        cout << "The two arrays are the same." << endl;
+    else
+        cout << "The two arrays are not the same." << endl;
+
     return 0;
 }
