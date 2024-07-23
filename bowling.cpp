@@ -5,8 +5,10 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            int firstRoll = stoi(s.substr(0, i));
-            int secondRoll = stoi(s.substr(i + 1));
+            string frame = s.substr(0, i);
+            string nextRoll = s.substr(i + 1);
+            int firstRoll = stoi(frame);
+            int secondRoll = stoi(nextRoll);
             score += getPointsForFrame(firstRoll, secondRoll);
             currentFrame++;
         }
