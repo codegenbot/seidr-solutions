@@ -1,11 +1,12 @@
-```
-#include <vector>
-#include <string>
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
 
 int smallest_change(vector<int> arr);
 
-void main() {
+int main() {
     assert(smallest_change({0, 1}) == 1);
+    return 0;
 }
 
 int smallest_change(vector<int> arr) {
