@@ -9,17 +9,27 @@ int calculateFrameScore(const std::string& s, int index) {
         while (remainingBalls > 0 && nextIndex < s.size()) {
             if (s[nextIndex] == 'X') {
                 frameScore += 10;
+                if (remainingBalls == 1 && nextIndex < s.size() - 1) {
+                    if (s[nextIndex + 1] == 'X') {
+                        frameScore += 10;
+                    } else {
+                        frameScore += s[nextIndex + 1] - '0';
+                    }
+                }
+                remainingBalls--;
             } else if (s[nextIndex] == '/') {
                 frameScore += 10 - (s[nextIndex - 1] - '0');
+                frameScore += s[nextIndex + 1] == 'X' ? 10 : s[nextIndex + 1] - '0';
+                remainingBalls--;
             } else {
                 frameScore += s[nextIndex] - '0';
+                remainingBalls--;
             }
-            remainingBalls--;
             nextIndex++;
         }
         return frameScore;
     } else if (s[index] == '/') {
-        if (s[index - 2] == 'X' || s[index - 1] == '/') {
+        if (s[index - 2] == 'X') {
             return 20;
         } else {
             return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
